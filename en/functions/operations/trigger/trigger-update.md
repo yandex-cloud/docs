@@ -123,7 +123,7 @@ You can perform the following actions with trigger labels:
 
     Update a trigger label:
 
-    {% note important %}
+    {% note warning %}
 
     The existing set of `labels` is completely replaced by the set provided.
 

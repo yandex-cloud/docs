@@ -1,0 +1,4 @@
+default:
+  service-full-name: Yandex Compute Cloud
+  service-name: Compute Cloud
+  service-short name: Compute

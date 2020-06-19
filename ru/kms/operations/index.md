@@ -11,3 +11,7 @@
 
 - [{#T}](version.md#make-primary)
 - [{#T}](version.md#delete)
+
+## Шифрование данных {#encrypt}
+
+- [{#T}](encryption.md).

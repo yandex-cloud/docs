@@ -14,11 +14,13 @@ If public access is only configured for certain hosts in your cluster, automatic
 
 {{ MY }}hosts with public access only support connections with an SSL certificate. You can prepare a certificate as follows:
 
+
 ```bash
 $ mkdir ~/.mysql
 $ wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" -O ~/.mysql/root.crt
 $ chmod 0600 ~/.mysql/root.crt
 ```
+
 
 ## Connection string {#Connection-string}
 

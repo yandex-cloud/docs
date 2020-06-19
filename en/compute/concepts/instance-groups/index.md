@@ -3,7 +3,7 @@
 {{ ig-name }} is a {{ compute-name }} component that lets you create and manage instance groups.
 {{ ig-name }} automatically identifies and corrects unhealthy instances in a group to ensure their optimal performance.
 
-{% note important %}
+{% note warning %}
 
 All operations in {{ ig-name }} must be performed on behalf of a service account. For more information, see [{#T}](access.md).
 

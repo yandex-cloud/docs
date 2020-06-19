@@ -52,6 +52,7 @@
   
   1. Запросите создание кластера из резервной копии:
   
+        
       ```
       $ yc managed-mysql cluster restore \
              --backup-id c9qgo11pud7kb3cdomeg:stream_20190213T093643Z \
@@ -62,19 +63,24 @@
              --host zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch63 \
              --disk-size 20 \
              --disk-type network-ssd \
-             --resource-preset s1.nano
+             --resource-preset s2.micro
       ```
+      
+     
   
       В результате будет создан {{ MY }}-кластер со следующими характеристиками:
       
       
       
+            
       - С именем `mynewmy`.
       - В окружении `PRODUCTION`.
       - В сети `{{ network-name }}`.
       - С одним хостом класса `{{ host-class }}` в подсети `b0rcctk2rvtr8efcch63`, в зоне доступности `{{ zone-id }}`.
       - С базами данных и пользователями из резервной копии.
-      - С сетевым SSD-хранилищем объемом 20 ГБ.
+      - C быстрым сетевым хранилищем (`{{ disk-type-example }}`)  объемом 20 ГБ.
+      
+     
   
 {% endlist %}
 

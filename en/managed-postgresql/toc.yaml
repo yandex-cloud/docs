@@ -1,64 +1,64 @@
-title: "Yandex Managed Service for PostgreSQL"
+title: Yandex Managed Service for PostgreSQL
 href: index.yaml
 items:
   - name: Getting started
     href: quickstart.md
   - name: Step-by-step instructions
     items:
-    - name: All instructions
-      href: operations/index.md
-    - name: Information about existing clusters
-      href: operations/cluster-list.md
-    - name: Creating clusters
-      href: operations/cluster-create.md
-    - name: Connecting to databases
-      href: operations/connect.md
-    - name: Stop and start the cluster
-      href: operations/cluster-stop.md
-#    - name: SQL queries in the management console
-#      href: operations/web-sql-query.md
-    - name: Changing cluster and database settings
-      href: operations/update.md
-    - name: Managing PostgreSQL hosts
-      href: operations/hosts.md
-    - name: Database management
-      href: operations/databases.md
-    - name: How to manage PostgreSQL extensions
-      href: operations/cluster-extensions.md
-    - name: Managing database users
-      href: operations/cluster-users.md
-    - name: Granting permissions and roles
-      href: operations/grant.md
-    - name: Managing backups
-      href: operations/cluster-backups.md
-    - name: Deleting clusters
-      href: operations/cluster-delete.md
-    - name: Database migration to the Cloud
-      href: operations/data-migration.md
+      - name: All instructions
+        href: operations/index.md
+      - name: Information about existing clusters
+        href: operations/cluster-list.md
+      - name: Creating clusters
+        href: operations/cluster-create.md
+      - name: Connecting to databases
+        href: operations/connect.md
+      - name: Stop and start the cluster
+        href: operations/cluster-stop.md
+      - name: SQL queries in the management console
+        href: operations/web-sql-query.md
+      - name: Changing cluster and database settings
+        href: operations/update.md
+      - name: Managing PostgreSQL hosts
+        href: operations/hosts.md
+      - name: Database management
+        href: operations/databases.md
+      - name: How to manage PostgreSQL extensions
+        href: operations/cluster-extensions.md
+      - name: Managing database users
+        href: operations/cluster-users.md
+      - name: Granting permissions and roles
+        href: operations/grant.md
+      - name: Managing backups
+        href: operations/cluster-backups.md
+      - name: Deleting clusters
+        href: operations/cluster-delete.md
+      - name: Database migration to the Cloud
+        href: operations/data-migration.md
   - name: Solutions
     items:
       - name: Creating a PostgreSQL cluster for 1C
         href: solutions/1c-postgresql
   - name: Concepts
     items:
-    - name: Relationship between service resources
-      href: concepts/index.md
-    - name: Host classes
-      href: concepts/instance-types.md
-    - name: Network in Yandex Managed Service for PostgreSQL
-      href: concepts/network.md
-    - name: Quotas and limits
-      href: concepts/limits.md
-    - name: Storage types
-      href: concepts/storage.md
-    - name: Backups
-      href: concepts/backup.md
-    - name: Assigning roles
-      href: concepts/roles.md
-    - name: Replication
-      href: concepts/replication.md
-    - name: Supported clients
-      href: concepts/supported-clients.md
+      - name: Relationship between service resources
+        href: concepts/index.md
+      - name: Host classes
+        href: concepts/instance-types.md
+      - name: Network in Yandex Managed Service for PostgreSQL
+        href: concepts/network.md
+      - name: Quotas and limits
+        href: concepts/limits.md
+      - name: Storage types
+        href: concepts/storage.md
+      - name: Backups
+        href: concepts/backup.md
+      - name: Assigning roles
+        href: concepts/roles.md
+      - name: Replication
+        href: concepts/replication.md
+      - name: Supported clients
+        href: concepts/supported-clients.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy
@@ -67,11 +67,11 @@ items:
         href: pricing.md
       - name: Archive
         items:
-          - name: Before January 1, 2019
+          - name: 'Before January 1, 2019'
             href: pricing-archive/pricing-01012019.md
-          - name: From January 1 to March 1, 2019
+          - name: 'From January 1 to March 1, 2019'
             href: pricing-archive/pricing-01032019.md
-          - name: From March 1, 2019 to February 1, 2020
+          - name: 'From March 1, 2019 to February 1, 2020'
             href: pricing-archive/pricing-01022020.md
   - name: API reference
     items:
@@ -79,19 +79,123 @@ items:
         href: api-ref/authentication.md
       - name: gRPC
         items:
-        include:
-          repo: docs
-          path: en/_api-ref-grpc/managed-postgresql/api-ref/toc.yaml
+          - name: Overview
+            href: grpc/index.md
+          - name: BackupService
+            href: grpc/backup_service.md
+          - name: ClusterService
+            href: grpc/cluster_service.md
+          - name: DatabaseService
+            href: grpc/database_service.md
+          - name: ResourcePresetService
+            href: grpc/resource_preset_service.md
+          - name: UserService
+            href: grpc/user_service.md
+          - name: OperationService
+            href: grpc/operation_service.md
       - name: REST
         items:
-        include:
-          repo: docs
-          path: en/_api-ref/mdb/postgresql/toc.yaml
+          - name: Overview
+            href: api-ref/index.md
+          - name: Backup
+            items:
+              - name: Overview
+                href: api-ref/Backup/index.md
+              - name: get
+                href: api-ref/Backup/get.md
+              - name: list
+                href: api-ref/Backup/list.md
+          - name: Cluster
+            items:
+              - name: Overview
+                href: api-ref/Cluster/index.md
+              - name: addHosts
+                href: api-ref/Cluster/addHosts.md
+              - name: backup
+                href: api-ref/Cluster/backup.md
+              - name: create
+                href: api-ref/Cluster/create.md
+              - name: delete
+                href: api-ref/Cluster/delete.md
+              - name: deleteHosts
+                href: api-ref/Cluster/deleteHosts.md
+              - name: get
+                href: api-ref/Cluster/get.md
+              - name: list
+                href: api-ref/Cluster/list.md
+              - name: listBackups
+                href: api-ref/Cluster/listBackups.md
+              - name: listHosts
+                href: api-ref/Cluster/listHosts.md
+              - name: listLogs
+                href: api-ref/Cluster/listLogs.md
+              - name: listOperations
+                href: api-ref/Cluster/listOperations.md
+              - name: move
+                href: api-ref/Cluster/move.md
+              - name: restore
+                href: api-ref/Cluster/restore.md
+              - name: start
+                href: api-ref/Cluster/start.md
+              - name: startFailover
+                href: api-ref/Cluster/startFailover.md
+              - name: stop
+                href: api-ref/Cluster/stop.md
+              - name: update
+                href: api-ref/Cluster/update.md
+              - name: updateHosts
+                href: api-ref/Cluster/updateHosts.md
+          - name: Database
+            items:
+              - name: Overview
+                href: api-ref/Database/index.md
+              - name: create
+                href: api-ref/Database/create.md
+              - name: delete
+                href: api-ref/Database/delete.md
+              - name: get
+                href: api-ref/Database/get.md
+              - name: list
+                href: api-ref/Database/list.md
+              - name: update
+                href: api-ref/Database/update.md
+          - name: ResourcePreset
+            items:
+              - name: Overview
+                href: api-ref/ResourcePreset/index.md
+              - name: get
+                href: api-ref/ResourcePreset/get.md
+              - name: list
+                href: api-ref/ResourcePreset/list.md
+          - name: User
+            items:
+              - name: Overview
+                href: api-ref/User/index.md
+              - name: create
+                href: api-ref/User/create.md
+              - name: delete
+                href: api-ref/User/delete.md
+              - name: get
+                href: api-ref/User/get.md
+              - name: grantPermission
+                href: api-ref/User/grantPermission.md
+              - name: list
+                href: api-ref/User/list.md
+              - name: revokePermission
+                href: api-ref/User/revokePermission.md
+              - name: update
+                href: api-ref/User/update.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/Operation/index.md
+              - name: get
+                href: api-ref/Operation/get.md
   - name: Questions and answers
     items:
-    - name: General questions
-      href: qa/general.md
-    - name: Questions about PostgreSQL
-      href: qa/postgresql.md
-    - name: All questions on the same page
-      href: qa/all.md
+      - name: General questions
+        href: qa/general.md
+      - name: Questions about PostgreSQL
+        href: qa/postgresql.md
+      - name: All questions on the same page
+        href: qa/all.md

@@ -1,4 +1,4 @@
-title: "Yandex Vision"
+title: Yandex Vision
 href: index.yaml
 items:
   - name: Начало работы
@@ -28,6 +28,8 @@ items:
         items:
           - name: Обзор
             href: concepts/ocr/index.md
+          - name: Распознавание шаблонов
+            href: concepts/ocr/template-recognition.md
           - name: Поддерживаемые языки
             href: concepts/ocr/supported-languages.md
           - name: Ограничения в текущей версии
@@ -56,15 +58,21 @@ items:
         href: api-ref/authentication.md
       - name: gRPC
         items:
-        include:
-          repo: docs
-          path: ru/_api-ref-grpc/vision/api-ref/toc.yaml
+          - name: Обзор
+            href: grpc/index.md
+          - name: VisionService
+            href: grpc/vision_service.md
       - name: REST
         items:
           - name: Обработка ошибок
             href: api-ref/errors-handling.md
           - name: Диагностика ошибок
             href: api-ref/support-headers.md
-        include:
-          repo: docs
-          path: ru/_api-ref/ai/vision/toc.yaml
+          - name: Обзор
+            href: api-ref/index.md
+          - name: Vision
+            items:
+              - name: Обзор
+                href: api-ref/Vision/index.md
+              - name: batchAnalyze
+                href: api-ref/Vision/batchAnalyze.md

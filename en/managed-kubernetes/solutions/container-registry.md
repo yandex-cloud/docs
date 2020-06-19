@@ -271,7 +271,7 @@ Start the pod with the app from the Docker image and make sure that no additiona
 
 1. Delete the service accounts:
 
-    {% note important %}
+    {% note warning %}
 
     Make sure you don't delete any service accounts before deleting the {{ k8s }} cluster.
 

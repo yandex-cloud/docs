@@ -2,7 +2,7 @@
 
    ```
    provider "yandex" {
-     token = "<OAuth or static key of service account>"
+     token = "<OAuth>"
      cloud_id  = "<cloud ID>"
      folder_id = "<folder ID>"
      zone      = "ru-central1-a"

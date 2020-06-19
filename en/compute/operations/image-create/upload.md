@@ -2,7 +2,7 @@
 
 The following instructions describe how to prepare a disk image, upload the image file to {{ objstorage-full-name }}, and use it to create an [image](../../concepts/image.md) in {{ compute-name }}.
 
-{% note important %}
+{% note warning %}
 
 In {{ compute-name }}, you can only create images using links to files uploaded to {{ objstorage-name }}.
 
@@ -80,7 +80,7 @@ Create a new image from the link obtained in {{ objstorage-name }}:
   - `<IMAGE-NAME>` is the name to assign to the image. 
   - `<IMAGE-URL>` is the link to the image obtained in {{ objstorage-name }}.
 
-  If necessary, add a description and specify the [family](../../concepts/images.md#family) that the image belongs to:
+  If necessary, add a description and specify the [family](../../concepts/image.md#family) that the image belongs to:
 
   ```
   $ yc compute image create  \

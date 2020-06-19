@@ -103,25 +103,83 @@ items:
         href: api-ref/functions/authentication.md
       - name: gRPC
         items:
-        include:
-          repo: docs
-          path: en/_api-ref-grpc/functions/functions/api-ref/toc.yaml
+          - name: Overview
+            href: grpc/index.md
+          - name: FunctionService
+            href: grpc/function_service.md
+          - name: OperationService
+            href: grpc/operation_service.md
       - name: REST
         items:
-        include:
-          repo: docs
-          path: en/_api-ref/serverless/functions/toc.yaml
+          - name: Overview
+            href: functions/api-ref/index.md
+          - name: Function
+            items:
+              - name: Overview
+                href: functions/api-ref/Function/index.md
+              - name: create
+                href: functions/api-ref/Function/create.md
+              - name: createVersion
+                href: functions/api-ref/Function/createVersion.md
+              - name: delete
+                href: functions/api-ref/Function/delete.md
+              - name: get
+                href: functions/api-ref/Function/get.md
+              - name: getVersion
+                href: functions/api-ref/Function/getVersion.md
+              - name: getVersionByTag
+                href: functions/api-ref/Function/getVersionByTag.md
+              - name: list
+                href: functions/api-ref/Function/list.md
+              - name: listAccessBindings
+                href: functions/api-ref/Function/listAccessBindings.md
+              - name: listOperations
+                href: functions/api-ref/Function/listOperations.md
+              - name: listRuntimes
+                href: functions/api-ref/Function/listRuntimes.md
+              - name: listTagHistory
+                href: functions/api-ref/Function/listTagHistory.md
+              - name: listVersions
+                href: functions/api-ref/Function/listVersions.md
+              - name: removeTag
+                href: functions/api-ref/Function/removeTag.md
+              - name: setAccessBindings
+                href: functions/api-ref/Function/setAccessBindings.md
+              - name: setTag
+                href: functions/api-ref/Function/setTag.md
+              - name: update
+                href: functions/api-ref/Function/update.md
+              - name: updateAccessBindings
+                href: functions/api-ref/Function/updateAccessBindings.md
   - name: Triggers API reference
     items:
       - name: Authentication in the API
         href: api-ref/triggers/authentication.md
       - name: gRPC
         items:
-        include:
-          repo: docs
-          path: en/_api-ref-grpc/functions/triggers/api-ref/toc.yaml
+          - name: Overview
+            href: grpc/triggers_index.md
+          - name: TriggerService
+            href: grpc/trigger_service.md
+          - name: OperationService
+            href: grpc/operation_service.md
       - name: REST
         items:
-        include:
-          repo: docs
-          path: en/_api-ref/serverless/triggers/toc.yaml
+          - name: Overview
+            href: triggers/api-ref/index.md
+          - name: Trigger
+            items:
+              - name: Overview
+                href: triggers/api-ref/Trigger/index.md
+              - name: create
+                href: triggers/api-ref/Trigger/create.md
+              - name: delete
+                href: triggers/api-ref/Trigger/delete.md
+              - name: get
+                href: triggers/api-ref/Trigger/get.md
+              - name: list
+                href: triggers/api-ref/Trigger/list.md
+              - name: listOperations
+                href: triggers/api-ref/Trigger/listOperations.md
+              - name: update
+                href: triggers/api-ref/Trigger/update.md

@@ -1,4 +1,4 @@
-title: "Yandex Monitoring"
+title: Yandex Monitoring
 href: index.yaml
 items:
   - name: Начало работы
@@ -29,6 +29,12 @@ items:
             href: operations/metric/get.md
           - name: Запись пользовательских метрик
             href: operations/metric/add.md
+      - name: Работа с алертами
+        items:
+          - name: Создание алерта
+            href: operations/alert/create-alert.md
+          - name: Создание канала уведомлений
+            href: operations/alert/create-channel.md
   - name: Концепции
     items:
       - name: Обзор сервиса
@@ -43,6 +49,8 @@ items:
             href: concepts/visualization/widget.md
           - name: Дашборд
             href: concepts/visualization/dashboard.md
+      - name: Алертинг
+        href: concepts/alerting.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Управление доступом

@@ -2,7 +2,7 @@
 
 Command line interface helps you interact with Yandex.Cloud services.
 
-{% note important %}
+{% note warning %}
 
 List of commands may vary depending on the version of YC CLI.
 

@@ -1,5 +1,4 @@
-# Заголовок оглавления для всех страниц в разделе
-title: "Yandex SpeechKit"
+title: Yandex SpeechKit
 href: index.yaml
 items:
   - name: Начало работы
@@ -16,7 +15,7 @@ items:
         href: stt/streaming.md
       - name: Форматы аудио
         href: stt/formats.md
-      - name: Языковые модели
+      - name: Модели распознавания
         href: stt/models.md
   - name: Синтез речи
     items:

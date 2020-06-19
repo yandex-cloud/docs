@@ -1,24 +1,26 @@
 # Все инструкции
 
-[Активировать платную версию](activate-commercial.md)
+[{#T}](activate-commercial.md)
 
-[Активировать промокод](activate-promocode.md)
+[{#T}](purchase-cvos.md)
 
-[Посмотреть детализацию](check-charges.md)
+[{#T}](activate-promocode.md)
 
-[Пополнить счет](pay-the-bill.md) 
+[{#T}](check-charges.md)
 
-[Привязать другую карту](pin-card.md)
+[{#T}](pay-the-bill.md) 
 
-[Привязать новое облако](pin-cloud.md)
+[{#T}](pin-card.md)
 
-[Изменить способ оплаты](change-payment-method.md) 
+[{#T}](pin-cloud.md)
 
-[Расшифровать счет на оплату](spell-out-bill.md)
+[{#T}](change-payment-method.md) 
 
-[Посмотреть историю платежей](check-bill-history.md)
+[{#T}](spell-out-bill.md)
 
-[Изменить данные платежного аккаунта](change-data.md)
+[{#T}](check-bill-history.md)
 
-[Создать новый платежный аккаунт](create-new-account.md) 
+[{#T}](change-data.md)
+
+[{#T}](create-new-account.md) 
 

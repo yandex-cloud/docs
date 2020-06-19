@@ -9,7 +9,7 @@ This model works best, but supports only two languages:
 * `en` — English
 * `ru` — Russian
 
-{% note important %}
+{% note warning %}
 
 Currently, this model can't be selected with [automatic language detection](../../operations/ocr/text-detection.md#basic). To use this model, you need to [overtly specify](../../operations/ocr/text-detection.md#multiple-languages) one or both languages.
 

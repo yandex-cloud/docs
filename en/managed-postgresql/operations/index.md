@@ -5,6 +5,7 @@
 - [{#T}](data-migration.md)
 - [{#T}](connect.md)
 - [{#T}](cluster-backups.md)
+- [{#T}](web-sql-query.md)
 - [{#T}](update.md)
 - [{#T}](hosts.md)
 - [{#T}](databases.md)

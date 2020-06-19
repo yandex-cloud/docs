@@ -2,7 +2,7 @@
 
 You can [set the parameters](../operations/profile/manage-properties.md) in the profile to quickly switch the command execution context. Use global flags for a single run of a command with a specific parameter value.
 
-{% note important %}
+{% note warning %}
 
 Note that some parameters cannot be used simultaneously. The value of one of the parameters is reset to zero after the other is set.
 

@@ -1,4 +1,4 @@
-title: "Yandex Data Proc"
+title: Yandex Data Proc
 stage: new
 href: index.yaml
 items:
@@ -28,18 +28,18 @@ items:
         href: operations/cluster-delete.md
   - name: Concepts
     items:
-    - name: Data Proc overview
-      href: concepts/index.md
-    - name: Host classes
-      href: concepts/instance-types.md
-    - name: Network in Data Proc
-      href: concepts/network.md
-    - name: Quotas and limits
-      href: concepts/limits.md
-    - name: Hadoop and component versions
-      href: concepts/environment.md
-    - name: Component interfaces and ports
-      href: concepts/interfaces.md
+      - name: Data Proc overview
+        href: concepts/index.md
+      - name: Host classes
+        href: concepts/instance-types.md
+      - name: Network in Data Proc
+        href: concepts/network.md
+      - name: Quotas and limits
+        href: concepts/limits.md
+      - name: Hadoop and component versions
+        href: concepts/environment.md
+      - name: Component interfaces and ports
+        href: concepts/interfaces.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy
@@ -50,11 +50,63 @@ items:
         href: api-ref/authentication.md
       - name: gRPC
         items:
-        include:
-          repo: docs
-          path: en/_api-ref-grpc/data-proc/api-ref/toc.yaml
+          - name: Overview
+            href: grpc/index.md
+          - name: ClusterService
+            href: grpc/cluster_service.md
+          - name: JobService
+            href: grpc/job_service.md
+          - name: SubclusterService
+            href: grpc/subcluster_service.md
+          - name: OperationService
+            href: grpc/operation_service.md
       - name: REST
         items:
-        include:
-          repo: docs
-          path: en/_api-ref/dataproc/toc.yaml
+          - name: Overview
+            href: api-ref/index.md
+          - name: Cluster
+            items:
+              - name: Overview
+                href: api-ref/Cluster/index.md
+              - name: create
+                href: api-ref/Cluster/create.md
+              - name: delete
+                href: api-ref/Cluster/delete.md
+              - name: get
+                href: api-ref/Cluster/get.md
+              - name: list
+                href: api-ref/Cluster/list.md
+              - name: listHosts
+                href: api-ref/Cluster/listHosts.md
+              - name: listOperations
+                href: api-ref/Cluster/listOperations.md
+              - name: start
+                href: api-ref/Cluster/start.md
+              - name: stop
+                href: api-ref/Cluster/stop.md
+              - name: update
+                href: api-ref/Cluster/update.md
+          - name: Job
+            items:
+              - name: Overview
+                href: api-ref/Job/index.md
+              - name: create
+                href: api-ref/Job/create.md
+              - name: get
+                href: api-ref/Job/get.md
+              - name: list
+                href: api-ref/Job/list.md
+          - name: Subcluster
+            items:
+              - name: Overview
+                href: api-ref/Subcluster/index.md
+              - name: create
+                href: api-ref/Subcluster/create.md
+              - name: delete
+                href: api-ref/Subcluster/delete.md
+              - name: get
+                href: api-ref/Subcluster/get.md
+              - name: list
+                href: api-ref/Subcluster/list.md
+              - name: update
+                href: api-ref/Subcluster/update.md

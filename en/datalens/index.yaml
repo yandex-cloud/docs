@@ -16,7 +16,7 @@ links:
 - title: "Concepts"
   description: "Learn about basic concepts and service functions"
   href: "concepts/"
-- title: "Tutorials"
+- title: "Use cases"
   description: "Use DataLens to perform common tasks for visualizing data"
   href: "solutions/"
 - title: "Quotas and limits"

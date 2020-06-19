@@ -30,7 +30,7 @@ Create a [connection](../../datalens/concepts/connection.md) to the ClickHouse d
 
 ## Step 1. Define the data source for the dataset {#step1}
 
-Create a [dataset](../../datalens/concepts/dataset.md) using the [connection](../../datalens/concepts/connection.md) **Sample ClickHouse** created from a ClickHouse database.
+Create a [dataset](../../datalens/concepts/dataset/index.md) using the [connection](../../datalens/concepts/connection.md) **Sample ClickHouse** created from a ClickHouse database.
 
 1. Go to [{{ datalens-short-name }}](https://datalens.yandex.ru).
 

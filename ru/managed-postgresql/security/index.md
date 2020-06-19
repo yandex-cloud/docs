@@ -1,5 +1,6 @@
 # Управление доступом
 
+
 В этом разделе вы узнаете:
 * [на какие ресурсы можно назначить роль](#resources);
 * [какие роли действуют в сервисе](#roles-list);
@@ -51,3 +52,4 @@
 * [Как отозвать роль](../../iam/operations/roles/revoke.md).
 * [Подробнее об управлении доступом в Яндекс.Облаке](../../iam/concepts/access-control/index.md).
 * [Подробнее о наследовании ролей](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
+

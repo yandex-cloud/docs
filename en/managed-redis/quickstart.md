@@ -1,5 +1,6 @@
 # Getting started with {{ mrd-short-name }}
 
+
 To use the service, create a cluster and virtual machine to access the server from:
 
 1. All you need to create a database cluster is a folder in Yandex.Cloud that you are allowed to access. If you already have a folder in Yandex.Cloud, open the page of that folder in the management console. If there is no folder yet, create one:
@@ -7,6 +8,7 @@ To use the service, create a cluster and virtual machine to access the server fr
     {% include [create-folder](../_includes/create-folder.md) %}
 
 1. Create a VM (based on [Linux](../compute/quickstart/quick-create-linux.md) or [Windows](../compute/quickstart/quick-create-windows.md)) that you will use for accessing the DB cluster.
+
 
 Quickly create a cluster and test your connection to it:
 

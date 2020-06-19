@@ -1,6 +1,6 @@
 # Concepts {{ kms-name }}
 
-{{ kms-name }} is a service for creating and managing encryption keys in Yandex.Cloud. Using it, you can manage access rights for encryption keys, enable rotation of cryptographic material, and encrypt data. At the Preview stage, you can only create symmetric keys.
+{{ kms-name }} is a service for creating and managing encryption keys in Yandex.Cloud. Using it, you can manage access rights for encryption keys, enable rotation of cryptographic material, and encrypt data. 
 
 The service lets you manage _keys_ and their _versions_.
 

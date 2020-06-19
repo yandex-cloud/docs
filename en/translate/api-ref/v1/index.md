@@ -1,8 +1,8 @@
-# Yandex.Translate API v1
+# Yandex Translate API v1
 
 {% include [speechkit-v1-disclaimer.md](../../../_includes/speechkit-v1-disclaimer.md) %}
 
-A set of methods for the Yandex.Translate service.
+A set of methods for the Yandex Translate service.
 
 ## Methods {#methods}
 

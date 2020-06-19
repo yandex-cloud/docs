@@ -1,3 +1,5 @@
+{% include [include](../sa-assign-role-note.md) %}
+
 In the management console, you can only assign a role for the folder where the service account was created. To assign it a role for another resource, use the CLI or API.
 
 {% list tabs %}

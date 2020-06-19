@@ -1,4 +1,4 @@
-Чтобы воспользоваться {{ datalens-short-name }}, нужно зарегистрироваться в Облаке и создать платежный аккаунт (без платежного аккаунта {{ datalens-short-name }} доступен только в демо-режиме):
+Чтобы воспользоваться {{ datalens-short-name }}, нужно зарегистрироваться в Облаке и создать платежный аккаунт (без платежного аккаунта {{ datalens-short-name }} доступен только в деморежиме):
 
 {% include [prepare-register-billing](../_solutions_includes/prepare-register-billing.md) %}
 

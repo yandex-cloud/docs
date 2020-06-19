@@ -89,6 +89,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
   1. Request creation of a cluster from a backup:
 
+      
       ```
       $ yc managed-clickhouse cluster restore \
              --backup-id c9q22suuefrmrp2lrv9f:20181109T101204 \
@@ -98,17 +99,21 @@ For a new cluster, you should set all the parameters that are required at creati
              --host type=clickhouse,zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch63 \
              --clickhouse-disk-size 20 \
              --clickhouse-disk-type network-ssd \
-             --clickhouse-resource-preset s1.nano
+             --clickhouse-resource-preset s2.micro
       ```
+
+     
 
       This results in a new {{ CH }} cluster with the following characteristics:
 
-      - Named `mynewch`.
+            - Named `mynewch`.
       - In the `PRODUCTION` environment.
       - In the `{{ network-name }}` network.
       - With a single `{{ host-class }}` class host in the `b0rcctk2rvtr8efcch63` subnet of the `{{ zone-id }}` availability zone.
       - With the databases and users from the backup.
       - With SSD network storage of 20 GB.
+
+     
 
 {% endlist %}
 

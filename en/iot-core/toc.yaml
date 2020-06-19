@@ -1,4 +1,4 @@
-title: "Yandex IoT Core"
+title: Yandex IoT Core
 href: index.yaml
 items:
   - name: Getting started
@@ -17,14 +17,14 @@ items:
         href: operations/trigger-create.md
       - name: Managing registries
         items:
-        - name: Getting information about registries
-          href: operations/registry/registry-list.md
-        - name: Creating a registry
-          href: operations/registry/registry-create.md
-        - name: Updating a registry
-          href: operations/registry/registry-update.md
-        - name: Deleting a registry
-          href: operations/registry/registry-delete.md
+          - name: Getting information about registries
+            href: operations/registry/registry-list.md
+          - name: Creating a registry
+            href: operations/registry/registry-create.md
+          - name: Updating a registry
+            href: operations/registry/registry-update.md
+          - name: Deleting a registry
+            href: operations/registry/registry-delete.md
       - name: Managing devices
         items:
           - name: Managing topic aliases
@@ -59,19 +59,18 @@ items:
             href: operations/password/registry-password.md
           - name: Managing device passwords
             href: operations/password/device-password.md
-
   - name: Concepts
     items:
-        - name: Authorization
-          href: concepts/authorization.md
-        - name: Relationship between service resources
-          href: concepts/index.md
-        - name: MQTT broker connection parameters
-          href: concepts/mqtt-properties.md
-        - name: Topic
-          href: concepts/topic.md
-        - name: Quotas and limits
-          href: concepts/limits.md
+      - name: Authorization
+        href: concepts/authorization.md
+      - name: Relationship between service resources
+        href: concepts/index.md
+      - name: MQTT broker connection parameters
+        href: concepts/mqtt-properties.md
+      - name: Topic
+        href: concepts/topic.md
+      - name: Quotas and limits
+        href: concepts/limits.md
   - name: Solutions
     items:
       - name: Working with Mosquitto
@@ -90,11 +89,73 @@ items:
         href: api-ref/authentication.md
       - name: gRPC
         items:
-        include:
-          repo: docs
-          path: en/_api-ref-grpc/iot-core/api-ref/toc.yaml
+          - name: Overview
+            href: grpc/index.md
+          - name: DeviceService
+            href: grpc/device_service.md
+          - name: RegistryService
+            href: grpc/registry_service.md
+          - name: OperationService
+            href: grpc/operation_service.md
       - name: REST
         items:
-        include:
-          repo: docs
-          path: en/_api-ref/iot/devices/toc.yaml
+          - name: Overview
+            href: api-ref/index.md
+          - name: Device
+            items:
+              - name: Overview
+                href: api-ref/Device/index.md
+              - name: addCertificate
+                href: api-ref/Device/addCertificate.md
+              - name: addPassword
+                href: api-ref/Device/addPassword.md
+              - name: create
+                href: api-ref/Device/create.md
+              - name: delete
+                href: api-ref/Device/delete.md
+              - name: deleteCertificate
+                href: api-ref/Device/deleteCertificate.md
+              - name: deletePassword
+                href: api-ref/Device/deletePassword.md
+              - name: get
+                href: api-ref/Device/get.md
+              - name: list
+                href: api-ref/Device/list.md
+              - name: listCertificates
+                href: api-ref/Device/listCertificates.md
+              - name: listOperations
+                href: api-ref/Device/listOperations.md
+              - name: listPasswords
+                href: api-ref/Device/listPasswords.md
+              - name: update
+                href: api-ref/Device/update.md
+          - name: Registry
+            items:
+              - name: Overview
+                href: api-ref/Registry/index.md
+              - name: addCertificate
+                href: api-ref/Registry/addCertificate.md
+              - name: addPassword
+                href: api-ref/Registry/addPassword.md
+              - name: create
+                href: api-ref/Registry/create.md
+              - name: delete
+                href: api-ref/Registry/delete.md
+              - name: deleteCertificate
+                href: api-ref/Registry/deleteCertificate.md
+              - name: deletePassword
+                href: api-ref/Registry/deletePassword.md
+              - name: get
+                href: api-ref/Registry/get.md
+              - name: list
+                href: api-ref/Registry/list.md
+              - name: listCertificates
+                href: api-ref/Registry/listCertificates.md
+              - name: listDeviceTopicAliases
+                href: api-ref/Registry/listDeviceTopicAliases.md
+              - name: listOperations
+                href: api-ref/Registry/listOperations.md
+              - name: listPasswords
+                href: api-ref/Registry/listPasswords.md
+              - name: update
+                href: api-ref/Registry/update.md

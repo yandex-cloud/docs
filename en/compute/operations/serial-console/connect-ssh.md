@@ -4,7 +4,7 @@ After [enabling access](index.md), you can connect to the serial console to work
 
 ## Security {#security}
 
-{% note important %}
+{% note warning %}
 
 Serial console access is not secure, so enabling it might allow hackers to access your VM. [Disable](disable.md) access after you finish working with the serial console.
 

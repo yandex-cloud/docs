@@ -99,7 +99,7 @@ Choose the programming language and create a [version of the function](../concep
 
 1. Select the desired function from the drop-down list.
 
-    {% note important %}
+    {% note warning %}
 
     The list shows the functions that you're allowed to view. To attach a function to a skill, you need permission to launch the function. This permission is part of the [{{ roles-functions-ivoker }}](../security/index.md#serverless-functions-invoker), [{{ roles-editor}}](../security/index.md#editor), and higher roles.
 

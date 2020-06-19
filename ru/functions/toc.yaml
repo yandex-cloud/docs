@@ -73,6 +73,8 @@ items:
             href: concepts/runtime/environment-variables.md
           - name: Контекст выполнения
             href: concepts/runtime/execution-context.md
+      - name: Сборщик
+        href: concepts/builder.md
       - name: Триггер
         items:
           - name: Обзор
@@ -89,6 +91,80 @@ items:
         href: concepts/monitoring.md
       - name: Квоты и лимиты
         href: concepts/limits.md
+  - name: Разработка на Node.js
+    items:
+      - name: Обзор
+        href: lang/nodejs/index.md
+      - name: Управление зависимостями
+        href: lang/nodejs/dependencies.md
+      - name: Обработчик запросов
+        href: lang/nodejs/handler.md
+      - name: Контекст вызова
+        href: lang/nodejs/context.md
+      - name: Журналирование
+        href: lang/nodejs/logging.md
+      - name: Обработка ошибок
+        href: lang/nodejs/errors.md
+      - name: Использование SDK
+        href: lang/nodejs/sdk.md
+  - name: Разработка на Python
+    items:
+      - name: Обзор
+        href: lang/python/index.md
+      - name: Управление зависимостями
+        href: lang/python/dependencies.md
+      - name: Обработчик запросов
+        href: lang/python/handler.md
+      - name: Контекст вызова
+        href: lang/python/context.md
+      - name: Журналирование
+        href: lang/python/logging.md
+      - name: Обработка ошибок
+        href: lang/python/errors.md
+      - name: Использование SDK
+        href: lang/python/sdk.md
+  - name: Разработка на Go
+    items:
+      - name: Обзор
+        href: lang/golang/index.md
+      - name: Управление зависимостями
+        href: lang/golang/dependencies.md
+      - name: Обработчик запросов
+        href: lang/golang/handler.md
+      - name: Контекст вызова
+        href: lang/golang/context.md
+      - name: Журналирование
+        href: lang/golang/logging.md
+      - name: Обработка ошибок
+        href: lang/golang/errors.md
+      - name: Использование SDK
+        href: lang/golang/sdk.md
+  - name: Разработка на PHP
+    items:
+      - name: Обзор
+        href: lang/php/index.md
+      - name: Управление зависимостями
+        href: lang/php/dependencies.md
+      - name: Обработчик запросов
+        href: lang/php/handler.md
+      - name: Контекст вызова
+        href: lang/php/context.md
+      - name: Журналирование
+        href: lang/php/logging.md
+      - name: Обработка ошибок
+        href: lang/php/errors.md
+  - name: Разработка на Bash
+    items:
+      - name: Обзор
+        href: lang/bash/index.md
+      - name: Обработчик запросов
+        href: lang/bash/handler.md
+      - name: Журналирование
+        href: lang/bash/logging.md
+      - name: Обработка ошибок
+        href: lang/bash/errors.md
+      - name: Использование SDK
+        href: lang/bash/sdk.md
   - name: Сценарии использования
     items:
       - name: Создание навыка Алисы
@@ -103,26 +179,83 @@ items:
         href: api-ref/functions/authentication.md
       - name: gRPC
         items:
-        include:
-          repo: docs
-          path: ru/_api-ref-grpc/functions/functions/api-ref/toc.yaml
+          - name: Обзор
+            href: grpc/index.md
+          - name: FunctionService
+            href: grpc/function_service.md
+          - name: OperationService
+            href: grpc/operation_service.md
       - name: REST
         items:
-        include:
-          repo: docs
-          path: ru/_api-ref/serverless/functions/toc.yaml
+          - name: Обзор
+            href: functions/api-ref/index.md
+          - name: Function
+            items:
+              - name: Обзор
+                href: functions/api-ref/Function/index.md
+              - name: create
+                href: functions/api-ref/Function/create.md
+              - name: createVersion
+                href: functions/api-ref/Function/createVersion.md
+              - name: delete
+                href: functions/api-ref/Function/delete.md
+              - name: get
+                href: functions/api-ref/Function/get.md
+              - name: getVersion
+                href: functions/api-ref/Function/getVersion.md
+              - name: getVersionByTag
+                href: functions/api-ref/Function/getVersionByTag.md
+              - name: list
+                href: functions/api-ref/Function/list.md
+              - name: listAccessBindings
+                href: functions/api-ref/Function/listAccessBindings.md
+              - name: listOperations
+                href: functions/api-ref/Function/listOperations.md
+              - name: listRuntimes
+                href: functions/api-ref/Function/listRuntimes.md
+              - name: listTagHistory
+                href: functions/api-ref/Function/listTagHistory.md
+              - name: listVersions
+                href: functions/api-ref/Function/listVersions.md
+              - name: removeTag
+                href: functions/api-ref/Function/removeTag.md
+              - name: setAccessBindings
+                href: functions/api-ref/Function/setAccessBindings.md
+              - name: setTag
+                href: functions/api-ref/Function/setTag.md
+              - name: update
+                href: functions/api-ref/Function/update.md
+              - name: updateAccessBindings
+                href: functions/api-ref/Function/updateAccessBindings.md
   - name: Справочник API Triggers
     items:
       - name: Аутентификация в API
         href: api-ref/triggers/authentication.md
       - name: gRPC
         items:
-        include:
-          repo: docs
-          path: ru/_api-ref-grpc/functions/triggers/api-ref/toc.yaml
+          - name: Обзор
+            href: grpc/triggers_index.md
+          - name: TriggerService
+            href: grpc/trigger_service.md
+          - name: OperationService
+            href: grpc/operation_service.md
       - name: REST
         items:
-        include:
-          repo: docs
-          path: ru/_api-ref/serverless/triggers/toc.yaml
-
+          - name: Обзор
+            href: triggers/api-ref/index.md
+          - name: Trigger
+            items:
+              - name: Обзор
+                href: triggers/api-ref/Trigger/index.md
+              - name: create
+                href: triggers/api-ref/Trigger/create.md
+              - name: delete
+                href: triggers/api-ref/Trigger/delete.md
+              - name: get
+                href: triggers/api-ref/Trigger/get.md
+              - name: list
+                href: triggers/api-ref/Trigger/list.md
+              - name: listOperations
+                href: triggers/api-ref/Trigger/listOperations.md
+              - name: update
+                href: triggers/api-ref/Trigger/update.md

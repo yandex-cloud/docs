@@ -10,7 +10,7 @@ You can use disk snapshots for various purposes, such as:
 
 {% note info %}
 
-If you need to create multiple disks with the same content, use [images](images.md). Disk creation from an image is faster than from a snapshot.
+If you need to create multiple disks with the same content, use [images](image.md). Disk creation from an image is faster than from a snapshot.
 
 {% endnote %}
 

@@ -43,7 +43,7 @@ Everything that is specified after a device or registry topic and separated by `
 Examples of subtopics:
 
 - `$devices/<device ID>/events/bedroom/temperature` — A subtopic for getting the bedroom temperature.
-- `$registry/<registry ID>/commands/bedroom` — A subtopic for sending commands to all devices in the bedroom.
+- `$registries/<registry ID>/commands/bedroom` — A subtopic for sending commands to all devices in the bedroom.
 
 Subtopics are based on the same [operating principles](#usage) and [limits](limits.md) as topics.
 
@@ -93,7 +93,7 @@ If a filter starts with `$devices/`, it includes device topics. If it starts wit
 Filtering also takes general rules for subscribing to topics into account, such as:
 
 > - Subscribing to the `$devices/#` filter with a registry certificate is the same as subscribing to `$devices/+/events` and `$devices/+/events/#`.
-- Subscribing to the `$registry/#` filter with a device certificate is the same as subscribing to `$devices/<device ID >/commands` and `$devices/<device ID>/commands/#`.
+- Subscribing to the `$registries/#` filter with a device certificate is the same as subscribing to `$devices/<device ID >/commands` and `$devices/<device ID>/commands/#`.
 
 #### Examples of using wildcard characters  {#examples}
 

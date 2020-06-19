@@ -1,8 +1,10 @@
 # Управление базами данных
 
+
 ## Создать базу данных {#create-db}
 
 {% include [create-db-via-console](../../_includes/ydb/create-db-via-console.md) %}
+
 
 ## Посмотреть список баз данных {#db-list}
 

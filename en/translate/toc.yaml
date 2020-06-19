@@ -1,4 +1,4 @@
-title: "Yandex.Translate"
+title: Yandex Translate
 href: index.yaml
 items:
   - name: Getting started
@@ -25,36 +25,46 @@ items:
         href: concepts/glossary-supported-pairs.md
   - name: API reference
     items:
-    - name: Authentication in the API
-      href: api-ref/authentication.md
-    - name: gRPC
-      items:
-      include:
-        repo: docs
-        path: en/_api-ref-grpc/translate/api-ref/toc.yaml
-    - name: REST
-      items:
-        - name: v2
-          items:
-          - name: Handling errors
-            href: api-ref/errors-handling.md
-          - name: Troubleshooting
-            href: api-ref/support-headers.md
-          include:
-            repo: docs
-            path: en/_api-ref/ai/translate/toc.yaml
-        - name: v1 (DEPRECATED)
-          items:
+      - name: Authentication in the API
+        href: api-ref/authentication.md
+      - name: gRPC
+        items:
           - name: Overview
-            href: api-ref/v1/index.md
-          - name: How to translate text
-            href: api-ref/v1/translate.md
-          - name: Detecting language
-            href: api-ref/v1/detect.md
-          - name: List of supported languages
-            href: api-ref/v1/languages.md
-          - name: Response format
-            href: api-ref/v1/response.md
+            href: grpc/index.md
+          - name: TranslationService
+            href: grpc/translation_service.md
+      - name: REST
+        items:
+          - name: v2
+            items:
+              - name: Handling errors
+                href: api-ref/errors-handling.md
+              - name: Troubleshooting
+                href: api-ref/support-headers.md
+              - name: Overview
+                href: api-ref/index.md
+              - name: Translation
+                items:
+                  - name: Overview
+                    href: api-ref/Translation/index.md
+                  - name: detectLanguage
+                    href: api-ref/Translation/detectLanguage.md
+                  - name: listLanguages
+                    href: api-ref/Translation/listLanguages.md
+                  - name: translate
+                    href: api-ref/Translation/translate.md
+          - name: v1 (DEPRECATED)
+            items:
+              - name: Overview
+                href: api-ref/v1/index.md
+              - name: How to translate text
+                href: api-ref/v1/translate.md
+              - name: Detecting language
+                href: api-ref/v1/detect.md
+              - name: List of supported languages
+                href: api-ref/v1/languages.md
+              - name: Response format
+                href: api-ref/v1/response.md
   - name: Quotas and limits
     href: concepts/limits.md
   - name: Access management
@@ -65,5 +75,5 @@ items:
         href: pricing.md
       - name: Archive
         items:
-          - name: Policy before January 1, 2019
+          - name: 'Policy before January 1, 2019'
             href: pricing-archive/pricing-01012019.md

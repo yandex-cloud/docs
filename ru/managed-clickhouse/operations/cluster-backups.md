@@ -89,6 +89,7 @@
   
   1. Запросите создание кластера из резервной копии:
   
+        
       ```
       $ yc managed-clickhouse cluster restore \
              --backup-id c9q22suuefrmrp2lrv9f:20181109T101204 \
@@ -98,17 +99,22 @@
              --host type=clickhouse,zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch63 \
              --clickhouse-disk-size 20 \
              --clickhouse-disk-type network-ssd \
-             --clickhouse-resource-preset s1.nano
+             --clickhouse-resource-preset s2.micro
       ```
+      
+     
   
       В результате будет создан {{ CH }}-кластер со следующими характеристиками:
 
+              
       - С именем `mynewch`.
       - В окружении `PRODUCTION`.
       - В сети `{{ network-name }}`.
       - С одним хостом класса `{{ host-class }}` в подсети `b0rcctk2rvtr8efcch63`, в зоне доступности `{{ zone-id }}`. 
       - С базами данных и пользователями из резервной копии.
-      - С сетевым SSD-хранилищем объемом 20 ГБ.
+      - С быстрым сетевым хранилищем (`{{ disk-type-example }}`) объемом 20 ГБ.
+      
+     
   
 {% endlist %}
 

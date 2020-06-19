@@ -16,7 +16,7 @@
 
 ## Роли администраторов кластера {#cluster-admin-roles}
 
-Роли, необходимые мониторинга и администрирования кластера. Назначаются для служебной базы данных [admin](https://docs.mongodb.com/manual/reference/glossary/#term-admin-database). 
+Роли, необходимые мониторинга и администрирования кластера. Назначаются для служебной базы данных [admin](https://docs.mongodb.com/manual/reference/glossary/#term-admin-database).
 
 ### mdbMonitor {#mdbMonitor}
 
@@ -51,20 +51,6 @@
 * Действия со всеми коллекциями [system.profile](https://docs.mongodb.com/manual/reference/system-collections/index.html#%3Cdatabase%3E.system.profile) во всех базах:
 
   * [find](https://docs.mongodb.com/v4.0/reference/privilege-actions/#find)
-
-
-* Действия с базами данных [local](https://docs.mongodb.com/manual/reference/local-database/) и [config](https://docs.mongodb.com/v3.6/reference/config-database/):
-
-  * [collStats](https://docs.mongodb.com/v4.0/reference/privilege-actions/#collStats)
-  * [dbHash](https://docs.mongodb.com/v4.0/reference/privilege-actions/#dbHash)
-  * [dbStats](https://docs.mongodb.com/v4.0/reference/privilege-actions/#dbStats)
-  * [find](https://docs.mongodb.com/v4.0/reference/privilege-actions/#find)
-  * [getShardVersion](https://docs.mongodb.com/v4.0/reference/privilege-actions/#getShardVersion)
-  * [indexStats](https://docs.mongodb.com/v4.0/reference/privilege-actions/#indexStats)
-  * [killCursors](https://docs.mongodb.com/v4.0/reference/privilege-actions/#killCursors)
-  * [listCollections](https://docs.mongodb.com/v4.0/reference/privilege-actions/#listCollections)
-  * [listIndexes](https://docs.mongodb.com/v4.0/reference/privilege-actions/#listIndexes)
-  * [planCacheRead](https://docs.mongodb.com/v4.0/reference/privilege-actions/#planCacheRead)
 
 * Действия с коллекциями [system.indexes](https://docs.mongodb.com/manual/reference/system-collections/index.html#%3Cdatabase%3E.system.indexes), [system.js](https://docs.mongodb.com/manual/reference/system-collections/index.html#%3Cdatabase%3E.system.js), [system.namespaces](https://docs.mongodb.com/manual/reference/system-collections/index.html#%3Cdatabase%3E.system.namespaces) баз данных [local](https://docs.mongodb.com/manual/reference/local-database/) и [config](https://docs.mongodb.com/v3.6/reference/config-database/):
 

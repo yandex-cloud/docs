@@ -1,22 +1,18 @@
-# Release channels and updates
+# Release channels
 
-{{ managed-k8s-name }} provides [updates](#updates) through [release channels](#release-channels).
+{{ managed-k8s-name }} provides updates through [release channels](#release-channels).
 
-The service supports three {{ k8s }} versions. Master and node group versions are independent, and you can specify different {{ k8s }} versions available within a single release channel when creating them.
+The service supports three versions of {{ k8s }}. Master and node group versions are independent and you can specify different versions of {{ k8s }} available within a single release channel when creating them.
 
 {% include [note-about-version](../../_includes/managed-kubernetes/note-about-version.md) %}
 
-## Release channels {#release-channels}
+When creating a {{ k8s }} cluster, specify one of three release channels. You can't change the channel once the {{ k8s }} cluster is created, you can only recreate the {{ k8s }} cluster and specify a new release channel. The table below describes release channels and contains up-to-date information about supported {{ k8s }} versions.
 
-When creating a {{ k8s }} cluster, you specify one of three release channels. You can't change the channel once the {{ k8s }} cluster is created, you can only recreate the {{ k8s }} cluster and specify a new release channel.
-
-The table below describes release channels and contains up-to-date information about supported {{ k8s }} versions.
-
-| Channel | {{ k8s }} versions | Automatic updates | Channel description |
+| Channel | versions {{ k8s }} | Automatic updates | Channel description |
 | ---- | ---- | ---- | ---- |
 | `rapid` | 1.14, 1.15, 1.16 | Can't disable automatic updates. Can specify a time period for automatic updates. | Contains the latest versions of {{ k8s }}. Minor updates with new functions and improvements are often added. |
 | `regular` | 1.13, 1.14, 1.15 | Can disable automatic updates. | Contains different versions of {{ k8s }}. New functions and improvements are added in chunks shortly after they appear on `rapid`. |
-| `stable` | 1.13, 1.14, 1.15 | Can disable automatic updates. | Contains the stable {{ k8s }} versions. Only updates related to bug fixes or security improvements are added. |
+| `stable` | 1.13, 1.14, 1.15 | Can disable automatic updates. | Contains the stable version of {{ k8s }}. Only updates related to bug fixes or security improvements are added to the channel. |
 
 ## Updates {#updates}
 
@@ -38,16 +34,16 @@ When an update appears on a release channel, the corresponding information is di
 
     These include {{ k8s }} minor version updates.
 
-Read more about [{{k8s}} version support termination](#unsupported) and the [cluster component update {{ k8s }}](#cluster-upd) process.
+Read more about [{{k8s}} version support termination](#unsupported) and the [cluster component update{{ k8s }}](#cluster-upd) process.
 
 ### Version support termination {{ k8s }} {#unsupported}
 
-When an old {{ k8s }} versions is no longer supported after an update:
+When an old version of {{ k8s }} is no longer supported after an update:
 
 - The master is automatically updated even if automatic updates are disabled.
-- Node groups are automatically updated if automatic updates are enabled. If automatic updates are disabled, the old {{ k8s }} versions remains on the node groups. In this case, the user is fully responsible for solving problems related to the node group, since the old {{ k8s }} versions is deprecated.
+- Node groups are automatically updated if automatic updates are enabled. If automatic updates are disabled, the old version of {{ k8s }} remains on the node groups. In this case, the user is fully responsible for solving problems related to the node group, since the old version of {{ k8s }} is deprecated.
 
-### Updating cluster components in {{ k8s }} {#cluster-upd}
+### Updating Kubernetes cluster components {#cluster-upd}
 
 The update process is different for [masters](#master) and [node groups](#node-group).
 
@@ -62,25 +58,17 @@ Depending on the type of master, it may or may not be available during an update
 
 You can update node groups with additional resources by creating nodes with a new configuration.
 
-{% note important %}
+{% note warning %}
 
-For an update to be successful, you need enough quotas to create a new node with additional resources.
+For an update to be successful, you need enough [quotas](limits.md) to create a new node with additional resources.
 
 {% endnote %}
 
-Update process:
+Update node group algorithm:
 
 1. An updated node is created with the configuration specified for the entire node group.
-
-1. All pods are moved from one of the old nodes, which is then deleted.
-
-    {% note important %}
-
-    A pod can only be moved if it was created by one of the application replication controllers: [ReplicaSet](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/), [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/), or [StatefulSet](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/). If a pod is created without a controller, it's lost during the update.
-
-    {% endnote %}
-
-1. The process is repeated until all nodes in the node group are updated.
+1. All pods are [evicted](node-group/node-drain.md) from one of the old nodes based on the pre-defined PodDisruptionBudgets policy. Then the node is deleted.
+1. The process is repeated until all nodes in the group are updated.
 
 This ensures that the number of nodes in the node group never falls below the number specified when the group is created.
 

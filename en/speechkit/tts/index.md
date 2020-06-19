@@ -34,12 +34,6 @@ The quality of speech and voice depend on the speech settings:
 
 * Speech rate: If the speech is too fast or too slow, it sounds unnatural. However, this can be useful in commercials where every second of air time counts.
 
-    {% note alert %}
-
-    Changing speed is temporarily unavailable for [premium voices](voices.md#premium).
-
-    {% endnote %}
-
 * Emotional tone is supported only for Russian (`ru-RU`) with `jane` or `omazh`. Don't use this parameter with other voices or languages, as the speech generated for individual phrases may be different from your settings.
 
     For these voices, a neural network was trained on three different datasets where the speaker spoke samples with different intonations: cheerful, irritated, and neutral. We don't plan to support tones for other voices now. For premium voices, the tone is selected automatically.
@@ -61,7 +55,7 @@ Key differences:
 * Understanding of context. Before starting speech synthesis, the premium voice engine evaluates the whole text rather than individual sentences. This allows for intonation that is more typical of human speech.
 * Attention to detail. By using deep neural networks for premium voice synthesis, we make a much deeper analysis of the original voice. This lets us generate a much clearer voice that is richer in detail and avoids various distortions typical in [standard voices](voices.md#standard).
 
-{% note important %}
+{% note warning %}
 
 The new technology currently only supports voices for Russian. Choosing a different language affects the speech quality.
 

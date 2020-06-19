@@ -12,7 +12,7 @@ If you no longer need the created resources, [delete them](#clear-out).
 
 ## Before you start {#before-begin}
 
-{% include [before-begin](../_solutions_includes/before-begin.md) %}
+{% include [before-begin](../_solutions_includes/before-you-begin.md) %}
 
 ### Required paid resources {#paid-resources}
 
@@ -32,7 +32,7 @@ The cost of using a virtual router and test VM includes:
 1. Open your folder and click **Create resource**. Select **Virtual machine**.
 1. Enter a name for the VM, like `mikrotik-router`.
 1. Select an [availability zone](../../overview/concepts/geo-scope.md) with a subnet. If you don't know which availability zone you need, leave the default.
-1. Under **Public images**, click **Select** and choose the **Cloud Hosted Router** image.
+1. Under **Images from {{ marketplace-name }}**, click **Select** and choose the **Cloud Hosted Router** image.
 1. Under **Computing resources**:
     - Choose a [platform](../../compute/concepts/vm-platforms.md) for the VM.
     - Specify the number of vCPUs and amount of RAM:
@@ -71,7 +71,7 @@ Create a test VM in the subnet that hosts the router, to test connectivity betwe
 
 1. Select the same [availability zone](../../overview/concepts/geo-scope.md) where the `mikrotik-router` VM is located.
 
-1. Under **Public images**, select **Ubuntu**.
+1. Under **Images from {{ marketplace-name }}**, select **Ubuntu**.
 
 1. Under **Computing resources**:
     - Choose a [platform](../../compute/concepts/vm-platforms.md) for the VM.

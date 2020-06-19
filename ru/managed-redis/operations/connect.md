@@ -51,8 +51,8 @@
 1. Установите сертификат для доступа к базе данных:
 
    ```
-   $ mkdir -p /usr/local/share/ca-certificates/Yandex
-   $ wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" -O /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt
+   $ sudo mkdir -p /usr/local/share/ca-certificates/Yandex
+   $ sudo wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" -O /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt
    ```
 
 1. Создайте переменную, содержащую адрес и порт хоста, а также имя мастера БД.

@@ -2,7 +2,7 @@
 
 You can add and remove cluster hosts and manage {{ CH }} settings for individual clusters.
 
-{% note important %}
+{% note warning %}
 
 To add new hosts to a single-host cluster, first [add the {{ ZK }} hosts ](zk-hosts.md) to ensure fault tolerance for the cluster.
 
@@ -57,6 +57,7 @@ The number of hosts in {{ mch-short-name }} clusters is limited by the CPU and R
   1. Click on the name of the cluster you need and go to the **Hosts** tab.
   1. Click **Add host**.
 
+  
   1. Specify the host parameters:
 
       * Availability zone.
@@ -64,6 +65,8 @@ The number of hosts in {{ mch-short-name }} clusters is limited by the CPU and R
       * Subnet (if the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md)).
 
       * Select the **Public access** option if the host must be accessible from outside the Cloud.
+
+ 
 
 - CLI
 
@@ -73,6 +76,7 @@ The number of hosts in {{ mch-short-name }} clusters is limited by the CPU and R
 
   To add a host to the cluster:
 
+  
   1. Request a list of cluster subnets to select one for the new host:
 
       ```
@@ -90,6 +94,8 @@ The number of hosts in {{ mch-short-name }} clusters is limited by the CPU and R
 
       If the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md).
 
+ 
+
   1. See the description of the CLI command for adding a host:
 
      ```
@@ -98,11 +104,14 @@ The number of hosts in {{ mch-short-name }} clusters is limited by the CPU and R
 
   1. Run the add host command:
 
+     
      ```
      $ yc managed-clickhouse host add
           --cluster-name <cluster name>
           --host zone-id=<availability zone>,subnet-id=<subnet ID>
      ```
+
+    
 
      {{ mch-short-name }} will run the add host operation.
 

@@ -1,4 +1,4 @@
-{% note important %}
+{% note warning %}
 
 The `latest tag` **doesn't mean** that the Docker image was the latest one pushed.
 

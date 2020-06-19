@@ -27,7 +27,7 @@ If you no longer need the backup or recovered data, [delete all related resource
 
 ## Before you start {#before-you-begin}
 
-{% include [prepare-register-billing](../_solutions_includes/before-begin.md) %}
+{% include [prepare-register-billing](../_solutions_includes/before-you-begin.md) %}
 
 ### Required paid resources {#paid-resources}
 
@@ -47,7 +47,7 @@ To create a VM:
 
 1. Select an [availability zone](../../overview/concepts/geo-scope.md) to host the VM in.
 
-1. Under **Public images**, click **Select**. Select a public **CentOS 7** image.
+1. Under **Images from {{ marketplace-name }}**, click **Select**. Select a public **CentOS 7** image.
 
 1. Under **Computing resources**, select:
     * **Platform**: Intel Cascade Lake.

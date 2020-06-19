@@ -1,6 +1,7 @@
 # Getting started with {{ mmg-short-name }}
 
 
+
 To use the service, create a cluster and connect to a DBMS:
 
 1. All you need to create a database cluster is a folder in Yandex.Cloud that you are allowed to access. If you already have a folder in Yandex.Cloud, open the page of that folder in the management console. If there is no folder yet, create one:
@@ -10,6 +11,7 @@ To use the service, create a cluster and connect to a DBMS:
 2. Create a VM (based on [Linux](../compute/quickstart/quick-create-linux.md) or [Windows](../compute/quickstart/quick-create-windows.md)) that you will use for accessing the DB cluster. If you plan to connect to the database from outside Yandex.Cloud, request external IP addresses for hosts when creating a cluster.
    1. To connect to a DB cluster from inside the Cloud, create a VM in the same network as the DB cluster (based on [Linux](../compute/quickstart/quick-create-linux.md) or [Windows](../compute/quickstart/quick-create-windows.md))
    1. To connect to a cluster from the internet, request public access to the hosts when creating the cluster.
+
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create a cluster.
 
@@ -23,13 +25,17 @@ To use the service, create a cluster and connect to a DBMS:
 
 1. To connect to the DB server, you need an SSL certificate. You can prepare all the necessary authentication data as follows:
 
+    
     ```bash
     $ mkdir ~/.mongodb
     $ wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" -O ~/.mongodb/CA.pem
     ```
 
+   
+
 1. You can now connect to the cluster:
 
+     
     ```bash
     $ mongo --norc \
             --ssl \
@@ -39,4 +45,6 @@ To use the service, create a cluster and connect to a DBMS:
             -p <user password> \
             <DB name>
     ```
+    
+   
 

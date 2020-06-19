@@ -1,4 +1,4 @@
-title: "Yandex Object Storage"
+title: Yandex Object Storage
 href: index.yaml
 items:
   - name: Getting started
@@ -83,28 +83,28 @@ items:
         href: tools/index.md
       - name: Console clients
         items:
-        - name: AWS CLI
-          href: tools/aws-cli.md
-        - name: S3cmd
-          href: tools/s3cmd.md
+          - name: AWS CLI
+            href: tools/aws-cli.md
+          - name: S3cmd
+            href: tools/s3cmd.md
       - name: File browsers
         items:
-        - name: CyberDuck
-          href: tools/cyberduck.md
-        - name: WinSCP
-          href: tools/winscp.md
+          - name: CyberDuck
+            href: tools/cyberduck.md
+          - name: WinSCP
+            href: tools/winscp.md
       - name: SDK
         items:
-        - name: AWS SDK for Java
-          href: tools/aws-sdk-java.md
-        - name: Python SDK (boto)
-          href: tools/boto.md
+          - name: AWS SDK for Java
+            href: tools/aws-sdk-java.md
+          - name: Python SDK (boto)
+            href: tools/boto.md
       - name: FUSE
         items:
-        - name: s3fs
-          href: tools/s3fs.md
-        - name: goofys
-          href: tools/goofys.md
+          - name: s3fs
+            href: tools/s3fs.md
+          - name: goofys
+            href: tools/goofys.md
   - name: Amazon S3-compatible HTTP API
     items:
       - name: How to use the API
@@ -229,9 +229,9 @@ items:
         href: pricing.md
       - name: Archive
         items:
-          - name: Before January 1, 2019
+          - name: 'Before January 1, 2019'
             href: pricing-archive/pricing-01012019.md
-          - name: From January 1 to March 1, 2019
+          - name: 'From January 1 to March 1, 2019'
             href: pricing-archive/pricing-01032019.md
   - name: Questions and answers
     href: qa.md

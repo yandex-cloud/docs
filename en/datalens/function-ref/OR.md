@@ -1,0 +1,42 @@
+---
+editable: false
+---
+
+# OR
+
+_Operators_
+
+#### Syntax
+
+
+```
+value_1 OR value_2
+```
+
+#### Description
+Performs a Boolean join of two expressions with the `OR` condition.
+
+**Argument types:**
+- `value_1` — `Boolean`
+- `value_2` — `Boolean`
+
+
+**Return type**: Same type as (`value_1`, `value_2`)
+
+{% note info %}
+
+Arguments (`value_1`, `value_2`) must be of the same type.
+
+{% endnote %}
+
+
+#### Examples
+
+```
+[Month] = "January" OR [Year] < 2019
+```
+
+
+#### Data source support
+
+`Materialized Dataset`, `ClickHouse 1.1`, `Yandex.Metrica`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`.

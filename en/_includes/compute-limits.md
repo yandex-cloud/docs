@@ -2,12 +2,12 @@
 
 | Type of limit | Value |
 | ----- | ----- |
-| Number of virtual machines per cloud | 8 |
-| Total number of vCPUs for all VMs per cloud | 8 |
-| Total virtual memory for all VMs per cloud | 64 GB |
+| Number of virtual machines per cloud | 12 |
+| Total number of vCPUs for all VMs per cloud | 32 |
+| Total virtual memory for all VMs per cloud | 128 GB |
 | Total number of disks per cloud | 32 |
-| Total SSD storage capacity per cloud | 50 GB |
-| Total HDD storage capacity per cloud | 200 GB |
+| Total SSD storage capacity per cloud | 200 GB |
+| Total HDD storage capacity per cloud | 500 GB |
 | Total number of disk snapshots per cloud | 32 |
 | Total storage capacity of all disk snapshots per cloud | 400 GB |
 | Number of images per cloud | 8 |

@@ -47,7 +47,7 @@ editable: false
 **Intel Broadwell** |
 20% vCPU | 0,5642 ₽ | 0,0142 ₽
 100% vCPU | 0,7727 ₽ | 0,0710 ₽
-1 GPU | 200,5960 ₽ | 15,5960 ₽
+1 GPU | 171,5490 ₽ | 15,5960 ₽
 RAM (за 1 ГБ) | 0,2641 ₽ | 0,0200 ₽
 **Intel Cascade Lake** |
 20% vCPU | 0,3210 ₽ | 0,0150 ₽

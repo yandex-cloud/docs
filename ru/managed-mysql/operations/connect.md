@@ -15,11 +15,13 @@
 
 {{ MY }}-хосты с публичным доступом поддерживают только соединения с SSL-сертификатом. Подготовить сертификат можно так:
 
+
 ```bash
 $ mkdir ~/.mysql
 $ wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" -O ~/.mysql/root.crt
 $ chmod 0600 ~/.mysql/root.crt
 ```
+
 
 
 ## Строка подключения {#Connection-string}

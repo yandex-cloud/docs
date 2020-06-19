@@ -2,7 +2,7 @@
 
 When an instance group is started, all its stopped instances are started, too. You can start an individual instance, for example, for diagnostics, but to enable [automatic recovery](../../concepts/instance-groups/autohealing.md) and [scaling](../../concepts/instance-groups/scale.md), you must start the entire instance group.
 
-{% note important %}
+{% note warning %}
 
 If an instance group is stopped by Yandex.Cloud because it was blocked for failure to pay, the instance group can be started again only after the block is removed.
 

@@ -9,7 +9,7 @@
 
 Если не описать [политику PodDisruptionBudget](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/), поды будут расселяться единовременно, что может привести к проблемам приложения.
 
-{% note important %}
+{% note warning %}
 
 * Расселение подов происходит только в том случае, если они были созданы под управлением одного из контроллеров репликаций приложений: [ReplicaSet](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/), [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) или [StatefulSet](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/). Если под был создан без контроллера, он будет потерян в процессе обновления.
 * [Постоянные тома](../volume.md) (объекты `PersistentVolumes`), которые используются подами под управлением контроллера `StatefulSet`, могут быть перенесены между узлами только в пределах одной зоны доступности. 

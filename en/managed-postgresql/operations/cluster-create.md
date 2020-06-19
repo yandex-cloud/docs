@@ -8,11 +8,13 @@ If database storage is 95% full, the cluster switches to read-only mode. Plan an
 
 {% endnote %}
 
+
 The number of hosts that can be created with a {{ PG }} cluster depends on the storage option selected:
 
 * When using network drives, you can request any number of hosts (from one to the current [quota](../concepts/limits.md) limit).
 
 * When using SSDs, you can create at least three replicas along with the cluster (a minimum of three replicas is required to ensure fault tolerance). If the [available folder resources](../concepts/limits.md) are still sufficient after creating a cluster, you can add extra replicas.
+
 
 By default, {{ mpg-short-name }} limits the maximum number of connections to each {{ PG }} cluster host. This maximum is calculated as follows: `200 × <number of vCPUs per host>`. For example, for a [s1.micro class](../concepts/instance-types.md) cluster, the `max_connections` default parameter value is 400 and can't be increased.
 
@@ -55,7 +57,7 @@ By default, {{ mpg-short-name }} limits the maximum number of connections to eac
       - The name of the user who is the DB owner. The username may only contain Latin letters, numbers, and underscores. By default, the new user is assigned 50 connections to each host in the cluster.
       - User password (from 8 to 128 characters).
 
-      For the database created with the cluster, the character set and collate settings are specified as `LC_CTYPE=C` and `LC_COLLATE=C`. You can't change these settings after the database is created, but you can [create a new database](databases.md#add-the db) with the right settings.
+      For the database created with the cluster, the character set and collate settings are specified as `LC_CTYPE=C` and `LC_COLLATE=C`. You can't change these settings after the database is created, but you can [create a new database](databases.md#add-db) with the right settings.
 
   1. Under **Hosts**, select parameters for the database hosts created with the cluster (keep in mind that if you use SSDs when creating a {{ PG }} cluster, you can set at least three hosts). If you open **Advanced settings**, you can choose specific subnets for each host. By default, each host is created in a separate subnet.
 
@@ -85,6 +87,7 @@ By default, {{ mpg-short-name }} limits the maximum number of connections to eac
 
   1. Specify the cluster parameters in the create command (only some of the supported parameters are given in the example):
 
+      
       ```bash
       $ yc managed-postgresql cluster create \
          --cluster-name <cluster name> \
@@ -99,6 +102,8 @@ By default, {{ mpg-short-name }} limits the maximum number of connections to eac
 
       The subnet ID `subnet-id` should be specified if the selected availability zone contains two or more subnets.
 
+     
+
 {% endlist %}
 
 ## Examples {#examples}
@@ -109,26 +114,30 @@ To create a cluster with a single host, you should pass a single parameter, `--h
 
 Let's say we need to create a {{ PG }} cluster with the following characteristics:
 
+
 - Named `mypg`.
 - In the `production` environment.
 - In the `default` network.
-- With a single host of the `s1.nano` class in the `b0rcctk2rvtr8efcch64` subnet and the `ru-central1-c` availability zone.
+- With a single host of the `{{ host-class }}` class in the `b0rcctk2rvtr8efcch64` subnet and the `ru-central1-c` availability zone.
 - With SSD network storage of 20 GB.
 - With one user (`user1`) with the password `user1user1`.
 - With one `db1` database owned by the user `user1`.
 
+
 Run the command:
+
 
 ```
 $ yc managed-postgresql cluster create \
      --cluster-name mypg \
      --environment production \
      --network-name default \
-     --resource-preset s1.nano \
+     --resource-preset s2.micro \
      --host zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch64 \
      --disk-type network-ssd \
      --disk-size 20 \
      --user name=user1,password=user1user1 \
      --database name=db1,owner=user1
 ```
+
 

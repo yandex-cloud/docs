@@ -46,7 +46,7 @@ You can assign the following permissions to objects and folders in {{ datalens-s
 A user with the `{{ permission-execute }}` permission can make requests to available connections and datasets.
 It doesn't let the user view connections or datasets.
 
-{% note important %}
+{% note warning %}
 
 You can only grant the `{{ permission-execute }}` permission for a connection and dataset.
 
@@ -78,7 +78,7 @@ The `{{ permission-admin }}` permission includes everything under the `{{ permis
 | Edit permissions | N/A | - | - | ✔ |
 | **Connections** |
 | Make requests<br/>to a connection | ✔ | ✔ | ✔ | ✔ |
-| Create datasets<br/>on a connection | ✔ | ✔ | ✔ | ✔ |
+| Create a dataset<br/>over a connection | - | ✔ | ✔ | ✔ |
 | View<br/>connection parameters | - | ✔ | ✔ | ✔ |
 | Edit connections | - | - | ✔ | ✔ |
 | Edit permissions | - | - | - | ✔ |
@@ -97,9 +97,34 @@ The `{{ permission-admin }}` permission includes everything under the `{{ permis
 | Edit dashboards | N/A | - | ✔ | ✔ |
 | Edit permissions | N/A | - | - | ✔ |
 
+## Row-level security (RLS) {#row-level-security}
+
+In a dataset, you can restrict data access at the row level using _Row-level security_ (_RLS_).
+You can restrict access to any dataset dimension.
+
+Using RLS, you can restrict data access for users within a single dataset. For example, you can restrict access for different customers.
+Each user can be granted rights to an unlimited number of measure values.
+
+Restrictions are set in the access configuration and look like this:
+
+```yaml
+'[value 1]': [user 1], [user 2]
+'[value 2]': [user 3]
+'[value 3]': [user 1], [user 2], [user 3]
+```
+
+If RLS is configured, any query to a dataset passes through the following filter:
+
+```roomsql
+where [dimension] in ([value 1], [value 2]... [value N])
+```
+
+{% include [rls-note](../../_includes/datalens/datalens-rls-note.md) %}
+
 #### What's next {#what-is-next}
 
 - [{#T}](../operations/permission/grant.md)
 - [{#T}](../operations/permission/revoke.md)
 - [{#T}](../operations/permission/request.md)
+- [{#T}](../operations/dataset/manage-row-level-security.md)
 

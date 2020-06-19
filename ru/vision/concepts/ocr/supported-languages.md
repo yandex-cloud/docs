@@ -9,7 +9,7 @@
 * `en` — английский.
 * `ru` — русский.
 
-{% note important %}
+{% note warning %}
 
 Сейчас эта модель не может быть выбрана при [автоматическом определении языка](../../operations/ocr/text-detection.md#basic). Чтобы использовать эту модель, надо [явно указать](../../operations/ocr/text-detection.md#multiple-languages) один или оба языка.
 

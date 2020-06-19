@@ -30,9 +30,10 @@ After creating a cluster, you can:
 
   2. Request a list of available host classes (the `ZONES` column specifies the availability zones where you can select the appropriate class):
 
+     
      ```
      $ yc managed-postgresql resource-preset list
-     
+
      +-----------+--------------------------------+-------+----------+
      |    ID     |            ZONE IDS            | CORES |  MEMORY  |
      +-----------+--------------------------------+-------+----------+
@@ -43,6 +44,8 @@ After creating a cluster, you can:
      | ...                                                           |
      +-----------+--------------------------------+-------+----------+
      ```
+
+    
 
   3. Specify the class in the update cluster command:
 
@@ -73,11 +76,12 @@ After creating a cluster, you can:
 
   To increase the storage size for a cluster:
 
+  
   3. Make sure the required cluster is using network storage (it is not yet possible to increase the size of local storage). To do this, request information about the cluster and find the `disk_type_id` field: it should be set to `network-hdd` or `network-ssd`:
 
       ```
       $ yc managed-postgresql cluster get <cluster name>
-      
+
       id: c7qkvr3u78qiopj3u4k2
       folder_id: b1g0ftj57rrjk9thribv
       ...
@@ -89,6 +93,8 @@ After creating a cluster, you can:
           disk_type_id: network-ssd
       ...
       ```
+
+ 
 
   1. View the description of the CLI's update cluster command:
 
@@ -129,7 +135,7 @@ When [the host class changes](#change-resource-preset), {{ mpg-short-name }} aut
 - `autovacuum_vacuum_cost_delay`
 - `autovacuum_vacuum_cost_limit`
 
-The settings you set manually will no longer change automatically. Exceptions can occur if the set value doesn't become invalid as you change the host class: for example, it's impossible to set `max_connections` to 400 and then change the cluster host class to `s1.nano` (for more information about the maximum number of connections, see [{#T}](cluster-create.md).
+The settings you set manually will no longer change automatically. Exceptions can occur if the set value doesn't become invalid as you change the host class: for example, it's impossible to set `max_connections` to 800 and then change the cluster host class to `s2.micro` (for more information about the maximum number of connections, see [{#T}](cluster-create.md).
 
 {% list tabs %}
 

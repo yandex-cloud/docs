@@ -1,6 +1,6 @@
 # Deleting service accounts
 
-{% note important %}
+{% note warning %}
 
 Deleting a [service account](../../concepts/users/service-accounts.md) is an operation that cannot be undone. You can't restore a deleted service account; you can only [re-create](create.md) it.
 

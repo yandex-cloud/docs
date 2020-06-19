@@ -1,56 +1,56 @@
-title: "Solutions"
+title: Solutions
 href: index.yaml
 items:
   - name: Web service
     items:
-    - name: All tutorials
-      href: web/index.md
-    - name: Static website in Object Storage
-      href: web/static.md
-    - name: Website on LAMP or LEMP stack
-      href: web/lamp-lemp.md
-    - name: Fault-tolerant website with load balancing from Yandex Load Balancer
-      href: web/load-balancer-website.md
-    - name: Fault-tolerant website using DNS load balancing
-      href: web/dns-load-balancer.md
-    - name: Joomla-based website with PostgreSQL
-      href: web/joomla-postgresql.md
-    - name: WordPress website
-      href: web/wordpress.md
-    - name: WordPress website on a MySQL database
-      href: web/wordpress-mysql.md
+      - name: All tutorials
+        href: web/index.md
+      - name: Static website in Object Storage
+        href: web/static.md
+      - name: Website on LAMP or LEMP stack
+        href: web/lamp-lemp.md
+      - name: Fault-tolerant website with load balancing from Yandex Load Balancer
+        href: web/load-balancer-website.md
+      - name: Fault-tolerant website using DNS load balancing
+        href: web/dns-load-balancer.md
+      - name: Joomla-based website with PostgreSQL
+        href: web/joomla-postgresql.md
+      - name: WordPress website
+        href: web/wordpress.md
+      - name: WordPress website on a MySQL database
+        href: web/wordpress-mysql.md
   - name: Online stores
     items:
-    - name: Opencart online store
-      href: internet-store/opencart.md
+      - name: Opencart online store
+        href: internet-store/opencart.md
   - name: Data archive
     items:
-    - name: All tutorials
-      href: archive/index.md
-    - name: Single-node file server
-      href: archive/single-node-file-server.md
-    - name: Configuring an SFTP server on Centos 7
-      href: archive/backup-and-archive-to-sftp.md
-    - name: Backup to Object Storage via Acronis Backup
-      href: archive/object-storage-acronis.md
-    - name: Backup to Object Storage via CloudBerry Desktop Backup
-      href: archive/object-storage-cloudberry.md
-    - name: Backup to Object Storage via Duplicati
-      href: archive/object-storage-duplicati.md
-    - name: Backup to Object Storage via Bacula
-      href: archive/backup-with-bacula.md
-    - name: Digitizing archives in Yandex Vision
-      href: archive/archive-from-vision-to-object-storage.md
+      - name: All tutorials
+        href: archive/index.md
+      - name: Single-node file server
+        href: archive/single-node-file-server.md
+      - name: Configuring an SFTP server on Centos 7
+        href: archive/backup-and-archive-to-sftp.md
+      - name: Backup to Object Storage via Acronis Backup
+        href: archive/object-storage-acronis.md
+      - name: Backup to Object Storage via CloudBerry Desktop Backup
+        href: archive/object-storage-cloudberry.md
+      - name: Backup to Object Storage via Duplicati
+        href: archive/object-storage-duplicati.md
+      - name: Backup to Object Storage via Bacula
+        href: archive/backup-with-bacula.md
+      - name: Digitizing archives in Yandex Vision
+        href: archive/archive-from-vision-to-object-storage.md
   - name: Test environment
     items:
-    - name: All tutorials
-      href: testing/index.md
-    - name: Testing applications with GitLab
-      href: testing/gitlab.md
-    - name: Creating test VMs using GitLab CI
-      href: testing/ci-for-snapshots.md
-    - name: High-performance computing (HPC) on preemptible VMs
-      href: testing/hpc-on-preemptible.md
+      - name: All tutorials
+        href: testing/index.md
+      - name: Testing applications with GitLab
+        href: testing/gitlab.md
+      - name: Creating test VMs using GitLab CI
+        href: testing/ci-for-snapshots.md
+      - name: High-performance computing (HPC) on preemptible VMs
+        href: testing/hpc-on-preemptible.md
   - name: Performing infrastructure management
     items:
       - name: All tutorials
@@ -65,6 +65,10 @@ items:
         href: infrastructure-management/jenkins.md
       - name: Continuous deployment of containerized applications using GitLab
         href: infrastructure-management/gitlab-containers.md
+      - name: Migrating to Yandex.Cloud using Hystax Acura
+        href: infrastructure-management/hystax-migration.md
+      - name: Emergency recovery in Yandex.Cloud using Hystax Acura
+        href: infrastructure-management/hystax-disaster-recovery.md
   - name: Windows in Yandex.Cloud
     items:
       - name: All tutorials
@@ -73,6 +77,8 @@ items:
         href: windows/active-directory.md
       - name: Deploying Microsoft Exchange
         href: windows/exchange.md
+      - name: Deploying Microsoft Remote Desktop Services
+        href: windows/rds.md
   - name: Network routing
     items:
       - name: All tutorials

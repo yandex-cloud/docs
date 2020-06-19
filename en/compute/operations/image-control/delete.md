@@ -1,6 +1,6 @@
 # Deleting a disk image
 
-{% note important %}
+{% note warning %}
 
 Deleting a disk image is an operation that cannot be canceled or reversed. You cannot restore a deleted image.
 

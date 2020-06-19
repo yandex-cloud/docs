@@ -262,7 +262,7 @@ yc container registry configure-docker
     ```
 1. Удалите сервисные аккаунты:
 
-    {% note important %}
+    {% note warning %}
     
     Не удаляйте сервисный аккаунт до удаления кластера {{ k8s }}.
     

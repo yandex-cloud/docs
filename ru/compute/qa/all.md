@@ -14,7 +14,7 @@
 
 ## Группы виртуальных машин {#instance-groups}
 
-{% include notitle [disks](instance-groups/general.md) %}
+{% include notitle [disks](../_includes_service/instance-groups/general.md) %}
 
 ## Лицензирование {#licensing}
 

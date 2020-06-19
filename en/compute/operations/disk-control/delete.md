@@ -2,7 +2,7 @@
 
 You can only delete a disk that is not attached to any VM.
 
-{% note important %}
+{% note warning %}
 
 Deleting a disk is an operation that cannot be canceled or reversed. You cannot restore a deleted disk.
 

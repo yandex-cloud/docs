@@ -4,7 +4,7 @@ To create a chart using a text query, follow these steps:
 
 1. On the {{ monitoring-full-name }} service homepage, click **Create chart**.
 
-1. Under **Queries**, click the ![image](../../_assets/ellipsis.svg) icon and select **Edit as text**.
+1. Under **Queries**, click the ![image](../../../_assets/monitoring/ellipsis.svg) icon and select **Edit as text**.
 
 1. Specify the mandatory labels with the necessary values, separated by a comma:
 
@@ -14,13 +14,13 @@ To create a chart using a text query, follow these steps:
 
 1. Enter optional labels to view the metrics on a chart.
 
-    {% note important %}
+    {% note warning %}
 
     You can add up to 50 metrics per chart.
 
     {% endnote %}
 
-1. Click ![image](../../_assets/checkmark.png). The metric appears on the chart.
+1. Click ![image](../../../_assets/monitoring/checkmark.png). The metric appears on the chart.
 
 1. Click **Finish**. Enter a name for the chart and select the directory to save it to.
 

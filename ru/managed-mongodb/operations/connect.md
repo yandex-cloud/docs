@@ -16,11 +16,13 @@
 
 {{ MG }}-хосты с публичным доступом поддерживают только соединения с SSL-сертификатом. Подготовить сертификат можно так:
 
+
 ```bash
 $ mkdir ~/.mongodb
 $ wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" -O ~/.mongodb/CA.pem
 $ chmod 0600 ~/.mongodb/CA.pem
 ```
+
 
 ## Строка подключения {#Connection-string}
 
@@ -34,6 +36,7 @@ $ chmod 0600 ~/.mongodb/CA.pem
 
   {% include [public-connect-ssl](../../_includes/mdb/public-connect-ssl.md) %}
     
+  
   ```bash
   $ mongo --norc \
           --tls \
@@ -43,6 +46,8 @@ $ chmod 0600 ~/.mongodb/CA.pem
           -p <пароль пользователя> \
           <имя БД>
   ```
+ 
+ 
 
 
 
@@ -51,6 +56,7 @@ $ chmod 0600 ~/.mongodb/CA.pem
 
   {% include [public-connect-ssl](../../_includes/mdb/public-connect-ssl.md) %}
 
+  
   ```bash
   $ mongo --norc \
           --ssl \
@@ -60,6 +66,8 @@ $ chmod 0600 ~/.mongodb/CA.pem
           -p <пароль пользователя> \
           <имя БД>
   ```
+ 
+ 
 
 
 
@@ -68,6 +76,7 @@ $ chmod 0600 ~/.mongodb/CA.pem
 
   Если вам не нужно шифровать трафик внутри виртуальной сети при подключении к БД, то вы можете подключаться с виртуальной машины Яндекс.Облака без SSL-соединения. Передайте параметр `sslmode` со значением `disable`:
 
+  
   ```bash
   $ mongo --norc \
           --host 'rs01/<FQDN хоста 1>:27018,<FQDN хоста 2>:27018,<FQDN хоста N>:27018' \
@@ -75,6 +84,8 @@ $ chmod 0600 ~/.mongodb/CA.pem
           -p <пароль пользователя> \
           <имя БД>
   ```
+ 
+ 
 
 
 

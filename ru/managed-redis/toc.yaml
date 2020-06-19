@@ -1,4 +1,4 @@
-title: "Yandex Managed Service for Redis"
+title: Yandex Managed Service for Redis
 href: index.yaml
 items:
   - name: Начало работы
@@ -29,24 +29,24 @@ items:
         href: operations/cluster-delete.md
   - name: Концепции
     items:
-    - name: Обзор
-      href: concepts/index.md
-    - name: Классы хостов
-      href: concepts/instance-types.md
-    - name: Сеть в Managed Service for Redis
-      href: concepts/network.md
-    - name: Шардирование
-      href: concepts/sharding.md
-    - name: Резервные копии
-      href: concepts/backup.md
-    - name: Репликация и отказоустойчивость
-      href: concepts/replication.md
-    - name: Поддерживаемые клиенты
-      href: concepts/supported-clients.md
-    - name: Ограничения Managed Service for Redis
-      href: concepts/supported-features.md
-    - name: Квоты и лимиты сервиса
-      href: concepts/limits.md
+      - name: Обзор
+        href: concepts/index.md
+      - name: Классы хостов
+        href: concepts/instance-types.md
+      - name: Сеть в Managed Service for Redis
+        href: concepts/network.md
+      - name: Шардирование
+        href: concepts/sharding.md
+      - name: Резервные копии
+        href: concepts/backup.md
+      - name: Репликация и отказоустойчивость
+        href: concepts/replication.md
+      - name: Поддерживаемые клиенты
+        href: concepts/supported-clients.md
+      - name: Ограничения Managed Service for Redis
+        href: concepts/supported-features.md
+      - name: Квоты и лимиты сервиса
+        href: concepts/limits.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
@@ -63,15 +63,91 @@ items:
         href: api-ref/authentication.md
       - name: gRPC
         items:
-        include:
-          repo: docs
-          path: ru/_api-ref-grpc/managed-redis/api-ref/toc.yaml
+          - name: Обзор
+            href: grpc/index.md
+          - name: BackupService
+            href: grpc/backup_service.md
+          - name: ClusterService
+            href: grpc/cluster_service.md
+          - name: ResourcePresetService
+            href: grpc/resource_preset_service.md
+          - name: OperationService
+            href: grpc/operation_service.md
       - name: REST
         items:
-        include:
-          repo: docs
-          path: ru/_api-ref/mdb/redis/toc.yaml
+          - name: Обзор
+            href: api-ref/index.md
+          - name: Backup
+            items:
+              - name: Обзор
+                href: api-ref/Backup/index.md
+              - name: get
+                href: api-ref/Backup/get.md
+              - name: list
+                href: api-ref/Backup/list.md
+          - name: Cluster
+            items:
+              - name: Обзор
+                href: api-ref/Cluster/index.md
+              - name: addHosts
+                href: api-ref/Cluster/addHosts.md
+              - name: addShard
+                href: api-ref/Cluster/addShard.md
+              - name: backup
+                href: api-ref/Cluster/backup.md
+              - name: create
+                href: api-ref/Cluster/create.md
+              - name: delete
+                href: api-ref/Cluster/delete.md
+              - name: deleteHosts
+                href: api-ref/Cluster/deleteHosts.md
+              - name: deleteShard
+                href: api-ref/Cluster/deleteShard.md
+              - name: get
+                href: api-ref/Cluster/get.md
+              - name: getShard
+                href: api-ref/Cluster/getShard.md
+              - name: list
+                href: api-ref/Cluster/list.md
+              - name: listBackups
+                href: api-ref/Cluster/listBackups.md
+              - name: listHosts
+                href: api-ref/Cluster/listHosts.md
+              - name: listLogs
+                href: api-ref/Cluster/listLogs.md
+              - name: listOperations
+                href: api-ref/Cluster/listOperations.md
+              - name: listShards
+                href: api-ref/Cluster/listShards.md
+              - name: move
+                href: api-ref/Cluster/move.md
+              - name: rebalance
+                href: api-ref/Cluster/rebalance.md
+              - name: restore
+                href: api-ref/Cluster/restore.md
+              - name: start
+                href: api-ref/Cluster/start.md
+              - name: startFailover
+                href: api-ref/Cluster/startFailover.md
+              - name: stop
+                href: api-ref/Cluster/stop.md
+              - name: update
+                href: api-ref/Cluster/update.md
+          - name: ResourcePreset
+            items:
+              - name: Обзор
+                href: api-ref/ResourcePreset/index.md
+              - name: get
+                href: api-ref/ResourcePreset/get.md
+              - name: list
+                href: api-ref/ResourcePreset/list.md
+          - name: Operation
+            items:
+              - name: Обзор
+                href: api-ref/Operation/index.md
+              - name: get
+                href: api-ref/Operation/get.md
   - name: Вопросы и ответы
     items:
-    - name: Общие вопросы
-      href: qa/general.md
+      - name: Общие вопросы
+        href: qa/general.md

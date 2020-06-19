@@ -1,6 +1,6 @@
 # Step-by-step instructions for Yandex DataLens
 
-## Creating a connection {#creating-connection}
+## Create connection {#creating-connection}
 
 - [{#T}](connection/create-clickhouse.md)
 - [{#T}](connection/create-csv.md)
@@ -16,6 +16,9 @@
 
 - [{#T}](dataset/create.md)
 - [{#T}](dataset/create-field.md)
+- [{#T}](dataset/create-calculated-field.md)
+- [{#T}](dataset/materialize.md)
+- [{#T}](dataset/manage-row-level-security.md)
 - [{#T}](dataset/manage-access.md)
 
 ## Creating and configuring charts {#creating-and-configuring-charts}
@@ -26,6 +29,10 @@
 - [{#T}](chart/create-pie-chart.md)
 - [{#T}](chart/create-table.md)
 - [{#T}](chart/create-pivot-table.md)
+- [{#T}](chart/create-point-map-chart.md)
+- [{#T}](chart/create-choropleth-map-chart.md)
+- [{#T}](chart/create-heat-map-chart.md)
+- [{#T}](chart/publish.md)
 - [{#T}](chart/manage-access.md)
 
 ## Working with dashboards {#working-with-dashboards}
@@ -33,5 +40,6 @@
 - [{#T}](dashboard/create.md)
 - [{#T}](dashboard/add-chart.md)
 - [{#T}](dashboard/add-selector.md)
+- [{#T}](dashboard/publish.md)
 - [{#T}](dashboard/manage-access.md)
 

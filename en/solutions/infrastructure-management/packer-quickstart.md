@@ -21,7 +21,7 @@ To create an image:
 
 {% note info %}
 
-Yandex.Cloud requires Packer 1.4.1 or higher.
+Yandex.Cloud requires Packer 1.5 or higher.
 
 {% endnote %}
 
@@ -42,7 +42,7 @@ Download and install Packer by following the [instructions on the official websi
       "folder_id": "<folder ID>",
       "zone":      "ru-central1-a",
 
-      "image_name":        "debian-9-nginx-{{isotime | clean_image_name}}",
+      "image_name":        "debian-9-nginx-{{isotime | clean_resource_name}}",
       "image_family":      "debian-web-server",
       "image_description": "my custom debian with nginx",
 

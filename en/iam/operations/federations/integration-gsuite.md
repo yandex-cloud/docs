@@ -12,7 +12,7 @@ To set up authentication:
 1. [Add users to the cloud](#add-users).
 1. [Test the authentication process](#test-auth).
 
-## Before you start {#before-begin}
+## Before you start {#before-you-begin}
 
 To use the instructions in this section, you need:​
 
@@ -36,13 +36,13 @@ Before you can create an identity federation in the cloud, you need to get infor
 
 - Management console
 
-    1. Open the folder page in [management console]({{ link-console-main }}).
+    1. Open the folder page in the [management console]({{ link-console-main }}).
 
     1. Select the **Federations** tab in the left menu.
 
     1. Click **Create federation**.
 
-    1. Enter a name for the federation. The name is unique within the project.
+    1. Enter a name for the federation. The name must be unique within the folder.
 
     1. Add a description if necessary.
 
@@ -63,6 +63,107 @@ Before you can create an identity federation in the cloud, you need to get infor
     1. Enable **Automatically create users** to automatically add a new user to the cloud on successful authentication. This option simplifies the user setup process, but the user only has the `resource-manager.clouds.member` role and they can't do anything with the resources in the cloud. Exceptions are the resources that the `allUsers` or `allAuthenticatedUsers` system group roles are assigned to.
 
         If this option is disabled, users who aren't added to the cloud can't log in, even if they have authenticated on your server. This way you can create a <q>white list</q> of users that are allowed to use Yandex.Cloud.
+
+- CLI
+
+    {% include [cli-install](../../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+    1. See the description of the create federation command:
+
+        ```
+        $ yc iam federation create --help
+        ```
+
+    1. Create a federation:
+
+        ```
+        $ yc iam federation create --name my-federation \
+            --auto-create-account-on-login \
+            --cookie-max-age 12h \
+            --issuer "https://accounts.google.com/o/saml2?idpid=C03xolm0y" \
+            --sso-binding POST \
+            --sso-url "https://accounts.google.com/o/saml2/idp?idpid=C03xolm0y"
+        ```
+
+        Where:
+
+        * `name`: Federation name. The name must be unique within the folder.
+
+        * `auto-create-account-on-login`: Flag for automatically creating new users in the cloud after authenticating on the IdP server. This option simplifies the user setup, but users created this way are only assigned the `resource-manager.clouds.member` role by default: they can't do anything with cloud resources. Exceptions are the resources that the `allUsers` or `allAuthenticatedUsers` system group roles are assigned to.
+
+            If this option is disabled, users who aren't added to the cloud can't log in to the management console, even if they authenticate with your server. In this case, you can manage the white list of users who are allowed to use Yandex.Cloud.
+
+        * `cookie-max-age`: Time before the browser asks the user to re-authenticate.
+
+        * `issuer`: IdP server ID to be used for authentication.
+
+            Copy here the link from the **Entity ID** field of the G Suite **Google IdP Information** page. This is a link in the format:
+
+            ```
+            https://accounts.google.com/o/saml2?idpid=<SAML app ID>
+            ```
+
+        * `sso-url`: URL of the page that the browser redirects the user to for authentication.
+
+            Copy here the link from the **SSO URL** field of the G Suite **Google IdP Information** page. This is a link in the format:
+
+            ```
+            https://accounts.google.com/o/saml2/idp?idpid=<SAML app ID>
+            ```
+
+        * `sso-binding`: Specify the Single Sign-on binding type. Most Identity Providers support the `POST` binding type.
+
+- API
+
+    1. [Get the ID of the folder](../../../resource-manager/operations/folder/get-id.md) to create your federation in.
+
+    1. Create a file with the request body (for example, `body.json`):
+
+        ```json
+        {
+          "folderId": "<folder ID>",
+          "name": "my-federation",
+          "autocreateUsers": true,
+          "cookieMaxAge":"43200s",
+          "issuer": "https://accounts.google.com/o/saml2?idpid=C03xolm0y",
+          "ssoUrl": "https://accounts.google.com/o/saml2/idp?idpid=C03xolm0y",
+          "ssoBinding": "POST"
+        }
+        ```
+
+        Where:
+
+        * `folderId`: ID of the folder.
+
+        * `name`: Federation name. The name must be unique within the folder.
+
+        * `autocreateUsers`: Flag for automatically creating new users in the cloud after authenticating on the IdP server. This option simplifies the user setup, but users created this way are only assigned the `resource-manager.clouds.member` role by default: they can't do anything with cloud resources. Exceptions are the resources that the `allUsers` or `allAuthenticatedUsers` system group roles are assigned to.
+
+            If this option is disabled, users who aren't added to the cloud can't log in to the management console, even if they authenticate with your server. In this case, you can manage the white list of users who are allowed to use Yandex.Cloud.
+
+        * `cookieMaxAge`: Time before the browser asks the user to re-authenticate.
+
+        * `issuer`: IdP server ID to be used for authentication.
+
+            Copy here the link from the **Entity ID** field of the G Suite **Google IdP Information** page. This is a link in the format:
+
+            ```
+            https://accounts.google.com/o/saml2?idpid=<SAML app ID>
+            ```
+
+        * `ssoUrl`: URL of the page that the browser redirects the user to for authentication.
+
+            Copy here the link from the **SSO URL** field of the G Suite **Google IdP Information** page. This is a link in the format:
+
+            ```
+            https://accounts.google.com/o/saml2/idp?idpid=<SAML app ID>
+            ```
+
+        * `ssoBinding`: Specify the Single Sign-on binding type. Most Identity Providers support the `POST` binding type.
+
+    1. {% include [include](../../../_includes/iam/create-federation-curl.md) %}
 
 {% endlist %}
 
@@ -125,7 +226,7 @@ When you finish configuring the server, you can test that everything is up and r
 1. Enter your authentication data. By default, enter your UPN and password. After that, click **Sign in**.
 1. If the authentication is successful, the server redirects you back to the console login link and then to the management console home page. In the upper-right corner, you can see that you are logged in to the console as a federated user.
 
-#### What's next
+#### What's next {#what-is-next}
 
 * [Assign roles to the added users](../roles/grant.md#access-to-federated-user).
 

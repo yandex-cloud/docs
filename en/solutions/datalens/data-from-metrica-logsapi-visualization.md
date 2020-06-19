@@ -2,7 +2,7 @@
 
 **Logs API** technology lets you get non-aggregated Yandex.Metrica data, process it, and use it in analytical tasks.
 
-{% note important %}
+{% note warning %}
 
 To perform this scenario, you need have access to a Yandex.Metrica tag and a Clickhouse database in Yandex.Cloud.
 
@@ -58,7 +58,7 @@ To visualize the data, follow these steps:
     1. Select the **Regular** option. The data will be updated automatically every day.
     1. In the **Hostname** field, specify the ClickHouse database host. You can get your database access credentials on the ClickHouse cluster connection page in the console.
     
-        {% note important %}
+        {% note warning %}
     
         The Metrica Logs API connection can only access ClickHouse databases deployed in Yandex.Cloud.
     
@@ -75,7 +75,7 @@ To visualize the data, follow these steps:
 
     ![image](../../_assets/datalens/solution-04/08-save-connection.png)
 
-    {% note important %}
+    {% note warning %}
 
     It can take from several minutes to dozens of hours to upload tag data from Yandex.Metrica to the ClickHouse database depending on the amount of data and the upload start date.
 

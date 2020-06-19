@@ -44,7 +44,7 @@
    ![add-vm-name](../_assets/wordpress/vm-create-2.png)
 
 1. Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться виртуальная машина.
-1. В блоке **Публичные образы** нажмите кнопку **Выбрать**. Выберите публичный образ **WordPress**.
+1. В блоке **Образы из {{ marketplace-name }}** нажмите кнопку **Выбрать**. Выберите публичный образ **WordPress**.
 
    ![choose-image](../_assets/wordpress/vm-create-3.png)
 

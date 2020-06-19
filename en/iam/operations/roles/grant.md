@@ -85,6 +85,7 @@ This section describes how to assign a role to a user with a Yandex account. The
 
 * [{#T}](#multiple-roles)
 * [{#T}](#access-to-sa)
+* [{#T}](#access-to-federated-user)
 * [{#T}](#access-to-all)
 
 ### Assign multiple roles {#multiple-roles}
@@ -198,6 +199,8 @@ This section describes how to assign a role to a user with a Yandex account. The
 {% include [grant-role-for-sa](../../../_includes/iam/grant-role-for-sa.md) %}
 
 ### Resource access for a federated user {#access-to-federated-user}
+
+{% include [include](../../../_includes/saml-assign-role-note.md) %}
 
 Currently, [a federated user](../../concepts/users/identity-federations.md) can only be assigned a role from the management console.
 

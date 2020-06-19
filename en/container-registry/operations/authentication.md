@@ -137,7 +137,7 @@ Yandex.Cloud uses `docker-credential-yc` as a Docker Credential helper. It store
 
 ### Configuring a Credential helper {#ch-setting}
 
-{% note important %}
+{% note warning %}
 
 You don't need to install the `docker-credential-yc` separately: just install the YC CLI and configure the Credential helper following the description below.
 

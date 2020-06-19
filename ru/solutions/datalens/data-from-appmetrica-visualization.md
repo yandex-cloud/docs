@@ -18,7 +18,7 @@
 
 ## Создайте подключение и стандартный дашборд {#create-dashboard}
 
-{% note important %}
+{% note warning %}
 
 Шаг доступен для пользователей, у которых есть приложение в сервисе AppMetrica. Если у вас нет приложений, откройте стандартный **Дашборд AppMetrica** и перейдите к [следующему шагу](data-from-appmetrica-visualization.md#edit-dashboard).
 
@@ -56,7 +56,7 @@
 
 ## Измените стандартный дашборд {#edit-dashboard}
 
-{% note important %}
+{% note warning %}
 
 Если у вас нет приложения в AppMetrica и вы пропустили предыдущий шаг, используйте **Дашборд AppMetrica**.
 

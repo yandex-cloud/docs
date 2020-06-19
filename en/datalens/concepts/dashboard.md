@@ -1,8 +1,11 @@
 # Dashboards
 
 _Dashboards_ are pages or sets of pages that contain widgets. They let you group charts in one place and add explanatory text and titles.
+You can create new dashboard pages using the **tab** element.
 
-New dashboard pages can be created using the _tab_ element.
+{{ datalens-short-name }} allows you to display the dashboard in full-screen mode. This mode hides part of the interface elements and expands the widget area on the screen.
+
+On the mobile version of the dashboard, {{ datalens-short-name }} displays the charts one after another using the following sorting rule: left-to-right, top-to-bottom.
 
 ## Widgets {#widget}
 
@@ -39,9 +42,15 @@ A widget represented as a heading. It lets you differentiate charts by meaning a
 
 ## Link {#link}
 
-A link determines how a selector affects one or more charts. By default, selectors affect charts created within a single dataset. Selectors and charts based on different datasets can also be linked manually.
+Links determine how a selector affects one or more charts. By default, selectors affect charts created within a single dataset. Selectors and charts based on different datasets can also be linked manually.
 
 You can choose a dataset field as the link or create your own field where you manually set the selector values.
+
+## Publishing dashboards {#public-access}
+
+You can grant any internet user access to a dashboard using [{{ datalens-public }}](datalens-public.md). This dashboard becomes public and any user can view it without authorization.
+
+{% include [share-note](../../_includes/datalens/datalens-share-note.md) %}
 
 ## Access management {#access-management}
 

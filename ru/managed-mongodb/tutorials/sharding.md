@@ -21,7 +21,7 @@
 
 ## Как включить шардирование коллекций {#enable}
 
-{% note important %}
+{% note warning %}
 
 Все операции по настройке шардирования с помощью CLI `mongo` необходимо выполнять от имени пользователя с ролью [mdbShardingManager](../concepts/users-and-roles.md#mdbShardingManager) в базе данных [admin](https://docs.mongodb.com/manual/reference/glossary/#term-admin-database).
 

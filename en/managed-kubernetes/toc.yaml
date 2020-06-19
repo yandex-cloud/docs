@@ -21,7 +21,31 @@ items:
             href: operations/volumes/static-create-pv.md
           - name: Managing storage classes
             href: operations/volumes/manage-storage-class.md
-  - name: Solutions
+      - name: Managing a Kubernetes cluster
+        items:
+          - name: >-
+              Adding Kubernetes cluster credentials to the kubectl configuration
+              file
+            href: operations/kubernetes-cluster/kubernetes-cluster-get-credetials.md
+          - name: Getting information about a Kubernetes cluster
+            href: operations/kubernetes-cluster/kubernetes-cluster-list.md
+          - name: Creating a Kubernetes cluster
+            href: operations/kubernetes-cluster/kubernetes-cluster-create.md
+          - name: Editing a Kubernetes cluster
+            href: operations/kubernetes-cluster/kubernetes-cluster-update.md
+          - name: Deleting a Kubernetes cluster
+            href: operations/kubernetes-cluster/kubernetes-cluster-delete.md
+      - name: Managing a node group
+        items:
+          - name: Getting information about a node group
+            href: operations/node-group/node-group-list.md
+          - name: Creating a node group
+            href: operations/node-group/node-group-create.md
+          - name: Changing a node group
+            href: operations/node-group/node-group-update.md
+          - name: Deleting a node group
+            href: operations/node-group/node-group-delete.md
+  - name: Use cases
     items:
       - name: Integration with Container Registry
         href: solutions/container-registry.md
@@ -29,12 +53,22 @@ items:
     items:
       - name: Relationship between service resources
         href: concepts/index.md
-      - name: Volumes
-        href: concepts/volume.md
-      - name: Service
-        href: concepts/service.md
       - name: Release channels and updates
         href: concepts/release-channels-and-updates.md
+      - name: Using Kubernetes API objects
+        items:
+          - name: Volumes
+            href: concepts/volume.md
+          - name: Service
+            href: concepts/service.md
+      - name: Node groups
+        items:
+          - name: Cluster autoscaler
+            href: concepts/node-group/cluster-autoscaler.md
+          - name: Evicting pods from nodes
+            href: concepts/node-group/node-drain.md
+          - name: Dynamic resource allocation for a node
+            href: concepts/node-group/allocatable-resources.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Access management
@@ -47,11 +81,55 @@ items:
         href: api-ref/authentication.md
       - name: gRPC
         items:
-        include:
-          repo: docs
-          path: en/_api-ref-grpc/managed-kubernetes/api-ref/toc.yaml
+          - name: Overview
+            href: grpc/index.md
+          - name: ClusterService
+            href: grpc/cluster_service.md
+          - name: NodeGroupService
+            href: grpc/node_group_service.md
+          - name: VersionService
+            href: grpc/version_service.md
+          - name: OperationService
+            href: grpc/operation_service.md
       - name: REST
         items:
-        include:
-          repo: docs
-          path: en/_api-ref/k8s/toc.yaml
+          - name: Overview
+            href: api-ref/index.md
+          - name: Cluster
+            items:
+              - name: Overview
+                href: api-ref/Cluster/index.md
+              - name: create
+                href: api-ref/Cluster/create.md
+              - name: delete
+                href: api-ref/Cluster/delete.md
+              - name: get
+                href: api-ref/Cluster/get.md
+              - name: list
+                href: api-ref/Cluster/list.md
+              - name: listNodeGroups
+                href: api-ref/Cluster/listNodeGroups.md
+              - name: listOperations
+                href: api-ref/Cluster/listOperations.md
+              - name: update
+                href: api-ref/Cluster/update.md
+          - name: NodeGroup
+            items:
+              - name: Overview
+                href: api-ref/NodeGroup/index.md
+              - name: create
+                href: api-ref/NodeGroup/create.md
+              - name: delete
+                href: api-ref/NodeGroup/delete.md
+              - name: get
+                href: api-ref/NodeGroup/get.md
+              - name: list
+                href: api-ref/NodeGroup/list.md
+              - name: listOperations
+                href: api-ref/NodeGroup/listOperations.md
+              - name: update
+                href: api-ref/NodeGroup/update.md
+          - name: Version
+            items:
+              - name: Overview
+                href: api-ref/Version/index.md

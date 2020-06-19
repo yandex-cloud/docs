@@ -15,11 +15,13 @@
 
 {{ PG }}-хосты с публичным доступом поддерживают только соединения с SSL-сертификатом. Подготовить сертификат можно так:
 
+
 ```bash
 $ mkdir ~/.postgresql
 $ wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" -O ~/.postgresql/root.crt
 $ chmod 0600 ~/.postgresql/root.crt
 ```
+
 
 
 ## Строка подключения {#connection-string}

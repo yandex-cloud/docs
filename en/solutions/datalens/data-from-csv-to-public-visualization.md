@@ -2,7 +2,7 @@
 
 You can use {{datalens-short-name }} to grant public access to your charts and dashboards.
 
-{% note important %}
+{% note warning %}
 
 Before publishing your own data, make sure that your charts and dashboards don't contain personal data or trade secrets. Access to published data is not restricted.
 

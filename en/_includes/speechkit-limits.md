@@ -29,4 +29,5 @@
 | Maximum file size | {{ stt-long-fileSize }} |
 | Maximum duration of audio | {{ stt-long-audioLength }} |
 | Period for storing recognition results on the server | {{ stt-long-resultsStorageTime }} |
-
+| [**Speech synthesis**](../speechkit/tts/request.md) |
+| Maximum request size | 5000 characters

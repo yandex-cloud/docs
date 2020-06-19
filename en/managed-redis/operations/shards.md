@@ -2,7 +2,7 @@
 
 You can add and remove cluster shards, request a list of shards in your cluster, and rebalance your cluster.
 
-{% note important %}
+{% note warning %}
 
 You can only manage shards in sharded clusters. Existing non-sharded clusters can't be sharded later. To create a sharded cluster, see [Creating clusters](cluster-create.md#create-cluster).
 

@@ -10,7 +10,7 @@ When creating a VM, you need to select its image with the software that you want
   1. Open the folder where the VM will be created.
   1. Click **Create resource**.
   1. Select **Virtual machine**.
-  1. Under **Public images**, click **Select**.
+  1. Under **Images from {{ marketplace-name }}**, click **Select**.
 
 - CLI
 

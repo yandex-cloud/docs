@@ -1,6 +1,5 @@
-title: "Yandex Key Management Service"
+title: Yandex Key Management Service
 href: index.yaml
-stage: preview
 items:
   - name: Начало работы
     href: quickstart/index.md
@@ -12,14 +11,44 @@ items:
         href: operations/key.md
       - name: Версия ключа
         href: operations/version.md
+      - name: Шифрование данных
+        href: operations/encryption.md
   - name: Концепции
     items:
-        - name: Обзор
-          href: concepts/index.md
-        - name: Применимые понятия криптографии
-          href: concepts/encryption.md
-        - name: Квоты и лимиты
-          href: concepts/limits.md
+      - name: Обзор
+        href: concepts/index.md
+      - name: Ключ
+        href: concepts/key.md
+      - name: Версия ключа
+        href: concepts/version.md
+      - name: Шифрование
+        href: concepts/encryption.md
+      - name: Шифрование по схеме envelope encryption
+        href: concepts/envelope.md
+      - name: Консистентность ключей
+        href: concepts/consistency.md
+      - name: Квоты и лимиты
+        href: concepts/limits.md
+  - name: Сценарии использования
+    items:
+      - name: Шифрование данных
+        items:
+          - name: Какой способ шифрования выбрать?
+            href: solutions/encrypt/index.md
+          - name: Шифрование с помощью CLI и API Яндекс.Облака
+            href: solutions/encrypt/cli-api.md
+          - name: Шифрование с помощью SDK Яндекс.Облака
+            href: solutions/encrypt/sdk.md
+          - name: Шифрование с помощью AWS Encryption SDK
+            href: solutions/encrypt/aws-encryption-sdk.md
+          - name: Шифрование с помощью Google Tink
+            href: solutions/encrypt/google-tink.md
+      - name: Шифрование секретов в Managed Service for Kubernetes
+        href: solutions/k8s.md
+      - name: Управление ключами KMS с Hashicorp Terraform
+        href: solutions/terraform-key.md
+      - name: Шифрование секретов в Hashicorp Terraform
+        href: solutions/terraform-secret.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
@@ -30,13 +59,59 @@ items:
         href: api-ref/authentication.md
       - name: gRPC
         items:
-        include:
-          repo: docs
-          path: ru/_api-ref-grpc/kms/api-ref/toc.yaml
+          - name: Обзор
+            href: grpc/index.md
+          - name: SymmetricCryptoService
+            href: grpc/symmetric_crypto_service.md
+          - name: SymmetricKeyService
+            href: grpc/symmetric_key_service.md
+          - name: OperationService
+            href: grpc/operation_service.md
       - name: REST
         items:
-        include:
-          repo: docs
-          path: ru/_api-ref/kms/toc.yaml
-  # - name: Вопросы и ответы
-  #   href: qa/index.md
+          - name: Обзор
+            href: api-ref/index.md
+          - name: SymmetricCrypto
+            items:
+              - name: Обзор
+                href: api-ref/SymmetricCrypto/index.md
+              - name: decrypt
+                href: api-ref/SymmetricCrypto/decrypt.md
+              - name: encrypt
+                href: api-ref/SymmetricCrypto/encrypt.md
+              - name: generateDataKey
+                href: api-ref/SymmetricCrypto/generateDataKey.md
+              - name: reEncrypt
+                href: api-ref/SymmetricCrypto/reEncrypt.md
+          - name: SymmetricKey
+            items:
+              - name: Обзор
+                href: api-ref/SymmetricKey/index.md
+              - name: cancelVersionDestruction
+                href: api-ref/SymmetricKey/cancelVersionDestruction.md
+              - name: create
+                href: api-ref/SymmetricKey/create.md
+              - name: delete
+                href: api-ref/SymmetricKey/delete.md
+              - name: get
+                href: api-ref/SymmetricKey/get.md
+              - name: list
+                href: api-ref/SymmetricKey/list.md
+              - name: listAccessBindings
+                href: api-ref/SymmetricKey/listAccessBindings.md
+              - name: listOperations
+                href: api-ref/SymmetricKey/listOperations.md
+              - name: listVersions
+                href: api-ref/SymmetricKey/listVersions.md
+              - name: rotate
+                href: api-ref/SymmetricKey/rotate.md
+              - name: scheduleVersionDestruction
+                href: api-ref/SymmetricKey/scheduleVersionDestruction.md
+              - name: setAccessBindings
+                href: api-ref/SymmetricKey/setAccessBindings.md
+              - name: setPrimaryVersion
+                href: api-ref/SymmetricKey/setPrimaryVersion.md
+              - name: update
+                href: api-ref/SymmetricKey/update.md
+              - name: updateAccessBindings
+                href: api-ref/SymmetricKey/updateAccessBindings.md

@@ -44,7 +44,7 @@
       accessModes:
         - ReadWriteOnce 
       csi:
-        driver: io.ycloud.mks.disk-csi-driver 
+        driver: disk-csi-driver.mks.ycloud.io
         fsType: ext4
         volumeHandle: ef3ouo4sgl86740ridn6
     ```

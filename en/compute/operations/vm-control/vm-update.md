@@ -30,7 +30,7 @@ For more information about how to update a VM's configuration, see the section [
 
 - API
 
-  To change the VM, use the [update](../../../_api-ref/compute/api-ref/Instance/update.md) method for the [Instance](../../../_api-ref/compute/api-ref/Instance/) resource.
+  To change the VM, use the [update](../../api-ref/Instance/update.md) method for the [Instance](../../api-ref/Instance/) resource.
 
 {% endlist %}
 

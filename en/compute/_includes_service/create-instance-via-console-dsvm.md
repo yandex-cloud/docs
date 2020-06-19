@@ -13,7 +13,7 @@ Creating an instance from a public DSVM image
     - (optional) Select or create a [service account](../../iam/concepts/index.md#sa). By using a service account, you can flexibly configure access rights for your resources.
 
     - Select the [availability zone](../../overview/concepts/geo-scope.md) to host the VM in.
-1. In the **Public images** section, click **Choose** and select a DSVM [image](../operations/images-with-pre-installed-software/get-list.md).
+1. In the **Images from {{ marketplace-name }}** section, click **Choose** and select a DSVM [image](../operations/images-with-pre-installed-software/get-list.md).
 1. (optional) If you want to add additional disks to the instance, [select them](../operations/vm-create/create-from-disks.md) in the **Disks** section.
 1. Under **Computing resources**:
     - Choose the [platform](../concepts/vm-platforms.md).

@@ -1,6 +1,5 @@
-title: "Yandex Key Management Service"
+title: Yandex Key Management Service
 href: index.yaml
-stage: preview
 items:
   - name: Getting started
     href: quickstart/index.md
@@ -14,12 +13,12 @@ items:
         href: operations/version.md
   - name: Concepts
     items:
-        - name: Overview
-          href: concepts/index.md
-        - name: Applicable cryptographic concepts
-          href: concepts/encryption.md
-        - name: Quotas and limits
-          href: concepts/limits.md
+      - name: Overview
+        href: concepts/index.md
+      - name: Applicable cryptographic concepts
+        href: concepts/encryption.md
+      - name: Quotas and limits
+        href: concepts/limits.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy
@@ -30,11 +29,59 @@ items:
         href: api-ref/authentication.md
       - name: gRPC
         items:
-        include:
-          repo: docs
-          path: en/_api-ref-grpc/kms/api-ref/toc.yaml
+          - name: Overview
+            href: grpc/index.md
+          - name: SymmetricCryptoService
+            href: grpc/symmetric_crypto_service.md
+          - name: SymmetricKeyService
+            href: grpc/symmetric_key_service.md
+          - name: OperationService
+            href: grpc/operation_service.md
       - name: REST
         items:
-        include:
-          repo: docs
-          path: en/_api-ref/kms/toc.yaml
+          - name: Overview
+            href: api-ref/index.md
+          - name: SymmetricCrypto
+            items:
+              - name: Overview
+                href: api-ref/SymmetricCrypto/index.md
+              - name: decrypt
+                href: api-ref/SymmetricCrypto/decrypt.md
+              - name: encrypt
+                href: api-ref/SymmetricCrypto/encrypt.md
+              - name: generateDataKey
+                href: api-ref/SymmetricCrypto/generateDataKey.md
+              - name: reEncrypt
+                href: api-ref/SymmetricCrypto/reEncrypt.md
+          - name: SymmetricKey
+            items:
+              - name: Overview
+                href: api-ref/SymmetricKey/index.md
+              - name: cancelVersionDestruction
+                href: api-ref/SymmetricKey/cancelVersionDestruction.md
+              - name: create
+                href: api-ref/SymmetricKey/create.md
+              - name: delete
+                href: api-ref/SymmetricKey/delete.md
+              - name: get
+                href: api-ref/SymmetricKey/get.md
+              - name: list
+                href: api-ref/SymmetricKey/list.md
+              - name: listAccessBindings
+                href: api-ref/SymmetricKey/listAccessBindings.md
+              - name: listOperations
+                href: api-ref/SymmetricKey/listOperations.md
+              - name: listVersions
+                href: api-ref/SymmetricKey/listVersions.md
+              - name: rotate
+                href: api-ref/SymmetricKey/rotate.md
+              - name: scheduleVersionDestruction
+                href: api-ref/SymmetricKey/scheduleVersionDestruction.md
+              - name: setAccessBindings
+                href: api-ref/SymmetricKey/setAccessBindings.md
+              - name: setPrimaryVersion
+                href: api-ref/SymmetricKey/setPrimaryVersion.md
+              - name: update
+                href: api-ref/SymmetricKey/update.md
+              - name: updateAccessBindings
+                href: api-ref/SymmetricKey/updateAccessBindings.md

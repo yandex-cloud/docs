@@ -4,7 +4,7 @@
 
 ## Symmetric keys {#symmetric-keys}
 
-Symmetric keys are keys used both for data encryption and decryption. At the Preview stage, {{ kms-short-name }} only supports symmetric keys.
+Symmetric keys are keys used both for data encryption and decryption. 
 
 ## Envelope encryption {#envelope-encryption}
 

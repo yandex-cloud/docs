@@ -36,7 +36,7 @@ You can assign primitive roles to any resource in any service.
 
 The table below shows how roles in Yandex.Cloud correspond to groups and roles in {{ k8s }}. This is configured **by default** during authentication in {{ k8s }}.
 
-{% note important %}
+{% note warning %}
 
 If necessary, the user can change the roles that {{ k8s }} group members will be assigned in a {{ k8s }} cluster.
 

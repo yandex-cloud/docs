@@ -18,7 +18,7 @@ To create a VM:
 
     - (optional) Select or create a [service account](../../iam/concepts/index.md#sa). By using a service account, you can flexibly configure access rights for your resources.
 
-1. In the **Public images** section:
+1. In the **Images from {{ marketplace-name }}** section:
     - Select **Windows**.
     - Select the operating system version and edition.
 

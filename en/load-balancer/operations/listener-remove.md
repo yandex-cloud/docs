@@ -68,7 +68,7 @@
   
 - API
   
-  To delete a listener, use the [removeListener](../../_api-ref/loadbalancer/api-ref/NetworkLoadBalancer/removeListener.md) API method.
+  To delete a listener, use the [removeListener](../api-ref/NetworkLoadBalancer/removeListener.md) API method.
   
 {% endlist %}
 

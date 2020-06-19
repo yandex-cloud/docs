@@ -1,4 +1,4 @@
-title: "Yandex Database"
+title: Yandex Database
 href: index.yaml
 stage: preview
 items:
@@ -28,166 +28,168 @@ items:
     href: sdk/index.md
   - name: Концепции
     items:
-    - name: Обзор
-      href: concepts/index.md
-    - name: Модель данных и схема
-      href: concepts/datamodel.md
-    - name: Типы данных
-      href: concepts/datatypes.md
-    - name: Транзакции
-      href: concepts/transactions.md
-    - name: Вторичные индексы
-      href: concepts/secondary-indexes.md
-    - name: Термины и определения
-      href: concepts/databases.md
+      - name: Обзор
+        href: concepts/index.md
+      - name: Модель данных и схема
+        href: concepts/datamodel.md
+      - name: Типы данных
+        href: concepts/datatypes.md
+      - name: Транзакции
+        href: concepts/transactions.md
+      - name: Вторичные индексы
+        href: concepts/secondary-indexes.md
+      - name: Термины и определения
+        href: concepts/databases.md
   - name: Управление доступом
     href: operations/start_auth.md
   - name: Правила тарификации
     href: pricing.md
   - name: Рекомендации
     items:
-    - name: Проектирование схемы
-      href: best_practices/schema_design.md
-    - name: Постраничный вывод
-      href: best_practices/paging.md
-    - name: Загрузка больших объемов данных
-      href: best_practices/batch_upload.md
-    - name: Удаление устаревших данных (TTL)
-      href: best_practices/ttl.md
+      - name: Проектирование схемы
+        href: best_practices/schema_design.md
+      - name: Постраничный вывод
+        href: best_practices/paging.md
+      - name: Загрузка больших объемов данных
+        href: best_practices/batch_upload.md
+      - name: Удаление устаревших данных (TTL)
+        href: best_practices/ttl.md
   - name: Справочник API
     items:
-    - name: Обработка ошибок в API
-      href: api/error_handling.md
+      - name: Обработка ошибок в API
+        href: api/error_handling.md
   - name: Справочник YQL
     items:
-    - name: Обзор
-      href: yql/reference/overview.md
-    - name: Типы данных
-      items:
-      - name: Простые
-        href: yql/reference/types/primitive.md
-      - name: Опциональные
-        href: yql/reference/types/optional.md
-      - name: Контейнеры
-        href: yql/reference/types/containers.md
-      - name: Специальные
-        href: yql/reference/types/special.md
-    - name: Синтаксис
-      items:
-      - name: Неподдерживаемые конструкции
-        href: yql/reference/misc/not_yet_supported.md
-      - name: Выражения
-        href: yql/reference/syntax/expressions.md
-      - name: CREATE TABLE
-        href: yql/reference/syntax/create_table.md
-      - name: DROP TABLE
-        href: yql/reference/syntax/drop_table.md
-      - name: INSERT INTO
-        href: yql/reference/syntax/insert_into.md
-      - name: UPSERT INTO
-        href: yql/reference/syntax/upsert_into.md
-      - name: REPLACE INTO
-        href: yql/reference/syntax/replace_into.md
-      - name: UPDATE
-        href: yql/reference/syntax/update.md
-      - name: DELETE
-        href: yql/reference/syntax/delete.md
-      - name: SELECT
-        href: yql/reference/syntax/select.md
-      - name: GROUP BY
-        href: yql/reference/syntax/group_by.md
-      - name: JOIN
-        href: yql/reference/syntax/join.md
-      - name: FLATTEN
-        href: yql/reference/syntax/flatten.md
-      - name: ACTION
-        href: yql/reference/syntax/action.md
-      - name: DISCARD
-        href: yql/reference/syntax/discard.md
-      - name: PRAGMA
-        href: yql/reference/syntax/pragma.md
-      - name: DECLARE
-        href: yql/reference/syntax/declare.md
-      - name: OVER, PARTITION BY и WINDOW
-        href: yql/reference/syntax/window.md
-    - name: Встроенные функции
-      items:
-      - name: Базовые
-        href: yql/reference/builtins/basic.md
-      - name: Агрегатные
-        href: yql/reference/builtins/aggregation.md
-      - name: Оконные
-        href: yql/reference/builtins/window.md
-      - name: Для работы со списками
-        href: yql/reference/builtins/list.md
-      - name: Для работы со словарями
-        href: yql/reference/builtins/dict.md
-      - name: Для работы со структурами
-        href: yql/reference/builtins/struct.md
-      - name: Для работы с типами
-        href: yql/reference/builtins/types.md
-    - name: Предустановленные пользовательские функции
-      items:
-      - name: HyperScan
-        href: yql/reference/udf/list/hyperscan.md
-      - name: Pcre
-        href: yql/reference/udf/list/pcre.md
-      - name: Pire
-        href: yql/reference/udf/list/pire.md
-      - name: Re2
-        href: yql/reference/udf/list/re2.md
-      - name: String
-        href: yql/reference/udf/list/string.md
-      - name: Unicode
-        href: yql/reference/udf/list/unicode.md
-      - name: Datetime
-        href: yql/reference/udf/list/datetime.md
-      - name: Url
-        href: yql/reference/udf/list/url.md
-      - name: Ip
-        href: yql/reference/udf/list/ip.md
-      - name: Digest
-        href: yql/reference/udf/list/digest.md
-      - name: Math
-        href: yql/reference/udf/list/math.md
-      - name: Histogram
-        href: yql/reference/udf/list/histogram.md
-    - name: Работа с текстовым представлением типов данных
-      href: yql/reference/types/text.md
+      - name: Обзор
+        href: yql/reference/overview.md
+      - name: Типы данных
+        items:
+          - name: Простые
+            href: yql/reference/types/primitive.md
+          - name: Опциональные
+            href: yql/reference/types/optional.md
+          - name: Контейнеры
+            href: yql/reference/types/containers.md
+          - name: Специальные
+            href: yql/reference/types/special.md
+      - name: Синтаксис
+        items:
+          - name: Неподдерживаемые конструкции
+            href: yql/reference/misc/not_yet_supported.md
+          - name: Работа с текстовым представлением типов данных
+            href: yql/reference/misc/type_string.md
+          - name: Выражения
+            href: yql/reference/syntax/expressions.md
+          - name: CREATE TABLE
+            href: yql/reference/syntax/create_table.md
+          - name: DROP TABLE
+            href: yql/reference/syntax/drop_table.md
+          - name: INSERT INTO
+            href: yql/reference/syntax/insert_into.md
+          - name: UPSERT INTO
+            href: yql/reference/syntax/upsert_into.md
+          - name: REPLACE INTO
+            href: yql/reference/syntax/replace_into.md
+          - name: UPDATE
+            href: yql/reference/syntax/update.md
+          - name: DELETE
+            href: yql/reference/syntax/delete.md
+          - name: SELECT
+            href: yql/reference/syntax/select.md
+          - name: GROUP BY
+            href: yql/reference/syntax/group_by.md
+          - name: JOIN
+            href: yql/reference/syntax/join.md
+          - name: FLATTEN
+            href: yql/reference/syntax/flatten.md
+          - name: ACTION
+            href: yql/reference/syntax/action.md
+          - name: DISCARD
+            href: yql/reference/syntax/discard.md
+          - name: PRAGMA
+            href: yql/reference/syntax/pragma.md
+          - name: DECLARE
+            href: yql/reference/syntax/declare.md
+          - name: 'OVER, PARTITION BY и WINDOW'
+            href: yql/reference/syntax/window.md
+      - name: Встроенные функции
+        items:
+          - name: Базовые
+            href: yql/reference/builtins/basic.md
+          - name: Агрегатные
+            href: yql/reference/builtins/aggregation.md
+          - name: Оконные
+            href: yql/reference/builtins/window.md
+          - name: Для работы со списками
+            href: yql/reference/builtins/list.md
+          - name: Для работы со словарями
+            href: yql/reference/builtins/dict.md
+          - name: Для работы со структурами
+            href: yql/reference/builtins/struct.md
+          - name: Для работы с типами
+            href: yql/reference/builtins/types.md
+      - name: Предустановленные пользовательские функции
+        items:
+          - name: HyperScan
+            href: yql/reference/udf/list/hyperscan.md
+          - name: Pcre
+            href: yql/reference/udf/list/pcre.md
+          - name: Pire
+            href: yql/reference/udf/list/pire.md
+          - name: Re2
+            href: yql/reference/udf/list/re2.md
+          - name: String
+            href: yql/reference/udf/list/string.md
+          - name: Unicode
+            href: yql/reference/udf/list/unicode.md
+          - name: Datetime
+            href: yql/reference/udf/list/datetime.md
+          - name: Url
+            href: yql/reference/udf/list/url.md
+          - name: Ip
+            href: yql/reference/udf/list/ip.md
+          - name: Digest
+            href: yql/reference/udf/list/digest.md
+          - name: Math
+            href: yql/reference/udf/list/math.md
+          - name: Histogram
+            href: yql/reference/udf/list/histogram.md
+      - name: Работа с текстовым представлением типов данных
+        href: yql/reference/types/text.md
   - name: Туториал YQL
     items:
-    - name: Обзор
-      href: yql/tutorial/index.md
-    - name: Создание таблицы
-      href: yql/tutorial/create_demo_tables.md
-    - name: Добавление данных в таблицу
-      href: yql/tutorial/fill_tables_with_data.md
-    - name: Выборка данных из всех колонок
-      href: yql/tutorial/select_all_columns.md
-    - name: Выборка данных из определенных колонок
-      href: yql/tutorial/select_specific_columns.md
-    - name: Сортировка и фильтрация
-      href: yql/tutorial/basic_filter_and_sort.md
-    - name: Агрегирование данных
-      href: yql/tutorial/basic_aggregation.md
-    - name: Дополнительные условия выборки
-      href: yql/tutorial/conditional_values.md
-    - name: Объединение таблиц с помощью JOIN
-      href: yql/tutorial/join_tables.md
-    - name: Вставка и модификация данных с помощью REPLACE
-      href: yql/tutorial/replace_into.md
-    - name: Вставка и модификация данных с помощью UPSERT
-      href: yql/tutorial/upsert_into.md
-    - name: Вставка данных с помощью INSERT
-      href: yql/tutorial/insert_into.md
-    - name: Обновление данных с помощью UPDATE
-      href: yql/tutorial/update.md
-    - name: Удаление данных
-      href: yql/tutorial/delete.md
-    - name: Добавление и удаление колонок
-      href: yql/tutorial/alter_table.md
-    - name: Удаление таблицы
-      href: yql/tutorial/delete_table.md
+      - name: Обзор
+        href: yql/tutorial/index.md
+      - name: Создание таблицы
+        href: yql/tutorial/create_demo_tables.md
+      - name: Добавление данных в таблицу
+        href: yql/tutorial/fill_tables_with_data.md
+      - name: Выборка данных из всех колонок
+        href: yql/tutorial/select_all_columns.md
+      - name: Выборка данных из определенных колонок
+        href: yql/tutorial/select_specific_columns.md
+      - name: Сортировка и фильтрация
+        href: yql/tutorial/basic_filter_and_sort.md
+      - name: Агрегирование данных
+        href: yql/tutorial/basic_aggregation.md
+      - name: Дополнительные условия выборки
+        href: yql/tutorial/conditional_values.md
+      - name: Объединение таблиц с помощью JOIN
+        href: yql/tutorial/join_tables.md
+      - name: Вставка и модификация данных с помощью REPLACE
+        href: yql/tutorial/replace_into.md
+      - name: Вставка и модификация данных с помощью UPSERT
+        href: yql/tutorial/upsert_into.md
+      - name: Вставка данных с помощью INSERT
+        href: yql/tutorial/insert_into.md
+      - name: Обновление данных с помощью UPDATE
+        href: yql/tutorial/update.md
+      - name: Удаление данных
+        href: yql/tutorial/delete.md
+      - name: Добавление и удаление колонок
+        href: yql/tutorial/alter_table.md
+      - name: Удаление таблицы
+        href: yql/tutorial/delete_table.md
   - name: Вопросы и ответы
     items:
       - name: Общие вопросы

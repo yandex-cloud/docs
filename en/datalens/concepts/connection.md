@@ -1,11 +1,13 @@
 # Connections
 
 _Connections_ contain information about data source access parameters, like the DB host IP address and connection port.
+
 Connections are created using a connector. Connectors contain settings for connecting to popular data sources.
+You can create [_datasets_](dataset/index.md) based on connections.
 
 ## Connector {#connector}
 
-_A connector_ is a {{ datalens-short-name }} service component that you can use to create a connection to a specific type of DB, API, or file.
+_A connector_ is a driver for connecting and uploading data from a DB, API, or file.
 {{ datalens-short-name }} uses connections to request data from a source.
 
 The following types of connectors are available in {{ datalens-short-name }}:
@@ -15,9 +17,8 @@ The following types of connectors are available in {{ datalens-short-name }}:
 - **MySQL**
 - **CSV file**
 - **MS SQL Server**
-- **Yandex.Metrica**
-- **Yandex.Metrica Logs API**
-- **AppMetrica**
+- **Metrica** (in direct or API access mode)
+- **AppMetrica** (in direct or API access mode)
 
 {% include [connection-note](../../_includes/datalens/datalens-connection-note.md) %}
 

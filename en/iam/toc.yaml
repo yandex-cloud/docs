@@ -1,4 +1,4 @@
-title: "Yandex Identity and Access Management"
+title: Yandex Identity and Access Management
 href: index.yaml
 items:
   - name: Getting started
@@ -83,7 +83,6 @@ items:
             href: concepts/access-control/system-group.md
           - name: Resources that roles can be assigned for
             href: concepts/access-control/resources-with-access-control.md
-
       - name: Authorization
         items:
           - name: Overview
@@ -116,14 +115,170 @@ items:
         href: api-ref/authentication.md
       - name: gRPC
         items:
-        include:
-          repo: docs
-          path: en/_api-ref-grpc/iam/toc.yaml
+          - name: Overview
+            href: grpc/index.md
+          - name: ApiKeyService
+            href: grpc/api_key_service.md
+          - name: IamTokenService
+            href: grpc/iam_token_service.md
+          - name: KeyService
+            href: grpc/key_service.md
+          - name: RoleService
+            href: grpc/role_service.md
+          - name: ServiceAccountService
+            href: grpc/service_account_service.md
+          - name: UserAccountService
+            href: grpc/user_account_service.md
+          - name: YandexPassportUserAccountService
+            href: grpc/yandex_passport_user_account_service.md
+          - name: AccessKeyService
+            href: grpc/access_key_service.md
+          - name: CertificateService
+            href: grpc/certificate_service.md
+          - name: FederationService
+            href: grpc/federation_service.md
+          - name: OperationService
+            href: grpc/operation_service.md
       - name: REST
         items:
-        include:
-          repo: docs
-          path: en/_api-ref/iam/toc.yaml
+          - name: Overview
+            href: api-ref/index.md
+          - name: ApiKey
+            items:
+              - name: Overview
+                href: api-ref/ApiKey/index.md
+              - name: create
+                href: api-ref/ApiKey/create.md
+              - name: delete
+                href: api-ref/ApiKey/delete.md
+              - name: get
+                href: api-ref/ApiKey/get.md
+              - name: list
+                href: api-ref/ApiKey/list.md
+              - name: listOperations
+                href: api-ref/ApiKey/listOperations.md
+              - name: update
+                href: api-ref/ApiKey/update.md
+          - name: IamToken
+            items:
+              - name: Overview
+                href: api-ref/IamToken/index.md
+              - name: create
+                href: api-ref/IamToken/create.md
+          - name: Key
+            items:
+              - name: Overview
+                href: api-ref/Key/index.md
+              - name: create
+                href: api-ref/Key/create.md
+              - name: delete
+                href: api-ref/Key/delete.md
+              - name: get
+                href: api-ref/Key/get.md
+              - name: list
+                href: api-ref/Key/list.md
+              - name: listOperations
+                href: api-ref/Key/listOperations.md
+              - name: update
+                href: api-ref/Key/update.md
+          - name: Role
+            items:
+              - name: Overview
+                href: api-ref/Role/index.md
+              - name: get
+                href: api-ref/Role/get.md
+              - name: list
+                href: api-ref/Role/list.md
+          - name: ServiceAccount
+            items:
+              - name: Overview
+                href: api-ref/ServiceAccount/index.md
+              - name: create
+                href: api-ref/ServiceAccount/create.md
+              - name: delete
+                href: api-ref/ServiceAccount/delete.md
+              - name: get
+                href: api-ref/ServiceAccount/get.md
+              - name: list
+                href: api-ref/ServiceAccount/list.md
+              - name: listAccessBindings
+                href: api-ref/ServiceAccount/listAccessBindings.md
+              - name: listOperations
+                href: api-ref/ServiceAccount/listOperations.md
+              - name: setAccessBindings
+                href: api-ref/ServiceAccount/setAccessBindings.md
+              - name: update
+                href: api-ref/ServiceAccount/update.md
+              - name: updateAccessBindings
+                href: api-ref/ServiceAccount/updateAccessBindings.md
+          - name: UserAccount
+            items:
+              - name: Overview
+                href: api-ref/UserAccount/index.md
+              - name: get
+                href: api-ref/UserAccount/get.md
+          - name: YandexPassportUserAccount
+            items:
+              - name: Overview
+                href: api-ref/YandexPassportUserAccount/index.md
+              - name: getByLogin
+                href: api-ref/YandexPassportUserAccount/getByLogin.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/Operation/index.md
+              - name: get
+                href: api-ref/Operation/get.md
+          - name: Certificate
+            items:
+              - name: Overview
+                href: api-ref/Certificate/index.md
+              - name: update
+                href: api-ref/Certificate/update.md
+              - name: list
+                href: api-ref/Certificate/list.md
+              - name: listOperations
+                href: api-ref/Certificate/listOperations.md
+              - name: delete
+                href: api-ref/Certificate/delete.md
+              - name: get
+                href: api-ref/Certificate/get.md
+              - name: create
+                href: api-ref/Certificate/create.md
+          - name: Federation
+            items:
+              - name: Overview
+                href: api-ref/Federation/index.md
+              - name: update
+                href: api-ref/Federation/update.md
+              - name: list
+                href: api-ref/Federation/list.md
+              - name: listOperations
+                href: api-ref/Federation/listOperations.md
+              - name: delete
+                href: api-ref/Federation/delete.md
+              - name: get
+                href: api-ref/Federation/get.md
+              - name: addUserAccounts
+                href: api-ref/Federation/addUserAccounts.md
+              - name: create
+                href: api-ref/Federation/create.md
+          - name: AccessKey
+            items:
+              - name: Overview
+                href: api-ref/AccessKey/index.md
+              - name: update
+                href: api-ref/AccessKey/update.md
+              - name: list
+                href: api-ref/AccessKey/list.md
+              - name: listOperations
+                href: api-ref/AccessKey/listOperations.md
+              - name: delete
+                href: api-ref/AccessKey/delete.md
+              - name: get
+                href: api-ref/AccessKey/get.md
+              - name: create
+                href: api-ref/AccessKey/create.md
   - name: Questions and answers
     items:
       - name: General questions

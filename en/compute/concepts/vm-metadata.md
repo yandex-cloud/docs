@@ -59,7 +59,7 @@ You can pass metadata when you create or [change](../operations/vm-control/vm-up
 
 {% endlist %}
 
-{% note important %}
+{% note warning %}
 
 The metadata, including the user-defined metadata, is available in unencrypted format. If you place confidential information in the metadata, take measures to protect it (for example, by encrypting it).
 
@@ -91,7 +91,7 @@ The list of keys that are processed in Yandex.Cloud's public images depends on t
 
   * `ssh-keys`: A key for delivering an SSH key to Linux VMs. The key is specified in the format `any name>:<SSH key content>`, for example, `user:ssh-rsa AAAAB3Nza... user@example.com`. If you specify multiple keys, only the first one is used.
 
-      {% note important %}
+      {% note warning %}
 
       Regardless of the username specified, the key is assigned to the user given in the `cloud-init` configuration by default. In different images, these users differ.
 

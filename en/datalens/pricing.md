@@ -6,7 +6,7 @@ editable: false
 In {{ datalens-short-name }}, you pay for:
 
 * The number of ten-minute sessions to the data source. The session considers requests from charts and dashboards.
-* The size of the database for materialized data.
+* The size of the database for the materialized data.
 * Additional {{ datalens-short-name }} features.
 
 The number of sessions, the database size for materialized data, and the list of available features are determined by the monthly billing plan.
@@ -14,7 +14,7 @@ You can choose one of the following plans: **Free** or **Standard**.
 
 The plan applies to [the folder](../resource-manager/concepts/resources-hierarchy.md#folder) where the {{ datalens-short-name }} instance is located.
 
-{% note important %}
+{% note warning %}
 
 Additional {{ datalens-short-name }} features that are available in {{ marketplace-short-name }} don't affect the selected plan and are paid separately.
 
@@ -28,9 +28,9 @@ Additional {{ datalens-short-name }} features that are available in {{ marketpla
 
   | Service | Free | Standard |
   | ----- | ----- | ----- |
-  | Monthly price | Free | $24.358974 |
+  | Monthly price, without VAT | Free | $24.358974 |
   | Number of sessions per month | 1000 | 10,000 |
-  | Additional sessions,<br/> per 10 sessions. | - | $0.024358 |
+  | Additional sessions,<br/> per 10 sessions, without VAT | - | $0.024358 |
   | External sessions multiplier | x 10 | x 10 |
   | Database size for materialized data, GB | 0.5 | 10 |
   | Geocoding | - | ✔ |
@@ -39,14 +39,12 @@ Additional {{ datalens-short-name }} features that are available in {{ marketpla
 
   | Service | Free | Standard |
   | ----- | ----- | ----- |
-  | Monthly price | Free | ₽1900 |
+  | Monthly price, with VAT | Free | ₽1900 |
   | Number of sessions per month | 1000 | 10,000 |
-  | Additional sessions,<br/> per 10 sessions. | - | ₽1.90 |
+  | Additional sessions,<br/> per 10 sessions, with VAT | - | ₽1.90 |
   | External sessions multiplier | x 10 | x 10 |
   | Database size for materialized data, GB | 0.5 | 10 |
   | Geocoding | - | ✔ |
-
-{% endlist %}
 
 ## Session {#sessions}
 
@@ -66,7 +64,7 @@ In {{ datalens-short-name }}, sessions are categorized as internal or external:
 
 | Session type | Data source |
 | ----- | ----- |
-| Internal | Materialized datasets<br/>CSV connection<br/>Metrica<br/>Metrica Logs API<br/>AppMetrica<br/>AppMetrica Logs API<br/>Managed databases in Yandex.Cloud:<br/> - [Managed Service for ClickHouse](../managed-clickhouse)<br/> - [Managed Service for PostgreSQL](../managed-postgresql)<br/> - [Managed Service for MySQL<sup>®</sup>](../managed-mysql) |
+| Internal | Materialized datasets<br/>CSV connections<br/>Metrica<br/>Metrica Logs API<br/>AppMetrica<br/>AppMetrica Logs API<br/>Yandex.Cloud Managed Databases:<br/> - [Managed Service for ClickHouse](../managed-clickhouse)<br/> - [Managed Service for PostgreSQL](../managed-postgresql)<br/> - [Managed Service for MySQL<sup>®</sup>](../managed-mysql) |
 | External | Any data source that is not related to Yandex or Yandex.Cloud. |
 
 ### How sessions are calculated {#how-sessions-counted}
@@ -120,13 +118,13 @@ You can switch from the **Free** to the **Standard** plan at any time. When you 
 
 So if you go from the **Standard** plan to the **Free** plan, the new plan and period would come into effect when the paid period under the **Standard** plan ends. In this case, the start date of the new period becomes the date the **Standard** plan ends.
 
-### Automatic session renewal {#autoprolongation}
+### Automatic session count renewal {#autoprolongation}
 
-Under the **Standard** plan, you can set up automatic session renewal. To do this, you should specify your planned budget in the billing account.
+Under the **Standard** plan, you can set up automatic session count renewal. To do this, you should specify your planned budget in the billing account.
 
-Automatic session renewal isn't available in the **Free** plan. If you reach the session limit or the DB size limit for this plan, you can switch to the **Standard** plan.
+Automatic session count renewal isn't available in the **Free** plan. If you reach the session limit or the DB size limit for this plan, you can switch to the **Standard** plan.
 
-### Blocks {#blockings}
+## Blocks {#locks}
 
 If you reach a limit under your plan, {{ datalens-short-name }} automatically blocks the instance.
 
@@ -134,7 +132,7 @@ When an instance is blocked, you can't:
 
 * Create new connections or datasets.
 * Request data from a dataset.
-* Request data from the wizard or dashboard.
+* Request data from a wizard or dashboard.
 * Materialize dataset data.
 * Use geocoding.
 

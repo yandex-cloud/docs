@@ -4,6 +4,7 @@
 | ----- | ----- |
 | Number of cloud networks per cloud | 2 |
 | Number of subnets per cloud | 6 |
+| Number of all public IP addresses per cloud | 8 |
 | Number of static public IP addresses per cloud | 2 |
 | Number of route tables per cloud | 8 |
 | Number of static routes per cloud | 256 |
