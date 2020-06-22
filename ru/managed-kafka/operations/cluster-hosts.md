@@ -2,6 +2,8 @@
 
 Вы можете изменять класс хостов-брокеров в кластере {{ KF }}, а также получать список этих хостов в кластере.
 
+{% include [mkf-zookeeper-hosts](../../_includes/mdb/mkf-zk-hosts.md) %}
+
 # Изменить класс хостов {#change-resource-preset}
 
 {% list tabs %}
