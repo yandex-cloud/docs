@@ -8,5 +8,5 @@
 - [{#T}](cluster-update.md)
 - [{#T}](cluster-hosts.md)
 - [{#T}](cluster-logs.md)
-- [{#T}](cluster-users.md)
+- [{#T}](cluster-accounts.md)
 - [{#T}](cluster-delete.md)
