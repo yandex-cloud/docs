@@ -50,11 +50,19 @@
 
 По плану будут созданы две виртуальные машины: `terraform1` и `terraform2`, а также облачная сеть `network-1` с подсетью `subnet-1`.
 
+Имена ресурсов должны соответствовать следующим требованиям:
+
+{% include [names](../../_includes/name-format.md) %}
+
 У машин будут разные количества ядер и объемы памяти: 1 ядро и 2 Гб оперативной памяти у `terraform1` и 2 ядра и 4 Гб оперативной памяти у `terraform2`. Машины автоматически получат публичные IP-адреса и приватные IP-адреса из диапазона `192.168.10.0/24` в подсети `subnet-1`, находящейся в зоне доступности `ru-central1-a` и принадлежащей облачной сети `network-1`. На виртуальных машинах будет установлена операционная система Ubuntu и размещена публичная часть ключа для доступа к машинам по SSH.
+
+В конфигурации виртуальной машины вам потребуется указать идентификатор образа загрузочного диска. Список доступных публичных образов можно получить командой [CLI](../../cli/quickstart.md) `yc compute image list --folder-id standard-images`.  
+
+Для доступа к ВМ через SSH нужно [сгенерировать пару SSH-ключей](../../compute/operations/vm-connect/ssh#creating-ssh-keys) и передать публичную часть ключа на виртуальную машину в параметре `ssh-keys` блока `metadata`. 
 
 Конфигурации ресурсов задаются сразу после конфигурации провайдера:
 
-```
+```hcl
 provider "yandex" {
   token     = "OAuth_token"
   cloud_id  = "cloud-id"
@@ -77,7 +85,7 @@ resource "yandex_compute_instance" "vm-1" {
   }
 
   network_interface {
-    subnet_id = "${yandex_vpc_subnet.subnet-1.id}"
+    subnet_id = yandex_vpc_subnet.subnet-1.id
     nat       = true
   }
 
@@ -101,7 +109,7 @@ resource "yandex_compute_instance" "vm-2" {
   }
 
   network_interface {
-    subnet_id = "${yandex_vpc_subnet.subnet-1.id}"
+    subnet_id = yandex_vpc_subnet.subnet-1.id
     nat       = true
   }
 
@@ -117,25 +125,25 @@ resource "yandex_vpc_network" "network-1" {
 resource "yandex_vpc_subnet" "subnet-1" {
   name           = "subnet1"
   zone           = "ru-central1-a"
-  network_id     = "${yandex_vpc_network.network-1.id}"
+  network_id     = yandex_vpc_network.network-1.id
   v4_cidr_blocks = ["192.168.10.0/24"]
 }
 
 output "internal_ip_address_vm_1" {
-  value = "${yandex_compute_instance.vm-1.network_interface.0.ip_address}"
+  value = yandex_compute_instance.vm-1.network_interface.0.ip_address
 }
 
 output "internal_ip_address_vm_2" {
-  value = "${yandex_compute_instance.vm-2.network_interface.0.ip_address}"
+  value = yandex_compute_instance.vm-2.network_interface.0.ip_address
 }
 
 
 output "external_ip_address_vm_1" {
-  value = "${yandex_compute_instance.vm-1.network_interface.0.nat_ip_address}"
+  value = yandex_compute_instance.vm-1.network_interface.0.nat_ip_address
 }
 
 output "external_ip_address_vm_2" {
-  value = "${yandex_compute_instance.vm-2.network_interface.0.nat_ip_address}"
+  value = yandex_compute_instance.vm-2.network_interface.0.nat_ip_address
 }
 ```
 

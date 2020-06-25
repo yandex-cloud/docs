@@ -107,6 +107,22 @@ items:
         href: lang/nodejs/errors.md
       - name: Использование SDK
         href: lang/nodejs/sdk.md
+  - name: Разработка на Python
+    items:
+      - name: Обзор
+        href: lang/python/index.md
+      - name: Управление зависимостями
+        href: lang/python/dependencies.md
+      - name: Обработчик запросов
+        href: lang/python/handler.md
+      - name: Контекст вызова
+        href: lang/python/context.md
+      - name: Журналирование
+        href: lang/python/logging.md
+      - name: Обработка ошибок
+        href: lang/python/errors.md
+      - name: Использование SDK
+        href: lang/python/sdk.md
   - name: Разработка на Go
     items:
       - name: Обзор

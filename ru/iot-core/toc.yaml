@@ -87,6 +87,8 @@ items:
         href: solutions/c-sharp.md
       - name: Работа с Yandex IoT Core на языке Java
         href: solutions/java.md
+      - name: Запись данных с устройства в Managed Service for PostgreSQL
+        href: solutions/data-recording.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

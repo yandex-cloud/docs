@@ -9,7 +9,7 @@ Modifies the specified MySQL user.
  
 ## HTTP request {#https-request}
 ```
-PATCH https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/{clusterId}/users/{userName}
+PATCH https://mdb.api.cloud.yandex.net/managed-mysql/v1alpha/clusters/{clusterId}/users/{userName}
 ```
  
 ## Path parameters {#path_params}

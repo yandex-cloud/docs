@@ -23,7 +23,7 @@ Returns the information about specified disk type. <br>To get the list of availa
 
 Field | Description
 --- | ---
-disk_type_id | **string**<br>Required. ID of the disk type to return information about. To get the disk type ID use a [DiskTypeService.List](#List) request. 
+disk_type_id | **string**<br>Required. ID of the disk type to return information about. To get the disk type ID use a [DiskTypeService.List](#List) request. false
 
 
 ### DiskType {#DiskType}

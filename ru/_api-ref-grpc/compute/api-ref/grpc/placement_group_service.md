@@ -47,8 +47,7 @@ placement_strategy | **oneof:** `spread_placement_strategy`<br>Стратеги�
 
 ### SpreadPlacementStrategy {#SpreadPlacementStrategy}
 
-Это пустая структура, которую необходимо передать для явного указания стратегии 
-размещения.
+
 
 ## List {#List}
 
@@ -90,8 +89,7 @@ placement_strategy | **oneof:** `spread_placement_strategy`<br>Стратеги�
 
 ### SpreadPlacementStrategy {#SpreadPlacementStrategy}
 
-Это пустая структура, которую необходимо передать для явного указания стратегии 
-размещения.
+
 
 ## Create {#Create}
 
@@ -117,8 +115,7 @@ placement_strategy | **oneof:** `spread_placement_strategy`<br>Стратеги�
 
 ### SpreadPlacementStrategy {#SpreadPlacementStrategy}
 
-Это пустая структура, которую необходимо передать для явного указания стратегии 
-размещения.
+
 
 ### Operation {#Operation}
 

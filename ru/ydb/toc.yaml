@@ -76,6 +76,8 @@ items:
       items:
       - name: Неподдерживаемые конструкции
         href: yql/reference/misc/not_yet_supported.md
+      - name: Работа с текстовым представлением типов данных
+        href: yql/reference/misc/type_string.md
       - name: Выражения
         href: yql/reference/syntax/expressions.md
       - name: CREATE TABLE

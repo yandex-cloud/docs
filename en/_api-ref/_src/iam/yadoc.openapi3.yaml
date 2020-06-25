@@ -304,7 +304,7 @@ paths:
         description: |-
           Required.
           ID of the Key resource to update.
-          To get key pair ID, use a [Service.List] request.
+          To get key pair ID, use a [list](/docs/iam/api-ref/Key/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -1370,6 +1370,18 @@ components:
 
             The string length in characters must be 1-256.
           type: string
+        attributes:
+          description: Additional attributes of the SAML federated user.
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/SamlUserAccountAttribute'
+    SamlUserAccountAttribute:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            type: string
     ServiceAccount:
       description: A ServiceAccount resource. For more information, see [Service accounts](/docs/iam/concepts/users/service-accounts).
       type: object

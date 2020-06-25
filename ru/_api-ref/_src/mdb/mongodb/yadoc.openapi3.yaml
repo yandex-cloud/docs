@@ -1403,6 +1403,13 @@ paths:
       x-y-operation-response: '[User](/docs/managed-mongodb/api-ref/User#representation)'
 components:
   schemas:
+    Access:
+      type: object
+      properties:
+        dataLens:
+          description: Разрешить доступ для DataLens
+          type: boolean
+          format: boolean
     AddClusterHostsMetadata:
       type: object
       properties:
@@ -1657,6 +1664,9 @@ components:
             $ref: '#/components/schemas/TimeOfDay'
             description: Время запуска ежедневного резервного копирования, в часовом
               поясе UTC.
+          access:
+            $ref: '#/components/schemas/Access'
+            description: Политика доступа к БД
       - title: mongodb_spec
         type: object
         maxProperties: 1
@@ -3048,30 +3058,29 @@ components:
           type: string
     TimeOfDay:
       description: |-
-        Описывает время суток. Дата и часовой пояс либо не имеют значения, либо указаны другим
-        образом. API может разрешить високосные секунды. Связанные типы: [google.type.Date][google.type.Date] и
-        `google.protobuf.Timestamp`.
+        Represents a time of day. The date and time zone are either not significant
+        or are specified elsewhere. An API may choose to allow leap seconds. Related
+        types are [google.type.Date](https://github.com/googleapis/googleapis/blob/master/google/type/date.proto) and [google.protobuf.Timestamp](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto).
       type: object
       properties:
         hours:
           description: |-
-            Час в 24-часовом формате. Допустимые значения — от 0 до 23. API может разрешить значение
-            "24:00:00" для таких сценариев, как время закрытия заведения.
+            Hours of day in 24 hour format. Should be from 0 to 23. An API may choose
+            to allow the value "24:00:00" for scenarios like business closing time.
           type: integer
           format: int32
         minutes:
-          description: Минута часа. Допустимые значения — от 0 до 59.
+          description: Minutes of hour of day. Must be from 0 to 59.
           type: integer
           format: int32
         seconds:
           description: |-
-            Секунда минуты. Обычно допустимые значения — от 0 до 59. API может разрешить значение 60,
-            если поддерживаются високосные секунды.
+            Seconds of minutes of the time. Must normally be from 0 to 59. An API may
+            allow the value 60 if it allows leap-seconds.
           type: integer
           format: int32
         nanos:
-          description: Доли секунды, в наносекундах. Допустимые значения — от 0 до
-            999 999 999.
+          description: Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.
           type: integer
           format: int32
     UpdateClusterMetadata:
@@ -3321,6 +3330,9 @@ components:
             $ref: '#/components/schemas/TimeOfDay'
             description: Время запуска ежедневного резервного копирования, в часовом
               поясе UTC.
+          access:
+            $ref: '#/components/schemas/Access'
+            description: Политика доступа к БД
       - title: mongodb_spec
         type: object
         maxProperties: 1
@@ -4568,6 +4580,9 @@ components:
             $ref: '#/components/schemas/TimeOfDay'
             description: Время запуска ежедневного резервного копирования, в часовом
               поясе UTC.
+          access:
+            $ref: '#/components/schemas/Access'
+            description: Политика доступа к БД
       - title: mongodb_spec
         type: object
         maxProperties: 1
@@ -4645,6 +4660,9 @@ components:
             $ref: '#/components/schemas/TimeOfDay'
             description: Время запуска ежедневного резервного копирования, в часовом
               поясе UTC.
+          access:
+            $ref: '#/components/schemas/Access'
+            description: Политика доступа к БД
       - title: mongodb_spec
         type: object
         maxProperties: 1
