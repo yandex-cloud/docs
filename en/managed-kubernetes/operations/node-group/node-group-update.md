@@ -96,7 +96,7 @@ You can perform the following actions with node group labels:
 
     Change a node group label:
 
-    {% note important %}
+    {% note warning %}
 
     The existing set of `labels` is completely replaced by the set transmitted.
 

@@ -58,7 +58,7 @@ Depending on the type of master, it may or may not be available during an update
 
 You can update node groups with additional resources by creating nodes with a new configuration.
 
-{% note important %}
+{% note warning %}
 
 For an update to be successful, you need enough [quotas](limits.md) to create a new node with additional resources.
 

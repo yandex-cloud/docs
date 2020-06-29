@@ -33,8 +33,20 @@ items:
             href: operations/registry/registry-delete.md
       - name: Управление репозиторием
         items:
-          - name: Получить список репозиториев в реестре
+          - name: Получить информацию об имеющихся репозиториях
             href: operations/repository/repository-list.md
+      - name: Управление политиками автоматического удаления Docker-образов
+        items:
+          - name: Получить информацию об имеющихся политиках удаления
+            href: operations/lifecycle-policy/lifecycle-policy-list.md
+          - name: Создать политику удаления
+            href: operations/lifecycle-policy/lifecycle-policy-create.md
+          - name: Изменить политику удаления
+            href: operations/lifecycle-policy/lifecycle-policy-update.md
+          - name: Сделать тестовый запуск политики удаления
+            href: operations/lifecycle-policy/lifecycle-policy-dry-run.md
+          - name: Удалить политику удаления
+            href: operations/lifecycle-policy/lifecycle-policy-delete.md
   - name: Yandex Container Optimized Solutions
     href: ../cos/
   - name: Концепции
@@ -47,6 +59,8 @@ items:
           href: concepts/registry.md
         - name: Репозиторий
           href: concepts/repository.md
+        - name: Политика автоматического удаления Docker-образов
+          href: concepts/lifecycle-policy.md
         - name: Квоты и лимиты
           href: concepts/limits.md
   - name: Сценарии использования

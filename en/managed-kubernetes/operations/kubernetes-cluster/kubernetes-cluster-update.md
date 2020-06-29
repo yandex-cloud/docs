@@ -94,7 +94,7 @@ You can perform the following actions with {{ k8s }} cluster labels:
 
     Change the {{ k8s }} cluster label:
 
-    {% note important %}
+    {% note warning %}
 
     The existing set of `labels` is completely replaced by the set transmitted.
 

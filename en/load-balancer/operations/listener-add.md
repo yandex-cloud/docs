@@ -53,7 +53,7 @@
   
 - API
   
-  You can add a listener using the [addListener](../../_api-ref/loadbalancer/api-ref/NetworkLoadBalancer/addListener.md) API method.
+  You can add a listener using the [addListener](../api-ref/NetworkLoadBalancer/addListener.md) API method.
   
 {% endlist %}
 

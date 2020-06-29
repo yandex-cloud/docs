@@ -33,6 +33,14 @@ items:
         href: api-ref/Job/get.md
       - name: list
         href: api-ref/Job/list.md
+  - name: ResourcePreset
+    items:
+      - name: Обзор
+        href: api-ref/ResourcePreset/index.md
+      - name: get
+        href: api-ref/ResourcePreset/get.md
+      - name: list
+        href: api-ref/ResourcePreset/list.md
   - name: Subcluster
     items:
       - name: Обзор

@@ -146,3 +146,4 @@ Method | Description
 [create](create.md) | Creates a job for a cluster.
 [get](get.md) | Returns the specified job.
 [list](list.md) | Retrieves a list of jobs for a cluster.
+[listLog](listLog.md) | Returns a log for specified job.

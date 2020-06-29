@@ -29,6 +29,12 @@ items:
         href: api-ref/Device/listPasswords.md
       - name: update
         href: api-ref/Device/update.md
+  - name: DeviceData
+    items:
+      - name: Overview
+        href: api-ref/DeviceData/index.md
+      - name: publish
+        href: api-ref/DeviceData/publish.md
   - name: Registry
     items:
       - name: Overview
@@ -59,3 +65,9 @@ items:
         href: api-ref/Registry/listPasswords.md
       - name: update
         href: api-ref/Registry/update.md
+  - name: RegistryData
+    items:
+      - name: Overview
+        href: api-ref/RegistryData/index.md
+      - name: publish
+        href: api-ref/RegistryData/publish.md

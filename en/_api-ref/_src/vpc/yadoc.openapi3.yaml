@@ -814,6 +814,17 @@ paths:
       x-y-operation-response: '[Subnet](/docs/vpc/api-ref/Subnet#representation)'
 components:
   schemas:
+    CidrBlocks:
+      type: object
+      properties:
+        v4CidrBlocks:
+          type: array
+          items:
+            type: string
+        v6CidrBlocks:
+          type: array
+          items:
+            type: string
     CreateNetworkMetadata:
       type: object
       properties:
@@ -910,6 +921,11 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/StaticRoute'
+    CreateSecurityGroupMetadata:
+      type: object
+      properties:
+        securityGroupId:
+          type: string
     CreateSubnetMetadata:
       type: object
       properties:
@@ -961,6 +977,7 @@ components:
           type: string
         zoneId:
           description: |-
+            Required.
             ID of the availability zone where the subnet resides.
             To get a list of available zones, use the [list](/docs/compute/api-ref/Zone/list) request.
 
@@ -968,6 +985,7 @@ components:
           type: string
         v4CidrBlocks:
           description: |-
+            Required.
             CIDR block.
             The range of internal addresses that are defined for this subnet.
             This field can be set only at Subnet resource creation time and cannot be changed.
@@ -982,6 +1000,8 @@ components:
 
             The maximum string length in characters is 50.
           type: string
+        dhcpOptions:
+          $ref: '#/components/schemas/DhcpOptions_in_CreateSubnetRequest_dhcpOptions'
     DeleteNetworkMetadata:
       type: object
       properties:
@@ -994,12 +1014,30 @@ components:
         routeTableId:
           description: ID of the RouteTable resource that is being deleted.
           type: string
+    DeleteSecurityGroupMetadata:
+      type: object
+      properties:
+        securityGroupId:
+          type: string
     DeleteSubnetMetadata:
       type: object
       properties:
         subnetId:
           description: ID of the Subnet resource that is being deleted.
           type: string
+    DhcpOptions:
+      type: object
+      properties:
+        domainNameServers:
+          type: array
+          items:
+            type: string
+        domainName:
+          type: string
+        ntpServers:
+          type: array
+          items:
+            type: string
     Empty:
       description: Empty JSON object `` {} ``.
       type: object
@@ -1097,6 +1135,24 @@ components:
             in the next list request. Subsequent list requests will have their own
             [nextPageToken](/docs/vpc/api-ref/RouteTable/list#responses) to continue paging through the results.
           type: string
+    ListSecurityGroupOperationsResponse:
+      type: object
+      properties:
+        operations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Operation'
+        nextPageToken:
+          type: string
+    ListSecurityGroupsResponse:
+      type: object
+      properties:
+        securityGroups:
+          type: array
+          items:
+            $ref: '#/components/schemas/SecurityGroup'
+        nextPageToken:
+          type: string
     ListSubnetOperationsResponse:
       type: object
       properties:
@@ -1160,6 +1216,11 @@ components:
             ID of the destination folder.
 
             The maximum string length in characters is 50.
+          type: string
+    MoveSecurityGroupMetadata:
+      type: object
+      properties:
+        securityGroupId:
           type: string
     MoveSubnetMetadata:
       type: object
@@ -1254,7 +1315,7 @@ components:
         maxProperties: 1
         properties:
           error:
-            $ref: '#/components/schemas/Status'
+            $ref: '#/components/schemas/rpcStatus'
             description: The error result of the operation in case of failure or cancellation.
           response:
             description: |-
@@ -1265,6 +1326,17 @@ components:
               the response should be the target resource of the operation.
               Any method that returns a long-running operation should document the response type, if any.
             type: object
+    PortRange:
+      type: object
+      properties:
+        fromPort:
+          description: Acceptable values are 0 to 65535, inclusive.
+          type: string
+          format: int64
+        toPort:
+          description: Acceptable values are 0 to 65535, inclusive.
+          type: string
+          format: int64
     RouteTable:
       description: A RouteTable resource. For more information, see [Static Routes](/docs/vpc/concepts/static-routes).
       type: object
@@ -1303,6 +1375,122 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/StaticRoute'
+    SecurityGroup:
+      type: object
+      properties:
+        id:
+          type: string
+        folderId:
+          type: string
+        createdAt:
+          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+            format.
+          type: string
+          format: date-time
+        name:
+          type: string
+        description:
+          type: string
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+        networkId:
+          type: string
+        status:
+          $ref: '#/components/schemas/SecurityGroupStatus_in_SecurityGroup_status'
+        rules:
+          type: array
+          items:
+            $ref: '#/components/schemas/SecurityGroupRule'
+        defaultForNetwork:
+          type: boolean
+          format: boolean
+    SecurityGroupRule:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          id:
+            type: string
+          description:
+            type: string
+          labels:
+            type: object
+            additionalProperties:
+              type: string
+          direction:
+            $ref: '#/components/schemas/SecurityGroupRuleDirection'
+            description: Required.
+          ports:
+            $ref: '#/components/schemas/PortRange'
+          protocolName:
+            description: |-
+              null value means any protocol
+              values from https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml
+            type: string
+          protocolNumber:
+            type: string
+            format: int64
+      - title: target
+        type: object
+        maxProperties: 1
+        properties:
+          cidrBlocks:
+            $ref: '#/components/schemas/CidrBlocks'
+          securityGroupId:
+            type: string
+          predefinedTarget:
+            type: string
+    SecurityGroupRuleDirection:
+      type: string
+      enum:
+      - INGRESS
+      - EGRESS
+    SecurityGroupRuleSpec:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          description:
+            type: string
+          labels:
+            type: object
+            additionalProperties:
+              type: string
+          direction:
+            $ref: '#/components/schemas/SecurityGroupRuleDirection'
+            description: Required.
+          ports:
+            $ref: '#/components/schemas/PortRange'
+      - title: protocol
+        type: object
+        maxProperties: 1
+        properties:
+          protocolName:
+            type: string
+          protocolNumber:
+            type: string
+            format: int64
+      - title: target
+        type: object
+        maxProperties: 1
+        properties:
+          cidrBlocks:
+            $ref: '#/components/schemas/CidrBlocks'
+          securityGroupId:
+            type: string
+          predefinedTarget:
+            type: string
+    SecurityGroupStatus:
+      description: ' - UPDATING: updating is a long operation because we must update
+        all instances in SG'
+      type: string
+      enum:
+      - CREATING
+      - ACTIVE
+      - UPDATING
+      - DELETING
     StaticRoute:
       description: A StaticRoute resource. For more information, see [Static Routes](/docs/vpc/concepts/static-routes).
       type: object
@@ -1329,22 +1517,6 @@ components:
           nextHopAddress:
             description: Next hop IP address
             type: string
-    Status:
-      description: The error result of the operation in case of failure or cancellation.
-      type: object
-      properties:
-        code:
-          description: Error code. An enum value of [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
-          type: integer
-          format: int32
-        message:
-          description: An error message.
-          type: string
-        details:
-          description: A list of messages that carry the error details.
-          type: array
-          items:
-            type: object
     Subnet:
       description: A Subnet resource. For more information, see [Subnets](/docs/vpc/concepts/subnets).
       type: object
@@ -1399,6 +1571,8 @@ components:
         routeTableId:
           description: ID of route table the subnet is linked to.
           type: string
+        dhcpOptions:
+          $ref: '#/components/schemas/DhcpOptions_in_Subnet_dhcpOptions'
     UpdateNetworkMetadata:
       type: object
       properties:
@@ -1476,6 +1650,18 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/StaticRoute'
+    UpdateSecurityGroupMetadata:
+      type: object
+      properties:
+        securityGroupId:
+          type: string
+    UpdateSecurityGroupRuleMetadata:
+      type: object
+      properties:
+        securityGroupId:
+          type: string
+        ruleId:
+          type: string
     UpdateSubnetMetadata:
       type: object
       properties:
@@ -1518,6 +1704,59 @@ components:
 
             The maximum string length in characters is 50.
           type: string
+        dhcpOptions:
+          $ref: '#/components/schemas/DhcpOptions_in_UpdateSubnetRequest_dhcpOptions'
+    rpcStatus:
+      description: The error result of the operation in case of failure or cancellation.
+      type: object
+      properties:
+        code:
+          description: Error code. An enum value of [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
+          type: integer
+          format: int32
+        message:
+          description: An error message.
+          type: string
+        details:
+          description: A list of messages that carry the error details.
+          type: array
+          items:
+            type: object
+    DhcpOptions_in_CreateSubnetRequest_dhcpOptions:
+      type: object
+      properties:
+        domainNameServers:
+          type: array
+          items:
+            type: string
+        domainName:
+          type: string
+        ntpServers:
+          type: array
+          items:
+            type: string
+    SecurityGroupStatus_in_SecurityGroup_status:
+      description: ' - UPDATING: updating is a long operation because we must update
+        all instances in SG'
+      type: string
+      enum:
+      - CREATING
+      - ACTIVE
+      - UPDATING
+      - DELETING
+    DhcpOptions_in_Subnet_dhcpOptions:
+      type: object
+      properties:
+        domainNameServers:
+          type: array
+          items:
+            type: string
+        domainName:
+          type: string
+        ntpServers:
+          type: array
+          items:
+            type: string
     FieldMask_in_UpdateNetworkRequest_updateMask:
       description: |-
         Field mask that specifies which fields of the Network resource are going to be updated.
@@ -1557,10 +1796,24 @@ components:
         Fields specified in the request will be updated to provided values.
         The rest of the fields will be reset to the default.
       type: string
+    DhcpOptions_in_UpdateSubnetRequest_dhcpOptions:
+      type: object
+      properties:
+        domainNameServers:
+          type: array
+          items:
+            type: string
+        domainName:
+          type: string
+        ntpServers:
+          type: array
+          items:
+            type: string
 tags:
 - name: Network
   description: A set of methods for managing Network resources.
 - name: RouteTable
   description: A set of methods for managing RouteTable resources.
+- name: SecurityGroup
 - name: Subnet
   description: A set of methods for managing Subnet resources.

@@ -515,6 +515,13 @@ components:
           type: string
         diskSpec:
           $ref: '#/components/schemas/AttachedDiskSpecDiskSpec_in_AttachedDiskSpec_diskSpec'
+        diskId:
+          description: |-
+            Set to use an existing disk. To set use variables.
+
+            The maximum string length in characters is 128.
+            Value must match the regular expression `` [-a-zA-Z0-9._{}]* ``.
+          type: string
     AttachedDiskSpecDiskSpec:
       type: object
       allOf:
@@ -600,7 +607,7 @@ components:
           description: |-
             Name of the instance group.
 
-            Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+            Value must match the regular expression `` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
           type: string
         description:
           description: |-
@@ -614,9 +621,9 @@ components:
 
             No more than 64 per resource.
             The string length in characters for each key must be 1-63.
-            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            Each key must match the regular expression `` [a-z][-_./\@0-9a-z]* ``.
             The maximum string length in characters for each value is 63.
-            Each value must match the regular expression `` [-_0-9a-z]* ``.
+            Each value must match the regular expression `` [-_./\@0-9a-z]* ``.
           type: object
           additionalProperties:
             type: string
@@ -642,6 +649,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Variable'
+        deletionProtection:
+          description: Flag that inhibits deletion of the instance group
+          type: boolean
+          format: boolean
     DeleteInstanceGroupMetadata:
       type: object
       properties:
@@ -842,6 +853,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Variable'
+        deletionProtection:
+          description: Flag that inhibits deletion of the instance group
+          type: boolean
+          format: boolean
     InstanceGroupStatus:
       description: |2-
          - STARTING: Instance group is being started and will become active soon.
@@ -886,7 +901,7 @@ components:
 
             No more than 64 per resource.
             The string length in characters for each key must be 1-63.
-            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            Each key must match the regular expression `` [a-z][-_./\@0-9a-z]* ``.
             The maximum string length in characters for each value is 128.
           type: object
           additionalProperties:
@@ -916,7 +931,7 @@ components:
               {instance.labels.another_label_key}
             These placeholders will be substituted for each created instance anywhere in the value text.
             In the rare case the value requires to contain this placeholder explicitly,
-            it must be escaped with double brackets, in example {{instance.index}}
+            it must be escaped with double brackets, in example {instance.index}.
 
             For example, you may use the metadata in order to provide your public SSH key to the instance.
             For more information, see [Metadata](/docs/compute/concepts/vm-metadata).
@@ -1212,6 +1227,11 @@ components:
           $ref: '#/components/schemas/PrimaryAddressSpec_in_NetworkInterfaceSpec_primaryV4AddressSpec'
         primaryV6AddressSpec:
           $ref: '#/components/schemas/PrimaryAddressSpec_in_NetworkInterfaceSpec_primaryV6AddressSpec'
+        securityGroupIds:
+          description: IDs of security groups.
+          type: array
+          items:
+            type: string
     NetworkSettings:
       type: object
       properties:
@@ -1344,6 +1364,12 @@ components:
     ScalePolicy:
       type: object
       allOf:
+      - type: object
+        properties:
+          testAutoScale:
+            $ref: '#/components/schemas/ScalePolicyAutoScale'
+            description: Test spec for [automatic scaling policy](/docs/compute/concepts/instance-groups/scale#auto-scale)
+              of the instance group.
       - title: scale_type
         type: object
         maxProperties: 1
@@ -1521,7 +1547,7 @@ components:
           description: |-
             Name of the target group.
 
-            Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+            Value must match the regular expression `` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
           type: string
         description:
           description: |-
@@ -1535,9 +1561,9 @@ components:
 
             No more than 64 per resource.
             The string length in characters for each key must be 1-63.
-            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            Each key must match the regular expression `` [a-z][-_./\@0-9a-z]* ``.
             The maximum string length in characters for each value is 63.
-            Each value must match the regular expression `` [-_0-9a-z]* ``.
+            Each value must match the regular expression `` [-_./\@0-9a-z]* ``.
           type: object
           additionalProperties:
             type: string
@@ -1568,7 +1594,7 @@ components:
           description: |-
             Name of the instance group.
 
-            Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+            Value must match the regular expression `` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
           type: string
         description:
           description: |-
@@ -1584,9 +1610,9 @@ components:
 
             No more than 64 per resource.
             The string length in characters for each key must be 1-63.
-            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            Each key must match the regular expression `` [a-z][-_./\@0-9a-z]* ``.
             The maximum string length in characters for each value is 63.
-            Each value must match the regular expression `` [-_0-9a-z]* ``.
+            Each value must match the regular expression `` [-_./\@0-9a-z]* ``.
           type: object
           additionalProperties:
             type: string
@@ -1612,6 +1638,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Variable'
+        deletionProtection:
+          description: Flag that inhibits deletion of the instance group
+          type: boolean
+          format: boolean
     Variable:
       type: object
       properties:
@@ -1653,6 +1683,7 @@ components:
     AttachedDiskSpecDiskSpec_in_AttachedDiskSpec_diskSpec:
       description: |-
         Required.
+        oneof disk_spec or disk_id
         Disk specification that is attached to the instance. For more information, see [Disks](/docs/compute/concepts/disk).
       type: object
       allOf:
@@ -1710,7 +1741,7 @@ components:
 
             No more than 64 per resource.
             The string length in characters for each key must be 1-63.
-            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            Each key must match the regular expression `` [a-z][-_./\@0-9a-z]* ``.
             The maximum string length in characters for each value is 128.
           type: object
           additionalProperties:
@@ -1740,7 +1771,7 @@ components:
               {instance.labels.another_label_key}
             These placeholders will be substituted for each created instance anywhere in the value text.
             In the rare case the value requires to contain this placeholder explicitly,
-            it must be escaped with double brackets, in example {{instance.index}}
+            it must be escaped with double brackets, in example {instance.index}.
 
             For example, you may use the metadata in order to provide your public SSH key to the instance.
             For more information, see [Metadata](/docs/compute/concepts/vm-metadata).
@@ -1815,6 +1846,12 @@ components:
         [Scaling policy](/docs/compute/concepts/instance-groups/scale) of the instance group.
       type: object
       allOf:
+      - type: object
+        properties:
+          testAutoScale:
+            $ref: '#/components/schemas/ScalePolicyAutoScale'
+            description: Test spec for [automatic scaling policy](/docs/compute/concepts/instance-groups/scale#auto-scale)
+              of the instance group.
       - title: scale_type
         type: object
         maxProperties: 1
@@ -1927,7 +1964,7 @@ components:
 
             No more than 64 per resource.
             The string length in characters for each key must be 1-63.
-            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            Each key must match the regular expression `` [a-z][-_./\@0-9a-z]* ``.
             The maximum string length in characters for each value is 128.
           type: object
           additionalProperties:
@@ -1957,7 +1994,7 @@ components:
               {instance.labels.another_label_key}
             These placeholders will be substituted for each created instance anywhere in the value text.
             In the rare case the value requires to contain this placeholder explicitly,
-            it must be escaped with double brackets, in example {{instance.index}}
+            it must be escaped with double brackets, in example {instance.index}.
 
             For example, you may use the metadata in order to provide your public SSH key to the instance.
             For more information, see [Metadata](/docs/compute/concepts/vm-metadata).
@@ -2031,6 +2068,12 @@ components:
         of the instance group.'
       type: object
       allOf:
+      - type: object
+        properties:
+          testAutoScale:
+            $ref: '#/components/schemas/ScalePolicyAutoScale'
+            description: Test spec for [automatic scaling policy](/docs/compute/concepts/instance-groups/scale#auto-scale)
+              of the instance group.
       - title: scale_type
         type: object
         maxProperties: 1
@@ -2231,6 +2274,13 @@ components:
           type: string
         diskSpec:
           $ref: '#/components/schemas/AttachedDiskSpecDiskSpec_in_AttachedDiskSpec_diskSpec'
+        diskId:
+          description: |-
+            Set to use an existing disk. To set use variables.
+
+            The maximum string length in characters is 128.
+            Value must match the regular expression `` [-a-zA-Z0-9._{}]* ``.
+          type: string
     SchedulingPolicy_in_InstanceTemplate_schedulingPolicy:
       description: Scheduling policy for the instance.
       type: object
@@ -2257,7 +2307,7 @@ components:
           description: |-
             Name of the target group.
 
-            Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+            Value must match the regular expression `` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
           type: string
         description:
           description: |-
@@ -2271,9 +2321,9 @@ components:
 
             No more than 64 per resource.
             The string length in characters for each key must be 1-63.
-            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            Each key must match the regular expression `` [a-z][-_./\@0-9a-z]* ``.
             The maximum string length in characters for each value is 63.
-            Each value must match the regular expression `` [-_0-9a-z]* ``.
+            Each value must match the regular expression `` [-_./\@0-9a-z]* ``.
           type: object
           additionalProperties:
             type: string
@@ -2474,7 +2524,7 @@ components:
 
             No more than 64 per resource.
             The string length in characters for each key must be 1-63.
-            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            Each key must match the regular expression `` [a-z][-_./\@0-9a-z]* ``.
             The maximum string length in characters for each value is 128.
           type: object
           additionalProperties:
@@ -2504,7 +2554,7 @@ components:
               {instance.labels.another_label_key}
             These placeholders will be substituted for each created instance anywhere in the value text.
             In the rare case the value requires to contain this placeholder explicitly,
-            it must be escaped with double brackets, in example {{instance.index}}
+            it must be escaped with double brackets, in example {instance.index}.
 
             For example, you may use the metadata in order to provide your public SSH key to the instance.
             For more information, see [Metadata](/docs/compute/concepts/vm-metadata).
@@ -2579,6 +2629,12 @@ components:
         [Scaling policy](/docs/compute/concepts/instance-groups/scale) of the instance group.
       type: object
       allOf:
+      - type: object
+        properties:
+          testAutoScale:
+            $ref: '#/components/schemas/ScalePolicyAutoScale'
+            description: Test spec for [automatic scaling policy](/docs/compute/concepts/instance-groups/scale#auto-scale)
+              of the instance group.
       - title: scale_type
         type: object
         maxProperties: 1

@@ -35,3 +35,9 @@ items:
         href: api-ref/NodeGroup/listOperations.md
       - name: update
         href: api-ref/NodeGroup/update.md
+  - name: Version
+    items:
+      - name: Обзор
+        href: api-ref/Version/index.md
+      - name: list
+        href: api-ref/Version/list.md

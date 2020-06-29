@@ -25,8 +25,8 @@ Returns the specified MySQL database. <br>To get the list of available MySQL dat
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MySQL cluster that the database belongs to. To get the cluster ID use a [ClusterService.List](./cluster_service#List) request.  The maximum string length in characters is 50.
-database_name | **string**<br>Required. Name of the MySQL database to return. To get the name of the database use a [DatabaseService.List](#List) request.  The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+cluster_id | **string**<br>Required. ID of the MySQL cluster that the database belongs to. To get the cluster ID use a [ClusterService.List](./cluster_service#List) request. false The maximum string length in characters is 50.
+database_name | **string**<br>Required. Name of the MySQL database to return. To get the name of the database use a [DatabaseService.List](#List) request. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
 ### Database {#Database}
@@ -47,7 +47,7 @@ Retrieves the list of MySQL databases in the specified cluster.
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MySQL cluster to list databases in. To get the cluster ID use a [ClusterService.List](./cluster_service#List) request.  The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the MySQL cluster to list databases in. To get the cluster ID use a [ClusterService.List](./cluster_service#List) request. false The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListDatabasesResponse.next_page_token](#ListDatabasesResponse) that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, Set `page_token` to the [ListDatabasesResponse.next_page_token](#ListDatabasesResponse) returned by a previous list request. The maximum string length in characters is 100.
 
@@ -82,15 +82,15 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MySQL cluster to create a database in. To get the cluster ID use a [ClusterService.List](./cluster_service#List) request.  The maximum string length in characters is 50.
-database_spec | **[DatabaseSpec](#DatabaseSpec)**<br>Required. Configuration of the database to create. 
+cluster_id | **string**<br>Required. ID of the MySQL cluster to create a database in. To get the cluster ID use a [ClusterService.List](./cluster_service#List) request. false The maximum string length in characters is 50.
+database_spec | **[DatabaseSpec](#DatabaseSpec)**<br>Required. Configuration of the database to create. false
 
 
 ### DatabaseSpec {#DatabaseSpec}
 
 Field | Description
 --- | ---
-name | **string**<br>Required. Name of the MySQL database.  The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+name | **string**<br>Required. Name of the MySQL database. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
 ### Operation {#Operation}
@@ -139,8 +139,8 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MySQL cluster to delete a database in. To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request.  The maximum string length in characters is 50.
-database_name | **string**<br>Required. Name of the database to delete. To get the name of the database, use a [DatabaseService.List](#List) request.  The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+cluster_id | **string**<br>Required. ID of the MySQL cluster to delete a database in. To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request. false The maximum string length in characters is 50.
+database_name | **string**<br>Required. Name of the database to delete. To get the name of the database, use a [DatabaseService.List](#List) request. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
 ### Operation {#Operation}

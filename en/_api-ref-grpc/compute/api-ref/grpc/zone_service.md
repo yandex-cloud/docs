@@ -23,7 +23,7 @@ Returns the information about the specified availability zone. <br>To get the li
 
 Field | Description
 --- | ---
-zone_id | **string**<br>Required. ID of the availability zone to return information about.  The maximum string length in characters is 50.
+zone_id | **string**<br>Required. ID of the availability zone to return information about. false The maximum string length in characters is 50.
 
 
 ### Zone {#Zone}

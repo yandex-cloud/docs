@@ -1,0 +1,1061 @@
+openapi: "3.0"
+info:
+  title: Yandex Certificate Manager API
+  description: This API reference is organized by resource. Actions are performed
+    by sending HTTP requests to resource URLs or making RPC calls. For more information
+    about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
+  version: v1
+  x-y-docUri: api-ref
+  x-y-baseUrl: https://certificate-manager.api.cloud.yandex.net
+paths:
+  /certificate-manager/v1/certificates/{certificateId}:
+    get:
+      tags:
+      - Certificate
+      summary: Returns the specified certificate.
+      description: To get the list of available certificates, make a [list](/docs/certificate-manager/api-ref/Certificate/list)
+        request.
+      operationId: CertificateGet
+      parameters:
+      - name: certificateId
+        in: path
+        description: |-
+          Required.
+          ID of the certificate to return.
+          To get the ID of a certificate use a [list](/docs/certificate-manager/api-ref/Certificate/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: view
+        in: query
+        schema:
+          $ref: '#/components/schemas/CertificateView'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Certificate'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - Certificate
+      summary: Deletes the specified certificate.
+      operationId: CertificateDelete
+      parameters:
+      - name: certificateId
+        in: path
+        description: |-
+          Required.
+          ID of the certificate to be deleted.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteCertificateMetadata'
+      x-y-operation-response: '[Certificate](/docs/certificate-manager/api-ref/Certificate#representation)'
+    patch:
+      tags:
+      - Certificate
+      summary: Updates the specified certificate.
+      operationId: CertificateUpdate
+      parameters:
+      - name: certificateId
+        in: path
+        description: |-
+          Required.
+          ID of the certificate to update.
+          To get the ID of a certificate use a [list](/docs/certificate-manager/api-ref/Certificate/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateCertificateRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateCertificateMetadata'
+      x-y-operation-response: '[Certificate](/docs/certificate-manager/api-ref/Certificate#representation)'
+  /certificate-manager/v1/certificates:
+    get:
+      tags:
+      - Certificate
+      summary: Returns the list of certificates in the specified folder.
+      operationId: CertificateList
+      parameters:
+      - name: folderId
+        in: query
+        description: |-
+          Required.
+          ID of the folder to list certificate in.
+
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/certificate-manager/api-ref/Certificate/list#query_params), the service returns a [nextPageToken](/docs/certificate-manager/api-ref/Certificate/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/certificate-manager/api-ref/Certificate/list#query_params) to the
+          [nextPageToken](/docs/certificate-manager/api-ref/Certificate/list#responses) returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: view
+        in: query
+        schema:
+          $ref: '#/components/schemas/CertificateView'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListCertificatesResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - Certificate
+      summary: Creates a certificate in the specified folder.
+      operationId: CertificateCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateCertificateRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateCertificateMetadata'
+      x-y-operation-response: '[Certificate](/docs/certificate-manager/api-ref/Certificate#representation)'
+  /certificate-manager/v1/certificates/requestNew:
+    post:
+      tags:
+      - Certificate
+      summary: Request a certificate in the specified folder.
+      operationId: CertificateRequestNew
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequestNewCertificateRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: requestNew
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/RequestNewCertificateMetadata'
+      x-y-operation-response: '[Certificate](/docs/certificate-manager/api-ref/Certificate#representation)'
+  /certificate-manager/v1/certificates/{certificateId}/operations:
+    get:
+      tags:
+      - Certificate
+      summary: Lists operations for the specified certificate.
+      operationId: CertificateListOperations
+      parameters:
+      - name: certificateId
+        in: path
+        description: |-
+          Required.
+          ID of the certificate to get operations for.
+
+          To get the certificate ID, use a [list](/docs/certificate-manager/api-ref/Certificate/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page that should be returned. If the number of available
+          results is larger than [pageSize](/docs/certificate-manager/api-ref/Certificate/listOperations#query_params), the service returns a [nextPageToken](/docs/certificate-manager/api-ref/Certificate/listOperations#responses)
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/certificate-manager/api-ref/Certificate/listOperations#query_params) to the
+          [nextPageToken](/docs/certificate-manager/api-ref/Certificate/listOperations#responses) returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListCertificateOperationsResponse'
+      x-y-navtitle: listOperations
+  /certificate-manager/v1/certificates/{resourceId}:listAccessBindings:
+    get:
+      tags:
+      - Certificate
+      summary: Lists existing access bindings for the specified certificate.
+      operationId: CertificateListAccessBindings
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Required.
+          ID of the resource to list access bindings for.
+
+          To get the resource ID, use a corresponding List request.
+          For example, use the [list](/docs/resource-manager/api-ref/Cloud/list) request to get the Cloud resource ID.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page that should be returned. If the number of available
+          results is larger than pageSize,
+          the service returns a nextPageToken
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. Set pageToken
+          to the nextPageToken
+          returned by a previous list request to get the next page of results.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListAccessBindingsResponse'
+      x-y-navtitle: listAccessBindings
+  /certificate-manager/v1/certificates/{resourceId}:setAccessBindings:
+    post:
+      tags:
+      - Certificate
+      summary: Sets access bindings for the certificate.
+      operationId: CertificateSetAccessBindings
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Required.
+          ID of the resource for which access bindings are being set.
+
+          To get the resource ID, use a corresponding List request.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SetAccessBindingsRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: setAccessBindings
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/SetAccessBindingsMetadata'
+      x-y-operation-response: Empty
+  /certificate-manager/v1/certificates/{resourceId}:updateAccessBindings:
+    post:
+      tags:
+      - Certificate
+      summary: Updates access bindings for the specified certificate.
+      operationId: CertificateUpdateAccessBindings
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Required.
+          ID of the resource for which access bindings are being updated.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateAccessBindingsRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: updateAccessBindings
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateAccessBindingsMetadata'
+      x-y-operation-response: Empty
+components:
+  schemas:
+    AccessBinding:
+      type: object
+      properties:
+        roleId:
+          description: |-
+            ID of the [Role](/docs/iam/api-ref/Role#representation) that is assigned to the `subject`.
+
+            The maximum string length in characters is 50.
+          type: string
+        subject:
+          $ref: '#/components/schemas/Subject_in_AccessBinding_subject'
+    AccessBindingAction:
+      description: |2-
+         - ADD: Addition of an access binding.
+         - REMOVE: Removal of an access binding.
+      type: string
+      enum:
+      - ADD
+      - REMOVE
+    AccessBindingDelta:
+      type: object
+      properties:
+        action:
+          $ref: '#/components/schemas/AccessBindingAction_in_AccessBindingDelta_action'
+        accessBinding:
+          $ref: '#/components/schemas/AccessBinding_in_AccessBindingDelta_accessBinding'
+    Certificate:
+      description: A certificate.
+      type: object
+      properties:
+        id:
+          description: ID of the certificate.
+          type: string
+        folderId:
+          description: ID of the folder that the certificate belongs to.
+          type: string
+        createdAt:
+          description: |-
+            Time when the certificate was created.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        name:
+          description: Name of the certificate.
+          type: string
+        description:
+          description: Description of the certificate.
+          type: string
+        labels:
+          description: Certificate labels as `key:value` pairs. Maximum 64 per certificate.
+          type: object
+          additionalProperties:
+            type: string
+        type:
+          $ref: '#/components/schemas/CertificateType_in_Certificate_type'
+        domains:
+          description: Fully qualified domain names of the certificate.
+          type: array
+          items:
+            type: string
+        status:
+          $ref: '#/components/schemas/CertificateStatus_in_Certificate_status'
+        issuer:
+          description: Name of the certificate authority that issued the certificate.
+          type: string
+        subject:
+          description: Name of the entity that is associated with the public key contained
+            in the certificate.
+          type: string
+        serial:
+          description: Serial number of the certificate
+          type: string
+        updatedAt:
+          description: |-
+            Time when the certificate was updated
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        issuedAt:
+          description: |-
+            Time when the certificate was issued
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        notAfter:
+          description: |-
+            Time after which the certificate is not valid.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        notBefore:
+          description: |-
+            Time before which the certificate is not valid.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        challenges:
+          description: Domains validation challenges of the certificate. Used only
+            for MANAGED certificates.
+          type: array
+          items:
+            $ref: '#/components/schemas/Challenge'
+    CertificateStatus:
+      description: |2-
+         - VALIDATING: The certificate domains validation are required. Used only for MANAGED certificates.
+         - INVALID: The certificate issuance was failed. Used only for MANAGED certificates.
+         - ISSUED: The certificate was issued.
+         - REVOKED: The certificate was revoked.
+         - RENEWING: The certificate renewal was started. Used only for MANAGED certificates.
+         - RENEWAL_FAILED: The certificate renewal was failed. Used only for MANAGED certificates.
+      type: string
+      enum:
+      - VALIDATING
+      - INVALID
+      - ISSUED
+      - REVOKED
+      - RENEWING
+      - RENEWAL_FAILED
+    CertificateType:
+      description: |-
+        Supported certificate types.
+
+         - IMPORTED: The certificate was imported by user
+         - MANAGED: The certificate was created by service
+      type: string
+      enum:
+      - IMPORTED
+      - MANAGED
+    CertificateView:
+      type: string
+      enum:
+      - BASIC
+      - FULL
+      default: BASIC
+    Challenge:
+      description: Domain validation challenge.
+      type: object
+      allOf:
+      - type: object
+        properties:
+          domain:
+            description: Domain of the challenge.
+            type: string
+          type:
+            $ref: '#/components/schemas/ChallengeType'
+            description: Type of the challenge.
+          createdAt:
+            description: |-
+              Time when the challenge was created.
+
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          updatedAt:
+            description: |-
+              Time when the challenge was updated.
+
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          status:
+            $ref: '#/components/schemas/ChallengeStatus'
+            description: Status of the challenge.
+          message:
+            description: Description of the challenge.
+            type: string
+          error:
+            description: Error of the challenge.
+            type: string
+      - title: challenge
+        type: object
+        maxProperties: 1
+        properties:
+          dnsChallenge:
+            $ref: '#/components/schemas/ChallengeDnsRecord'
+            description: DNS record.
+          httpChallenge:
+            $ref: '#/components/schemas/ChallengeHttpFile'
+            description: HTTP file.
+    ChallengeDnsRecord:
+      type: object
+      properties:
+        name:
+          description: Name of the DNS record.
+          type: string
+        type:
+          description: Type of the DNS record.
+          type: string
+        value:
+          description: Value of the DNS record.
+          type: string
+    ChallengeHttpFile:
+      type: object
+      properties:
+        url:
+          description: Location of the HTTP file.
+          type: string
+        content:
+          description: Content of the HTTP file.
+          type: string
+    ChallengeStatus:
+      type: string
+      enum:
+      - PENDING
+      - PROCESSING
+      - VALID
+      - INVALID
+    ChallengeType:
+      description: |-
+        Supported domain validation types.
+
+         - DNS: Domain validation type that using DNS-records.
+         - HTTP: Domain validation type that using HTTP-files.
+      type: string
+      enum:
+      - DNS
+      - HTTP
+    CreateCertificateMetadata:
+      type: object
+      properties:
+        certificateId:
+          description: ID of the certificate being created.
+          type: string
+    CreateCertificateRequest:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            Required.
+            ID of the folder to create a certificate in.
+
+            The maximum string length in characters is 50.
+          type: string
+        name:
+          description: |-
+            Name of the certificate.
+
+            Value must match the regular expression `` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
+          type: string
+        description:
+          description: |-
+            Description of the certificate.
+
+            The maximum string length in characters is 1024.
+          type: string
+        labels:
+          description: |-
+            Labels for the certificate as `key:value` pairs. Maximum 64 per certificate.
+
+            No more than 64 per resource.
+            The maximum string length in characters for each key is 63.
+            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+        certificate:
+          description: |-
+            PEM-encoded certificate content of the certificate.
+
+            The maximum string length in characters is 32768.
+          type: string
+        chain:
+          description: |-
+            PEM-encoded certificate chain content of the certificate.
+
+            The maximum string length in characters is 2097152.
+          type: string
+        privateKey:
+          description: |-
+            Required.
+            PEM-encoded private key content of the certificate.
+
+            The string length in characters must be 1-524288.
+          type: string
+    DeleteCertificateMetadata:
+      type: object
+      properties:
+        certificateId:
+          description: ID of the certificate being deleted.
+          type: string
+    Empty:
+      description: Empty JSON object `` {} ``.
+      type: object
+      maxProperties: 0
+    FieldMask:
+      description: |-
+        A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
+    ListAccessBindingsResponse:
+      type: object
+      properties:
+        accessBindings:
+          description: List of access bindings for the specified resource.
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessBinding'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than pageSize, use
+            the nextPageToken as the value
+            for the pageToken query parameter
+            in the next list request. Each subsequent list request will have its own
+            nextPageToken to continue paging through the results.
+          type: string
+    ListCertificateOperationsResponse:
+      type: object
+      properties:
+        operations:
+          description: List of operations for the specified certificate.
+          type: array
+          items:
+            $ref: '#/components/schemas/Operation'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/certificate-manager/api-ref/Certificate/listOperations#query_params), use the [nextPageToken](/docs/certificate-manager/api-ref/Certificate/listOperations#responses) as the value
+            for the [pageToken](/docs/certificate-manager/api-ref/Certificate/listOperations#query_params) query parameter in the next list request.
+            Each subsequent list request will have its own [nextPageToken](/docs/certificate-manager/api-ref/Certificate/listOperations#responses) to continue paging through the results.
+          type: string
+    ListCertificatesResponse:
+      type: object
+      properties:
+        certificates:
+          description: List of certificates in the specified folder.
+          type: array
+          items:
+            $ref: '#/components/schemas/Certificate'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number
+            of results is greater than the specified [pageSize](/docs/certificate-manager/api-ref/Certificate/list#query_params), use
+            the [nextPageToken](/docs/certificate-manager/api-ref/Certificate/list#responses) as the value for the [pageToken](/docs/certificate-manager/api-ref/Certificate/list#query_params) query parameter
+            in the next list request. Each subsequent list request will have its own
+            [nextPageToken](/docs/certificate-manager/api-ref/Certificate/list#responses) to continue paging through the results.
+          type: string
+    Operation:
+      description: An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
+      type: object
+      allOf:
+      - type: object
+        properties:
+          id:
+            description: ID of the operation.
+            type: string
+          description:
+            description: Description of the operation. 0-256 characters long.
+            type: string
+          createdAt:
+            description: |-
+              Creation timestamp.
+
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          createdBy:
+            description: ID of the user or service account who initiated the operation.
+            type: string
+          modifiedAt:
+            description: |-
+              The time when the Operation resource was last modified.
+
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          done:
+            description: |-
+              If the value is `false`, it means the operation is still in progress.
+              If `true`, the operation is completed, and either `error` or `response` is available.
+            type: boolean
+            format: boolean
+          metadata:
+            description: |-
+              Service-specific metadata associated with the operation.
+              It typically contains the ID of the target resource that the operation is performed on.
+              Any method that returns a long-running operation should document the metadata type, if any.
+            type: object
+      - title: result
+        type: object
+        maxProperties: 1
+        properties:
+          error:
+            $ref: '#/components/schemas/rpcStatus'
+            description: The error result of the operation in case of failure or cancellation.
+          response:
+            description: |-
+              The normal response of the operation in case of success.
+              If the original method returns no data on success, such as Delete,
+              the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty).
+              If the original method is the standard Create/Update,
+              the response should be the target resource of the operation.
+              Any method that returns a long-running operation should document the response type, if any.
+            type: object
+    RequestNewCertificateMetadata:
+      type: object
+      properties:
+        certificateId:
+          description: ID of the certificate being requested.
+          type: string
+    RequestNewCertificateRequest:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            Required.
+            ID of the folder to create a certificate in.
+
+            The maximum string length in characters is 50.
+          type: string
+        name:
+          description: |-
+            Name of the certificate.
+
+            Value must match the regular expression `` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
+          type: string
+        description:
+          description: |-
+            Description of the certificate.
+
+            The maximum string length in characters is 1024.
+          type: string
+        labels:
+          description: |-
+            Labels for the certificate as `key:value` pairs. Maximum 64 per certificate.
+
+            No more than 64 per resource.
+            The maximum string length in characters for each key is 63.
+            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+        domains:
+          description: Fully qualified domain names of the certificate.
+          type: array
+          items:
+            type: string
+        challengeType:
+          $ref: '#/components/schemas/ChallengeType_in_RequestNewCertificateRequest_challengeType'
+    SetAccessBindingsMetadata:
+      type: object
+      properties:
+        resourceId:
+          description: ID of the resource for which access bindings are being set.
+          type: string
+    SetAccessBindingsRequest:
+      type: object
+      properties:
+        accessBindings:
+          description: |-
+            Required.
+            Access bindings to be set. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings).
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessBinding'
+    Subject:
+      type: object
+      properties:
+        id:
+          description: |-
+            ID of the subject.
+
+            It can contain one of the following values:
+            * `allAuthenticatedUsers`: A special system identifier that represents anyone
+               who is authenticated. It can be used only if the `type` is `system`.
+            * `allUsers`: A special system identifier that represents anyone. No authentication is required.
+               For example, you don't need to specify the IAM token in an API query.
+            * `<cloud generated id>`: An identifier that represents a user account.
+               It can be used only if the `type` is `userAccount` or `serviceAccount`.
+
+            The maximum string length in characters is 50.
+          type: string
+        type:
+          description: |-
+            Type of the subject.
+
+            It can contain one of the following values:
+            * `userAccount`: An account on Yandex or [Yandex.Connect](https://connect.yandex.com), added to Yandex.Cloud.
+            * `serviceAccount`: A service account. This type represents the [ServiceAccount](/docs/iam/api-ref/ServiceAccount#representation) resource.
+            * `federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory.
+            * `system`: System group. This type represents several accounts with a common system identifier.
+
+            For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject).
+          type: string
+    UpdateAccessBindingsMetadata:
+      type: object
+      properties:
+        resourceId:
+          description: ID of the resource for which access bindings are being updated.
+          type: string
+    UpdateAccessBindingsRequest:
+      type: object
+      properties:
+        accessBindingDeltas:
+          description: |-
+            Required.
+            Updates to access bindings.
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessBindingDelta'
+    UpdateCertificateMetadata:
+      type: object
+      properties:
+        certificateId:
+          description: ID of the certificate being updated.
+          type: string
+    UpdateCertificateRequest:
+      type: object
+      properties:
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateCertificateRequest_updateMask'
+        name:
+          description: |-
+            New name for the certificate.
+
+            Value must match the regular expression `` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
+          type: string
+        description:
+          description: |-
+            New description for the certificate.
+
+            The maximum string length in characters is 1024.
+          type: string
+        labels:
+          description: |-
+            New labels for the certificate as `key:value` pairs. Maximum 64 per certificate.
+
+            No more than 64 per resource.
+            The maximum string length in characters for each key is 63.
+            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+        certificate:
+          description: |-
+            New PEM-encoded certificate content for the certificate. Used only for IMPORTED certificates.
+
+            The maximum string length in characters is 32768.
+          type: string
+        chain:
+          description: |-
+            New PEM-encoded certificate chain content for the certificate. Used only for IMPORTED certificates.
+
+            The maximum string length in characters is 2097152.
+          type: string
+        privateKey:
+          description: |-
+            New PEM-encoded private key content for the certificate. Used only for IMPORTED certificates.
+
+            The maximum string length in characters is 524288.
+          type: string
+    rpcStatus:
+      description: The error result of the operation in case of failure or cancellation.
+      type: object
+      properties:
+        code:
+          description: Error code. An enum value of [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
+          type: integer
+          format: int32
+        message:
+          description: An error message.
+          type: string
+        details:
+          description: A list of messages that carry the error details.
+          type: array
+          items:
+            type: object
+    Subject_in_AccessBinding_subject:
+      description: |-
+        Required.
+        Identity for which access binding is being created.
+        It can represent an account with a unique ID or several accounts with a system identifier.
+      type: object
+      properties:
+        id:
+          description: |-
+            ID of the subject.
+
+            It can contain one of the following values:
+            * `allAuthenticatedUsers`: A special system identifier that represents anyone
+               who is authenticated. It can be used only if the `type` is `system`.
+            * `allUsers`: A special system identifier that represents anyone. No authentication is required.
+               For example, you don't need to specify the IAM token in an API query.
+            * `<cloud generated id>`: An identifier that represents a user account.
+               It can be used only if the `type` is `userAccount` or `serviceAccount`.
+
+            The maximum string length in characters is 50.
+          type: string
+        type:
+          description: |-
+            Type of the subject.
+
+            It can contain one of the following values:
+            * `userAccount`: An account on Yandex or [Yandex.Connect](https://connect.yandex.com), added to Yandex.Cloud.
+            * `serviceAccount`: A service account. This type represents the [ServiceAccount](/docs/iam/api-ref/ServiceAccount#representation) resource.
+            * `federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory.
+            * `system`: System group. This type represents several accounts with a common system identifier.
+
+            For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject).
+          type: string
+    AccessBindingAction_in_AccessBindingDelta_action:
+      description: |-
+        Required.
+        The action that is being performed on an access binding.
+
+         - ADD: Addition of an access binding.
+         - REMOVE: Removal of an access binding.
+      type: string
+      enum:
+      - ADD
+      - REMOVE
+    AccessBinding_in_AccessBindingDelta_accessBinding:
+      description: |-
+        Required.
+        Access binding. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings).
+      type: object
+      properties:
+        roleId:
+          description: |-
+            ID of the [Role](/docs/iam/api-ref/Role#representation) that is assigned to the `subject`.
+
+            The maximum string length in characters is 50.
+          type: string
+        subject:
+          $ref: '#/components/schemas/Subject_in_AccessBinding_subject'
+    CertificateType_in_Certificate_type:
+      description: |-
+        Type of the certificate.
+
+        Supported certificate types.
+
+         - IMPORTED: The certificate was imported by user
+         - MANAGED: The certificate was created by service
+      type: string
+      enum:
+      - IMPORTED
+      - MANAGED
+    CertificateStatus_in_Certificate_status:
+      description: |-
+        Status of the certificate.
+
+         - VALIDATING: The certificate domains validation are required. Used only for MANAGED certificates.
+         - INVALID: The certificate issuance was failed. Used only for MANAGED certificates.
+         - ISSUED: The certificate was issued.
+         - REVOKED: The certificate was revoked.
+         - RENEWING: The certificate renewal was started. Used only for MANAGED certificates.
+         - RENEWAL_FAILED: The certificate renewal was failed. Used only for MANAGED certificates.
+      type: string
+      enum:
+      - VALIDATING
+      - INVALID
+      - ISSUED
+      - REVOKED
+      - RENEWING
+      - RENEWAL_FAILED
+    ChallengeType_in_RequestNewCertificateRequest_challengeType:
+      description: |-
+        Type of the domain validation challenge.
+
+        Supported domain validation types.
+
+         - DNS: Domain validation type that using DNS-records.
+         - HTTP: Domain validation type that using HTTP-files.
+      type: string
+      enum:
+      - DNS
+      - HTTP
+    FieldMask_in_UpdateCertificateRequest_updateMask:
+      description: |-
+        Field mask that specifies which attributes of the certificate are going to be updated.
+
+        A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
+tags:
+- name: Certificate

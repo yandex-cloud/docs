@@ -20,7 +20,7 @@ Support for the previous model is discontinued. You can continue using it under 
 
     This model features improved phone call recognition quality and a reduced number of cases where noise is recognized as words. The vocabulary of the model is still extensive: you can use this model to recognize speech on any topic, just like the previous `general` model.
 
-  {% note important %}
+  {% note warning %}
 
   Support for the following models will be discontinued on February 26, 2020.
 

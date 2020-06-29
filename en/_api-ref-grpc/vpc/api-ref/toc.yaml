@@ -5,6 +5,8 @@ items:
     href: grpc/network_service.md
   - name: RouteTableService
     href: grpc/route_table_service.md
+  - name: SecurityGroupService
+    href: grpc/security_group_service.md
   - name: SubnetService
     href: grpc/subnet_service.md
   - name: OperationService

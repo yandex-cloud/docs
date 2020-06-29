@@ -106,32 +106,16 @@ To authenticate from inside a VM on behalf of the linked service account:
 
   1. Connect to the VM via [SSH](../vm-connect/ssh.md) or [RDP](../vm-connect/rdp.md).
 
-  1. Get an IAM token from metadata in one of the following formats:
+  1. Get an IAM token from metadata in Google Compute Engine format:
 
-       * **Google Compute Engine**:
+      ```bash
+      $ curl -H Metadata-Flavor:Google http://169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token
+        
+      {"access_token":"CggVAgAAA...","expires_in":39944,"token_type":"Bearer"}
+      ```
 
-         ```bash
-         $ curl -H Metadata-Flavor:Google http://169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token
-         
-         {"access_token":"CggVAgAAA...","expires_in":39944,"token_type":"Bearer"}
-         ```
-
-         The IAM token will be returned in the `access_token` field of the response. The remaining lifetime of the IAM token is specified in the `expires_in` field.
-
-       * **Amazon EC2** (to be deprecated on June 11, 2020):
-
-         ```bash
-         $ curl http://169.254.169.254/latest/meta-data/iam/security-credentials/default/
-         
-         {
-           "Code" : "Success",
-           "Expiration" : "2019-06-28T04:43:32+00:00",
-           "Token" : "CggVAgAAA..."
-         }
-         ```
-
-         The IAM token will be returned in the `Token` field of the response. The IAM token lifetime is specified in the `Expiration` field.
-
+      The IAM token will be returned in the `access_token` field of the response. The remaining lifetime of the IAM token is specified in the `expires_in` field.
+     
   1. {% include [iam-token-usage](../../../_includes/iam-token-usage.md) %}
 
     Account for your IAM token lifetime or request the token more often, like once per hour or with every operation.

@@ -1,6 +1,6 @@
 # Authentication using Active Directory
 
-If you have an [identity federation](../../concepts/users/identity-federations.md), you can use [Active Directory Federation Services](https://docs.microsoft.com/ru-ru/windows-server/identity/active-directory-federation-services) (ADFS) to authenticate in the cloud.
+If you have an [identity federation](../../concepts/users/identity-federations.md), you can use [Active Directory Federation Services](https://docs.microsoft.com/en-us/windows-server/identity/active-directory-federation-services) (ADFS) to authenticate in the cloud.
 
 To set up authentication:
 

@@ -158,7 +158,6 @@ The angle brackets contain parameters that need to be replaced with values. For 
 | `network/interfaces/macs/<mac>/local-ipv4s` | Internal IPv4 addresses associated with the network interface. |
 | `network/interfaces/macs/<mac>/mac` | MAC address of the VM's network interface. |
 | `public-ipv4` | External IPv4 address. |
-| `iam/security-credentials/default/` | **To be deprecated on June 11, 2020.** <br><br>[IAM token](../../../iam/concepts/authorization/iam-token.md) of the linked service account. |
 
 #### Request examples {#request-examples}
 

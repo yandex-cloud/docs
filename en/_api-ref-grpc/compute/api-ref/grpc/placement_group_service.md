@@ -47,8 +47,7 @@ placement_strategy | **oneof:** `spread_placement_strategy`<br>Placement strateg
 
 ### SpreadPlacementStrategy {#SpreadPlacementStrategy}
 
-This is an empty structure that must be passed to explicitly 
-specify the required placement strategy.
+
 
 ## List {#List}
 
@@ -90,8 +89,7 @@ placement_strategy | **oneof:** `spread_placement_strategy`<br>Placement strateg
 
 ### SpreadPlacementStrategy {#SpreadPlacementStrategy}
 
-This is an empty structure that must be passed to explicitly 
-specify the required placement strategy.
+
 
 ## Create {#Create}
 
@@ -117,8 +115,7 @@ placement_strategy | **oneof:** `spread_placement_strategy`<br>Placement strateg
 
 ### SpreadPlacementStrategy {#SpreadPlacementStrategy}
 
-This is an empty structure that must be passed to explicitly 
-specify the required placement strategy.
+
 
 ### Operation {#Operation}
 
@@ -299,7 +296,7 @@ network_interfaces[] | **[NetworkInterface](#NetworkInterface)**<br>Array of net
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy)**<br>Scheduling policy configuration. 
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/grpc/service_account_service#List) request. 
-network_settings | **[NetworkSettings](#NetworkSettings)**<br>Do not specify this field, network settings are not supported yet. 
+network_settings | **[NetworkSettings](#NetworkSettings)**<br>Network Settings 
 placement_policy | **[PlacementPolicy](#PlacementPolicy)**<br>Placement policy configuration. 
 
 
@@ -332,6 +329,7 @@ mac_address | **string**<br>MAC address that is assigned to the network interfac
 subnet_id | **string**<br>ID of the subnet. 
 primary_v4_address | **[PrimaryAddress](#PrimaryAddress)**<br>Primary IPv4 address that is assigned to the instance for this network interface. 
 primary_v6_address | **[PrimaryAddress](#PrimaryAddress)**<br>Primary IPv6 address that is assigned to the instance for this network interface. IPv6 not available yet. 
+security_group_ids[] | **string**<br>ID's of security groups attached to the interface 
 
 
 ### PrimaryAddress {#PrimaryAddress}
@@ -361,7 +359,7 @@ preemptible | **bool**<br>True for short-lived compute instances. For more infor
 
 Field | Description
 --- | ---
-type | enum **[Type](./disk_type#undefined)**<br>Do not specify this field, network settings are not supported yet. <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li><ul/>
+type | enum **[Type](./disk_type#undefined)**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li><ul/>
 
 
 ### PlacementPolicy {#PlacementPolicy}
