@@ -25,6 +25,3 @@ links:
 - title: "Windows в облаке"
   description: "Используйте службы Windows в Яндекс.Облаке"
   href: "windows/"
-- title: "Визуализация и анализ данных"
-  description: "Собирайте, визуализируйте и анализируйте данные из различных источников"
-  href: "datalens/"
