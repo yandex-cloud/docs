@@ -3,6 +3,16 @@ editable: false
 ---
 
 # Aggregate functions
+Aggregate functions (or aggregations) are functions that combine multiple values from a group of entries into one, thus collapsing the group into a single entry.
+
+If you add an aggregation to a dimension, it becomes a measure.
+
+## Usage Restrictions {#usage-restrictions}
+
+There are the following features of using aggregations:
+1. An aggregate function cannot be nested into another aggregation. The following usage is forbidden: `MAX(SUM([Sales]))`. Any expression can be aggregated only once.
+2. A function or operator cannot have aggregate and non-aggregate expressions as its arguments simultaneously. The following usage is forbidden: `CONCAT([Profit], SUM([Profit]))`.
+
 
 
 ## [AVG](AVG.md)

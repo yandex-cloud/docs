@@ -1,0 +1,56 @@
+---
+editable: false
+---
+
+# RANK_PERCENTILE
+
+_Window functions_
+
+#### Syntax
+
+
+```
+RANK_PERCENTILE( value [ , direction ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] )
+```
+
+#### Description
+Returns the relative rank (from `0` to `1`) of the current row if ordered by the given argument. Calculated as `(RANK(...) - 1) / (row count) `.
+
+See also [RANK](RANK.md), [RANK_DENSE](RANK_DENSE.md), [RANK_UNIQUE](RANK_UNIQUE.md).
+
+**Argument types:**
+- `value` — `Boolean | Date | Datetime | Number | String | UUID`
+- `direction` — `String`
+
+
+**Return type**: `Number (decimal)`
+
+{% note info %}
+
+Only constant values are accepted for arguments (direction).
+
+{% endnote %}
+
+
+#### Examples
+
+```
+RANK_PERCENTILE([Profit])
+```
+
+```
+RANK_PERCENTILE([Profit] TOTAL)
+```
+
+```
+RANK_PERCENTILE([Profit] WITHIN [Country])
+```
+
+```
+RANK_PERCENTILE([Profit], "asc" AMONG [Date])
+```
+
+
+#### Data source support
+
+`Materialized Dataset`, `ClickHouse 1.1`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`.
