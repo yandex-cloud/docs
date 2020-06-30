@@ -117,7 +117,7 @@ paths:
         in: query
         description: |-
           The maximum number of results per page to return. If the number of available
-          results is larger than `pageSize`, the service returns a [ListApiGatewayRequest.next_page_token]
+          results is larger than `pageSize`, the service returns a [nextPageToken](/docs/functions/apigateway/api-ref/ApiGateway/list#responses)
           that can be used to get the next page of results in subsequent list requests.
 
           Default value: 100.
@@ -128,7 +128,20 @@ paths:
         in: query
         description: |-
           Page token. To get the next page of results, set `pageToken` to the
-          [ListApiGatewayRequest.next_page_token] returned by a previous list request.
+          [nextPageToken](/docs/functions/apigateway/api-ref/ApiGateway/list#responses) returned by a previous list request.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          A filter expression that filters functions listed in the response.
+
+          The expression must specify:
+          1. The field name. Currently filtering can only be applied to the [ApiGateway.name](/docs/functions/apigateway/api-ref/ApiGateway#representation) field.
+          2. A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN`
+          for lists of values.
+          3. The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.
+          Example of a filter: `name=my-apigw`.
         schema:
           type: string
       responses:

@@ -103,6 +103,7 @@ Field | Description
 width | **int64**<br>Page width in pixels. 
 height | **int64**<br>Page height in pixels. 
 blocks[] | **[Block](#Block)**<br>Recognized text blocks in this page. 
+entities[] | **[Entity](#Entity)**<br>Recognized entities 
 
 
 ### Block {#Block}
@@ -160,6 +161,7 @@ bounding_box | **[Polygon](#Polygon2)**<br>Area on the page where the word is lo
 text | **string**<br>Recognized word value. 
 confidence | **double**<br>Confidence of the OCR results for the word. Range [0, 1]. 
 languages[] | **[DetectedLanguage](#DetectedLanguage)**<br>A list of detected languages together with confidence. 
+entity_index | **int64**<br>Id of recognized word in entities array 
 
 
 ### DetectedLanguage {#DetectedLanguage}
@@ -183,6 +185,14 @@ Field | Description
 --- | ---
 x | **int64**<br>X coordinate in pixels. 
 y | **int64**<br>Y coordinate in pixels. 
+
+
+### Entity {#Entity}
+
+Field | Description
+--- | ---
+name | **string**<br>Entity name 
+text | **string**<br>Recognized entity text 
 
 
 ### ClassAnnotation {#ClassAnnotation}

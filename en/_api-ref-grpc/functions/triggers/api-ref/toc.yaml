@@ -1,6 +1,6 @@
 items:
   - name: Overview
-    href: grpc/triggers_index.md
+    href: grpc/index.md
   - name: TriggerService
     href: grpc/trigger_service.md
   - name: OperationService

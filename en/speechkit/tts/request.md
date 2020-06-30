@@ -160,8 +160,6 @@ By default, data in the audio file is encoded using the OPUS audio codec and com
   curl_setopt($ch, CURLOPT_URL, $url);
   curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);
   curl_setopt($ch, CURLOPT_HEADER, false);
-  curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
-  curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
   if ($post !== false) {
       curl_setopt($ch, CURLOPT_POST, 1);
       curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
@@ -320,8 +318,6 @@ In this example, we synthesize the submitted text in LPCM format with a sampling
       curl_setopt($ch, CURLOPT_URL, $url);
       curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);
       curl_setopt($ch, CURLOPT_HEADER, false);
-      curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
-      curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
       if ($post !== false) {
           curl_setopt($ch, CURLOPT_POST, 1);
           curl_setopt($ch, CURLOPT_POSTFIELDS, $post);

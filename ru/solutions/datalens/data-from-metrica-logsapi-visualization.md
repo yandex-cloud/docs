@@ -13,9 +13,8 @@
 
 Инструкция по созданию кластера ClickHouse вы сможете найти в [документации Managed Service for ClickHouse](../../managed-clickhouse/operations/cluster-create.md).
  
-Чтобы визуализировать данные, пройдите следующие шаги:
+Для визуализации и исследования данных [подготовьте облако к работе](#before-you-begin), затем выполните следующие шаги:
 
-1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте подключение и стандартный дашборд](data-from-metrica-logsapi-visualization#step1).
 1. [Измените стандартный дашборд](data-from-metrica-logsapi-visualization#step2).
 1. [Измените чарт](data-from-metrica-logsapi-visualization#step3).
@@ -110,7 +109,7 @@
 
      ![image](../../_assets/datalens/solution-04/14-save-dashboard.png)
 
-## Шаг 3. Измените чарт {step3}
+## Шаг 3. Измените чарт {#step3}
 
 Вы можете отредактировать любой чарт на дашборде. Например, изменить тип визуализации для диаграммы **Визиты по типам устройств и ОС** из раздела **Технологии**.
 

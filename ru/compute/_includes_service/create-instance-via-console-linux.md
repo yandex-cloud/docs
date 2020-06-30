@@ -39,7 +39,7 @@
 
       {% endnote %}
 
-    - В поле **SSH-ключ** вставьте содержимое файла [открытого ключа](../../compute/quickstart/quick-create-linux.md#create-ssh).
+    - В поле **SSH-ключ** вставьте содержимое файла [открытого ключа](../operations/vm-connect/ssh#creating-ssh-keys).
 1. Нажмите кнопку **Создать ВМ**.
 
 Виртуальная машина появится в списке. При создании виртуальной машине назначаются [IP-адрес](../../vpc/concepts/address) и [имя хоста](../../vpc/concepts/address#imya-hosta-(fqdn)) (FQDN).

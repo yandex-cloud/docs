@@ -8,7 +8,7 @@ info:
   x-y-docUri: api-ref
   x-y-baseUrl: https://mdb.api.cloud.yandex.net
 paths:
-  /managed-mysql/v1/backups/{backupId}:
+  /managed-mysql/v1alpha/backups/{backupId}:
     get:
       tags:
       - Backup
@@ -34,7 +34,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Backup'
       x-y-navtitle: get
-  /managed-mysql/v1/backups:
+  /managed-mysql/v1alpha/backups:
     get:
       tags:
       - Backup
@@ -80,7 +80,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListBackupsResponse'
       x-y-navtitle: list
-  /managed-mysql/v1/clusters/{clusterId}:
+  /managed-mysql/v1alpha/clusters/{clusterId}:
     get:
       tags:
       - Cluster
@@ -170,7 +170,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/UpdateClusterMetadata'
       x-y-operation-response: '[Cluster](/docs/managed-mysql/api-ref/Cluster#representation)'
-  /managed-mysql/v1/clusters:
+  /managed-mysql/v1alpha/clusters:
     get:
       tags:
       - Cluster
@@ -249,7 +249,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/CreateClusterMetadata'
       x-y-operation-response: '[Cluster](/docs/managed-mysql/api-ref/Cluster#representation)'
-  /managed-mysql/v1/clusters/{clusterId}:start:
+  /managed-mysql/v1alpha/clusters/{clusterId}:start:
     post:
       tags:
       - Cluster
@@ -277,7 +277,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/StartClusterMetadata'
       x-y-operation-response: '[Cluster](/docs/managed-mysql/api-ref/Cluster#representation)'
-  /managed-mysql/v1/clusters/{clusterId}:stop:
+  /managed-mysql/v1alpha/clusters/{clusterId}:stop:
     post:
       tags:
       - Cluster
@@ -305,41 +305,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/StopClusterMetadata'
       x-y-operation-response: '[Cluster](/docs/managed-mysql/api-ref/Cluster#representation)'
-  /managed-mysql/v1/clusters/{clusterId}:move:
-    post:
-      tags:
-      - Cluster
-      summary: Перемещает кластер MySQL в указанный каталог.
-      operationId: ClusterMove
-      parameters:
-      - name: clusterId
-        in: path
-        description: |-
-          Обязательное поле.
-          Идентификатор кластера MySQL, который следует переместить.
-
-          Максимальная длина строки в символах — 50.
-        required: true
-        schema:
-          type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/MoveClusterRequest'
-        required: true
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Operation'
-      x-y-navtitle: move
-      x-y-operation-metadata:
-        $ref: '#/components/schemas/MoveClusterMetadata'
-      x-y-operation-response: '[Cluster](/docs/managed-mysql/api-ref/Cluster#representation)'
-  /managed-mysql/v1/clusters/{clusterId}:backup:
+  /managed-mysql/v1alpha/clusters/{clusterId}:backup:
     post:
       tags:
       - Cluster
@@ -368,7 +334,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/BackupClusterMetadata'
       x-y-operation-response: '[Cluster](/docs/managed-mysql/api-ref/Cluster#representation)'
-  /managed-mysql/v1/clusters:restore:
+  /managed-mysql/v1alpha/clusters:restore:
     post:
       tags:
       - Cluster
@@ -391,41 +357,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/RestoreClusterMetadata'
       x-y-operation-response: '[Cluster](/docs/managed-mysql/api-ref/Cluster#representation)'
-  /managed-mysql/v1/clusters/{clusterId}:startFailover:
-    post:
-      tags:
-      - Cluster
-      summary: Запускает ручное переключение мастера для указанного кластера MySQL.
-      operationId: ClusterStartFailover
-      parameters:
-      - name: clusterId
-        in: path
-        description: |-
-          Обязательное поле.
-          Идентификатор кластера MySQL.
-
-          Максимальная длина строки в символах — 50.
-        required: true
-        schema:
-          type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/StartClusterFailoverRequest'
-        required: true
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Operation'
-      x-y-navtitle: startFailover
-      x-y-operation-metadata:
-        $ref: '#/components/schemas/StartClusterFailoverMetadata'
-      x-y-operation-response: '[Cluster](/docs/managed-mysql/api-ref/Cluster#representation)'
-  /managed-mysql/v1/clusters/{clusterId}:logs:
+  /managed-mysql/v1alpha/clusters/{clusterId}:logs:
     get:
       tags:
       - Cluster
@@ -511,7 +443,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListClusterLogsResponse'
       x-y-navtitle: listLogs
-  /managed-mysql/v1/clusters/{clusterId}/operations:
+  /managed-mysql/v1alpha/clusters/{clusterId}/operations:
     get:
       tags:
       - Cluster
@@ -557,7 +489,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListClusterOperationsResponse'
       x-y-navtitle: listOperations
-  /managed-mysql/v1/clusters/{clusterId}/backups:
+  /managed-mysql/v1alpha/clusters/{clusterId}/backups:
     get:
       tags:
       - Cluster
@@ -604,7 +536,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListClusterBackupsResponse'
       x-y-navtitle: listBackups
-  /managed-mysql/v1/clusters/{clusterId}/hosts:
+  /managed-mysql/v1alpha/clusters/{clusterId}/hosts:
     get:
       tags:
       - Cluster
@@ -651,7 +583,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListClusterHostsResponse'
       x-y-navtitle: listHosts
-  /managed-mysql/v1/clusters/{clusterId}/hosts:batchCreate:
+  /managed-mysql/v1alpha/clusters/{clusterId}/hosts:batchCreate:
     post:
       tags:
       - Cluster
@@ -686,7 +618,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/AddClusterHostsMetadata'
       x-y-operation-response: Empty
-  /managed-mysql/v1/clusters/{clusterId}/hosts:batchDelete:
+  /managed-mysql/v1alpha/clusters/{clusterId}/hosts:batchDelete:
     post:
       tags:
       - Cluster
@@ -721,7 +653,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/DeleteClusterHostsMetadata'
       x-y-operation-response: Empty
-  /managed-mysql/v1/clusters/{clusterId}/databases/{databaseName}:
+  /managed-mysql/v1alpha/clusters/{clusterId}/databases/{databaseName}:
     get:
       tags:
       - Database
@@ -783,7 +715,7 @@ paths:
         description: |-
           Обязательное поле.
           Имя удаляемой базы данных. Чтобы получить имя базы данных, используйте запрос
-          [list](/docs/managed-mysql/api-ref/Database/list).
+          [List].
 
           Максимальная длина строки в символах — 63.
           Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_-]* ``.
@@ -801,7 +733,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/DeleteDatabaseMetadata'
       x-y-operation-response: Empty
-  /managed-mysql/v1/clusters/{clusterId}/databases:
+  /managed-mysql/v1alpha/clusters/{clusterId}/databases:
     get:
       tags:
       - Database
@@ -882,7 +814,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/CreateDatabaseMetadata'
       x-y-operation-response: '[Database](/docs/managed-mysql/api-ref/Database#representation)'
-  /managed-mysql/v1/resourcePresets/{resourcePresetId}:
+  /managed-mysql/v1alpha/resourcePresets/{resourcePresetId}:
     get:
       tags:
       - ResourcePreset
@@ -908,7 +840,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ResourcePreset'
       x-y-navtitle: get
-  /managed-mysql/v1/resourcePresets:
+  /managed-mysql/v1alpha/resourcePresets:
     get:
       tags:
       - ResourcePreset
@@ -944,7 +876,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListResourcePresetsResponse'
       x-y-navtitle: list
-  /managed-mysql/v1/clusters/{clusterId}/users/{userName}:
+  /managed-mysql/v1alpha/clusters/{clusterId}/users/{userName}:
     get:
       tags:
       - User
@@ -967,7 +899,7 @@ paths:
         in: path
         description: |-
           Обязательное поле.
-          Обязательное поле.
+          Имя пользователя.
 
           Максимальная длина строки в символах — 63.
           Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_]* ``.
@@ -1068,7 +1000,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/UpdateUserMetadata'
       x-y-operation-response: '[User](/docs/managed-mysql/api-ref/User#representation)'
-  /managed-mysql/v1/clusters/{clusterId}/users:
+  /managed-mysql/v1alpha/clusters/{clusterId}/users:
     get:
       tags:
       - User
@@ -1148,7 +1080,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/CreateUserMetadata'
       x-y-operation-response: '[User](/docs/managed-mysql/api-ref/User#representation)'
-  /managed-mysql/v1/clusters/{clusterId}/users/{userName}:grantPermission:
+  /managed-mysql/v1alpha/clusters/{clusterId}/users/{userName}:grantPermission:
     post:
       tags:
       - User
@@ -1195,7 +1127,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/GrantUserPermissionMetadata'
       x-y-operation-response: '[User](/docs/managed-mysql/api-ref/User#representation)'
-  /managed-mysql/v1/clusters/{clusterId}/users/{userName}:revokePermission:
+  /managed-mysql/v1alpha/clusters/{clusterId}/users/{userName}:revokePermission:
     post:
       tags:
       - User
@@ -1244,13 +1176,6 @@ paths:
       x-y-operation-response: '[User](/docs/managed-mysql/api-ref/User#representation)'
 components:
   schemas:
-    Access:
-      type: object
-      properties:
-        dataLens:
-          description: Разрешить доступ для DataLens
-          type: boolean
-          format: boolean
     AddClusterHostsMetadata:
       type: object
       properties:
@@ -1371,9 +1296,6 @@ components:
             $ref: '#/components/schemas/TimeOfDay'
             description: Время запуска ежедневного резервного копирования, в часовом
               поясе UTC.
-          access:
-            $ref: '#/components/schemas/Access'
-            description: Политика доступа к БД
       - title: mysql_config
         type: object
         maxProperties: 1
@@ -1381,9 +1303,6 @@ components:
           mysqlConfig_5_7:
             $ref: '#/components/schemas/MysqlConfigSet5_7'
             description: Конфигурация сервера MySQL 5.7.
-          mysqlConfig_8_0:
-            $ref: '#/components/schemas/MysqlConfigSet8_0'
-            description: Конфигурация сервера MySQL 8.0.
     ClusterEnvironment:
       description: |2-
          - PRODUCTION: Стабильная среда с осторожной политикой обновления: во время регулярного
@@ -1438,7 +1357,6 @@ components:
             description: |-
               Версия MySQL, используемая в кластере. Возможные значения:
               * 5.7
-              * 8.0
             type: string
           resources:
             $ref: '#/components/schemas/Resources'
@@ -1447,9 +1365,6 @@ components:
             $ref: '#/components/schemas/TimeOfDay'
             description: Время запуска ежедневного резервного копирования, в часовом
               поясе UTC.
-          access:
-            $ref: '#/components/schemas/Access'
-            description: Политика доступа к БД.
       - title: mysql_config
         type: object
         maxProperties: 1
@@ -1457,9 +1372,6 @@ components:
           mysqlConfig_5_7:
             $ref: '#/components/schemas/MysqlConfig5_7'
             description: Конфигурация для кластера MySQL 5.7.
-          mysqlConfig_8_0:
-            $ref: '#/components/schemas/MysqlConfig8_0'
-            description: Конфигурация для кластера MySQL 8.0.
     CreateClusterMetadata:
       type: object
       properties:
@@ -1799,17 +1711,10 @@ components:
             результатов.
           type: string
     ListClusterLogsRequestServiceType:
-      description: |2-
-         - MYSQL_ERROR: Лог ошибок MySQL.
-         - MYSQL_GENERAL: Общий лог запросов MySQL.
-         - MYSQL_SLOW_QUERY: Лог медленных запросов MySQL.
-         - MYSQL_AUDIT: Лог аудита MySQL.
+      description: ' - MYSQL: Логи работы MySQL.'
       type: string
       enum:
-      - MYSQL_ERROR
-      - MYSQL_GENERAL
-      - MYSQL_SLOW_QUERY
-      - MYSQL_AUDIT
+      - MYSQL
     ListClusterLogsResponse:
       type: object
       properties:
@@ -1910,7 +1815,7 @@ components:
       properties:
         timestamp:
           description: |-
-            Отметка времени для записи журнала в текстовом формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+            Отметка времени для записи журнала в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) текстовом формате.
 
             Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
           type: string
@@ -1932,28 +1837,6 @@ components:
         link:
           description: Ссылка на графики системы мониторинга для кластера MySQL.
           type: string
-    MoveClusterMetadata:
-      type: object
-      properties:
-        clusterId:
-          description: Идентификатор перемещаемого кластера MySQL.
-          type: string
-        sourceFolderId:
-          description: Идентификатор исходного каталога.
-          type: string
-        destinationFolderId:
-          description: Идентификатор каталога назначения.
-          type: string
-    MoveClusterRequest:
-      type: object
-      properties:
-        destinationFolderId:
-          description: |-
-            Обязательное поле.
-            Идентификатор каталога, в который следует переместить кластер.
-
-            Максимальная длина строки в символах — 50.
-          type: string
     MysqlConfig5_7:
       description: Поля и структура `MysqlConfig5_7` отражает параметры конфигурации
         MySQL 5.7.
@@ -1963,7 +1846,7 @@ components:
           description: |-
             Размер буфера InnoDB, который используется для кэширования данных таблиц и индексов.
 
-            Подробнее см. в [описании параметра в документации MySQL](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size).
+            Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size).
 
             Минимальное значение — 5242880.
           type: integer
@@ -1985,177 +1868,6 @@ components:
             Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_long_query_time).
           type: number
           format: double
-        generalLog:
-          description: |-
-            Включить запись общего лога запросов MySQL.
-
-            Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_general_log).
-          type: boolean
-          format: boolean
-        auditLog:
-          description: |-
-            Включить запись лога аудита MySQL.
-
-            Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/mysql-security-excerpt/5.6/en/audit-log-options-variables.html#option_mysqld_audit-log).
-          type: boolean
-          format: boolean
-        sqlMode:
-          description: |-
-            Режим SQL для сервера MySQL.
-
-            Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sql-mode-setting).
-          type: array
-          items:
-            $ref: '#/components/schemas/MysqlConfig5_7SQLMode'
-        maxAllowedPacket:
-          description: |-
-            Максимальный размер одного пакета в байтах.
-
-            Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_allowed_packet).
-
-            Допустимые значения — от 1024 до 134217728 включительно.
-          type: integer
-          format: int64
-        defaultAuthenticationPlugin:
-          $ref: '#/components/schemas/MysqlConfig5_7AuthPlugin_in_MysqlConfig5_7_defaultAuthenticationPlugin'
-    MysqlConfig5_7AuthPlugin:
-      description: |2-
-         - MYSQL_NATIVE_PASSWORD: Использует [Native Pluggable Authentication](https://dev.mysql.com/doc/refman/5.7/en/native-pluggable-authentication.html).
-         - SHA256_PASSWORD: Использует [SHA-256 Pluggable Authentication](https://dev.mysql.com/doc/refman/5.7/en/sha256-pluggable-authentication.html).
-      type: string
-      enum:
-      - MYSQL_NATIVE_PASSWORD
-      - CACHING_SHA2_PASSWORD
-      - SHA256_PASSWORD
-    MysqlConfig5_7SQLMode:
-      type: string
-      enum:
-      - ALLOW_INVALID_DATES
-      - ANSI_QUOTES
-      - ERROR_FOR_DIVISION_BY_ZERO
-      - HIGH_NOT_PRECEDENCE
-      - IGNORE_SPACE
-      - NO_AUTO_VALUE_ON_ZERO
-      - NO_BACKSLASH_ESCAPES
-      - NO_ENGINE_SUBSTITUTION
-      - NO_UNSIGNED_SUBTRACTION
-      - NO_ZERO_DATE
-      - NO_ZERO_IN_DATE
-      - NO_FIELD_OPTIONS
-      - NO_KEY_OPTIONS
-      - NO_TABLE_OPTIONS
-      - ONLY_FULL_GROUP_BY
-      - PAD_CHAR_TO_FULL_LENGTH
-      - PIPES_AS_CONCAT
-      - REAL_AS_FLOAT
-      - STRICT_ALL_TABLES
-      - STRICT_TRANS_TABLES
-      - ANSI
-      - TRADITIONAL
-      - DB2
-      - MAXDB
-      - MSSQL
-      - MYSQL323
-      - MYSQL40
-      - ORACLE
-      - POSTGRESQL
-    MysqlConfig8_0:
-      description: Поля и структура `MysqlConfig8_0` отражает параметры конфигурации
-        MySQL 8.0.
-      type: object
-      properties:
-        innodbBufferPoolSize:
-          description: |-
-            Размер буфера InnoDB, который используется для кэширования данных таблиц и индексов.
-
-            Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size).
-
-            Минимальное значение — 5242880.
-          type: integer
-          format: int64
-        maxConnections:
-          description: |-
-            Максимальное количество одновременных подключений, которые принимает MySQL.
-
-            Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_connections).
-
-            Допустимые значения — от 10 до 10000 включительно.
-          type: integer
-          format: int64
-        longQueryTime:
-          description: |-
-            Время, в течение которого запрос должен обрабатываться, прежде чем он начинает
-            считаться медленным.
-
-            Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_long_query_time).
-          type: number
-          format: double
-        generalLog:
-          description: |-
-            Включить запись общего лога запросов MySQL.
-
-            Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_general_log).
-          type: boolean
-          format: boolean
-        auditLog:
-          description: |-
-            Включить запись лога аудита MySQL.
-
-            Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/8.0/en/audit-log-reference.html#audit-log-options-variables).
-          type: boolean
-          format: boolean
-        sqlMode:
-          description: |-
-            Режим SQL для сервера MySQL.
-
-            Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sql-mode-setting).
-          type: array
-          items:
-            $ref: '#/components/schemas/MysqlConfig8_0SQLMode'
-        maxAllowedPacket:
-          description: |-
-            Максимальный размер одного пакета в байтах.
-
-            Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_allowed_packet).
-
-            Допустимые значения — от 1024 до 134217728 включительно.
-          type: integer
-          format: int64
-        defaultAuthenticationPlugin:
-          $ref: '#/components/schemas/MysqlConfig8_0AuthPlugin_in_MysqlConfig8_0_defaultAuthenticationPlugin'
-    MysqlConfig8_0AuthPlugin:
-      description: |2-
-         - MYSQL_NATIVE_PASSWORD: Использует [Native Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/native-pluggable-authentication.html).
-         - CACHING_SHA2_PASSWORD: Использует [Caching SHA-2 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/caching-sha2-pluggable-authentication.html).
-         - SHA256_PASSWORD: Использует [SHA-256 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/sha256-pluggable-authentication.html).
-      type: string
-      enum:
-      - MYSQL_NATIVE_PASSWORD
-      - CACHING_SHA2_PASSWORD
-      - SHA256_PASSWORD
-    MysqlConfig8_0SQLMode:
-      type: string
-      enum:
-      - ALLOW_INVALID_DATES
-      - ANSI_QUOTES
-      - ERROR_FOR_DIVISION_BY_ZERO
-      - HIGH_NOT_PRECEDENCE
-      - IGNORE_SPACE
-      - NO_AUTO_VALUE_ON_ZERO
-      - NO_BACKSLASH_ESCAPES
-      - NO_ENGINE_SUBSTITUTION
-      - NO_UNSIGNED_SUBTRACTION
-      - NO_ZERO_DATE
-      - NO_ZERO_IN_DATE
-      - ONLY_FULL_GROUP_BY
-      - PAD_CHAR_TO_FULL_LENGTH
-      - PIPES_AS_CONCAT
-      - REAL_AS_FLOAT
-      - STRICT_ALL_TABLES
-      - STRICT_TRANS_TABLES
-      - TIME_TRUNCATE_FRACTIONAL
-      - ANSI
-      - TRADITIONAL
     MysqlConfigSet5_7:
       type: object
       properties:
@@ -2165,15 +1877,6 @@ components:
           $ref: '#/components/schemas/MysqlConfig5_7_in_MysqlConfigSet5_7_userConfig'
         defaultConfig:
           $ref: '#/components/schemas/MysqlConfig5_7_in_MysqlConfigSet5_7_defaultConfig'
-    MysqlConfigSet8_0:
-      type: object
-      properties:
-        effectiveConfig:
-          $ref: '#/components/schemas/MysqlConfig8_0_in_MysqlConfigSet8_0_effectiveConfig'
-        userConfig:
-          $ref: '#/components/schemas/MysqlConfig8_0_in_MysqlConfigSet8_0_userConfig'
-        defaultConfig:
-          $ref: '#/components/schemas/MysqlConfig8_0_in_MysqlConfigSet8_0_defaultConfig'
     Operation:
       description: |-
         Ресурс Operation. Дополнительные сведения см. в разделе
@@ -2330,8 +2033,8 @@ components:
       properties:
         resourcePresetId:
           description: |-
-            Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.).
-            Все доступные наборы ресурсов перечислены в [документации](/docs/managed-mysql/concepts/instance-types).
+            Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и
+            т. д.). Все доступные наборы ресурсов перечислены в [документации](/docs/managed-mysql/concepts/instance-types).
           type: string
         diskSize:
           description: Объем хранилища, доступного хосту.
@@ -2413,12 +2116,6 @@ components:
 
             Максимальная длина строки в символах — 50.
           type: string
-        folderId:
-          description: |-
-            Идентификатор каталога, в котором нужно создать кластер MySQL.
-
-            Максимальная длина строки в символах — 50.
-          type: string
     RevokeUserPermissionMetadata:
       type: object
       properties:
@@ -2431,8 +2128,14 @@ components:
     RevokeUserPermissionRequest:
       type: object
       properties:
-        permission:
-          $ref: '#/components/schemas/Permission_in_RevokeUserPermissionRequest_permission'
+        databaseName:
+          description: |-
+            Обязательное поле.
+            Имя базы данных, к которой пользователь должен потерять доступ.
+
+            Максимальная длина строки в символах — 63.
+            Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_-]* ``.
+          type: string
     Service:
       type: object
       properties:
@@ -2452,26 +2155,15 @@ components:
       - DEAD
       default: HEALTH_UNKNOWN
     ServiceType:
-      description: ' - MYSQL: Хост является сервером MySQL.'
+      description: |2-
+         - MYSQL_ERROR: Хост предоставляет лог ошибок MySQL.
+         - MYSQL_GENERAL: Хост предоставляет общий лог запросов MySQL.
+         - MYSQL_SLOW_QUERY: Хост предоставляет лог медленных запросов MySQL.
       type: string
       enum:
-      - MYSQL
-    StartClusterFailoverMetadata:
-      type: object
-      properties:
-        clusterId:
-          description: Идентификатор кластера MySQL, для которого переключается мастер.
-          type: string
-    StartClusterFailoverRequest:
-      type: object
-      properties:
-        hostName:
-          description: |-
-            Новый хост-мастер. Если хост не указан, кластер переключается на реплику с самыми
-            свежими данными.
-
-            Максимальная длина строки в символах — 253.
-          type: string
+      - MYSQL_ERROR
+      - MYSQL_GENERAL
+      - MYSQL_SLOW_QUERY
     StartClusterMetadata:
       type: object
       properties:
@@ -2486,30 +2178,29 @@ components:
           type: string
     TimeOfDay:
       description: |-
-        Описывает время суток. Дата и часовой пояс либо не имеют значения, либо указаны другим
-        образом. API может разрешить високосные секунды. Связанные типы: [google.type.Date][google.type.Date] и
-        `google.protobuf.Timestamp`.
+        Represents a time of day. The date and time zone are either not significant
+        or are specified elsewhere. An API may choose to allow leap seconds. Related
+        types are [google.type.Date](https://github.com/googleapis/googleapis/blob/master/google/type/date.proto) and [google.protobuf.Timestamp](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto).
       type: object
       properties:
         hours:
           description: |-
-            Час в 24-часовом формате. Допустимые значения — от 0 до 23. API может разрешить значение
-            "24:00:00" для таких сценариев, как время закрытия заведения.
+            Hours of day in 24 hour format. Should be from 0 to 23. An API may choose
+            to allow the value "24:00:00" for scenarios like business closing time.
           type: integer
           format: int32
         minutes:
-          description: Минута часа. Допустимые значения — от 0 до 59.
+          description: Minutes of hour of day. Must be from 0 to 59.
           type: integer
           format: int32
         seconds:
           description: |-
-            Секунда минуты. Обычно допустимые значения — от 0 до 59. API может разрешить значение 60,
-            если поддерживаются високосные секунды.
+            Seconds of minutes of the time. Must normally be from 0 to 59. An API may
+            allow the value 60 if it allows leap-seconds.
           type: integer
           format: int32
         nanos:
-          description: Доли секунды, в наносекундах. Допустимые значения — от 0 до
-            999 999 999.
+          description: Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.
           type: integer
           format: int32
     UpdateClusterMetadata:
@@ -2662,9 +2353,6 @@ components:
             $ref: '#/components/schemas/TimeOfDay'
             description: Время запуска ежедневного резервного копирования, в часовом
               поясе UTC.
-          access:
-            $ref: '#/components/schemas/Access'
-            description: Политика доступа к БД
       - title: mysql_config
         type: object
         maxProperties: 1
@@ -2672,9 +2360,6 @@ components:
           mysqlConfig_5_7:
             $ref: '#/components/schemas/MysqlConfigSet5_7'
             description: Конфигурация сервера MySQL 5.7.
-          mysqlConfig_8_0:
-            $ref: '#/components/schemas/MysqlConfigSet8_0'
-            description: Конфигурация сервера MySQL 8.0.
     ClusterHealth_in_Cluster_health:
       description: |-
         Агрегированная работоспособность кластера.
@@ -2737,7 +2422,6 @@ components:
             description: |-
               Версия MySQL, используемая в кластере. Возможные значения:
               * 5.7
-              * 8.0
             type: string
           resources:
             $ref: '#/components/schemas/Resources'
@@ -2746,9 +2430,6 @@ components:
             $ref: '#/components/schemas/TimeOfDay'
             description: Время запуска ежедневного резервного копирования, в часовом
               поясе UTC.
-          access:
-            $ref: '#/components/schemas/Access'
-            description: Политика доступа к БД.
       - title: mysql_config
         type: object
         maxProperties: 1
@@ -2756,9 +2437,6 @@ components:
           mysqlConfig_5_7:
             $ref: '#/components/schemas/MysqlConfig5_7'
             description: Конфигурация для кластера MySQL 5.7.
-          mysqlConfig_8_0:
-            $ref: '#/components/schemas/MysqlConfig8_0'
-            description: Конфигурация для кластера MySQL 8.0.
     DatabaseSpec_in_CreateDatabaseRequest_databaseSpec:
       description: |-
         Обязательное поле.
@@ -2823,8 +2501,8 @@ components:
       properties:
         resourcePresetId:
           description: |-
-            Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.).
-            Все доступные наборы ресурсов перечислены в [документации](/docs/managed-mysql/concepts/instance-types).
+            Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и
+            т. д.). Все доступные наборы ресурсов перечислены в [документации](/docs/managed-mysql/concepts/instance-types).
           type: string
         diskSize:
           description: Объем хранилища, доступного хосту.
@@ -2864,29 +2542,6 @@ components:
       - DEAD
       - DEGRADED
       default: HEALTH_UNKNOWN
-    MysqlConfig5_7AuthPlugin_in_MysqlConfig5_7_defaultAuthenticationPlugin:
-      description: |-
-        Плагин аутентификации, используемый в управляемом кластере MySQL.
-
-         - MYSQL_NATIVE_PASSWORD: Использует [Native Pluggable Authentication](https://dev.mysql.com/doc/refman/5.7/en/native-pluggable-authentication.html).
-         - SHA256_PASSWORD: Использует [SHA-256 Pluggable Authentication](https://dev.mysql.com/doc/refman/5.7/en/sha256-pluggable-authentication.html).
-      type: string
-      enum:
-      - MYSQL_NATIVE_PASSWORD
-      - CACHING_SHA2_PASSWORD
-      - SHA256_PASSWORD
-    MysqlConfig8_0AuthPlugin_in_MysqlConfig8_0_defaultAuthenticationPlugin:
-      description: |-
-        Плагин аутентификации, используемый в управляемом кластере MySQL.
-
-         - MYSQL_NATIVE_PASSWORD: Использует [Native Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/native-pluggable-authentication.html).
-         - CACHING_SHA2_PASSWORD: Использует [Caching SHA-2 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/caching-sha2-pluggable-authentication.html).
-         - SHA256_PASSWORD: Использует [SHA-256 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/sha256-pluggable-authentication.html).
-      type: string
-      enum:
-      - MYSQL_NATIVE_PASSWORD
-      - CACHING_SHA2_PASSWORD
-      - SHA256_PASSWORD
     MysqlConfig5_7_in_MysqlConfigSet5_7_effectiveConfig:
       description: |-
         Действующие параметры для кластера MySQL 5.7 (сочетание параметров, определенных в
@@ -2899,7 +2554,7 @@ components:
           description: |-
             Размер буфера InnoDB, который используется для кэширования данных таблиц и индексов.
 
-            Подробнее см. в [описании параметра в документации MySQL](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size).
+            Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size).
 
             Минимальное значение — 5242880.
           type: integer
@@ -2921,39 +2576,6 @@ components:
             Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_long_query_time).
           type: number
           format: double
-        generalLog:
-          description: |-
-            Включить запись общего лога запросов MySQL.
-
-            Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_general_log).
-          type: boolean
-          format: boolean
-        auditLog:
-          description: |-
-            Включить запись лога аудита MySQL.
-
-            Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/mysql-security-excerpt/5.6/en/audit-log-options-variables.html#option_mysqld_audit-log).
-          type: boolean
-          format: boolean
-        sqlMode:
-          description: |-
-            Режим SQL для сервера MySQL.
-
-            Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sql-mode-setting).
-          type: array
-          items:
-            $ref: '#/components/schemas/MysqlConfig5_7SQLMode'
-        maxAllowedPacket:
-          description: |-
-            Максимальный размер одного пакета в байтах.
-
-            Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_allowed_packet).
-
-            Допустимые значения — от 1024 до 134217728 включительно.
-          type: integer
-          format: int64
-        defaultAuthenticationPlugin:
-          $ref: '#/components/schemas/MysqlConfig5_7AuthPlugin_in_MysqlConfig5_7_defaultAuthenticationPlugin'
     MysqlConfig5_7_in_MysqlConfigSet5_7_userConfig:
       description: |-
         Пользовательские настройки для кластера MySQL 5.7.
@@ -2965,7 +2587,7 @@ components:
           description: |-
             Размер буфера InnoDB, который используется для кэширования данных таблиц и индексов.
 
-            Подробнее см. в [описании параметра в документации MySQL](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size).
+            Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size).
 
             Минимальное значение — 5242880.
           type: integer
@@ -2987,39 +2609,6 @@ components:
             Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_long_query_time).
           type: number
           format: double
-        generalLog:
-          description: |-
-            Включить запись общего лога запросов MySQL.
-
-            Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_general_log).
-          type: boolean
-          format: boolean
-        auditLog:
-          description: |-
-            Включить запись лога аудита MySQL.
-
-            Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/mysql-security-excerpt/5.6/en/audit-log-options-variables.html#option_mysqld_audit-log).
-          type: boolean
-          format: boolean
-        sqlMode:
-          description: |-
-            Режим SQL для сервера MySQL.
-
-            Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sql-mode-setting).
-          type: array
-          items:
-            $ref: '#/components/schemas/MysqlConfig5_7SQLMode'
-        maxAllowedPacket:
-          description: |-
-            Максимальный размер одного пакета в байтах.
-
-            Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_allowed_packet).
-
-            Допустимые значения — от 1024 до 134217728 включительно.
-          type: integer
-          format: int64
-        defaultAuthenticationPlugin:
-          $ref: '#/components/schemas/MysqlConfig5_7AuthPlugin_in_MysqlConfig5_7_defaultAuthenticationPlugin'
     MysqlConfig5_7_in_MysqlConfigSet5_7_defaultConfig:
       description: |-
         Конфигурация по умолчанию для кластера MySQL 5.7.
@@ -3031,7 +2620,7 @@ components:
           description: |-
             Размер буфера InnoDB, который используется для кэширования данных таблиц и индексов.
 
-            Подробнее см. в [описании параметра в документации MySQL](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size).
+            Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size).
 
             Минимальное значение — 5242880.
           type: integer
@@ -3053,238 +2642,6 @@ components:
             Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_long_query_time).
           type: number
           format: double
-        generalLog:
-          description: |-
-            Включить запись общего лога запросов MySQL.
-
-            Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_general_log).
-          type: boolean
-          format: boolean
-        auditLog:
-          description: |-
-            Включить запись лога аудита MySQL.
-
-            Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/mysql-security-excerpt/5.6/en/audit-log-options-variables.html#option_mysqld_audit-log).
-          type: boolean
-          format: boolean
-        sqlMode:
-          description: |-
-            Режим SQL для сервера MySQL.
-
-            Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sql-mode-setting).
-          type: array
-          items:
-            $ref: '#/components/schemas/MysqlConfig5_7SQLMode'
-        maxAllowedPacket:
-          description: |-
-            Максимальный размер одного пакета в байтах.
-
-            Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_allowed_packet).
-
-            Допустимые значения — от 1024 до 134217728 включительно.
-          type: integer
-          format: int64
-        defaultAuthenticationPlugin:
-          $ref: '#/components/schemas/MysqlConfig5_7AuthPlugin_in_MysqlConfig5_7_defaultAuthenticationPlugin'
-    MysqlConfig8_0_in_MysqlConfigSet8_0_effectiveConfig:
-      description: |-
-        Действующие параметры для кластера MySQL 8.0 (сочетание параметров, определенных в
-        `userConfig` и `defaultConfig`).
-
-        Поля и структура `MysqlConfig8_0` отражает параметры конфигурации MySQL 8.0.
-      type: object
-      properties:
-        innodbBufferPoolSize:
-          description: |-
-            Размер буфера InnoDB, который используется для кэширования данных таблиц и индексов.
-
-            Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size).
-
-            Минимальное значение — 5242880.
-          type: integer
-          format: int64
-        maxConnections:
-          description: |-
-            Максимальное количество одновременных подключений, которые принимает MySQL.
-
-            Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_connections).
-
-            Допустимые значения — от 10 до 10000 включительно.
-          type: integer
-          format: int64
-        longQueryTime:
-          description: |-
-            Время, в течение которого запрос должен обрабатываться, прежде чем он начинает
-            считаться медленным.
-
-            Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_long_query_time).
-          type: number
-          format: double
-        generalLog:
-          description: |-
-            Включить запись общего лога запросов MySQL.
-
-            Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_general_log).
-          type: boolean
-          format: boolean
-        auditLog:
-          description: |-
-            Включить запись лога аудита MySQL.
-
-            Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/8.0/en/audit-log-reference.html#audit-log-options-variables).
-          type: boolean
-          format: boolean
-        sqlMode:
-          description: |-
-            Режим SQL для сервера MySQL.
-
-            Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sql-mode-setting).
-          type: array
-          items:
-            $ref: '#/components/schemas/MysqlConfig8_0SQLMode'
-        maxAllowedPacket:
-          description: |-
-            Максимальный размер одного пакета в байтах.
-
-            Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_allowed_packet).
-
-            Допустимые значения — от 1024 до 134217728 включительно.
-          type: integer
-          format: int64
-        defaultAuthenticationPlugin:
-          $ref: '#/components/schemas/MysqlConfig8_0AuthPlugin_in_MysqlConfig8_0_defaultAuthenticationPlugin'
-    MysqlConfig8_0_in_MysqlConfigSet8_0_userConfig:
-      description: |-
-        Пользовательские настройки для кластера MySQL 8.0.
-
-        Поля и структура `MysqlConfig8_0` отражает параметры конфигурации MySQL 8.0.
-      type: object
-      properties:
-        innodbBufferPoolSize:
-          description: |-
-            Размер буфера InnoDB, который используется для кэширования данных таблиц и индексов.
-
-            Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size).
-
-            Минимальное значение — 5242880.
-          type: integer
-          format: int64
-        maxConnections:
-          description: |-
-            Максимальное количество одновременных подключений, которые принимает MySQL.
-
-            Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_connections).
-
-            Допустимые значения — от 10 до 10000 включительно.
-          type: integer
-          format: int64
-        longQueryTime:
-          description: |-
-            Время, в течение которого запрос должен обрабатываться, прежде чем он начинает
-            считаться медленным.
-
-            Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_long_query_time).
-          type: number
-          format: double
-        generalLog:
-          description: |-
-            Включить запись общего лога запросов MySQL.
-
-            Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_general_log).
-          type: boolean
-          format: boolean
-        auditLog:
-          description: |-
-            Включить запись лога аудита MySQL.
-
-            Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/8.0/en/audit-log-reference.html#audit-log-options-variables).
-          type: boolean
-          format: boolean
-        sqlMode:
-          description: |-
-            Режим SQL для сервера MySQL.
-
-            Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sql-mode-setting).
-          type: array
-          items:
-            $ref: '#/components/schemas/MysqlConfig8_0SQLMode'
-        maxAllowedPacket:
-          description: |-
-            Максимальный размер одного пакета в байтах.
-
-            Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_allowed_packet).
-
-            Допустимые значения — от 1024 до 134217728 включительно.
-          type: integer
-          format: int64
-        defaultAuthenticationPlugin:
-          $ref: '#/components/schemas/MysqlConfig8_0AuthPlugin_in_MysqlConfig8_0_defaultAuthenticationPlugin'
-    MysqlConfig8_0_in_MysqlConfigSet8_0_defaultConfig:
-      description: |-
-        Конфигурация по умолчанию для кластера MySQL 8.0.
-
-        Поля и структура `MysqlConfig8_0` отражает параметры конфигурации MySQL 8.0.
-      type: object
-      properties:
-        innodbBufferPoolSize:
-          description: |-
-            Размер буфера InnoDB, который используется для кэширования данных таблиц и индексов.
-
-            Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size).
-
-            Минимальное значение — 5242880.
-          type: integer
-          format: int64
-        maxConnections:
-          description: |-
-            Максимальное количество одновременных подключений, которые принимает MySQL.
-
-            Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_connections).
-
-            Допустимые значения — от 10 до 10000 включительно.
-          type: integer
-          format: int64
-        longQueryTime:
-          description: |-
-            Время, в течение которого запрос должен обрабатываться, прежде чем он начинает
-            считаться медленным.
-
-            Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_long_query_time).
-          type: number
-          format: double
-        generalLog:
-          description: |-
-            Включить запись общего лога запросов MySQL.
-
-            Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_general_log).
-          type: boolean
-          format: boolean
-        auditLog:
-          description: |-
-            Включить запись лога аудита MySQL.
-
-            Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/8.0/en/audit-log-reference.html#audit-log-options-variables).
-          type: boolean
-          format: boolean
-        sqlMode:
-          description: |-
-            Режим SQL для сервера MySQL.
-
-            Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sql-mode-setting).
-          type: array
-          items:
-            $ref: '#/components/schemas/MysqlConfig8_0SQLMode'
-        maxAllowedPacket:
-          description: |-
-            Максимальный размер одного пакета в байтах.
-
-            Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_allowed_packet).
-
-            Допустимые значения — от 1024 до 134217728 включительно.
-          type: integer
-          format: int64
-        defaultAuthenticationPlugin:
-          $ref: '#/components/schemas/MysqlConfig8_0AuthPlugin_in_MysqlConfig8_0_defaultAuthenticationPlugin'
     ClusterEnvironment_in_RestoreClusterRequest_environment:
       description: |-
         Среда развертывания для нового кластера MySQL.
@@ -3307,7 +2664,6 @@ components:
             description: |-
               Версия MySQL, используемая в кластере. Возможные значения:
               * 5.7
-              * 8.0
             type: string
           resources:
             $ref: '#/components/schemas/Resources'
@@ -3316,9 +2672,6 @@ components:
             $ref: '#/components/schemas/TimeOfDay'
             description: Время запуска ежедневного резервного копирования, в часовом
               поясе UTC.
-          access:
-            $ref: '#/components/schemas/Access'
-            description: Политика доступа к БД.
       - title: mysql_config
         type: object
         maxProperties: 1
@@ -3326,35 +2679,18 @@ components:
           mysqlConfig_5_7:
             $ref: '#/components/schemas/MysqlConfig5_7'
             description: Конфигурация для кластера MySQL 5.7.
-          mysqlConfig_8_0:
-            $ref: '#/components/schemas/MysqlConfig8_0'
-            description: Конфигурация для кластера MySQL 8.0.
-    Permission_in_RevokeUserPermissionRequest_permission:
-      description: |-
-        Обязательное поле.
-        Разрешение, которое должно быть отозвано у указанного пользователя.
-      type: object
-      properties:
-        databaseName:
-          description: Имя базы данных, к которой предоставляет доступ разрешение.
-          type: string
-        roles:
-          description: |-
-            Обязательное поле.
-            Роли, предоставленные пользователю в базе данных.
-
-            Минимальное количество элементов — 1.
-          type: array
-          items:
-            $ref: '#/components/schemas/PermissionPrivilege'
     ServiceType_in_Service_type:
       description: |-
         Тип сервиса, предоставляемого хостом.
 
-         - MYSQL: Хост является сервером MySQL.
+         - MYSQL_ERROR: Хост предоставляет лог ошибок MySQL.
+         - MYSQL_GENERAL: Хост предоставляет общий лог запросов MySQL.
+         - MYSQL_SLOW_QUERY: Хост предоставляет лог медленных запросов MySQL.
       type: string
       enum:
-      - MYSQL
+      - MYSQL_ERROR
+      - MYSQL_GENERAL
+      - MYSQL_SLOW_QUERY
     ServiceHealth_in_Service_health:
       description: |-
         Код состояния доступности сервера.
@@ -3391,7 +2727,6 @@ components:
             description: |-
               Версия MySQL, используемая в кластере. Возможные значения:
               * 5.7
-              * 8.0
             type: string
           resources:
             $ref: '#/components/schemas/Resources'
@@ -3400,9 +2735,6 @@ components:
             $ref: '#/components/schemas/TimeOfDay'
             description: Время запуска ежедневного резервного копирования, в часовом
               поясе UTC.
-          access:
-            $ref: '#/components/schemas/Access'
-            description: Политика доступа к БД.
       - title: mysql_config
         type: object
         maxProperties: 1
@@ -3410,9 +2742,6 @@ components:
           mysqlConfig_5_7:
             $ref: '#/components/schemas/MysqlConfig5_7'
             description: Конфигурация для кластера MySQL 5.7.
-          mysqlConfig_8_0:
-            $ref: '#/components/schemas/MysqlConfig8_0'
-            description: Конфигурация для кластера MySQL 8.0.
     FieldMask_in_UpdateUserRequest_updateMask:
       description: |-
         Маска, которая указывает, какие атрибуты пользователя MySQL должны быть обновлены.

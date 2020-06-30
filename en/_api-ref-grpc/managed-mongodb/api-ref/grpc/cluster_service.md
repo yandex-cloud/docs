@@ -19,6 +19,7 @@ A set of methods for managing MongoDB Cluster resources.
 | [Backup](#Backup) | Creates a backup for the specified MongoDB cluster. |
 | [Restore](#Restore) | Creates a new MongoDB cluster using the specified backup. |
 | [ListLogs](#ListLogs) | Retrieves logs for the specified MongoDB cluster. |
+| [StreamLogs](#StreamLogs) | Same as ListLogs but using server-side streaming. |
 | [ListOperations](#ListOperations) | Retrieves the list of Operation resources for the specified cluster. |
 | [ListBackups](#ListBackups) | Retrieves the list of available backups for the specified MongoDB cluster. |
 | [ListHosts](#ListHosts) | Retrieves a list of hosts for the specified cluster. |
@@ -29,6 +30,8 @@ A set of methods for managing MongoDB Cluster resources.
 | [ListShards](#ListShards) | Retrieves a list of shards. |
 | [AddShard](#AddShard) | Creates a new shard. |
 | [DeleteShard](#DeleteShard) | Deletes the specified shard. |
+| [ResetupHosts](#ResetupHosts) | Resetup hosts. |
+| [RestartHosts](#RestartHosts) | Restart hosts. |
 
 ## Calls ClusterService {#calls}
 
@@ -42,7 +45,7 @@ Returns the specified MongoDB Cluster resource. <br>To get the list of available
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MongoDB Cluster resource to return. To get the cluster ID, use a [ClusterService.List](#List) request.  The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the MongoDB Cluster resource to return. To get the cluster ID, use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
 
 
 ### Cluster {#Cluster}
@@ -203,7 +206,7 @@ Retrieves the list of MongoDB Cluster resources that belong to the specified fol
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder to list MongoDB clusters in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request.  The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the folder to list MongoDB clusters in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. false The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClustersResponse.next_page_token](#ListClustersResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListClustersResponse.next_page_token](#ListClustersResponse) returned by a previous list request. The maximum string length in characters is 100.
 filter | **string**<br><ol><li>The field name. Currently you can only use filtering with the [Cluster.name](#Cluster1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Мust be 1-63 characters long and match the regular expression `^[a-zA-Z0-9_-]+$`.</li></ol> The maximum string length in characters is 1000.
@@ -379,16 +382,16 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder to create MongoDB cluster in.  The maximum string length in characters is 50.
-name | **string**<br>Required. Name of the MongoDB cluster. The name must be unique within the folder.  The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+folder_id | **string**<br>Required. ID of the folder to create MongoDB cluster in. false The maximum string length in characters is 50.
+name | **string**<br>Required. Name of the MongoDB cluster. The name must be unique within the folder. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
 description | **string**<br>Description of the MongoDB cluster. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Custom labels for the MongoDB cluster as `` key:value `` pairs. Maximum 64 per resource. For example, "project": "mvp" or "source": "dictionary". No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
-environment | **[Cluster.Environment](#Cluster2)**<br>Required. Deployment environment of the MongoDB cluster. 
-config_spec | **[ConfigSpec](#ConfigSpec)**<br>Required. Configuration and resources for hosts that should be created for the MongoDB cluster. 
+environment | **[Cluster.Environment](#Cluster2)**<br>Required. Deployment environment of the MongoDB cluster. false
+config_spec | **[ConfigSpec](#ConfigSpec)**<br>Required. Configuration and resources for hosts that should be created for the MongoDB cluster. false
 database_specs[] | **[DatabaseSpec](#DatabaseSpec)**<br>Descriptions of databases to be created in the MongoDB cluster. The number of elements must be greater than 0.
 user_specs[] | **[UserSpec](#UserSpec)**<br>Descriptions of database users to be created in the MongoDB cluster. The number of elements must be greater than 0.
 host_specs[] | **[HostSpec](#HostSpec)**<br>Individual configurations for hosts that should be created for the MongoDB cluster. The number of elements must be greater than 0.
-network_id | **string**<br>Required. ID of the network to create the cluster in.  The maximum string length in characters is 50.
+network_id | **string**<br>Required. ID of the network to create the cluster in. false The maximum string length in characters is 50.
 
 
 ### ConfigSpec {#ConfigSpec}
@@ -398,9 +401,9 @@ Field | Description
 version | **string**<br>Version of MongoDB used in the cluster. Possible values: `3.6`, `4.0`, `4.2`. 
 feature_compatibility_version | **string**<br><ul><li>`3.6` — persist data compatibility for version 3.6. After setting this option the data will not be compatible with 3.4 or older. </li><li>`4.0` — persist data compatibility for version 4.0. After setting this option the data will not be compatible with 3.6 or older. </li><li>`4.2` — persist data compatibility for version 4.2. After setting this option the data will not be compatible with 4.0 or older.</li></ul> 
 mongodb_spec | **oneof:** `mongodb_spec_3_6`, `mongodb_spec_4_0` or `mongodb_spec_4_2`<br>
-&nbsp;&nbsp;mongodb_spec_3_6 | **[MongodbSpec3_6](#MongodbSpec3_6)**<br>Configuration and resource allocation for a MongoDB 3.6 cluster. 
-&nbsp;&nbsp;mongodb_spec_4_0 | **[MongodbSpec4_0](#MongodbSpec4_0)**<br>Configuration and resource allocation for a MongoDB 4.0 cluster. 
-&nbsp;&nbsp;mongodb_spec_4_2 | **[MongodbSpec4_2](#MongodbSpec4_2)**<br>Configuration and resource allocation for a MongoDB 4.2 cluster. 
+&nbsp;&nbsp;mongodb_spec_3_6 | **[MongodbSpec3_6](#MongodbSpec3_6)**<br>Configuration and resource allocation for a MongoDB 3.6 cluster. false
+&nbsp;&nbsp;mongodb_spec_4_0 | **[MongodbSpec4_0](#MongodbSpec4_0)**<br>Configuration and resource allocation for a MongoDB 4.0 cluster. false
+&nbsp;&nbsp;mongodb_spec_4_2 | **[MongodbSpec4_2](#MongodbSpec4_2)**<br>Configuration and resource allocation for a MongoDB 4.2 cluster. false
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](#Access2)**<br>Access policy to DB 
 
@@ -515,15 +518,15 @@ data_lens | **bool**<br>Allow access for DataLens
 
 Field | Description
 --- | ---
-name | **string**<br>Required. Name of the MongoDB database. 1-63 characters long.  The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]{1,63} `.
+name | **string**<br>Required. Name of the MongoDB database. 1-63 characters long. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]{1,63} `.
 
 
 ### UserSpec {#UserSpec}
 
 Field | Description
 --- | ---
-name | **string**<br>Required. Name of the MongoDB user.  The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
-password | **string**<br>Required. Password of the MongoDB user.  The string length in characters must be 8-128.
+name | **string**<br>Required. Name of the MongoDB user. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+password | **string**<br>Required. Password of the MongoDB user. false The string length in characters must be 8-128.
 permissions[] | **[Permission](#Permission)**<br>Set of permissions to grant to the user. 
 
 
@@ -602,7 +605,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MongoDB Cluster resource to update. To get the MongoDB cluster ID use a [ClusterService.List](#List) request.  The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the MongoDB Cluster resource to update. To get the MongoDB cluster ID use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the MongoDB Cluster resource should be updated. 
 description | **string**<br>New description of the MongoDB cluster. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Custom labels for the MongoDB cluster as `` key:value `` pairs. Maximum 64 per resource. For example, "project": "mvp" or "source": "dictionary". <br>The new set of labels will completely replace the old ones. To add a label, request the current set with the [ClusterService.Get](#Get) method, then send an [ClusterService.Update](#Update) request with the new label added to the set. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
@@ -617,9 +620,9 @@ Field | Description
 version | **string**<br>Version of MongoDB used in the cluster. Possible values: `3.6`, `4.0`, `4.2`. 
 feature_compatibility_version | **string**<br><ul><li>`3.6` — persist data compatibility for version 3.6. After setting this option the data will not be compatible with 3.4 or older. </li><li>`4.0` — persist data compatibility for version 4.0. After setting this option the data will not be compatible with 3.6 or older. </li><li>`4.2` — persist data compatibility for version 4.2. After setting this option the data will not be compatible with 4.0 or older.</li></ul> 
 mongodb_spec | **oneof:** `mongodb_spec_3_6`, `mongodb_spec_4_0` or `mongodb_spec_4_2`<br>
-&nbsp;&nbsp;mongodb_spec_3_6 | **[MongodbSpec3_6](#MongodbSpec3_61)**<br>Configuration and resource allocation for a MongoDB 3.6 cluster. 
-&nbsp;&nbsp;mongodb_spec_4_0 | **[MongodbSpec4_0](#MongodbSpec4_01)**<br>Configuration and resource allocation for a MongoDB 4.0 cluster. 
-&nbsp;&nbsp;mongodb_spec_4_2 | **[MongodbSpec4_2](#MongodbSpec4_21)**<br>Configuration and resource allocation for a MongoDB 4.2 cluster. 
+&nbsp;&nbsp;mongodb_spec_3_6 | **[MongodbSpec3_6](#MongodbSpec3_61)**<br>Configuration and resource allocation for a MongoDB 3.6 cluster. false
+&nbsp;&nbsp;mongodb_spec_4_0 | **[MongodbSpec4_0](#MongodbSpec4_01)**<br>Configuration and resource allocation for a MongoDB 4.0 cluster. false
+&nbsp;&nbsp;mongodb_spec_4_2 | **[MongodbSpec4_2](#MongodbSpec4_21)**<br>Configuration and resource allocation for a MongoDB 4.2 cluster. false
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](#Access3)**<br>Access policy to DB 
 
@@ -786,7 +789,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MongoDB cluster to delete. To get the MongoDB cluster ID, use a [ClusterService.List](#List) request.  The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the MongoDB cluster to delete. To get the MongoDB cluster ID, use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
 
 
 ### Operation {#Operation}
@@ -826,7 +829,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MongoDB cluster to start.  The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the MongoDB cluster to start. false The maximum string length in characters is 50.
 
 
 ### Operation {#Operation}
@@ -885,7 +888,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MongoDB cluster to stop.  The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the MongoDB cluster to stop. false The maximum string length in characters is 50.
 
 
 ### Operation {#Operation}
@@ -944,8 +947,8 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MongoDB cluster to move.  The maximum string length in characters is 50.
-destination_folder_id | **string**<br>Required. ID of the destination folder.  The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the MongoDB cluster to move. false The maximum string length in characters is 50.
+destination_folder_id | **string**<br>Required. ID of the destination folder. false The maximum string length in characters is 50.
 
 
 ### Operation {#Operation}
@@ -1006,7 +1009,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MongoDB cluster to back up. To get the MongoDB cluster ID, use a [ClusterService.List](#List) request.  The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the MongoDB cluster to back up. To get the MongoDB cluster ID, use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
 
 
 ### Operation {#Operation}
@@ -1065,15 +1068,23 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-backup_id | **string**<br>Required. ID of the backup to create a cluster from. To get the backup ID, use a [ClusterService.ListBackups](#ListBackups) request. 
-name | **string**<br>Required. Name of the new MongoDB cluster. The name must be unique within the folder.  The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+backup_id | **string**<br>Required. ID of the backup to create a cluster from. To get the backup ID, use a [ClusterService.ListBackups](#ListBackups) request. false
+name | **string**<br>Required. Name of the new MongoDB cluster. The name must be unique within the folder. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 description | **string**<br>Description of the new MongoDB cluster. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Custom labels for the MongoDB cluster as `` key:value `` pairs. Maximum 64 per resource. For example, "project": "mvp" or "source": "dictionary". No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
-environment | **[Cluster.Environment](#Cluster8)**<br>Required. Deployment environment of the new MongoDB cluster. 
-config_spec | **[ConfigSpec](#ConfigSpec2)**<br>Required. Configuration for the MongoDB cluster to be created. 
+environment | **[Cluster.Environment](#Cluster8)**<br>Required. Deployment environment of the new MongoDB cluster. false
+config_spec | **[ConfigSpec](#ConfigSpec2)**<br>Required. Configuration for the MongoDB cluster to be created. false
 host_specs[] | **[HostSpec](#HostSpec1)**<br>Configurations for MongoDB hosts that should be created for the cluster that is being created from the backup. The number of elements must be greater than 0.
-network_id | **string**<br>Required. ID of the network to create the MongoDB cluster in.  The maximum string length in characters is 50.
+network_id | **string**<br>Required. ID of the network to create the MongoDB cluster in. false The maximum string length in characters is 50.
 folder_id | **string**<br>Required. ID of the folder to create the MongoDB cluster in. The maximum string length in characters is 50.
+recovery_target_spec | **RecoveryTargetSpec**<br>Specification of the moment to which the MongoDB cluster should be restored. 
+
+
+### RecoveryTargetSpec {#RecoveryTargetSpec}
+
+Field | Description
+--- | ---
+timestamp | **int64**<br>Timestamp of the recovery target Value must be greater than 0.
 
 
 ### ConfigSpec {#ConfigSpec}
@@ -1083,9 +1094,9 @@ Field | Description
 version | **string**<br>Version of MongoDB used in the cluster. Possible values: `3.6`, `4.0`, `4.2`. 
 feature_compatibility_version | **string**<br><ul><li>`3.6` — persist data compatibility for version 3.6. After setting this option the data will not be compatible with 3.4 or older. </li><li>`4.0` — persist data compatibility for version 4.0. After setting this option the data will not be compatible with 3.6 or older. </li><li>`4.2` — persist data compatibility for version 4.2. After setting this option the data will not be compatible with 4.0 or older.</li></ul> 
 mongodb_spec | **oneof:** `mongodb_spec_3_6`, `mongodb_spec_4_0` or `mongodb_spec_4_2`<br>
-&nbsp;&nbsp;mongodb_spec_3_6 | **[MongodbSpec3_6](#MongodbSpec3_62)**<br>Configuration and resource allocation for a MongoDB 3.6 cluster. 
-&nbsp;&nbsp;mongodb_spec_4_0 | **[MongodbSpec4_0](#MongodbSpec4_02)**<br>Configuration and resource allocation for a MongoDB 4.0 cluster. 
-&nbsp;&nbsp;mongodb_spec_4_2 | **[MongodbSpec4_2](#MongodbSpec4_22)**<br>Configuration and resource allocation for a MongoDB 4.2 cluster. 
+&nbsp;&nbsp;mongodb_spec_3_6 | **[MongodbSpec3_6](#MongodbSpec3_62)**<br>Configuration and resource allocation for a MongoDB 3.6 cluster. false
+&nbsp;&nbsp;mongodb_spec_4_0 | **[MongodbSpec4_0](#MongodbSpec4_02)**<br>Configuration and resource allocation for a MongoDB 4.0 cluster. false
+&nbsp;&nbsp;mongodb_spec_4_2 | **[MongodbSpec4_2](#MongodbSpec4_22)**<br>Configuration and resource allocation for a MongoDB 4.2 cluster. false
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](#Access4)**<br>Access policy to DB 
 
@@ -1260,7 +1271,7 @@ Retrieves logs for the specified MongoDB cluster.
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MongoDB cluster to request logs for. To get the MongoDB cluster ID use a [ClusterService.List](#List) request.  The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the MongoDB cluster to request logs for. To get the MongoDB cluster ID use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
 column_filter[] | **string**<br>Columns from the logs table to request. If no columns are specified, entire log records are returned. 
 service_type | enum **ServiceType**<br>Type of the service to request logs about. <ul><li>`MONGOD`: Logs of MongoDB activity.</li><ul/>
 from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Start timestamp for the logs request, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
@@ -1274,7 +1285,41 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 Field | Description
 --- | ---
 logs[] | **[LogRecord](#LogRecord)**<br>Requested log records. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterLogsRequest.page_size](#ListClusterLogsRequest1), use the `next_page_token` as the value for the [ListClusterLogsRequest.page_token](#ListClusterLogsRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterLogsRequest.page_size](#ListClusterLogsRequest1), use the `next_page_token` as the value for the [ListClusterLogsRequest.page_token](#ListClusterLogsRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. This value is interchangeable with `next_record_token` from StreamLogs method. 
+
+
+### LogRecord {#LogRecord}
+
+Field | Description
+--- | ---
+timestamp | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Log record timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+message | **map<string,string>**<br>Contents of the log record. 
+
+
+## StreamLogs {#StreamLogs}
+
+Same as ListLogs but using server-side streaming. Also allows for 'tail -f' semantics.
+
+**rpc StreamLogs ([StreamClusterLogsRequest](#StreamClusterLogsRequest)) returns (stream [StreamLogRecord](#StreamLogRecord))**
+
+### StreamClusterLogsRequest {#StreamClusterLogsRequest}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>Required. Required. ID of the MongoDB cluster. false The maximum string length in characters is 50.
+column_filter[] | **string**<br>Columns from logs table to get in the response. 
+service_type | enum **ServiceType**<br> <ul><li>`MONGOD`: Logs of MongoDB activity.</li><ul/>
+from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Start timestamp for the logs request. 
+to_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>End timestamp for the logs request. If this field is not set, all existing logs will be sent and then the new ones as they appear. In essence it has 'tail -f' semantics. 
+record_token | **string**<br>Record token. Set `record_token` to the `next_record_token` returned by a previous StreamLogs request to start streaming from next log record. The maximum string length in characters is 100.
+
+
+### StreamLogRecord {#StreamLogRecord}
+
+Field | Description
+--- | ---
+record | **[LogRecord](#LogRecord1)**<br>One of the requested log records. 
+next_record_token | **string**<br>This token allows you to continue streaming logs starting from the exact same record. To continue streaming, specify value of `next_record_token` as value for `record_token` parameter in the next StreamLogs request. This value is interchangeable with `next_page_token` from ListLogs method. 
 
 
 ### LogRecord {#LogRecord}
@@ -1295,7 +1340,7 @@ Retrieves the list of Operation resources for the specified cluster.
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MongoDB Cluster resource to list operations for.  The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the MongoDB Cluster resource to list operations for. false The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClusterOperationsResponse.next_page_token](#ListClusterOperationsResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListClusterOperationsResponse.next_page_token](#ListClusterOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
@@ -1334,7 +1379,7 @@ Retrieves the list of available backups for the specified MongoDB cluster.
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MongoDB cluster. To get the MongoDB cluster ID, use a [ClusterService.List](#List) request.  The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the MongoDB cluster. To get the MongoDB cluster ID, use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClusterBackupsResponse.next_page_token](#ListClusterBackupsResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token.  To get the next page of results, set `page_token` to the [ListClusterBackupsResponse.next_page_token](#ListClusterBackupsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
@@ -1369,7 +1414,7 @@ Retrieves a list of hosts for the specified cluster.
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MongoDB cluster. To get the MongoDB cluster ID, use a [ClusterService.List](#List) request.  The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the MongoDB cluster. To get the MongoDB cluster ID, use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClusterHostsResponse.next_page_token](#ListClusterHostsResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListClusterHostsResponse.next_page_token](#ListClusterHostsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
@@ -1430,7 +1475,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MongoDB cluster to add hosts to. To get the MongoDB cluster ID use a [ClusterService.List](#List) request.  The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the MongoDB cluster to add hosts to. To get the MongoDB cluster ID use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
 host_specs[] | **[HostSpec](#HostSpec2)**<br>Configurations for MongoDB hosts that should be added to the cluster. The number of elements must be greater than 0.
 
 
@@ -1483,7 +1528,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MongoDB cluster to remove hosts from. To get the MongoDB cluster ID, use a [ClusterService.List](#List) request.  The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the MongoDB cluster to remove hosts from. To get the MongoDB cluster ID, use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
 host_names[] | **string**<br>Names of hosts to delete. The number of elements must be greater than 0. The maximum string length in characters for each value is 253.
 
 
@@ -1525,9 +1570,9 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MongoDB cluster to enable sharding for.  The maximum string length in characters is 50.
-mongocfg | **[MongoCfg](#MongoCfg15)**<br>Required. mongocfg specification for sharding. 
-mongos | **[Mongos](#Mongos15)**<br>Required. mongos specification for sharding. 
+cluster_id | **string**<br>Required. ID of the MongoDB cluster to enable sharding for. false The maximum string length in characters is 50.
+mongocfg | **[MongoCfg](#MongoCfg15)**<br>Required. mongocfg specification for sharding. false
+mongos | **[Mongos](#Mongos15)**<br>Required. mongos specification for sharding. false
 host_specs[] | **[HostSpec](#HostSpec3)**<br>Configurations for mongos and mongocfg hosts. The number of elements must be greater than 0.
 
 
@@ -1535,14 +1580,14 @@ host_specs[] | **[HostSpec](#HostSpec3)**<br>Configurations for mongos and mongo
 
 Field | Description
 --- | ---
-resources | **[Resources](#Resources1)**<br>Required. Resources for mongocfg hosts. 
+resources | **[Resources](#Resources1)**<br>Required. Resources for mongocfg hosts. false
 
 
 ### Mongos {#Mongos}
 
 Field | Description
 --- | ---
-resources | **[Resources](#Resources1)**<br>Required. Resources for mongos hosts. 
+resources | **[Resources](#Resources1)**<br>Required. Resources for mongos hosts. false
 
 
 ### HostSpec {#HostSpec}
@@ -1589,8 +1634,8 @@ Returns the specified shard.
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MongoDB cluster that the shard belongs to. To get the cluster ID use a [ClusterService.List](#List) request.  The maximum string length in characters is 50.
-shard_name | **string**<br>Required. Name of the MongoDB shard to return. To get the name of the shard use a [ClusterService.ListShards](#ListShards) request.  The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+cluster_id | **string**<br>Required. ID of the MongoDB cluster that the shard belongs to. To get the cluster ID use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
+shard_name | **string**<br>Required. Name of the MongoDB shard to return. To get the name of the shard use a [ClusterService.ListShards](#ListShards) request. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
 ### Shard {#Shard}
@@ -1611,7 +1656,7 @@ Retrieves a list of shards.
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MongoDB cluster to list databases in. To get the cluster ID, use a [ClusterService.List](#List) request.  The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the MongoDB cluster to list databases in. To get the cluster ID, use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClusterShardsResponse.next_page_token](#ListClusterShardsResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListClusterShardsResponse.next_page_token](#ListClusterShardsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
@@ -1646,8 +1691,8 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MongoDB cluster to add a shard to. To get the cluster ID, use a [ClusterService.List](#List) request.  The maximum string length in characters is 50.
-shard_name | **string**<br>Required. Name of the MongoDB shard to create.  The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+cluster_id | **string**<br>Required. ID of the MongoDB cluster to add a shard to. To get the cluster ID, use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
+shard_name | **string**<br>Required. Name of the MongoDB shard to create. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 host_specs[] | **[HostSpec](#HostSpec4)**<br>Configurations for mongod hosts to be created with the shard. The number of elements must be greater than 0.
 
 
@@ -1708,8 +1753,8 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MongoDB cluster to delete a shard in. To get the cluster ID, use a [ClusterService.List](#List) request.  The maximum string length in characters is 50.
-shard_name | **string**<br>Required. Name of the MongoDB shard to delete. To get the name of the shard use a [ClusterService.ListShards](#ListShards) request.  The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+cluster_id | **string**<br>Required. ID of the MongoDB cluster to delete a shard in. To get the cluster ID, use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
+shard_name | **string**<br>Required. Name of the MongoDB shard to delete. To get the name of the shard use a [ClusterService.ListShards](#ListShards) request. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
 ### Operation {#Operation}
@@ -1734,5 +1779,89 @@ Field | Description
 --- | ---
 cluster_id | **string**<br>ID of the MongoDB cluster that a shard is being deleted in. 
 shard_name | **string**<br>Name of the shard being deleted. 
+
+
+## ResetupHosts {#ResetupHosts}
+
+Resetup hosts.
+
+**rpc ResetupHosts ([ResetupHostsRequest](#ResetupHostsRequest)) returns ([operation.Operation](#Operation14))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[ResetupHostsMetadata](#ResetupHostsMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
+
+### ResetupHostsRequest {#ResetupHostsRequest}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>Required. Required. ID of the MongoDB cluster. false The maximum string length in characters is 50.
+host_names[] | **string**<br>Required. Name of the hosts to resetup. The number of elements must be greater than 0. The maximum string length in characters for each value is 253.
+
+
+### Operation {#Operation}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[ResetupHostsMetadata](#ResetupHostsMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>if operation finished successfully. 
+
+
+### ResetupHostsMetadata {#ResetupHostsMetadata}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>Required. ID of the MongoDB cluster. 
+host_names[] | **string**<br>Required. The name of hosts to resetup. 
+
+
+## RestartHosts {#RestartHosts}
+
+Restart hosts.
+
+**rpc RestartHosts ([RestartHostsRequest](#RestartHostsRequest)) returns ([operation.Operation](#Operation15))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[RestartHostsMetadata](#RestartHostsMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
+
+### RestartHostsRequest {#RestartHostsRequest}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>Required. Required. ID of the MongoDB cluster. false The maximum string length in characters is 50.
+host_names[] | **string**<br>Required. Name of the hosts to restart. The number of elements must be greater than 0. The maximum string length in characters for each value is 253.
+
+
+### Operation {#Operation}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RestartHostsMetadata](#RestartHostsMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>if operation finished successfully. 
+
+
+### RestartHostsMetadata {#RestartHostsMetadata}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>Required. ID of the MongoDB cluster. 
+host_names[] | **string**<br>Required. The name of hosts to restart. 
 
 

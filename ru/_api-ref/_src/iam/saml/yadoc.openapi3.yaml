@@ -651,6 +651,12 @@ components:
 
             Максимальная длина строки в символах — 8000.
           type: string
+        securitySettings:
+          $ref: '#/components/schemas/FederationSecuritySettings_in_CreateFederationRequest_securitySettings'
+        caseInsensitiveNameIds:
+          description: Использовать нечувствительные к регистру Name ID пользователей.
+          type: boolean
+          format: boolean
     DeleteCertificateMetadata:
       type: object
       properties:
@@ -742,6 +748,20 @@ components:
 
             Максимальная длина строки в символах — 8000.
           type: string
+        securitySettings:
+          $ref: '#/components/schemas/FederationSecuritySettings_in_Federation_securitySettings'
+        caseInsensitiveNameIds:
+          description: Использовать нечувствительные к регистру Name ID пользователей.
+          type: boolean
+          format: boolean
+    FederationSecuritySettings:
+      description: Настройки безопасности федерации.
+      type: object
+      properties:
+        encryptedAssertions:
+          description: Включить шифрование утверждений.
+          type: boolean
+          format: boolean
     FieldMask:
       description: |-
         Имена всех обновляемых полей, разделенные запятыми.
@@ -905,6 +925,18 @@ components:
 
             Длина строки в символах должна быть от 1 до 256.
           type: string
+        attributes:
+          description: Дополнительные атрибуты пользователя.
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/SamlUserAccountAttribute'
+    SamlUserAccountAttribute:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            type: string
     Status:
       description: Описание ошибки в случае сбоя или отмены операции.
       type: object
@@ -1009,6 +1041,12 @@ components:
 
             Максимальная длина строки в символах — 8000.
           type: string
+        securitySettings:
+          $ref: '#/components/schemas/FederationSecuritySettings_in_UpdateFederationRequest_securitySettings'
+        caseInsensitiveNameIds:
+          description: Использовать нечувствительные к регистру Name ID пользователей.
+          type: boolean
+          format: boolean
     UserAccount:
       description: В настоящее время представляет только [аккаунт Яндекс.Паспорта](/docs/iam/concepts/#passport).
       type: object
@@ -1056,6 +1094,17 @@ components:
       - POST
       - REDIRECT
       - ARTIFACT
+    FederationSecuritySettings_in_CreateFederationRequest_securitySettings:
+      description: |-
+        Настройки безопасности федерации.
+
+        Настройки безопасности федерации.
+      type: object
+      properties:
+        encryptedAssertions:
+          description: Включить шифрование утверждений.
+          type: boolean
+          format: boolean
     BindingType_in_Federation_ssoBinding:
       description: |-
         Тип привязки для Single Sign-on. Большинство поставщиков поддерживают тип привязки `POST`.
@@ -1071,6 +1120,17 @@ components:
       - POST
       - REDIRECT
       - ARTIFACT
+    FederationSecuritySettings_in_Federation_securitySettings:
+      description: |-
+        Настройки безопасности федерации.
+
+        Настройки безопасности федерации.
+      type: object
+      properties:
+        encryptedAssertions:
+          description: Включить шифрование утверждений.
+          type: boolean
+          format: boolean
     FieldMask_in_UpdateCertificateRequest_updateMask:
       description: |-
         Маска, определяющая, какие поля указанного сертификата будут обновлены.
@@ -1112,6 +1172,17 @@ components:
       - POST
       - REDIRECT
       - ARTIFACT
+    FederationSecuritySettings_in_UpdateFederationRequest_securitySettings:
+      description: |-
+        Настройки безопасности федерации.
+
+        Настройки безопасности федерации.
+      type: object
+      properties:
+        encryptedAssertions:
+          description: Включить шифрование утверждений.
+          type: boolean
+          format: boolean
 tags:
 - name: Certificate
   description: Набор методов для управления сертификатами.

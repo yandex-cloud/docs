@@ -26,7 +26,16 @@ POST https://vpc.api.cloud.yandex.net/vpc/v1/subnets
   "v4CidrBlocks": [
     "string"
   ],
-  "routeTableId": "string"
+  "routeTableId": "string",
+  "dhcpOptions": {
+    "domainNameServers": [
+      "string"
+    ],
+    "domainName": "string",
+    "ntpServers": [
+      "string"
+    ]
+  }
 }
 ```
 
@@ -38,9 +47,13 @@ name | **string**<br><p>Name of the subnet. The name must be unique within the f
 description | **string**<br><p>Description of the subnet.</p> <p>The maximum string length in characters is 256.</p> 
 labels | **object**<br><p>Resource labels, <code>key:value</code> pairs.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression <code>[a-z][-_0-9a-z]*</code>. The maximum string length in characters for each value is 63. Each value must match the regular expression <code>[-_0-9a-z]*</code>.</p> 
 networkId | **string**<br><p>Required. ID of the network to create subnet in.</p> <p>The maximum string length in characters is 50.</p> 
-zoneId | **string**<br><p>ID of the availability zone where the subnet resides. To get a list of available zones, use the <a href="/docs/compute/api-ref/Zone/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
-v4CidrBlocks[] | **string**<br><p>CIDR block. The range of internal addresses that are defined for this subnet. This field can be set only at Subnet resource creation time and cannot be changed. For example, 10.0.0.0/22 or 192.168.0.0/24. Minimum subnet size is /28, maximum subnet size is /16.</p> 
+zoneId | **string**<br><p>Required. ID of the availability zone where the subnet resides. To get a list of available zones, use the <a href="/docs/compute/api-ref/Zone/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
+v4CidrBlocks[] | **string**<br><p>Required. CIDR block. The range of internal addresses that are defined for this subnet. This field can be set only at Subnet resource creation time and cannot be changed. For example, 10.0.0.0/22 or 192.168.0.0/24. Minimum subnet size is /28, maximum subnet size is /16.</p> 
 routeTableId | **string**<br><p>ID of route table the subnet is linked to.</p> <p>The maximum string length in characters is 50.</p> 
+dhcpOptions | **object**<br>
+dhcpOptions.<br>domainNameServers[] | **string**<br>
+dhcpOptions.<br>domainName | **string**<br>
+dhcpOptions.<br>ntpServers[] | **string**<br>
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

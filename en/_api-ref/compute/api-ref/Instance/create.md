@@ -92,7 +92,10 @@ POST https://compute.api.cloud.yandex.net/compute/v1/instances
           "ipVersion": "string",
           "address": "string"
         }
-      }
+      },
+      "securityGroupIds": [
+        "string"
+      ]
     }
   ],
   "hostname": "string",
@@ -113,9 +116,9 @@ POST https://compute.api.cloud.yandex.net/compute/v1/instances
 Field | Description
 --- | ---
 folderId | **string**<br><p>Required. ID of the folder to create an instance in. To get the folder ID, use a <a href="/docs/resource-manager/api-ref/Folder/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
-name | **string**<br><p>Name of the instance.</p> <p>Value must match the regular expression <code>\|[a-z][-a-z0-9]{1,61}[a-z0-9]</code>.</p> 
+name | **string**<br><p>Name of the instance.</p> <p>Value must match the regular expression <code>\|[a-z]([-a-z0-9]{0,61}[a-z0-9])?</code>.</p> 
 description | **string**<br><p>Description of the instance.</p> <p>The maximum string length in characters is 256.</p> 
-labels | **object**<br><p>Resource labels as <code>key:value</code> pairs.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression <code>[a-z][-_0-9a-z]*</code>. The maximum string length in characters for each value is 63. Each value must match the regular expression <code>[-_0-9a-z]*</code>.</p> 
+labels | **object**<br><p>Resource labels as <code>key:value</code> pairs.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression <code>[a-z][-_./\@0-9a-z]*</code>. The maximum string length in characters for each value is 63. Each value must match the regular expression <code>[-_./\@0-9a-z]*</code>.</p> 
 zoneId | **string**<br><p>Required. ID of the availability zone where the instance resides. To get a list of available zones, use the <a href="/docs/compute/api-ref/Zone/list">list</a> request</p> <p>The maximum string length in characters is 50.</p> 
 platformId | **string**<br><p>Required. ID of the hardware platform configuration for the instance. This field affects the available values in <a href="/docs/compute/api-ref/Instance/create#body_params">resourcesSpec</a> field.</p> <p>Platforms allows you to create various types of instances: with a large amount of memory, with a large number of cores, with a burstable performance. For more information, see <a href="/docs/compute/concepts/vm-platforms">Platforms</a>.</p> 
 resourcesSpec | **object**<br><p>Required. Computing resources of the instance, such as the amount of memory and number of cores. To get a list of available values, see <a href="/docs/compute/concepts/performance-levels">Levels of core performance</a>.</p> 
@@ -129,7 +132,7 @@ bootDiskSpec.<br>mode | **string**<br>The mode in which to attach this disk.<br>
 bootDiskSpec.<br>deviceName | **string**<br><p>Specifies a unique serial number of your choice that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance.</p> <p>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. If not specified, a random value will be generated.</p> <p>Value must match the regular expression <code>[a-z][a-z0-9-_]{,19}</code>.</p> 
 bootDiskSpec.<br>autoDelete | **boolean** (boolean)<br><p>Specifies whether the disk will be auto-deleted when the instance is deleted.</p> 
 bootDiskSpec.<br>diskSpec | **object**<br>Disk specification. <br>`bootDiskSpec` includes only one of the fields `diskSpec`, `diskId`<br><br>
-bootDiskSpec.<br>diskSpec.<br>name | **string**<br><p>Name of the disk.</p> <p>Value must match the regular expression <code>\|[a-z][-a-z0-9]{1,61}[a-z0-9]</code>.</p> 
+bootDiskSpec.<br>diskSpec.<br>name | **string**<br><p>Name of the disk.</p> <p>Value must match the regular expression <code>\|[a-z]([-a-z0-9]{0,61}[a-z0-9])?</code>.</p> 
 bootDiskSpec.<br>diskSpec.<br>description | **string**<br><p>Description of the disk.</p> <p>The maximum string length in characters is 256.</p> 
 bootDiskSpec.<br>diskSpec.<br>typeId | **string**<br><p>ID of the disk type. To get a list of available disk types, use the <a href="/docs/compute/api-ref/DiskType/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
 bootDiskSpec.<br>diskSpec.<br>size | **string** (int64)<br><p>Required. Size of the disk, specified in bytes.</p> <p>Acceptable values are 4194304 to 4398046511104, inclusive.</p> 
@@ -141,7 +144,7 @@ secondaryDiskSpecs[].<br>mode | **string**<br>The mode in which to attach this d
 secondaryDiskSpecs[].<br>deviceName | **string**<br><p>Specifies a unique serial number of your choice that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance.</p> <p>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. If not specified, a random value will be generated.</p> <p>Value must match the regular expression <code>[a-z][a-z0-9-_]{,19}</code>.</p> 
 secondaryDiskSpecs[].<br>autoDelete | **boolean** (boolean)<br><p>Specifies whether the disk will be auto-deleted when the instance is deleted.</p> 
 secondaryDiskSpecs[].<br>diskSpec | **object**<br>Disk specification. <br>`secondaryDiskSpecs[]` includes only one of the fields `diskSpec`, `diskId`<br><br>
-secondaryDiskSpecs[].<br>diskSpec.<br>name | **string**<br><p>Name of the disk.</p> <p>Value must match the regular expression <code>\|[a-z][-a-z0-9]{1,61}[a-z0-9]</code>.</p> 
+secondaryDiskSpecs[].<br>diskSpec.<br>name | **string**<br><p>Name of the disk.</p> <p>Value must match the regular expression <code>\|[a-z]([-a-z0-9]{0,61}[a-z0-9])?</code>.</p> 
 secondaryDiskSpecs[].<br>diskSpec.<br>description | **string**<br><p>Description of the disk.</p> <p>The maximum string length in characters is 256.</p> 
 secondaryDiskSpecs[].<br>diskSpec.<br>typeId | **string**<br><p>ID of the disk type. To get a list of available disk types, use the <a href="/docs/compute/api-ref/DiskType/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
 secondaryDiskSpecs[].<br>diskSpec.<br>size | **string** (int64)<br><p>Required. Size of the disk, specified in bytes.</p> <p>Acceptable values are 4194304 to 4398046511104, inclusive.</p> 
@@ -160,7 +163,8 @@ networkInterfaceSpecs[].<br>primaryV6AddressSpec.<br>address | **string**<br><p>
 networkInterfaceSpecs[].<br>primaryV6AddressSpec.<br>oneToOneNatSpec | **object**<br><p>An external IP address configuration. If not specified, then this instance will have no external internet access.</p> 
 networkInterfaceSpecs[].<br>primaryV6AddressSpec.<br>oneToOneNatSpec.<br>ipVersion | **string**<br><p>External IP address version.</p> <ul> <li>IPV4: IPv4 address, for example 192.0.2.235.</li> <li>IPV6: IPv6 address. Not available yet.</li> </ul> 
 networkInterfaceSpecs[].<br>primaryV6AddressSpec.<br>oneToOneNatSpec.<br>address | **string**<br>
-hostname | **string**<br><p>Host name for the instance. This field is used to generate the <a href="/docs/compute/api-ref/Instance#representation">Instance.fqdn</a> value. The host name must be unique within the network and region. If not specified, the host name will be equal to <a href="/docs/compute/api-ref/Instance#representation">Instance.id</a> of the instance and FQDN will be <code>&lt;id&gt;.auto.internal</code>. Otherwise FQDN will be <code>&lt;hostname&gt;.&lt;region_id&gt;.internal</code>.</p> <p>Value must match the regular expression <code>\|[a-z][-a-z0-9]{1,61}[a-z0-9]</code>.</p> 
+networkInterfaceSpecs[].<br>securityGroupIds[] | **string**<br><p>ID's of security groups attached to the interface</p> 
+hostname | **string**<br><p>Host name for the instance. This field is used to generate the <a href="/docs/compute/api-ref/Instance#representation">Instance.fqdn</a> value. The host name must be unique within the network and region. If not specified, the host name will be equal to <a href="/docs/compute/api-ref/Instance#representation">Instance.id</a> of the instance and FQDN will be <code>&lt;id&gt;.auto.internal</code>. Otherwise FQDN will be <code>&lt;hostname&gt;.&lt;region_id&gt;.internal</code>.</p> <p>Value must match the regular expression <code>\|[a-z]([-a-z0-9]{0,61}[a-z0-9])?</code>.</p> 
 schedulingPolicy | **object**<br><p>Scheduling policy configuration.</p> 
 schedulingPolicy.<br>preemptible | **boolean** (boolean)<br><p>True for short-lived compute instances. For more information, see <a href="/docs/compute/concepts/preemptible-vm">Preemptible VMs</a>.</p> 
 serviceAccountId | **string**<br><p>ID of the service account to use for <a href="/docs/compute/operations/vm-connect/auth-inside-vm">authentication inside the instance</a>. To get the service account ID, use a <a href="/docs/iam/api-ref/ServiceAccount/list">list</a> request.</p> 

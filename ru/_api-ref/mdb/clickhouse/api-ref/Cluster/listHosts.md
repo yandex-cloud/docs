@@ -68,7 +68,7 @@ hosts[].<br>type | **string**<br><p>Тип хоста.</p> <ul> <li>CLICKHOUSE: 
 hosts[].<br>resources | **object**<br><p>Ресурсы, выделенные хосту ClickHouse.</p> 
 hosts[].<br>resources.<br>resourcePresetId | **string**<br><p>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в <a href="/docs/managed-clickhouse/concepts/instance-types">документации</a>.</p> 
 hosts[].<br>resources.<br>diskSize | **string** (int64)<br><p>Объем хранилища, доступного хосту, в байтах.</p> 
-hosts[].<br>resources.<br>diskTypeId | **string**<br><p>Тип хранилища для хоста. Возможные значения:</p> <ul> <li>network-hdd — стандартное сетевое хранилище;</li> <li>network-ssd — быстрое сетевое хранилище;</li> <li>local-ssd — быстрое локальное хранилище.</li> </ul> 
+hosts[].<br>resources.<br>diskTypeId | **string**<br><p>Тип хранилища для хоста. Возможные значения:</p> <ul> <li>network-hdd — сетевой HDD-диск;</li> <li>network-ssd — сетевой SSD-диск;</li> <li>local-ssd — локальное SSD-хранилище.</li> </ul> 
 hosts[].<br>health | **string**<br><p>Код работоспособности хоста.</p> <ul> <li>UNKNOWN: Состояние хоста неизвестно.</li> <li>ALIVE: Хозяин выполняет все свои функции нормально.</li> <li>DEAD: Хост не работает и не может выполнять свои основные функции.</li> <li>DEGRADED: Хост деградировал, и может выполнять только некоторые из своих основных функций.</li> </ul> 
 hosts[].<br>services[] | **object**<br><p>Сервисы, предоставляемые хостом.</p> 
 hosts[].<br>services[].<br>type | **string**<br><p>Тип сервиса, предоставляемого хостом.</p> <ul> <li>CLICKHOUSE: Хост — это сервер ClickHouse.</li> <li>ZOOKEEPER: Хост — сервер ZooKeeper.</li> </ul> 

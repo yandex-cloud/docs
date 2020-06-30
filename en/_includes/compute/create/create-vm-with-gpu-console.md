@@ -16,7 +16,7 @@ To create a VM:
 
     - Select the [availability zone](../../../overview/concepts/geo-scope.md) to host the VM in.
 
-1. Select one of the GPU-oriented images and OS version under **Images from {{ marketplace-name }}** .
+1. Under **Images from {{ marketplace-name }}**, select one of the GPU-oriented images and OS version.
 
    {% include [gpu-os](../gpu-os.md) %}
 

@@ -6,6 +6,7 @@ See the interface definitions of Yandex.Cloud API on [GitHub](https://github.com
 Service | Description
 --- | ---
 [ImageService](./image_service.md) | A set of methods for managing Image resources.
+[LifecyclePolicyService](./lifecycle_policy_service.md) | 
 [RegistryService](./registry_service.md) | A set of methods for managing Registry resources.
 [RepositoryService](./repository_service.md) | A set of methods for managing Repository resources.
 [OperationService](./operation_service.md) | A set of methods for managing operations for asynchronous API requests.
