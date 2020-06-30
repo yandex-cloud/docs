@@ -6,14 +6,14 @@ editable: false
 
 _Window functions_
 
-#### Syntax
+#### Syntax {#syntax}
 
 
 ```
 RANK_UNIQUE( value [ , direction ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] )
 ```
 
-#### Description
+#### Description {#description}
 Returns the rank of the current row if ordered by the given argument. Rows corresponding to the same value have different rank values. This means that rank values are sequential and different for all rows, always increasing by `1` for the next row.
 
 See also [RANK](RANK.md), [RANK_DENSE](RANK_DENSE.md), [RANK_PERCENTILE](RANK_PERCENTILE.md).
@@ -32,7 +32,7 @@ Only constant values are accepted for arguments (direction).
 {% endnote %}
 
 
-#### Examples
+#### Examples {#examples}
 
 ```
 RANK_UNIQUE([Profit])
@@ -51,6 +51,6 @@ RANK_UNIQUE([Profit], "asc" AMONG [Date])
 ```
 
 
-#### Data source support
+#### Data source support {#data-source-support}
 
 `Materialized Dataset`, `ClickHouse 1.1`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`.

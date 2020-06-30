@@ -6,7 +6,7 @@ editable: false
 
 _Логические функции_
 
-#### Синтаксис
+#### Синтаксис {#syntax}
 
 Вариант 1:
 ```
@@ -17,7 +17,7 @@ ISNULL( expression )
 expression IS [ NOT ] NULL
 ```
 
-#### Описание
+#### Описание {#description}
 Возвращает `TRUE`, если `expression` является `NULL`. В противном случае возвращает `FALSE`.
 
 Вариант `expression IS NOT NULL` возвращает противоположное значение.
@@ -28,7 +28,7 @@ expression IS [ NOT ] NULL
 
 **Возвращаемый тип**: `Логический`
 
-#### Примеры
+#### Примеры {#examples}
 
 ```
 ISNULL([Profit])
@@ -55,6 +55,6 @@ NULL IS NOT NULL = FALSE
 ```
 
 
-#### Поддержка источников данных
+#### Поддержка источников данных {#data-source-support}
 
 `Материализованный датасет`, `ClickHouse 1.1`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`.

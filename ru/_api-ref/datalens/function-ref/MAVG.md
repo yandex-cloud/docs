@@ -6,14 +6,14 @@ editable: false
 
 _Оконные функции_
 
-#### Синтаксис
+#### Синтаксис {#syntax}
 
 
 ```
 MAVG( value, rows_1 [ , rows_2 ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] )
 ```
 
-#### Описание
+#### Описание {#description}
 Возвращает скользящее среднее значений по окну записей. Значение определяется порядком сортировки и аргументами:
 
 | `rows_1`      | `rows_2`   | Окно                                                             |
@@ -43,7 +43,7 @@ MAVG( value, rows_1 [ , rows_2 ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, 
 {% endnote %}
 
 
-#### Примеры
+#### Примеры {#examples}
 
 ```
 MAVG([Profit], -2)
@@ -66,6 +66,6 @@ MAVG([Profit], -5 AMONG [Date])
 ```
 
 
-#### Поддержка источников данных
+#### Поддержка источников данных {#data-source-support}
 
 `Материализованный датасет`, `ClickHouse 1.1`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`.

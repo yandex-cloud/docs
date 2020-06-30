@@ -6,14 +6,14 @@ editable: false
 
 _Оконные функции_
 
-#### Синтаксис
+#### Синтаксис {#syntax}
 
 
 ```
 RANK_PERCENTILE( value [ , direction ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] )
 ```
 
-#### Описание
+#### Описание {#description}
 Выполняет относительное ранжирование. Возвращает дробный ранг (от `0` до `1`). Расчитывается как `(RANK(...) - 1) / (количество строк)`.
 
 См. также [RANK](RANK.md), [RANK_DENSE](RANK_DENSE.md), [RANK_UNIQUE](RANK_UNIQUE.md).
@@ -32,7 +32,7 @@ RANK_PERCENTILE( value [ , direction ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ 
 {% endnote %}
 
 
-#### Примеры
+#### Примеры {#examples}
 
 ```
 RANK_PERCENTILE([Profit])
@@ -51,6 +51,6 @@ RANK_PERCENTILE([Profit], "asc" AMONG [Date])
 ```
 
 
-#### Поддержка источников данных
+#### Поддержка источников данных {#data-source-support}
 
 `Материализованный датасет`, `ClickHouse 1.1`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`.

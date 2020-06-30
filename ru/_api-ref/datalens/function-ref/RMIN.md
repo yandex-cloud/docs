@@ -6,14 +6,14 @@ editable: false
 
 _Оконные функции_
 
-#### Синтаксис
+#### Синтаксис {#syntax}
 
 
 ```
 RMIN( value [ , direction ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] )
 ```
 
-#### Описание
+#### Описание {#description}
 Возвращает минимальное из значений в рамках окна записей, определяемого порядком сортировки и значением аргумента `direction`:
 
 | `direction`   | Окно                            |
@@ -42,7 +42,7 @@ RMIN( value [ , direction ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ]
 {% endnote %}
 
 
-#### Примеры
+#### Примеры {#examples}
 
 ```
 RMIN([Profit])
@@ -65,6 +65,6 @@ RMIN([Profit] AMONG [Date])
 ```
 
 
-#### Поддержка источников данных
+#### Поддержка источников данных {#data-source-support}
 
 `Материализованный датасет`, `ClickHouse 1.1`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`.

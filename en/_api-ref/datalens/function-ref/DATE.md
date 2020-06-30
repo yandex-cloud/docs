@@ -6,14 +6,14 @@ editable: false
 
 _Type conversion functions_
 
-#### Syntax
+#### Syntax {#syntax}
 
 
 ```
 DATE( expression [ , timezone ] )
 ```
 
-#### Description
+#### Description {#description}
 Converts the `expression` expression to date format.
 
 The date must be in the format `YYYY-MM-DD`.
@@ -40,13 +40,13 @@ Argument `timezone` is available only for `Materialized Dataset`, `ClickHouse` s
 {% endnote %}
 
 
-#### Examples
+#### Examples {#examples}
 
 ```
 DATE("2019-01-23") = #2019-01-23#
 ```
 
 
-#### Data source support
+#### Data source support {#data-source-support}
 
 `Materialized Dataset`, `ClickHouse 1.1`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`.

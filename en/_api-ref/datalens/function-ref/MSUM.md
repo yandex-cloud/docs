@@ -6,14 +6,14 @@ editable: false
 
 _Window functions_
 
-#### Syntax
+#### Syntax {#syntax}
 
 
 ```
 MSUM( value, rows_1 [ , rows_2 ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] )
 ```
 
-#### Description
+#### Description {#description}
 Returns the moving sum of values in a fixed-size window defined by the sort order and arguments:
 
 | `rows_1`   | `rows_2`   | Window                                                                |
@@ -42,7 +42,7 @@ Only constant values are accepted for arguments (rows_1, rows_2).
 {% endnote %}
 
 
-#### Examples
+#### Examples {#examples}
 
 ```
 MSUM([Profit], -2)
@@ -65,6 +65,6 @@ MSUM([Profit], -5 AMONG [Date])
 ```
 
 
-#### Data source support
+#### Data source support {#data-source-support}
 
 `Materialized Dataset`, `ClickHouse 1.1`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`.

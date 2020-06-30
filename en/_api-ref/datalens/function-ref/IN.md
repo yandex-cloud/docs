@@ -6,14 +6,14 @@ editable: false
 
 _Operators_
 
-#### Syntax
+#### Syntax {#syntax}
 
 
 ```
 item [ NOT ] IN (<list>)
 ```
 
-#### Description
+#### Description {#description}
 Checks whether the value matches at least one of the values listed in `IN(...)`.
 
 The option `item NOT IN (<`list`>)` returns the opposite value.
@@ -25,7 +25,7 @@ The option `item NOT IN (<`list`>)` returns the opposite value.
 
 **Return type**: `Boolean`
 
-#### Examples
+#### Examples {#examples}
 
 ```
 3 IN (23, 5, 3, 67) = TRUE
@@ -36,6 +36,6 @@ The option `item NOT IN (<`list`>)` returns the opposite value.
 ```
 
 
-#### Data source support
+#### Data source support {#data-source-support}
 
 `Materialized Dataset`, `ClickHouse 1.1`, `Yandex.Metrica`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`.

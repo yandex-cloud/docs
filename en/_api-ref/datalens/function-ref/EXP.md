@@ -6,14 +6,14 @@ editable: false
 
 _Mathematical functions_
 
-#### Syntax
+#### Syntax {#syntax}
 
 
 ```
 EXP( number )
 ```
 
-#### Description
+#### Description {#description}
 Returns the result of raising the number 'e' to the power of `number`.
 
 **Argument types:**
@@ -22,7 +22,7 @@ Returns the result of raising the number 'e' to the power of `number`.
 
 **Return type**: `Number (decimal)`
 
-#### Examples
+#### Examples {#examples}
 
 ```
 EXP(0) = 1.0
@@ -37,6 +37,6 @@ EXP(3) = 20.08553
 ```
 
 
-#### Data source support
+#### Data source support {#data-source-support}
 
 `Materialized Dataset`, `ClickHouse 1.1`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`.

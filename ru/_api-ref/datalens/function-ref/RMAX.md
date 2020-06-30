@@ -6,14 +6,14 @@ editable: false
 
 _Оконные функции_
 
-#### Синтаксис
+#### Синтаксис {#syntax}
 
 
 ```
 RMAX( value [ , direction ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] )
 ```
 
-#### Описание
+#### Описание {#description}
 Возвращает максимальное из значений в рамках окна записей, определяемого порядком сортировки и значением аргумента `direction`:
 
 | `direction`   | Окно                            |
@@ -42,7 +42,7 @@ RMAX( value [ , direction ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ]
 {% endnote %}
 
 
-#### Примеры
+#### Примеры {#examples}
 
 ```
 RMAX([Profit])
@@ -65,6 +65,6 @@ RMAX([Profit] AMONG [Date])
 ```
 
 
-#### Поддержка источников данных
+#### Поддержка источников данных {#data-source-support}
 
 `Материализованный датасет`, `ClickHouse 1.1`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`.
