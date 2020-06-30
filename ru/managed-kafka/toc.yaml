@@ -18,12 +18,6 @@ items:
       href: operations/cluster-stop.md
     - name: Работа с топиками и разделами
       href: operations/cluster-topics.md
-    - name: Изменение настроек кластера
-      href: operations/cluster-update.md
-    - name: Управление хостами Kafka
-      href: operations/cluster-hosts.md
-    - name: Просмотр логов кластера
-      href: operations/cluster-logs.md
     - name: Управление учетными записями Kafka
       href: operations/cluster-accounts.md
     - name: Удаление кластера
