@@ -8,15 +8,22 @@ Window functions are calculated in the same way as aggregations, but they do not
 Aggregate functions are calculated from groups of values that are determined by the dimension fields used in a data query: entries with matching dimension values are grouped. Window functions are also calculated over groups of entries called _windows_. In this case, you should specify grouping parameters in the function call as a list of dimensions to be included (`WITHIN ...`) or excluded (`AMONG ...`) from the grouping.
 ## Usage Restrictions {#usage-restrictions}
 
-1. Window functions can take as arguments only dimensions or aggregations (or more complex expressions composed of both).
+1. Window functions can take as arguments only dimensions or aggregations (or more complex expressions composed of both). At least one of the arguments must be an aggregate expression.
 
-    Example:
-    - Valid expression: `RANK(MAX([Profit]) TOTAL)`
-    - Not valid expression: `MAX(RANK([Profit] TOTAL))`.
+    Examples:
+    - Valid: `RANK(MAX([Profit]) TOTAL)`
+    - Not valid: `MAX(RANK([Profit] TOTAL))`.
+    - Not valid: `RANK([Profit] TOTAL)`, where `[Profit]` is not an aggregate expression.
 
 2. A window function cannot be nested into another window function.
 
+    Example:
+    - Not valid: `RSUM(RANK(SUM([Profit]) WITHIN [Order Date]) TOTAL)`.
+
 3. The `AMONG` keyword cannot be used with dimensions that are not included in the data query.
+
+    Example:
+    - Not valid: `RANK(SUM([Profit]) AMONG [City])` with dimensions `[Order Date]` and `[Category]`.
 
 ## Syntax {#syntax}
 
@@ -33,7 +40,7 @@ The general syntax for window functions is as follows:
 The values of `arg1, arg2, ...` are the function arguments. The arguments are followed by a window grouping, which can be one of three types:
 - `TOTAL` (equivalent to `WITHIN` without dimensions): all query entries fall into a single window.
 - `WITHIN dim1, dim2, ...` : records are grouped by the dimensions `dim1, dim2, ...`.
-- `AMONG dim1, dim2, ...` : records are grouped by all dimensions from the query, except those listed. For example, if the dimensions `dim1`, `dim2`, `dim3`, `dim4` are present in the data query, then the entries are grouped by `dim3`, `dim4`.
+- `AMONG dim1, dim2, ...` : records are grouped by all dimensions from the query, except those listed. For example, if we use formula `RSUM(SUM([Sales]) AMONG dim1, dim2)` with dimensions `dim1`, `dim2`, `dim3`, `dim4` in the data query, then the entries will be grouped by `dim3` and `dim4`, so it will be equivalent to `RSUM([Sales] WITHIN dim3, dim4)`.
 
 The grouping clause is optional. `TOTAL` is used by default.
 
