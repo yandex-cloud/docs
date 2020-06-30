@@ -16,6 +16,10 @@
 
 ## Добавление пользователя {#add-new-user}
 
+Добавлять можно [пользователей с аккаунтом на Яндексе](#passport-user) и [федеративных пользователей](#federated-user).
+
+### Добавить пользователя с аккаунтом на Яндексе {#passport-user}
+
 Чтобы добавить пользователя и предоставить ему доступ к сервису {{ datalens-short-name }}:
 
 1. {% include [grant-role-console-first-steps](../../_includes/iam/grant-role-console-first-steps.md) %}
@@ -27,6 +31,20 @@
 
     Для добавления роли на каталог, выберите каталог и нажмите **Назначить роль** в блоке **Роли в каталогах**.
 1. Выберите `{{ roles-datalens-instances-user }}` из списка.
+
+### Добавить федеративных пользователей {#federated-user}
+
+{% include [include](../../_includes/iam/add-federated-users-before-begin.md) %}
+
+1. Добавьте федеративных пользователей:
+
+   {% include [include](../../_includes/iam/add-federated-users-instruction.md) %}
+
+1. {% include [configure-roles-console](../../_includes/iam/configure-roles-console.md) %}
+1. Для добавления роли на облако нажмите значок ![image](../../_assets/plus-sign.svg) в блоке **Роли на облако <имя облака>**.
+
+    Для добавления роли на каталог, выберите каталог и нажмите **Назначить роль** в блоке **Роли в каталогах**.
+1. Выберите `{{ roles-datalens-instances-user }}` из списка. 
 
 Подробнее о назначении ролей в Яндекс.Облаке в разделе [Роли](../../iam/concepts/access-control/roles.md).
 
