@@ -4,8 +4,6 @@
 
 Время работы остановленного кластера не тарифицируется: вы продолжаете платить только за объем хранилища в соответствии с [тарифом](../pricing.md#prices-storage).
 
-{% include [pricing-status-warning.md](../../_includes/mdb/pricing-status-warning.md) %}
-
 ## Остановить кластер {#stop-cluster}
 
 {% list tabs %}
