@@ -23,7 +23,7 @@ Returns the specified storage types.
 
 Field | Description
 --- | ---
-storage_type_id | **string**<br>Required. Required. ID of the storage type to return. 
+storage_type_id | **string**<br>Required. Required. ID of the storage type to return. false
 
 
 ### StorageType {#StorageType}

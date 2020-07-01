@@ -32,19 +32,19 @@ ip | **string**<br>IP-адрес в формате IPv4 или IPv6.
 
 Поле | Описание
 --- | ---
-mobile_country_code | **int64**<br>Обязательное поле. Mobile Country Code ([MCC](https://en.wikipedia.org/wiki/Mobile_country_code)).  Допустимые значения — от 1 до 999 включительно.
-mobile_network_code | **int64**<br>Обязательное поле. <ul><li>Для сетей GSM и WCDMA — [MNC](https://en.wikipedia.org/wiki/Mobile_country_code). </li><li>Для CDMA — System ID (SID).</li></ul>  Значение должно быть больше 0.
-cell_id | **int64**<br>Обязательное поле. <ul><li>Для GSM — Cell ID ([CID](https://en.wikipedia.org/wiki/Cell_ID)). </li><li>Для CDMA — Base Station ID (BID). </li><li>Для WCDMA — UTRAN Cell ID, который является объединением [Radio Network Controller](https://en.wikipedia.org/wiki/Radio_Network_Controller) ID и Cell ID. Указание только значения Cell ID в сетях WCDMA может возвращать неточные результаты.</li></ul>  Значение должно быть больше 0.
-location_area_code | **int64**<br>Обязательное поле. <ul><li>Для GSM и WCDMA — Location Area Code ([LAC](https://en.wikipedia.org/wiki/Mobility_management#Location_area)). </li><li>Для CDMA — Network ID (NID). </li><li>Для LTE — [Tracking Area Code](https://en.wikipedia.org/wiki/Mobility_management#Tracking_area).</li></ul>  Значение должно быть больше 0.
-signal_strength | **int64**<br>Обязательное поле. Текущая сила сигнала в дБм.  Значение должно быть меньше 0.
+mobile_country_code | **int64**<br>Обязательное поле. Mobile Country Code ([MCC](https://en.wikipedia.org/wiki/Mobile_country_code)). false Допустимые значения — от 1 до 999 включительно.
+mobile_network_code | **int64**<br>Обязательное поле. <ul><li>Для сетей GSM и WCDMA — [MNC](https://en.wikipedia.org/wiki/Mobile_country_code). </li><li>Для CDMA — System ID (SID).</li></ul> false Значение должно быть больше 0.
+cell_id | **int64**<br>Обязательное поле. <ul><li>Для GSM — Cell ID ([CID](https://en.wikipedia.org/wiki/Cell_ID)). </li><li>Для CDMA — Base Station ID (BID). </li><li>Для WCDMA — UTRAN Cell ID, который является объединением [Radio Network Controller](https://en.wikipedia.org/wiki/Radio_Network_Controller) ID и Cell ID. Указание только значения Cell ID в сетях WCDMA может возвращать неточные результаты.</li></ul> false Значение должно быть больше 0.
+location_area_code | **int64**<br>Обязательное поле. <ul><li>Для GSM и WCDMA — Location Area Code ([LAC](https://en.wikipedia.org/wiki/Mobility_management#Location_area)). </li><li>Для CDMA — Network ID (NID). </li><li>Для LTE — [Tracking Area Code](https://en.wikipedia.org/wiki/Mobility_management#Tracking_area).</li></ul> false Значение должно быть больше 0.
+signal_strength | **int64**<br>Обязательное поле. Текущая сила сигнала в дБм. false Значение должно быть меньше 0.
 
 
 ### WifiInfo {#WifiInfo}
 
 Поле | Описание
 --- | ---
-bssid | **string**<br>Обязательное поле. MAC-адрес точки доступа WiFi. Обычно он называется BSS, BSSID или MAC-адресом. <br>Значение - 12 шестнадцатеричных цифр без разделителей `:` (двоеточие).  Значение должно соответствовать регулярному выражению ` [0-9a-fA-F]{12} `.
-signal_strength | **int64**<br>Обязательное поле. Текущая сила сигнала в дБм.  Значение должно быть меньше 0.
+bssid | **string**<br>Обязательное поле. MAC-адрес точки доступа WiFi. Обычно он называется BSS, BSSID или MAC-адресом. <br>Значение - 12 шестнадцатеричных цифр без разделителей `:` (двоеточие). false Значение должно соответствовать регулярному выражению ` [0-9a-fA-F]{12} `.
+signal_strength | **int64**<br>Обязательное поле. Текущая сила сигнала в дБм. false Значение должно быть меньше 0.
 
 
 ### LocationResponse {#LocationResponse}

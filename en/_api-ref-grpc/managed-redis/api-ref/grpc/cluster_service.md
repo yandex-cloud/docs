@@ -20,6 +20,7 @@ A set of methods for managing Redis clusters.
 | [Restore](#Restore) | Creates a new Redis cluster using the specified backup. |
 | [StartFailover](#StartFailover) | Start a manual failover on the specified Redis cluster. |
 | [ListLogs](#ListLogs) | Retrieves logs for the specified Redis cluster. |
+| [StreamLogs](#StreamLogs) | Same as ListLogs but using server-side streaming. |
 | [ListOperations](#ListOperations) | Retrieves the list of operations for the specified cluster. |
 | [ListBackups](#ListBackups) | Retrieves the list of available backups for the specified Redis cluster. |
 | [ListHosts](#ListHosts) | Retrieves a list of hosts for the specified cluster. |
@@ -43,7 +44,7 @@ Returns the specified Redis cluster. <br>To get the list of available Redis clus
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the Redis cluster to return. To get the cluster ID use a [ClusterService.List](#List) request.  The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the Redis cluster to return. To get the cluster ID use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
 
 
 ### Cluster {#Cluster}
@@ -79,8 +80,9 @@ link | **string**<br>Link to the monitoring system charts for the Redis cluster.
 Field | Description
 --- | ---
 version | **string**<br>Version of Redis server software. 
-redis_config | **oneof:** `redis_config_5_0`<br>Configuration for Redis servers in the cluster.
+redis_config | **oneof:** `redis_config_5_0` or `redis_config_6_0`<br>Configuration for Redis servers in the cluster.
 &nbsp;&nbsp;redis_config_5_0 | **[config.RedisConfigSet5_0](#RedisConfigSet5_0)**<br>Configuration of a Redis 5.0 server. 
+&nbsp;&nbsp;redis_config_6_0 | **[config.RedisConfigSet6_0](#RedisConfigSet6_0)**<br>Configuration of a Redis 6.0 server. 
 resources | **[Resources](#Resources)**<br>Resources allocated to Redis hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](#Access)**<br>Access policy to DB 
@@ -111,7 +113,7 @@ Retrieves the list of Redis clusters that belong to the specified folder.
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder to list Redis clusters in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request.  The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the folder to list Redis clusters in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. false The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClustersResponse.next_page_token](#ListClustersResponse) that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListClustersResponse.next_page_token](#ListClustersResponse) returned by a previous list request. The maximum string length in characters is 100.
 filter | **string**<br><ol><li>The field name. Currently you can only use filtering with the [Cluster.name](#Cluster1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Мust be 3-63 characters long and match the regular expression `^[a-z]([-a-z0-9]{,61}[a-z0-9])?$`.</li></ol> The maximum string length in characters is 1000.
@@ -158,8 +160,9 @@ link | **string**<br>Link to the monitoring system charts for the Redis cluster.
 Field | Description
 --- | ---
 version | **string**<br>Version of Redis server software. 
-redis_config | **oneof:** `redis_config_5_0`<br>Configuration for Redis servers in the cluster.
+redis_config | **oneof:** `redis_config_5_0` or `redis_config_6_0`<br>Configuration for Redis servers in the cluster.
 &nbsp;&nbsp;redis_config_5_0 | **[config.RedisConfigSet5_0](#RedisConfigSet5_0)**<br>Configuration of a Redis 5.0 server. 
+&nbsp;&nbsp;redis_config_6_0 | **[config.RedisConfigSet6_0](#RedisConfigSet6_0)**<br>Configuration of a Redis 6.0 server. 
 resources | **[Resources](#Resources1)**<br>Resources allocated to Redis hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](#Access1)**<br>Access policy to DB 
@@ -194,14 +197,14 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder to create the Redis cluster in.  The maximum string length in characters is 50.
-name | **string**<br>Required. Name of the Redis cluster. The name must be unique within the folder.  The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+folder_id | **string**<br>Required. ID of the folder to create the Redis cluster in. false The maximum string length in characters is 50.
+name | **string**<br>Required. Name of the Redis cluster. The name must be unique within the folder. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 description | **string**<br>Description of the Redis cluster. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Custom labels for the Redis cluster as `key:value` pairs. Maximum 64 per cluster. For example, "project": "mvp" or "source": "dictionary". No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
-environment | **[Cluster.Environment](#Cluster2)**<br>Required. Deployment environment of the Redis cluster. 
-config_spec | **[ConfigSpec](#ConfigSpec)**<br>Required. Configuration and resources for hosts that should be created for the Redis cluster. 
+environment | **[Cluster.Environment](#Cluster2)**<br>Required. Deployment environment of the Redis cluster. false
+config_spec | **[ConfigSpec](#ConfigSpec)**<br>Required. Configuration and resources for hosts that should be created for the Redis cluster. false
 host_specs[] | **[HostSpec](#HostSpec)**<br>Individual configurations for hosts that should be created for the Redis cluster. The number of elements must be greater than 0.
-network_id | **string**<br>Required. ID of the network to create the cluster in.  The maximum string length in characters is 50.
+network_id | **string**<br>Required. ID of the network to create the cluster in. false The maximum string length in characters is 50.
 sharded | **bool**<br>Redis cluster mode on/off. 
 
 
@@ -209,9 +212,10 @@ sharded | **bool**<br>Redis cluster mode on/off.
 
 Field | Description
 --- | ---
-version | **string**<br>Version of Redis used in the cluster. The only possible value is `5.0`. 
-redis_spec | **oneof:** `redis_config_5_0`<br>Configuration of a Redis cluster.
-&nbsp;&nbsp;redis_config_5_0 | **[config.RedisConfig5_0](#RedisConfig5_0)**<br>Configuration of a Redis cluster. 
+version | **string**<br>Version of Redis used in the cluster. 
+redis_spec | **oneof:** `redis_config_5_0` or `redis_config_6_0`<br>Configuration of a Redis cluster.
+&nbsp;&nbsp;redis_config_5_0 | **[config.RedisConfig5_0](#RedisConfig5_0)**<br>Configuration of a Redis cluster. false
+&nbsp;&nbsp;redis_config_6_0 | **[config.RedisConfig6_0](#RedisConfig6_0)**<br>Configuration of a Redis cluster. false
 resources | **[Resources](#Resources2)**<br>Resources allocated to Redis hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](#Access2)**<br>Access policy to DB 
@@ -297,7 +301,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the Redis cluster to update. To get the Redis cluster ID, use a [ClusterService.List](#List) request.  The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the Redis cluster to update. To get the Redis cluster ID, use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the Redis cluster should be updated. 
 description | **string**<br>New description of the Redis cluster. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Custom labels for the Redis cluster as `` key:value `` pairs. Maximum 64 per cluster. For example, "project": "mvp" or "source": "dictionary". <br>The new set of labels will completely replace the old ones. To add a label, request the current set with the [ClusterService.Get](#Get) method, then send an [ClusterService.Update](#Update) request with the new label added to the set. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
@@ -309,9 +313,10 @@ name | **string**<br>New name for the cluster. The maximum string length in char
 
 Field | Description
 --- | ---
-version | **string**<br>Version of Redis used in the cluster. The only possible value is `5.0`. 
-redis_spec | **oneof:** `redis_config_5_0`<br>Configuration of a Redis cluster.
-&nbsp;&nbsp;redis_config_5_0 | **[config.RedisConfig5_0](#RedisConfig5_0)**<br>Configuration of a Redis cluster. 
+version | **string**<br>Version of Redis used in the cluster. 
+redis_spec | **oneof:** `redis_config_5_0` or `redis_config_6_0`<br>Configuration of a Redis cluster.
+&nbsp;&nbsp;redis_config_5_0 | **[config.RedisConfig5_0](#RedisConfig5_0)**<br>Configuration of a Redis cluster. false
+&nbsp;&nbsp;redis_config_6_0 | **[config.RedisConfig6_0](#RedisConfig6_0)**<br>Configuration of a Redis cluster. false
 resources | **[Resources](#Resources3)**<br>Resources allocated to Redis hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](#Access3)**<br>Access policy to DB 
@@ -388,7 +393,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the Redis cluster to delete. To get the Redis cluster ID, use a [ClusterService.List](#List) request.  The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the Redis cluster to delete. To get the Redis cluster ID, use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
 
 
 ### Operation {#Operation}
@@ -428,7 +433,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the Redis cluster to start.  The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the Redis cluster to start. false The maximum string length in characters is 50.
 
 
 ### Operation {#Operation}
@@ -487,7 +492,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the Redis cluster to stop.  The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the Redis cluster to stop. false The maximum string length in characters is 50.
 
 
 ### Operation {#Operation}
@@ -546,8 +551,8 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the Redis cluster to move.  The maximum string length in characters is 50.
-destination_folder_id | **string**<br>Required. ID of the destination folder.  The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the Redis cluster to move. false The maximum string length in characters is 50.
+destination_folder_id | **string**<br>Required. ID of the destination folder. false The maximum string length in characters is 50.
 
 
 ### Operation {#Operation}
@@ -608,7 +613,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the Redis cluster to back up. To get the Redis cluster ID, use a [ClusterService.List](#List) request.  The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the Redis cluster to back up. To get the Redis cluster ID, use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
 
 
 ### Operation {#Operation}
@@ -667,14 +672,14 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-backup_id | **string**<br>Required. ID of the backup to create a cluster from. To get the backup ID, use a [ClusterService.ListBackups](#ListBackups) request. 
-name | **string**<br>Required. Name of the new Redis cluster. The name must be unique within the folder.  The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+backup_id | **string**<br>Required. ID of the backup to create a cluster from. To get the backup ID, use a [ClusterService.ListBackups](#ListBackups) request. false
+name | **string**<br>Required. Name of the new Redis cluster. The name must be unique within the folder. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 description | **string**<br>Description of the new Redis cluster. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Custom labels for the Redis cluster as `` key:value `` pairs. Maximum 64 per cluster. For example, "project": "mvp" or "source": "dictionary". No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
-environment | **[Cluster.Environment](#Cluster8)**<br>Required. Deployment environment of the new Redis cluster. 
-config_spec | **[ConfigSpec](#ConfigSpec2)**<br>Required. Configuration for the Redis cluster to be created. 
+environment | **[Cluster.Environment](#Cluster8)**<br>Required. Deployment environment of the new Redis cluster. false
+config_spec | **[ConfigSpec](#ConfigSpec2)**<br>Required. Configuration for the Redis cluster to be created. false
 host_specs[] | **[HostSpec](#HostSpec1)**<br>Configurations for Redis hosts that should be created for the cluster that is being created from the backup. The number of elements must be greater than 0.
-network_id | **string**<br>Required. ID of the network to create the Redis cluster in.  The maximum string length in characters is 50.
+network_id | **string**<br>Required. ID of the network to create the Redis cluster in. false The maximum string length in characters is 50.
 folder_id | **string**<br>ID of the folder to create the Redis cluster in. The maximum string length in characters is 50.
 
 
@@ -682,9 +687,10 @@ folder_id | **string**<br>ID of the folder to create the Redis cluster in. The m
 
 Field | Description
 --- | ---
-version | **string**<br>Version of Redis used in the cluster. The only possible value is `5.0`. 
-redis_spec | **oneof:** `redis_config_5_0`<br>Configuration of a Redis cluster.
-&nbsp;&nbsp;redis_config_5_0 | **[config.RedisConfig5_0](#RedisConfig5_0)**<br>Configuration of a Redis cluster. 
+version | **string**<br>Version of Redis used in the cluster. 
+redis_spec | **oneof:** `redis_config_5_0` or `redis_config_6_0`<br>Configuration of a Redis cluster.
+&nbsp;&nbsp;redis_config_5_0 | **[config.RedisConfig5_0](#RedisConfig5_0)**<br>Configuration of a Redis cluster. false
+&nbsp;&nbsp;redis_config_6_0 | **[config.RedisConfig6_0](#RedisConfig6_0)**<br>Configuration of a Redis cluster. false
 resources | **[Resources](#Resources4)**<br>Resources allocated to Redis hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](#Access4)**<br>Access policy to DB 
@@ -771,7 +777,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the Redis cluster to start failover on.  The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the Redis cluster to start failover on. false The maximum string length in characters is 50.
 
 
 ### Operation {#Operation}
@@ -826,7 +832,7 @@ Retrieves logs for the specified Redis cluster.
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the Redis cluster to request logs for. To get the Redis cluster ID use a [ClusterService.List](#List) request.  The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the Redis cluster to request logs for. To get the Redis cluster ID use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
 column_filter[] | **string**<br>Columns from the logs table to request. If no columns are specified, entire log records are returned. 
 service_type | enum **ServiceType**<br> <ul><li>`REDIS`: Logs of Redis activity.</li><ul/>
 from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Start timestamp for the logs request, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
@@ -840,7 +846,41 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 Field | Description
 --- | ---
 logs[] | **[LogRecord](#LogRecord)**<br>Requested log records. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterLogsRequest.page_size](#ListClusterLogsRequest1), use the `next_page_token` as the value for the [ListClusterLogsRequest.page_token](#ListClusterLogsRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterLogsRequest.page_size](#ListClusterLogsRequest1), use the `next_page_token` as the value for the [ListClusterLogsRequest.page_token](#ListClusterLogsRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. This value is interchangeable with `next_record_token` from StreamLogs method. 
+
+
+### LogRecord {#LogRecord}
+
+Field | Description
+--- | ---
+timestamp | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Log record timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+message | **map<string,string>**<br>Contents of the log record. 
+
+
+## StreamLogs {#StreamLogs}
+
+Same as ListLogs but using server-side streaming. Also allows for 'tail -f' semantics.
+
+**rpc StreamLogs ([StreamClusterLogsRequest](#StreamClusterLogsRequest)) returns (stream [StreamLogRecord](#StreamLogRecord))**
+
+### StreamClusterLogsRequest {#StreamClusterLogsRequest}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>Required. Required. ID of the Redis cluster. false The maximum string length in characters is 50.
+column_filter[] | **string**<br>Columns from logs table to get in the response. 
+service_type | enum **ServiceType**<br> <ul><li>`REDIS`: Logs of Redis activity.</li><ul/>
+from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Start timestamp for the logs request. 
+to_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>End timestamp for the logs request. If this field is not set, all existing logs will be sent and then the new ones as they appear. In essence it has 'tail -f' semantics. 
+record_token | **string**<br>Record token. Set `record_token` to the `next_record_token` returned by a previous StreamLogs request to start streaming from next log record. The maximum string length in characters is 100.
+
+
+### StreamLogRecord {#StreamLogRecord}
+
+Field | Description
+--- | ---
+record | **[LogRecord](#LogRecord1)**<br>One of the requested log records. 
+next_record_token | **string**<br>This token allows you to continue streaming logs starting from the exact same record. To continue streaming, specify value of `next_record_token` as value for `record_token` parameter in the next StreamLogs request. This value is interchangeable with `next_page_token` from ListLogs method. 
 
 
 ### LogRecord {#LogRecord}
@@ -861,7 +901,7 @@ Retrieves the list of operations for the specified cluster.
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the Redis cluster to list operations for.  The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the Redis cluster to list operations for. false The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClusterOperationsResponse.next_page_token](#ListClusterOperationsResponse) that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token.  To get the next page of results, set `page_token` to the [ListClusterOperationsResponse.next_page_token](#ListClusterOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
@@ -900,7 +940,7 @@ Retrieves the list of available backups for the specified Redis cluster.
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the Redis cluster. To get the Redis cluster ID use a [ClusterService.List](#List) request.  The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the Redis cluster. To get the Redis cluster ID use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClusterBackupsResponse.next_page_token](#ListClusterBackupsResponse) that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token.  To get the next page of results, set `page_token` to the [ListClusterBackupsResponse.next_page_token](#ListClusterBackupsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
@@ -935,7 +975,7 @@ Retrieves a list of hosts for the specified cluster.
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the Redis cluster. To get the Redis cluster ID use a [ClusterService.List](#List) request.  The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the Redis cluster. To get the Redis cluster ID use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClusterHostsResponse.next_page_token](#ListClusterHostsResponse) that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token.  To get the next page of results, set `page_token` to the [ListClusterHostsResponse.next_page_token](#ListClusterHostsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
@@ -993,7 +1033,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the Redis cluster to add hosts to. To get the Redis cluster ID, use a [ClusterService.List](#List) request.  The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the Redis cluster to add hosts to. To get the Redis cluster ID, use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
 host_specs[] | **[HostSpec](#HostSpec2)**<br>Configurations for Redis hosts that should be added to the cluster. The number of elements must be greater than 0.
 
 
@@ -1044,7 +1084,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the Redis cluster to remove hosts from. To get the Redis cluster ID, use a [ClusterService.List](#List) request.  The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the Redis cluster to remove hosts from. To get the Redis cluster ID, use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
 host_names[] | **string**<br>Names of hosts to delete. The number of elements must be greater than 0. The maximum string length in characters for each value is 253.
 
 
@@ -1082,8 +1122,8 @@ Returns the specified shard.
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the Redis cluster the shard belongs to. To get the cluster ID use a [ClusterService.List](#List) request.  The maximum string length in characters is 50.
-shard_name | **string**<br>Required. Name of Redis shard to return. To get the shard name use a [ClusterService.ListShards](#ListShards) request.  The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+cluster_id | **string**<br>Required. ID of the Redis cluster the shard belongs to. To get the cluster ID use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
+shard_name | **string**<br>Required. Name of Redis shard to return. To get the shard name use a [ClusterService.ListShards](#ListShards) request. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
 ### Shard {#Shard}
@@ -1104,7 +1144,7 @@ Retrieves a list of shards.
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the Redis cluster to list shards in. To get the cluster ID use a [ClusterService.List](#List) request.  The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the Redis cluster to list shards in. To get the cluster ID use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClusterShardsResponse.next_page_token](#ListClusterShardsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListClusterShardsResponse.next_page_token](#ListClusterShardsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
@@ -1139,8 +1179,8 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the Redis cluster to create a shard in. To get the cluster ID use a [ClusterService.List](#List) request.  The maximum string length in characters is 50.
-shard_name | **string**<br>Required. Name of the shard. The name must be unique within the cluster.  The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+cluster_id | **string**<br>Required. ID of the Redis cluster to create a shard in. To get the cluster ID use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
+shard_name | **string**<br>Required. Name of the shard. The name must be unique within the cluster. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 host_specs[] | **[HostSpec](#HostSpec3)**<br>Configurations for Redis hosts that should be created with the shard. Must contain at least one element. The number of elements must be greater than 0.
 
 
@@ -1199,8 +1239,8 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the Redis cluster the shard belongs to. To get the cluster ID use a [ClusterService.List](#List) request.  The maximum string length in characters is 50.
-shard_name | **string**<br>Required. Name of the Redis shard to delete. To get the shard name use a [ClusterService.ListShards](#ListShards) request.  The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+cluster_id | **string**<br>Required. ID of the Redis cluster the shard belongs to. To get the cluster ID use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
+shard_name | **string**<br>Required. Name of the Redis shard to delete. To get the shard name use a [ClusterService.ListShards](#ListShards) request. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
 ### Operation {#Operation}
@@ -1241,7 +1281,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the Redis cluster to rebalance. To get the cluster ID use a [ClusterService.List](#List) request.  The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the Redis cluster to rebalance. To get the cluster ID use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
 
 
 ### Operation {#Operation}

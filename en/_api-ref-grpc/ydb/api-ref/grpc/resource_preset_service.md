@@ -23,7 +23,7 @@ Returns the specified resource preset.
 
 Field | Description
 --- | ---
-resource_preset_id | **string**<br>Required. Required. ID of the resource preset to return. 
+resource_preset_id | **string**<br>Required. Required. ID of the resource preset to return. false
 
 
 ### ResourcePreset {#ResourcePreset}

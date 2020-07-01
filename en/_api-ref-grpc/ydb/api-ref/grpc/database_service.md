@@ -26,7 +26,7 @@ Returns the specified database.
 
 Field | Description
 --- | ---
-database_id | **string**<br>Required. Required. ID of the YDB cluster.  The maximum string length in characters is 50.
+database_id | **string**<br>Required. Required. ID of the YDB cluster. false The maximum string length in characters is 50.
 
 
 ### Database {#Database}
@@ -85,14 +85,14 @@ size | **int64**<br> The minimum value is 1.
 
 Field | Description
 --- | ---
-zone_id | **string**<br>Required.  
+zone_id | **string**<br>Required.  false
 
 
 ### RegionalDatabase {#RegionalDatabase}
 
 Field | Description
 --- | ---
-region_id | **string**<br>Required.  
+region_id | **string**<br>Required.  false
 
 
 ## List {#List}
@@ -174,14 +174,14 @@ size | **int64**<br> The minimum value is 1.
 
 Field | Description
 --- | ---
-zone_id | **string**<br>Required.  
+zone_id | **string**<br>Required.  false
 
 
 ### RegionalDatabase {#RegionalDatabase}
 
 Field | Description
 --- | ---
-region_id | **string**<br>Required.  
+region_id | **string**<br>Required.  false
 
 
 ## Create {#Create}
@@ -201,9 +201,9 @@ Field | Description
 folder_id | **string**<br> 
 name | **string**<br> 
 description | **string**<br> 
-resource_preset_id | **string**<br>Required.  
-storage_config | **[StorageConfig](#StorageConfig2)**<br>Required.  
-scale_policy | **[ScalePolicy](#ScalePolicy2)**<br>Required.  
+resource_preset_id | **string**<br>Required.  false
+storage_config | **[StorageConfig](#StorageConfig2)**<br>Required.  false
+scale_policy | **[ScalePolicy](#ScalePolicy2)**<br>Required.  false
 network_id | **string**<br> 
 subnet_ids[] | **string**<br> 
 database_type | **oneof:** `zonal_database` or `regional_database`<br>
@@ -246,14 +246,14 @@ size | **int64**<br> The minimum value is 1.
 
 Field | Description
 --- | ---
-zone_id | **string**<br>Required.  
+zone_id | **string**<br>Required.  false
 
 
 ### RegionalDatabase {#RegionalDatabase}
 
 Field | Description
 --- | ---
-region_id | **string**<br>Required.  
+region_id | **string**<br>Required.  false
 
 
 ### Operation {#Operation}
@@ -321,9 +321,9 @@ update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protoc
 database_id | **string**<br> 
 name | **string**<br> 
 description | **string**<br> 
-resource_preset_id | **string**<br>Required.  
-storage_config | **[StorageConfig](#StorageConfig3)**<br>Required.  
-scale_policy | **[ScalePolicy](#ScalePolicy3)**<br>Required.  
+resource_preset_id | **string**<br>Required.  false
+storage_config | **[StorageConfig](#StorageConfig3)**<br>Required.  false
+scale_policy | **[ScalePolicy](#ScalePolicy3)**<br>Required.  false
 network_id | **string**<br> 
 subnet_ids[] | **string**<br> 
 database_type | **oneof:** `zonal_database` or `regional_database`<br>
@@ -366,14 +366,14 @@ size | **int64**<br> The minimum value is 1.
 
 Field | Description
 --- | ---
-zone_id | **string**<br>Required.  
+zone_id | **string**<br>Required.  false
 
 
 ### RegionalDatabase {#RegionalDatabase}
 
 Field | Description
 --- | ---
-region_id | **string**<br>Required.  
+region_id | **string**<br>Required.  false
 
 
 ### Operation {#Operation}

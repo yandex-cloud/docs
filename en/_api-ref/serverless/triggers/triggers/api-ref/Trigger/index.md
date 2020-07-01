@@ -15,7 +15,7 @@ A set of methods for managing triggers for serverless functions.
   "labels": "object",
   "rule": {
 
-    // `rule` includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `objectStorage`
+    // `rule` includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`
     "timer": {
       "cronExpression": "string",
 
@@ -94,9 +94,53 @@ A set of methods for managing triggers for serverless functions.
         }
       }
     },
+    "containerRegistry": {
+      "eventType": [
+        "string"
+      ],
+      "registryId": "string",
+      "imageName": "string",
+      "tag": "string",
+      "invokeFunction": {
+        "functionId": "string",
+        "functionTag": "string",
+        "serviceAccountId": "string",
+        "retrySettings": {
+          "retryAttempts": "string",
+          "interval": "string"
+        },
+        "deadLetterQueue": {
+          "queueId": "string",
+          "serviceAccountId": "string"
+        }
+      }
+    },
+    "cloudLogs": {
+      "logGroupId": [
+        "string"
+      ],
+      "batchSettings": {
+        "size": "string",
+        "cutoff": "string"
+      },
+      "invokeFunction": {
+        "functionId": "string",
+        "functionTag": "string",
+        "serviceAccountId": "string",
+        "retrySettings": {
+          "retryAttempts": "string",
+          "interval": "string"
+        },
+        "deadLetterQueue": {
+          "queueId": "string",
+          "serviceAccountId": "string"
+        }
+      }
+    },
     // end of the list of possible fields`rule`
 
-  }
+  },
+  "status": "string"
 }
 ```
  
@@ -109,7 +153,7 @@ name | **string**<br><p>Name of the trigger.</p> <p>The string length in charact
 description | **string**<br><p>Description of the trigger.</p> <p>The string length in characters must be 0-256.</p> 
 labels | **object**<br><p>Trigger labels as <code>key:value</code> pairs.</p> 
 rule | **object**<br><p>Required. Rule for trigger activation (always consistent with the trigger type).</p> <p>Description of a rule for trigger activation.</p> 
-rule.<br>timer | **object** <br>`rule` includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `objectStorage`<br><br><p>Rule for activating a timed trigger.</p> 
+rule.<br>timer | **object** <br>`rule` includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`<br><br><p>Rule for activating a timed trigger.</p> 
 rule.<br>timer.<br>cronExpression | **string**<br><p>Required. Description of a schedule as a <a href="/docs/functions/concepts/trigger/timer">cron expression</a>.</p> <p>The maximum string length in characters is 100.</p> 
 rule.<br>timer.<br>invokeFunction | **object** <br>`rule.timer` includes only one of the fields `invokeFunction`, `invokeFunctionWithRetry`<br><br><p>A single function invocation.</p> 
 rule.<br>timer.<br>invokeFunction.<br>functionId | **string**<br><p>Required. ID of the function to invoke.</p> <p>The maximum string length in characters is 50.</p> 
@@ -125,7 +169,7 @@ rule.<br>timer.<br>invokeFunctionWithRetry.<br>retrySettings.<br>interval | **st
 rule.<br>timer.<br>invokeFunctionWithRetry.<br>deadLetterQueue | **object**<br><p>DLQ policy (no value means discarding a message)</p> 
 rule.<br>timer.<br>invokeFunctionWithRetry.<br>deadLetterQueue.<br>queueId | **string**<br><p>ID of the queue.</p> 
 rule.<br>timer.<br>invokeFunctionWithRetry.<br>deadLetterQueue.<br>serviceAccountId | **string**<br><p>Required. SA which has write permission on the queue.</p> <p>The maximum string length in characters is 50.</p> 
-rule.<br>messageQueue | **object** <br>`rule` includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `objectStorage`<br><br><p>Rule for activating a message queue trigger.</p> 
+rule.<br>messageQueue | **object** <br>`rule` includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`<br><br><p>Rule for activating a message queue trigger.</p> 
 rule.<br>messageQueue.<br>queueId | **string**<br><p>Required. ID of the message queue in Yandex Message Queue.</p> 
 rule.<br>messageQueue.<br>serviceAccountId | **string**<br><p>Required. ID of the service account which has read access to the message queue.</p> <p>The maximum string length in characters is 50.</p> 
 rule.<br>messageQueue.<br>batchSettings | **object**<br><p>Settings for batch processing of messages in a queue.</p> 
@@ -136,7 +180,7 @@ rule.<br>messageQueue.<br>invokeFunction | **object**<br>Instructions for invoki
 rule.<br>messageQueue.<br>invokeFunction.<br>functionId | **string**<br><p>Required. ID of the function to invoke.</p> <p>The maximum string length in characters is 50.</p> 
 rule.<br>messageQueue.<br>invokeFunction.<br>functionTag | **string**<br><p>Tag of the function version to execute.</p> 
 rule.<br>messageQueue.<br>invokeFunction.<br>serviceAccountId | **string**<br><p>ID of the service account that should be used to invoke the function.</p> 
-rule.<br>iotMessage | **object** <br>`rule` includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `objectStorage`<br><br><p>Rule for activating a Yandex IoT Core trigger.</p> 
+rule.<br>iotMessage | **object** <br>`rule` includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`<br><br><p>Rule for activating a Yandex IoT Core trigger.</p> 
 rule.<br>iotMessage.<br>registryId | **string**<br><p>Required. ID of the Yandex IoT Core registry.</p> 
 rule.<br>iotMessage.<br>deviceId | **string**<br><p>ID of the Yandex IoT Core device in the registry.</p> 
 rule.<br>iotMessage.<br>mqttTopic | **string**<br><p>MQTT topic whose messages activate the trigger.</p> 
@@ -150,7 +194,7 @@ rule.<br>iotMessage.<br>invokeFunction.<br>retrySettings.<br>interval | **string
 rule.<br>iotMessage.<br>invokeFunction.<br>deadLetterQueue | **object**<br><p>DLQ policy (no value means discarding a message)</p> 
 rule.<br>iotMessage.<br>invokeFunction.<br>deadLetterQueue.<br>queueId | **string**<br><p>ID of the queue.</p> 
 rule.<br>iotMessage.<br>invokeFunction.<br>deadLetterQueue.<br>serviceAccountId | **string**<br><p>Required. SA which has write permission on the queue.</p> <p>The maximum string length in characters is 50.</p> 
-rule.<br>objectStorage | **object** <br>`rule` includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `objectStorage`<br><br>
+rule.<br>objectStorage | **object** <br>`rule` includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`<br><br>
 rule.<br>objectStorage.<br>eventType[] | **string**<br><p>Required. Type (name) of events, at least one value is required.</p> <p>Must contain at least one element.</p> 
 rule.<br>objectStorage.<br>bucketId | **string**<br>
 rule.<br>objectStorage.<br>prefix | **string**<br><p>Filter, optional.</p> 
@@ -165,6 +209,37 @@ rule.<br>objectStorage.<br>invokeFunction.<br>retrySettings.<br>interval | **str
 rule.<br>objectStorage.<br>invokeFunction.<br>deadLetterQueue | **object**<br><p>DLQ policy (no value means discarding a message)</p> 
 rule.<br>objectStorage.<br>invokeFunction.<br>deadLetterQueue.<br>queueId | **string**<br><p>ID of the queue.</p> 
 rule.<br>objectStorage.<br>invokeFunction.<br>deadLetterQueue.<br>serviceAccountId | **string**<br><p>Required. SA which has write permission on the queue.</p> <p>The maximum string length in characters is 50.</p> 
+rule.<br>containerRegistry | **object** <br>`rule` includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`<br><br>
+rule.<br>containerRegistry.<br>eventType[] | **string**<br><p>Required. Type (name) of events, at least one value is required.</p> <p>Must contain at least one element.</p> 
+rule.<br>containerRegistry.<br>registryId | **string**<br>
+rule.<br>containerRegistry.<br>imageName | **string**<br><p>Filter, optional.</p> 
+rule.<br>containerRegistry.<br>tag | **string**<br>
+rule.<br>containerRegistry.<br>invokeFunction | **object**<br>Instructions for invoking a function with retries as needed.<br><p>A function invocation with retries.</p> 
+rule.<br>containerRegistry.<br>invokeFunction.<br>functionId | **string**<br><p>Required. ID of the function to invoke.</p> <p>The maximum string length in characters is 50.</p> 
+rule.<br>containerRegistry.<br>invokeFunction.<br>functionTag | **string**<br><p>Tag of the function version to execute.</p> 
+rule.<br>containerRegistry.<br>invokeFunction.<br>serviceAccountId | **string**<br><p>ID of the service account which has permission to invoke the function.</p> 
+rule.<br>containerRegistry.<br>invokeFunction.<br>retrySettings | **object**<br><p>Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.</p> <p>Settings for retrying to invoke a function.</p> 
+rule.<br>containerRegistry.<br>invokeFunction.<br>retrySettings.<br>retryAttempts | **string** (int64)<br><p>Maximum number of retries (extra invokes) before the action is considered failed.</p> <p>Acceptable values are 1 to 5, inclusive.</p> 
+rule.<br>containerRegistry.<br>invokeFunction.<br>retrySettings.<br>interval | **string**<br><p>Required. Time in seconds to wait between individual retries.</p> 
+rule.<br>containerRegistry.<br>invokeFunction.<br>deadLetterQueue | **object**<br><p>DLQ policy (no value means discarding a message)</p> 
+rule.<br>containerRegistry.<br>invokeFunction.<br>deadLetterQueue.<br>queueId | **string**<br><p>ID of the queue.</p> 
+rule.<br>containerRegistry.<br>invokeFunction.<br>deadLetterQueue.<br>serviceAccountId | **string**<br><p>Required. SA which has write permission on the queue.</p> <p>The maximum string length in characters is 50.</p> 
+rule.<br>cloudLogs | **object** <br>`rule` includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`<br><br>
+rule.<br>cloudLogs.<br>logGroupId[] | **string**<br><p>Log group identifiers, at least one value is required.</p> 
+rule.<br>cloudLogs.<br>batchSettings | **object**<br>
+rule.<br>cloudLogs.<br>batchSettings.<br>size | **string** (int64)<br><p>Batch size. Trigger will send the batch of messages to the associated function when the number of log events reaches this value, or the <code>cutoff</code> time has passed.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+rule.<br>cloudLogs.<br>batchSettings.<br>cutoff | **string**<br><p>Maximum wait time. Trigger will send the batch of messages the time since the last batch exceeds the <code>cutoff</code> value, regardless of the amount of log events.</p> <p>Acceptable values are 1 seconds to 60 seconds, inclusive.</p> 
+rule.<br>cloudLogs.<br>invokeFunction | **object**<br>Instructions for invoking a function with retries as needed.<br><p>A function invocation with retries.</p> 
+rule.<br>cloudLogs.<br>invokeFunction.<br>functionId | **string**<br><p>Required. ID of the function to invoke.</p> <p>The maximum string length in characters is 50.</p> 
+rule.<br>cloudLogs.<br>invokeFunction.<br>functionTag | **string**<br><p>Tag of the function version to execute.</p> 
+rule.<br>cloudLogs.<br>invokeFunction.<br>serviceAccountId | **string**<br><p>ID of the service account which has permission to invoke the function.</p> 
+rule.<br>cloudLogs.<br>invokeFunction.<br>retrySettings | **object**<br><p>Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.</p> <p>Settings for retrying to invoke a function.</p> 
+rule.<br>cloudLogs.<br>invokeFunction.<br>retrySettings.<br>retryAttempts | **string** (int64)<br><p>Maximum number of retries (extra invokes) before the action is considered failed.</p> <p>Acceptable values are 1 to 5, inclusive.</p> 
+rule.<br>cloudLogs.<br>invokeFunction.<br>retrySettings.<br>interval | **string**<br><p>Required. Time in seconds to wait between individual retries.</p> 
+rule.<br>cloudLogs.<br>invokeFunction.<br>deadLetterQueue | **object**<br><p>DLQ policy (no value means discarding a message)</p> 
+rule.<br>cloudLogs.<br>invokeFunction.<br>deadLetterQueue.<br>queueId | **string**<br><p>ID of the queue.</p> 
+rule.<br>cloudLogs.<br>invokeFunction.<br>deadLetterQueue.<br>serviceAccountId | **string**<br><p>Required. SA which has write permission on the queue.</p> <p>The maximum string length in characters is 50.</p> 
+status | **string**<br><p>Trigger status</p> 
 
 ## Methods {#methods}
 Method | Description
@@ -174,4 +249,6 @@ Method | Description
 [get](get.md) | Returns the specified trigger.
 [list](list.md) | Retrieves the list of triggers in the specified folder.
 [listOperations](listOperations.md) | Lists operations for the specified trigger.
+[pause](pause.md) | Pauses the specified trigger.
+[resume](resume.md) | Restarts the specified trigger.
 [update](update.md) | Updates the specified trigger.

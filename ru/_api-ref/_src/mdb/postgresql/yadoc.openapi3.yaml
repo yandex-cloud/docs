@@ -3048,6 +3048,12 @@ components:
           $ref: '#/components/schemas/PostgresqlConfig10_1CPgHintPlanDebugPrint_in_PostgresqlConfig10_1C_pgHintPlanDebugPrint'
         pgHintPlanMessageLevel:
           $ref: '#/components/schemas/PostgresqlConfig10_1CLogLevel_in_PostgresqlConfig10_1C_pgHintPlanMessageLevel'
+        onlineAnalyzeEnable:
+          type: boolean
+          format: boolean
+        plantunerFixEmptyTable:
+          type: boolean
+          format: boolean
     PostgresqlConfig10_1CBackslashQuote:
       type: string
       enum:
@@ -5846,30 +5852,29 @@ components:
           type: string
     TimeOfDay:
       description: |-
-        Описывает время суток. Дата и часовой пояс либо не имеют значения, либо указаны другим
-        образом. API может разрешить високосные секунды. Связанные типы: [google.type.Date][google.type.Date] и
-        `google.protobuf.Timestamp`.
+        Represents a time of day. The date and time zone are either not significant
+        or are specified elsewhere. An API may choose to allow leap seconds. Related
+        types are [google.type.Date](https://github.com/googleapis/googleapis/blob/master/google/type/date.proto) and [google.protobuf.Timestamp](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto).
       type: object
       properties:
         hours:
           description: |-
-            Час в 24-часовом формате. Допустимые значения — от 0 до 23. API может разрешить значение
-            "24:00:00" для таких сценариев, как время закрытия заведения.
+            Hours of day in 24 hour format. Should be from 0 to 23. An API may choose
+            to allow the value "24:00:00" for scenarios like business closing time.
           type: integer
           format: int32
         minutes:
-          description: Минута часа. Допустимые значения — от 0 до 59.
+          description: Minutes of hour of day. Must be from 0 to 59.
           type: integer
           format: int32
         seconds:
           description: |-
-            Секунда минуты. Обычно допустимые значения — от 0 до 59. API может разрешить значение 60,
-            если поддерживаются високосные секунды.
+            Seconds of minutes of the time. Must normally be from 0 to 59. An API may
+            allow the value 60 if it allows leap-seconds.
           type: integer
           format: int32
         nanos:
-          description: Доли секунды, в наносекундах. Допустимые значения — от 0 до
-            999 999 999.
+          description: Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.
           type: integer
           format: int32
     UpdateClusterHostsMetadata:
@@ -8358,6 +8363,12 @@ components:
           $ref: '#/components/schemas/PostgresqlConfig10_1CPgHintPlanDebugPrint_in_PostgresqlConfig10_1C_pgHintPlanDebugPrint'
         pgHintPlanMessageLevel:
           $ref: '#/components/schemas/PostgresqlConfig10_1CLogLevel_in_PostgresqlConfig10_1C_pgHintPlanMessageLevel'
+        onlineAnalyzeEnable:
+          type: boolean
+          format: boolean
+        plantunerFixEmptyTable:
+          type: boolean
+          format: boolean
     PostgresqlConfig10_1C_in_PostgresqlConfigSet10_1C_userConfig:
       description: |-
         Пользовательские настройки для кластера PostgreSQL 10 1С.
@@ -8705,6 +8716,12 @@ components:
           $ref: '#/components/schemas/PostgresqlConfig10_1CPgHintPlanDebugPrint_in_PostgresqlConfig10_1C_pgHintPlanDebugPrint'
         pgHintPlanMessageLevel:
           $ref: '#/components/schemas/PostgresqlConfig10_1CLogLevel_in_PostgresqlConfig10_1C_pgHintPlanMessageLevel'
+        onlineAnalyzeEnable:
+          type: boolean
+          format: boolean
+        plantunerFixEmptyTable:
+          type: boolean
+          format: boolean
     PostgresqlConfig10_1C_in_PostgresqlConfigSet10_1C_defaultConfig:
       description: |-
         Конфигурация по умолчанию для кластера PostgreSQL 10 1С.
@@ -9052,6 +9069,12 @@ components:
           $ref: '#/components/schemas/PostgresqlConfig10_1CPgHintPlanDebugPrint_in_PostgresqlConfig10_1C_pgHintPlanDebugPrint'
         pgHintPlanMessageLevel:
           $ref: '#/components/schemas/PostgresqlConfig10_1CLogLevel_in_PostgresqlConfig10_1C_pgHintPlanMessageLevel'
+        onlineAnalyzeEnable:
+          type: boolean
+          format: boolean
+        plantunerFixEmptyTable:
+          type: boolean
+          format: boolean
     PostgresqlConfig11_in_PostgresqlConfigSet11_effectiveConfig:
       description: |-
         Действующие настройки для кластера PostgreSQL 11 (сочетание настроек, определенных в

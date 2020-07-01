@@ -107,7 +107,7 @@ paths:
         description: |-
           Required.
           ID of the federation to list certificates in.
-          To get the federation ID make a [yandex.cloud.iam.v1.FederationService.List] request.
+          To get the federation ID make a [list](/docs/iam/api-ref/Federation/list) request.
 
           The maximum string length in characters is 50.
         schema:
@@ -452,7 +452,7 @@ paths:
         in: query
         description: |-
           The maximum number of results per page to return. If the number of available
-          results is larger than [pageSize](/docs/iam/api-ref/Federation/listOperations#query_params), the service returns a [ListFederationOperationsOperationsResponse.next_page_token]
+          results is larger than [pageSize](/docs/iam/api-ref/Federation/listOperations#query_params), the service returns a [nextPageToken](/docs/iam/api-ref/Federation/listOperations#responses)
           that can be used to get the next page of results in subsequent list requests.
           Default value: 100.
 
@@ -502,7 +502,8 @@ components:
       type: object
       properties:
         userAccounts:
-          description: List of users created by [FederationService.AddUsers] request.
+          description: List of users created by [addUserAccounts](/docs/iam/api-ref/Federation/addUserAccounts)
+            request.
           type: array
           items:
             $ref: '#/components/schemas/UserAccount'
@@ -572,7 +573,7 @@ components:
         federationId:
           description: |-
             ID of the federation to add new certificate.
-            To get the federation ID make a [yandex.cloud.iam.v1.FederationService.List] request.
+            To get the federation ID make a [list](/docs/iam/api-ref/Federation/list) request.
 
             The maximum string length in characters is 50.
           type: string
@@ -661,6 +662,12 @@ components:
 
             The maximum string length in characters is 8000.
           type: string
+        securitySettings:
+          $ref: '#/components/schemas/FederationSecuritySettings_in_CreateFederationRequest_securitySettings'
+        caseInsensitiveNameIds:
+          description: Use case insensitive Name IDs.
+          type: boolean
+          format: boolean
     DeleteCertificateMetadata:
       type: object
       properties:
@@ -753,6 +760,20 @@ components:
 
             The maximum string length in characters is 8000.
           type: string
+        securitySettings:
+          $ref: '#/components/schemas/FederationSecuritySettings_in_Federation_securitySettings'
+        caseInsensitiveNameIds:
+          description: Use case insensitive Name IDs.
+          type: boolean
+          format: boolean
+    FederationSecuritySettings:
+      description: Federation security settings.
+      type: object
+      properties:
+        encryptedAssertions:
+          description: Enable encrypted assertions.
+          type: boolean
+          format: boolean
     FieldMask:
       description: |-
         A comma-separated names off ALL fields to be updated.
@@ -906,6 +927,18 @@ components:
 
             The string length in characters must be 1-256.
           type: string
+        attributes:
+          description: Additional attributes of the SAML federated user.
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/SamlUserAccountAttribute'
+    SamlUserAccountAttribute:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            type: string
     Status:
       description: The error result of the operation in case of failure or cancellation.
       type: object
@@ -1013,6 +1046,12 @@ components:
 
             The maximum string length in characters is 8000.
           type: string
+        securitySettings:
+          $ref: '#/components/schemas/FederationSecuritySettings_in_UpdateFederationRequest_securitySettings'
+        caseInsensitiveNameIds:
+          description: Use case insensitive name ids.
+          type: boolean
+          format: boolean
     UserAccount:
       description: Currently represents only [Yandex.Passport account](/docs/iam/concepts/#passport).
       type: object
@@ -1059,6 +1098,17 @@ components:
       - POST
       - REDIRECT
       - ARTIFACT
+    FederationSecuritySettings_in_CreateFederationRequest_securitySettings:
+      description: |-
+        Federation security settings.
+
+        Federation security settings.
+      type: object
+      properties:
+        encryptedAssertions:
+          description: Enable encrypted assertions.
+          type: boolean
+          format: boolean
     BindingType_in_Federation_ssoBinding:
       description: |-
         Single sign-on endpoint binding type. Most Identity Providers support the `POST` binding type.
@@ -1074,6 +1124,17 @@ components:
       - POST
       - REDIRECT
       - ARTIFACT
+    FederationSecuritySettings_in_Federation_securitySettings:
+      description: |-
+        Federation security settings.
+
+        Federation security settings.
+      type: object
+      properties:
+        encryptedAssertions:
+          description: Enable encrypted assertions.
+          type: boolean
+          format: boolean
     FieldMask_in_UpdateCertificateRequest_updateMask:
       description: |-
         Field mask that specifies which fields of the certificate are going to be updated.
@@ -1115,6 +1176,17 @@ components:
       - POST
       - REDIRECT
       - ARTIFACT
+    FederationSecuritySettings_in_UpdateFederationRequest_securitySettings:
+      description: |-
+        Federation security settings.
+
+        Federation security settings.
+      type: object
+      properties:
+        encryptedAssertions:
+          description: Enable encrypted assertions.
+          type: boolean
+          format: boolean
 tags:
 - name: Certificate
   description: A set of methods for managing certificates.

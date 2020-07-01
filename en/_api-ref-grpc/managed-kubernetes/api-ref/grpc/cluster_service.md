@@ -13,10 +13,11 @@ A set of methods for managing Kubernetes cluster.
 | [Create](#Create) | Creates a Kubernetes cluster in the specified folder. |
 | [Update](#Update) | Updates the specified Kubernetes cluster. |
 | [Delete](#Delete) | Deletes the specified Kubernetes cluster. |
-| [Stop](#Stop) |  |
-| [Start](#Start) |  |
+| [Stop](#Stop) | Stops the specified Kubernetes cluster. |
+| [Start](#Start) | Starts the specified Kubernetes cluster. |
 | [ListNodeGroups](#ListNodeGroups) | Lists nodegroup for the specified Kubernetes cluster. |
 | [ListOperations](#ListOperations) | Lists operations for the specified Kubernetes cluster. |
+| [ListNodes](#ListNodes) | Lists cluster's nodes. |
 
 ## Calls ClusterService {#calls}
 
@@ -30,7 +31,7 @@ Returns the specified Kubernetes cluster. <br>To get the list of available Kuber
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the Kubernetes cluster to return. 
+cluster_id | **string**<br>Required. ID of the Kubernetes cluster to return. false
 
 
 ### Cluster {#Cluster}
@@ -52,7 +53,9 @@ internet_gateway | **oneof:** `gateway_ipv4_address`<br>
 &nbsp;&nbsp;gateway_ipv4_address | **string**<br>Gateway IPv4 address. The maximum string length in characters is 15.
 service_account_id | **string**<br>Service account to be used for provisioning Compute Cloud and VPC resources for Kubernetes cluster. 
 node_service_account_id | **string**<br>Service account to be used by the worker nodes of the Kubernetes cluster to access Container Registry or to push node logs and metrics. 
-release_channel | enum **ReleaseChannel**<br> <ul><ul/>
+release_channel | enum **ReleaseChannel**<br>When creating a Kubernetes cluster, you should specify one of three release channels. The release channel contains several Kubernetes versions. Channels differ in the set of available versions, the management of auto-updates, and the updates received. You can't change the channel once the Kubernetes cluster is created, you can only recreate the Kubernetes cluster and specify a new release channel. For more details see [documentation](https://cloud.yandex.com/docs/managed-kubernetes/concepts/release-channels-and-updates). <ul><li>`RAPID`: Minor updates with new functions and improvements are often added. You can't disable automatic updates in this channel, but you can specify a time period for automatic updates.</li><li>`REGULAR`: New functions and improvements are added in chunks shortly after they appear on `RAPID`.</li><li>`STABLE`: Only updates related to bug fixes or security improvements are added.</li><ul/>
+network_policy | **[NetworkPolicy](#NetworkPolicy)**<br> 
+kms_provider | **[KMSProvider](#KMSProvider)**<br>KMS provider configuration. 
 
 
 ### Master {#Master}
@@ -65,8 +68,8 @@ master_type | **oneof:** `zonal_master` or `regional_master`<br>
 version | **string**<br>Version of Kubernetes components that runs on the master. 
 endpoints | **[MasterEndpoints](#MasterEndpoints)**<br>Endpoints of the master. Endpoints constitute of scheme and port (i.e. `https://ip-address:port`) and can be used by the clients to communicate with the Kubernetes API of the Kubernetes cluster. 
 master_auth | **[MasterAuth](#MasterAuth)**<br>Master authentication parameters are used to establish trust between the master and a client. 
-version_info | **[VersionInfo](#VersionInfo)**<br> 
-maintenance_policy | **[MasterMaintenancePolicy](#MasterMaintenancePolicy)**<br> 
+version_info | **[VersionInfo](#VersionInfo)**<br>Detailed information about the Kubernetes version that is running on the master. 
+maintenance_policy | **[MasterMaintenancePolicy](#MasterMaintenancePolicy)**<br>Maintenance policy of the master. 
 
 
 ### ZonalMaster {#ZonalMaster}
@@ -74,8 +77,8 @@ maintenance_policy | **[MasterMaintenancePolicy](#MasterMaintenancePolicy)**<br>
 Field | Description
 --- | ---
 zone_id | **string**<br>ID of the availability zone where the master resides. 
-internal_v4_address | **string**<br>An IPv4 internal network address that is assigned to the master. 
-external_v4_address | **string**<br>An IPv4 external network address that is assigned to the master. 
+internal_v4_address | **string**<br>IPv4 internal network address that is assigned to the master. 
+external_v4_address | **string**<br>IPv4 external network address that is assigned to the master. 
 
 
 ### RegionalMaster {#RegionalMaster}
@@ -83,8 +86,8 @@ external_v4_address | **string**<br>An IPv4 external network address that is ass
 Field | Description
 --- | ---
 region_id | **string**<br>ID of the region where the master resides. 
-internal_v4_address | **string**<br>An IPv4 internal network address that is assigned to the master. 
-external_v4_address | **string**<br>An IPv4 external network address that is assigned to the master. 
+internal_v4_address | **string**<br>IPv4 internal network address that is assigned to the master. 
+external_v4_address | **string**<br>IPv4 external network address that is assigned to the master. 
 
 
 ### MasterEndpoints {#MasterEndpoints}
@@ -106,9 +109,9 @@ cluster_ca_certificate | **string**<br>PEM-encoded public certificate that is th
 
 Field | Description
 --- | ---
-current_version | **string**<br>Current kubernetes version, major.minor (e.g. 1.15). 
-new_revision_available | **bool**<br>Newer revisions may include kubernetes patches (e.g 1.15.1 -> 1.15.2) as well as some internal component updates - new features or bug fixes in yandex-specific components either on the master or nodes. 
-new_revision_summary | **string**<br>Human readable description of the changes to be applied when updating to the latest revision. Empty if new_revision_available is false. 
+current_version | **string**<br>Current Kubernetes version, format: major.minor (e.g. 1.15). 
+new_revision_available | **bool**<br>Newer revisions may include Kubernetes patches (e.g 1.15.1 -> 1.15.2) as well as some internal component updates — new features or bug fixes in Yandex specific components either on the master or nodes. 
+new_revision_summary | **string**<br>Description of the changes to be applied when updating to the latest revision. Empty if new_revision_available is false. 
 version_deprecated | **bool**<br>The current version is on the deprecation schedule, component (master or node group) should be upgraded. 
 
 
@@ -116,18 +119,18 @@ version_deprecated | **bool**<br>The current version is on the deprecation sched
 
 Field | Description
 --- | ---
-auto_upgrade | **bool**<br> 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow)**<br> 
+auto_upgrade | **bool**<br>If set to true, automatic updates are installed in the specified period of time with no interaction from the user. If set to false, automatic upgrades are disabled. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow)**<br>Maintenance window settings. Update will start at the specified time and last no more than the specified duration. The time is set in UTC. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow}
 
 Field | Description
 --- | ---
-policy | **oneof:** `anytime`, `daily_maintenance_window` or `weekly_maintenance_window`<br>
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow)**<br> 
-&nbsp;&nbsp;daily_maintenance_window | **[DailyMaintenanceWindow](#DailyMaintenanceWindow)**<br> 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow)**<br> 
+policy | **oneof:** `anytime`, `daily_maintenance_window` or `weekly_maintenance_window`<br>Maintenance policy.
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow)**<br>Updating the master at any time. 
+&nbsp;&nbsp;daily_maintenance_window | **[DailyMaintenanceWindow](#DailyMaintenanceWindow)**<br>Updating the master on any day during the specified time window. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow)**<br>Updating the master on selected days during the specified time window. 
 
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow}
@@ -138,24 +141,24 @@ policy | **oneof:** `anytime`, `daily_maintenance_window` or `weekly_maintenance
 
 Field | Description
 --- | ---
-start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required.  
-duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br> Acceptable values are 1h to 24h, inclusive.
+start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required. Window start time, in the UTC timezone. false
+duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Window duration. Acceptable values are 1h to 24h, inclusive.
 
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow}
 
 Field | Description
 --- | ---
-days_of_week[] | **[DaysOfWeekMaintenanceWindow](#DaysOfWeekMaintenanceWindow)**<br> The number of elements must be in the range 1-7.
+days_of_week[] | **[DaysOfWeekMaintenanceWindow](#DaysOfWeekMaintenanceWindow)**<br>Days of the week and the maintenance window for these days when automatic updates are allowed. The number of elements must be in the range 1-7.
 
 
 ### DaysOfWeekMaintenanceWindow {#DaysOfWeekMaintenanceWindow}
 
 Field | Description
 --- | ---
-days[] | **google.type.DayOfWeek**<br> The number of elements must be in the range 1-7.
-start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required.  
-duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br> Acceptable values are 1h to 24h, inclusive.
+days[] | **google.type.DayOfWeek**<br>Days of the week when automatic updates are allowed. The number of elements must be in the range 1-7.
+start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required. Window start time, in the UTC timezone. false
+duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Window duration. Acceptable values are 1h to 24h, inclusive.
 
 
 ### IPAllocationPolicy {#IPAllocationPolicy}
@@ -163,7 +166,22 @@ duration | **[google.protobuf.Duration](https://developers.google.com/protocol-b
 Field | Description
 --- | ---
 cluster_ipv4_cidr_block | **string**<br>CIDR block. IP range for allocating pod addresses. <br>It should not overlap with any subnet in the network the Kubernetes cluster located in. Static routes will be set up for this CIDR blocks in node subnets. 
+node_ipv4_cidr_mask_size | **int64**<br>Size of the masks that are assigned for each node in the cluster. <br>If not specified, 24 is used. Value must be equal to 0,24,25,26,27,28.
 service_ipv4_cidr_block | **string**<br>CIDR block. IP range Kubernetes service Kubernetes cluster IP addresses will be allocated from. <br>It should not overlap with any subnet in the network the Kubernetes cluster located in. 
+
+
+### NetworkPolicy {#NetworkPolicy}
+
+Field | Description
+--- | ---
+provider | enum **Provider**<br> <ul><ul/>
+
+
+### KMSProvider {#KMSProvider}
+
+Field | Description
+--- | ---
+key_id | **string**<br>KMS key ID for secrets encryption. To obtain a KMS key ID use a [yandex.cloud.kms.v1.SymmetricKeyService.List](/docs/kms/grpc/symmetric_key_service#List) request. 
 
 
 ## List {#List}
@@ -176,7 +194,7 @@ Retrieves the list of Kubernetes cluster in the specified folder.
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder to list Kubernetes cluster in. To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. 
+folder_id | **string**<br>Required. ID of the folder to list Kubernetes cluster in. To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. false
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClustersResponse.next_page_token](#ListClustersResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListClustersResponse.next_page_token](#ListClustersResponse) returned by a previous list request. The maximum string length in characters is 100.
 filter | **string**<br><ol><li>The field name. Currently you can use filtering only on [Cluster.name](#Cluster1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 1-61 characters long and match the regular expression `|[a-z][-a-z0-9]{1,61}[a-z0-9]`.</li></ol> The maximum string length in characters is 1000.
@@ -209,7 +227,9 @@ internet_gateway | **oneof:** `gateway_ipv4_address`<br>
 &nbsp;&nbsp;gateway_ipv4_address | **string**<br>Gateway IPv4 address. The maximum string length in characters is 15.
 service_account_id | **string**<br>Service account to be used for provisioning Compute Cloud and VPC resources for Kubernetes cluster. 
 node_service_account_id | **string**<br>Service account to be used by the worker nodes of the Kubernetes cluster to access Container Registry or to push node logs and metrics. 
-release_channel | enum **ReleaseChannel**<br> <ul><ul/>
+release_channel | enum **ReleaseChannel**<br>When creating a Kubernetes cluster, you should specify one of three release channels. The release channel contains several Kubernetes versions. Channels differ in the set of available versions, the management of auto-updates, and the updates received. You can't change the channel once the Kubernetes cluster is created, you can only recreate the Kubernetes cluster and specify a new release channel. For more details see [documentation](https://cloud.yandex.com/docs/managed-kubernetes/concepts/release-channels-and-updates). <ul><li>`RAPID`: Minor updates with new functions and improvements are often added. You can't disable automatic updates in this channel, but you can specify a time period for automatic updates.</li><li>`REGULAR`: New functions and improvements are added in chunks shortly after they appear on `RAPID`.</li><li>`STABLE`: Only updates related to bug fixes or security improvements are added.</li><ul/>
+network_policy | **[NetworkPolicy](#NetworkPolicy1)**<br> 
+kms_provider | **[KMSProvider](#KMSProvider1)**<br>KMS provider configuration. 
 
 
 ### Master {#Master}
@@ -222,8 +242,8 @@ master_type | **oneof:** `zonal_master` or `regional_master`<br>
 version | **string**<br>Version of Kubernetes components that runs on the master. 
 endpoints | **[MasterEndpoints](#MasterEndpoints1)**<br>Endpoints of the master. Endpoints constitute of scheme and port (i.e. `https://ip-address:port`) and can be used by the clients to communicate with the Kubernetes API of the Kubernetes cluster. 
 master_auth | **[MasterAuth](#MasterAuth1)**<br>Master authentication parameters are used to establish trust between the master and a client. 
-version_info | **[VersionInfo](#VersionInfo1)**<br> 
-maintenance_policy | **[MasterMaintenancePolicy](#MasterMaintenancePolicy1)**<br> 
+version_info | **[VersionInfo](#VersionInfo1)**<br>Detailed information about the Kubernetes version that is running on the master. 
+maintenance_policy | **[MasterMaintenancePolicy](#MasterMaintenancePolicy1)**<br>Maintenance policy of the master. 
 
 
 ### ZonalMaster {#ZonalMaster}
@@ -231,8 +251,8 @@ maintenance_policy | **[MasterMaintenancePolicy](#MasterMaintenancePolicy1)**<br
 Field | Description
 --- | ---
 zone_id | **string**<br>ID of the availability zone where the master resides. 
-internal_v4_address | **string**<br>An IPv4 internal network address that is assigned to the master. 
-external_v4_address | **string**<br>An IPv4 external network address that is assigned to the master. 
+internal_v4_address | **string**<br>IPv4 internal network address that is assigned to the master. 
+external_v4_address | **string**<br>IPv4 external network address that is assigned to the master. 
 
 
 ### RegionalMaster {#RegionalMaster}
@@ -240,8 +260,8 @@ external_v4_address | **string**<br>An IPv4 external network address that is ass
 Field | Description
 --- | ---
 region_id | **string**<br>ID of the region where the master resides. 
-internal_v4_address | **string**<br>An IPv4 internal network address that is assigned to the master. 
-external_v4_address | **string**<br>An IPv4 external network address that is assigned to the master. 
+internal_v4_address | **string**<br>IPv4 internal network address that is assigned to the master. 
+external_v4_address | **string**<br>IPv4 external network address that is assigned to the master. 
 
 
 ### MasterEndpoints {#MasterEndpoints}
@@ -263,9 +283,9 @@ cluster_ca_certificate | **string**<br>PEM-encoded public certificate that is th
 
 Field | Description
 --- | ---
-current_version | **string**<br>Current kubernetes version, major.minor (e.g. 1.15). 
-new_revision_available | **bool**<br>Newer revisions may include kubernetes patches (e.g 1.15.1 -> 1.15.2) as well as some internal component updates - new features or bug fixes in yandex-specific components either on the master or nodes. 
-new_revision_summary | **string**<br>Human readable description of the changes to be applied when updating to the latest revision. Empty if new_revision_available is false. 
+current_version | **string**<br>Current Kubernetes version, format: major.minor (e.g. 1.15). 
+new_revision_available | **bool**<br>Newer revisions may include Kubernetes patches (e.g 1.15.1 -> 1.15.2) as well as some internal component updates — new features or bug fixes in Yandex specific components either on the master or nodes. 
+new_revision_summary | **string**<br>Description of the changes to be applied when updating to the latest revision. Empty if new_revision_available is false. 
 version_deprecated | **bool**<br>The current version is on the deprecation schedule, component (master or node group) should be upgraded. 
 
 
@@ -273,18 +293,18 @@ version_deprecated | **bool**<br>The current version is on the deprecation sched
 
 Field | Description
 --- | ---
-auto_upgrade | **bool**<br> 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow1)**<br> 
+auto_upgrade | **bool**<br>If set to true, automatic updates are installed in the specified period of time with no interaction from the user. If set to false, automatic upgrades are disabled. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow1)**<br>Maintenance window settings. Update will start at the specified time and last no more than the specified duration. The time is set in UTC. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow}
 
 Field | Description
 --- | ---
-policy | **oneof:** `anytime`, `daily_maintenance_window` or `weekly_maintenance_window`<br>
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow1)**<br> 
-&nbsp;&nbsp;daily_maintenance_window | **[DailyMaintenanceWindow](#DailyMaintenanceWindow1)**<br> 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow1)**<br> 
+policy | **oneof:** `anytime`, `daily_maintenance_window` or `weekly_maintenance_window`<br>Maintenance policy.
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow1)**<br>Updating the master at any time. 
+&nbsp;&nbsp;daily_maintenance_window | **[DailyMaintenanceWindow](#DailyMaintenanceWindow1)**<br>Updating the master on any day during the specified time window. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow1)**<br>Updating the master on selected days during the specified time window. 
 
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow}
@@ -295,24 +315,24 @@ policy | **oneof:** `anytime`, `daily_maintenance_window` or `weekly_maintenance
 
 Field | Description
 --- | ---
-start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required.  
-duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br> Acceptable values are 1h to 24h, inclusive.
+start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required. Window start time, in the UTC timezone. false
+duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Window duration. Acceptable values are 1h to 24h, inclusive.
 
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow}
 
 Field | Description
 --- | ---
-days_of_week[] | **[DaysOfWeekMaintenanceWindow](#DaysOfWeekMaintenanceWindow1)**<br> The number of elements must be in the range 1-7.
+days_of_week[] | **[DaysOfWeekMaintenanceWindow](#DaysOfWeekMaintenanceWindow1)**<br>Days of the week and the maintenance window for these days when automatic updates are allowed. The number of elements must be in the range 1-7.
 
 
 ### DaysOfWeekMaintenanceWindow {#DaysOfWeekMaintenanceWindow}
 
 Field | Description
 --- | ---
-days[] | **google.type.DayOfWeek**<br> The number of elements must be in the range 1-7.
-start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required.  
-duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br> Acceptable values are 1h to 24h, inclusive.
+days[] | **google.type.DayOfWeek**<br>Days of the week when automatic updates are allowed. The number of elements must be in the range 1-7.
+start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required. Window start time, in the UTC timezone. false
+duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Window duration. Acceptable values are 1h to 24h, inclusive.
 
 
 ### IPAllocationPolicy {#IPAllocationPolicy}
@@ -320,7 +340,22 @@ duration | **[google.protobuf.Duration](https://developers.google.com/protocol-b
 Field | Description
 --- | ---
 cluster_ipv4_cidr_block | **string**<br>CIDR block. IP range for allocating pod addresses. <br>It should not overlap with any subnet in the network the Kubernetes cluster located in. Static routes will be set up for this CIDR blocks in node subnets. 
+node_ipv4_cidr_mask_size | **int64**<br>Size of the masks that are assigned for each node in the cluster. <br>If not specified, 24 is used. Value must be equal to 0,24,25,26,27,28.
 service_ipv4_cidr_block | **string**<br>CIDR block. IP range Kubernetes service Kubernetes cluster IP addresses will be allocated from. <br>It should not overlap with any subnet in the network the Kubernetes cluster located in. 
+
+
+### NetworkPolicy {#NetworkPolicy}
+
+Field | Description
+--- | ---
+provider | enum **Provider**<br> <ul><ul/>
+
+
+### KMSProvider {#KMSProvider}
+
+Field | Description
+--- | ---
+key_id | **string**<br>KMS key ID for secrets encryption. To obtain a KMS key ID use a [yandex.cloud.kms.v1.SymmetricKeyService.List](/docs/kms/grpc/symmetric_key_service#List) request. 
 
 
 ## Create {#Create}
@@ -337,18 +372,20 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder to create a Kubernetes cluster in. To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. 
+folder_id | **string**<br>Required. ID of the folder to create a Kubernetes cluster in. To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. false
 name | **string**<br>Name of the Kubernetes cluster. The name must be unique within the folder. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>Description of the Kubernetes cluster. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
-network_id | **string**<br>Required. ID of the network. 
-master_spec | **[MasterSpec](#MasterSpec)**<br>Required. IP allocation policy of the Kubernetes cluster. 
+network_id | **string**<br>Required. ID of the network. false
+master_spec | **[MasterSpec](#MasterSpec)**<br>Required. IP allocation policy of the Kubernetes cluster. false
 ip_allocation_policy | **[IPAllocationPolicy](#IPAllocationPolicy2)**<br>IP allocation policy of the Kubernetes cluster. 
 internet_gateway | **oneof:** `gateway_ipv4_address`<br>
 &nbsp;&nbsp;gateway_ipv4_address | **string**<br>Gateway IPv4 address. 
-service_account_id | **string**<br>Required. Service account to be used for provisioning Compute Cloud and VPC resources for Kubernetes cluster. Selected service account should have `edit` role on the folder where the Kubernetes cluster will be located and on the folder where selected network resides. 
-node_service_account_id | **string**<br>Required. Service account to be used by the worker nodes of the Kubernetes cluster to access Container Registry or to push node logs and metrics. 
-release_channel | enum **ReleaseChannel**<br> <ul><ul/>
+service_account_id | **string**<br>Required. Service account to be used for provisioning Compute Cloud and VPC resources for Kubernetes cluster. Selected service account should have `edit` role on the folder where the Kubernetes cluster will be located and on the folder where selected network resides. false
+node_service_account_id | **string**<br>Required. Service account to be used by the worker nodes of the Kubernetes cluster to access Container Registry or to push node logs and metrics. false
+release_channel | enum **ReleaseChannel**<br>Release channel for the master. <ul><li>`RAPID`: Minor updates with new functions and improvements are often added. You can't disable automatic updates in this channel, but you can specify a time period for automatic updates.</li><li>`REGULAR`: New functions and improvements are added in chunks shortly after they appear on `RAPID`.</li><li>`STABLE`: Only updates related to bug fixes or security improvements are added.</li><ul/>
+network_policy | **[NetworkPolicy](#NetworkPolicy2)**<br> 
+kms_provider | **[KMSProvider](#KMSProvider2)**<br>KMS provider configuration. 
 
 
 ### MasterSpec {#MasterSpec}
@@ -356,17 +393,17 @@ release_channel | enum **ReleaseChannel**<br> <ul><ul/>
 Field | Description
 --- | ---
 master_type | **oneof:** `zonal_master_spec` or `regional_master_spec`<br>
-&nbsp;&nbsp;zonal_master_spec | **[ZonalMasterSpec](#ZonalMasterSpec)**<br>Specification of the master availability zone. 
-&nbsp;&nbsp;regional_master_spec | **[RegionalMasterSpec](#RegionalMasterSpec)**<br> 
-version | **string**<br> 
-maintenance_policy | **[MasterMaintenancePolicy](#MasterMaintenancePolicy2)**<br> 
+&nbsp;&nbsp;zonal_master_spec | **[ZonalMasterSpec](#ZonalMasterSpec)**<br>Specification of the zonal master. 
+&nbsp;&nbsp;regional_master_spec | **[RegionalMasterSpec](#RegionalMasterSpec)**<br>Specification of the regional master. 
+version | **string**<br>Version of Kubernetes components that runs on the master. 
+maintenance_policy | **[MasterMaintenancePolicy](#MasterMaintenancePolicy2)**<br>Maintenance policy of the master. 
 
 
 ### ZonalMasterSpec {#ZonalMasterSpec}
 
 Field | Description
 --- | ---
-zone_id | **string**<br>Required. ID of the availability zone. 
+zone_id | **string**<br>Required. ID of the availability zone. false
 internal_v4_address_spec | **[InternalAddressSpec](#InternalAddressSpec)**<br>Specification of parameters for internal IPv4 networking. 
 external_v4_address_spec | **[ExternalAddressSpec](#ExternalAddressSpec)**<br>Specification of parameters for external IPv4 networking. 
 
@@ -386,16 +423,16 @@ subnet_id | **string**<br>ID of the subnet. If no ID is specified, and there onl
 
 Field | Description
 --- | ---
-region_id | **string**<br>Required.  
-locations[] | **[MasterLocation](#MasterLocation)**<br> 
-external_v4_address_spec | **[ExternalAddressSpec](#ExternalAddressSpec1)**<br>Specify to allocate a static public IP for the master 
+region_id | **string**<br>Required. ID of the availability zone where the master resides. false
+locations[] | **[MasterLocation](#MasterLocation)**<br>List of locations where the master will be allocated. 
+external_v4_address_spec | **[ExternalAddressSpec](#ExternalAddressSpec1)**<br>Specify to allocate a static public IP for the master. 
 
 
 ### MasterLocation {#MasterLocation}
 
 Field | Description
 --- | ---
-zone_id | **string**<br>Required.  
+zone_id | **string**<br>Required. ID of the availability zone. false
 internal_v4_address_spec | **[InternalAddressSpec](#InternalAddressSpec1)**<br>If not specified and there is a single subnet in specified zone, address in this subnet will be allocated. 
 
 
@@ -414,18 +451,18 @@ subnet_id | **string**<br>ID of the subnet. If no ID is specified, and there onl
 
 Field | Description
 --- | ---
-auto_upgrade | **bool**<br> 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow2)**<br> 
+auto_upgrade | **bool**<br>If set to true, automatic updates are installed in the specified period of time with no interaction from the user. If set to false, automatic upgrades are disabled. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow2)**<br>Maintenance window settings. Update will start at the specified time and last no more than the specified duration. The time is set in UTC. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow}
 
 Field | Description
 --- | ---
-policy | **oneof:** `anytime`, `daily_maintenance_window` or `weekly_maintenance_window`<br>
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow2)**<br> 
-&nbsp;&nbsp;daily_maintenance_window | **[DailyMaintenanceWindow](#DailyMaintenanceWindow2)**<br> 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow2)**<br> 
+policy | **oneof:** `anytime`, `daily_maintenance_window` or `weekly_maintenance_window`<br>Maintenance policy.
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow2)**<br>Updating the master at any time. 
+&nbsp;&nbsp;daily_maintenance_window | **[DailyMaintenanceWindow](#DailyMaintenanceWindow2)**<br>Updating the master on any day during the specified time window. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow2)**<br>Updating the master on selected days during the specified time window. 
 
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow}
@@ -436,24 +473,24 @@ policy | **oneof:** `anytime`, `daily_maintenance_window` or `weekly_maintenance
 
 Field | Description
 --- | ---
-start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required.  
-duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br> Acceptable values are 1h to 24h, inclusive.
+start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required. Window start time, in the UTC timezone. false
+duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Window duration. Acceptable values are 1h to 24h, inclusive.
 
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow}
 
 Field | Description
 --- | ---
-days_of_week[] | **[DaysOfWeekMaintenanceWindow](#DaysOfWeekMaintenanceWindow2)**<br> The number of elements must be in the range 1-7.
+days_of_week[] | **[DaysOfWeekMaintenanceWindow](#DaysOfWeekMaintenanceWindow2)**<br>Days of the week and the maintenance window for these days when automatic updates are allowed. The number of elements must be in the range 1-7.
 
 
 ### DaysOfWeekMaintenanceWindow {#DaysOfWeekMaintenanceWindow}
 
 Field | Description
 --- | ---
-days[] | **google.type.DayOfWeek**<br> The number of elements must be in the range 1-7.
-start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required.  
-duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br> Acceptable values are 1h to 24h, inclusive.
+days[] | **google.type.DayOfWeek**<br>Days of the week when automatic updates are allowed. The number of elements must be in the range 1-7.
+start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required. Window start time, in the UTC timezone. false
+duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Window duration. Acceptable values are 1h to 24h, inclusive.
 
 
 ### IPAllocationPolicy {#IPAllocationPolicy}
@@ -461,7 +498,22 @@ duration | **[google.protobuf.Duration](https://developers.google.com/protocol-b
 Field | Description
 --- | ---
 cluster_ipv4_cidr_block | **string**<br>CIDR block. IP range for allocating pod addresses. <br>It should not overlap with any subnet in the network the Kubernetes cluster located in. Static routes will be set up for this CIDR blocks in node subnets. 
+node_ipv4_cidr_mask_size | **int64**<br>Size of the masks that are assigned for each node in the cluster. <br>If not specified, 24 is used. Value must be equal to 0,24,25,26,27,28.
 service_ipv4_cidr_block | **string**<br>CIDR block. IP range Kubernetes service Kubernetes cluster IP addresses will be allocated from. <br>It should not overlap with any subnet in the network the Kubernetes cluster located in. 
+
+
+### NetworkPolicy {#NetworkPolicy}
+
+Field | Description
+--- | ---
+provider | enum **Provider**<br> <ul><ul/>
+
+
+### KMSProvider {#KMSProvider}
+
+Field | Description
+--- | ---
+key_id | **string**<br>KMS key ID for secrets encryption. To obtain a KMS key ID use a [yandex.cloud.kms.v1.SymmetricKeyService.List](/docs/kms/grpc/symmetric_key_service#List) request. 
 
 
 ### Operation {#Operation}
@@ -506,7 +558,9 @@ internet_gateway | **oneof:** `gateway_ipv4_address`<br>
 &nbsp;&nbsp;gateway_ipv4_address | **string**<br>Gateway IPv4 address. The maximum string length in characters is 15.
 service_account_id | **string**<br>Service account to be used for provisioning Compute Cloud and VPC resources for Kubernetes cluster. 
 node_service_account_id | **string**<br>Service account to be used by the worker nodes of the Kubernetes cluster to access Container Registry or to push node logs and metrics. 
-release_channel | enum **ReleaseChannel**<br> <ul><ul/>
+release_channel | enum **ReleaseChannel**<br>When creating a Kubernetes cluster, you should specify one of three release channels. The release channel contains several Kubernetes versions. Channels differ in the set of available versions, the management of auto-updates, and the updates received. You can't change the channel once the Kubernetes cluster is created, you can only recreate the Kubernetes cluster and specify a new release channel. For more details see [documentation](https://cloud.yandex.com/docs/managed-kubernetes/concepts/release-channels-and-updates). <ul><li>`RAPID`: Minor updates with new functions and improvements are often added. You can't disable automatic updates in this channel, but you can specify a time period for automatic updates.</li><li>`REGULAR`: New functions and improvements are added in chunks shortly after they appear on `RAPID`.</li><li>`STABLE`: Only updates related to bug fixes or security improvements are added.</li><ul/>
+network_policy | **[NetworkPolicy](#NetworkPolicy3)**<br> 
+kms_provider | **[KMSProvider](#KMSProvider3)**<br>KMS provider configuration. 
 
 
 ## Update {#Update}
@@ -523,24 +577,25 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the Kubernetes cluster to update. To get the Kubernetes cluster ID use a [ClusterService.List](#List) request. 
+cluster_id | **string**<br>Required. ID of the Kubernetes cluster to update. To get the Kubernetes cluster ID use a [ClusterService.List](#List) request. false
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br> 
 name | **string**<br>Name of the Kubernetes cluster. The name must be unique within the folder. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>Description of the Kubernetes cluster. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. <br>Existing set of `labels` is completely replaced by the provided set. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 internet_gateway | **oneof:** `gateway_ipv4_address`<br>
-&nbsp;&nbsp;gateway_ipv4_address | **string**<br> The maximum string length in characters is 15.
-master_spec | **[MasterUpdateSpec](#MasterUpdateSpec)**<br> 
+&nbsp;&nbsp;gateway_ipv4_address | **string**<br>Gateway IPv4 address. The maximum string length in characters is 15.
+master_spec | **[MasterUpdateSpec](#MasterUpdateSpec)**<br>Specification of the master update. 
 service_account_id | **string**<br>Service account to be used for provisioning Compute Cloud and VPC resources for Kubernetes cluster. Selected service account should have `edit` role on the folder where the Kubernetes cluster will be located and on the folder where selected network resides. 
 node_service_account_id | **string**<br>Service account to be used by the worker nodes of the Kubernetes cluster to access Container Registry or to push node logs and metrics. 
+network_policy | **[NetworkPolicy](#NetworkPolicy3)**<br> 
 
 
 ### MasterUpdateSpec {#MasterUpdateSpec}
 
 Field | Description
 --- | ---
-version | **[UpdateVersionSpec](#UpdateVersionSpec)**<br> 
-maintenance_policy | **[MasterMaintenancePolicy](#MasterMaintenancePolicy3)**<br> 
+version | **[UpdateVersionSpec](#UpdateVersionSpec)**<br>Specification of the master update. 
+maintenance_policy | **[MasterMaintenancePolicy](#MasterMaintenancePolicy3)**<br>Maintenance policy of the master. 
 
 
 ### UpdateVersionSpec {#UpdateVersionSpec}
@@ -548,7 +603,7 @@ maintenance_policy | **[MasterMaintenancePolicy](#MasterMaintenancePolicy3)**<br
 Field | Description
 --- | ---
 specifier | **oneof:** `version` or `latest_revision`<br>
-&nbsp;&nbsp;version | **string**<br>Request update to a newer version of kubernetes (1.x -> 1.y). 
+&nbsp;&nbsp;version | **string**<br>Request update to a newer version of Kubernetes (1.x -> 1.y). 
 &nbsp;&nbsp;latest_revision | **bool**<br>Request update to the latest revision for the current version. 
 
 
@@ -556,18 +611,18 @@ specifier | **oneof:** `version` or `latest_revision`<br>
 
 Field | Description
 --- | ---
-auto_upgrade | **bool**<br> 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow3)**<br> 
+auto_upgrade | **bool**<br>If set to true, automatic updates are installed in the specified period of time with no interaction from the user. If set to false, automatic upgrades are disabled. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow3)**<br>Maintenance window settings. Update will start at the specified time and last no more than the specified duration. The time is set in UTC. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow}
 
 Field | Description
 --- | ---
-policy | **oneof:** `anytime`, `daily_maintenance_window` or `weekly_maintenance_window`<br>
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow3)**<br> 
-&nbsp;&nbsp;daily_maintenance_window | **[DailyMaintenanceWindow](#DailyMaintenanceWindow3)**<br> 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow3)**<br> 
+policy | **oneof:** `anytime`, `daily_maintenance_window` or `weekly_maintenance_window`<br>Maintenance policy.
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow3)**<br>Updating the master at any time. 
+&nbsp;&nbsp;daily_maintenance_window | **[DailyMaintenanceWindow](#DailyMaintenanceWindow3)**<br>Updating the master on any day during the specified time window. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow3)**<br>Updating the master on selected days during the specified time window. 
 
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow}
@@ -578,24 +633,31 @@ policy | **oneof:** `anytime`, `daily_maintenance_window` or `weekly_maintenance
 
 Field | Description
 --- | ---
-start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required.  
-duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br> Acceptable values are 1h to 24h, inclusive.
+start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required. Window start time, in the UTC timezone. false
+duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Window duration. Acceptable values are 1h to 24h, inclusive.
 
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow}
 
 Field | Description
 --- | ---
-days_of_week[] | **[DaysOfWeekMaintenanceWindow](#DaysOfWeekMaintenanceWindow3)**<br> The number of elements must be in the range 1-7.
+days_of_week[] | **[DaysOfWeekMaintenanceWindow](#DaysOfWeekMaintenanceWindow3)**<br>Days of the week and the maintenance window for these days when automatic updates are allowed. The number of elements must be in the range 1-7.
 
 
 ### DaysOfWeekMaintenanceWindow {#DaysOfWeekMaintenanceWindow}
 
 Field | Description
 --- | ---
-days[] | **google.type.DayOfWeek**<br> The number of elements must be in the range 1-7.
-start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required.  
-duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br> Acceptable values are 1h to 24h, inclusive.
+days[] | **google.type.DayOfWeek**<br>Days of the week when automatic updates are allowed. The number of elements must be in the range 1-7.
+start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required. Window start time, in the UTC timezone. false
+duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Window duration. Acceptable values are 1h to 24h, inclusive.
+
+
+### NetworkPolicy {#NetworkPolicy}
+
+Field | Description
+--- | ---
+provider | enum **Provider**<br> <ul><ul/>
 
 
 ### Operation {#Operation}
@@ -640,7 +702,9 @@ internet_gateway | **oneof:** `gateway_ipv4_address`<br>
 &nbsp;&nbsp;gateway_ipv4_address | **string**<br>Gateway IPv4 address. The maximum string length in characters is 15.
 service_account_id | **string**<br>Service account to be used for provisioning Compute Cloud and VPC resources for Kubernetes cluster. 
 node_service_account_id | **string**<br>Service account to be used by the worker nodes of the Kubernetes cluster to access Container Registry or to push node logs and metrics. 
-release_channel | enum **ReleaseChannel**<br> <ul><ul/>
+release_channel | enum **ReleaseChannel**<br>When creating a Kubernetes cluster, you should specify one of three release channels. The release channel contains several Kubernetes versions. Channels differ in the set of available versions, the management of auto-updates, and the updates received. You can't change the channel once the Kubernetes cluster is created, you can only recreate the Kubernetes cluster and specify a new release channel. For more details see [documentation](https://cloud.yandex.com/docs/managed-kubernetes/concepts/release-channels-and-updates). <ul><li>`RAPID`: Minor updates with new functions and improvements are often added. You can't disable automatic updates in this channel, but you can specify a time period for automatic updates.</li><li>`REGULAR`: New functions and improvements are added in chunks shortly after they appear on `RAPID`.</li><li>`STABLE`: Only updates related to bug fixes or security improvements are added.</li><ul/>
+network_policy | **[NetworkPolicy](#NetworkPolicy4)**<br> 
+kms_provider | **[KMSProvider](#KMSProvider3)**<br>KMS provider configuration. 
 
 
 ## Delete {#Delete}
@@ -657,7 +721,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the Kubernetes cluster to delete. To get Kubernetes cluster ID use a [ClusterService.List](#List) request. 
+cluster_id | **string**<br>Required. ID of the Kubernetes cluster to delete. To get Kubernetes cluster ID use a [ClusterService.List](#List) request. false
 
 
 ### Operation {#Operation}
@@ -685,7 +749,7 @@ cluster_id | **string**<br>ID of the Kubernetes cluster that is being deleted.
 
 ## Stop {#Stop}
 
-
+Stops the specified Kubernetes cluster.
 
 **rpc Stop ([StopClusterRequest](#StopClusterRequest)) returns ([operation.Operation](#Operation3))**
 
@@ -697,8 +761,8 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required.  
-service_account_id | **string**<br> 
+cluster_id | **string**<br>Required. ID of the Kubernetes cluster to stop. To get Kubernetes cluster ID use a [ClusterService.List](#List) request. false
+service_account_id | **string**<br>ID of the service account which has permission to stop the Kubernetes cluster. 
 
 
 ### Operation {#Operation}
@@ -721,7 +785,7 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-cluster_id | **string**<br> 
+cluster_id | **string**<br>ID of the Kubernetes cluster that is being stopped. 
 
 
 ### Cluster {#Cluster}
@@ -743,12 +807,14 @@ internet_gateway | **oneof:** `gateway_ipv4_address`<br>
 &nbsp;&nbsp;gateway_ipv4_address | **string**<br>Gateway IPv4 address. The maximum string length in characters is 15.
 service_account_id | **string**<br>Service account to be used for provisioning Compute Cloud and VPC resources for Kubernetes cluster. 
 node_service_account_id | **string**<br>Service account to be used by the worker nodes of the Kubernetes cluster to access Container Registry or to push node logs and metrics. 
-release_channel | enum **ReleaseChannel**<br> <ul><ul/>
+release_channel | enum **ReleaseChannel**<br>When creating a Kubernetes cluster, you should specify one of three release channels. The release channel contains several Kubernetes versions. Channels differ in the set of available versions, the management of auto-updates, and the updates received. You can't change the channel once the Kubernetes cluster is created, you can only recreate the Kubernetes cluster and specify a new release channel. For more details see [documentation](https://cloud.yandex.com/docs/managed-kubernetes/concepts/release-channels-and-updates). <ul><li>`RAPID`: Minor updates with new functions and improvements are often added. You can't disable automatic updates in this channel, but you can specify a time period for automatic updates.</li><li>`REGULAR`: New functions and improvements are added in chunks shortly after they appear on `RAPID`.</li><li>`STABLE`: Only updates related to bug fixes or security improvements are added.</li><ul/>
+network_policy | **[NetworkPolicy](#NetworkPolicy4)**<br> 
+kms_provider | **[KMSProvider](#KMSProvider3)**<br>KMS provider configuration. 
 
 
 ## Start {#Start}
 
-
+Starts the specified Kubernetes cluster.
 
 **rpc Start ([StartClusterRequest](#StartClusterRequest)) returns ([operation.Operation](#Operation4))**
 
@@ -760,7 +826,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required.  
+cluster_id | **string**<br>Required. ID of the Kubernetes cluster to start. To get Kubernetes cluster ID use a [ClusterService.List](#List) request. false
 
 
 ### Operation {#Operation}
@@ -783,7 +849,7 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-cluster_id | **string**<br> 
+cluster_id | **string**<br>ID of the Kubernetes cluster that is being started. 
 
 
 ### Cluster {#Cluster}
@@ -805,7 +871,9 @@ internet_gateway | **oneof:** `gateway_ipv4_address`<br>
 &nbsp;&nbsp;gateway_ipv4_address | **string**<br>Gateway IPv4 address. The maximum string length in characters is 15.
 service_account_id | **string**<br>Service account to be used for provisioning Compute Cloud and VPC resources for Kubernetes cluster. 
 node_service_account_id | **string**<br>Service account to be used by the worker nodes of the Kubernetes cluster to access Container Registry or to push node logs and metrics. 
-release_channel | enum **ReleaseChannel**<br> <ul><ul/>
+release_channel | enum **ReleaseChannel**<br>When creating a Kubernetes cluster, you should specify one of three release channels. The release channel contains several Kubernetes versions. Channels differ in the set of available versions, the management of auto-updates, and the updates received. You can't change the channel once the Kubernetes cluster is created, you can only recreate the Kubernetes cluster and specify a new release channel. For more details see [documentation](https://cloud.yandex.com/docs/managed-kubernetes/concepts/release-channels-and-updates). <ul><li>`RAPID`: Minor updates with new functions and improvements are often added. You can't disable automatic updates in this channel, but you can specify a time period for automatic updates.</li><li>`REGULAR`: New functions and improvements are added in chunks shortly after they appear on `RAPID`.</li><li>`STABLE`: Only updates related to bug fixes or security improvements are added.</li><ul/>
+network_policy | **[NetworkPolicy](#NetworkPolicy4)**<br> 
+kms_provider | **[KMSProvider](#KMSProvider3)**<br>KMS provider configuration. 
 
 
 ## ListNodeGroups {#ListNodeGroups}
@@ -818,7 +886,7 @@ Lists nodegroup for the specified Kubernetes cluster.
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the Kubernetes cluster to list node groups in. To get the Kubernetes cluster ID use a [ClusterService.List](#List) request. 
+cluster_id | **string**<br>Required. ID of the Kubernetes cluster to list node groups in. To get the Kubernetes cluster ID use a [ClusterService.List](#List) request. false
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClusterNodeGroupsResponse.next_page_token](#ListClusterNodeGroupsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListClusterNodeGroupsResponse.next_page_token](#ListClusterNodeGroupsResponse) returned by a previous list request. The maximum string length in characters is 100.
 filter | **string**<br>A filter expression that filters resources listed in the response. Currently you can use filtering only on [Cluster.name](#Cluster6) field. The maximum string length in characters is 1000.
@@ -846,10 +914,14 @@ status | enum **Status**<br>Status of the node group. <ul><li>`PROVISIONING`: No
 node_template | **[NodeTemplate](#NodeTemplate)**<br>Node template that specifies parameters of the compute instances for the node group. 
 scale_policy | **[ScalePolicy](#ScalePolicy)**<br>Scale policy of the node group.  For more information, see [Scaling policy](/docs/compute/concepts/instance-groups/policies#scale-policy). 
 allocation_policy | **[NodeGroupAllocationPolicy](#NodeGroupAllocationPolicy)**<br>Allocation policy by which resources for node group are allocated to zones and regions. 
+deploy_policy | **[DeployPolicy](#DeployPolicy)**<br>Deploy policy according to which the updates are rolled out. 
 instance_group_id | **string**<br>ID of the managed instance group associated with this node group. 
 node_version | **string**<br>Version of Kubernetes components that runs on the nodes. Deprecated. Use version_info.current_version. 
-version_info | **[VersionInfo](#VersionInfo2)**<br> 
-maintenance_policy | **[NodeGroupMaintenancePolicy](#NodeGroupMaintenancePolicy)**<br> 
+version_info | **[VersionInfo](#VersionInfo2)**<br>Detailed information about the Kubernetes version that is running on the node. 
+maintenance_policy | **[NodeGroupMaintenancePolicy](#NodeGroupMaintenancePolicy)**<br>Maintenance policy of the node group. 
+allowed_unsafe_sysctls[] | **string**<br>Support for unsafe sysctl parameters. For more details see [documentation](https://kubernetes.io/docs/tasks/administer-cluster/sysctl-cluster/). 
+node_taints[] | **[Taint](#Taint)**<br>Taints that are applied to the nodes of the node group at creation time. 
+node_labels | **map<string,string>**<br>Labels that are assigned to the nodes of the node group at creation time. 
 
 
 ### NodeTemplate {#NodeTemplate}
@@ -858,8 +930,8 @@ Field | Description
 --- | ---
 platform_id | **string**<br>ID of the hardware platform configuration for the node. 
 resources_spec | **[ResourcesSpec](#ResourcesSpec)**<br>Computing resources of the node such as the amount of memory and number of cores. 
-boot_disk_spec | **[DiskSpec](#DiskSpec)**<br>Specification for the boot disk that will be attached to the node. The metadata as `key:value` pairs assigned to this instance template. This includes custom metadata and predefined keys. <br>For example, you may use the metadata in order to provide your public SSH key to the node. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). 
-metadata | **map<string,string>**<br> No more than 64 per resource. The maximum string length in characters for each value is 131072. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+boot_disk_spec | **[DiskSpec](#DiskSpec)**<br>Specification for the boot disk that will be attached to the node. 
+metadata | **map<string,string>**<br>The metadata as `key:value` pairs assigned to this instance template. This includes custom metadata and predefined keys. <br>For example, you may use the metadata in order to provide your public SSH key to the node. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). No more than 64 per resource. The maximum string length in characters for each value is 131072. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 v4_address_spec | **[NodeAddressSpec](#NodeAddressSpec)**<br>Specification for the create network interfaces for the node group compute instances. 
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy)**<br>Scheduling policy configuration. 
 
@@ -868,9 +940,10 @@ scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy)**<br>Scheduling poli
 
 Field | Description
 --- | ---
-memory | **int64**<br>Amount of memory available to the node, specified in bytes. Acceptable values are 0 to 274877906944, inclusive.
-cores | **int64**<br>Number of cores available to the node. Value must be equal to 0,1,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32.
+memory | **int64**<br>Amount of memory available to the node, specified in bytes. The maximum value is 824633720832.
+cores | **int64**<br>Number of cores available to the node. Value must be equal to 0,1,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,40,44,48,52,56,60,64.
 core_fraction | **int64**<br>Baseline level of CPU performance with the possibility to burst performance above that baseline level. This field sets baseline performance for each core. Value must be equal to 0,5,20,50,100.
+gpus | **int64**<br>Number of GPUs available to the node. Value must be equal to 0,1,2,4.
 
 
 ### DiskSpec {#DiskSpec}
@@ -938,17 +1011,25 @@ locations[] | **[NodeGroupLocation](#NodeGroupLocation)**<br>List of locations w
 
 Field | Description
 --- | ---
-zone_id | **string**<br>Required. ID of the availability zone where the nodes may reside. 
+zone_id | **string**<br>Required. ID of the availability zone where the nodes may reside. false
 subnet_id | **string**<br>ID of the subnet. If a network chosen for the Kubernetes cluster has only one subnet in the specified zone, subnet ID may be omitted. 
+
+
+### DeployPolicy {#DeployPolicy}
+
+Field | Description
+--- | ---
+max_unavailable | **int64**<br>The maximum number of running instances that can be taken offline (i.e., stopped or deleted) at the same time during the update process. If `max_expansion` is not specified or set to zero, `max_unavailable` must be set to a non-zero value. Acceptable values are 0 to 100, inclusive.
+max_expansion | **int64**<br>The maximum number of instances that can be temporarily allocated above the group's target size during the update process. If `max_unavailable` is not specified or set to zero, `max_expansion` must be set to a non-zero value. Acceptable values are 0 to 100, inclusive.
 
 
 ### VersionInfo {#VersionInfo}
 
 Field | Description
 --- | ---
-current_version | **string**<br>Current kubernetes version, major.minor (e.g. 1.15). 
-new_revision_available | **bool**<br>Newer revisions may include kubernetes patches (e.g 1.15.1 -> 1.15.2) as well as some internal component updates - new features or bug fixes in yandex-specific components either on the master or nodes. 
-new_revision_summary | **string**<br>Human readable description of the changes to be applied when updating to the latest revision. Empty if new_revision_available is false. 
+current_version | **string**<br>Current Kubernetes version, format: major.minor (e.g. 1.15). 
+new_revision_available | **bool**<br>Newer revisions may include Kubernetes patches (e.g 1.15.1 -> 1.15.2) as well as some internal component updates — new features or bug fixes in Yandex specific components either on the master or nodes. 
+new_revision_summary | **string**<br>Description of the changes to be applied when updating to the latest revision. Empty if new_revision_available is false. 
 version_deprecated | **bool**<br>The current version is on the deprecation schedule, component (master or node group) should be upgraded. 
 
 
@@ -956,19 +1037,19 @@ version_deprecated | **bool**<br>The current version is on the deprecation sched
 
 Field | Description
 --- | ---
-auto_upgrade | **bool**<br> 
-auto_repair | **bool**<br> 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow4)**<br> 
+auto_upgrade | **bool**<br>If set to true, automatic updates are installed in the specified period of time with no interaction from the user. If set to false, automatic upgrades are disabled. 
+auto_repair | **bool**<br>If set to true, automatic repairs are enabled. Default value is false. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow4)**<br>Maintenance window settings. Update will start at the specified time and last no more than the specified duration. The time is set in UTC. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow}
 
 Field | Description
 --- | ---
-policy | **oneof:** `anytime`, `daily_maintenance_window` or `weekly_maintenance_window`<br>
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow4)**<br> 
-&nbsp;&nbsp;daily_maintenance_window | **[DailyMaintenanceWindow](#DailyMaintenanceWindow4)**<br> 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow4)**<br> 
+policy | **oneof:** `anytime`, `daily_maintenance_window` or `weekly_maintenance_window`<br>Maintenance policy.
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow4)**<br>Updating the master at any time. 
+&nbsp;&nbsp;daily_maintenance_window | **[DailyMaintenanceWindow](#DailyMaintenanceWindow4)**<br>Updating the master on any day during the specified time window. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow4)**<br>Updating the master on selected days during the specified time window. 
 
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow}
@@ -979,24 +1060,33 @@ policy | **oneof:** `anytime`, `daily_maintenance_window` or `weekly_maintenance
 
 Field | Description
 --- | ---
-start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required.  
-duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br> Acceptable values are 1h to 24h, inclusive.
+start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required. Window start time, in the UTC timezone. false
+duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Window duration. Acceptable values are 1h to 24h, inclusive.
 
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow}
 
 Field | Description
 --- | ---
-days_of_week[] | **[DaysOfWeekMaintenanceWindow](#DaysOfWeekMaintenanceWindow4)**<br> The number of elements must be in the range 1-7.
+days_of_week[] | **[DaysOfWeekMaintenanceWindow](#DaysOfWeekMaintenanceWindow4)**<br>Days of the week and the maintenance window for these days when automatic updates are allowed. The number of elements must be in the range 1-7.
 
 
 ### DaysOfWeekMaintenanceWindow {#DaysOfWeekMaintenanceWindow}
 
 Field | Description
 --- | ---
-days[] | **google.type.DayOfWeek**<br> The number of elements must be in the range 1-7.
-start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required.  
-duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br> Acceptable values are 1h to 24h, inclusive.
+days[] | **google.type.DayOfWeek**<br>Days of the week when automatic updates are allowed. The number of elements must be in the range 1-7.
+start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required. Window start time, in the UTC timezone. false
+duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Window duration. Acceptable values are 1h to 24h, inclusive.
+
+
+### Taint {#Taint}
+
+Field | Description
+--- | ---
+key | **string**<br>The taint key to be applied to a node. 
+value | **string**<br>The taint value corresponding to the taint key. 
+effect | enum **Effect**<br>The effect of the taint on pods that do not tolerate the taint. <ul><li>`NO_SCHEDULE`: Do not allow new pods to schedule onto the node unless they tolerate the taint, but allow all pods submitted to Kubelet without going through the scheduler to start, and allow all already-running pods to continue running.</li><li>`PREFER_NO_SCHEDULE`: Like NO_SCHEDULE, but the scheduler tries not to schedule new pods onto the node, rather than prohibiting new pods from scheduling onto the node entirely. Enforced by the scheduler.</li><li>`NO_EXECUTE`: Evict any already-running pods that do not tolerate the taint.</li><ul/>
 
 
 ## ListOperations {#ListOperations}
@@ -1009,7 +1099,7 @@ Lists operations for the specified Kubernetes cluster.
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the Kubernetes cluster to list operations for. 
+cluster_id | **string**<br>Required. ID of the Kubernetes cluster to list operations for. false
 page_size | **int64**<br>The maximum number of results per page that should be returned. If the number of available results is larger than `page_size`, the service returns a [ListClusterOperationsResponse.next_page_token](#ListClusterOperationsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListClusterOperationsResponse.next_page_token](#ListClusterOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
 filter | **string**<br>A filter expression that filters resources listed in the response. Currently you can use filtering only on [Cluster.name](#Cluster6) field. The maximum string length in characters is 1000.
@@ -1037,5 +1127,65 @@ metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffer
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
 &nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>The normal response of the operation in case of success. If the original method returns no data on success, such as Delete, the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty). If the original method is the standard Create/Update, the response should be the target resource of the operation. Any method that returns a long-running operation should document the response type, if any. 
+
+
+## ListNodes {#ListNodes}
+
+Lists cluster's nodes.
+
+**rpc ListNodes ([ListClusterNodesRequest](#ListClusterNodesRequest)) returns ([ListClusterNodesResponse](#ListClusterNodesResponse))**
+
+### ListClusterNodesRequest {#ListClusterNodesRequest}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>Required. ID of the Kubernetes cluster to list nodes in. To get the Kubernetes cluster ID use a [ClusterService.List](#List) request. false
+page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClusterNodesResponse.next_page_token](#ListClusterNodesResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. Acceptable values are 0 to 1000, inclusive.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListClusterNodeGroupsResponse.next_page_token](#ListClusterNodeGroupsResponse1) returned by a previous list request. The maximum string length in characters is 100.
+
+
+### ListClusterNodesResponse {#ListClusterNodesResponse}
+
+Field | Description
+--- | ---
+nodes[] | **[Node](#Node)**<br>List of nodes for the specified Kubernetes cluster. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterNodesRequest.page_size](#ListClusterNodesRequest1), use the `next_page_token` as the value for the [ListClusterNodesRequest.page_token](#ListClusterNodesRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+
+
+### Node {#Node}
+
+Field | Description
+--- | ---
+status | enum **Status**<br>Computed node status. <ul><li>`PROVISIONING`: Node instance is not yet created (e.g. in progress).</li><li>`NOT_CONNECTED`: Node instance is created but not registered (e.g. is still initializing).</li><li>`NOT_READY`: Node has connected but is not ready for workload (see conditions for details).</li><li>`READY`: Node has connected and ready for workload.</li><li>`MISSING`: Node is still registered but its instance is deleted (this is our bug).</li><ul/>
+spec | **[Spec](#Spec)**<br>Node specificaion. 
+cloud_status | **[CloudStatus](#CloudStatus)**<br>Cloud instance status. Not available in `MISSING` status. 
+kubernetes_status | **[KubernetesStatus](#KubernetesStatus)**<br>Kubernetes node status. Not available in `PROVISIONING` and `NOT_CONNECTED` states. 
+
+
+### KubernetesStatus {#KubernetesStatus}
+
+Field | Description
+--- | ---
+id | **string**<br>Node id (and instance name) 
+conditions[] | **[Condition](#Condition)**<br>Conditions is an array of current observed node conditions. More info: https://kubernetes.io/docs/concepts/nodes/node/#condition 
+taints[] | **[Taint](#Taint1)**<br>If specified, the node's taints. 
+attached_volumes[] | **[AttachedVolume](#AttachedVolume)**<br>List of volumes that are attached to the node. 
+
+
+### CloudStatus {#CloudStatus}
+
+Field | Description
+--- | ---
+id | **string**<br>Compute instance id 
+status | **string**<br>IG instance status 
+status_message | **string**<br>IG instance status message 
+
+
+### Spec {#Spec}
+
+Field | Description
+--- | ---
+resources | **[ResourcesSpec](#ResourcesSpec1)**<br>Node group specified resources. 
+disk | **[DiskSpec](#DiskSpec1)**<br>Node group specified disk. 
 
 

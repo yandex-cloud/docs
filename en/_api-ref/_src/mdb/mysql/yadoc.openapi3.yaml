@@ -8,7 +8,7 @@ info:
   x-y-docUri: api-ref
   x-y-baseUrl: https://mdb.api.cloud.yandex.net
 paths:
-  /managed-mysql/v1/backups/{backupId}:
+  /managed-mysql/v1alpha/backups/{backupId}:
     get:
       tags:
       - Backup
@@ -34,7 +34,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Backup'
       x-y-navtitle: get
-  /managed-mysql/v1/backups:
+  /managed-mysql/v1alpha/backups:
     get:
       tags:
       - Backup
@@ -79,7 +79,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListBackupsResponse'
       x-y-navtitle: list
-  /managed-mysql/v1/clusters/{clusterId}:
+  /managed-mysql/v1alpha/clusters/{clusterId}:
     get:
       tags:
       - Cluster
@@ -169,7 +169,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/UpdateClusterMetadata'
       x-y-operation-response: '[Cluster](/docs/managed-mysql/api-ref/Cluster#representation)'
-  /managed-mysql/v1/clusters:
+  /managed-mysql/v1alpha/clusters:
     get:
       tags:
       - Cluster
@@ -248,7 +248,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/CreateClusterMetadata'
       x-y-operation-response: '[Cluster](/docs/managed-mysql/api-ref/Cluster#representation)'
-  /managed-mysql/v1/clusters/{clusterId}:start:
+  /managed-mysql/v1alpha/clusters/{clusterId}:start:
     post:
       tags:
       - Cluster
@@ -276,7 +276,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/StartClusterMetadata'
       x-y-operation-response: '[Cluster](/docs/managed-mysql/api-ref/Cluster#representation)'
-  /managed-mysql/v1/clusters/{clusterId}:stop:
+  /managed-mysql/v1alpha/clusters/{clusterId}:stop:
     post:
       tags:
       - Cluster
@@ -304,41 +304,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/StopClusterMetadata'
       x-y-operation-response: '[Cluster](/docs/managed-mysql/api-ref/Cluster#representation)'
-  /managed-mysql/v1/clusters/{clusterId}:move:
-    post:
-      tags:
-      - Cluster
-      summary: Moves the specified MySQL cluster to the specified folder.
-      operationId: ClusterMove
-      parameters:
-      - name: clusterId
-        in: path
-        description: |-
-          Required.
-          ID of the MySQL cluster to move.
-
-          The maximum string length in characters is 50.
-        required: true
-        schema:
-          type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/MoveClusterRequest'
-        required: true
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Operation'
-      x-y-navtitle: move
-      x-y-operation-metadata:
-        $ref: '#/components/schemas/MoveClusterMetadata'
-      x-y-operation-response: '[Cluster](/docs/managed-mysql/api-ref/Cluster#representation)'
-  /managed-mysql/v1/clusters/{clusterId}:backup:
+  /managed-mysql/v1alpha/clusters/{clusterId}:backup:
     post:
       tags:
       - Cluster
@@ -367,7 +333,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/BackupClusterMetadata'
       x-y-operation-response: '[Cluster](/docs/managed-mysql/api-ref/Cluster#representation)'
-  /managed-mysql/v1/clusters:restore:
+  /managed-mysql/v1alpha/clusters:restore:
     post:
       tags:
       - Cluster
@@ -390,41 +356,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/RestoreClusterMetadata'
       x-y-operation-response: '[Cluster](/docs/managed-mysql/api-ref/Cluster#representation)'
-  /managed-mysql/v1/clusters/{clusterId}:startFailover:
-    post:
-      tags:
-      - Cluster
-      summary: Start a manual failover on the specified MySQL cluster.
-      operationId: ClusterStartFailover
-      parameters:
-      - name: clusterId
-        in: path
-        description: |-
-          Required.
-          ID of MySQL cluster.
-
-          The maximum string length in characters is 50.
-        required: true
-        schema:
-          type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/StartClusterFailoverRequest'
-        required: true
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Operation'
-      x-y-navtitle: startFailover
-      x-y-operation-metadata:
-        $ref: '#/components/schemas/StartClusterFailoverMetadata'
-      x-y-operation-response: '[Cluster](/docs/managed-mysql/api-ref/Cluster#representation)'
-  /managed-mysql/v1/clusters/{clusterId}:logs:
+  /managed-mysql/v1alpha/clusters/{clusterId}:logs:
     get:
       tags:
       - Cluster
@@ -508,7 +440,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListClusterLogsResponse'
       x-y-navtitle: listLogs
-  /managed-mysql/v1/clusters/{clusterId}/operations:
+  /managed-mysql/v1alpha/clusters/{clusterId}/operations:
     get:
       tags:
       - Cluster
@@ -553,7 +485,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListClusterOperationsResponse'
       x-y-navtitle: listOperations
-  /managed-mysql/v1/clusters/{clusterId}/backups:
+  /managed-mysql/v1alpha/clusters/{clusterId}/backups:
     get:
       tags:
       - Cluster
@@ -599,7 +531,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListClusterBackupsResponse'
       x-y-navtitle: listBackups
-  /managed-mysql/v1/clusters/{clusterId}/hosts:
+  /managed-mysql/v1alpha/clusters/{clusterId}/hosts:
     get:
       tags:
       - Cluster
@@ -645,7 +577,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListClusterHostsResponse'
       x-y-navtitle: listHosts
-  /managed-mysql/v1/clusters/{clusterId}/hosts:batchCreate:
+  /managed-mysql/v1alpha/clusters/{clusterId}/hosts:batchCreate:
     post:
       tags:
       - Cluster
@@ -680,7 +612,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/AddClusterHostsMetadata'
       x-y-operation-response: Empty
-  /managed-mysql/v1/clusters/{clusterId}/hosts:batchDelete:
+  /managed-mysql/v1alpha/clusters/{clusterId}/hosts:batchDelete:
     post:
       tags:
       - Cluster
@@ -715,7 +647,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/DeleteClusterHostsMetadata'
       x-y-operation-response: Empty
-  /managed-mysql/v1/clusters/{clusterId}/databases/{databaseName}:
+  /managed-mysql/v1alpha/clusters/{clusterId}/databases/{databaseName}:
     get:
       tags:
       - Database
@@ -795,7 +727,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/DeleteDatabaseMetadata'
       x-y-operation-response: Empty
-  /managed-mysql/v1/clusters/{clusterId}/databases:
+  /managed-mysql/v1alpha/clusters/{clusterId}/databases:
     get:
       tags:
       - Database
@@ -875,7 +807,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/CreateDatabaseMetadata'
       x-y-operation-response: '[Database](/docs/managed-mysql/api-ref/Database#representation)'
-  /managed-mysql/v1/resourcePresets/{resourcePresetId}:
+  /managed-mysql/v1alpha/resourcePresets/{resourcePresetId}:
     get:
       tags:
       - ResourcePreset
@@ -901,7 +833,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ResourcePreset'
       x-y-navtitle: get
-  /managed-mysql/v1/resourcePresets:
+  /managed-mysql/v1alpha/resourcePresets:
     get:
       tags:
       - ResourcePreset
@@ -936,7 +868,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListResourcePresetsResponse'
       x-y-navtitle: list
-  /managed-mysql/v1/clusters/{clusterId}/users/{userName}:
+  /managed-mysql/v1alpha/clusters/{clusterId}/users/{userName}:
     get:
       tags:
       - User
@@ -959,7 +891,7 @@ paths:
         in: path
         description: |-
           Required.
-          Required.
+          Name of the user.
 
           The maximum string length in characters is 63.
           Value must match the regular expression `` [a-zA-Z0-9_]* ``.
@@ -1060,7 +992,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/UpdateUserMetadata'
       x-y-operation-response: '[User](/docs/managed-mysql/api-ref/User#representation)'
-  /managed-mysql/v1/clusters/{clusterId}/users:
+  /managed-mysql/v1alpha/clusters/{clusterId}/users:
     get:
       tags:
       - User
@@ -1140,7 +1072,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/CreateUserMetadata'
       x-y-operation-response: '[User](/docs/managed-mysql/api-ref/User#representation)'
-  /managed-mysql/v1/clusters/{clusterId}/users/{userName}:grantPermission:
+  /managed-mysql/v1alpha/clusters/{clusterId}/users/{userName}:grantPermission:
     post:
       tags:
       - User
@@ -1187,7 +1119,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/GrantUserPermissionMetadata'
       x-y-operation-response: '[User](/docs/managed-mysql/api-ref/User#representation)'
-  /managed-mysql/v1/clusters/{clusterId}/users/{userName}:revokePermission:
+  /managed-mysql/v1alpha/clusters/{clusterId}/users/{userName}:revokePermission:
     post:
       tags:
       - User
@@ -1236,13 +1168,6 @@ paths:
       x-y-operation-response: '[User](/docs/managed-mysql/api-ref/User#representation)'
 components:
   schemas:
-    Access:
-      type: object
-      properties:
-        dataLens:
-          description: Allow access for DataLens
-          type: boolean
-          format: boolean
     AddClusterHostsMetadata:
       type: object
       properties:
@@ -1366,9 +1291,6 @@ components:
           backupWindowStart:
             $ref: '#/components/schemas/TimeOfDay'
             description: Time to start the daily backup, in the UTC timezone.
-          access:
-            $ref: '#/components/schemas/Access'
-            description: Access policy to DB
       - title: mysql_config
         type: object
         maxProperties: 1
@@ -1376,9 +1298,6 @@ components:
           mysqlConfig_5_7:
             $ref: '#/components/schemas/MysqlConfigSet5_7'
             description: Configuration of a MySQL 5.7 server.
-          mysqlConfig_8_0:
-            $ref: '#/components/schemas/MysqlConfigSet8_0'
-            description: Configuration of a MySQL 8.0 server.
     ClusterEnvironment:
       description: |2-
          - PRODUCTION: Stable environment with a conservative update policy:
@@ -1433,7 +1352,6 @@ components:
               Version of MySQL used in the cluster.
               Possible values:
               * 5.7
-              * 8.0
             type: string
           resources:
             $ref: '#/components/schemas/Resources'
@@ -1441,9 +1359,6 @@ components:
           backupWindowStart:
             $ref: '#/components/schemas/TimeOfDay'
             description: Time to start the daily backup, in the UTC timezone.
-          access:
-            $ref: '#/components/schemas/Access'
-            description: Access policy to DB
       - title: mysql_config
         type: object
         maxProperties: 1
@@ -1451,9 +1366,6 @@ components:
           mysqlConfig_5_7:
             $ref: '#/components/schemas/MysqlConfig5_7'
             description: Configuration for a MySQL 5.7 cluster.
-          mysqlConfig_8_0:
-            $ref: '#/components/schemas/MysqlConfig8_0'
-            description: Configuration for a MySQL 8.0 cluster.
     CreateClusterMetadata:
       type: object
       properties:
@@ -1792,17 +1704,10 @@ components:
             Each subsequent list request will have its own [nextPageToken](/docs/managed-mysql/api-ref/Cluster/listHosts#responses) to continue paging through the results.
           type: string
     ListClusterLogsRequestServiceType:
-      description: |2-
-         - MYSQL_ERROR: MySQL error log.
-         - MYSQL_GENERAL: MySQL general query log.
-         - MYSQL_SLOW_QUERY: MySQL slow query log.
-         - MYSQL_AUDIT: MySQL audit log.
+      description: ' - MYSQL: Logs of MySQL activity.'
       type: string
       enum:
-      - MYSQL_ERROR
-      - MYSQL_GENERAL
-      - MYSQL_SLOW_QUERY
-      - MYSQL_AUDIT
+      - MYSQL
     ListClusterLogsResponse:
       type: object
       properties:
@@ -1922,28 +1827,6 @@ components:
         link:
           description: Link to the monitoring system charts for the MySQL cluster.
           type: string
-    MoveClusterMetadata:
-      type: object
-      properties:
-        clusterId:
-          description: ID of the MySQL cluster being moved.
-          type: string
-        sourceFolderId:
-          description: ID of the source folder.
-          type: string
-        destinationFolderId:
-          description: ID of the destnation folder.
-          type: string
-    MoveClusterRequest:
-      type: object
-      properties:
-        destinationFolderId:
-          description: |-
-            Required.
-            ID of the destination folder.
-
-            The maximum string length in characters is 50.
-          type: string
     MysqlConfig5_7:
       description: Options and structure of `MysqlConfig5_7` reflects MySQL 5.7 configuration
         file
@@ -1974,176 +1857,6 @@ components:
             For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_long_query_time).
           type: number
           format: double
-        generalLog:
-          description: |-
-            Enable writing of general query log of MySQL.
-
-            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_general_log).
-          type: boolean
-          format: boolean
-        auditLog:
-          description: |-
-            Enable writing of audit log of MySQL.
-
-            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/mysql-security-excerpt/5.6/en/audit-log-options-variables.html#option_mysqld_audit-log).
-          type: boolean
-          format: boolean
-        sqlMode:
-          description: |-
-            Server SQL mode of MySQL.
-
-            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sql-mode-setting).
-          type: array
-          items:
-            $ref: '#/components/schemas/MysqlConfig5_7SQLMode'
-        maxAllowedPacket:
-          description: |-
-            The maximum size in bytes of one packet.
-
-            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_allowed_packet).
-
-            Acceptable values are 1024 to 134217728, inclusive.
-          type: integer
-          format: int64
-        defaultAuthenticationPlugin:
-          $ref: '#/components/schemas/MysqlConfig5_7AuthPlugin_in_MysqlConfig5_7_defaultAuthenticationPlugin'
-    MysqlConfig5_7AuthPlugin:
-      description: |2-
-         - MYSQL_NATIVE_PASSWORD: Using [Native Pluggable Authentication](https://dev.mysql.com/doc/refman/5.7/en/native-pluggable-authentication.html).
-         - SHA256_PASSWORD: Using [SHA-256 Pluggable Authentication](https://dev.mysql.com/doc/refman/5.7/en/sha256-pluggable-authentication.html).
-      type: string
-      enum:
-      - MYSQL_NATIVE_PASSWORD
-      - CACHING_SHA2_PASSWORD
-      - SHA256_PASSWORD
-    MysqlConfig5_7SQLMode:
-      type: string
-      enum:
-      - ALLOW_INVALID_DATES
-      - ANSI_QUOTES
-      - ERROR_FOR_DIVISION_BY_ZERO
-      - HIGH_NOT_PRECEDENCE
-      - IGNORE_SPACE
-      - NO_AUTO_VALUE_ON_ZERO
-      - NO_BACKSLASH_ESCAPES
-      - NO_ENGINE_SUBSTITUTION
-      - NO_UNSIGNED_SUBTRACTION
-      - NO_ZERO_DATE
-      - NO_ZERO_IN_DATE
-      - NO_FIELD_OPTIONS
-      - NO_KEY_OPTIONS
-      - NO_TABLE_OPTIONS
-      - ONLY_FULL_GROUP_BY
-      - PAD_CHAR_TO_FULL_LENGTH
-      - PIPES_AS_CONCAT
-      - REAL_AS_FLOAT
-      - STRICT_ALL_TABLES
-      - STRICT_TRANS_TABLES
-      - ANSI
-      - TRADITIONAL
-      - DB2
-      - MAXDB
-      - MSSQL
-      - MYSQL323
-      - MYSQL40
-      - ORACLE
-      - POSTGRESQL
-    MysqlConfig8_0:
-      description: Options and structure of `MysqlConfig8_0` reflects MySQL 8.0 configuration
-        file
-      type: object
-      properties:
-        innodbBufferPoolSize:
-          description: |-
-            Size of the InnoDB buffer pool used for caching table and index data.
-
-            For details, see [MySQL documentation for the parameter](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size).
-
-            The minimum value is 5242880.
-          type: integer
-          format: int64
-        maxConnections:
-          description: |-
-            The maximum permitted number of simultaneous client connections.
-
-            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_connections).
-
-            Acceptable values are 10 to 10000, inclusive.
-          type: integer
-          format: int64
-        longQueryTime:
-          description: |-
-            Time that it takes to process a query before it is considered slow.
-
-            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_long_query_time).
-          type: number
-          format: double
-        generalLog:
-          description: |-
-            Enable writing of general query log of MySQL.
-
-            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_general_log).
-          type: boolean
-          format: boolean
-        auditLog:
-          description: |-
-            Enable writing of audit log of MySQL.
-
-            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/audit-log-reference.html#audit-log-options-variables).
-          type: boolean
-          format: boolean
-        sqlMode:
-          description: |-
-            Server SQL mode of MySQL.
-
-            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sql-mode-setting).
-          type: array
-          items:
-            $ref: '#/components/schemas/MysqlConfig8_0SQLMode'
-        maxAllowedPacket:
-          description: |-
-            The maximum size in bytes of one packet.
-
-            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_allowed_packet).
-
-            Acceptable values are 1024 to 134217728, inclusive.
-          type: integer
-          format: int64
-        defaultAuthenticationPlugin:
-          $ref: '#/components/schemas/MysqlConfig8_0AuthPlugin_in_MysqlConfig8_0_defaultAuthenticationPlugin'
-    MysqlConfig8_0AuthPlugin:
-      description: |2-
-         - MYSQL_NATIVE_PASSWORD: Using [Native Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/native-pluggable-authentication.html).
-         - CACHING_SHA2_PASSWORD: Using [Caching SHA-2 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/caching-sha2-pluggable-authentication.html).
-         - SHA256_PASSWORD: Using [SHA-256 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/sha256-pluggable-authentication.html).
-      type: string
-      enum:
-      - MYSQL_NATIVE_PASSWORD
-      - CACHING_SHA2_PASSWORD
-      - SHA256_PASSWORD
-    MysqlConfig8_0SQLMode:
-      type: string
-      enum:
-      - ALLOW_INVALID_DATES
-      - ANSI_QUOTES
-      - ERROR_FOR_DIVISION_BY_ZERO
-      - HIGH_NOT_PRECEDENCE
-      - IGNORE_SPACE
-      - NO_AUTO_VALUE_ON_ZERO
-      - NO_BACKSLASH_ESCAPES
-      - NO_ENGINE_SUBSTITUTION
-      - NO_UNSIGNED_SUBTRACTION
-      - NO_ZERO_DATE
-      - NO_ZERO_IN_DATE
-      - ONLY_FULL_GROUP_BY
-      - PAD_CHAR_TO_FULL_LENGTH
-      - PIPES_AS_CONCAT
-      - REAL_AS_FLOAT
-      - STRICT_ALL_TABLES
-      - STRICT_TRANS_TABLES
-      - TIME_TRUNCATE_FRACTIONAL
-      - ANSI
-      - TRADITIONAL
     MysqlConfigSet5_7:
       type: object
       properties:
@@ -2153,15 +1866,6 @@ components:
           $ref: '#/components/schemas/MysqlConfig5_7_in_MysqlConfigSet5_7_userConfig'
         defaultConfig:
           $ref: '#/components/schemas/MysqlConfig5_7_in_MysqlConfigSet5_7_defaultConfig'
-    MysqlConfigSet8_0:
-      type: object
-      properties:
-        effectiveConfig:
-          $ref: '#/components/schemas/MysqlConfig8_0_in_MysqlConfigSet8_0_effectiveConfig'
-        userConfig:
-          $ref: '#/components/schemas/MysqlConfig8_0_in_MysqlConfigSet8_0_userConfig'
-        defaultConfig:
-          $ref: '#/components/schemas/MysqlConfig8_0_in_MysqlConfigSet8_0_defaultConfig'
     Operation:
       description: An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
       type: object
@@ -2386,12 +2090,6 @@ components:
 
             The maximum string length in characters is 50.
           type: string
-        folderId:
-          description: |-
-            ID of the folder to create the MySQL cluster in.
-
-            The maximum string length in characters is 50.
-          type: string
     RevokeUserPermissionMetadata:
       type: object
       properties:
@@ -2404,8 +2102,14 @@ components:
     RevokeUserPermissionRequest:
       type: object
       properties:
-        permission:
-          $ref: '#/components/schemas/Permission_in_RevokeUserPermissionRequest_permission'
+        databaseName:
+          description: |-
+            Required.
+            Name of the database that the user should lose access to.
+
+            The maximum string length in characters is 63.
+            Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+          type: string
     Service:
       type: object
       properties:
@@ -2425,25 +2129,15 @@ components:
       - DEAD
       default: HEALTH_UNKNOWN
     ServiceType:
-      description: ' - MYSQL: The host is a MySQL server.'
+      description: |2-
+         - MYSQL_ERROR: Host provides the MySQL error log.
+         - MYSQL_GENERAL: Host provides the MySQL general query log.
+         - MYSQL_SLOW_QUERY: Host provides the MySQL slow query log.
       type: string
       enum:
-      - MYSQL
-    StartClusterFailoverMetadata:
-      type: object
-      properties:
-        clusterId:
-          description: ID of the MySQL cluster being failovered.
-          type: string
-    StartClusterFailoverRequest:
-      type: object
-      properties:
-        hostName:
-          description: |-
-            New master host. Switch to the most up-to-date replica if not provided.
-
-            The maximum string length in characters is 253.
-          type: string
+      - MYSQL_ERROR
+      - MYSQL_GENERAL
+      - MYSQL_SLOW_QUERY
     StartClusterMetadata:
       type: object
       properties:
@@ -2633,9 +2327,6 @@ components:
           backupWindowStart:
             $ref: '#/components/schemas/TimeOfDay'
             description: Time to start the daily backup, in the UTC timezone.
-          access:
-            $ref: '#/components/schemas/Access'
-            description: Access policy to DB
       - title: mysql_config
         type: object
         maxProperties: 1
@@ -2643,9 +2334,6 @@ components:
           mysqlConfig_5_7:
             $ref: '#/components/schemas/MysqlConfigSet5_7'
             description: Configuration of a MySQL 5.7 server.
-          mysqlConfig_8_0:
-            $ref: '#/components/schemas/MysqlConfigSet8_0'
-            description: Configuration of a MySQL 8.0 server.
     ClusterHealth_in_Cluster_health:
       description: |-
         Aggregated cluster health.
@@ -2708,7 +2396,6 @@ components:
               Version of MySQL used in the cluster.
               Possible values:
               * 5.7
-              * 8.0
             type: string
           resources:
             $ref: '#/components/schemas/Resources'
@@ -2716,9 +2403,6 @@ components:
           backupWindowStart:
             $ref: '#/components/schemas/TimeOfDay'
             description: Time to start the daily backup, in the UTC timezone.
-          access:
-            $ref: '#/components/schemas/Access'
-            description: Access policy to DB
       - title: mysql_config
         type: object
         maxProperties: 1
@@ -2726,9 +2410,6 @@ components:
           mysqlConfig_5_7:
             $ref: '#/components/schemas/MysqlConfig5_7'
             description: Configuration for a MySQL 5.7 cluster.
-          mysqlConfig_8_0:
-            $ref: '#/components/schemas/MysqlConfig8_0'
-            description: Configuration for a MySQL 8.0 cluster.
     DatabaseSpec_in_CreateDatabaseRequest_databaseSpec:
       description: |-
         Required.
@@ -2835,29 +2516,6 @@ components:
       - DEAD
       - DEGRADED
       default: HEALTH_UNKNOWN
-    MysqlConfig5_7AuthPlugin_in_MysqlConfig5_7_defaultAuthenticationPlugin:
-      description: |-
-        Authentication plugin used in the managed MySQL cluster.
-
-         - MYSQL_NATIVE_PASSWORD: Using [Native Pluggable Authentication](https://dev.mysql.com/doc/refman/5.7/en/native-pluggable-authentication.html).
-         - SHA256_PASSWORD: Using [SHA-256 Pluggable Authentication](https://dev.mysql.com/doc/refman/5.7/en/sha256-pluggable-authentication.html).
-      type: string
-      enum:
-      - MYSQL_NATIVE_PASSWORD
-      - CACHING_SHA2_PASSWORD
-      - SHA256_PASSWORD
-    MysqlConfig8_0AuthPlugin_in_MysqlConfig8_0_defaultAuthenticationPlugin:
-      description: |-
-        Authentication plugin used in the managed MySQL cluster.
-
-         - MYSQL_NATIVE_PASSWORD: Using [Native Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/native-pluggable-authentication.html).
-         - CACHING_SHA2_PASSWORD: Using [Caching SHA-2 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/caching-sha2-pluggable-authentication.html).
-         - SHA256_PASSWORD: Using [SHA-256 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/sha256-pluggable-authentication.html).
-      type: string
-      enum:
-      - MYSQL_NATIVE_PASSWORD
-      - CACHING_SHA2_PASSWORD
-      - SHA256_PASSWORD
     MysqlConfig5_7_in_MysqlConfigSet5_7_effectiveConfig:
       description: |-
         Effective settings for a MySQL 5.7 cluster (a combination of settings defined
@@ -2891,39 +2549,6 @@ components:
             For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_long_query_time).
           type: number
           format: double
-        generalLog:
-          description: |-
-            Enable writing of general query log of MySQL.
-
-            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_general_log).
-          type: boolean
-          format: boolean
-        auditLog:
-          description: |-
-            Enable writing of audit log of MySQL.
-
-            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/mysql-security-excerpt/5.6/en/audit-log-options-variables.html#option_mysqld_audit-log).
-          type: boolean
-          format: boolean
-        sqlMode:
-          description: |-
-            Server SQL mode of MySQL.
-
-            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sql-mode-setting).
-          type: array
-          items:
-            $ref: '#/components/schemas/MysqlConfig5_7SQLMode'
-        maxAllowedPacket:
-          description: |-
-            The maximum size in bytes of one packet.
-
-            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_allowed_packet).
-
-            Acceptable values are 1024 to 134217728, inclusive.
-          type: integer
-          format: int64
-        defaultAuthenticationPlugin:
-          $ref: '#/components/schemas/MysqlConfig5_7AuthPlugin_in_MysqlConfig5_7_defaultAuthenticationPlugin'
     MysqlConfig5_7_in_MysqlConfigSet5_7_userConfig:
       description: |-
         User-defined settings for a MySQL 5.7 cluster.
@@ -2956,39 +2581,6 @@ components:
             For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_long_query_time).
           type: number
           format: double
-        generalLog:
-          description: |-
-            Enable writing of general query log of MySQL.
-
-            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_general_log).
-          type: boolean
-          format: boolean
-        auditLog:
-          description: |-
-            Enable writing of audit log of MySQL.
-
-            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/mysql-security-excerpt/5.6/en/audit-log-options-variables.html#option_mysqld_audit-log).
-          type: boolean
-          format: boolean
-        sqlMode:
-          description: |-
-            Server SQL mode of MySQL.
-
-            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sql-mode-setting).
-          type: array
-          items:
-            $ref: '#/components/schemas/MysqlConfig5_7SQLMode'
-        maxAllowedPacket:
-          description: |-
-            The maximum size in bytes of one packet.
-
-            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_allowed_packet).
-
-            Acceptable values are 1024 to 134217728, inclusive.
-          type: integer
-          format: int64
-        defaultAuthenticationPlugin:
-          $ref: '#/components/schemas/MysqlConfig5_7AuthPlugin_in_MysqlConfig5_7_defaultAuthenticationPlugin'
     MysqlConfig5_7_in_MysqlConfigSet5_7_defaultConfig:
       description: |-
         Default configuration for a MySQL 5.7 cluster.
@@ -3021,235 +2613,6 @@ components:
             For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_long_query_time).
           type: number
           format: double
-        generalLog:
-          description: |-
-            Enable writing of general query log of MySQL.
-
-            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_general_log).
-          type: boolean
-          format: boolean
-        auditLog:
-          description: |-
-            Enable writing of audit log of MySQL.
-
-            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/mysql-security-excerpt/5.6/en/audit-log-options-variables.html#option_mysqld_audit-log).
-          type: boolean
-          format: boolean
-        sqlMode:
-          description: |-
-            Server SQL mode of MySQL.
-
-            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sql-mode-setting).
-          type: array
-          items:
-            $ref: '#/components/schemas/MysqlConfig5_7SQLMode'
-        maxAllowedPacket:
-          description: |-
-            The maximum size in bytes of one packet.
-
-            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_allowed_packet).
-
-            Acceptable values are 1024 to 134217728, inclusive.
-          type: integer
-          format: int64
-        defaultAuthenticationPlugin:
-          $ref: '#/components/schemas/MysqlConfig5_7AuthPlugin_in_MysqlConfig5_7_defaultAuthenticationPlugin'
-    MysqlConfig8_0_in_MysqlConfigSet8_0_effectiveConfig:
-      description: |-
-        Effective settings for a MySQL 8.0 cluster (a combination of settings defined
-        in `userConfig` and `defaultConfig`).
-
-        Options and structure of `MysqlConfig8_0` reflects MySQL 8.0 configuration file
-      type: object
-      properties:
-        innodbBufferPoolSize:
-          description: |-
-            Size of the InnoDB buffer pool used for caching table and index data.
-
-            For details, see [MySQL documentation for the parameter](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size).
-
-            The minimum value is 5242880.
-          type: integer
-          format: int64
-        maxConnections:
-          description: |-
-            The maximum permitted number of simultaneous client connections.
-
-            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_connections).
-
-            Acceptable values are 10 to 10000, inclusive.
-          type: integer
-          format: int64
-        longQueryTime:
-          description: |-
-            Time that it takes to process a query before it is considered slow.
-
-            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_long_query_time).
-          type: number
-          format: double
-        generalLog:
-          description: |-
-            Enable writing of general query log of MySQL.
-
-            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_general_log).
-          type: boolean
-          format: boolean
-        auditLog:
-          description: |-
-            Enable writing of audit log of MySQL.
-
-            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/audit-log-reference.html#audit-log-options-variables).
-          type: boolean
-          format: boolean
-        sqlMode:
-          description: |-
-            Server SQL mode of MySQL.
-
-            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sql-mode-setting).
-          type: array
-          items:
-            $ref: '#/components/schemas/MysqlConfig8_0SQLMode'
-        maxAllowedPacket:
-          description: |-
-            The maximum size in bytes of one packet.
-
-            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_allowed_packet).
-
-            Acceptable values are 1024 to 134217728, inclusive.
-          type: integer
-          format: int64
-        defaultAuthenticationPlugin:
-          $ref: '#/components/schemas/MysqlConfig8_0AuthPlugin_in_MysqlConfig8_0_defaultAuthenticationPlugin'
-    MysqlConfig8_0_in_MysqlConfigSet8_0_userConfig:
-      description: |-
-        User-defined settings for a MySQL 8.0 cluster.
-
-        Options and structure of `MysqlConfig8_0` reflects MySQL 8.0 configuration file
-      type: object
-      properties:
-        innodbBufferPoolSize:
-          description: |-
-            Size of the InnoDB buffer pool used for caching table and index data.
-
-            For details, see [MySQL documentation for the parameter](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size).
-
-            The minimum value is 5242880.
-          type: integer
-          format: int64
-        maxConnections:
-          description: |-
-            The maximum permitted number of simultaneous client connections.
-
-            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_connections).
-
-            Acceptable values are 10 to 10000, inclusive.
-          type: integer
-          format: int64
-        longQueryTime:
-          description: |-
-            Time that it takes to process a query before it is considered slow.
-
-            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_long_query_time).
-          type: number
-          format: double
-        generalLog:
-          description: |-
-            Enable writing of general query log of MySQL.
-
-            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_general_log).
-          type: boolean
-          format: boolean
-        auditLog:
-          description: |-
-            Enable writing of audit log of MySQL.
-
-            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/audit-log-reference.html#audit-log-options-variables).
-          type: boolean
-          format: boolean
-        sqlMode:
-          description: |-
-            Server SQL mode of MySQL.
-
-            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sql-mode-setting).
-          type: array
-          items:
-            $ref: '#/components/schemas/MysqlConfig8_0SQLMode'
-        maxAllowedPacket:
-          description: |-
-            The maximum size in bytes of one packet.
-
-            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_allowed_packet).
-
-            Acceptable values are 1024 to 134217728, inclusive.
-          type: integer
-          format: int64
-        defaultAuthenticationPlugin:
-          $ref: '#/components/schemas/MysqlConfig8_0AuthPlugin_in_MysqlConfig8_0_defaultAuthenticationPlugin'
-    MysqlConfig8_0_in_MysqlConfigSet8_0_defaultConfig:
-      description: |-
-        Default configuration for a MySQL 8.0 cluster.
-
-        Options and structure of `MysqlConfig8_0` reflects MySQL 8.0 configuration file
-      type: object
-      properties:
-        innodbBufferPoolSize:
-          description: |-
-            Size of the InnoDB buffer pool used for caching table and index data.
-
-            For details, see [MySQL documentation for the parameter](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size).
-
-            The minimum value is 5242880.
-          type: integer
-          format: int64
-        maxConnections:
-          description: |-
-            The maximum permitted number of simultaneous client connections.
-
-            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_connections).
-
-            Acceptable values are 10 to 10000, inclusive.
-          type: integer
-          format: int64
-        longQueryTime:
-          description: |-
-            Time that it takes to process a query before it is considered slow.
-
-            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_long_query_time).
-          type: number
-          format: double
-        generalLog:
-          description: |-
-            Enable writing of general query log of MySQL.
-
-            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_general_log).
-          type: boolean
-          format: boolean
-        auditLog:
-          description: |-
-            Enable writing of audit log of MySQL.
-
-            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/audit-log-reference.html#audit-log-options-variables).
-          type: boolean
-          format: boolean
-        sqlMode:
-          description: |-
-            Server SQL mode of MySQL.
-
-            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sql-mode-setting).
-          type: array
-          items:
-            $ref: '#/components/schemas/MysqlConfig8_0SQLMode'
-        maxAllowedPacket:
-          description: |-
-            The maximum size in bytes of one packet.
-
-            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_allowed_packet).
-
-            Acceptable values are 1024 to 134217728, inclusive.
-          type: integer
-          format: int64
-        defaultAuthenticationPlugin:
-          $ref: '#/components/schemas/MysqlConfig8_0AuthPlugin_in_MysqlConfig8_0_defaultAuthenticationPlugin'
     ClusterEnvironment_in_RestoreClusterRequest_environment:
       description: |-
         Deployment environment of the new MySQL cluster.
@@ -3273,7 +2636,6 @@ components:
               Version of MySQL used in the cluster.
               Possible values:
               * 5.7
-              * 8.0
             type: string
           resources:
             $ref: '#/components/schemas/Resources'
@@ -3281,9 +2643,6 @@ components:
           backupWindowStart:
             $ref: '#/components/schemas/TimeOfDay'
             description: Time to start the daily backup, in the UTC timezone.
-          access:
-            $ref: '#/components/schemas/Access'
-            description: Access policy to DB
       - title: mysql_config
         type: object
         maxProperties: 1
@@ -3291,35 +2650,18 @@ components:
           mysqlConfig_5_7:
             $ref: '#/components/schemas/MysqlConfig5_7'
             description: Configuration for a MySQL 5.7 cluster.
-          mysqlConfig_8_0:
-            $ref: '#/components/schemas/MysqlConfig8_0'
-            description: Configuration for a MySQL 8.0 cluster.
-    Permission_in_RevokeUserPermissionRequest_permission:
-      description: |-
-        Required.
-        Permission that should be revoked from the specified user.
-      type: object
-      properties:
-        databaseName:
-          description: Name of the database that the permission grants access to.
-          type: string
-        roles:
-          description: |-
-            Required.
-            Roles granted to the user within the database.
-
-            The minimum number of elements is 1.
-          type: array
-          items:
-            $ref: '#/components/schemas/PermissionPrivilege'
     ServiceType_in_Service_type:
       description: |-
         Type of the service provided by the host.
 
-         - MYSQL: The host is a MySQL server.
+         - MYSQL_ERROR: Host provides the MySQL error log.
+         - MYSQL_GENERAL: Host provides the MySQL general query log.
+         - MYSQL_SLOW_QUERY: Host provides the MySQL slow query log.
       type: string
       enum:
-      - MYSQL
+      - MYSQL_ERROR
+      - MYSQL_GENERAL
+      - MYSQL_SLOW_QUERY
     ServiceHealth_in_Service_health:
       description: |-
         Status code of server availability.
@@ -3357,7 +2699,6 @@ components:
               Version of MySQL used in the cluster.
               Possible values:
               * 5.7
-              * 8.0
             type: string
           resources:
             $ref: '#/components/schemas/Resources'
@@ -3365,9 +2706,6 @@ components:
           backupWindowStart:
             $ref: '#/components/schemas/TimeOfDay'
             description: Time to start the daily backup, in the UTC timezone.
-          access:
-            $ref: '#/components/schemas/Access'
-            description: Access policy to DB
       - title: mysql_config
         type: object
         maxProperties: 1
@@ -3375,9 +2713,6 @@ components:
           mysqlConfig_5_7:
             $ref: '#/components/schemas/MysqlConfig5_7'
             description: Configuration for a MySQL 5.7 cluster.
-          mysqlConfig_8_0:
-            $ref: '#/components/schemas/MysqlConfig8_0'
-            description: Configuration for a MySQL 8.0 cluster.
     FieldMask_in_UpdateUserRequest_updateMask:
       description: |-
         Field mask that specifies which fields of the MySQL user should be updated.
