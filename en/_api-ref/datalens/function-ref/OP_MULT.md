@@ -6,14 +6,14 @@ editable: false
 
 _Operators_
 
-#### Syntax
+#### Syntax {#syntax}
 
 
 ```
 value_1 * value_2
 ```
 
-#### Description
+#### Description {#description}
 If both arguments are numbers, it returns the result by multiplying `value_1` by `value_2`.
 
 If one of the arguments is `String` and the other is `Number (whole)`, it returns the string repeated the specified number of times.
@@ -25,7 +25,7 @@ If one of the arguments is `String` and the other is `Number (whole)`, it return
 
 **Return type**: Depends on argument types
 
-#### Examples
+#### Examples {#examples}
 
 ```
 2 * 3 = 6
@@ -44,6 +44,6 @@ If one of the arguments is `String` and the other is `Number (whole)`, it return
 ```
 
 
-#### Data source support
+#### Data source support {#data-source-support}
 
 `Materialized Dataset`, `ClickHouse 1.1`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`.

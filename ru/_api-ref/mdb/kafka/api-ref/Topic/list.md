@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Метод list
-Retrieves the list of Apache Kafka topics in the specified cluster.
+Получает список топиков Apache Kafka в указанном кластере.
  
 
  
@@ -16,14 +16,14 @@ GET https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/{clusterId}/topic
  
 Параметр | Описание
 --- | ---
-clusterId | Обязательное поле. ID of the Apache Kafka cluster to list topics in.  To get the cluster ID, make a [list](/docs/managed-kafka/api-ref/Cluster/list) request.  Максимальная длина строки в символах — 50.
+clusterId | Обязательное поле. Идентификатор кластера Apache Kafka, для которого нужно получить список топиков.  Чтобы получить идентификатор кластера, выполните запрос [list](/docs/managed-kafka/api-ref/Cluster/list).  Максимальная длина строки в символах — 50.
  
 ## Query-параметры {#query_params}
  
 Параметр | Описание
 --- | ---
-pageSize | The maximum number of results per page to return.  If the number of available results is larger than `page_size`, the service returns a [nextPageToken](/docs/managed-kafka/api-ref/Topic/list#responses) that can be used to get the next page of results in subsequent list requests.  Максимальное значение — 1000.
-pageToken | Page token.  To get the next page of results, set `page_token` to the [nextPageToken](/docs/managed-kafka/api-ref/Topic/list#responses) returned by a previous list request.  Максимальная длина строки в символах — 100.
+pageSize | Максимальное количество результатов на одной странице в ответе.  Если количество результатов больше чем `page_size`, сервис вернет значение [nextPageToken](/docs/managed-kafka/api-ref/Topic/list#responses), которое можно использовать для получения следующей страницы.  Максимальное значение — 1000.
+pageToken | Токен страницы.  Установите значение `page_token` равным значению поля [nextPageToken](/docs/managed-kafka/api-ref/Topic/list#responses) предыдущего запроса, чтобы получить следующую страницу результатов.  Максимальная длина строки в символах — 100.
  
 ## Ответ {#responses}
 **HTTP Code: 200 - OK**
@@ -56,19 +56,19 @@ pageToken | Page token.  To get the next page of results, set `page_token` to th
  
 Поле | Описание
 --- | ---
-topics[] | **object**<br><p>An Apache Kafka topic. For more information, see the <a href="/docs/managed-kafka/concepts/topics">Concepts → Topics and partitions</a> section of the documentation.</p> 
-topics[].<br>name | **string**<br><p>Name of the topic.</p> 
-topics[].<br>clusterId | **string**<br><p>ID of an Apache Kafka cluster that the topic belongs to.</p> <p>To get the Apache Kafka cluster ID, make a <a href="/docs/managed-kafka/api-ref/Cluster/list">list</a> request.</p> 
-topics[].<br>partitions | **integer** (int64)<br><p>The number of the topic's partitions.</p> 
-topics[].<br>replicationFactor | **integer** (int64)<br><p>Amount of data copies (replicas) for the topic in the cluster.</p> 
-topics[].<br>topicConfig_2_1 | **object**<br><p>A topic settings.</p> 
-topics[].<br>topicConfig_2_1.<br>cleanupPolicy | **string**<br><p>Retention policy to use on old log messages.</p> <ul> <li>CLEANUP_POLICY_DELETE: This policy discards log segments when either their retention time or log size limit is reached.</li> </ul> <p>See also: [Cluster.config.kafka.kafka_config.log_retention_ms] and other similar parameters.</p> <ul> <li>CLEANUP_POLICY_COMPACT: This policy compacts messages in log.</li> <li>CLEANUP_POLICY_COMPACT_AND_DELETE: This policy use both compaction and deletion for messages and log segments.</li> </ul> 
-topics[].<br>topicConfig_2_1.<br>compressionType | **string**<br><p>Specify the compression type for a given topic.</p> <ul> <li>COMPRESSION_TYPE_UNCOMPRESSED: No codec (uncompressed).</li> <li>COMPRESSION_TYPE_ZSTD: Zstandard codec.</li> <li>COMPRESSION_TYPE_LZ4: LZ4 codec.</li> <li>COMPRESSION_TYPE_SNAPPY: Snappy codec.</li> <li>COMPRESSION_TYPE_GZIP: GZip codec.</li> <li>COMPRESSION_TYPE_PRODUCER: The codec to use is set by a producer (can be any of ZSTD<code>, </code>LZ4<code>, </code>GZIP<code>or</code>SNAPPY` codecs).</li> </ul> 
-topics[].<br>topicConfig_2_1.<br>deleteRetentionMs | **integer** (int64)<br><p>The amount of time in milliseconds to retain delete tombstone markers for log compacted topics.</p> 
-topics[].<br>topicConfig_2_1.<br>fileDeleteDelayMs | **integer** (int64)<br><p>The time to wait before deleting a file from the filesystem.</p> 
-topics[].<br>topicConfig_2_1.<br>flushMessages | **integer** (int64)<br><p>The number of messages accumulated on a log partition before messages are flushed to disk.</p> <p>This setting overrides the cluster-level [Cluster.config.kafka.kafka_config.log_flush_interval_messages] setting on the topic level.</p> 
-topics[].<br>topicConfig_2_1.<br>flushMs | **integer** (int64)<br><p>The maximum time in milliseconds that a message in the topic is kept in memory before flushed to disk.</p> <p>This setting overrides the cluster-level [Cluster.config.kafka.kafka_config.log_flush_interval_ms] setting on the topic level.</p> 
-topics[].<br>topicConfig_2_1.<br>minCompactionLagMs | **integer** (int64)<br><p>The minimum time in milliseconds a message will remain uncompacted in the log.</p> 
-topics[].<br>topicConfig_2_1.<br>retentionBytes | **integer** (int64)<br><p>The maximum size a partition can grow to before Kafka will discard old log segments to free up space if the <code>delete</code> <code>cleanupPolicy</code> is in effect. It is helpful if you need to control the size of log due to limited disk space.</p> <p>This setting overrides the cluster-level [Cluster.config.kafka.kafka_config.log_retention_bytes] setting on the topic level.</p> 
-topics[].<br>topicConfig_2_1.<br>retentionMs | **integer** (int64)<br><p>The number of milliseconds to keep a log segment's file before deleting it.</p> <p>This setting overrides the cluster-level [Cluster.config.kafka.kafka_config.log_retention_ms] setting on the topic level.</p> 
-nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests.</p> <p>If the number of results is larger than <a href="/docs/managed-kafka/api-ref/Topic/list#query_params">pageSize</a>, use the <code>next_page_token</code> as the value for the <a href="/docs/managed-kafka/api-ref/Topic/list#query_params">pageToken</a> parameter in the next list request. Each subsequent list request will have its own <code>next_page_token</code> to continue paging through the results.</p> 
+topics[] | **object**<br><p>Топик Apache Kafka. Подробнее читайте в разделе <a href="/docs/managed-kafka/concepts/topics">Топики и разделы</a> документации.</p> 
+topics[].<br>name | **string**<br><p>Имя топика.</p> 
+topics[].<br>clusterId | **string**<br><p>Идентификатор кластера Apache Kafka, к которому принадлежит топик.</p> <p>Чтобы получить идентификатор кластера Apache Kafka, выполните запрос <a href="/docs/managed-kafka/api-ref/Cluster/list">list</a>.</p> 
+topics[].<br>partitions | **integer** (int64)<br><p>Количество разделов в топике.</p> 
+topics[].<br>replicationFactor | **integer** (int64)<br><p>Количество копий данных (реплик) для топика в кластере.</p> 
+topics[].<br>topicConfig_2_1 | **object**<br><p>Настройки топика.</p> 
+topics[].<br>topicConfig_2_1.<br>cleanupPolicy | **string**<br><p>Политика хранения старых сообщений лога.</p> <ul> <li>CLEANUP_POLICY_DELETE: Эта политика отбрасывает сегменты лога либо при истечении срока их хранения, либо при достижении предельного размера лога.</li> </ul> <p>См. также описание [Cluster.config.kafka.kafka_config.log_retention_ms] и других подобных параметров.</p> <ul> <li>CLEANUP_POLICY_COMPACT: Эта политика сжимает сообщения в логе.</li> <li>CLEANUP_POLICY_COMPACT_AND_DELETE: Эта политика использует как сжатие сообщений, так и удаление сегментов лога.</li> </ul> 
+topics[].<br>topicConfig_2_1.<br>compressionType | **string**<br><p>Тип сжатия для указанного топика.</p> <ul> <li>COMPRESSION_TYPE_UNCOMPRESSED: Не использовать кодек (сообщения не сжимаются).</li> <li>COMPRESSION_TYPE_ZSTD: Кодек Zstandard.</li> <li>COMPRESSION_TYPE_LZ4: Кодек LZ4.</li> <li>COMPRESSION_TYPE_SNAPPY: Кодек Snappy.</li> <li>COMPRESSION_TYPE_GZIP: Кодек GZip.</li> <li>COMPRESSION_TYPE_PRODUCER: Кодек задается на стороне производителя (допустимые кодеки: ZSTD<code>, </code>Формате LZ4<code>, </code>УТИЛИТА GZIP<code>or</code>SNAPPY`).</li> </ul> 
+topics[].<br>topicConfig_2_1.<br>deleteRetentionMs | **integer** (int64)<br><p>Время (в миллисекундах), в течение которого нужно хранить tombstone-маркеры удаления для топиков со сжатым логом.</p> 
+topics[].<br>topicConfig_2_1.<br>fileDeleteDelayMs | **integer** (int64)<br><p>Время ожидания перед удалением файла из файловой системы.</p> 
+topics[].<br>topicConfig_2_1.<br>flushMessages | **integer** (int64)<br><p>Количество сообщений, которые должны быть накоплены в разделе прежде, чем эти сообщения будут сброшены на диск.</p> <p>Эта настройка переопределяет на уровне топика настройку уровня кластера [Cluster.config.kafka.kafka_config.log_flush_interval_messages].</p> 
+topics[].<br>topicConfig_2_1.<br>flushMs | **integer** (int64)<br><p>Максимальное время (в миллисекундах), в течение которого сообщение в любом топике хранится в памяти перед сбросом на диск.</p> <p>Эта настройка переопределяет на уровне топика настройку уровня кластера [Cluster.config.kafka.kafka_config.log_flush_interval_ms].</p> 
+topics[].<br>topicConfig_2_1.<br>minCompactionLagMs | **integer** (int64)<br><p>Минимальное время в миллисекундах, в течение которого сообщение в логе будет оставаться несжатым.</p> 
+topics[].<br>topicConfig_2_1.<br>retentionBytes | **integer** (int64)<br><p>Максимальный размер, до которого может вырасти раздел, прежде чем Kafka начнет отбрасывать старые сегменты лога, если действует настройка <code>delete</code> <code>cleanupPolicy</code>. Эта настройка полезна, если вам необходимо контролировать размер лога из-за ограниченного дискового пространства.</p> <p>Эта настройка переопределяет на уровне топика настройку уровня кластера [Cluster.config.kafka.kafka_config.log_retention_bytes].</p> 
+topics[].<br>topicConfig_2_1.<br>retentionMs | **integer** (int64)<br><p>Количество миллисекунд до удаления файла сегмента лога; в течение этого времени Kafka будет хранить файл сегмента лога.</p> <p>Эта настройка переопределяет на уровне топика настройку уровня кластера [Cluster.config.kafka.kafka_config.log_retention_ms].</p> 
+nextPageToken | **string**<br><p>Токен для получения следующей страницы результатов в ответе.</p> <p>Если количество результатов больше чем <a href="/docs/managed-kafka/api-ref/Topic/list#query_params">pageSize</a>, используйте <code>next_page_token</code> в качестве значения параметра <a href="/docs/managed-kafka/api-ref/Topic/list#query_params">pageToken</a> в следующем запросе. Все последующие запросы будут получать свои значения <code>next_page_token</code> для перебора страниц результатов.</p> 

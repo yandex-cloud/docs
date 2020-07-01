@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Cluster
-A set of methods for managing Apache Kafka clusters.
+Набор методов для управления кластерами Apache Kafka.
 ## JSON-представление {#representation}
 ```json 
 {
@@ -61,57 +61,57 @@ A set of methods for managing Apache Kafka clusters.
  
 Поле | Описание
 --- | ---
-id | **string**<br><p>ID of the Apache Kafka cluster. This ID is assigned by MDB at creation time.</p> 
-folderId | **string**<br><p>ID of the folder that the Apache Kafka cluster belongs to.</p> 
-createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-name | **string**<br><p>Name of the Apache Kafka cluster. The name must be unique within the folder. 1-63 characters long.</p> 
-description | **string**<br><p>Description of the Apache Kafka cluster. 0-256 characters long.</p> 
-labels | **object**<br><p>Custom labels for the Apache Kafka cluster as <code>key:value</code> pairs. A maximum of 64 labels per resource is allowed.</p> 
-environment | **string**<br><p>Deployment environment of the Apache Kafka cluster.</p> <ul> <li>PRODUCTION: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li> <li>PRESTABLE: Environment with a more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li> </ul> 
-monitoring[] | **object**<br><p>Monitoring system.</p> 
-monitoring[].<br>name | **string**<br><p>Name of the monitoring system.</p> 
-monitoring[].<br>description | **string**<br><p>Description of the monitoring system.</p> 
-monitoring[].<br>link | **string**<br><p>Link to the monitoring system charts for the Apache Kafka cluster.</p> 
-config | **object**<br><p>Configuration of the Apache Kafka cluster.</p> <p>The cluster configuration.</p> 
-config.<br>version | **string**<br><p>Version of Apache Kafka used in the cluster.</p> 
-config.<br>kafka | **object**<br><p>Configuration and resource allocation for Apache Kafka brokers.</p> <p>Apache Kafka configuration.</p> 
-config.<br>kafka.<br>resources | **object**<br><p>Cluster computational resources.</p> 
-config.<br>kafka.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory, etc.). All available presets are listed in the <a href="/docs/managed-kafka/concepts/instance-types">documentation</a>.</p> 
-config.<br>kafka.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
-config.<br>kafka.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host.</p> 
-config.<br>kafka.<br>kafkaConfig_2_1 | **object**<br><p>Apache Kafka broker configuration. Log flushing and log retention settings are configured here.</p> 
-config.<br>kafka.<br>kafkaConfig_2_1.<br>compressionType | **string**<br><p>Сluster topics compression type.</p> <ul> <li>COMPRESSION_TYPE_UNCOMPRESSED: No codec (uncompressed).</li> <li>COMPRESSION_TYPE_ZSTD: Zstandard codec.</li> <li>COMPRESSION_TYPE_LZ4: LZ4 codec.</li> <li>COMPRESSION_TYPE_SNAPPY: Snappy codec.</li> <li>COMPRESSION_TYPE_GZIP: GZip codec.</li> <li>COMPRESSION_TYPE_PRODUCER: The codec to use is set by a producer (can be any of ZSTD<code>, </code>LZ4<code>, </code>GZIP<code>or</code>SNAPPY` codecs).</li> </ul> 
-config.<br>kafka.<br>kafkaConfig_2_1.<br>logFlushIntervalMessages | **integer** (int64)<br><p>The number of messages accumulated on a log partition before messages are flushed to disk.</p> <p>This is the global cluster-level setting that can be overridden on a topic level by using the [Topic.topic_config.flush_messages] setting.</p> 
-config.<br>kafka.<br>kafkaConfig_2_1.<br>logFlushIntervalMs | **integer** (int64)<br><p>The maximum time (in milliseconds) that a message in any topic is kept in memory before flushed to disk. If not set, the value of <code>logFlushSchedulerIntervalMs</code> is used.</p> <p>This is the global cluster-level setting that can be overridden on a topic level by using the [Topic.topic_config.flush_ms] setting.</p> 
-config.<br>kafka.<br>kafkaConfig_2_1.<br>logFlushSchedulerIntervalMs | **integer** (int64)<br><p>The frequency (in milliseconds) that the log flusher checks whether any log needs to be flushed to disk.</p> <p>The frequency of checks (in milliseconds) for any logs that need to be flushed to disk. This check is done by the log flusher.</p> 
-config.<br>kafka.<br>kafkaConfig_2_1.<br>logRetentionBytes | **integer** (int64)<br><p>Partition size limit; Kafka will discard old log segments to free up space if <code>delete</code> [Topic.topic_config.cleanup_policy] is in effect. This setting is helpful if you need to control the size of a log due to limited disk space.</p> <p>This is the global cluster-level setting that can be overridden on a topic level by using the [Topic.topic_config.retention_bytes] setting.</p> 
-config.<br>kafka.<br>kafkaConfig_2_1.<br>logRetentionHours | **integer** (int64)<br><p>The number of hours to keep a log segment file before deleting it.</p> 
-config.<br>kafka.<br>kafkaConfig_2_1.<br>logRetentionMinutes | **integer** (int64)<br><p>The number of minutes to keep a log segment file before deleting it.</p> <p>If not set, the value of <code>logRetentionHours</code> is used.</p> 
-config.<br>kafka.<br>kafkaConfig_2_1.<br>logRetentionMs | **integer** (int64)<br><p>The number of milliseconds to keep a log segment file before deleting it.</p> <p>If not set, the value of <code>logRetentionMinutes</code> is used.</p> <p>This is the global cluster-level setting that can be overridden on a topic level by using the [Topic.topic_config.retention_ms] setting.</p> 
-config.<br>zookeeper | **object**<br><p>Configuration and resource allocation for ZooKeeper hosts.</p> <p>Zookeeper configuration.</p> 
-config.<br>zookeeper.<br>resources | **object**<br><p>Resources allocated to ZooKeeper hosts.</p> <p>Cluster computational resources.</p> 
-config.<br>zookeeper.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory, etc.). All available presets are listed in the <a href="/docs/managed-kafka/concepts/instance-types">documentation</a>.</p> 
-config.<br>zookeeper.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
-config.<br>zookeeper.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host.</p> 
-config.<br>zoneId[] | **string**<br><p>IDs of availability zones where Apache Kafka brokers reside.</p> 
-config.<br>brokersCount | **integer** (int64)<br><p>The number of Apache Kafka brokers deployed in each availability zone.</p> 
-config.<br>assignPublicIp | **boolean** (boolean)<br><p>The flag that defines whether a public IP address is assigned to the cluster. If the value is <code>true</code>, then Apache Kafka cluster is available on the Internet via it's public IP address.</p> 
-networkId | **string**<br><p>ID of the network that the cluster belongs to.</p> 
-health | **string**<br><p>Aggregated cluster health.</p> <ul> <li>HEALTH_UNKNOWN: State of the cluster is unknown (<code>health</code> of all hosts in the cluster is <code>UNKNOWN</code>).</li> <li>ALIVE: Cluster is alive and well (<code>health</code> of all hosts in the cluster is <code>ALIVE</code>).</li> <li>DEAD: Cluster is inoperable (<code>health</code> of all hosts in the cluster is <code>DEAD</code>).</li> <li>DEGRADED: Cluster is in degraded state (<code>health</code> of at least one of the hosts in the cluster is not <code>ALIVE</code>).</li> </ul> 
-status | **string**<br><p>Current state of the cluster.</p> <ul> <li>STATUS_UNKNOWN: Cluster state is unknown.</li> <li>CREATING: Cluster is being created.</li> <li>RUNNING: Cluster is running normally.</li> <li>ERROR: Cluster encountered a problem and cannot operate.</li> <li>UPDATING: Cluster is being updated.</li> <li>STOPPING: Cluster is stopping.</li> <li>STOPPED: Cluster stopped.</li> <li>STARTING: Cluster is starting.</li> </ul> 
+id | **string**<br><p>Идентификатор кластера Apache Kafka. Этот идентификатор генерирует MDB при создании кластера.</p> 
+folderId | **string**<br><p>Идентификатор каталога, которому принадлежит кластер.</p> 
+createdAt | **string** (date-time)<br><p>Время создания.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
+name | **string**<br><p>Имя кластера Apache Kafka. Имя должно быть уникальным в рамках каталога. Длина 1-63 символов.</p> 
+description | **string**<br><p>Описание кластера Apache Kafka. Длина описания должна быть от 0 до 256 символов.</p> 
+labels | **object**<br><p>Пользовательские метки для кластера Apache Kafka в виде пар <code>key:value</code>. Максимум 64 на ресурс.</p> 
+environment | **string**<br><p>Среда развертывания кластера Apache Kafka.</p> <ul> <li>PRODUCTION: Стабильная среда с осторожной политикой обновления: во время регулярного обслуживания применяются только срочные исправления.</li> <li>PRESTABLE: Среда с более агрессивной политикой обновления: новые версии развертываются независимо от обратной совместимости.</li> </ul> 
+monitoring[] | **object**<br><p>Система мониторинга.</p> 
+monitoring[].<br>name | **string**<br><p>Название системы мониторинга.</p> 
+monitoring[].<br>description | **string**<br><p>Описание системы мониторинга.</p> 
+monitoring[].<br>link | **string**<br><p>Ссылка на графики системы мониторинга для кластера Apache Kafka.</p> 
+config | **object**<br><p>Конфигурация кластера Apache Kafka.</p> <p>Конфигурация кластера.</p> 
+config.<br>version | **string**<br><p>Версия Apache Kafka, которая используется в кластере.</p> 
+config.<br>kafka | **object**<br><p>Конфигурация и распределение ресурсов для брокеров Apache Kafka.</p> <p>Конфигурация Apache Kafka.</p> 
+config.<br>kafka.<br>resources | **object**<br><p>Вычислительные ресурсы кластера.</p> 
+config.<br>kafka.<br>resources.<br>resourcePresetId | **string**<br><p>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в <a href="/docs/managed-kafka/concepts/instance-types">документации</a>.</p> 
+config.<br>kafka.<br>resources.<br>diskSize | **string** (int64)<br><p>Объем хранилища, доступного хосту, в байтах.</p> 
+config.<br>kafka.<br>resources.<br>diskTypeId | **string**<br><p>Тип хранилища для хоста.</p> 
+config.<br>kafka.<br>kafkaConfig_2_1 | **object**<br><p>Конфигурация брокера Apache Kafka. Здесь настраиваются параметры, связанные с хранением лога и сбросом лога на диск.</p> 
+config.<br>kafka.<br>kafkaConfig_2_1.<br>compressionType | **string**<br><p>Тип сжатия для топиков кластера.</p> <ul> <li>COMPRESSION_TYPE_UNCOMPRESSED: Не использовать кодек (сообщения не сжимаются).</li> <li>COMPRESSION_TYPE_ZSTD: Кодек Zstandard.</li> <li>COMPRESSION_TYPE_LZ4: Кодек LZ4.</li> <li>COMPRESSION_TYPE_SNAPPY: Кодек Snappy.</li> <li>COMPRESSION_TYPE_GZIP: Кодек GZip.</li> <li>COMPRESSION_TYPE_PRODUCER: Кодек задается на стороне производителя (допустимые кодеки: ZSTD<code>, </code>Формате LZ4<code>, </code>УТИЛИТА GZIP<code>or</code>SNAPPY`).</li> </ul> 
+config.<br>kafka.<br>kafkaConfig_2_1.<br>logFlushIntervalMessages | **integer** (int64)<br><p>Количество сообщений, которые должны быть накоплены в разделе прежде, чем эти сообщения будут сброшены на диск.</p> <p>Это глобальная настройка, которая задается на уровне кластера. Её можно переопределить на уровне топика с помощью настройки [Topic.topic_config.flush_messages].</p> 
+config.<br>kafka.<br>kafkaConfig_2_1.<br>logFlushIntervalMs | **integer** (int64)<br><p>Максимальное время (в миллисекундах), в течение которого сообщение в любом топике хранится в памяти перед сбросом на диск. Если значение не задано, то используется значение настройки <code>logFlushSchedulerIntervalMs</code>.</p> <p>Это глобальная настройка, которая задается на уровне кластера. Её можно переопределить на уровне топика с помощью настройки [Topic.topic_config.flush_ms].</p> 
+config.<br>kafka.<br>kafkaConfig_2_1.<br>logFlushSchedulerIntervalMs | **integer** (int64)<br><p>Частота (в миллисекундах), с которой процесс, ответственный за сброс логов, проверяет, нужно ли сбрасывать какие-либо логи на диск.</p> <p>Частота проверки (в миллисекундах) наличия логов, которые нужно сбросить на диск. Эта проверка выполняется процессом, ответственным за сброс логов.</p> 
+config.<br>kafka.<br>kafkaConfig_2_1.<br>logRetentionBytes | **integer** (int64)<br><p>Ограничение размера раздела; Kafka отбросит старые сегменты лога, если , чтобы освободить место, если действует политика <code>delete</code> [Topic.topic_config.cleanup_policy]. Этот настройка полезна, если вам необходимо контролировать размер лога из-за ограниченного дискового пространства.</p> <p>Это глобальная настройка, которая задается на уровне кластера. Её можно переопределить на уровне топика с помощью настройки [Topic.topic_config.retention_bytes].</p> 
+config.<br>kafka.<br>kafkaConfig_2_1.<br>logRetentionHours | **integer** (int64)<br><p>Количество часов до удаления файла сегмента лога; в течение этого времени Kafka будет хранить файл сегмента лога.</p> 
+config.<br>kafka.<br>kafkaConfig_2_1.<br>logRetentionMinutes | **integer** (int64)<br><p>Количество минут до удаления файла сегмента лога; в течение этого времени Kafka будет хранить файл сегмента лога.</p> <p>Если значение не задано, то используется значение настройки <code>logRetentionHours</code>.</p> 
+config.<br>kafka.<br>kafkaConfig_2_1.<br>logRetentionMs | **integer** (int64)<br><p>Количество миллисекунд до удаления файла сегмента лога; в течение этого времени Kafka будет хранить файл сегмента лога.</p> <p>Если значение не задано, то используется значение настройки <code>logRetentionMinutes</code>.</p> <p>Это глобальная настройка, которая задается на уровне кластера. Её можно переопределить на уровне топика с помощью настройки [Topic.topic_config.retention_ms].</p> 
+config.<br>zookeeper | **object**<br><p>Конфигурация и распределение ресурсов для хостов ZooKeeper.</p> <p>Конфигурация ZooKeeper.</p> 
+config.<br>zookeeper.<br>resources | **object**<br><p>Ресурсы, выделенные хостам ZooKeeper.</p> <p>Вычислительные ресурсы кластера.</p> 
+config.<br>zookeeper.<br>resources.<br>resourcePresetId | **string**<br><p>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в <a href="/docs/managed-kafka/concepts/instance-types">документации</a>.</p> 
+config.<br>zookeeper.<br>resources.<br>diskSize | **string** (int64)<br><p>Объем хранилища, доступного хосту, в байтах.</p> 
+config.<br>zookeeper.<br>resources.<br>diskTypeId | **string**<br><p>Тип хранилища для хоста.</p> 
+config.<br>zoneId[] | **string**<br><p>Идентификаторы зон доступности, в которых находятся брокеры Apache Kafka.</p> 
+config.<br>brokersCount | **integer** (int64)<br><p>Количество брокеров Apache Kafka, развернутых в каждой зоне доступности.</p> 
+config.<br>assignPublicIp | **boolean** (boolean)<br><p>Флаг, определяющий, назначен ли кластеру публичный IP-адрес. Если значение равно <code>true</code>, то кластер Apache Kafka доступен в Интернете через его публичный IP-адрес.</p> 
+networkId | **string**<br><p>Идентификатор сети, к которой принадлежит кластер.</p> 
+health | **string**<br><p>Здоровье кластера.</p> <ul> <li>HEALTH_UNKNOWN: Состояние кластера неизвестно (<code>health</code> всех хостов в кластере — <code>UNKNOWN</code>).</li> <li>ALIVE: Кластер работает нормально (<code>health</code> всех хостов в кластере — <code>ALIVE</code>).</li> <li>DEAD: Кластер не работает (<code>health</code> всех хостов в кластере — <code>DEAD</code>).</li> <li>DEGRADED: Кластер находится в состоянии деградации (<code>health</code> по крайней мере одного из хостов в кластере — не <code>ALIVE</code>).</li> </ul> 
+status | **string**<br><p>Текущее состояние кластера.</p> <ul> <li>STATUS_UNKNOWN: Состояние кластера неизвестно.</li> <li>CREATING: Кластер создается.</li> <li>RUNNING: Кластер работает нормально.</li> <li>ERROR: В кластере произошла ошибка, блокирующая работу.</li> <li>UPDATING: Кластер изменяется.</li> <li>STOPPING: Кластер останавливается.</li> <li>STOPPED: Кластер остановлен.</li> <li>STARTING: Кластер запускается.</li> </ul> 
 
 ## Методы {#methods}
 Метод | Описание
 --- | ---
-[create](create.md) | Creates a new Apache Kafka cluster in the specified folder.
-[delete](delete.md) | Deletes the specified Apache Kafka cluster.
-[get](get.md) | Returns the specified Apache Kafka cluster resource.
-[list](list.md) | Retrieves the list of Apache Kafka clusters that belong to the specified folder.
-[listHosts](listHosts.md) | Retrieves a list of hosts for the specified Apache Kafka cluster.
-[listLogs](listLogs.md) | Retrieves logs for the specified Apache Kafka cluster. For more information about logs, see the [Logs](/docs/managed-kafka/operations/cluster-logs) section in the documentation.
-[listOperations](listOperations.md) | Retrieves the list of operations for the specified Apache Kafka cluster.
-[move](move.md) | Moves the specified Apache Kafka cluster to the specified folder.
-[start](start.md) | Starts the specified Apache Kafka cluster.
-[stop](stop.md) | Stops the specified Apache Kafka cluster.
-[streamLogs](streamLogs.md) | Same as [listLogs](/docs/managed-kafka/api-ref/Cluster/listLogs) but using server-side streaming. Also allows for 'tail -f' semantics.
-[update](update.md) | Updates the specified Apache Kafka cluster.
+[create](create.md) | Создает новый кластер Apache Kafka в указанном каталоге.
+[delete](delete.md) | Удаляет указанный кластер Apache Kafka.
+[get](get.md) | Возвращает указанный кластер Apache Kafka.
+[list](list.md) | Получает список кластеров Apache Kafka, принадлежащих указанному каталогу.
+[listHosts](listHosts.md) | Получает список хостов для указанного кластера Apache Kafka.
+[listLogs](listLogs.md) | Получает логи для указанного кластера Apache Kafka. Дополнительные сведения о логах см. в разделе [Просмотр логов кластера](/docs/managed-kafka/operations/cluster-logs) документации.
+[listOperations](listOperations.md) | Получает список операций для указанного кластера Apache Kafka.
+[move](move.md) | Перемещает кластер Apache Kafka в указанный каталог.
+[start](start.md) | Запускает указанный кластер Apache Kafka.
+[stop](stop.md) | Останавливает указанный кластер Apache Kafka.
+[streamLogs](streamLogs.md) | То же самое, что [listLogs](/docs/managed-kafka/api-ref/Cluster/listLogs), с той разницей, что со стороны сервера передается поток логов. Допускается использовать семантику 'tail-f' при работе с потоком логов.
+[update](update.md) | Изменяет указанный кластер Apache Kafka.

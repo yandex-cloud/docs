@@ -147,11 +147,17 @@ items:
         href: api-ref/InstanceGroup/stop.md
       - name: create
         href: api-ref/InstanceGroup/create.md
+      - name: listAccessBindings
+        href: api-ref/InstanceGroup/listAccessBindings.md
+      - name: setAccessBindings
+        href: api-ref/InstanceGroup/setAccessBindings.md
       - name: updateFromYaml
         href: api-ref/InstanceGroup/updateFromYaml.md
       - name: listLogRecords
         href: api-ref/InstanceGroup/listLogRecords.md
       - name: listInstances
         href: api-ref/InstanceGroup/listInstances.md
+      - name: updateAccessBindings
+        href: api-ref/InstanceGroup/updateAccessBindings.md
       - name: listOperations
         href: api-ref/InstanceGroup/listOperations.md

@@ -4,23 +4,23 @@ editable: false
 
 # UserService
 
-A set of methods for managing Apache Kafka users.
+Набор методов для управления пользователями Apache Kafka.
 
 | Вызов | Описание |
 | --- | --- |
-| [Get](#Get) | Returns the specified Apache Kafka user. |
-| [List](#List) | Retrieves the list of Apache Kafka users in the specified cluster. |
-| [Create](#Create) | Creates a Apache Kafka user in the specified cluster. |
-| [Update](#Update) | Updates the specified Apache Kafka user. |
-| [Delete](#Delete) | Deletes the specified Apache Kafka user. |
-| [GrantPermission](#GrantPermission) | Grants permission to the specified Apache Kafka user. |
-| [RevokePermission](#RevokePermission) | Revokes permission from the specified Apache Kafka user. |
+| [Get](#Get) | Возвращает информацию об указанном пользователе Apache Kafka. |
+| [List](#List) | Получает список пользователей Apache Kafka в указанном кластере. |
+| [Create](#Create) | Создает пользователя Apache Kafka в указанном кластере. |
+| [Update](#Update) | Изменяет указанного пользователя Apache Kafka. |
+| [Delete](#Delete) | Удаляет указанного пользователя Apache Kafka. |
+| [GrantPermission](#GrantPermission) | Предоставляет разрешение указанному пользователю Apache Kafka. |
+| [RevokePermission](#RevokePermission) | Отзывает разрешение у указанного пользователя Apache Kafka. |
 
 ## Вызовы UserService {#calls}
 
 ## Get {#Get}
 
-Returns the specified Apache Kafka user. <br>To get the list of available Apache Kafka users, make a [List](#List) request.
+Возвращает информацию об указанном пользователе Apache Kafka. <br>Чтобы получить список доступных пользователей Apache Kafka, выполните запрос [List](#List).
 
 **rpc Get ([GetUserRequest](#GetUserRequest)) returns ([User](#User))**
 
@@ -28,30 +28,30 @@ Returns the specified Apache Kafka user. <br>To get the list of available Apache
 
 Поле | Описание
 --- | ---
-cluster_id | **string**<br>Обязательное поле. ID of the Apache Kafka cluster the user belongs to. <br>To get the cluster ID, make a [ClusterService.List](./cluster_service#List) request. false Максимальная длина строки в символах — 50.
-user_name | **string**<br>Обязательное поле. Name of the Apache Kafka User resource to return. <br>To get the name of the user, make a [UserService.List](#List) request. false Длина строки в символах должна быть от 1 до 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_]* `.
+cluster_id | **string**<br>Обязательное поле. Идентификатор кластера Apache Kafka, к которому принадлежит пользователь. <br>Чтобы получить идентификатор кластера, выполните запрос [ClusterService.List](./cluster_service#List). false Максимальная длина строки в символах — 50.
+user_name | **string**<br>Обязательное поле. Имя запрашиваемого пользователя Apache Kafka. <br>Чтобы получить имя пользователя, выполните запрос [UserService.List](#List). false Длина строки в символах должна быть от 1 до 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_]* `.
 
 
 ### User {#User}
 
 Поле | Описание
 --- | ---
-name | **string**<br>Name of the Apache Kafka user. 
-cluster_id | **string**<br>ID of the Apache Kafka cluster the user belongs to. <br>To get the Apache Kafka cluster ID, make a [ClusterService.List](./cluster_service#List) request. 
-permissions[] | **[Permission](#Permission)**<br>Set of permissions granted to this user. 
+name | **string**<br>Имя пользователя Apache Kafka. 
+cluster_id | **string**<br>Идентификатор кластера Apache Kafka, к которому принадлежит пользователь. <br>Чтобы получить идентификатор кластера Apache Kafka, выполните запрос [ClusterService.List](./cluster_service#List). 
+permissions[] | **[Permission](#Permission)**<br>Набор разрешений, предоставленных пользователю. 
 
 
 ### Permission {#Permission}
 
 Поле | Описание
 --- | ---
-topic_name | **string**<br>Name of the topic that the permission grants access to. <br>To get the topic name, make a [Topic.List](#Topic) request. 
-role | enum **AccessRole**<br>Access role type to grant to the user. <ul><li>`ACCESS_ROLE_PRODUCER`: Producer role for the user.</li><li>`ACCESS_ROLE_CONSUMER`: Consumer role for the user.</li><ul/>
+topic_name | **string**<br>Имя топика, к которому предоставляется доступ. <br>Чтобы получить имя топика, выполните запрос [Topic.List](#Topic). 
+role | enum **AccessRole**<br>Роль доступа, которую нужно предоставить пользователю. <ul><li>`ACCESS_ROLE_PRODUCER`: Роль пользователя — производитель.</li><li>`ACCESS_ROLE_CONSUMER`: Роль пользователя — потребитель.</li><ul/>
 
 
 ## List {#List}
 
-Retrieves the list of Apache Kafka users in the specified cluster.
+Получает список пользователей Apache Kafka в указанном кластере.
 
 **rpc List ([ListUsersRequest](#ListUsersRequest)) returns ([ListUsersResponse](#ListUsersResponse))**
 
@@ -59,39 +59,39 @@ Retrieves the list of Apache Kafka users in the specified cluster.
 
 Поле | Описание
 --- | ---
-cluster_id | **string**<br>Обязательное поле. ID of the cluster to list Apache Kafka users in. <br>To get the cluster ID, make a [ClusterService.List](./cluster_service#List) request. false Максимальная длина строки в символах — 50.
-page_size | **int64**<br>The maximum number of results per page to return. <br>If the number of available results is larger than `page_size`, the service returns a [ListUsersResponse.next_page_token](#ListUsersResponse) that can be used to get the next page of results in subsequent list requests. Максимальное значение — 1000.
-page_token | **string**<br>Page token. <br>To get the next page of results, set `page_token` to the [ListUsersResponse.next_page_token](#ListUsersResponse) returned by a previous list request. Максимальная длина строки в символах — 100.
+cluster_id | **string**<br>Обязательное поле. Идентификатор кластера, для которого нужно получить список пользователей. <br>Чтобы получить идентификатор кластера, выполните запрос [ClusterService.List](./cluster_service#List). false Максимальная длина строки в символах — 50.
+page_size | **int64**<br>Максимальное количество результатов на одной странице в ответе. <br>Если количество результатов больше чем `page_size`, сервис вернет значение [ListUsersResponse.next_page_token](#ListUsersResponse), которое можно использовать для получения следующей страницы. Максимальное значение — 1000.
+page_token | **string**<br>Токен страницы. <br>Установите значение `page_token` равным значению поля [ListUsersResponse.next_page_token](#ListUsersResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
 
 
 ### ListUsersResponse {#ListUsersResponse}
 
 Поле | Описание
 --- | ---
-users[] | **[User](#User1)**<br>List of Apache Kafka User resources. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. <br>If the number of results is larger than [ListUsersRequest.page_size](#ListUsersRequest1), use the `next_page_token` as the value for the [ListUsersRequest.page_token](#ListUsersRequest1) parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+users[] | **[User](#User1)**<br>Список пользователей Apache Kafka. 
+next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. <br>Если количество результатов больше чем [ListUsersRequest.page_size](#ListUsersRequest1), используйте `next_page_token` в качестве значения параметра [ListUsersRequest.page_token](#ListUsersRequest1) в следующем запросе. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
 
 
 ### User {#User}
 
 Поле | Описание
 --- | ---
-name | **string**<br>Name of the Apache Kafka user. 
-cluster_id | **string**<br>ID of the Apache Kafka cluster the user belongs to. <br>To get the Apache Kafka cluster ID, make a [ClusterService.List](./cluster_service#List) request. 
-permissions[] | **[Permission](#Permission1)**<br>Set of permissions granted to this user. 
+name | **string**<br>Имя пользователя Apache Kafka. 
+cluster_id | **string**<br>Идентификатор кластера Apache Kafka, к которому принадлежит пользователь. <br>Чтобы получить идентификатор кластера Apache Kafka, выполните запрос [ClusterService.List](./cluster_service#List). 
+permissions[] | **[Permission](#Permission1)**<br>Набор разрешений, предоставленных пользователю. 
 
 
 ### Permission {#Permission}
 
 Поле | Описание
 --- | ---
-topic_name | **string**<br>Name of the topic that the permission grants access to. <br>To get the topic name, make a [Topic.List](#Topic) request. 
-role | enum **AccessRole**<br>Access role type to grant to the user. <ul><li>`ACCESS_ROLE_PRODUCER`: Producer role for the user.</li><li>`ACCESS_ROLE_CONSUMER`: Consumer role for the user.</li><ul/>
+topic_name | **string**<br>Имя топика, к которому предоставляется доступ. <br>Чтобы получить имя топика, выполните запрос [Topic.List](#Topic). 
+role | enum **AccessRole**<br>Роль доступа, которую нужно предоставить пользователю. <ul><li>`ACCESS_ROLE_PRODUCER`: Роль пользователя — производитель.</li><li>`ACCESS_ROLE_CONSUMER`: Роль пользователя — потребитель.</li><ul/>
 
 
 ## Create {#Create}
 
-Creates a Apache Kafka user in the specified cluster.
+Создает пользователя Apache Kafka в указанном кластере.
 
 **rpc Create ([CreateUserRequest](#CreateUserRequest)) returns ([operation.Operation](#Operation))**
 
@@ -103,25 +103,25 @@ Creates a Apache Kafka user in the specified cluster.
 
 Поле | Описание
 --- | ---
-cluster_id | **string**<br>Обязательное поле. ID of the Apache Kafka cluster to create a user in. <br>To get the cluster ID, make a [ClusterService.List](./cluster_service#List) request. false Максимальная длина строки в символах — 50.
-user_spec | **[UserSpec](#UserSpec)**<br>Обязательное поле. Configuration of the user to create. false
+cluster_id | **string**<br>Обязательное поле. Идентификатор кластера Apache Kafka, в котором следует создать пользователя. <br>Чтобы получить идентификатор кластера, выполните запрос [ClusterService.List](./cluster_service#List). false Максимальная длина строки в символах — 50.
+user_spec | **[UserSpec](#UserSpec)**<br>Обязательное поле. Свойства создаваемого пользователя. false
 
 
 ### UserSpec {#UserSpec}
 
 Поле | Описание
 --- | ---
-name | **string**<br>Обязательное поле. Name of the Apache Kafka user. false Длина строки в символах должна быть от 1 до 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_]* `.
-password | **string**<br>Обязательное поле. Password of the Apache Kafka user. false Длина строки в символах должна быть от 8 до 128.
-permissions[] | **[Permission](#Permission2)**<br>Set of permissions granted to the user. 
+name | **string**<br>Обязательное поле. Имя пользователя Apache Kafka. false Длина строки в символах должна быть от 1 до 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_]* `.
+password | **string**<br>Обязательное поле. Пароль пользователя Apache Kafka. false Длина строки в символах должна быть от 8 до 128.
+permissions[] | **[Permission](#Permission2)**<br>Набор разрешений, предоставленных пользователю. 
 
 
 ### Permission {#Permission}
 
 Поле | Описание
 --- | ---
-topic_name | **string**<br>Name of the topic that the permission grants access to. <br>To get the topic name, make a [Topic.List](#Topic) request. 
-role | enum **AccessRole**<br>Access role type to grant to the user. <ul><li>`ACCESS_ROLE_PRODUCER`: Producer role for the user.</li><li>`ACCESS_ROLE_CONSUMER`: Consumer role for the user.</li><ul/>
+topic_name | **string**<br>Имя топика, к которому предоставляется доступ. <br>Чтобы получить имя топика, выполните запрос [Topic.List](#Topic). 
+role | enum **AccessRole**<br>Роль доступа, которую нужно предоставить пользователю. <ul><li>`ACCESS_ROLE_PRODUCER`: Роль пользователя — производитель.</li><li>`ACCESS_ROLE_CONSUMER`: Роль пользователя — потребитель.</li><ul/>
 
 
 ### Operation {#Operation}
@@ -144,22 +144,22 @@ result | **oneof:** `error` или `response`<br>Результат операц
 
 Поле | Описание
 --- | ---
-cluster_id | **string**<br>ID of the Apache Kafka cluster the user is being created in. 
-user_name | **string**<br>Name of the user that is being created. 
+cluster_id | **string**<br>Идентификатор кластера Apache Kafka, в котором создается пользователь. 
+user_name | **string**<br>Имя создаваемого пользователя. 
 
 
 ### User {#User}
 
 Поле | Описание
 --- | ---
-name | **string**<br>Name of the Apache Kafka user. 
-cluster_id | **string**<br>ID of the Apache Kafka cluster the user belongs to. <br>To get the Apache Kafka cluster ID, make a [ClusterService.List](./cluster_service#List) request. 
-permissions[] | **[Permission](#Permission3)**<br>Set of permissions granted to this user. 
+name | **string**<br>Имя пользователя Apache Kafka. 
+cluster_id | **string**<br>Идентификатор кластера Apache Kafka, к которому принадлежит пользователь. <br>Чтобы получить идентификатор кластера Apache Kafka, выполните запрос [ClusterService.List](./cluster_service#List). 
+permissions[] | **[Permission](#Permission3)**<br>Набор разрешений, предоставленных пользователю. 
 
 
 ## Update {#Update}
 
-Updates the specified Apache Kafka user.
+Изменяет указанного пользователя Apache Kafka.
 
 **rpc Update ([UpdateUserRequest](#UpdateUserRequest)) returns ([operation.Operation](#Operation1))**
 
@@ -171,19 +171,19 @@ Updates the specified Apache Kafka user.
 
 Поле | Описание
 --- | ---
-cluster_id | **string**<br>Обязательное поле. ID of the Apache Kafka cluster the user belongs to. <br>To get the cluster ID, make a [ClusterService.List](./cluster_service#List) request. false Максимальная длина строки в символах — 50.
-user_name | **string**<br>Обязательное поле. Required. Name of the user to be updated. <br>To get the name of the user, make a [UserService.List](#List) request. false Длина строки в символах должна быть от 1 до 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_]* `.
-update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the Apache Kafka user should be updated. <br>By default, this API method will replace all the values for the settings that are not present in `update_mask` list with the default ones. Pass the list of the settings to change in this parameter to prevent the method from doing so (use comma as a delimiter if you want to modify a few settings at once). 
-password | **string**<br>New password for the user. Длина строки в символах должна быть от 8 до 128.
-permissions[] | **[Permission](#Permission3)**<br>New set of permissions for the user. 
+cluster_id | **string**<br>Обязательное поле. Идентификатор кластера Apache Kafka, к которому принадлежит пользователь. <br>Чтобы получить идентификатор кластера, выполните запрос [ClusterService.List](./cluster_service#List). false Максимальная длина строки в символах — 50.
+user_name | **string**<br>Обязательное поле. Обязательное поле. Имя пользователя, которого следует изменить. <br>Чтобы получить имя пользователя, выполните запрос [UserService.List](#List). false Длина строки в символах должна быть от 1 до 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_]* `.
+update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Маска, которая указывает, какие атрибуты пользователя Apache Kafka должны быть изменены. <br>По умолчанию этот метод API заменит все значения параметров, которые отсутствуют в списке `update_mask`, значениями по умолчанию. Передайте список настроек для изменения в этом параметре, чтобы не допустить этого (используйте запятую в качестве разделителя, если вы хотите изменить сразу несколько настроек). 
+password | **string**<br>Новый пароль для пользователя. Длина строки в символах должна быть от 8 до 128.
+permissions[] | **[Permission](#Permission3)**<br>Новый набор разрешений для пользователя. 
 
 
 ### Permission {#Permission}
 
 Поле | Описание
 --- | ---
-topic_name | **string**<br>Name of the topic that the permission grants access to. <br>To get the topic name, make a [Topic.List](#Topic) request. 
-role | enum **AccessRole**<br>Access role type to grant to the user. <ul><li>`ACCESS_ROLE_PRODUCER`: Producer role for the user.</li><li>`ACCESS_ROLE_CONSUMER`: Consumer role for the user.</li><ul/>
+topic_name | **string**<br>Имя топика, к которому предоставляется доступ. <br>Чтобы получить имя топика, выполните запрос [Topic.List](#Topic). 
+role | enum **AccessRole**<br>Роль доступа, которую нужно предоставить пользователю. <ul><li>`ACCESS_ROLE_PRODUCER`: Роль пользователя — производитель.</li><li>`ACCESS_ROLE_CONSUMER`: Роль пользователя — потребитель.</li><ul/>
 
 
 ### Operation {#Operation}
@@ -206,22 +206,22 @@ result | **oneof:** `error` или `response`<br>Результат операц
 
 Поле | Описание
 --- | ---
-cluster_id | **string**<br>ID of the Apache Kafka cluster the user belongs to. 
-user_name | **string**<br>Name of the user that is being updated. 
+cluster_id | **string**<br>Идентификатор кластера Apache Kafka, к которому принадлежит пользователь. 
+user_name | **string**<br>Имя изменяемого пользователя. 
 
 
 ### User {#User}
 
 Поле | Описание
 --- | ---
-name | **string**<br>Name of the Apache Kafka user. 
-cluster_id | **string**<br>ID of the Apache Kafka cluster the user belongs to. <br>To get the Apache Kafka cluster ID, make a [ClusterService.List](./cluster_service#List) request. 
-permissions[] | **[Permission](#Permission4)**<br>Set of permissions granted to this user. 
+name | **string**<br>Имя пользователя Apache Kafka. 
+cluster_id | **string**<br>Идентификатор кластера Apache Kafka, к которому принадлежит пользователь. <br>Чтобы получить идентификатор кластера Apache Kafka, выполните запрос [ClusterService.List](./cluster_service#List). 
+permissions[] | **[Permission](#Permission4)**<br>Набор разрешений, предоставленных пользователю. 
 
 
 ## Delete {#Delete}
 
-Deletes the specified Apache Kafka user.
+Удаляет указанного пользователя Apache Kafka.
 
 **rpc Delete ([DeleteUserRequest](#DeleteUserRequest)) returns ([operation.Operation](#Operation2))**
 
@@ -233,8 +233,8 @@ Deletes the specified Apache Kafka user.
 
 Поле | Описание
 --- | ---
-cluster_id | **string**<br>Обязательное поле. ID of the Apache Kafka cluster the user belongs to. To get the cluster ID, make a [ClusterService.List](./cluster_service#List) request. false Максимальная длина строки в символах — 50.
-user_name | **string**<br>Обязательное поле. Required. Name of the user to delete. To get the name of the user, make a [UserService.List](#List) request. false Длина строки в символах должна быть от 1 до 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_]* `.
+cluster_id | **string**<br>Обязательное поле. Идентификатор кластера Apache Kafka, к которому принадлежит пользователь. Чтобы получить идентификатор кластера, выполните запрос [ClusterService.List](./cluster_service#List). false Максимальная длина строки в символах — 50.
+user_name | **string**<br>Обязательное поле. Обязательное поле. Имя пользователя, которого нужно удалить. Чтобы получить имя пользователя, выполните запрос [UserService.List](#List). false Длина строки в символах должна быть от 1 до 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_]* `.
 
 
 ### Operation {#Operation}
@@ -257,13 +257,13 @@ result | **oneof:** `error` или `response`<br>Результат операц
 
 Поле | Описание
 --- | ---
-cluster_id | **string**<br>ID of the Apache Kafka cluster the user belongs to. 
-user_name | **string**<br>Name of the user that is being deleted. 
+cluster_id | **string**<br>Идентификатор кластера Apache Kafka, к которому принадлежит пользователь. 
+user_name | **string**<br>Имя удаляемого пользователя. 
 
 
 ## GrantPermission {#GrantPermission}
 
-Grants permission to the specified Apache Kafka user.
+Предоставляет разрешение указанному пользователю Apache Kafka.
 
 **rpc GrantPermission ([GrantUserPermissionRequest](#GrantUserPermissionRequest)) returns ([operation.Operation](#Operation3))**
 
@@ -275,17 +275,17 @@ Grants permission to the specified Apache Kafka user.
 
 Поле | Описание
 --- | ---
-cluster_id | **string**<br>Обязательное поле. ID of the Apache Kafka cluster the user belongs to. <br>To get the cluster ID, make a [ClusterService.List](./cluster_service#List) request. false Максимальная длина строки в символах — 50.
-user_name | **string**<br>Обязательное поле. Name of the user to grant the permission to. <br>To get the name of the user, make a [UserService.List](#List) request. false Длина строки в символах должна быть от 1 до 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_]* `.
-permission | **[Permission](#Permission4)**<br>Обязательное поле. Permission that should be granted to the specified user. false
+cluster_id | **string**<br>Обязательное поле. Идентификатор кластера Apache Kafka, к которому принадлежит пользователь. <br>Чтобы получить идентификатор кластера, выполните запрос [ClusterService.List](./cluster_service#List). false Максимальная длина строки в символах — 50.
+user_name | **string**<br>Обязательное поле. Имя пользователя, которому следует предоставить разрешение. <br>Чтобы получить имя пользователя, выполните запрос [UserService.List](#List). false Длина строки в символах должна быть от 1 до 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_]* `.
+permission | **[Permission](#Permission4)**<br>Обязательное поле. Разрешение, которое должно быть предоставлено указанному пользователю. false
 
 
 ### Permission {#Permission}
 
 Поле | Описание
 --- | ---
-topic_name | **string**<br>Name of the topic that the permission grants access to. <br>To get the topic name, make a [Topic.List](#Topic) request. 
-role | enum **AccessRole**<br>Access role type to grant to the user. <ul><li>`ACCESS_ROLE_PRODUCER`: Producer role for the user.</li><li>`ACCESS_ROLE_CONSUMER`: Consumer role for the user.</li><ul/>
+topic_name | **string**<br>Имя топика, к которому предоставляется доступ. <br>Чтобы получить имя топика, выполните запрос [Topic.List](#Topic). 
+role | enum **AccessRole**<br>Роль доступа, которую нужно предоставить пользователю. <ul><li>`ACCESS_ROLE_PRODUCER`: Роль пользователя — производитель.</li><li>`ACCESS_ROLE_CONSUMER`: Роль пользователя — потребитель.</li><ul/>
 
 
 ### Operation {#Operation}
@@ -308,22 +308,22 @@ result | **oneof:** `error` или `response`<br>Результат операц
 
 Поле | Описание
 --- | ---
-cluster_id | **string**<br>ID of the Apache Kafka cluster the user belongs to. <br>To get the cluster ID, make a [ClusterService.List](./cluster_service#List) request. 
-user_name | **string**<br>Name of the user that is being granted a permission. 
+cluster_id | **string**<br>Идентификатор кластера Apache Kafka, к которому принадлежит пользователь. <br>Чтобы получить идентификатор кластера, выполните запрос [ClusterService.List](./cluster_service#List). 
+user_name | **string**<br>Имя пользователя, которому предоставляется разрешение. 
 
 
 ### User {#User}
 
 Поле | Описание
 --- | ---
-name | **string**<br>Name of the Apache Kafka user. 
-cluster_id | **string**<br>ID of the Apache Kafka cluster the user belongs to. <br>To get the Apache Kafka cluster ID, make a [ClusterService.List](./cluster_service#List) request. 
-permissions[] | **[Permission](#Permission5)**<br>Set of permissions granted to this user. 
+name | **string**<br>Имя пользователя Apache Kafka. 
+cluster_id | **string**<br>Идентификатор кластера Apache Kafka, к которому принадлежит пользователь. <br>Чтобы получить идентификатор кластера Apache Kafka, выполните запрос [ClusterService.List](./cluster_service#List). 
+permissions[] | **[Permission](#Permission5)**<br>Набор разрешений, предоставленных пользователю. 
 
 
 ## RevokePermission {#RevokePermission}
 
-Revokes permission from the specified Apache Kafka user.
+Отзывает разрешение у указанного пользователя Apache Kafka.
 
 **rpc RevokePermission ([RevokeUserPermissionRequest](#RevokeUserPermissionRequest)) returns ([operation.Operation](#Operation4))**
 
@@ -335,17 +335,17 @@ Revokes permission from the specified Apache Kafka user.
 
 Поле | Описание
 --- | ---
-cluster_id | **string**<br>Обязательное поле. ID of the Apache Kafka cluster the user belongs to. <br>To get the cluster ID, make a [ClusterService.List](./cluster_service#List) request. false Максимальная длина строки в символах — 50.
-user_name | **string**<br>Обязательное поле. Name of the user to revoke a permission from. <br>To get the name of the user, make a [UserService.List](#List) request. false Длина строки в символах должна быть от 1 до 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_]* `.
-permission | **[Permission](#Permission5)**<br>Обязательное поле. Permission that should be revoked from the specified user. false
+cluster_id | **string**<br>Обязательное поле. Идентификатор кластера Apache Kafka, к которому принадлежит пользователь. <br>Чтобы получить идентификатор кластера, выполните запрос [ClusterService.List](./cluster_service#List). false Максимальная длина строки в символах — 50.
+user_name | **string**<br>Обязательное поле. Имя пользователя, у которого следует отозвать разрешение. <br>Чтобы получить имя пользователя, выполните запрос [UserService.List](#List). false Длина строки в символах должна быть от 1 до 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_]* `.
+permission | **[Permission](#Permission5)**<br>Обязательное поле. Разрешение, которое должно быть отозвано у указанного пользователя. false
 
 
 ### Permission {#Permission}
 
 Поле | Описание
 --- | ---
-topic_name | **string**<br>Name of the topic that the permission grants access to. <br>To get the topic name, make a [Topic.List](#Topic) request. 
-role | enum **AccessRole**<br>Access role type to grant to the user. <ul><li>`ACCESS_ROLE_PRODUCER`: Producer role for the user.</li><li>`ACCESS_ROLE_CONSUMER`: Consumer role for the user.</li><ul/>
+topic_name | **string**<br>Имя топика, к которому предоставляется доступ. <br>Чтобы получить имя топика, выполните запрос [Topic.List](#Topic). 
+role | enum **AccessRole**<br>Роль доступа, которую нужно предоставить пользователю. <ul><li>`ACCESS_ROLE_PRODUCER`: Роль пользователя — производитель.</li><li>`ACCESS_ROLE_CONSUMER`: Роль пользователя — потребитель.</li><ul/>
 
 
 ### Operation {#Operation}
@@ -368,16 +368,16 @@ result | **oneof:** `error` или `response`<br>Результат операц
 
 Поле | Описание
 --- | ---
-cluster_id | **string**<br>ID of the Apache Kafka cluster the user belongs to. 
-user_name | **string**<br>Name of the user whose permission is being revoked. 
+cluster_id | **string**<br>Идентификатор кластера Apache Kafka, к которому принадлежит пользователь. 
+user_name | **string**<br>Имя пользователя, для которого отзывается разрешение. 
 
 
 ### User {#User}
 
 Поле | Описание
 --- | ---
-name | **string**<br>Name of the Apache Kafka user. 
-cluster_id | **string**<br>ID of the Apache Kafka cluster the user belongs to. <br>To get the Apache Kafka cluster ID, make a [ClusterService.List](./cluster_service#List) request. 
-permissions[] | **[Permission](#Permission6)**<br>Set of permissions granted to this user. 
+name | **string**<br>Имя пользователя Apache Kafka. 
+cluster_id | **string**<br>Идентификатор кластера Apache Kafka, к которому принадлежит пользователь. <br>Чтобы получить идентификатор кластера Apache Kafka, выполните запрос [ClusterService.List](./cluster_service#List). 
+permissions[] | **[Permission](#Permission6)**<br>Набор разрешений, предоставленных пользователю. 
 
 

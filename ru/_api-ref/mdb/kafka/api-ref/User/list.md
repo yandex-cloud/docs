@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Метод list
-Retrieves the list of Apache Kafka users in the specified cluster.
+Получает список пользователей Apache Kafka в указанном кластере.
  
 
  
@@ -16,14 +16,14 @@ GET https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/{clusterId}/users
  
 Параметр | Описание
 --- | ---
-clusterId | Обязательное поле. ID of the cluster to list Apache Kafka users in.  To get the cluster ID, make a [list](/docs/managed-kafka/api-ref/Cluster/list) request.  Максимальная длина строки в символах — 50.
+clusterId | Обязательное поле. Идентификатор кластера, для которого нужно получить список пользователей.  Чтобы получить идентификатор кластера, выполните запрос [list](/docs/managed-kafka/api-ref/Cluster/list).  Максимальная длина строки в символах — 50.
  
 ## Query-параметры {#query_params}
  
 Параметр | Описание
 --- | ---
-pageSize | The maximum number of results per page to return.  If the number of available results is larger than `page_size`, the service returns a [nextPageToken](/docs/managed-kafka/api-ref/User/list#responses) that can be used to get the next page of results in subsequent list requests.  Максимальное значение — 1000.
-pageToken | Page token.  To get the next page of results, set `page_token` to the [nextPageToken](/docs/managed-kafka/api-ref/User/list#responses) returned by a previous list request.  Максимальная длина строки в символах — 100.
+pageSize | Максимальное количество результатов на одной странице в ответе.  Если количество результатов больше чем `page_size`, сервис вернет значение [nextPageToken](/docs/managed-kafka/api-ref/User/list#responses), которое можно использовать для получения следующей страницы.  Максимальное значение — 1000.
+pageToken | Токен страницы.  Установите значение `page_token` равным значению поля [nextPageToken](/docs/managed-kafka/api-ref/User/list#responses) предыдущего запроса, чтобы получить следующую страницу результатов.  Максимальная длина строки в символах — 100.
  
 ## Ответ {#responses}
 **HTTP Code: 200 - OK**
@@ -49,10 +49,10 @@ pageToken | Page token.  To get the next page of results, set `page_token` to th
  
 Поле | Описание
 --- | ---
-users[] | **object**<br><p>An Apache Kafka user. For more information, see the <a href="/docs/managed-kafka/concepts/users">Concepts → Accounts</a> section of the documentation.</p> 
-users[].<br>name | **string**<br><p>Name of the Apache Kafka user.</p> 
-users[].<br>clusterId | **string**<br><p>ID of the Apache Kafka cluster the user belongs to.</p> <p>To get the Apache Kafka cluster ID, make a <a href="/docs/managed-kafka/api-ref/Cluster/list">list</a> request.</p> 
-users[].<br>permissions[] | **object**<br><p>Set of permissions granted to this user.</p> 
-users[].<br>permissions[].<br>topicName | **string**<br><p>Name of the topic that the permission grants access to.</p> <p>To get the topic name, make a [Topic.List] request.</p> 
-users[].<br>permissions[].<br>role | **string**<br><p>Access role type to grant to the user.</p> <ul> <li>ACCESS_ROLE_PRODUCER: Producer role for the user.</li> <li>ACCESS_ROLE_CONSUMER: Consumer role for the user.</li> </ul> 
-nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests.</p> <p>If the number of results is larger than <a href="/docs/managed-kafka/api-ref/User/list#query_params">pageSize</a>, use the <code>next_page_token</code> as the value for the <a href="/docs/managed-kafka/api-ref/User/list#query_params">pageToken</a> parameter in the next list request. Each subsequent list request will have its own <code>next_page_token</code> to continue paging through the results.</p> 
+users[] | **object**<br><p>Пользователь Apache Kafka. Подробнее читайте в разделе <a href="/docs/managed-kafka/concepts/users">Учетные записи</a> документации.</p> 
+users[].<br>name | **string**<br><p>Имя пользователя Apache Kafka.</p> 
+users[].<br>clusterId | **string**<br><p>Идентификатор кластера Apache Kafka, к которому принадлежит пользователь.</p> <p>Чтобы получить идентификатор кластера Apache Kafka, выполните запрос <a href="/docs/managed-kafka/api-ref/Cluster/list">list</a>.</p> 
+users[].<br>permissions[] | **object**<br><p>Набор разрешений, предоставленных пользователю.</p> 
+users[].<br>permissions[].<br>topicName | **string**<br><p>Имя топика, к которому предоставляется доступ.</p> <p>Чтобы получить имя топика, выполните запрос [Topic.List].</p> 
+users[].<br>permissions[].<br>role | **string**<br><p>Роль доступа, которую нужно предоставить пользователю.</p> <ul> <li>ACCESS_ROLE_PRODUCER: Роль пользователя — производитель.</li> <li>ACCESS_ROLE_CONSUMER: Роль пользователя — потребитель.</li> </ul> 
+nextPageToken | **string**<br><p>Токен для получения следующей страницы результатов в ответе.</p> <p>Если количество результатов больше чем <a href="/docs/managed-kafka/api-ref/User/list#query_params">pageSize</a>, используйте <code>next_page_token</code> в качестве значения параметра <a href="/docs/managed-kafka/api-ref/User/list#query_params">pageToken</a> в следующем запросе. Все последующие запросы будут получать свои значения <code>next_page_token</code> для перебора страниц результатов.</p> 

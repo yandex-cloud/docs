@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Метод revokePermission
-Revokes permission from the specified Apache Kafka user.
+Отзывает разрешение у указанного пользователя Apache Kafka.
  
 
  
@@ -16,8 +16,8 @@ POST https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/{clusterId}/user
  
 Параметр | Описание
 --- | ---
-clusterId | Обязательное поле. ID of the Apache Kafka cluster the user belongs to.  To get the cluster ID, make a [list](/docs/managed-kafka/api-ref/Cluster/list) request.  Максимальная длина строки в символах — 50.
-userName | Обязательное поле. Name of the user to revoke a permission from.  To get the name of the user, make a [list](/docs/managed-kafka/api-ref/User/list) request.  Длина строки в символах должна быть от 1 до 63. Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_]* ``.
+clusterId | Обязательное поле. Идентификатор кластера Apache Kafka, к которому принадлежит пользователь.  Чтобы получить идентификатор кластера, выполните запрос [list](/docs/managed-kafka/api-ref/Cluster/list).  Максимальная длина строки в символах — 50.
+userName | Обязательное поле. Имя пользователя, у которого следует отозвать разрешение.  Чтобы получить имя пользователя, выполните запрос [list](/docs/managed-kafka/api-ref/User/list).  Длина строки в символах должна быть от 1 до 63. Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_]* ``.
  
 ## Параметры в теле запроса {#body_params}
  
@@ -33,9 +33,9 @@ userName | Обязательное поле. Name of the user to revoke a permi
  
 Поле | Описание
 --- | ---
-permission | **object**<br><p>Обязательное поле. Permission that should be revoked from the specified user.</p> 
-permission.<br>topicName | **string**<br><p>Name of the topic that the permission grants access to.</p> <p>To get the topic name, make a [Topic.List] request.</p> 
-permission.<br>role | **string**<br><p>Access role type to grant to the user.</p> <ul> <li>ACCESS_ROLE_PRODUCER: Producer role for the user.</li> <li>ACCESS_ROLE_CONSUMER: Consumer role for the user.</li> </ul> 
+permission | **object**<br><p>Обязательное поле. Разрешение, которое должно быть отозвано у указанного пользователя.</p> 
+permission.<br>topicName | **string**<br><p>Имя топика, к которому предоставляется доступ.</p> <p>Чтобы получить имя топика, выполните запрос [Topic.List].</p> 
+permission.<br>role | **string**<br><p>Роль доступа, которую нужно предоставить пользователю.</p> <ul> <li>ACCESS_ROLE_PRODUCER: Роль пользователя — производитель.</li> <li>ACCESS_ROLE_CONSUMER: Роль пользователя — потребитель.</li> </ul> 
  
 ## Ответ {#responses}
 **HTTP Code: 200 - OK**

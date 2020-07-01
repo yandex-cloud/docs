@@ -338,10 +338,13 @@ Method | Description
 [delete](delete.md) | Deletes the specified instance group.
 [get](get.md) | Returns the specified InstanceGroup resource.
 [list](list.md) | Retrieves the list of InstanceGroup resources in the specified folder.
+[listAccessBindings](listAccessBindings.md) | Lists existing access bindings for the specified instance group.
 [listInstances](listInstances.md) | Lists instances for the specified instance group.
 [listLogRecords](listLogRecords.md) | Lists logs for the specified instance group.
 [listOperations](listOperations.md) | Lists operations for the specified instance group.
+[setAccessBindings](setAccessBindings.md) | Sets access bindings for the specified instance group.
 [start](start.md) | Starts the specified instance group.
 [stop](stop.md) | Stops the specified instance group.
 [update](update.md) | Updates the specified instance group. This method starts an operation that can be cancelled by another operation.
+[updateAccessBindings](updateAccessBindings.md) | Updates access bindings for the specified instance group.
 [updateFromYaml](updateFromYaml.md) | Updates the specified instance group from a YAML file. This method starts an operation that can be cancelled by another operation.

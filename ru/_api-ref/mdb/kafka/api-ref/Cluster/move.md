@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Метод move
-Moves the specified Apache Kafka cluster to the specified folder.
+Перемещает кластер Apache Kafka в указанный каталог.
  
 
  
@@ -16,7 +16,7 @@ POST https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/{clusterId}:move
  
 Параметр | Описание
 --- | ---
-clusterId | Обязательное поле. ID of the Apache Kafka cluster to move.  To get the Apache Kafka cluster ID, make a [list](/docs/managed-kafka/api-ref/Cluster/list) request.  Максимальная длина строки в символах — 50.
+clusterId | Обязательное поле. Идентификатор кластера Apache Kafka, который нужно переместить.  Чтобы получить идентификатор кластера Apache Kafka, выполните запрос [list](/docs/managed-kafka/api-ref/Cluster/list).  Максимальная длина строки в символах — 50.
  
 ## Параметры в теле запроса {#body_params}
  
@@ -29,7 +29,7 @@ clusterId | Обязательное поле. ID of the Apache Kafka cluster to
  
 Поле | Описание
 --- | ---
-destinationFolderId | **string**<br><p>Обязательное поле. ID of the destination folder.</p> <p>Максимальная длина строки в символах — 50.</p> 
+destinationFolderId | **string**<br><p>Обязательное поле. Идентификатор каталога, в который следует переместить кластер.</p> <p>Максимальная длина строки в символах — 50.</p> 
  
 ## Ответ {#responses}
 **HTTP Code: 200 - OK**

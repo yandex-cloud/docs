@@ -6,14 +6,14 @@ editable: false
 
 _Операторы_
 
-#### Синтаксис
+#### Синтаксис {#syntax}
 
 
 ```
 value IS [ NOT ] TRUE
 ```
 
-#### Описание
+#### Описание {#description}
 Проверяет, является ли значение `value` истинным (`TRUE`).
 
 Вариант `value IS NOT TRUE` возвращает противоположное значение.
@@ -24,7 +24,7 @@ value IS [ NOT ] TRUE
 
 **Возвращаемый тип**: `Логический`
 
-#### Примеры
+#### Примеры {#examples}
 
 ```
 "qwerty" IS TRUE = TRUE
@@ -55,6 +55,6 @@ FALSE IS NOT TRUE = TRUE
 ```
 
 
-#### Поддержка источников данных
+#### Поддержка источников данных {#data-source-support}
 
 `Материализованный датасет`, `ClickHouse 1.1`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`.

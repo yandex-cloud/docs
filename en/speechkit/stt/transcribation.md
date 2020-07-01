@@ -88,7 +88,7 @@ POST https://transcribe.api.cloud.yandex.net/speech/stt/v2/longRunningRecognize
 | config.<br>specification.<br>audioEncoding | **string**<br>[The format](formats.md) of the submitted audio.<br/>Acceptable values:<ul><li>`LINEAR16_PCM` — [LPCM with no WAV header](formats.md#lpcm).</li><li>`OGG_OPUS` (default) — [OggOpus](formats.md#oggopus) format.</li></ul> |
 | config.<br>specification.<br>sampleRateHertz | **integer** (int64)<br>The sampling frequency of the submitted audio.<br/>Required if `format` is set to `LINEAR16_PCM`. Acceptable values:<ul><li>`48000` (default) — Sampling rate of 48 kHz.</li><li>`16000` — Sampling rate of 16 kHz.</li><li>`8000` — Sampling rate of 8 kHz.</li></ul> |
 | config.<br>specification.<br>audioChannelCount | **integer** (int64)<br>The number of channels in [LPCM](formats.md#lpcm) files. By default, `1`.<br>Don't use this field for [OggOpus](formats.md#oggopus) files. |
-| config.<br>specification.<br>rawResults | **boolean** <br>The flag that indicates how to write numbers. `true` — In words. `false` (default) — In figures. |
+| config.<br>specification.<br>rawResults | **boolean** <br>Flag that indicates how to write numbers. `true` — In words. `false` (default) — In figures. |
 | audio.<br>uri | **string**<br>The URI of the audio file for recognition. Supports only links to files stored in [Yandex Object Storage](/docs/storage/). |
 
 #### Response {#sendfile-response}
@@ -135,14 +135,14 @@ Once the recognition is complete, the `done` field will be set to `true` and the
 
 Each result in the `chunks[]` list contains the following fields:
 
-* `alternatives[]`: List of alternative recognition results. Each alternative contains the following fields:
+* `alternatives[]`: List of recognized text alternatives. Each alternative contains the following fields:
     * `words[]`: List of recognized words.
       * `startTime`: Time stamp of the beginning of the word in the recording. An error of 1-2 seconds is possible.
       * `endTime`: Time stamp of the end of the word. An error of 1-2 seconds is possible.
       * `word`: Recognized word. Recognized numbers are written in words (for example, `twelve` rather than `12`).
-      * `confidence`: This field is currently unsupported.
+      * `confidence`: This field currently isn't supported. Don't use it.
     * `text`: Full recognized text. By default, numbers are written in figures. To output the entire text in words, specify `true` in the `raw_results` field.
-    * `confidence`: This field is currently unsupported.
+    * `confidence`: This field currently isn't supported. Don't use it.
 * `channelTag`: Audio channel that recognition was performed for.
 
 ```json
@@ -241,7 +241,7 @@ To recognize speech in [OggOpus](formats.md#oggopus) format, just specify the re
           -H "Authorization: Bearer ${IAM_TOKEN}" \
           -d '@body.json' \
           https://transcribe.api.cloud.yandex.net/speech/stt/v2/longRunningRecognize
-
+      
       {
           "done": false,
           "id": "e03sup6d5h1qr574ht99",
@@ -260,7 +260,7 @@ To recognize speech in [OggOpus](formats.md#oggopus) format, just specify the re
       ```bash
       $ curl -H "Authorization: Bearer ${IAM_TOKEN}" \
           https://operation.api.cloud.yandex.net/operations/e03sup6d5h1qr574ht99
-
+      
       {
        "done": true,
        "response": {
@@ -292,17 +292,17 @@ To recognize speech in [OggOpus](formats.md#oggopus) format, just specify the re
 
       ```python
       # -*- coding: utf-8 -*-
-
+      
       import requests
       import time
       import json
-
+      
       # Specify your API key and the link to the audio file in Object Storage.
       key = '<API key>'
       filelink = 'https://storage.yandexcloud.net/speechkit/speech.ogg'
-
+      
       POST = "https://transcribe.api.cloud.yandex.net/speech/stt/v2/longRunningRecognize"
-
+      
       body ={
           "config": {
               "specification": {
@@ -313,33 +313,33 @@ To recognize speech in [OggOpus](formats.md#oggopus) format, just specify the re
               "uri": filelink
           }
       }
-
+      
       # If you want to use an IAM token for authentication, replace Api-Key with Bearer.
       header = {'Authorization': 'Api-Key {}'.format(key)}
-
+      
       # Send a recognition request.
       req = requests.post(POST, headers=header, json=body)
       data = req.json()
       print(data)
-
+      
       id = data['id']
-
+      
       # Request the operation status on the server until recognition is complete.
       while True:
-
+      
           time.sleep(1)
-
+      
           GET = "https://operation.api.cloud.yandex.net/operations/{id}"
           req = requests.get(GET.format(id=id), headers=header)
           req = req.json()
-
+      
           if req['done']: break
           print("Not ready")
-
+      
       # Show the full server response in JSON format.
       print("Response:")
       print(json.dumps(req, ensure_ascii=False, indent=2))
-
+      
       # Show only text from recognition results.
       print("Text chunks:")
       for chunk in req['response']['chunks']:
@@ -384,7 +384,7 @@ To recognize speech in [LPCM](formats.md#lpcm) format, specify the file sampling
         -H "Authorization: Bearer ${IAM_TOKEN}" \
         -d '@body.json' \
         https://transcribe.api.cloud.yandex.net/speech/stt/v2/longRunningRecognize
-
+    
     {
         "done": false,
         "id": "e03sup6d5h1qr574ht99",
@@ -403,7 +403,7 @@ To recognize speech in [LPCM](formats.md#lpcm) format, specify the file sampling
     ```bash
     $ curl -H "Authorization: Bearer ${IAM_TOKEN}" \
         https://operation.api.cloud.yandex.net/operations/e03sup6d5h1qr574ht99
-
+    
     {
     "done": true, "response": {
      "@type": "type.googleapis.com/yandex.cloud.ai.stt.v2.LongRunningRecognitionResponse",

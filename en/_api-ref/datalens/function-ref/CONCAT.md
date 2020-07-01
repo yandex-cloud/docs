@@ -6,14 +6,14 @@ editable: false
 
 _String functions_
 
-#### Syntax
+#### Syntax {#syntax}
 
 
 ```
 CONCAT( arg_1, arg_2, arg_3 [ , ... ] )
 ```
 
-#### Description
+#### Description {#description}
 Merges any number of strings. When non-string types are used, they're converted to strings and then merged.
 
 **Argument types:**
@@ -24,7 +24,7 @@ Merges any number of strings. When non-string types are used, they're converted 
 
 **Return type**: `String`
 
-#### Examples
+#### Examples {#examples}
 
 ```
 CONCAT("Дата рождения ", #2019-01-23#) = "Дата рождения 2019-01-23"
@@ -35,6 +35,6 @@ CONCAT(2019, 01, 23) = "20190123"
 ```
 
 
-#### Data source support
+#### Data source support {#data-source-support}
 
 `Materialized Dataset`, `ClickHouse 1.1`, `Yandex.Metrica`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`.

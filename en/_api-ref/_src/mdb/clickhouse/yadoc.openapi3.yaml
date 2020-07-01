@@ -4907,6 +4907,8 @@ components:
             value: false.'
           type: boolean
           format: boolean
+        quotaMode:
+          $ref: '#/components/schemas/UserSettingsQuotaMode_in_UserSettings_quotaMode'
     UserSettingsDistributedProductMode:
       description: |2-
          - DISTRIBUTED_PRODUCT_MODE_DENY: Default value. Prohibits using these types of subqueries (returns the "Double-distributed in/JOIN subqueries is denied" exception).
@@ -4930,6 +4932,12 @@ components:
       enum:
       - OVERFLOW_MODE_THROW
       - OVERFLOW_MODE_BREAK
+    UserSettingsQuotaMode:
+      type: string
+      enum:
+      - QUOTA_MODE_DEFAULT
+      - QUOTA_MODE_KEYED
+      - QUOTA_MODE_KEYED_BY_IP
     UserSpec:
       type: object
       properties:
@@ -7333,6 +7341,8 @@ components:
             value: false.'
           type: boolean
           format: boolean
+        quotaMode:
+          $ref: '#/components/schemas/UserSettingsQuotaMode_in_UserSettings_quotaMode'
     UserSettings_in_User_settings:
       description: |-
         ClickHouse user settings. Supported settings are a limited subset of all settings
@@ -7790,6 +7800,8 @@ components:
             value: false.'
           type: boolean
           format: boolean
+        quotaMode:
+          $ref: '#/components/schemas/UserSettingsQuotaMode_in_UserSettings_quotaMode'
     UserSettingsDistributedProductMode_in_UserSettings_distributedProductMode:
       description: |-
         Determine the behavior of distributed subqueries. Possible values: DISTRIBUTED_PRODUCT_MODE_DENY,
@@ -7862,6 +7874,14 @@ components:
       enum:
       - OVERFLOW_MODE_THROW
       - OVERFLOW_MODE_BREAK
+    UserSettingsQuotaMode_in_UserSettings_quotaMode:
+      description: 'Quota accounting mode. Possible values: QUOTA_MODE_DEFAULT, QUOTA_MODE_KEYED
+        and QUOTA_MODE_KEYED_BY_IP.'
+      type: string
+      enum:
+      - QUOTA_MODE_DEFAULT
+      - QUOTA_MODE_KEYED
+      - QUOTA_MODE_KEYED_BY_IP
     UserSettings_in_UserSpec_settings:
       description: |-
         ClickHouse user settings. Supported settings are a limited subset of all settings
@@ -8319,6 +8339,8 @@ components:
             value: false.'
           type: boolean
           format: boolean
+        quotaMode:
+          $ref: '#/components/schemas/UserSettingsQuotaMode_in_UserSettings_quotaMode'
 tags:
 - name: Backup
   description: A set of methods for managing ClickHouse Backup resources.

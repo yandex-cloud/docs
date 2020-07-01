@@ -4,18 +4,18 @@ editable: false
 
 # ResourcePresetService
 
-A set of methods for managing Apache Kafka resource presets.
+Методы для работы с шаблонами ресурсов.
 
 | Вызов | Описание |
 | --- | --- |
-| [Get](#Get) | Returns the specified resource preset. |
-| [List](#List) | Retrieves the list of available resource presets. |
+| [Get](#Get) | Возвращает указанный шаблон ресурса. |
+| [List](#List) | Возвращает список доступных шаблонов ресурсов. |
 
 ## Вызовы ResourcePresetService {#calls}
 
 ## Get {#Get}
 
-Returns the specified resource preset. <br>To get the list of available resource presets, make a [List](#List) request.
+Возвращает указанный шаблон ресурса. <br>Чтобы получить список доступных шаблонов ресурсов, выполните запрос [List](#List).
 
 **rpc Get ([GetResourcePresetRequest](#GetResourcePresetRequest)) returns ([ResourcePreset](#ResourcePreset))**
 
@@ -23,22 +23,22 @@ Returns the specified resource preset. <br>To get the list of available resource
 
 Поле | Описание
 --- | ---
-resource_preset_id | **string**<br>Обязательное поле. ID of the resource preset to return. <br>To get the resource preset ID, use a [ResourcePresetService.List](#List) request. false
+resource_preset_id | **string**<br>Обязательное поле. Идентификатор шаблона ресурса, данные о котором запрашиваются. <br>Чтобы получить идентификатор шаблона ресурса, выполните запрос [ResourcePresetService.List](#List). false
 
 
 ### ResourcePreset {#ResourcePreset}
 
 Поле | Описание
 --- | ---
-id | **string**<br>ID of the ResourcePreset resource. 
-zone_ids[] | **string**<br>IDs of availability zones where the resource preset is available. 
-cores | **int64**<br>Number of CPU cores for a Kafka broker created with the preset. 
-memory | **int64**<br>RAM volume for a Kafka broker created with the preset, in bytes. 
+id | **string**<br>Идентификатор набора вычислительных ресурсов. 
+zone_ids[] | **string**<br>Идентификаторы зон доступности, в которых доступен этот набор вычислительных ресурсов. 
+cores | **int64**<br>Количество процессорных ядер для брокера Kafka, созданного с помощью набора вычислительных ресурсов. 
+memory | **int64**<br>Объем оперативной памяти для брокера Kafka, созданного с помощью набора вычислительных ресурсов, в байтах. 
 
 
 ## List {#List}
 
-Retrieves the list of available resource presets.
+Возвращает список доступных шаблонов ресурсов.
 
 **rpc List ([ListResourcePresetsRequest](#ListResourcePresetsRequest)) returns ([ListResourcePresetsResponse](#ListResourcePresetsResponse))**
 
@@ -46,25 +46,25 @@ Retrieves the list of available resource presets.
 
 Поле | Описание
 --- | ---
-page_size | **int64**<br>The maximum number of results per page to return. <br>If the number of available results is larger than `page_size`, the service returns a [ListResourcePresetsResponse.next_page_token](#ListResourcePresetsResponse) that can be used to get the next page of results in subsequent list requests. Максимальное значение — 1000.
-page_token | **string**<br>Page token. <br>To get the next page of results, set `page_token` to the [ListResourcePresetsResponse.next_page_token](#ListResourcePresetsResponse), returned by a previous list request. Максимальная длина строки в символах — 100.
+page_size | **int64**<br>Максимальное количество результатов на одной странице в ответе. <br>Если количество результатов больше чем `page_size`, сервис вернет значение [ListResourcePresetsResponse.next_page_token](#ListResourcePresetsResponse), которое можно использовать для получения следующей страницы. Максимальное значение — 1000.
+page_token | **string**<br>Токен страницы. <br>Установите значение `page_token` равным значению поля [ListResourcePresetsResponse.next_page_token](#ListResourcePresetsResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
 
 
 ### ListResourcePresetsResponse {#ListResourcePresetsResponse}
 
 Поле | Описание
 --- | ---
-resource_presets[] | **[ResourcePreset](#ResourcePreset1)**<br>List of resource presets. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. <br>If the number of results is larger than [ListResourcePresetsRequest.page_size](#ListResourcePresetsRequest1), use `next_page_token` as the value for the [ListResourcePresetsRequest.page_token](#ListResourcePresetsRequest1) parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. Максимальная длина строки в символах — 100.
+resource_presets[] | **[ResourcePreset](#ResourcePreset1)**<br>Список шаблонов ресурсов. 
+next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. <br>Если количество результатов больше чем [ListResourcePresetsRequest.page_size](#ListResourcePresetsRequest1), используйте `next_page_token` в качестве значения параметра [ListResourcePresetsRequest.page_token](#ListResourcePresetsRequest1) в следующем запросе. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. Максимальная длина строки в символах — 100.
 
 
 ### ResourcePreset {#ResourcePreset}
 
 Поле | Описание
 --- | ---
-id | **string**<br>ID of the ResourcePreset resource. 
-zone_ids[] | **string**<br>IDs of availability zones where the resource preset is available. 
-cores | **int64**<br>Number of CPU cores for a Kafka broker created with the preset. 
-memory | **int64**<br>RAM volume for a Kafka broker created with the preset, in bytes. 
+id | **string**<br>Идентификатор набора вычислительных ресурсов. 
+zone_ids[] | **string**<br>Идентификаторы зон доступности, в которых доступен этот набор вычислительных ресурсов. 
+cores | **int64**<br>Количество процессорных ядер для брокера Kafka, созданного с помощью набора вычислительных ресурсов. 
+memory | **int64**<br>Объем оперативной памяти для брокера Kafka, созданного с помощью набора вычислительных ресурсов, в байтах. 
 
 

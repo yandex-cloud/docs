@@ -4,28 +4,28 @@ editable: false
 
 # ClusterService
 
-A set of methods for managing Apache Kafka clusters.
+Набор методов для управления кластерами Apache Kafka.
 
 | Вызов | Описание |
 | --- | --- |
-| [Get](#Get) | Returns the specified Apache Kafka cluster resource. |
-| [List](#List) | Retrieves the list of Apache Kafka clusters that belong to the specified folder. |
-| [Create](#Create) | Creates a new Apache Kafka cluster in the specified folder. |
-| [Update](#Update) | Updates the specified Apache Kafka cluster. |
-| [Delete](#Delete) | Deletes the specified Apache Kafka cluster. |
-| [Move](#Move) | Moves the specified Apache Kafka cluster to the specified folder. |
-| [Start](#Start) | Starts the specified Apache Kafka cluster. |
-| [Stop](#Stop) | Stops the specified Apache Kafka cluster. |
-| [ListLogs](#ListLogs) | Retrieves logs for the specified Apache Kafka cluster. |
-| [StreamLogs](#StreamLogs) | Same as [ListLogs](#ListLogs) but using server-side streaming. |
-| [ListOperations](#ListOperations) | Retrieves the list of operations for the specified Apache Kafka cluster. |
-| [ListHosts](#ListHosts) | Retrieves a list of hosts for the specified Apache Kafka cluster. |
+| [Get](#Get) | Возвращает указанный кластер Apache Kafka. |
+| [List](#List) | Получает список кластеров Apache Kafka, принадлежащих указанному каталогу. |
+| [Create](#Create) | Создает новый кластер Apache Kafka в указанном каталоге. |
+| [Update](#Update) | Изменяет указанный кластер Apache Kafka. |
+| [Delete](#Delete) | Удаляет указанный кластер Apache Kafka. |
+| [Move](#Move) | Перемещает кластер Apache Kafka в указанный каталог. |
+| [Start](#Start) | Запускает указанный кластер Apache Kafka. |
+| [Stop](#Stop) | Останавливает указанный кластер Apache Kafka. |
+| [ListLogs](#ListLogs) | Получает логи для указанного кластера Apache Kafka. |
+| [StreamLogs](#StreamLogs) | То же самое, что [ListLogs](#ListLogs), с той разницей, что со стороны сервера передается поток логов. |
+| [ListOperations](#ListOperations) | Получает список операций для указанного кластера Apache Kafka. |
+| [ListHosts](#ListHosts) | Получает список хостов для указанного кластера Apache Kafka. |
 
 ## Вызовы ClusterService {#calls}
 
 ## Get {#Get}
 
-Returns the specified Apache Kafka cluster resource. <br>To get the list of available Apache Kafka clusters, make a [List](#List) request.
+Возвращает указанный кластер Apache Kafka. <br>Чтобы получить список доступных кластеров Apache Kafka, выполните запрос [List](#List).
 
 **rpc Get ([GetClusterRequest](#GetClusterRequest)) returns ([Cluster](#Cluster))**
 
@@ -33,67 +33,67 @@ Returns the specified Apache Kafka cluster resource. <br>To get the list of avai
 
 Поле | Описание
 --- | ---
-cluster_id | **string**<br>Обязательное поле. ID of the Apache Kafka Cluster resource to return. <br>To get the cluster ID, make a [ClusterService.List](#List) request. false Максимальная длина строки в символах — 50.
+cluster_id | **string**<br>Обязательное поле. Идентификатор кластера Apache Kafka. <br>Чтобы получить идентификатор кластера, выполните запрос [ClusterService.List](#List). false Максимальная длина строки в символах — 50.
 
 
 ### Cluster {#Cluster}
 
 Поле | Описание
 --- | ---
-id | **string**<br>ID of the Apache Kafka cluster. This ID is assigned by MDB at creation time. 
-folder_id | **string**<br>ID of the folder that the Apache Kafka cluster belongs to. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
-name | **string**<br>Name of the Apache Kafka cluster. The name must be unique within the folder. 1-63 characters long. 
-description | **string**<br>Description of the Apache Kafka cluster. 0-256 characters long. 
-labels | **map<string,string>**<br>Custom labels for the Apache Kafka cluster as `key:value` pairs. A maximum of 64 labels per resource is allowed. 
-environment | enum **Environment**<br>Deployment environment of the Apache Kafka cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with a more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring)**<br>Description of monitoring systems relevant to the Apache Kafka cluster. 
-config | **[ConfigSpec](#ConfigSpec)**<br>Configuration of the Apache Kafka cluster. 
-network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is in degraded state ([Host.health](#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li><ul/>
-status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+id | **string**<br>Идентификатор кластера Apache Kafka. Этот идентификатор генерирует MDB при создании кластера. 
+folder_id | **string**<br>Идентификатор каталога, которому принадлежит кластер. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания. 
+name | **string**<br>Имя кластера Apache Kafka. Имя должно быть уникальным в рамках каталога. Длина 1-63 символов. 
+description | **string**<br>Описание кластера Apache Kafka. Длина описания должна быть от 0 до 256 символов. 
+labels | **map<string,string>**<br>Пользовательские метки для кластера Apache Kafka в виде пар `key:value`. Максимум 64 на ресурс. 
+environment | enum **Environment**<br>Среда развертывания кластера Apache Kafka. <ul><li>`PRODUCTION`: Стабильная среда с осторожной политикой обновления: во время регулярного обслуживания применяются только срочные исправления.</li><li>`PRESTABLE`: Среда с более агрессивной политикой обновления: новые версии развертываются независимо от обратной совместимости.</li><ul/>
+monitoring[] | **[Monitoring](#Monitoring)**<br>Описание систем мониторинга, относящихся к кластеру Apache Kafka. 
+config | **[ConfigSpec](#ConfigSpec)**<br>Конфигурация кластера Apache Kafka. 
+network_id | **string**<br>Идентификатор сети, к которой принадлежит кластер. 
+health | enum **Health**<br>Здоровье кластера. <ul><li>`HEALTH_UNKNOWN`: Состояние кластера неизвестно ([Host.health](#Host) всех хостов в кластере — `UNKNOWN`).</li><li>`ALIVE`: Кластер работает нормально ([Host.health](#Host) всех хостов в кластере — `ALIVE`).</li><li>`DEAD`: Кластер не работает ([Host.health](#Host) всех хостов в кластере — `DEAD`).</li><li>`DEGRADED`: Кластер находится в состоянии деградации ([Host.health](#Host) по крайней мере одного из хостов в кластере — не `ALIVE`).</li><ul/>
+status | enum **Status**<br>Текущее состояние кластера. <ul><li>`STATUS_UNKNOWN`: Состояние кластера неизвестно.</li><li>`CREATING`: Кластер создается.</li><li>`RUNNING`: Кластер работает нормально.</li><li>`ERROR`: В кластере произошла ошибка, блокирующая работу.</li><li>`UPDATING`: Кластер изменяется.</li><li>`STOPPING`: Кластер останавливается.</li><li>`STOPPED`: Кластер остановлен.</li><li>`STARTING`: Кластер запускается.</li><ul/>
 
 
 ### Monitoring {#Monitoring}
 
 Поле | Описание
 --- | ---
-name | **string**<br>Name of the monitoring system. 
-description | **string**<br>Description of the monitoring system. 
-link | **string**<br>Link to the monitoring system charts for the Apache Kafka cluster. 
+name | **string**<br>Название системы мониторинга. 
+description | **string**<br>Описание системы мониторинга. 
+link | **string**<br>Ссылка на графики системы мониторинга для кластера Apache Kafka. 
 
 
 ### ConfigSpec {#ConfigSpec}
 
 Поле | Описание
 --- | ---
-version | **string**<br>Version of Apache Kafka used in the cluster. 
-kafka | **[Kafka](#Kafka)**<br>Configuration and resource allocation for Apache Kafka brokers. 
-zookeeper | **[Zookeeper](#Zookeeper)**<br>Configuration and resource allocation for ZooKeeper hosts. 
-zone_id[] | **string**<br>IDs of availability zones where Apache Kafka brokers reside. 
-brokers_count | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of Apache Kafka brokers deployed in each availability zone. 
-assign_public_ip | **bool**<br>The flag that defines whether a public IP address is assigned to the cluster. If the value is `true`, then Apache Kafka cluster is available on the Internet via it's public IP address. 
+version | **string**<br>Версия Apache Kafka, которая используется в кластере. 
+kafka | **[Kafka](#Kafka)**<br>Конфигурация и распределение ресурсов для брокеров Apache Kafka. 
+zookeeper | **[Zookeeper](#Zookeeper)**<br>Конфигурация и распределение ресурсов для хостов ZooKeeper. 
+zone_id[] | **string**<br>Идентификаторы зон доступности, в которых находятся брокеры Apache Kafka. 
+brokers_count | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Количество брокеров Apache Kafka, развернутых в каждой зоне доступности. 
+assign_public_ip | **bool**<br>Флаг, определяющий, назначен ли кластеру публичный IP-адрес. Если значение равно `true`, то кластер Apache Kafka доступен в Интернете через его публичный IP-адрес. 
 
 
 ### Kafka {#Kafka}
 
 Поле | Описание
 --- | ---
-resources | **[Resources](#Resources)**<br>Resources allocated to Apache Kafka brokers. 
-kafka_config | **oneof:** `kafka_config_2_1`<br>Apache Kafka broker configuration.
-&nbsp;&nbsp;kafka_config_2_1 | **[KafkaConfig2_1](#KafkaConfig2_1)**<br>Apache Kafka broker configuration. 
+resources | **[Resources](#Resources)**<br>Ресурсы, выделенные брокерам Apache Kafka. 
+kafka_config | **oneof:** `kafka_config_2_1`<br>Конфигурация брокера Apache Kafka.
+&nbsp;&nbsp;kafka_config_2_1 | **[KafkaConfig2_1](#KafkaConfig2_1)**<br>Конфигурация брокера Apache Kafka. 
 
 
 ### Zookeeper {#Zookeeper}
 
 Поле | Описание
 --- | ---
-resources | **[Resources](#Resources)**<br>Resources allocated to ZooKeeper hosts. 
+resources | **[Resources](#Resources)**<br>Ресурсы, выделенные хостам ZooKeeper. 
 
 
 ## List {#List}
 
-Retrieves the list of Apache Kafka clusters that belong to the specified folder.
+Получает список кластеров Apache Kafka, принадлежащих указанному каталогу.
 
 **rpc List ([ListClustersRequest](#ListClustersRequest)) returns ([ListClustersResponse](#ListClustersResponse))**
 
@@ -101,78 +101,78 @@ Retrieves the list of Apache Kafka clusters that belong to the specified folder.
 
 Поле | Описание
 --- | ---
-folder_id | **string**<br>Обязательное поле. ID of the folder to list Apache Kafka clusters in. <br>To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. false Максимальная длина строки в символах — 50.
-page_size | **int64**<br>The maximum number of results per page to return. <br>If the number of available results is larger than `page_size`, the service returns a [ListClustersResponse.next_page_token](#ListClustersResponse) that can be used to get the next page of results in subsequent list requests. Максимальное значение — 1000.
-page_token | **string**<br>Page token. <br>To get the next page of results, set `page_token` to the [ListClustersResponse.next_page_token](#ListClustersResponse) returned by a previous list request. Максимальная длина строки в символах — 100.
-filter | **string**<br><ol><li>The field name to filter by. Currently you can only use filtering with the [Cluster.name](#Cluster1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Мust be 1-63 characters long and match the regular expression `^[a-zA-Z0-9_-]+$`. </li></ol> Максимальная длина строки в символах — 1000.
+folder_id | **string**<br>Обязательное поле. Идентификатор каталога, для которого нужно получить список кластеров Apache Kafka. <br>Чтобы получить идентификатор каталога, выполните запрос [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List). false Максимальная длина строки в символах — 50.
+page_size | **int64**<br>Максимальное количество результатов на одной странице в ответе. <br>Если количество результатов больше чем `page_size`, сервис вернет значение [ListClustersResponse.next_page_token](#ListClustersResponse), которое можно использовать для получения следующей страницы. Максимальное значение — 1000.
+page_token | **string**<br>Токен страницы. <br>Установите значение `page_token` равным значению поля [ListClustersResponse.next_page_token](#ListClustersResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
+filter | **string**<br><ol><li>Имя поля, по которому нужно выполнить фильтрацию. В настоящее время фильтрацию можно использовать только по полю [Cluster.name](#Cluster1). </li><li>Условный оператор. Поддерживаются операторы `=` и `!=` для одиночных значений, `IN` и `NOT IN` для списков значений. </li><li>Значение. Должно содержать от 1 до 63 символов и соответствовать регулярному выражению `^[a-zA-Z0-9_-]+$`. </li></ol> Максимальная длина строки в символах — 1000.
 
 
 ### ListClustersResponse {#ListClustersResponse}
 
 Поле | Описание
 --- | ---
-clusters[] | **[Cluster](#Cluster1)**<br>List of Apache Kafka clusters. 
-next_page_token | **string**<br>Token that allows you to get the next page of results for list requests. <br>If the number of results is larger than [ListClustersRequest.page_size](#ListClustersRequest1), use `next_page_token` as the value for the [ListClustersRequest.page_token](#ListClustersRequest1) parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+clusters[] | **[Cluster](#Cluster1)**<br>Список кластеров Apache Kafka. 
+next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. <br>Если количество результатов больше чем [ListClustersRequest.page_size](#ListClustersRequest1), используйте `next_page_token` в качестве значения параметра [ListClustersRequest.page_token](#ListClustersRequest1) в следующем запросе. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
 
 
 ### Cluster {#Cluster}
 
 Поле | Описание
 --- | ---
-id | **string**<br>ID of the Apache Kafka cluster. This ID is assigned by MDB at creation time. 
-folder_id | **string**<br>ID of the folder that the Apache Kafka cluster belongs to. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
-name | **string**<br>Name of the Apache Kafka cluster. The name must be unique within the folder. 1-63 characters long. 
-description | **string**<br>Description of the Apache Kafka cluster. 0-256 characters long. 
-labels | **map<string,string>**<br>Custom labels for the Apache Kafka cluster as `key:value` pairs. A maximum of 64 labels per resource is allowed. 
-environment | enum **Environment**<br>Deployment environment of the Apache Kafka cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with a more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring1)**<br>Description of monitoring systems relevant to the Apache Kafka cluster. 
-config | **[ConfigSpec](#ConfigSpec1)**<br>Configuration of the Apache Kafka cluster. 
-network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is in degraded state ([Host.health](#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li><ul/>
-status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+id | **string**<br>Идентификатор кластера Apache Kafka. Этот идентификатор генерирует MDB при создании кластера. 
+folder_id | **string**<br>Идентификатор каталога, которому принадлежит кластер. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания. 
+name | **string**<br>Имя кластера Apache Kafka. Имя должно быть уникальным в рамках каталога. Длина 1-63 символов. 
+description | **string**<br>Описание кластера Apache Kafka. Длина описания должна быть от 0 до 256 символов. 
+labels | **map<string,string>**<br>Пользовательские метки для кластера Apache Kafka в виде пар `key:value`. Максимум 64 на ресурс. 
+environment | enum **Environment**<br>Среда развертывания кластера Apache Kafka. <ul><li>`PRODUCTION`: Стабильная среда с осторожной политикой обновления: во время регулярного обслуживания применяются только срочные исправления.</li><li>`PRESTABLE`: Среда с более агрессивной политикой обновления: новые версии развертываются независимо от обратной совместимости.</li><ul/>
+monitoring[] | **[Monitoring](#Monitoring1)**<br>Описание систем мониторинга, относящихся к кластеру Apache Kafka. 
+config | **[ConfigSpec](#ConfigSpec1)**<br>Конфигурация кластера Apache Kafka. 
+network_id | **string**<br>Идентификатор сети, к которой принадлежит кластер. 
+health | enum **Health**<br>Здоровье кластера. <ul><li>`HEALTH_UNKNOWN`: Состояние кластера неизвестно ([Host.health](#Host) всех хостов в кластере — `UNKNOWN`).</li><li>`ALIVE`: Кластер работает нормально ([Host.health](#Host) всех хостов в кластере — `ALIVE`).</li><li>`DEAD`: Кластер не работает ([Host.health](#Host) всех хостов в кластере — `DEAD`).</li><li>`DEGRADED`: Кластер находится в состоянии деградации ([Host.health](#Host) по крайней мере одного из хостов в кластере — не `ALIVE`).</li><ul/>
+status | enum **Status**<br>Текущее состояние кластера. <ul><li>`STATUS_UNKNOWN`: Состояние кластера неизвестно.</li><li>`CREATING`: Кластер создается.</li><li>`RUNNING`: Кластер работает нормально.</li><li>`ERROR`: В кластере произошла ошибка, блокирующая работу.</li><li>`UPDATING`: Кластер изменяется.</li><li>`STOPPING`: Кластер останавливается.</li><li>`STOPPED`: Кластер остановлен.</li><li>`STARTING`: Кластер запускается.</li><ul/>
 
 
 ### Monitoring {#Monitoring}
 
 Поле | Описание
 --- | ---
-name | **string**<br>Name of the monitoring system. 
-description | **string**<br>Description of the monitoring system. 
-link | **string**<br>Link to the monitoring system charts for the Apache Kafka cluster. 
+name | **string**<br>Название системы мониторинга. 
+description | **string**<br>Описание системы мониторинга. 
+link | **string**<br>Ссылка на графики системы мониторинга для кластера Apache Kafka. 
 
 
 ### ConfigSpec {#ConfigSpec}
 
 Поле | Описание
 --- | ---
-version | **string**<br>Version of Apache Kafka used in the cluster. 
-kafka | **[Kafka](#Kafka1)**<br>Configuration and resource allocation for Apache Kafka brokers. 
-zookeeper | **[Zookeeper](#Zookeeper1)**<br>Configuration and resource allocation for ZooKeeper hosts. 
-zone_id[] | **string**<br>IDs of availability zones where Apache Kafka brokers reside. 
-brokers_count | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of Apache Kafka brokers deployed in each availability zone. 
-assign_public_ip | **bool**<br>The flag that defines whether a public IP address is assigned to the cluster. If the value is `true`, then Apache Kafka cluster is available on the Internet via it's public IP address. 
+version | **string**<br>Версия Apache Kafka, которая используется в кластере. 
+kafka | **[Kafka](#Kafka1)**<br>Конфигурация и распределение ресурсов для брокеров Apache Kafka. 
+zookeeper | **[Zookeeper](#Zookeeper1)**<br>Конфигурация и распределение ресурсов для хостов ZooKeeper. 
+zone_id[] | **string**<br>Идентификаторы зон доступности, в которых находятся брокеры Apache Kafka. 
+brokers_count | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Количество брокеров Apache Kafka, развернутых в каждой зоне доступности. 
+assign_public_ip | **bool**<br>Флаг, определяющий, назначен ли кластеру публичный IP-адрес. Если значение равно `true`, то кластер Apache Kafka доступен в Интернете через его публичный IP-адрес. 
 
 
 ### Kafka {#Kafka}
 
 Поле | Описание
 --- | ---
-resources | **[Resources](#Resources)**<br>Resources allocated to Apache Kafka brokers. 
-kafka_config | **oneof:** `kafka_config_2_1`<br>Apache Kafka broker configuration.
-&nbsp;&nbsp;kafka_config_2_1 | **[KafkaConfig2_1](#KafkaConfig2_1)**<br>Apache Kafka broker configuration. 
+resources | **[Resources](#Resources)**<br>Ресурсы, выделенные брокерам Apache Kafka. 
+kafka_config | **oneof:** `kafka_config_2_1`<br>Конфигурация брокера Apache Kafka.
+&nbsp;&nbsp;kafka_config_2_1 | **[KafkaConfig2_1](#KafkaConfig2_1)**<br>Конфигурация брокера Apache Kafka. 
 
 
 ### Zookeeper {#Zookeeper}
 
 Поле | Описание
 --- | ---
-resources | **[Resources](#Resources)**<br>Resources allocated to ZooKeeper hosts. 
+resources | **[Resources](#Resources)**<br>Ресурсы, выделенные хостам ZooKeeper. 
 
 
 ## Create {#Create}
 
-Creates a new Apache Kafka cluster in the specified folder.
+Создает новый кластер Apache Kafka в указанном каталоге.
 
 **rpc Create ([CreateClusterRequest](#CreateClusterRequest)) returns ([operation.Operation](#Operation))**
 
@@ -184,86 +184,86 @@ Creates a new Apache Kafka cluster in the specified folder.
 
 Поле | Описание
 --- | ---
-folder_id | **string**<br>Обязательное поле. ID of the folder to create the Apache Kafka cluster in. <br>To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. false Максимальная длина строки в символах — 50.
-name | **string**<br>Обязательное поле. Name of the Apache Kafka cluster. The name must be unique within the folder. false Длина строки в символах должна быть от 1 до 63. Значение должно соответствовать регулярному выражению ` [a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
-description | **string**<br>Description of the Apache Kafka cluster. Максимальная длина строки в символах — 256.
-labels | **map<string,string>**<br>Custom labels for the Apache Kafka cluster as `key:value` pairs. Maximum 64 per cluster. <br>For example, "project": "mvp" or "source": "dictionary". Не более 64 на ресурс. Максимальная длина строки в символах для каждого значения — 63. Каждое значение должно соответствовать регулярному выражению ` [-_./\\@0-9a-z]* `. Длина строки в символах для каждого ключа должна быть от 1 до 63. Каждый ключ должен соответствовать регулярному выражению ` [a-z][-_./\\@0-9a-z]* `.
-environment | **[Cluster.Environment](#Cluster2)**<br>Deployment environment of the Apache Kafka cluster. 
-config_spec | **[ConfigSpec](#ConfigSpec2)**<br>Kafka and hosts configuration the Apache Kafka cluster. 
-topic_specs[] | **[TopicSpec](#TopicSpec)**<br>One or more configurations of topics to be created in the Apache Kafka cluster. 
-user_specs[] | **[UserSpec](#UserSpec)**<br>Configurations of accounts to be created in the Apache Kafka cluster. 
-network_id | **string**<br>ID of the network to create the Apache Kafka cluster in. Максимальная длина строки в символах — 50.
+folder_id | **string**<br>Обязательное поле. Идентификатор каталога, в котором будет создан кластер Apache Kafka. <br>Чтобы получить идентификатор каталога, выполните запрос [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List). false Максимальная длина строки в символах — 50.
+name | **string**<br>Обязательное поле. Имя кластера Apache Kafka. Имя должно быть уникальным в рамках каталога. false Длина строки в символах должна быть от 1 до 63. Значение должно соответствовать регулярному выражению ` [a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
+description | **string**<br>Описание кластера Apache Kafka. Максимальная длина строки в символах — 256.
+labels | **map<string,string>**<br>Пользовательские метки для кластера Apache Kafka в виде пар `key:value`. Максимум 64 на кластер. <br>Например, "project": "mvp" или "source": "dictionary". Не более 64 на ресурс. Максимальная длина строки в символах для каждого значения — 63. Каждое значение должно соответствовать регулярному выражению ` [-_./\\@0-9a-z]* `. Длина строки в символах для каждого ключа должна быть от 1 до 63. Каждый ключ должен соответствовать регулярному выражению ` [a-z][-_./\\@0-9a-z]* `.
+environment | **[Cluster.Environment](#Cluster2)**<br>Среда развертывания кластера Apache Kafka. 
+config_spec | **[ConfigSpec](#ConfigSpec2)**<br>Конфигурация Kafka и хостов в кластере. 
+topic_specs[] | **[TopicSpec](#TopicSpec)**<br>Одна или несколько конфигураций топиков, создаваемых в кластере Apache Kafka. 
+user_specs[] | **[UserSpec](#UserSpec)**<br>Конфигурации учетных записей, создаваемых в кластере Apache Kafka. 
+network_id | **string**<br>Идентификатор каталога, в котором будет создан кластер Apache Kafka. Максимальная длина строки в символах — 50.
 
 
 ### ConfigSpec {#ConfigSpec}
 
 Поле | Описание
 --- | ---
-version | **string**<br>Version of Apache Kafka used in the cluster. 
-kafka | **[Kafka](#Kafka2)**<br>Configuration and resource allocation for Apache Kafka brokers. 
-zookeeper | **[Zookeeper](#Zookeeper2)**<br>Configuration and resource allocation for ZooKeeper hosts. 
-zone_id[] | **string**<br>IDs of availability zones where Apache Kafka brokers reside. 
-brokers_count | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of Apache Kafka brokers deployed in each availability zone. 
-assign_public_ip | **bool**<br>The flag that defines whether a public IP address is assigned to the cluster. If the value is `true`, then Apache Kafka cluster is available on the Internet via it's public IP address. 
+version | **string**<br>Версия Apache Kafka, которая используется в кластере. 
+kafka | **[Kafka](#Kafka2)**<br>Конфигурация и распределение ресурсов для брокеров Apache Kafka. 
+zookeeper | **[Zookeeper](#Zookeeper2)**<br>Конфигурация и распределение ресурсов для хостов ZooKeeper. 
+zone_id[] | **string**<br>Идентификаторы зон доступности, в которых находятся брокеры Apache Kafka. 
+brokers_count | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Количество брокеров Apache Kafka, развернутых в каждой зоне доступности. 
+assign_public_ip | **bool**<br>Флаг, определяющий, назначен ли кластеру публичный IP-адрес. Если значение равно `true`, то кластер Apache Kafka доступен в Интернете через его публичный IP-адрес. 
 
 
 ### Kafka {#Kafka}
 
 Поле | Описание
 --- | ---
-resources | **[Resources](#Resources)**<br>Resources allocated to Apache Kafka brokers. 
-kafka_config | **oneof:** `kafka_config_2_1`<br>Apache Kafka broker configuration.
-&nbsp;&nbsp;kafka_config_2_1 | **[KafkaConfig2_1](#KafkaConfig2_1)**<br>Apache Kafka broker configuration. 
+resources | **[Resources](#Resources)**<br>Ресурсы, выделенные брокерам Apache Kafka. 
+kafka_config | **oneof:** `kafka_config_2_1`<br>Конфигурация брокера Apache Kafka.
+&nbsp;&nbsp;kafka_config_2_1 | **[KafkaConfig2_1](#KafkaConfig2_1)**<br>Конфигурация брокера Apache Kafka. 
 
 
 ### Zookeeper {#Zookeeper}
 
 Поле | Описание
 --- | ---
-resources | **[Resources](#Resources)**<br>Resources allocated to ZooKeeper hosts. 
+resources | **[Resources](#Resources)**<br>Ресурсы, выделенные хостам ZooKeeper. 
 
 
 ### TopicSpec {#TopicSpec}
 
 Поле | Описание
 --- | ---
-name | **string**<br>Name of the topic. 
-partitions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of the topic's partitions. 
-replication_factor | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Amount of copies of a topic data kept in the cluster. 
-topic_config | **oneof:** `topic_config_2_1`<br>User-defined settings for the topic.
-&nbsp;&nbsp;topic_config_2_1 | **[TopicConfig2_1](#TopicConfig2_1)**<br>User-defined settings for the topic. 
+name | **string**<br>Имя топика. 
+partitions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Количество разделов в топике. 
+replication_factor | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Количество копий данных топика, хранящихся в кластере. 
+topic_config | **oneof:** `topic_config_2_1`<br>Пользовательские настройки топика.
+&nbsp;&nbsp;topic_config_2_1 | **[TopicConfig2_1](#TopicConfig2_1)**<br>Пользовательские настройки топика. 
 
 
 ### TopicConfig2_1 {#TopicConfig2_1}
 
 Поле | Описание
 --- | ---
-cleanup_policy | enum **CleanupPolicy**<br>Retention policy to use on old log messages. <ul><li>`CLEANUP_POLICY_DELETE`: This policy discards log segments when either their retention time or log size limit is reached. <br>See also: [Cluster.config.kafka.kafka_config.log_retention_ms](#Cluster2) and other similar parameters.</li><li>`CLEANUP_POLICY_COMPACT`: This policy compacts messages in log.</li><li>`CLEANUP_POLICY_COMPACT_AND_DELETE`: This policy use both compaction and deletion for messages and log segments.</li><ul/>
-compression_type | enum **CompressionType**<br>Specify the compression type for a given topic. <ul><li>`COMPRESSION_TYPE_UNCOMPRESSED`: No codec (uncompressed).</li><li>`COMPRESSION_TYPE_ZSTD`: Zstandard codec.</li><li>`COMPRESSION_TYPE_LZ4`: LZ4 codec.</li><li>`COMPRESSION_TYPE_SNAPPY`: Snappy codec.</li><li>`COMPRESSION_TYPE_GZIP`: GZip codec.</li><li>`COMPRESSION_TYPE_PRODUCER`: The codec to use is set by a producer (can be any of ZSTD`, `LZ4`, `GZIP` or `SNAPPY` codecs).</li><ul/>
-delete_retention_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The amount of time in milliseconds to retain delete tombstone markers for log compacted topics. 
-file_delete_delay_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The time to wait before deleting a file from the filesystem. 
-flush_messages | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of messages accumulated on a log partition before messages are flushed to disk. <br>This setting overrides the cluster-level [Cluster.config.kafka.kafka_config.log_flush_interval_messages](#Cluster2) setting on the topic level. 
-flush_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time in milliseconds that a message in the topic is kept in memory before flushed to disk. <br>This setting overrides the cluster-level [Cluster.config.kafka.kafka_config.log_flush_interval_ms](#Cluster2) setting on the topic level. 
-min_compaction_lag_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The minimum time in milliseconds a message will remain uncompacted in the log. 
-retention_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size a partition can grow to before Kafka will discard old log segments to free up space if the `delete` `cleanup_policy` is in effect. It is helpful if you need to control the size of log due to limited disk space. <br>This setting overrides the cluster-level [Cluster.config.kafka.kafka_config.log_retention_bytes](#Cluster2) setting on the topic level. 
-retention_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of milliseconds to keep a log segment's file before deleting it. <br>This setting overrides the cluster-level [Cluster.config.kafka.kafka_config.log_retention_ms](#Cluster2) setting on the topic level. 
+cleanup_policy | enum **CleanupPolicy**<br>Политика хранения старых сообщений лога. <ul><li>`CLEANUP_POLICY_DELETE`: Эта политика отбрасывает сегменты лога либо при истечении срока их хранения, либо при достижении предельного размера лога. <br>См. также описание [Cluster.config.kafka.kafka_config.log_retention_ms](#Cluster2) и других подобных параметров.</li><li>`CLEANUP_POLICY_COMPACT`: Эта политика сжимает сообщения в логе.</li><li>`CLEANUP_POLICY_COMPACT_AND_DELETE`: Эта политика использует как сжатие сообщений, так и удаление сегментов лога.</li><ul/>
+compression_type | enum **CompressionType**<br>Тип сжатия для указанного топика. <ul><li>`COMPRESSION_TYPE_UNCOMPRESSED`: Не использовать кодек (сообщения не сжимаются).</li><li>`COMPRESSION_TYPE_ZSTD`: Кодек Zstandard.</li><li>`COMPRESSION_TYPE_LZ4`: Кодек LZ4.</li><li>`COMPRESSION_TYPE_SNAPPY`: Кодек Snappy.</li><li>`COMPRESSION_TYPE_GZIP`: Кодек GZip.</li><li>`COMPRESSION_TYPE_PRODUCER`: Кодек задается на стороне производителя (допустимые кодеки: ZSTD`, `Формате LZ4`, `УТИЛИТА GZIP` or `SNAPPY`).</li><ul/>
+delete_retention_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Время (в миллисекундах), в течение которого нужно хранить tombstone-маркеры удаления для топиков со сжатым логом. 
+file_delete_delay_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Время ожидания перед удалением файла из файловой системы. 
+flush_messages | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Количество сообщений, которые должны быть накоплены в разделе прежде, чем эти сообщения будут сброшены на диск. <br>Эта настройка переопределяет на уровне топика настройку уровня кластера [Cluster.config.kafka.kafka_config.log_flush_interval_messages](#Cluster2). 
+flush_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Максимальное время (в миллисекундах), в течение которого сообщение в любом топике хранится в памяти перед сбросом на диск. <br>Эта настройка переопределяет на уровне топика настройку уровня кластера [Cluster.config.kafka.kafka_config.log_flush_interval_ms](#Cluster2). 
+min_compaction_lag_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Минимальное время в миллисекундах, в течение которого сообщение в логе будет оставаться несжатым. 
+retention_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Максимальный размер, до которого может вырасти раздел, прежде чем Kafka начнет отбрасывать старые сегменты лога, если действует настройка `delete` `cleanup_policy`. Эта настройка полезна, если вам необходимо контролировать размер лога из-за ограниченного дискового пространства. <br>Эта настройка переопределяет на уровне топика настройку уровня кластера [Cluster.config.kafka.kafka_config.log_retention_bytes](#Cluster2). 
+retention_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Количество миллисекунд до удаления файла сегмента лога; в течение этого времени Kafka будет хранить файл сегмента лога. <br>Эта настройка переопределяет на уровне топика настройку уровня кластера [Cluster.config.kafka.kafka_config.log_retention_ms](#Cluster2). 
 
 
 ### UserSpec {#UserSpec}
 
 Поле | Описание
 --- | ---
-name | **string**<br>Обязательное поле. Name of the Apache Kafka user. false Длина строки в символах должна быть от 1 до 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_]* `.
-password | **string**<br>Обязательное поле. Password of the Apache Kafka user. false Длина строки в символах должна быть от 8 до 128.
-permissions[] | **[Permission](#Permission)**<br>Set of permissions granted to the user. 
+name | **string**<br>Обязательное поле. Имя пользователя Apache Kafka. false Длина строки в символах должна быть от 1 до 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_]* `.
+password | **string**<br>Обязательное поле. Пароль пользователя Apache Kafka. false Длина строки в символах должна быть от 8 до 128.
+permissions[] | **[Permission](#Permission)**<br>Набор разрешений, предоставленных пользователю. 
 
 
 ### Permission {#Permission}
 
 Поле | Описание
 --- | ---
-topic_name | **string**<br>Name of the topic that the permission grants access to. <br>To get the topic name, make a [Topic.List](#Topic) request. 
-role | enum **AccessRole**<br>Access role type to grant to the user. <ul><li>`ACCESS_ROLE_PRODUCER`: Producer role for the user.</li><li>`ACCESS_ROLE_CONSUMER`: Consumer role for the user.</li><ul/>
+topic_name | **string**<br>Имя топика, к которому предоставляется доступ. <br>Чтобы получить имя топика, выполните запрос [Topic.List](#Topic). 
+role | enum **AccessRole**<br>Роль доступа, которую нужно предоставить пользователю. <ul><li>`ACCESS_ROLE_PRODUCER`: Роль пользователя — производитель.</li><li>`ACCESS_ROLE_CONSUMER`: Роль пользователя — потребитель.</li><ul/>
 
 
 ### Operation {#Operation}
@@ -286,30 +286,30 @@ result | **oneof:** `error` или `response`<br>Результат операц
 
 Поле | Описание
 --- | ---
-cluster_id | **string**<br>ID of the Apache Kafka cluster that is being created. 
+cluster_id | **string**<br>Идентификатор кластера Apache Kafka, который создается. 
 
 
 ### Cluster {#Cluster}
 
 Поле | Описание
 --- | ---
-id | **string**<br>ID of the Apache Kafka cluster. This ID is assigned by MDB at creation time. 
-folder_id | **string**<br>ID of the folder that the Apache Kafka cluster belongs to. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
-name | **string**<br>Name of the Apache Kafka cluster. The name must be unique within the folder. 1-63 characters long. 
-description | **string**<br>Description of the Apache Kafka cluster. 0-256 characters long. 
-labels | **map<string,string>**<br>Custom labels for the Apache Kafka cluster as `key:value` pairs. A maximum of 64 labels per resource is allowed. 
-environment | enum **Environment**<br>Deployment environment of the Apache Kafka cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with a more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring2)**<br>Description of monitoring systems relevant to the Apache Kafka cluster. 
-config | **[ConfigSpec](#ConfigSpec3)**<br>Configuration of the Apache Kafka cluster. 
-network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is in degraded state ([Host.health](#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li><ul/>
-status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+id | **string**<br>Идентификатор кластера Apache Kafka. Этот идентификатор генерирует MDB при создании кластера. 
+folder_id | **string**<br>Идентификатор каталога, которому принадлежит кластер. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания. 
+name | **string**<br>Имя кластера Apache Kafka. Имя должно быть уникальным в рамках каталога. Длина 1-63 символов. 
+description | **string**<br>Описание кластера Apache Kafka. Длина описания должна быть от 0 до 256 символов. 
+labels | **map<string,string>**<br>Пользовательские метки для кластера Apache Kafka в виде пар `key:value`. Максимум 64 на ресурс. 
+environment | enum **Environment**<br>Среда развертывания кластера Apache Kafka. <ul><li>`PRODUCTION`: Стабильная среда с осторожной политикой обновления: во время регулярного обслуживания применяются только срочные исправления.</li><li>`PRESTABLE`: Среда с более агрессивной политикой обновления: новые версии развертываются независимо от обратной совместимости.</li><ul/>
+monitoring[] | **[Monitoring](#Monitoring2)**<br>Описание систем мониторинга, относящихся к кластеру Apache Kafka. 
+config | **[ConfigSpec](#ConfigSpec3)**<br>Конфигурация кластера Apache Kafka. 
+network_id | **string**<br>Идентификатор сети, к которой принадлежит кластер. 
+health | enum **Health**<br>Здоровье кластера. <ul><li>`HEALTH_UNKNOWN`: Состояние кластера неизвестно ([Host.health](#Host) всех хостов в кластере — `UNKNOWN`).</li><li>`ALIVE`: Кластер работает нормально ([Host.health](#Host) всех хостов в кластере — `ALIVE`).</li><li>`DEAD`: Кластер не работает ([Host.health](#Host) всех хостов в кластере — `DEAD`).</li><li>`DEGRADED`: Кластер находится в состоянии деградации ([Host.health](#Host) по крайней мере одного из хостов в кластере — не `ALIVE`).</li><ul/>
+status | enum **Status**<br>Текущее состояние кластера. <ul><li>`STATUS_UNKNOWN`: Состояние кластера неизвестно.</li><li>`CREATING`: Кластер создается.</li><li>`RUNNING`: Кластер работает нормально.</li><li>`ERROR`: В кластере произошла ошибка, блокирующая работу.</li><li>`UPDATING`: Кластер изменяется.</li><li>`STOPPING`: Кластер останавливается.</li><li>`STOPPED`: Кластер остановлен.</li><li>`STARTING`: Кластер запускается.</li><ul/>
 
 
 ## Update {#Update}
 
-Updates the specified Apache Kafka cluster.
+Изменяет указанный кластер Apache Kafka.
 
 **rpc Update ([UpdateClusterRequest](#UpdateClusterRequest)) returns ([operation.Operation](#Operation1))**
 
@@ -321,40 +321,40 @@ Updates the specified Apache Kafka cluster.
 
 Поле | Описание
 --- | ---
-cluster_id | **string**<br>Обязательное поле. ID of the Apache Kafka cluster to update. <br>To get the Apache Kafka cluster ID, make a [ClusterService.List](#List) request. false Максимальная длина строки в символах — 50.
-update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the Apache Kafka cluster should be updated. <br>By default, this API method will replace all the values for the settings that are not present in `update_mask` list with the default ones. Pass the list of the settings to change in this parameter to prevent the method from doing so (use comma as a delimiter if you want to modify a few settings at once). 
-description | **string**<br>New description of the Apache Kafka cluster. Максимальная длина строки в символах — 256.
-labels | **map<string,string>**<br>Custom labels for the Apache Kafka cluster as `key:value` pairs. Maximum 64 per resource. <br>For example, "project": "mvp" or "source": "dictionary". <br>The new set of labels will completely replace the old ones. To add a label, request the current set with the [ClusterService.Get](#Get) method, then send an [ClusterService.Update](#Update) request with the new label added to the set. Не более 64 на ресурс. Максимальная длина строки в символах для каждого значения — 63. Каждое значение должно соответствовать регулярному выражению ` [-_0-9a-z]* `. Длина строки в символах для каждого ключа должна быть от 1 до 63. Каждый ключ должен соответствовать регулярному выражению ` [a-z][-_0-9a-z]* `.
-config_spec | **[ConfigSpec](#ConfigSpec3)**<br>New configuration and resources for hosts in the Apache Kafka cluster. <br>Use `update_mask` to prevent reverting all cluster settings that are not listed in `config_spec` to their default values. 
-name | **string**<br>New name for the Apache Kafka cluster. Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_-]* `.
+cluster_id | **string**<br>Обязательное поле. Идентификатор кластера Apache Kafka, который нужно изменить. <br>Чтобы получить идентификатор кластера Apache Kafka, выполните запрос [ClusterService.List](#List). false Максимальная длина строки в символах — 50.
+update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Маска, которая указывает, какие атрибуты кластера Apache Kafka должны быть изменены. <br>По умолчанию этот метод API заменит все значения параметров, которые отсутствуют в списке `update_mask`, значениями по умолчанию. Передайте список настроек для изменения в этом параметре, чтобы не допустить этого (используйте запятую в качестве разделителя, если вы хотите изменить сразу несколько настроек). 
+description | **string**<br>Новое описание кластера Apache Kafka. Максимальная длина строки в символах — 256.
+labels | **map<string,string>**<br>Пользовательские метки для кластера Apache Kafka в виде пар `key:value`. Максимум 64 на ресурс. <br>Например, "project": "mvp" или "source": "dictionary". <br>Новый набор меток полностью заменит старый. Чтобы добавить метку, запросите текущий набор меток с помощью метода [ClusterService.Get](#Get), затем отправьте запрос [ClusterService.Update](#Update), добавив новую метку в этот набор. Не более 64 на ресурс. Максимальная длина строки в символах для каждого значения — 63. Каждое значение должно соответствовать регулярному выражению ` [-_0-9a-z]* `. Длина строки в символах для каждого ключа должна быть от 1 до 63. Каждый ключ должен соответствовать регулярному выражению ` [a-z][-_0-9a-z]* `.
+config_spec | **[ConfigSpec](#ConfigSpec3)**<br>Новая конфигурация Kafka и хостов кластера. <br>Используйте параметр `update_mask` чтобы предотвратить сброс настроек кластера, не перечисленных в `config_spec`, на значения по умолчанию. 
+name | **string**<br>Новое имя кластера Apache Kafka. Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_-]* `.
 
 
 ### ConfigSpec {#ConfigSpec}
 
 Поле | Описание
 --- | ---
-version | **string**<br>Version of Apache Kafka used in the cluster. 
-kafka | **[Kafka](#Kafka3)**<br>Configuration and resource allocation for Apache Kafka brokers. 
-zookeeper | **[Zookeeper](#Zookeeper3)**<br>Configuration and resource allocation for ZooKeeper hosts. 
-zone_id[] | **string**<br>IDs of availability zones where Apache Kafka brokers reside. 
-brokers_count | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of Apache Kafka brokers deployed in each availability zone. 
-assign_public_ip | **bool**<br>The flag that defines whether a public IP address is assigned to the cluster. If the value is `true`, then Apache Kafka cluster is available on the Internet via it's public IP address. 
+version | **string**<br>Версия Apache Kafka, которая используется в кластере. 
+kafka | **[Kafka](#Kafka3)**<br>Конфигурация и распределение ресурсов для брокеров Apache Kafka. 
+zookeeper | **[Zookeeper](#Zookeeper3)**<br>Конфигурация и распределение ресурсов для хостов ZooKeeper. 
+zone_id[] | **string**<br>Идентификаторы зон доступности, в которых находятся брокеры Apache Kafka. 
+brokers_count | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Количество брокеров Apache Kafka, развернутых в каждой зоне доступности. 
+assign_public_ip | **bool**<br>Флаг, определяющий, назначен ли кластеру публичный IP-адрес. Если значение равно `true`, то кластер Apache Kafka доступен в Интернете через его публичный IP-адрес. 
 
 
 ### Kafka {#Kafka}
 
 Поле | Описание
 --- | ---
-resources | **[Resources](#Resources)**<br>Resources allocated to Apache Kafka brokers. 
-kafka_config | **oneof:** `kafka_config_2_1`<br>Apache Kafka broker configuration.
-&nbsp;&nbsp;kafka_config_2_1 | **[KafkaConfig2_1](#KafkaConfig2_1)**<br>Apache Kafka broker configuration. 
+resources | **[Resources](#Resources)**<br>Ресурсы, выделенные брокерам Apache Kafka. 
+kafka_config | **oneof:** `kafka_config_2_1`<br>Конфигурация брокера Apache Kafka.
+&nbsp;&nbsp;kafka_config_2_1 | **[KafkaConfig2_1](#KafkaConfig2_1)**<br>Конфигурация брокера Apache Kafka. 
 
 
 ### Zookeeper {#Zookeeper}
 
 Поле | Описание
 --- | ---
-resources | **[Resources](#Resources)**<br>Resources allocated to ZooKeeper hosts. 
+resources | **[Resources](#Resources)**<br>Ресурсы, выделенные хостам ZooKeeper. 
 
 
 ### Operation {#Operation}
@@ -377,30 +377,30 @@ result | **oneof:** `error` или `response`<br>Результат операц
 
 Поле | Описание
 --- | ---
-cluster_id | **string**<br>ID of the Apache Kafka cluster that is being updated. 
+cluster_id | **string**<br>Идентификатор кластера Apache Kafka, который изменяется. 
 
 
 ### Cluster {#Cluster}
 
 Поле | Описание
 --- | ---
-id | **string**<br>ID of the Apache Kafka cluster. This ID is assigned by MDB at creation time. 
-folder_id | **string**<br>ID of the folder that the Apache Kafka cluster belongs to. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
-name | **string**<br>Name of the Apache Kafka cluster. The name must be unique within the folder. 1-63 characters long. 
-description | **string**<br>Description of the Apache Kafka cluster. 0-256 characters long. 
-labels | **map<string,string>**<br>Custom labels for the Apache Kafka cluster as `key:value` pairs. A maximum of 64 labels per resource is allowed. 
-environment | enum **Environment**<br>Deployment environment of the Apache Kafka cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with a more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring2)**<br>Description of monitoring systems relevant to the Apache Kafka cluster. 
-config | **[ConfigSpec](#ConfigSpec4)**<br>Configuration of the Apache Kafka cluster. 
-network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is in degraded state ([Host.health](#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li><ul/>
-status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+id | **string**<br>Идентификатор кластера Apache Kafka. Этот идентификатор генерирует MDB при создании кластера. 
+folder_id | **string**<br>Идентификатор каталога, которому принадлежит кластер. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания. 
+name | **string**<br>Имя кластера Apache Kafka. Имя должно быть уникальным в рамках каталога. Длина 1-63 символов. 
+description | **string**<br>Описание кластера Apache Kafka. Длина описания должна быть от 0 до 256 символов. 
+labels | **map<string,string>**<br>Пользовательские метки для кластера Apache Kafka в виде пар `key:value`. Максимум 64 на ресурс. 
+environment | enum **Environment**<br>Среда развертывания кластера Apache Kafka. <ul><li>`PRODUCTION`: Стабильная среда с осторожной политикой обновления: во время регулярного обслуживания применяются только срочные исправления.</li><li>`PRESTABLE`: Среда с более агрессивной политикой обновления: новые версии развертываются независимо от обратной совместимости.</li><ul/>
+monitoring[] | **[Monitoring](#Monitoring2)**<br>Описание систем мониторинга, относящихся к кластеру Apache Kafka. 
+config | **[ConfigSpec](#ConfigSpec4)**<br>Конфигурация кластера Apache Kafka. 
+network_id | **string**<br>Идентификатор сети, к которой принадлежит кластер. 
+health | enum **Health**<br>Здоровье кластера. <ul><li>`HEALTH_UNKNOWN`: Состояние кластера неизвестно ([Host.health](#Host) всех хостов в кластере — `UNKNOWN`).</li><li>`ALIVE`: Кластер работает нормально ([Host.health](#Host) всех хостов в кластере — `ALIVE`).</li><li>`DEAD`: Кластер не работает ([Host.health](#Host) всех хостов в кластере — `DEAD`).</li><li>`DEGRADED`: Кластер находится в состоянии деградации ([Host.health](#Host) по крайней мере одного из хостов в кластере — не `ALIVE`).</li><ul/>
+status | enum **Status**<br>Текущее состояние кластера. <ul><li>`STATUS_UNKNOWN`: Состояние кластера неизвестно.</li><li>`CREATING`: Кластер создается.</li><li>`RUNNING`: Кластер работает нормально.</li><li>`ERROR`: В кластере произошла ошибка, блокирующая работу.</li><li>`UPDATING`: Кластер изменяется.</li><li>`STOPPING`: Кластер останавливается.</li><li>`STOPPED`: Кластер остановлен.</li><li>`STARTING`: Кластер запускается.</li><ul/>
 
 
 ## Delete {#Delete}
 
-Deletes the specified Apache Kafka cluster.
+Удаляет указанный кластер Apache Kafka.
 
 **rpc Delete ([DeleteClusterRequest](#DeleteClusterRequest)) returns ([operation.Operation](#Operation2))**
 
@@ -412,7 +412,7 @@ Deletes the specified Apache Kafka cluster.
 
 Поле | Описание
 --- | ---
-cluster_id | **string**<br>Обязательное поле. ID of the Apache Kafka cluster to delete. <br>To get the Apache Kafka cluster ID, make a [ClusterService.List](#List) request. false Максимальная длина строки в символах — 50.
+cluster_id | **string**<br>Обязательное поле. Идентификатор кластера Apache Kafka, который следует удалить. <br>Чтобы получить идентификатор кластера Apache Kafka, выполните запрос [ClusterService.List](#List). false Максимальная длина строки в символах — 50.
 
 
 ### Operation {#Operation}
@@ -435,12 +435,12 @@ result | **oneof:** `error` или `response`<br>Результат операц
 
 Поле | Описание
 --- | ---
-cluster_id | **string**<br>ID of the Apache Kafka cluster that is being deleted. 
+cluster_id | **string**<br>Идентификатор кластера Apache Kafka, который удаляется. 
 
 
 ## Move {#Move}
 
-Moves the specified Apache Kafka cluster to the specified folder.
+Перемещает кластер Apache Kafka в указанный каталог.
 
 **rpc Move ([MoveClusterRequest](#MoveClusterRequest)) returns ([operation.Operation](#Operation3))**
 
@@ -452,8 +452,8 @@ Moves the specified Apache Kafka cluster to the specified folder.
 
 Поле | Описание
 --- | ---
-cluster_id | **string**<br>Обязательное поле. ID of the Apache Kafka cluster to move. <br>To get the Apache Kafka cluster ID, make a [ClusterService.List](#List) request. false Максимальная длина строки в символах — 50.
-destination_folder_id | **string**<br>Обязательное поле. ID of the destination folder. false Максимальная длина строки в символах — 50.
+cluster_id | **string**<br>Обязательное поле. Идентификатор кластера Apache Kafka, который нужно переместить. <br>Чтобы получить идентификатор кластера Apache Kafka, выполните запрос [ClusterService.List](#List). false Максимальная длина строки в символах — 50.
+destination_folder_id | **string**<br>Обязательное поле. Идентификатор каталога, в который следует переместить кластер. false Максимальная длина строки в символах — 50.
 
 
 ### Operation {#Operation}
@@ -476,32 +476,32 @@ result | **oneof:** `error` или `response`<br>Результат операц
 
 Поле | Описание
 --- | ---
-cluster_id | **string**<br>ID of the Apache Kafka cluster being moved. 
-source_folder_id | **string**<br>ID of the source folder. 
-destination_folder_id | **string**<br>ID of the destnation folder. 
+cluster_id | **string**<br>Идентификатор перемещаемого кластера Apache Kafka. 
+source_folder_id | **string**<br>Идентификатор исходного каталога. 
+destination_folder_id | **string**<br>Идентификатор каталога назначения. 
 
 
 ### Cluster {#Cluster}
 
 Поле | Описание
 --- | ---
-id | **string**<br>ID of the Apache Kafka cluster. This ID is assigned by MDB at creation time. 
-folder_id | **string**<br>ID of the folder that the Apache Kafka cluster belongs to. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
-name | **string**<br>Name of the Apache Kafka cluster. The name must be unique within the folder. 1-63 characters long. 
-description | **string**<br>Description of the Apache Kafka cluster. 0-256 characters long. 
-labels | **map<string,string>**<br>Custom labels for the Apache Kafka cluster as `key:value` pairs. A maximum of 64 labels per resource is allowed. 
-environment | enum **Environment**<br>Deployment environment of the Apache Kafka cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with a more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring2)**<br>Description of monitoring systems relevant to the Apache Kafka cluster. 
-config | **[ConfigSpec](#ConfigSpec4)**<br>Configuration of the Apache Kafka cluster. 
-network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is in degraded state ([Host.health](#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li><ul/>
-status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+id | **string**<br>Идентификатор кластера Apache Kafka. Этот идентификатор генерирует MDB при создании кластера. 
+folder_id | **string**<br>Идентификатор каталога, которому принадлежит кластер. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания. 
+name | **string**<br>Имя кластера Apache Kafka. Имя должно быть уникальным в рамках каталога. Длина 1-63 символов. 
+description | **string**<br>Описание кластера Apache Kafka. Длина описания должна быть от 0 до 256 символов. 
+labels | **map<string,string>**<br>Пользовательские метки для кластера Apache Kafka в виде пар `key:value`. Максимум 64 на ресурс. 
+environment | enum **Environment**<br>Среда развертывания кластера Apache Kafka. <ul><li>`PRODUCTION`: Стабильная среда с осторожной политикой обновления: во время регулярного обслуживания применяются только срочные исправления.</li><li>`PRESTABLE`: Среда с более агрессивной политикой обновления: новые версии развертываются независимо от обратной совместимости.</li><ul/>
+monitoring[] | **[Monitoring](#Monitoring2)**<br>Описание систем мониторинга, относящихся к кластеру Apache Kafka. 
+config | **[ConfigSpec](#ConfigSpec4)**<br>Конфигурация кластера Apache Kafka. 
+network_id | **string**<br>Идентификатор сети, к которой принадлежит кластер. 
+health | enum **Health**<br>Здоровье кластера. <ul><li>`HEALTH_UNKNOWN`: Состояние кластера неизвестно ([Host.health](#Host) всех хостов в кластере — `UNKNOWN`).</li><li>`ALIVE`: Кластер работает нормально ([Host.health](#Host) всех хостов в кластере — `ALIVE`).</li><li>`DEAD`: Кластер не работает ([Host.health](#Host) всех хостов в кластере — `DEAD`).</li><li>`DEGRADED`: Кластер находится в состоянии деградации ([Host.health](#Host) по крайней мере одного из хостов в кластере — не `ALIVE`).</li><ul/>
+status | enum **Status**<br>Текущее состояние кластера. <ul><li>`STATUS_UNKNOWN`: Состояние кластера неизвестно.</li><li>`CREATING`: Кластер создается.</li><li>`RUNNING`: Кластер работает нормально.</li><li>`ERROR`: В кластере произошла ошибка, блокирующая работу.</li><li>`UPDATING`: Кластер изменяется.</li><li>`STOPPING`: Кластер останавливается.</li><li>`STOPPED`: Кластер остановлен.</li><li>`STARTING`: Кластер запускается.</li><ul/>
 
 
 ## Start {#Start}
 
-Starts the specified Apache Kafka cluster.
+Запускает указанный кластер Apache Kafka.
 
 **rpc Start ([StartClusterRequest](#StartClusterRequest)) returns ([operation.Operation](#Operation4))**
 
@@ -513,7 +513,7 @@ Starts the specified Apache Kafka cluster.
 
 Поле | Описание
 --- | ---
-cluster_id | **string**<br>Обязательное поле. ID of the Apache Kafka cluster to start. <br>To get the Apache Kafka cluster ID, make a [ClusterService.List](#List) request. false Максимальная длина строки в символах — 50.
+cluster_id | **string**<br>Обязательное поле. Идентификатор кластера Apache Kafka, который нужно запустить. <br>Чтобы получить идентификатор кластера Apache Kafka, выполните запрос [ClusterService.List](#List). false Максимальная длина строки в символах — 50.
 
 
 ### Operation {#Operation}
@@ -536,30 +536,30 @@ result | **oneof:** `error` или `response`<br>Результат операц
 
 Поле | Описание
 --- | ---
-cluster_id | **string**<br>ID of the Apache Kafka cluster. 
+cluster_id | **string**<br>Идентификатор кластера Apache Kafka. 
 
 
 ### Cluster {#Cluster}
 
 Поле | Описание
 --- | ---
-id | **string**<br>ID of the Apache Kafka cluster. This ID is assigned by MDB at creation time. 
-folder_id | **string**<br>ID of the folder that the Apache Kafka cluster belongs to. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
-name | **string**<br>Name of the Apache Kafka cluster. The name must be unique within the folder. 1-63 characters long. 
-description | **string**<br>Description of the Apache Kafka cluster. 0-256 characters long. 
-labels | **map<string,string>**<br>Custom labels for the Apache Kafka cluster as `key:value` pairs. A maximum of 64 labels per resource is allowed. 
-environment | enum **Environment**<br>Deployment environment of the Apache Kafka cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with a more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring2)**<br>Description of monitoring systems relevant to the Apache Kafka cluster. 
-config | **[ConfigSpec](#ConfigSpec4)**<br>Configuration of the Apache Kafka cluster. 
-network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is in degraded state ([Host.health](#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li><ul/>
-status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+id | **string**<br>Идентификатор кластера Apache Kafka. Этот идентификатор генерирует MDB при создании кластера. 
+folder_id | **string**<br>Идентификатор каталога, которому принадлежит кластер. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания. 
+name | **string**<br>Имя кластера Apache Kafka. Имя должно быть уникальным в рамках каталога. Длина 1-63 символов. 
+description | **string**<br>Описание кластера Apache Kafka. Длина описания должна быть от 0 до 256 символов. 
+labels | **map<string,string>**<br>Пользовательские метки для кластера Apache Kafka в виде пар `key:value`. Максимум 64 на ресурс. 
+environment | enum **Environment**<br>Среда развертывания кластера Apache Kafka. <ul><li>`PRODUCTION`: Стабильная среда с осторожной политикой обновления: во время регулярного обслуживания применяются только срочные исправления.</li><li>`PRESTABLE`: Среда с более агрессивной политикой обновления: новые версии развертываются независимо от обратной совместимости.</li><ul/>
+monitoring[] | **[Monitoring](#Monitoring2)**<br>Описание систем мониторинга, относящихся к кластеру Apache Kafka. 
+config | **[ConfigSpec](#ConfigSpec4)**<br>Конфигурация кластера Apache Kafka. 
+network_id | **string**<br>Идентификатор сети, к которой принадлежит кластер. 
+health | enum **Health**<br>Здоровье кластера. <ul><li>`HEALTH_UNKNOWN`: Состояние кластера неизвестно ([Host.health](#Host) всех хостов в кластере — `UNKNOWN`).</li><li>`ALIVE`: Кластер работает нормально ([Host.health](#Host) всех хостов в кластере — `ALIVE`).</li><li>`DEAD`: Кластер не работает ([Host.health](#Host) всех хостов в кластере — `DEAD`).</li><li>`DEGRADED`: Кластер находится в состоянии деградации ([Host.health](#Host) по крайней мере одного из хостов в кластере — не `ALIVE`).</li><ul/>
+status | enum **Status**<br>Текущее состояние кластера. <ul><li>`STATUS_UNKNOWN`: Состояние кластера неизвестно.</li><li>`CREATING`: Кластер создается.</li><li>`RUNNING`: Кластер работает нормально.</li><li>`ERROR`: В кластере произошла ошибка, блокирующая работу.</li><li>`UPDATING`: Кластер изменяется.</li><li>`STOPPING`: Кластер останавливается.</li><li>`STOPPED`: Кластер остановлен.</li><li>`STARTING`: Кластер запускается.</li><ul/>
 
 
 ## Stop {#Stop}
 
-Stops the specified Apache Kafka cluster.
+Останавливает указанный кластер Apache Kafka.
 
 **rpc Stop ([StopClusterRequest](#StopClusterRequest)) returns ([operation.Operation](#Operation5))**
 
@@ -571,7 +571,7 @@ Stops the specified Apache Kafka cluster.
 
 Поле | Описание
 --- | ---
-cluster_id | **string**<br>Обязательное поле. ID of the Apache Kafka cluster to stop. <br>To get the Apache Kafka cluster ID, make a [ClusterService.List](#List) request. false Максимальная длина строки в символах — 50.
+cluster_id | **string**<br>Обязательное поле. Идентификатор кластера Apache Kafka, который нужно остановить. <br>Чтобы получить идентификатор кластера Apache Kafka, выполните запрос [ClusterService.List](#List). false Максимальная длина строки в символах — 50.
 
 
 ### Operation {#Operation}
@@ -594,30 +594,30 @@ result | **oneof:** `error` или `response`<br>Результат операц
 
 Поле | Описание
 --- | ---
-cluster_id | **string**<br>ID of the Apache Kafka cluster. 
+cluster_id | **string**<br>Идентификатор кластера Apache Kafka. 
 
 
 ### Cluster {#Cluster}
 
 Поле | Описание
 --- | ---
-id | **string**<br>ID of the Apache Kafka cluster. This ID is assigned by MDB at creation time. 
-folder_id | **string**<br>ID of the folder that the Apache Kafka cluster belongs to. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
-name | **string**<br>Name of the Apache Kafka cluster. The name must be unique within the folder. 1-63 characters long. 
-description | **string**<br>Description of the Apache Kafka cluster. 0-256 characters long. 
-labels | **map<string,string>**<br>Custom labels for the Apache Kafka cluster as `key:value` pairs. A maximum of 64 labels per resource is allowed. 
-environment | enum **Environment**<br>Deployment environment of the Apache Kafka cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with a more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring2)**<br>Description of monitoring systems relevant to the Apache Kafka cluster. 
-config | **[ConfigSpec](#ConfigSpec4)**<br>Configuration of the Apache Kafka cluster. 
-network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is in degraded state ([Host.health](#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li><ul/>
-status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+id | **string**<br>Идентификатор кластера Apache Kafka. Этот идентификатор генерирует MDB при создании кластера. 
+folder_id | **string**<br>Идентификатор каталога, которому принадлежит кластер. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания. 
+name | **string**<br>Имя кластера Apache Kafka. Имя должно быть уникальным в рамках каталога. Длина 1-63 символов. 
+description | **string**<br>Описание кластера Apache Kafka. Длина описания должна быть от 0 до 256 символов. 
+labels | **map<string,string>**<br>Пользовательские метки для кластера Apache Kafka в виде пар `key:value`. Максимум 64 на ресурс. 
+environment | enum **Environment**<br>Среда развертывания кластера Apache Kafka. <ul><li>`PRODUCTION`: Стабильная среда с осторожной политикой обновления: во время регулярного обслуживания применяются только срочные исправления.</li><li>`PRESTABLE`: Среда с более агрессивной политикой обновления: новые версии развертываются независимо от обратной совместимости.</li><ul/>
+monitoring[] | **[Monitoring](#Monitoring2)**<br>Описание систем мониторинга, относящихся к кластеру Apache Kafka. 
+config | **[ConfigSpec](#ConfigSpec4)**<br>Конфигурация кластера Apache Kafka. 
+network_id | **string**<br>Идентификатор сети, к которой принадлежит кластер. 
+health | enum **Health**<br>Здоровье кластера. <ul><li>`HEALTH_UNKNOWN`: Состояние кластера неизвестно ([Host.health](#Host) всех хостов в кластере — `UNKNOWN`).</li><li>`ALIVE`: Кластер работает нормально ([Host.health](#Host) всех хостов в кластере — `ALIVE`).</li><li>`DEAD`: Кластер не работает ([Host.health](#Host) всех хостов в кластере — `DEAD`).</li><li>`DEGRADED`: Кластер находится в состоянии деградации ([Host.health](#Host) по крайней мере одного из хостов в кластере — не `ALIVE`).</li><ul/>
+status | enum **Status**<br>Текущее состояние кластера. <ul><li>`STATUS_UNKNOWN`: Состояние кластера неизвестно.</li><li>`CREATING`: Кластер создается.</li><li>`RUNNING`: Кластер работает нормально.</li><li>`ERROR`: В кластере произошла ошибка, блокирующая работу.</li><li>`UPDATING`: Кластер изменяется.</li><li>`STOPPING`: Кластер останавливается.</li><li>`STOPPED`: Кластер остановлен.</li><li>`STARTING`: Кластер запускается.</li><ul/>
 
 
 ## ListLogs {#ListLogs}
 
-Retrieves logs for the specified Apache Kafka cluster. For more information about logs, see the [Logs](/docs/managed-kafka/operations/cluster-logs) section in the documentation.
+Получает логи для указанного кластера Apache Kafka. Дополнительные сведения о логах см. в разделе [Просмотр логов кластера](/docs/managed-kafka/operations/cluster-logs) документации.
 
 **rpc ListLogs ([ListClusterLogsRequest](#ListClusterLogsRequest)) returns ([ListClusterLogsResponse](#ListClusterLogsResponse))**
 
@@ -625,35 +625,35 @@ Retrieves logs for the specified Apache Kafka cluster. For more information abou
 
 Поле | Описание
 --- | ---
-cluster_id | **string**<br>Обязательное поле. ID of the Apache Kafka cluster to request logs for. <br>To get the Apache Kafka cluster ID, make a [ClusterService.List](#List) request. false Максимальная длина строки в символах — 50.
-column_filter[] | **string**<br>Columns from the logs table to request. <br>If no columns are specified, full log records are returned. 
-from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Start timestamp for the logs request, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format. 
-to_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>End timestamp for the logs request, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format. 
-page_size | **int64**<br>The maximum number of results per page to return. <br>If the number of available results is larger than `page_size`, the service returns a [ListClusterLogsResponse.next_page_token](#ListClusterLogsResponse) that can be used to get the next page of results in subsequent list requests. Максимальное значение — 1000.
-page_token | **string**<br>Page token. <br>To get the next page of results, set `page_token` to the [ListClusterLogsResponse.next_page_token](#ListClusterLogsResponse) returned by a previous list request. Максимальная длина строки в символах — 100.
-always_next_page_token | **bool**<br>The flag that defines behavior of providing the next page token. <br>If this flag is set to `true`, this API method will always return `next_page_token`, even if current page is empty. 
-filter | **string**<br><ol><li>The field name to filter by. Currently filtering can be applied to the [LogRecord.logs.message.hostname](#LogRecord) field. </li><li>A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 1-63 characters long and match the regular expression `^[a-z0-9.-]{1,61}$`. </li></ol> Максимальная длина строки в символах — 1000.
+cluster_id | **string**<br>Обязательное поле. Идентификатор кластера Apache Kafka, для которого нужно получить логи. <br>Чтобы получить идентификатор кластера Apache Kafka, выполните запрос [ClusterService.List](#List). false Максимальная длина строки в символах — 50.
+column_filter[] | **string**<br>Столбцы, которые нужно запросить из лога. <br>Если столбцы не указаны, записи логов возвращаются целиком. 
+from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Временная метка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt), начиная с которой следует запросить логи. 
+to_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Временная метка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt), до которой следует запросить логи. 
+page_size | **int64**<br>Максимальное количество результатов на одной странице в ответе. <br>Если количество результатов больше чем `page_size`, сервис вернет значение [ListClusterLogsResponse.next_page_token](#ListClusterLogsResponse), которое можно использовать для получения следующей страницы. Максимальное значение — 1000.
+page_token | **string**<br>Токен страницы. <br>Установите значение `page_token` равным значению поля [ListClusterLogsResponse.next_page_token](#ListClusterLogsResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
+always_next_page_token | **bool**<br>Флаг, определяющий поведение при предоставлении маркера следующей страницы. <br>Если этот флаг установлен в `true`, этот метод API всегда будет возвращать `next_page_token`, даже если текущая страница пуста. 
+filter | **string**<br><ol><li>Имя поля, по которому нужно выполнить фильтрацию. В настоящее время фильтрацию можно использовать только по полю [LogRecord.logs.message.hostname](#LogRecord). </li><li>Условный оператор. Поддерживаются операторы `=` и `!=` для одиночных значений, `IN` и `NOT IN` для списков значений. </li><li>Значение. Должно содержать от 1 до 63 символов и соответствовать регулярному выражению `^[a-z0-9.-]{1,61}$`. </li></ol> Максимальная длина строки в символах — 1000.
 
 
 ### ListClusterLogsResponse {#ListClusterLogsResponse}
 
 Поле | Описание
 --- | ---
-logs[] | **[LogRecord](#LogRecord)**<br>Requested log records. 
-next_page_token | **string**<br>Token that allows you to get the next page of results for list requests. <br>If the number of results is larger than [ListClusterLogsRequest.page_size](#ListClusterLogsRequest1), use `next_page_token` as the value for the [ListClusterLogsRequest.page_token](#ListClusterLogsRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. This value is interchangeable with `next_record_token` from StreamLogs method. 
+logs[] | **[LogRecord](#LogRecord)**<br>Запрошенные записи в логе. 
+next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. <br>Если количество результатов больше чем [ListClusterLogsRequest.page_size](#ListClusterLogsRequest1), используйте `next_page_token` в качестве значения параметра [ListClusterLogsRequest.page_token](#ListClusterLogsRequest1) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. Это значение взаимозаменяемо с `next_record_token` из метода StreamLogs. 
 
 
 ### LogRecord {#LogRecord}
 
 Поле | Описание
 --- | ---
-timestamp | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Log record timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format. 
-message | **map<string,string>**<br>Contents of the log record. 
+timestamp | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Временная метка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) для записи в логе. 
+message | **map<string,string>**<br>Содержимое записи в логе. 
 
 
 ## StreamLogs {#StreamLogs}
 
-Same as [ListLogs](#ListLogs) but using server-side streaming. Also allows for 'tail -f' semantics.
+То же самое, что [ListLogs](#ListLogs), с той разницей, что со стороны сервера передается поток логов. Допускается использовать семантику 'tail-f' при работе с потоком логов.
 
 **rpc StreamLogs ([StreamClusterLogsRequest](#StreamClusterLogsRequest)) returns (stream [StreamLogRecord](#StreamLogRecord))**
 
@@ -661,33 +661,33 @@ Same as [ListLogs](#ListLogs) but using server-side streaming. Also allows for '
 
 Поле | Описание
 --- | ---
-cluster_id | **string**<br>Обязательное поле. ID of the Kafka cluster. <br>To get the Apache Kafka cluster ID, make a [ClusterService.List](#List) request. false Максимальная длина строки в символах — 50.
-column_filter[] | **string**<br>Columns from logs table to get in the response. <br>If no columns are specified, full log records are returned. 
-from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Start timestamp for the logs request, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format. 
-to_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>End timestamp for the logs request, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format. <br>If this field is not set, all existing logs will be sent and then the new ones as they appear. In essence it has 'tail -f' semantics. 
-record_token | **string**<br>Record token. <br>Set `record_token` to the `next_record_token` returned by a previous [ClusterService.StreamLogs](#StreamLogs) request to start streaming from next log record. Максимальная длина строки в символах — 100.
-filter | **string**<br><ol><li>The field name to filter by. Currently filtering can be applied to the [LogRecord.logs.hostname](#LogRecord1) field. </li><li>A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. </li></ol> Максимальная длина строки в символах — 1000.
+cluster_id | **string**<br>Обязательное поле. Идентификатор кластера Apache Kafka. <br>Чтобы получить идентификатор кластера Apache Kafka, выполните запрос [ClusterService.List](#List). false Максимальная длина строки в символах — 50.
+column_filter[] | **string**<br>Столбцы, которые нужно запросить из лога. <br>Если столбцы не указаны, записи логов возвращаются целиком. 
+from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Временная метка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt), начиная с которой следует запросить логи. 
+to_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Временная метка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt), до которой следует запросить логи. <br>Если значение этого поля не задано, то будут отправлены все существующие записи в логе, а затем и новые по мере их появления. В сущности, это эквивалентно семантике 'tail -f'. 
+record_token | **string**<br>Токен записи. <br>Задайте значение `record_token` равным значению `next_record_token`, возвращенному предыдущим запросом [ClusterService.StreamLogs](#StreamLogs) чтобы продолжить стриминг со следующей записи в логе. Максимальная длина строки в символах — 100.
+filter | **string**<br><ol><li>Имя поля, по которому нужно выполнить фильтрацию. В настоящее время фильтрацию можно использовать только по полю [LogRecord.logs.hostname](#LogRecord1). </li><li>Условный оператор. Поддерживаются операторы `=` и `!=` для одиночных значений, `IN` и `NOT IN` для списков значений. </li><li>Значение. Должно содержать от 3 до 63 символов и соответствовать регулярному выражению `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. </li></ol> Максимальная длина строки в символах — 1000.
 
 
 ### StreamLogRecord {#StreamLogRecord}
 
 Поле | Описание
 --- | ---
-record | **[LogRecord](#LogRecord1)**<br>One of the requested log records. 
-next_record_token | **string**<br>This token allows you to continue streaming logs starting from the exact same record. To continue streaming, specify value of `next_record_token` as value for `record_token` parameter in the next StreamLogs request. This value is interchangeable with `next_page_token` from ListLogs method. 
+record | **[LogRecord](#LogRecord1)**<br>Одна из запрошенных записей в логе. 
+next_record_token | **string**<br>Этот токен позволяет продолжить работу с потоком логов, начиная с этой записи. Чтобы продолжить работу с потоком, укажите значение `next_record_token` в качестве значения параметра `record_token` в следующем запросе StreamLogs. Это значение взаимозаменяемо с `next_page_token` из метода ListLogs. 
 
 
 ### LogRecord {#LogRecord}
 
 Поле | Описание
 --- | ---
-timestamp | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Log record timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format. 
-message | **map<string,string>**<br>Contents of the log record. 
+timestamp | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Временная метка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) для записи в логе. 
+message | **map<string,string>**<br>Содержимое записи в логе. 
 
 
 ## ListOperations {#ListOperations}
 
-Retrieves the list of operations for the specified Apache Kafka cluster.
+Получает список операций для указанного кластера Apache Kafka.
 
 **rpc ListOperations ([ListClusterOperationsRequest](#ListClusterOperationsRequest)) returns ([ListClusterOperationsResponse](#ListClusterOperationsResponse))**
 
@@ -695,17 +695,17 @@ Retrieves the list of operations for the specified Apache Kafka cluster.
 
 Поле | Описание
 --- | ---
-cluster_id | **string**<br>Обязательное поле. ID of the Apache Kafka cluster to list operations for. false Максимальная длина строки в символах — 50.
-page_size | **int64**<br>The maximum number of results per page to return. <br>If the number of available results is larger than `page_size`, the service returns a [ListClusterOperationsResponse.next_page_token](#ListClusterOperationsResponse) that can be used to get the next page of results in subsequent list requests. Максимальное значение — 1000.
-page_token | **string**<br>Page token. <br>To get the next page of results, set `page_token` to the [ListClusterOperationsResponse.next_page_token](#ListClusterOperationsResponse) returned by a previous list request. Максимальная длина строки в символах — 100.
+cluster_id | **string**<br>Обязательное поле. Идентификатор кластера Apache Kafka, для которого нужно получить список операций. false Максимальная длина строки в символах — 50.
+page_size | **int64**<br>Максимальное количество результатов на одной странице в ответе. <br>Если количество результатов больше чем `page_size`, сервис вернет значение [ListClusterOperationsResponse.next_page_token](#ListClusterOperationsResponse), которое можно использовать для получения следующей страницы. Максимальное значение — 1000.
+page_token | **string**<br>Токен страницы. <br>Установите значение `page_token` равным значению поля [ListClusterOperationsResponse.next_page_token](#ListClusterOperationsResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
 
 
 ### ListClusterOperationsResponse {#ListClusterOperationsResponse}
 
 Поле | Описание
 --- | ---
-operations[] | **[operation.Operation](#Operation6)**<br>List of operations for the specified Apache Kafka cluster. 
-next_page_token | **string**<br>Token that allows you to get the next page of results for list requests. <br>If the number of results is larger than [ListClusterOperationsRequest.page_size](#ListClusterOperationsRequest1), use `next_page_token` as the value for the [ListClusterOperationsRequest.page_token](#ListClusterOperationsRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+operations[] | **[operation.Operation](#Operation6)**<br>Получает список операций для указанного кластера Apache Kafka. 
+next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. <br>Если количество результатов больше чем [ListClusterOperationsRequest.page_size](#ListClusterOperationsRequest1), используйте `next_page_token` в качестве значения параметра [ListClusterOperationsRequest.page_token](#ListClusterOperationsRequest1) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
 
 
 ### Operation {#Operation}
@@ -726,7 +726,7 @@ result | **oneof:** `error` или `response`<br>Результат операц
 
 ## ListHosts {#ListHosts}
 
-Retrieves a list of hosts for the specified Apache Kafka cluster.
+Получает список хостов для указанного кластера Apache Kafka.
 
 **rpc ListHosts ([ListClusterHostsRequest](#ListClusterHostsRequest)) returns ([ListClusterHostsResponse](#ListClusterHostsResponse))**
 
@@ -734,39 +734,39 @@ Retrieves a list of hosts for the specified Apache Kafka cluster.
 
 Поле | Описание
 --- | ---
-cluster_id | **string**<br>Обязательное поле. ID of the Apache Kafka cluster. <br>To get the Apache Kafka cluster ID, make a [ClusterService.List](#List) request. false Максимальная длина строки в символах — 50.
-page_size | **int64**<br>The maximum number of results per page to return. <br>If the number of available results is larger than `page_size`, the service returns a [ListClusterHostsResponse.next_page_token](#ListClusterHostsResponse) that can be used to get the next page of results in subsequent list requests. Максимальное значение — 1000.
-page_token | **string**<br>Page token. <br>To get the next page of results, set `page_token` to the [ListClusterHostsResponse.next_page_token](#ListClusterHostsResponse) returned by a previous list request. Максимальная длина строки в символах — 100.
+cluster_id | **string**<br>Обязательное поле. Идентификатор кластера Apache Kafka. <br>Чтобы получить идентификатор кластера Apache Kafka, выполните запрос [ClusterService.List](#List). false Максимальная длина строки в символах — 50.
+page_size | **int64**<br>Максимальное количество результатов на одной странице в ответе. <br>Если количество результатов больше чем `page_size`, сервис вернет значение [ListClusterHostsResponse.next_page_token](#ListClusterHostsResponse), которое можно использовать для получения следующей страницы. Максимальное значение — 1000.
+page_token | **string**<br>Токен страницы. <br>Установите значение `page_token` равным значению поля [ListClusterHostsResponse.next_page_token](#ListClusterHostsResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
 
 
 ### ListClusterHostsResponse {#ListClusterHostsResponse}
 
 Поле | Описание
 --- | ---
-hosts[] | **[Host](#Host)**<br>List of hosts. 
-next_page_token | **string**<br>Token that allows you to get the next page of results for list requests. <br>If the number of results is larger than [ListClusterHostsRequest.page_size](#ListClusterHostsRequest1), use the `next_page_token` as the value for the [ListClusterHostsRequest.page_token](#ListClusterHostsRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+hosts[] | **[Host](#Host)**<br>Список хостов. 
+next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. <br>Если количество результатов больше чем [ListClusterHostsRequest.page_size](#ListClusterHostsRequest1), используйте `next_page_token` в качестве значения параметра [ListClusterHostsRequest.page_token](#ListClusterHostsRequest1) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
 
 
 ### Host {#Host}
 
 Поле | Описание
 --- | ---
-name | **string**<br>Name of the host. 
-cluster_id | **string**<br>ID of the Apache Kafka cluster. 
-zone_id | **string**<br>ID of the availability zone where the host resides. 
-role | enum **Role**<br>Host role. <ul><li>`KAFKA`: The host is a Kafka broker.</li><li>`ZOOKEEPER`: The host is a ZooKeeper server.</li><ul/>
-resources | **[Resources](#Resources)**<br>Resources allocated to the host. 
-health | enum **Health**<br>Aggregated host health data. <ul><li>`UNKNOWN`: Health of the host is unknown.</li><li>`ALIVE`: The host is performing all its functions normally.</li><li>`DEAD`: The host is inoperable and cannot perform any of its essential functions.</li><li>`DEGRADED`: The host is degraded and can perform only some of its essential functions.</li><ul/>
-subnet_id | **string**<br>ID of the subnet the host resides in. 
-assign_public_ip | **bool**<br>The flag that defines whether a public IP address is assigned to the node. <br>If the value is `true`, then this node is available on the Internet via it's public IP address. 
+name | **string**<br>Имя хоста. 
+cluster_id | **string**<br>Идентификатор кластера Apache Kafka. 
+zone_id | **string**<br>Идентификатор зоны доступности, в которой находится хост. 
+role | enum **Role**<br>Роль хоста. <ul><li>`KAFKA`: Хост — брокер Kafka.</li><li>`ZOOKEEPER`: Хост — сервер ZooKeeper.</li><ul/>
+resources | **[Resources](#Resources)**<br>Ресурсы, выделенные хосту. 
+health | enum **Health**<br>Агрегированные данные о работоспособности хоста. <ul><li>`UNKNOWN`: Состояние хоста неизвестно.</li><li>`ALIVE`: Хост работает и выполняет все свои функции.</li><li>`DEAD`: Хост не работает и не выполняет свои функции.</li><li>`DEGRADED`: Хост находится в состоянии деградации и может выполнять только некоторые свои функции.</li><ul/>
+subnet_id | **string**<br>Идентификатор подсети, в которой находится хост. 
+assign_public_ip | **bool**<br>Флаг, определяющий, назначен ли хосту публичный IP-адрес. <br>Если значение равно `true`, то этот хост доступен в Интернете через его публичный IP-адрес. 
 
 
 ### Resources {#Resources}
 
 Поле | Описание
 --- | ---
-resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory, etc.). All available presets are listed in the [documentation](/docs/managed-kafka/concepts/instance-types). 
-disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
-disk_type_id | **string**<br>Type of the storage environment for the host. 
+resource_preset_id | **string**<br>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в [документации](/docs/managed-kafka/concepts/instance-types). 
+disk_size | **int64**<br>Объем хранилища, доступного хосту, в байтах. 
+disk_type_id | **string**<br>Тип хранилища для хоста. 
 
 

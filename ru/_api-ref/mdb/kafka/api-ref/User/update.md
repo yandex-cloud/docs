@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Метод update
-Updates the specified Apache Kafka user.
+Изменяет указанного пользователя Apache Kafka.
  
 
  
@@ -16,8 +16,8 @@ PATCH https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/{clusterId}/use
  
 Параметр | Описание
 --- | ---
-clusterId | Обязательное поле. ID of the Apache Kafka cluster the user belongs to.  To get the cluster ID, make a [list](/docs/managed-kafka/api-ref/Cluster/list) request.  Максимальная длина строки в символах — 50.
-userName | Обязательное поле. Required. Name of the user to be updated.  To get the name of the user, make a [list](/docs/managed-kafka/api-ref/User/list) request.  Длина строки в символах должна быть от 1 до 63. Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_]* ``.
+clusterId | Обязательное поле. Идентификатор кластера Apache Kafka, к которому принадлежит пользователь.  Чтобы получить идентификатор кластера, выполните запрос [list](/docs/managed-kafka/api-ref/Cluster/list).  Максимальная длина строки в символах — 50.
+userName | Обязательное поле. Обязательное поле. Имя пользователя, которого следует изменить.  Чтобы получить имя пользователя, выполните запрос [list](/docs/managed-kafka/api-ref/User/list).  Длина строки в символах должна быть от 1 до 63. Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_]* ``.
  
 ## Параметры в теле запроса {#body_params}
  
@@ -37,11 +37,11 @@ userName | Обязательное поле. Required. Name of the user to be u
  
 Поле | Описание
 --- | ---
-updateMask | **string**<br><p>Field mask that specifies which fields of the Apache Kafka user should be updated.</p> <p>By default, this API method will replace all the values for the settings that are not present in <code>update_mask</code> list with the default ones. Pass the list of the settings to change in this parameter to prevent the method from doing so (use comma as a delimiter if you want to modify a few settings at once).</p> <p>Имена всех обновляемых полей, разделенные запятыми. Только значения указанных полей будут изменены. Остальные останутся нетронутыми. Если поле указано в параметре <code>updateMask</code> и в запросе не было отправлено значение для этого поля, значение поля будет сброшено на значение по умолчанию. Значение по умолчанию для большинства полей — null или 0.</p> <p>Если в запросе не передается <code>updateMask</code>, значения всех полей будут обновлены. Для полей, указанных в запросе, будут использованы переданные значения. Значения остальных полей будут сброшены на значения по умолчанию.</p> 
-password | **string**<br><p>New password for the user.</p> <p>Длина строки в символах должна быть от 8 до 128.</p> 
-permissions[] | **object**<br><p>New set of permissions for the user.</p> 
-permissions[].<br>topicName | **string**<br><p>Name of the topic that the permission grants access to.</p> <p>To get the topic name, make a [Topic.List] request.</p> 
-permissions[].<br>role | **string**<br><p>Access role type to grant to the user.</p> <ul> <li>ACCESS_ROLE_PRODUCER: Producer role for the user.</li> <li>ACCESS_ROLE_CONSUMER: Consumer role for the user.</li> </ul> 
+updateMask | **string**<br><p>Маска, которая указывает, какие атрибуты пользователя Apache Kafka должны быть изменены.</p> <p>По умолчанию этот метод API заменит все значения параметров, которые отсутствуют в списке <code>update_mask</code>, значениями по умолчанию. Передайте список настроек для изменения в этом параметре, чтобы не допустить этого (используйте запятую в качестве разделителя, если вы хотите изменить сразу несколько настроек).</p> <p>Имена всех обновляемых полей, разделенные запятыми. Только значения указанных полей будут изменены. Остальные останутся нетронутыми. Если поле указано в параметре <code>updateMask</code> и в запросе не было отправлено значение для этого поля, значение поля будет сброшено на значение по умолчанию. Значение по умолчанию для большинства полей — null или 0.</p> <p>Если в запросе не передается <code>updateMask</code>, значения всех полей будут обновлены. Для полей, указанных в запросе, будут использованы переданные значения. Значения остальных полей будут сброшены на значения по умолчанию.</p> 
+password | **string**<br><p>Новый пароль для пользователя.</p> <p>Длина строки в символах должна быть от 8 до 128.</p> 
+permissions[] | **object**<br><p>Новый набор разрешений для пользователя.</p> 
+permissions[].<br>topicName | **string**<br><p>Имя топика, к которому предоставляется доступ.</p> <p>Чтобы получить имя топика, выполните запрос [Topic.List].</p> 
+permissions[].<br>role | **string**<br><p>Роль доступа, которую нужно предоставить пользователю.</p> <ul> <li>ACCESS_ROLE_PRODUCER: Роль пользователя — производитель.</li> <li>ACCESS_ROLE_CONSUMER: Роль пользователя — потребитель.</li> </ul> 
  
 ## Ответ {#responses}
 **HTTP Code: 200 - OK**

@@ -2,21 +2,35 @@
 editable: false
 ---
 
+<<<<<<< HEAD:ru/_api-ref/mdb/clickhouse/api-ref/Cluster/deleteShardGroup.md
+# Метод deleteShardGroup
+Удаляет группу шардов.
+=======
 # Метод delete
-Deletes the specified Apache Kafka cluster.
+Удаляет указанный кластер Apache Kafka.
+>>>>>>> achegodaev-7580-generated-api:ru/_api-ref/mdb/kafka/api-ref/Cluster/delete.md
  
 
  
 ## HTTP-запрос {#https-request}
 ```
+<<<<<<< HEAD:ru/_api-ref/mdb/clickhouse/api-ref/Cluster/deleteShardGroup.md
+DELETE https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}/shardGroups/{shardGroupName}
+=======
 DELETE https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/{clusterId}
+>>>>>>> achegodaev-7580-generated-api:ru/_api-ref/mdb/kafka/api-ref/Cluster/delete.md
 ```
  
 ## Path-параметры {#path_params}
  
 Параметр | Описание
 --- | ---
-clusterId | Обязательное поле. ID of the Apache Kafka cluster to delete.  To get the Apache Kafka cluster ID, make a [list](/docs/managed-kafka/api-ref/Cluster/list) request.  Максимальная длина строки в символах — 50.
+<<<<<<< HEAD:ru/_api-ref/mdb/clickhouse/api-ref/Cluster/deleteShardGroup.md
+clusterId | Обязательное поле. Идентификатор кластера.  Максимальная длина строки в символах — 50.
+shardGroupName | Обязательное поле. Им удаляемой группы шардов.  Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_-]* ``.
+=======
+clusterId | Обязательное поле. Идентификатор кластера Apache Kafka, который следует удалить.  Чтобы получить идентификатор кластера Apache Kafka, выполните запрос [list](/docs/managed-kafka/api-ref/Cluster/list).  Максимальная длина строки в символах — 50.
+>>>>>>> achegodaev-7580-generated-api:ru/_api-ref/mdb/kafka/api-ref/Cluster/delete.md
  
 ## Ответ {#responses}
 **HTTP Code: 200 - OK**

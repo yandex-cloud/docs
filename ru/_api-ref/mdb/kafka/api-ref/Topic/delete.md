@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Метод delete
-Deletes the specified Apache Kafka topic.
+Удаляет указанный топик Apache Kafka.
  
 
  
@@ -16,8 +16,8 @@ DELETE https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/{clusterId}/to
  
 Параметр | Описание
 --- | ---
-clusterId | Обязательное поле. ID of the Apache Kafka cluster to delete a topic in.  To get the cluster ID, make a [list](/docs/managed-kafka/api-ref/Cluster/list) request.  Максимальная длина строки в символах — 50.
-topicName | Обязательное поле. Name of the topic to delete.  To get the name of the topic, make a [list](/docs/managed-kafka/api-ref/Topic/list) request.  Длина строки в символах должна быть от 1 до 63. Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_-]* ``.
+clusterId | Обязательное поле. Идентификатор кластера Apache Kafka, в котором следует удалить топик.  Чтобы получить идентификатор кластера, выполните запрос [list](/docs/managed-kafka/api-ref/Cluster/list).  Максимальная длина строки в символах — 50.
+topicName | Обязательное поле. Имя удаляемого топика.  Чтобы получить имя топика, выполните запрос [list](/docs/managed-kafka/api-ref/Topic/list).  Длина строки в символах должна быть от 1 до 63. Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_-]* ``.
  
 ## Ответ {#responses}
 **HTTP Code: 200 - OK**

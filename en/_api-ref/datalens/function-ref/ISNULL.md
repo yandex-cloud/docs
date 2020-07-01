@@ -6,7 +6,7 @@ editable: false
 
 _Logical functions_
 
-#### Syntax
+#### Syntax {#syntax}
 
 Version 1:
 ```
@@ -17,7 +17,7 @@ Version 2:
 expression IS [ NOT ] NULL
 ```
 
-#### Description
+#### Description {#description}
 Returns `TRUE` if `expression` is `NULL`, otherwise returns `FALSE`.
 
 `expression IS NOT NULL` returns the opposite result.
@@ -28,7 +28,7 @@ Returns `TRUE` if `expression` is `NULL`, otherwise returns `FALSE`.
 
 **Return type**: `Boolean`
 
-#### Examples
+#### Examples {#examples}
 
 ```
 ISNULL([Profit])
@@ -55,6 +55,6 @@ NULL IS NOT NULL = FALSE
 ```
 
 
-#### Data source support
+#### Data source support {#data-source-support}
 
 `Materialized Dataset`, `ClickHouse 1.1`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`.

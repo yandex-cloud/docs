@@ -3,7 +3,7 @@ editable: false
 ---
 
 # ResourcePreset
-A set of methods for managing Apache Kafka resource presets.
+Методы для работы с шаблонами ресурсов.
 ## JSON-представление {#representation}
 ```json 
 {
@@ -18,13 +18,13 @@ A set of methods for managing Apache Kafka resource presets.
  
 Поле | Описание
 --- | ---
-id | **string**<br><p>ID of the ResourcePreset resource.</p> 
-zoneIds[] | **string**<br><p>IDs of availability zones where the resource preset is available.</p> 
-cores | **string** (int64)<br><p>Number of CPU cores for a Kafka broker created with the preset.</p> 
-memory | **string** (int64)<br><p>RAM volume for a Kafka broker created with the preset, in bytes.</p> 
+id | **string**<br><p>Идентификатор набора вычислительных ресурсов.</p> 
+zoneIds[] | **string**<br><p>Идентификаторы зон доступности, в которых доступен этот набор вычислительных ресурсов.</p> 
+cores | **string** (int64)<br><p>Количество процессорных ядер для брокера Kafka, созданного с помощью набора вычислительных ресурсов.</p> 
+memory | **string** (int64)<br><p>Объем оперативной памяти для брокера Kafka, созданного с помощью набора вычислительных ресурсов, в байтах.</p> 
 
 ## Методы {#methods}
 Метод | Описание
 --- | ---
-[get](get.md) | Returns the specified resource preset.
-[list](list.md) | Retrieves the list of available resource presets.
+[get](get.md) | Возвращает указанный шаблон ресурса.
+[list](list.md) | Возвращает список доступных шаблонов ресурсов.

@@ -3,9 +3,9 @@ editable: false
 ---
 
 # Метод get
-Returns the specified resource preset.
+Возвращает указанный шаблон ресурса.
  
-To get the list of available resource presets, make a [list](/docs/managed-kafka/api-ref/ResourcePreset/list) request.
+Чтобы получить список доступных шаблонов ресурсов, выполните запрос [list](/docs/managed-kafka/api-ref/ResourcePreset/list).
  
 ## HTTP-запрос {#https-request}
 ```
@@ -16,7 +16,7 @@ GET https://mdb.api.cloud.yandex.net/managed-kafka/v1/resourcePresets/{resourceP
  
 Параметр | Описание
 --- | ---
-resourcePresetId | Обязательное поле. ID of the resource preset to return.  To get the resource preset ID, use a [list](/docs/managed-kafka/api-ref/ResourcePreset/list) request.
+resourcePresetId | Обязательное поле. Идентификатор шаблона ресурса, данные о котором запрашиваются.  Чтобы получить идентификатор шаблона ресурса, выполните запрос [list](/docs/managed-kafka/api-ref/ResourcePreset/list).
  
 ## Ответ {#responses}
 **HTTP Code: 200 - OK**
@@ -31,11 +31,11 @@ resourcePresetId | Обязательное поле. ID of the resource preset 
   "memory": "string"
 }
 ```
-A ResourcePreset resource for describing hardware configuration presets.
+Описание набора вычислительных ресурсов.
  
 Поле | Описание
 --- | ---
-id | **string**<br><p>ID of the ResourcePreset resource.</p> 
-zoneIds[] | **string**<br><p>IDs of availability zones where the resource preset is available.</p> 
-cores | **string** (int64)<br><p>Number of CPU cores for a Kafka broker created with the preset.</p> 
-memory | **string** (int64)<br><p>RAM volume for a Kafka broker created with the preset, in bytes.</p> 
+id | **string**<br><p>Идентификатор набора вычислительных ресурсов.</p> 
+zoneIds[] | **string**<br><p>Идентификаторы зон доступности, в которых доступен этот набор вычислительных ресурсов.</p> 
+cores | **string** (int64)<br><p>Количество процессорных ядер для брокера Kafka, созданного с помощью набора вычислительных ресурсов.</p> 
+memory | **string** (int64)<br><p>Объем оперативной памяти для брокера Kafka, созданного с помощью набора вычислительных ресурсов, в байтах.</p> 

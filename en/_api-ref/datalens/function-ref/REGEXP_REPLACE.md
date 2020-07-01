@@ -6,14 +6,14 @@ editable: false
 
 _String functions_
 
-#### Syntax
+#### Syntax {#syntax}
 
 
 ```
 REGEXP_REPLACE( string, pattern, replace_with )
 ```
 
-#### Description
+#### Description {#description}
 Searches for a substring in the string `string` using the regular expression pattern `pattern` and replaces it with the string `replace_with`.
 
 If the substring is not found, the string is not changed.
@@ -36,13 +36,13 @@ Use the [ClickHouse](https://github.com/google/re2/wiki/Syntax) syntax to create
 
 
 
-#### Examples
+#### Examples {#examples}
 
 ```
 REGEXP_REPLACE("RU 912873", "\s", "-") = "RU-912873"
 ```
 
 
-#### Data source support
+#### Data source support {#data-source-support}
 
 `Materialized Dataset`, `ClickHouse 1.1`, `MySQL 8.0.12`, `PostgreSQL 9.3`.
