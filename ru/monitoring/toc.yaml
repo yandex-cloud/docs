@@ -39,7 +39,7 @@ items:
             href: operations/alert/create-alert.md
           - name: Создание канала уведомлений
             href: operations/alert/create-channel.md
-          - name: удаление алерта
+          - name: Удаление алерта
             href: operations/alert/delete-alert.md
   - name: Концепции
     items:
