@@ -19,6 +19,9 @@ editable: false
 | [CancelVersionDestruction](#CancelVersionDestruction) | Отменяет ранее запланированное уничтожение версии, если версия еще не была уничтожена. |
 | [Rotate](#Rotate) | Ротирует указанный ключ: создает новую версию ключа и делает ее основной. |
 | [ListOperations](#ListOperations) | Возвращет список операций для указанного симметричного ключа KMS. |
+| [ListAccessBindings](#ListAccessBindings) | Возвращает список привязок прав доступа для указанного симметричного ключа KMS. |
+| [SetAccessBindings](#SetAccessBindings) | Устанавливает привязки прав доступа для указанного симметричного ключа KMS. |
+| [UpdateAccessBindings](#UpdateAccessBindings) | Обновляет привязки прав доступа для указанного симметричного ключа KMS. |
 
 ## Вызовы SymmetricKeyService {#calls}
 
@@ -36,7 +39,7 @@ editable: false
 
 Поле | Описание
 --- | ---
-folder_id | **string**<br>Обязательное поле. Идентификатор каталога, в котором создается симметричный ключ KMS.  Максимальная длина строки в символах — 50.
+folder_id | **string**<br>Обязательное поле. Идентификатор каталога, в котором создается симметричный ключ KMS. false Максимальная длина строки в символах — 50.
 name | **string**<br>Имя симметричного ключа. Максимальная длина строки в символах — 100.
 description | **string**<br>Описание симметричного ключа. Максимальная длина строки в символах — 1024.
 labels | **map<string,string>**<br>Пользовательские метки для ключа в виде пар `key:value`. Максимум 64 на ключ. Например, @b "" project": "mvp"` или @b "" source": "dictionary"`. Не более 64 на ресурс. Максимальная длина строки в символах для каждого значения — 63. Каждое значение должно соответствовать регулярному выражению ` [-_0-9a-z]* `. Максимальная длина строки в символах для каждого ключа — 63. Каждый ключ должен соответствовать регулярному выражению ` [a-z][-_0-9a-z]* `.
@@ -95,7 +98,7 @@ rotation_period | **[google.protobuf.Duration](https://developers.google.com/pro
 
 Поле | Описание
 --- | ---
-key_id | **string**<br>Обязательное поле. Идентификатор возвращаемого симметричного ключа KMS. Чтобы получить идентификатор симметричного ключа используйте запрос [SymmetricKeyService.List](#List).  Максимальная длина строки в символах — 50.
+key_id | **string**<br>Обязательное поле. Идентификатор возвращаемого симметричного ключа KMS. Чтобы получить идентификатор симметричного ключа используйте запрос [SymmetricKeyService.List](#List). false Максимальная длина строки в символах — 50.
 
 
 ### SymmetricKey {#SymmetricKey}
@@ -138,7 +141,7 @@ destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 
 Поле | Описание
 --- | ---
-folder_id | **string**<br>Обязательное поле. Идентификатор каталога для получения списка симметричных ключей KMS.  Максимальная длина строки в символах — 50.
+folder_id | **string**<br>Обязательное поле. Идентификатор каталога для получения списка симметричных ключей KMS. false Максимальная длина строки в символах — 50.
 page_size | **int64**<br>Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `page_size`, сервис вернет значение [ListSymmetricKeysResponse.next_page_token](#ListSymmetricKeysResponse), которое можно использовать для получения следующей страницы. Значение по умолчанию: 100. Максимальное значение — 1000.
 page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListSymmetricKeysResponse.next_page_token](#ListSymmetricKeysResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
 
@@ -191,7 +194,7 @@ destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 
 Поле | Описание
 --- | ---
-key_id | **string**<br>Обязательное поле. Идентификатор симметричного ключа KMS, для которого нужно вернуть список версий.  Максимальная длина строки в символах — 50.
+key_id | **string**<br>Обязательное поле. Идентификатор симметричного ключа KMS, для которого нужно вернуть список версий. false Максимальная длина строки в символах — 50.
 page_size | **int64**<br>Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `page_size`, сервис вернет значение [ListSymmetricKeyVersionsResponse.next_page_token](#ListSymmetricKeyVersionsResponse), которое можно использовать для получения следующей страницы. Значение по умолчанию: 100. Максимальное значение — 1000.
 page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListSymmetricKeyVersionsResponse.next_page_token](#ListSymmetricKeyVersionsResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
 
@@ -231,8 +234,8 @@ destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 
 Поле | Описание
 --- | ---
-key_id | **string**<br>Обязательное поле. Идентификатор симметричного ключа KMS, который следует изменить. Чтобы получить идентификатор симметричного ключа используйте запрос [SymmetricKeyService.List](#List).  Максимальная длина строки в символах — 50.
-update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Обязательное поле. Маска, определяющая, какие атрибуты указанного симметричного ключа KMS будут обновлены. 
+key_id | **string**<br>Обязательное поле. Идентификатор симметричного ключа KMS, который следует изменить. Чтобы получить идентификатор симметричного ключа используйте запрос [SymmetricKeyService.List](#List). false Максимальная длина строки в символах — 50.
+update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Обязательное поле. Маска, определяющая, какие атрибуты указанного симметричного ключа KMS будут обновлены. false
 name | **string**<br>Новое имя симметричного ключа KMS. Максимальная длина строки в символах — 100.
 description | **string**<br>Новое описание симметричного ключа KMS. Максимальная длина строки в символах — 1024.
 status | **[SymmetricKey.Status](#SymmetricKey3)**<br>Новый статус для симметричного ключа KMS. С помощью метода [SymmetricKeyService.Update](#Update) вы можете установить только статус ACTIVE или INACTIVE. 
@@ -295,7 +298,7 @@ rotation_period | **[google.protobuf.Duration](https://developers.google.com/pro
 
 Поле | Описание
 --- | ---
-key_id | **string**<br>Обязательное поле. Идентификатор ключа, который следует удалить.  Максимальная длина строки в символах — 50.
+key_id | **string**<br>Обязательное поле. Идентификатор ключа, который следует удалить. false Максимальная длина строки в символах — 50.
 
 
 ### Operation {#Operation}
@@ -352,8 +355,8 @@ rotation_period | **[google.protobuf.Duration](https://developers.google.com/pro
 
 Поле | Описание
 --- | ---
-key_id | **string**<br>Обязательное поле. Идентификатор ключа, для которого нужно установить основную версию.  Максимальная длина строки в символах — 50.
-version_id | **string**<br>Обязательное поле. Идентификатор версии, которая должна стать основной для указанного ключа.  Максимальная длина строки в символах — 50.
+key_id | **string**<br>Обязательное поле. Идентификатор ключа, для которого нужно установить основную версию. false Максимальная длина строки в символах — 50.
+version_id | **string**<br>Обязательное поле. Идентификатор версии, которая должна стать основной для указанного ключа. false Максимальная длина строки в символах — 50.
 
 
 ### Operation {#Operation}
@@ -411,8 +414,8 @@ rotation_period | **[google.protobuf.Duration](https://developers.google.com/pro
 
 Поле | Описание
 --- | ---
-key_id | **string**<br>Обязательное поле. Идентификатор ключа, для которого следует запланировать уничтожение версии.  Максимальная длина строки в символах — 50.
-version_id | **string**<br>Обязательное поле. Идентификатор версии, которую следует уничтожить.  Максимальная длина строки в символах — 50.
+key_id | **string**<br>Обязательное поле. Идентификатор ключа, для которого следует запланировать уничтожение версии. false Максимальная длина строки в символах — 50.
+version_id | **string**<br>Обязательное поле. Идентификатор версии, которую следует уничтожить. false Максимальная длина строки в символах — 50.
 pending_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Интервал времени между запросом на уничтожение версии и ее фактическим уничтожением. Значение по умолчанию: 7 дней. 
 
 
@@ -468,8 +471,8 @@ destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 
 Поле | Описание
 --- | ---
-key_id | **string**<br>Обязательное поле. Идентификатор ключа, для которого следует отменить уничтожение версии.  Максимальная длина строки в символах — 50.
-version_id | **string**<br>Обязательное поле. Идентификатор версии, запланированное уничтожение которой должно быть отменено.  Максимальная длина строки в символах — 50.
+key_id | **string**<br>Обязательное поле. Идентификатор ключа, для которого следует отменить уничтожение версии. false Максимальная длина строки в символах — 50.
+version_id | **string**<br>Обязательное поле. Идентификатор версии, запланированное уничтожение которой должно быть отменено. false Максимальная длина строки в символах — 50.
 
 
 ### Operation {#Operation}
@@ -523,7 +526,7 @@ destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 
 Поле | Описание
 --- | ---
-key_id | **string**<br>Обязательное поле. Идентификатор ключа, который следует ротировать.  Максимальная длина строки в символах — 50.
+key_id | **string**<br>Обязательное поле. Идентификатор ключа, который следует ротировать. false Максимальная длина строки в символах — 50.
 
 
 ### Operation {#Operation}
@@ -577,7 +580,7 @@ rotation_period | **[google.protobuf.Duration](https://developers.google.com/pro
 
 Поле | Описание
 --- | ---
-key_id | **string**<br>Обязательное поле. Идентификатор симметричного ключа KMS, для которого нужно вернуть список операций. <br>Чтобы получить идентификатор ключа, используйте запрос [SymmetricKeyService.List](#List).  Максимальная длина строки в символах — 50.
+key_id | **string**<br>Обязательное поле. Идентификатор симметричного ключа KMS, для которого нужно вернуть список операций. <br>Чтобы получить идентификатор ключа, используйте запрос [SymmetricKeyService.List](#List). false Максимальная длина строки в символах — 50.
 page_size | **int64**<br>Максимальное число возвращаемых результатов на странице. Если количество результатов больше чем `page_size`, сервис вернет значение [ListSymmetricKeyOperationsResponse.next_page_token](#ListSymmetricKeyOperationsResponse), которое можно использовать для получения следующей страницы. Значение по умолчанию: 100. Максимальное значение — 1000.
 page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListSymmetricKeyOperationsResponse.next_page_token](#ListSymmetricKeyOperationsResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
 
@@ -604,5 +607,166 @@ metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffer
 result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
 &nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>Результат операции в случае успешного завершения. Если исходный метод не возвращает никаких данных при успешном завершении, например метод Delete, поле содержит объект [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty). Если исходный метод — это стандартный метод Create / Update, поле содержит целевой ресурс операции. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `response`. 
+
+
+## ListAccessBindings {#ListAccessBindings}
+
+Возвращает список привязок прав доступа для указанного симметричного ключа KMS.
+
+**rpc ListAccessBindings ([ListAccessBindingsRequest](#ListAccessBindingsRequest)) returns ([ListAccessBindingsResponse](#ListAccessBindingsResponse))**
+
+### ListAccessBindingsRequest {#ListAccessBindingsRequest}
+
+Поле | Описание
+--- | ---
+resource_id | **string**<br>Обязательное поле. Идентификатор ресурса, для которого запрашивается список привязок прав доступа. <br>Чтобы получить идентификатор ресурса, используйте соответствующий запрос List. Например, используйте запрос [yandex.cloud.resourcemanager.v1.CloudService.List](/docs/resource-manager/grpc/cloud_service#List) для получения идентификатора ресурса Cloud. false
+page_size | **int64**<br>Максимальное число возвращаемых результатов на странице. Если количество результатов больше чем `page_size`, сервис вернет значение [ListAccessBindingsResponse.next_page_token](#ListAccessBindingsResponse), которое можно использовать для получения следующей страницы. Значение по умолчанию: 100. Максимальное значение — 1000.
+page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListAccessBindingsResponse.next_page_token](#ListAccessBindingsResponse) прошлого запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
+
+
+### ListAccessBindingsResponse {#ListAccessBindingsResponse}
+
+Поле | Описание
+--- | ---
+access_bindings[] | **[AccessBinding](#AccessBinding)**<br>Список привязок прав доступа для указанного ресурса. 
+next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListAccessBindingsRequest.page_size](#ListAccessBindingsRequest), используйте `next_page_token` в качестве значения параметра [ListAccessBindingsRequest.page_token](#ListAccessBindingsRequest) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
+
+
+### AccessBinding {#AccessBinding}
+
+Поле | Описание
+--- | ---
+role_id | **string**<br>Идентификатор ресурса `yandex.cloud.iam.v1.Role` который назначен для субъекта, указанного в параметре `subject`. Максимальная длина строки в символах — 50.
+subject | **[Subject](#Subject)**<br>Обязательное поле. Субъект, для которого создается привязка прав доступа. Может представлять собой аккаунт с уникальным идентификатором в облаке или системную группу с общим системным идентификатором. false
+
+
+### Subject {#Subject}
+
+Поле | Описание
+--- | ---
+id | **string**<br><ul><li>`allAuthenticatedUsers`: Специальный системный идентификатор, представляющий любого пользователя, прошедшего аутентификацию. Его можно использовать только если в параметре `type` указано `system`. </li><li>`allUsers`: Специальный системный идентификатор, представляющий любого пользователя. Аутентификация не требуется. Например, при запросе через API не надо будет указывать IAM-токен. </li><li>`<идентификатор пользователя в облаке>`: Идентификатор, представляющий учетную запись пользователя. Его можно использовать только если в параметре `type` передано одно из следующих значений: `userAccount` или `serviceAccount`.</li></ul> Максимальная длина строки в символах — 50.
+type | **string**<br><ul><li>`userAccount` — аккаунт на Яндексе или [Яндекс.Коннекте]({ {link-yandex-connect} }), добавленный в Яндекс.Облако. </li><li>`serviceAccount` — сервисный аккаунт. Этот тип представляет ресурс `yandex.cloud.iam.v1.ServiceAccount`. </li><li>`federatedUser` — федеративный аккаунт. Этот тип представляет пользователя из федерации удостоверений, например Active Directory. </li><li>`system` — системная группа. Представляет набор аккаунтов, который описывается общим системным идентификатором. </li></ul> 
+
+
+## SetAccessBindings {#SetAccessBindings}
+
+Устанавливает привязки прав доступа для указанного симметричного ключа KMS.
+
+**rpc SetAccessBindings ([SetAccessBindingsRequest](#SetAccessBindingsRequest)) returns ([operation.Operation](#Operation8))**
+
+Метаданные и результат операции:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[SetAccessBindingsMetadata](#SetAccessBindingsMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
+
+### SetAccessBindingsRequest {#SetAccessBindingsRequest}
+
+Поле | Описание
+--- | ---
+resource_id | **string**<br>Обязательное поле. Идентификатор ресурса, для которого задается список привязок прав доступа. <br>Чтобы получить идентификатор ресурса, используйте соответствующий запрос List. false
+access_bindings[] | **[AccessBinding](#AccessBinding)**<br>Обязательное поле. Привязки прав доступа, которые будут установлены. Дополнительные сведения см. в разделе [Привязка прав доступа](/docs/iam/concepts/access-control/#access-bindings). false
+
+
+### AccessBinding {#AccessBinding}
+
+Поле | Описание
+--- | ---
+role_id | **string**<br>Идентификатор ресурса `yandex.cloud.iam.v1.Role` который назначен для субъекта, указанного в параметре `subject`. Максимальная длина строки в символах — 50.
+subject | **[Subject](#Subject)**<br>Обязательное поле. Субъект, для которого создается привязка прав доступа. Может представлять собой аккаунт с уникальным идентификатором в облаке или системную группу с общим системным идентификатором. false
+
+
+### Subject {#Subject}
+
+Поле | Описание
+--- | ---
+id | **string**<br><ul><li>`allAuthenticatedUsers`: Специальный системный идентификатор, представляющий любого пользователя, прошедшего аутентификацию. Его можно использовать только если в параметре `type` указано `system`. </li><li>`allUsers`: Специальный системный идентификатор, представляющий любого пользователя. Аутентификация не требуется. Например, при запросе через API не надо будет указывать IAM-токен. </li><li>`<идентификатор пользователя в облаке>`: Идентификатор, представляющий учетную запись пользователя. Его можно использовать только если в параметре `type` передано одно из следующих значений: `userAccount` или `serviceAccount`.</li></ul> Максимальная длина строки в символах — 50.
+type | **string**<br><ul><li>`userAccount` — аккаунт на Яндексе или [Яндекс.Коннекте]({ {link-yandex-connect} }), добавленный в Яндекс.Облако. </li><li>`serviceAccount` — сервисный аккаунт. Этот тип представляет ресурс `yandex.cloud.iam.v1.ServiceAccount`. </li><li>`federatedUser` — федеративный аккаунт. Этот тип представляет пользователя из федерации удостоверений, например Active Directory. </li><li>`system` — системная группа. Представляет набор аккаунтов, который описывается общим системным идентификатором. </li></ul> 
+
+
+### Operation {#Operation}
+
+Поле | Описание
+--- | ---
+id | **string**<br>Идентификатор операции. 
+description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
+created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
+done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[SetAccessBindingsMetadata](#SetAccessBindingsMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
+result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>в случае успешного выполнения операции. 
+
+
+### SetAccessBindingsMetadata {#SetAccessBindingsMetadata}
+
+Поле | Описание
+--- | ---
+resource_id | **string**<br>Идентификатор ресурса, для которого задается список привязок прав доступа. 
+
+
+## UpdateAccessBindings {#UpdateAccessBindings}
+
+Обновляет привязки прав доступа для указанного симметричного ключа KMS.
+
+**rpc UpdateAccessBindings ([UpdateAccessBindingsRequest](#UpdateAccessBindingsRequest)) returns ([operation.Operation](#Operation9))**
+
+Метаданные и результат операции:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateAccessBindingsMetadata](#UpdateAccessBindingsMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
+
+### UpdateAccessBindingsRequest {#UpdateAccessBindingsRequest}
+
+Поле | Описание
+--- | ---
+resource_id | **string**<br>Обязательное поле. Идентификатор ресурса, для которого обновляется список привязок прав доступа. false
+access_binding_deltas[] | **[AccessBindingDelta](#AccessBindingDelta)**<br>Обязательное поле. Изменения в список привязок прав доступа. false
+
+
+### AccessBindingDelta {#AccessBindingDelta}
+
+Поле | Описание
+--- | ---
+action | enum **AccessBindingAction**<br>Обязательное поле. Действие, которое надо выполнить с привязкой прав доступа. false<ul><li>`ADD`: Добавление новой привязки прав доступа.</li><li>`REMOVE`: Удаление привязки прав доступа.</li><ul/>
+access_binding | **[AccessBinding](#AccessBinding)**<br>Обязательное поле. Привязка прав доступа. Дополнительные сведения см. в разделе [Привязка прав доступа](/docs/iam/concepts/access-control/#access-bindings). false
+
+
+### AccessBinding {#AccessBinding}
+
+Поле | Описание
+--- | ---
+role_id | **string**<br>Идентификатор ресурса `yandex.cloud.iam.v1.Role` который назначен для субъекта, указанного в параметре `subject`. Максимальная длина строки в символах — 50.
+subject | **[Subject](#Subject)**<br>Обязательное поле. Субъект, для которого создается привязка прав доступа. Может представлять собой аккаунт с уникальным идентификатором в облаке или системную группу с общим системным идентификатором. false
+
+
+### Subject {#Subject}
+
+Поле | Описание
+--- | ---
+id | **string**<br><ul><li>`allAuthenticatedUsers`: Специальный системный идентификатор, представляющий любого пользователя, прошедшего аутентификацию. Его можно использовать только если в параметре `type` указано `system`. </li><li>`allUsers`: Специальный системный идентификатор, представляющий любого пользователя. Аутентификация не требуется. Например, при запросе через API не надо будет указывать IAM-токен. </li><li>`<идентификатор пользователя в облаке>`: Идентификатор, представляющий учетную запись пользователя. Его можно использовать только если в параметре `type` передано одно из следующих значений: `userAccount` или `serviceAccount`.</li></ul> Максимальная длина строки в символах — 50.
+type | **string**<br><ul><li>`userAccount` — аккаунт на Яндексе или [Яндекс.Коннекте]({ {link-yandex-connect} }), добавленный в Яндекс.Облако. </li><li>`serviceAccount` — сервисный аккаунт. Этот тип представляет ресурс `yandex.cloud.iam.v1.ServiceAccount`. </li><li>`federatedUser` — федеративный аккаунт. Этот тип представляет пользователя из федерации удостоверений, например Active Directory. </li><li>`system` — системная группа. Представляет набор аккаунтов, который описывается общим системным идентификатором. </li></ul> 
+
+
+### Operation {#Operation}
+
+Поле | Описание
+--- | ---
+id | **string**<br>Идентификатор операции. 
+description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
+created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
+done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateAccessBindingsMetadata](#UpdateAccessBindingsMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
+result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>в случае успешного выполнения операции. 
+
+
+### UpdateAccessBindingsMetadata {#UpdateAccessBindingsMetadata}
+
+Поле | Описание
+--- | ---
+resource_id | **string**<br>Идентификатор ресурса, для которого обновляется список привязок прав доступа. 
 
 

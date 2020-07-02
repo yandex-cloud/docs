@@ -27,15 +27,6 @@ A set of methods for managing Redis clusters.
       "resourcePresetId": "string",
       "diskSize": "string"
     },
-    "backupWindowStart": {
-      "hours": "integer",
-      "minutes": "integer",
-      "seconds": "integer",
-      "nanos": "integer"
-    },
-    "access": {
-      "dataLens": true
-    },
     "redisConfig_5_0": {
       "effectiveConfig": {
         "maxmemoryPolicy": "string",
@@ -56,8 +47,7 @@ A set of methods for managing Redis clusters.
   },
   "networkId": "string",
   "health": "string",
-  "status": "string",
-  "sharded": true
+  "status": "string"
 }
 ```
  
@@ -79,13 +69,6 @@ config.<br>version | **string**<br><p>Version of Redis server software.</p>
 config.<br>resources | **object**<br>
 config.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-redis/concepts/instance-types">documentation</a>.</p> 
 config.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
-config.<br>backupWindowStart | **object**<br><p>Represents a time of day. The date and time zone are either not significant or are specified elsewhere. An API may choose to allow leap seconds. Related types are <a href="https://github.com/googleapis/googleapis/blob/master/google/type/date.proto">google.type.Date</a> and <a href="https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto">google.protobuf.Timestamp</a>.</p> 
-config.<br>backupWindowStart.<br>hours | **integer** (int32)<br><p>Hours of day in 24 hour format. Should be from 0 to 23. An API may choose to allow the value &quot;24:00:00&quot; for scenarios like business closing time.</p> 
-config.<br>backupWindowStart.<br>minutes | **integer** (int32)<br><p>Minutes of hour of day. Must be from 0 to 59.</p> 
-config.<br>backupWindowStart.<br>seconds | **integer** (int32)<br><p>Seconds of minutes of the time. Must normally be from 0 to 59. An API may allow the value 60 if it allows leap-seconds.</p> 
-config.<br>backupWindowStart.<br>nanos | **integer** (int32)<br><p>Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.</p> 
-config.<br>access | **object**<br>
-config.<br>access.<br>dataLens | **boolean** (boolean)<br><p>Allow access for DataLens</p> 
 config.<br>redisConfig_5_0 | **object**<br>
 config.<br>redisConfig_5_0.<br>effectiveConfig | **object**<br><p>Effective settings for a Redis 5.0 cluster (a combination of settings defined in <code>userConfig</code> and <code>defaultConfig</code>).</p> <p>Fields and structure of <code>RedisConfig</code> reflects Redis configuration file parameters.</p> 
 config.<br>redisConfig_5_0.<br>effectiveConfig.<br>maxmemoryPolicy | **string**<br><p>Redis key eviction policy for a dataset that reaches maximum memory, available to the host. Redis maxmemory setting depends on Managed Service for Redis <a href="/docs/managed-redis/concepts/instance-types">host class</a>.</p> <p>All policies are described in detail in <a href="https://redis.io/topics/lru-cache">Redis documentation</a>.</p> <ul> <li>VOLATILE_LRU: Try to remove less recently used (LRU) keys with <code>expire set</code>.</li> <li>ALLKEYS_LRU: Remove less recently used (LRU) keys.</li> <li>VOLATILE_LFU: Try to remove least frequently used (LFU) keys with <code>expire set</code>.</li> <li>ALLKEYS_LFU: Remove least frequently used (LFU) keys.</li> <li>VOLATILE_RANDOM: Try to remove keys with <code>expire set</code> randomly.</li> <li>ALLKEYS_RANDOM: Remove keys randomly.</li> <li>VOLATILE_TTL: Try to remove less recently used (LRU) keys with <code>expire set</code> and shorter TTL first.</li> <li>NOEVICTION: Return errors when memory limit was reached and commands could require more memory to be used.</li> </ul> 
@@ -100,30 +83,23 @@ config.<br>redisConfig_5_0.<br>defaultConfig.<br>maxmemoryPolicy | **string**<br
 config.<br>redisConfig_5_0.<br>defaultConfig.<br>timeout | **integer** (int64)<br><p>Time that Redis keeps the connection open while the client is idle. If no new command is sent during that time, the connection is closed.</p> 
 config.<br>redisConfig_5_0.<br>defaultConfig.<br>password | **string**<br><p>Authentication password.</p> <p>Value must match the regular expression <code>[a-zA-Z0-9@=+?*.,!&amp;#$^&lt;&gt;_-]{8,128}</code>.</p> 
 networkId | **string**<br>
-health | **string**<br><p>Aggregated cluster health.</p> <ul> <li>HEALTH_UNKNOWN: Cluster is in unknown state (we have no data)</li> <li>ALIVE: Cluster is alive and well (all hosts are alive)</li> <li>DEAD: Cluster is inoperable (it cannot perform any of its essential functions)</li> <li>DEGRADED: Cluster is partially alive (it can perform some of its essential functions)</li> </ul> 
-status | **string**<br><p>Cluster status.</p> <ul> <li>STATUS_UNKNOWN: Cluster status is unknown</li> <li>CREATING: Cluster is being created</li> <li>RUNNING: Cluster is running</li> <li>ERROR: Cluster failed</li> <li>UPDATING: Cluster is being updated.</li> <li>STOPPING: Cluster is stopping.</li> <li>STOPPED: Cluster stopped.</li> <li>STARTING: Cluster is starting.</li> </ul> 
-sharded | **boolean** (boolean)<br><p>Redis cluster mode on/off.</p> 
+health | **string**<br><p>Aggregated cluster health</p> <ul> <li>HEALTH_UNKNOWN: Cluster is in unknown state (we have no data)</li> <li>ALIVE: Cluster is alive and well (all hosts are alive)</li> <li>DEAD: Cluster is inoperable (it cannot perform any of its essential functions)</li> <li>DEGRADED: Cluster is partially alive (it can perform some of its essential functions)</li> </ul> 
+status | **string**<br><p>Cluster status</p> <ul> <li>STATUS_UNKNOWN: Cluster status is unknown</li> <li>CREATING: Cluster is being created</li> <li>RUNNING: Cluster is running</li> <li>ERROR: Cluster failed</li> <li>UPDATING: Cluster is being updated.</li> <li>STOPPING: Cluster is stopping.</li> <li>STOPPED: Cluster stopped.</li> <li>STARTING: Cluster is starting.</li> </ul> 
 
 ## Methods {#methods}
 Method | Description
 --- | ---
 [addHosts](addHosts.md) | Creates new hosts for a cluster.
-[addShard](addShard.md) | Creates a new shard.
 [backup](backup.md) | Creates a backup for the specified Redis cluster.
 [create](create.md) | Creates a Redis cluster in the specified folder.
 [delete](delete.md) | Deletes the specified Redis cluster.
 [deleteHosts](deleteHosts.md) | Deletes the specified hosts for a cluster.
-[deleteShard](deleteShard.md) | Deletes the specified shard.
 [get](get.md) | Returns the specified Redis cluster.
-[getShard](getShard.md) | Returns the specified shard.
 [list](list.md) | Retrieves the list of Redis clusters that belong to the specified folder.
 [listBackups](listBackups.md) | Retrieves the list of available backups for the specified Redis cluster.
 [listHosts](listHosts.md) | Retrieves a list of hosts for the specified cluster.
 [listLogs](listLogs.md) | Retrieves logs for the specified Redis cluster.
 [listOperations](listOperations.md) | Retrieves the list of operations for the specified cluster.
-[listShards](listShards.md) | Retrieves a list of shards.
-[move](move.md) | Moves a Redis cluster to the specified folder.
-[rebalance](rebalance.md) | Rebalances the cluster. Evenly distributes all the hash slots between the shards.
 [restore](restore.md) | Creates a new Redis cluster using the specified backup.
 [start](start.md) | Start the specified Redis cluster.
 [startFailover](startFailover.md) | Start a manual failover on the specified Redis cluster.

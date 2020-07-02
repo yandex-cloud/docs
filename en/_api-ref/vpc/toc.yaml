@@ -39,6 +39,10 @@ items:
         href: api-ref/RouteTable/move.md
       - name: update
         href: api-ref/RouteTable/update.md
+  - name: SecurityGroup
+    items:
+      - name: Overview
+        href: api-ref/SecurityGroup/index.md
   - name: Subnet
     items:
       - name: Overview

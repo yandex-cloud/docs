@@ -23,7 +23,7 @@ Returns the specified resource preset. <br>To get the list of available resource
 
 Field | Description
 --- | ---
-resource_preset_id | **string**<br>Required. ID of the resource preset to return. To get the resource preset ID, use a [ResourcePresetService.List](#List) request. 
+resource_preset_id | **string**<br>Required. ID of the resource preset to return. To get the resource preset ID, use a [ResourcePresetService.List](#List) request. false
 
 
 ### ResourcePreset {#ResourcePreset}
@@ -33,6 +33,7 @@ Field | Description
 id | **string**<br>ID of the resource preset. 
 zone_ids[] | **string**<br>IDs of availability zones where the resource preset is available. 
 memory | **int64**<br>RAM volume for a Redis host created with the preset, in bytes. 
+cores | **int64**<br>Number of CPU cores for a Redis host created with the preset. 
 
 
 ## List {#List}
@@ -64,5 +65,6 @@ Field | Description
 id | **string**<br>ID of the resource preset. 
 zone_ids[] | **string**<br>IDs of availability zones where the resource preset is available. 
 memory | **int64**<br>RAM volume for a Redis host created with the preset, in bytes. 
+cores | **int64**<br>Number of CPU cores for a Redis host created with the preset. 
 
 

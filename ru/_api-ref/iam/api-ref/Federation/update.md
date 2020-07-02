@@ -29,7 +29,11 @@ federationId | Идентификатор федерации для обновл
   "autoCreateAccountOnLogin": true,
   "issuer": "string",
   "ssoBinding": "string",
-  "ssoUrl": "string"
+  "ssoUrl": "string",
+  "securitySettings": {
+    "encryptedAssertions": true
+  },
+  "caseInsensitiveNameIds": true
 }
 ```
 
@@ -44,6 +48,9 @@ autoCreateAccountOnLogin | **boolean** (boolean)<br><p>Добавлять нов
 issuer | **string**<br><p>Обязательное поле. Идентификатор IdP-сервера, который будет использоваться для аутентификации. Этот же идентификатор сервер IdP указывает в ответе после того, как пользователь проходит аутентификацию.</p> <p>Максимальная длина строки в символах — 8000.</p> 
 ssoBinding | **string**<br><p>Тип привязки для Single Sign-on. Большинство поставщиков поддерживают тип привязки <code>POST</code>.</p> <p>Привязка — это отображение сообщения протокола SAML на стандартные форматы сообщений и / или протоколы связи.</p> <ul> <li>POST: Привязка HTTP POST.</li> <li>REDIRECT: Привязка перенаправлением HTTP.</li> <li>ARTIFACT: Привязка артефактом HTTP.</li> </ul> 
 ssoUrl | **string**<br><p>Обязательное поле. URL для Single sign-on. Укажите здесь ссылку на страницу для входа в IdP.</p> <p>Максимальная длина строки в символах — 8000.</p> 
+securitySettings | **object**<br><p>Настройки безопасности федерации.</p> <p>Настройки безопасности федерации.</p> 
+securitySettings.<br>encryptedAssertions | **boolean** (boolean)<br><p>Включить шифрование утверждений.</p> 
+caseInsensitiveNameIds | **boolean** (boolean)<br><p>Использовать нечувствительные к регистру Name ID пользователей.</p> 
  
 ## Ответ {#responses}
 **HTTP Code: 200 - OK**

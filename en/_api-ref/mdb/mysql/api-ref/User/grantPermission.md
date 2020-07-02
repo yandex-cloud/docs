@@ -9,7 +9,7 @@ Grants a permission to the specified MySQL user.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/{clusterId}/users/{userName}:grantPermission
+POST https://mdb.api.cloud.yandex.net/managed-mysql/v1alpha/clusters/{clusterId}/users/{userName}:grantPermission
 ```
  
 ## Path parameters {#path_params}

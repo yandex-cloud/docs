@@ -678,6 +678,22 @@ components:
           $ref: '#/components/schemas/AccessBindingAction_in_AccessBindingDelta_action'
         accessBinding:
           $ref: '#/components/schemas/AccessBinding_in_AccessBindingDelta_accessBinding'
+    Connectivity:
+      description: Version connectivity specification.
+      type: object
+      properties:
+        networkId:
+          description: |-
+            Network the version will have access to.
+            It's essential to specify network with subnets in all availability zones.
+          type: string
+        subnetId:
+          description: |-
+            Complete list of subnets (from the same network) the version can be attached to.
+            It's essential to specify at least one subnet for each availability zones.
+          type: array
+          items:
+            type: string
     CreateFunctionMetadata:
       type: object
       properties:
@@ -785,6 +801,10 @@ components:
             type: array
             items:
               type: string
+          connectivity:
+            $ref: '#/components/schemas/Connectivity'
+            description: Function version connectivity. If specified the version will
+              be attached to specified network/subnet(s).
       - title: package_source
         type: object
         maxProperties: 1
@@ -1090,7 +1110,7 @@ components:
           description: |-
             Amount of memory available to the version, specified in bytes.
 
-            Acceptable values are 33554432 to 1073741824, inclusive.
+            Acceptable values are 134217728 to 2147483648, inclusive.
           type: string
           format: int64
     SetAccessBindingsMetadata:
@@ -1274,6 +1294,8 @@ components:
           type: object
           additionalProperties:
             type: string
+        connectivity:
+          $ref: '#/components/schemas/Connectivity_in_Version_connectivity'
     VersionStatus:
       description: |2-
          - CREATING: Version is being created.
@@ -1394,7 +1416,7 @@ components:
           description: |-
             Amount of memory available to the version, specified in bytes.
 
-            Acceptable values are 33554432 to 1073741824, inclusive.
+            Acceptable values are 134217728 to 2147483648, inclusive.
           type: string
           format: int64
     VersionStatus_in_Version_status:
@@ -1407,6 +1429,25 @@ components:
       enum:
       - CREATING
       - ACTIVE
+    Connectivity_in_Version_connectivity:
+      description: |-
+        Network access. If specified the version will be attached to specified network/subnet(s).
+
+        Version connectivity specification.
+      type: object
+      properties:
+        networkId:
+          description: |-
+            Network the version will have access to.
+            It's essential to specify network with subnets in all availability zones.
+          type: string
+        subnetId:
+          description: |-
+            Complete list of subnets (from the same network) the version can be attached to.
+            It's essential to specify at least one subnet for each availability zones.
+          type: array
+          items:
+            type: string
 tags:
 - name: Function
   description: A set of methods for managing serverless functions.

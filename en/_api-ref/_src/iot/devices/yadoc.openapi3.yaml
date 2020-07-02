@@ -8,6 +8,37 @@ info:
   x-y-docUri: api-ref
   x-y-baseUrl: https://iot-devices.api.cloud.yandex.net
 paths:
+  /iot-devices/v1/devices/{deviceId}/publish:
+    post:
+      tags:
+      - DeviceData
+      summary: Publishes message on behalf of specified device
+      operationId: DeviceDataPublish
+      parameters:
+      - name: deviceId
+        in: path
+        description: |-
+          Required.
+          ID of device publishing message
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PublishDeviceDataRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PublishDeviceDataResponse'
+      x-y-navtitle: publish
   /iot-devices/v1/devices/{deviceId}:
     get:
       tags:
@@ -438,6 +469,37 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListDeviceOperationsResponse'
       x-y-navtitle: listOperations
+  /iot-devices/v1/registries/{registryId}/publish:
+    post:
+      tags:
+      - RegistryData
+      summary: Publishes message on behalf of specified registry
+      operationId: RegistryDataPublish
+      parameters:
+      - name: registryId
+        in: path
+        description: |-
+          Required.
+          ID of registry publishing message
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PublishRegistryDataRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PublishRegistryDataResponse'
+      x-y-navtitle: publish
   /iot-devices/v1/registries/{registryId}:
     get:
       tags:
@@ -1210,6 +1272,8 @@ components:
           type: object
           additionalProperties:
             type: string
+        status:
+          $ref: '#/components/schemas/DeviceStatus_in_Device_status'
     DeviceAlias:
       description: |-
         A device topic alias.
@@ -1264,6 +1328,16 @@ components:
             String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
+    DeviceStatus:
+      description: |2-
+         - CREATING: Device is being created.
+         - ACTIVE: Device is ready to use.
+         - DELETING: Device is being deleted.
+      type: string
+      enum:
+      - CREATING
+      - ACTIVE
+      - DELETING
     Empty:
       description: Empty JSON object `` {} ``.
       type: object
@@ -1448,6 +1522,46 @@ components:
               the response should be the target resource of the operation.
               Any method that returns a long-running operation should document the response type, if any.
             type: object
+    PublishDeviceDataRequest:
+      type: object
+      properties:
+        topic:
+          description: |-
+            Required.
+            Topic where message should be published
+
+            The maximum string length in characters is 1024.
+          type: string
+        data:
+          description: |-
+            Content of the message
+
+            The maximum string length in characters is 262144.
+          type: string
+          format: byte
+    PublishDeviceDataResponse:
+      type: object
+      properties: {}
+    PublishRegistryDataRequest:
+      type: object
+      properties:
+        topic:
+          description: |-
+            Required.
+            Topic where message should be published
+
+            The maximum string length in characters is 1024.
+          type: string
+        data:
+          description: |-
+            Content of the message
+
+            The maximum string length in characters is 262144.
+          type: string
+          format: byte
+    PublishRegistryDataResponse:
+      type: object
+      properties: {}
     Registry:
       description: A registry. For more information, see [Registry](/docs/iot-core/concepts/index#registry).
       type: object
@@ -1615,6 +1729,18 @@ components:
           type: array
           items:
             type: object
+    DeviceStatus_in_Device_status:
+      description: |-
+        Status of the device.
+
+         - CREATING: Device is being created.
+         - ACTIVE: Device is ready to use.
+         - DELETING: Device is being deleted.
+      type: string
+      enum:
+      - CREATING
+      - ACTIVE
+      - DELETING
     RegistryStatus_in_Registry_status:
       description: |-
         Status of the registry.
@@ -1654,7 +1780,11 @@ components:
         The rest of the fields will be reset to the default.
       type: string
 tags:
+- name: DeviceData
+  description: A set of methods to work with IoT Core messages on behalf of device
 - name: Device
   description: A set of methods for managing devices.
+- name: RegistryData
+  description: A set of methods to work with IoT Core messages on behalf of registry
 - name: Registry
   description: A set of methods for managing registry.

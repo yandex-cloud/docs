@@ -709,6 +709,11 @@ components:
           type: array
           items:
             type: string
+    CreateLifecyclePolicyMetadata:
+      type: object
+      properties:
+        lifecyclePolicyId:
+          type: string
     CreateRegistryMetadata:
       type: object
       properties:
@@ -753,12 +758,39 @@ components:
         imageId:
           description: ID of the Docker image that is being deleted.
           type: string
+    DeleteLifecyclePolicyMetadata:
+      type: object
+      properties:
+        lifecyclePolicyId:
+          type: string
     DeleteRegistryMetadata:
       type: object
       properties:
         registryId:
           description: ID of the registry that is being deleted.
           type: string
+    DryRunLifecyclePolicyMetadata:
+      type: object
+      properties:
+        dryRunLifecyclePolicyResultId:
+          type: string
+        lifecyclePolicyId:
+          type: string
+    DryRunLifecyclePolicyResult:
+      type: object
+      properties:
+        dryRunLifecyclePolicyResultId:
+          type: string
+        lifecyclePolicyId:
+          type: string
+        runAt:
+          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+            format.
+          type: string
+          format: date-time
+        affectedImagesCount:
+          type: string
+          format: int64
     Empty:
       description: Empty JSON object `` {} ``.
       type: object
@@ -815,6 +847,52 @@ components:
             String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
+    LifecyclePolicy:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        repositoryId:
+          type: string
+        description:
+          type: string
+        status:
+          $ref: '#/components/schemas/LifecyclePolicyStatus_in_LifecyclePolicy_status'
+        createdAt:
+          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+            format.
+          type: string
+          format: date-time
+        rules:
+          type: array
+          items:
+            $ref: '#/components/schemas/LifecycleRule'
+    LifecyclePolicyStatus:
+      type: string
+      enum:
+      - ACTIVE
+      - DISABLED
+    LifecycleRule:
+      type: object
+      properties:
+        description:
+          description: The maximum string length in characters is 256.
+          type: string
+        expirePeriod:
+          description: The minimum value is 86400 seconds.
+          type: string
+        tagRegexp:
+          description: The maximum string length in characters is 256.
+          type: string
+        untagged:
+          type: boolean
+          format: boolean
+        retainedTop:
+          description: The minimum value is 0.
+          type: string
+          format: int64
     ListAccessBindingsResponse:
       type: object
       properties:
@@ -832,6 +910,24 @@ components:
             in the next list request. Each subsequent list request will have its own
             nextPageToken to continue paging through the results.
           type: string
+    ListDryRunLifecyclePolicyResultAffectedImagesResponse:
+      type: object
+      properties:
+        affectedImages:
+          type: array
+          items:
+            $ref: '#/components/schemas/Image'
+        nextPageToken:
+          type: string
+    ListDryRunLifecyclePolicyResultsResponse:
+      type: object
+      properties:
+        dryRunLifecyclePolicyResults:
+          type: array
+          items:
+            $ref: '#/components/schemas/DryRunLifecyclePolicyResult'
+        nextPageToken:
+          type: string
     ListImagesResponse:
       type: object
       properties:
@@ -848,6 +944,15 @@ components:
             for the [pageToken](/docs/container-registry/api-ref/Image/list#query_params) query parameter
             in the next list request. Each subsequent list request will have its own
             [nextPageToken](/docs/container-registry/api-ref/Image/list#responses) to continue paging through the results.
+          type: string
+    ListLifecyclePoliciesResponse:
+      type: object
+      properties:
+        lifecyclePolicies:
+          type: array
+          items:
+            $ref: '#/components/schemas/LifecyclePolicy'
+        nextPageToken:
           type: string
     ListRegistriesResponse:
       type: object
@@ -1050,6 +1155,11 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/AccessBindingDelta'
+    UpdateLifecyclePolicyMetadata:
+      type: object
+      properties:
+        lifecyclePolicyId:
+          type: string
     UpdateRegistryMetadata:
       type: object
       properties:
@@ -1178,6 +1288,11 @@ components:
           type: array
           items:
             type: string
+    LifecyclePolicyStatus_in_LifecyclePolicy_status:
+      type: string
+      enum:
+      - ACTIVE
+      - DISABLED
     RegistryStatus_in_Registry_status:
       description: |-
         Output only. Status of the registry.
@@ -1206,6 +1321,7 @@ components:
 tags:
 - name: Image
   description: A set of methods for managing Image resources.
+- name: LifecyclePolicy
 - name: Registry
   description: A set of methods for managing Registry resources.
 - name: Repository
