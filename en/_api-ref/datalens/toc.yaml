@@ -275,22 +275,10 @@ items:
     items:
       - name: Overview
         href: function-ref/window-functions.md
-      - name: AVG
-        href: function-ref/AVG.md
-      - name: AVG_IF
-        href: function-ref/AVG_IF.md
-      - name: COUNT
-        href: function-ref/COUNT.md
-      - name: COUNT_IF
-        href: function-ref/COUNT_IF.md
       - name: MAVG
         href: function-ref/MAVG.md
-      - name: MAX
-        href: function-ref/MAX.md
       - name: MCOUNT
         href: function-ref/MCOUNT.md
-      - name: MIN
-        href: function-ref/MIN.md
       - name: MMAX
         href: function-ref/MMAX.md
       - name: MMIN
@@ -315,9 +303,5 @@ items:
         href: function-ref/RMIN.md
       - name: RSUM
         href: function-ref/RSUM.md
-      - name: SUM
-        href: function-ref/SUM.md
-      - name: SUM_IF
-        href: function-ref/SUM_IF.md
   - name: Function Availability
     href: function-ref/availability.md
