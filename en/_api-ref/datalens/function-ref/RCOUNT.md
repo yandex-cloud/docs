@@ -41,6 +41,14 @@ Only constant values are accepted for arguments (direction).
 
 {% endnote %}
 
+{% note warning %}
+
+Function depends on how data is ordered in the chart. It will work correctly only if:
+- data ordering is explicitly specified in the chart;
+- result is ordered by __all__ fields that don't use window functions.
+
+{% endnote %}
+
 
 #### Examples {#examples}
 

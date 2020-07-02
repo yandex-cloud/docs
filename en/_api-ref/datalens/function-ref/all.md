@@ -738,8 +738,8 @@ Returns the moving average of values in a fixed-size window defined by the sort 
 
 | `rows_1`   | `rows_2`   | Window                                                                |
 |:-----------|:-----------|:----------------------------------------------------------------------|
-| positive   | -          | The current row and `rows_1` following rows.                          |
-| negative   | -          | The current row and -`rows_1` preceding rows.                         |
+| positive   | -          | The current row and `rows_1` preceding rows.                          |
+| negative   | -          | The current row and -`rows_1` following rows.                         |
 | any sign   | any sign   | `rows_1` preceding rows, the current row and `rows_2` following rows. |
 
 
@@ -771,8 +771,8 @@ Returns the moving count of (non-`NULL`) values in a fixed-size window defined b
 
 | `rows_1`   | `rows_2`   | Window                                                                |
 |:-----------|:-----------|:----------------------------------------------------------------------|
-| positive   | -          | The current row and `rows_1` following rows.                          |
-| negative   | -          | The current row and -`rows_1` preceding rows.                         |
+| positive   | -          | The current row and `rows_1` preceding rows.                          |
+| negative   | -          | The current row and -`rows_1` following rows.                         |
 | any sign   | any sign   | `rows_1` preceding rows, the current row and `rows_2` following rows. |
 
 
@@ -820,8 +820,8 @@ Returns the moving maximum of values in a fixed-size window defined by the sort 
 
 | `rows_1`   | `rows_2`   | Window                                                                |
 |:-----------|:-----------|:----------------------------------------------------------------------|
-| positive   | -          | The current row and `rows_1` following rows.                          |
-| negative   | -          | The current row and -`rows_1` preceding rows.                         |
+| positive   | -          | The current row and `rows_1` preceding rows.                          |
+| negative   | -          | The current row and -`rows_1` following rows.                         |
 | any sign   | any sign   | `rows_1` preceding rows, the current row and `rows_2` following rows. |
 
 
@@ -839,8 +839,8 @@ Returns the moving minimum of values in a fixed-size window defined by the sort 
 
 | `rows_1`   | `rows_2`   | Window                                                                |
 |:-----------|:-----------|:----------------------------------------------------------------------|
-| positive   | -          | The current row and `rows_1` following rows.                          |
-| negative   | -          | The current row and -`rows_1` preceding rows.                         |
+| positive   | -          | The current row and `rows_1` preceding rows.                          |
+| negative   | -          | The current row and -`rows_1` following rows.                         |
 | any sign   | any sign   | `rows_1` preceding rows, the current row and `rows_2` following rows. |
 
 
@@ -866,8 +866,8 @@ Returns the moving sum of values in a fixed-size window defined by the sort orde
 
 | `rows_1`   | `rows_2`   | Window                                                                |
 |:-----------|:-----------|:----------------------------------------------------------------------|
-| positive   | -          | The current row and `rows_1` following rows.                          |
-| negative   | -          | The current row and -`rows_1` preceding rows.                         |
+| positive   | -          | The current row and `rows_1` preceding rows.                          |
+| negative   | -          | The current row and -`rows_1` following rows.                         |
 | any sign   | any sign   | `rows_1` preceding rows, the current row and `rows_2` following rows. |
 
 
@@ -958,6 +958,8 @@ Converts `degrees` degrees to radians.
 
 Returns the rank of the current row if ordered by the given argument. Rows corresponding to the same value used for sorting have the same rank. If the first two rows both have rank of `1`, then the next row (if it features a different value) will have rank `3`, so, in effect, it is rank with gaps.
 
+If `direction` is `"desc"` or omitted, then ranking is done from greatest to least, if `"asc"`, then from least to greatest.
+
 See also [RANK_DENSE](RANK_DENSE.md), [RANK_UNIQUE](RANK_UNIQUE.md), [RANK_PERCENTILE](RANK_PERCENTILE.md).
 
 
@@ -967,6 +969,8 @@ See also [RANK_DENSE](RANK_DENSE.md), [RANK_UNIQUE](RANK_UNIQUE.md), [RANK_PERCE
 **Syntax:**`RANK_DENSE( value [ , direction ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] )`
 
 Returns the rank of the current row if ordered by the given argument. Rows corresponding to the same value used for sorting have the same rank. If the first two rows both have rank of `1`, then the next row (if it features a different value) will have rank `2`, (rank without gaps).
+
+If `direction` is `"desc"` or omitted, then ranking is done from greatest to least, if `"asc"`, then from least to greatest.
 
 See also [RANK](RANK.md), [RANK_UNIQUE](RANK_UNIQUE.md), [RANK_PERCENTILE](RANK_PERCENTILE.md).
 
@@ -978,6 +982,8 @@ See also [RANK](RANK.md), [RANK_UNIQUE](RANK_UNIQUE.md), [RANK_PERCENTILE](RANK_
 
 Returns the relative rank (from `0` to `1`) of the current row if ordered by the given argument. Calculated as `(RANK(...) - 1) / (row count) `.
 
+If `direction` is `"desc"` or omitted, then ranking is done from greatest to least, if `"asc"`, then from least to greatest.
+
 See also [RANK](RANK.md), [RANK_DENSE](RANK_DENSE.md), [RANK_UNIQUE](RANK_UNIQUE.md).
 
 
@@ -987,6 +993,8 @@ See also [RANK](RANK.md), [RANK_DENSE](RANK_DENSE.md), [RANK_UNIQUE](RANK_UNIQUE
 **Syntax:**`RANK_UNIQUE( value [ , direction ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] )`
 
 Returns the rank of the current row if ordered by the given argument. Rows corresponding to the same value have different rank values. This means that rank values are sequential and different for all rows, always increasing by `1` for the next row.
+
+If `direction` is `"desc"` or omitted, then ranking is done from greatest to least, if `"asc"`, then from least to greatest.
 
 See also [RANK](RANK.md), [RANK_DENSE](RANK_DENSE.md), [RANK_PERCENTILE](RANK_PERCENTILE.md).
 
