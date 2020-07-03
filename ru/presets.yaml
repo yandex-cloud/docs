@@ -11,7 +11,7 @@ default:
   mmg-full-name: Yandex Managed Service for MongoDB
   mmy-full-name: Yandex Managed Service for MySQL
   mrd-full-name: Yandex Managed Service for Redis
-  mkf-full-name: Yandex Managed Service for Apache Kafka
+  mkf-full-name: Yandex Managed Service for Apache Kafka®
   vpc-full-name: Yandex Virtual Private Cloud
   monitoring-full-name: Yandex Monitoring
   dsvm-full-name: Yandex Data Science Virtual Machine
@@ -45,7 +45,7 @@ default:
   mmg-name: Managed Service for MongoDB
   mmy-name: Managed Service for MySQL
   mrd-name: Managed Service for Redis
-  mkf-name: Managed Service for Apache Kafka
+  mkf-name: Managed Service for Apache Kafka®
   monitoring-name: Yandex Monitoring
   vpc-name: Virtual Private Cloud
   dsvm-name: Data Science Virtual Machine

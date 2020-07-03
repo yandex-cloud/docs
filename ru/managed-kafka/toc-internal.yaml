@@ -1,4 +1,4 @@
-title: "Yandex Managed Service for Apache Kafka"
+title: "Yandex Managed Service for Apache Kafka®"
 href: index.yaml
 items:
   - name: Начало работы
@@ -33,7 +33,7 @@ items:
       href: concepts/producers-consumers.md      
     - name: Классы хостов
       href: concepts/instance-types.md
-    - name: Сеть в Managed Service for Apache Kafka
+    - name: Сеть в Managed Service for Apache Kafka®
       href: concepts/network.md
     - name: Типы хранилища
       href: concepts/storage.md

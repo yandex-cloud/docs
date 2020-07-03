@@ -1,4 +1,4 @@
-title: "Yandex Managed Service for Apache Kafka"
+title: "Yandex Managed Service for Apache Kafka®"
 stage: tech-preview
 href: index.yaml
 items:
@@ -34,7 +34,7 @@ items:
       href: concepts/producers-consumers.md      
     - name: Классы хостов
       href: concepts/instance-types.md
-    - name: Сеть в Managed Service for Apache Kafka
+    - name: Сеть в Managed Service for Apache Kafka®
       href: concepts/network.md
     - name: Квоты и лимиты
       href: concepts/limits.md
