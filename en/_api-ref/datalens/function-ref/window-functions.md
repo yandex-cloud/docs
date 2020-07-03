@@ -3,15 +3,65 @@ editable: false
 ---
 
 # Window functions
-Aggregate functions (or aggregations) are functions that combine multiple values from a group of entries into one, thus collapsing the group into a single entry.
+Window functions are calculated in the same way as aggregations, but they do not merge multiple entries into one. In some cases, this leads to duplication of values among entries in the same group (for example, `SUM(... TOTAL)`).
 
-If you add an aggregation to a dimension, it becomes a measure.
-
+Aggregate functions are calculated from groups of values that are determined by the dimension fields used in a data query: entries with matching dimension values are grouped. Window functions are also calculated over groups of entries called _windows_. In this case, you should specify grouping parameters in the function call as a list of dimensions to be included (`WITHIN ...`) or excluded (`AMONG ...`) from the grouping.
 ## Usage Restrictions {#usage-restrictions}
 
-There are the following features of using aggregations:
-1. An aggregate function cannot be nested into another aggregation. The following usage is forbidden: `MAX(SUM([Sales]))`. Any expression can be aggregated only once.
-2. A function or operator cannot have aggregate and non-aggregate expressions as its arguments simultaneously. The following usage is forbidden: `CONCAT([Profit], SUM([Profit]))`.
+1. Window functions can take as arguments only dimensions or aggregations (or more complex expressions composed of both). At least one of the arguments must be an aggregate expression.
+
+    Examples:
+    - Valid: `RANK(MAX([Profit]) TOTAL)`
+    - Not valid: `MAX(RANK([Profit] TOTAL))`.
+    - Not valid: `RANK([Profit] TOTAL)`, where `[Profit]` is not an aggregate expression.
+
+2. A window function cannot be nested into another window function.
+
+    Example:
+    - Not valid: `RSUM(RANK(SUM([Profit]) WITHIN [Order Date]) TOTAL)`.
+
+3. The `AMONG` keyword cannot be used with dimensions that are not included in the data query.
+
+    Example:
+    - Not valid: `RANK(SUM([Profit]) AMONG [City])` with dimensions `[Order Date]` and `[Category]`.
+
+## Syntax {#syntax}
+
+The general syntax for window functions is as follows:
+```
+<WINDOW_FUNCTION_NAME>(
+    arg1, arg2, ...
+    [ TOTAL
+    | WITHIN dim1, dim2, ...
+    | AMONG dim1, dim2, ... ]
+)
+```
+
+The values of `arg1, arg2, ...` are the function arguments. The arguments are followed by a window grouping, which can be one of three types:
+- `TOTAL` (equivalent to `WITHIN` without dimensions): all query entries fall into a single window.
+- `WITHIN dim1, dim2, ...` : records are grouped by the dimensions `dim1, dim2, ...`.
+- `AMONG dim1, dim2, ...` : records are grouped by all dimensions from the query, except those listed. For example, if we use formula `RSUM(SUM([Sales]) AMONG dim1, dim2)` with dimensions `dim1`, `dim2`, `dim3`, `dim4` in the data query, then the entries will be grouped by `dim3` and `dim4`, so it will be equivalent to `RSUM([Sales] WITHIN dim3, dim4)`.
+
+The grouping clause is optional. `TOTAL` is used by default.
+
+## Aggregate Functions as Window Functions {#aggregate-functions-as-window-functions}
+
+The following aggregations can also be used as window functions:
+
+| Aggregations      | Conditional Aggregations   |
+|:------------------|:---------------------------|
+| [SUM](SUM.md)     | [SUM_IF](SUM_IF.md)        |
+| [COUNT](COUNT.md) | [COUNT_IF](COUNT_IF.md)    |
+| [AVG](AVG.md)     | [AVG_IF](AVG_IF.md)        |
+| [MAX](MAX.md)     |                            |
+| [MIN](MIN.md)     |                            |
+
+To use the window version of the aggregate functions, you must explicitly specify the grouping (unlike other window functions, where it is optional).
+
+Example:
+- `SUM([Sales]) / SUM(SUM([Sales]) TOTAL)` can be used to calculate the ratio of a group's sum of `[Sales]` to the sum of `[Sales]` among all entries.
+
+
 
 
 
