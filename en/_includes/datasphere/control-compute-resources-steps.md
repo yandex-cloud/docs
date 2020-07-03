@@ -5,7 +5,7 @@ Increase a cell's computing resources using a prefix:
 1. Select the cell to change the configuration for.
 1. In the first row of the cell, add the configuration prefix `#!L` (8 cores, gpu: 1xV100).
 
-To reduce the configuration, remove the prefix or change it to `!#S`.
+To reduce the configuration, remove the prefix or change it to `#!S`.
 
 ### Change the configuration in the interface {#interface}
 

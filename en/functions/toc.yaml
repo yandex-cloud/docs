@@ -158,7 +158,7 @@ items:
       - name: gRPC
         items:
           - name: Overview
-            href: grpc/triggers_index.md
+            href: grpc/index.md
           - name: TriggerService
             href: grpc/trigger_service.md
           - name: OperationService
@@ -181,5 +181,9 @@ items:
                 href: triggers/api-ref/Trigger/list.md
               - name: listOperations
                 href: triggers/api-ref/Trigger/listOperations.md
+              - name: pause
+                href: triggers/api-ref/Trigger/pause.md
+              - name: resume
+                href: triggers/api-ref/Trigger/resume.md
               - name: update
                 href: triggers/api-ref/Trigger/update.md

@@ -6,14 +6,14 @@ editable: false
 
 _Mathematical functions_
 
-#### Syntax
+#### Syntax {#syntax}
 
 
 ```
 ATAN2( x, y )
 ```
 
-#### Description
+#### Description {#description}
 Returns the arctangent in radians for the specified coordinates `x` and `y`.
 
 **Argument types:**
@@ -23,13 +23,13 @@ Returns the arctangent in radians for the specified coordinates `x` and `y`.
 
 **Return type**: `Number (decimal)`
 
-#### Examples
+#### Examples {#examples}
 
 ```
 ATAN2(5, 7) = 0.62024
 ```
 
 
-#### Data source support
+#### Data source support {#data-source-support}
 
 `Materialized Dataset`, `ClickHouse 1.1`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`.

@@ -99,6 +99,8 @@ items:
             href: grpc/cluster_service.md
           - name: DatabaseService
             href: grpc/database_service.md
+          - name: MlModelService
+            href: grpc/ml_model_service.md
           - name: ResourcePresetService
             href: grpc/resource_preset_service.md
           - name: UserService
@@ -133,6 +135,8 @@ items:
                 href: api-ref/Cluster/create.md
               - name: createExternalDictionary
                 href: api-ref/Cluster/createExternalDictionary.md
+              - name: createShardGroup
+                href: api-ref/Cluster/createShardGroup.md
               - name: delete
                 href: api-ref/Cluster/delete.md
               - name: deleteExternalDictionary
@@ -141,10 +145,14 @@ items:
                 href: api-ref/Cluster/deleteHosts.md
               - name: deleteShard
                 href: api-ref/Cluster/deleteShard.md
+              - name: deleteShardGroup
+                href: api-ref/Cluster/deleteShardGroup.md
               - name: get
                 href: api-ref/Cluster/get.md
               - name: getShard
                 href: api-ref/Cluster/getShard.md
+              - name: getShardGroup
+                href: api-ref/Cluster/getShardGroup.md
               - name: list
                 href: api-ref/Cluster/list.md
               - name: listBackups
@@ -155,6 +163,8 @@ items:
                 href: api-ref/Cluster/listLogs.md
               - name: listOperations
                 href: api-ref/Cluster/listOperations.md
+              - name: listShardGroups
+                href: api-ref/Cluster/listShardGroups.md
               - name: listShards
                 href: api-ref/Cluster/listShards.md
               - name: move
@@ -169,6 +179,8 @@ items:
                 href: api-ref/Cluster/update.md
               - name: updateShard
                 href: api-ref/Cluster/updateShard.md
+              - name: updateShardGroup
+                href: api-ref/Cluster/updateShardGroup.md
           - name: Database
             items:
               - name: Обзор

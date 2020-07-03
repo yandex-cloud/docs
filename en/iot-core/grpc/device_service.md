@@ -33,7 +33,7 @@ Returns the specified device. <br>To get the list of available devices, make a [
 
 Field | Description
 --- | ---
-device_id | **string**<br>Required. ID of the device to return. <br>To get a device ID make a [DeviceService.List](#List) request.  The maximum string length in characters is 50.
+device_id | **string**<br>Required. ID of the device to return. <br>To get a device ID make a [DeviceService.List](#List) request. false The maximum string length in characters is 50.
 
 
 ### Device {#Device}
@@ -46,6 +46,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the device. The name is unique within the registry. 
 description | **string**<br>Description of the device. 0-256 characters long. 
 topic_aliases | **map<string,string>**<br>Alias of a device topic. <br>Alias is an alternate name of a device topic assigned by the user. Map alias to canonical topic name prefix, e.g. `my/custom/alias` match to `$device/abcdef/events`. 
+status | enum **Status**<br>Status of the device. <ul><li>`CREATING`: Device is being created.</li><li>`ACTIVE`: Device is ready to use.</li><li>`DELETING`: Device is being deleted.</li><ul/>
 
 
 ## List {#List}
@@ -83,6 +84,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the device. The name is unique within the registry. 
 description | **string**<br>Description of the device. 0-256 characters long. 
 topic_aliases | **map<string,string>**<br>Alias of a device topic. <br>Alias is an alternate name of a device topic assigned by the user. Map alias to canonical topic name prefix, e.g. `my/custom/alias` match to `$device/abcdef/events`. 
+status | enum **Status**<br>Status of the device. <ul><li>`CREATING`: Device is being created.</li><li>`ACTIVE`: Device is ready to use.</li><li>`DELETING`: Device is being deleted.</li><ul/>
 
 
 ## Create {#Create}
@@ -99,8 +101,8 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-registry_id | **string**<br>Required. ID of the registry to create a device in. <br>To get a registry ID, make a [yandex.cloud.iot.devices.v1.RegistryService.List](/docs/iot-core/grpc/registry_service#List) request.  The maximum string length in characters is 50.
-name | **string**<br>Required. Name of the device. The name must be unique within the registry.  The maximum string length in characters is 50. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+registry_id | **string**<br>Required. ID of the registry to create a device in. <br>To get a registry ID, make a [yandex.cloud.iot.devices.v1.RegistryService.List](/docs/iot-core/grpc/registry_service#List) request. false The maximum string length in characters is 50.
+name | **string**<br>Required. Name of the device. The name must be unique within the registry. false The maximum string length in characters is 50. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 description | **string**<br>Description of the device. The maximum string length in characters is 256.
 certificates[] | **[Certificate](#Certificate)**<br>Device certificate. 
 topic_aliases | **map<string,string>**<br>Alias of a device topic. <br>Alias is an alternate name of a device topic assigned by the user. Map alias to canonical topic name prefix, e.g. `my/custom/alias` match to `$device/{id}/events`. 
@@ -147,6 +149,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the device. The name is unique within the registry. 
 description | **string**<br>Description of the device. 0-256 characters long. 
 topic_aliases | **map<string,string>**<br>Alias of a device topic. <br>Alias is an alternate name of a device topic assigned by the user. Map alias to canonical topic name prefix, e.g. `my/custom/alias` match to `$device/abcdef/events`. 
+status | enum **Status**<br>Status of the device. <ul><li>`CREATING`: Device is being created.</li><li>`ACTIVE`: Device is ready to use.</li><li>`DELETING`: Device is being deleted.</li><ul/>
 
 
 ## Update {#Update}
@@ -163,7 +166,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-device_id | **string**<br>Required. ID of the device to update. <br>To get a device ID make a [DeviceService.List](#List) request.  The maximum string length in characters is 50.
+device_id | **string**<br>Required. ID of the device to update. <br>To get a device ID make a [DeviceService.List](#List) request. false The maximum string length in characters is 50.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the device are going to be updated. 
 name | **string**<br>Name of the device. The name must be unique within the registry. The maximum string length in characters is 50. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 description | **string**<br>Description of the device. The maximum string length in characters is 256.
@@ -203,6 +206,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the device. The name is unique within the registry. 
 description | **string**<br>Description of the device. 0-256 characters long. 
 topic_aliases | **map<string,string>**<br>Alias of a device topic. <br>Alias is an alternate name of a device topic assigned by the user. Map alias to canonical topic name prefix, e.g. `my/custom/alias` match to `$device/abcdef/events`. 
+status | enum **Status**<br>Status of the device. <ul><li>`CREATING`: Device is being created.</li><li>`ACTIVE`: Device is ready to use.</li><li>`DELETING`: Device is being deleted.</li><ul/>
 
 
 ## Delete {#Delete}
@@ -219,7 +223,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-device_id | **string**<br>Required. ID of the device to delete. <br>To get a device ID make a [DeviceService.List](#List) request.  The maximum string length in characters is 50.
+device_id | **string**<br>Required. ID of the device to delete. <br>To get a device ID make a [DeviceService.List](#List) request. false The maximum string length in characters is 50.
 
 
 ### Operation {#Operation}
@@ -255,7 +259,7 @@ Retrieves the list of device certificates for the specified device.
 
 Field | Description
 --- | ---
-device_id | **string**<br>Required. ID of the device to list certificates for.  The maximum string length in characters is 50.
+device_id | **string**<br>Required. ID of the device to list certificates for. false The maximum string length in characters is 50.
 
 
 ### ListDeviceCertificatesResponse {#ListDeviceCertificatesResponse}
@@ -289,7 +293,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-device_id | **string**<br>Required. ID of the device for which the certificate is being added. <br>To get a device ID make a [DeviceService.List](#List) request.  The maximum string length in characters is 50.
+device_id | **string**<br>Required. ID of the device for which the certificate is being added. <br>To get a device ID make a [DeviceService.List](#List) request. false The maximum string length in characters is 50.
 certificate_data | **string**<br>Public part of the certificate. 
 
 
@@ -341,8 +345,8 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-device_id | **string**<br>Required. ID of the device to delete a certificate for. <br>To get a device ID make a [DeviceService.List](#List) request.  The maximum string length in characters is 50.
-fingerprint | **string**<br>Required. Fingerprint of the certificate to delete.  The maximum string length in characters is 50.
+device_id | **string**<br>Required. ID of the device to delete a certificate for. <br>To get a device ID make a [DeviceService.List](#List) request. false The maximum string length in characters is 50.
+fingerprint | **string**<br>Required. Fingerprint of the certificate to delete. false The maximum string length in characters is 50.
 
 
 ### Operation {#Operation}
@@ -365,8 +369,8 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-device_id | **string**<br>Required. ID of the device certificate that is being deleted.  The maximum string length in characters is 50.
-fingerprint | **string**<br>Required. Fingerprint of the certificate that is being deleted.  The maximum string length in characters is 50.
+device_id | **string**<br>Required. ID of the device certificate that is being deleted. false The maximum string length in characters is 50.
+fingerprint | **string**<br>Required. Fingerprint of the certificate that is being deleted. false The maximum string length in characters is 50.
 
 
 ## ListPasswords {#ListPasswords}
@@ -379,7 +383,7 @@ Retrieves the list of passwords for the specified device.
 
 Field | Description
 --- | ---
-device_id | **string**<br>Required. ID of the registry to list passwords in. <br>To get a registry ID make a [RegistryService.List](./registry_service#List) request.  The maximum string length in characters is 50.
+device_id | **string**<br>Required. ID of the registry to list passwords in. <br>To get a registry ID make a [RegistryService.List](./registry_service#List) request. false The maximum string length in characters is 50.
 
 
 ### ListDevicePasswordsResponse {#ListDevicePasswordsResponse}
@@ -412,7 +416,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-device_id | **string**<br>Required. ID of the device to add a password for. <br>To get a device ID make a [DeviceService.List](#List) request.  The maximum string length in characters is 50.
+device_id | **string**<br>Required. ID of the device to add a password for. <br>To get a device ID make a [DeviceService.List](#List) request. false The maximum string length in characters is 50.
 password | **string**<br>Passwords for the device. <br>The password must contain at least three character categories among the following: upper case latin, lower case latin, numbers and special symbols. The minimum string length in characters is 14.
 
 
@@ -463,8 +467,8 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-device_id | **string**<br>Required. ID of the device to delete a password for. <br>To get a device ID make a [DeviceService.List](#List) request.  The maximum string length in characters is 50.
-password_id | **string**<br>Required. ID of the password to delete. <br>To get a password ID make a [DeviceService.ListPasswords](#ListPasswords) request.  The maximum string length in characters is 50.
+device_id | **string**<br>Required. ID of the device to delete a password for. <br>To get a device ID make a [DeviceService.List](#List) request. false The maximum string length in characters is 50.
+password_id | **string**<br>Required. ID of the password to delete. <br>To get a password ID make a [DeviceService.ListPasswords](#ListPasswords) request. false The maximum string length in characters is 50.
 
 
 ### Operation {#Operation}
@@ -487,8 +491,8 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-device_id | **string**<br>Required. ID of the device for which the password is being deleted.  The maximum string length in characters is 50.
-password_id | **string**<br>Required. ID of the password that is being deleted.  The maximum string length in characters is 50.
+device_id | **string**<br>Required. ID of the device for which the password is being deleted. false The maximum string length in characters is 50.
+password_id | **string**<br>Required. ID of the password that is being deleted. false The maximum string length in characters is 50.
 
 
 ## ListOperations {#ListOperations}
@@ -501,7 +505,7 @@ Lists operations for the specified device.
 
 Field | Description
 --- | ---
-device_id | **string**<br>Required. ID of the device to list operations for. <br>To get a device ID make a [DeviceService.List](#List) request. 
+device_id | **string**<br>Required. ID of the device to list operations for. <br>To get a device ID make a [DeviceService.List](#List) request. false
 page_size | **int64**<br>The maximum number of results per page that should be returned. If the number of available results is larger than `page_size`, the service returns a [ListDeviceOperationsResponse.next_page_token](#ListDeviceOperationsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListDeviceOperationsResponse.next_page_token](#ListDeviceOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
 filter | **string**<br>A filter expression that filters resources listed in the response. Currently you can use filtering only on [Device.name](#Device4) field. The maximum string length in characters is 1000.

@@ -30,6 +30,7 @@ default:
   ml-platform-full-name: Yandex DataSphere
   certificate-manager-full-name: Yandex Certificate Manager
   data-transfer-full-name: Yandex Data Transfer
+  api-gw-full-name: Yandex API Gateway
   iam-name: Identity and Access Management
   ig-name: Instance Groups
   resmgr-name: Resource Manager
@@ -62,6 +63,7 @@ default:
   certificate-manager-name: Certificate Manager
   marketplace-name: Cloud Marketplace
   data-transfer-name: Data Transfer
+  api-gw-name: API Gateway
   iam-short-name: IAM
   resmgr-short-name: Resource Manager
   compute-short-name: Compute Cloud
@@ -91,6 +93,7 @@ default:
   ml-platform-short-name: DataSphere
   certificate-manager-short-name: Certificate Manager
   data-transfer-short-name: Data Transfer
+  api-gw-short-name: API Gateway
   price-per-hour-count-per-second: Цена указывается за 1 час использования. Тарификация посекундная.
   roles-cr-puller: container-registry.images.puller
   roles-cr-pusher: container-registry.images.pusher

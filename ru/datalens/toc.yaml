@@ -415,5 +415,37 @@ items:
             href: function-ref/INT.md
           - name: STR
             href: function-ref/STR.md
+      - name: Оконные функции
+        items:
+          - name: Обзор
+            href: function-ref/window-functions.md
+          - name: MAVG
+            href: function-ref/MAVG.md
+          - name: MCOUNT
+            href: function-ref/MCOUNT.md
+          - name: MMAX
+            href: function-ref/MMAX.md
+          - name: MMIN
+            href: function-ref/MMIN.md
+          - name: MSUM
+            href: function-ref/MSUM.md
+          - name: RANK
+            href: function-ref/RANK.md
+          - name: RANK_DENSE
+            href: function-ref/RANK_DENSE.md
+          - name: RANK_PERCENTILE
+            href: function-ref/RANK_PERCENTILE.md
+          - name: RANK_UNIQUE
+            href: function-ref/RANK_UNIQUE.md
+          - name: RAVG
+            href: function-ref/RAVG.md
+          - name: RCOUNT
+            href: function-ref/RCOUNT.md
+          - name: RMAX
+            href: function-ref/RMAX.md
+          - name: RMIN
+            href: function-ref/RMIN.md
+          - name: RSUM
+            href: function-ref/RSUM.md
       - name: Поддержка функций
         href: function-ref/availability.md

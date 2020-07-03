@@ -29,7 +29,7 @@ Returns the specified Network resource. <br>Get the list of available Network re
 
 Field | Description
 --- | ---
-network_id | **string**<br>Required. ID of the Network resource to return. To get the network ID, use a [NetworkService.List](#List) request.  The maximum string length in characters is 50.
+network_id | **string**<br>Required. ID of the Network resource to return. To get the network ID, use a [NetworkService.List](#List) request. false The maximum string length in characters is 50.
 
 
 ### Network {#Network}
@@ -54,7 +54,7 @@ Retrieves the list of Network resources in the specified folder.
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder to list networks in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request.  The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the folder to list networks in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. false The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListNetworksResponse.next_page_token](#ListNetworksResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListNetworksResponse.next_page_token](#ListNetworksResponse) returned by a previous list request. The maximum string length in characters is 100.
 filter | **string**<br><ol><li>The field name. Currently you can use filtering only on the [Network.name](#Network1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.</li></ol> The maximum string length in characters is 1000.
@@ -94,7 +94,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder for this request to create a network in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request.  The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the folder for this request to create a network in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. false The maximum string length in characters is 50.
 name | **string**<br>Name of the network. The name must be unique within the folder. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>Description of the network. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
@@ -149,7 +149,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-network_id | **string**<br>Required. ID of the Network resource to update. To get the network ID use a [NetworkService.List](#List) request.  The maximum string length in characters is 50.
+network_id | **string**<br>Required. ID of the Network resource to update. To get the network ID use a [NetworkService.List](#List) request. false The maximum string length in characters is 50.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the Network resource are going to be updated. 
 name | **string**<br>Name of the network. The name must be unique within the folder. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>Description of the network. The maximum string length in characters is 256.
@@ -205,7 +205,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-network_id | **string**<br>Required. ID of the Network resource to update. To get the network ID, use a [NetworkService.List](#List) request.  The maximum string length in characters is 50.
+network_id | **string**<br>Required. ID of the Network resource to update. To get the network ID, use a [NetworkService.List](#List) request. false The maximum string length in characters is 50.
 
 
 ### Operation {#Operation}
@@ -241,7 +241,7 @@ Lists subnets from the specified network.
 
 Field | Description
 --- | ---
-network_id | **string**<br>Required. ID of the Network resource to list subnets for.  The maximum string length in characters is 50.
+network_id | **string**<br>Required. ID of the Network resource to list subnets for. false The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page that should be returned. If the number of available results is larger than `page_size`, the service returns a [ListNetworkSubnetsResponse.next_page_token](#ListNetworkSubnetsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
 page_token | **string**<br>Page token. Set `page_token` to the [ListNetworkSubnetsResponse.next_page_token](#ListNetworkSubnetsResponse) returned by a previous list request to get the next page of results. The maximum string length in characters is 100.
 
@@ -269,6 +269,16 @@ zone_id | **string**<br>ID of the availability zone where the subnet resides.
 v4_cidr_blocks[] | **string**<br><ol><li></li></ol> 
 v6_cidr_blocks[] | **string**<br>IPv6 not available yet. 
 route_table_id | **string**<br>ID of route table the subnet is linked to. 
+dhcp_options | **[DhcpOptions](#DhcpOptions)**<br> 
+
+
+### DhcpOptions {#DhcpOptions}
+
+Field | Description
+--- | ---
+domain_name_servers[] | **string**<br> 
+domain_name | **string**<br> 
+ntp_servers[] | **string**<br> 
 
 
 ## ListOperations {#ListOperations}
@@ -281,7 +291,7 @@ Lists operations for the specified network.
 
 Field | Description
 --- | ---
-network_id | **string**<br>Required. ID of the Network resource to list operations for.  The maximum string length in characters is 50.
+network_id | **string**<br>Required. ID of the Network resource to list operations for. false The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page that should be returned. If the number of available results is larger than `page_size`, the service returns a [ListNetworkOperationsResponse.next_page_token](#ListNetworkOperationsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListNetworkOperationsResponse.next_page_token](#ListNetworkOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
@@ -324,8 +334,8 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-network_id | **string**<br>Required. ID of the Network resource to move.  The maximum string length in characters is 50.
-destination_folder_id | **string**<br>Required. ID of the destination folder.  The maximum string length in characters is 50.
+network_id | **string**<br>Required. ID of the Network resource to move. false The maximum string length in characters is 50.
+destination_folder_id | **string**<br>Required. ID of the destination folder. false The maximum string length in characters is 50.
 
 
 ### Operation {#Operation}

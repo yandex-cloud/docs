@@ -20,7 +20,7 @@
     };
     ```
 1. [Создайте версию функции](../operations/function/version-manage.md#version-create), используя файл `index.js`.
-1. [Выполните функцию](../operations/function/function-invoke.md).
+1. [Выполните функцию](../operations/function/function-invoke.md) с указанием параметра строки запроса [integration=raw](../concepts/function-invoke).
 
     Ответ функции будет выглядеть следующим образом:
 
@@ -30,9 +30,6 @@
         "access_token": "CggVAgAAABoBMRKABHGgpZ......",
         "expires_in": 42299,
         "token_type": "Bearer"
-      },
-      "event": {
-        "payload": ""
       }
     }
     ```    

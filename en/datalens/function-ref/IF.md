@@ -6,7 +6,7 @@ editable: false
 
 _Logical functions_
 
-#### Syntax
+#### Syntax {#syntax}
 
 Version 1:
 ```
@@ -29,7 +29,7 @@ IF(
 )
 ```
 
-#### Description
+#### Description {#description}
 Checks conditional expressions `condition_1`, `result_1`, ... and returns the matching result for the first condition found to be `TRUE`. IF all conditional expressions are `FALSE`, it returns `default_result`.
 
 **Argument types:**
@@ -42,7 +42,7 @@ Checks conditional expressions `condition_1`, `result_1`, ... and returns the ma
 
 **Return type**: Depends on argument types
 
-#### Examples
+#### Examples {#examples}
 
 ```
 IF("Hello world" LIKE "%el%", "is like", "is not like") = "is like"
@@ -59,6 +59,6 @@ END
 ```
 
 
-#### Data source support
+#### Data source support {#data-source-support}
 
 `Materialized Dataset`, `ClickHouse 1.1`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`.

@@ -6,14 +6,14 @@ editable: false
 
 _Строковые функции_
 
-#### Синтаксис
+#### Синтаксис {#syntax}
 
 
 ```
 ICONTAINS( string, substring )
 ```
 
-#### Описание
+#### Описание {#description}
 Регистронезависимый вариант [CONTAINS](CONTAINS.md). Возвращает `TRUE`, если строка `string` содержит в себе подстроку `substring`.
 
 **Типы аргументов:**
@@ -23,7 +23,7 @@ ICONTAINS( string, substring )
 
 **Возвращаемый тип**: `Логический`
 
-#### Примеры
+#### Примеры {#examples}
 
 ```
 ICONTAINS("RU0891923", "ru") = TRUE
@@ -34,6 +34,6 @@ ICONTAINS("Lorem ipsum", "abc") = FALSE
 ```
 
 
-#### Поддержка источников данных
+#### Поддержка источников данных {#data-source-support}
 
 `Материализованный датасет`, `ClickHouse 1.1`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`.

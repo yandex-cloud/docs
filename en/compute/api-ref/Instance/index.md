@@ -55,7 +55,10 @@ A set of methods for managing Instance resources.
           "address": "string",
           "ipVersion": "string"
         }
-      }
+      },
+      "securityGroupIds": [
+        "string"
+      ]
     }
   ],
   "fqdn": "string",
@@ -113,6 +116,7 @@ networkInterfaces[].<br>primaryV6Address.<br>address | **string**<br><p>An IPv4 
 networkInterfaces[].<br>primaryV6Address.<br>oneToOneNat | **object**<br><p>One-to-one NAT configuration. If missing, NAT has not been set up.</p> 
 networkInterfaces[].<br>primaryV6Address.<br>oneToOneNat.<br>address | **string**<br><p>An external IP address associated with this instance.</p> 
 networkInterfaces[].<br>primaryV6Address.<br>oneToOneNat.<br>ipVersion | **string**<br><p>IP version for the external IP address.</p> <ul> <li>IPV4: IPv4 address, for example 192.0.2.235.</li> <li>IPV6: IPv6 address. Not available yet.</li> </ul> 
+networkInterfaces[].<br>securityGroupIds[] | **string**<br><p>ID's of security groups attached to the interface</p> 
 fqdn | **string**<br><p>A domain name of the instance. FQDN is defined by the server in the format <code>&lt;hostname&gt;.&lt;region_id&gt;.internal</code> when the instance is created. If the hostname were not specified when the instance was created, FQDN would be <code>&lt;id&gt;.auto.internal</code>.</p> 
 schedulingPolicy | **object**<br><p>Scheduling policy configuration.</p> 
 schedulingPolicy.<br>preemptible | **boolean** (boolean)<br><p>True for short-lived compute instances. For more information, see <a href="/docs/compute/concepts/preemptible-vm">Preemptible VMs</a>.</p> 
@@ -140,3 +144,4 @@ Method | Description
 [stop](stop.md) | Stops the running instance.
 [update](update.md) | Updates the specified instance.
 [updateMetadata](updateMetadata.md) | Updates the metadata of the specified instance.
+[updateNetworkInterface](updateNetworkInterface.md) | 

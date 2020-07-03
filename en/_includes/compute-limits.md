@@ -68,6 +68,8 @@
 
 {% endlist %}
 
+Read and write operations utilize the same disk resource. The more read operations you do, the fewer write operations  you can do, and vice versa. Learn more in [Disks](../compute/concepts/disk.md#rw).
+
 ##### * {#max_iops}
 
 To achieve maximum IOPS, we recommend performing read and write operations that are 4 KB and less.

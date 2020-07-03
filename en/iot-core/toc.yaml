@@ -91,8 +91,12 @@ items:
         items:
           - name: Overview
             href: grpc/index.md
+          - name: DeviceDataService
+            href: grpc/device_data_service.md
           - name: DeviceService
             href: grpc/device_service.md
+          - name: RegistryDataService
+            href: grpc/registry_data_service.md
           - name: RegistryService
             href: grpc/registry_service.md
           - name: OperationService
@@ -129,6 +133,12 @@ items:
                 href: api-ref/Device/listPasswords.md
               - name: update
                 href: api-ref/Device/update.md
+          - name: DeviceData
+            items:
+              - name: Overview
+                href: api-ref/DeviceData/index.md
+              - name: publish
+                href: api-ref/DeviceData/publish.md
           - name: Registry
             items:
               - name: Overview
@@ -159,3 +169,9 @@ items:
                 href: api-ref/Registry/listPasswords.md
               - name: update
                 href: api-ref/Registry/update.md
+          - name: RegistryData
+            items:
+              - name: Overview
+                href: api-ref/RegistryData/index.md
+              - name: publish
+                href: api-ref/RegistryData/publish.md

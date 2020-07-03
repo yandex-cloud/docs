@@ -15,7 +15,7 @@ items:
         href: stt/streaming.md
       - name: Audio formats
         href: stt/formats.md
-      - name: Language models
+      - name: Recognition models
         href: stt/models.md
   - name: Speech synthesis
     items:

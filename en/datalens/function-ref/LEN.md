@@ -6,14 +6,14 @@ editable: false
 
 _String functions_
 
-#### Syntax
+#### Syntax {#syntax}
 
 
 ```
 LEN( string )
 ```
 
-#### Description
+#### Description {#description}
 Returns the number of characters in the string `string`.
 
 **Argument types:**
@@ -22,13 +22,13 @@ Returns the number of characters in the string `string`.
 
 **Return type**: `Number (whole)`
 
-#### Examples
+#### Examples {#examples}
 
 ```
 LEN("Computer") = 9
 ```
 
 
-#### Data source support
+#### Data source support {#data-source-support}
 
 `Materialized Dataset`, `ClickHouse 1.1`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`.

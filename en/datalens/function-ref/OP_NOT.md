@@ -6,14 +6,14 @@ editable: false
 
 _Operators_
 
-#### Syntax
+#### Syntax {#syntax}
 
 
 ```
 NOT value
 ```
 
-#### Description
+#### Description {#description}
 Inverts a Boolean value.
 
 **Argument types:**
@@ -22,7 +22,7 @@ Inverts a Boolean value.
 
 **Return type**: `Boolean`
 
-#### Examples
+#### Examples {#examples}
 
 ```
 NOT FALSE = TRUE
@@ -57,6 +57,6 @@ NOT #2019-01-01 03:00:00# = FALSE
 ```
 
 
-#### Data source support
+#### Data source support {#data-source-support}
 
 `Materialized Dataset`, `ClickHouse 1.1`, `Yandex.Metrica`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`.

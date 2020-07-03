@@ -169,7 +169,7 @@ The security policy is a JSON document and may look like the following:
 }
 ```
 
-The `expiration` field contains the policy expiration date in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format, for example, `20190722T153936Z`. When the policy expires, {{ objstorage-name }} no longer accepts any files uploaded from the form.
+The `expiration` field contains the policy expiration date in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format, for example, `2019-07-22T15:39:36Z`. When the policy expires, {{ objstorage-name }} no longer accepts any files uploaded from the form.
 
 The `conditions` field contains a set of rules for the form fields. At least one rule must be specified for each form field.
 

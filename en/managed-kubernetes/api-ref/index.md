@@ -9,4 +9,4 @@ Resource | Description
 --- | ---
 [Cluster](Cluster/index.md) | A set of methods for managing Kubernetes cluster.
 [NodeGroup](NodeGroup/index.md) | A set of methods for managing node groups.
-[Version](Version/index.md) | 
+[Version](Version/index.md) | A set of methods for managing Kubernetes versions.

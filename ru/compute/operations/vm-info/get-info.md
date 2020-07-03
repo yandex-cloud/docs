@@ -159,7 +159,6 @@ GET http://169.254.169.254/latest/meta-data/<элемент>
 `network/interfaces/macs/<mac>/local-ipv4s` | Внутренние IPv4-адреса, ассоциированные с сетевым интерфейсом.
 `network/interfaces/macs/<mac>/mac` | MAC-адрес сетевого интерфейса виртуальной машины.
 `public-ipv4` | Внешний IPv4-адрес.
-`iam/security-credentials/default/` | **Перестанет поддерживаться с 11.06.2020.** <br><br>[IAM-токен](../../../iam/concepts/authorization/iam-token.md) привязанного сервисного аккаунта.
 
 #### Примеры запросов {#request-examples}
 
