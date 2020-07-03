@@ -9,7 +9,7 @@ editable: false
  
 ## HTTP-запрос {#https-request}
 ```
-GET https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/{clusterId}/users/{userName}
+GET https://mdb.api.cloud.yandex.net/managed-mysql/v1alpha/clusters/{clusterId}/users/{userName}
 ```
  
 ## Path-параметры {#path_params}
@@ -17,7 +17,7 @@ GET https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/{clusterId}/users
 Параметр | Описание
 --- | ---
 clusterId | Обязательное поле. Идентификатор кластера MySQL.  Максимальная длина строки в символах — 50.
-userName | Обязательное поле. Обязательное поле.  Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_]* ``.
+userName | Обязательное поле. Имя пользователя.  Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_]* ``.
  
 ## Ответ {#responses}
 **HTTP Code: 200 - OK**

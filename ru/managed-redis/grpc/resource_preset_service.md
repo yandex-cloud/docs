@@ -23,7 +23,7 @@ editable: false
 
 Поле | Описание
 --- | ---
-resource_preset_id | **string**<br>Обязательное поле. Идентификатор набора ресурсов, данные о котором запрашиваются. Чтобы получить идентификатор набора ресурсов, используйте запрос [ResourcePresetService.List](#List). 
+resource_preset_id | **string**<br>Обязательное поле. Идентификатор набора ресурсов, данные о котором запрашиваются. Чтобы получить идентификатор набора ресурсов, используйте запрос [ResourcePresetService.List](#List). false
 
 
 ### ResourcePreset {#ResourcePreset}

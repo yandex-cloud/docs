@@ -6,14 +6,14 @@ editable: false
 
 _String functions_
 
-#### Syntax
+#### Syntax {#syntax}
 
 
 ```
 LOWER( string )
 ```
 
-#### Description
+#### Description {#description}
 Returns the string `string` in lowercase.
 
 **Argument types:**
@@ -22,7 +22,7 @@ Returns the string `string` in lowercase.
 
 **Return type**: `String`
 
-#### Examples
+#### Examples {#examples}
 
 ```
 LOWER("Lorem ipsum") = "lorem ipsum"
@@ -33,6 +33,6 @@ LOWER("Карл у Клары") = "карл у клары"
 ```
 
 
-#### Data source support
+#### Data source support {#data-source-support}
 
 `Materialized Dataset`, `ClickHouse 1.1`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`.

@@ -9,3 +9,4 @@ editable: false
 --- | ---
 [Cluster](Cluster/index.md) | Набор методов для управления кластером Kubernetes.
 [NodeGroup](NodeGroup/index.md) | Набор методов для управления группами узлов.
+[Version](Version/index.md) | Набор методов для управления версиями Kubernetes.

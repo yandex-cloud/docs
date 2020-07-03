@@ -24,6 +24,7 @@ POST https://compute.api.cloud.yandex.net/compute/v1/disks
   "typeId": "string",
   "zoneId": "string",
   "size": "string",
+  "blockSize": "string",
 
   //  includes only one of the fields `imageId`, `snapshotId`
   "imageId": "string",
@@ -37,12 +38,13 @@ POST https://compute.api.cloud.yandex.net/compute/v1/disks
 Field | Description
 --- | ---
 folderId | **string**<br><p>Required. ID of the folder to create a disk in. To get the folder ID use a <a href="/docs/resource-manager/api-ref/Folder/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
-name | **string**<br><p>Name of the disk.</p> <p>Value must match the regular expression <code>\|[a-z][-a-z0-9]{1,61}[a-z0-9]</code>.</p> 
+name | **string**<br><p>Name of the disk.</p> <p>Value must match the regular expression <code>\|[a-z]([-a-z0-9]{0,61}[a-z0-9])?</code>.</p> 
 description | **string**<br><p>Description of the disk.</p> <p>The maximum string length in characters is 256.</p> 
-labels | **object**<br><p>Resource labels as <code>key:value</code> pairs.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression <code>[a-z][-_0-9a-z]*</code>. The maximum string length in characters for each value is 63. Each value must match the regular expression <code>[-_0-9a-z]*</code>.</p> 
+labels | **object**<br><p>Resource labels as <code>key:value</code> pairs.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression <code>[a-z][-_./\@0-9a-z]*</code>. The maximum string length in characters for each value is 63. Each value must match the regular expression <code>[-_./\@0-9a-z]*</code>.</p> 
 typeId | **string**<br><p>ID of the disk type. To get a list of available disk types use the <a href="/docs/compute/api-ref/DiskType/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
 zoneId | **string**<br><p>Required. ID of the availability zone where the disk resides. To get a list of available zones use the <a href="/docs/compute/api-ref/Zone/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
-size | **string** (int64)<br><p>Required. Size of the disk, specified in bytes. If the disk was created from a image, this value should be more than the <a href="/docs/compute/api-ref/Image#representation">Image.minDiskSize</a> value.</p> <p>Acceptable values are 4194304 to 4398046511104, inclusive.</p> 
+size | **string** (int64)<br><p>Required. Size of the disk, specified in bytes. If the disk was created from a image, this value should be more than the <a href="/docs/compute/api-ref/Image#representation">Image.minDiskSize</a> value.</p> <p>Acceptable values are 4194304 to 28587302322176, inclusive.</p> 
+blockSize | **string** (int64)<br><p>Block size used for disk, specified in bytes. The default is 4096.</p> 
 imageId | **string** <br> includes only one of the fields `imageId`, `snapshotId`<br><br><p>ID of the image to create the disk from.</p> <p>The maximum string length in characters is 50.</p> 
 snapshotId | **string** <br> includes only one of the fields `imageId`, `snapshotId`<br><br><p>ID of the snapshot to restore the disk from.</p> <p>The maximum string length in characters is 50.</p> 
  

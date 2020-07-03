@@ -6,14 +6,14 @@ editable: false
 
 _Date/Time functions_
 
-#### Syntax
+#### Syntax {#syntax}
 
 
 ```
 DATEADD( datetime, unit, number )
 ```
 
-#### Description
+#### Description {#description}
 Returns the date obtained by adding `unit` in the amount of `number` to the specified date `datetime`.
 
 The `number` argument is an integer. It can be negative.
@@ -46,7 +46,7 @@ For all sources except `Materialized Dataset`, `ClickHouse`, `number` takes only
 {% endnote %}
 
 
-#### Examples
+#### Examples {#examples}
 
 ```
 DATEADD(#2018-01-12#, "day", 6) = #2018-01-18#
@@ -85,6 +85,6 @@ DATEADD(#2018-01-12 01:02:03#, "year", 6) = #2024-01-12 01:02:03#
 ```
 
 
-#### Data source support
+#### Data source support {#data-source-support}
 
 `Materialized Dataset`, `ClickHouse 1.1`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`.

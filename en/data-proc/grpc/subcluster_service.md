@@ -26,8 +26,8 @@ Returns the specified subcluster. <br>To get the list of all available subcluste
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the Data Proc cluster that the subcluster belongs to.  The maximum string length in characters is 50.
-subcluster_id | **string**<br>Required. ID of the subcluster to return. <br>To get a subcluster ID make a [SubclusterService.List](#List) request.  The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the Data Proc cluster that the subcluster belongs to. false The maximum string length in characters is 50.
+subcluster_id | **string**<br>Required. ID of the subcluster to return. <br>To get a subcluster ID make a [SubclusterService.List](#List) request. false The maximum string length in characters is 50.
 
 
 ### Subcluster {#Subcluster}
@@ -63,7 +63,7 @@ Retrieves a list of subclusters in the specified cluster.
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the Data Proc cluster to list subclusters in.  The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the Data Proc cluster to list subclusters in. false The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListSubclustersResponse.next_page_token](#ListSubclustersResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListSubclustersResponse.next_page_token](#ListSubclustersResponse) returned by a previous list request. The maximum string length in characters is 100.
 filter | **string**<br><ol><li>The field name. Currently you can use filtering only on [Subcluster.name](#Subcluster1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]. </li></ol> The maximum string length in characters is 1000.
@@ -114,12 +114,12 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the Data Proc cluster to create a subcluster in. <br>To get a cluster ID, make a [ClusterService.List](./cluster_service#List) request.  The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the Data Proc cluster to create a subcluster in. <br>To get a cluster ID, make a [ClusterService.List](./cluster_service#List) request. false The maximum string length in characters is 50.
 name | **string**<br>Name of the subcluster. The name must be unique within the cluster. The name can’t be changed when the subcluster is created. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
-role | enum **Role**<br>Required. Role that is fulfilled by hosts of the subcluster. <ul><li>`MASTERNODE`: <ul><li>HDFS: Namenode, Secondary Namenode </li><li>YARN: ResourceManager, Timeline Server </li><li>HBase Master </li><li>Hive: Server, Metastore, HCatalog </li><li>Spark History Server </li><li>Zeppelin </li><li>ZooKeeper</li></ul></li><li>`DATANODE`: <ul><li>HDFS DataNode </li><li>YARN NodeManager </li><li>HBase RegionServer </li><li>Spark libraries</li></ul></li><li>`COMPUTENODE`: <ul><li>YARN NodeManager </li><li>Spark libraries</li></ul></li><ul/>
-resources | **[Resources](#Resources2)**<br>Required. Resources allocated for each host in the subcluster. 
-subnet_id | **string**<br>Required. ID of the VPC subnet used for hosts in the subcluster.  The maximum string length in characters is 50.
-hosts_count | **int64**<br>Required. Number of hosts in the subcluster.  The minimum value is 1.
+role | enum **Role**<br>Required. Role that is fulfilled by hosts of the subcluster. false<ul><li>`MASTERNODE`: <ul><li>HDFS: Namenode, Secondary Namenode </li><li>YARN: ResourceManager, Timeline Server </li><li>HBase Master </li><li>Hive: Server, Metastore, HCatalog </li><li>Spark History Server </li><li>Zeppelin </li><li>ZooKeeper</li></ul></li><li>`DATANODE`: <ul><li>HDFS DataNode </li><li>YARN NodeManager </li><li>HBase RegionServer </li><li>Spark libraries</li></ul></li><li>`COMPUTENODE`: <ul><li>YARN NodeManager </li><li>Spark libraries</li></ul></li><ul/>
+resources | **[Resources](#Resources2)**<br>Required. Resources allocated for each host in the subcluster. false
+subnet_id | **string**<br>Required. ID of the VPC subnet used for hosts in the subcluster. false The maximum string length in characters is 50.
+hosts_count | **int64**<br>Required. Number of hosts in the subcluster. false The minimum value is 1.
 
 
 ### Resources {#Resources}
@@ -183,12 +183,13 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the cluster to update a subcluster in. <br>To get a cluster ID, make a [ClusterService.List](./cluster_service#List) request.  The maximum string length in characters is 50.
-subcluster_id | **string**<br>Required. ID of the subcluster to update. <br>To get a subcluster ID, make a [SubclusterService.List](#List) request.  The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the cluster to update a subcluster in. <br>To get a cluster ID, make a [ClusterService.List](./cluster_service#List) request. false The maximum string length in characters is 50.
+subcluster_id | **string**<br>Required. ID of the subcluster to update. <br>To get a subcluster ID, make a [SubclusterService.List](#List) request. false The maximum string length in characters is 50.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which attributes of the subcluster should be updated. 
 resources | **[Resources](#Resources3)**<br>New configuration of resources that should be allocated for each host in the subcluster. 
 name | **string**<br>New name for the subcluster. The name must be unique within the cluster. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
-hosts_count | **int64**<br>Required. New number of hosts in the subcluster.  The minimum value is 1.
+hosts_count | **int64**<br>Required. New number of hosts in the subcluster. false The minimum value is 1.
+decommission_timeout | **int64**<br>Timeout to gracefully decommission nodes. In seconds. Default value: 0 Acceptable values are 0 to 86400, inclusive.
 
 
 ### Resources {#Resources}
@@ -252,8 +253,9 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the cluster to remove a subcluster from. <br>To get a cluster ID, make a [ClusterService.List](./cluster_service#List) request.  The maximum string length in characters is 50.
-subcluster_id | **string**<br>Required. ID of the subcluster to delete.  The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the cluster to remove a subcluster from. <br>To get a cluster ID, make a [ClusterService.List](./cluster_service#List) request. false The maximum string length in characters is 50.
+subcluster_id | **string**<br>Required. ID of the subcluster to delete. false The maximum string length in characters is 50.
+decommission_timeout | **int64**<br>Timeout to gracefully decommission nodes. In seconds. Default value: 0 Acceptable values are 0 to 86400, inclusive.
 
 
 ### Operation {#Operation}

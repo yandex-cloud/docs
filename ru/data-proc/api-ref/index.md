@@ -9,4 +9,5 @@ editable: false
 --- | ---
 [Cluster](Cluster/index.md) | Набор методов для управления кластерами Data Proc.
 [Job](Job/index.md) | Набор методов для управления задачами Data Proc.
+[ResourcePreset](ResourcePreset/index.md) | Набор методов для управления ресурсами ResourcePreset.
 [Subcluster](Subcluster/index.md) | Набор методов для управления подкластерами Data Proc.

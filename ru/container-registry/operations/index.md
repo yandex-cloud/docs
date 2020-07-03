@@ -26,4 +26,12 @@
 
 - [{#T}](repository/repository-list.md)
 
+## Управление политиками автоматического удаления Docker-образов {#lifecycle-policy}
+
+- [{#T}](lifecycle-policy/lifecycle-policy-list.md)
+- [{#T}](lifecycle-policy/lifecycle-policy-create.md)
+- [{#T}](lifecycle-policy/lifecycle-policy-update.md)
+- [{#T}](lifecycle-policy/lifecycle-policy-dry-run.md)
+- [{#T}](lifecycle-policy/lifecycle-policy-delete.md)
+
 

@@ -6,7 +6,7 @@ editable: false
 
 _Logical functions_
 
-#### Syntax
+#### Syntax {#syntax}
 
 Version 1:
 ```
@@ -28,7 +28,7 @@ CASE(
 )
 ```
 
-#### Description
+#### Description {#description}
 Compares `expression` to `value_1`, `value_2`, ... consecutively and returns the corresponding result for the first match. If no match is found, it returns `default_result`.
 
 **Argument types:**
@@ -49,7 +49,7 @@ Arguments (`result_1`, `result_2`, `default_result`) must be of the same type.
 {% endnote %}
 
 
-#### Examples
+#### Examples {#examples}
 
 ```
 CASE (
@@ -75,6 +75,6 @@ END
 ```
 
 
-#### Data source support
+#### Data source support {#data-source-support}
 
 `Materialized Dataset`, `ClickHouse 1.1`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`.

@@ -5,6 +5,8 @@ See the interface definitions of Yandex.Cloud API on [GitHub](https://github.com
 
 Service | Description
 --- | ---
+[DeviceDataService](./device_data_service.md) | A set of methods to work with IoT Core messages on behalf of device
 [DeviceService](./device_service.md) | A set of methods for managing devices.
+[RegistryDataService](./registry_data_service.md) | A set of methods to work with IoT Core messages on behalf of registry
 [RegistryService](./registry_service.md) | A set of methods for managing registry.
 [OperationService](./operation_service.md) | A set of methods for managing operations for asynchronous API requests.

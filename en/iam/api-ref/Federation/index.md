@@ -16,7 +16,11 @@ A set of methods for managing federations.
   "autoCreateAccountOnLogin": true,
   "issuer": "string",
   "ssoBinding": "string",
-  "ssoUrl": "string"
+  "ssoUrl": "string",
+  "securitySettings": {
+    "encryptedAssertions": true
+  },
+  "caseInsensitiveNameIds": true
 }
 ```
  
@@ -32,6 +36,9 @@ autoCreateAccountOnLogin | **boolean** (boolean)<br><p>Add new users automatical
 issuer | **string**<br><p>Required. ID of the IdP server to be used for authentication. The IdP server also responds to IAM with this ID after the user authenticates.</p> <p>The maximum string length in characters is 8000.</p> 
 ssoBinding | **string**<br><p>Single sign-on endpoint binding type. Most Identity Providers support the <code>POST</code> binding type.</p> <p>SAML Binding is a mapping of a SAML protocol message onto standard messaging formats and/or communications protocols.</p> <ul> <li>POST: HTTP POST binding.</li> <li>REDIRECT: HTTP redirect binding.</li> <li>ARTIFACT: HTTP artifact binding.</li> </ul> 
 ssoUrl | **string**<br><p>Required. Single sign-on endpoint URL. Specify the link to the IdP login page here.</p> <p>The maximum string length in characters is 8000.</p> 
+securitySettings | **object**<br><p>Federation security settings.</p> <p>Federation security settings.</p> 
+securitySettings.<br>encryptedAssertions | **boolean** (boolean)<br><p>Enable encrypted assertions.</p> 
+caseInsensitiveNameIds | **boolean** (boolean)<br><p>Use case insensitive Name IDs.</p> 
 
 ## Methods {#methods}
 Method | Description

@@ -873,7 +873,10 @@ Method | Description
 [listOperations](listOperations.md) | Retrieves the list of Operation resources for the specified cluster.
 [listShards](listShards.md) | Retrieves a list of shards.
 [move](move.md) | Moves the specified MongoDB cluster to the specified folder.
+[resetupHosts](resetupHosts.md) | Resetup hosts.
+[restartHosts](restartHosts.md) | Restart hosts.
 [restore](restore.md) | Creates a new MongoDB cluster using the specified backup.
 [start](start.md) | Start the specified MongoDB cluster.
 [stop](stop.md) | Stop the specified MongoDB cluster.
+[streamLogs](streamLogs.md) | Same as ListLogs but using server-side streaming. Also allows for 'tail -f' semantics.
 [update](update.md) | Updates the specified MongoDB cluster.

@@ -6,14 +6,14 @@ editable: false
 
 _Operators_
 
-#### Syntax
+#### Syntax {#syntax}
 
 
 ```
 string_1 [ NOT ] LIKE string_2
 ```
 
-#### Description
+#### Description {#description}
 Matches the string `string_1` to the template `string_2` and returns `TRUE` on match.
 You can specify the value in `string_2` or use the `%` character to match a string of any length.
 
@@ -26,7 +26,7 @@ The `string_1 NOT LIKE` option returns the opposite value.
 
 **Return type**: `Boolean`
 
-#### Examples
+#### Examples {#examples}
 
 ```
 "raspberry" LIKE "%spb%" = TRUE
@@ -45,6 +45,6 @@ IIF([Phone] LIKE '+7%', 'RU', 'notRU')
 ```
 
 
-#### Data source support
+#### Data source support {#data-source-support}
 
 `Materialized Dataset`, `ClickHouse 1.1`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`.

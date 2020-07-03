@@ -6,14 +6,14 @@ editable: false
 
 _Geographical functions_
 
-#### Syntax
+#### Syntax {#syntax}
 
 
 ```
 GEOINFO( address, scale )
 ```
 
-#### Description
+#### Description {#description}
 Converts `address` to geographical name corresponding to the specified `scale`.
 
 Possible values for `scale` parameter:
@@ -42,13 +42,13 @@ Function is available only with the Standard billing plan.
 {% endnote %}
 
 
-#### Examples
+#### Examples {#examples}
 
 ```
 GEOINFO("посёлок Свободный Серп", "country") = "Россия"
 ```
 
 
-#### Data source support
+#### Data source support {#data-source-support}
 
 `Materialized Dataset`.

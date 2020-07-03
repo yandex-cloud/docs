@@ -84,6 +84,8 @@ items:
             href: grpc/network_service.md
           - name: RouteTableService
             href: grpc/route_table_service.md
+          - name: SecurityGroupService
+            href: grpc/security_group_service.md
           - name: SubnetService
             href: grpc/subnet_service.md
           - name: OperationService
@@ -130,6 +132,10 @@ items:
                 href: api-ref/RouteTable/move.md
               - name: update
                 href: api-ref/RouteTable/update.md
+          - name: SecurityGroup
+            items:
+              - name: Overview
+                href: api-ref/SecurityGroup/index.md
           - name: Subnet
             items:
               - name: Overview

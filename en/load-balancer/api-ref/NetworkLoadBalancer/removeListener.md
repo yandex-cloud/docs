@@ -9,7 +9,7 @@ Removes the listener from the specified network load balancer.
  
 ## HTTP request {#https-request}
 ```
-POST https://load-balancer.api.cloud.yandex.net/load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}:removeListener
+POST https://load-balancer.api.cloud.yandex.net/load-balancer/v1alpha/networkLoadBalancers/{networkLoadBalancerId}:removeListener
 ```
  
 ## Path parameters {#path_params}
@@ -22,14 +22,18 @@ networkLoadBalancerId | Required. ID of the network load balancer to remove the 
  
 ```json 
 {
-  "listenerName": "string"
+  "address": "string",
+  "protocol": "string",
+  "port": "string"
 }
 ```
 
  
 Field | Description
 --- | ---
-listenerName | **string**<br><p>Required. Name of the listener to delete.</p> <p>Value must match the regular expression <code>\|[a-z][-a-z0-9]{1,61}[a-z0-9]</code>.</p> 
+address | **string**<br><p>Required. IP address of the listener.</p> <p>The maximum string length in characters is 50.</p> 
+protocol | **string**<br><p>Required. Network protocol for incoming traffic.</p> <p>Network protocol to use.</p> 
+port | **string** (int64)<br><p>Port.</p> <p>Acceptable values are 1 to 65535, inclusive.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

@@ -6,7 +6,7 @@ editable: false
 
 _Operators_
 
-#### Syntax
+#### Syntax {#syntax}
 
 Version 1:
 ```
@@ -33,7 +33,7 @@ Version 6:
 value_1 => value_2
 ```
 
-#### Description
+#### Description {#description}
 Compares the value `value_1` with the value `value_2`.
 
 **Argument types:**
@@ -43,7 +43,7 @@ Compares the value `value_1` with the value `value_2`.
 
 **Return type**: `Boolean`
 
-#### Examples
+#### Examples {#examples}
 
 ```
 1 = 1 = TRUE
@@ -54,6 +54,6 @@ Compares the value `value_1` with the value `value_2`.
 ```
 
 
-#### Data source support
+#### Data source support {#data-source-support}
 
 `Materialized Dataset`, `ClickHouse 1.1`, `Yandex.Metrica`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`.

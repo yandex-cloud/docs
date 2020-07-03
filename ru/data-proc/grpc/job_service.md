@@ -24,7 +24,7 @@ editable: false
 
 Поле | Описание
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера, для которого запрашивается список задач.  Максимальная длина строки в символах — 50.
+cluster_id | **string**<br>Обязательное поле. Идентификатор кластера, для которого запрашивается список задач. false Максимальная длина строки в символах — 50.
 page_size | **int64**<br>Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `page_size`, сервис вернет значение [ListJobsResponse.next_page_token](#ListJobsResponse), которое можно использовать для получения следующей страницы. Значение по умолчанию: 100. Максимальное значение — 1000.
 page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListJobsResponse.next_page_token](#ListJobsResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
 filter | **string**<br><ol><li>Имя поля. В настоящее время фильтрация осуществляется только по полю [Job.name](#Job). </li><li>Оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений. </li><li>Значение. Значение длиной от 3 до 63 символов, совпадающее с регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]`. Пример фильтра: `name=my-job`.</li></ol> Максимальная длина строки в символах — 1000.
@@ -48,6 +48,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время запуска задачи. 
 finished_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время завершения задачи. 
 name | **string**<br>Имя задачи, указанное в запросе [JobService.Create](#Create). 
+created_by | **string**<br>Идентификатор пользователя, создавшего задачу. 
 status | enum **Status**<br>Статус задачи. <ul><li>`PROVISIONING`: Задача зарегистрирована в базе данных и ожидает, пока агент запустит ее.</li><li>`PENDING`: Задача получена агентом и находится в очереди на выполнение.</li><li>`RUNNING`: Задача выполняется в кластере.</li><li>`ERROR`: Задача не смогла завершиться должным образом.</li><li>`DONE`: Задача выполнена.</li><ul/>
 job_spec | **oneof:** `mapreduce_job`, `spark_job`, `pyspark_job` или `hive_job`<br>Спецификация задачи.
 &nbsp;&nbsp;mapreduce_job | **[MapreduceJob](#MapreduceJob)**<br>Спецификация задачи для MapReduce. 
@@ -130,7 +131,7 @@ queries[] | **string**<br>Список Hive-запросов.
 
 Поле | Описание
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера, для которого следует создать задачу.  Максимальная длина строки в символах — 50.
+cluster_id | **string**<br>Обязательное поле. Идентификатор кластера, для которого следует создать задачу. false Максимальная длина строки в символах — 50.
 name | **string**<br>Имя задачи. Значение должно соответствовать регулярному выражению ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 job_spec | **oneof:** `mapreduce_job`, `spark_job`, `pyspark_job` или `hive_job`<br>Спецификация задачи.
 &nbsp;&nbsp;mapreduce_job | **[MapreduceJob](#MapreduceJob1)**<br>Спецификация задачи для MapReduce. 
@@ -219,7 +220,7 @@ result | **oneof:** `error` или `response`<br>Результат операц
 
 Поле | Описание
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера, для которого создается задача.  Максимальная длина строки в символах — 50.
+cluster_id | **string**<br>Обязательное поле. Идентификатор кластера, для которого создается задача. false Максимальная длина строки в символах — 50.
 job_id | **string**<br>Идентификатор создаваемой задачи. Максимальная длина строки в символах — 50.
 
 
@@ -233,6 +234,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время запуска задачи. 
 finished_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время завершения задачи. 
 name | **string**<br>Имя задачи, указанное в запросе [JobService.Create](#Create). 
+created_by | **string**<br>Идентификатор пользователя, создавшего задачу. 
 status | enum **Status**<br>Статус задачи. <ul><li>`PROVISIONING`: Задача зарегистрирована в базе данных и ожидает, пока агент запустит ее.</li><li>`PENDING`: Задача получена агентом и находится в очереди на выполнение.</li><li>`RUNNING`: Задача выполняется в кластере.</li><li>`ERROR`: Задача не смогла завершиться должным образом.</li><li>`DONE`: Задача выполнена.</li><ul/>
 job_spec | **oneof:** `mapreduce_job`, `spark_job`, `pyspark_job` или `hive_job`<br>Спецификация задачи.
 &nbsp;&nbsp;mapreduce_job | **[MapreduceJob](#MapreduceJob2)**<br>Спецификация задачи для MapReduce. 
@@ -251,8 +253,8 @@ job_spec | **oneof:** `mapreduce_job`, `spark_job`, `pyspark_job` или `hive_j
 
 Поле | Описание
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера, для которого запрашивается задача.  Максимальная длина строки в символах — 50.
-job_id | **string**<br>Обязательное поле. Идентификатор возвращаемой задачи. <br>Чтобы получить идентификатор задачи, выполните запрос [JobService.List](#List).  Максимальная длина строки в символах — 50.
+cluster_id | **string**<br>Обязательное поле. Идентификатор кластера, для которого запрашивается задача. false Максимальная длина строки в символах — 50.
+job_id | **string**<br>Обязательное поле. Идентификатор возвращаемой задачи. <br>Чтобы получить идентификатор задачи, выполните запрос [JobService.List](#List). false Максимальная длина строки в символах — 50.
 
 
 ### Job {#Job}
@@ -265,6 +267,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время запуска задачи. 
 finished_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время завершения задачи. 
 name | **string**<br>Имя задачи, указанное в запросе [JobService.Create](#Create). 
+created_by | **string**<br>Идентификатор пользователя, создавшего задачу. 
 status | enum **Status**<br>Статус задачи. <ul><li>`PROVISIONING`: Задача зарегистрирована в базе данных и ожидает, пока агент запустит ее.</li><li>`PENDING`: Задача получена агентом и находится в очереди на выполнение.</li><li>`RUNNING`: Задача выполняется в кластере.</li><li>`ERROR`: Задача не смогла завершиться должным образом.</li><li>`DONE`: Задача выполнена.</li><ul/>
 job_spec | **oneof:** `mapreduce_job`, `spark_job`, `pyspark_job` или `hive_job`<br>Спецификация задачи.
 &nbsp;&nbsp;mapreduce_job | **[MapreduceJob](#MapreduceJob2)**<br>Спецификация задачи для MapReduce. 

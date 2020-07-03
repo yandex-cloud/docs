@@ -318,7 +318,7 @@ configSpec.<br>clickhouse.<br>config.<br>geobaseUri | **string**<br>
 configSpec.<br>clickhouse.<br>resources | **object**<br><p>Вычислительные ресурсы для шарда.</p> 
 configSpec.<br>clickhouse.<br>resources.<br>resourcePresetId | **string**<br><p>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в <a href="/docs/managed-clickhouse/concepts/instance-types">документации</a>.</p> 
 configSpec.<br>clickhouse.<br>resources.<br>diskSize | **string** (int64)<br><p>Объем хранилища, доступного хосту, в байтах.</p> 
-configSpec.<br>clickhouse.<br>resources.<br>diskTypeId | **string**<br><p>Тип хранилища для хоста. Возможные значения:</p> <ul> <li>network-hdd — стандартное сетевое хранилище;</li> <li>network-ssd — быстрое сетевое хранилище;</li> <li>local-ssd — быстрое локальное хранилище.</li> </ul> 
+configSpec.<br>clickhouse.<br>resources.<br>diskTypeId | **string**<br><p>Тип хранилища для хоста. Возможные значения:</p> <ul> <li>network-hdd — сетевой HDD-диск;</li> <li>network-ssd — сетевой SSD-диск;</li> <li>local-ssd — локальное SSD-хранилище.</li> </ul> 
 configSpec.<br>clickhouse.<br>weight | **integer** (int64)<br><p>Относительный вес шарда, который учитывается при записи данных в кластер. Подробнее см. в <a href="https://clickhouse.yandex/docs/ru/operations/table_engines/distributed/">документации ClickHouse</a>.</p> 
  
 ## Ответ {#responses}

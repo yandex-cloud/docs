@@ -6,14 +6,14 @@ editable: false
 
 _String functions_
 
-#### Syntax
+#### Syntax {#syntax}
 
 
 ```
 SPLIT( orig_string, delimiter, part_index )
 ```
 
-#### Description
+#### Description {#description}
 Returns a substring from `orig_string` using the `delimiter` delimiter character to divide the string into a sequence of `part_index` parts.
 
 **Argument types:**
@@ -31,7 +31,7 @@ Only constant values are accepted for arguments (delimiter).
 {% endnote %}
 
 
-#### Examples
+#### Examples {#examples}
 
 ```
 SPLIT("RU-MOW-SVO", "-", 1) = "RU"
@@ -42,6 +42,6 @@ SPLIT("RU-MOW-SVO", "-", -1) = "SVO"
 ```
 
 
-#### Data source support
+#### Data source support {#data-source-support}
 
 `Materialized Dataset`, `ClickHouse 1.1`, `MySQL 5.6`, `PostgreSQL 9.3`.

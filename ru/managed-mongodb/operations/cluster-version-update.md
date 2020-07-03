@@ -28,46 +28,92 @@
   
 - CLI
   
-  1. Получите список ваших кластеров {{ MG }}:
+  1. Получите список ваших кластеров {{ MG }} командой:
   
      ```
-     $ yc managed-mongodb cluster list
-     +----------------------+---------------+---------------------+--------+---------+
-     |          ID          |     NAME      |     CREATED AT      | HEALTH | STATUS  |
-     +----------------------+---------------+---------------------+--------+---------+
-     | c9q8p8j2gaih8iti42mh |   mongodb406  | 2019-04-23 12:44:17 | ALIVE  | RUNNING |
-     +----------------------+---------------+---------------------+--------+---------+
+     yc managed-mongodb cluster list
      ```
-  
+    
   1. Получите информацию о нужном кластере и проверьте версию {{ MG }}, указанную в свойстве `config.version`:
   
      ```
-     $ yc managed-mongodb cluster get c9qut3k64b2o9umqogr7
-       id: c9qut3k64b2o9umqogr7
-       folder_id: b1g0itj57rbjk9thrinv
-       created_at: "2019-07-16T09:43:50.393231Z"
-       name: mongodb406
-       environment: PRODUCTION
-       monitoring:
-       - name: Console
-         description: Console charts
-         link: https://console.cloud.yandex.ru/folders/b1g0itj57rbjk9thrinv/managed-mongodb/cluster/c9qut3k64b2o9umqogr7?section=monitoring
-       config:
-         version: "3.6"
-         feature_compatibility_version: "3.6"
-         ...
+     yc managed-mongodb cluster get <id кластера>
      ```
   
   1. Запустите обновление {{ MG }}:
-  
+
      ```
-     $ yc managed-mongodb cluster update c9qutgkd4b2o9umqog97 --mongodb-version=<номер версии>
+     yc managed-mongodb cluster update <id кластера> --mongodb-version=<номер новой версии>
      ```
-  
+
      После того, как обновление запущено, кластер переходит в статус `UPDATING`. Дождитесь окончания операции и проверьте версию кластера.
   
+  1. После обновления все возможности MongoDB, у которых нет обратной совместимости с прежней версией, выключены. Чтобы снять это ограничение, выполните команду:
+     
+     ```
+     yc managed-mongodb cluster update <id кластера> --feature-compatibility-version=<номер новой версии>
+     ```     
+     
+     Подробнее об обратной совместимости читайте в [документации MongoDB](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/).
+ 
 - API
   
   Обновить версию {{ MG }} для кластера можно с помощью метода API [update](../api-ref/Cluster/update.md): передайте в запросе нужное значение в свойстве `configSpec.version`.
+  
+  После обновления все возможности MongoDB, у которых нет обратной совместимости с прежней версией, выключены. Чтобы снять это ограничение, используйте метод API [update](../api-ref/Cluster/update.md): передайте в запросе номер новой версии в свойстве `configSpec.featureCompatibilityVersion`.
+  
+  Подробнее об обратной совместимости читайте в [документации MongoDB](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/).
+  
+{% endlist %}
+
+
+## Примеры {#examples}
+
+Допустим, нужно обновить кластер с версии 3.6 до версии 4.0.
+
+{% list tabs %}
+ 
+- CLI
+
+   1. Чтобы получить список кластеров и узнать идентификатор кластера, выполните команду:
+        
+      ```
+      $ yc managed-mongodb cluster list
+      +----------------------+---------------+---------------------+--------+---------+
+      |          ID          |     NAME      |     CREATED AT      | HEALTH | STATUS  |
+      +----------------------+---------------+---------------------+--------+---------+
+      | c9q8p8j2gaih8iti42mh |   mongodb406  | 2019-04-23 12:44:17 | ALIVE  | RUNNING |
+      +----------------------+---------------+---------------------+--------+---------+
+      ```
+      
+   1. Чтобы получить информацию о кластере `c9qut3k64b2o9umqogr7`, выполните команду:
+        
+      ```
+      $ yc managed-mongodb cluster get c9qut3k64b2o9umqogr7
+        id: c9qut3k64b2o9umqogr7
+        folder_id: b1g0itj57rbjk9thrinv
+        created_at: "2019-07-16T09:43:50.393231Z"
+        name: mongodb406
+        environment: PRODUCTION
+        monitoring:
+        - name: Console
+          description: Console charts
+          link: https://console.cloud.yandex.ru/folders/b1g0itj57rbjk9thrinv/managed-mongodb/cluster/c9qut3k64b2o9umqogr7?section=monitoring
+        config:
+          version: "3.6"
+          feature_compatibility_version: "3.6"
+          ...
+      ```
+   1. Для обновления кластера `c9qutgkd4b2o9umqog97` до версии 4.0, выполните команду:
+     
+      ```
+      $ yc managed-mongodb cluster update c9qutgkd4b2o9umqog97 --mongodb-version=4.0
+      ```
+
+   1. Чтобы включить все возможности версии 4.0 в кластере `c9qutgkd4b2o9umqog97`, выполните команду:
+     
+      ```
+      $ yc managed-mongodb cluster update c9qutgkd4b2o9umqog97 --feature-compatibility-version=4.0
+      ```  
   
 {% endlist %}

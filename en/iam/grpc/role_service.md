@@ -23,7 +23,7 @@ Returns the specified Role resource. <br>To get the list of available Role resou
 
 Field | Description
 --- | ---
-role_id | **string**<br>Required. ID of the Role resource to return. To get the role ID, use a [RoleService.List](#List) request.  The maximum string length in characters is 50.
+role_id | **string**<br>Required. ID of the Role resource to return. To get the role ID, use a [RoleService.List](#List) request. false The maximum string length in characters is 50.
 
 
 ### Role {#Role}

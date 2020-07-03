@@ -12,6 +12,10 @@
 
 {% include notitle [disks](disks.md) %}
 
+## Аварийное восстановление {#disaster-recovery}
+
+{% include notitle [disaster-recovery](disaster-recovery.md) %}
+
 ## Группы виртуальных машин {#instance-groups}
 
 {% include notitle [disks](../_includes_service/instance-groups/general.md) %}

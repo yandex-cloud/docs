@@ -6,14 +6,14 @@ editable: false
 
 _Operators_
 
-#### Syntax
+#### Syntax {#syntax}
 
 
 ```
 value IS [ NOT ] TRUE
 ```
 
-#### Description
+#### Description {#description}
 Checks whether the value of `value` is true (`TRUE`).
 
 The `value IS NOT TRUE` option returns the opposite value.
@@ -24,7 +24,7 @@ The `value IS NOT TRUE` option returns the opposite value.
 
 **Return type**: `Boolean`
 
-#### Examples
+#### Examples {#examples}
 
 ```
 "qwerty" IS TRUE = TRUE
@@ -55,6 +55,6 @@ FALSE IS NOT TRUE = TRUE
 ```
 
 
-#### Data source support
+#### Data source support {#data-source-support}
 
 `Materialized Dataset`, `ClickHouse 1.1`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`.

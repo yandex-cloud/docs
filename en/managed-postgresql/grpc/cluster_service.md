@@ -20,6 +20,7 @@ A set of methods for managing PostgreSQL Cluster resources.
 | [Restore](#Restore) | Creates a new PostgreSQL cluster using the specified backup. |
 | [StartFailover](#StartFailover) | Start a manual failover on the specified PostgreSQL cluster. |
 | [ListLogs](#ListLogs) | Retrieves logs for the specified PostgreSQL cluster. |
+| [StreamLogs](#StreamLogs) | Same as ListLogs but using server-side streaming. |
 | [ListOperations](#ListOperations) | Retrieves the list of Operation resources for the specified cluster. |
 | [ListBackups](#ListBackups) | Retrieves the list of available backups for the specified PostgreSQL cluster. |
 | [ListHosts](#ListHosts) | Retrieves a list of hosts for the specified cluster. |
@@ -39,7 +40,7 @@ Returns the specified PostgreSQL Cluster resource. <br>To get the list of availa
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the PostgreSQL Cluster resource to return. To get the cluster ID use a [ClusterService.List](#List) request.  The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the PostgreSQL Cluster resource to return. To get the cluster ID use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
 
 
 ### Cluster {#Cluster}
@@ -121,7 +122,7 @@ Retrieves the list of PostgreSQL Cluster resources that belong to the specified 
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder to list PostgreSQL clusters in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request.  The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the folder to list PostgreSQL clusters in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. false The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClustersResponse.next_page_token](#ListClustersResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListClustersResponse.next_page_token](#ListClustersResponse) returned by a previous list request. The maximum string length in characters is 100.
 filter | **string**<br><ol><li>The field name. Currently you can only use filtering with the [Cluster.name](#Cluster1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Мust be 1-63 characters long and match the regular expression `^[a-zA-Z0-9_-]+$`.</li></ol> The maximum string length in characters is 1000.
@@ -218,16 +219,16 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder to create the PostgreSQL cluster in.  The maximum string length in characters is 50.
-name | **string**<br>Required. Name of the PostgreSQL cluster. The name must be unique within the folder.  The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+folder_id | **string**<br>Required. ID of the folder to create the PostgreSQL cluster in. false The maximum string length in characters is 50.
+name | **string**<br>Required. Name of the PostgreSQL cluster. The name must be unique within the folder. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 description | **string**<br>Description of the PostgreSQL cluster. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Custom labels for the PostgreSQL cluster as `` key:value `` pairs. Maximum 64 per resource. For example, "project": "mvp" or "source": "dictionary". No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
-environment | **[Cluster.Environment](#Cluster2)**<br>Required. Deployment environment of the PostgreSQL cluster. 
-config_spec | **[ConfigSpec](#ConfigSpec)**<br>Required. Configuration and resources for hosts that should be created for the PostgreSQL cluster. 
-database_specs[] | **[DatabaseSpec](#DatabaseSpec)**<br>Required. Descriptions of databases to be created in the PostgreSQL cluster. 
-user_specs[] | **[UserSpec](#UserSpec)**<br>Required. Descriptions of database users to be created in the PostgreSQL cluster. 
-host_specs[] | **[HostSpec](#HostSpec)**<br>Required. Individual configurations for hosts that should be created for the PostgreSQL cluster. 
-network_id | **string**<br>Required. ID of the network to create the cluster in.  The maximum string length in characters is 50.
+environment | **[Cluster.Environment](#Cluster2)**<br>Required. Deployment environment of the PostgreSQL cluster. false
+config_spec | **[ConfigSpec](#ConfigSpec)**<br>Required. Configuration and resources for hosts that should be created for the PostgreSQL cluster. false
+database_specs[] | **[DatabaseSpec](#DatabaseSpec)**<br>Required. Descriptions of databases to be created in the PostgreSQL cluster. false
+user_specs[] | **[UserSpec](#UserSpec)**<br>Required. Descriptions of database users to be created in the PostgreSQL cluster. false
+host_specs[] | **[HostSpec](#HostSpec)**<br>Required. Individual configurations for hosts that should be created for the PostgreSQL cluster. false
+network_id | **string**<br>Required. ID of the network to create the cluster in. false The maximum string length in characters is 50.
 
 
 ### ConfigSpec {#ConfigSpec}
@@ -276,8 +277,8 @@ data_lens | **bool**<br>Allow access for DataLens
 
 Field | Description
 --- | ---
-name | **string**<br>Required. Name of the PostgreSQL database. 1-63 characters long.  The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
-owner | **string**<br>Required. Name of the user to be assigned as the owner of the database. To get the list of available PostgreSQL users, make a [UserService.List](./user_service#List) request.  The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+name | **string**<br>Required. Name of the PostgreSQL database. 1-63 characters long. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+owner | **string**<br>Required. Name of the user to be assigned as the owner of the database. To get the list of available PostgreSQL users, make a [UserService.List](./user_service#List) request. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
 lc_collate | **string**<br>POSIX locale for string sorting order. Can only be set at creation time. Value must match the regular expression ` |[a-zA-Z_]+.UTF-8|C `.
 lc_ctype | **string**<br>POSIX locale for character classification. Can only be set at creation time. Value must match the regular expression ` |[a-zA-Z_]+.UTF-8|C `.
 extensions[] | **[Extension](#Extension)**<br>PostgreSQL extensions to be enabled for the database. 
@@ -295,8 +296,8 @@ version | **string**<br>Version of the extension.
 
 Field | Description
 --- | ---
-name | **string**<br>Required. Name of the PostgreSQL user.  The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
-password | **string**<br>Required. Password of the PostgreSQL user.  The string length in characters must be 8-128.
+name | **string**<br>Required. Name of the PostgreSQL user. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+password | **string**<br>Required. Password of the PostgreSQL user. false The string length in characters must be 8-128.
 permissions[] | **[Permission](#Permission)**<br>Set of permissions to grant to the user. 
 conn_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Number of database connections that should be available to the user. The minimum value is 10.
 settings | **[UserSettings](#UserSettings)**<br>Postgresql settings for this user 
@@ -402,7 +403,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the PostgreSQL Cluster resource to update. To get the PostgreSQL cluster ID, use a [ClusterService.List](#List) request.  The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the PostgreSQL Cluster resource to update. To get the PostgreSQL cluster ID, use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the PostgreSQL Cluster resource should be updated. 
 description | **string**<br>New description of the PostgreSQL cluster. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Custom labels for the PostgreSQL cluster as `` key:value `` pairs. Maximum 64 per resource. For example, "project": "mvp" or "source": "dictionary". <br>The new set of labels will completely replace the old ones. To add a label, request the current set with the [ClusterService.Get](#Get) method, then send an [ClusterService.Update](#Update) request with the new label added to the set. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
@@ -507,7 +508,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the PostgreSQL cluster to delete. To get the PostgreSQL cluster ID, use a [ClusterService.List](#List) request.  The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the PostgreSQL cluster to delete. To get the PostgreSQL cluster ID, use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
 
 
 ### Operation {#Operation}
@@ -547,7 +548,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the PostgreSQL cluster to start.  The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the PostgreSQL cluster to start. false The maximum string length in characters is 50.
 
 
 ### Operation {#Operation}
@@ -605,7 +606,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the PostgreSQL cluster to stop.  The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the PostgreSQL cluster to stop. false The maximum string length in characters is 50.
 
 
 ### Operation {#Operation}
@@ -663,8 +664,8 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the PostgreSQL cluster to move.  The maximum string length in characters is 50.
-destination_folder_id | **string**<br>Required. ID of the destination folder.  The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the PostgreSQL cluster to move. false The maximum string length in characters is 50.
+destination_folder_id | **string**<br>Required. ID of the destination folder. false The maximum string length in characters is 50.
 
 
 ### Operation {#Operation}
@@ -724,7 +725,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the PostgreSQL cluster to back up. To get the PostgreSQL cluster ID, use a [ClusterService.List](#List) request.  The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the PostgreSQL cluster to back up. To get the PostgreSQL cluster ID, use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
 
 
 ### Operation {#Operation}
@@ -782,16 +783,16 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-backup_id | **string**<br>Required. ID of the backup to create a cluster from. To get the backup ID, use a [ClusterService.ListBackups](#ListBackups) request. 
-time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Required. Timestamp of the moment to which the PostgreSQL cluster should be restored. 
+backup_id | **string**<br>Required. ID of the backup to create a cluster from. To get the backup ID, use a [ClusterService.ListBackups](#ListBackups) request. false
+time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Required. Timestamp of the moment to which the PostgreSQL cluster should be restored. false
 time_inclusive | **bool**<br><ul><li>false (default) — the restore point refers to the first backup moment before `time`. </li><li>true — the restore point refers to the first backup point after `time`.</li></ul> 
-name | **string**<br>Required. Name of the new PostgreSQL cluster. The name must be unique within the folder.  The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+name | **string**<br>Required. Name of the new PostgreSQL cluster. The name must be unique within the folder. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 description | **string**<br>Description of the new PostgreSQL cluster. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Custom labels for the PostgreSQL cluster as `` key:value `` pairs. Maximum 64 per resource. For example, "project": "mvp" or "source": "dictionary". No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 environment | **[Cluster.Environment](#Cluster8)**<br>Deployment environment of the new PostgreSQL cluster. 
 config_spec | **[ConfigSpec](#ConfigSpec2)**<br>Configuration for the PostgreSQL cluster to be created. 
 host_specs[] | **[HostSpec](#HostSpec1)**<br>Configurations for PostgreSQL hosts that should be created for the cluster that is being created from the backup. The number of elements must be greater than 0.
-network_id | **string**<br>Required. ID of the network to create the PostgreSQL cluster in.  The maximum string length in characters is 50.
+network_id | **string**<br>Required. ID of the network to create the PostgreSQL cluster in. false The maximum string length in characters is 50.
 folder_id | **string**<br>ID of the folder to create the PostgreSQL cluster in. The maximum string length in characters is 50.
 
 
@@ -917,7 +918,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of PostgreSQL cluster.  The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of PostgreSQL cluster. false The maximum string length in characters is 50.
 host_name | **string**<br>New master host. Switch to the most up-to-date replica if not provided. The maximum string length in characters is 253.
 
 
@@ -972,7 +973,7 @@ Retrieves logs for the specified PostgreSQL cluster.
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the PostgreSQL cluster to request logs for. To get the PostgreSQL cluster ID use a [ClusterService.List](#List) request.  The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the PostgreSQL cluster to request logs for. To get the PostgreSQL cluster ID use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
 column_filter[] | **string**<br>Columns from the logs table to request. If no columns are specified, entire log records are returned. 
 service_type | enum **ServiceType**<br>Type of the service to request logs about. <ul><li>`POSTGRESQL`: Logs of PostgreSQL activity.</li><li>`POOLER`: Logs of connection pooler activity.</li><ul/>
 from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Start timestamp for the logs request, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
@@ -987,7 +988,41 @@ always_next_page_token | **bool**<br>Always return `next_page_token`, even if cu
 Field | Description
 --- | ---
 logs[] | **[LogRecord](#LogRecord)**<br>Requested log records. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterLogsRequest.page_size](#ListClusterLogsRequest1), use the `next_page_token` as the value for the [ListClusterLogsRequest.page_token](#ListClusterLogsRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterLogsRequest.page_size](#ListClusterLogsRequest1), use the `next_page_token` as the value for the [ListClusterLogsRequest.page_token](#ListClusterLogsRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. This value is interchangeable with `next_record_token` from StreamLogs method. 
+
+
+### LogRecord {#LogRecord}
+
+Field | Description
+--- | ---
+timestamp | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Log record timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+message | **map<string,string>**<br>Contents of the log record. 
+
+
+## StreamLogs {#StreamLogs}
+
+Same as ListLogs but using server-side streaming. Also allows for 'tail -f' semantics.
+
+**rpc StreamLogs ([StreamClusterLogsRequest](#StreamClusterLogsRequest)) returns (stream [StreamLogRecord](#StreamLogRecord))**
+
+### StreamClusterLogsRequest {#StreamClusterLogsRequest}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>Required. Required. ID of the PostgreSQL cluster. false The maximum string length in characters is 50.
+column_filter[] | **string**<br>Columns from logs table to get in the response. 
+service_type | enum **ServiceType**<br> <ul><li>`POSTGRESQL`: Logs of PostgreSQL activity.</li><li>`POOLER`: Logs of connection pooler activity.</li><ul/>
+from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Start timestamp for the logs request. 
+to_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>End timestamp for the logs request. If this field is not set, all existing logs will be sent and then the new ones as they appear. In essence it has 'tail -f' semantics. 
+record_token | **string**<br>Record token. Set `record_token` to the `next_record_token` returned by a previous StreamLogs request to start streaming from next log record. The maximum string length in characters is 100.
+
+
+### StreamLogRecord {#StreamLogRecord}
+
+Field | Description
+--- | ---
+record | **[LogRecord](#LogRecord1)**<br>One of the requested log records. 
+next_record_token | **string**<br>This token allows you to continue streaming logs starting from the exact same record. To continue streaming, specify value of `next_record_token` as value for `record_token` parameter in the next StreamLogs request. This value is interchangeable with `next_page_token` from ListLogs method. 
 
 
 ### LogRecord {#LogRecord}
@@ -1008,7 +1043,7 @@ Retrieves the list of Operation resources for the specified cluster.
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the PostgreSQL Cluster resource to list operations for.  The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the PostgreSQL Cluster resource to list operations for. false The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClusterOperationsResponse.next_page_token](#ListClusterOperationsResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token.  To get the next page of results, set `page_token` to the [ListClusterOperationsResponse.next_page_token](#ListClusterOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
@@ -1047,7 +1082,7 @@ Retrieves the list of available backups for the specified PostgreSQL cluster.
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the PostgreSQL cluster. To get the PostgreSQL cluster ID use a [ClusterService.List](#List) request.  The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the PostgreSQL cluster. To get the PostgreSQL cluster ID use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClusterBackupsResponse.next_page_token](#ListClusterBackupsResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token.  To get the next page of results, set `page_token` to the [ListClusterBackupsResponse.next_page_token](#ListClusterBackupsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
@@ -1081,7 +1116,7 @@ Retrieves a list of hosts for the specified cluster.
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the PostgreSQL cluster. To get the PostgreSQL cluster ID use a [ClusterService.List](#List) request.  The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the PostgreSQL cluster. To get the PostgreSQL cluster ID use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClusterHostsResponse.next_page_token](#ListClusterHostsResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token.  To get the next page of results, set `page_token` to the [ListClusterHostsResponse.next_page_token](#ListClusterHostsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
@@ -1156,7 +1191,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the PostgreSQL cluster to add hosts to. To get the PostgreSQL cluster ID, use a [ClusterService.List](#List) request.  The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the PostgreSQL cluster to add hosts to. To get the PostgreSQL cluster ID, use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
 host_specs[] | **[HostSpec](#HostSpec2)**<br>Configurations for PostgreSQL hosts that should be added to the cluster. The number of elements must be greater than 0.
 
 
@@ -1222,7 +1257,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the PostgreSQL cluster to remove hosts from. To get the PostgreSQL cluster ID, use a [ClusterService.List](#List) request.  The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the PostgreSQL cluster to remove hosts from. To get the PostgreSQL cluster ID, use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
 host_names[] | **string**<br>Names of hosts to delete. The number of elements must be greater than 0. The maximum string length in characters for each value is 253.
 
 
@@ -1264,7 +1299,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the PostgreSQL cluster to update hosts in. To get the PostgreSQL cluster ID, use a [ClusterService.List](#List) request.  The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the PostgreSQL cluster to update hosts in. To get the PostgreSQL cluster ID, use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
 update_host_specs[] | **[UpdateHostSpec](#UpdateHostSpec)**<br>New configurations to apply to hosts. The number of elements must be greater than 0.
 
 
@@ -1272,7 +1307,7 @@ update_host_specs[] | **[UpdateHostSpec](#UpdateHostSpec)**<br>New configuration
 
 Field | Description
 --- | ---
-host_name | **string**<br>Required. Name of the host to update. To get the PostgreSQL host name, use a [ClusterService.ListHosts](#ListHosts) request. 
+host_name | **string**<br>Required. Name of the host to update. To get the PostgreSQL host name, use a [ClusterService.ListHosts](#ListHosts) request. false
 replication_source | **string**<br>[Host.name](#Host1) of the host to be used as the replication source (for cascading replication). To get the PostgreSQL host name, use a [ClusterService.ListHosts](#ListHosts) request. 
 priority | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The host with the highest priority is the synchronous replica. All others are asynchronous. The synchronous replica replaces the master when needed. <br>When a replica becomes the master, its priority is ignored. 
 config_spec | **[ConfigHostSpec](#ConfigHostSpec3)**<br>Configuration of a PostgreSQL server for the host. 

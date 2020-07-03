@@ -6,14 +6,14 @@ editable: false
 
 _Aggregate functions_
 
-#### Syntax
+#### Syntax {#syntax}
 
 
 ```
 QUANTILE( value, quant )
 ```
 
-#### Description
+#### Description {#description}
 Returns the precise `value`-level quantile (`value` should be in range from 0 to 1).
 
 **Argument types:**
@@ -30,6 +30,6 @@ Arguments (`value`, `quant`) must be of the same type.
 {% endnote %}
 
 
-#### Data source support
+#### Data source support {#data-source-support}
 
 `Materialized Dataset`, `ClickHouse 1.1`.

@@ -6,14 +6,14 @@ editable: false
 
 _String functions_
 
-#### Syntax
+#### Syntax {#syntax}
 
 
 ```
 REPLACE( string, substring, replace_with )
 ```
 
-#### Description
+#### Description {#description}
 Searches for the substring `substring` in the string `string` and replaces it with the string `replace_with`.
 
 If the substring is not found, the string is not changed.
@@ -26,13 +26,13 @@ If the substring is not found, the string is not changed.
 
 **Return type**: `String`
 
-#### Examples
+#### Examples {#examples}
 
 ```
 REPLACE("350 RUB", "RUB", "USD") = "350 USD"
 ```
 
 
-#### Data source support
+#### Data source support {#data-source-support}
 
 `Materialized Dataset`, `ClickHouse 1.1`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`.

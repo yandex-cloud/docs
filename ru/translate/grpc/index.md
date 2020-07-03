@@ -1,5 +1,5 @@
 # Yandex Translation API v2
-Чтобы выполнить операцию над ресурсом выполните RPC-вызов. Используйте домен `translate.api.cloud.yandex.net` для выполнения запросов к API. Подробнее об архитектуре API Яндекс.Облака, см. [Концепции API Яндекс.Облака](/docs/api-design-guide/).
+Сервис не оперирует ресурсами. Все методы сервиса представлены на странице [Translation](Translation/).
 
 Спецификации API Яндекс.Облака смотрите на [GitHub](https://github.com/yandex-cloud/cloudapi).
 

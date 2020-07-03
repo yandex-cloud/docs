@@ -30,7 +30,7 @@ Returns the specified cluster. <br>To get the list of all available clusters, ma
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the Data Proc cluster. <br>To get a cluster ID make a [ClusterService.List](#List) request.  The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the Data Proc cluster. <br>To get a cluster ID make a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
 
 
 ### Cluster {#Cluster}
@@ -88,7 +88,7 @@ Retrieves the list of clusters in the specified folder.
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder to list clusters in. <br>To get the folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request.  The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the folder to list clusters in. <br>To get the folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. false The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClustersResponse.next_page_token](#ListClustersResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListClustersResponse.next_page_token](#ListClustersResponse) returned by a previous list request. The maximum string length in characters is 100.
 filter | **string**<br><ol><li>The field name. Currently you can use filtering only on [Cluster.name](#Cluster1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]. </li></ol> The maximum string length in characters is 1000.
@@ -161,13 +161,13 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder to create a cluster in. <br>To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request.  The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the folder to create a cluster in. <br>To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. false The maximum string length in characters is 50.
 name | **string**<br>Name of the cluster. The name must be unique within the folder. The name can’t be changed after the Data Proc cluster is created. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>Description of the cluster. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Cluster labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
-config_spec | **[CreateClusterConfigSpec](#CreateClusterConfigSpec)**<br>Required. Configuration and resources for hosts that should be created with the cluster. 
-zone_id | **string**<br>Required. ID of the availability zone where the cluster should be placed. <br>To get the list of available zones make a [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/grpc/zone_service#List) request.  The maximum string length in characters is 50.
-service_account_id | **string**<br>Required. ID of the service account to be used by the Data Proc manager agent. 
+config_spec | **[CreateClusterConfigSpec](#CreateClusterConfigSpec)**<br>Required. Configuration and resources for hosts that should be created with the cluster. false
+zone_id | **string**<br>Required. ID of the availability zone where the cluster should be placed. <br>To get the list of available zones make a [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/grpc/zone_service#List) request. false The maximum string length in characters is 50.
+service_account_id | **string**<br>Required. ID of the service account to be used by the Data Proc manager agent. false
 bucket | **string**<br>Name of the Object Storage bucket to use for Data Proc jobs. 
 
 
@@ -194,10 +194,10 @@ ssh_public_keys[] | **string**<br>List of public SSH keys to access to cluster h
 Field | Description
 --- | ---
 name | **string**<br>Name of the subcluster. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
-role | enum **Role**<br>Required. Role of the subcluster in the Data Proc cluster. <ul><li>`MASTERNODE`: <ul><li>HDFS: Namenode, Secondary Namenode </li><li>YARN: ResourceManager, Timeline Server </li><li>HBase Master </li><li>Hive: Server, Metastore, HCatalog </li><li>Spark History Server </li><li>Zeppelin </li><li>ZooKeeper</li></ul></li><li>`DATANODE`: <ul><li>HDFS DataNode </li><li>YARN NodeManager </li><li>HBase RegionServer </li><li>Spark libraries</li></ul></li><li>`COMPUTENODE`: <ul><li>YARN NodeManager </li><li>Spark libraries</li></ul></li><ul/>
-resources | **[Resources](#Resources)**<br>Required. Resource configuration for hosts in the subcluster. 
-subnet_id | **string**<br>Required. ID of the VPC subnet used for hosts in the subcluster.  The maximum string length in characters is 50.
-hosts_count | **int64**<br>Required. Number of hosts in the subcluster.  The minimum value is 1.
+role | enum **Role**<br>Required. Role of the subcluster in the Data Proc cluster. false<ul><li>`MASTERNODE`: <ul><li>HDFS: Namenode, Secondary Namenode </li><li>YARN: ResourceManager, Timeline Server </li><li>HBase Master </li><li>Hive: Server, Metastore, HCatalog </li><li>Spark History Server </li><li>Zeppelin </li><li>ZooKeeper</li></ul></li><li>`DATANODE`: <ul><li>HDFS DataNode </li><li>YARN NodeManager </li><li>HBase RegionServer </li><li>Spark libraries</li></ul></li><li>`COMPUTENODE`: <ul><li>YARN NodeManager </li><li>Spark libraries</li></ul></li><ul/>
+resources | **[Resources](#Resources)**<br>Required. Resource configuration for hosts in the subcluster. false
+subnet_id | **string**<br>Required. ID of the VPC subnet used for hosts in the subcluster. false The maximum string length in characters is 50.
+hosts_count | **int64**<br>Required. Number of hosts in the subcluster. false The minimum value is 1.
 
 
 ### Resources {#Resources}
@@ -273,6 +273,7 @@ config_spec | **[UpdateClusterConfigSpec](#UpdateClusterConfigSpec)**<br>Configu
 name | **string**<br>New name for the Data Proc cluster. The name must be unique within the folder. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 service_account_id | **string**<br>ID of the new service account to be used by the Data Proc manager agent. 
 bucket | **string**<br>Name of the new Object Storage bucket to use for Data Proc jobs. 
+decommission_timeout | **int64**<br>Timeout to gracefully decommission nodes. In seconds. Default value: 0 Acceptable values are 0 to 86400, inclusive.
 
 
 ### UpdateClusterConfigSpec {#UpdateClusterConfigSpec}
@@ -357,7 +358,8 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the cluster to delete. <br>To get a cluster ID, make a [ClusterService.List](#List) request.  The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the cluster to delete. <br>To get a cluster ID, make a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
+decommission_timeout | **int64**<br>Timeout to gracefully decommission nodes. In seconds. Default value: 0 Acceptable values are 0 to 86400, inclusive.
 
 
 ### Operation {#Operation}
@@ -397,7 +399,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the cluster to start. <br>To get a cluster ID, make a [ClusterService.List](#List) request.  The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the cluster to start. <br>To get a cluster ID, make a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
 
 
 ### Operation {#Operation}
@@ -456,7 +458,8 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the cluster to stop. <br>To get a cluster ID, make a [ClusterService.List](#List) request.  The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the cluster to stop. <br>To get a cluster ID, make a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
+decommission_timeout | **int64**<br>Timeout to gracefully decommission nodes. In seconds. Default value: 0 Acceptable values are 0 to 86400, inclusive.
 
 
 ### Operation {#Operation}
@@ -511,7 +514,7 @@ Lists operations for the specified cluster.
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the cluster to list operations for.  The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the cluster to list operations for. false The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClusterOperationsResponse.next_page_token](#ListClusterOperationsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListClusterOperationsResponse.next_page_token](#ListClusterOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
 

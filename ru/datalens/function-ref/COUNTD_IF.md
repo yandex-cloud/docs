@@ -6,14 +6,14 @@ editable: false
 
 _Агрегатные функции_
 
-#### Синтаксис
+#### Синтаксис {#syntax}
 
 
 ```
 COUNTD_IF( expression, condition )
 ```
 
-#### Описание
+#### Описание {#description}
 Возвращает количество уникальных значений в группе, которые удовлетворяют условию `condition`.
 
 См. также [COUNTD_APPROX](COUNTD_APPROX.md).
@@ -25,13 +25,13 @@ COUNTD_IF( expression, condition )
 
 **Возвращаемый тип**: `Целое число`
 
-#### Примеры
+#### Примеры {#examples}
 
 ```
 COUNTD_IF([ClientID], [Profit] > 5)
 ```
 
 
-#### Поддержка источников данных
+#### Поддержка источников данных {#data-source-support}
 
 `Материализованный датасет`, `ClickHouse 1.1`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`.

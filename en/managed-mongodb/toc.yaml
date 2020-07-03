@@ -143,12 +143,18 @@ items:
                 href: api-ref/Cluster/listShards.md
               - name: move
                 href: api-ref/Cluster/move.md
+              - name: resetupHosts
+                href: api-ref/Cluster/resetupHosts.md
+              - name: restartHosts
+                href: api-ref/Cluster/restartHosts.md
               - name: restore
                 href: api-ref/Cluster/restore.md
               - name: start
                 href: api-ref/Cluster/start.md
               - name: stop
                 href: api-ref/Cluster/stop.md
+              - name: streamLogs
+                href: api-ref/Cluster/streamLogs.md
               - name: update
                 href: api-ref/Cluster/update.md
           - name: Database

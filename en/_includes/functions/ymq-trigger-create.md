@@ -39,8 +39,8 @@ Create a trigger for the message queue.
 
     - `--queue`: Unique queue ID.
 
-        To find out the unique ID of the queue:
-        1. Open **Message Queue** in [консоли управления]({{ link-console-main }}).
+        To find out the unique queue ID:
+        1. Open **Message Queue** in the [management console]({{ link-console-main }}).
         1. Click ![image](../../_assets/vertical-ellipsis.svg) in the row of the queue you would like to create a trigger for.
         1. In the **Overview** page, under **General information**, copy the unique queue ID from the **ARN** field.
 

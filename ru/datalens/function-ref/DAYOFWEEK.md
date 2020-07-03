@@ -6,14 +6,14 @@ editable: false
 
 _Функции даты и времени_
 
-#### Синтаксис
+#### Синтаксис {#syntax}
 
 
 ```
 DAYOFWEEK( datetime [ , firstday ] )
 ```
 
-#### Описание
+#### Описание {#description}
 Возвращает день недели в соответствии с [ISO 8601](https://ru.wikipedia.org/wiki/ISO_8601).
 - Понедельник — 1;
 - Воскресенье — 7.
@@ -42,7 +42,7 @@ DAYOFWEEK( datetime [ , firstday ] )
 {% endnote %}
 
 
-#### Примеры
+#### Примеры {#examples}
 
 ```
 DAYOFWEEK(#1971-01-14 01:02:03#) = 4
@@ -57,6 +57,6 @@ DAYOFWEEK(#1971-01-14#, "wednesday") = 2
 ```
 
 
-#### Поддержка источников данных
+#### Поддержка источников данных {#data-source-support}
 
 `Материализованный датасет`, `ClickHouse 1.1`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`.

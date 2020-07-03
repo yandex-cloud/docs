@@ -6,14 +6,14 @@ editable: false
 
 _Mathematical functions_
 
-#### Syntax
+#### Syntax {#syntax}
 
 
 ```
 CEILING( number )
 ```
 
-#### Description
+#### Description {#description}
 Rounds the value up to the nearest integer.
 
 **Argument types:**
@@ -22,13 +22,13 @@ Rounds the value up to the nearest integer.
 
 **Return type**: `Number (decimal)`
 
-#### Examples
+#### Examples {#examples}
 
 ```
 CEILING(5.37) = 6
 ```
 
 
-#### Data source support
+#### Data source support {#data-source-support}
 
 `Materialized Dataset`, `ClickHouse 1.1`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`.

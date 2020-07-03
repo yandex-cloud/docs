@@ -12,7 +12,8 @@ A set of methods for managing devices.
   "createdAt": "string",
   "name": "string",
   "description": "string",
-  "topicAliases": "object"
+  "topicAliases": "object",
+  "status": "string"
 }
 ```
  
@@ -24,6 +25,7 @@ createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a
 name | **string**<br><p>Name of the device. The name is unique within the registry.</p> 
 description | **string**<br><p>Description of the device. 0-256 characters long.</p> 
 topicAliases | **object**<br><p>Alias of a device topic.</p> <p>Alias is an alternate name of a device topic assigned by the user. Map alias to canonical topic name prefix, e.g. <code>my/custom/alias</code> match to <code>$device/abcdef/events</code>.</p> 
+status | **string**<br><p>Status of the device.</p> <ul> <li>CREATING: Device is being created.</li> <li>ACTIVE: Device is ready to use.</li> <li>DELETING: Device is being deleted.</li> </ul> 
 
 ## Methods {#methods}
 Method | Description

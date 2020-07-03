@@ -9,7 +9,7 @@
 
 ## На какие ресурсы можно назначить роль {#resources}
 
-Вы можете назначить роль на [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud), [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) или [реестр](../concepts/registry.md). Эти роли будут действовать и на вложенные ресурсы.
+Вы можете назначить роль на [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud), [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), [реестр](../concepts/registry.md) или [репозиторий](../concepts/repository.md). Эти роли будут действовать и на вложенные ресурсы.
 
 ## Какие роли действуют в сервисе {#roles-list}
 
@@ -39,6 +39,7 @@
 Получение списка [реестров](../operations/registry/registry-list.md)| `list` | `container-registry.images.puller` на каталог
 Получение информации о реестрах, [Docker-образах](../operations/docker-image/docker-image-list.md) и [репозиториях](../operations/repository/repository-list.md) | `get`, `list` | `container-registry.images.puller` на реестр с указанным ресурсом
 [Скачивание Docker-образа](../operations/docker-image/docker-image-pull.md) | — | `container-registry.images.puller`<br>на указанный реестр или репозиторий
+Получение информации о [политиках удаления](../operations/lifecycle-policy/lifecycle-policy-list.md) и результатах их [тестовых запусков](../operations/lifecycle-policy/lifecycle-policy-dry-run.md) | `get`, `list`, `getDryRunResult`, `listDryRunResults`| `viewer` на реестр или репозиторий, для которого создана политика удаления
 **Управление ресурсами** | |
 [Создание реестров в каталоге](../operations/registry/registry-create.md) | `create` | `editor` на каталог
 [Изменение](../operations/registry/registry-update.md) и [удаление](../operations/registry/registry-delete.md) реестров | `update`, `delete` | `editor` на указанный реестр
@@ -46,6 +47,7 @@
 [Создание Docker-образов](../operations/docker-image/docker-image-create.md) без использования базовых Docker-образов из реестра| — | Не требует ролей
 [Загрузка Docker-образов в реестр](../operations/docker-image/docker-image-push.md) | — | `container-registry.images.pusher`<br>на указанный реестр или репозиторий
 [Удаление Docker-образов](../operations/docker-image/docker-image-delete.md) | `delete` | `editor` на реестр или репозиторий с Docker-образом
+[Создание](../operations/lifecycle-policy/lifecycle-policy-create.md), [изменение](../operations/lifecycle-policy/lifecycle-policy-update.md), [удаление](../operations/lifecycle-policy/lifecycle-policy-delete.md) и [тестовый запуск](../operations/lifecycle-policy/lifecycle-policy-dry-run.md) политики удаления | `create`, `update`, `delete`, `dryRun` | `editor` на реестр или репозиторий, для которого создана политика удаления
 **Управление доступом к ресурсам** | |
 [Назначение роли](../../iam/operations/roles/grant.md), [отзыв роли](../../iam/operations/roles/revoke.md) и просмотр назначенных ролей на каталог, облако или реестр | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `admin` на этот ресурс
 

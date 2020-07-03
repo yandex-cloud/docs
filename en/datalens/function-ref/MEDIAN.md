@@ -6,14 +6,14 @@ editable: false
 
 _Aggregate functions_
 
-#### Syntax
+#### Syntax {#syntax}
 
 
 ```
 MEDIAN( value )
 ```
 
-#### Description
+#### Description {#description}
 Returns the median value.
 
 **Argument types:**
@@ -22,13 +22,13 @@ Returns the median value.
 
 **Return type**: Same type as (`value`)
 
-#### Examples
+#### Examples {#examples}
 
 ```
 MEDIAN([Profit])
 ```
 
 
-#### Data source support
+#### Data source support {#data-source-support}
 
 `Materialized Dataset`, `ClickHouse 1.1`.

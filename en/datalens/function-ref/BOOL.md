@@ -6,14 +6,14 @@ editable: false
 
 _Type conversion functions_
 
-#### Syntax
+#### Syntax {#syntax}
 
 
 ```
 BOOL( expression )
 ```
 
-#### Description
+#### Description {#description}
 Converts the `expression` expression to Boolean type according to the following rules:
 
 | Type                              | `FALSE`             | `TRUE`     |
@@ -29,7 +29,7 @@ Converts the `expression` expression to Boolean type according to the following 
 
 **Return type**: `Boolean`
 
-#### Examples
+#### Examples {#examples}
 
 ```
 BOOL(0) = FALSE
@@ -44,6 +44,6 @@ BOOL("Lorem ipsum") = TRUE
 ```
 
 
-#### Data source support
+#### Data source support {#data-source-support}
 
 `Materialized Dataset`, `ClickHouse 1.1`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`.

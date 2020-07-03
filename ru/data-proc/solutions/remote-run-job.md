@@ -124,7 +124,7 @@ sudo -u sparkuser spark-submit --master yarn --deploy-mode cluster --class org.a
 20/04/19 16:44:09 INFO util.ShutdownHookManager: Deleting directory /tmp/spark-826498b1-8dec-4229-905e-921203b7b1d0
 ```
 
-### Просмотр статуса выполенения задания {#status-check}
+### Просмотр статуса выполнения задания {#status-check}
 
 Проверьте статус выполнения с помощью утилиты [yarn application](https://hadoop.apache.org/docs/r2.10.0/hadoop-yarn/hadoop-yarn-site/YarnCommands.html#application):
 

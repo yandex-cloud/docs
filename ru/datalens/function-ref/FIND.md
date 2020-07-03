@@ -6,14 +6,14 @@ editable: false
 
 _Строковые функции_
 
-#### Синтаксис
+#### Синтаксис {#syntax}
 
 
 ```
 FIND( string, substring [ , start_index ] )
 ```
 
-#### Описание
+#### Описание {#description}
 Возвращает индекс позиции первого символа подстроки `substring` в строке `string`.
 
 Если указан опциональный параметр `start_index`, то поиск начнется с указанной позиции.
@@ -26,7 +26,7 @@ FIND( string, substring [ , start_index ] )
 
 **Возвращаемый тип**: `Целое число`
 
-#### Примеры
+#### Примеры {#examples}
 
 ```
 FIND("Lorem ipsum dolor sit amet", "abc") = 0
@@ -41,6 +41,6 @@ FIND("Lorem ipsum dolor sit amet", "or", 7) = 16
 ```
 
 
-#### Поддержка источников данных
+#### Поддержка источников данных {#data-source-support}
 
 `Материализованный датасет`, `ClickHouse 1.1`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`.

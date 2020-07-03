@@ -18,6 +18,19 @@ Parameter | Description
 --- | ---
 clusterId | Required. ID of the cluster to stop.  To get a cluster ID, make a [list](/docs/data-proc/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
  
+## Body parameters {#body_params}
+ 
+```json 
+{
+  "decommissionTimeout": "string"
+}
+```
+
+ 
+Field | Description
+--- | ---
+decommissionTimeout | **string** (int64)<br><p>Timeout to gracefully decommission nodes. In seconds. Default value: 0</p> <p>Acceptable values are 0 to 86400, inclusive.</p> 
+ 
 ## Response {#responses}
 **HTTP Code: 200 - OK**
 

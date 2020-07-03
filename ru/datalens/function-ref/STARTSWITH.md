@@ -6,14 +6,14 @@ editable: false
 
 _Строковые функции_
 
-#### Синтаксис
+#### Синтаксис {#syntax}
 
 
 ```
 STARTSWITH( string, substring )
 ```
 
-#### Описание
+#### Описание {#description}
 Возвращает `TRUE`, если строка `string` начинается на подстроку `substring`. Для регистронезависимой проверки см. [ISTARTSWITH](ISTARTSWITH.md).
 
 **Типы аргументов:**
@@ -23,7 +23,7 @@ STARTSWITH( string, substring )
 
 **Возвращаемый тип**: `Логический`
 
-#### Примеры
+#### Примеры {#examples}
 
 ```
 STARTSWITH("Petrov Ivan", "Petrov") = TRUE
@@ -38,6 +38,6 @@ STARTSWITH("Lorem ipsum", "abc") = FALSE
 ```
 
 
-#### Поддержка источников данных
+#### Поддержка источников данных {#data-source-support}
 
 `Материализованный датасет`, `ClickHouse 1.1`, `Yandex.Metrica`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`.

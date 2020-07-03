@@ -11,6 +11,7 @@ A set of methods for managing Data Proc jobs.
 | [List](#List) | Retrieves a list of jobs for a cluster. |
 | [Create](#Create) | Creates a job for a cluster. |
 | [Get](#Get) | Returns the specified job. |
+| [ListLog](#ListLog) | Returns a log for specified job. |
 
 ## Calls JobService {#calls}
 
@@ -24,7 +25,7 @@ Retrieves a list of jobs for a cluster.
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the cluster to list jobs for.  The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the cluster to list jobs for. false The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListJobsResponse.next_page_token](#ListJobsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListJobsResponse.next_page_token](#ListJobsResponse) returned by a previous list request. The maximum string length in characters is 100.
 filter | **string**<br><ol><li>The field name. Currently you can use filtering only on [Job.name](#Job) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]. </li></ol> The maximum string length in characters is 1000.
@@ -48,6 +49,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the job was started. 
 finished_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the job was finished. 
 name | **string**<br>Name of the job, specified in the [JobService.Create](#Create) request. 
+created_by | **string**<br>The id of the user who created the job 
 status | enum **Status**<br>Job status. <ul><li>`PROVISIONING`: Job is logged in the database and is waiting for the agent to run it.</li><li>`PENDING`: Job is acquired by the agent and is in the queue for execution.</li><li>`RUNNING`: Job is being run in the cluster.</li><li>`ERROR`: Job failed to finish the run properly.</li><li>`DONE`: Job is finished.</li><ul/>
 job_spec | **oneof:** `mapreduce_job`, `spark_job`, `pyspark_job` or `hive_job`<br>Specification for the job.
 &nbsp;&nbsp;mapreduce_job | **[MapreduceJob](#MapreduceJob)**<br>Specification for a MapReduce job. 
@@ -130,7 +132,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the cluster to create a job for.  The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the cluster to create a job for. false The maximum string length in characters is 50.
 name | **string**<br>Name of the job. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 job_spec | **oneof:** `mapreduce_job`, `spark_job`, `pyspark_job` or `hive_job`<br>Specification for the job.
 &nbsp;&nbsp;mapreduce_job | **[MapreduceJob](#MapreduceJob1)**<br>Specification for a MapReduce job. 
@@ -219,7 +221,7 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the cluster that the job is being created for.  The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the cluster that the job is being created for. false The maximum string length in characters is 50.
 job_id | **string**<br>ID of the job being created. The maximum string length in characters is 50.
 
 
@@ -233,6 +235,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the job was started. 
 finished_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the job was finished. 
 name | **string**<br>Name of the job, specified in the [JobService.Create](#Create) request. 
+created_by | **string**<br>The id of the user who created the job 
 status | enum **Status**<br>Job status. <ul><li>`PROVISIONING`: Job is logged in the database and is waiting for the agent to run it.</li><li>`PENDING`: Job is acquired by the agent and is in the queue for execution.</li><li>`RUNNING`: Job is being run in the cluster.</li><li>`ERROR`: Job failed to finish the run properly.</li><li>`DONE`: Job is finished.</li><ul/>
 job_spec | **oneof:** `mapreduce_job`, `spark_job`, `pyspark_job` or `hive_job`<br>Specification for the job.
 &nbsp;&nbsp;mapreduce_job | **[MapreduceJob](#MapreduceJob2)**<br>Specification for a MapReduce job. 
@@ -251,8 +254,8 @@ Returns the specified job.
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the cluster to request a job from.  The maximum string length in characters is 50.
-job_id | **string**<br>Required. ID of the job to return. <br>To get a job ID make a [JobService.List](#List) request.  The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the cluster to request a job from. false The maximum string length in characters is 50.
+job_id | **string**<br>Required. ID of the job to return. <br>To get a job ID make a [JobService.List](#List) request. false The maximum string length in characters is 50.
 
 
 ### Job {#Job}
@@ -265,6 +268,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the job was started. 
 finished_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the job was finished. 
 name | **string**<br>Name of the job, specified in the [JobService.Create](#Create) request. 
+created_by | **string**<br>The id of the user who created the job 
 status | enum **Status**<br>Job status. <ul><li>`PROVISIONING`: Job is logged in the database and is waiting for the agent to run it.</li><li>`PENDING`: Job is acquired by the agent and is in the queue for execution.</li><li>`RUNNING`: Job is being run in the cluster.</li><li>`ERROR`: Job failed to finish the run properly.</li><li>`DONE`: Job is finished.</li><ul/>
 job_spec | **oneof:** `mapreduce_job`, `spark_job`, `pyspark_job` or `hive_job`<br>Specification for the job.
 &nbsp;&nbsp;mapreduce_job | **[MapreduceJob](#MapreduceJob2)**<br>Specification for a MapReduce job. 
@@ -331,5 +335,29 @@ query_type | **oneof:** `query_file_uri` or `query_list`<br>
 Field | Description
 --- | ---
 queries[] | **string**<br>List of Hive queries. 
+
+
+## ListLog {#ListLog}
+
+Returns a log for specified job.
+
+**rpc ListLog ([ListJobLogRequest](#ListJobLogRequest)) returns ([ListJobLogResponse](#ListJobLogResponse))**
+
+### ListJobLogRequest {#ListJobLogRequest}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>Required. ID of the cluster that the job is being created for. false The maximum string length in characters is 50.
+job_id | **string**<br>ID of the job being created. The maximum string length in characters is 50.
+page_size | **int64**<br>The maximum bytes of job log per response to return. If the number of available bytes is larger than `page_size`, the service returns a [ListJobLogResponse.next_page_token](#ListJobLogResponse) that can be used to get the next page of output in subsequent list requests. Default value: 1048576. The maximum value is 1048576.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListJobLogResponse.next_page_token](#ListJobLogResponse) returned by a previous list request. The maximum string length in characters is 100.
+
+
+### ListJobLogResponse {#ListJobLogResponse}
+
+Field | Description
+--- | ---
+content | **string**<br>Requested part of Data Proc Job log. 
+next_page_token | **string**<br>This token allows you to get the next page of results for ListLog requests, if the number of results is larger than `page_size` specified in the request. To get the next page, specify the value of `next_page_token` as a value for the `page_token` parameter in the next ListLog request. Subsequent ListLog requests will have their own `next_page_token` to continue paging through the results. 
 
 

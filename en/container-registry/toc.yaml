@@ -69,6 +69,8 @@ items:
             href: grpc/index.md
           - name: ImageService
             href: grpc/image_service.md
+          - name: LifecyclePolicyService
+            href: grpc/lifecycle_policy_service.md
           - name: RegistryService
             href: grpc/registry_service.md
           - name: RepositoryService
@@ -89,6 +91,10 @@ items:
                 href: api-ref/Image/get.md
               - name: list
                 href: api-ref/Image/list.md
+          - name: LifecyclePolicy
+            items:
+              - name: Overview
+                href: api-ref/LifecyclePolicy/index.md
           - name: Registry
             items:
               - name: Overview

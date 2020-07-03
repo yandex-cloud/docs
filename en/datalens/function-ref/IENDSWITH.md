@@ -6,14 +6,14 @@ editable: false
 
 _String functions_
 
-#### Syntax
+#### Syntax {#syntax}
 
 
 ```
 IENDSWITH( string, substring )
 ```
 
-#### Description
+#### Description {#description}
 Case-insensitive version of [ENDSWITH](ENDSWITH.md). Returns `TRUE` if `string` ends in `substring`.
 
 **Argument types:**
@@ -23,7 +23,7 @@ Case-insensitive version of [ENDSWITH](ENDSWITH.md). Returns `TRUE` if `string` 
 
 **Return type**: `Boolean`
 
-#### Examples
+#### Examples {#examples}
 
 ```
 IENDSWITH("PETROV IVAN", "Ivan") = TRUE
@@ -38,6 +38,6 @@ IENDSWITH("Lorem ipsum", "abc") = FALSE
 ```
 
 
-#### Data source support
+#### Data source support {#data-source-support}
 
 `Materialized Dataset`, `ClickHouse 1.1`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`.

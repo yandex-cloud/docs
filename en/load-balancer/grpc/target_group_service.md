@@ -29,7 +29,7 @@ Returns the specified TargetGroup resource.
 
 Field | Description
 --- | ---
-target_group_id | **string**<br>Required. ID of the TargetGroup resource to return. To get the target group ID, use a [TargetGroupService.List](#List) request.  The maximum string length in characters is 50.
+target_group_id | **string**<br>Required. ID of the TargetGroup resource to return. To get the target group ID, use a [TargetGroupService.List](#List) request. false The maximum string length in characters is 50.
 
 
 ### TargetGroup {#TargetGroup}
@@ -64,7 +64,7 @@ Retrieves the list of TargetGroup resources in the specified folder.
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder to list target groups in. To get the folder ID, use a [TargetGroupService.List](#List) request.  The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the folder to list target groups in. To get the folder ID, use a [TargetGroupService.List](#List) request. false The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListTargetGroupsResponse.next_page_token](#ListTargetGroupsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListTargetGroupsResponse.next_page_token](#ListTargetGroupsResponse) returned by a previous list request. The maximum string length in characters is 100.
 filter | **string**<br><ol><li>The field name. Currently you can only filter by the [TargetGroup.name](#TargetGroup1) field. </li><li>An operator. Can be either `=` or `!=` for single values, or `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.</li></ol> The maximum string length in characters is 1000.
@@ -114,11 +114,11 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder to list target groups in. To get the folder ID, use a [TargetGroupService.List](#List) request.  The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the folder to list target groups in. To get the folder ID, use a [TargetGroupService.List](#List) request. false The maximum string length in characters is 50.
 name | **string**<br>Name of the target group. The name must be unique within the folder. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>Description of the target group. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
-region_id | **string**<br>Required. ID of the availability zone where the target group resides.  The maximum string length in characters is 50.
+region_id | **string**<br>Required. ID of the availability zone where the target group resides. false The maximum string length in characters is 50.
 targets[] | **[Target](#Target2)**<br>List of targets within the target group. 
 
 
@@ -181,7 +181,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-target_group_id | **string**<br>Required. ID of the TargetGroup resource to update. To get the target group ID, use a [TargetGroupService.List](#List) request.  The maximum string length in characters is 50.
+target_group_id | **string**<br>Required. ID of the TargetGroup resource to update. To get the target group ID, use a [TargetGroupService.List](#List) request. false The maximum string length in characters is 50.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the TargetGroup resource are going to be updated. 
 name | **string**<br>Name of the target group. The name must be unique within the folder. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>Description of the target group. The maximum string length in characters is 256.
@@ -248,7 +248,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-target_group_id | **string**<br>Required. ID of the target group to delete. To get the target group ID, use a [TargetGroupService.List](#List) request.  The maximum string length in characters is 50.
+target_group_id | **string**<br>Required. ID of the target group to delete. To get the target group ID, use a [TargetGroupService.List](#List) request. false The maximum string length in characters is 50.
 
 
 ### Operation {#Operation}
@@ -288,7 +288,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-target_group_id | **string**<br>Required. ID of the TargetGroup resource to add targets to. To get the target group ID, use a [TargetGroupService.List](#List) request.  The maximum string length in characters is 50.
+target_group_id | **string**<br>Required. ID of the TargetGroup resource to add targets to. To get the target group ID, use a [TargetGroupService.List](#List) request. false The maximum string length in characters is 50.
 targets[] | **[Target](#Target4)**<br>List of targets to add to the target group. The minimum number of elements is 1.
 
 
@@ -351,7 +351,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-target_group_id | **string**<br>Required. ID of the target group to remove targets from. To get the target group ID, use a [TargetGroupService.List](#List) request.  The maximum string length in characters is 50.
+target_group_id | **string**<br>Required. ID of the target group to remove targets from. To get the target group ID, use a [TargetGroupService.List](#List) request. false The maximum string length in characters is 50.
 targets[] | **[Target](#Target5)**<br>List of targets to remove from the target group. The minimum number of elements is 1.
 
 
@@ -410,7 +410,7 @@ Lists operations for the specified target group.
 
 Field | Description
 --- | ---
-target_group_id | **string**<br>Required. ID of the TargetGroup resource to update. To get the target group ID, use a [TargetGroupService.List](#List) request.  The maximum string length in characters is 50.
+target_group_id | **string**<br>Required. ID of the TargetGroup resource to update. To get the target group ID, use a [TargetGroupService.List](#List) request. false The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page that should be returned. If the number of available results is larger than `page_size`, the service returns a [ListTargetGroupOperationsResponse.next_page_token](#ListTargetGroupOperationsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListTargetGroupOperationsResponse.next_page_token](#ListTargetGroupOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
 

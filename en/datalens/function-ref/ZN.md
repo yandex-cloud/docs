@@ -6,14 +6,14 @@ editable: false
 
 _Logical functions_
 
-#### Syntax
+#### Syntax {#syntax}
 
 
 ```
 ZN( expression )
 ```
 
-#### Description
+#### Description {#description}
 Returns `expression` if it's not `NULL`. Otherwise returns 0.
 
 **Argument types:**
@@ -22,7 +22,7 @@ Returns `expression` if it's not `NULL`. Otherwise returns 0.
 
 **Return type**: Same type as (`expression`)
 
-#### Examples
+#### Examples {#examples}
 
 ```
 ZN(1) = 1
@@ -33,6 +33,6 @@ ZN(NULL) = 0
 ```
 
 
-#### Data source support
+#### Data source support {#data-source-support}
 
 `Materialized Dataset`, `ClickHouse 1.1`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`.

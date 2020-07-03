@@ -14,6 +14,7 @@ A set of methods for managing node groups.
 | [Update](#Update) | Updates the specified node group. |
 | [Delete](#Delete) | Deletes the specified node group. |
 | [ListOperations](#ListOperations) | Lists operations for the specified node group. |
+| [ListNodes](#ListNodes) | Retrieves the list of nodes in the specified Kubernetes cluster. |
 
 ## Calls NodeGroupService {#calls}
 
@@ -27,7 +28,7 @@ Returns the specified node group. <br>To get the list of available node group, m
 
 Field | Description
 --- | ---
-node_group_id | **string**<br>Required. ID of the node group to return. To get the node group ID use a [NodeGroupService.List](#List) request. 
+node_group_id | **string**<br>Required. ID of the node group to return. To get the node group ID use a [NodeGroupService.List](#List) request. false
 
 
 ### NodeGroup {#NodeGroup}
@@ -44,10 +45,14 @@ status | enum **Status**<br>Status of the node group. <ul><li>`PROVISIONING`: No
 node_template | **[NodeTemplate](#NodeTemplate)**<br>Node template that specifies parameters of the compute instances for the node group. 
 scale_policy | **[ScalePolicy](#ScalePolicy)**<br>Scale policy of the node group.  For more information, see [Scaling policy](/docs/compute/concepts/instance-groups/policies#scale-policy). 
 allocation_policy | **[NodeGroupAllocationPolicy](#NodeGroupAllocationPolicy)**<br>Allocation policy by which resources for node group are allocated to zones and regions. 
+deploy_policy | **[DeployPolicy](#DeployPolicy)**<br>Deploy policy according to which the updates are rolled out. 
 instance_group_id | **string**<br>ID of the managed instance group associated with this node group. 
 node_version | **string**<br>Version of Kubernetes components that runs on the nodes. Deprecated. Use version_info.current_version. 
-version_info | **[VersionInfo](#VersionInfo)**<br> 
-maintenance_policy | **[NodeGroupMaintenancePolicy](#NodeGroupMaintenancePolicy)**<br> 
+version_info | **[VersionInfo](#VersionInfo)**<br>Detailed information about the Kubernetes version that is running on the node. 
+maintenance_policy | **[NodeGroupMaintenancePolicy](#NodeGroupMaintenancePolicy)**<br>Maintenance policy of the node group. 
+allowed_unsafe_sysctls[] | **string**<br>Support for unsafe sysctl parameters. For more details see [documentation](https://kubernetes.io/docs/tasks/administer-cluster/sysctl-cluster/). 
+node_taints[] | **[Taint](#Taint)**<br>Taints that are applied to the nodes of the node group at creation time. 
+node_labels | **map<string,string>**<br>Labels that are assigned to the nodes of the node group at creation time. 
 
 
 ### NodeTemplate {#NodeTemplate}
@@ -56,8 +61,8 @@ Field | Description
 --- | ---
 platform_id | **string**<br>ID of the hardware platform configuration for the node. 
 resources_spec | **[ResourcesSpec](#ResourcesSpec)**<br>Computing resources of the node such as the amount of memory and number of cores. 
-boot_disk_spec | **[DiskSpec](#DiskSpec)**<br>Specification for the boot disk that will be attached to the node. The metadata as `key:value` pairs assigned to this instance template. This includes custom metadata and predefined keys. <br>For example, you may use the metadata in order to provide your public SSH key to the node. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). 
-metadata | **map<string,string>**<br> No more than 64 per resource. The maximum string length in characters for each value is 131072. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+boot_disk_spec | **[DiskSpec](#DiskSpec)**<br>Specification for the boot disk that will be attached to the node. 
+metadata | **map<string,string>**<br>The metadata as `key:value` pairs assigned to this instance template. This includes custom metadata and predefined keys. <br>For example, you may use the metadata in order to provide your public SSH key to the node. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). No more than 64 per resource. The maximum string length in characters for each value is 131072. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 v4_address_spec | **[NodeAddressSpec](#NodeAddressSpec)**<br>Specification for the create network interfaces for the node group compute instances. 
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy)**<br>Scheduling policy configuration. 
 
@@ -66,9 +71,10 @@ scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy)**<br>Scheduling poli
 
 Field | Description
 --- | ---
-memory | **int64**<br>Amount of memory available to the node, specified in bytes. Acceptable values are 0 to 274877906944, inclusive.
-cores | **int64**<br>Number of cores available to the node. Value must be equal to 0,1,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32.
+memory | **int64**<br>Amount of memory available to the node, specified in bytes. The maximum value is 824633720832.
+cores | **int64**<br>Number of cores available to the node. Value must be equal to 0,1,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,40,44,48,52,56,60,64.
 core_fraction | **int64**<br>Baseline level of CPU performance with the possibility to burst performance above that baseline level. This field sets baseline performance for each core. Value must be equal to 0,5,20,50,100.
+gpus | **int64**<br>Number of GPUs available to the node. Value must be equal to 0,1,2,4.
 
 
 ### DiskSpec {#DiskSpec}
@@ -136,17 +142,25 @@ locations[] | **[NodeGroupLocation](#NodeGroupLocation)**<br>List of locations w
 
 Field | Description
 --- | ---
-zone_id | **string**<br>Required. ID of the availability zone where the nodes may reside. 
+zone_id | **string**<br>Required. ID of the availability zone where the nodes may reside. false
 subnet_id | **string**<br>ID of the subnet. If a network chosen for the Kubernetes cluster has only one subnet in the specified zone, subnet ID may be omitted. 
+
+
+### DeployPolicy {#DeployPolicy}
+
+Field | Description
+--- | ---
+max_unavailable | **int64**<br>The maximum number of running instances that can be taken offline (i.e., stopped or deleted) at the same time during the update process. If `max_expansion` is not specified or set to zero, `max_unavailable` must be set to a non-zero value. Acceptable values are 0 to 100, inclusive.
+max_expansion | **int64**<br>The maximum number of instances that can be temporarily allocated above the group's target size during the update process. If `max_unavailable` is not specified or set to zero, `max_expansion` must be set to a non-zero value. Acceptable values are 0 to 100, inclusive.
 
 
 ### VersionInfo {#VersionInfo}
 
 Field | Description
 --- | ---
-current_version | **string**<br>Current kubernetes version, major.minor (e.g. 1.15). 
-new_revision_available | **bool**<br>Newer revisions may include kubernetes patches (e.g 1.15.1 -> 1.15.2) as well as some internal component updates - new features or bug fixes in yandex-specific components either on the master or nodes. 
-new_revision_summary | **string**<br>Human readable description of the changes to be applied when updating to the latest revision. Empty if new_revision_available is false. 
+current_version | **string**<br>Current Kubernetes version, format: major.minor (e.g. 1.15). 
+new_revision_available | **bool**<br>Newer revisions may include Kubernetes patches (e.g 1.15.1 -> 1.15.2) as well as some internal component updates — new features or bug fixes in Yandex specific components either on the master or nodes. 
+new_revision_summary | **string**<br>Description of the changes to be applied when updating to the latest revision. Empty if new_revision_available is false. 
 version_deprecated | **bool**<br>The current version is on the deprecation schedule, component (master or node group) should be upgraded. 
 
 
@@ -154,19 +168,19 @@ version_deprecated | **bool**<br>The current version is on the deprecation sched
 
 Field | Description
 --- | ---
-auto_upgrade | **bool**<br> 
-auto_repair | **bool**<br> 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow)**<br> 
+auto_upgrade | **bool**<br>If set to true, automatic updates are installed in the specified period of time with no interaction from the user. If set to false, automatic upgrades are disabled. 
+auto_repair | **bool**<br>If set to true, automatic repairs are enabled. Default value is false. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow)**<br>Maintenance window settings. Update will start at the specified time and last no more than the specified duration. The time is set in UTC. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow}
 
 Field | Description
 --- | ---
-policy | **oneof:** `anytime`, `daily_maintenance_window` or `weekly_maintenance_window`<br>
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow)**<br> 
-&nbsp;&nbsp;daily_maintenance_window | **[DailyMaintenanceWindow](#DailyMaintenanceWindow)**<br> 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow)**<br> 
+policy | **oneof:** `anytime`, `daily_maintenance_window` or `weekly_maintenance_window`<br>Maintenance policy.
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow)**<br>Updating the master at any time. 
+&nbsp;&nbsp;daily_maintenance_window | **[DailyMaintenanceWindow](#DailyMaintenanceWindow)**<br>Updating the master on any day during the specified time window. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow)**<br>Updating the master on selected days during the specified time window. 
 
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow}
@@ -177,24 +191,33 @@ policy | **oneof:** `anytime`, `daily_maintenance_window` or `weekly_maintenance
 
 Field | Description
 --- | ---
-start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required.  
-duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br> Acceptable values are 1h to 24h, inclusive.
+start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required. Window start time, in the UTC timezone. false
+duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Window duration. Acceptable values are 1h to 24h, inclusive.
 
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow}
 
 Field | Description
 --- | ---
-days_of_week[] | **[DaysOfWeekMaintenanceWindow](#DaysOfWeekMaintenanceWindow)**<br> The number of elements must be in the range 1-7.
+days_of_week[] | **[DaysOfWeekMaintenanceWindow](#DaysOfWeekMaintenanceWindow)**<br>Days of the week and the maintenance window for these days when automatic updates are allowed. The number of elements must be in the range 1-7.
 
 
 ### DaysOfWeekMaintenanceWindow {#DaysOfWeekMaintenanceWindow}
 
 Field | Description
 --- | ---
-days[] | **google.type.DayOfWeek**<br> The number of elements must be in the range 1-7.
-start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required.  
-duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br> Acceptable values are 1h to 24h, inclusive.
+days[] | **google.type.DayOfWeek**<br>Days of the week when automatic updates are allowed. The number of elements must be in the range 1-7.
+start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required. Window start time, in the UTC timezone. false
+duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Window duration. Acceptable values are 1h to 24h, inclusive.
+
+
+### Taint {#Taint}
+
+Field | Description
+--- | ---
+key | **string**<br>The taint key to be applied to a node. 
+value | **string**<br>The taint value corresponding to the taint key. 
+effect | enum **Effect**<br>The effect of the taint on pods that do not tolerate the taint. <ul><li>`NO_SCHEDULE`: Do not allow new pods to schedule onto the node unless they tolerate the taint, but allow all pods submitted to Kubelet without going through the scheduler to start, and allow all already-running pods to continue running.</li><li>`PREFER_NO_SCHEDULE`: Like NO_SCHEDULE, but the scheduler tries not to schedule new pods onto the node, rather than prohibiting new pods from scheduling onto the node entirely. Enforced by the scheduler.</li><li>`NO_EXECUTE`: Evict any already-running pods that do not tolerate the taint.</li><ul/>
 
 
 ## List {#List}
@@ -207,7 +230,7 @@ Retrieves the list of node group in the specified Kubernetes cluster.
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder to list node groups in. To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. 
+folder_id | **string**<br>Required. ID of the folder to list node groups in. To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. false
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListNodeGroupsResponse.next_page_token](#ListNodeGroupsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListNodeGroupsResponse.next_page_token](#ListNodeGroupsResponse) returned by a previous list request. The maximum string length in characters is 100.
 filter | **string**<br><ol><li>The field name. Currently you can use filtering only on [NodeGroup.name](#NodeGroup1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 1-61 characters long and match the regular expression `|[a-z][-a-z0-9]{1,61}[a-z0-9]`.</li></ol> The maximum string length in characters is 1000.
@@ -235,10 +258,14 @@ status | enum **Status**<br>Status of the node group. <ul><li>`PROVISIONING`: No
 node_template | **[NodeTemplate](#NodeTemplate1)**<br>Node template that specifies parameters of the compute instances for the node group. 
 scale_policy | **[ScalePolicy](#ScalePolicy1)**<br>Scale policy of the node group.  For more information, see [Scaling policy](/docs/compute/concepts/instance-groups/policies#scale-policy). 
 allocation_policy | **[NodeGroupAllocationPolicy](#NodeGroupAllocationPolicy1)**<br>Allocation policy by which resources for node group are allocated to zones and regions. 
+deploy_policy | **[DeployPolicy](#DeployPolicy1)**<br>Deploy policy according to which the updates are rolled out. 
 instance_group_id | **string**<br>ID of the managed instance group associated with this node group. 
 node_version | **string**<br>Version of Kubernetes components that runs on the nodes. Deprecated. Use version_info.current_version. 
-version_info | **[VersionInfo](#VersionInfo1)**<br> 
-maintenance_policy | **[NodeGroupMaintenancePolicy](#NodeGroupMaintenancePolicy1)**<br> 
+version_info | **[VersionInfo](#VersionInfo1)**<br>Detailed information about the Kubernetes version that is running on the node. 
+maintenance_policy | **[NodeGroupMaintenancePolicy](#NodeGroupMaintenancePolicy1)**<br>Maintenance policy of the node group. 
+allowed_unsafe_sysctls[] | **string**<br>Support for unsafe sysctl parameters. For more details see [documentation](https://kubernetes.io/docs/tasks/administer-cluster/sysctl-cluster/). 
+node_taints[] | **[Taint](#Taint1)**<br>Taints that are applied to the nodes of the node group at creation time. 
+node_labels | **map<string,string>**<br>Labels that are assigned to the nodes of the node group at creation time. 
 
 
 ### NodeTemplate {#NodeTemplate}
@@ -247,8 +274,8 @@ Field | Description
 --- | ---
 platform_id | **string**<br>ID of the hardware platform configuration for the node. 
 resources_spec | **[ResourcesSpec](#ResourcesSpec1)**<br>Computing resources of the node such as the amount of memory and number of cores. 
-boot_disk_spec | **[DiskSpec](#DiskSpec1)**<br>Specification for the boot disk that will be attached to the node. The metadata as `key:value` pairs assigned to this instance template. This includes custom metadata and predefined keys. <br>For example, you may use the metadata in order to provide your public SSH key to the node. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). 
-metadata | **map<string,string>**<br> No more than 64 per resource. The maximum string length in characters for each value is 131072. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+boot_disk_spec | **[DiskSpec](#DiskSpec1)**<br>Specification for the boot disk that will be attached to the node. 
+metadata | **map<string,string>**<br>The metadata as `key:value` pairs assigned to this instance template. This includes custom metadata and predefined keys. <br>For example, you may use the metadata in order to provide your public SSH key to the node. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). No more than 64 per resource. The maximum string length in characters for each value is 131072. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 v4_address_spec | **[NodeAddressSpec](#NodeAddressSpec1)**<br>Specification for the create network interfaces for the node group compute instances. 
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy1)**<br>Scheduling policy configuration. 
 
@@ -257,9 +284,10 @@ scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy1)**<br>Scheduling pol
 
 Field | Description
 --- | ---
-memory | **int64**<br>Amount of memory available to the node, specified in bytes. Acceptable values are 0 to 274877906944, inclusive.
-cores | **int64**<br>Number of cores available to the node. Value must be equal to 0,1,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32.
+memory | **int64**<br>Amount of memory available to the node, specified in bytes. The maximum value is 824633720832.
+cores | **int64**<br>Number of cores available to the node. Value must be equal to 0,1,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,40,44,48,52,56,60,64.
 core_fraction | **int64**<br>Baseline level of CPU performance with the possibility to burst performance above that baseline level. This field sets baseline performance for each core. Value must be equal to 0,5,20,50,100.
+gpus | **int64**<br>Number of GPUs available to the node. Value must be equal to 0,1,2,4.
 
 
 ### DiskSpec {#DiskSpec}
@@ -327,17 +355,25 @@ locations[] | **[NodeGroupLocation](#NodeGroupLocation1)**<br>List of locations 
 
 Field | Description
 --- | ---
-zone_id | **string**<br>Required. ID of the availability zone where the nodes may reside. 
+zone_id | **string**<br>Required. ID of the availability zone where the nodes may reside. false
 subnet_id | **string**<br>ID of the subnet. If a network chosen for the Kubernetes cluster has only one subnet in the specified zone, subnet ID may be omitted. 
+
+
+### DeployPolicy {#DeployPolicy}
+
+Field | Description
+--- | ---
+max_unavailable | **int64**<br>The maximum number of running instances that can be taken offline (i.e., stopped or deleted) at the same time during the update process. If `max_expansion` is not specified or set to zero, `max_unavailable` must be set to a non-zero value. Acceptable values are 0 to 100, inclusive.
+max_expansion | **int64**<br>The maximum number of instances that can be temporarily allocated above the group's target size during the update process. If `max_unavailable` is not specified or set to zero, `max_expansion` must be set to a non-zero value. Acceptable values are 0 to 100, inclusive.
 
 
 ### VersionInfo {#VersionInfo}
 
 Field | Description
 --- | ---
-current_version | **string**<br>Current kubernetes version, major.minor (e.g. 1.15). 
-new_revision_available | **bool**<br>Newer revisions may include kubernetes patches (e.g 1.15.1 -> 1.15.2) as well as some internal component updates - new features or bug fixes in yandex-specific components either on the master or nodes. 
-new_revision_summary | **string**<br>Human readable description of the changes to be applied when updating to the latest revision. Empty if new_revision_available is false. 
+current_version | **string**<br>Current Kubernetes version, format: major.minor (e.g. 1.15). 
+new_revision_available | **bool**<br>Newer revisions may include Kubernetes patches (e.g 1.15.1 -> 1.15.2) as well as some internal component updates — new features or bug fixes in Yandex specific components either on the master or nodes. 
+new_revision_summary | **string**<br>Description of the changes to be applied when updating to the latest revision. Empty if new_revision_available is false. 
 version_deprecated | **bool**<br>The current version is on the deprecation schedule, component (master or node group) should be upgraded. 
 
 
@@ -345,19 +381,19 @@ version_deprecated | **bool**<br>The current version is on the deprecation sched
 
 Field | Description
 --- | ---
-auto_upgrade | **bool**<br> 
-auto_repair | **bool**<br> 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow1)**<br> 
+auto_upgrade | **bool**<br>If set to true, automatic updates are installed in the specified period of time with no interaction from the user. If set to false, automatic upgrades are disabled. 
+auto_repair | **bool**<br>If set to true, automatic repairs are enabled. Default value is false. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow1)**<br>Maintenance window settings. Update will start at the specified time and last no more than the specified duration. The time is set in UTC. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow}
 
 Field | Description
 --- | ---
-policy | **oneof:** `anytime`, `daily_maintenance_window` or `weekly_maintenance_window`<br>
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow1)**<br> 
-&nbsp;&nbsp;daily_maintenance_window | **[DailyMaintenanceWindow](#DailyMaintenanceWindow1)**<br> 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow1)**<br> 
+policy | **oneof:** `anytime`, `daily_maintenance_window` or `weekly_maintenance_window`<br>Maintenance policy.
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow1)**<br>Updating the master at any time. 
+&nbsp;&nbsp;daily_maintenance_window | **[DailyMaintenanceWindow](#DailyMaintenanceWindow1)**<br>Updating the master on any day during the specified time window. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow1)**<br>Updating the master on selected days during the specified time window. 
 
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow}
@@ -368,24 +404,33 @@ policy | **oneof:** `anytime`, `daily_maintenance_window` or `weekly_maintenance
 
 Field | Description
 --- | ---
-start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required.  
-duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br> Acceptable values are 1h to 24h, inclusive.
+start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required. Window start time, in the UTC timezone. false
+duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Window duration. Acceptable values are 1h to 24h, inclusive.
 
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow}
 
 Field | Description
 --- | ---
-days_of_week[] | **[DaysOfWeekMaintenanceWindow](#DaysOfWeekMaintenanceWindow1)**<br> The number of elements must be in the range 1-7.
+days_of_week[] | **[DaysOfWeekMaintenanceWindow](#DaysOfWeekMaintenanceWindow1)**<br>Days of the week and the maintenance window for these days when automatic updates are allowed. The number of elements must be in the range 1-7.
 
 
 ### DaysOfWeekMaintenanceWindow {#DaysOfWeekMaintenanceWindow}
 
 Field | Description
 --- | ---
-days[] | **google.type.DayOfWeek**<br> The number of elements must be in the range 1-7.
-start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required.  
-duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br> Acceptable values are 1h to 24h, inclusive.
+days[] | **google.type.DayOfWeek**<br>Days of the week when automatic updates are allowed. The number of elements must be in the range 1-7.
+start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required. Window start time, in the UTC timezone. false
+duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Window duration. Acceptable values are 1h to 24h, inclusive.
+
+
+### Taint {#Taint}
+
+Field | Description
+--- | ---
+key | **string**<br>The taint key to be applied to a node. 
+value | **string**<br>The taint value corresponding to the taint key. 
+effect | enum **Effect**<br>The effect of the taint on pods that do not tolerate the taint. <ul><li>`NO_SCHEDULE`: Do not allow new pods to schedule onto the node unless they tolerate the taint, but allow all pods submitted to Kubelet without going through the scheduler to start, and allow all already-running pods to continue running.</li><li>`PREFER_NO_SCHEDULE`: Like NO_SCHEDULE, but the scheduler tries not to schedule new pods onto the node, rather than prohibiting new pods from scheduling onto the node entirely. Enforced by the scheduler.</li><li>`NO_EXECUTE`: Evict any already-running pods that do not tolerate the taint.</li><ul/>
 
 
 ## Create {#Create}
@@ -402,16 +447,19 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the Kubernetes cluster to create a node group in. To get the Kubernetes cluster ID, use a [ClusterService.List](./cluster_service#List) request. 
+cluster_id | **string**<br>Required. ID of the Kubernetes cluster to create a node group in. To get the Kubernetes cluster ID, use a [ClusterService.List](./cluster_service#List) request. false
 name | **string**<br>Name of the node group. The name must be unique within the folder. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>Description of the node group. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
-node_template | **[NodeTemplate](#NodeTemplate2)**<br>Required. Node template for creating the node group. 
-scale_policy | **[ScalePolicy](#ScalePolicy2)**<br>Required. Scale policy of the node group. 
+node_template | **[NodeTemplate](#NodeTemplate2)**<br>Required. Node template for creating the node group. false
+scale_policy | **[ScalePolicy](#ScalePolicy2)**<br>Required. Scale policy of the node group. false
 allocation_policy | **[NodeGroupAllocationPolicy](#NodeGroupAllocationPolicy2)**<br>Allocation policy of the node group by the zones and regions. 
-version | **string**<br> 
-maintenance_policy | **[NodeGroupMaintenancePolicy](#NodeGroupMaintenancePolicy2)**<br> 
-allowed_unsafe_sysctls[] | **string**<br> 
+deploy_policy | **[DeployPolicy](#DeployPolicy2)**<br>Deploy policy according to which the updates are rolled out. If not specified, the default is used. 
+version | **string**<br>Version of Kubernetes components that runs on the nodes. 
+maintenance_policy | **[NodeGroupMaintenancePolicy](#NodeGroupMaintenancePolicy2)**<br>Maintenance policy of the node group. 
+allowed_unsafe_sysctls[] | **string**<br>Support for unsafe sysctl parameters. For more details see [documentation](https://kubernetes.io/docs/tasks/administer-cluster/sysctl-cluster/). The maximum string length in characters for each value is 253. Each value must match the regular expression ` ([a-z0-9]([-_a-z0-9]*[a-z0-9])?\\.)*([a-z0-9][-_a-z0-9]*)?[a-z0-9*] `.
+node_taints[] | **[Taint](#Taint2)**<br>Taints that are applied to the nodes of the node group at creation time. 
+node_labels | **map<string,string>**<br>Labels that are assigned to the nodes of the node group at creation time. 
 
 
 ### NodeTemplate {#NodeTemplate}
@@ -420,8 +468,8 @@ Field | Description
 --- | ---
 platform_id | **string**<br>ID of the hardware platform configuration for the node. 
 resources_spec | **[ResourcesSpec](#ResourcesSpec2)**<br>Computing resources of the node such as the amount of memory and number of cores. 
-boot_disk_spec | **[DiskSpec](#DiskSpec2)**<br>Specification for the boot disk that will be attached to the node. The metadata as `key:value` pairs assigned to this instance template. This includes custom metadata and predefined keys. <br>For example, you may use the metadata in order to provide your public SSH key to the node. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). 
-metadata | **map<string,string>**<br> No more than 64 per resource. The maximum string length in characters for each value is 131072. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+boot_disk_spec | **[DiskSpec](#DiskSpec2)**<br>Specification for the boot disk that will be attached to the node. 
+metadata | **map<string,string>**<br>The metadata as `key:value` pairs assigned to this instance template. This includes custom metadata and predefined keys. <br>For example, you may use the metadata in order to provide your public SSH key to the node. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). No more than 64 per resource. The maximum string length in characters for each value is 131072. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 v4_address_spec | **[NodeAddressSpec](#NodeAddressSpec2)**<br>Specification for the create network interfaces for the node group compute instances. 
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy2)**<br>Scheduling policy configuration. 
 
@@ -430,9 +478,10 @@ scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy2)**<br>Scheduling pol
 
 Field | Description
 --- | ---
-memory | **int64**<br>Amount of memory available to the node, specified in bytes. Acceptable values are 0 to 274877906944, inclusive.
-cores | **int64**<br>Number of cores available to the node. Value must be equal to 0,1,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32.
+memory | **int64**<br>Amount of memory available to the node, specified in bytes. The maximum value is 824633720832.
+cores | **int64**<br>Number of cores available to the node. Value must be equal to 0,1,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,40,44,48,52,56,60,64.
 core_fraction | **int64**<br>Baseline level of CPU performance with the possibility to burst performance above that baseline level. This field sets baseline performance for each core. Value must be equal to 0,5,20,50,100.
+gpus | **int64**<br>Number of GPUs available to the node. Value must be equal to 0,1,2,4.
 
 
 ### DiskSpec {#DiskSpec}
@@ -500,27 +549,35 @@ locations[] | **[NodeGroupLocation](#NodeGroupLocation2)**<br>List of locations 
 
 Field | Description
 --- | ---
-zone_id | **string**<br>Required. ID of the availability zone where the nodes may reside. 
+zone_id | **string**<br>Required. ID of the availability zone where the nodes may reside. false
 subnet_id | **string**<br>ID of the subnet. If a network chosen for the Kubernetes cluster has only one subnet in the specified zone, subnet ID may be omitted. 
+
+
+### DeployPolicy {#DeployPolicy}
+
+Field | Description
+--- | ---
+max_unavailable | **int64**<br>The maximum number of running instances that can be taken offline (i.e., stopped or deleted) at the same time during the update process. If `max_expansion` is not specified or set to zero, `max_unavailable` must be set to a non-zero value. Acceptable values are 0 to 100, inclusive.
+max_expansion | **int64**<br>The maximum number of instances that can be temporarily allocated above the group's target size during the update process. If `max_unavailable` is not specified or set to zero, `max_expansion` must be set to a non-zero value. Acceptable values are 0 to 100, inclusive.
 
 
 ### NodeGroupMaintenancePolicy {#NodeGroupMaintenancePolicy}
 
 Field | Description
 --- | ---
-auto_upgrade | **bool**<br> 
-auto_repair | **bool**<br> 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow2)**<br> 
+auto_upgrade | **bool**<br>If set to true, automatic updates are installed in the specified period of time with no interaction from the user. If set to false, automatic upgrades are disabled. 
+auto_repair | **bool**<br>If set to true, automatic repairs are enabled. Default value is false. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow2)**<br>Maintenance window settings. Update will start at the specified time and last no more than the specified duration. The time is set in UTC. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow}
 
 Field | Description
 --- | ---
-policy | **oneof:** `anytime`, `daily_maintenance_window` or `weekly_maintenance_window`<br>
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow2)**<br> 
-&nbsp;&nbsp;daily_maintenance_window | **[DailyMaintenanceWindow](#DailyMaintenanceWindow2)**<br> 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow2)**<br> 
+policy | **oneof:** `anytime`, `daily_maintenance_window` or `weekly_maintenance_window`<br>Maintenance policy.
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow2)**<br>Updating the master at any time. 
+&nbsp;&nbsp;daily_maintenance_window | **[DailyMaintenanceWindow](#DailyMaintenanceWindow2)**<br>Updating the master on any day during the specified time window. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow2)**<br>Updating the master on selected days during the specified time window. 
 
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow}
@@ -531,24 +588,33 @@ policy | **oneof:** `anytime`, `daily_maintenance_window` or `weekly_maintenance
 
 Field | Description
 --- | ---
-start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required.  
-duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br> Acceptable values are 1h to 24h, inclusive.
+start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required. Window start time, in the UTC timezone. false
+duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Window duration. Acceptable values are 1h to 24h, inclusive.
 
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow}
 
 Field | Description
 --- | ---
-days_of_week[] | **[DaysOfWeekMaintenanceWindow](#DaysOfWeekMaintenanceWindow2)**<br> The number of elements must be in the range 1-7.
+days_of_week[] | **[DaysOfWeekMaintenanceWindow](#DaysOfWeekMaintenanceWindow2)**<br>Days of the week and the maintenance window for these days when automatic updates are allowed. The number of elements must be in the range 1-7.
 
 
 ### DaysOfWeekMaintenanceWindow {#DaysOfWeekMaintenanceWindow}
 
 Field | Description
 --- | ---
-days[] | **google.type.DayOfWeek**<br> The number of elements must be in the range 1-7.
-start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required.  
-duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br> Acceptable values are 1h to 24h, inclusive.
+days[] | **google.type.DayOfWeek**<br>Days of the week when automatic updates are allowed. The number of elements must be in the range 1-7.
+start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required. Window start time, in the UTC timezone. false
+duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Window duration. Acceptable values are 1h to 24h, inclusive.
+
+
+### Taint {#Taint}
+
+Field | Description
+--- | ---
+key | **string**<br>The taint key to be applied to a node. 
+value | **string**<br>The taint value corresponding to the taint key. 
+effect | enum **Effect**<br>The effect of the taint on pods that do not tolerate the taint. <ul><li>`NO_SCHEDULE`: Do not allow new pods to schedule onto the node unless they tolerate the taint, but allow all pods submitted to Kubelet without going through the scheduler to start, and allow all already-running pods to continue running.</li><li>`PREFER_NO_SCHEDULE`: Like NO_SCHEDULE, but the scheduler tries not to schedule new pods onto the node, rather than prohibiting new pods from scheduling onto the node entirely. Enforced by the scheduler.</li><li>`NO_EXECUTE`: Evict any already-running pods that do not tolerate the taint.</li><ul/>
 
 
 ### Operation {#Operation}
@@ -588,10 +654,14 @@ status | enum **Status**<br>Status of the node group. <ul><li>`PROVISIONING`: No
 node_template | **[NodeTemplate](#NodeTemplate3)**<br>Node template that specifies parameters of the compute instances for the node group. 
 scale_policy | **[ScalePolicy](#ScalePolicy3)**<br>Scale policy of the node group.  For more information, see [Scaling policy](/docs/compute/concepts/instance-groups/policies#scale-policy). 
 allocation_policy | **[NodeGroupAllocationPolicy](#NodeGroupAllocationPolicy3)**<br>Allocation policy by which resources for node group are allocated to zones and regions. 
+deploy_policy | **[DeployPolicy](#DeployPolicy3)**<br>Deploy policy according to which the updates are rolled out. 
 instance_group_id | **string**<br>ID of the managed instance group associated with this node group. 
 node_version | **string**<br>Version of Kubernetes components that runs on the nodes. Deprecated. Use version_info.current_version. 
-version_info | **[VersionInfo](#VersionInfo2)**<br> 
-maintenance_policy | **[NodeGroupMaintenancePolicy](#NodeGroupMaintenancePolicy3)**<br> 
+version_info | **[VersionInfo](#VersionInfo2)**<br>Detailed information about the Kubernetes version that is running on the node. 
+maintenance_policy | **[NodeGroupMaintenancePolicy](#NodeGroupMaintenancePolicy3)**<br>Maintenance policy of the node group. 
+allowed_unsafe_sysctls[] | **string**<br>Support for unsafe sysctl parameters. For more details see [documentation](https://kubernetes.io/docs/tasks/administer-cluster/sysctl-cluster/). 
+node_taints[] | **[Taint](#Taint3)**<br>Taints that are applied to the nodes of the node group at creation time. 
+node_labels | **map<string,string>**<br>Labels that are assigned to the nodes of the node group at creation time. 
 
 
 ## Update {#Update}
@@ -608,7 +678,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-node_group_id | **string**<br>Required. ID of the node group to update. To get the node group ID use a [NodeGroupService.List](#List) request. 
+node_group_id | **string**<br>Required. ID of the node group to update. To get the node group ID use a [NodeGroupService.List](#List) request. false
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the node group are going to be updated. 
 name | **string**<br>Name of the node group. The name must be unique within the folder. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>Description of the node group. The maximum string length in characters is 256.
@@ -616,9 +686,12 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs. <br>Exi
 node_template | **[NodeTemplate](#NodeTemplate3)**<br>Node template for the node group. Change may trigger nodes rolling reboot or recreate. 
 scale_policy | **[ScalePolicy](#ScalePolicy3)**<br>Scale policy of the node group. 
 allocation_policy | **[NodeGroupAllocationPolicy](#NodeGroupAllocationPolicy3)**<br>Allocation policy of the node group by the zones and regions. 
-version | **[UpdateVersionSpec](#UpdateVersionSpec)**<br> 
-maintenance_policy | **[NodeGroupMaintenancePolicy](#NodeGroupMaintenancePolicy3)**<br> 
-allowed_unsafe_sysctls[] | **string**<br> 
+deploy_policy | **[DeployPolicy](#DeployPolicy3)**<br>Deploy policy according to which the updates are rolled out. If not specified, the default is used. 
+version | **[UpdateVersionSpec](#UpdateVersionSpec)**<br>Version of Kubernetes components that runs on the nodes. 
+maintenance_policy | **[NodeGroupMaintenancePolicy](#NodeGroupMaintenancePolicy3)**<br>Maintenance policy of the node group. 
+allowed_unsafe_sysctls[] | **string**<br>Support for unsafe sysctl parameters. For more details see [documentation](https://kubernetes.io/docs/tasks/administer-cluster/sysctl-cluster/). The maximum string length in characters for each value is 253. Each value must match the regular expression ` ([a-z0-9]([-_a-z0-9]*[a-z0-9])?\\.)*([a-z0-9][-_a-z0-9]*)?[a-z0-9*] `.
+node_taints[] | **[Taint](#Taint3)**<br>Taints that are applied to the nodes of the node group at creation time. 
+node_labels | **map<string,string>**<br>Labels that are assigned to the nodes of the node group at creation time. 
 
 
 ### NodeTemplate {#NodeTemplate}
@@ -627,8 +700,8 @@ Field | Description
 --- | ---
 platform_id | **string**<br>ID of the hardware platform configuration for the node. 
 resources_spec | **[ResourcesSpec](#ResourcesSpec3)**<br>Computing resources of the node such as the amount of memory and number of cores. 
-boot_disk_spec | **[DiskSpec](#DiskSpec3)**<br>Specification for the boot disk that will be attached to the node. The metadata as `key:value` pairs assigned to this instance template. This includes custom metadata and predefined keys. <br>For example, you may use the metadata in order to provide your public SSH key to the node. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). 
-metadata | **map<string,string>**<br> No more than 64 per resource. The maximum string length in characters for each value is 131072. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+boot_disk_spec | **[DiskSpec](#DiskSpec3)**<br>Specification for the boot disk that will be attached to the node. 
+metadata | **map<string,string>**<br>The metadata as `key:value` pairs assigned to this instance template. This includes custom metadata and predefined keys. <br>For example, you may use the metadata in order to provide your public SSH key to the node. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). No more than 64 per resource. The maximum string length in characters for each value is 131072. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 v4_address_spec | **[NodeAddressSpec](#NodeAddressSpec3)**<br>Specification for the create network interfaces for the node group compute instances. 
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy3)**<br>Scheduling policy configuration. 
 
@@ -637,9 +710,10 @@ scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy3)**<br>Scheduling pol
 
 Field | Description
 --- | ---
-memory | **int64**<br>Amount of memory available to the node, specified in bytes. Acceptable values are 0 to 274877906944, inclusive.
-cores | **int64**<br>Number of cores available to the node. Value must be equal to 0,1,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32.
+memory | **int64**<br>Amount of memory available to the node, specified in bytes. The maximum value is 824633720832.
+cores | **int64**<br>Number of cores available to the node. Value must be equal to 0,1,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,40,44,48,52,56,60,64.
 core_fraction | **int64**<br>Baseline level of CPU performance with the possibility to burst performance above that baseline level. This field sets baseline performance for each core. Value must be equal to 0,5,20,50,100.
+gpus | **int64**<br>Number of GPUs available to the node. Value must be equal to 0,1,2,4.
 
 
 ### DiskSpec {#DiskSpec}
@@ -707,8 +781,16 @@ locations[] | **[NodeGroupLocation](#NodeGroupLocation3)**<br>List of locations 
 
 Field | Description
 --- | ---
-zone_id | **string**<br>Required. ID of the availability zone where the nodes may reside. 
+zone_id | **string**<br>Required. ID of the availability zone where the nodes may reside. false
 subnet_id | **string**<br>ID of the subnet. If a network chosen for the Kubernetes cluster has only one subnet in the specified zone, subnet ID may be omitted. 
+
+
+### DeployPolicy {#DeployPolicy}
+
+Field | Description
+--- | ---
+max_unavailable | **int64**<br>The maximum number of running instances that can be taken offline (i.e., stopped or deleted) at the same time during the update process. If `max_expansion` is not specified or set to zero, `max_unavailable` must be set to a non-zero value. Acceptable values are 0 to 100, inclusive.
+max_expansion | **int64**<br>The maximum number of instances that can be temporarily allocated above the group's target size during the update process. If `max_unavailable` is not specified or set to zero, `max_expansion` must be set to a non-zero value. Acceptable values are 0 to 100, inclusive.
 
 
 ### UpdateVersionSpec {#UpdateVersionSpec}
@@ -716,7 +798,7 @@ subnet_id | **string**<br>ID of the subnet. If a network chosen for the Kubernet
 Field | Description
 --- | ---
 specifier | **oneof:** `version` or `latest_revision`<br>
-&nbsp;&nbsp;version | **string**<br>Request update to a newer version of kubernetes (1.x -> 1.y). 
+&nbsp;&nbsp;version | **string**<br>Request update to a newer version of Kubernetes (1.x -> 1.y). 
 &nbsp;&nbsp;latest_revision | **bool**<br>Request update to the latest revision for the current version. 
 
 
@@ -724,19 +806,19 @@ specifier | **oneof:** `version` or `latest_revision`<br>
 
 Field | Description
 --- | ---
-auto_upgrade | **bool**<br> 
-auto_repair | **bool**<br> 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow3)**<br> 
+auto_upgrade | **bool**<br>If set to true, automatic updates are installed in the specified period of time with no interaction from the user. If set to false, automatic upgrades are disabled. 
+auto_repair | **bool**<br>If set to true, automatic repairs are enabled. Default value is false. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow3)**<br>Maintenance window settings. Update will start at the specified time and last no more than the specified duration. The time is set in UTC. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow}
 
 Field | Description
 --- | ---
-policy | **oneof:** `anytime`, `daily_maintenance_window` or `weekly_maintenance_window`<br>
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow3)**<br> 
-&nbsp;&nbsp;daily_maintenance_window | **[DailyMaintenanceWindow](#DailyMaintenanceWindow3)**<br> 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow3)**<br> 
+policy | **oneof:** `anytime`, `daily_maintenance_window` or `weekly_maintenance_window`<br>Maintenance policy.
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow3)**<br>Updating the master at any time. 
+&nbsp;&nbsp;daily_maintenance_window | **[DailyMaintenanceWindow](#DailyMaintenanceWindow3)**<br>Updating the master on any day during the specified time window. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow3)**<br>Updating the master on selected days during the specified time window. 
 
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow}
@@ -747,24 +829,33 @@ policy | **oneof:** `anytime`, `daily_maintenance_window` or `weekly_maintenance
 
 Field | Description
 --- | ---
-start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required.  
-duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br> Acceptable values are 1h to 24h, inclusive.
+start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required. Window start time, in the UTC timezone. false
+duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Window duration. Acceptable values are 1h to 24h, inclusive.
 
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow}
 
 Field | Description
 --- | ---
-days_of_week[] | **[DaysOfWeekMaintenanceWindow](#DaysOfWeekMaintenanceWindow3)**<br> The number of elements must be in the range 1-7.
+days_of_week[] | **[DaysOfWeekMaintenanceWindow](#DaysOfWeekMaintenanceWindow3)**<br>Days of the week and the maintenance window for these days when automatic updates are allowed. The number of elements must be in the range 1-7.
 
 
 ### DaysOfWeekMaintenanceWindow {#DaysOfWeekMaintenanceWindow}
 
 Field | Description
 --- | ---
-days[] | **google.type.DayOfWeek**<br> The number of elements must be in the range 1-7.
-start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required.  
-duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br> Acceptable values are 1h to 24h, inclusive.
+days[] | **google.type.DayOfWeek**<br>Days of the week when automatic updates are allowed. The number of elements must be in the range 1-7.
+start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required. Window start time, in the UTC timezone. false
+duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Window duration. Acceptable values are 1h to 24h, inclusive.
+
+
+### Taint {#Taint}
+
+Field | Description
+--- | ---
+key | **string**<br>The taint key to be applied to a node. 
+value | **string**<br>The taint value corresponding to the taint key. 
+effect | enum **Effect**<br>The effect of the taint on pods that do not tolerate the taint. <ul><li>`NO_SCHEDULE`: Do not allow new pods to schedule onto the node unless they tolerate the taint, but allow all pods submitted to Kubelet without going through the scheduler to start, and allow all already-running pods to continue running.</li><li>`PREFER_NO_SCHEDULE`: Like NO_SCHEDULE, but the scheduler tries not to schedule new pods onto the node, rather than prohibiting new pods from scheduling onto the node entirely. Enforced by the scheduler.</li><li>`NO_EXECUTE`: Evict any already-running pods that do not tolerate the taint.</li><ul/>
 
 
 ### Operation {#Operation}
@@ -787,7 +878,7 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-node_group_id | **string**<br>Required. ID of the Node group that is being updated. 
+node_group_id | **string**<br>Required. ID of the Node group that is being updated. false
 
 
 ### NodeGroup {#NodeGroup}
@@ -804,10 +895,14 @@ status | enum **Status**<br>Status of the node group. <ul><li>`PROVISIONING`: No
 node_template | **[NodeTemplate](#NodeTemplate4)**<br>Node template that specifies parameters of the compute instances for the node group. 
 scale_policy | **[ScalePolicy](#ScalePolicy4)**<br>Scale policy of the node group.  For more information, see [Scaling policy](/docs/compute/concepts/instance-groups/policies#scale-policy). 
 allocation_policy | **[NodeGroupAllocationPolicy](#NodeGroupAllocationPolicy4)**<br>Allocation policy by which resources for node group are allocated to zones and regions. 
+deploy_policy | **[DeployPolicy](#DeployPolicy4)**<br>Deploy policy according to which the updates are rolled out. 
 instance_group_id | **string**<br>ID of the managed instance group associated with this node group. 
 node_version | **string**<br>Version of Kubernetes components that runs on the nodes. Deprecated. Use version_info.current_version. 
-version_info | **[VersionInfo](#VersionInfo2)**<br> 
-maintenance_policy | **[NodeGroupMaintenancePolicy](#NodeGroupMaintenancePolicy4)**<br> 
+version_info | **[VersionInfo](#VersionInfo2)**<br>Detailed information about the Kubernetes version that is running on the node. 
+maintenance_policy | **[NodeGroupMaintenancePolicy](#NodeGroupMaintenancePolicy4)**<br>Maintenance policy of the node group. 
+allowed_unsafe_sysctls[] | **string**<br>Support for unsafe sysctl parameters. For more details see [documentation](https://kubernetes.io/docs/tasks/administer-cluster/sysctl-cluster/). 
+node_taints[] | **[Taint](#Taint4)**<br>Taints that are applied to the nodes of the node group at creation time. 
+node_labels | **map<string,string>**<br>Labels that are assigned to the nodes of the node group at creation time. 
 
 
 ## Delete {#Delete}
@@ -824,7 +919,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-node_group_id | **string**<br>Required. ID of the node group to delete. To get node group ID use a [NodeGroupService.List](#List) request. 
+node_group_id | **string**<br>Required. ID of the node group to delete. To get node group ID use a [NodeGroupService.List](#List) request. false
 
 
 ### Operation {#Operation}
@@ -860,7 +955,7 @@ Lists operations for the specified node group.
 
 Field | Description
 --- | ---
-node_group_id | **string**<br>Required. ID of the node group to list operations for. 
+node_group_id | **string**<br>Required. ID of the node group to list operations for. false
 page_size | **int64**<br>The maximum number of results per page that should be returned. If the number of available results is larger than `page_size`, the service returns a [ListNodeGroupOperationsResponse.next_page_token](#ListNodeGroupOperationsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListNodeGroupOperationsResponse.next_page_token](#ListNodeGroupOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
 filter | **string**<br>A filter expression that filters resources listed in the response. Currently you can use filtering only on [NodeGroup.name](#NodeGroup4) field. The maximum string length in characters is 1000.
@@ -888,5 +983,65 @@ metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffer
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
 &nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>The normal response of the operation in case of success. If the original method returns no data on success, such as Delete, the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty). If the original method is the standard Create/Update, the response should be the target resource of the operation. Any method that returns a long-running operation should document the response type, if any. 
+
+
+## ListNodes {#ListNodes}
+
+Retrieves the list of nodes in the specified Kubernetes cluster.
+
+**rpc ListNodes ([ListNodeGroupNodesRequest](#ListNodeGroupNodesRequest)) returns ([ListNodeGroupNodesResponse](#ListNodeGroupNodesResponse))**
+
+### ListNodeGroupNodesRequest {#ListNodeGroupNodesRequest}
+
+Field | Description
+--- | ---
+node_group_id | **string**<br>Required. ID of the node group to list. To get the node group ID use a [NodeGroupService.List](#List) request. false
+page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListNodeGroupsResponse.next_page_token](#ListNodeGroupsResponse1) that can be used to get the next page of results in subsequent list requests. Default value: 100. Acceptable values are 0 to 1000, inclusive.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListNodeGroupNodesResponse.next_page_token](#ListNodeGroupNodesResponse) returned by a previous list request. The maximum string length in characters is 100.
+
+
+### ListNodeGroupNodesResponse {#ListNodeGroupNodesResponse}
+
+Field | Description
+--- | ---
+nodes[] | **[Node](#Node)**<br>List of nodes. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListNodeGroupNodesRequest.page_size](#ListNodeGroupNodesRequest1), use the `next_page_token` as the value for the [ListNodeGroupNodesRequest.page_token](#ListNodeGroupNodesRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+
+
+### Node {#Node}
+
+Field | Description
+--- | ---
+status | enum **Status**<br>Computed node status. <ul><li>`PROVISIONING`: Node instance is not yet created (e.g. in progress).</li><li>`NOT_CONNECTED`: Node instance is created but not registered (e.g. is still initializing).</li><li>`NOT_READY`: Node has connected but is not ready for workload (see conditions for details).</li><li>`READY`: Node has connected and ready for workload.</li><li>`MISSING`: Node is still registered but its instance is deleted (this is our bug).</li><ul/>
+spec | **[Spec](#Spec)**<br>Node specificaion. 
+cloud_status | **[CloudStatus](#CloudStatus)**<br>Cloud instance status. Not available in `MISSING` status. 
+kubernetes_status | **[KubernetesStatus](#KubernetesStatus)**<br>Kubernetes node status. Not available in `PROVISIONING` and `NOT_CONNECTED` states. 
+
+
+### KubernetesStatus {#KubernetesStatus}
+
+Field | Description
+--- | ---
+id | **string**<br>Node id (and instance name) 
+conditions[] | **[Condition](#Condition)**<br>Conditions is an array of current observed node conditions. More info: https://kubernetes.io/docs/concepts/nodes/node/#condition 
+taints[] | **[Taint](#Taint4)**<br>If specified, the node's taints. 
+attached_volumes[] | **[AttachedVolume](#AttachedVolume)**<br>List of volumes that are attached to the node. 
+
+
+### CloudStatus {#CloudStatus}
+
+Field | Description
+--- | ---
+id | **string**<br>Compute instance id 
+status | **string**<br>IG instance status 
+status_message | **string**<br>IG instance status message 
+
+
+### Spec {#Spec}
+
+Field | Description
+--- | ---
+resources | **[ResourcesSpec](#ResourcesSpec4)**<br>Node group specified resources. 
+disk | **[DiskSpec](#DiskSpec4)**<br>Node group specified disk. 
 
 

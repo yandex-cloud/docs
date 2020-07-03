@@ -6,14 +6,14 @@ editable: false
 
 _Operators_
 
-#### Syntax
+#### Syntax {#syntax}
 
 
 ```
 number_1 / number_2
 ```
 
-#### Description
+#### Description {#description}
 Divides the number `number_1` by the number `number_2`.
 
 **Argument types:**
@@ -23,7 +23,7 @@ Divides the number `number_1` by the number `number_2`.
 
 **Return type**: `Number (decimal)`
 
-#### Examples
+#### Examples {#examples}
 
 ```
 4 / 2 = 2.0
@@ -42,6 +42,6 @@ Divides the number `number_1` by the number `number_2`.
 ```
 
 
-#### Data source support
+#### Data source support {#data-source-support}
 
 `Materialized Dataset`, `ClickHouse 1.1`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`.

@@ -30,7 +30,8 @@ subclusterId | Required. ID of the subcluster to update.  To get a subcluster ID
     "diskSize": "string"
   },
   "name": "string",
-  "hostsCount": "string"
+  "hostsCount": "string",
+  "decommissionTimeout": "string"
 }
 ```
 
@@ -44,6 +45,7 @@ resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for 
 resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
 name | **string**<br><p>New name for the subcluster. The name must be unique within the cluster.</p> <p>Value must match the regular expression <code>\|[a-z][-a-z0-9]{1,61}[a-z0-9]</code>.</p> 
 hostsCount | **string** (int64)<br><p>Required. New number of hosts in the subcluster.</p> <p>The minimum value is 1.</p> 
+decommissionTimeout | **string** (int64)<br><p>Timeout to gracefully decommission nodes. In seconds. Default value: 0</p> <p>Acceptable values are 0 to 86400, inclusive.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

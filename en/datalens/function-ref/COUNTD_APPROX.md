@@ -6,14 +6,14 @@ editable: false
 
 _Aggregate functions_
 
-#### Syntax
+#### Syntax {#syntax}
 
 
 ```
 COUNTD_APPROX( value )
 ```
 
-#### Description
+#### Description {#description}
 Returns the approximate number of unique values in the group. Faster than [COUNTD](COUNTD.md), but doesn't guarantee accuracy.
 
 **Argument types:**
@@ -22,13 +22,13 @@ Returns the approximate number of unique values in the group. Faster than [COUNT
 
 **Return type**: `Number (whole)`
 
-#### Examples
+#### Examples {#examples}
 
 ```
 COUNTD_APPROX([ClienID])
 ```
 
 
-#### Data source support
+#### Data source support {#data-source-support}
 
 `Materialized Dataset`, `ClickHouse 1.1`.

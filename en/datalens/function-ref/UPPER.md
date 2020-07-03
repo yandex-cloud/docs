@@ -6,14 +6,14 @@ editable: false
 
 _String functions_
 
-#### Syntax
+#### Syntax {#syntax}
 
 
 ```
 UPPER( string )
 ```
 
-#### Description
+#### Description {#description}
 Returns the string `string` in uppercase.
 
 **Argument types:**
@@ -22,7 +22,7 @@ Returns the string `string` in uppercase.
 
 **Return type**: `String`
 
-#### Examples
+#### Examples {#examples}
 
 ```
 UPPER("Lorem ipsum") = "LOREM IPSUM"
@@ -33,6 +33,6 @@ UPPER("Карл у Клары") = "КАРЛ У КЛАРЫ"
 ```
 
 
-#### Data source support
+#### Data source support {#data-source-support}
 
 `Materialized Dataset`, `ClickHouse 1.1`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`.

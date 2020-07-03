@@ -6,14 +6,14 @@ editable: false
 
 _Строковые функции_
 
-#### Синтаксис
+#### Синтаксис {#syntax}
 
 
 ```
 ENDSWITH( string, substring )
 ```
 
-#### Описание
+#### Описание {#description}
 Возвращает `TRUE`, если строка `string` оканчивается на подстроку `substring`.Для регистронезависимой проверки см. [IENDSWITH](IENDSWITH.md).
 
 **Типы аргументов:**
@@ -23,7 +23,7 @@ ENDSWITH( string, substring )
 
 **Возвращаемый тип**: `Логический`
 
-#### Примеры
+#### Примеры {#examples}
 
 ```
 ENDSWITH("Petrov Ivan", "Ivan") = TRUE
@@ -38,6 +38,6 @@ ENDSWITH("Lorem ipsum", "abc") = FALSE
 ```
 
 
-#### Поддержка источников данных
+#### Поддержка источников данных {#data-source-support}
 
 `Материализованный датасет`, `ClickHouse 1.1`, `Yandex.Metrica`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`.

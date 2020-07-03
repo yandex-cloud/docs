@@ -6,14 +6,14 @@ editable: false
 
 _String functions_
 
-#### Syntax
+#### Syntax {#syntax}
 
 
 ```
 FIND( string, substring [ , start_index ] )
 ```
 
-#### Description
+#### Description {#description}
 Returns the index of the position of the first character of the substring `substring` in the string `string`.
 
 If the `start_index` option is specified, the search starts from the specified position.
@@ -26,7 +26,7 @@ If the `start_index` option is specified, the search starts from the specified p
 
 **Return type**: `Number (whole)`
 
-#### Examples
+#### Examples {#examples}
 
 ```
 FIND("Lorem ipsum dolor sit amet", "abc") = 0
@@ -41,6 +41,6 @@ FIND("Lorem ipsum dolor sit amet", "or", 7) = 16
 ```
 
 
-#### Data source support
+#### Data source support {#data-source-support}
 
 `Materialized Dataset`, `ClickHouse 1.1`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`.

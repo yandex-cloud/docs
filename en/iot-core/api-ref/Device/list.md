@@ -33,7 +33,8 @@ pageToken | Page token. To get the next page of results, set `page_token` to the
       "createdAt": "string",
       "name": "string",
       "description": "string",
-      "topicAliases": "object"
+      "topicAliases": "object",
+      "status": "string"
     }
   ],
   "nextPageToken": "string"
@@ -50,4 +51,5 @@ devices[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <
 devices[].<br>name | **string**<br><p>Name of the device. The name is unique within the registry.</p> 
 devices[].<br>description | **string**<br><p>Description of the device. 0-256 characters long.</p> 
 devices[].<br>topicAliases | **object**<br><p>Alias of a device topic.</p> <p>Alias is an alternate name of a device topic assigned by the user. Map alias to canonical topic name prefix, e.g. <code>my/custom/alias</code> match to <code>$device/abcdef/events</code>.</p> 
+devices[].<br>status | **string**<br><p>Status of the device.</p> <ul> <li>CREATING: Device is being created.</li> <li>ACTIVE: Device is ready to use.</li> <li>DELETING: Device is being deleted.</li> </ul> 
 nextPageToken | **string**<br><p>Token for getting the next page of the list. If the number of results is greater than the specified <a href="/docs/iot-core/api-ref/Device/list#query_params">pageSize</a>, use <code>next_page_token</code> as the value for the <a href="/docs/iot-core/api-ref/Device/list#query_params">pageToken</a> parameter in the next list request.</p> <p>Each subsequent page will have its own <code>next_page_token</code> to continue paging through the results.</p> 

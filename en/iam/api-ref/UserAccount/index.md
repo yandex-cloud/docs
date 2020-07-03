@@ -16,7 +16,8 @@ A set of methods for managing user accounts. Currently applicable only for [Yand
   },
   "samlUserAccount": {
     "federationId": "string",
-    "nameId": "string"
+    "nameId": "string",
+    "attributes": "object"
   },
   // end of the list of possible fields
 
@@ -32,6 +33,7 @@ yandexPassportUserAccount.<br>defaultEmail | **string**<br><p>Default email of t
 samlUserAccount | **object** <br> includes only one of the fields `yandexPassportUserAccount`, `samlUserAccount`<br><br><p>A SAML federated user. For more information, see <a href="/docs/iam/concepts/users/saml-federations">federations</a>.</p> 
 samlUserAccount.<br>federationId | **string**<br><p>Required. ID of the federation that the federation belongs to.</p> <p>The maximum string length in characters is 50.</p> 
 samlUserAccount.<br>nameId | **string**<br><p>Required. Name Id of the SAML federated user. The name is unique within the federation. 1-256 characters long.</p> <p>The string length in characters must be 1-256.</p> 
+samlUserAccount.<br>attributes | **object**<br><p>Additional attributes of the SAML federated user.</p> 
 
 ## Methods {#methods}
 Method | Description

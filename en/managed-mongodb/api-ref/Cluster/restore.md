@@ -247,7 +247,10 @@ POST https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters:restore
     }
   ],
   "networkId": "string",
-  "folderId": "string"
+  "folderId": "string",
+  "recoveryTargetSpec": {
+    "timestamp": "string"
+  }
 }
 ```
 
@@ -407,6 +410,8 @@ hostSpecs[].<br>type | **string**<br><p>Type of the host to be deployed.</p> <ul
 hostSpecs[].<br>shardName | **string**<br><p>Name of the shard that the host belongs to.</p> <p>The maximum string length in characters is 63. Value must match the regular expression <code>[a-zA-Z0-9_-]*</code>.</p> 
 networkId | **string**<br><p>Required. ID of the network to create the MongoDB cluster in.</p> <p>The maximum string length in characters is 50.</p> 
 folderId | **string**<br><p>Required. ID of the folder to create the MongoDB cluster in.</p> <p>The maximum string length in characters is 50.</p> 
+recoveryTargetSpec | **object**<br><p>Specification of the moment to which the MongoDB cluster should be restored.</p> 
+recoveryTargetSpec.<br>timestamp | **string** (int64)<br><p>Timestamp of the recovery target</p> <p>Value must be greater than 0.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

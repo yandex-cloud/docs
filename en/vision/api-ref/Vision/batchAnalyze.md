@@ -125,12 +125,19 @@ folderId | **string**<br><p>ID of the folder to which you have access. Required 
                                 "languageCode": "string",
                                 "confidence": "number"
                               }
-                            ]
+                            ],
+                            "entityIndex": "string"
                           }
                         ],
                         "confidence": "number"
                       }
                     ]
+                  }
+                ],
+                "entities": [
+                  {
+                    "name": "string",
+                    "text": "string"
                   }
                 ]
               }
@@ -218,7 +225,11 @@ results[].<br>results[].<br>textDetection.<br>pages[].<br>blocks[].<br>lines[].<
 results[].<br>results[].<br>textDetection.<br>pages[].<br>blocks[].<br>lines[].<br>words[].<br>languages[] | **object**<br><p>A list of detected languages together with confidence.</p> 
 results[].<br>results[].<br>textDetection.<br>pages[].<br>blocks[].<br>lines[].<br>words[].<br>languages[].<br>languageCode | **string**<br><p>Detected language code.</p> 
 results[].<br>results[].<br>textDetection.<br>pages[].<br>blocks[].<br>lines[].<br>words[].<br>languages[].<br>confidence | **number** (double)<br><p>Confidence of detected language. Range [0, 1].</p> 
+results[].<br>results[].<br>textDetection.<br>pages[].<br>blocks[].<br>lines[].<br>words[].<br>entityIndex | **string** (int64)<br><p>Id of recognized word in entities array</p> 
 results[].<br>results[].<br>textDetection.<br>pages[].<br>blocks[].<br>lines[].<br>confidence | **number** (double)<br><p>Confidence of the OCR results for the line. Range [0, 1].</p> 
+results[].<br>results[].<br>textDetection.<br>pages[].<br>entities[] | **object**<br><p>Recognized entities</p> 
+results[].<br>results[].<br>textDetection.<br>pages[].<br>entities[].<br>name | **string**<br><p>Entity name</p> 
+results[].<br>results[].<br>textDetection.<br>pages[].<br>entities[].<br>text | **string**<br><p>Recognized entity text</p> 
 results[].<br>results[].<br>classification | **object**<br>Classification result. <br>`results[].results[]` includes only one of the fields `textDetection`, `classification`, `faceDetection`, `imageCopySearch`<br><br>
 results[].<br>results[].<br>classification.<br>properties[] | **object**<br><p>Properties extracted by a specified model.</p> <p>For example, if you ask to evaluate the image quality, the service could return such properties as <code>good</code> and <code>bad</code>.</p> 
 results[].<br>results[].<br>classification.<br>properties[].<br>name | **string**<br><p>Property name.</p> 

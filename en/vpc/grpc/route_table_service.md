@@ -28,7 +28,7 @@ Returns the specified RouteTable resource. <br>To get the list of available Rout
 
 Field | Description
 --- | ---
-route_table_id | **string**<br>Required. ID of the RouteTable resource to return. To get the route table ID use a [RouteTableService.List](#List) request.  The maximum string length in characters is 50.
+route_table_id | **string**<br>Required. ID of the RouteTable resource to return. To get the route table ID use a [RouteTableService.List](#List) request. false The maximum string length in characters is 50.
 
 
 ### RouteTable {#RouteTable}
@@ -66,7 +66,7 @@ Retrieves the list of RouteTable resources in the specified folder.
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder that the route table belongs to. To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request.  The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the folder that the route table belongs to. To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. false The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListRouteTablesResponse.next_page_token](#ListRouteTablesResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListRouteTablesResponse.next_page_token](#ListRouteTablesResponse) returned by a previous list request. The maximum string length in characters is 100.
 filter | **string**<br><ol><li>The field name. Currently you can use filtering only on [RouteTable.name](#RouteTable1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.</li></ol> The maximum string length in characters is 1000.
@@ -119,11 +119,11 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder that the route table belongs to. To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request.  The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the folder that the route table belongs to. To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. false The maximum string length in characters is 50.
 name | **string**<br>Name of the route table. The name must be unique within the folder. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>Description of the route table. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels, `` key:value `` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
-network_id | **string**<br>Required. ID of the network the route table belongs to.  The maximum string length in characters is 50.
+network_id | **string**<br>Required. ID of the network the route table belongs to. false The maximum string length in characters is 50.
 static_routes[] | **[StaticRoute](#StaticRoute2)**<br>List of static routes. 
 
 
@@ -189,7 +189,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-route_table_id | **string**<br>Required. ID of the RouteTable resource to update.  The maximum string length in characters is 50.
+route_table_id | **string**<br>Required. ID of the RouteTable resource to update. false The maximum string length in characters is 50.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the RouteTable resource are going to be updated. 
 name | **string**<br>Name of the route table. The name must be unique within the folder. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>Description of the route table. The maximum string length in characters is 256.
@@ -259,7 +259,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-route_table_id | **string**<br>Required. ID of the route table to delete. To get the route table ID use a [RouteTableService.List](#List) request.  The maximum string length in characters is 50.
+route_table_id | **string**<br>Required. ID of the route table to delete. To get the route table ID use a [RouteTableService.List](#List) request. false The maximum string length in characters is 50.
 
 
 ### Operation {#Operation}
@@ -295,7 +295,7 @@ List operations for the specified route table.
 
 Field | Description
 --- | ---
-route_table_id | **string**<br>Required. ID of the RouteTable resource to list operations for.  The maximum string length in characters is 50.
+route_table_id | **string**<br>Required. ID of the RouteTable resource to list operations for. false The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page that should be returned. If the number of available results is larger than `page_size`, the service returns a [ListRouteTableOperationsResponse.next_page_token](#ListRouteTableOperationsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListRouteTableOperationsResponse.next_page_token](#ListRouteTableOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
@@ -338,8 +338,8 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-route_table_id | **string**<br>Required. ID of the RouteTable resource to move.  The maximum string length in characters is 50.
-destination_folder_id | **string**<br>Required. ID of the destination folder.  The maximum string length in characters is 50.
+route_table_id | **string**<br>Required. ID of the RouteTable resource to move. false The maximum string length in characters is 50.
+destination_folder_id | **string**<br>Required. ID of the destination folder. false The maximum string length in characters is 50.
 
 
 ### Operation {#Operation}

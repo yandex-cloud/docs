@@ -12,13 +12,12 @@
 
 В качестве исходных данных будет использоваться файл [Moscow Population 2018.csv](https://yadi.sk/d/H4dQKVDpU4Rd8g) с информацией о населении и площади Москвы на 2018 год. Источник — [Список районов и поселений Москвы](https://ru.wikipedia.org/wiki/%D0%A1%D0%BF%D0%B8%D1%81%D0%BE%D0%BA_%D1%80%D0%B0%D0%B9%D0%BE%D0%BD%D0%BE%D0%B2_%D0%B8_%D0%BF%D0%BE%D1%81%D0%B5%D0%BB%D0%B5%D0%BD%D0%B8%D0%B9_%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D1%8B).
 
-Чтобы визуализировать и опубликовать данные, пройдите следующие шаги:
+Для визуализации и исследования данных [подготовьте облако к работе](#before-you-begin), затем выполните следующие шаги:
 
-1. [Подготовьте облако к работе](#before-you-begin).
-1. [Создайте подключение](data-from-csv-visualization.md#step1).
-1. [Создайте датасет](data-from-csv-visualization.md#step2).
-1. [Создайте чарт с картой районов Москвы](data-from-csv-visualization.md#step3).
-1. [Опубликуйте чарт в DataLens Public](data-from-csv-visualization.md#step4).
+1. [Создайте подключение](data-from-csv-to-public-visualization.md#step1).
+1. [Создайте датасет](data-from-csv-to-public-visualization.md#step2).
+1. [Создайте чарт с картой районов Москвы](data-from-csv-to-public-visualization.md#step3).
+1. [Опубликуйте чарт в DataLens Public](data-from-csv-to-public-visualization.md#step4).
 
 ## Подготовьте облако к работе {#before-you-begin}
 

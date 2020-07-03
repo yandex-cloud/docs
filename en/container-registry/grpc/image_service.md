@@ -75,7 +75,7 @@ Returns the specified Image resource. <br>To get the list of available Image res
 
 Field | Description
 --- | ---
-image_id | **string**<br>Required. ID of the Docker image resource to return. <br>To get the Docker image ID use a [ImageService.List](#List) request.  The maximum string length in characters is 50.
+image_id | **string**<br>Required. ID of the Docker image resource to return. <br>To get the Docker image ID use a [ImageService.List](#List) request. false The maximum string length in characters is 50.
 
 
 ### Image {#Image}
@@ -116,7 +116,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-image_id | **string**<br>Required. ID of the Docker image to delete. <br>To get Docker image ID use a [ImageService.List](#List) request.  The maximum string length in characters is 50.
+image_id | **string**<br>Required. ID of the Docker image to delete. <br>To get Docker image ID use a [ImageService.List](#List) request. false The maximum string length in characters is 50.
 
 
 ### Operation {#Operation}

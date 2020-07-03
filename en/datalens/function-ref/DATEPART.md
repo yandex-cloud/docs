@@ -6,14 +6,14 @@ editable: false
 
 _Date/Time functions_
 
-#### Syntax
+#### Syntax {#syntax}
 
 
 ```
 DATEPART( datetime, unit [ , firstday ] )
 ```
 
-#### Description
+#### Description {#description}
 Returns a part of the date as an integer.
 
 Depending on the argument, `unit` returns the following values:
@@ -44,7 +44,7 @@ Only constant values are accepted for arguments (firstday).
 {% endnote %}
 
 
-#### Examples
+#### Examples {#examples}
 
 ```
 DATEPART(#2019-01-23#, "year") = 2019
@@ -79,6 +79,6 @@ DATEPART(#1971-01-14 01:02:03#, "dayofweek", "wed") = 2
 ```
 
 
-#### Data source support
+#### Data source support {#data-source-support}
 
 `Materialized Dataset`, `ClickHouse 1.1`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`.

@@ -385,30 +385,30 @@ items:
             items:
               - name: Обзор
                 href: api-ref/InstanceGroup/index.md
+              - name: createFromYaml
+                href: api-ref/InstanceGroup/createFromYaml.md
               - name: update
                 href: api-ref/InstanceGroup/update.md
               - name: list
                 href: api-ref/InstanceGroup/list.md
-              - name: updateFromYaml
-                href: api-ref/InstanceGroup/updateFromYaml.md
-              - name: listOperations
-                href: api-ref/InstanceGroup/listOperations.md
-              - name: delete
-                href: api-ref/InstanceGroup/delete.md
               - name: get
                 href: api-ref/InstanceGroup/get.md
+              - name: delete
+                href: api-ref/InstanceGroup/delete.md
               - name: start
                 href: api-ref/InstanceGroup/start.md
-              - name: createFromYaml
-                href: api-ref/InstanceGroup/createFromYaml.md
               - name: stop
                 href: api-ref/InstanceGroup/stop.md
               - name: create
                 href: api-ref/InstanceGroup/create.md
-              - name: listInstances
-                href: api-ref/InstanceGroup/listInstances.md
+              - name: updateFromYaml
+                href: api-ref/InstanceGroup/updateFromYaml.md
               - name: listLogRecords
                 href: api-ref/InstanceGroup/listLogRecords.md
+              - name: listInstances
+                href: api-ref/InstanceGroup/listInstances.md
+              - name: listOperations
+                href: api-ref/InstanceGroup/listOperations.md
   - name: Вопросы и ответы
     items:
       - name: Общие вопросы
@@ -417,6 +417,8 @@ items:
         href: qa/vm.md
       - name: Диски и снимки
         href: qa/disks.md
+      - name: Аварийное восстановление
+        href: qa/disaster-recovery.md
       - name: Лицензирование
         href: qa/licensing.md
       - name: Все вопросы на одной странице

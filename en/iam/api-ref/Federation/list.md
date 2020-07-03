@@ -38,7 +38,11 @@ filter | A filter expression that filters resources listed in the response. The 
       "autoCreateAccountOnLogin": true,
       "issuer": "string",
       "ssoBinding": "string",
-      "ssoUrl": "string"
+      "ssoUrl": "string",
+      "securitySettings": {
+        "encryptedAssertions": true
+      },
+      "caseInsensitiveNameIds": true
     }
   ],
   "nextPageToken": "string"
@@ -59,4 +63,7 @@ federations[].<br>autoCreateAccountOnLogin | **boolean** (boolean)<br><p>Add new
 federations[].<br>issuer | **string**<br><p>Required. ID of the IdP server to be used for authentication. The IdP server also responds to IAM with this ID after the user authenticates.</p> <p>The maximum string length in characters is 8000.</p> 
 federations[].<br>ssoBinding | **string**<br><p>Single sign-on endpoint binding type. Most Identity Providers support the <code>POST</code> binding type.</p> <p>SAML Binding is a mapping of a SAML protocol message onto standard messaging formats and/or communications protocols.</p> <ul> <li>POST: HTTP POST binding.</li> <li>REDIRECT: HTTP redirect binding.</li> <li>ARTIFACT: HTTP artifact binding.</li> </ul> 
 federations[].<br>ssoUrl | **string**<br><p>Required. Single sign-on endpoint URL. Specify the link to the IdP login page here.</p> <p>The maximum string length in characters is 8000.</p> 
+federations[].<br>securitySettings | **object**<br><p>Federation security settings.</p> <p>Federation security settings.</p> 
+federations[].<br>securitySettings.<br>encryptedAssertions | **boolean** (boolean)<br><p>Enable encrypted assertions.</p> 
+federations[].<br>caseInsensitiveNameIds | **boolean** (boolean)<br><p>Use case insensitive Name IDs.</p> 
 nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/iam/api-ref/Federation/list#query_params">pageSize</a>, use the <a href="/docs/iam/api-ref/Federation/list#responses">nextPageToken</a> as the value for the <a href="/docs/iam/api-ref/Federation/list#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own <a href="/docs/iam/api-ref/Federation/list#responses">nextPageToken</a> to continue paging through the results.</p> 

@@ -13,7 +13,9 @@
 | ----- | ----- |
 | Lowest host class | b1.nano ([5%](../../compute/concepts/performance-levels.md) × 2 vCPU Intel Broadwell, 2 GB RAM) |
 | Highest host class | m2.8xlarge (64 vCPU Intel Cascade Lake, 512 GB RAM) |
-| Maximum number of hosts in the cluster | 10 |
-| Maximum network storage capacity | 4096 GB |
-| Maximum local storage capacity | 1400 GB |
+| Maximum number of shards per cluster | 10 |
+| Maximum number of hosts per shard | 7 |
+| Maximum number of hosts per cluster | 73 (10 shards × 7 hosts + 3 {{ ZK }} hosts) |
+| Maximum amount of data when using network storage | 4096 GB |
+| Maximum amount of data when using local storage | 1400 GB |
 

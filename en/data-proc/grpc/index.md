@@ -7,5 +7,6 @@ Service | Description
 --- | ---
 [ClusterService](./cluster_service.md) | A set of methods for managing Data Proc clusters.
 [JobService](./job_service.md) | A set of methods for managing Data Proc jobs.
+[ResourcePresetService](./resource_preset_service.md) | A set of methods for managing ResourcePreset resources.
 [SubclusterService](./subcluster_service.md) | A set of methods for managing Data Proc subclusters.
 [OperationService](./operation_service.md) | A set of methods for managing operations for asynchronous API requests.

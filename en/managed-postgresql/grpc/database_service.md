@@ -26,8 +26,8 @@ Returns the specified PostgreSQL Database resource. <br>To get the list of avail
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the PostgreSQL cluster that the database belongs to. To get the cluster ID use a [ClusterService.List](./cluster_service#List) request.  The maximum string length in characters is 50.
-database_name | **string**<br>Required. Name of the PostgreSQL Database resource to return. To get the name of the database use a [DatabaseService.List](#List) request.  The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+cluster_id | **string**<br>Required. ID of the PostgreSQL cluster that the database belongs to. To get the cluster ID use a [ClusterService.List](./cluster_service#List) request. false The maximum string length in characters is 50.
+database_name | **string**<br>Required. Name of the PostgreSQL Database resource to return. To get the name of the database use a [DatabaseService.List](#List) request. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
 ### Database {#Database}
@@ -60,7 +60,7 @@ Retrieves the list of PostgreSQL Database resources in the specified cluster.
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the PostgreSQL cluster to list databases in. To get the cluster ID use a [ClusterService.List](./cluster_service#List) request.  The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the PostgreSQL cluster to list databases in. To get the cluster ID use a [ClusterService.List](./cluster_service#List) request. false The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListDatabasesResponse.next_page_token](#ListDatabasesResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, Set `page_token` to the [ListDatabasesResponse.next_page_token](#ListDatabasesResponse) returned by a previous list request. The maximum string length in characters is 100.
 
@@ -107,16 +107,16 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the PostgreSQL cluster to create a database in. To get the cluster ID use a [ClusterService.List](./cluster_service#List) request.  The maximum string length in characters is 50.
-database_spec | **[DatabaseSpec](#DatabaseSpec)**<br>Required. Configuration of the database to create. 
+cluster_id | **string**<br>Required. ID of the PostgreSQL cluster to create a database in. To get the cluster ID use a [ClusterService.List](./cluster_service#List) request. false The maximum string length in characters is 50.
+database_spec | **[DatabaseSpec](#DatabaseSpec)**<br>Required. Configuration of the database to create. false
 
 
 ### DatabaseSpec {#DatabaseSpec}
 
 Field | Description
 --- | ---
-name | **string**<br>Required. Name of the PostgreSQL database. 1-63 characters long.  The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
-owner | **string**<br>Required. Name of the user to be assigned as the owner of the database. To get the list of available PostgreSQL users, make a [UserService.List](./user_service#List) request.  The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+name | **string**<br>Required. Name of the PostgreSQL database. 1-63 characters long. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+owner | **string**<br>Required. Name of the user to be assigned as the owner of the database. To get the list of available PostgreSQL users, make a [UserService.List](./user_service#List) request. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
 lc_collate | **string**<br>POSIX locale for string sorting order. Can only be set at creation time. Value must match the regular expression ` |[a-zA-Z_]+.UTF-8|C `.
 lc_ctype | **string**<br>POSIX locale for character classification. Can only be set at creation time. Value must match the regular expression ` |[a-zA-Z_]+.UTF-8|C `.
 extensions[] | **[Extension](#Extension2)**<br>PostgreSQL extensions to be enabled for the database. 
@@ -180,8 +180,8 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the PostgreSQL cluster to update a database in. To get the cluster ID use a [ClusterService.List](./cluster_service#List) request.  The maximum string length in characters is 50.
-database_name | **string**<br>Required. Name of the database to update. To get the name of the database use a [DatabaseService.List](#List) request.  The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+cluster_id | **string**<br>Required. ID of the PostgreSQL cluster to update a database in. To get the cluster ID use a [ClusterService.List](./cluster_service#List) request. false The maximum string length in characters is 50.
+database_name | **string**<br>Required. Name of the database to update. To get the name of the database use a [DatabaseService.List](#List) request. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the Database resource should be updated. 
 extensions[] | **[Extension](#Extension3)**<br>PostgreSQL extensions that should be enabled for the database. <br>If the field is sent, the list of enabled extensions is rewritten entirely. Therefore, to disable an active extension you should simply send the list omitting this extension. 
 
@@ -244,8 +244,8 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the PostgreSQL cluster to delete a database in. To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request.  The maximum string length in characters is 50.
-database_name | **string**<br>Required. Name of the database to delete. To get the name of the database, use a [DatabaseService.List](#List) request.  The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+cluster_id | **string**<br>Required. ID of the PostgreSQL cluster to delete a database in. To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request. false The maximum string length in characters is 50.
+database_name | **string**<br>Required. Name of the database to delete. To get the name of the database, use a [DatabaseService.List](#List) request. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
 ### Operation {#Operation}

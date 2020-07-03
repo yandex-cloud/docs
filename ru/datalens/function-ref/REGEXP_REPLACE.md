@@ -6,14 +6,14 @@ editable: false
 
 _Строковые функции_
 
-#### Синтаксис
+#### Синтаксис {#syntax}
 
 
 ```
 REGEXP_REPLACE( string, pattern, replace_with )
 ```
 
-#### Описание
+#### Описание {#description}
 Ищет подстроку в строке `string` по шаблону регулярного выражения `pattern` и заменяет ее строкой `replace_with`.
 
 Если подстрока не найдена, то строка не будет изменена.
@@ -36,13 +36,13 @@ REGEXP_REPLACE( string, pattern, replace_with )
 
 
 
-#### Примеры
+#### Примеры {#examples}
 
 ```
 REGEXP_REPLACE("RU 912873", "\s", "-") = "RU-912873"
 ```
 
 
-#### Поддержка источников данных
+#### Поддержка источников данных {#data-source-support}
 
 `Материализованный датасет`, `ClickHouse 1.1`, `MySQL 8.0.12`, `PostgreSQL 9.3`.

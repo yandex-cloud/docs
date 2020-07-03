@@ -18,6 +18,12 @@ Parameter | Description
 --- | ---
 clusterId | Required. ID of the cluster to delete.  To get a cluster ID, make a [list](/docs/data-proc/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
  
+## Query parameters {#query_params}
+ 
+Parameter | Description
+--- | ---
+decommissionTimeout | Timeout to gracefully decommission nodes. In seconds. Default value: 0  Acceptable values are 0 to 86400, inclusive.
+ 
 ## Response {#responses}
 **HTTP Code: 200 - OK**
 

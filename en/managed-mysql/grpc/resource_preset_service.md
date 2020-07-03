@@ -23,7 +23,7 @@ Returns the specified resource preset. <br>To get the list of available resource
 
 Field | Description
 --- | ---
-resource_preset_id | **string**<br>Required. ID of the resource preset to return. To get the resource preset ID, use a [ResourcePresetService.List](#List) request. 
+resource_preset_id | **string**<br>Required. ID of the resource preset to return. To get the resource preset ID, use a [ResourcePresetService.List](#List) request. false
 
 
 ### ResourcePreset {#ResourcePreset}

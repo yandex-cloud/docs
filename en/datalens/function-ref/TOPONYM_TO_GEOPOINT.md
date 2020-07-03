@@ -6,14 +6,14 @@ editable: false
 
 _Geographical functions_
 
-#### Syntax
+#### Syntax {#syntax}
 
 
 ```
 TOPONYM_TO_GEOPOINT( name )
 ```
 
-#### Description
+#### Description {#description}
 Converts the name of a geographical entity (country, region, city) `name` to the `Geopoint` type.
 
 **Argument types:**
@@ -22,13 +22,13 @@ Converts the name of a geographical entity (country, region, city) `name` to the
 
 **Return type**: `Geopoint`
 
-#### Examples
+#### Examples {#examples}
 
 ```
 TOPONYM_TO_GEOPOINT("Комсомольск-на-Амуре") = [50.549923,137.007948]
 ```
 
 
-#### Data source support
+#### Data source support {#data-source-support}
 
 `Materialized Dataset`.

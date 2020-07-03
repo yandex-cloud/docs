@@ -6,14 +6,14 @@ editable: false
 
 _Type conversion functions_
 
-#### Syntax
+#### Syntax {#syntax}
 
 
 ```
 DATETIME_PARSE( value )
 ```
 
-#### Description
+#### Description {#description}
 Converts the `value` expression to date and time format. Unlike [DATETIME](DATETIME.md), it supports multiple formats.
 
 **Argument types:**
@@ -22,7 +22,7 @@ Converts the `value` expression to date and time format. Unlike [DATETIME](DATET
 
 **Return type**: `Datetime`
 
-#### Examples
+#### Examples {#examples}
 
 ```
 DATETIME_PARSE("2019-01-02 03:04:05") = #2019-01-02 03:04:05#
@@ -57,6 +57,6 @@ DATETIME_PARSE("2019 Jan 02 03:04:05") = #2019-01-02 03:04:05#
 ```
 
 
-#### Data source support
+#### Data source support {#data-source-support}
 
 `Materialized Dataset`, `ClickHouse 1.1`.

@@ -7,5 +7,6 @@
 --- | ---
 [ClusterService](./cluster_service.md) | Набор методов для управления кластерами Data Proc.
 [JobService](./job_service.md) | Набор методов для управления задачами Data Proc.
+[ResourcePresetService](./resource_preset_service.md) | Набор методов для управления ресурсами ResourcePreset.
 [SubclusterService](./subcluster_service.md) | Набор методов для управления подкластерами Data Proc.
 [OperationService](./operation_service.md) | Набор методов для управления операциями в асинхронных запросах API. Ссылки указаны относительно домена `operation.api.cloud.yandex.net`.

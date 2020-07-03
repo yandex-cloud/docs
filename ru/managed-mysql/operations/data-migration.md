@@ -26,7 +26,7 @@
                 --password \
                 --port=<порт> \
                 --set-gtid-purged=OFF \
-                --quick
+                --quick \
                 --single-transaction <имя базы данных> \
                 > ~/db_dump.sql
     ```

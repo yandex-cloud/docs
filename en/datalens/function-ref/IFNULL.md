@@ -6,14 +6,14 @@ editable: false
 
 _Logical functions_
 
-#### Syntax
+#### Syntax {#syntax}
 
 
 ```
 IFNULL( check_value, alt_value )
 ```
 
-#### Description
+#### Description {#description}
 Returns `check_value` if it's not `NULL`. Otherwise returns `alt_value`.
 
 **Argument types:**
@@ -30,13 +30,13 @@ Arguments (`check_value`, `alt_value`) must be of the same type.
 {% endnote %}
 
 
-#### Examples
+#### Examples {#examples}
 
 ```
 IFNULL([Profit], 0)
 ```
 
 
-#### Data source support
+#### Data source support {#data-source-support}
 
 `Materialized Dataset`, `ClickHouse 1.1`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`.

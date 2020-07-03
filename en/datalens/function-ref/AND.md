@@ -6,14 +6,14 @@ editable: false
 
 _Operators_
 
-#### Syntax
+#### Syntax {#syntax}
 
 
 ```
 value_1 AND value_2
 ```
 
-#### Description
+#### Description {#description}
 Performs a Boolean join of two expressions with the `AND` condition.
 
 **Argument types:**
@@ -30,13 +30,13 @@ Arguments (`value_1`, `value_2`) must be of the same type.
 {% endnote %}
 
 
-#### Examples
+#### Examples {#examples}
 
 ```
 [Profit] > 30 AND [Weekday] IN ("Saturday", "Sunday")
 ```
 
 
-#### Data source support
+#### Data source support {#data-source-support}
 
 `Materialized Dataset`, `ClickHouse 1.1`, `Yandex.Metrica`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`.

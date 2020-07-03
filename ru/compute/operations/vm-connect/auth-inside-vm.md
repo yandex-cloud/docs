@@ -101,28 +101,16 @@
 - API
 
   1. Подключитесь к виртуальной машине [по SSH](../vm-connect/ssh.md) или [по RDP](../vm-connect/rdp.md).
-  1. Получите IAM-токен из метаданных в одном из форматов:
+  1. Получите IAM-токен из метаданных в формате Google Compute Engine:
 
-       * **Google Compute Engine**:
-         ```bash
-         $ curl -H Metadata-Flavor:Google http://169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token
+      ```bash
+      $ curl -H Metadata-Flavor:Google http://169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token
 
-         {"access_token":"CggVAgAAA...","expires_in":39944,"token_type":"Bearer"}
-         ```
-         IAM-токен будет указан в ответе в поле `access_token`. Оставшееся время жизни IAM-токена указано в поле `expires_in`.
+      {"access_token":"CggVAgAAA...","expires_in":39944,"token_type":"Bearer"}
+      ```
 
-       * **Amazon EC2** (перестанет поддерживаться с 11.06.2020):
-         ```bash
-         $ curl http://169.254.169.254/latest/meta-data/iam/security-credentials/default/
-
-         {
-           "Code" : "Success",
-           "Expiration" : "2019-06-28T04:43:32+00:00",
-           "Token" : "CggVAgAAA..."
-         }
-         ```
-         IAM-токен будет указан в ответе в поле `Token`. Время жизни IAM-токена указано в поле `Expiration`.
-
+      IAM-токен будет указан в ответе в поле `access_token`. Оставшееся время жизни IAM-токена указано в поле `expires_in`.
+       
   1. {% include [iam-token-usage](../../../_includes/iam-token-usage.md) %}
 
     Учитывайте время жизни IAM-токена или запрашивайте токен чаще, например каждый час или при каждой операции.

@@ -16,7 +16,7 @@ PATCH https://iam.api.cloud.yandex.net/iam/v1/keys/{keyId}
  
 Parameter | Description
 --- | ---
-keyId | Required. ID of the Key resource to update. To get key pair ID, use a [Service.List] request.  The maximum string length in characters is 50.
+keyId | Required. ID of the Key resource to update. To get key pair ID, use a [list](/docs/iam/api-ref/Key/list) request.  The maximum string length in characters is 50.
  
 ## Body parameters {#body_params}
  

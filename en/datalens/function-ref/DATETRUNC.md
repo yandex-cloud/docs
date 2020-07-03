@@ -6,14 +6,14 @@ editable: false
 
 _Date/Time functions_
 
-#### Syntax
+#### Syntax {#syntax}
 
 
 ```
 DATETRUNC( datetime, unit [ , number ] )
 ```
 
-#### Description
+#### Description {#description}
 Rounds `datetime` down to the given `unit`. If optional `number` is given, then the value is rounded down to a `number` multiple of `unit` (omitting `number` is the same as `number = 1`).
 
 Supported units:
@@ -46,7 +46,7 @@ The function with three arguments is only available for the sources `Materialize
 {% endnote %}
 
 
-#### Examples
+#### Examples {#examples}
 
 ```
 DATETRUNC(#2018-07-12 11:07:13#, "minute") = #2018-07-12 11:07:00#
@@ -65,6 +65,6 @@ DATETRUNC(#2018-07-12 11:07:13#, "month", 4) = #2018-05-01 00:00:00#
 ```
 
 
-#### Data source support
+#### Data source support {#data-source-support}
 
 `Materialized Dataset`, `ClickHouse 1.1`, `PostgreSQL 9.3`.

@@ -64,9 +64,16 @@ To update a {{ mmg-name }} cluster:
 
      When the update starts, the cluster status switches to `UPDATING`. Wait for the operation to complete and then check the cluster version.
 
+  1. Update `feature compatibility version` to the same version:
+     ```
+     $ yc managed-mongodb cluster update c9qutgkd4b2o9umqog97 --feature-compatibility-version=<version number>
+     ```
+
 - API
 
-  You can update the {{ MG }} version for a cluster using the [update](../api-ref/Cluster/update.md) API method: pass the appropriate value in the `configSpec.poolerConfig.poolingMode` request parameter.
+  You can update the {{ MG }} version for a cluster using the [update](../api-ref/Cluster/update.md) API method: pass the appropriate value in the `configSpec.version` request parameter.
 
+  After upgrading {{ MG }} you need to upgrade feature compatibility version to the same version using the [update](../api-ref/Cluster/update.md) API method: pass the appropriate value in the `configSpec.featureCompatibilityVersion` request parameter.
+    
 {% endlist %}
 

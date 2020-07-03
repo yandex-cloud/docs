@@ -6,14 +6,14 @@ editable: false
 
 _Функции преобразования типов_
 
-#### Синтаксис
+#### Синтаксис {#syntax}
 
 
 ```
 DATETIME( expression [ , timezone ] )
 ```
 
-#### Описание
+#### Описание {#description}
 Переводит выражение `expression` в формат даты и времени. При переводе `Date` в `DateTime` время определяется, как `00:00:00`.
 Дата должна быть определена в формате `YYYY-MM-DDThh:mm:ss` или `YYYY-MM-DD hh:mm:ss`.
 
@@ -39,13 +39,13 @@ DATETIME( expression [ , timezone ] )
 {% endnote %}
 
 
-#### Примеры
+#### Примеры {#examples}
 
 ```
 DATETIME("2019-01-23 15:07:47") = #2019-01-23 15:07:47#
 ```
 
 
-#### Поддержка источников данных
+#### Поддержка источников данных {#data-source-support}
 
 `Материализованный датасет`, `ClickHouse 1.1`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`.

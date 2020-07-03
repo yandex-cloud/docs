@@ -4,9 +4,8 @@
 
 Если у вас нет доступных приложений, то перед выполнением сценария вам необходимо [добавить приложение](https://appmetrica.yandex.ru/docs/quick-start/concepts/quick-start.html) или использовать стандартный **Дашборд AppMetrica**. 
 
-Чтобы визуализировать данные:
+Для визуализации и исследования данных [подготовьте облако к работе](#before-you-begin), затем выполните следующие шаги:
 
-1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте подключение и стандартный дашборд](data-from-appmetrica-visualization.md#create-dashboard).
 1. [Измените стандартный дашборд](data-from-appmetrica-visualization.md#edit-dashboard).
 

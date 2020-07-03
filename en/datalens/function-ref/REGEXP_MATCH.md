@@ -6,14 +6,14 @@ editable: false
 
 _String functions_
 
-#### Syntax
+#### Syntax {#syntax}
 
 
 ```
 REGEXP_MATCH( string, pattern )
 ```
 
-#### Description
+#### Description {#description}
 Returns 'TRUE' if the string `string` has a substring that matches the regular expression pattern `pattern`.
 
 **Argument types:**
@@ -33,13 +33,13 @@ Use the [ClickHouse](https://github.com/google/re2/wiki/Syntax) syntax to create
 
 
 
-#### Examples
+#### Examples {#examples}
 
 ```
 REGEXP_MATCH("RU 912873","\w\s\d") = TRUE
 ```
 
 
-#### Data source support
+#### Data source support {#data-source-support}
 
 `Materialized Dataset`, `ClickHouse 1.1`, `MySQL 5.6`, `PostgreSQL 9.3`.

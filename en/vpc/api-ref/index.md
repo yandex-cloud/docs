@@ -9,4 +9,5 @@ Resource | Description
 --- | ---
 [Network](Network/index.md) | A set of methods for managing Network resources.
 [RouteTable](RouteTable/index.md) | A set of methods for managing RouteTable resources.
+[SecurityGroup](SecurityGroup/index.md) | 
 [Subnet](Subnet/index.md) | A set of methods for managing Subnet resources.

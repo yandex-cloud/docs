@@ -41,7 +41,13 @@ tag | Version tag.  To get the history of version tags make a [listTagHistory](/
     "string"
   ],
   "logGroupId": "string",
-  "environment": "object"
+  "environment": "object",
+  "connectivity": {
+    "networkId": "string",
+    "subnetId": [
+      "string"
+    ]
+  }
 }
 ```
 Version of a function. For details about the concept, see [Function versions](/docs/functions/concepts/function#version).
@@ -55,7 +61,7 @@ createdAt | **string** (date-time)<br><p>Creation timestamp for the version.</p>
 runtime | **string**<br><p>ID of the runtime environment for the function.</p> <p>Supported environments and their identifiers are listed in the <a href="/docs/functions/concepts/runtime">Runtime environments</a>.</p> 
 entrypoint | **string**<br><p>Entrypoint for the function: the name of the function to be called as the handler.</p> <p>Specified in the format <code>&lt;function file name&gt;.&lt;handler name&gt;</code>, for example, <code>index.myFunction</code>.</p> 
 resources | **object**<br><p>Resources allocated to the version.</p> <p>Resources allocated to a version.</p> 
-resources.<br>memory | **string** (int64)<br><p>Amount of memory available to the version, specified in bytes.</p> <p>Acceptable values are 33554432 to 1073741824, inclusive.</p> 
+resources.<br>memory | **string** (int64)<br><p>Amount of memory available to the version, specified in bytes.</p> <p>Acceptable values are 134217728 to 2147483648, inclusive.</p> 
 executionTimeout | **string**<br><p>Timeout for the execution of the version.</p> <p>If the timeout is exceeded, Cloud Functions responds with a 504 HTTP code.</p> 
 serviceAccountId | **string**<br><p>ID of the service account associated with the version.</p> 
 imageSize | **string** (int64)<br><p>Final size of the deployment package after unpacking.</p> 
@@ -63,3 +69,6 @@ status | **string**<br><p>Status of the version.</p> <ul> <li>CREATING: Version 
 tags[] | **string**<br><p>Version tags. For details, see <a href="/docs/functions/concepts/function#tag">Version tag</a>.</p> 
 logGroupId | **string**<br><p>ID of the log group for the version.</p> 
 environment | **object**<br><p>Environment settings for the version.</p> 
+connectivity | **object**<br><p>Network access. If specified the version will be attached to specified network/subnet(s).</p> <p>Version connectivity specification.</p> 
+connectivity.<br>networkId | **string**<br><p>Network the version will have access to. It's essential to specify network with subnets in all availability zones.</p> 
+connectivity.<br>subnetId[] | **string**<br><p>Complete list of subnets (from the same network) the version can be attached to. It's essential to specify at least one subnet for each availability zones.</p> 

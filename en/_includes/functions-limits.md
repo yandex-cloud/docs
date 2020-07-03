@@ -23,5 +23,8 @@
 
 #### Other restrictions {#other-restrictions}
 
-The trigger must be in the same cloud as the queue that messages are read from.
+* The trigger must be in the same cloud as the queue that messages are read from.
+* When installing dependencies:
+    * The total runtime of the `npm ci` command is limited to **5 minutes**. After it expires, the build fails with an error.
+    * The command is allocated no more than **1 GB** of RAM.
 
