@@ -15,7 +15,7 @@ Learn how to authenticate in the CLI:
 1. Get a list of service accounts that exist in your cloud:
 
     ```
-    $ yc iam service-account list
+    $ yc iam service-account --folder-id <folder ID> list
     +----------------------+------------+
     |          ID          |    NAME    |
     +----------------------+------------+
