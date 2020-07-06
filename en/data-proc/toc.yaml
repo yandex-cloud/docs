@@ -2,7 +2,7 @@ title: "Yandex Data Proc"
 stage: new
 href: index.yaml
 items:
-  - name: Solutions
+  - name: Use cases
     items:
       - name: Configuring networks for Data Proc clusters
         href: solutions/configure-network.md
@@ -10,6 +10,8 @@ items:
         href: solutions/how-to-use-hive.md
       - name: Running Spark applications
         href: solutions/run-spark-job.md
+      - name: Running applications from a remote host
+        href: solutions/remote-run-job.md
       - name: Copying files from Yandex Object Storage
         href: solutions/copy-files-from-object-storage.md
   - name: Step-by-step instructions
@@ -22,7 +24,7 @@ items:
         href: operations/connect.md
       - name: Updating subclusters
         href: operations/subcluster-update.md
-      - name: How to manage subclusters
+      - name: Managing subclusters
         href: operations/subclusters.md
       - name: Deleting clusters
         href: operations/cluster-delete.md

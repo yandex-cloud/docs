@@ -1,38 +1,45 @@
-# Запуск заданий с удаленных хостов, не входящих в кластер {{ dataproc-name }}
+# Running jobs from remote hosts that are not part of a cluster {{ dataproc-name }}
 
-Чтобы запускать Spark-задания в кластере {{ dataproc-name }} с хостов, не входящих в кластер {{ dataproc-name }}, с помощью [утилиты spark-submit](https://spark.apache.org/docs/latest/submitting-applications.html#submitting-applications) необходимо [выполнить требования для удаленного запуска](#requirements), а также [установить и настроить](#setup-vm) spark-submit.
+To run Spark jobs on a {{ dataproc-name }} cluster from hosts that are not part of the {{ dataproc-name }} cluster, use the [spark-submit](https://spark.apache.org/docs/latest/submitting-applications.html#submitting-applications) utility. Make sure you [meet the remote job launch requirements](#requirements) and [install and set up](#setup-vm) spark-submit.
 
-## Требования для удаленного запуска заданий с помощью spark-sumbit {#requirements}
+## Requirements for running jobs remotely using spark-submit {#requirements}
 
-Чтобы запускать задания с удаленного хоста, выполните следующие требования:
-1. Обеспечьте сетевой доступ с удаленного хоста до всех хостов кластера {{ dataproc-name }}.
-1. Установите на удаленный хост пакеты Hadoop и Spark версий, аналогичных с версиями хостов кластера {{ dataproc-name }}.
-1. Подготовьте конфигурационные файлы Hadoop и Spark так, чтобы они были идентичны на кластере и на удаленном хосте.
+To run jobs from a remote host, follow these requirements:
 
-## Создание и настройка удаленного хоста {#setup-vm}
+1. Provide network access from the remote host to all {{ dataproc-name }} cluster hosts.
+1. Install Hadoop and Spark packages on the remote host. Make sure their versions are similar to the {{ dataproc-name }} cluster host versions.
+1. Prepare Hadoop and Spark configuration files. Make sure they're identical on the cluster and remote host.
 
-Чтобы настроить удаленный хост: 
-1. [Создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm.md) с операционной системой Ubuntu 16.04 LTS.
-1. Подключитесь к этой виртуальной машине по SSH:
+## Creating and configuring a remote host {#setup-vm}
+
+To configure a remote host:
+
+1. [Create a VM](../../compute/operations/vm-create/create-linux-vm.md) running Ubuntu 16.04 LTS.
+
+1. Connect to the VM over SSH:
 
     ```bash
     ssh -A ubuntu@remote-run
     ```
-1. Скопируйте настройки репозитория с любого из хостов кластера {{ dataproc-name }}. Для этого запустите следующие команды на созданной виртуальной машине.
-    1. Скопируйте адрес репозитория:
-    
+
+1. Copy the repository settings from any of the {{ dataproc-name }} cluster hosts. To do this, run the following commands on the VM you created.
+
+    1. Copy the repository address:
+
         ```bash
         ssh root@rc1b-dataproc-m-ds7lj5gnnnqggbqd.mdb.yandexcloud.net "cat /etc/apt/sources.list.d/yandex-dataproc.list" | sudo tee /etc/apt/sources.list.d/yandex-dataproc.list
         deb [arch=amd64] http://storage.yandexcloud.net/dataproc/releases/0.2.10 xenial main
         ```
-    1. Скопируйте gpg-ключ для верификации подписей deb-пакетов:
-    
+
+    1. Copy the GPG key to verify Debian package signatures:
+
         ```bash
         ssh root@rc1b-dataproc-m-ds7lj5gnnnqggbqd.mdb.yandexcloud.net "cat /srv/dataproc.gpg"  | sudo apt-key add -
         OK
         ```
-    1. Обновите кеш репозиториев:
-    
+
+    1. Update the repository cache:
+
         ```bash
         sudo apt update
         Hit:1 http://storage.yandexcloud.net/dataproc/releases/0.2.10 xenial InRelease
@@ -45,30 +52,33 @@
         Reading state information... Done
         All packages are up to date.
         ```
-1. Установите необходимые пакеты:
+
+1. Install the necessary packages:
 
     ```bash
     sudo apt install openjdk-8-jre-headless hadoop-client hadoop-hdfs spark-core
     ```
-1. Скопируйте конфигурационные файлы Hadoop и Spark:
+
+1. Copy the Hadoop and Spark configuration files:
 
     ```bash
     sudo scp -r root@rc1b-dataproc-m-ds7lj5gnnnqggbqd.mdb.yandexcloud.net:/etc/hadoop/conf/* /etc/hadoop/conf/
     sudo scp -r root@rc1b-dataproc-m-ds7lj5gnnnqggbqd.mdb.yandexcloud.net:/etc/spark/conf/* /etc/spark/conf/
     ```
-1. Создайте нового пользователя, от имени которого будут запускаться задания:
+
+1. Create a new user to run jobs under:
 
     ```bash
     useradd sparkuser
     ssh root@rc1b-dataproc-m-ds7lj5gnnnqggbqd.mdb.yandexcloud.net "sudo -u hdfs hdfs dfs -ls /user/sparkuser"
     ssh root@rc1b-dataproc-m-ds7lj5gnnnqggbqd.mdb.yandexcloud.net "sudo -u hdfs hdfs dfs -chown sparkuser:sparkuser /user/sparkuser"
     ```
-   
-Хост готов к удаленному запуску заданий на кластере {{ dataproc-name }}.
 
-### Запуск Spark-задания {#spark-submit}
+The host is ready to remotely run jobs on the {{ dataproc-name }} cluster.
 
-Запустите задание с помощью команды:
+### Running Spark jobs {#spark-submit}
+
+Run a job using the command:
 
 ```bash
 sudo -u sparkuser spark-submit --master yarn --deploy-mode cluster --class org.apache.spark.examples.SparkPi /usr/lib/spark/examples/jars/spark-examples.jar 1000
@@ -124,9 +134,9 @@ sudo -u sparkuser spark-submit --master yarn --deploy-mode cluster --class org.a
 20/04/19 16:44:09 INFO util.ShutdownHookManager: Deleting directory /tmp/spark-826498b1-8dec-4229-905e-921203b7b1d0
 ```
 
-### Просмотр статуса выполнения задания {#status-check}
+### Viewing job execution status {#status-check}
 
-Проверьте статус выполнения с помощью утилиты [yarn application](https://hadoop.apache.org/docs/r2.10.0/hadoop-yarn/hadoop-yarn-site/YarnCommands.html#application):
+Check the execution status using [yarn application](https://hadoop.apache.org/docs/r2.10.0/hadoop-yarn/hadoop-yarn-site/YarnCommands.html#application):
 
 ```bash
 yarn application -status application_1586176069782_0003
@@ -157,12 +167,12 @@ Application Report :
 	TimeoutType : LIFETIME	ExpiryTime : UNLIMITED	RemainingTime : -1seconds
 ```
 
+### Viewing job execution logs {#get-log}
 
-### Просмотр журналов выполнения задания {#get-log}
-
-Просмотрите журналы со всех запущенных контейнеров c помощью утилиты [yarn logs](https://hadoop.apache.org/docs/r2.10.0/hadoop-yarn/hadoop-yarn-site/YarnCommands.html#logs):
+View logs from all running containers using [yarn logs](https://hadoop.apache.org/docs/r2.10.0/hadoop-yarn/hadoop-yarn-site/YarnCommands.html#logs):
 
 ```bash
 sudo -u sparkuser yarn logs -applicationId application_1586176069782_0003 | grep "Pi is"
 Pi is roughly 3.14164599141646
 ```
+
