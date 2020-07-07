@@ -15,6 +15,30 @@ There are the following features of using aggregations:
 
 
 
+## [ANY](ANY.md)
+
+**Syntax:**`ANY( value )`
+
+Returns any value of `value` from the group. The result is not guaranteed to be the same over multiple queries.
+
+
+
+## [ARG_MAX](ARG_MAX.md)
+
+**Syntax:**`ARG_MAX( value, comp )`
+
+Returns `value` for the maximum value of `comp` in the group.
+
+
+
+## [ARG_MIN](ARG_MIN.md)
+
+**Syntax:**`ARG_MIN( value, comp )`
+
+Returns `value` for the minimum value of `comp` in the group.
+
+
+
 ## [AVG](AVG.md)
 
 **Syntax:**`AVG( value )`
