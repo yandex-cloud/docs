@@ -3,27 +3,45 @@ editable: false
 ---
 
 # Method update
-Updates the specified Apache Kafka user.
+<<<<<<< HEAD:en/_api-ref/serverless/apigateway/apigateway/api-ref/ApiGateway/update.md
+Updates the specified api-gateway.
+=======
+Updates the specified Kafka user.
+>>>>>>> achegodaev-7580-generated-api:en/_api-ref/mdb/kafka/api-ref/User/update.md
  
 
  
 ## HTTP request {#https-request}
 ```
+<<<<<<< HEAD:en/_api-ref/serverless/apigateway/apigateway/api-ref/ApiGateway/update.md
+PATCH https://serverless-apigateway.api.cloud.yandex.net/apigateways/v1/apigateways/{apiGatewayId}
+=======
 PATCH https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/{clusterId}/users/{userName}
+>>>>>>> achegodaev-7580-generated-api:en/_api-ref/mdb/kafka/api-ref/User/update.md
 ```
  
 ## Path parameters {#path_params}
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the Apache Kafka cluster the user belongs to.  To get the cluster ID, make a [list](/docs/managed-kafka/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
-userName | Required. Required. Name of the user to be updated.  To get the name of the user, make a [list](/docs/managed-kafka/api-ref/User/list) request.  The string length in characters must be 1-63. Value must match the regular expression `` [a-zA-Z0-9_]* ``.
+<<<<<<< HEAD:en/_api-ref/serverless/apigateway/apigateway/api-ref/ApiGateway/update.md
+apiGatewayId | Required. ID of the api-gateway to update.  To get a api-gateway ID make a [list](/docs/functions/apigateway/api-ref/ApiGateway/list) request.
+=======
+clusterId | Required. ID of the Apache Kafka® cluster the user belongs to.  To get the cluster ID, make a [list](/docs/managed-kafka/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
+userName | Required. Name of the user to be updated.  To get the name of the user, make a [list](/docs/managed-kafka/api-ref/User/list) request.  The string length in characters must be 1-63. Value must match the regular expression `` [a-zA-Z0-9_]* ``.
+>>>>>>> achegodaev-7580-generated-api:en/_api-ref/mdb/kafka/api-ref/User/update.md
  
 ## Body parameters {#body_params}
  
 ```json 
 {
   "updateMask": "string",
+<<<<<<< HEAD:en/_api-ref/serverless/apigateway/apigateway/api-ref/ApiGateway/update.md
+  "name": "string",
+  "description": "string",
+  "labels": "object",
+  "openapiSpec": "string"
+=======
   "password": "string",
   "permissions": [
     {
@@ -31,17 +49,26 @@ userName | Required. Required. Name of the user to be updated.  To get the name 
       "role": "string"
     }
   ]
+>>>>>>> achegodaev-7580-generated-api:en/_api-ref/mdb/kafka/api-ref/User/update.md
 }
 ```
 
  
 Field | Description
 --- | ---
-updateMask | **string**<br><p>Field mask that specifies which fields of the Apache Kafka user should be updated.</p> <p>By default, this API method will replace all the values for the settings that are not present in <code>update_mask</code> list with the default ones. Pass the list of the settings to change in this parameter to prevent the method from doing so (use comma as a delimiter if you want to modify a few settings at once).</p> <p>A comma-separated names off ALL fields to be updated. Оnly the specified fields will be changed. The others will be left untouched. If the field is specified in <code>updateMask</code> and no value for that field was sent in the request, the field's value will be reset to the default. The default value for most fields is null or 0.</p> <p>If <code>updateMask</code> is not sent in the request, all fields' values will be updated. Fields specified in the request will be updated to provided values. The rest of the fields will be reset to the default.</p> 
+<<<<<<< HEAD:en/_api-ref/serverless/apigateway/apigateway/api-ref/ApiGateway/update.md
+updateMask | **string**<br>Field mask that specifies which attributes of the api-gateway should be updated.<br><p>A comma-separated names off ALL fields to be updated. Оnly the specified fields will be changed. The others will be left untouched. If the field is specified in <code>updateMask</code> and no value for that field was sent in the request, the field's value will be reset to the default. The default value for most fields is null or 0.</p> <p>If <code>updateMask</code> is not sent in the request, all fields' values will be updated. Fields specified in the request will be updated to provided values. The rest of the fields will be reset to the default.</p> 
+name | **string**<br><p>New name for the api-gateway. The name must be unique within the folder.</p> <p>Value must match the regular expression <code>\|[a-z][-a-z0-9]{1,61}[a-z0-9]</code>.</p> 
+description | **string**<br><p>New description for the api-gateway.</p> <p>The maximum string length in characters is 256.</p> 
+labels | **object**<br><p>Api-gateway labels as <code>key:value</code> pairs.</p> <p>Existing set of labels is completely replaced by the provided set, so if you just want to add or remove a label, request the current set of labels with a <a href="/docs/functions/apigateway/api-ref/ApiGateway/get">get</a> request.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression <code>[a-z][-_0-9a-z]*</code>. The maximum string length in characters for each value is 63. Each value must match the regular expression <code>[-_0-9a-z]*</code>.</p> 
+openapiSpec | **string**<br><p>the text of specification, json or yaml</p> 
+=======
+updateMask | **string**<br><p>A comma-separated names off ALL fields to be updated. Оnly the specified fields will be changed. The others will be left untouched. If the field is specified in <code>updateMask</code> and no value for that field was sent in the request, the field's value will be reset to the default. The default value for most fields is null or 0.</p> <p>If <code>updateMask</code> is not sent in the request, all fields' values will be updated. Fields specified in the request will be updated to provided values. The rest of the fields will be reset to the default.</p> 
 password | **string**<br><p>New password for the user.</p> <p>The string length in characters must be 8-128.</p> 
 permissions[] | **object**<br><p>New set of permissions for the user.</p> 
-permissions[].<br>topicName | **string**<br><p>Name of the topic that the permission grants access to.</p> <p>To get the topic name, make a [Topic.List] request.</p> 
-permissions[].<br>role | **string**<br><p>Access role type to grant to the user.</p> <ul> <li>ACCESS_ROLE_PRODUCER: Producer role for the user.</li> <li>ACCESS_ROLE_CONSUMER: Consumer role for the user.</li> </ul> 
+permissions[].<br>topicName | **string**<br><p>Name of the topic that the permission grants access to.</p> <p>To get the topic name, make a <a href="/docs/managed-kafka/api-ref/Topic/list">list</a> request.</p> 
+permissions[].<br>role | **string**<br><p>Access role type to grant to the user.</p> <ul> <li>ACCESS_ROLE_PRODUCER: producer role for the user.</li> <li>ACCESS_ROLE_CONSUMER: consumer role for the user.</li> </ul> 
+>>>>>>> achegodaev-7580-generated-api:en/_api-ref/mdb/kafka/api-ref/User/update.md
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

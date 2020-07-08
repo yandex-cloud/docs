@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Метод start
-Запускает указанный кластер Apache Kafka.
+Запускает указанный кластер Apache Kafka®.
  
 
  
@@ -16,7 +16,7 @@ POST https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/{clusterId}:star
  
 Параметр | Описание
 --- | ---
-clusterId | Обязательное поле. Идентификатор кластера Apache Kafka, который нужно запустить.  Чтобы получить идентификатор кластера Apache Kafka, выполните запрос [list](/docs/managed-kafka/api-ref/Cluster/list).  Максимальная длина строки в символах — 50.
+clusterId | Обязательное поле. Идентификатор кластера Apache Kafka®, который нужно запустить.  Чтобы получить идентификатор кластера Apache Kafka®, выполните запрос [list](/docs/managed-kafka/api-ref/Cluster/list).  Максимальная длина строки в символах — 50.
  
 ## Ответ {#responses}
 **HTTP Code: 200 - OK**

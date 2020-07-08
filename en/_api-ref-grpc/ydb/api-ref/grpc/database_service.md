@@ -45,10 +45,13 @@ storage_config | **[StorageConfig](#StorageConfig)**<br>
 scale_policy | **[ScalePolicy](#ScalePolicy)**<br> 
 network_id | **string**<br> 
 subnet_ids[] | **string**<br> 
-database_type | **oneof:** `zonal_database` or `regional_database`<br>
-&nbsp;&nbsp;zonal_database | **[ZonalDatabase](#ZonalDatabase)**<br> 
-&nbsp;&nbsp;regional_database | **[RegionalDatabase](#RegionalDatabase)**<br> 
+database_type | **oneof:** `zonal_database`, `regional_database`, `provisioned_database` or `serverless_database`<br>
+&nbsp;&nbsp;zonal_database | **[ZonalDatabase](#ZonalDatabase)**<br>deprecated field 
+&nbsp;&nbsp;regional_database | **[RegionalDatabase](#RegionalDatabase)**<br>deprecated field 
+&nbsp;&nbsp;provisioned_database | **[ProvisionedDatabase](#ProvisionedDatabase)**<br> 
+&nbsp;&nbsp;serverless_database | **[ServerlessDatabase](#ServerlessDatabase)**<br> 
 assign_public_ips | **bool**<br> 
+location_id | **string**<br> 
 
 
 ### StorageConfig {#StorageConfig}
@@ -95,6 +98,52 @@ Field | Description
 region_id | **string**<br>Required.  false
 
 
+### ProvisionedDatabase {#ProvisionedDatabase}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br> 
+storage_config | **[StorageConfig](#StorageConfig1)**<br> 
+scale_policy | **[ScalePolicy](#ScalePolicy1)**<br> 
+network_id | **string**<br> 
+subnet_ids[] | **string**<br> 
+assign_public_ips | **bool**<br> 
+
+
+### StorageConfig {#StorageConfig}
+
+Field | Description
+--- | ---
+storage_options[] | **[StorageOption](#StorageOption1)**<br> The minimum number of elements is 1.
+
+
+### StorageOption {#StorageOption}
+
+Field | Description
+--- | ---
+storage_type_id | **string**<br> 
+group_count | **int64**<br> 
+
+
+### ScalePolicy {#ScalePolicy}
+
+Field | Description
+--- | ---
+scale_type | **oneof:** `fixed_scale`<br>
+&nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale1)**<br> 
+
+
+### FixedScale {#FixedScale}
+
+Field | Description
+--- | ---
+size | **int64**<br> The minimum value is 1.
+
+
+### ServerlessDatabase {#ServerlessDatabase}
+
+
+
 ## List {#List}
 
 Retrieves a list of databases.
@@ -130,86 +179,17 @@ description | **string**<br>
 status | enum **Status**<br> <ul><ul/>
 endpoint | **string**<br> 
 resource_preset_id | **string**<br> 
-storage_config | **[StorageConfig](#StorageConfig1)**<br> 
-scale_policy | **[ScalePolicy](#ScalePolicy1)**<br> 
+storage_config | **[StorageConfig](#StorageConfig2)**<br> 
+scale_policy | **[ScalePolicy](#ScalePolicy2)**<br> 
 network_id | **string**<br> 
 subnet_ids[] | **string**<br> 
-database_type | **oneof:** `zonal_database` or `regional_database`<br>
-&nbsp;&nbsp;zonal_database | **[ZonalDatabase](#ZonalDatabase1)**<br> 
-&nbsp;&nbsp;regional_database | **[RegionalDatabase](#RegionalDatabase1)**<br> 
+database_type | **oneof:** `zonal_database`, `regional_database`, `provisioned_database` or `serverless_database`<br>
+&nbsp;&nbsp;zonal_database | **[ZonalDatabase](#ZonalDatabase1)**<br>deprecated field 
+&nbsp;&nbsp;regional_database | **[RegionalDatabase](#RegionalDatabase1)**<br>deprecated field 
+&nbsp;&nbsp;provisioned_database | **[ProvisionedDatabase](#ProvisionedDatabase1)**<br> 
+&nbsp;&nbsp;serverless_database | **[ServerlessDatabase](#ServerlessDatabase1)**<br> 
 assign_public_ips | **bool**<br> 
-
-
-### StorageConfig {#StorageConfig}
-
-Field | Description
---- | ---
-storage_options[] | **[StorageOption](#StorageOption1)**<br> The minimum number of elements is 1.
-
-
-### StorageOption {#StorageOption}
-
-Field | Description
---- | ---
-storage_type_id | **string**<br> 
-group_count | **int64**<br> 
-
-
-### ScalePolicy {#ScalePolicy}
-
-Field | Description
---- | ---
-scale_type | **oneof:** `fixed_scale`<br>
-&nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale1)**<br> 
-
-
-### FixedScale {#FixedScale}
-
-Field | Description
---- | ---
-size | **int64**<br> The minimum value is 1.
-
-
-### ZonalDatabase {#ZonalDatabase}
-
-Field | Description
---- | ---
-zone_id | **string**<br>Required.  false
-
-
-### RegionalDatabase {#RegionalDatabase}
-
-Field | Description
---- | ---
-region_id | **string**<br>Required.  false
-
-
-## Create {#Create}
-
-Creates a new database.
-
-**rpc Create ([CreateDatabaseRequest](#CreateDatabaseRequest)) returns ([operation.Operation](#Operation))**
-
-Metadata and response of Operation:<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateDatabaseMetadata](#CreateDatabaseMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Database](#Database2)<br>
-
-### CreateDatabaseRequest {#CreateDatabaseRequest}
-
-Field | Description
---- | ---
-folder_id | **string**<br> 
-name | **string**<br> 
-description | **string**<br> 
-resource_preset_id | **string**<br>Required.  false
-storage_config | **[StorageConfig](#StorageConfig2)**<br>Required.  false
-scale_policy | **[ScalePolicy](#ScalePolicy2)**<br>Required.  false
-network_id | **string**<br> 
-subnet_ids[] | **string**<br> 
-database_type | **oneof:** `zonal_database` or `regional_database`<br>
-&nbsp;&nbsp;zonal_database | **[ZonalDatabase](#ZonalDatabase2)**<br> 
-&nbsp;&nbsp;regional_database | **[RegionalDatabase](#RegionalDatabase2)**<br> 
-assign_public_ips | **bool**<br> 
+location_id | **string**<br> 
 
 
 ### StorageConfig {#StorageConfig}
@@ -256,6 +236,173 @@ Field | Description
 region_id | **string**<br>Required.  false
 
 
+### ProvisionedDatabase {#ProvisionedDatabase}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br> 
+storage_config | **[StorageConfig](#StorageConfig3)**<br> 
+scale_policy | **[ScalePolicy](#ScalePolicy3)**<br> 
+network_id | **string**<br> 
+subnet_ids[] | **string**<br> 
+assign_public_ips | **bool**<br> 
+
+
+### StorageConfig {#StorageConfig}
+
+Field | Description
+--- | ---
+storage_options[] | **[StorageOption](#StorageOption3)**<br> The minimum number of elements is 1.
+
+
+### StorageOption {#StorageOption}
+
+Field | Description
+--- | ---
+storage_type_id | **string**<br> 
+group_count | **int64**<br> 
+
+
+### ScalePolicy {#ScalePolicy}
+
+Field | Description
+--- | ---
+scale_type | **oneof:** `fixed_scale`<br>
+&nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale3)**<br> 
+
+
+### FixedScale {#FixedScale}
+
+Field | Description
+--- | ---
+size | **int64**<br> The minimum value is 1.
+
+
+### ServerlessDatabase {#ServerlessDatabase}
+
+
+
+## Create {#Create}
+
+Creates a new database.
+
+**rpc Create ([CreateDatabaseRequest](#CreateDatabaseRequest)) returns ([operation.Operation](#Operation))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateDatabaseMetadata](#CreateDatabaseMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Database](#Database2)<br>
+
+### CreateDatabaseRequest {#CreateDatabaseRequest}
+
+Field | Description
+--- | ---
+folder_id | **string**<br> 
+name | **string**<br> 
+description | **string**<br> 
+resource_preset_id | **string**<br> 
+storage_config | **[StorageConfig](#StorageConfig4)**<br> 
+scale_policy | **[ScalePolicy](#ScalePolicy4)**<br> 
+network_id | **string**<br> 
+subnet_ids[] | **string**<br> 
+database_type | **oneof:** `zonal_database`, `regional_database`, `provisioned_database` or `serverless_database`<br>
+&nbsp;&nbsp;zonal_database | **[ZonalDatabase](#ZonalDatabase2)**<br>deprecated field 
+&nbsp;&nbsp;regional_database | **[RegionalDatabase](#RegionalDatabase2)**<br>deprecated field 
+&nbsp;&nbsp;provisioned_database | **[ProvisionedDatabase](#ProvisionedDatabase2)**<br> 
+&nbsp;&nbsp;serverless_database | **[ServerlessDatabase](#ServerlessDatabase2)**<br> 
+assign_public_ips | **bool**<br> 
+location_id | **string**<br> 
+
+
+### StorageConfig {#StorageConfig}
+
+Field | Description
+--- | ---
+storage_options[] | **[StorageOption](#StorageOption4)**<br> The minimum number of elements is 1.
+
+
+### StorageOption {#StorageOption}
+
+Field | Description
+--- | ---
+storage_type_id | **string**<br> 
+group_count | **int64**<br> 
+
+
+### ScalePolicy {#ScalePolicy}
+
+Field | Description
+--- | ---
+scale_type | **oneof:** `fixed_scale`<br>
+&nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale4)**<br> 
+
+
+### FixedScale {#FixedScale}
+
+Field | Description
+--- | ---
+size | **int64**<br> The minimum value is 1.
+
+
+### ZonalDatabase {#ZonalDatabase}
+
+Field | Description
+--- | ---
+zone_id | **string**<br>Required.  false
+
+
+### RegionalDatabase {#RegionalDatabase}
+
+Field | Description
+--- | ---
+region_id | **string**<br>Required.  false
+
+
+### ProvisionedDatabase {#ProvisionedDatabase}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br> 
+storage_config | **[StorageConfig](#StorageConfig5)**<br> 
+scale_policy | **[ScalePolicy](#ScalePolicy5)**<br> 
+network_id | **string**<br> 
+subnet_ids[] | **string**<br> 
+assign_public_ips | **bool**<br> 
+
+
+### StorageConfig {#StorageConfig}
+
+Field | Description
+--- | ---
+storage_options[] | **[StorageOption](#StorageOption5)**<br> The minimum number of elements is 1.
+
+
+### StorageOption {#StorageOption}
+
+Field | Description
+--- | ---
+storage_type_id | **string**<br> 
+group_count | **int64**<br> 
+
+
+### ScalePolicy {#ScalePolicy}
+
+Field | Description
+--- | ---
+scale_type | **oneof:** `fixed_scale`<br>
+&nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale5)**<br> 
+
+
+### FixedScale {#FixedScale}
+
+Field | Description
+--- | ---
+size | **int64**<br> The minimum value is 1.
+
+
+### ServerlessDatabase {#ServerlessDatabase}
+
+
+
 ### Operation {#Operation}
 
 Field | Description
@@ -292,14 +439,17 @@ description | **string**<br>
 status | enum **Status**<br> <ul><ul/>
 endpoint | **string**<br> 
 resource_preset_id | **string**<br> 
-storage_config | **[StorageConfig](#StorageConfig3)**<br> 
-scale_policy | **[ScalePolicy](#ScalePolicy3)**<br> 
+storage_config | **[StorageConfig](#StorageConfig6)**<br> 
+scale_policy | **[ScalePolicy](#ScalePolicy6)**<br> 
 network_id | **string**<br> 
 subnet_ids[] | **string**<br> 
-database_type | **oneof:** `zonal_database` or `regional_database`<br>
-&nbsp;&nbsp;zonal_database | **[ZonalDatabase](#ZonalDatabase3)**<br> 
-&nbsp;&nbsp;regional_database | **[RegionalDatabase](#RegionalDatabase3)**<br> 
+database_type | **oneof:** `zonal_database`, `regional_database`, `provisioned_database` or `serverless_database`<br>
+&nbsp;&nbsp;zonal_database | **[ZonalDatabase](#ZonalDatabase3)**<br>deprecated field 
+&nbsp;&nbsp;regional_database | **[RegionalDatabase](#RegionalDatabase3)**<br>deprecated field 
+&nbsp;&nbsp;provisioned_database | **[ProvisionedDatabase](#ProvisionedDatabase3)**<br> 
+&nbsp;&nbsp;serverless_database | **[ServerlessDatabase](#ServerlessDatabase3)**<br> 
 assign_public_ips | **bool**<br> 
+location_id | **string**<br> 
 
 
 ## Update {#Update}
@@ -321,22 +471,25 @@ update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protoc
 database_id | **string**<br> 
 name | **string**<br> 
 description | **string**<br> 
-resource_preset_id | **string**<br>Required.  false
-storage_config | **[StorageConfig](#StorageConfig3)**<br>Required.  false
-scale_policy | **[ScalePolicy](#ScalePolicy3)**<br>Required.  false
+resource_preset_id | **string**<br> 
+storage_config | **[StorageConfig](#StorageConfig6)**<br> 
+scale_policy | **[ScalePolicy](#ScalePolicy6)**<br> 
 network_id | **string**<br> 
 subnet_ids[] | **string**<br> 
-database_type | **oneof:** `zonal_database` or `regional_database`<br>
+database_type | **oneof:** `zonal_database`, `regional_database`, `provisioned_database` or `serverless_database`<br>
 &nbsp;&nbsp;zonal_database | **[ZonalDatabase](#ZonalDatabase3)**<br> 
 &nbsp;&nbsp;regional_database | **[RegionalDatabase](#RegionalDatabase3)**<br> 
+&nbsp;&nbsp;provisioned_database | **[ProvisionedDatabase](#ProvisionedDatabase3)**<br> 
+&nbsp;&nbsp;serverless_database | **[ServerlessDatabase](#ServerlessDatabase3)**<br> 
 assign_public_ips | **bool**<br> 
+location_id | **string**<br> 
 
 
 ### StorageConfig {#StorageConfig}
 
 Field | Description
 --- | ---
-storage_options[] | **[StorageOption](#StorageOption3)**<br> The minimum number of elements is 1.
+storage_options[] | **[StorageOption](#StorageOption6)**<br> The minimum number of elements is 1.
 
 
 ### StorageOption {#StorageOption}
@@ -352,7 +505,7 @@ group_count | **int64**<br>
 Field | Description
 --- | ---
 scale_type | **oneof:** `fixed_scale`<br>
-&nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale3)**<br> 
+&nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale6)**<br> 
 
 
 ### FixedScale {#FixedScale}
@@ -374,6 +527,52 @@ zone_id | **string**<br>Required.  false
 Field | Description
 --- | ---
 region_id | **string**<br>Required.  false
+
+
+### ProvisionedDatabase {#ProvisionedDatabase}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br> 
+storage_config | **[StorageConfig](#StorageConfig7)**<br> 
+scale_policy | **[ScalePolicy](#ScalePolicy7)**<br> 
+network_id | **string**<br> 
+subnet_ids[] | **string**<br> 
+assign_public_ips | **bool**<br> 
+
+
+### StorageConfig {#StorageConfig}
+
+Field | Description
+--- | ---
+storage_options[] | **[StorageOption](#StorageOption7)**<br> The minimum number of elements is 1.
+
+
+### StorageOption {#StorageOption}
+
+Field | Description
+--- | ---
+storage_type_id | **string**<br> 
+group_count | **int64**<br> 
+
+
+### ScalePolicy {#ScalePolicy}
+
+Field | Description
+--- | ---
+scale_type | **oneof:** `fixed_scale`<br>
+&nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale7)**<br> 
+
+
+### FixedScale {#FixedScale}
+
+Field | Description
+--- | ---
+size | **int64**<br> The minimum value is 1.
+
+
+### ServerlessDatabase {#ServerlessDatabase}
+
 
 
 ### Operation {#Operation}
@@ -412,14 +611,17 @@ description | **string**<br>
 status | enum **Status**<br> <ul><ul/>
 endpoint | **string**<br> 
 resource_preset_id | **string**<br> 
-storage_config | **[StorageConfig](#StorageConfig4)**<br> 
-scale_policy | **[ScalePolicy](#ScalePolicy4)**<br> 
+storage_config | **[StorageConfig](#StorageConfig8)**<br> 
+scale_policy | **[ScalePolicy](#ScalePolicy8)**<br> 
 network_id | **string**<br> 
 subnet_ids[] | **string**<br> 
-database_type | **oneof:** `zonal_database` or `regional_database`<br>
-&nbsp;&nbsp;zonal_database | **[ZonalDatabase](#ZonalDatabase4)**<br> 
-&nbsp;&nbsp;regional_database | **[RegionalDatabase](#RegionalDatabase4)**<br> 
+database_type | **oneof:** `zonal_database`, `regional_database`, `provisioned_database` or `serverless_database`<br>
+&nbsp;&nbsp;zonal_database | **[ZonalDatabase](#ZonalDatabase4)**<br>deprecated field 
+&nbsp;&nbsp;regional_database | **[RegionalDatabase](#RegionalDatabase4)**<br>deprecated field 
+&nbsp;&nbsp;provisioned_database | **[ProvisionedDatabase](#ProvisionedDatabase4)**<br> 
+&nbsp;&nbsp;serverless_database | **[ServerlessDatabase](#ServerlessDatabase4)**<br> 
 assign_public_ips | **bool**<br> 
+location_id | **string**<br> 
 
 
 ## Delete {#Delete}

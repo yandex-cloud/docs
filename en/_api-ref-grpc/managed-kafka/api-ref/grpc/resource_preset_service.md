@@ -4,7 +4,7 @@ editable: false
 
 # ResourcePresetService
 
-A set of methods for managing Apache Kafka resource presets.
+A set of methods for managing Kafka resource presets.
 
 | Call | Description |
 | --- | --- |
@@ -30,7 +30,7 @@ resource_preset_id | **string**<br>Required. ID of the resource preset to return
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the ResourcePreset resource. 
+id | **string**<br>ID of the resource preset. 
 zone_ids[] | **string**<br>IDs of availability zones where the resource preset is available. 
 cores | **int64**<br>Number of CPU cores for a Kafka broker created with the preset. 
 memory | **int64**<br>RAM volume for a Kafka broker created with the preset, in bytes. 
@@ -62,7 +62,7 @@ next_page_token | **string**<br>This token allows you to get the next page of re
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the ResourcePreset resource. 
+id | **string**<br>ID of the resource preset. 
 zone_ids[] | **string**<br>IDs of availability zones where the resource preset is available. 
 cores | **int64**<br>Number of CPU cores for a Kafka broker created with the preset. 
 memory | **int64**<br>RAM volume for a Kafka broker created with the preset, in bytes. 

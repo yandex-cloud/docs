@@ -113,6 +113,7 @@ size | **int64**<br>Size of the disk, specified in bytes. Acceptable values are 
 source_oneof | **oneof:** `image_id` or `snapshot_id`<br>
 &nbsp;&nbsp;image_id | **string**<br>ID of the image that will be used for disk creation. The maximum string length in characters is 50.
 &nbsp;&nbsp;snapshot_id | **string**<br>ID of the snapshot that will be used for disk creation. The maximum string length in characters is 50.
+preserve_after_instance_delete | **bool**<br>When set to true, disk will not be deleted even after managed instance is deleted. It will be a user's responsibility to delete such disks. 
 
 
 ### NetworkInterfaceSpec {#NetworkInterfaceSpec}
@@ -419,6 +420,7 @@ size | **int64**<br>Size of the disk, specified in bytes. Acceptable values are 
 source_oneof | **oneof:** `image_id` or `snapshot_id`<br>
 &nbsp;&nbsp;image_id | **string**<br>ID of the image that will be used for disk creation. The maximum string length in characters is 50.
 &nbsp;&nbsp;snapshot_id | **string**<br>ID of the snapshot that will be used for disk creation. The maximum string length in characters is 50.
+preserve_after_instance_delete | **bool**<br>When set to true, disk will not be deleted even after managed instance is deleted. It will be a user's responsibility to delete such disks. 
 
 
 ### NetworkInterfaceSpec {#NetworkInterfaceSpec}
@@ -705,6 +707,7 @@ size | **int64**<br>Size of the disk, specified in bytes. Acceptable values are 
 source_oneof | **oneof:** `image_id` or `snapshot_id`<br>
 &nbsp;&nbsp;image_id | **string**<br>ID of the image that will be used for disk creation. The maximum string length in characters is 50.
 &nbsp;&nbsp;snapshot_id | **string**<br>ID of the snapshot that will be used for disk creation. The maximum string length in characters is 50.
+preserve_after_instance_delete | **bool**<br>When set to true, disk will not be deleted even after managed instance is deleted. It will be a user's responsibility to delete such disks. 
 
 
 ### NetworkInterfaceSpec {#NetworkInterfaceSpec}
@@ -1070,6 +1073,7 @@ size | **int64**<br>Size of the disk, specified in bytes. Acceptable values are 
 source_oneof | **oneof:** `image_id` or `snapshot_id`<br>
 &nbsp;&nbsp;image_id | **string**<br>ID of the image that will be used for disk creation. The maximum string length in characters is 50.
 &nbsp;&nbsp;snapshot_id | **string**<br>ID of the snapshot that will be used for disk creation. The maximum string length in characters is 50.
+preserve_after_instance_delete | **bool**<br>When set to true, disk will not be deleted even after managed instance is deleted. It will be a user's responsibility to delete such disks. 
 
 
 ### NetworkInterfaceSpec {#NetworkInterfaceSpec}

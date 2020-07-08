@@ -686,6 +686,12 @@ components:
               Acceptable values are 4194304 to 4398046511104, inclusive.
             type: string
             format: int64
+          preserveAfterInstanceDelete:
+            description: |-
+              When set to true, disk will not be deleted even after managed instance is deleted.
+              It will be a user's responsibility to delete such disks.
+            type: boolean
+            format: boolean
       - title: source_oneof
         type: object
         maxProperties: 1
@@ -1984,6 +1990,12 @@ components:
               Acceptable values are 4194304 to 4398046511104, inclusive.
             type: string
             format: int64
+          preserveAfterInstanceDelete:
+            description: |-
+              When set to true, disk will not be deleted even after managed instance is deleted.
+              It will be a user's responsibility to delete such disks.
+            type: boolean
+            format: boolean
       - title: source_oneof
         type: object
         maxProperties: 1

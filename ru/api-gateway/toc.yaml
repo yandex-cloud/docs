@@ -1,0 +1,56 @@
+title: Yandex API Gateway
+stage: tech-preview
+href: index.yaml
+items:
+  - name: Начало работы
+    href: quickstart/index.md
+  - name: Пошаговые инструкции
+    items:
+        - name: Все инструкции
+          href: operations/index.md
+        - name: Создание API-шлюза
+          href: operations/api-gw-create.md
+        - name: Изменение API-шлюза и его спецификации
+          href: operations/api-gw-update.md
+        - name: Удаление API-шлюза
+          href: operations/api-gw-delete.md
+        - name: Просмотр графика мониторинга
+          href: operations/api-gw-monitoring.md
+        - name: Просмотр журнала выполнения
+          href: operations/api-gw-logs.md
+  - name: Концепции
+    items:
+      - name: Взаимосвязь ресурсов сервиса
+        href: concepts/index.md
+      - name: Расширения спецификации
+        items:
+          - name: Обзор
+            href: concepts/extensions/index.md
+          - name: Статический ответ
+            href: concepts/extensions/dummy.md
+          - name: Вызов функции
+            href: concepts/extensions/cloud-functions.md
+          - name: Обращение по HTTP
+            href: concepts/extensions/http.md
+          - name: Интеграция с Object Storage
+            href: concepts/extensions/object-storage.md
+      - name: Квоты и лимиты
+        href: concepts/limits.md
+  - name: Управление доступом
+    href: security/index.md
+  - name: Правила тарификации
+    href: pricing.md
+  - name: Справочник API
+    items:
+      - name: Аутентификация в API
+        href: api-ref/authentication.md
+      - name: gRPC
+        items:
+        include:
+          repo: docs
+          path: ru/_api-ref-grpc/api-gateway/api-ref/toc.yaml
+      - name: REST
+        items:
+        include:
+          repo: docs
+          path: ru/_api-ref/serverless/apigateway/toc.yaml

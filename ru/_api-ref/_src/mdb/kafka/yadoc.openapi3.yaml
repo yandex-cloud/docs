@@ -1,10 +1,9 @@
 openapi: "3.0"
 info:
-  title: Yandex Managed Service for Apache Kafka API
+  title: Yandex Managed Service for Apache Kafka® API
   description: Методы справочника API сгруппированы по ресурсам. Чтобы выполнить операцию
     над ресурсом, отправьте HTTP-запрос к соответствующему URL. Подробнее об архитектуре
     API Яндекс.Облака, см. [Концепции API Яндекс.Облака](/docs/api-design-guide/).
-    Подробнее об архитектуре API Яндекс.Облака, см. [Концепции API Яндекс.Облака](/docs/api-design-guide/).
   version: v1
   x-y-docUri: api-ref
   x-y-baseUrl: https://mdb.api.cloud.yandex.net
@@ -13,8 +12,8 @@ paths:
     get:
       tags:
       - Cluster
-      summary: Возвращает указанный кластер Apache Kafka.
-      description: Чтобы получить список доступных кластеров Apache Kafka, выполните
+      summary: Возвращает указанный кластер Apache Kafka®.
+      description: Чтобы получить список доступных кластеров Apache Kafka®, выполните
         запрос [list](/docs/managed-kafka/api-ref/Cluster/list).
       operationId: ClusterGet
       parameters:
@@ -22,7 +21,7 @@ paths:
         in: path
         description: |-
           Обязательное поле.
-          Идентификатор кластера Apache Kafka.
+          Идентификатор кластера Apache Kafka®.
 
           Чтобы получить идентификатор кластера, выполните запрос [list](/docs/managed-kafka/api-ref/Cluster/list).
 
@@ -41,16 +40,16 @@ paths:
     delete:
       tags:
       - Cluster
-      summary: Удаляет указанный кластер Apache Kafka.
+      summary: Удаляет указанный кластер Apache Kafka®.
       operationId: ClusterDelete
       parameters:
       - name: clusterId
         in: path
         description: |-
           Обязательное поле.
-          Идентификатор кластера Apache Kafka, который следует удалить.
+          Идентификатор кластера Apache Kafka®, который следует удалить.
 
-          Чтобы получить идентификатор кластера Apache Kafka, выполните запрос [list](/docs/managed-kafka/api-ref/Cluster/list).
+          Чтобы получить идентификатор кластера Apache Kafka®, выполните запрос [list](/docs/managed-kafka/api-ref/Cluster/list).
 
           Максимальная длина строки в символах — 50.
         required: true
@@ -70,16 +69,16 @@ paths:
     patch:
       tags:
       - Cluster
-      summary: Изменяет указанный кластер Apache Kafka.
+      summary: Изменяет указанный кластер Apache Kafka®.
       operationId: ClusterUpdate
       parameters:
       - name: clusterId
         in: path
         description: |-
           Обязательное поле.
-          Идентификатор кластера Apache Kafka, который нужно изменить.
+          Идентификатор кластера Apache Kafka®, который нужно изменить.
 
-          Чтобы получить идентификатор кластера Apache Kafka, выполните запрос [list](/docs/managed-kafka/api-ref/Cluster/list).
+          Чтобы получить идентификатор кластера Apache Kafka®, выполните запрос [list](/docs/managed-kafka/api-ref/Cluster/list).
 
           Максимальная длина строки в символах — 50.
         required: true
@@ -106,14 +105,14 @@ paths:
     get:
       tags:
       - Cluster
-      summary: Получает список кластеров Apache Kafka, принадлежащих указанному каталогу.
+      summary: Получает список кластеров Apache Kafka®, принадлежащих указанному каталогу.
       operationId: ClusterList
       parameters:
       - name: folderId
         in: query
         description: |-
           Обязательное поле.
-          Идентификатор каталога, для которого нужно получить список кластеров Apache Kafka.
+          Идентификатор каталога, для которого нужно получить список кластеров Apache Kafka®.
 
           Чтобы получить идентификатор каталога, выполните запрос [list](/docs/resource-manager/api-ref/Folder/list).
 
@@ -125,7 +124,7 @@ paths:
         description: |-
           Максимальное количество результатов на одной странице в ответе.
 
-          Если количество результатов больше чем `page_size`, сервис вернет значение [nextPageToken](/docs/managed-kafka/api-ref/Cluster/list#responses), которое можно использовать для
+          Если количество результатов больше чем [pageSize](/docs/managed-kafka/api-ref/Cluster/list#query_params), сервис вернет значение [nextPageToken](/docs/managed-kafka/api-ref/Cluster/list#responses), которое можно использовать для
           получения следующей страницы.
 
           Максимальное значение — 1000.
@@ -137,7 +136,7 @@ paths:
         description: |-
           Токен страницы.
 
-          Установите значение `page_token` равным значению поля [nextPageToken](/docs/managed-kafka/api-ref/Cluster/list#responses) предыдущего запроса, чтобы получить следующую страницу
+          Установите значение [pageToken](/docs/managed-kafka/api-ref/Cluster/list#query_params) равным значению поля [nextPageToken](/docs/managed-kafka/api-ref/Cluster/list#responses) предыдущего запроса, чтобы получить следующую страницу
           результатов.
 
           Максимальная длина строки в символах — 100.
@@ -169,7 +168,7 @@ paths:
     post:
       tags:
       - Cluster
-      summary: Создает новый кластер Apache Kafka в указанном каталоге.
+      summary: Создает новый кластер Apache Kafka® в указанном каталоге.
       operationId: ClusterCreate
       requestBody:
         content:
@@ -192,16 +191,16 @@ paths:
     post:
       tags:
       - Cluster
-      summary: Перемещает кластер Apache Kafka в указанный каталог.
+      summary: Перемещает кластер Apache Kafka® в указанный каталог.
       operationId: ClusterMove
       parameters:
       - name: clusterId
         in: path
         description: |-
           Обязательное поле.
-          Идентификатор кластера Apache Kafka, который нужно переместить.
+          Идентификатор кластера Apache Kafka®, который нужно переместить.
 
-          Чтобы получить идентификатор кластера Apache Kafka, выполните запрос [list](/docs/managed-kafka/api-ref/Cluster/list).
+          Чтобы получить идентификатор кластера Apache Kafka®, выполните запрос [list](/docs/managed-kafka/api-ref/Cluster/list).
 
           Максимальная длина строки в символах — 50.
         required: true
@@ -228,16 +227,16 @@ paths:
     post:
       tags:
       - Cluster
-      summary: Запускает указанный кластер Apache Kafka.
+      summary: Запускает указанный кластер Apache Kafka®.
       operationId: ClusterStart
       parameters:
       - name: clusterId
         in: path
         description: |-
           Обязательное поле.
-          Идентификатор кластера Apache Kafka, который нужно запустить.
+          Идентификатор кластера Apache Kafka®, который нужно запустить.
 
-          Чтобы получить идентификатор кластера Apache Kafka, выполните запрос [list](/docs/managed-kafka/api-ref/Cluster/list).
+          Чтобы получить идентификатор кластера Apache Kafka®, выполните запрос [list](/docs/managed-kafka/api-ref/Cluster/list).
 
           Максимальная длина строки в символах — 50.
         required: true
@@ -258,16 +257,16 @@ paths:
     post:
       tags:
       - Cluster
-      summary: Останавливает указанный кластер Apache Kafka.
+      summary: Останавливает указанный кластер Apache Kafka®.
       operationId: ClusterStop
       parameters:
       - name: clusterId
         in: path
         description: |-
           Обязательное поле.
-          Идентификатор кластера Apache Kafka, который нужно остановить.
+          Идентификатор кластера Apache Kafka®, который нужно остановить.
 
-          Чтобы получить идентификатор кластера Apache Kafka, выполните запрос [list](/docs/managed-kafka/api-ref/Cluster/list).
+          Чтобы получить идентификатор кластера Apache Kafka®, выполните запрос [list](/docs/managed-kafka/api-ref/Cluster/list).
 
           Максимальная длина строки в символах — 50.
         required: true
@@ -288,8 +287,8 @@ paths:
     get:
       tags:
       - Cluster
-      summary: |-
-        Получает логи для указанного кластера Apache Kafka. Дополнительные сведения о логах см. в разделе [Просмотр логов кластера](/docs/managed-kafka/operations/cluster-logs)
+      summary: Получает логи для указанного кластера Apache Kafka®.
+      description: Дополнительные сведения о логах см. в разделе [Logs](/docs/managed-kafka/operations/cluster-logs)
         документации.
       operationId: ClusterListLogs
       parameters:
@@ -297,9 +296,9 @@ paths:
         in: path
         description: |-
           Обязательное поле.
-          Идентификатор кластера Apache Kafka, для которого нужно получить логи.
+          Идентификатор кластера Apache Kafka®, для которого нужно получить логи.
 
-          Чтобы получить идентификатор кластера Apache Kafka, выполните запрос [list](/docs/managed-kafka/api-ref/Cluster/list).
+          Чтобы получить идентификатор кластера Apache Kafka®, выполните запрос [list](/docs/managed-kafka/api-ref/Cluster/list).
 
           Максимальная длина строки в символах — 50.
         required: true
@@ -318,7 +317,7 @@ paths:
       - name: fromTime
         in: query
         description: |-
-          Временная метка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) , начиная с которой следует запросить логи.
+          Временная метка, начиная с которой следует запросить логи.
 
           Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
         schema:
@@ -327,7 +326,7 @@ paths:
       - name: toTime
         in: query
         description: |-
-          Временная метка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) , до которой следует запросить логи.
+          Временная метка, до которой следует запросить логи.
 
           Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
         schema:
@@ -338,7 +337,7 @@ paths:
         description: |-
           Максимальное количество результатов на одной странице в ответе.
 
-          Если количество результатов больше чем `page_size`, сервис вернет значение [nextPageToken](/docs/managed-kafka/api-ref/Cluster/listLogs#responses), которое можно использовать для
+          Если количество результатов больше чем [pageSize](/docs/managed-kafka/api-ref/Cluster/listLogs#query_params), сервис вернет значение [nextPageToken](/docs/managed-kafka/api-ref/Cluster/listLogs#responses), которое можно использовать для
           получения следующей страницы.
 
           Максимальное значение — 1000.
@@ -350,7 +349,7 @@ paths:
         description: |-
           Токен страницы.
 
-          Установите значение `page_token` равным значению поля [nextPageToken](/docs/managed-kafka/api-ref/Cluster/listLogs#responses) предыдущего запроса, чтобы получить следующую страницу
+          Установите значение [pageToken](/docs/managed-kafka/api-ref/Cluster/listLogs#query_params) равным значению поля [nextPageToken](/docs/managed-kafka/api-ref/Cluster/listLogs#responses) предыдущего запроса, чтобы получить следующую страницу
           результатов.
 
           Максимальная длина строки в символах — 100.
@@ -361,7 +360,7 @@ paths:
         description: |-
           Флаг, определяющий поведение при предоставлении маркера следующей страницы.
 
-          Если этот флаг установлен в `true`, этот метод API всегда будет возвращать `next_page_token`, даже если текущая страница пуста.
+          Если этот флаг установлен в `true`, этот метод API всегда будет возвращать [nextPageToken](/docs/managed-kafka/api-ref/Cluster/listLogs#responses), даже если текущая страница пуста.
         schema:
           type: boolean
           format: boolean
@@ -371,7 +370,7 @@ paths:
           Выражение, позволяющее отфильтровать информацию о ресурсах в ответе, оставив только нужную.
 
           В этом выражении должны быть указаны:
-          1. Имя поля, по которому нужно выполнить фильтрацию. В настоящее время фильтрацию можно использовать только по полю [LogRecord.logs.message.hostname].
+          1. Имя поля, по которому нужно выполнить фильтрацию. В настоящее время фильтрацию можно использовать только по полю `hostname`.
           2. Условный оператор. Поддерживаются операторы `=` и `!=` для одиночных значений, `IN` и `NOT IN` для списков значений.
           3. Значение. Должно содержать от 1 до 63 символов и соответствовать регулярному выражению `^[a-z0-9.-]{1,61}$`.
 
@@ -393,7 +392,7 @@ paths:
       tags:
       - Cluster
       summary: |-
-        То же самое, что [listLogs](/docs/managed-kafka/api-ref/Cluster/listLogs), с той разницей, что со стороны сервера передается поток логов. Допускается использовать семантику 'tail-f' при работе с
+        То же самое, что [listLogs](/docs/managed-kafka/api-ref/Cluster/listLogs), с той разницей, что со стороны сервера передается поток логов. Допускается использовать семантику `tail -f` при работе с
         потоком логов.
       operationId: ClusterStreamLogs
       parameters:
@@ -401,9 +400,9 @@ paths:
         in: path
         description: |-
           Обязательное поле.
-          Идентификатор кластера Apache Kafka.
+          Идентификатор кластера Apache Kafka®.
 
-          Чтобы получить идентификатор кластера Apache Kafka, выполните запрос [list](/docs/managed-kafka/api-ref/Cluster/list).
+          Чтобы получить идентификатор кластера Apache Kafka®, выполните запрос [list](/docs/managed-kafka/api-ref/Cluster/list).
 
           Максимальная длина строки в символах — 50.
         required: true
@@ -422,7 +421,7 @@ paths:
       - name: fromTime
         in: query
         description: |-
-          Временная метка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) , начиная с которой следует запросить логи.
+          Временная метка, начиная с которой следует запросить логи.
 
           Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
         schema:
@@ -431,10 +430,10 @@ paths:
       - name: toTime
         in: query
         description: |-
-          Временная метка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) , до которой следует запросить логи.
+          Временная метка, до которой следует запросить логи.
 
           Если значение этого поля не задано, то будут отправлены все существующие записи в логе, а затем и новые по мере их появления. В сущности, это эквивалентно
-          семантике 'tail -f'.
+          семантике `tail -f`.
 
           Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
         schema:
@@ -445,8 +444,8 @@ paths:
         description: |-
           Токен записи.
 
-          Задайте значение `record_token` равным значению `next_record_token`, возвращенному предыдущим запросом [streamLogs](/docs/managed-kafka/api-ref/Cluster/streamLogs) чтобы продолжить
-          стриминг со следующей записи в логе.
+          Задайте значение [recordToken](/docs/managed-kafka/api-ref/Cluster/streamLogs#query_params) равным значению `nextRecordToken`, возвращенному предыдущим запросом [streamLogs](/docs/managed-kafka/api-ref/Cluster/streamLogs) чтобы
+          продолжить стриминг со следующей записи в логе.
 
           Максимальная длина строки в символах — 100.
         schema:
@@ -457,7 +456,7 @@ paths:
           Выражение, позволяющее отфильтровать информацию о ресурсах в ответе, оставив только нужную.
 
           В этом выражении должны быть указаны:
-          1. Имя поля, по которому нужно выполнить фильтрацию. В настоящее время фильтрацию можно использовать только по полю [LogRecord.logs.hostname].
+          1. Имя поля, по которому нужно выполнить фильтрацию. В настоящее время фильтрацию можно использовать только по полю `hostname`.
           2. Условный оператор. Поддерживаются операторы `=` и `!=` для одиночных значений, `IN` и `NOT IN` для списков значений.
           3. Значение. Должно содержать от 3 до 63 символов и соответствовать регулярному выражению `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.
 
@@ -478,14 +477,14 @@ paths:
     get:
       tags:
       - Cluster
-      summary: Получает список операций для указанного кластера Apache Kafka.
+      summary: Получает список операций для указанного кластера Apache Kafka®.
       operationId: ClusterListOperations
       parameters:
       - name: clusterId
         in: path
         description: |-
           Обязательное поле.
-          Идентификатор кластера Apache Kafka, для которого нужно получить список операций.
+          Идентификатор кластера Apache Kafka®, для которого нужно получить список операций.
 
           Максимальная длина строки в символах — 50.
         required: true
@@ -496,7 +495,7 @@ paths:
         description: |-
           Максимальное количество результатов на одной странице в ответе.
 
-          Если количество результатов больше чем `page_size`, сервис вернет значение [nextPageToken](/docs/managed-kafka/api-ref/Cluster/listOperations#responses), которое можно использовать для
+          Если количество результатов больше чем [pageSize](/docs/managed-kafka/api-ref/Cluster/listOperations#query_params), сервис вернет значение [nextPageToken](/docs/managed-kafka/api-ref/Cluster/listOperations#responses), которое можно использовать для
           получения следующей страницы.
 
           Максимальное значение — 1000.
@@ -508,7 +507,7 @@ paths:
         description: |-
           Токен страницы.
 
-          Установите значение `page_token` равным значению поля [nextPageToken](/docs/managed-kafka/api-ref/Cluster/listOperations#responses) предыдущего запроса, чтобы получить следующую
+          Установите значение [pageToken](/docs/managed-kafka/api-ref/Cluster/listOperations#query_params) равным значению поля [nextPageToken](/docs/managed-kafka/api-ref/Cluster/listOperations#responses) предыдущего запроса, чтобы получить следующую
           страницу результатов.
 
           Максимальная длина строки в символах — 100.
@@ -526,16 +525,16 @@ paths:
     get:
       tags:
       - Cluster
-      summary: Получает список хостов для указанного кластера Apache Kafka.
+      summary: Получает список хостов для указанного кластера Apache Kafka®.
       operationId: ClusterListHosts
       parameters:
       - name: clusterId
         in: path
         description: |-
           Обязательное поле.
-          Идентификатор кластера Apache Kafka.
+          Идентификатор кластера Apache Kafka®.
 
-          Чтобы получить идентификатор кластера Apache Kafka, выполните запрос [list](/docs/managed-kafka/api-ref/Cluster/list).
+          Чтобы получить идентификатор кластера Apache Kafka®, выполните запрос [list](/docs/managed-kafka/api-ref/Cluster/list).
 
           Максимальная длина строки в символах — 50.
         required: true
@@ -546,7 +545,7 @@ paths:
         description: |-
           Максимальное количество результатов на одной странице в ответе.
 
-          Если количество результатов больше чем `page_size`, сервис вернет значение [nextPageToken](/docs/managed-kafka/api-ref/Cluster/listHosts#responses), которое можно использовать для
+          Если количество результатов больше чем [pageSize](/docs/managed-kafka/api-ref/Cluster/listHosts#query_params), сервис вернет значение [nextPageToken](/docs/managed-kafka/api-ref/Cluster/listHosts#responses), которое можно использовать для
           получения следующей страницы.
 
           Максимальное значение — 1000.
@@ -558,7 +557,7 @@ paths:
         description: |-
           Токен страницы.
 
-          Установите значение `page_token` равным значению поля [nextPageToken](/docs/managed-kafka/api-ref/Cluster/listHosts#responses) предыдущего запроса, чтобы получить следующую страницу
+          Установите значение [pageToken](/docs/managed-kafka/api-ref/Cluster/listHosts#query_params) равным значению поля [nextPageToken](/docs/managed-kafka/api-ref/Cluster/listHosts#responses) предыдущего запроса, чтобы получить следующую страницу
           результатов.
 
           Максимальная длина строки в символах — 100.
@@ -583,7 +582,7 @@ paths:
         in: path
         description: |-
           Обязательное поле.
-          Идентификатор операции, информацию о которой надо вернуть.
+          Идентификатор возвращаемой операции.
 
           Максимальная длина строки в символах — 50.
         required: true
@@ -636,7 +635,7 @@ paths:
         description: |-
           Максимальное количество результатов на одной странице в ответе.
 
-          Если количество результатов больше чем `page_size`, сервис вернет значение [nextPageToken](/docs/managed-kafka/api-ref/ResourcePreset/list#responses), которое можно использовать для
+          Если количество результатов больше чем [pageSize](/docs/managed-kafka/api-ref/ResourcePreset/list#query_params), сервис вернет значение [nextPageToken](/docs/managed-kafka/api-ref/ResourcePreset/list#responses), которое можно использовать для
           получения следующей страницы.
 
           Максимальное значение — 1000.
@@ -648,7 +647,7 @@ paths:
         description: |-
           Токен страницы.
 
-          Установите значение `page_token` равным значению поля [nextPageToken](/docs/managed-kafka/api-ref/ResourcePreset/list#responses) предыдущего запроса, чтобы получить следующую страницу
+          Установите значение [pageToken](/docs/managed-kafka/api-ref/ResourcePreset/list#query_params) равным значению поля [nextPageToken](/docs/managed-kafka/api-ref/ResourcePreset/list#responses) предыдущего запроса, чтобы получить следующую страницу
           результатов.
 
           Максимальная длина строки в символах — 100.
@@ -666,16 +665,16 @@ paths:
     get:
       tags:
       - Topic
-      summary: Возвращает информацию об указанном топике Apache Kafka.
-      description: Чтобы получить список доступных топиков Apache Kafka, выполните
-        запрос [list](/docs/managed-kafka/api-ref/Topic/list).
+      summary: Возвращает информацию об указанном топике Kafka.
+      description: Чтобы получить список доступных топиков Kafka, выполните запрос
+        [list](/docs/managed-kafka/api-ref/Topic/list).
       operationId: TopicGet
       parameters:
       - name: clusterId
         in: path
         description: |-
           Обязательное поле.
-          Идентификатор кластера Apache Kafka, к которому принадлежит топик.
+          Идентификатор кластера Apache Kafka®, к которому принадлежит топик.
 
           Чтобы получить идентификатор кластера, выполните запрос [list](/docs/managed-kafka/api-ref/Cluster/list).
 
@@ -687,7 +686,7 @@ paths:
         in: path
         description: |-
           Обязательное поле.
-          Имя запрашиваемого топика Apache Kafka.
+          Имя запрашиваемого топика Kafka.
 
           Чтобы получить имя топика, выполните запрос [list](/docs/managed-kafka/api-ref/Topic/list).
 
@@ -707,14 +706,14 @@ paths:
     delete:
       tags:
       - Topic
-      summary: Удаляет указанный топик Apache Kafka.
+      summary: Удаляет указанный топик Kafka.
       operationId: TopicDelete
       parameters:
       - name: clusterId
         in: path
         description: |-
           Обязательное поле.
-          Идентификатор кластера Apache Kafka, в котором следует удалить топик.
+          Идентификатор кластера Apache Kafka®, в котором следует удалить топик.
 
           Чтобы получить идентификатор кластера, выполните запрос [list](/docs/managed-kafka/api-ref/Cluster/list).
 
@@ -749,14 +748,14 @@ paths:
     patch:
       tags:
       - Topic
-      summary: Изменяет указанный топик Apache Kafka.
+      summary: Изменяет указанный топик Kafka.
       operationId: TopicUpdate
       parameters:
       - name: clusterId
         in: path
         description: |-
           Обязательное поле.
-          Идентификатор кластера Apache Kafka, в котором следует изменить топик.
+          Идентификатор кластера Apache Kafka®, в котором следует изменить топик.
 
           Чтобы получить идентификатор кластера, выполните запрос [list](/docs/managed-kafka/api-ref/Cluster/list).
 
@@ -798,14 +797,14 @@ paths:
     get:
       tags:
       - Topic
-      summary: Получает список топиков Apache Kafka в указанном кластере.
+      summary: Получает список топиков Kafka в указанном кластере.
       operationId: TopicList
       parameters:
       - name: clusterId
         in: path
         description: |-
           Обязательное поле.
-          Идентификатор кластера Apache Kafka, для которого нужно получить список топиков.
+          Идентификатор кластера Apache Kafka®, для которого нужно получить список топиков.
 
           Чтобы получить идентификатор кластера, выполните запрос [list](/docs/managed-kafka/api-ref/Cluster/list).
 
@@ -818,7 +817,7 @@ paths:
         description: |-
           Максимальное количество результатов на одной странице в ответе.
 
-          Если количество результатов больше чем `page_size`, сервис вернет значение [nextPageToken](/docs/managed-kafka/api-ref/Topic/list#responses), которое можно использовать для получения
+          Если количество результатов больше чем [pageSize](/docs/managed-kafka/api-ref/Topic/list#query_params), сервис вернет значение [nextPageToken](/docs/managed-kafka/api-ref/Topic/list#responses), которое можно использовать для получения
           следующей страницы.
 
           Максимальное значение — 1000.
@@ -830,7 +829,7 @@ paths:
         description: |-
           Токен страницы.
 
-          Установите значение `page_token` равным значению поля [nextPageToken](/docs/managed-kafka/api-ref/Topic/list#responses) предыдущего запроса, чтобы получить следующую страницу
+          Установите значение [pageToken](/docs/managed-kafka/api-ref/Topic/list#query_params) равным значению поля [nextPageToken](/docs/managed-kafka/api-ref/Topic/list#responses) предыдущего запроса, чтобы получить следующую страницу
           результатов.
 
           Максимальная длина строки в символах — 100.
@@ -847,14 +846,14 @@ paths:
     post:
       tags:
       - Topic
-      summary: Создает топик Apache Kafka в указанном кластере.
+      summary: Создает топик Kafka в указанном кластере.
       operationId: TopicCreate
       parameters:
       - name: clusterId
         in: path
         description: |-
           Обязательное поле.
-          Идентификатор кластера Apache Kafka, в котором следует создать топик.
+          Идентификатор кластера Apache Kafka®, в котором следует создать топик.
 
           Чтобы получить идентификатор кластера, выполните запрос [list](/docs/managed-kafka/api-ref/Cluster/list).
 
@@ -883,8 +882,8 @@ paths:
     get:
       tags:
       - User
-      summary: Возвращает информацию об указанном пользователе Apache Kafka.
-      description: Чтобы получить список доступных пользователей Apache Kafka, выполните
+      summary: Возвращает информацию об указанном пользователе Kafka.
+      description: Чтобы получить список доступных пользователей Kafka, выполните
         запрос [list](/docs/managed-kafka/api-ref/User/list).
       operationId: UserGet
       parameters:
@@ -892,7 +891,7 @@ paths:
         in: path
         description: |-
           Обязательное поле.
-          Идентификатор кластера Apache Kafka, к которому принадлежит пользователь.
+          Идентификатор кластера Apache Kafka®, к которому принадлежит пользователь.
 
           Чтобы получить идентификатор кластера, выполните запрос [list](/docs/managed-kafka/api-ref/Cluster/list).
 
@@ -904,7 +903,7 @@ paths:
         in: path
         description: |-
           Обязательное поле.
-          Имя запрашиваемого пользователя Apache Kafka.
+          Имя запрашиваемого пользователя Kafka.
 
           Чтобы получить имя пользователя, выполните запрос [list](/docs/managed-kafka/api-ref/User/list).
 
@@ -924,14 +923,14 @@ paths:
     delete:
       tags:
       - User
-      summary: Удаляет указанного пользователя Apache Kafka.
+      summary: Удаляет указанного пользователя Kafka.
       operationId: UserDelete
       parameters:
       - name: clusterId
         in: path
         description: |-
           Обязательное поле.
-          Идентификатор кластера Apache Kafka, к которому принадлежит пользователь. Чтобы получить идентификатор кластера, выполните запрос [list](/docs/managed-kafka/api-ref/Cluster/list).
+          Идентификатор кластера Apache Kafka®, к которому принадлежит пользователь. Чтобы получить идентификатор кластера, выполните запрос [list](/docs/managed-kafka/api-ref/Cluster/list).
 
           Максимальная длина строки в символах — 50.
         required: true
@@ -941,7 +940,7 @@ paths:
         in: path
         description: |-
           Обязательное поле.
-          Обязательное поле. Имя пользователя, которого нужно удалить. Чтобы получить имя пользователя, выполните запрос [list](/docs/managed-kafka/api-ref/User/list).
+          Имя пользователя, которого нужно удалить. Чтобы получить имя пользователя, выполните запрос [list](/docs/managed-kafka/api-ref/User/list).
 
           Длина строки в символах должна быть от 1 до 63.
           Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_]* ``.
@@ -962,14 +961,14 @@ paths:
     patch:
       tags:
       - User
-      summary: Изменяет указанного пользователя Apache Kafka.
+      summary: Изменяет указанного пользователя Kafka.
       operationId: UserUpdate
       parameters:
       - name: clusterId
         in: path
         description: |-
           Обязательное поле.
-          Идентификатор кластера Apache Kafka, к которому принадлежит пользователь.
+          Идентификатор кластера Apache Kafka®, к которому принадлежит пользователь.
 
           Чтобы получить идентификатор кластера, выполните запрос [list](/docs/managed-kafka/api-ref/Cluster/list).
 
@@ -981,7 +980,7 @@ paths:
         in: path
         description: |-
           Обязательное поле.
-          Обязательное поле. Имя пользователя, которого следует изменить.
+          Имя пользователя, которого следует изменить.
 
           Чтобы получить имя пользователя, выполните запрос [list](/docs/managed-kafka/api-ref/User/list).
 
@@ -1011,16 +1010,16 @@ paths:
     get:
       tags:
       - User
-      summary: Получает список пользователей Apache Kafka в указанном кластере.
+      summary: Получает список пользователей Kafka в указанном кластере.
       operationId: UserList
       parameters:
       - name: clusterId
         in: path
         description: |-
           Обязательное поле.
-          Идентификатор кластера, для которого нужно получить список пользователей.
+          Идентификатор кластера Apache Kafka®, для которого нужно получить список пользователей.
 
-          Чтобы получить идентификатор кластера, выполните запрос [list](/docs/managed-kafka/api-ref/Cluster/list).
+          Чтобы получить идентификатор кластера Apache Kafka®, выполните запрос [list](/docs/managed-kafka/api-ref/Cluster/list).
 
           Максимальная длина строки в символах — 50.
         required: true
@@ -1031,7 +1030,7 @@ paths:
         description: |-
           Максимальное количество результатов на одной странице в ответе.
 
-          Если количество результатов больше чем `page_size`, сервис вернет значение [nextPageToken](/docs/managed-kafka/api-ref/User/list#responses), которое можно использовать для получения
+          Если количество результатов больше чем [pageSize](/docs/managed-kafka/api-ref/User/list#query_params), сервис вернет значение [nextPageToken](/docs/managed-kafka/api-ref/User/list#responses), которое можно использовать для получения
           следующей страницы.
 
           Максимальное значение — 1000.
@@ -1043,7 +1042,7 @@ paths:
         description: |-
           Токен страницы.
 
-          Установите значение `page_token` равным значению поля [nextPageToken](/docs/managed-kafka/api-ref/User/list#responses) предыдущего запроса, чтобы получить следующую страницу
+          Установите значение [pageToken](/docs/managed-kafka/api-ref/User/list#query_params) равным значению поля [nextPageToken](/docs/managed-kafka/api-ref/User/list#responses) предыдущего запроса, чтобы получить следующую страницу
           результатов.
 
           Максимальная длина строки в символах — 100.
@@ -1060,14 +1059,14 @@ paths:
     post:
       tags:
       - User
-      summary: Создает пользователя Apache Kafka в указанном кластере.
+      summary: Создает пользователя Kafka в указанном кластере.
       operationId: UserCreate
       parameters:
       - name: clusterId
         in: path
         description: |-
           Обязательное поле.
-          Идентификатор кластера Apache Kafka, в котором следует создать пользователя.
+          Идентификатор кластера Apache Kafka®, в котором следует создать пользователя.
 
           Чтобы получить идентификатор кластера, выполните запрос [list](/docs/managed-kafka/api-ref/Cluster/list).
 
@@ -1096,14 +1095,14 @@ paths:
     post:
       tags:
       - User
-      summary: Предоставляет разрешение указанному пользователю Apache Kafka.
+      summary: Предоставляет разрешение указанному пользователю Kafka.
       operationId: UserGrantPermission
       parameters:
       - name: clusterId
         in: path
         description: |-
           Обязательное поле.
-          Идентификатор кластера Apache Kafka, к которому принадлежит пользователь.
+          Идентификатор кластера Apache Kafka®, к которому принадлежит пользователь.
 
           Чтобы получить идентификатор кластера, выполните запрос [list](/docs/managed-kafka/api-ref/Cluster/list).
 
@@ -1145,14 +1144,14 @@ paths:
     post:
       tags:
       - User
-      summary: Отзывает разрешение у указанного пользователя Apache Kafka.
+      summary: Отзывает разрешение у указанного пользователя Kafka.
       operationId: UserRevokePermission
       parameters:
       - name: clusterId
         in: path
         description: |-
           Обязательное поле.
-          Идентификатор кластера Apache Kafka, к которому принадлежит пользователь.
+          Идентификатор кластера Apache Kafka®, к которому принадлежит пользователь.
 
           Чтобы получить идентификатор кластера, выполните запрос [list](/docs/managed-kafka/api-ref/Cluster/list).
 
@@ -1193,16 +1192,17 @@ paths:
 components:
   schemas:
     Cluster:
-      description: Кластер Apache Kafka. Подробнее читайте в разделе [Взаимосвязь
-        ресурсов сервиса](/docs/managed-kafka/concepts) документации.
+      description: Кластер Apache Kafka. Подробнее читайте в разделе [Concepts](/docs/managed-kafka/concepts)
+        документации.
       type: object
       properties:
         id:
-          description: Идентификатор кластера Apache Kafka. Этот идентификатор генерирует
-            MDB при создании кластера.
+          description: Идентификатор кластера Apache Kafka®. Этот идентификатор генерируется
+            при создании кластера.
           type: string
         folderId:
-          description: Идентификатор каталога, которому принадлежит кластер.
+          description: Идентификатор каталога, которому принадлежит кластер Apache
+            Kafka®.
           type: string
         createdAt:
           description: |-
@@ -1212,15 +1212,15 @@ components:
           type: string
           format: date-time
         name:
-          description: Имя кластера Apache Kafka. Имя должно быть уникальным в рамках
+          description: Имя кластера Apache Kafka®. Имя должно быть уникальным в рамках
             каталога. Длина 1-63 символов.
           type: string
         description:
-          description: Описание кластера Apache Kafka. Длина описания должна быть
+          description: Описание кластера Apache Kafka®. Длина описания должна быть
             от 0 до 256 символов.
           type: string
         labels:
-          description: Пользовательские метки для кластера Apache Kafka в виде пар
+          description: Пользовательские метки для кластера Apache Kafka® в виде пар
             `key:value`. Максимум 64 на ресурс.
           type: object
           additionalProperties:
@@ -1229,7 +1229,7 @@ components:
           $ref: '#/components/schemas/ClusterEnvironment_in_Cluster_environment'
         monitoring:
           description: Описание систем мониторинга, относящихся к кластеру Apache
-            Kafka.
+            Kafka®.
           type: array
           items:
             $ref: '#/components/schemas/Monitoring'
@@ -1244,18 +1244,18 @@ components:
           $ref: '#/components/schemas/ClusterStatus_in_Cluster_status'
     ClusterEnvironment:
       description: |2-
-         - PRODUCTION: Стабильная среда с осторожной политикой обновления: во время регулярного обслуживания применяются только срочные исправления.
-         - PRESTABLE: Среда с более агрессивной политикой обновления: новые версии развертываются независимо от обратной совместимости.
+         - PRODUCTION: стабильная среда с осторожной политикой обновления — во время регулярного обслуживания применяются только срочные исправления.
+         - PRESTABLE: среда с более агрессивной политикой обновления — новые версии развертываются независимо от обратной совместимости.
       type: string
       enum:
       - PRODUCTION
       - PRESTABLE
     ClusterHealth:
       description: |2-
-         - HEALTH_UNKNOWN: Состояние кластера неизвестно (`health` всех хостов в кластере — `UNKNOWN`).
-         - ALIVE: Кластер работает нормально (`health` всех хостов в кластере — `ALIVE`).
-         - DEAD: Кластер не работает (`health` всех хостов в кластере — `DEAD`).
-         - DEGRADED: Кластер находится в состоянии деградации (`health` по крайней мере одного из хостов в кластере — не `ALIVE`).
+         - HEALTH_UNKNOWN: состояние кластера неизвестно (`health` всех хостов в кластере — `UNKNOWN`).
+         - ALIVE: кластер работает нормально (`health` всех хостов в кластере — `ALIVE`).
+         - DEAD: кластер не работает (`health` всех хостов в кластере — `DEAD`).
+         - DEGRADED: кластер находится в состоянии деградации (`health` по крайней мере одного из хостов в кластере — не `ALIVE`).
       type: string
       enum:
       - HEALTH_UNKNOWN
@@ -1265,14 +1265,14 @@ components:
       default: HEALTH_UNKNOWN
     ClusterStatus:
       description: |2-
-         - STATUS_UNKNOWN: Состояние кластера неизвестно.
-         - CREATING: Кластер создается.
-         - RUNNING: Кластер работает нормально.
-         - ERROR: В кластере произошла ошибка, блокирующая работу.
-         - UPDATING: Кластер изменяется.
-         - STOPPING: Кластер останавливается.
-         - STOPPED: Кластер остановлен.
-         - STARTING: Кластер запускается.
+         - STATUS_UNKNOWN: состояние кластера неизвестно.
+         - CREATING: кластер создается.
+         - RUNNING: кластер работает нормально.
+         - ERROR: в кластере произошла ошибка, блокирующая работу.
+         - UPDATING: кластер изменяется.
+         - STOPPING: кластер останавливается.
+         - STOPPED: кластер остановлен.
+         - STARTING: кластер запускается.
       type: string
       enum:
       - STATUS_UNKNOWN
@@ -1286,12 +1286,12 @@ components:
       default: STATUS_UNKNOWN
     CompressionType:
       description: |2-
-         - COMPRESSION_TYPE_UNCOMPRESSED: Не использовать кодек (сообщения не сжимаются).
-         - COMPRESSION_TYPE_ZSTD: Кодек Zstandard.
+         - COMPRESSION_TYPE_UNCOMPRESSED: не использовать кодек (сообщения не сжимаются).
+         - COMPRESSION_TYPE_ZSTD: кодек Zstandard.
          - COMPRESSION_TYPE_LZ4: Кодек LZ4.
          - COMPRESSION_TYPE_SNAPPY: Кодек Snappy.
-         - COMPRESSION_TYPE_GZIP: Кодек GZip.
-         - COMPRESSION_TYPE_PRODUCER: Кодек задается на стороне производителя (допустимые кодеки: ZSTD`, `Формате LZ4`, `УТИЛИТА GZIP` or `SNAPPY`).
+         - COMPRESSION_TYPE_GZIP: кодек GZip.
+         - COMPRESSION_TYPE_PRODUCER: кодек задается на стороне производителя (допустимые кодеки: `ZSTD`, `LZ4`, `GZIP` или `SNAPPY`).
       type: string
       enum:
       - COMPRESSION_TYPE_UNCOMPRESSED
@@ -1301,11 +1301,10 @@ components:
       - COMPRESSION_TYPE_GZIP
       - COMPRESSION_TYPE_PRODUCER
     ConfigSpec:
-      description: Конфигурация кластера.
       type: object
       properties:
         version:
-          description: Версия Apache Kafka, которая используется в кластере.
+          description: Версия Apache Kafka®, которая используется в кластере.
           type: string
         kafka:
           $ref: '#/components/schemas/ConfigSpecKafka_in_ConfigSpec_kafka'
@@ -1313,30 +1312,28 @@ components:
           $ref: '#/components/schemas/ConfigSpecZookeeper_in_ConfigSpec_zookeeper'
         zoneId:
           description: Идентификаторы зон доступности, в которых находятся брокеры
-            Apache Kafka.
+            Kafka.
           type: array
           items:
             type: string
         brokersCount:
-          description: Количество брокеров Apache Kafka, развернутых в каждой зоне
-            доступности.
+          description: Количество брокеров Kafka, развернутых в каждой зоне доступности.
           type: integer
           format: int64
         assignPublicIp:
           description: |-
-            Флаг, определяющий, назначен ли кластеру публичный IP-адрес. Если значение равно `true`, то кластер Apache Kafka доступен в Интернете через его публичный
+            Флаг, определяющий, назначен ли кластеру публичный IP-адрес. Если значение равно `true`, то кластер Apache Kafka® доступен в Интернете через его публичный
             IP-адрес.
           type: boolean
           format: boolean
     ConfigSpecKafka:
-      description: Конфигурация Apache Kafka.
       type: object
       allOf:
       - type: object
         properties:
           resources:
             $ref: '#/components/schemas/Resources'
-            description: Ресурсы, выделенные брокерам Apache Kafka.
+            description: Ресурсы, выделенные брокерам Kafka.
       - title: kafka_config
         type: object
         maxProperties: 1
@@ -1344,7 +1341,6 @@ components:
           kafkaConfig_2_1:
             $ref: '#/components/schemas/KafkaConfig2_1'
     ConfigSpecZookeeper:
-      description: Конфигурация ZooKeeper.
       type: object
       properties:
         resources:
@@ -1353,7 +1349,7 @@ components:
       type: object
       properties:
         clusterId:
-          description: Идентификатор кластера Apache Kafka, который создается.
+          description: Идентификатор кластера Apache Kafka®, который создается.
           type: string
     CreateClusterRequest:
       type: object
@@ -1361,7 +1357,7 @@ components:
         folderId:
           description: |-
             Обязательное поле.
-            Идентификатор каталога, в котором будет создан кластер Apache Kafka.
+            Идентификатор каталога, в котором будет создан кластер Apache Kafka®.
 
             Чтобы получить идентификатор каталога, выполните запрос [list](/docs/resource-manager/api-ref/Folder/list).
 
@@ -1370,20 +1366,20 @@ components:
         name:
           description: |-
             Обязательное поле.
-            Имя кластера Apache Kafka. Имя должно быть уникальным в рамках каталога.
+            Имя кластера Apache Kafka®. Имя должно быть уникальным в рамках каталога.
 
             Длина строки в символах должна быть от 1 до 63.
             Значение должно соответствовать регулярному выражению `` [a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
           type: string
         description:
           description: |-
-            Описание кластера Apache Kafka.
+            Описание кластера Apache Kafka®.
 
             Максимальная длина строки в символах — 256.
           type: string
         labels:
           description: |-
-            Пользовательские метки для кластера Apache Kafka в виде пар `key:value`. Максимум 64 на кластер.
+            Пользовательские метки для кластера Apache Kafka® в виде пар `key:value`.
 
             Например, "project": "mvp" или "source": "dictionary".
 
@@ -1401,19 +1397,19 @@ components:
           $ref: '#/components/schemas/ConfigSpec_in_CreateClusterRequest_configSpec'
         topicSpecs:
           description: Одна или несколько конфигураций топиков, создаваемых в кластере
-            Apache Kafka.
+            Apache Kafka®.
           type: array
           items:
             $ref: '#/components/schemas/TopicSpec'
         userSpecs:
           description: Конфигурации учетных записей, создаваемых в кластере Apache
-            Kafka.
+            Kafka®.
           type: array
           items:
             $ref: '#/components/schemas/UserSpec'
         networkId:
           description: |-
-            Идентификатор каталога, в котором будет создан кластер Apache Kafka.
+            Идентификатор сети, в которой будет создан кластер Apache Kafka®.
 
             Максимальная длина строки в символах — 50.
           type: string
@@ -1421,12 +1417,12 @@ components:
       type: object
       properties:
         clusterId:
-          description: Идентификатор кластера Apache Kafka, в котором создается топик.
+          description: Идентификатор кластера Apache Kafka®, в котором создается топик.
           type: string
         topicName:
           description: |-
             Обязательное поле.
-            Имя создаваемого топика Apache Kafka.
+            Имя создаваемого топика Kafka.
 
             Максимальная длина строки в символах — 63.
             Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_-]* ``.
@@ -1440,7 +1436,7 @@ components:
       type: object
       properties:
         clusterId:
-          description: Идентификатор кластера Apache Kafka, в котором создается пользователь.
+          description: Идентификатор кластера Apache Kafka®, в котором создается пользователь.
           type: string
         userName:
           description: Имя создаваемого пользователя.
@@ -1454,22 +1450,22 @@ components:
       type: object
       properties:
         clusterId:
-          description: Идентификатор кластера Apache Kafka, который удаляется.
+          description: Идентификатор кластера Apache Kafka®, который удаляется.
           type: string
     DeleteTopicMetadata:
       type: object
       properties:
         clusterId:
-          description: Идентификатор кластера Apache Kafka, в котором удаляется топик.
+          description: Идентификатор кластера Apache Kafka®, в котором удаляется топик.
           type: string
         topicName:
-          description: Имя удаляемого топика Apache Kafka.
+          description: Имя удаляемого топика Kafka.
           type: string
     DeleteUserMetadata:
       type: object
       properties:
         clusterId:
-          description: Идентификатор кластера Apache Kafka, к которому принадлежит
+          description: Идентификатор кластера Apache Kafka®, к которому принадлежит
             пользователь.
           type: string
         userName:
@@ -1495,7 +1491,7 @@ components:
       properties:
         clusterId:
           description: |-
-            Идентификатор кластера Apache Kafka, к которому принадлежит пользователь.
+            Идентификатор кластера Apache Kafka®, к которому принадлежит пользователь.
 
             Чтобы получить идентификатор кластера, выполните запрос [list](/docs/managed-kafka/api-ref/Cluster/list).
           type: string
@@ -1515,7 +1511,7 @@ components:
           description: Имя хоста.
           type: string
         clusterId:
-          description: Идентификатор кластера Apache Kafka.
+          description: Идентификатор кластера Apache Kafka®.
           type: string
         zoneId:
           description: Идентификатор зоны доступности, в которой находится хост.
@@ -1538,10 +1534,10 @@ components:
           format: boolean
     HostHealth:
       description: |2-
-         - UNKNOWN: Состояние хоста неизвестно.
-         - ALIVE: Хост работает и выполняет все свои функции.
-         - DEAD: Хост не работает и не выполняет свои функции.
-         - DEGRADED: Хост находится в состоянии деградации и может выполнять только некоторые свои функции.
+         - UNKNOWN: состояние хоста неизвестно.
+         - ALIVE: хост работает и выполняет все свои функции.
+         - DEAD: хост не работает и не выполняет свои функции.
+         - DEGRADED: хост находится в состоянии деградации и может выполнять только некоторые свои функции.
       type: string
       enum:
       - UNKNOWN
@@ -1551,15 +1547,14 @@ components:
       default: UNKNOWN
     HostRole:
       description: |2-
-         - KAFKA: Хост — брокер Kafka.
-         - ZOOKEEPER: Хост — сервер ZooKeeper.
+         - KAFKA: хост — брокер Kafka.
+         - ZOOKEEPER: хост — сервер ZooKeeper.
       type: string
       enum:
       - KAFKA
       - ZOOKEEPER
     KafkaConfig2_1:
-      description: Конфигурация брокера Apache Kafka. Здесь настраиваются параметры,
-        связанные с хранением лога и сбросом лога на диск.
+      description: Конфигурация брокера Kafka.
       type: object
       properties:
         compressionType:
@@ -1569,7 +1564,7 @@ components:
             Количество сообщений, которые должны быть накоплены в разделе прежде, чем эти сообщения будут сброшены на диск.
 
             Это глобальная настройка, которая задается на уровне кластера. Её можно переопределить на уровне топика с помощью настройки
-            [Topic.topic_config.flush_messages].
+            `flushMessages`.
           type: integer
           format: int64
         logFlushIntervalMs:
@@ -1577,23 +1572,22 @@ components:
             Максимальное время (в миллисекундах), в течение которого сообщение в любом топике хранится в памяти перед сбросом на диск. Если значение не задано, то
             используется значение настройки `logFlushSchedulerIntervalMs`.
 
-            Это глобальная настройка, которая задается на уровне кластера. Её можно переопределить на уровне топика с помощью настройки [Topic.topic_config.flush_ms].
+            Это глобальная настройка, которая задается на уровне кластера. Её можно переопределить на уровне топика с помощью настройки `flushMs`.
           type: integer
           format: int64
         logFlushSchedulerIntervalMs:
-          description: |-
-            Частота (в миллисекундах), с которой процесс, ответственный за сброс логов, проверяет, нужно ли сбрасывать какие-либо логи на диск.
-
-            Частота проверки (в миллисекундах) наличия логов, которые нужно сбросить на диск. Эта проверка выполняется процессом, ответственным за сброс логов.
+          description: Частота проверки (в миллисекундах) наличия логов, которые нужно
+            сбросить на диск. Эта проверка выполняется процессом, ответственным за
+            сброс логов.
           type: integer
           format: int64
         logRetentionBytes:
           description: |-
             Ограничение размера раздела; Kafka отбросит старые сегменты лога, если , чтобы освободить место, если действует политика `delete`
-            [Topic.topic_config.cleanup_policy]. Этот настройка полезна, если вам необходимо контролировать размер лога из-за ограниченного дискового пространства.
+            `cleanupPolicy`. Этот настройка полезна, если вам необходимо контролировать размер лога из-за ограниченного дискового пространства.
 
             Это глобальная настройка, которая задается на уровне кластера. Её можно переопределить на уровне топика с помощью настройки
-            [Topic.topic_config.retention_bytes].
+            `retentionBytes`.
           type: integer
           format: int64
         logRetentionHours:
@@ -1614,8 +1608,7 @@ components:
 
             Если значение не задано, то используется значение настройки `logRetentionMinutes`.
 
-            Это глобальная настройка, которая задается на уровне кластера. Её можно переопределить на уровне топика с помощью настройки
-            [Topic.topic_config.retention_ms].
+            Это глобальная настройка, которая задается на уровне кластера. Её можно переопределить на уровне топика с помощью настройки `retentionMs`.
           type: integer
           format: int64
     ListClusterHostsResponse:
@@ -1630,8 +1623,8 @@ components:
           description: |-
             Токен для получения следующей страницы результатов в ответе.
 
-            Если количество результатов больше чем [pageSize](/docs/managed-kafka/api-ref/Cluster/listHosts#query_params), используйте `next_page_token` в качестве значения параметра
-            [pageToken](/docs/managed-kafka/api-ref/Cluster/listHosts#query_params) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для
+            Если количество результатов больше чем [pageSize](/docs/managed-kafka/api-ref/Cluster/listHosts#query_params), используйте [nextPageToken](/docs/managed-kafka/api-ref/Cluster/listHosts#responses) в качестве значения параметра
+            [pageToken](/docs/managed-kafka/api-ref/Cluster/listHosts#query_params) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения [nextPageToken](/docs/managed-kafka/api-ref/Cluster/listHosts#responses) для
             перебора страниц результатов.
           type: string
     ListClusterLogsResponse:
@@ -1646,15 +1639,15 @@ components:
           description: |-
             Токен для получения следующей страницы результатов в ответе.
 
-            Если количество результатов больше чем [pageSize](/docs/managed-kafka/api-ref/Cluster/listLogs#query_params), используйте `next_page_token` в качестве значения параметра
-            [pageToken](/docs/managed-kafka/api-ref/Cluster/listLogs#query_params) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для
-            перебора страниц результатов. Это значение взаимозаменяемо с `next_record_token` из метода StreamLogs.
+            Если количество результатов больше чем [pageSize](/docs/managed-kafka/api-ref/Cluster/listLogs#query_params), используйте [nextPageToken](/docs/managed-kafka/api-ref/Cluster/listLogs#responses) в качестве значения параметра
+            [pageToken](/docs/managed-kafka/api-ref/Cluster/listLogs#query_params) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения [nextPageToken](/docs/managed-kafka/api-ref/Cluster/listLogs#responses) для
+            перебора страниц результатов. Это значение взаимозаменяемо с `nextRecordToken` из метода StreamLogs.
           type: string
     ListClusterOperationsResponse:
       type: object
       properties:
         operations:
-          description: Получает список операций для указанного кластера Apache Kafka.
+          description: Получает список операций для указанного кластера Apache Kafka®.
           type: array
           items:
             $ref: '#/components/schemas/Operation'
@@ -1662,15 +1655,15 @@ components:
           description: |-
             Токен для получения следующей страницы результатов в ответе.
 
-            Если количество результатов больше чем [pageSize](/docs/managed-kafka/api-ref/Cluster/listOperations#query_params), используйте `next_page_token` в качестве значения параметра
-            [pageToken](/docs/managed-kafka/api-ref/Cluster/listOperations#query_params) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для
+            Если количество результатов больше чем [pageSize](/docs/managed-kafka/api-ref/Cluster/listOperations#query_params), используйте [nextPageToken](/docs/managed-kafka/api-ref/Cluster/listOperations#responses) в качестве значения параметра
+            [pageToken](/docs/managed-kafka/api-ref/Cluster/listOperations#query_params) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения [nextPageToken](/docs/managed-kafka/api-ref/Cluster/listOperations#responses) для
             перебора страниц результатов.
           type: string
     ListClustersResponse:
       type: object
       properties:
         clusters:
-          description: Список кластеров Apache Kafka.
+          description: Список кластеров Apache Kafka®.
           type: array
           items:
             $ref: '#/components/schemas/Cluster'
@@ -1678,7 +1671,7 @@ components:
           description: |-
             Токен для получения следующей страницы результатов в ответе.
 
-            Если количество результатов больше чем [pageSize](/docs/managed-kafka/api-ref/Cluster/list#query_params), используйте `next_page_token` в качестве значения параметра
+            Если количество результатов больше чем [pageSize](/docs/managed-kafka/api-ref/Cluster/list#query_params), используйте [nextPageToken](/docs/managed-kafka/api-ref/Cluster/list#responses) в качестве значения параметра
             [pageToken](/docs/managed-kafka/api-ref/Cluster/list#query_params) в следующем запросе. Все последующие запросы будут получать свои значения [nextPageToken](/docs/managed-kafka/api-ref/Cluster/list#responses) для перебора страниц
             результатов.
           type: string
@@ -1694,8 +1687,8 @@ components:
           description: |-
             Токен для получения следующей страницы результатов в ответе.
 
-            Если количество результатов больше чем [pageSize](/docs/managed-kafka/api-ref/ResourcePreset/list#query_params), используйте `next_page_token` в качестве значения параметра
-            [pageToken](/docs/managed-kafka/api-ref/ResourcePreset/list#query_params) в следующем запросе. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц
+            Если количество результатов больше чем [pageSize](/docs/managed-kafka/api-ref/ResourcePreset/list#query_params), используйте [nextPageToken](/docs/managed-kafka/api-ref/ResourcePreset/list#responses) в качестве значения параметра
+            [pageToken](/docs/managed-kafka/api-ref/ResourcePreset/list#query_params) в следующем запросе. Все последующие запросы будут получать свои значения [nextPageToken](/docs/managed-kafka/api-ref/ResourcePreset/list#responses) для перебора страниц
             результатов.
 
             Максимальная длина строки в символах — 100.
@@ -1704,7 +1697,7 @@ components:
       type: object
       properties:
         topics:
-          description: Список топиков Apache Kafka.
+          description: Список топиков Kafka.
           type: array
           items:
             $ref: '#/components/schemas/Topic'
@@ -1712,15 +1705,15 @@ components:
           description: |-
             Токен для получения следующей страницы результатов в ответе.
 
-            Если количество результатов больше чем [pageSize](/docs/managed-kafka/api-ref/Topic/list#query_params), используйте `next_page_token` в качестве значения параметра
-            [pageToken](/docs/managed-kafka/api-ref/Topic/list#query_params) в следующем запросе. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц
+            Если количество результатов больше чем [pageSize](/docs/managed-kafka/api-ref/Topic/list#query_params), используйте [nextPageToken](/docs/managed-kafka/api-ref/Topic/list#responses) в качестве значения параметра
+            [pageToken](/docs/managed-kafka/api-ref/Topic/list#query_params) в следующем запросе. Все последующие запросы будут получать свои значения [nextPageToken](/docs/managed-kafka/api-ref/Topic/list#responses) для перебора страниц
             результатов.
           type: string
     ListUsersResponse:
       type: object
       properties:
         users:
-          description: Список пользователей Apache Kafka.
+          description: Список пользователей Kafka.
           type: array
           items:
             $ref: '#/components/schemas/User'
@@ -1728,16 +1721,16 @@ components:
           description: |-
             Токен для получения следующей страницы результатов в ответе.
 
-            Если количество результатов больше чем [pageSize](/docs/managed-kafka/api-ref/User/list#query_params), используйте `next_page_token` в качестве значения параметра
-            [pageToken](/docs/managed-kafka/api-ref/User/list#query_params) в следующем запросе. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов.
+            Если количество результатов больше чем [pageSize](/docs/managed-kafka/api-ref/User/list#query_params), используйте [nextPageToken](/docs/managed-kafka/api-ref/User/list#responses) в качестве значения параметра
+            [pageToken](/docs/managed-kafka/api-ref/User/list#query_params) в следующем запросе. Все последующие запросы будут получать свои значения [nextPageToken](/docs/managed-kafka/api-ref/User/list#responses) для перебора страниц результатов.
           type: string
     LogRecord:
-      description: A single log record.
+      description: Записи в журнале.
       type: object
       properties:
         timestamp:
           description: |-
-            Временная метка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) для записи в логе.
+            Временная метка для записи в логе.
 
             Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
           type: string
@@ -1748,7 +1741,7 @@ components:
           additionalProperties:
             type: string
     Monitoring:
-      description: Система мониторинга.
+      description: Метаданные системы мониторинга.
       type: object
       properties:
         name:
@@ -1758,13 +1751,13 @@ components:
           description: Описание системы мониторинга.
           type: string
         link:
-          description: Ссылка на графики системы мониторинга для кластера Apache Kafka.
+          description: Ссылка на графики системы мониторинга для кластера Apache Kafka®.
           type: string
     MoveClusterMetadata:
       type: object
       properties:
         clusterId:
-          description: Идентификатор перемещаемого кластера Apache Kafka.
+          description: Идентификатор перемещаемого кластера Apache Kafka®.
           type: string
         sourceFolderId:
           description: Идентификатор исходного каталога.
@@ -1857,14 +1850,14 @@ components:
           description: |-
             Имя топика, к которому предоставляется доступ.
 
-            Чтобы получить имя топика, выполните запрос [Topic.List].
+            Чтобы получить имя топика, выполните запрос [list](/docs/managed-kafka/api-ref/Topic/list).
           type: string
         role:
           $ref: '#/components/schemas/PermissionAccessRole_in_Permission_role'
     PermissionAccessRole:
       description: |2-
-         - ACCESS_ROLE_PRODUCER: Роль пользователя — производитель.
-         - ACCESS_ROLE_CONSUMER: Роль пользователя — потребитель.
+         - ACCESS_ROLE_PRODUCER: роль пользователя — производитель.
+         - ACCESS_ROLE_CONSUMER: роль пользователя — потребитель.
       type: string
       enum:
       - ACCESS_ROLE_PRODUCER
@@ -1874,7 +1867,7 @@ components:
       type: object
       properties:
         id:
-          description: Идентификатор набора вычислительных ресурсов.
+          description: Идентификатор набора ресурсов.
           type: string
         zoneIds:
           description: Идентификаторы зон доступности, в которых доступен этот набор
@@ -1893,13 +1886,13 @@ components:
           type: string
           format: int64
     Resources:
-      description: Вычислительные ресурсы кластера.
+      description: Вычислительные ресурсы.
       type: object
       properties:
         resourcePresetId:
           description: |-
             Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в
-            [документации](/docs/managed-kafka/concepts/instance-types).
+            [documentation](/docs/managed-kafka/concepts/instance-types).
           type: string
         diskSize:
           description: Объем хранилища, доступного хосту, в байтах.
@@ -1912,7 +1905,7 @@ components:
       type: object
       properties:
         clusterId:
-          description: Идентификатор кластера Apache Kafka, к которому принадлежит
+          description: Идентификатор кластера Apache Kafka®, к которому принадлежит
             пользователь.
           type: string
         userName:
@@ -1927,13 +1920,13 @@ components:
       type: object
       properties:
         clusterId:
-          description: Идентификатор кластера Apache Kafka.
+          description: Идентификатор кластера Apache Kafka®.
           type: string
     StopClusterMetadata:
       type: object
       properties:
         clusterId:
-          description: Идентификатор кластера Apache Kafka.
+          description: Идентификатор кластера Apache Kafka®.
           type: string
     StreamLogRecord:
       type: object
@@ -1942,12 +1935,16 @@ components:
           $ref: '#/components/schemas/LogRecord_in_StreamLogRecord_record'
         nextRecordToken:
           description: |-
-            Этот токен позволяет продолжить работу с потоком логов, начиная с этой записи. Чтобы продолжить работу с потоком, укажите значение `next_record_token` в
-            качестве значения параметра `record_token` в следующем запросе StreamLogs. Это значение взаимозаменяемо с `next_page_token` из метода ListLogs.
+            Этот токен позволяет продолжить работу с потоком логов, начиная с этой записи.
+
+            Чтобы продолжить работу с потоком, укажите значение `nextRecordToken` в качестве значения параметра [recordToken](/docs/managed-kafka/api-ref/Cluster/streamLogs#query_params) в следующем
+            запросе StreamLogs.
+
+            Это значение взаимозаменяемо с [nextPageToken](/docs/managed-kafka/api-ref/Cluster/listLogs#responses) из метода ListLogs.
           type: string
     Topic:
-      description: Топик Apache Kafka. Подробнее читайте в разделе [Топики и разделы](/docs/managed-kafka/concepts/topics)
-        документации.
+      description: Топик Kafka. Подробнее читайте в разделе [Concepts → Topics and
+        partitions](/docs/managed-kafka/concepts/topics) документации.
       type: object
       allOf:
       - type: object
@@ -1957,9 +1954,9 @@ components:
             type: string
           clusterId:
             description: |-
-              Идентификатор кластера Apache Kafka, к которому принадлежит топик.
+              Идентификатор кластера Apache Kafka®, к которому принадлежит топик.
 
-              Чтобы получить идентификатор кластера Apache Kafka, выполните запрос [list](/docs/managed-kafka/api-ref/Cluster/list).
+              Чтобы получить идентификатор кластера Apache Kafka®, выполните запрос [list](/docs/managed-kafka/api-ref/Cluster/list).
             type: string
           partitions:
             description: Количество разделов в топике.
@@ -1996,14 +1993,14 @@ components:
           description: |-
             Количество сообщений, которые должны быть накоплены в разделе прежде, чем эти сообщения будут сброшены на диск.
 
-            Эта настройка переопределяет на уровне топика настройку уровня кластера [Cluster.config.kafka.kafka_config.log_flush_interval_messages].
+            Эта настройка переопределяет на уровне топика настройку уровня кластера `logFlushIntervalMessages`.
           type: integer
           format: int64
         flushMs:
           description: |-
             Максимальное время (в миллисекундах), в течение которого сообщение в любом топике хранится в памяти перед сбросом на диск.
 
-            Эта настройка переопределяет на уровне топика настройку уровня кластера [Cluster.config.kafka.kafka_config.log_flush_interval_ms].
+            Эта настройка переопределяет на уровне топика настройку уровня кластера `logFlushIntervalMs`.
           type: integer
           format: int64
         minCompactionLagMs:
@@ -2016,30 +2013,28 @@ components:
             Максимальный размер, до которого может вырасти раздел, прежде чем Kafka начнет отбрасывать старые сегменты лога, если действует настройка `delete`
             `cleanupPolicy`. Эта настройка полезна, если вам необходимо контролировать размер лога из-за ограниченного дискового пространства.
 
-            Эта настройка переопределяет на уровне топика настройку уровня кластера [Cluster.config.kafka.kafka_config.log_retention_bytes].
+            Эта настройка переопределяет на уровне топика настройку уровня кластера `logRetentionBytes`.
           type: integer
           format: int64
         retentionMs:
           description: |-
             Количество миллисекунд до удаления файла сегмента лога; в течение этого времени Kafka будет хранить файл сегмента лога.
 
-            Эта настройка переопределяет на уровне топика настройку уровня кластера [Cluster.config.kafka.kafka_config.log_retention_ms].
+            Эта настройка переопределяет на уровне топика настройку уровня кластера `logRetentionMs`.
           type: integer
           format: int64
     TopicConfig2_1CleanupPolicy:
       description: |2-
-         - CLEANUP_POLICY_DELETE: Эта политика отбрасывает сегменты лога либо при истечении срока их хранения, либо при достижении предельного размера лога.
-
-        См. также описание [Cluster.config.kafka.kafka_config.log_retention_ms] и других подобных параметров.
-         - CLEANUP_POLICY_COMPACT: Эта политика сжимает сообщения в логе.
-         - CLEANUP_POLICY_COMPACT_AND_DELETE: Эта политика использует как сжатие сообщений, так и удаление сегментов лога.
+         - CLEANUP_POLICY_DELETE: эта политика отбрасывает сегменты лога либо при истечении срока их хранения, либо при достижении предельного размера лога. См. также описание
+        `logRetentionMs` и других подобных параметров.
+         - CLEANUP_POLICY_COMPACT: эта политика сжимает сообщения в логе.
+         - CLEANUP_POLICY_COMPACT_AND_DELETE: эта политика использует как сжатие сообщений, так и удаление сегментов лога.
       type: string
       enum:
       - CLEANUP_POLICY_DELETE
       - CLEANUP_POLICY_COMPACT
       - CLEANUP_POLICY_COMPACT_AND_DELETE
     TopicSpec:
-      description: Настройки топика Apache Kafka.
       type: object
       allOf:
       - type: object
@@ -2065,7 +2060,7 @@ components:
       type: object
       properties:
         clusterId:
-          description: Идентификатор кластера Apache Kafka, который изменяется.
+          description: Идентификатор кластера Apache Kafka®, который изменяется.
           type: string
     UpdateClusterRequest:
       type: object
@@ -2074,13 +2069,13 @@ components:
           $ref: '#/components/schemas/FieldMask_in_UpdateClusterRequest_updateMask'
         description:
           description: |-
-            Новое описание кластера Apache Kafka.
+            Новое описание кластера Apache Kafka®.
 
             Максимальная длина строки в символах — 256.
           type: string
         labels:
           description: |-
-            Пользовательские метки для кластера Apache Kafka в виде пар `key:value`. Максимум 64 на ресурс.
+            Пользовательские метки для кластера Apache Kafka® в виде пар `key:value`.
 
             Например, "project": "mvp" или "source": "dictionary".
 
@@ -2099,7 +2094,7 @@ components:
           $ref: '#/components/schemas/ConfigSpec_in_UpdateClusterRequest_configSpec'
         name:
           description: |-
-            Новое имя кластера Apache Kafka.
+            Новое имя кластера Apache Kafka®.
 
             Максимальная длина строки в символах — 63.
             Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_-]* ``.
@@ -2108,10 +2103,11 @@ components:
       type: object
       properties:
         clusterId:
-          description: Идентификатор кластера Apache Kafka, в котором изменяется топик.
+          description: Идентификатор кластера Apache Kafka®, в котором изменяется
+            топик.
           type: string
         topicName:
-          description: Имя изменяемого топика Apache Kafka.
+          description: Имя изменяемого топика Kafka.
           type: string
     UpdateTopicRequest:
       type: object
@@ -2124,7 +2120,7 @@ components:
       type: object
       properties:
         clusterId:
-          description: Идентификатор кластера Apache Kafka, к которому принадлежит
+          description: Идентификатор кластера Apache Kafka®, к которому принадлежит
             пользователь.
           type: string
         userName:
@@ -2147,18 +2143,18 @@ components:
           items:
             $ref: '#/components/schemas/Permission'
     User:
-      description: Пользователь Apache Kafka. Подробнее читайте в разделе [Учетные
-        записи](/docs/managed-kafka/concepts/users) документации.
+      description: Пользователь Kafka. Подробнее читайте в разделе [Operations → Accounts](/docs/managed-kafka/operations/cluster-accounts)
+        документации.
       type: object
       properties:
         name:
-          description: Имя пользователя Apache Kafka.
+          description: Имя пользователя Kafka.
           type: string
         clusterId:
           description: |-
-            Идентификатор кластера Apache Kafka, к которому принадлежит пользователь.
+            Идентификатор кластера Apache Kafka®, к которому принадлежит пользователь.
 
-            Чтобы получить идентификатор кластера Apache Kafka, выполните запрос [list](/docs/managed-kafka/api-ref/Cluster/list).
+            Чтобы получить идентификатор кластера Apache Kafka®, выполните запрос [list](/docs/managed-kafka/api-ref/Cluster/list).
           type: string
         permissions:
           description: Набор разрешений, предоставленных пользователю.
@@ -2166,13 +2162,12 @@ components:
           items:
             $ref: '#/components/schemas/Permission'
     UserSpec:
-      description: Настройки пользователя Apache Kafka.
       type: object
       properties:
         name:
           description: |-
             Обязательное поле.
-            Имя пользователя Apache Kafka.
+            Имя пользователя Kafka.
 
             Длина строки в символах должна быть от 1 до 63.
             Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_]* ``.
@@ -2180,7 +2175,7 @@ components:
         password:
           description: |-
             Обязательное поле.
-            Пароль пользователя Apache Kafka.
+            Пароль пользователя Kafka.
 
             Длина строки в символах должна быть от 8 до 128.
           type: string
@@ -2207,23 +2202,20 @@ components:
             type: object
     ClusterEnvironment_in_Cluster_environment:
       description: |-
-        Среда развертывания кластера Apache Kafka.
+        Среда развертывания кластера Apache Kafka®.
 
-         - PRODUCTION: Стабильная среда с осторожной политикой обновления: во время регулярного обслуживания применяются только срочные исправления.
-         - PRESTABLE: Среда с более агрессивной политикой обновления: новые версии развертываются независимо от обратной совместимости.
+         - PRODUCTION: стабильная среда с осторожной политикой обновления — во время регулярного обслуживания применяются только срочные исправления.
+         - PRESTABLE: среда с более агрессивной политикой обновления — новые версии развертываются независимо от обратной совместимости.
       type: string
       enum:
       - PRODUCTION
       - PRESTABLE
     ConfigSpec_in_Cluster_config:
-      description: |-
-        Конфигурация кластера Apache Kafka.
-
-        Конфигурация кластера.
+      description: Конфигурация кластера Apache Kafka®.
       type: object
       properties:
         version:
-          description: Версия Apache Kafka, которая используется в кластере.
+          description: Версия Apache Kafka®, которая используется в кластере.
           type: string
         kafka:
           $ref: '#/components/schemas/ConfigSpecKafka_in_ConfigSpec_kafka'
@@ -2231,18 +2223,17 @@ components:
           $ref: '#/components/schemas/ConfigSpecZookeeper_in_ConfigSpec_zookeeper'
         zoneId:
           description: Идентификаторы зон доступности, в которых находятся брокеры
-            Apache Kafka.
+            Kafka.
           type: array
           items:
             type: string
         brokersCount:
-          description: Количество брокеров Apache Kafka, развернутых в каждой зоне
-            доступности.
+          description: Количество брокеров Kafka, развернутых в каждой зоне доступности.
           type: integer
           format: int64
         assignPublicIp:
           description: |-
-            Флаг, определяющий, назначен ли кластеру публичный IP-адрес. Если значение равно `true`, то кластер Apache Kafka доступен в Интернете через его публичный
+            Флаг, определяющий, назначен ли кластеру публичный IP-адрес. Если значение равно `true`, то кластер Apache Kafka® доступен в Интернете через его публичный
             IP-адрес.
           type: boolean
           format: boolean
@@ -2250,10 +2241,10 @@ components:
       description: |-
         Здоровье кластера.
 
-         - HEALTH_UNKNOWN: Состояние кластера неизвестно (`health` всех хостов в кластере — `UNKNOWN`).
-         - ALIVE: Кластер работает нормально (`health` всех хостов в кластере — `ALIVE`).
-         - DEAD: Кластер не работает (`health` всех хостов в кластере — `DEAD`).
-         - DEGRADED: Кластер находится в состоянии деградации (`health` по крайней мере одного из хостов в кластере — не `ALIVE`).
+         - HEALTH_UNKNOWN: состояние кластера неизвестно (`health` всех хостов в кластере — `UNKNOWN`).
+         - ALIVE: кластер работает нормально (`health` всех хостов в кластере — `ALIVE`).
+         - DEAD: кластер не работает (`health` всех хостов в кластере — `DEAD`).
+         - DEGRADED: кластер находится в состоянии деградации (`health` по крайней мере одного из хостов в кластере — не `ALIVE`).
       type: string
       enum:
       - HEALTH_UNKNOWN
@@ -2265,14 +2256,14 @@ components:
       description: |-
         Текущее состояние кластера.
 
-         - STATUS_UNKNOWN: Состояние кластера неизвестно.
-         - CREATING: Кластер создается.
-         - RUNNING: Кластер работает нормально.
-         - ERROR: В кластере произошла ошибка, блокирующая работу.
-         - UPDATING: Кластер изменяется.
-         - STOPPING: Кластер останавливается.
-         - STOPPED: Кластер остановлен.
-         - STARTING: Кластер запускается.
+         - STATUS_UNKNOWN: состояние кластера неизвестно.
+         - CREATING: кластер создается.
+         - RUNNING: кластер работает нормально.
+         - ERROR: в кластере произошла ошибка, блокирующая работу.
+         - UPDATING: кластер изменяется.
+         - STOPPING: кластер останавливается.
+         - STOPPED: кластер остановлен.
+         - STARTING: кластер запускается.
       type: string
       enum:
       - STATUS_UNKNOWN
@@ -2285,17 +2276,14 @@ components:
       - STARTING
       default: STATUS_UNKNOWN
     ConfigSpecKafka_in_ConfigSpec_kafka:
-      description: |-
-        Конфигурация и распределение ресурсов для брокеров Apache Kafka.
-
-        Конфигурация Apache Kafka.
+      description: Конфигурация и распределение ресурсов для брокеров Kafka.
       type: object
       allOf:
       - type: object
         properties:
           resources:
             $ref: '#/components/schemas/Resources'
-            description: Ресурсы, выделенные брокерам Apache Kafka.
+            description: Ресурсы, выделенные брокерам Kafka.
       - title: kafka_config
         type: object
         maxProperties: 1
@@ -2303,10 +2291,7 @@ components:
           kafkaConfig_2_1:
             $ref: '#/components/schemas/KafkaConfig2_1'
     ConfigSpecZookeeper_in_ConfigSpec_zookeeper:
-      description: |-
-        Конфигурация и распределение ресурсов для хостов ZooKeeper.
-
-        Конфигурация ZooKeeper.
+      description: Конфигурация и распределение ресурсов для хостов ZooKeeper.
       type: object
       properties:
         resources:
@@ -2315,13 +2300,13 @@ components:
       description: |-
         Ресурсы, выделенные хостам ZooKeeper.
 
-        Вычислительные ресурсы кластера.
+        Вычислительные ресурсы.
       type: object
       properties:
         resourcePresetId:
           description: |-
             Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в
-            [документации](/docs/managed-kafka/concepts/instance-types).
+            [documentation](/docs/managed-kafka/concepts/instance-types).
           type: string
         diskSize:
           description: Объем хранилища, доступного хосту, в байтах.
@@ -2332,23 +2317,20 @@ components:
           type: string
     ClusterEnvironment_in_CreateClusterRequest_environment:
       description: |-
-        Среда развертывания кластера Apache Kafka.
+        Среда развертывания кластера Apache Kafka®.
 
-         - PRODUCTION: Стабильная среда с осторожной политикой обновления: во время регулярного обслуживания применяются только срочные исправления.
-         - PRESTABLE: Среда с более агрессивной политикой обновления: новые версии развертываются независимо от обратной совместимости.
+         - PRODUCTION: стабильная среда с осторожной политикой обновления — во время регулярного обслуживания применяются только срочные исправления.
+         - PRESTABLE: среда с более агрессивной политикой обновления — новые версии развертываются независимо от обратной совместимости.
       type: string
       enum:
       - PRODUCTION
       - PRESTABLE
     ConfigSpec_in_CreateClusterRequest_configSpec:
-      description: |-
-        Конфигурация Kafka и хостов в кластере.
-
-        Конфигурация кластера.
+      description: Конфигурация Kafka и хостов в кластере Apache Kafka®.
       type: object
       properties:
         version:
-          description: Версия Apache Kafka, которая используется в кластере.
+          description: Версия Apache Kafka®, которая используется в кластере.
           type: string
         kafka:
           $ref: '#/components/schemas/ConfigSpecKafka_in_ConfigSpec_kafka'
@@ -2356,18 +2338,17 @@ components:
           $ref: '#/components/schemas/ConfigSpecZookeeper_in_ConfigSpec_zookeeper'
         zoneId:
           description: Идентификаторы зон доступности, в которых находятся брокеры
-            Apache Kafka.
+            Kafka.
           type: array
           items:
             type: string
         brokersCount:
-          description: Количество брокеров Apache Kafka, развернутых в каждой зоне
-            доступности.
+          description: Количество брокеров Kafka, развернутых в каждой зоне доступности.
           type: integer
           format: int64
         assignPublicIp:
           description: |-
-            Флаг, определяющий, назначен ли кластеру публичный IP-адрес. Если значение равно `true`, то кластер Apache Kafka доступен в Интернете через его публичный
+            Флаг, определяющий, назначен ли кластеру публичный IP-адрес. Если значение равно `true`, то кластер Apache Kafka® доступен в Интернете через его публичный
             IP-адрес.
           type: boolean
           format: boolean
@@ -2375,8 +2356,6 @@ components:
       description: |-
         Обязательное поле.
         Конфигурация топика, который нужно создать.
-
-        Настройки топика Apache Kafka.
       type: object
       allOf:
       - type: object
@@ -2402,14 +2381,12 @@ components:
       description: |-
         Обязательное поле.
         Свойства создаваемого пользователя.
-
-        Настройки пользователя Apache Kafka.
       type: object
       properties:
         name:
           description: |-
             Обязательное поле.
-            Имя пользователя Apache Kafka.
+            Имя пользователя Kafka.
 
             Длина строки в символах должна быть от 1 до 63.
             Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_]* ``.
@@ -2417,7 +2394,7 @@ components:
         password:
           description: |-
             Обязательное поле.
-            Пароль пользователя Apache Kafka.
+            Пароль пользователя Kafka.
 
             Длина строки в символах должна быть от 8 до 128.
           type: string
@@ -2436,7 +2413,7 @@ components:
           description: |-
             Имя топика, к которому предоставляется доступ.
 
-            Чтобы получить имя топика, выполните запрос [Topic.List].
+            Чтобы получить имя топика, выполните запрос [list](/docs/managed-kafka/api-ref/Topic/list).
           type: string
         role:
           $ref: '#/components/schemas/PermissionAccessRole_in_Permission_role'
@@ -2444,8 +2421,8 @@ components:
       description: |-
         Роль хоста.
 
-         - KAFKA: Хост — брокер Kafka.
-         - ZOOKEEPER: Хост — сервер ZooKeeper.
+         - KAFKA: хост — брокер Kafka.
+         - ZOOKEEPER: хост — сервер ZooKeeper.
       type: string
       enum:
       - KAFKA
@@ -2454,13 +2431,13 @@ components:
       description: |-
         Ресурсы, выделенные хосту.
 
-        Вычислительные ресурсы кластера.
+        Вычислительные ресурсы.
       type: object
       properties:
         resourcePresetId:
           description: |-
             Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в
-            [документации](/docs/managed-kafka/concepts/instance-types).
+            [documentation](/docs/managed-kafka/concepts/instance-types).
           type: string
         diskSize:
           description: Объем хранилища, доступного хосту, в байтах.
@@ -2473,10 +2450,10 @@ components:
       description: |-
         Агрегированные данные о работоспособности хоста.
 
-         - UNKNOWN: Состояние хоста неизвестно.
-         - ALIVE: Хост работает и выполняет все свои функции.
-         - DEAD: Хост не работает и не выполняет свои функции.
-         - DEGRADED: Хост находится в состоянии деградации и может выполнять только некоторые свои функции.
+         - UNKNOWN: состояние хоста неизвестно.
+         - ALIVE: хост работает и выполняет все свои функции.
+         - DEAD: хост не работает и не выполняет свои функции.
+         - DEGRADED: хост находится в состоянии деградации и может выполнять только некоторые свои функции.
       type: string
       enum:
       - UNKNOWN
@@ -2488,12 +2465,12 @@ components:
       description: |-
         Тип сжатия для топиков кластера.
 
-         - COMPRESSION_TYPE_UNCOMPRESSED: Не использовать кодек (сообщения не сжимаются).
-         - COMPRESSION_TYPE_ZSTD: Кодек Zstandard.
+         - COMPRESSION_TYPE_UNCOMPRESSED: не использовать кодек (сообщения не сжимаются).
+         - COMPRESSION_TYPE_ZSTD: кодек Zstandard.
          - COMPRESSION_TYPE_LZ4: Кодек LZ4.
          - COMPRESSION_TYPE_SNAPPY: Кодек Snappy.
-         - COMPRESSION_TYPE_GZIP: Кодек GZip.
-         - COMPRESSION_TYPE_PRODUCER: Кодек задается на стороне производителя (допустимые кодеки: ZSTD`, `Формате LZ4`, `УТИЛИТА GZIP` or `SNAPPY`).
+         - COMPRESSION_TYPE_GZIP: кодек GZip.
+         - COMPRESSION_TYPE_PRODUCER: кодек задается на стороне производителя (допустимые кодеки: `ZSTD`, `LZ4`, `GZIP` или `SNAPPY`).
       type: string
       enum:
       - COMPRESSION_TYPE_UNCOMPRESSED
@@ -2506,8 +2483,8 @@ components:
       description: |-
         Роль доступа, которую нужно предоставить пользователю.
 
-         - ACCESS_ROLE_PRODUCER: Роль пользователя — производитель.
-         - ACCESS_ROLE_CONSUMER: Роль пользователя — потребитель.
+         - ACCESS_ROLE_PRODUCER: роль пользователя — производитель.
+         - ACCESS_ROLE_CONSUMER: роль пользователя — потребитель.
       type: string
       enum:
       - ACCESS_ROLE_PRODUCER
@@ -2522,7 +2499,7 @@ components:
           description: |-
             Имя топика, к которому предоставляется доступ.
 
-            Чтобы получить имя топика, выполните запрос [Topic.List].
+            Чтобы получить имя топика, выполните запрос [list](/docs/managed-kafka/api-ref/Topic/list).
           type: string
         role:
           $ref: '#/components/schemas/PermissionAccessRole_in_Permission_role'
@@ -2530,12 +2507,12 @@ components:
       description: |-
         Одна из запрошенных записей в логе.
 
-        A single log record.
+        Записи в журнале.
       type: object
       properties:
         timestamp:
           description: |-
-            Временная метка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) для записи в логе.
+            Временная метка для записи в логе.
 
             Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
           type: string
@@ -2549,11 +2526,10 @@ components:
       description: |-
         Политика хранения старых сообщений лога.
 
-         - CLEANUP_POLICY_DELETE: Эта политика отбрасывает сегменты лога либо при истечении срока их хранения, либо при достижении предельного размера лога.
-
-        См. также описание [Cluster.config.kafka.kafka_config.log_retention_ms] и других подобных параметров.
-         - CLEANUP_POLICY_COMPACT: Эта политика сжимает сообщения в логе.
-         - CLEANUP_POLICY_COMPACT_AND_DELETE: Эта политика использует как сжатие сообщений, так и удаление сегментов лога.
+         - CLEANUP_POLICY_DELETE: эта политика отбрасывает сегменты лога либо при истечении срока их хранения, либо при достижении предельного размера лога. См. также описание
+        `logRetentionMs` и других подобных параметров.
+         - CLEANUP_POLICY_COMPACT: эта политика сжимает сообщения в логе.
+         - CLEANUP_POLICY_COMPACT_AND_DELETE: эта политика использует как сжатие сообщений, так и удаление сегментов лога.
       type: string
       enum:
       - CLEANUP_POLICY_DELETE
@@ -2563,12 +2539,12 @@ components:
       description: |-
         Тип сжатия для указанного топика.
 
-         - COMPRESSION_TYPE_UNCOMPRESSED: Не использовать кодек (сообщения не сжимаются).
-         - COMPRESSION_TYPE_ZSTD: Кодек Zstandard.
+         - COMPRESSION_TYPE_UNCOMPRESSED: не использовать кодек (сообщения не сжимаются).
+         - COMPRESSION_TYPE_ZSTD: кодек Zstandard.
          - COMPRESSION_TYPE_LZ4: Кодек LZ4.
          - COMPRESSION_TYPE_SNAPPY: Кодек Snappy.
-         - COMPRESSION_TYPE_GZIP: Кодек GZip.
-         - COMPRESSION_TYPE_PRODUCER: Кодек задается на стороне производителя (допустимые кодеки: ZSTD`, `Формате LZ4`, `УТИЛИТА GZIP` or `SNAPPY`).
+         - COMPRESSION_TYPE_GZIP: кодек GZip.
+         - COMPRESSION_TYPE_PRODUCER: кодек задается на стороне производителя (допустимые кодеки: `ZSTD`, `LZ4`, `GZIP` или `SNAPPY`).
       type: string
       enum:
       - COMPRESSION_TYPE_UNCOMPRESSED
@@ -2579,11 +2555,6 @@ components:
       - COMPRESSION_TYPE_PRODUCER
     FieldMask_in_UpdateClusterRequest_updateMask:
       description: |-
-        Маска, которая указывает, какие атрибуты кластера Apache Kafka должны быть изменены.
-
-        По умолчанию этот метод API заменит все значения параметров, которые отсутствуют в списке `update_mask`, значениями по умолчанию. Передайте список настроек
-        для изменения в этом параметре, чтобы не допустить этого (используйте запятую в качестве разделителя, если вы хотите изменить сразу несколько настроек).
-
         Имена всех обновляемых полей, разделенные запятыми.
         Только значения указанных полей будут изменены. Остальные останутся нетронутыми.
         Если поле указано в параметре `` updateMask `` и в запросе не было отправлено значение для этого поля,
@@ -2595,15 +2566,13 @@ components:
       type: string
     ConfigSpec_in_UpdateClusterRequest_configSpec:
       description: |-
-        Новая конфигурация Kafka и хостов кластера.
+        Новая конфигурация Kafka и хостов кластера Apache Kafka®.
 
-        Используйте параметр [updateMask](/docs/managed-kafka/api-ref/Cluster/update#body_params) чтобы предотвратить сброс настроек кластера, не перечисленных в `config_spec`, на значения по умолчанию.
-
-        Конфигурация кластера.
+        Используйте параметр [updateMask](/docs/managed-kafka/api-ref/Cluster/update#body_params) чтобы предотвратить сброс настроек кластера, не перечисленных в [configSpec](/docs/managed-kafka/api-ref/Cluster/update#body_params), на значения по умолчанию.
       type: object
       properties:
         version:
-          description: Версия Apache Kafka, которая используется в кластере.
+          description: Версия Apache Kafka®, которая используется в кластере.
           type: string
         kafka:
           $ref: '#/components/schemas/ConfigSpecKafka_in_ConfigSpec_kafka'
@@ -2611,28 +2580,22 @@ components:
           $ref: '#/components/schemas/ConfigSpecZookeeper_in_ConfigSpec_zookeeper'
         zoneId:
           description: Идентификаторы зон доступности, в которых находятся брокеры
-            Apache Kafka.
+            Kafka.
           type: array
           items:
             type: string
         brokersCount:
-          description: Количество брокеров Apache Kafka, развернутых в каждой зоне
-            доступности.
+          description: Количество брокеров Kafka, развернутых в каждой зоне доступности.
           type: integer
           format: int64
         assignPublicIp:
           description: |-
-            Флаг, определяющий, назначен ли кластеру публичный IP-адрес. Если значение равно `true`, то кластер Apache Kafka доступен в Интернете через его публичный
+            Флаг, определяющий, назначен ли кластеру публичный IP-адрес. Если значение равно `true`, то кластер Apache Kafka® доступен в Интернете через его публичный
             IP-адрес.
           type: boolean
           format: boolean
     FieldMask_in_UpdateTopicRequest_updateMask:
       description: |-
-        Маска, которая указывает, какие атрибуты топика Apache Kafka должны быть изменены.
-
-        По умолчанию этот метод API заменит все значения параметров, которые отсутствуют в списке `update_mask`, значениями по умолчанию. Передайте список настроек
-        для изменения в этом параметре, чтобы не допустить этого (используйте запятую в качестве разделителя, если вы хотите изменить сразу несколько настроек).
-
         Имена всех обновляемых полей, разделенные запятыми.
         Только значения указанных полей будут изменены. Остальные останутся нетронутыми.
         Если поле указано в параметре `` updateMask `` и в запросе не было отправлено значение для этого поля,
@@ -2646,10 +2609,7 @@ components:
       description: |-
         Новые настройки топика.
 
-        Используйте параметр [updateMask](/docs/managed-kafka/api-ref/Topic/update#body_params) чтобы предотвратить сброс настроек топика, не перечисленных в `topic_spec`, на значения по умолчанию. Конфигурация
-        топика, который нужно создать.
-
-        Настройки топика Apache Kafka.
+        Используйте параметр [updateMask](/docs/managed-kafka/api-ref/Topic/update#body_params) чтобы предотвратить сброс настроек топика, не перечисленных в [topicSpec](/docs/managed-kafka/api-ref/Topic/update#body_params), на значения по умолчанию.
       type: object
       allOf:
       - type: object
@@ -2673,11 +2633,6 @@ components:
             $ref: '#/components/schemas/TopicConfig2_1'
     FieldMask_in_UpdateUserRequest_updateMask:
       description: |-
-        Маска, которая указывает, какие атрибуты пользователя Apache Kafka должны быть изменены.
-
-        По умолчанию этот метод API заменит все значения параметров, которые отсутствуют в списке `update_mask`, значениями по умолчанию. Передайте список настроек
-        для изменения в этом параметре, чтобы не допустить этого (используйте запятую в качестве разделителя, если вы хотите изменить сразу несколько настроек).
-
         Имена всех обновляемых полей, разделенные запятыми.
         Только значения указанных полей будут изменены. Остальные останутся нетронутыми.
         Если поле указано в параметре `` updateMask `` и в запросе не было отправлено значение для этого поля,
@@ -2689,13 +2644,12 @@ components:
       type: string
 tags:
 - name: Cluster
-  description: Набор методов для управления кластерами Apache Kafka.
+  description: Набор методов для управления кластерами Apache Kafka®.
 - name: Operation
-  description: Набор методов для управления операциями — асинхронными запросами к
-    API.
+  description: Набор методов для управления операциями в асинхронных запросах API.
 - name: ResourcePreset
   description: Методы для работы с шаблонами ресурсов.
 - name: Topic
-  description: Набор методов для управления топиками Apache Kafka.
+  description: Набор методов для управления топиками Kafka.
 - name: User
-  description: Набор методов для управления пользователями Apache Kafka.
+  description: Набор методов для управления пользователями Kafka.

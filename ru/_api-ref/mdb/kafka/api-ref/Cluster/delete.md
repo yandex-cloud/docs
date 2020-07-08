@@ -2,20 +2,20 @@
 editable: false
 ---
 
-<<<<<<< HEAD:ru/_api-ref/mdb/clickhouse/api-ref/Cluster/deleteShardGroup.md
-# Метод deleteShardGroup
-Удаляет группу шардов.
+<<<<<<< HEAD:ru/_api-ref/mdb/kafka/api-ref/Cluster/start.md
+# Метод start
+Запускает указанный кластер Apache Kafka.
 =======
 # Метод delete
-Удаляет указанный кластер Apache Kafka.
+Удаляет указанный кластер Apache Kafka®.
 >>>>>>> achegodaev-7580-generated-api:ru/_api-ref/mdb/kafka/api-ref/Cluster/delete.md
  
 
  
 ## HTTP-запрос {#https-request}
 ```
-<<<<<<< HEAD:ru/_api-ref/mdb/clickhouse/api-ref/Cluster/deleteShardGroup.md
-DELETE https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}/shardGroups/{shardGroupName}
+<<<<<<< HEAD:ru/_api-ref/mdb/kafka/api-ref/Cluster/start.md
+POST https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/{clusterId}:start
 =======
 DELETE https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/{clusterId}
 >>>>>>> achegodaev-7580-generated-api:ru/_api-ref/mdb/kafka/api-ref/Cluster/delete.md
@@ -25,11 +25,10 @@ DELETE https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/{clusterId}
  
 Параметр | Описание
 --- | ---
-<<<<<<< HEAD:ru/_api-ref/mdb/clickhouse/api-ref/Cluster/deleteShardGroup.md
-clusterId | Обязательное поле. Идентификатор кластера.  Максимальная длина строки в символах — 50.
-shardGroupName | Обязательное поле. Им удаляемой группы шардов.  Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_-]* ``.
+<<<<<<< HEAD:ru/_api-ref/mdb/kafka/api-ref/Cluster/start.md
+clusterId | Обязательное поле. Идентификатор кластера Apache Kafka, который нужно запустить.  Чтобы получить идентификатор кластера Apache Kafka, выполните запрос [list](/docs/managed-kafka/api-ref/Cluster/list).  Максимальная длина строки в символах — 50.
 =======
-clusterId | Обязательное поле. Идентификатор кластера Apache Kafka, который следует удалить.  Чтобы получить идентификатор кластера Apache Kafka, выполните запрос [list](/docs/managed-kafka/api-ref/Cluster/list).  Максимальная длина строки в символах — 50.
+clusterId | Обязательное поле. Идентификатор кластера Apache Kafka®, который следует удалить.  Чтобы получить идентификатор кластера Apache Kafka®, выполните запрос [list](/docs/managed-kafka/api-ref/Cluster/list).  Максимальная длина строки в символах — 50.
 >>>>>>> achegodaev-7580-generated-api:ru/_api-ref/mdb/kafka/api-ref/Cluster/delete.md
  
 ## Ответ {#responses}

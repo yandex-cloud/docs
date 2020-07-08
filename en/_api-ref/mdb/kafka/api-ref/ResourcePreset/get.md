@@ -35,7 +35,7 @@ A ResourcePreset resource for describing hardware configuration presets.
  
 Field | Description
 --- | ---
-id | **string**<br><p>ID of the ResourcePreset resource.</p> 
+id | **string**<br><p>ID of the resource preset.</p> 
 zoneIds[] | **string**<br><p>IDs of availability zones where the resource preset is available.</p> 
 cores | **string** (int64)<br><p>Number of CPU cores for a Kafka broker created with the preset.</p> 
 memory | **string** (int64)<br><p>RAM volume for a Kafka broker created with the preset, in bytes.</p> 

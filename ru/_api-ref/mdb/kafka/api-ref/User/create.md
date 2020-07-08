@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Метод create
-Создает пользователя Apache Kafka в указанном кластере.
+Создает пользователя Kafka в указанном кластере.
  
 
  
@@ -16,7 +16,7 @@ POST https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/{clusterId}/user
  
 Параметр | Описание
 --- | ---
-clusterId | Обязательное поле. Идентификатор кластера Apache Kafka, в котором следует создать пользователя.  Чтобы получить идентификатор кластера, выполните запрос [list](/docs/managed-kafka/api-ref/Cluster/list).  Максимальная длина строки в символах — 50.
+clusterId | Обязательное поле. Идентификатор кластера Apache Kafka®, в котором следует создать пользователя.  Чтобы получить идентификатор кластера, выполните запрос [list](/docs/managed-kafka/api-ref/Cluster/list).  Максимальная длина строки в символах — 50.
  
 ## Параметры в теле запроса {#body_params}
  
@@ -38,12 +38,12 @@ clusterId | Обязательное поле. Идентификатор кла
  
 Поле | Описание
 --- | ---
-userSpec | **object**<br><p>Обязательное поле. Свойства создаваемого пользователя.</p> <p>Настройки пользователя Apache Kafka.</p> 
-userSpec.<br>name | **string**<br><p>Обязательное поле. Имя пользователя Apache Kafka.</p> <p>Длина строки в символах должна быть от 1 до 63. Значение должно соответствовать регулярному выражению <code>[a-zA-Z0-9_]*</code>.</p> 
-userSpec.<br>password | **string**<br><p>Обязательное поле. Пароль пользователя Apache Kafka.</p> <p>Длина строки в символах должна быть от 8 до 128.</p> 
+userSpec | **object**<br><p>Обязательное поле. Свойства создаваемого пользователя.</p> 
+userSpec.<br>name | **string**<br><p>Обязательное поле. Имя пользователя Kafka.</p> <p>Длина строки в символах должна быть от 1 до 63. Значение должно соответствовать регулярному выражению <code>[a-zA-Z0-9_]*</code>.</p> 
+userSpec.<br>password | **string**<br><p>Обязательное поле. Пароль пользователя Kafka.</p> <p>Длина строки в символах должна быть от 8 до 128.</p> 
 userSpec.<br>permissions[] | **object**<br><p>Набор разрешений, предоставленных пользователю.</p> 
-userSpec.<br>permissions[].<br>topicName | **string**<br><p>Имя топика, к которому предоставляется доступ.</p> <p>Чтобы получить имя топика, выполните запрос [Topic.List].</p> 
-userSpec.<br>permissions[].<br>role | **string**<br><p>Роль доступа, которую нужно предоставить пользователю.</p> <ul> <li>ACCESS_ROLE_PRODUCER: Роль пользователя — производитель.</li> <li>ACCESS_ROLE_CONSUMER: Роль пользователя — потребитель.</li> </ul> 
+userSpec.<br>permissions[].<br>topicName | **string**<br><p>Имя топика, к которому предоставляется доступ.</p> <p>Чтобы получить имя топика, выполните запрос <a href="/docs/managed-kafka/api-ref/Topic/list">list</a>.</p> 
+userSpec.<br>permissions[].<br>role | **string**<br><p>Роль доступа, которую нужно предоставить пользователю.</p> <ul> <li>ACCESS_ROLE_PRODUCER: роль пользователя — производитель.</li> <li>ACCESS_ROLE_CONSUMER: роль пользователя — потребитель.</li> </ul> 
  
 ## Ответ {#responses}
 **HTTP Code: 200 - OK**

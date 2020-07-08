@@ -2155,19 +2155,25 @@ components:
       type: object
       properties:
         dataLens:
-          description: Allow access for DataLens
+          description: Allow to export data from the cluster to Yandex DataLens.
           type: boolean
           format: boolean
         webSql:
-          description: Allow access for Web SQL
+          description: |-
+            Allow SQL queries to the cluster databases from the Yandex.Cloud management console.
+
+            See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details.
           type: boolean
           format: boolean
         metrika:
-          description: Allow access for Metrika
+          description: |-
+            Allow to import data from Yandex.Metrica and AppMetrica to the cluster.
+
+            See [Export data to Yandex.Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details.
           type: boolean
           format: boolean
         serverless:
-          description: Allow access for Serverless
+          description: Allow access to cluster for Serverless.
           type: boolean
           format: boolean
     AddClusterHostsMetadata:
@@ -5873,23 +5879,29 @@ components:
           type: integer
           format: int32
     Access_in_ClusterConfig_access:
-      description: Access policy to DB
+      description: Access policy for external services.
       type: object
       properties:
         dataLens:
-          description: Allow access for DataLens
+          description: Allow to export data from the cluster to Yandex DataLens.
           type: boolean
           format: boolean
         webSql:
-          description: Allow access for Web SQL
+          description: |-
+            Allow SQL queries to the cluster databases from the Yandex.Cloud management console.
+
+            See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details.
           type: boolean
           format: boolean
         metrika:
-          description: Allow access for Metrika
+          description: |-
+            Allow to import data from Yandex.Metrica and AppMetrica to the cluster.
+
+            See [Export data to Yandex.Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details.
           type: boolean
           format: boolean
         serverless:
-          description: Allow access for Serverless
+          description: Allow access to cluster for Serverless.
           type: boolean
           format: boolean
     ClickhouseConfigSet_in_ClusterConfigClickhouse_config:
@@ -5988,23 +6000,32 @@ components:
           type: integer
           format: int32
     Access_in_ConfigSpec_access:
-      description: Access policy to DB
+      description: |-
+        Access policy for external services.
+
+        If you want a specific service to access the ClickHouse cluster, then set the necessary values in this policy.
       type: object
       properties:
         dataLens:
-          description: Allow access for DataLens
+          description: Allow to export data from the cluster to Yandex DataLens.
           type: boolean
           format: boolean
         webSql:
-          description: Allow access for Web SQL
+          description: |-
+            Allow SQL queries to the cluster databases from the Yandex.Cloud management console.
+
+            See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details.
           type: boolean
           format: boolean
         metrika:
-          description: Allow access for Metrika
+          description: |-
+            Allow to import data from Yandex.Metrica and AppMetrica to the cluster.
+
+            See [Export data to Yandex.Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details.
           type: boolean
           format: boolean
         serverless:
-          description: Allow access for Serverless
+          description: Allow access to cluster for Serverless.
           type: boolean
           format: boolean
     ClickhouseConfig_in_ConfigSpecClickhouse_config:

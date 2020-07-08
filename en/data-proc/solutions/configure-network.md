@@ -1,6 +1,6 @@
 # Configuring networks for {{ dataproc-name }}
 
-According to the Yandex.Cloud [network concept](../../vpc/concepts/network.md), hosts without public IP addresses in {{ dataproc-name }} clusters can't access resources outside of the {{vpc-short-name}} virtual network. To interact with nodes from other networks, Yandex.Cloud service interfaces, and internet nodes, you need to set up a public IP address for the host or use egress NAT for the subnet.
+According to the [network concept](../../vpc/concepts/network.md) in Yandex.Cloud, hosts without public IP addresses in {{ dataproc-name }} clusters can't access resources outside of the {{vpc-short-name}} virtual network. To interact with nodes from other networks, Yandex.Cloud service interfaces, and internet nodes, you need to set up a public IP address for the host or use egress NAT for the subnet.
 
 ## Egress NAT {#nat}
 

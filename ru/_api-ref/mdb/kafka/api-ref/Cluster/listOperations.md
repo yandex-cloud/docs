@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Метод listOperations
-Получает список операций для указанного кластера Apache Kafka.
+Получает список операций для указанного кластера Apache Kafka®.
  
 
  
@@ -16,14 +16,14 @@ GET https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/{clusterId}/opera
  
 Параметр | Описание
 --- | ---
-clusterId | Обязательное поле. Идентификатор кластера Apache Kafka, для которого нужно получить список операций.  Максимальная длина строки в символах — 50.
+clusterId | Обязательное поле. Идентификатор кластера Apache Kafka®, для которого нужно получить список операций.  Максимальная длина строки в символах — 50.
  
 ## Query-параметры {#query_params}
  
 Параметр | Описание
 --- | ---
-pageSize | Максимальное количество результатов на одной странице в ответе.  Если количество результатов больше чем `page_size`, сервис вернет значение [nextPageToken](/docs/managed-kafka/api-ref/Cluster/listOperations#responses), которое можно использовать для получения следующей страницы.  Максимальное значение — 1000.
-pageToken | Токен страницы.  Установите значение `page_token` равным значению поля [nextPageToken](/docs/managed-kafka/api-ref/Cluster/listOperations#responses) предыдущего запроса, чтобы получить следующую страницу результатов.  Максимальная длина строки в символах — 100.
+pageSize | Максимальное количество результатов на одной странице в ответе.  Если количество результатов больше чем [pageSize](/docs/managed-kafka/api-ref/Cluster/listOperations#query_params), сервис вернет значение [nextPageToken](/docs/managed-kafka/api-ref/Cluster/listOperations#responses), которое можно использовать для получения следующей страницы.  Максимальное значение — 1000.
+pageToken | Токен страницы.  Установите значение [pageToken](/docs/managed-kafka/api-ref/Cluster/listOperations#query_params) равным значению поля [nextPageToken](/docs/managed-kafka/api-ref/Cluster/listOperations#responses) предыдущего запроса, чтобы получить следующую страницу результатов.  Максимальная длина строки в символах — 100.
  
 ## Ответ {#responses}
 **HTTP Code: 200 - OK**
@@ -73,4 +73,4 @@ operations[].<br>error.<br>code | **integer** (int32)<br><p>Код ошибки.
 operations[].<br>error.<br>message | **string**<br><p>Текст ошибки.</p> 
 operations[].<br>error.<br>details[] | **object**<br><p>Список сообщений с подробными сведениями об ошибке.</p> 
 operations[].<br>response | **object** <br>`operations[]` включает только одно из полей `error`, `response`<br><br><p>Результат операции в случае успешного завершения. Если исходный метод не возвращает никаких данных при успешном завершении, например метод Delete, поле содержит объект <a href="https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty">google.protobuf.Empty</a>. Если исходный метод — это стандартный метод Create / Update, поле содержит целевой ресурс операции. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля <code>response</code>.</p> 
-nextPageToken | **string**<br><p>Токен для получения следующей страницы результатов в ответе.</p> <p>Если количество результатов больше чем <a href="/docs/managed-kafka/api-ref/Cluster/listOperations#query_params">pageSize</a>, используйте <code>next_page_token</code> в качестве значения параметра <a href="/docs/managed-kafka/api-ref/Cluster/listOperations#query_params">pageToken</a> в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения <code>next_page_token</code> для перебора страниц результатов.</p> 
+nextPageToken | **string**<br><p>Токен для получения следующей страницы результатов в ответе.</p> <p>Если количество результатов больше чем <a href="/docs/managed-kafka/api-ref/Cluster/listOperations#query_params">pageSize</a>, используйте <a href="/docs/managed-kafka/api-ref/Cluster/listOperations#responses">nextPageToken</a> в качестве значения параметра <a href="/docs/managed-kafka/api-ref/Cluster/listOperations#query_params">pageToken</a> в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения <a href="/docs/managed-kafka/api-ref/Cluster/listOperations#responses">nextPageToken</a> для перебора страниц результатов.</p> 

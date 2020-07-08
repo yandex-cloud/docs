@@ -15,6 +15,7 @@ A set of methods for managing Subnet resources.
 | [Delete](#Delete) | Deletes the specified subnet. |
 | [ListOperations](#ListOperations) | List operations for the specified subnet. |
 | [Move](#Move) | Move subnet to another folder. |
+| [ListUsedAddresses](#ListUsedAddresses) | List used addresses in specified subnet. |
 
 ## Calls SubnetService {#calls}
 
@@ -393,5 +394,38 @@ v4_cidr_blocks[] | **string**<br><ol><li></li></ol>
 v6_cidr_blocks[] | **string**<br>IPv6 not available yet. 
 route_table_id | **string**<br>ID of route table the subnet is linked to. 
 dhcp_options | **[DhcpOptions](#DhcpOptions4)**<br> 
+
+
+## ListUsedAddresses {#ListUsedAddresses}
+
+List used addresses in specified subnet.
+
+**rpc ListUsedAddresses ([ListUsedAddressesRequest](#ListUsedAddressesRequest)) returns ([ListUsedAddressesResponse](#ListUsedAddressesResponse))**
+
+### ListUsedAddressesRequest {#ListUsedAddressesRequest}
+
+Field | Description
+--- | ---
+subnet_id | **string**<br>Required.  false
+page_size | **int64**<br> 
+page_token | **string**<br> 
+filter | **string**<br> 
+
+
+### ListUsedAddressesResponse {#ListUsedAddressesResponse}
+
+Field | Description
+--- | ---
+addresses[] | **[UsedAddress](#UsedAddress)**<br> 
+next_page_token | **string**<br> 
+
+
+### UsedAddress {#UsedAddress}
+
+Field | Description
+--- | ---
+address | **string**<br> 
+ip_version | enum **IpVersion**<br> <ul><ul/>
+references[] | **[reference.Reference](./#reference)**<br> 
 
 

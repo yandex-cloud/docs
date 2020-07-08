@@ -13,12 +13,6 @@
   1. Нажмите на имя нужного кластера и выберите вкладку **Резервные копии**.
   
   1. Нажмите кнопку **Создать резервную копию**.
-    
-  1. Задайте настройки нового кластера. В списке **Каталог** можно выбрать каталог для нового кластера.
-  
-  1. Нажмите кнопку **Восстановить кластер**.
-  
-  {{ mch-name }} запустит операцию создания кластера из резервной копии.
   
 - CLI
   
@@ -94,7 +88,7 @@
       ```
       $ {{ yc-mdb-ch }} cluster restore \
              --backup-id c9q22suuefrmrp2lrv9f:20181109T101204 \
-             --cluster-name mynewch \
+             --name mynewch \
              --environment=PRODUCTION \
              --network-id ' ' \
              --host type=clickhouse,zone-id={{ zone-id }} \
@@ -108,7 +102,7 @@
       ```
       $ {{ yc-mdb-ch }} cluster restore \
              --backup-id c9q22suuefrmrp2lrv9f:20181109T101204 \
-             --cluster-name mynewch \
+             --name mynewch \
              --environment=PRODUCTION \
              --network-name {{ network-name }} \
              --host type=clickhouse,zone-id={{ zone-id }},subnet-id=b0rcctk2rvtr8efcch63 \
@@ -206,15 +200,15 @@
 
 - Консоль управления
   
-  В консоли управления задать время начала резервного копирования можно только при [изменении кластера](update.md).
-
+  Время начала резервного копирования можно задать при [создании](cluster-create.md) или [изменении](update.md#change-clickhouse-config) кластера в блоке **Дополнительные настройки**.
+  
 - CLI
 
   Чтобы задать время начала резервного копирования, используйте флаг `--backup-window-start`. Время задается в формате ``ЧЧ:ММ:СС``.
 
   ```
   $ yc {{ yc-mdb-ch }} cluster create \
-        --cluster-name <имя кластера> \
+        --name <имя кластера> \
         --environment <окружение, prestable или production> \
         --network-name <имя сети> \
         --host type=<clickhouse или zookeeper>,zone-id=<зона доступности>,subnet-id=<идентификатор подсети> \
@@ -230,7 +224,7 @@
 
   ```
   $ yc {{ yc-mdb-ch }} cluster update \
-     --cluster-name <имя кластера> \
+     --name <имя кластера> \
      --backup-window-start 11:25:00
   ```
 

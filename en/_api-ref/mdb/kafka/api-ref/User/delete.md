@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method delete
-Deletes the specified Apache Kafka user.
+Deletes the specified Kafka user.
  
 
  
@@ -16,8 +16,8 @@ DELETE https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/{clusterId}/us
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the Apache Kafka cluster the user belongs to. To get the cluster ID, make a [list](/docs/managed-kafka/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
-userName | Required. Required. Name of the user to delete. To get the name of the user, make a [list](/docs/managed-kafka/api-ref/User/list) request.  The string length in characters must be 1-63. Value must match the regular expression `` [a-zA-Z0-9_]* ``.
+clusterId | Required. ID of the Apache Kafka® cluster the user belongs to. To get the cluster ID, make a [list](/docs/managed-kafka/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
+userName | Required. Name of the user to delete. To get the name of the user, make a [list](/docs/managed-kafka/api-ref/User/list) request.  The string length in characters must be 1-63. Value must match the regular expression `` [a-zA-Z0-9_]* ``.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

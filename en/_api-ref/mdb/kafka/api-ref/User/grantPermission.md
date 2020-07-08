@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method grantPermission
-Grants permission to the specified Apache Kafka user.
+Grants permission to the specified Kafka user.
  
 
  
@@ -16,7 +16,7 @@ POST https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/{clusterId}/user
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the Apache Kafka cluster the user belongs to.  To get the cluster ID, make a [list](/docs/managed-kafka/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
+clusterId | Required. ID of the Apache Kafka® cluster the user belongs to.  To get the cluster ID, make a [list](/docs/managed-kafka/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
 userName | Required. Name of the user to grant the permission to.  To get the name of the user, make a [list](/docs/managed-kafka/api-ref/User/list) request.  The string length in characters must be 1-63. Value must match the regular expression `` [a-zA-Z0-9_]* ``.
  
 ## Body parameters {#body_params}
@@ -34,8 +34,8 @@ userName | Required. Name of the user to grant the permission to.  To get the na
 Field | Description
 --- | ---
 permission | **object**<br><p>Required. Permission that should be granted to the specified user.</p> 
-permission.<br>topicName | **string**<br><p>Name of the topic that the permission grants access to.</p> <p>To get the topic name, make a [Topic.List] request.</p> 
-permission.<br>role | **string**<br><p>Access role type to grant to the user.</p> <ul> <li>ACCESS_ROLE_PRODUCER: Producer role for the user.</li> <li>ACCESS_ROLE_CONSUMER: Consumer role for the user.</li> </ul> 
+permission.<br>topicName | **string**<br><p>Name of the topic that the permission grants access to.</p> <p>To get the topic name, make a <a href="/docs/managed-kafka/api-ref/Topic/list">list</a> request.</p> 
+permission.<br>role | **string**<br><p>Access role type to grant to the user.</p> <ul> <li>ACCESS_ROLE_PRODUCER: producer role for the user.</li> <li>ACCESS_ROLE_CONSUMER: consumer role for the user.</li> </ul> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
