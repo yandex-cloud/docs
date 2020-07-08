@@ -796,9 +796,10 @@ entrypoint | **string**<br>Required. Entrypoint of the version. false
 resources | **[Resources](#Resources6)**<br>Required. Resources allocated to the version. false
 execution_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Timeout for the execution of the version. <br>If the timeout is exceeded, Cloud Functions responds with a 504 HTTP code. false
 service_account_id | **string**<br>ID of the service account to associate with the version. 
-package_source | **oneof:** `package` or `content`<br>Source of the deployment package for the version.
+package_source | **oneof:** `package`, `content` or `version_id`<br>Source of the deployment package for the version.
 &nbsp;&nbsp;package | **[Package](#Package)**<br>Functions deployment package. 
 &nbsp;&nbsp;content | **bytes**<br>Content of the deployment package. The maximum string length in characters is 52428800.
+&nbsp;&nbsp;version_id | **string**<br>ID of the version to be copied from. Source version must belong to the same folder as the created version and the user must have read permissions to the source version. 
 environment | **map<string,string>**<br>Environment settings for the version. The maximum string length in characters for each value is 4096. Each key must match the regular expression ` [a-zA-Z][a-zA-Z0-9_]* `.
 tag[] | **string**<br>Function version tags. For details, see [Version tag](/docs/functions/concepts/function#tag). Each value must match the regular expression ` [a-z][-_0-9a-z]* `.
 connectivity | **[Connectivity](#Connectivity6)**<br>Function version connectivity. If specified the version will be attached to specified network/subnet(s). 
@@ -893,9 +894,10 @@ entrypoint | **string**<br>Required. Entrypoint of the version. false
 resources | **[Resources](#Resources7)**<br>Required. Resources allocated to the version. false
 execution_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Timeout for the execution of the version. <br>If the timeout is exceeded, Cloud Functions responds with a 504 HTTP code. false
 service_account_id | **string**<br>ID of the service account to associate with the version. 
-package_source | **oneof:** `package` or `content`<br>Source of the deployment package for the version.
+package_source | **oneof:** `package`, `content` or `version_id`<br>Source of the deployment package for the version.
 &nbsp;&nbsp;package | **[Package](#Package1)**<br>Functions deployment package. 
 &nbsp;&nbsp;content | **bytes**<br>Content of the deployment package. The maximum string length in characters is 52428800.
+&nbsp;&nbsp;version_id | **string**<br>ID of the version to be copied from. Source version must belong to the same folder as the created version and the user must have read permissions to the source version. 
 environment | **map<string,string>**<br>Environment settings for the version. The maximum string length in characters for each value is 4096. Each key must match the regular expression ` [a-zA-Z][a-zA-Z0-9_]* `.
 tag[] | **string**<br>Function version tags. For details, see [Version tag](/docs/functions/concepts/function#tag). Each value must match the regular expression ` [a-z][-_0-9a-z]* `.
 connectivity | **[Connectivity](#Connectivity7)**<br>Function version connectivity. If specified the version will be attached to specified network/subnet(s). 

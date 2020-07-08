@@ -6,6 +6,7 @@ See the interface definitions of Yandex.Cloud API on [GitHub](https://github.com
 Service | Description
 --- | ---
 [DatabaseService](./database_service.md) | A set of methods for managing databases.
+[LocationService](./location_service.md) | 
 [ResourcePresetService](./resource_preset_service.md) | 
 [StorageTypeService](./storage_type_service.md) | 
 [OperationService](./operation_service.md) | A set of methods for managing operations for asynchronous API requests.

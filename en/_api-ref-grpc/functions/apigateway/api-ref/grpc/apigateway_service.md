@@ -4,26 +4,26 @@ editable: false
 
 # ApiGatewayService
 
-A set of methods for managing API gateways.
+
 
 | Call | Description |
 | --- | --- |
-| [Get](#Get) | Returns the specified API gateway. |
-| [List](#List) | Retrieves the list of API gateways in the specified folder. |
-| [Create](#Create) | Creates an API gateway in the specified folder. |
-| [Update](#Update) | Updates the specified API gateway. |
-| [Delete](#Delete) | Deletes the specified API gateway. |
-| [GetOpenapiSpec](#GetOpenapiSpec) | Returns the OpenAPI specification of specified API gateway. |
-| [ListOperations](#ListOperations) | Lists operations for the specified API gateway. |
-| [ListAccessBindings](#ListAccessBindings) | Lists existing access bindings for the specified API gateway. |
-| [SetAccessBindings](#SetAccessBindings) | Sets access bindings for the specified API gateway. |
-| [UpdateAccessBindings](#UpdateAccessBindings) | Updates access bindings for the specified API gateway. |
+| [Get](#Get) | Returns the specified api-gateway. |
+| [List](#List) | Retrieves the list of api-gateways in the specified folder. |
+| [Create](#Create) | Creates an api-gateway in the specified folder. |
+| [Update](#Update) | Updates the specified api-gateway. |
+| [Delete](#Delete) | Deletes the specified api-gateway. |
+| [GetOpenapiSpec](#GetOpenapiSpec) | Returns the Openapi specification of specified api-gateway. |
+| [ListOperations](#ListOperations) | Lists operations for the specified api-gateway. |
+| [ListAccessBindings](#ListAccessBindings) | Lists existing access bindings for the specified api-gateway. |
+| [SetAccessBindings](#SetAccessBindings) | Sets access bindings for the specified api-gateway. |
+| [UpdateAccessBindings](#UpdateAccessBindings) | Updates access bindings for the specified api-gateway. |
 
 ## Calls ApiGatewayService {#calls}
 
 ## Get {#Get}
 
-Returns the specified API gateway. Note that only API gateway basic attributes are returned. To get associated openapi specification, make a [GetOpenapiSpec](#GetOpenapiSpec) request. <br>To get the list of all available API gateways, make a [List](#List) request.
+Returns the specified api-gateway. Note that only api-gateway basic attributes are returned. To get associated openapi specification, make a [GetOpenapiSpec](#GetOpenapiSpec) request. <br>To get the list of all available api-gateways, make a [List](#List) request.
 
 **rpc Get ([GetApiGatewayRequest](#GetApiGatewayRequest)) returns ([ApiGateway](#ApiGateway))**
 
@@ -31,27 +31,27 @@ Returns the specified API gateway. Note that only API gateway basic attributes a
 
 Field | Description
 --- | ---
-api_gateway_id | **string**<br>Required. ID of the API gateway to return. <br>To get a API gateway ID make a [ApiGatewayService.List](#List) request. false
+api_gateway_id | **string**<br>Required. ID of the api-gateway to return. <br>To get a api-gateway ID make a [ApiGatewayService.List](#List) request. false
 
 
 ### ApiGateway {#ApiGateway}
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the API gateway. Generated at creation time. 
-folder_id | **string**<br>ID of the folder that the API gateway belongs to. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp for the API-gateway. 
-name | **string**<br>Name of the API gateway. The name is unique within the folder. 
-description | **string**<br>Description of the API gateway. 
-labels | **map<string,string>**<br>API gateway labels as `key:value` pairs. 
-status | enum **Status**<br>Status of the API gateway. <ul><li>`CREATING`: API gateway is being created.</li><li>`ACTIVE`: API gateway is ready for use.</li><li>`DELETING`: API gateway is being deleted.</li><li>`ERROR`: API gateway failed. The only allowed action is delete.</li><ul/>
-domain | **string**<br>Default domain for the API gateway. Generated at creation time. 
-log_group_id | **string**<br>ID of the log group for the API gateway. 
+id | **string**<br>ID of the api-gateway. Generated at creation time. 
+folder_id | **string**<br>ID of the folder that the api-gateway belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp for the api-gateway. 
+name | **string**<br>Name of the api-gateway. The name is unique within the folder. 
+description | **string**<br>Description of the api-gateway. 
+labels | **map<string,string>**<br>Api-gateway labels as `key:value` pairs. 
+status | enum **Status**<br>Status of the api-gateway. <ul><li>`CREATING`: Api-gateway is being created.</li><li>`ACTIVE`: Api-gateway is ready for use.</li><li>`DELETING`: Api-gateway is being deleted.</li><li>`ERROR`: Api-gateway failed. The only allowed action is delete.</li><ul/>
+domain | **string**<br>Default domain for the api-gateway. Generated at creation time. 
+log_group_id | **string**<br>ID of the log group for the api-gateway. 
 
 
 ## List {#List}
 
-Retrieves the list of API gateways in the specified folder.
+Retrieves the list of api-gateways in the specified folder.
 
 **rpc List ([ListApiGatewayRequest](#ListApiGatewayRequest)) returns ([ListApiGatewayResponse](#ListApiGatewayResponse))**
 
@@ -59,7 +59,7 @@ Retrieves the list of API gateways in the specified folder.
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder to list API gateways in. <br>To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. false
+folder_id | **string**<br>Required. ID of the folder to list api-gateways in. <br>To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. false
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `pageSize`, the service returns a [ListApiGatewayResponse.next_page_token](#ListApiGatewayResponse) that can be used to get the next page of results in subsequent list requests. <br>Default value: 100. 
 page_token | **string**<br>Page token. To get the next page of results, set `pageToken` to the [ListApiGatewayResponse.next_page_token](#ListApiGatewayResponse) returned by a previous list request. 
 filter | **string**<br><ol><li>The field name. Currently filtering can only be applied to the [ApiGateway.name](#ApiGateway1) field. </li><li>A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. </li></ol> 
@@ -69,7 +69,7 @@ filter | **string**<br><ol><li>The field name. Currently filtering can only be a
 
 Field | Description
 --- | ---
-api_gateways[] | **[ApiGateway](#ApiGateway1)**<br>List of API gateways in the specified folder. 
+api_gateways[] | **[ApiGateway](#ApiGateway1)**<br>List of api-gateways in the specified folder. 
 next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListApiGatewayRequest.page_size](#ListApiGatewayRequest1), use `nextPageToken` as the value for the [ListApiGatewayRequest.page_token](#ListApiGatewayRequest1) parameter in the next list request. <br>Each subsequent page will have its own `nextPageToken` to continue paging through the results. 
 
 
@@ -77,20 +77,20 @@ next_page_token | **string**<br>Token for getting the next page of the list. If 
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the API gateway. Generated at creation time. 
-folder_id | **string**<br>ID of the folder that the API gateway belongs to. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp for the API-gateway. 
-name | **string**<br>Name of the API gateway. The name is unique within the folder. 
-description | **string**<br>Description of the API gateway. 
-labels | **map<string,string>**<br>API gateway labels as `key:value` pairs. 
-status | enum **Status**<br>Status of the API gateway. <ul><li>`CREATING`: API gateway is being created.</li><li>`ACTIVE`: API gateway is ready for use.</li><li>`DELETING`: API gateway is being deleted.</li><li>`ERROR`: API gateway failed. The only allowed action is delete.</li><ul/>
-domain | **string**<br>Default domain for the API gateway. Generated at creation time. 
-log_group_id | **string**<br>ID of the log group for the API gateway. 
+id | **string**<br>ID of the api-gateway. Generated at creation time. 
+folder_id | **string**<br>ID of the folder that the api-gateway belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp for the api-gateway. 
+name | **string**<br>Name of the api-gateway. The name is unique within the folder. 
+description | **string**<br>Description of the api-gateway. 
+labels | **map<string,string>**<br>Api-gateway labels as `key:value` pairs. 
+status | enum **Status**<br>Status of the api-gateway. <ul><li>`CREATING`: Api-gateway is being created.</li><li>`ACTIVE`: Api-gateway is ready for use.</li><li>`DELETING`: Api-gateway is being deleted.</li><li>`ERROR`: Api-gateway failed. The only allowed action is delete.</li><ul/>
+domain | **string**<br>Default domain for the api-gateway. Generated at creation time. 
+log_group_id | **string**<br>ID of the log group for the api-gateway. 
 
 
 ## Create {#Create}
 
-Creates an API gateway in the specified folder.
+Creates an api-gateway in the specified folder.
 
 **rpc Create ([CreateApiGatewayRequest](#CreateApiGatewayRequest)) returns ([operation.Operation](#Operation))**
 
@@ -102,12 +102,12 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder to create an API gateway in. <br>To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. false
-name | **string**<br>Name of the API gateway. The name must be unique within the folder. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
-description | **string**<br>Description of the API gateway. The maximum string length in characters is 256.
+folder_id | **string**<br>Required. ID of the folder to create an api-gateway in. <br>To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. false
+name | **string**<br>Name of the api-gateway. The name must be unique within the folder. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+description | **string**<br>Description of the api-gateway. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
-spec | **oneof:** `openapi_spec`<br>OpenAPI specification of API gateway.
-&nbsp;&nbsp;openapi_spec | **string**<br>The text of specification, JSON or YAML. 
+spec | **oneof:** `openapi_spec`<br>Openapi specification of api-gateway
+&nbsp;&nbsp;openapi_spec | **string**<br>the text of specification, json or yaml 
 
 
 ### Operation {#Operation}
@@ -130,27 +130,27 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-api_gateway_id | **string**<br>ID of the API gateway that is being created. 
+api_gateway_id | **string**<br>ID of the api-gateway that is being created. 
 
 
 ### ApiGateway {#ApiGateway}
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the API gateway. Generated at creation time. 
-folder_id | **string**<br>ID of the folder that the API gateway belongs to. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp for the API-gateway. 
-name | **string**<br>Name of the API gateway. The name is unique within the folder. 
-description | **string**<br>Description of the API gateway. 
-labels | **map<string,string>**<br>API gateway labels as `key:value` pairs. 
-status | enum **Status**<br>Status of the API gateway. <ul><li>`CREATING`: API gateway is being created.</li><li>`ACTIVE`: API gateway is ready for use.</li><li>`DELETING`: API gateway is being deleted.</li><li>`ERROR`: API gateway failed. The only allowed action is delete.</li><ul/>
-domain | **string**<br>Default domain for the API gateway. Generated at creation time. 
-log_group_id | **string**<br>ID of the log group for the API gateway. 
+id | **string**<br>ID of the api-gateway. Generated at creation time. 
+folder_id | **string**<br>ID of the folder that the api-gateway belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp for the api-gateway. 
+name | **string**<br>Name of the api-gateway. The name is unique within the folder. 
+description | **string**<br>Description of the api-gateway. 
+labels | **map<string,string>**<br>Api-gateway labels as `key:value` pairs. 
+status | enum **Status**<br>Status of the api-gateway. <ul><li>`CREATING`: Api-gateway is being created.</li><li>`ACTIVE`: Api-gateway is ready for use.</li><li>`DELETING`: Api-gateway is being deleted.</li><li>`ERROR`: Api-gateway failed. The only allowed action is delete.</li><ul/>
+domain | **string**<br>Default domain for the api-gateway. Generated at creation time. 
+log_group_id | **string**<br>ID of the log group for the api-gateway. 
 
 
 ## Update {#Update}
 
-Updates the specified API gateway.
+Updates the specified api-gateway.
 
 **rpc Update ([UpdateApiGatewayRequest](#UpdateApiGatewayRequest)) returns ([operation.Operation](#Operation1))**
 
@@ -162,13 +162,13 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-api_gateway_id | **string**<br>Required. ID of the API gateway to update. <br>To get a API gateway ID make a [ApiGatewayService.List](#List) request. false
-update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which attributes of the API gateway should be updated. 
-name | **string**<br>New name for the API gateway. The name must be unique within the folder. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
-description | **string**<br>New description for the API gateway. The maximum string length in characters is 256.
-labels | **map<string,string>**<br>API gateway labels as `key:value` pairs. <br>Existing set of labels is completely replaced by the provided set, so if you just want to add or remove a label, request the current set of labels with a [ApiGatewayService.Get](#Get) request. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
-spec | **oneof:** `openapi_spec`<br>New OpenAPI specification of API gateway.
-&nbsp;&nbsp;openapi_spec | **string**<br>The text of specification, JSON or YAML. 
+api_gateway_id | **string**<br>Required. ID of the api-gateway to update. <br>To get a api-gateway ID make a [ApiGatewayService.List](#List) request. false
+update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which attributes of the api-gateway should be updated. 
+name | **string**<br>New name for the api-gateway. The name must be unique within the folder. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+description | **string**<br>New description for the api-gateway. The maximum string length in characters is 256.
+labels | **map<string,string>**<br>Api-gateway labels as `key:value` pairs. <br>Existing set of labels is completely replaced by the provided set, so if you just want to add or remove a label, request the current set of labels with a [ApiGatewayService.Get](#Get) request. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+spec | **oneof:** `openapi_spec`<br>New openapi specification of api-gateway
+&nbsp;&nbsp;openapi_spec | **string**<br>the text of specification, json or yaml 
 
 
 ### Operation {#Operation}
@@ -191,27 +191,27 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-api_gateway_id | **string**<br>ID of the API gateway that is being updated. 
+api_gateway_id | **string**<br>ID of the api-gateway that is being updated. 
 
 
 ### ApiGateway {#ApiGateway}
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the API gateway. Generated at creation time. 
-folder_id | **string**<br>ID of the folder that the API gateway belongs to. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp for the API-gateway. 
-name | **string**<br>Name of the API gateway. The name is unique within the folder. 
-description | **string**<br>Description of the API gateway. 
-labels | **map<string,string>**<br>API gateway labels as `key:value` pairs. 
-status | enum **Status**<br>Status of the API gateway. <ul><li>`CREATING`: API gateway is being created.</li><li>`ACTIVE`: API gateway is ready for use.</li><li>`DELETING`: API gateway is being deleted.</li><li>`ERROR`: API gateway failed. The only allowed action is delete.</li><ul/>
-domain | **string**<br>Default domain for the API gateway. Generated at creation time. 
-log_group_id | **string**<br>ID of the log group for the API gateway. 
+id | **string**<br>ID of the api-gateway. Generated at creation time. 
+folder_id | **string**<br>ID of the folder that the api-gateway belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp for the api-gateway. 
+name | **string**<br>Name of the api-gateway. The name is unique within the folder. 
+description | **string**<br>Description of the api-gateway. 
+labels | **map<string,string>**<br>Api-gateway labels as `key:value` pairs. 
+status | enum **Status**<br>Status of the api-gateway. <ul><li>`CREATING`: Api-gateway is being created.</li><li>`ACTIVE`: Api-gateway is ready for use.</li><li>`DELETING`: Api-gateway is being deleted.</li><li>`ERROR`: Api-gateway failed. The only allowed action is delete.</li><ul/>
+domain | **string**<br>Default domain for the api-gateway. Generated at creation time. 
+log_group_id | **string**<br>ID of the log group for the api-gateway. 
 
 
 ## Delete {#Delete}
 
-Deletes the specified API gateway.
+Deletes the specified api-gateway.
 
 **rpc Delete ([DeleteApiGatewayRequest](#DeleteApiGatewayRequest)) returns ([operation.Operation](#Operation2))**
 
@@ -223,7 +223,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-api_gateway_id | **string**<br>Required. ID of the API gateway to update. <br>To get a API gateway ID make a [ApiGatewayService.List](#List) request. false
+api_gateway_id | **string**<br>Required. ID of the api-gateway to update. <br>To get a api-gateway ID make a [ApiGatewayService.List](#List) request. false
 
 
 ### Operation {#Operation}
@@ -246,12 +246,12 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-api_gateway_id | **string**<br>ID of the API gateway that is being deleted. 
+api_gateway_id | **string**<br>ID of the api-gateway that is being deleted. 
 
 
 ## GetOpenapiSpec {#GetOpenapiSpec}
 
-Returns the OpenAPI specification of specified API gateway.
+Returns the Openapi specification of specified api-gateway.
 
 **rpc GetOpenapiSpec ([GetOpenapiSpecRequest](#GetOpenapiSpecRequest)) returns ([GetOpenapiSpecResponse](#GetOpenapiSpecResponse))**
 
@@ -259,21 +259,21 @@ Returns the OpenAPI specification of specified API gateway.
 
 Field | Description
 --- | ---
-api_gateway_id | **string**<br>Required. ID of the API gateway to get specification from. false
-format | enum **Format**<br>Format of returned specification. Default is the original format used in [CreateApiGatewayRequest](#CreateApiGatewayRequest1). <ul><ul/>
+api_gateway_id | **string**<br>Required. ID of the api-gateway to get specification from. false
+format | enum **Format**<br>Format of returned specification. Default is the original format used in [CreateApiGatewayRequest](#CreateApiGatewayRequest1) <ul><ul/>
 
 
 ### GetOpenapiSpecResponse {#GetOpenapiSpecResponse}
 
 Field | Description
 --- | ---
-api_gateway_id | **string**<br>ID of the API gateway. 
-openapi_spec | **string**<br>The text of specification, JSON or YAML. 
+api_gateway_id | **string**<br>ID of the api-gateway. 
+openapi_spec | **string**<br>text of the specification, json or yaml 
 
 
 ## ListOperations {#ListOperations}
 
-Lists operations for the specified API gateway.
+Lists operations for the specified api-gateway.
 
 **rpc ListOperations ([ListOperationsRequest](#ListOperationsRequest)) returns ([ListOperationsResponse](#ListOperationsResponse))**
 
@@ -281,7 +281,7 @@ Lists operations for the specified API gateway.
 
 Field | Description
 --- | ---
-api_gateway_id | **string**<br>Required. ID of the API gateway to list operations for. false
+api_gateway_id | **string**<br>Required. ID of the api-gateway to list operations for. false
 page_size | **int64**<br>The maximum number of results per page that should be returned. If the number of available results is larger than `pageSize`, the service returns a [ListOperationsResponse.next_page_token](#ListOperationsResponse) that can be used to get the next page of results in subsequent list requests. <br>Default value: 100. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `pageToken` to the [ListOperationsResponse.next_page_token](#ListOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
 filter | **string**<br><ol><li>The field name. Currently filtering can be applied to the [operation.Operation.done](#Operation3), [operation.Operation.created_by](#Operation3) field. </li><li>A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. </li></ol> The maximum string length in characters is 1000.
@@ -291,7 +291,7 @@ filter | **string**<br><ol><li>The field name. Currently filtering can be applie
 
 Field | Description
 --- | ---
-operations[] | **[operation.Operation](#Operation3)**<br>List of operations for the specified API gateway. 
+operations[] | **[operation.Operation](#Operation3)**<br>List of operations for the specified api-gateway. 
 next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListOperationsRequest.page_size](#ListOperationsRequest1), use `nextPageToken` as the value for the [ListOperationsRequest.page_token](#ListOperationsRequest1) parameter in the next list request. <br>Each subsequent page will have its own `nextPageToken` to continue paging through the results. 
 
 
@@ -313,7 +313,7 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 ## ListAccessBindings {#ListAccessBindings}
 
-Lists existing access bindings for the specified API gateway.
+Lists existing access bindings for the specified api-gateway.
 
 **rpc ListAccessBindings ([ListAccessBindingsRequest](#ListAccessBindingsRequest)) returns ([ListAccessBindingsResponse](#ListAccessBindingsResponse))**
 
@@ -352,7 +352,7 @@ type | **string**<br><ul><li>`userAccount`: An account on Yandex or [Yandex.Conn
 
 ## SetAccessBindings {#SetAccessBindings}
 
-Sets access bindings for the specified API gateway.
+Sets access bindings for the specified api-gateway.
 
 **rpc SetAccessBindings ([SetAccessBindingsRequest](#SetAccessBindingsRequest)) returns ([operation.Operation](#Operation4))**
 
@@ -409,7 +409,7 @@ resource_id | **string**<br>ID of the resource for which access bindings are bei
 
 ## UpdateAccessBindings {#UpdateAccessBindings}
 
-Updates access bindings for the specified API gateway.
+Updates access bindings for the specified api-gateway.
 
 **rpc UpdateAccessBindings ([UpdateAccessBindingsRequest](#UpdateAccessBindingsRequest)) returns ([operation.Operation](#Operation5))**
 

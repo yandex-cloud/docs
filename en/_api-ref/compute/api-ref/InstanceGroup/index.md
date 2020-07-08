@@ -31,6 +31,7 @@ A set of methods for managing InstanceGroup resources.
         "description": "string",
         "typeId": "string",
         "size": "string",
+        "preserveAfterInstanceDelete": true,
 
         // `instanceTemplate.bootDiskSpec.diskSpec` includes only one of the fields `imageId`, `snapshotId`
         "imageId": "string",
@@ -48,6 +49,7 @@ A set of methods for managing InstanceGroup resources.
           "description": "string",
           "typeId": "string",
           "size": "string",
+          "preserveAfterInstanceDelete": true,
 
           // `instanceTemplate.secondaryDiskSpecs[].diskSpec` includes only one of the fields `imageId`, `snapshotId`
           "imageId": "string",
@@ -227,6 +229,7 @@ instanceTemplate.<br>bootDiskSpec.<br>diskSpec | **object**<br><p>Required. oneo
 instanceTemplate.<br>bootDiskSpec.<br>diskSpec.<br>description | **string**<br><p>Description of the disk.</p> <p>The maximum string length in characters is 256.</p> 
 instanceTemplate.<br>bootDiskSpec.<br>diskSpec.<br>typeId | **string**<br><p>Required. ID of the disk type.</p> 
 instanceTemplate.<br>bootDiskSpec.<br>diskSpec.<br>size | **string** (int64)<br><p>Size of the disk, specified in bytes.</p> <p>Acceptable values are 4194304 to 4398046511104, inclusive.</p> 
+instanceTemplate.<br>bootDiskSpec.<br>diskSpec.<br>preserveAfterInstanceDelete | **boolean** (boolean)<br><p>When set to true, disk will not be deleted even after managed instance is deleted. It will be a user's responsibility to delete such disks.</p> 
 instanceTemplate.<br>bootDiskSpec.<br>diskSpec.<br>imageId | **string** <br>`instanceTemplate.bootDiskSpec.diskSpec` includes only one of the fields `imageId`, `snapshotId`<br><br><p>ID of the image that will be used for disk creation.</p> <p>The maximum string length in characters is 50.</p> 
 instanceTemplate.<br>bootDiskSpec.<br>diskSpec.<br>snapshotId | **string** <br>`instanceTemplate.bootDiskSpec.diskSpec` includes only one of the fields `imageId`, `snapshotId`<br><br><p>ID of the snapshot that will be used for disk creation.</p> <p>The maximum string length in characters is 50.</p> 
 instanceTemplate.<br>bootDiskSpec.<br>diskId | **string**<br><p>Set to use an existing disk. To set use variables.</p> <p>The maximum string length in characters is 128. Value must match the regular expression <code>[-a-zA-Z0-9._{}]*</code>.</p> 
@@ -237,6 +240,7 @@ instanceTemplate.<br>secondaryDiskSpecs[].<br>diskSpec | **object**<br><p>Requir
 instanceTemplate.<br>secondaryDiskSpecs[].<br>diskSpec.<br>description | **string**<br><p>Description of the disk.</p> <p>The maximum string length in characters is 256.</p> 
 instanceTemplate.<br>secondaryDiskSpecs[].<br>diskSpec.<br>typeId | **string**<br><p>Required. ID of the disk type.</p> 
 instanceTemplate.<br>secondaryDiskSpecs[].<br>diskSpec.<br>size | **string** (int64)<br><p>Size of the disk, specified in bytes.</p> <p>Acceptable values are 4194304 to 4398046511104, inclusive.</p> 
+instanceTemplate.<br>secondaryDiskSpecs[].<br>diskSpec.<br>preserveAfterInstanceDelete | **boolean** (boolean)<br><p>When set to true, disk will not be deleted even after managed instance is deleted. It will be a user's responsibility to delete such disks.</p> 
 instanceTemplate.<br>secondaryDiskSpecs[].<br>diskSpec.<br>imageId | **string** <br>`instanceTemplate.secondaryDiskSpecs[].diskSpec` includes only one of the fields `imageId`, `snapshotId`<br><br><p>ID of the image that will be used for disk creation.</p> <p>The maximum string length in characters is 50.</p> 
 instanceTemplate.<br>secondaryDiskSpecs[].<br>diskSpec.<br>snapshotId | **string** <br>`instanceTemplate.secondaryDiskSpecs[].diskSpec` includes only one of the fields `imageId`, `snapshotId`<br><br><p>ID of the snapshot that will be used for disk creation.</p> <p>The maximum string length in characters is 50.</p> 
 instanceTemplate.<br>secondaryDiskSpecs[].<br>diskId | **string**<br><p>Set to use an existing disk. To set use variables.</p> <p>The maximum string length in characters is 128. Value must match the regular expression <code>[-a-zA-Z0-9._{}]*</code>.</p> 
@@ -338,10 +342,13 @@ Method | Description
 [delete](delete.md) | Deletes the specified instance group.
 [get](get.md) | Returns the specified InstanceGroup resource.
 [list](list.md) | Retrieves the list of InstanceGroup resources in the specified folder.
+[listAccessBindings](listAccessBindings.md) | Lists existing access bindings for the specified instance group.
 [listInstances](listInstances.md) | Lists instances for the specified instance group.
 [listLogRecords](listLogRecords.md) | Lists logs for the specified instance group.
 [listOperations](listOperations.md) | Lists operations for the specified instance group.
+[setAccessBindings](setAccessBindings.md) | Sets access bindings for the specified instance group.
 [start](start.md) | Starts the specified instance group.
 [stop](stop.md) | Stops the specified instance group.
 [update](update.md) | Updates the specified instance group. This method starts an operation that can be cancelled by another operation.
+[updateAccessBindings](updateAccessBindings.md) | Updates access bindings for the specified instance group.
 [updateFromYaml](updateFromYaml.md) | Updates the specified instance group from a YAML file. This method starts an operation that can be cancelled by another operation.

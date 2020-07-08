@@ -1,0 +1,89 @@
+openapi: "3.0"
+info:
+  title: Yandex Text To Speech Service API
+  description: This API reference is organized by resource. Actions are performed
+    by sending HTTP requests to resource URLs or making RPC calls. For more information
+    about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
+  version: v1
+  x-y-docUri: api-ref
+  x-y-baseUrl: https://tts.api.cloud.yandex.net
+paths: {}
+components:
+  schemas:
+    AdaptiveSynthesizeResponse:
+      type: object
+      properties:
+        audioChunk:
+          $ref: '#/components/schemas/AudioChunk_in_AdaptiveSynthesizeResponse_audioChunk'
+    AudioChunk:
+      type: object
+      properties:
+        data:
+          type: string
+          format: byte
+    AudioContent:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          audioSpec:
+            $ref: '#/components/schemas/AudioSpec'
+            description: Required.
+      - title: audio_source
+        type: object
+        maxProperties: 1
+        properties:
+          content:
+            description: The maximum string length in characters is 10485760.
+            type: string
+            format: byte
+    AudioSpec:
+      type: object
+      properties:
+        audioEncoding:
+          $ref: '#/components/schemas/AudioSpecAudioEncoding_in_AudioSpec_audioEncoding'
+        sampleRateHertz:
+          type: string
+          format: int64
+    AudioSpecAudioEncoding:
+      description: ' - LINEAR16_PCM: 16-bit signed little-endian (Linear PCM)'
+      type: string
+      enum:
+      - LINEAR16_PCM
+    ReplacementUnit:
+      type: object
+      properties:
+        wordIndexStart:
+          description: Acceptable values are 0 to 128, inclusive.
+          type: string
+          format: int64
+        wordIndexEnd:
+          description: Acceptable values are 0 to 128, inclusive.
+          type: string
+          format: int64
+        replacementText:
+          description: |-
+            Required.
+            The maximum string length in characters is 100.
+          type: string
+        audioUnitStartMs:
+          description: The minimum value is 0.
+          type: string
+          format: int64
+        audioUnitEndMs:
+          description: The minimum value is 0.
+          type: string
+          format: int64
+    AudioChunk_in_AdaptiveSynthesizeResponse_audioChunk:
+      type: object
+      properties:
+        data:
+          type: string
+          format: byte
+    AudioSpecAudioEncoding_in_AudioSpec_audioEncoding:
+      description: ' - LINEAR16_PCM: 16-bit signed little-endian (Linear PCM)'
+      type: string
+      enum:
+      - LINEAR16_PCM
+tags:
+- name: Tts

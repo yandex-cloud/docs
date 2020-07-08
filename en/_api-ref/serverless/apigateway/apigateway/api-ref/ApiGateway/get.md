@@ -3,10 +3,10 @@ editable: false
 ---
 
 # Method get
-Returns the specified API gateway. Note that only API gateway basic attributes are returned.
-To get associated openapi specification, make a [getOpenapiSpec](/docs/functions/api-gateway/api-ref/ApiGateway/getOpenapiSpec) request.
+Returns the specified api-gateway. Note that only api-gateway basic attributes are returned.
+To get associated openapi specification, make a [getOpenapiSpec](/docs/functions/apigateway/api-ref/ApiGateway/getOpenapiSpec) request.
  
-To get the list of all available API gateways, make a [list](/docs/functions/api-gateway/api-ref/ApiGateway/list) request.
+To get the list of all available api-gateways, make a [list](/docs/functions/apigateway/api-ref/ApiGateway/list) request.
  
 ## HTTP request {#https-request}
 ```
@@ -17,7 +17,7 @@ GET https://serverless-apigateway.api.cloud.yandex.net/apigateways/v1/apigateway
  
 Parameter | Description
 --- | ---
-apiGatewayId | Required. ID of the API gateway to return.  To get a API gateway ID make a [list](/docs/functions/api-gateway/api-ref/ApiGateway/list) request.
+apiGatewayId | Required. ID of the api-gateway to return.  To get a api-gateway ID make a [list](/docs/functions/apigateway/api-ref/ApiGateway/list) request.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -39,12 +39,12 @@ apiGatewayId | Required. ID of the API gateway to return.  To get a API gateway 
  
 Field | Description
 --- | ---
-id | **string**<br><p>ID of the API gateway. Generated at creation time.</p> 
-folderId | **string**<br><p>ID of the folder that the API gateway belongs to.</p> 
-createdAt | **string** (date-time)<br><p>Creation timestamp for the API-gateway.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
-name | **string**<br><p>Name of the API gateway. The name is unique within the folder.</p> 
-description | **string**<br><p>Description of the API gateway.</p> 
-labels | **object**<br><p>API gateway labels as <code>key:value</code> pairs.</p> 
-status | **string**<br><p>Status of the API gateway.</p> <ul> <li>CREATING: API gateway is being created.</li> <li>ACTIVE: API gateway is ready for use.</li> <li>DELETING: API gateway is being deleted.</li> <li>ERROR: API gateway failed. The only allowed action is delete.</li> </ul> 
-domain | **string**<br><p>Default domain for the API gateway. Generated at creation time.</p> 
-logGroupId | **string**<br><p>ID of the log group for the API gateway.</p> 
+id | **string**<br><p>ID of the api-gateway. Generated at creation time.</p> 
+folderId | **string**<br><p>ID of the folder that the api-gateway belongs to.</p> 
+createdAt | **string** (date-time)<br><p>Creation timestamp for the api-gateway.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+name | **string**<br><p>Name of the api-gateway. The name is unique within the folder.</p> 
+description | **string**<br><p>Description of the api-gateway.</p> 
+labels | **object**<br><p>Api-gateway labels as <code>key:value</code> pairs.</p> 
+status | **string**<br><p>Status of the api-gateway.</p> <ul> <li>CREATING: Api-gateway is being created.</li> <li>ACTIVE: Api-gateway is ready for use.</li> <li>DELETING: Api-gateway is being deleted.</li> <li>ERROR: Api-gateway failed. The only allowed action is delete.</li> </ul> 
+domain | **string**<br><p>Default domain for the api-gateway. Generated at creation time.</p> 
+logGroupId | **string**<br><p>ID of the log group for the api-gateway.</p> 

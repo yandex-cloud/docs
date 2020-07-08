@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method delete
-Deletes the specified API gateway.
+Deletes the specified api-gateway.
  
 
  
@@ -16,7 +16,7 @@ DELETE https://serverless-apigateway.api.cloud.yandex.net/apigateways/v1/apigate
  
 Parameter | Description
 --- | ---
-apiGatewayId | Required. ID of the API gateway to update.  To get a API gateway ID make a [list](/docs/functions/api-gateway/api-ref/ApiGateway/list) request.
+apiGatewayId | Required. ID of the api-gateway to update.  To get a api-gateway ID make a [list](/docs/functions/apigateway/api-ref/ApiGateway/list) request.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
