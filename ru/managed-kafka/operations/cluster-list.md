@@ -34,3 +34,21 @@
   Чтобы узнать идентификатор кластера, [получите список кластеров в каталоге](#list-clusters).
 
 {% endlist %}
+
+## Посмотреть список операций в кластере {#list-operations}
+
+{% include [list-operations-about](../../_includes/mdb/list-operations-about.md) %}
+
+{% list tabs %}
+
+- Консоль управления
+
+  1. Перейдите на страницу каталога и выберите сервис **{{ mkf-name }}**.
+  1. Нажмите на имя нужного кластера.
+  1. Перейдите на вкладку **Операции**.
+
+- API
+
+  Получить список операций можно с помощью метода [listOperations](../api-ref/Cluster/listOperations.md).
+
+{% endlist %}
