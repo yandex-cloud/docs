@@ -2,54 +2,22 @@
 editable: false
 ---
 
-<<<<<<< HEAD:ru/_api-ref/mdb/clickhouse/api-ref/Cluster/createShardGroup.md
-# Метод createShardGroup
-Создает новую группу шардов.
-=======
 # Метод delete
 Удаляет указанного пользователя Kafka.
->>>>>>> achegodaev-7580-generated-api:ru/_api-ref/mdb/kafka/api-ref/User/delete.md
  
 
  
 ## HTTP-запрос {#https-request}
 ```
-<<<<<<< HEAD:ru/_api-ref/mdb/clickhouse/api-ref/Cluster/createShardGroup.md
-POST https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}/shardGroups
-=======
 DELETE https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/{clusterId}/users/{userName}
->>>>>>> achegodaev-7580-generated-api:ru/_api-ref/mdb/kafka/api-ref/User/delete.md
 ```
  
 ## Path-параметры {#path_params}
  
 Параметр | Описание
 --- | ---
-<<<<<<< HEAD:ru/_api-ref/mdb/clickhouse/api-ref/Cluster/createShardGroup.md
-clusterId | Обязательное поле. Идентификатор кластера.  Максимальная длина строки в символах — 50.
- 
-## Параметры в теле запроса {#body_params}
- 
-```json 
-{
-  "shardGroupName": "string",
-  "description": "string",
-  "shardNames": [
-    "string"
-  ]
-}
-```
-
- 
-Поле | Описание
---- | ---
-shardGroupName | **string**<br><p>Обязательное поле. Имя создаваемой группы шардов.</p> <p>Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению <code>[a-zA-Z0-9_-]*</code>.</p> 
-description | **string**<br><p>Описание группы шардов. Длина описания должна быть от 0 до 256 символов.</p> 
-shardNames[] | **string**<br><p>Список шардов, взодящих в группу.</p> 
-=======
 clusterId | Обязательное поле. Идентификатор кластера Apache Kafka®, к которому принадлежит пользователь. Чтобы получить идентификатор кластера, выполните запрос [list](/docs/managed-kafka/api-ref/Cluster/list).  Максимальная длина строки в символах — 50.
 userName | Обязательное поле. Имя пользователя, которого нужно удалить. Чтобы получить имя пользователя, выполните запрос [list](/docs/managed-kafka/api-ref/User/list).  Длина строки в символах должна быть от 1 до 63. Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_]* ``.
->>>>>>> achegodaev-7580-generated-api:ru/_api-ref/mdb/kafka/api-ref/User/delete.md
  
 ## Ответ {#responses}
 **HTTP Code: 200 - OK**
