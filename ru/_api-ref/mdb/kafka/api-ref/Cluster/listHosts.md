@@ -59,7 +59,7 @@ hosts[].<br>clusterId | **string**<br><p>Идентификатор класте
 hosts[].<br>zoneId | **string**<br><p>Идентификатор зоны доступности, в которой находится хост.</p> 
 hosts[].<br>role | **string**<br><p>Роль хоста.</p> <ul> <li>KAFKA: хост — брокер Kafka.</li> <li>ZOOKEEPER: хост — сервер ZooKeeper.</li> </ul> 
 hosts[].<br>resources | **object**<br><p>Ресурсы, выделенные хосту.</p> <p>Вычислительные ресурсы.</p> 
-hosts[].<br>resources.<br>resourcePresetId | **string**<br><p>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в <a href="/docs/managed-kafka/concepts/instance-types">documentation</a>.</p> 
+hosts[].<br>resources.<br>resourcePresetId | **string**<br><p>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в <a href="/docs/managed-kafka/concepts/instance-types">документации</a>.</p> 
 hosts[].<br>resources.<br>diskSize | **string** (int64)<br><p>Объем хранилища, доступного хосту, в байтах.</p> 
 hosts[].<br>resources.<br>diskTypeId | **string**<br><p>Тип хранилища для хоста.</p> 
 hosts[].<br>health | **string**<br><p>Агрегированные данные о работоспособности хоста.</p> <ul> <li>UNKNOWN: состояние хоста неизвестно.</li> <li>ALIVE: хост работает и выполняет все свои функции.</li> <li>DEAD: хост не работает и не выполняет свои функции.</li> <li>DEGRADED: хост находится в состоянии деградации и может выполнять только некоторые свои функции.</li> </ul> 

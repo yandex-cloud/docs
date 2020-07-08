@@ -102,7 +102,7 @@ clusters[].<br>config | **object**<br><p>Конфигурация кластер
 clusters[].<br>config.<br>version | **string**<br><p>Версия Apache Kafka®, которая используется в кластере.</p> 
 clusters[].<br>config.<br>kafka | **object**<br><p>Конфигурация и распределение ресурсов для брокеров Kafka.</p> 
 clusters[].<br>config.<br>kafka.<br>resources | **object**<br>Ресурсы, выделенные брокерам Kafka.<br><p>Вычислительные ресурсы.</p> 
-clusters[].<br>config.<br>kafka.<br>resources.<br>resourcePresetId | **string**<br><p>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в <a href="/docs/managed-kafka/concepts/instance-types">documentation</a>.</p> 
+clusters[].<br>config.<br>kafka.<br>resources.<br>resourcePresetId | **string**<br><p>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в <a href="/docs/managed-kafka/concepts/instance-types">документации</a>.</p> 
 clusters[].<br>config.<br>kafka.<br>resources.<br>diskSize | **string** (int64)<br><p>Объем хранилища, доступного хосту, в байтах.</p> 
 clusters[].<br>config.<br>kafka.<br>resources.<br>diskTypeId | **string**<br><p>Тип хранилища для хоста.</p> 
 clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_1 | **object**<br><p>Конфигурация брокера Kafka.</p> 
@@ -116,7 +116,7 @@ clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_1.<br>logRetentionMinutes | **
 clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_1.<br>logRetentionMs | **integer** (int64)<br><p>Количество миллисекунд до удаления файла сегмента лога; в течение этого времени Kafka будет хранить файл сегмента лога.</p> <p>Если значение не задано, то используется значение настройки <code>logRetentionMinutes</code>.</p> <p>Это глобальная настройка, которая задается на уровне кластера. Её можно переопределить на уровне топика с помощью настройки <code>retentionMs</code>.</p> 
 clusters[].<br>config.<br>zookeeper | **object**<br><p>Конфигурация и распределение ресурсов для хостов ZooKeeper.</p> 
 clusters[].<br>config.<br>zookeeper.<br>resources | **object**<br><p>Ресурсы, выделенные хостам ZooKeeper.</p> <p>Вычислительные ресурсы.</p> 
-clusters[].<br>config.<br>zookeeper.<br>resources.<br>resourcePresetId | **string**<br><p>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в <a href="/docs/managed-kafka/concepts/instance-types">documentation</a>.</p> 
+clusters[].<br>config.<br>zookeeper.<br>resources.<br>resourcePresetId | **string**<br><p>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в <a href="/docs/managed-kafka/concepts/instance-types">документации</a>.</p> 
 clusters[].<br>config.<br>zookeeper.<br>resources.<br>diskSize | **string** (int64)<br><p>Объем хранилища, доступного хосту, в байтах.</p> 
 clusters[].<br>config.<br>zookeeper.<br>resources.<br>diskTypeId | **string**<br><p>Тип хранилища для хоста.</p> 
 clusters[].<br>config.<br>zoneId[] | **string**<br><p>Идентификаторы зон доступности, в которых находятся брокеры Kafka.</p> 
