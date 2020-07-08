@@ -156,7 +156,7 @@ default:
   MG: MongoDB
   MY: MySQL
   RD: Redis
-  KF: Kafka
+  KF: Apache Kafka
   ZK: ZooKeeper
   zone-id: ru-central1-c
   host-class: s2.micro

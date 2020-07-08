@@ -43,7 +43,7 @@
 Создание кластеров и бэкапов в каталоге | `create` | `editor` на каталог
 Изменение, удаление кластеров и связанных ресурсов | `update`, `delete` | `editor` на каталог с кластером
 **Управление доступом к ресурсам** | |
-[Добавление](../operations/cluster-users.md#adduser), [изменение](../operations/cluster-users.md#updateuser), [удаление](../operations/cluster-users.md#removeuser) пользователей в кластере | `create`, `update`, `delete` | `editor` на каталог с кластером
+[Создание](../operations/cluster-accounts.md#create-account), [изменение](../operations/cluster-accounts.md#update-account), [удаление](../operations/cluster-accounts.md#delete-account) учетных записей в кластере | `create`, `update`, `delete` | `editor` на каталог с кластером
 [Назначение роли](../../iam/operations/roles/grant.md), [отзыв роли](../../iam/operations/roles/revoke.md) и просмотр назначенных ролей на каталог или облако | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `admin` на этот каталог или облако
 
 #### Что дальше
