@@ -81,7 +81,7 @@ default:
   mmg-short-name: Managed Service for MongoDB
   mrd-short-name: Managed Service for Redis
   mmy-short-name: Managed Service for MySQL
-  mkf-short-name: Managed Service for Kafka
+  mkf-short-name: Managed Service for Apache Kafka®
   monitoring-short-name: Monitoring
   vpc-short-name: VPC
   dsvm-short-name: DSVM
