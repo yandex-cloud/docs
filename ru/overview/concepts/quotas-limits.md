@@ -33,14 +33,49 @@
 {% include [vpc-limits.md](../../_includes/vpc-limits.md) %}
 
 
+### {{ iam-full-name }} {#iam}
+
+{% include [iam-limits.md](../../_includes/iam/iam-limits.md) %}
+
+
 ### {{ resmgr-full-name }} {#resource-manager}
 
 {% include [resource-manager-limits.md](../../_includes/resource-manager-limits.md) %}
 
 
+### {{ certificate-manager-full-name }} {#certificate-manager}
+
+{% include [certificate-manager-limits.md](../../_includes/certificate-manager/certificate-manager-limits.md) %}
+
+
+### {{ kms-full-name }} {#kms}
+
+{% include [kms-limits.md](../../_includes/kms/kms-limits.md) %}
+
+
 ### {{ load-balancer-full-name }} {#load-balancer}
 
 {% include [load-balancer-limits.md](../../_includes/load-balancer-limits.md) %}
+
+
+### {{ container-registry-full-name }} {#container-registry}
+
+{% include [container-registry-limits.md](../../_includes/container-registry-limits.md) %}
+
+
+### {{ managed-k8s-full-name }} {#managed-k8s}
+
+{% include [managed-kube-limits.md](../../_includes/managed-kube-limits.md) %}
+
+
+### {{ monitoring-full-name }} {#monitoring}
+
+{% include [monitoring-limits.md](../../_includes/monitoring/monitoring-limits.md) %}
+
+
+### {{ mpg-full-name }} {#mpg}
+
+{% include [mpg-limits.md](../../_includes/mdb/mpg-limits.md) %}
 
 
 ### {{ mch-full-name }} {#mch}
@@ -58,19 +93,25 @@
 {% include [mmy-limits.md](../../_includes/mdb/mmy-limits.md) %}
 
 
-### {{ mpg-full-name }} {#mpg}
-
-{% include [mpg-limits.md](../../_includes/mdb/mpg-limits.md) %}
-
-
 ### {{ mrd-full-name }} {#mrd}
 
 {% include [mrd-limits.md](../../_includes/mdb/mrd-limits.md) %}
 
 
+### {{ dataproc-full-name }} {#dataproc}
+
+{% include[dataproc-limits.md](../../_includes/data-proc/dataproc-limits.md) %}
+
+
 ### {{ message-queue-full-name }} {#mq}
 
 {% include [ymq-limits.md](../../_includes/message-queue/ymq-limits.md) %}
+
+
+
+### {{ sf-full-name }} {#sf}
+
+{% include [functions-limits.md](../../_includes/functions-limits.md) %}
 
 
 ### {{ speechkit-full-name }} {#speechkit}
@@ -86,3 +127,19 @@
 ### {{ vision-full-name }} {#vision}
 
 {% include [vision-limits](../../_includes/vision-limits.md) %}
+
+
+### {{ ml-platform-full-name }} {#ml-platform}
+
+{% include [ml-platform-limits.md](../../_includes/ml-platform-limits.md) %}
+
+
+
+### {{ datalens-full-name }} {#datalens}
+
+{% include [compute-limits.md](../../_includes/datalens/datalens-limits.md) %}
+
+
+### {{  iot-full-name }} {#iot}
+
+{% include [iot-limits.md](../../_includes/iot-limits.md) %}
