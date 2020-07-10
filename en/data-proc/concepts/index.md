@@ -24,11 +24,11 @@ Hosts in each subcluster are created with the computing power consistent with th
 
 For information about network configuration and network access to clusters, see [{#T}](network.md).
 
-## Security
+## Security {#security}
 
 Since a Data Proc cluster can run jobs without directly accessing clusters over SSH,
 the cluster logs job execution results to an S3 bucket. This is done for the user's convenience. Logging to the bucket is performed
-under the service account specified during cluster creation. For more information about the concept, go to the [Service accounts](../../iam/concepts/users/service-accounts.md) page.
+under the service account specified during cluster creation. For more information about the concept, go to [Service accounts](../../iam/concepts/users/service-accounts.md).
 
 We recommend using at least two different S3 buckets for the Data Proc cluster:
 

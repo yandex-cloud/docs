@@ -2,18 +2,11 @@
 
 As an example, we'll create a skill called <q>Parrot</q>, which repeats everything a user writes or says. We implement our example in two programming languages: Python and Node.js.
 
-{% note info %}
-
-Functions can't be used for Smart Home skills yet.
-
-{% endnote %}
-
 To add skills based on a [function](../concepts/function.md) to Alice:
 
 1. [Prepare the skill code](#prepare-code).
 1. [Create a function](#create-function).
 1. [Create a version of the function](#create-version).
-1. [Make the function public](#public).
 1. [Add the function link to Alice's skill](#add-link).
 1. [Test the skill](#test).
 

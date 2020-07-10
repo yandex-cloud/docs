@@ -2,7 +2,7 @@
 
 All of the subclusters of a cluster are hosted in one network, and the host of each subcluster is hosted in a specific subnet of that network.
 
-At the Preview stage, you cannot assign a public IP to a cluster host. To connect to a {{ dataproc-name }} cluster, create a VM in the same cloud network. [Learn more about networking in Yandex.Cloud](../../vpc/).
+You can't assign public IPs to cluster hosts. You can only connect to a {{ dataproc-name }} cluster using Yandex.Cloud VMs located in the same [cloud network](../../vpc/concepts/network.md) as the cluster.
 
 ## Cluster host addresses {#hostname}
 

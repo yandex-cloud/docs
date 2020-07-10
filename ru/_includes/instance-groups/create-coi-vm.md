@@ -26,7 +26,7 @@
 
 1. Выберите последнюю версию образа {{ coi }} из [публичных образов](../../compute/operations/images-with-pre-installed-software/get-list.md).
 
-    Чтобы узнать идентификтор последней версии образа {{ coi }}, выполните следующую команду:
+    Чтобы узнать идентификатор последней версии образа {{ coi }}, выполните следующую команду:
 
     ```
     $ yc compute image get-latest-from-family container-optimized-image --folder-id standard-images

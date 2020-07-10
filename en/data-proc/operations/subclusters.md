@@ -4,7 +4,7 @@ In addition to [updating the settings](subcluster-update.md) of a particular sub
 
 {% note warning %}
 
-Each cluster may have only 1 `MASTERNODE` subcluster, which is why you can't create or delete such subclusters. You can't delete `DATANODE` subclusters at the Preview stage, either.
+Each cluster may have only 1 `MASTERNODE` subcluster, which is why you can't create or delete such subclusters. You can't delete `DATANODE` subclusters, either.
 
 {% endnote %}
 
@@ -64,7 +64,7 @@ To add a subcluster:
 
 {% note warning %}
 
-You cannot delete `DATANODE` subclusters at the Preview stage.
+You can't delete `DATANODE` subclusters.
 
 {% endnote %}
 
@@ -77,7 +77,7 @@ You cannot delete `DATANODE` subclusters at the Preview stage.
     1. Select {{ dataproc-name }} and the desired cluster.
     1. Go to **Subclusters**.
     1. Click ![image](../../_assets/options.svg) for the appropriate subcluster and select **Delete**.
-    1. Confirm deletion.
+    1. Confirm the deletion.
 
     {{ dataproc-name }} runs the delete subcluster operation.
 

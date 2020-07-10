@@ -4,17 +4,8 @@ editable: false
 
 # Квоты и лимиты
 
+В сервисе {{ dataproc-full-name }} действуют следующие ограничения:
+
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
 
-#### Квоты {#quotas}
-
-Виртуальные машины, из которых состоят кластеры сервиса {{ dataproc-name }}, расходуют квоты вашего облака для сервиса {{ compute-full-name }}.
-
-#### Лимиты {#limits}
-
-Вид ограничения | Значение
------ | -----
-Минимальная конфигурация хоста | b1.small ([20%](../../compute/concepts/performance-levels.md) × 2 vCPU Intel Broadwell, 4 ГБ оперативной памяти)
-Максимальная конфигурация хоста | m2.6xlarge (48 vCPU, 384 ГБ оперативной памяти)
-Максимальное количество хостов в одном подкластере | 32
-Максимальный объем хранилища для кластера | 4096 ГБ
+{% include [dataproc-limits.md](../../_includes/data-proc/dataproc-limits.md) %}

@@ -42,7 +42,11 @@
       - Имя пользователя.
       - Пароль пользователя. Минимум 8 символов.
   1. В блоке **Хосты** укажите параметры хостов БД, создаваемых вместе с кластером (помните, что используя SSD-диски при создании {{ CH }}-кластера можно задать не меньше 2 хостов). Чтобы изменить добавленный хост, наведите курсор на строку хоста и нажмите значок ![image](../../_assets/pencil.svg).
-  1. При необходимости настройте параметры СУБД:
+  1. При необходимости задайте дополнительные настройки кластера:
+     
+     {% include [mch-extra-settings](../../_includes/mdb/mch-extra-settings-web-console.md) %}
+     
+  1. При необходимости задайте настройки СУБД:
 
      {% include [mch-additional-properties](../../_includes/mdb/mch-additional-properties.md) %}
 
@@ -75,9 +79,10 @@
 
   1. Укажите параметры кластера в команде создания (в примере приведены только обязательные флаги):
 
-          ```
+          
+     ```
      $ yc managed-clickhouse cluster create \
-        --cluster-name <имя кластера> \
+        --name <имя кластера> \
         --environment <окружение, prestable или production> \
         --network-name <имя сети> \
         --host type=<clickhouse или zookeeper>,zone-id=<зона доступности>,subnet-id=<идентификатор подсети> \
@@ -87,10 +92,10 @@
         --user name=<имя пользователя>,password=<пароль пользователя> \
         --database name=<имя базы данных>
      ```
-
-      Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.
-
      
+     Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.
+
+    
 
 - Terraform
 
@@ -203,7 +208,7 @@
   
   ```
   $ yc managed-clickhouse cluster create \
-       --cluster-name mych \
+       --name mych \
        --environment=production \
        --network-name default \
        --clickhouse-resource-preset s2.micro \

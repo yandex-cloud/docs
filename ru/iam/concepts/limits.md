@@ -4,4 +4,5 @@ editable: false
 
 # Квоты и лимиты
 
-Квоты и лимиты для сервиса {{ iam-full-name }} не определены.
+
+{% include [iam-limits.md](../../_includes/iam/iam-limits.md) %}
