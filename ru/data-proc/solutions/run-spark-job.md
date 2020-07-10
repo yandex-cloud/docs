@@ -290,12 +290,12 @@ spark-app
     
       object Main {
         def main(args: Array[String]) {
-          if (args.length != 2){ //проверяем аргументф
+          if (args.length != 2){ //проверяем аргумент
             System.err.println("Usage spark-app.jar <input_dir> <output_dir>");
             System.exit(-1);
           }
           val inDir = args(0); //URI на исходные данные
-          val outDir = args(1); //URI на директорию куда запить результат
+          val outDir = args(1); //URI на директорию куда записать результат
           val conf = new SparkConf().setAppName("Month Stat - Scala App")
           val sc = new SparkContext(conf)
           val sqlContext = new org.apache.spark.sql.SQLContext(sc)
