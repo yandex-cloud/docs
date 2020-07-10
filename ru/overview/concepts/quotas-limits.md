@@ -131,7 +131,7 @@
 
 ### {{ ml-platform-full-name }} {#ml-platform}
 
-{% include [ml-platform-limits.md](../../_includes/ml-platform-limits.md) %}
+{% include [ml-platform-limits.md](../../_includes/datasphere-limits.md) %}
 
 
 
