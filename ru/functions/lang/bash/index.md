@@ -1,6 +1,6 @@
 # Обзор
 
-С помощью сервиса {{ sf-name }} вы можете запускать приложения написанные на [Bash](https://www.gnu.org/software/bash/).
+С помощью сервиса {{ sf-name }} вы можете запускать приложения, написанные на [Bash](https://www.gnu.org/software/bash/).
 
 В [среду выполнения Bash](../../concepts/runtime/index.md#runtimes) по умолчанию установлены утилиты: 
 
