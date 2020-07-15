@@ -12,7 +12,7 @@ items:
     - name: Создание кластера
       href: operations/cluster-create.md
     - name: Подключение к кластеру
-      href: operations/cluster-connect.md
+      href: operations/connect.md
     - name: Остановка и запуск кластера
       href: operations/cluster-stop.md
     - name: Работа с топиками и разделами

@@ -2,7 +2,7 @@
 
 - [{#T}](cluster-list.md)
 - [{#T}](cluster-create.md)
-- [{#T}](cluster-connect.md)
+- [{#T}](connect.md)
 - [{#T}](cluster-stop.md)
 - [{#T}](cluster-topics.md)
 - [{#T}](cluster-accounts.md)

@@ -3,8 +3,8 @@ title: "Yandex Managed Service for Apache Kafka®"
 description:
   - "Сервис Managed Service for Apache Kafka® помогает разворачивать и поддерживать кластеры серверов Apache Kafka® в инфраструктуре Яндекс.Облака."
   - "Инфраструктура Яндекс.Облака <a href=\"https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf\">защищена</a> в соответствии с ФЗ-152."
-  - "Для сервиса действует <a href=\"https://yandex.ru/legal/cloud_sla\">соглашение об уровне обслуживания</a>. Уровень обслуживания сервиса определен в документе <a href=\"https://yandex.ru/legal/cloud_sla_mdb\">Уровень обслуживания Yandex Managed Databases</a>."
-# Мета-информация title, description, keywords и т.п.
+  - "<em>Apache<sup>®</sup>, Apache Hadoop<sup>®</sup> и Apache Spark™ являются зарегистрированными товарными знаками или товарными знаками Apache Software Foundation в США и/или других странах.</em>"
+  # Мета-информация title, description, keywords и т.п.
 meta:
   title: "Yandex Managed Service for Apache Kafka®"
 # Блок со ссылками
