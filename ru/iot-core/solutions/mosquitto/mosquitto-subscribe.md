@@ -3,7 +3,9 @@
 Вы можете подписать:
 
 - Реестр на события устройства, используя топики `$devices/<ID устройства>/events` или `$registries/<ID реестра>/events`.
+- Реестр на события устройства с сохранением последней записи, используя перманентные топики `$devices/<ID устройства>/state` или `$registries/<ID реестра>/state`.
 - Устройство на команды реестра, используя топики `$devices/<ID устройства>/commands` или `$registries/<ID реестра>/commands`.
+- Устройство на команды реестра с сохранением последней записи, используя перманентные топики `$devices/<ID устройства>/config` или `$registries/<ID реестра>/config`.
 
 О том, как обмениваться сообщениями, читайте в разделе [{#T}](mosquitto-publish.md).
 
@@ -45,6 +47,19 @@
         -t '$devices/<ID устройства>/events' \
         -q 1
         ```
+		
+    - Подпишите реестр на одно устройство с сохранением последней записи (перманентный топик):
+
+        ```
+        $ mosquitto_sub -h mqtt.cloud.yandex.net \
+        -p 8883 \
+        --cafile rootCA.crt \
+        --cert registry-cert.pem \
+        --key registry-key.pem \
+        -t '$devices/<ID устройства>/state' \
+        -q 1
+        ```
+
     - Подпишите реестр на несколько устройств:
 
         ```
@@ -57,7 +72,21 @@
         -t '$devices/<ID второго устройства>/events' \
         -q 1
         ```
-    - Подпишите реестр на все устройства, добавленные в него:
+		
+    - Подпишите реестр на несколько устройств с сохранением последней записи (перманентный топик):
+
+        ```
+        $ mosquitto_sub -h mqtt.cloud.yandex.net \
+        -p 8883 \
+        --cafile rootCA.crt \
+        --cert registry-cert.pem \
+        --key registry-key.pem \
+        -t '$devices/<ID первого устройства>/state' \
+        -t '$devices/<ID второго устройства>/state' \
+        -q 1
+        ```
+
+    - Подпишите реестр на все устройства:
 
         ```
         $ mosquitto_sub -h mqtt.cloud.yandex.net \
@@ -69,7 +98,19 @@
         -q 1
         ```
 
-        Реестр будет получать данные только от тех устройств, которые отправляют сообщения в топик `$registries/<ID реестра>/events`.
+    - Подпишите реестр на все устройства с сохранением последней записи (перманентный топик):
+
+        ```
+        $ mosquitto_sub -h mqtt.cloud.yandex.net \
+        -p 8883 \
+        --cafile rootCA.crt \
+        --cert registry-cert.pem \
+        --key registry-key.pem \
+        -t '$registries/<ID реестра>/state' \
+        -q 1
+        ```
+
+        Реестр будет получать данные только от тех устройств, которые отправляют сообщения в топик `$registries/<ID реестра>/events` или '$registries/<ID реестра>/state'.
 
 {% endlist %}
 
@@ -103,7 +144,20 @@
         -t '$devices/<ID устройства>/commands' \
         -q 1
         ```
-    - Подпишите устройство на команды для всех устройств:
+
+    - Подпишите устройство на команды для конкретного устройства с сохранением последней записи (перманентный топик):
+    
+        ```
+        $ mosquitto_sub -h mqtt.cloud.yandex.net \
+        -p 8883 \
+        --cafile rootCA.crt \
+        --cert device-cert.pem \
+        --key device-key.pem \
+        -t '$devices/<ID устройства>/config' \
+        -q 1
+        ```
+
+	- Подпишите устройство на команды для всех устройств:
         
         ```
         $ mosquitto_sub -h mqtt.cloud.yandex.net \
@@ -115,6 +169,18 @@
         -q 1
         ```
 
-        Команды будут получать только устройства, подписанные на топик `$registries/<ID реестра>/commands`.
+	- Подпишите устройство на команды для всех устройств с сохранением последней записи (перманентный топик):
+        
+        ```
+        $ mosquitto_sub -h mqtt.cloud.yandex.net \
+        -p 8883 \
+        --cafile rootCA.crt \
+        --cert device-cert.pem \
+        --key device-key.pem \
+        -t '$registries/<ID реестра>/config' \
+        -q 1
+        ```
+		
+        Команды будут получать только устройства, подписанные на топик `$registries/<ID реестра>/commands` или '$registries/<ID реестра>/config'.
 
 {% endlist %}

@@ -30,7 +30,7 @@
     $ yc iot device create 
     --registry-name <имя реестра> 
     --name <имя устройства> 
-    --topic-aliases <имя алиаса>='$devices/{id}/<events или commands>'
+    --topic-aliases <имя алиаса>='$devices/{id}/<events, state, commands или config>'
     ```
     
 {% endlist %}
