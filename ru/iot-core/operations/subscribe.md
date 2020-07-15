@@ -7,6 +7,8 @@
 - Устройство на команды реестра, используя топики `$devices/<ID устройства>/commands` или `$registries/<ID реестра>/commands`.
 - Устройство на команды реестра с сохранением последней записи, используя перманентные топики `$devices/<ID устройства>/config` или `$registries/<ID реестра>/config`.
 
+
+
 О том, как обмениваться сообщениями, читайте в разделе [{#T}](publish.md).
 
 {% include [registry-and-device-topic-note](../../_includes/iot-core/registry-and-device-topic-note.md) %}
