@@ -66,7 +66,7 @@ $ chmod 0600 ~/.postgresql/root.crt
           user=<имя пользователя базы данных>"
   ```
 
-{% endlist%}
+{% endlist %}
 
 
 ## Автоматический выбор хоста-мастера {#automatic-master-host-selection}
