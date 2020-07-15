@@ -38,13 +38,13 @@
         --message 'Test data' \
         --qos 1
         ```
-    - Отправьте данные, используя сертификат: 
+    - Отправьте данные с сохранением последней записи (перманентный топик), используя сертификат: 
           
         ```
         $ yc iot mqtt publish \
         --cert device-cert.pem \
         --key device-key.pem \
-        --topic '$devices/<ID устройства>/events' \
+        --topic '$devices/<ID устройства>/state' \
         --message 'Test data' \
         --qos 1
         ```
@@ -54,7 +54,8 @@
         - `--topic` — топик устройства для отправки данных.
         - `--message` — текст сообщения.
         - `--qos` — [уровень качества обслуживания (QoS)](../concepts/index.md#qos).
-    - Отправьте данные, используя логин и пароль: 
+
+	- Отправьте данные, используя логин и пароль: 
     
         ```
         $ yc iot mqtt publish \
@@ -64,7 +65,18 @@
         --message 'Test data' \
         --qos 1
         ```
-      
+
+	- Отправьте данные с сохранением последней записи (перманентный топик), используя логин и пароль: 
+    
+        ```
+        $ yc iot mqtt publish \
+        --username <ID устройства> \
+        --password <пароль для устройства> \
+        --topic '$devices/<ID устройства>/state' \
+        --message 'Test data' \
+        --qos 1
+        ```
+		
         Где:
         - `--username` и `--password` — параметры для авторизации с помощью логина и пароля.
         - `--topic` — топик устройства для отправки данных.
@@ -95,13 +107,25 @@
         --message 'Test data' \
         --qos 1
         ```
-      
+
+	- Отправьте данные с сохранением последней записи (перманентный топик), используя сертификат: 
+        
+        ```
+        $ yc iot mqtt publish \
+        --cert device-cert.pem \
+        --key device-key.pem \
+        --topic '$registries/<ID реестра>/state' \
+        --message 'Test data' \
+        --qos 1
+        ```
+		
         Где:
         - `--cert` и `--key` — параметры для авторизации с помощью сертификата.
         - `--topic` — топик реестра для получения данных.
         - `--message` — текст сообщения.
         - `--qos` — [уровень качества обслуживания (QoS)](../concepts/index.md#qos).
-    - Отправьте данные, используя логин и пароль:
+
+	- Отправьте данные, используя логин и пароль:
     
         ```
         $ yc iot mqtt publish \
@@ -111,7 +135,18 @@
         --message 'Test data' \
         --qos 1
         ```
-      
+
+	- Отправьте данные с сохранением последней записи (перманентный топик), используя логин и пароль:
+	
+        ```
+        $ yc iot mqtt publish \
+        --username <ID устройства> \
+        --password <пароль для устройства> \
+        --topic '$registries/<ID реестра>/state' \
+        --message 'Test data' \
+        --qos 1
+        ```
+		
         Где:
         - `--username` и `--password` — параметры для авторизации с помощью логина и пароля.
         - `--topic` — топик реестра для получения данных.
@@ -146,19 +181,41 @@
         --message 'Test command for first device' \
         --qos 1
         ```
+		
+    - Отправьте команду с сохранением последней записи (перманентный топик), используя сертификат:
+
+        ```
+        $ yc iot mqtt publish \
+        --cert registry-cert.pem \
+        --key registry-key.pem \
+        --topic '$devices/<ID устройства>/config' \
+        --message 'Test command for first device' \
+        --qos 1
+        ```
       
         Где:
         - `--cert` и `--key` — параметры для авторизации с помощью сертификата.
         - `--topic` — топик устройства для получения команд.
         - `--message` — текст сообщения.
         - `--qos` — [уровень качества обслуживания (QoS)](../concepts/index.md#qos).      
-    - Отправьте команду, используя логин и пароль: 
+
+	- Отправьте команду, используя логин и пароль: 
 
         ```
         $ yc iot mqtt publish \
         --username <ID реестра> \
         --password <пароль для реестра> \
         --topic '$devices/<ID устройства>/commands' \
+        --message 'Test command for first device' \
+        --qos 1
+        ```                      
+	- Отправьте команду с сохранением последней записи (перманентный топик), используя логин и пароль: 
+
+        ```
+        $ yc iot mqtt publish \
+        --username <ID реестра> \
+        --password <пароль для реестра> \
+        --topic '$devices/<ID устройства>/config' \
         --message 'Test command for first device' \
         --qos 1
         ```                      
@@ -191,13 +248,25 @@
         --message 'Test command for all devices' \
         --qos 1
         ```
-      
+
+    - Отправьте команду с сохранением последней записи (перманентный топик), используя сертификат: 
+    
+        ```
+        $ yc iot mqtt publish \
+        --cert registry-cert.pem \
+        --key registry-key.pem \
+        --topic '$registries/<ID реестра>/config' \
+        --message 'Test command for all devices' \
+        --qos 1
+        ```
+		
         Где:
         - `--cert` и `--key` — параметры для авторизации с помощью сертификата.
         - `--topic` — топик реестра для отправки команд.
         - `--message` — текст сообщения.
         - `--qos` — [уровень качества обслуживания (QoS)](../concepts/index.md#qos).      
-    - Отправьте команду, используя логин и пароль:
+
+	- Отправьте команду, используя логин и пароль:
     
         ```
         $ yc iot mqtt publish \
@@ -207,7 +276,18 @@
         --message 'Test command for all devices' \
         --qos 1
         ```
-      
+
+	- Отправьте команду с сохранением последней записи (перманентный топик), используя логин и пароль:
+    
+        ```
+        $ yc iot mqtt publish \
+        --username <ID реестра> \
+        --password <пароль для реестра> \
+        --topic '$registries/<ID реестра>/config' \
+        --message 'Test command for all devices' \
+        --qos 1
+        ```
+		
         Где:
         - `--username` и `--password` — параметры для авторизации с помощью логина и пароля.
         - `--topic` — топик реестра для отправки команд.
