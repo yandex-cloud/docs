@@ -240,7 +240,7 @@
         --cert device-cert.pem \
         --key device-key.pem \
         --topic '$registries/<ID реестра>/config' \
-        --qos 1
+        --qos 2
         ```
 		
         Где:
