@@ -24,7 +24,7 @@ items:
           - name: Добавление виджета на дашборд
             href: operations/dashboard/add-widget.md
           - name: Удаление виджета с дашборда
-            href: operations/dashboard/add-widget.md
+            href: operations/dashboard/delete-widget.md
           - name: Удаление дашборда
             href: operations/dashboard/delete-dashboard.md
       - name: Работа с метриками
