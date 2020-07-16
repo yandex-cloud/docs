@@ -37,7 +37,13 @@ _Обработчик запросов_ — это метод, который и
 
 ### Вывод структуры HTTP-запроса {#http-req}
 
-Следующая функция получает на вход запрос с двумя полями (строчное сообщение и число), выводит структуру запроса и контекста вызова в журнал выполнения и возвращает строчную запись JSON-документа, содержащего информацию о контексте и запросе:
+Следующая функция получает на вход запрос с двумя полями (строкой и числом), выводит структуру запроса и контекста вызова в журнал выполнения и возвращает строчную запись JSON-документа, содержащего информацию о контексте и запросе.
+
+{% note warning %}
+
+Функцию необходимо вызывать с помощью [YC CLI](../../concepts/function-invoke.md) или с помощью HTTP-запроса с параметром `integration=raw`.
+
+{% endnote %}
 
 ```golang
 package main
@@ -54,18 +60,12 @@ type Request struct {
   Number  int    `json:"number"`
 }
 
-// Результат будет возвращен в виде массива байтов
-type Response struct {
-	StatusCode int         `json:"statusCode"`
-	Body       interface{} `json:"body"`
-}
-
 type ResponseBody struct {
   Context context.Context `json:"context"`
   Request interface{}     `json:"request"`
 }
 
-func Handler (ctx context.Context, request *Request) (*Response, error) {
+func Handler (ctx context.Context, request *Request) ([]byte, error) {
   // В логах функции будут напечатаны значения контекста вызова и тела запроса
   fmt.Println("context", ctx)
   fmt.Println("request", request)
@@ -80,12 +80,8 @@ func Handler (ctx context.Context, request *Request) (*Response, error) {
     return nil, err
   }
 
-  // Тело ответа является корректным json-документом, на экран будет выведено содержимое Body
-  return &Response{
-    StatusCode: 200,
-    // Массив байтов возвращается в виде строки
-    Body: string(body),
-  }, nil
+  // Тело ответа необходимо вернуть в виде массива байтов
+  return body, nil
 }
 ```
 
@@ -101,7 +97,7 @@ func Handler (ctx context.Context, request *Request) (*Response, error) {
 В журнале будет напечатано:
 ```
 context {context.Background map[lambdaRuntimeFunctionName:b09ks558ute7l8agve8t lambdaRuntimeFunctionVersion:b09ebrsp6jbam10vrvs2 lambdaRuntimeLogGroupName:eolitpnj15jrgmsnqloh lambdaRuntimeLogStreamName:b09ebrsp6jbam10vrvs2 lambdaRuntimeMemoryLimit:512 lambdaRuntimeRequestID:58fc90cc-97b9-4c2b-95db-9dd0e961e8ae]}
-request &{Hello 24}
+request &{Hello, world 24}
 ```
 
 Возвращаемый JSON-документ:
