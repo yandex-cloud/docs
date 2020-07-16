@@ -264,6 +264,3 @@
    {% include [see-fqdn-in-console](../../_includes/mdb/see-fqdn-in-console.md) %}
 
 {% endlist %}
-
-
-### Установка kafkacat
