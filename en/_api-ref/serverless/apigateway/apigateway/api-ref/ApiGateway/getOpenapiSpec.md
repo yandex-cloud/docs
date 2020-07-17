@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method getOpenapiSpec
-Returns the OpenAPI specification of specified API gateway.
+Returns the Openapi specification of specified api-gateway.
  
 
  
@@ -16,13 +16,13 @@ GET https://serverless-apigateway.api.cloud.yandex.net/apigateways/v1/apigateway
  
 Parameter | Description
 --- | ---
-apiGatewayId | Required. ID of the API gateway to get specification from.
+apiGatewayId | Required. ID of the api-gateway to get specification from.
  
 ## Query parameters {#query_params}
  
 Parameter | Description
 --- | ---
-format | Format of returned specification. Default is the original format used in `CreateApiGatewayRequest`.
+format | Format of returned specification. Default is the original format used in `CreateApiGatewayRequest`
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -37,5 +37,5 @@ format | Format of returned specification. Default is the original format used i
  
 Field | Description
 --- | ---
-apiGatewayId | **string**<br><p>ID of the API gateway.</p> 
-openapiSpec | **string**<br><p>The text of specification, JSON or YAML.</p> 
+apiGatewayId | **string**<br><p>ID of the api-gateway.</p> 
+openapiSpec | **string**<br><p>text of the specification, json or yaml</p> 

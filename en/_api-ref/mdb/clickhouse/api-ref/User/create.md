@@ -110,7 +110,8 @@ clusterId | Required. ID of the ClickHouse cluster to create a user in. To get t
       "enableHttpCompression": true,
       "sendProgressInHttpHeaders": true,
       "httpHeadersProgressInterval": "integer",
-      "addHttpCorsHeader": true
+      "addHttpCorsHeader": true,
+      "quotaMode": "string"
     },
     "quotas": [
       {
@@ -215,6 +216,7 @@ userSpec.<br>settings.<br>enableHttpCompression | **boolean** (boolean)<br><p>Wh
 userSpec.<br>settings.<br>sendProgressInHttpHeaders | **boolean** (boolean)<br><p>Whether progress notifications using X-ClickHouse-Progress headers are enabled. Default value: false.</p> 
 userSpec.<br>settings.<br>httpHeadersProgressInterval | **integer** (int64)<br><p>Minimum interval between progress notifications, in milliseconds. Default value: 100.</p> 
 userSpec.<br>settings.<br>addHttpCorsHeader | **boolean** (boolean)<br><p>Whether CORS header in HTTP responses is enabled. Default value: false.</p> 
+userSpec.<br>settings.<br>quotaMode | **string**<br><p>Quota accounting mode. Possible values: QUOTA_MODE_DEFAULT, QUOTA_MODE_KEYED and QUOTA_MODE_KEYED_BY_IP.</p> 
 userSpec.<br>quotas[] | **object**<br><p>ClickHouse quota representation. Each quota associated with an user and limits it resource usage for an interval. See in-depth description <a href="https://clickhouse.yandex/docs/en/operations/quotas/">ClickHouse documentation</a>.</p> 
 userSpec.<br>quotas[].<br>intervalDuration | **integer** (int64)<br><p>Duration of interval for quota in milliseconds. Minimal value is 1 second.</p> <p>The minimum value is 1000.</p> 
 userSpec.<br>quotas[].<br>queries | **integer** (int64)<br><p>The total number of queries. 0 - unlimited.</p> <p>The minimum value is 0.</p> 

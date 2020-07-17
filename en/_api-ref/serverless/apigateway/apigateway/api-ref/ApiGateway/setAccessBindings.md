@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method setAccessBindings
-Sets access bindings for the specified API gateway.
+Sets access bindings for the specified api-gateway.
  
 
  

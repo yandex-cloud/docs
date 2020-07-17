@@ -50,12 +50,13 @@ status | enum **Status**<br>Trigger status <ul><ul/>
 
 Field | Description
 --- | ---
-rule | **oneof:** `timer`, `message_queue`, `iot_message`, `object_storage` or `container_registry`<br>
+rule | **oneof:** `timer`, `message_queue`, `iot_message`, `object_storage`, `container_registry` or `cloud_logs`<br>
 &nbsp;&nbsp;timer | **[Timer](#Timer)**<br>Rule for a timed trigger. 
 &nbsp;&nbsp;message_queue | **[MessageQueue](#MessageQueue)**<br>Rule for a message queue trigger. 
 &nbsp;&nbsp;iot_message | **[IoTMessage](#IoTMessage)**<br>Rule for a Yandex IoT Core trigger. 
 &nbsp;&nbsp;object_storage | **[ObjectStorage](#ObjectStorage)**<br> 
 &nbsp;&nbsp;container_registry | **[ContainerRegistry](#ContainerRegistry)**<br> 
+&nbsp;&nbsp;cloud_logs | **[CloudLogs](#CloudLogs)**<br> 
 
 
 ### Timer {#Timer}
@@ -111,6 +112,16 @@ event_type[] | **ContainerRegistryEventType**<br>Type (name) of events, at least
 registry_id | **string**<br> 
 image_name | **string**<br>Filter, optional. 
 tag | **string**<br> 
+action | **oneof:** `invoke_function`<br>
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br> 
+
+
+### CloudLogs {#CloudLogs}
+
+Field | Description
+--- | ---
+log_group_id[] | **string**<br>Log group identifiers, at least one value is required. 
+batch_settings | **[CloudLogsBatchSettings](#CloudLogsBatchSettings)**<br>Required. Batch settings for processing log events. false
 action | **oneof:** `invoke_function`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br> 
 
@@ -157,12 +168,13 @@ status | enum **Status**<br>Trigger status <ul><ul/>
 
 Field | Description
 --- | ---
-rule | **oneof:** `timer`, `message_queue`, `iot_message`, `object_storage` or `container_registry`<br>
+rule | **oneof:** `timer`, `message_queue`, `iot_message`, `object_storage`, `container_registry` or `cloud_logs`<br>
 &nbsp;&nbsp;timer | **[Timer](#Timer1)**<br>Rule for a timed trigger. 
 &nbsp;&nbsp;message_queue | **[MessageQueue](#MessageQueue1)**<br>Rule for a message queue trigger. 
 &nbsp;&nbsp;iot_message | **[IoTMessage](#IoTMessage1)**<br>Rule for a Yandex IoT Core trigger. 
 &nbsp;&nbsp;object_storage | **[ObjectStorage](#ObjectStorage1)**<br> 
 &nbsp;&nbsp;container_registry | **[ContainerRegistry](#ContainerRegistry1)**<br> 
+&nbsp;&nbsp;cloud_logs | **[CloudLogs](#CloudLogs1)**<br> 
 
 
 ### Timer {#Timer}
@@ -218,6 +230,16 @@ event_type[] | **ContainerRegistryEventType**<br>Type (name) of events, at least
 registry_id | **string**<br> 
 image_name | **string**<br>Filter, optional. 
 tag | **string**<br> 
+action | **oneof:** `invoke_function`<br>
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br> 
+
+
+### CloudLogs {#CloudLogs}
+
+Field | Description
+--- | ---
+log_group_id[] | **string**<br>Log group identifiers, at least one value is required. 
+batch_settings | **[CloudLogsBatchSettings](#CloudLogsBatchSettings)**<br>Required. Batch settings for processing log events. false
 action | **oneof:** `invoke_function`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br> 
 
@@ -284,12 +306,13 @@ status | enum **Status**<br>Trigger status <ul><ul/>
 
 Field | Description
 --- | ---
-rule | **oneof:** `timer`, `message_queue`, `iot_message`, `object_storage` or `container_registry`<br>
+rule | **oneof:** `timer`, `message_queue`, `iot_message`, `object_storage`, `container_registry` or `cloud_logs`<br>
 &nbsp;&nbsp;timer | **[Timer](#Timer2)**<br>Rule for a timed trigger. 
 &nbsp;&nbsp;message_queue | **[MessageQueue](#MessageQueue2)**<br>Rule for a message queue trigger. 
 &nbsp;&nbsp;iot_message | **[IoTMessage](#IoTMessage2)**<br>Rule for a Yandex IoT Core trigger. 
 &nbsp;&nbsp;object_storage | **[ObjectStorage](#ObjectStorage2)**<br> 
 &nbsp;&nbsp;container_registry | **[ContainerRegistry](#ContainerRegistry2)**<br> 
+&nbsp;&nbsp;cloud_logs | **[CloudLogs](#CloudLogs2)**<br> 
 
 
 ### Timer {#Timer}
@@ -345,6 +368,16 @@ event_type[] | **ContainerRegistryEventType**<br>Type (name) of events, at least
 registry_id | **string**<br> 
 image_name | **string**<br>Filter, optional. 
 tag | **string**<br> 
+action | **oneof:** `invoke_function`<br>
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br> 
+
+
+### CloudLogs {#CloudLogs}
+
+Field | Description
+--- | ---
+log_group_id[] | **string**<br>Log group identifiers, at least one value is required. 
+batch_settings | **[CloudLogsBatchSettings](#CloudLogsBatchSettings)**<br>Required. Batch settings for processing log events. false
 action | **oneof:** `invoke_function`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br> 
 
@@ -411,12 +444,13 @@ status | enum **Status**<br>Trigger status <ul><ul/>
 
 Field | Description
 --- | ---
-rule | **oneof:** `timer`, `message_queue`, `iot_message`, `object_storage` or `container_registry`<br>
+rule | **oneof:** `timer`, `message_queue`, `iot_message`, `object_storage`, `container_registry` or `cloud_logs`<br>
 &nbsp;&nbsp;timer | **[Timer](#Timer3)**<br>Rule for a timed trigger. 
 &nbsp;&nbsp;message_queue | **[MessageQueue](#MessageQueue3)**<br>Rule for a message queue trigger. 
 &nbsp;&nbsp;iot_message | **[IoTMessage](#IoTMessage3)**<br>Rule for a Yandex IoT Core trigger. 
 &nbsp;&nbsp;object_storage | **[ObjectStorage](#ObjectStorage3)**<br> 
 &nbsp;&nbsp;container_registry | **[ContainerRegistry](#ContainerRegistry3)**<br> 
+&nbsp;&nbsp;cloud_logs | **[CloudLogs](#CloudLogs3)**<br> 
 
 
 ### Timer {#Timer}
@@ -472,6 +506,16 @@ event_type[] | **ContainerRegistryEventType**<br>Type (name) of events, at least
 registry_id | **string**<br> 
 image_name | **string**<br>Filter, optional. 
 tag | **string**<br> 
+action | **oneof:** `invoke_function`<br>
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br> 
+
+
+### CloudLogs {#CloudLogs}
+
+Field | Description
+--- | ---
+log_group_id[] | **string**<br>Log group identifiers, at least one value is required. 
+batch_settings | **[CloudLogsBatchSettings](#CloudLogsBatchSettings)**<br>Required. Batch settings for processing log events. false
 action | **oneof:** `invoke_function`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br> 
 
@@ -574,12 +618,13 @@ status | enum **Status**<br>Trigger status <ul><ul/>
 
 Field | Description
 --- | ---
-rule | **oneof:** `timer`, `message_queue`, `iot_message`, `object_storage` or `container_registry`<br>
+rule | **oneof:** `timer`, `message_queue`, `iot_message`, `object_storage`, `container_registry` or `cloud_logs`<br>
 &nbsp;&nbsp;timer | **[Timer](#Timer4)**<br>Rule for a timed trigger. 
 &nbsp;&nbsp;message_queue | **[MessageQueue](#MessageQueue4)**<br>Rule for a message queue trigger. 
 &nbsp;&nbsp;iot_message | **[IoTMessage](#IoTMessage4)**<br>Rule for a Yandex IoT Core trigger. 
 &nbsp;&nbsp;object_storage | **[ObjectStorage](#ObjectStorage4)**<br> 
 &nbsp;&nbsp;container_registry | **[ContainerRegistry](#ContainerRegistry4)**<br> 
+&nbsp;&nbsp;cloud_logs | **[CloudLogs](#CloudLogs4)**<br> 
 
 
 ### Timer {#Timer}
@@ -635,6 +680,16 @@ event_type[] | **ContainerRegistryEventType**<br>Type (name) of events, at least
 registry_id | **string**<br> 
 image_name | **string**<br>Filter, optional. 
 tag | **string**<br> 
+action | **oneof:** `invoke_function`<br>
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br> 
+
+
+### CloudLogs {#CloudLogs}
+
+Field | Description
+--- | ---
+log_group_id[] | **string**<br>Log group identifiers, at least one value is required. 
+batch_settings | **[CloudLogsBatchSettings](#CloudLogsBatchSettings)**<br>Required. Batch settings for processing log events. false
 action | **oneof:** `invoke_function`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br> 
 
@@ -697,12 +752,13 @@ status | enum **Status**<br>Trigger status <ul><ul/>
 
 Field | Description
 --- | ---
-rule | **oneof:** `timer`, `message_queue`, `iot_message`, `object_storage` or `container_registry`<br>
+rule | **oneof:** `timer`, `message_queue`, `iot_message`, `object_storage`, `container_registry` or `cloud_logs`<br>
 &nbsp;&nbsp;timer | **[Timer](#Timer5)**<br>Rule for a timed trigger. 
 &nbsp;&nbsp;message_queue | **[MessageQueue](#MessageQueue5)**<br>Rule for a message queue trigger. 
 &nbsp;&nbsp;iot_message | **[IoTMessage](#IoTMessage5)**<br>Rule for a Yandex IoT Core trigger. 
 &nbsp;&nbsp;object_storage | **[ObjectStorage](#ObjectStorage5)**<br> 
 &nbsp;&nbsp;container_registry | **[ContainerRegistry](#ContainerRegistry5)**<br> 
+&nbsp;&nbsp;cloud_logs | **[CloudLogs](#CloudLogs5)**<br> 
 
 
 ### Timer {#Timer}
@@ -758,6 +814,16 @@ event_type[] | **ContainerRegistryEventType**<br>Type (name) of events, at least
 registry_id | **string**<br> 
 image_name | **string**<br>Filter, optional. 
 tag | **string**<br> 
+action | **oneof:** `invoke_function`<br>
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br> 
+
+
+### CloudLogs {#CloudLogs}
+
+Field | Description
+--- | ---
+log_group_id[] | **string**<br>Log group identifiers, at least one value is required. 
+batch_settings | **[CloudLogsBatchSettings](#CloudLogsBatchSettings)**<br>Required. Batch settings for processing log events. false
 action | **oneof:** `invoke_function`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br> 
 

@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method updateAccessBindings
-Updates access bindings for the specified API gateway.
+Updates access bindings for the specified api-gateway.
  
 
  

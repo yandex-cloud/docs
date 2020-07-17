@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method listAccessBindings
-Lists existing access bindings for the specified API gateway.
+Lists existing access bindings for the specified api-gateway.
  
 
  
