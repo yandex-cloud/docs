@@ -40,10 +40,9 @@
 **Просмотр информации** | |
 Просмотр информации о кластере и связанных ресурсах | `get`, `list` | `viewer` на каталог с кластером
 **Управление ресурсами** | |
-
+Создание кластеров в каталоге | `create` | `editor` на каталог
 Изменение, удаление кластеров и связанных ресурсов | `update`, `delete` | `editor` на каталог с кластером
 **Управление доступом к ресурсам** | |
-Создание кластеров в каталоге | `create` | `editor` на каталог
 [Создание](../operations/cluster-accounts.md#create-account), [изменение](../operations/cluster-accounts.md#update-account), [удаление](../operations/cluster-accounts.md#delete-account) учетных записей в кластере | `create`, `update`, `delete` | `editor` на каталог с кластером
 [Назначение роли](../../iam/operations/roles/grant.md), [отзыв роли](../../iam/operations/roles/revoke.md) и просмотр назначенных ролей на каталог или облако | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `admin` на этот каталог или облако
 
