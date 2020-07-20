@@ -40,7 +40,6 @@
 **Просмотр информации** | |
 Просмотр информации о кластере и связанных ресурсах | `get`, `list` | `viewer` на каталог с кластером
 **Управление ресурсами** | |
-Создание кластеров и бэкапов в каталоге | `create` | `editor` на каталог
 Изменение, удаление кластеров и связанных ресурсов | `update`, `delete` | `editor` на каталог с кластером
 **Управление доступом к ресурсам** | |
 [Создание](../operations/cluster-accounts.md#create-account), [изменение](../operations/cluster-accounts.md#update-account), [удаление](../operations/cluster-accounts.md#delete-account) учетных записей в кластере | `create`, `update`, `delete` | `editor` на каталог с кластером
