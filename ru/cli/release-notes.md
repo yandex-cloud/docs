@@ -1,6 +1,32 @@
 # Релизы YC CLI
 
-## Версия 0.59.0 (02.07.20) {#latest-release}
+## Версия 0.60.0 (20.07.20) {#latest-release}
+
+#### {{ compute-name }} {#compute}
+
+- Добавлена команда `yc compute instance update-network-interface`.
+
+  Команда позволяет изменять параметры сетевого интерфейса на уже созданных инстансах.
+
+#### {{ sf-name }} {#serverless-functions}
+
+- Команда `yc serverless function logs`.
+
+    Использование флага `--follow` теперь гарантирует получение логов самой свежей версии функции с переданным тегом. 
+
+##### Сервисы управляемых баз данных {#managed-db}
+
+**{{ mch-name }}**
+
+* Командам `yc managed-clickhouse cluster create`, `yc managed-clickhouse cluster update` и `yc managed-clickhouse cluster restore`
+добавлен флаг `--service account` для выбора сервисного аккаунта привязанного к хостам.
+* Добавлены команды для управления группами шардов `yc managed-clickhouse shard-groups`.
+
+#### {{ vpc-name }} {#vpc}
+
+Добавлены флаги `security-group-id` и `predefined` для security group rule target.
+
+## Версия 0.59.0 (02.07.20)
 
 ### Изменения в сервисах Облака {#services}
 
