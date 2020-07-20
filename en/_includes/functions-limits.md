@@ -19,7 +19,7 @@
 | Maximum size of the [request JSON structure](../functions/concepts/function-invoke.md#request) | 3.5 MB |
 | Maximum [temporary file size](../functions/concepts/runtime/environment-variables.md#files) | 512 MB |
 | Maximum function execution time before [timeout](../functions/operations/function/version-manage.md#version-create) (including original initialization at first call) | 5 minutes |
-| Maximum number of [triggers](../functions/concepts/trigger.md) per [message queue](../message-queue/concepts/queue.md) | 1 |
+| Maximum number of [triggers](../functions/concepts/trigger/index.md) per [message queue](../message-queue/concepts/queue.md) | 1 |
 
 #### Other restrictions {#other-restrictions}
 

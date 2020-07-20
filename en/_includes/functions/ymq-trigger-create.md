@@ -15,7 +15,7 @@ To create a trigger, you need:
 
 1. Service accounts with rights to read messages from a message queue and to call a function. You can use the same service account for both operations. If you don't have a service account, [create one](../../iam/operations/sa/create.md).
 1. [A message queue](../../message-queue/concepts/queue.md) that the trigger will pick up messages from. If you don't have a queue, [create one](../../message-queue/operations/message-queue-new-queue.md).
-1. [Functions](../../concepts/function.md) the trigger will send messages to for processing. If you don't have a function:
+1. [Functions](../../functions/concepts/function.md) the trigger will send messages to for processing. If you don't have a function:
     - [Create a function](../../functions/operations/function/function-create.md).
     - [Create a version of the function and upload the function code to it](../../functions/operations/function/version-manage.md#func-version-create).
 

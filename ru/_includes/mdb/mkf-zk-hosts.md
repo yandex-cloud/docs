@@ -1,4 +1,4 @@
-{% note important %}
+{% note warning %}
 
 {{ mkf-name }} использует ZooKeeper для хранения состояния и конфигурации кластера.
 ZooKeeper автоматически устанавливается на те же хоcты, что и [брокеры](../../managed-kafka/concepts/brokers.md) {{ KF }}, при создании кластера.
