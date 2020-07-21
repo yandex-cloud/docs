@@ -9,14 +9,14 @@ The available disk space does not depend on the type of virtual machine.  For li
 
 Minimum and maximum configurations for:
 
-- Platform Intel Broadwell:
+- Platform Intel Broadwell (`standard-v1`):
 
     | Configuration | vCPU | RAM, GB |
     | --- | --- | --- | --- |
     | Min | 1 | 1 |
     | Max | 32 | 256 |
 
-- Platform Intel Cascade Lake:
+- Platform Intel Cascade Lake (`standard-v2`):
 
     | Configuration | vCPU | RAM, GB |
     | --- | --- | --- | --- |
@@ -25,7 +25,7 @@ Minimum and maximum configurations for:
 
 Available configurations of computing resources:
 
-- Platform Intel Broadwell:
+- Platform Intel Broadwell (`standard-v1`):
 
     | Performance</br> level | vCPU | RAM per core, GB |
     | --- | --- | --- | --- |
@@ -33,7 +33,7 @@ Available configurations of computing resources:
     | 20% | 1, 2, 4 | 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4 |
     | 100% | 1, 2, 4, 6, 8, 10, 12,</br> 14, 16, 18, 20, 22, 24,</br> 26, 28, 30, 32 | 1, 2, 3, 4, 5, 6, 7, 8 |
 
-- Platform Intel Cascade Lake:
+- Platform Intel Cascade Lake (`standard-v2`):
 
     | Performance</br> level | vCPU | RAM per core, GB |
     | --- | --- | --- | --- |
