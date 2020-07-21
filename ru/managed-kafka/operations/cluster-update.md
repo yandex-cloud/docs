@@ -8,6 +8,8 @@
 
 {% list tabs %}
 
+{% if api != "noshow" %}
+
 - API
   
   Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
@@ -21,16 +23,22 @@
   
   {% endnote %}
   
+{% endif %}
+
 {% endlist %}
 
 ## Переместить кластер {#move-cluster}
 
 {% list tabs %}
 
+{% if api != "noshow" %}
+
 - API
   
   Чтобы переместить кластер из текущего каталога в другой, воспользуйтесь методом API [move](../api-ref/Cluster/move.md) и передайте в запросе:
   - Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
   - Идентификатор каталога назначения в параметре `destinationFolderId`.
+
+{% endif %}
 
 {% endlist %}

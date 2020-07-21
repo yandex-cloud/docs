@@ -8,6 +8,8 @@
 
 {% list tabs %}
 
+{% if api != "noshow" %}
+
 - API
 
   Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
@@ -34,16 +36,22 @@
 
   {% endnote %}  
 
+{% endif %}
+
 {% endlist %}
 
 # Получить список хостов в кластере {#list-hosts}
 
 {% list tabs %}
 
+{% if api != "noshow" %}
+
 - API
 
   Воспользуйтесь методом API [listHosts](../api-ref/Cluster/listHosts.md): передайте значение идентификатора требуемого кластера в параметре `clusterId` запроса.
 
   Чтобы узнать идентификатор кластера, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
+
+{% endif %}
 
 {% endlist %}
