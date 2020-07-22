@@ -21,7 +21,7 @@ A set of methods for managing Snapshot resources.
 
 Returns the specified Snapshot resource. <br>To get the list of available Snapshot resources, make a [List](#List) request.
 
-**rpc Get ([GetSnapshotRequest](#GetSnapshotRequest)) returns ([Snapshot](#Snapshot))**
+**rpc Get ([GetSnapshotRequest](#GetSnapshotRequest)) returns ([Snapshot](../snapshot.proto#Snapshot))**
 
 ### GetSnapshotRequest {#GetSnapshotRequest}
 
@@ -60,14 +60,14 @@ Field | Description
 folder_id | **string**<br>Required. ID of the folder to list snapshots in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. false The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListSnapshotsResponse.next_page_token](#ListSnapshotsResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListSnapshotsResponse.next_page_token](#ListSnapshotsResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently you can use filtering only on the [Snapshot.name](#Snapshot1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Мust be 3-63 characters long and match the regular expression `^[a-z]([-a-z0-9]{,61}[a-z0-9])?$`.</li></ol> The maximum string length in characters is 1000.
+filter | **string**<br><ol><li>The field name. Currently you can use filtering only on the [Snapshot.name](../snapshot.proto#Snapshot1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Мust be 3-63 characters long and match the regular expression `^[a-z]([-a-z0-9]{,61}[a-z0-9])?$`.</li></ol> The maximum string length in characters is 1000.
 
 
 ### ListSnapshotsResponse {#ListSnapshotsResponse}
 
 Field | Description
 --- | ---
-snapshots[] | **[Snapshot](#Snapshot1)**<br>List of snapshots. 
+snapshots[] | **[Snapshot](../snapshot.proto#Snapshot1)**<br>List of snapshots. 
 next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListSnapshotsRequest.page_size](#ListSnapshotsRequest1), use the `next_page_token` as the value for the [ListSnapshotsRequest.page_token](#ListSnapshotsRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
@@ -96,7 +96,7 @@ Creates a snapshot of the specified disk.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateSnapshotMetadata](#CreateSnapshotMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Snapshot](#Snapshot2)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Snapshot](../snapshot.proto#Snapshot2)<br>
 
 ### CreateSnapshotRequest {#CreateSnapshotRequest}
 
@@ -122,7 +122,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateSnapshotMetadata](#CreateSnapshotMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Snapshot](#Snapshot2)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Snapshot](../snapshot.proto#Snapshot2)>**<br>if operation finished successfully. 
 
 
 ### CreateSnapshotMetadata {#CreateSnapshotMetadata}
@@ -158,7 +158,7 @@ Updates the specified snapshot. <br>Values of omitted parameters are not changed
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateSnapshotMetadata](#UpdateSnapshotMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Snapshot](#Snapshot3)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Snapshot](../snapshot.proto#Snapshot3)<br>
 
 ### UpdateSnapshotRequest {#UpdateSnapshotRequest}
 
@@ -184,7 +184,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateSnapshotMetadata](#UpdateSnapshotMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Snapshot](#Snapshot3)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Snapshot](../snapshot.proto#Snapshot3)>**<br>if operation finished successfully. 
 
 
 ### UpdateSnapshotMetadata {#UpdateSnapshotMetadata}

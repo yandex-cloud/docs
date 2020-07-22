@@ -17,7 +17,7 @@ editable: false
 
 Returns the specified resource preset.
 
-**rpc Get ([GetResourcePresetRequest](#GetResourcePresetRequest)) returns ([ResourcePreset](#ResourcePreset))**
+**rpc Get ([GetResourcePresetRequest](#GetResourcePresetRequest)) returns ([ResourcePreset](../resource_preset.proto#ResourcePreset))**
 
 ### GetResourcePresetRequest {#GetResourcePresetRequest}
 
@@ -53,7 +53,7 @@ page_token | **string**<br>Page token. Set `page_token` to the `next_page_token`
 
 Field | Description
 --- | ---
-resource_presets[] | **[ResourcePreset](#ResourcePreset1)**<br>Requested list of resource presets. 
+resource_presets[] | **[ResourcePreset](../resource_preset.proto#ResourcePreset1)**<br>Requested list of resource presets. 
 next_page_token | **string**<br>This token allows you to get the next page of results for ListResourcePresets requests, if the number of results is larger than `page_size` specified in the request. To get the next page, specify the value of `next_page_token` as a value for the `page_token` parameter in the next ListResourcePresets request. Subsequent ListResourcePresets requests will have their own `next_page_token` to continue paging through the results. 
 
 

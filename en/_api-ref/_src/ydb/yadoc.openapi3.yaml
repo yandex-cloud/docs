@@ -361,6 +361,10 @@ components:
             format: boolean
           locationId:
             type: string
+          labels:
+            type: object
+            additionalProperties:
+              type: string
       - title: database_type
         type: object
         maxProperties: 1
@@ -415,6 +419,10 @@ components:
             format: boolean
           locationId:
             type: string
+          labels:
+            type: object
+            additionalProperties:
+              type: string
       - title: database_type
         type: object
         maxProperties: 1
@@ -704,6 +712,10 @@ components:
             format: boolean
           locationId:
             type: string
+          labels:
+            type: object
+            additionalProperties:
+              type: string
       - title: database_type
         type: object
         maxProperties: 1

@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method listOperations
-Lists operations for the specified api-gateway.
+Lists operations for the specified API gateway.
  
 
  
@@ -16,14 +16,14 @@ GET https://serverless-apigateway.api.cloud.yandex.net/apigateways/v1/apigateway
  
 Parameter | Description
 --- | ---
-apiGatewayId | Required. ID of the api-gateway to list operations for.
+apiGatewayId | Required. ID of the API gateway to list operations for.
  
 ## Query parameters {#query_params}
  
 Parameter | Description
 --- | ---
-pageSize | The maximum number of results per page that should be returned. If the number of available results is larger than `pageSize`, the service returns a [nextPageToken](/docs/functions/apigateway/api-ref/ApiGateway/listOperations#responses) that can be used to get the next page of results in subsequent list requests.  Default value: 100.  Acceptable values are 0 to 1000, inclusive.
-pageToken | Page token. To get the next page of results, set `pageToken` to the [nextPageToken](/docs/functions/apigateway/api-ref/ApiGateway/listOperations#responses) returned by a previous list request.  The maximum string length in characters is 100.
+pageSize | The maximum number of results per page that should be returned. If the number of available results is larger than `pageSize`, the service returns a [nextPageToken](/docs/functions/api-gateway/api-ref/ApiGateway/listOperations#responses) that can be used to get the next page of results in subsequent list requests.  Default value: 100.  Acceptable values are 0 to 1000, inclusive.
+pageToken | Page token. To get the next page of results, set `pageToken` to the [nextPageToken](/docs/functions/api-gateway/api-ref/ApiGateway/listOperations#responses) returned by a previous list request.  The maximum string length in characters is 100.
 filter | A filter expression that filters resources listed in the response.  The expression must specify: 1. The field name. Currently filtering can be applied to the [Operation.done](/docs/operation/api-ref/Operation#representation), [Operation.createdBy](/docs/operation/api-ref/Operation#representation) field. 2. A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. 3. The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. Examples of a filter: `done=false`, `created_by='John.Doe'`.  The maximum string length in characters is 1000.
  
 ## Response {#responses}
@@ -74,4 +74,4 @@ operations[].<br>error.<br>code | **integer** (int32)<br><p>Error code. An enum 
 operations[].<br>error.<br>message | **string**<br><p>An error message.</p> 
 operations[].<br>error.<br>details[] | **object**<br><p>A list of messages that carry the error details.</p> 
 operations[].<br>response | **object** <br>`operations[]` includes only one of the fields `error`, `response`<br><br><p>The normal response of the operation in case of success. If the original method returns no data on success, such as Delete, the response is <a href="https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty">google.protobuf.Empty</a>. If the original method is the standard Create/Update, the response should be the target resource of the operation. Any method that returns a long-running operation should document the response type, if any.</p> 
-nextPageToken | **string**<br><p>Token for getting the next page of the list. If the number of results is greater than the specified <a href="/docs/functions/apigateway/api-ref/ApiGateway/listOperations#query_params">pageSize</a>, use <code>nextPageToken</code> as the value for the <a href="/docs/functions/apigateway/api-ref/ApiGateway/listOperations#query_params">pageToken</a> parameter in the next list request.</p> <p>Each subsequent page will have its own <code>nextPageToken</code> to continue paging through the results.</p> 
+nextPageToken | **string**<br><p>Token for getting the next page of the list. If the number of results is greater than the specified <a href="/docs/functions/api-gateway/api-ref/ApiGateway/listOperations#query_params">pageSize</a>, use <code>nextPageToken</code> as the value for the <a href="/docs/functions/api-gateway/api-ref/ApiGateway/listOperations#query_params">pageToken</a> parameter in the next list request.</p> <p>Each subsequent page will have its own <code>nextPageToken</code> to continue paging through the results.</p> 

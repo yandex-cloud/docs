@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method create
-Creates a Kafka user in the specified cluster.
+Creates a Apache Kafka user in the specified cluster.
  
 
  
@@ -16,7 +16,7 @@ POST https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/{clusterId}/user
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the Apache Kafka® cluster to create a user in.  To get the cluster ID, make a [list](/docs/managed-kafka/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
+clusterId | Required. Required. ID of the Apache Kafka cluster to create a user in. To get the cluster ID, use a [list](/docs/managed-kafka/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
  
 ## Body parameters {#body_params}
  
@@ -38,12 +38,12 @@ clusterId | Required. ID of the Apache Kafka® cluster to create a user in.  To 
  
 Field | Description
 --- | ---
-userSpec | **object**<br><p>Required. Configuration of the user to create.</p> 
-userSpec.<br>name | **string**<br><p>Required. Name of the Kafka user.</p> <p>The string length in characters must be 1-63. Value must match the regular expression <code>[a-zA-Z0-9_]*</code>.</p> 
-userSpec.<br>password | **string**<br><p>Required. Password of the Kafka user.</p> <p>The string length in characters must be 8-128.</p> 
+userSpec | **object**<br><p>Required. Properties of the user to be created.</p> 
+userSpec.<br>name | **string**<br><p>Required. Name of the Apache Kafka user.</p> <p>The string length in characters must be 1-63. Value must match the regular expression <code>[a-zA-Z0-9_]*</code>.</p> 
+userSpec.<br>password | **string**<br><p>Required. Password of the Apache Kafka user.</p> <p>The string length in characters must be 8-128.</p> 
 userSpec.<br>permissions[] | **object**<br><p>Set of permissions granted to the user.</p> 
-userSpec.<br>permissions[].<br>topicName | **string**<br><p>Name of the topic that the permission grants access to.</p> <p>To get the topic name, make a <a href="/docs/managed-kafka/api-ref/Topic/list">list</a> request.</p> 
-userSpec.<br>permissions[].<br>role | **string**<br><p>Access role type to grant to the user.</p> <ul> <li>ACCESS_ROLE_PRODUCER: producer role for the user.</li> <li>ACCESS_ROLE_CONSUMER: consumer role for the user.</li> </ul> 
+userSpec.<br>permissions[].<br>topicName | **string**<br><p>Name of the topic that the permission grants access to.</p> 
+userSpec.<br>permissions[].<br>role | **string**<br><p>Access role type to grant to the user.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

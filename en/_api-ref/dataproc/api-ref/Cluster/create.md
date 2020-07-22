@@ -47,7 +47,8 @@ POST https://dataproc.api.cloud.yandex.net/dataproc/v1/clusters
   },
   "zoneId": "string",
   "serviceAccountId": "string",
-  "bucket": "string"
+  "bucket": "string",
+  "uiProxy": true
 }
 ```
 
@@ -76,6 +77,7 @@ configSpec.<br>subclustersSpec[].<br>hostsCount | **string** (int64)<br><p>Requi
 zoneId | **string**<br><p>Required. ID of the availability zone where the cluster should be placed.</p> <p>To get the list of available zones make a <a href="/docs/compute/api-ref/Zone/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
 serviceAccountId | **string**<br><p>Required. ID of the service account to be used by the Data Proc manager agent.</p> 
 bucket | **string**<br><p>Name of the Object Storage bucket to use for Data Proc jobs.</p> 
+uiProxy | **boolean** (boolean)<br><p>Enable UI Proxy feature.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

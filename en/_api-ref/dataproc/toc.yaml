@@ -17,6 +17,8 @@ items:
         href: api-ref/Cluster/listHosts.md
       - name: listOperations
         href: api-ref/Cluster/listOperations.md
+      - name: listUILinks
+        href: api-ref/Cluster/listUILinks.md
       - name: start
         href: api-ref/Cluster/start.md
       - name: stop

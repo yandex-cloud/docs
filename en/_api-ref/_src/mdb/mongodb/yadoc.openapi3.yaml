@@ -381,6 +381,40 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/RestoreClusterMetadata'
       x-y-operation-response: '[Cluster](/docs/managed-mongodb/api-ref/Cluster#representation)'
+  /managed-mongodb/v1/clusters/{clusterId}:rescheduleMaintenance:
+    post:
+      tags:
+      - Cluster
+      summary: Reschedule planned maintenance operation.
+      operationId: ClusterRescheduleMaintenance
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          Required. ID of the MongoDB cluster to maintenance reschedule.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RescheduleMaintenanceRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: rescheduleMaintenance
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/RescheduleMaintenanceMetadata'
+      x-y-operation-response: '[Cluster](/docs/managed-mongodb/api-ref/Cluster#representation)'
   /managed-mongodb/v1/clusters/{clusterId}:logs:
     get:
       tags:
@@ -1548,6 +1582,9 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/HostSpec'
+    AnytimeMaintenanceWindow:
+      type: object
+      properties: {}
     Backup:
       description: "A MongoDB Backup resource. For more information, see the \n[Developer's
         Guide](/docs/managed-mongodb/concepts)."
@@ -1641,6 +1678,10 @@ components:
           description: Indicates current sharding status of the cluster.
           type: boolean
           format: boolean
+        maintenanceWindow:
+          $ref: '#/components/schemas/MaintenanceWindow_in_Cluster_maintenanceWindow'
+        plannedOperation:
+          $ref: '#/components/schemas/MaintenanceOperation_in_Cluster_plannedOperation'
     ClusterConfig:
       type: object
       allOf:
@@ -2296,6 +2337,28 @@ components:
           type: object
           additionalProperties:
             type: string
+    MaintenanceOperation:
+      type: object
+      properties:
+        info:
+          description: The maximum string length in characters is 256.
+          type: string
+        delayedUntil:
+          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+            format.
+          type: string
+          format: date-time
+    MaintenanceWindow:
+      type: object
+      allOf:
+      - title: policy
+        type: object
+        maxProperties: 1
+        properties:
+          anytime:
+            $ref: '#/components/schemas/AnytimeMaintenanceWindow'
+          weeklyMaintenanceWindow:
+            $ref: '#/components/schemas/WeeklyMaintenanceWindow'
     MongoCfgConfig3_6:
       type: object
       properties:
@@ -3186,6 +3249,37 @@ components:
           type: array
           items:
             type: string
+    RescheduleMaintenanceMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: Required. ID of the MongoDB cluster.
+          type: string
+        delayedUntil:
+          description: |-
+            Required. New time of the planned maintenance. Can be in the past for rescheduled to "IMMEDIATE".
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+    RescheduleMaintenanceRequest:
+      type: object
+      properties:
+        rescheduleType:
+          $ref: '#/components/schemas/RescheduleMaintenanceRequestRescheduleType_in_RescheduleMaintenanceRequest_rescheduleType'
+        delayedUntil:
+          description: |-
+            The time for SPECIFIC_TIME reschedule. Limited by two weeks since first time scheduled.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+    RescheduleMaintenanceRequestRescheduleType:
+      type: string
+      enum:
+      - IMMEDIATE
+      - NEXT_AVAILABLE_WINDOW
+      - SPECIFIC_TIME
     ResetupHostsMetadata:
       type: object
       properties:
@@ -3515,6 +3609,8 @@ components:
             The maximum string length in characters is 63.
             Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
           type: string
+        maintenanceWindow:
+          $ref: '#/components/schemas/MaintenanceWindow_in_UpdateClusterRequest_maintenanceWindow'
     UpdateUserMetadata:
       type: object
       properties:
@@ -3579,6 +3675,28 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Permission'
+    WeeklyMaintenanceWindow:
+      type: object
+      properties:
+        day:
+          $ref: '#/components/schemas/WeeklyMaintenanceWindowWeekDay_in_WeeklyMaintenanceWindow_day'
+        hour:
+          description: |-
+            Hour of the day in UTC.
+
+            Acceptable values are 1 to 24, inclusive.
+          type: string
+          format: int64
+    WeeklyMaintenanceWindowWeekDay:
+      type: string
+      enum:
+      - MON
+      - TUE
+      - WED
+      - THU
+      - FRI
+      - SAT
+      - SUN
     rpcStatus:
       description: The error result of the operation in case of failure or cancellation.
       type: object
@@ -3685,6 +3803,30 @@ components:
       - STOPPED
       - STARTING
       default: STATUS_UNKNOWN
+    MaintenanceWindow_in_Cluster_maintenanceWindow:
+      description: Window of maintenance operations.
+      type: object
+      allOf:
+      - title: policy
+        type: object
+        maxProperties: 1
+        properties:
+          anytime:
+            $ref: '#/components/schemas/AnytimeMaintenanceWindow'
+          weeklyMaintenanceWindow:
+            $ref: '#/components/schemas/WeeklyMaintenanceWindow'
+    MaintenanceOperation_in_Cluster_plannedOperation:
+      description: Maintenance operation planned at nearest maintenance_window.
+      type: object
+      properties:
+        info:
+          description: The maximum string length in characters is 256.
+          type: string
+        delayedUntil:
+          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+            format.
+          type: string
+          format: date-time
     ClusterEnvironment_in_CreateClusterRequest_environment:
       description: |-
         Required.
@@ -5438,6 +5580,15 @@ components:
       properties:
         net:
           $ref: '#/components/schemas/MongosConfig4_2Network_in_MongosConfig4_2_net'
+    RescheduleMaintenanceRequestRescheduleType_in_RescheduleMaintenanceRequest_rescheduleType:
+      description: |-
+        Required.
+        Required. The type of reschedule request.
+      type: string
+      enum:
+      - IMMEDIATE
+      - NEXT_AVAILABLE_WINDOW
+      - SPECIFIC_TIME
     ClusterEnvironment_in_RestoreClusterRequest_environment:
       description: |-
         Required.
@@ -5597,6 +5748,18 @@ components:
           mongodbSpec_4_2:
             $ref: '#/components/schemas/MongodbSpec4_2'
             description: Configuration and resource allocation for a MongoDB 4.2 cluster.
+    MaintenanceWindow_in_UpdateClusterRequest_maintenanceWindow:
+      description: Window of maintenance operations.
+      type: object
+      allOf:
+      - title: policy
+        type: object
+        maxProperties: 1
+        properties:
+          anytime:
+            $ref: '#/components/schemas/AnytimeMaintenanceWindow'
+          weeklyMaintenanceWindow:
+            $ref: '#/components/schemas/WeeklyMaintenanceWindow'
     FieldMask_in_UpdateUserRequest_updateMask:
       description: |-
         Field mask that specifies which fields of the MongoDB User resource should be updated.
@@ -5610,6 +5773,16 @@ components:
         Fields specified in the request will be updated to provided values.
         The rest of the fields will be reset to the default.
       type: string
+    WeeklyMaintenanceWindowWeekDay_in_WeeklyMaintenanceWindow_day:
+      type: string
+      enum:
+      - MON
+      - TUE
+      - WED
+      - THU
+      - FRI
+      - SAT
+      - SUN
 tags:
 - name: Backup
   description: A set of methods for managing MongoDB Backup resources.

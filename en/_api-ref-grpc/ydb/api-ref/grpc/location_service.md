@@ -17,7 +17,7 @@ editable: false
 
 Returns the specified location.
 
-**rpc Get ([GetLocationRequest](#GetLocationRequest)) returns ([Location](#Location))**
+**rpc Get ([GetLocationRequest](#GetLocationRequest)) returns ([Location](../location.proto#Location))**
 
 ### GetLocationRequest {#GetLocationRequest}
 
@@ -52,7 +52,7 @@ page_token | **string**<br>Page token. Set `page_token` to the `next_page_token`
 
 Field | Description
 --- | ---
-locations[] | **[Location](#Location1)**<br>Requested list of locations. 
+locations[] | **[Location](../location.proto#Location1)**<br>Requested list of locations. 
 next_page_token | **string**<br>This token allows you to get the next page of results for ListLocations requests, if the number of results is larger than `page_size` specified in the request. To get the next page, specify the value of `next_page_token` as a value for the `page_token` parameter in the next ListLocations request. Subsequent ListLocations requests will have their own `next_page_token` to continue paging through the results. 
 
 

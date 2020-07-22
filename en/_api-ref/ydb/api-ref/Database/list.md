@@ -54,6 +54,7 @@ pageToken | Page token. Set `page_token` to the `next_page_token` returned by a 
       ],
       "assignPublicIps": true,
       "locationId": "string",
+      "labels": "object",
 
       // `databases[]` includes only one of the fields `zonalDatabase`, `regionalDatabase`, `provisionedDatabase`, `serverlessDatabase`
       "zonalDatabase": {
@@ -115,6 +116,7 @@ databases[].<br>networkId | **string**<br>
 databases[].<br>subnetIds[] | **string**<br>
 databases[].<br>assignPublicIps | **boolean** (boolean)<br>
 databases[].<br>locationId | **string**<br>
+databases[].<br>labels | **object**<br>
 databases[].<br>zonalDatabase | **object**<br>deprecated field <br>`databases[]` includes only one of the fields `zonalDatabase`, `regionalDatabase`, `provisionedDatabase`, `serverlessDatabase`<br><br>
 databases[].<br>zonalDatabase.<br>zoneId | **string**<br><p>Required.</p> 
 databases[].<br>regionalDatabase | **object**<br>deprecated field <br>`databases[]` includes only one of the fields `zonalDatabase`, `regionalDatabase`, `provisionedDatabase`, `serverlessDatabase`<br><br>

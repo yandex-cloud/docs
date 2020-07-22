@@ -31,7 +31,7 @@ A set of methods for managing ElasticSearch clusters.
 
 Returns the specified ElasticSearch Cluster resource.
 
-**rpc Get ([GetClusterRequest](#GetClusterRequest)) returns ([Cluster](#Cluster))**
+**rpc Get ([GetClusterRequest](#GetClusterRequest)) returns ([Cluster](../cluster.proto#Cluster))**
 
 ### GetClusterRequest {#GetClusterRequest}
 
@@ -51,10 +51,10 @@ name | **string**<br>Name of the ElasticSearch cluster. The name is unique withi
 description | **string**<br>Description of the ElasticSearch cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the ElasticSearch cluster as `` key:value `` pairs. Maximum 64 per resource. 
 environment | enum **Environment**<br>Deployment environment of the ElasticSearch cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring)**<br>Description of monitoring systems relevant to the ElasticSearch cluster. 
-config | **[ClusterConfig](#ClusterConfig)**<br>Configuration of the ElasticSearch cluster. 
+monitoring[] | **[Monitoring](../cluster.proto#Monitoring)**<br>Description of monitoring systems relevant to the ElasticSearch cluster. 
+config | **[ClusterConfig](../cluster.proto#ClusterConfig)**<br>Configuration of the ElasticSearch cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](../cluster.proto#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](../cluster.proto#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](../cluster.proto#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](../cluster.proto#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
 
 
@@ -72,15 +72,15 @@ link | **string**<br>Link to the monitoring system charts.
 Field | Description
 --- | ---
 version | **string**<br>ElasticSearch version. 
-elasticsearch | **[Elasticsearch](#Elasticsearch)**<br>ElasticSearch configuration. 
+elasticsearch | **[Elasticsearch](../cluster.proto#Elasticsearch)**<br>ElasticSearch configuration. 
 
 
 ### Elasticsearch {#Elasticsearch}
 
 Field | Description
 --- | ---
-data_node | **[DataNode](#DataNode)**<br> 
-master_node | **[MasterNode](#MasterNode)**<br> 
+data_node | **[DataNode](../cluster.proto#DataNode)**<br> 
+master_node | **[MasterNode](../cluster.proto#MasterNode)**<br> 
 
 
 ### DataNode {#DataNode}
@@ -89,14 +89,14 @@ Field | Description
 --- | ---
 config | **oneof:** `elasticsearch_config_set_7_6`<br>
 &nbsp;&nbsp;elasticsearch_config_set_7_6 | **[config.ElasticsearchConfigSet7_6](#ElasticsearchConfigSet7_6)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to data node hosts. 
+resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to data node hosts. 
 
 
 ### MasterNode {#MasterNode}
 
 Field | Description
 --- | ---
-resources | **[Resources](#Resources)**<br>Resources allocated to master node hosts. 
+resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to master node hosts. 
 
 
 ## List {#List}
@@ -112,14 +112,14 @@ Field | Description
 folder_id | **string**<br>Required. ID of the folder to list ElasticSearch clusters in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. false The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClustersResponse.next_page_token](#ListClustersResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListClustersResponse.next_page_token](#ListClustersResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently you can only use filtering with the [Cluster.name](#Cluster1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Мust be 1-63 characters long and match the regular expression `^[a-zA-Z0-9_-]+$`.</li></ol> The maximum string length in characters is 1000.
+filter | **string**<br><ol><li>The field name. Currently you can only use filtering with the [Cluster.name](../cluster.proto#Cluster1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Мust be 1-63 characters long and match the regular expression `^[a-zA-Z0-9_-]+$`.</li></ol> The maximum string length in characters is 1000.
 
 
 ### ListClustersResponse {#ListClustersResponse}
 
 Field | Description
 --- | ---
-clusters[] | **[Cluster](#Cluster1)**<br>List of ElasticSearch clusters. 
+clusters[] | **[Cluster](../cluster.proto#Cluster1)**<br>List of ElasticSearch clusters. 
 next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClustersRequest.page_size](#ListClustersRequest1), use the `next_page_token` as the value for the [ListClustersRequest.page_token](#ListClustersRequest1) parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
@@ -134,10 +134,10 @@ name | **string**<br>Name of the ElasticSearch cluster. The name is unique withi
 description | **string**<br>Description of the ElasticSearch cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the ElasticSearch cluster as `` key:value `` pairs. Maximum 64 per resource. 
 environment | enum **Environment**<br>Deployment environment of the ElasticSearch cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring1)**<br>Description of monitoring systems relevant to the ElasticSearch cluster. 
-config | **[ClusterConfig](#ClusterConfig1)**<br>Configuration of the ElasticSearch cluster. 
+monitoring[] | **[Monitoring](../cluster.proto#Monitoring1)**<br>Description of monitoring systems relevant to the ElasticSearch cluster. 
+config | **[ClusterConfig](../cluster.proto#ClusterConfig1)**<br>Configuration of the ElasticSearch cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](../cluster.proto#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](../cluster.proto#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](../cluster.proto#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](../cluster.proto#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
 
 
@@ -155,15 +155,15 @@ link | **string**<br>Link to the monitoring system charts.
 Field | Description
 --- | ---
 version | **string**<br>ElasticSearch version. 
-elasticsearch | **[Elasticsearch](#Elasticsearch1)**<br>ElasticSearch configuration. 
+elasticsearch | **[Elasticsearch](../cluster.proto#Elasticsearch1)**<br>ElasticSearch configuration. 
 
 
 ### Elasticsearch {#Elasticsearch}
 
 Field | Description
 --- | ---
-data_node | **[DataNode](#DataNode1)**<br> 
-master_node | **[MasterNode](#MasterNode1)**<br> 
+data_node | **[DataNode](../cluster.proto#DataNode1)**<br> 
+master_node | **[MasterNode](../cluster.proto#MasterNode1)**<br> 
 
 
 ### DataNode {#DataNode}
@@ -172,14 +172,14 @@ Field | Description
 --- | ---
 config | **oneof:** `elasticsearch_config_set_7_6`<br>
 &nbsp;&nbsp;elasticsearch_config_set_7_6 | **[config.ElasticsearchConfigSet7_6](#ElasticsearchConfigSet7_6)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to data node hosts. 
+resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to data node hosts. 
 
 
 ### MasterNode {#MasterNode}
 
 Field | Description
 --- | ---
-resources | **[Resources](#Resources)**<br>Resources allocated to master node hosts. 
+resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to master node hosts. 
 
 
 ## Create {#Create}
@@ -190,7 +190,7 @@ Creates an ElasticSearch cluster.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateClusterMetadata](#CreateClusterMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster2)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](../cluster.proto#Cluster2)<br>
 
 ### CreateClusterRequest {#CreateClusterRequest}
 
@@ -200,7 +200,7 @@ folder_id | **string**<br>Required. ID of the folder to create the ElasticSearch
 name | **string**<br>Required. Name of the ElasticSearch cluster. The name must be unique within the folder. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 description | **string**<br>Description of the ElasticSearch cluster. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Custom labels for the ElasticSearch cluster as `` key:value `` pairs. Maximum 64 per resource. For example, "project": "mvp" or "source": "dictionary". No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
-environment | **[Cluster.Environment](#Cluster2)**<br>Deployment environment of the ElasticSearch cluster. 
+environment | **[Cluster.Environment](../cluster.proto#Cluster2)**<br>Deployment environment of the ElasticSearch cluster. 
 config_spec | **[ConfigSpec](#ConfigSpec)**<br>Required. Configuration and resources for hosts that should be created for the ElasticSearch cluster. false
 host_specs[] | **[HostSpec](#HostSpec)**<br>Required. Configuration of ElasticSearch hosts. The number of elements must be greater than 0.
 network_id | **string**<br>Required. ID of the network to create the cluster in. false The maximum string length in characters is 50.
@@ -218,8 +218,8 @@ elasticsearch_spec | **[ElasticsearchSpec](#ElasticsearchSpec)**<br>
 
 Field | Description
 --- | ---
-data_node | **[DataNode](#DataNode2)**<br> 
-master_node | **[MasterNode](#MasterNode2)**<br> 
+data_node | **[DataNode](../cluster.proto#DataNode2)**<br> 
+master_node | **[MasterNode](../cluster.proto#MasterNode2)**<br> 
 
 
 ### DataNode {#DataNode}
@@ -228,14 +228,14 @@ Field | Description
 --- | ---
 config | **oneof:** `elasticsearch_config_7_6`<br>
 &nbsp;&nbsp;elasticsearch_config_7_6 | **[config.ElasticsearchConfig7_6](#ElasticsearchConfig7_6)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to data node hosts. 
+resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to data node hosts. 
 
 
 ### MasterNode {#MasterNode}
 
 Field | Description
 --- | ---
-resources | **[Resources](#Resources)**<br>Resources allocated to master node hosts. 
+resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to master node hosts. 
 
 
 ### HostSpec {#HostSpec}
@@ -245,7 +245,7 @@ Field | Description
 zone_id | **string**<br>ID of the availability zone. The maximum string length in characters is 50.
 subnet_id | **string**<br> The maximum string length in characters is 50.
 assign_public_ip | **bool**<br> 
-type | **[Host.Type](#Host)**<br>Required.  false
+type | **[Host.Type](../cluster.proto#Host)**<br>Required.  false
 shard_name | **string**<br> The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
@@ -262,7 +262,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateClusterMetadata](#CreateClusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster2)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](../cluster.proto#Cluster2)>**<br>if operation finished successfully. 
 
 
 ### CreateClusterMetadata {#CreateClusterMetadata}
@@ -283,10 +283,10 @@ name | **string**<br>Name of the ElasticSearch cluster. The name is unique withi
 description | **string**<br>Description of the ElasticSearch cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the ElasticSearch cluster as `` key:value `` pairs. Maximum 64 per resource. 
 environment | enum **Environment**<br>Deployment environment of the ElasticSearch cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring2)**<br>Description of monitoring systems relevant to the ElasticSearch cluster. 
-config | **[ClusterConfig](#ClusterConfig2)**<br>Configuration of the ElasticSearch cluster. 
+monitoring[] | **[Monitoring](../cluster.proto#Monitoring2)**<br>Description of monitoring systems relevant to the ElasticSearch cluster. 
+config | **[ClusterConfig](../cluster.proto#ClusterConfig2)**<br>Configuration of the ElasticSearch cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](../cluster.proto#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](../cluster.proto#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](../cluster.proto#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](../cluster.proto#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
 
 
@@ -298,7 +298,7 @@ Updates the specified ElasticSearch cluster.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateClusterMetadata](#UpdateClusterMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster3)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](../cluster.proto#Cluster3)<br>
 
 ### UpdateClusterRequest {#UpdateClusterRequest}
 
@@ -324,8 +324,8 @@ elasticsearch_spec | **[ElasticsearchSpec](#ElasticsearchSpec1)**<br>
 
 Field | Description
 --- | ---
-data_node | **[DataNode](#DataNode3)**<br> 
-master_node | **[MasterNode](#MasterNode3)**<br> 
+data_node | **[DataNode](../cluster.proto#DataNode3)**<br> 
+master_node | **[MasterNode](../cluster.proto#MasterNode3)**<br> 
 
 
 ### DataNode {#DataNode}
@@ -334,14 +334,14 @@ Field | Description
 --- | ---
 config | **oneof:** `elasticsearch_config_7_6`<br>
 &nbsp;&nbsp;elasticsearch_config_7_6 | **[config.ElasticsearchConfig7_6](#ElasticsearchConfig7_6)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to data node hosts. 
+resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to data node hosts. 
 
 
 ### MasterNode {#MasterNode}
 
 Field | Description
 --- | ---
-resources | **[Resources](#Resources)**<br>Resources allocated to master node hosts. 
+resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to master node hosts. 
 
 
 ### Operation {#Operation}
@@ -357,7 +357,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateClusterMetadata](#UpdateClusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster3)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](../cluster.proto#Cluster3)>**<br>if operation finished successfully. 
 
 
 ### UpdateClusterMetadata {#UpdateClusterMetadata}
@@ -378,10 +378,10 @@ name | **string**<br>Name of the ElasticSearch cluster. The name is unique withi
 description | **string**<br>Description of the ElasticSearch cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the ElasticSearch cluster as `` key:value `` pairs. Maximum 64 per resource. 
 environment | enum **Environment**<br>Deployment environment of the ElasticSearch cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring2)**<br>Description of monitoring systems relevant to the ElasticSearch cluster. 
-config | **[ClusterConfig](#ClusterConfig2)**<br>Configuration of the ElasticSearch cluster. 
+monitoring[] | **[Monitoring](../cluster.proto#Monitoring2)**<br>Description of monitoring systems relevant to the ElasticSearch cluster. 
+config | **[ClusterConfig](../cluster.proto#ClusterConfig2)**<br>Configuration of the ElasticSearch cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](../cluster.proto#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](../cluster.proto#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](../cluster.proto#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](../cluster.proto#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
 
 
@@ -433,7 +433,7 @@ Create a backup for the specified ElasticSearch cluster.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[BackupClusterMetadata](#BackupClusterMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster4)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](../cluster.proto#Cluster4)<br>
 
 ### BackupClusterRequest {#BackupClusterRequest}
 
@@ -455,7 +455,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[BackupClusterMetadata](#BackupClusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster4)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](../cluster.proto#Cluster4)>**<br>if operation finished successfully. 
 
 
 ### BackupClusterMetadata {#BackupClusterMetadata}
@@ -476,10 +476,10 @@ name | **string**<br>Name of the ElasticSearch cluster. The name is unique withi
 description | **string**<br>Description of the ElasticSearch cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the ElasticSearch cluster as `` key:value `` pairs. Maximum 64 per resource. 
 environment | enum **Environment**<br>Deployment environment of the ElasticSearch cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring2)**<br>Description of monitoring systems relevant to the ElasticSearch cluster. 
-config | **[ClusterConfig](#ClusterConfig2)**<br>Configuration of the ElasticSearch cluster. 
+monitoring[] | **[Monitoring](../cluster.proto#Monitoring2)**<br>Description of monitoring systems relevant to the ElasticSearch cluster. 
+config | **[ClusterConfig](../cluster.proto#ClusterConfig2)**<br>Configuration of the ElasticSearch cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](../cluster.proto#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](../cluster.proto#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](../cluster.proto#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](../cluster.proto#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
 
 
@@ -491,7 +491,7 @@ Creates a new ElasticSearch cluster from the specified backup.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[RestoreClusterMetadata](#RestoreClusterMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster5)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](../cluster.proto#Cluster5)<br>
 
 ### RestoreClusterRequest {#RestoreClusterRequest}
 
@@ -501,7 +501,7 @@ backup_id | **string**<br>Required. Required. ID of the backup to restore from. 
 name | **string**<br>Required. Required. Name of the new ElasticSearch cluster. The name must be unique within the folder. The name must be 1-63 characters long and match the regular expression `^[a-zA-Z0-9_-]+$`. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 description | **string**<br>Description of the new ElasticSearch cluster. 0-256 characters long. The maximum string length in characters is 256.
 labels | **map<string,string>**<br> No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
-environment | **[Cluster.Environment](#Cluster5)**<br>Required. Deployment environment of the new ElasticSearch cluster. false
+environment | **[Cluster.Environment](../cluster.proto#Cluster5)**<br>Required. Deployment environment of the new ElasticSearch cluster. false
 config_spec | **[ConfigSpec](#ConfigSpec2)**<br>Required.  false
 host_specs[] | **[HostSpec](#HostSpec1)**<br> The number of elements must be greater than 0.
 network_id | **string**<br>Required.  false The maximum string length in characters is 50.
@@ -520,8 +520,8 @@ elasticsearch_spec | **[ElasticsearchSpec](#ElasticsearchSpec2)**<br>
 
 Field | Description
 --- | ---
-data_node | **[DataNode](#DataNode4)**<br> 
-master_node | **[MasterNode](#MasterNode4)**<br> 
+data_node | **[DataNode](../cluster.proto#DataNode4)**<br> 
+master_node | **[MasterNode](../cluster.proto#MasterNode4)**<br> 
 
 
 ### DataNode {#DataNode}
@@ -530,14 +530,14 @@ Field | Description
 --- | ---
 config | **oneof:** `elasticsearch_config_7_6`<br>
 &nbsp;&nbsp;elasticsearch_config_7_6 | **[config.ElasticsearchConfig7_6](#ElasticsearchConfig7_6)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to data node hosts. 
+resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to data node hosts. 
 
 
 ### MasterNode {#MasterNode}
 
 Field | Description
 --- | ---
-resources | **[Resources](#Resources)**<br>Resources allocated to master node hosts. 
+resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to master node hosts. 
 
 
 ### HostSpec {#HostSpec}
@@ -547,7 +547,7 @@ Field | Description
 zone_id | **string**<br>ID of the availability zone. The maximum string length in characters is 50.
 subnet_id | **string**<br> The maximum string length in characters is 50.
 assign_public_ip | **bool**<br> 
-type | **[Host.Type](#Host)**<br>Required.  false
+type | **[Host.Type](../cluster.proto#Host)**<br>Required.  false
 shard_name | **string**<br> The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
@@ -564,7 +564,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RestoreClusterMetadata](#RestoreClusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster5)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](../cluster.proto#Cluster5)>**<br>if operation finished successfully. 
 
 
 ### RestoreClusterMetadata {#RestoreClusterMetadata}
@@ -586,10 +586,10 @@ name | **string**<br>Name of the ElasticSearch cluster. The name is unique withi
 description | **string**<br>Description of the ElasticSearch cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the ElasticSearch cluster as `` key:value `` pairs. Maximum 64 per resource. 
 environment | enum **Environment**<br>Deployment environment of the ElasticSearch cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring2)**<br>Description of monitoring systems relevant to the ElasticSearch cluster. 
-config | **[ClusterConfig](#ClusterConfig2)**<br>Configuration of the ElasticSearch cluster. 
+monitoring[] | **[Monitoring](../cluster.proto#Monitoring2)**<br>Description of monitoring systems relevant to the ElasticSearch cluster. 
+config | **[ClusterConfig](../cluster.proto#ClusterConfig2)**<br>Configuration of the ElasticSearch cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](../cluster.proto#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](../cluster.proto#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](../cluster.proto#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](../cluster.proto#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
 
 
@@ -601,7 +601,7 @@ Moves the specified ElasticSearch cluster to the specified folder.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[MoveClusterMetadata](#MoveClusterMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster6)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](../cluster.proto#Cluster6)<br>
 
 ### MoveClusterRequest {#MoveClusterRequest}
 
@@ -624,7 +624,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[MoveClusterMetadata](#MoveClusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster6)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](../cluster.proto#Cluster6)>**<br>if operation finished successfully. 
 
 
 ### MoveClusterMetadata {#MoveClusterMetadata}
@@ -647,10 +647,10 @@ name | **string**<br>Name of the ElasticSearch cluster. The name is unique withi
 description | **string**<br>Description of the ElasticSearch cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the ElasticSearch cluster as `` key:value `` pairs. Maximum 64 per resource. 
 environment | enum **Environment**<br>Deployment environment of the ElasticSearch cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring2)**<br>Description of monitoring systems relevant to the ElasticSearch cluster. 
-config | **[ClusterConfig](#ClusterConfig2)**<br>Configuration of the ElasticSearch cluster. 
+monitoring[] | **[Monitoring](../cluster.proto#Monitoring2)**<br>Description of monitoring systems relevant to the ElasticSearch cluster. 
+config | **[ClusterConfig](../cluster.proto#ClusterConfig2)**<br>Configuration of the ElasticSearch cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](../cluster.proto#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](../cluster.proto#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](../cluster.proto#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](../cluster.proto#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
 
 
@@ -662,7 +662,7 @@ Start the specified ElasticSearch cluster.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[StartClusterMetadata](#StartClusterMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster7)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](../cluster.proto#Cluster7)<br>
 
 ### StartClusterRequest {#StartClusterRequest}
 
@@ -684,7 +684,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[StartClusterMetadata](#StartClusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster7)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](../cluster.proto#Cluster7)>**<br>if operation finished successfully. 
 
 
 ### StartClusterMetadata {#StartClusterMetadata}
@@ -705,10 +705,10 @@ name | **string**<br>Name of the ElasticSearch cluster. The name is unique withi
 description | **string**<br>Description of the ElasticSearch cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the ElasticSearch cluster as `` key:value `` pairs. Maximum 64 per resource. 
 environment | enum **Environment**<br>Deployment environment of the ElasticSearch cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring2)**<br>Description of monitoring systems relevant to the ElasticSearch cluster. 
-config | **[ClusterConfig](#ClusterConfig2)**<br>Configuration of the ElasticSearch cluster. 
+monitoring[] | **[Monitoring](../cluster.proto#Monitoring2)**<br>Description of monitoring systems relevant to the ElasticSearch cluster. 
+config | **[ClusterConfig](../cluster.proto#ClusterConfig2)**<br>Configuration of the ElasticSearch cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](../cluster.proto#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](../cluster.proto#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](../cluster.proto#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](../cluster.proto#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
 
 
@@ -720,7 +720,7 @@ Stop the specified ElasticSearch cluster.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[StopClusterMetadata](#StopClusterMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster8)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](../cluster.proto#Cluster8)<br>
 
 ### StopClusterRequest {#StopClusterRequest}
 
@@ -742,7 +742,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[StopClusterMetadata](#StopClusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster8)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](../cluster.proto#Cluster8)>**<br>if operation finished successfully. 
 
 
 ### StopClusterMetadata {#StopClusterMetadata}
@@ -763,10 +763,10 @@ name | **string**<br>Name of the ElasticSearch cluster. The name is unique withi
 description | **string**<br>Description of the ElasticSearch cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the ElasticSearch cluster as `` key:value `` pairs. Maximum 64 per resource. 
 environment | enum **Environment**<br>Deployment environment of the ElasticSearch cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring2)**<br>Description of monitoring systems relevant to the ElasticSearch cluster. 
-config | **[ClusterConfig](#ClusterConfig2)**<br>Configuration of the ElasticSearch cluster. 
+monitoring[] | **[Monitoring](../cluster.proto#Monitoring2)**<br>Description of monitoring systems relevant to the ElasticSearch cluster. 
+config | **[ClusterConfig](../cluster.proto#ClusterConfig2)**<br>Configuration of the ElasticSearch cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](../cluster.proto#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](../cluster.proto#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](../cluster.proto#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](../cluster.proto#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
 
 
@@ -898,7 +898,7 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 
 Field | Description
 --- | ---
-hosts[] | **[Host](#Host)**<br>List of Host resources. 
+hosts[] | **[Host](../cluster.proto#Host)**<br>List of Host resources. 
 next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterHostsRequest.page_size](#ListClusterHostsRequest1), use the `next_page_token` as the value for the [ListClusterHostsRequest.page_token](#ListClusterHostsRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
@@ -910,9 +910,9 @@ name | **string**<br>Required. Name of the host.
 cluster_id | **string**<br>Required. ID of the ElasticSearch cluster. 
 zone_id | **string**<br>ID of the availability zone. 
 type | enum **Type**<br>Host type. <ul><ul/>
-resources | **[Resources](#Resources)**<br>Resources allocated to the host. 
+resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to the host. 
 health | enum **Health**<br>Aggregated host health <ul><ul/>
-services[] | **[Service](#Service)**<br>Services provided by the host. 
+services[] | **[Service](../cluster.proto#Service)**<br>Services provided by the host. 
 subnet_id | **string**<br> 
 assign_public_ip | **bool**<br> 
 
@@ -959,7 +959,7 @@ Field | Description
 zone_id | **string**<br>ID of the availability zone. The maximum string length in characters is 50.
 subnet_id | **string**<br> The maximum string length in characters is 50.
 assign_public_ip | **bool**<br> 
-type | **[Host.Type](#Host1)**<br>Required.  false
+type | **[Host.Type](../cluster.proto#Host1)**<br>Required.  false
 shard_name | **string**<br> The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
