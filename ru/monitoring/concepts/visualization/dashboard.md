@@ -59,15 +59,15 @@ _Дашборд_ — набор виджетов: графиков, тексто
 
 Настройки фильтрации и результат:
 - Фильтр `cluster=*prod*` ограничит значения параметра списком `prod`, `preprod-1`.
-- Фильтр `cluster=preprod-1|preprod2` ограничит значения списком `preprod-1` и `preprod-2`
+- Фильтр `cluster=preprod-1|preprod2` ограничит значения списком `preprod-1` и `preprod-2`.
 - Фильтр `cluster=testing` ограничит значения одним значением `testing`.
 
 
 Рассмотрим более сложный пример. Допустим, в системе есть следующие метрики: 
-- `usage{cluster="prod", account="prodaccount"}`,
-- `usage{cluster="preprod", account="preprodaccount"}`,
-- `usage{cluster="testing", account="testingaccount"}`,
-- `usage{cluster="prod", account="multiaccount"}`,
+- `usage{cluster="prod", account="prodaccount"}`;
+- `usage{cluster="preprod", account="preprodaccount"}`;
+- `usage{cluster="testing", account="testingaccount"}`;
+- `usage{cluster="prod", account="multiaccount"}`;
 - `usage={cluster="testing", account="multiaccount"}`.
 
 Настройки фильтрации:
