@@ -3,21 +3,20 @@ editable: false
 ---
 
 # Метод delete
-Удаляет указанного пользователя Kafka.
+Удаляет указанный кластер Apache Kafka®.
  
 
  
 ## HTTP-запрос {#https-request}
 ```
-DELETE https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/{clusterId}/users/{userName}
+DELETE https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/{clusterId}
 ```
  
 ## Path-параметры {#path_params}
  
 Параметр | Описание
 --- | ---
-clusterId | Обязательное поле. Идентификатор кластера Apache Kafka®, к которому принадлежит пользователь. Чтобы получить идентификатор кластера, выполните запрос [list](/docs/managed-kafka/api-ref/Cluster/list).  Максимальная длина строки в символах — 50.
-userName | Обязательное поле. Имя пользователя, которого нужно удалить. Чтобы получить имя пользователя, выполните запрос [list](/docs/managed-kafka/api-ref/User/list).  Длина строки в символах должна быть от 1 до 63. Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_]* ``.
+clusterId | Обязательное поле. Идентификатор кластера Apache Kafka®, который следует удалить.  Чтобы получить идентификатор кластера Apache Kafka®, выполните запрос [list](/docs/managed-kafka/api-ref/Cluster/list).  Максимальная длина строки в символах — 50.
  
 ## Ответ {#responses}
 **HTTP Code: 200 - OK**

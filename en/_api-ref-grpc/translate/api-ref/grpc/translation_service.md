@@ -60,7 +60,7 @@ translated_text | **string**<br>Required. Text in the target language. false
 
 Field | Description
 --- | ---
-translations[] | **[TranslatedText](#TranslatedText)**<br>Array of the translations. 
+translations[] | **[TranslatedText](../translation.proto#TranslatedText)**<br>Array of the translations. 
 
 
 ### TranslatedText {#TranslatedText}
@@ -110,7 +110,7 @@ folder_id | **string**<br>ID of the folder to which you have access. Required fo
 
 Field | Description
 --- | ---
-languages[] | **[Language](#Language)**<br>List of supported languages. 
+languages[] | **[Language](../translation.proto#Language)**<br>List of supported languages. 
 
 
 ### Language {#Language}

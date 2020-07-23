@@ -34,6 +34,7 @@ A set of methods for managing databases.
   ],
   "assignPublicIps": true,
   "locationId": "string",
+  "labels": "object",
 
   //  includes only one of the fields `zonalDatabase`, `regionalDatabase`, `provisionedDatabase`, `serverlessDatabase`
   "zonalDatabase": {
@@ -90,6 +91,7 @@ networkId | **string**<br>
 subnetIds[] | **string**<br>
 assignPublicIps | **boolean** (boolean)<br>
 locationId | **string**<br>
+labels | **object**<br>
 zonalDatabase | **object** <br> includes only one of the fields `zonalDatabase`, `regionalDatabase`, `provisionedDatabase`, `serverlessDatabase`<br><br>
 zonalDatabase.<br>zoneId | **string**<br><p>Required.</p> 
 regionalDatabase | **object** <br> includes only one of the fields `zonalDatabase`, `regionalDatabase`, `provisionedDatabase`, `serverlessDatabase`<br><br>

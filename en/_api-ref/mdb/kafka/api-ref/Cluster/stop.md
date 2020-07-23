@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method stop
-Stops the specified Apache Kafka® cluster.
+Stop the specified Apache Kafka cluster.
  
 
  
@@ -16,7 +16,7 @@ POST https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/{clusterId}:stop
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the Apache Kafka® cluster to stop.  To get the Apache Kafka® cluster ID, make a [list](/docs/managed-kafka/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
+clusterId | Required. Required. ID of the Apache Kafka cluster to stop.  The maximum string length in characters is 50.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

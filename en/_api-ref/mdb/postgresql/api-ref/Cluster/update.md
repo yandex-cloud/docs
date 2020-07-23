@@ -614,7 +614,18 @@ clusterId | Required. ID of the PostgreSQL Cluster resource to update. To get th
     // end of the list of possible fields`configSpec`
 
   },
-  "name": "string"
+  "name": "string",
+  "maintenanceWindow": {
+
+    // `maintenanceWindow` includes only one of the fields `anytime`, `weeklyMaintenanceWindow`
+    "anytime": {},
+    "weeklyMaintenanceWindow": {
+      "day": "string",
+      "hour": "string"
+    },
+    // end of the list of possible fields`maintenanceWindow`
+
+  }
 }
 ```
 
@@ -1192,6 +1203,11 @@ configSpec.<br>postgresqlConfig_12.<br>pgHintPlanEnableHintTable | **boolean** (
 configSpec.<br>postgresqlConfig_12.<br>pgHintPlanDebugPrint | **string**<br>
 configSpec.<br>postgresqlConfig_12.<br>pgHintPlanMessageLevel | **string**<br>
 name | **string**<br><p>New name for the cluster.</p> <p>The maximum string length in characters is 63. Value must match the regular expression <code>[a-zA-Z0-9_-]*</code>.</p> 
+maintenanceWindow | **object**<br><p>Window of maintenance operations.</p> 
+maintenanceWindow.<br>anytime | **object** <br>`maintenanceWindow` includes only one of the fields `anytime`, `weeklyMaintenanceWindow`<br><br>
+maintenanceWindow.<br>weeklyMaintenanceWindow | **object** <br>`maintenanceWindow` includes only one of the fields `anytime`, `weeklyMaintenanceWindow`<br><br>
+maintenanceWindow.<br>weeklyMaintenanceWindow.<br>day | **string**<br>
+maintenanceWindow.<br>weeklyMaintenanceWindow.<br>hour | **string** (int64)<br><p>Hour of the day in UTC.</p> <p>Acceptable values are 1 to 24, inclusive.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

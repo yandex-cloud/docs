@@ -580,7 +580,22 @@ A set of methods for managing ClickHouse clusters.
   "networkId": "string",
   "health": "string",
   "status": "string",
-  "serviceAccountId": "string"
+  "serviceAccountId": "string",
+  "maintenanceWindow": {
+
+    // `maintenanceWindow` includes only one of the fields `anytime`, `weeklyMaintenanceWindow`
+    "anytime": {},
+    "weeklyMaintenanceWindow": {
+      "day": "string",
+      "hour": "string"
+    },
+    // end of the list of possible fields`maintenanceWindow`
+
+  },
+  "plannedOperation": {
+    "info": "string",
+    "delayedUntil": "string"
+  }
 }
 ```
  
@@ -1017,6 +1032,14 @@ networkId | **string**<br><p>ID of the network that the cluster belongs to.</p>
 health | **string**<br><p>Aggregated cluster health.</p> <ul> <li>HEALTH_UNKNOWN: State of the cluster is unknown (<code>health</code> for every host in the cluster is UNKNOWN).</li> <li>ALIVE: Cluster is alive and well (<code>health</code> for every host in the cluster is ALIVE).</li> <li>DEAD: Cluster is inoperable (<code>health</code> for every host in the cluster is DEAD).</li> <li>DEGRADED: Cluster is working below capacity (<code>health</code> for at least one host in the cluster is not ALIVE).</li> </ul> 
 status | **string**<br><p>Current state of the cluster.</p> <ul> <li>STATUS_UNKNOWN: Cluster state is unknown.</li> <li>CREATING: Cluster is being created.</li> <li>RUNNING: Cluster is running normally.</li> <li>ERROR: Cluster encountered a problem and cannot operate.</li> <li>UPDATING: Cluster is being updated.</li> <li>STOPPING: Cluster is stopping.</li> <li>STOPPED: Cluster stopped.</li> <li>STARTING: Cluster is starting.</li> </ul> 
 serviceAccountId | **string**<br><p>ID of the service account used for access to Yandex Object Storage.</p> 
+maintenanceWindow | **object**<br><p>Window of maintenance operations.</p> 
+maintenanceWindow.<br>anytime | **object** <br>`maintenanceWindow` includes only one of the fields `anytime`, `weeklyMaintenanceWindow`<br><br>
+maintenanceWindow.<br>weeklyMaintenanceWindow | **object** <br>`maintenanceWindow` includes only one of the fields `anytime`, `weeklyMaintenanceWindow`<br><br>
+maintenanceWindow.<br>weeklyMaintenanceWindow.<br>day | **string**<br>
+maintenanceWindow.<br>weeklyMaintenanceWindow.<br>hour | **string** (int64)<br><p>Hour of the day in UTC.</p> <p>Acceptable values are 1 to 24, inclusive.</p> 
+plannedOperation | **object**<br><p>Maintenance operation planned at nearest maintenance_window.</p> 
+plannedOperation.<br>info | **string**<br><p>The maximum string length in characters is 256.</p> 
+plannedOperation.<br>delayedUntil | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 
 ## Methods {#methods}
 Method | Description
@@ -1044,6 +1067,7 @@ Method | Description
 [listShardGroups](listShardGroups.md) | Retrieves a list of shard groups that belong to specified cluster.
 [listShards](listShards.md) | Retrieves a list of shards that belong to the specified cluster.
 [move](move.md) | Moves a ClickHouse cluster to the specified folder.
+[rescheduleMaintenance](rescheduleMaintenance.md) | Reschedule planned maintenance operation.
 [restore](restore.md) | Creates a new ClickHouse cluster using the specified backup.
 [start](start.md) | Starts the specified ClickHouse cluster.
 [stop](stop.md) | Stops the specified ClickHouse cluster.

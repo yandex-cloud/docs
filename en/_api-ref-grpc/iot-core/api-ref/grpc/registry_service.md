@@ -28,7 +28,7 @@ A set of methods for managing registry.
 
 Returns the specified registry. <br>To get the list of available registries, make a [List](#List) request.
 
-**rpc Get ([GetRegistryRequest](#GetRegistryRequest)) returns ([Registry](#Registry))**
+**rpc Get ([GetRegistryRequest](#GetRegistryRequest)) returns ([Registry](../registry.proto#Registry))**
 
 ### GetRegistryRequest {#GetRegistryRequest}
 
@@ -70,7 +70,7 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 
 Field | Description
 --- | ---
-registries[] | **[Registry](#Registry1)**<br>List of registries. 
+registries[] | **[Registry](../registry.proto#Registry1)**<br>List of registries. 
 next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListRegistriesRequest.page_size](#ListRegistriesRequest1), use `next_page_token` as the value for the [ListRegistriesRequest.page_token](#ListRegistriesRequest1) parameter in the next list request. <br>Each subsequent page will have its own `next_page_token` to continue paging through the results. 
 
 
@@ -96,7 +96,7 @@ Creates a registry in the specified folder.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateRegistryMetadata](#CreateRegistryMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Registry](#Registry2)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Registry](../registry.proto#Registry2)<br>
 
 ### CreateRegistryRequest {#CreateRegistryRequest}
 
@@ -106,7 +106,7 @@ folder_id | **string**<br>Required. ID of the folder to create a registry in. <b
 name | **string**<br>Required. Name of the registry. The name must be unique within the folder. false The maximum string length in characters is 50. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 description | **string**<br>Description of the registry. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
-certificates[] | **[Certificate](#Certificate)**<br>Registry certificates. 
+certificates[] | **[Certificate](../device_service.proto#Certificate)**<br>Registry certificates. 
 password | **string**<br>Registry passwords. <br>The password must contain at least three character categories among the following: upper case latin, lower case latin, numbers and special symbols. 
 
 
@@ -130,7 +130,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateRegistryMetadata](#CreateRegistryMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Registry](#Registry2)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Registry](../registry.proto#Registry2)>**<br>if operation finished successfully. 
 
 
 ### CreateRegistryMetadata {#CreateRegistryMetadata}
@@ -162,7 +162,7 @@ Updates the specified registry.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateRegistryMetadata](#UpdateRegistryMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Registry](#Registry3)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Registry](../registry.proto#Registry3)<br>
 
 ### UpdateRegistryRequest {#UpdateRegistryRequest}
 
@@ -188,7 +188,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateRegistryMetadata](#UpdateRegistryMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Registry](#Registry3)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Registry](../registry.proto#Registry3)>**<br>if operation finished successfully. 
 
 
 ### UpdateRegistryMetadata {#UpdateRegistryMetadata}
@@ -269,7 +269,7 @@ registry_id | **string**<br>Required. ID of the registry to list certificates fo
 
 Field | Description
 --- | ---
-certificates[] | **[RegistryCertificate](#RegistryCertificate)**<br>List of certificates for the specified registry. 
+certificates[] | **[RegistryCertificate](../registry.proto#RegistryCertificate)**<br>List of certificates for the specified registry. 
 
 
 ### RegistryCertificate {#RegistryCertificate}
@@ -290,7 +290,7 @@ Adds a certificate.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[AddRegistryCertificateMetadata](#AddRegistryCertificateMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[RegistryCertificate](#RegistryCertificate1)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[RegistryCertificate](../registry.proto#RegistryCertificate1)<br>
 
 ### AddRegistryCertificateRequest {#AddRegistryCertificateRequest}
 
@@ -313,7 +313,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[AddRegistryCertificateMetadata](#AddRegistryCertificateMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RegistryCertificate](#RegistryCertificate1)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RegistryCertificate](../registry.proto#RegistryCertificate1)>**<br>if operation finished successfully. 
 
 
 ### AddRegistryCertificateMetadata {#AddRegistryCertificateMetadata}
@@ -393,7 +393,7 @@ registry_id | **string**<br>Required. ID of the registry to list passwords in. <
 
 Field | Description
 --- | ---
-passwords[] | **[RegistryPassword](#RegistryPassword)**<br>List of passwords for the specified registry. 
+passwords[] | **[RegistryPassword](../registry.proto#RegistryPassword)**<br>List of passwords for the specified registry. 
 
 
 ### RegistryPassword {#RegistryPassword}
@@ -413,7 +413,7 @@ Adds password for the specified registry.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[AddRegistryPasswordMetadata](#AddRegistryPasswordMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[RegistryPassword](#RegistryPassword1)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[RegistryPassword](../registry.proto#RegistryPassword1)<br>
 
 ### AddRegistryPasswordRequest {#AddRegistryPasswordRequest}
 
@@ -436,7 +436,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[AddRegistryPasswordMetadata](#AddRegistryPasswordMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RegistryPassword](#RegistryPassword1)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RegistryPassword](../registry.proto#RegistryPassword1)>**<br>if operation finished successfully. 
 
 
 ### AddRegistryPasswordMetadata {#AddRegistryPasswordMetadata}
@@ -517,7 +517,7 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 
 Field | Description
 --- | ---
-aliases[] | **[DeviceAlias](#DeviceAlias)**<br>List of device aliases for the specified registry. 
+aliases[] | **[DeviceAlias](../registry.proto#DeviceAlias)**<br>List of device aliases for the specified registry. 
 next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListDeviceTopicAliasesRequest.page_size](#ListDeviceTopicAliasesRequest1), use `next_page_token` as the value for the [ListDeviceTopicAliasesRequest.page_token](#ListDeviceTopicAliasesRequest1) parameter in the next list request. <br>Each subsequent page will have its own `next_page_token` to continue paging through the results. 
 
 
@@ -543,7 +543,7 @@ Field | Description
 registry_id | **string**<br>Required. ID of the registry to list operations for. false
 page_size | **int64**<br>The maximum number of results per page that should be returned. If the number of available results is larger than `page_size`, the service returns a [ListRegistryOperationsResponse.next_page_token](#ListRegistryOperationsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListRegistryOperationsResponse.next_page_token](#ListRegistryOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br>A filter expression that filters resources listed in the response. Currently you can use filtering only on [Registry.name](#Registry4) field. The maximum string length in characters is 1000.
+filter | **string**<br>A filter expression that filters resources listed in the response. Currently you can use filtering only on [Registry.name](../registry.proto#Registry4) field. The maximum string length in characters is 1000.
 
 
 ### ListRegistryOperationsResponse {#ListRegistryOperationsResponse}

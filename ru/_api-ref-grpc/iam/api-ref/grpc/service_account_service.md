@@ -24,7 +24,7 @@ editable: false
 
 Возвращает указанный ресурс ServiceAccount. <br>Чтобы получить список доступных ресурсов ServiceAccount, используйте запрос [List](#List).
 
-**rpc Get ([GetServiceAccountRequest](#GetServiceAccountRequest)) returns ([ServiceAccount](#ServiceAccount))**
+**rpc Get ([GetServiceAccountRequest](#GetServiceAccountRequest)) returns ([ServiceAccount](../service_account.proto#ServiceAccount))**
 
 ### GetServiceAccountRequest {#GetServiceAccountRequest}
 
@@ -57,14 +57,14 @@ description | **string**<br>Описание сервисного аккаунт
 folder_id | **string**<br>Обязательное поле. Идентификатор каталога для получения списка сервисных аккаунтов. Чтобы получить идентификатор каталога, используйте запрос [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List). false Максимальная длина строки в символах — 50.
 page_size | **int64**<br>Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `page_size`, сервис вернет значение [ListServiceAccountsResponse.next_page_token](#ListServiceAccountsResponse), которое можно использовать для получения следующей страницы. Значение по умолчанию: 100. Максимальное значение — 1000.
 page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListServiceAccountsResponse.next_page_token](#ListServiceAccountsResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
-filter | **string**<br><ol><li>Имя поля. В настоящее время фильтрация осуществляется только по полю [ServiceAccount.name](#ServiceAccount1). </li><li>Оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений. </li><li>Значение. Значение длиной от 3 до 63 символов, совпадающее с регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.</li></ol> Максимальная длина строки в символах — 1000.
+filter | **string**<br><ol><li>Имя поля. В настоящее время фильтрация осуществляется только по полю [ServiceAccount.name](../service_account.proto#ServiceAccount1). </li><li>Оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений. </li><li>Значение. Значение длиной от 3 до 63 символов, совпадающее с регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.</li></ol> Максимальная длина строки в символах — 1000.
 
 
 ### ListServiceAccountsResponse {#ListServiceAccountsResponse}
 
 Поле | Описание
 --- | ---
-service_accounts[] | **[ServiceAccount](#ServiceAccount1)**<br>Список ресурсов ServiceAccount. 
+service_accounts[] | **[ServiceAccount](../service_account.proto#ServiceAccount1)**<br>Список ресурсов ServiceAccount. 
 next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListServiceAccountsRequest.page_size](#ListServiceAccountsRequest1), используйте `next_page_token` в качестве значения параметра [ListServiceAccountsRequest.page_token](#ListServiceAccountsRequest1) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
 
 
@@ -87,7 +87,7 @@ description | **string**<br>Описание сервисного аккаунт
 
 Метаданные и результат операции:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateServiceAccountMetadata](#CreateServiceAccountMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[ServiceAccount](#ServiceAccount2)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[ServiceAccount](../service_account.proto#ServiceAccount2)<br>
 
 ### CreateServiceAccountRequest {#CreateServiceAccountRequest}
 
@@ -111,7 +111,7 @@ done | **bool**<br>Если значение равно `false` — операц
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateServiceAccountMetadata](#CreateServiceAccountMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
 result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[ServiceAccount](#ServiceAccount2)>**<br>в случае успешного выполнения операции. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[ServiceAccount](../service_account.proto#ServiceAccount2)>**<br>в случае успешного выполнения операции. 
 
 
 ### CreateServiceAccountMetadata {#CreateServiceAccountMetadata}
@@ -140,7 +140,7 @@ description | **string**<br>Описание сервисного аккаунт
 
 Метаданные и результат операции:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateServiceAccountMetadata](#UpdateServiceAccountMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[ServiceAccount](#ServiceAccount3)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[ServiceAccount](../service_account.proto#ServiceAccount3)<br>
 
 ### UpdateServiceAccountRequest {#UpdateServiceAccountRequest}
 
@@ -165,7 +165,7 @@ done | **bool**<br>Если значение равно `false` — операц
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateServiceAccountMetadata](#UpdateServiceAccountMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
 result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[ServiceAccount](#ServiceAccount3)>**<br>в случае успешного выполнения операции. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[ServiceAccount](../service_account.proto#ServiceAccount3)>**<br>в случае успешного выполнения операции. 
 
 
 ### UpdateServiceAccountMetadata {#UpdateServiceAccountMetadata}

@@ -23,7 +23,7 @@ A set of methods for managing TargetGroup resources.
 
 Returns the specified TargetGroup resource.
 
-**rpc Get ([GetTargetGroupRequest](#GetTargetGroupRequest)) returns ([TargetGroup](#TargetGroup))**
+**rpc Get ([GetTargetGroupRequest](#GetTargetGroupRequest)) returns ([TargetGroup](../target_group.proto#TargetGroup))**
 
 ### GetTargetGroupRequest {#GetTargetGroupRequest}
 
@@ -43,7 +43,7 @@ name | **string**<br>Name of the target group. The name is unique within the fol
 description | **string**<br>Description of the target group. 0-256 characters long. 
 labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Мaximum of 64 per resource. 
 region_id | **string**<br>ID of the region where the target group resides. 
-targets[] | **[Target](#Target)**<br>A list of targets in the target group. 
+targets[] | **[Target](../target_group.proto#Target)**<br>A list of targets in the target group. 
 
 
 ### Target {#Target}
@@ -67,14 +67,14 @@ Field | Description
 folder_id | **string**<br>Required. ID of the folder to list target groups in. To get the folder ID, use a [TargetGroupService.List](#List) request. false The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListTargetGroupsResponse.next_page_token](#ListTargetGroupsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListTargetGroupsResponse.next_page_token](#ListTargetGroupsResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently you can only filter by the [TargetGroup.name](#TargetGroup1) field. </li><li>An operator. Can be either `=` or `!=` for single values, or `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.</li></ol> The maximum string length in characters is 1000.
+filter | **string**<br><ol><li>The field name. Currently you can only filter by the [TargetGroup.name](../target_group.proto#TargetGroup1) field. </li><li>An operator. Can be either `=` or `!=` for single values, or `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.</li></ol> The maximum string length in characters is 1000.
 
 
 ### ListTargetGroupsResponse {#ListTargetGroupsResponse}
 
 Field | Description
 --- | ---
-target_groups[] | **[TargetGroup](#TargetGroup1)**<br>List of TargetGroup resources. 
+target_groups[] | **[TargetGroup](../target_group.proto#TargetGroup1)**<br>List of TargetGroup resources. 
 next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListTargetGroupsRequest.page_size](#ListTargetGroupsRequest1), use the `next_page_token` as the value for the [ListTargetGroupsRequest.page_token](#ListTargetGroupsRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
@@ -89,7 +89,7 @@ name | **string**<br>Name of the target group. The name is unique within the fol
 description | **string**<br>Description of the target group. 0-256 characters long. 
 labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Мaximum of 64 per resource. 
 region_id | **string**<br>ID of the region where the target group resides. 
-targets[] | **[Target](#Target1)**<br>A list of targets in the target group. 
+targets[] | **[Target](../target_group.proto#Target1)**<br>A list of targets in the target group. 
 
 
 ### Target {#Target}
@@ -108,7 +108,7 @@ Creates a target group in the specified folder and adds the specified targets to
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateTargetGroupMetadata](#CreateTargetGroupMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[TargetGroup](#TargetGroup2)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[TargetGroup](../target_group.proto#TargetGroup2)<br>
 
 ### CreateTargetGroupRequest {#CreateTargetGroupRequest}
 
@@ -119,7 +119,7 @@ name | **string**<br>Name of the target group. The name must be unique within th
 description | **string**<br>Description of the target group. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 region_id | **string**<br>Required. ID of the availability zone where the target group resides. false The maximum string length in characters is 50.
-targets[] | **[Target](#Target2)**<br>List of targets within the target group. 
+targets[] | **[Target](../target_group.proto#Target2)**<br>List of targets within the target group. 
 
 
 ### Target {#Target}
@@ -143,7 +143,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateTargetGroupMetadata](#CreateTargetGroupMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[TargetGroup](#TargetGroup2)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[TargetGroup](../target_group.proto#TargetGroup2)>**<br>if operation finished successfully. 
 
 
 ### CreateTargetGroupMetadata {#CreateTargetGroupMetadata}
@@ -164,7 +164,7 @@ name | **string**<br>Name of the target group. The name is unique within the fol
 description | **string**<br>Description of the target group. 0-256 characters long. 
 labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Мaximum of 64 per resource. 
 region_id | **string**<br>ID of the region where the target group resides. 
-targets[] | **[Target](#Target3)**<br>A list of targets in the target group. 
+targets[] | **[Target](../target_group.proto#Target3)**<br>A list of targets in the target group. 
 
 
 ## Update {#Update}
@@ -175,7 +175,7 @@ Updates the specified target group.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateTargetGroupMetadata](#UpdateTargetGroupMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[TargetGroup](#TargetGroup3)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[TargetGroup](../target_group.proto#TargetGroup3)<br>
 
 ### UpdateTargetGroupRequest {#UpdateTargetGroupRequest}
 
@@ -186,7 +186,7 @@ update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protoc
 name | **string**<br>Name of the target group. The name must be unique within the folder. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>Description of the target group. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. <br>The existing set of `` labels `` is completely replaced with the provided set. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
-targets[] | **[Target](#Target3)**<br>A new list of targets for this target group. 
+targets[] | **[Target](../target_group.proto#Target3)**<br>A new list of targets for this target group. 
 
 
 ### Target {#Target}
@@ -210,7 +210,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateTargetGroupMetadata](#UpdateTargetGroupMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[TargetGroup](#TargetGroup3)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[TargetGroup](../target_group.proto#TargetGroup3)>**<br>if operation finished successfully. 
 
 
 ### UpdateTargetGroupMetadata {#UpdateTargetGroupMetadata}
@@ -231,7 +231,7 @@ name | **string**<br>Name of the target group. The name is unique within the fol
 description | **string**<br>Description of the target group. 0-256 characters long. 
 labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Мaximum of 64 per resource. 
 region_id | **string**<br>ID of the region where the target group resides. 
-targets[] | **[Target](#Target4)**<br>A list of targets in the target group. 
+targets[] | **[Target](../target_group.proto#Target4)**<br>A list of targets in the target group. 
 
 
 ## Delete {#Delete}
@@ -282,14 +282,14 @@ Adds targets to the target group.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[AddTargetsMetadata](#AddTargetsMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[TargetGroup](#TargetGroup4)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[TargetGroup](../target_group.proto#TargetGroup4)<br>
 
 ### AddTargetsRequest {#AddTargetsRequest}
 
 Field | Description
 --- | ---
 target_group_id | **string**<br>Required. ID of the TargetGroup resource to add targets to. To get the target group ID, use a [TargetGroupService.List](#List) request. false The maximum string length in characters is 50.
-targets[] | **[Target](#Target4)**<br>List of targets to add to the target group. The minimum number of elements is 1.
+targets[] | **[Target](../target_group.proto#Target4)**<br>List of targets to add to the target group. The minimum number of elements is 1.
 
 
 ### Target {#Target}
@@ -313,7 +313,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[AddTargetsMetadata](#AddTargetsMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[TargetGroup](#TargetGroup4)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[TargetGroup](../target_group.proto#TargetGroup4)>**<br>if operation finished successfully. 
 
 
 ### AddTargetsMetadata {#AddTargetsMetadata}
@@ -334,7 +334,7 @@ name | **string**<br>Name of the target group. The name is unique within the fol
 description | **string**<br>Description of the target group. 0-256 characters long. 
 labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Мaximum of 64 per resource. 
 region_id | **string**<br>ID of the region where the target group resides. 
-targets[] | **[Target](#Target5)**<br>A list of targets in the target group. 
+targets[] | **[Target](../target_group.proto#Target5)**<br>A list of targets in the target group. 
 
 
 ## RemoveTargets {#RemoveTargets}
@@ -345,14 +345,14 @@ Removes targets from the target group.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[RemoveTargetsMetadata](#RemoveTargetsMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[TargetGroup](#TargetGroup5)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[TargetGroup](../target_group.proto#TargetGroup5)<br>
 
 ### RemoveTargetsRequest {#RemoveTargetsRequest}
 
 Field | Description
 --- | ---
 target_group_id | **string**<br>Required. ID of the target group to remove targets from. To get the target group ID, use a [TargetGroupService.List](#List) request. false The maximum string length in characters is 50.
-targets[] | **[Target](#Target5)**<br>List of targets to remove from the target group. The minimum number of elements is 1.
+targets[] | **[Target](../target_group.proto#Target5)**<br>List of targets to remove from the target group. The minimum number of elements is 1.
 
 
 ### Target {#Target}
@@ -376,7 +376,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RemoveTargetsMetadata](#RemoveTargetsMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[TargetGroup](#TargetGroup5)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[TargetGroup](../target_group.proto#TargetGroup5)>**<br>if operation finished successfully. 
 
 
 ### RemoveTargetsMetadata {#RemoveTargetsMetadata}
@@ -397,7 +397,7 @@ name | **string**<br>Name of the target group. The name is unique within the fol
 description | **string**<br>Description of the target group. 0-256 characters long. 
 labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Мaximum of 64 per resource. 
 region_id | **string**<br>ID of the region where the target group resides. 
-targets[] | **[Target](#Target6)**<br>A list of targets in the target group. 
+targets[] | **[Target](../target_group.proto#Target6)**<br>A list of targets in the target group. 
 
 
 ## ListOperations {#ListOperations}

@@ -45,6 +45,7 @@ items:
   - name: Правила тарификации
     href: pricing.md
   - name: Справочник API
+    when: api != "noshow"
     items:
       - name: Аутентификация в API
         href: api-ref/authentication.md

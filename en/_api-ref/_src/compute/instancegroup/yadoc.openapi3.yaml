@@ -824,12 +824,16 @@ components:
           description: |-
             The maximum number of instances that can be deleted at the same time.
 
+            The value 0 is any number of virtual machines within the allowed values.
+
             Acceptable values are 0 to 100, inclusive.
           type: string
           format: int64
         maxCreating:
           description: |-
             The maximum number of instances that can be created at the same time.
+
+            The value 0 is any number of virtual machines within the allowed values.
 
             Acceptable values are 0 to 100, inclusive.
           type: string
@@ -2172,12 +2176,16 @@ components:
           description: |-
             The maximum number of instances that can be deleted at the same time.
 
+            The value 0 is any number of virtual machines within the allowed values.
+
             Acceptable values are 0 to 100, inclusive.
           type: string
           format: int64
         maxCreating:
           description: |-
             The maximum number of instances that can be created at the same time.
+
+            The value 0 is any number of virtual machines within the allowed values.
 
             Acceptable values are 0 to 100, inclusive.
           type: string
@@ -2392,12 +2400,16 @@ components:
           description: |-
             The maximum number of instances that can be deleted at the same time.
 
+            The value 0 is any number of virtual machines within the allowed values.
+
             Acceptable values are 0 to 100, inclusive.
           type: string
           format: int64
         maxCreating:
           description: |-
             The maximum number of instances that can be created at the same time.
+
+            The value 0 is any number of virtual machines within the allowed values.
 
             Acceptable values are 0 to 100, inclusive.
           type: string
@@ -2955,12 +2967,16 @@ components:
           description: |-
             The maximum number of instances that can be deleted at the same time.
 
+            The value 0 is any number of virtual machines within the allowed values.
+
             Acceptable values are 0 to 100, inclusive.
           type: string
           format: int64
         maxCreating:
           description: |-
             The maximum number of instances that can be created at the same time.
+
+            The value 0 is any number of virtual machines within the allowed values.
 
             Acceptable values are 0 to 100, inclusive.
           type: string

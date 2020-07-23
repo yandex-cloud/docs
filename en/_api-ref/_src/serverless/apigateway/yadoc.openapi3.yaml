@@ -1,6 +1,6 @@
 openapi: "3.0"
 info:
-  title: Yandex Api-Gateway Service
+  title: Yandex API Gateway Service
   description: This API reference is organized by resource. Actions are performed
     by sending HTTP requests to resource URLs or making RPC calls. For more information
     about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
@@ -13,9 +13,9 @@ paths:
       tags:
       - ApiGateway
       summary: |-
-        Returns the specified api-gateway. Note that only api-gateway basic attributes are returned.
-        To get associated openapi specification, make a [getOpenapiSpec](/docs/functions/apigateway/api-ref/ApiGateway/getOpenapiSpec) request.
-      description: To get the list of all available api-gateways, make a [list](/docs/functions/apigateway/api-ref/ApiGateway/list)
+        Returns the specified API gateway. Note that only API gateway basic attributes are returned.
+        To get associated openapi specification, make a [getOpenapiSpec](/docs/functions/api-gateway/api-ref/ApiGateway/getOpenapiSpec) request.
+      description: To get the list of all available API gateways, make a [list](/docs/functions/api-gateway/api-ref/ApiGateway/list)
         request.
       operationId: ApiGatewayGet
       parameters:
@@ -23,9 +23,9 @@ paths:
         in: path
         description: |-
           Required.
-          ID of the api-gateway to return.
+          ID of the API gateway to return.
 
-          To get a api-gateway ID make a [list](/docs/functions/apigateway/api-ref/ApiGateway/list) request.
+          To get a API gateway ID make a [list](/docs/functions/api-gateway/api-ref/ApiGateway/list) request.
         required: true
         schema:
           type: string
@@ -40,16 +40,16 @@ paths:
     delete:
       tags:
       - ApiGateway
-      summary: Deletes the specified api-gateway.
+      summary: Deletes the specified API gateway.
       operationId: ApiGatewayDelete
       parameters:
       - name: apiGatewayId
         in: path
         description: |-
           Required.
-          ID of the api-gateway to update.
+          ID of the API gateway to update.
 
-          To get a api-gateway ID make a [list](/docs/functions/apigateway/api-ref/ApiGateway/list) request.
+          To get a API gateway ID make a [list](/docs/functions/api-gateway/api-ref/ApiGateway/list) request.
         required: true
         schema:
           type: string
@@ -67,16 +67,16 @@ paths:
     patch:
       tags:
       - ApiGateway
-      summary: Updates the specified api-gateway.
+      summary: Updates the specified API gateway.
       operationId: ApiGatewayUpdate
       parameters:
       - name: apiGatewayId
         in: path
         description: |-
           Required.
-          ID of the api-gateway to update.
+          ID of the API gateway to update.
 
-          To get a api-gateway ID make a [list](/docs/functions/apigateway/api-ref/ApiGateway/list) request.
+          To get a API gateway ID make a [list](/docs/functions/api-gateway/api-ref/ApiGateway/list) request.
         required: true
         schema:
           type: string
@@ -96,19 +96,19 @@ paths:
       x-y-navtitle: update
       x-y-operation-metadata:
         $ref: '#/components/schemas/UpdateApiGatewayMetadata'
-      x-y-operation-response: '[ApiGateway](/docs/functions/apigateway/api-ref/ApiGateway#representation)'
+      x-y-operation-response: '[ApiGateway](/docs/functions/api-gateway/api-ref/ApiGateway#representation)'
   /apigateways/v1/apigateways:
     get:
       tags:
       - ApiGateway
-      summary: Retrieves the list of api-gateways in the specified folder.
+      summary: Retrieves the list of API gateways in the specified folder.
       operationId: ApiGatewayList
       parameters:
       - name: folderId
         in: query
         description: |-
           Required.
-          ID of the folder to list api-gateways in.
+          ID of the folder to list API gateways in.
 
           To get a folder ID make a [list](/docs/resource-manager/api-ref/Folder/list) request.
         schema:
@@ -117,7 +117,7 @@ paths:
         in: query
         description: |-
           The maximum number of results per page to return. If the number of available
-          results is larger than `pageSize`, the service returns a [nextPageToken](/docs/functions/apigateway/api-ref/ApiGateway/list#responses)
+          results is larger than `pageSize`, the service returns a [nextPageToken](/docs/functions/api-gateway/api-ref/ApiGateway/list#responses)
           that can be used to get the next page of results in subsequent list requests.
 
           Default value: 100.
@@ -128,7 +128,7 @@ paths:
         in: query
         description: |-
           Page token. To get the next page of results, set `pageToken` to the
-          [nextPageToken](/docs/functions/apigateway/api-ref/ApiGateway/list#responses) returned by a previous list request.
+          [nextPageToken](/docs/functions/api-gateway/api-ref/ApiGateway/list#responses) returned by a previous list request.
         schema:
           type: string
       - name: filter
@@ -137,7 +137,7 @@ paths:
           A filter expression that filters functions listed in the response.
 
           The expression must specify:
-          1. The field name. Currently filtering can only be applied to the [ApiGateway.name](/docs/functions/apigateway/api-ref/ApiGateway#representation) field.
+          1. The field name. Currently filtering can only be applied to the [ApiGateway.name](/docs/functions/api-gateway/api-ref/ApiGateway#representation) field.
           2. A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN`
           for lists of values.
           3. The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.
@@ -155,7 +155,7 @@ paths:
     post:
       tags:
       - ApiGateway
-      summary: Creates an api-gateway in the specified folder.
+      summary: Creates an API gateway in the specified folder.
       operationId: ApiGatewayCreate
       requestBody:
         content:
@@ -173,26 +173,26 @@ paths:
       x-y-navtitle: create
       x-y-operation-metadata:
         $ref: '#/components/schemas/CreateApiGatewayMetadata'
-      x-y-operation-response: '[ApiGateway](/docs/functions/apigateway/api-ref/ApiGateway#representation)'
+      x-y-operation-response: '[ApiGateway](/docs/functions/api-gateway/api-ref/ApiGateway#representation)'
   /apigateways/v1/apigateways/{apiGatewayId}:spec:
     get:
       tags:
       - ApiGateway
-      summary: Returns the Openapi specification of specified api-gateway.
+      summary: Returns the OpenAPI specification of specified API gateway.
       operationId: ApiGatewayGetOpenapiSpec
       parameters:
       - name: apiGatewayId
         in: path
         description: |-
           Required.
-          ID of the api-gateway to get specification from.
+          ID of the API gateway to get specification from.
         required: true
         schema:
           type: string
       - name: format
         in: query
         description: Format of returned specification. Default is the original format
-          used in `CreateApiGatewayRequest`
+          used in `CreateApiGatewayRequest`.
         schema:
           $ref: '#/components/schemas/GetOpenapiSpecRequestFormat'
       responses:
@@ -207,14 +207,14 @@ paths:
     get:
       tags:
       - ApiGateway
-      summary: Lists operations for the specified api-gateway.
+      summary: Lists operations for the specified API gateway.
       operationId: ApiGatewayListOperations
       parameters:
       - name: apiGatewayId
         in: path
         description: |-
           Required.
-          ID of the api-gateway to list operations for.
+          ID of the API gateway to list operations for.
         required: true
         schema:
           type: string
@@ -222,7 +222,7 @@ paths:
         in: query
         description: |-
           The maximum number of results per page that should be returned. If the number of available
-          results is larger than `pageSize`, the service returns a [nextPageToken](/docs/functions/apigateway/api-ref/ApiGateway/listOperations#responses)
+          results is larger than `pageSize`, the service returns a [nextPageToken](/docs/functions/api-gateway/api-ref/ApiGateway/listOperations#responses)
           that can be used to get the next page of results in subsequent list requests.
 
           Default value: 100.
@@ -235,7 +235,7 @@ paths:
         in: query
         description: |-
           Page token. To get the next page of results, set `pageToken` to the
-          [nextPageToken](/docs/functions/apigateway/api-ref/ApiGateway/listOperations#responses) returned by a previous list request.
+          [nextPageToken](/docs/functions/api-gateway/api-ref/ApiGateway/listOperations#responses) returned by a previous list request.
 
           The maximum string length in characters is 100.
         schema:
@@ -267,7 +267,7 @@ paths:
     get:
       tags:
       - ApiGateway
-      summary: Lists existing access bindings for the specified api-gateway.
+      summary: Lists existing access bindings for the specified API gateway.
       operationId: ApiGatewayListAccessBindings
       parameters:
       - name: resourceId
@@ -316,7 +316,7 @@ paths:
     post:
       tags:
       - ApiGateway
-      summary: Sets access bindings for the specified api-gateway.
+      summary: Sets access bindings for the specified API gateway.
       operationId: ApiGatewaySetAccessBindings
       parameters:
       - name: resourceId
@@ -350,7 +350,7 @@ paths:
     patch:
       tags:
       - ApiGateway
-      summary: Updates access bindings for the specified api-gateway.
+      summary: Updates access bindings for the specified API gateway.
       operationId: ApiGatewayUpdateAccessBindings
       parameters:
       - name: resourceId
@@ -410,43 +410,43 @@ components:
       type: object
       properties:
         id:
-          description: ID of the api-gateway. Generated at creation time.
+          description: ID of the API gateway. Generated at creation time.
           type: string
         folderId:
-          description: ID of the folder that the api-gateway belongs to.
+          description: ID of the folder that the API gateway belongs to.
           type: string
         createdAt:
           description: |-
-            Creation timestamp for the api-gateway.
+            Creation timestamp for the API-gateway.
 
             String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
         name:
-          description: Name of the api-gateway. The name is unique within the folder.
+          description: Name of the API gateway. The name is unique within the folder.
           type: string
         description:
-          description: Description of the api-gateway.
+          description: Description of the API gateway.
           type: string
         labels:
-          description: Api-gateway labels as `key:value` pairs.
+          description: API gateway labels as `key:value` pairs.
           type: object
           additionalProperties:
             type: string
         status:
           $ref: '#/components/schemas/ApiGatewayStatus_in_ApiGateway_status'
         domain:
-          description: Default domain for the api-gateway. Generated at creation time.
+          description: Default domain for the API gateway. Generated at creation time.
           type: string
         logGroupId:
-          description: ID of the log group for the api-gateway.
+          description: ID of the log group for the API gateway.
           type: string
     ApiGatewayStatus:
       description: |2-
-         - CREATING: Api-gateway is being created.
-         - ACTIVE: Api-gateway is ready for use.
-         - DELETING: Api-gateway is being deleted.
-         - ERROR: Api-gateway failed. The only allowed action is delete.
+         - CREATING: API gateway is being created.
+         - ACTIVE: API gateway is ready for use.
+         - DELETING: API gateway is being deleted.
+         - ERROR: API gateway failed. The only allowed action is delete.
       type: string
       enum:
       - CREATING
@@ -457,7 +457,7 @@ components:
       type: object
       properties:
         apiGatewayId:
-          description: ID of the api-gateway that is being created.
+          description: ID of the API gateway that is being created.
           type: string
     CreateApiGatewayRequest:
       type: object
@@ -467,20 +467,20 @@ components:
           folderId:
             description: |-
               Required.
-              ID of the folder to create an api-gateway in.
+              ID of the folder to create an API gateway in.
 
               To get a folder ID make a [list](/docs/resource-manager/api-ref/Folder/list) request.
             type: string
           name:
             description: |-
-              Name of the api-gateway.
+              Name of the API gateway.
               The name must be unique within the folder.
 
               Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
             type: string
           description:
             description: |-
-              Description of the api-gateway.
+              Description of the API gateway.
 
               The maximum string length in characters is 256.
             type: string
@@ -501,13 +501,13 @@ components:
         maxProperties: 1
         properties:
           openapiSpec:
-            description: the text of specification, json or yaml
+            description: The text of specification, JSON or YAML.
             type: string
     DeleteApiGatewayMetadata:
       type: object
       properties:
         apiGatewayId:
-          description: ID of the api-gateway that is being deleted.
+          description: ID of the API gateway that is being deleted.
           type: string
     Empty:
       description: Empty JSON object `` {} ``.
@@ -533,10 +533,10 @@ components:
       type: object
       properties:
         apiGatewayId:
-          description: ID of the api-gateway.
+          description: ID of the API gateway.
           type: string
         openapiSpec:
-          description: text of the specification, json or yaml
+          description: The text of specification, JSON or YAML.
           type: string
     ListAccessBindingsResponse:
       type: object
@@ -559,15 +559,15 @@ components:
       type: object
       properties:
         apiGateways:
-          description: List of api-gateways in the specified folder.
+          description: List of API gateways in the specified folder.
           type: array
           items:
             $ref: '#/components/schemas/ApiGateway'
         nextPageToken:
           description: |-
             Token for getting the next page of the list. If the number of results is greater than
-            the specified [pageSize](/docs/functions/apigateway/api-ref/ApiGateway/list#query_params), use `nextPageToken` as the value
-            for the [pageToken](/docs/functions/apigateway/api-ref/ApiGateway/list#query_params) parameter in the next list request.
+            the specified [pageSize](/docs/functions/api-gateway/api-ref/ApiGateway/list#query_params), use `nextPageToken` as the value
+            for the [pageToken](/docs/functions/api-gateway/api-ref/ApiGateway/list#query_params) parameter in the next list request.
 
             Each subsequent page will have its own `nextPageToken` to continue paging through the results.
           type: string
@@ -575,15 +575,15 @@ components:
       type: object
       properties:
         operations:
-          description: List of operations for the specified api-gateway.
+          description: List of operations for the specified API gateway.
           type: array
           items:
             $ref: '#/components/schemas/Operation'
         nextPageToken:
           description: |-
             Token for getting the next page of the list. If the number of results is greater than
-            the specified [pageSize](/docs/functions/apigateway/api-ref/ApiGateway/listOperations#query_params), use `nextPageToken` as the value
-            for the [pageToken](/docs/functions/apigateway/api-ref/ApiGateway/listOperations#query_params) parameter in the next list request.
+            the specified [pageSize](/docs/functions/api-gateway/api-ref/ApiGateway/listOperations#query_params), use `nextPageToken` as the value
+            for the [pageToken](/docs/functions/api-gateway/api-ref/ApiGateway/listOperations#query_params) parameter in the next list request.
 
             Each subsequent page will have its own `nextPageToken` to continue paging through the results.
           type: string
@@ -709,7 +709,7 @@ components:
       type: object
       properties:
         apiGatewayId:
-          description: ID of the api-gateway that is being updated.
+          description: ID of the API gateway that is being updated.
           type: string
     UpdateApiGatewayRequest:
       type: object
@@ -718,27 +718,27 @@ components:
         properties:
           updateMask:
             $ref: '#/components/schemas/FieldMask'
-            description: Field mask that specifies which attributes of the api-gateway
+            description: Field mask that specifies which attributes of the API gateway
               should be updated.
           name:
             description: |-
-              New name for the api-gateway.
+              New name for the API gateway.
               The name must be unique within the folder.
 
               Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
             type: string
           description:
             description: |-
-              New description for the api-gateway.
+              New description for the API gateway.
 
               The maximum string length in characters is 256.
             type: string
           labels:
             description: |-
-              Api-gateway labels as `key:value` pairs.
+              API gateway labels as `key:value` pairs.
 
               Existing set of labels is completely replaced by the provided set, so if you just want
-              to add or remove a label, request the current set of labels with a [get](/docs/functions/apigateway/api-ref/ApiGateway/get) request.
+              to add or remove a label, request the current set of labels with a [get](/docs/functions/api-gateway/api-ref/ApiGateway/get) request.
 
               No more than 64 per resource.
               The string length in characters for each key must be 1-63.
@@ -753,7 +753,7 @@ components:
         maxProperties: 1
         properties:
           openapiSpec:
-            description: the text of specification, json or yaml
+            description: The text of specification, JSON or YAML.
             type: string
     rpcStatus:
       description: The error result of the operation in case of failure or cancellation.
@@ -831,12 +831,12 @@ components:
           $ref: '#/components/schemas/Subject_in_AccessBinding_subject'
     ApiGatewayStatus_in_ApiGateway_status:
       description: |-
-        Status of the api-gateway.
+        Status of the API gateway.
 
-         - CREATING: Api-gateway is being created.
-         - ACTIVE: Api-gateway is ready for use.
-         - DELETING: Api-gateway is being deleted.
-         - ERROR: Api-gateway failed. The only allowed action is delete.
+         - CREATING: API gateway is being created.
+         - ACTIVE: API gateway is ready for use.
+         - DELETING: API gateway is being deleted.
+         - ERROR: API gateway failed. The only allowed action is delete.
       type: string
       enum:
       - CREATING
@@ -845,3 +845,4 @@ components:
       - ERROR
 tags:
 - name: ApiGateway
+  description: A set of methods for managing API gateways.

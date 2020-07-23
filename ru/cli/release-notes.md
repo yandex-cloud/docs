@@ -1,8 +1,35 @@
 # Релизы YC CLI
 
-## Версия 0.59.0 (02.07.20) {#latest-release}
+## Версия 0.60.0 (20.07.20) {#latest-release}
 
 ### Изменения в сервисах Облака {#services}
+
+#### {{ compute-name }} {#compute}
+
+- Добавлена команда `yc compute instance update-network-interface`.
+
+  Команда позволяет изменять параметры сетевого интерфейса на уже созданных виртуальных машинах.
+
+#### {{ sf-name }} {#serverless-functions}
+
+- Команда `yc serverless function logs`.
+
+    Использование флага `--follow` теперь гарантирует получение журналов выполнения самой свежей версии функции с переданным тегом. 
+
+#### Сервисы управляемых баз данных {#managed-db}
+
+**{{ mch-name }}**
+
+* Команды `yc managed-clickhouse cluster create`, `yc managed-clickhouse cluster update` и `yc managed-clickhouse cluster restore`
+    
+    Добавлен флаг `--service account` для выбора сервисного аккаунта, привязанного к хостам.
+* Добавлены команды для управления группами шардов `yc managed-clickhouse shard-groups`.
+
+## Предыдущие релизы {#previous-releases}
+
+### Версия 0.59.0 (02.07.20) {#version0.59.0}
+
+#### Изменения в сервисах Облака {#services}
 
 #### {{ api-gw-name }} {#api-gw}
 
@@ -17,8 +44,6 @@
 * Командам `yc iam federation create` и `yc iam federation update` добавлены флаги:
    * `--encrypted-assertions` для включения шифрования утверждений SAML;
    * `--case-insensitive-name-ids` для включения нечувствительных к регистру Name IDs пользователей.
-
-## Предыдущие релизы {#previous-releases}
 
 ### Версия 0.58.0 (16.06.20) {#version0.58.0}
 

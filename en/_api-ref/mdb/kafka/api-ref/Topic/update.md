@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method update
-Updates the specified Kafka topic.
+Updates the specified Apache Kafka topic.
  
 
  
@@ -16,8 +16,8 @@ PATCH https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/{clusterId}/top
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the Apache Kafka® cluster to update a topic in.  To get the cluster ID, make a [list](/docs/managed-kafka/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
-topicName | Required. Name of the topic to update.  To get the name of the topic, make a [list](/docs/managed-kafka/api-ref/Topic/list) request.  The string length in characters must be 1-63. Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+clusterId | Required. Required. ID of the Apache Kafka cluster to update a topic in. To get the cluster ID use a [list](/docs/managed-kafka/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
+topicName | Required. Required. Name of the topic to update. To get the name of the topic use a [list](/docs/managed-kafka/api-ref/Topic/list) request.  The string length in characters must be 1-63. Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
  
 ## Body parameters {#body_params}
  
@@ -46,21 +46,21 @@ topicName | Required. Name of the topic to update.  To get the name of the topic
  
 Field | Description
 --- | ---
-updateMask | **string**<br><p>A comma-separated names off ALL fields to be updated. Оnly the specified fields will be changed. The others will be left untouched. If the field is specified in <code>updateMask</code> and no value for that field was sent in the request, the field's value will be reset to the default. The default value for most fields is null or 0.</p> <p>If <code>updateMask</code> is not sent in the request, all fields' values will be updated. Fields specified in the request will be updated to provided values. The rest of the fields will be reset to the default.</p> 
-topicSpec | **object**<br><p>New configuration of the topic.</p> <p>Use <a href="/docs/managed-kafka/api-ref/Topic/update#body_params">updateMask</a> to prevent reverting all topic settings that are not listed in <a href="/docs/managed-kafka/api-ref/Topic/update#body_params">topicSpec</a> to their default values.</p> 
+updateMask | **string**<br><p>Field mask that specifies which fields of the Topic resource should be updated.</p> <p>A comma-separated names off ALL fields to be updated. Оnly the specified fields will be changed. The others will be left untouched. If the field is specified in <code>updateMask</code> and no value for that field was sent in the request, the field's value will be reset to the default. The default value for most fields is null or 0.</p> <p>If <code>updateMask</code> is not sent in the request, all fields' values will be updated. Fields specified in the request will be updated to provided values. The rest of the fields will be reset to the default.</p> 
+topicSpec | **object**<br><p>Required. Configuration of the topic to create.</p> 
 topicSpec.<br>name | **string**<br><p>Name of the topic.</p> 
-topicSpec.<br>partitions | **integer** (int64)<br><p>The number of the topic's partitions.</p> 
-topicSpec.<br>replicationFactor | **integer** (int64)<br><p>Amount of copies of a topic data kept in the cluster.</p> 
-topicSpec.<br>topicConfig_2_1 | **object**<br><p>A topic settings.</p> 
-topicSpec.<br>topicConfig_2_1.<br>cleanupPolicy | **string**<br><p>Retention policy to use on old log messages.</p> <ul> <li>CLEANUP_POLICY_DELETE: this policy discards log segments when either their retention time or log size limit is reached. See also: <code>logRetentionMs</code> and other similar parameters.</li> <li>CLEANUP_POLICY_COMPACT: this policy compacts messages in log.</li> <li>CLEANUP_POLICY_COMPACT_AND_DELETE: this policy use both compaction and deletion for messages and log segments.</li> </ul> 
-topicSpec.<br>topicConfig_2_1.<br>compressionType | **string**<br><p>The compression type for a given topic.</p> <ul> <li>COMPRESSION_TYPE_UNCOMPRESSED: no codec (uncompressed).</li> <li>COMPRESSION_TYPE_ZSTD: Zstandard codec.</li> <li>COMPRESSION_TYPE_LZ4: LZ4 codec.</li> <li>COMPRESSION_TYPE_SNAPPY: Snappy codec.</li> <li>COMPRESSION_TYPE_GZIP: GZip codec.</li> <li>COMPRESSION_TYPE_PRODUCER: the codec to use is set by a producer (can be any of <code>ZSTD</code>, <code>LZ4</code>, <code>GZIP</code> or <code>SNAPPY</code> codecs).</li> </ul> 
-topicSpec.<br>topicConfig_2_1.<br>deleteRetentionMs | **integer** (int64)<br><p>The amount of time in milliseconds to retain delete tombstone markers for log compacted topics.</p> 
-topicSpec.<br>topicConfig_2_1.<br>fileDeleteDelayMs | **integer** (int64)<br><p>The time to wait before deleting a file from the filesystem.</p> 
-topicSpec.<br>topicConfig_2_1.<br>flushMessages | **integer** (int64)<br><p>The number of messages accumulated on a log partition before messages are flushed to disk.</p> <p>This setting overrides the cluster-level <code>logFlushIntervalMessages</code> setting on the topic level.</p> 
-topicSpec.<br>topicConfig_2_1.<br>flushMs | **integer** (int64)<br><p>The maximum time in milliseconds that a message in the topic is kept in memory before flushed to disk.</p> <p>This setting overrides the cluster-level <code>logFlushIntervalMs</code> setting on the topic level.</p> 
-topicSpec.<br>topicConfig_2_1.<br>minCompactionLagMs | **integer** (int64)<br><p>The minimum time in milliseconds a message will remain uncompacted in the log.</p> 
-topicSpec.<br>topicConfig_2_1.<br>retentionBytes | **integer** (int64)<br><p>The maximum size a partition can grow to before Kafka will discard old log segments to free up space if the <code>delete</code> <code>cleanupPolicy</code> is in effect. It is helpful if you need to control the size of log due to limited disk space.</p> <p>This setting overrides the cluster-level <code>logRetentionBytes</code> setting on the topic level.</p> 
-topicSpec.<br>topicConfig_2_1.<br>retentionMs | **integer** (int64)<br><p>The number of milliseconds to keep a log segment's file before deleting it.</p> <p>This setting overrides the cluster-level <code>logRetentionMs</code> setting on the topic level.</p> 
+topicSpec.<br>partitions | **integer** (int64)<br><p>Number of topic partitions</p> 
+topicSpec.<br>replicationFactor | **integer** (int64)<br><p>Amount of copies of a topic data kept in a cluster.</p> 
+topicSpec.<br>topicConfig_2_1 | **object**<br>
+topicSpec.<br>topicConfig_2_1.<br>cleanupPolicy | **string**<br><p>Retention policy to use on old log segments.</p> 
+topicSpec.<br>topicConfig_2_1.<br>compressionType | **string**<br><p>Specify the final compression type for a given topic.</p> 
+topicSpec.<br>topicConfig_2_1.<br>deleteRetentionMs | **integer** (int64)<br><p>The amount of time to retain delete tombstone markers for log compacted topics.</p> 
+topicSpec.<br>topicConfig_2_1.<br>fileDeleteDelayMs | **integer** (int64)<br><p>The time to wait before deleting a file from the filesystem</p> 
+topicSpec.<br>topicConfig_2_1.<br>flushMessages | **integer** (int64)<br><p>This setting allows specifying an interval at which we will force an fsync of data written to the log</p> 
+topicSpec.<br>topicConfig_2_1.<br>flushMs | **integer** (int64)<br><p>This setting allows specifying a time interval at which we will force an fsync of data written to the log</p> 
+topicSpec.<br>topicConfig_2_1.<br>minCompactionLagMs | **integer** (int64)<br><p>The minimum time a message will remain uncompacted in the log.</p> 
+topicSpec.<br>topicConfig_2_1.<br>retentionBytes | **integer** (int64)<br><p>This configuration controls the maximum size a partition (which consists of log segments) can grow to before we will discard old log segments to free up space if we are using the &quot;delete&quot; retention policy</p> 
+topicSpec.<br>topicConfig_2_1.<br>retentionMs | **integer** (int64)<br><p>This configuration controls the maximum time we will retain a log before we will discard old log segments to free up space if we are using the &quot;delete&quot; retention policy.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
