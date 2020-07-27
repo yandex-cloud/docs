@@ -6,14 +6,14 @@ editable: false
 
 _Date/Time functions_
 
-#### Syntax
+#### Syntax {#syntax}
 
 
 ```
 DAYOFWEEK( datetime [ , firstday ] )
 ```
 
-#### Description
+#### Description {#description}
 Returns the day of the week according to [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
 - Monday — 1.
 - Sunday — 7.
@@ -42,7 +42,7 @@ Only constant values are accepted for arguments (firstday).
 {% endnote %}
 
 
-#### Examples
+#### Examples {#examples}
 
 ```
 DAYOFWEEK(#1971-01-14 01:02:03#) = 4
@@ -57,6 +57,6 @@ DAYOFWEEK(#1971-01-14#, "wednesday") = 2
 ```
 
 
-#### Data source support
+#### Data source support {#data-source-support}
 
 `Materialized Dataset`, `ClickHouse 1.1`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`.

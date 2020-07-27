@@ -30,6 +30,16 @@ items:
             href: operations/import/cert-modify.md
           - name: Удаление сертификата
             href: operations/import/cert-delete.md
+      - name: Домен
+        items:
+          - name: Создание домена
+            href: operations/domain/domain-create.md
+          - name: Обновление сертификата у домена
+            href: operations/domain/domain-link-cert.md
+          - name: Изменение домена
+            href: operations/domain/domain-modify.md
+          - name: Удаление домена
+            href: operations/domain/domain-delete.md
   - name: Концепции
     items:
       - name: Обзор
@@ -44,6 +54,12 @@ items:
         href: concepts/services.md
       - name: Квоты и лимиты
         href: concepts/limits.md
+      - name: Домен
+        items:
+          - name: Обзор
+            href: concepts/domains/index.md
+          - name: Интеграция с сервисами Яндекс.Облака
+            href: concepts/domains/services.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

@@ -6,14 +6,14 @@ editable: false
 
 _String functions_
 
-#### Syntax
+#### Syntax {#syntax}
 
 
 ```
 TRIM( string )
 ```
 
-#### Description
+#### Description {#description}
 Returns the string `string` without spaces at the beginning or end of the string.
 
 **Argument types:**
@@ -22,13 +22,13 @@ Returns the string `string` without spaces at the beginning or end of the string
 
 **Return type**: `String`
 
-#### Examples
+#### Examples {#examples}
 
 ```
 TRIM(" Computer ") = "Computer"
 ```
 
 
-#### Data source support
+#### Data source support {#data-source-support}
 
 `Materialized Dataset`, `ClickHouse 1.1`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`.

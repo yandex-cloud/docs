@@ -26,7 +26,7 @@
 
 1. Выберите последнюю версию образа {{ coi }} из [публичных образов](../../compute/operations/images-with-pre-installed-software/get-list.md).
 
-    Чтобы узнать идентификтор последней версии образа {{ coi }}, выполните следующую команду:
+    Чтобы узнать идентификатор последней версии образа {{ coi }}, выполните следующую команду:
 
     ```
     $ yc compute image get-latest-from-family container-optimized-image --folder-id standard-images
@@ -128,6 +128,7 @@
         service_account_id: aje3932acd8avp6edhbt
         description: "This instance group was created from YAML config"
         instance_template:
+            service_account_id: aje3932acd8avp6edhbt # Идентификатор сервисного аккаунта для доступа к приватным Docker-образам.
             platform_id: standard-v1
             resources_spec:
                 memory: 4G

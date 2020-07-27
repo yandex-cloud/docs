@@ -24,7 +24,7 @@ editable: false
 
 Поле | Описание
 --- | ---
-operation_id | **string**<br>Обязательное поле. Идентификатор возвращаемой операции. 
+operation_id | **string**<br>Обязательное поле. Идентификатор возвращаемой операции. false
 
 
 ### Operation {#Operation}
@@ -53,7 +53,7 @@ result | **oneof:** `error` или `response`<br>Результат операц
 
 Поле | Описание
 --- | ---
-operation_id | **string**<br>Обязательное поле. Идентификатор отменяемой операции. 
+operation_id | **string**<br>Обязательное поле. Идентификатор отменяемой операции. false
 
 
 ### Operation {#Operation}

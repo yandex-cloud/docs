@@ -17,6 +17,8 @@ items:
         href: api-ref/Cluster/listHosts.md
       - name: listOperations
         href: api-ref/Cluster/listOperations.md
+      - name: listUILinks
+        href: api-ref/Cluster/listUILinks.md
       - name: start
         href: api-ref/Cluster/start.md
       - name: stop
@@ -33,6 +35,16 @@ items:
         href: api-ref/Job/get.md
       - name: list
         href: api-ref/Job/list.md
+      - name: listLog
+        href: api-ref/Job/listLog.md
+  - name: ResourcePreset
+    items:
+      - name: Overview
+        href: api-ref/ResourcePreset/index.md
+      - name: get
+        href: api-ref/ResourcePreset/get.md
+      - name: list
+        href: api-ref/ResourcePreset/list.md
   - name: Subcluster
     items:
       - name: Overview

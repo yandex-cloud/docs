@@ -5,5 +5,7 @@ items:
     href: grpc/cluster_service.md
   - name: NodeGroupService
     href: grpc/node_group_service.md
+  - name: VersionService
+    href: grpc/version_service.md
   - name: OperationService
     href: grpc/operation_service.md

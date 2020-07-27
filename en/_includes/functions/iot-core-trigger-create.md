@@ -16,7 +16,7 @@ To create a trigger, you need:
 1. [Registries](../../iot-core/concepts/index.md#registry) or [device](../../iot-core/concepts/index.md#device) whose topics the trigger will accept copies of messages from. If you don't have either:
     - [Create a registry](../../iot-core/operations/registry/registry-create.md).
     - [Create a device](../../iot-core/operations/device/device-create.md).
-1. [Functions](../../concepts/function.md) the trigger will send messages to for processing. If you don't have a function:
+1. [Functions](../../functions/concepts/function.md) the trigger will send messages to for processing. If you don't have a function:
     - [Create a function](../../functions/operations/function/function-create.md).
     - [Create a version of the function and upload the function code to it](../../functions/operations/function/version-manage.md#func-version-create).
 

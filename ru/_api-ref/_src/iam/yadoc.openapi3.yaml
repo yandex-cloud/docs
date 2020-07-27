@@ -1372,6 +1372,18 @@ components:
 
             Длина строки в символах должна быть от 1 до 256.
           type: string
+        attributes:
+          description: Дополнительные атрибуты пользователя.
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/SamlUserAccountAttribute'
+    SamlUserAccountAttribute:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            type: string
     ServiceAccount:
       description: Ресурс ServiceAccount. Дополнительные сведения см. в разделе [Сервисные
         аккаунты](/docs/iam/concepts/users/service-accounts).

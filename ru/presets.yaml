@@ -11,6 +11,7 @@ default:
   mmg-full-name: Yandex Managed Service for MongoDB
   mmy-full-name: Yandex Managed Service for MySQL
   mrd-full-name: Yandex Managed Service for Redis
+  mkf-full-name: Yandex Managed Service for Apache Kafka<sup>®</sup>
   vpc-full-name: Yandex Virtual Private Cloud
   monitoring-full-name: Yandex Monitoring
   dsvm-full-name: Yandex Data Science Virtual Machine
@@ -32,6 +33,7 @@ default:
   ml-platform-full-name: Yandex DataSphere
   certificate-manager-full-name: Yandex Certificate Manager
   data-transfer-full-name: Yandex Data Transfer
+  api-gw-full-name: Yandex API Gateway
 
   # Полные имена сервисов без Yandex
   iam-name: Identity and Access Management
@@ -44,6 +46,7 @@ default:
   mmg-name: Managed Service for MongoDB
   mmy-name: Managed Service for MySQL
   mrd-name: Managed Service for Redis
+  mkf-name: Managed Service for Apache Kafka<sup>®</sup>
   monitoring-name: Yandex Monitoring
   vpc-name: Virtual Private Cloud
   dsvm-name: Data Science Virtual Machine
@@ -66,6 +69,7 @@ default:
   certificate-manager-name: Certificate Manager
   marketplace-name: Cloud Marketplace
   data-transfer-name: Data Transfer
+  api-gw-name: API Gateway
 
   # Короткие имена
   iam-short-name: IAM
@@ -77,6 +81,7 @@ default:
   mmg-short-name: Managed Service for MongoDB
   mrd-short-name: Managed Service for Redis
   mmy-short-name: Managed Service for MySQL
+  mkf-short-name: Managed Service for Apache Kafka<sup>®</sup>
   monitoring-short-name: Monitoring
   vpc-short-name: VPC
   dsvm-short-name: DSVM
@@ -97,6 +102,7 @@ default:
   ml-platform-short-name: DataSphere
   certificate-manager-short-name: Certificate Manager
   data-transfer-short-name: Data Transfer
+  api-gw-short-name: API Gateway
 
   # Тарифы
   price-per-hour-count-per-second: Цена указывается за 1 час использования. Тарификация посекундная.
@@ -128,6 +134,7 @@ default:
   yc-mdb-pg: yc managed-postgresql
   yc-mdb-rd: yc managed-redis
   yc-mdb-my: yc managed-mysql
+  yc-mdb-kf: yc managed-kafka
   yc-compute-ig: yc compute instance-group
   yc-compute: yc compute
   yc-compute-instance: yc compute instance
@@ -149,6 +156,7 @@ default:
   MG: MongoDB
   MY: MySQL
   RD: Redis
+  KF: Apache Kafka<sup>®</sup>
   ZK: ZooKeeper
   zone-id: ru-central1-c
   host-class: s2.micro
@@ -257,6 +265,7 @@ internal:
   MG: MongoDB
   MY: MySQL
   RD: Redis
+  KF: Apache Kafka<sup>®</sup>
   ZK: ZooKeeper
   zone-id: vla
   host-class: db1.micro

@@ -15,6 +15,14 @@ items:
         href: api-ref/Database/list.md
       - name: update
         href: api-ref/Database/update.md
+  - name: Location
+    items:
+      - name: Overview
+        href: api-ref/Location/index.md
+      - name: get
+        href: api-ref/Location/get.md
+      - name: list
+        href: api-ref/Location/list.md
   - name: ResourcePreset
     items:
       - name: Overview

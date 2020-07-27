@@ -172,6 +172,74 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/CreateTriggerMetadata'
       x-y-operation-response: '[Trigger](/docs/functions/triggers/api-ref/Trigger#representation)'
+  /triggers/v1/triggers/{triggerId}:pause:
+    post:
+      tags:
+      - Trigger
+      summary: Pauses the specified trigger.
+      operationId: TriggerPause
+      parameters:
+      - name: triggerId
+        in: path
+        description: |-
+          Required.
+          ID of the trigger to pause
+
+          To get a trigger ID make a [list](/docs/functions/triggers/api-ref/Trigger/list) request.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PauseTriggerRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: pause
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/PauseTriggerMetadata'
+      x-y-operation-response: '[Trigger](/docs/functions/triggers/api-ref/Trigger#representation)'
+  /triggers/v1/triggers/{triggerId}:resume:
+    post:
+      tags:
+      - Trigger
+      summary: Restarts the specified trigger.
+      operationId: TriggerResume
+      parameters:
+      - name: triggerId
+        in: path
+        description: |-
+          Required.
+          ID of the trigger to pause
+
+          To get a trigger ID make a [list](/docs/functions/triggers/api-ref/Trigger/list) request.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResumeTriggerRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: resume
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/ResumeTriggerMetadata'
+      x-y-operation-response: '[Trigger](/docs/functions/triggers/api-ref/Trigger#representation)'
   /triggers/v1/triggers/{triggerId}/operations:
     get:
       tags:
@@ -251,6 +319,24 @@ components:
             Required.
             Maximum wait time. Trigger will send the batch of messages the time since the last batch
             exceeds the `cutoff` value, regardless of the amount of messages in the queue.
+          type: string
+    CloudLogsBatchSettings:
+      type: object
+      properties:
+        size:
+          description: |-
+            Batch size. Trigger will send the batch of messages to the associated function
+            when the number of log events reaches this value, or the `cutoff` time has passed.
+
+            Acceptable values are 0 to 100, inclusive.
+          type: string
+          format: int64
+        cutoff:
+          description: |-
+            Maximum wait time. Trigger will send the batch of messages the time since the last batch
+            exceeds the `cutoff` value, regardless of the amount of log events.
+
+            Acceptable values are 1 seconds to 60 seconds, inclusive.
           type: string
     CreateTriggerMetadata:
       type: object
@@ -436,7 +522,7 @@ components:
         maxProperties: 1
         properties:
           error:
-            $ref: '#/components/schemas/Status'
+            $ref: '#/components/schemas/rpcStatus'
             description: The error result of the operation in case of failure or cancellation.
           response:
             description: |-
@@ -447,6 +533,17 @@ components:
               the response should be the target resource of the operation.
               Any method that returns a long-running operation should document the response type, if any.
             type: object
+    PauseTriggerMetadata:
+      type: object
+      properties:
+        triggerId:
+          description: |-
+            Required.
+            ID of the trigger that is being paused.
+          type: string
+    PauseTriggerRequest:
+      type: object
+      properties: {}
     PutQueueMessage:
       type: object
       properties:
@@ -460,6 +557,17 @@ components:
 
             The maximum string length in characters is 50.
           type: string
+    ResumeTriggerMetadata:
+      type: object
+      properties:
+        triggerId:
+          description: |-
+            Required.
+            ID of the trigger that is being paused.
+          type: string
+    ResumeTriggerRequest:
+      type: object
+      properties: {}
     RetrySettings:
       description: Settings for retrying to invoke a function.
       type: object
@@ -476,22 +584,6 @@ components:
             Required.
             Time in seconds to wait between individual retries.
           type: string
-    Status:
-      description: The error result of the operation in case of failure or cancellation.
-      type: object
-      properties:
-        code:
-          description: Error code. An enum value of [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
-          type: integer
-          format: int32
-        message:
-          description: An error message.
-          type: string
-        details:
-          description: A list of messages that carry the error details.
-          type: array
-          items:
-            type: object
     Trigger:
       description: A trigger to invoke a serverless function. For more information,
         see [Triggers](/docs/functions/concepts/trigger).
@@ -533,6 +625,63 @@ components:
             type: string
         rule:
           $ref: '#/components/schemas/TriggerRule_in_Trigger_rule'
+        status:
+          $ref: '#/components/schemas/TriggerStatus_in_Trigger_status'
+    TriggerCloudLogs:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          logGroupId:
+            description: Log group identifiers, at least one value is required.
+            type: array
+            items:
+              type: string
+          batchSettings:
+            $ref: '#/components/schemas/CloudLogsBatchSettings'
+            description: |-
+              Required.
+              Batch settings for processing log events.
+      - title: action
+        type: object
+        maxProperties: 1
+        properties:
+          invokeFunction:
+            $ref: '#/components/schemas/InvokeFunctionWithRetry'
+    TriggerContainerRegistry:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          eventType:
+            description: |-
+              Required.
+              Type (name) of events, at least one value is required.
+
+              Must contain at least one element.
+            type: array
+            items:
+              $ref: '#/components/schemas/TriggerContainerRegistryEventType'
+          registryId:
+            type: string
+          imageName:
+            description: Filter, optional.
+            type: string
+          tag:
+            type: string
+      - title: action
+        type: object
+        maxProperties: 1
+        properties:
+          invokeFunction:
+            $ref: '#/components/schemas/InvokeFunctionWithRetry'
+    TriggerContainerRegistryEventType:
+      type: string
+      enum:
+      - CONTAINER_REGISTRY_EVENT_TYPE_CREATE_IMAGE
+      - CONTAINER_REGISTRY_EVENT_TYPE_DELETE_IMAGE
+      - CONTAINER_REGISTRY_EVENT_TYPE_CREATE_IMAGE_TAG
+      - CONTAINER_REGISTRY_EVENT_TYPE_DELETE_IMAGE_TAG
     TriggerIoTMessage:
       description: Rule for activating a Yandex IoT Core trigger.
       type: object
@@ -645,6 +794,15 @@ components:
             description: Rule for a Yandex IoT Core trigger.
           objectStorage:
             $ref: '#/components/schemas/TriggerObjectStorage'
+          containerRegistry:
+            $ref: '#/components/schemas/TriggerContainerRegistry'
+          cloudLogs:
+            $ref: '#/components/schemas/TriggerCloudLogs'
+    TriggerStatus:
+      type: string
+      enum:
+      - ACTIVE
+      - PAUSED
     TriggerTimer:
       description: Rule for activating a timed trigger.
       type: object
@@ -708,6 +866,22 @@ components:
           type: object
           additionalProperties:
             type: string
+    rpcStatus:
+      description: The error result of the operation in case of failure or cancellation.
+      type: object
+      properties:
+        code:
+          description: Error code. An enum value of [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
+          type: integer
+          format: int32
+        message:
+          description: An error message.
+          type: string
+        details:
+          description: A list of messages that carry the error details.
+          type: array
+          items:
+            type: object
     TriggerRule_in_CreateTriggerRequest_rule:
       description: |-
         Required.
@@ -731,6 +905,10 @@ components:
             description: Rule for a Yandex IoT Core trigger.
           objectStorage:
             $ref: '#/components/schemas/TriggerObjectStorage'
+          containerRegistry:
+            $ref: '#/components/schemas/TriggerContainerRegistry'
+          cloudLogs:
+            $ref: '#/components/schemas/TriggerCloudLogs'
     RetrySettings_in_InvokeFunctionWithRetry_retrySettings:
       description: |-
         Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.
@@ -787,6 +965,16 @@ components:
             description: Rule for a Yandex IoT Core trigger.
           objectStorage:
             $ref: '#/components/schemas/TriggerObjectStorage'
+          containerRegistry:
+            $ref: '#/components/schemas/TriggerContainerRegistry'
+          cloudLogs:
+            $ref: '#/components/schemas/TriggerCloudLogs'
+    TriggerStatus_in_Trigger_status:
+      description: Trigger status
+      type: string
+      enum:
+      - ACTIVE
+      - PAUSED
     FieldMask_in_UpdateTriggerRequest_updateMask:
       description: |-
         Field mask that specifies which attributes of the trigger should be updated.

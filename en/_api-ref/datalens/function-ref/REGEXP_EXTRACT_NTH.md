@@ -6,14 +6,14 @@ editable: false
 
 _String functions_
 
-#### Syntax
+#### Syntax {#syntax}
 
 
 ```
 REGEXP_EXTRACT_NTH( string, pattern, match_index )
 ```
 
-#### Description
+#### Description {#description}
 Returns a substring `string` that matches the regular expression pattern `pattern` starting from the specified index.
 
 **Argument types:**
@@ -40,13 +40,13 @@ Use the [ClickHouse](https://github.com/google/re2/wiki/Syntax) syntax to create
 
 
 
-#### Examples
+#### Examples {#examples}
 
 ```
 REGEXP_EXTRACT_NTH("RU 912 EN 873", "[A-Z]+\s+(\d+)", 2) = "873"
 ```
 
 
-#### Data source support
+#### Data source support {#data-source-support}
 
 `Materialized Dataset`, `ClickHouse 1.1`, `MySQL 8.0.12`, `PostgreSQL 9.3`.

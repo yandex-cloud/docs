@@ -62,7 +62,7 @@ The service is located at: `stt.api.cloud.yandex.net:443`
 | ----- | ----- |
 | config | **object**<br>Field with the recognition settings and folder ID. |
 | config<br>.specification | **object**<br>Recognition settings. |
-| config<br>.specification<br>.languageCode | **string**<br>The language to use for recognition.<br/>Acceptable values:<ul><li>`ru-RU` (by default) — Russian.</li><li>`en-US` — English.</li><li>`tr-TR` — Turkish.</li></ul> |
+| config<br>.specification<br>.languageCode | **string**<br>The language to use for recognition.<br/>Acceptable values:<ul><li>`ru-ru` (case-insensitive, by default) — Russian.</li><li>`en-us` (case-insensitive) — English.</li><li>`tr-tr` (case-insensitive) — Turkish.</li></ul> |
 | config<br>.specification<br>.model | **string**<br>The language model to be used for recognition.<br/>The closer the model is matched, the better the recognition result. You can only specify one model per request.<br/>[Acceptable values](models.md) depend on the selected language. Default value: `general`. |
 | config<br>.specification<br>.profanityFilter | **boolean**<br>The profanity filter.<br/>Acceptable values:<ul><li>`true` — Exclude profanity from recognition results.</li><li>`false` (by default) — Do not exclude profanity from recognition results.</li></ul> |
 | config<br>.specification<br>.partialResults | **boolean**<br>The intermediate results filter.<br/>Acceptable values:<ul><li>`true` — Return intermediate results (part of the recognized utterance). For intermediate results, `final` is set to `false`.</li><li>`false` (default) — Return only the final results (the entire recognized utterance). |
@@ -71,6 +71,15 @@ The service is located at: `stt.api.cloud.yandex.net:443`
 | config<br>.specification<br>.sampleRateHertz | **integer** (int64)<br>The sampling frequency of the submitted audio.<br/>Required if `format` is set to `LINEAR16_PCM`. Acceptable values:<ul><li>`48000` (default) — Sampling rate of 48 kHz.</li><li>`16000` — Sampling rate of 16 kHz.</li><li>`8000` — Sampling rate of 8 kHz.</li></ul> |
 | config.<br>specification.<br>rawResults | **boolean** <br>Flag that indicates how to write numbers. `true` — In words. `false` (default) — In figures. |
 | folderId | **string**<br><p>ID of the folder that you have access to. Required for authorization with a user account (see the <a href="/docs/iam/api-ref/UserAccount#representation">UserAccount</a> resource). Don't specify this field if you make a request on behalf of a service account.</p> <p>Maximum string length: 50 characters.</p> |
+
+### Experimental additional recognition settings {#additional-settings}
+
+For streaming recognition models starting from the_Marcus Aurelius_ version and above, new recognition settings are supported. They are passed to a gRPC procedure via metadata.
+
+| Parameter | Description |
+| ----- | ----- |
+| `x-sensitivity-reduction-flag` | **boolean**<br>A flag that reduces the sensitivity of background noise recognition.<br>Acceptable values:<ul><li>`true` — Sensitivity is reduced.</li><li>`false` (default) — Sensitivity isn't reduced. |
+| `x-normalize-partials` | **boolean**<br>A flag that lets you get intermediate recognition results (parts of a recognized utterance) in normalized form: numbers are passed as digits, the profanity filter is enabled, and so on.<br>Acceptable values:<ul><li>`true` — Return a normalized result.</li><li>`false` (default) — Return an unnormalized result. |
 
 ### Audio message {#audio-msg}
 
@@ -82,13 +91,13 @@ The service is located at: `stt.api.cloud.yandex.net:443`
 
 If speech fragment recognition is successful, you will receive a message containing a list of recognition results (`chunks[]`). Each result contains the following fields:
 
-* `alternatives[]` — List of recognized text alternatives. Each alternative contains the following fields:
+* `alternatives[]`: List of recognized text alternatives. Each alternative contains the following fields:
     * `text` — Recognized text.
-    * `confidence` — This field is currently unsupported.
+    * `confidence`: This field currently isn't supported. Don't use it.
 
 * `final` — Flag that indicates that this recognition result is final and will not change anymore. If the value is `false`, it means that the recognition result is intermediate and may change as the following speech fragments are recognized.
 
-* `endOfUtterance` — Flag that indicates that this result contains the end of the utterance. If the value is `true`, then the new utterance will start with the next result obtained.
+* `endOfUtterance` — Flag that indicates that this result contains the end of the utterance. If the value is `true`, the new utterance will start with the next result obtained.
 
    {% note info %}
 
@@ -105,7 +114,7 @@ List of possible gRPC errors returned by the service:
 | Code | Status | Description |
 | ----- | ----- | ----- |
 | 3 | `INVALID_ARGUMENT` | Incorrect request parameters specified. Details are provided in the `details` field. |
-| 16 | `UNAUTHENTICATED` | The operation requires authentication. Check the IAM token and the ID of the folder that you passed |
+| 16 | `UNAUTHENTICATED` | The operation requires authentication. Check the IAM token and the ID of the folder that you passed. |
 | 13 | `INTERNAL` | Internal server error. This error means that the operation cannot be performed due to a server-side technical problem. For example, due to insufficient computing resources. |
 
 ## Examples {#examples}
@@ -118,7 +127,7 @@ To try the examples in this section:
     git clone https://github.com/yandex-cloud/cloudapi
     ```
 1. [Get the ID of the folder](../../resource-manager/operations/folder/get-id.md) your account has been granted access to.
-1. In the examples, an [IAM token](../iam/concepts/authorization/iam-token) is used for authentication ([other authentication methods](../concepts/auth.md)). Get an IAM token:
+1. In the examples, an [IAM token](../../iam/concepts/authorization/iam-token) is used for authentication ([other authentication methods](../concepts/auth.md)). Get an IAM token:
     * [Instructions](../../iam/operations/iam-token/create.md) for a Yandex account.
     * [Instructions](../../iam/operations/iam-token/create-for-sa.md) for a service account.
 1. Download a [sample](https://storage.yandexcloud.net/speechkit/speech.pcm) audio file for recognition. The audio file is in [LPCM](https://en.wikipedia.org/wiki/Pulse-code_modulation) format with a sampling rate of 8000.
@@ -150,15 +159,15 @@ Then proceed to creating a client app.
       ```python
       #coding=utf8
       import argparse
-
+      
       import grpc
-
+      
       import yandex.cloud.ai.stt.v2.stt_service_pb2 as stt_service_pb2
       import yandex.cloud.ai.stt.v2.stt_service_pb2_grpc as stt_service_pb2_grpc
-
-
+      
+      
       CHUNK_SIZE = 4000
-
+      
       def gen(folder_id, audio_file_name):
           # Configure recognition settings.
           specification = stt_service_pb2.RecognitionSpec(
@@ -170,27 +179,27 @@ Then proceed to creating a client app.
               sample_rate_hertz=8000
           )
           streaming_config = stt_service_pb2.RecognitionConfig(specification=specification, folder_id=folder_id)
-
+      
           # Send a message with the recognition settings.
           yield stt_service_pb2.StreamingRecognitionRequest(config=streaming_config)
-
+      
           # Read the audio file and send its contents in chunks.
           with open(audio_file_name, 'rb') as f:
               data = f.read(CHUNK_SIZE)
               while data != b'':
                   yield stt_service_pb2.StreamingRecognitionRequest(audio_content=data)
                   data = f.read(CHUNK_SIZE)
-
-
+      
+      
       def run(folder_id, iam_token, audio_file_name):
           # Establish a connection with the server.
           cred = grpc.ssl_channel_credentials()
           channel = grpc.secure_channel('stt.api.cloud.yandex.net:443', cred)
           stub = stt_service_pb2_grpc.SttServiceStub(channel)
-
+      
           # Send data for recognition.
           it = stub.StreamingRecognize(gen(folder_id, audio_file_name), metadata=(('authorization', 'Bearer %s' % iam_token),))
-
+      
           # Process server responses and output the result to the console.
           try:
               for r in it:
@@ -204,15 +213,15 @@ Then proceed to creating a client app.
                       print('Not available chunks')
           except grpc._channel._Rendezvous as err:
               print('Error code %s, message: %s' % (err._state.code, err._state.details))
-
-
+      
+      
       if __name__ == '__main__':
           parser = argparse.ArgumentParser()
           parser.add_argument('--token', required=True, help='IAM token')
           parser.add_argument('--folder_id', required=True, help='folder ID')
           parser.add_argument('--path', required=True, help='audio file path')
           args = parser.parse_args()
-
+      
           run(args.folder_id, args.token, args.path)
       ```
 
@@ -225,7 +234,7 @@ Then proceed to creating a client app.
       Start chunk:
       alternative: Hello
       Is final: False
-
+      
       Start chunk:
       alternative: Hello world
       Is final: True
@@ -257,14 +266,14 @@ Then proceed to creating a client app.
       const grpc = require('grpc');
       const protoLoader = require('@grpc/proto-loader');
       const CHUNK_SIZE = 4000;
-
+      
       // Get the folder ID and IAM token from the environment variables.
       const folderId = process.env.FOLDER_ID;
       const iamToken = process.env.IAM_TOKEN;
-
+      
       // Read the file specified in the arguments.
       const audio = fs.readFileSync(process.argv[2]);
-
+      
       // Specify the recognition settings.
       const request = {
           config: {
@@ -279,28 +288,28 @@ Then proceed to creating a client app.
               folderId: folderId
           }
       };
-
+      
       // How often audio is sent in milliseconds.
       // For LPCM format, the frequency can be calculated using the formula: CHUNK_SIZE * 1000 / ( 2 * sampleRateHertz).
       const FREQUENCY = 250;
-
+      
       const serviceMetadata = new grpc.Metadata();
       serviceMetadata.add('authorization', `Bearer ${iamToken}`);
-
+      
       const packageDefinition = protoLoader.loadSync('../yandex/cloud/ai/stt/v2/stt_service.proto', {
           includeDirs: ['node_modules/google-proto-files', '..']
       });
       const packageObject = grpc.loadPackageDefinition(packageDefinition);
-
+      
       // Establish a connection with the server.
       const serviceConstructor = packageObject.yandex.cloud.ai.stt.v2.SttService;
       const grpcCredentials = grpc.credentials.createSsl(fs.readFileSync('./roots.pem'));
       const service = new serviceConstructor('stt.api.cloud.yandex.net:443', grpcCredentials);
       const call = service['StreamingRecognize'](serviceMetadata);
-
+      
       // Send a message with the recognition settings.
       call.write(request);
-
+      
       // Read the audio file and send its contents in chunks.
       let i = 1;
       const interval = setInterval(() => {
@@ -314,7 +323,7 @@ Then proceed to creating a client app.
               clearInterval(interval);
           }
       }, FREQUENCY);
-
+      
       // Process server responses and output the result to the console.
       call.on('data', (response) => {
           console.log('Start chunk: ');
@@ -324,10 +333,9 @@ Then proceed to creating a client app.
           console.log('Is final: ', Boolean(response.chunks[0].final));
           console.log('');
       });
-
-
+      
       call.on('error', (response) => {
-          // Handling errors
+          // Handle errors.
           console.log(response);
       });
       ```
@@ -338,7 +346,7 @@ Then proceed to creating a client app.
       $ export FOLDER_ID=b1gvmob95yysaplct532
       $ export IAM_TOKEN=CggaATEVAgA...
       $  node index.js speech.pcm
-
+      
       Start chunk:
       alternative: Hello world
       Is final:  true

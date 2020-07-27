@@ -7,5 +7,5 @@ Service | Description
 --- | ---
 [ClusterService](./cluster_service.md) | A set of methods for managing Kubernetes cluster.
 [NodeGroupService](./node_group_service.md) | A set of methods for managing node groups.
-[VersionService](./version_service.md) | 
+[VersionService](./version_service.md) | A set of methods for managing Kubernetes versions.
 [OperationService](./operation_service.md) | A set of methods for managing operations for asynchronous API requests.

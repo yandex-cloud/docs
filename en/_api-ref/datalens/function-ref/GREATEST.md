@@ -6,14 +6,14 @@ editable: false
 
 _Mathematical functions_
 
-#### Syntax
+#### Syntax {#syntax}
 
 
 ```
 GREATEST( value_1, value_2, value_3 [ , ... ] )
 ```
 
-#### Description
+#### Description {#description}
 Returns the greatest value.
 
 See also [LEAST](LEAST.md).
@@ -39,7 +39,7 @@ Arguments (`value_1`, `value_2`, `value_3`) must be of the same type.
 {% endnote %}
 
 
-#### Examples
+#### Examples {#examples}
 
 ```
 GREATEST(3.4, 2.6) = 3.4
@@ -74,6 +74,6 @@ GREATEST(#2019-01-02#, #2019-01-17#, #2019-01-10#) = #2019-01-17#
 ```
 
 
-#### Data source support
+#### Data source support {#data-source-support}
 
 `Materialized Dataset`, `ClickHouse 1.1`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`.

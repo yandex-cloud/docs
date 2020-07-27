@@ -6,14 +6,14 @@ editable: false
 
 _Type conversion functions_
 
-#### Syntax
+#### Syntax {#syntax}
 
 
 ```
 STR( expression )
 ```
 
-#### Description
+#### Description {#description}
 Converts the `expression` expression to string type.
 
 **Argument types:**
@@ -22,7 +22,7 @@ Converts the `expression` expression to string type.
 
 **Return type**: `String`
 
-#### Examples
+#### Examples {#examples}
 
 ```
 STR(77) = "77"
@@ -37,6 +37,6 @@ STR(#2019-01-01#) = "2019-01-01"
 ```
 
 
-#### Data source support
+#### Data source support {#data-source-support}
 
 `Materialized Dataset`, `ClickHouse 1.1`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`.

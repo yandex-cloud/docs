@@ -16,13 +16,13 @@ A set of methods for managing user accounts. Currently applicable only for [Yand
 
 Returns the specified UserAccount resource.
 
-**rpc Get ([GetUserAccountRequest](#GetUserAccountRequest)) returns ([UserAccount](#UserAccount))**
+**rpc Get ([GetUserAccountRequest](#GetUserAccountRequest)) returns ([UserAccount](../user_account.proto#UserAccount))**
 
 ### GetUserAccountRequest {#GetUserAccountRequest}
 
 Field | Description
 --- | ---
-user_account_id | **string**<br>Required. ID of the UserAccount resource to return.  The maximum string length in characters is 50.
+user_account_id | **string**<br>Required. ID of the UserAccount resource to return. false The maximum string length in characters is 50.
 
 
 ### UserAccount {#UserAccount}
@@ -31,8 +31,8 @@ Field | Description
 --- | ---
 id | **string**<br>ID of the user account. 
 user_account | **oneof:** `yandex_passport_user_account` or `saml_user_account`<br>
-&nbsp;&nbsp;yandex_passport_user_account | **[YandexPassportUserAccount](#YandexPassportUserAccount)**<br>A YandexPassportUserAccount resource. 
-&nbsp;&nbsp;saml_user_account | **[SamlUserAccount](#SamlUserAccount)**<br>A SAML federated user. 
+&nbsp;&nbsp;yandex_passport_user_account | **[YandexPassportUserAccount](../user_account.proto#YandexPassportUserAccount)**<br>A YandexPassportUserAccount resource. 
+&nbsp;&nbsp;saml_user_account | **[SamlUserAccount](../user_account.proto#SamlUserAccount)**<br>A SAML federated user. 
 
 
 ### YandexPassportUserAccount {#YandexPassportUserAccount}
@@ -47,7 +47,15 @@ default_email | **string**<br>Default email of the Yandex.Passport user account.
 
 Field | Description
 --- | ---
-federation_id | **string**<br>Required. ID of the federation that the federation belongs to.  The maximum string length in characters is 50.
-name_id | **string**<br>Required. Name Id of the SAML federated user. The name is unique within the federation. 1-256 characters long.  The string length in characters must be 1-256.
+federation_id | **string**<br>Required. ID of the federation that the federation belongs to. false The maximum string length in characters is 50.
+name_id | **string**<br>Required. Name Id of the SAML federated user. The name is unique within the federation. 1-256 characters long. false The string length in characters must be 1-256.
+attributes | **map<string,Attribute>**<br>Additional attributes of the SAML federated user. 
+
+
+### Attribute {#Attribute}
+
+Field | Description
+--- | ---
+value[] | **string**<br> 
 
 
