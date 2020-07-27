@@ -65,6 +65,38 @@ Example:
 
 
 
+## [AVG](AVG.md)
+
+**Syntax:**`AVG( value )`
+
+Returns the average of all values. Applicable to numeric data types as well as `Date | Datetime`.
+
+
+
+## [AVG_IF](AVG_IF.md)
+
+**Syntax:**`AVG_IF( expression, condition )`
+
+Returns the average of all values that meet the `condition` condition. If the values don't exist, it returns `NULL`. Applicable to numeric data types only.
+
+
+
+## [COUNT](COUNT.md)
+
+**Syntax:**`COUNT(  [ value ] )`
+
+Returns the number of items in the group.
+
+
+
+## [COUNT_IF](COUNT_IF.md)
+
+**Syntax:**`COUNT_IF( condition )`
+
+Returns the number of items in the group meeting the `condition` condition.
+
+
+
 ## [MAVG](MAVG.md)
 
 **Syntax:**`MAVG( value, rows_1 [ , rows_2 ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] )`
@@ -73,14 +105,28 @@ Returns the moving average of values in a fixed-size window defined by the sort 
 
 | `rows_1`   | `rows_2`   | Window                                                                |
 |:-----------|:-----------|:----------------------------------------------------------------------|
-| positive   | -          | The current row and `rows_1` following rows.                          |
-| negative   | -          | The current row and -`rows_1` preceding rows.                         |
+| positive   | -          | The current row and `rows_1` preceding rows.                          |
+| negative   | -          | The current row and -`rows_1` following rows.                         |
 | any sign   | any sign   | `rows_1` preceding rows, the current row and `rows_2` following rows. |
 
 
 Window functions with a similar behavior: [MSUM](MSUM.md), [MCOUNT](MCOUNT.md), [MMIN](MMIN.md), [MMAX](MMAX.md).
 
 See also [AVG](AVG.md), [RAVG](RAVG.md).
+
+
+
+## [MAX](MAX.md)
+
+**Syntax:**`MAX( value )`
+
+Returns the maximum value.
+
+If `value`:
+- number — Returns the largest number.
+- date — Returns the latest date.
+- string — Returns the last value in the alphabetic order.
+
 
 
 
@@ -92,14 +138,28 @@ Returns the moving count of (non-`NULL`) values in a fixed-size window defined b
 
 | `rows_1`   | `rows_2`   | Window                                                                |
 |:-----------|:-----------|:----------------------------------------------------------------------|
-| positive   | -          | The current row and `rows_1` following rows.                          |
-| negative   | -          | The current row and -`rows_1` preceding rows.                         |
+| positive   | -          | The current row and `rows_1` preceding rows.                          |
+| negative   | -          | The current row and -`rows_1` following rows.                         |
 | any sign   | any sign   | `rows_1` preceding rows, the current row and `rows_2` following rows. |
 
 
 Window functions with a similar behavior: [MSUM](MSUM.md), [MMIN](MMIN.md), [MMAX](MMAX.md), [MAVG](MAVG.md).
 
 See also [COUNT](COUNT.md), [RCOUNT](RCOUNT.md).
+
+
+
+## [MIN](MIN.md)
+
+**Syntax:**`MIN( value )`
+
+Returns the minimum value.
+
+If `value`:
+- number — Returns the smallest number.
+- date — Returns the earliest date.
+- string — Returns the first value in the alphabetic order.
+
 
 
 
@@ -111,8 +171,8 @@ Returns the moving maximum of values in a fixed-size window defined by the sort 
 
 | `rows_1`   | `rows_2`   | Window                                                                |
 |:-----------|:-----------|:----------------------------------------------------------------------|
-| positive   | -          | The current row and `rows_1` following rows.                          |
-| negative   | -          | The current row and -`rows_1` preceding rows.                         |
+| positive   | -          | The current row and `rows_1` preceding rows.                          |
+| negative   | -          | The current row and -`rows_1` following rows.                         |
 | any sign   | any sign   | `rows_1` preceding rows, the current row and `rows_2` following rows. |
 
 
@@ -130,8 +190,8 @@ Returns the moving minimum of values in a fixed-size window defined by the sort 
 
 | `rows_1`   | `rows_2`   | Window                                                                |
 |:-----------|:-----------|:----------------------------------------------------------------------|
-| positive   | -          | The current row and `rows_1` following rows.                          |
-| negative   | -          | The current row and -`rows_1` preceding rows.                         |
+| positive   | -          | The current row and `rows_1` preceding rows.                          |
+| negative   | -          | The current row and -`rows_1` following rows.                         |
 | any sign   | any sign   | `rows_1` preceding rows, the current row and `rows_2` following rows. |
 
 
@@ -149,8 +209,8 @@ Returns the moving sum of values in a fixed-size window defined by the sort orde
 
 | `rows_1`   | `rows_2`   | Window                                                                |
 |:-----------|:-----------|:----------------------------------------------------------------------|
-| positive   | -          | The current row and `rows_1` following rows.                          |
-| negative   | -          | The current row and -`rows_1` preceding rows.                         |
+| positive   | -          | The current row and `rows_1` preceding rows.                          |
+| negative   | -          | The current row and -`rows_1` following rows.                         |
 | any sign   | any sign   | `rows_1` preceding rows, the current row and `rows_2` following rows. |
 
 
@@ -166,6 +226,8 @@ See also [SUM](SUM.md), [RSUM](RSUM.md).
 
 Returns the rank of the current row if ordered by the given argument. Rows corresponding to the same value used for sorting have the same rank. If the first two rows both have rank of `1`, then the next row (if it features a different value) will have rank `3`, so, in effect, it is rank with gaps.
 
+If `direction` is `"desc"` or omitted, then ranking is done from greatest to least, if `"asc"`, then from least to greatest.
+
 See also [RANK_DENSE](RANK_DENSE.md), [RANK_UNIQUE](RANK_UNIQUE.md), [RANK_PERCENTILE](RANK_PERCENTILE.md).
 
 
@@ -175,6 +237,8 @@ See also [RANK_DENSE](RANK_DENSE.md), [RANK_UNIQUE](RANK_UNIQUE.md), [RANK_PERCE
 **Syntax:**`RANK_DENSE( value [ , direction ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] )`
 
 Returns the rank of the current row if ordered by the given argument. Rows corresponding to the same value used for sorting have the same rank. If the first two rows both have rank of `1`, then the next row (if it features a different value) will have rank `2`, (rank without gaps).
+
+If `direction` is `"desc"` or omitted, then ranking is done from greatest to least, if `"asc"`, then from least to greatest.
 
 See also [RANK](RANK.md), [RANK_UNIQUE](RANK_UNIQUE.md), [RANK_PERCENTILE](RANK_PERCENTILE.md).
 
@@ -186,6 +250,8 @@ See also [RANK](RANK.md), [RANK_UNIQUE](RANK_UNIQUE.md), [RANK_PERCENTILE](RANK_
 
 Returns the relative rank (from `0` to `1`) of the current row if ordered by the given argument. Calculated as `(RANK(...) - 1) / (row count) `.
 
+If `direction` is `"desc"` or omitted, then ranking is done from greatest to least, if `"asc"`, then from least to greatest.
+
 See also [RANK](RANK.md), [RANK_DENSE](RANK_DENSE.md), [RANK_UNIQUE](RANK_UNIQUE.md).
 
 
@@ -195,6 +261,8 @@ See also [RANK](RANK.md), [RANK_DENSE](RANK_DENSE.md), [RANK_UNIQUE](RANK_UNIQUE
 **Syntax:**`RANK_UNIQUE( value [ , direction ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] )`
 
 Returns the rank of the current row if ordered by the given argument. Rows corresponding to the same value have different rank values. This means that rank values are sequential and different for all rows, always increasing by `1` for the next row.
+
+If `direction` is `"desc"` or omitted, then ranking is done from greatest to least, if `"asc"`, then from least to greatest.
 
 See also [RANK](RANK.md), [RANK_DENSE](RANK_DENSE.md), [RANK_PERCENTILE](RANK_PERCENTILE.md).
 
@@ -297,5 +365,21 @@ By default `"asc"` is used.
 Window functions with a similar behavior: [RCOUNT](RCOUNT.md), [RMIN](RMIN.md), [RMAX](RMAX.md), [RAVG](RAVG.md).
 
 See also [SUM](SUM.md), [MSUM](MSUM.md).
+
+
+
+## [SUM](SUM.md)
+
+**Syntax:**`SUM( value )`
+
+Returns the sum of all expression values. Applicable to numeric data types only.
+
+
+
+## [SUM_IF](SUM_IF.md)
+
+**Syntax:**`SUM_IF( expression, condition )`
+
+Returns the sum of all the expression values that meet the `condition` condition. Applicable to numeric data types only.
 
 

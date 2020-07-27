@@ -16,13 +16,13 @@ editable: false
 
 Возвращает указанный ресурс YandexPassportUserAccount.
 
-**rpc GetByLogin ([GetUserAccountByLoginRequest](#GetUserAccountByLoginRequest)) returns ([UserAccount](#UserAccount))**
+**rpc GetByLogin ([GetUserAccountByLoginRequest](#GetUserAccountByLoginRequest)) returns ([UserAccount](../user_account.proto#UserAccount))**
 
 ### GetUserAccountByLoginRequest {#GetUserAccountByLoginRequest}
 
 Поле | Описание
 --- | ---
-login | **string**<br>Обязательное поле. Логин для запрашиваемого ресурса YandexPassportUserAccount. 
+login | **string**<br>Обязательное поле. Логин для запрашиваемого ресурса YandexPassportUserAccount. false
 
 
 ### UserAccount {#UserAccount}
@@ -31,8 +31,8 @@ login | **string**<br>Обязательное поле. Логин для за�
 --- | ---
 id | **string**<br>Идентификатор аккаунта пользователя 
 user_account | **oneof:** `yandex_passport_user_account` или `saml_user_account`<br>
-&nbsp;&nbsp;yandex_passport_user_account | **[YandexPassportUserAccount](#YandexPassportUserAccount)**<br>Ресурс YandexPassportUserAccount. 
-&nbsp;&nbsp;saml_user_account | **[SamlUserAccount](#SamlUserAccount)**<br>Пользователь федерации. 
+&nbsp;&nbsp;yandex_passport_user_account | **[YandexPassportUserAccount](../user_account.proto#YandexPassportUserAccount)**<br>Ресурс YandexPassportUserAccount. 
+&nbsp;&nbsp;saml_user_account | **[SamlUserAccount](../user_account.proto#SamlUserAccount)**<br>Пользователь федерации. 
 
 
 ### YandexPassportUserAccount {#YandexPassportUserAccount}
@@ -47,7 +47,15 @@ default_email | **string**<br>Email используемый по умолчан
 
 Поле | Описание
 --- | ---
-federation_id | **string**<br>Обязательное поле. Идентификатор федерации, которой принадлежит пользователь.  Максимальная длина строки в символах — 50.
-name_id | **string**<br>Обязательное поле. Идентификатор имени пользоваетля федерации. Идентификатор имени должен быть уникальным в федерации. Длина 1-256 символов.  Длина строки в символах должна быть от 1 до 256.
+federation_id | **string**<br>Обязательное поле. Идентификатор федерации, которой принадлежит пользователь. false Максимальная длина строки в символах — 50.
+name_id | **string**<br>Обязательное поле. Идентификатор имени пользоваетля федерации. Идентификатор имени должен быть уникальным в федерации. Длина 1-256 символов. false Длина строки в символах должна быть от 1 до 256.
+attributes | **map<string,Attribute>**<br>Дополнительные атрибуты пользователя. 
+
+
+### Attribute {#Attribute}
+
+Поле | Описание
+--- | ---
+value[] | **string**<br> 
 
 

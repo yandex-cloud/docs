@@ -11,6 +11,10 @@ items:
         href: api-ref/Image/get.md
       - name: list
         href: api-ref/Image/list.md
+  - name: LifecyclePolicy
+    items:
+      - name: Overview
+        href: api-ref/LifecyclePolicy/index.md
   - name: Registry
     items:
       - name: Overview

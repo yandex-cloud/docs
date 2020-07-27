@@ -1,6 +1,6 @@
 # Консистентность ключей
 
-Методы [encrypt](../api-ref/SymmetricCrypto/encrypt), [decrypt](../api-ref/SymmetricCrypto/decrypt) и [reEncrypt](../api-ref/SymmetricCrypto/reEncrypt) являются eventually consistent операциями — изменения, которые они произвели, становяться видимыми с задержкой **до трех часов**.
+Методы [encrypt](../api-ref/SymmetricCrypto/encrypt), [decrypt](../api-ref/SymmetricCrypto/decrypt) и [reEncrypt](../api-ref/SymmetricCrypto/reEncrypt) являются eventually consistent операциями — изменения, которые они произвели, становятся видимыми с задержкой **до трех часов**.
 
 [Eventually consistent](https://en.wikipedia.org/wiki/Eventual_consistency) операции, изменения проявляются с задержкой **до трех часов**:
 * Ротация ключа (автоматическая и ручная).

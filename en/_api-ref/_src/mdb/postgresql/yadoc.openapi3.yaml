@@ -393,6 +393,40 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/RestoreClusterMetadata'
       x-y-operation-response: '[Cluster](/docs/managed-postgresql/api-ref/Cluster#representation)'
+  /managed-postgresql/v1/clusters/{clusterId}:rescheduleMaintenance:
+    post:
+      tags:
+      - Cluster
+      summary: Reschedule planned maintenance operation.
+      operationId: ClusterRescheduleMaintenance
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          Required. ID of the PostgreSQL cluster to maintenance reschedule.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RescheduleMaintenanceRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: rescheduleMaintenance
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/RescheduleMaintenanceMetadata'
+      x-y-operation-response: '[Cluster](/docs/managed-postgresql/api-ref/Cluster#representation)'
   /managed-postgresql/v1/clusters/{clusterId}:startFailover:
     post:
       tags:
@@ -511,6 +545,72 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListClusterLogsResponse'
       x-y-navtitle: listLogs
+  /managed-postgresql/v1/clusters/{clusterId}:stream_logs:
+    get:
+      tags:
+      - Cluster
+      summary: Same as ListLogs but using server-side streaming. Also allows for 'tail
+        -f' semantics.
+      operationId: ClusterStreamLogs
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          Required. ID of the PostgreSQL cluster.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: columnFilter
+        in: query
+        description: Columns from logs table to get in the response.
+        schema:
+          type: array
+          items:
+            type: string
+      - name: serviceType
+        in: query
+        schema:
+          $ref: '#/components/schemas/StreamClusterLogsRequestServiceType'
+      - name: fromTime
+        in: query
+        description: |-
+          Start timestamp for the logs request.
+
+          String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+        schema:
+          type: string
+          format: date-time
+      - name: toTime
+        in: query
+        description: |-
+          End timestamp for the logs request.
+          If this field is not set, all existing logs will be sent and then the new ones as
+          they appear. In essence it has 'tail -f' semantics.
+
+          String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+        schema:
+          type: string
+          format: date-time
+      - name: recordToken
+        in: query
+        description: |-
+          Record token. Set `record_token` to the `next_record_token` returned by a previous StreamLogs
+          request to start streaming from next log record.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StreamLogRecord'
+      x-y-navtitle: streamLogs
   /managed-postgresql/v1/clusters/{clusterId}/operations:
     get:
       tags:
@@ -1349,6 +1449,9 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/HostSpec'
+    AnytimeMaintenanceWindow:
+      type: object
+      properties: {}
     Backup:
       description: |-
         A PostgreSQL Backup resource. For more information, see
@@ -1438,6 +1541,10 @@ components:
           $ref: '#/components/schemas/ClusterHealth_in_Cluster_health'
         status:
           $ref: '#/components/schemas/ClusterStatus_in_Cluster_status'
+        maintenanceWindow:
+          $ref: '#/components/schemas/MaintenanceWindow_in_Cluster_maintenanceWindow'
+        plannedOperation:
+          $ref: '#/components/schemas/MaintenanceOperation_in_Cluster_plannedOperation'
     ClusterConfig:
       type: object
       allOf:
@@ -2096,6 +2203,7 @@ components:
             is larger than [pageSize](/docs/managed-postgresql/api-ref/Cluster/listLogs#query_params), use the [nextPageToken](/docs/managed-postgresql/api-ref/Cluster/listLogs#responses) as the value
             for the [pageToken](/docs/managed-postgresql/api-ref/Cluster/listLogs#query_params) query parameter in the next list request.
             Each subsequent list request will have its own [nextPageToken](/docs/managed-postgresql/api-ref/Cluster/listLogs#responses) to continue paging through the results.
+            This value is interchangeable with `next_record_token` from StreamLogs method.
           type: string
     ListClusterOperationsResponse:
       type: object
@@ -2189,6 +2297,28 @@ components:
           type: object
           additionalProperties:
             type: string
+    MaintenanceOperation:
+      type: object
+      properties:
+        info:
+          description: The maximum string length in characters is 256.
+          type: string
+        delayedUntil:
+          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+            format.
+          type: string
+          format: date-time
+    MaintenanceWindow:
+      type: object
+      allOf:
+      - title: policy
+        type: object
+        maxProperties: 1
+        properties:
+          anytime:
+            $ref: '#/components/schemas/AnytimeMaintenanceWindow'
+          weeklyMaintenanceWindow:
+            $ref: '#/components/schemas/WeeklyMaintenanceWindow'
     Monitoring:
       description: Monitoring system.
       type: object
@@ -2520,7 +2650,7 @@ components:
           type: integer
           format: int64
         archiveTimeout:
-          description: Acceptable values are 10000 to 600000, inclusive.
+          description: Acceptable values are 10000 to 86400000, inclusive.
           type: integer
           format: int64
         trackActivityQuerySize:
@@ -2959,7 +3089,7 @@ components:
           type: integer
           format: int64
         archiveTimeout:
-          description: Acceptable values are 10000 to 600000, inclusive.
+          description: Acceptable values are 10000 to 86400000, inclusive.
           type: integer
           format: int64
         trackActivityQuerySize:
@@ -3072,6 +3202,12 @@ components:
           $ref: '#/components/schemas/PostgresqlConfig10_1CPgHintPlanDebugPrint_in_PostgresqlConfig10_1C_pgHintPlanDebugPrint'
         pgHintPlanMessageLevel:
           $ref: '#/components/schemas/PostgresqlConfig10_1CLogLevel_in_PostgresqlConfig10_1C_pgHintPlanMessageLevel'
+        onlineAnalyzeEnable:
+          type: boolean
+          format: boolean
+        plantunerFixEmptyTable:
+          type: boolean
+          format: boolean
     PostgresqlConfig10_1CBackslashQuote:
       type: string
       enum:
@@ -3395,7 +3531,7 @@ components:
           type: integer
           format: int64
         archiveTimeout:
-          description: Acceptable values are 10000 to 600000, inclusive.
+          description: Acceptable values are 10000 to 86400000, inclusive.
           type: integer
           format: int64
         trackActivityQuerySize:
@@ -3860,7 +3996,7 @@ components:
           type: integer
           format: int64
         archiveTimeout:
-          description: Acceptable values are 10000 to 600000, inclusive.
+          description: Acceptable values are 10000 to 86400000, inclusive.
           type: integer
           format: int64
         trackActivityQuerySize:
@@ -4344,7 +4480,7 @@ components:
           type: integer
           format: int64
         archiveTimeout:
-          description: Acceptable values are 10000 to 600000, inclusive.
+          description: Acceptable values are 10000 to 86400000, inclusive.
           type: integer
           format: int64
         trackActivityQuerySize:
@@ -5805,6 +5941,37 @@ components:
       enum:
       - XML_OPTION_DOCUMENT
       - XML_OPTION_CONTENT
+    RescheduleMaintenanceMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: Required. ID of the PostgreSQL cluster.
+          type: string
+        delayedUntil:
+          description: |-
+            Required. New time of the planned maintenance. Can be in the past for rescheduled to "IMMEDIATE".
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+    RescheduleMaintenanceRequest:
+      type: object
+      properties:
+        rescheduleType:
+          $ref: '#/components/schemas/RescheduleMaintenanceRequestRescheduleType_in_RescheduleMaintenanceRequest_rescheduleType'
+        delayedUntil:
+          description: |-
+            The time for SPECIFIC_TIME reschedule. Limited by two weeks since first time scheduled.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+    RescheduleMaintenanceRequestRescheduleType:
+      type: string
+      enum:
+      - IMMEDIATE
+      - NEXT_AVAILABLE_WINDOW
+      - SPECIFIC_TIME
     ResourcePreset:
       description: A ResourcePreset resource for describing hardware configuration
         presets.
@@ -6012,6 +6179,26 @@ components:
         clusterId:
           description: ID of the PostgreSQL cluster.
           type: string
+    StreamClusterLogsRequestServiceType:
+      description: |2-
+         - POSTGRESQL: Logs of PostgreSQL activity.
+         - POOLER: Logs of connection pooler activity.
+      type: string
+      enum:
+      - POSTGRESQL
+      - POOLER
+    StreamLogRecord:
+      type: object
+      properties:
+        record:
+          $ref: '#/components/schemas/LogRecord_in_StreamLogRecord_record'
+        nextRecordToken:
+          description: |-
+            This token allows you to continue streaming logs starting from the exact
+            same record. To continue streaming, specify value of `next_record_token`
+            as value for `record_token` parameter in the next StreamLogs request.
+            This value is interchangeable with `next_page_token` from ListLogs method.
+          type: string
     TimeOfDay:
       description: |-
         Represents a time of day. The date and time zone are either not significant
@@ -6104,6 +6291,8 @@ components:
             The maximum string length in characters is 63.
             Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
           type: string
+        maintenanceWindow:
+          $ref: '#/components/schemas/MaintenanceWindow_in_UpdateClusterRequest_maintenanceWindow'
     UpdateDatabaseMetadata:
       type: object
       properties:
@@ -6323,6 +6512,28 @@ components:
           type: array
           items:
             type: string
+    WeeklyMaintenanceWindow:
+      type: object
+      properties:
+        day:
+          $ref: '#/components/schemas/WeeklyMaintenanceWindowWeekDay_in_WeeklyMaintenanceWindow_day'
+        hour:
+          description: |-
+            Hour of the day in UTC.
+
+            Acceptable values are 1 to 24, inclusive.
+          type: string
+          format: int64
+    WeeklyMaintenanceWindowWeekDay:
+      type: string
+      enum:
+      - MON
+      - TUE
+      - WED
+      - THU
+      - FRI
+      - SAT
+      - SUN
     rpcStatus:
       description: The error result of the operation in case of failure or cancellation.
       type: object
@@ -6434,6 +6645,30 @@ components:
       - STOPPED
       - STARTING
       default: STATUS_UNKNOWN
+    MaintenanceWindow_in_Cluster_maintenanceWindow:
+      description: Window of maintenance operations.
+      type: object
+      allOf:
+      - title: policy
+        type: object
+        maxProperties: 1
+        properties:
+          anytime:
+            $ref: '#/components/schemas/AnytimeMaintenanceWindow'
+          weeklyMaintenanceWindow:
+            $ref: '#/components/schemas/WeeklyMaintenanceWindow'
+    MaintenanceOperation_in_Cluster_plannedOperation:
+      description: Maintenance operation planned at nearest maintenance_window.
+      type: object
+      properties:
+        info:
+          description: The maximum string length in characters is 256.
+          type: string
+        delayedUntil:
+          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+            format.
+          type: string
+          format: date-time
     ConnectionPoolerConfigPoolingMode_in_ConnectionPoolerConfig_poolingMode:
       description: |-
         Mode that the connection pooler is working in.
@@ -7583,7 +7818,7 @@ components:
           type: integer
           format: int64
         archiveTimeout:
-          description: Acceptable values are 10000 to 600000, inclusive.
+          description: Acceptable values are 10000 to 86400000, inclusive.
           type: integer
           format: int64
         trackActivityQuerySize:
@@ -7931,7 +8166,7 @@ components:
           type: integer
           format: int64
         archiveTimeout:
-          description: Acceptable values are 10000 to 600000, inclusive.
+          description: Acceptable values are 10000 to 86400000, inclusive.
           type: integer
           format: int64
         trackActivityQuerySize:
@@ -8279,7 +8514,7 @@ components:
           type: integer
           format: int64
         archiveTimeout:
-          description: Acceptable values are 10000 to 600000, inclusive.
+          description: Acceptable values are 10000 to 86400000, inclusive.
           type: integer
           format: int64
         trackActivityQuerySize:
@@ -8629,7 +8864,7 @@ components:
           type: integer
           format: int64
         archiveTimeout:
-          description: Acceptable values are 10000 to 600000, inclusive.
+          description: Acceptable values are 10000 to 86400000, inclusive.
           type: integer
           format: int64
         trackActivityQuerySize:
@@ -8742,6 +8977,12 @@ components:
           $ref: '#/components/schemas/PostgresqlConfig10_1CPgHintPlanDebugPrint_in_PostgresqlConfig10_1C_pgHintPlanDebugPrint'
         pgHintPlanMessageLevel:
           $ref: '#/components/schemas/PostgresqlConfig10_1CLogLevel_in_PostgresqlConfig10_1C_pgHintPlanMessageLevel'
+        onlineAnalyzeEnable:
+          type: boolean
+          format: boolean
+        plantunerFixEmptyTable:
+          type: boolean
+          format: boolean
     PostgresqlConfig10_1C_in_PostgresqlConfigSet10_1C_userConfig:
       description: |-
         User-defined settings for a PostgreSQL 10 1C cluster.
@@ -8977,7 +9218,7 @@ components:
           type: integer
           format: int64
         archiveTimeout:
-          description: Acceptable values are 10000 to 600000, inclusive.
+          description: Acceptable values are 10000 to 86400000, inclusive.
           type: integer
           format: int64
         trackActivityQuerySize:
@@ -9090,6 +9331,12 @@ components:
           $ref: '#/components/schemas/PostgresqlConfig10_1CPgHintPlanDebugPrint_in_PostgresqlConfig10_1C_pgHintPlanDebugPrint'
         pgHintPlanMessageLevel:
           $ref: '#/components/schemas/PostgresqlConfig10_1CLogLevel_in_PostgresqlConfig10_1C_pgHintPlanMessageLevel'
+        onlineAnalyzeEnable:
+          type: boolean
+          format: boolean
+        plantunerFixEmptyTable:
+          type: boolean
+          format: boolean
     PostgresqlConfig10_1C_in_PostgresqlConfigSet10_1C_defaultConfig:
       description: |-
         Default configuration for a PostgreSQL 10 1C cluster.
@@ -9325,7 +9572,7 @@ components:
           type: integer
           format: int64
         archiveTimeout:
-          description: Acceptable values are 10000 to 600000, inclusive.
+          description: Acceptable values are 10000 to 86400000, inclusive.
           type: integer
           format: int64
         trackActivityQuerySize:
@@ -9438,6 +9685,12 @@ components:
           $ref: '#/components/schemas/PostgresqlConfig10_1CPgHintPlanDebugPrint_in_PostgresqlConfig10_1C_pgHintPlanDebugPrint'
         pgHintPlanMessageLevel:
           $ref: '#/components/schemas/PostgresqlConfig10_1CLogLevel_in_PostgresqlConfig10_1C_pgHintPlanMessageLevel'
+        onlineAnalyzeEnable:
+          type: boolean
+          format: boolean
+        plantunerFixEmptyTable:
+          type: boolean
+          format: boolean
     PostgresqlConfig11_in_PostgresqlConfigSet11_effectiveConfig:
       description: |-
         Effective settings for a PostgreSQL 11 cluster (a combination of settings defined
@@ -9671,7 +9924,7 @@ components:
           type: integer
           format: int64
         archiveTimeout:
-          description: Acceptable values are 10000 to 600000, inclusive.
+          description: Acceptable values are 10000 to 86400000, inclusive.
           type: integer
           format: int64
         trackActivityQuerySize:
@@ -10045,7 +10298,7 @@ components:
           type: integer
           format: int64
         archiveTimeout:
-          description: Acceptable values are 10000 to 600000, inclusive.
+          description: Acceptable values are 10000 to 86400000, inclusive.
           type: integer
           format: int64
         trackActivityQuerySize:
@@ -10419,7 +10672,7 @@ components:
           type: integer
           format: int64
         archiveTimeout:
-          description: Acceptable values are 10000 to 600000, inclusive.
+          description: Acceptable values are 10000 to 86400000, inclusive.
           type: integer
           format: int64
         trackActivityQuerySize:
@@ -10794,7 +11047,7 @@ components:
           type: integer
           format: int64
         archiveTimeout:
-          description: Acceptable values are 10000 to 600000, inclusive.
+          description: Acceptable values are 10000 to 86400000, inclusive.
           type: integer
           format: int64
         trackActivityQuerySize:
@@ -11174,7 +11427,7 @@ components:
           type: integer
           format: int64
         archiveTimeout:
-          description: Acceptable values are 10000 to 600000, inclusive.
+          description: Acceptable values are 10000 to 86400000, inclusive.
           type: integer
           format: int64
         trackActivityQuerySize:
@@ -11554,7 +11807,7 @@ components:
           type: integer
           format: int64
         archiveTimeout:
-          description: Acceptable values are 10000 to 600000, inclusive.
+          description: Acceptable values are 10000 to 86400000, inclusive.
           type: integer
           format: int64
         trackActivityQuerySize:
@@ -11943,7 +12196,7 @@ components:
           type: integer
           format: int64
         archiveTimeout:
-          description: Acceptable values are 10000 to 600000, inclusive.
+          description: Acceptable values are 10000 to 86400000, inclusive.
           type: integer
           format: int64
         trackActivityQuerySize:
@@ -12197,7 +12450,7 @@ components:
           type: integer
           format: int64
         archiveTimeout:
-          description: Acceptable values are 10000 to 600000, inclusive.
+          description: Acceptable values are 10000 to 86400000, inclusive.
           type: integer
           format: int64
         trackActivityQuerySize:
@@ -12451,7 +12704,7 @@ components:
           type: integer
           format: int64
         archiveTimeout:
-          description: Acceptable values are 10000 to 600000, inclusive.
+          description: Acceptable values are 10000 to 86400000, inclusive.
           type: integer
           format: int64
         trackActivityQuerySize:
@@ -12946,6 +13199,15 @@ components:
       - BACKSLASH_QUOTE_ON
       - BACKSLASH_QUOTE_OFF
       - BACKSLASH_QUOTE_SAFE_ENCODING
+    RescheduleMaintenanceRequestRescheduleType_in_RescheduleMaintenanceRequest_rescheduleType:
+      description: |-
+        Required.
+        Required. The type of reschedule request.
+      type: string
+      enum:
+      - IMMEDIATE
+      - NEXT_AVAILABLE_WINDOW
+      - SPECIFIC_TIME
     ClusterEnvironment_in_RestoreClusterRequest_environment:
       description: |-
         Deployment environment of the new PostgreSQL cluster.
@@ -13028,6 +13290,22 @@ components:
       - ALIVE
       - DEAD
       default: HEALTH_UNKNOWN
+    LogRecord_in_StreamLogRecord_record:
+      description: One of the requested log records.
+      type: object
+      properties:
+        timestamp:
+          description: |-
+            Log record timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        message:
+          description: Contents of the log record.
+          type: object
+          additionalProperties:
+            type: string
     FieldMask_in_UpdateClusterRequest_updateMask:
       description: |-
         Field mask that specifies which fields of the PostgreSQL Cluster resource should be updated.
@@ -13088,6 +13366,18 @@ components:
           postgresqlConfig_12:
             $ref: '#/components/schemas/PostgresqlConfig12'
             description: Configuration for a PostgreSQL 12 cluster.
+    MaintenanceWindow_in_UpdateClusterRequest_maintenanceWindow:
+      description: Window of maintenance operations.
+      type: object
+      allOf:
+      - title: policy
+        type: object
+        maxProperties: 1
+        properties:
+          anytime:
+            $ref: '#/components/schemas/AnytimeMaintenanceWindow'
+          weeklyMaintenanceWindow:
+            $ref: '#/components/schemas/WeeklyMaintenanceWindow'
     FieldMask_in_UpdateDatabaseRequest_updateMask:
       description: |-
         Field mask that specifies which fields of the Database resource should be updated.
@@ -13234,6 +13524,16 @@ components:
           format: int64
         logStatement:
           $ref: '#/components/schemas/UserSettingsLogStatement_in_UserSettings_logStatement'
+    WeeklyMaintenanceWindowWeekDay_in_WeeklyMaintenanceWindow_day:
+      type: string
+      enum:
+      - MON
+      - TUE
+      - WED
+      - THU
+      - FRI
+      - SAT
+      - SUN
 tags:
 - name: Backup
   description: A set of methods for managing PostgreSQL Backup resources.

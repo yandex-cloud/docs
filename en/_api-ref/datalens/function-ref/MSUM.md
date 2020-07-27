@@ -18,8 +18,8 @@ Returns the moving sum of values in a fixed-size window defined by the sort orde
 
 | `rows_1`   | `rows_2`   | Window                                                                |
 |:-----------|:-----------|:----------------------------------------------------------------------|
-| positive   | -          | The current row and `rows_1` following rows.                          |
-| negative   | -          | The current row and -`rows_1` preceding rows.                         |
+| positive   | -          | The current row and `rows_1` preceding rows.                          |
+| negative   | -          | The current row and -`rows_1` following rows.                         |
 | any sign   | any sign   | `rows_1` preceding rows, the current row and `rows_2` following rows. |
 
 
@@ -38,6 +38,14 @@ See also [SUM](SUM.md), [RSUM](RSUM.md).
 {% note info %}
 
 Only constant values are accepted for arguments (rows_1, rows_2).
+
+{% endnote %}
+
+{% note warning %}
+
+Function depends on how data is ordered in the chart. It will work correctly only if:
+- data ordering is explicitly specified in the chart;
+- result is ordered by __all__ fields that don't use window functions.
 
 {% endnote %}
 

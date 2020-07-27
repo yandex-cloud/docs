@@ -29,14 +29,21 @@ POST https://serverless-functions.api.cloud.yandex.net/functions/v1/versions
   "tag": [
     "string"
   ],
+  "connectivity": {
+    "networkId": "string",
+    "subnetId": [
+      "string"
+    ]
+  },
 
-  //  includes only one of the fields `package`, `content`
+  //  includes only one of the fields `package`, `content`, `versionId`
   "package": {
     "bucketName": "string",
     "objectName": "string",
     "sha256": "string"
   },
   "content": "string",
+  "versionId": "string",
   // end of the list of possible fields
 
 }
@@ -50,16 +57,20 @@ runtime | **string**<br><p>Required. Runtime environment for the version.</p>
 description | **string**<br><p>Description of the version</p> <p>The string length in characters must be 0-256.</p> 
 entrypoint | **string**<br><p>Required. Entrypoint of the version.</p> 
 resources | **object**<br>Required. Resources allocated to the version.<br><p>Resources allocated to a version.</p> 
-resources.<br>memory | **string** (int64)<br><p>Amount of memory available to the version, specified in bytes.</p> <p>Acceptable values are 33554432 to 1073741824, inclusive.</p> 
+resources.<br>memory | **string** (int64)<br><p>Amount of memory available to the version, specified in bytes.</p> <p>Acceptable values are 134217728 to 2147483648, inclusive.</p> 
 executionTimeout | **string**<br><p>Required. Timeout for the execution of the version.</p> <p>If the timeout is exceeded, Cloud Functions responds with a 504 HTTP code.</p> 
 serviceAccountId | **string**<br><p>ID of the service account to associate with the version.</p> 
 environment | **object**<br><p>Environment settings for the version.</p> <p>Each key must match the regular expression <code>[a-zA-Z][a-zA-Z0-9_]*</code>. The maximum string length in characters for each value is 4096.</p> 
 tag[] | **string**<br><p>Function version tags. For details, see <a href="/docs/functions/concepts/function#tag">Version tag</a>.</p> <p>Each value must match the regular expression <code>[a-z][-_0-9a-z]*</code>.</p> 
-package | **object**<br>Functions deployment package. <br> includes only one of the fields `package`, `content`<br><br><p>Version deployment package.</p> 
+connectivity | **object**<br>Function version connectivity. If specified the version will be attached to specified network/subnet(s).<br><p>Version connectivity specification.</p> 
+connectivity.<br>networkId | **string**<br><p>Network the version will have access to. It's essential to specify network with subnets in all availability zones.</p> 
+connectivity.<br>subnetId[] | **string**<br><p>Complete list of subnets (from the same network) the version can be attached to. It's essential to specify at least one subnet for each availability zones.</p> 
+package | **object**<br>Functions deployment package. <br> includes only one of the fields `package`, `content`, `versionId`<br><br><p>Version deployment package.</p> 
 package.<br>bucketName | **string**<br><p>Required. Name of the bucket that stores the code for the version.</p> 
 package.<br>objectName | **string**<br><p>Required. Name of the object in the bucket that stores the code for the version.</p> 
 package.<br>sha256 | **string**<br><p>SHA256 hash of the version deployment package.</p> 
-content | **string** (byte) <br> includes only one of the fields `package`, `content`<br><br><p>Content of the deployment package.</p> <p>The maximum string length in characters is 52428800.</p> 
+content | **string** (byte) <br> includes only one of the fields `package`, `content`, `versionId`<br><br><p>Content of the deployment package.</p> <p>The maximum string length in characters is 52428800.</p> 
+versionId | **string** <br> includes only one of the fields `package`, `content`, `versionId`<br><br><p>ID of the version to be copied from. Source version must belong to the same folder as the created version and the user must have read permissions to the source version.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

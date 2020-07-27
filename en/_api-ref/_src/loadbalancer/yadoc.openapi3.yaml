@@ -4,11 +4,11 @@ info:
   description: This API reference is organized by resource. Actions are performed
     by sending HTTP requests to resource URLs or making RPC calls. For more information
     about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
-  version: v1
+  version: v1alpha
   x-y-docUri: api-ref
   x-y-baseUrl: https://load-balancer.api.cloud.yandex.net
 paths:
-  /load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}:
+  /load-balancer/v1alpha/networkLoadBalancers/{networkLoadBalancerId}:
     get:
       tags:
       - NetworkLoadBalancer
@@ -97,7 +97,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/UpdateNetworkLoadBalancerMetadata'
       x-y-operation-response: '[NetworkLoadBalancer](/docs/load-balancer/api-ref/NetworkLoadBalancer#representation)'
-  /load-balancer/v1/networkLoadBalancers:
+  /load-balancer/v1alpha/networkLoadBalancers:
     get:
       tags:
       - NetworkLoadBalancer
@@ -180,7 +180,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/CreateNetworkLoadBalancerMetadata'
       x-y-operation-response: '[NetworkLoadBalancer](/docs/load-balancer/api-ref/NetworkLoadBalancer#representation)'
-  /load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}:start:
+  /load-balancer/v1alpha/networkLoadBalancers/{networkLoadBalancerId}:start:
     post:
       tags:
       - NetworkLoadBalancer
@@ -211,7 +211,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/StartNetworkLoadBalancerMetadata'
       x-y-operation-response: Empty
-  /load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}:stop:
+  /load-balancer/v1alpha/networkLoadBalancers/{networkLoadBalancerId}:stop:
     post:
       tags:
       - NetworkLoadBalancer
@@ -242,7 +242,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/StopNetworkLoadBalancerMetadata'
       x-y-operation-response: Empty
-  /load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}:attachTargetGroup:
+  /load-balancer/v1alpha/networkLoadBalancers/{networkLoadBalancerId}:attachTargetGroup:
     post:
       tags:
       - NetworkLoadBalancer
@@ -277,7 +277,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/AttachNetworkLoadBalancerTargetGroupMetadata'
       x-y-operation-response: '[NetworkLoadBalancer](/docs/load-balancer/api-ref/NetworkLoadBalancer#representation)'
-  /load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}:detachTargetGroup:
+  /load-balancer/v1alpha/networkLoadBalancers/{networkLoadBalancerId}:detachTargetGroup:
     post:
       tags:
       - NetworkLoadBalancer
@@ -312,7 +312,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/DetachNetworkLoadBalancerTargetGroupMetadata'
       x-y-operation-response: '[NetworkLoadBalancer](/docs/load-balancer/api-ref/NetworkLoadBalancer#representation)'
-  /load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}:getTargetStates:
+  /load-balancer/v1alpha/networkLoadBalancers/{networkLoadBalancerId}:getTargetStates:
     get:
       tags:
       - NetworkLoadBalancer
@@ -344,7 +344,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/GetTargetStatesResponse'
       x-y-navtitle: getTargetStates
-  /load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}:addListener:
+  /load-balancer/v1alpha/networkLoadBalancers/{networkLoadBalancerId}:addListener:
     post:
       tags:
       - NetworkLoadBalancer
@@ -379,7 +379,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/AddNetworkLoadBalancerListenerMetadata'
       x-y-operation-response: '[NetworkLoadBalancer](/docs/load-balancer/api-ref/NetworkLoadBalancer#representation)'
-  /load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}:removeListener:
+  /load-balancer/v1alpha/networkLoadBalancers/{networkLoadBalancerId}:removeListener:
     post:
       tags:
       - NetworkLoadBalancer
@@ -414,7 +414,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/RemoveNetworkLoadBalancerListenerMetadata'
       x-y-operation-response: '[NetworkLoadBalancer](/docs/load-balancer/api-ref/NetworkLoadBalancer#representation)'
-  /load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}/operations:
+  /load-balancer/v1alpha/networkLoadBalancers/{networkLoadBalancerId}/operations:
     get:
       tags:
       - NetworkLoadBalancer
@@ -460,7 +460,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListNetworkLoadBalancerOperationsResponse'
       x-y-navtitle: listOperations
-  /load-balancer/v1/targetGroups/{targetGroupId}:
+  /load-balancer/v1alpha/targetGroups/{targetGroupId}:
     get:
       tags:
       - TargetGroup
@@ -548,7 +548,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/UpdateTargetGroupMetadata'
       x-y-operation-response: '[TargetGroup](/docs/load-balancer/api-ref/TargetGroup#representation)'
-  /load-balancer/v1/targetGroups:
+  /load-balancer/v1alpha/targetGroups:
     get:
       tags:
       - TargetGroup
@@ -625,7 +625,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/CreateTargetGroupMetadata'
       x-y-operation-response: '[TargetGroup](/docs/load-balancer/api-ref/TargetGroup#representation)'
-  /load-balancer/v1/targetGroups/{targetGroupId}:addTargets:
+  /load-balancer/v1alpha/targetGroups/{targetGroupId}:addTargets:
     post:
       tags:
       - TargetGroup
@@ -660,7 +660,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/AddTargetsMetadata'
       x-y-operation-response: '[TargetGroup](/docs/load-balancer/api-ref/TargetGroup#representation)'
-  /load-balancer/v1/targetGroups/{targetGroupId}:removeTargets:
+  /load-balancer/v1alpha/targetGroups/{targetGroupId}:removeTargets:
     post:
       tags:
       - TargetGroup
@@ -695,7 +695,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/RemoveTargetsMetadata'
       x-y-operation-response: '[TargetGroup](/docs/load-balancer/api-ref/TargetGroup#representation)'
-  /load-balancer/v1/targetGroups/{targetGroupId}/operations:
+  /load-balancer/v1alpha/targetGroups/{targetGroupId}/operations:
     get:
       tags:
       - TargetGroup
@@ -789,8 +789,8 @@ components:
         attachedTargetGroup:
           $ref: '#/components/schemas/AttachedTargetGroup_in_AttachNetworkLoadBalancerTargetGroupRequest_attachedTargetGroup'
     AttachedTargetGroup:
-      description: An AttachedTargetGroup resource. For more information, see [Targets
-        and groups](/docs/load-balancer/concepts/target-resources).
+      description: An AttachedTargetGroup resource. For more information, see [Attached
+        Target Groups](/load-balancer/concepts)
       type: object
       properties:
         targetGroupId:
@@ -968,9 +968,9 @@ components:
       properties:
         address:
           description: |-
-            Public IP address for a listener.
-            If you provide a static public IP address for the [update](/docs/load-balancer/api-ref/NetworkLoadBalancer/update)
-            method, it will replace the existing listener address.
+            Dynamic IP address for a listener.
+            Must be empty when creating a new network load balancer.
+            Must be provided when updating an existing load balancer.
           type: string
         ipVersion:
           $ref: '#/components/schemas/IpVersion_in_ExternalAddressSpec_ipVersion'
@@ -1051,8 +1051,7 @@ components:
           format: int64
         path:
           description: "URL path to set for health checking requests for every target
-            in the target group. \nFor example `` /ping ``. The default path is ``
-            / ``."
+            in the target group. \nFor example `` /ping ``."
           type: string
     HealthCheckTcpOptions:
       description: Configuration option for a TCP health check.
@@ -1065,18 +1064,6 @@ components:
             Acceptable values are 1 to 65535, inclusive.
           type: string
           format: int64
-    InternalAddressSpec:
-      description: Internal address specification that is used by `ListenerSpec`.
-      type: object
-      properties:
-        address:
-          description: Internal IP address for a listener.
-          type: string
-        subnetId:
-          description: ID of the subnet.
-          type: string
-        ipVersion:
-          $ref: '#/components/schemas/IpVersion_in_InternalAddressSpec_ipVersion'
     IpVersion:
       description: |-
         IP version of the addresses that the load balancer works with.
@@ -1156,10 +1143,6 @@ components:
       description: A Listener resource. For more information, see [Listener](/docs/load-balancer/concepts/listener)
       type: object
       properties:
-        name:
-          description: Name of the listener. The name must be unique for each listener
-            on a single load balancer. 3-63 characters long.
-          type: string
         address:
           description: IP address for the listener.
           type: string
@@ -1169,32 +1152,17 @@ components:
           format: int64
         protocol:
           $ref: '#/components/schemas/ListenerProtocol_in_Listener_protocol'
-        targetPort:
-          description: Port of a target.
-          type: string
-          format: int64
-        subnetId:
-          description: ID of the subnet.
-          type: string
     ListenerProtocol:
       description: Network protocol to use.
       type: string
       enum:
       - TCP
-      - UDP
     ListenerSpec:
       description: Listener specification that will be used by a network load balancer.
       type: object
       allOf:
       - type: object
         properties:
-          name:
-            description: |-
-              Required.
-              Name of the listener. The name must be unique for each listener on a single load balancer. 3-63 characters long.
-
-              Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
-            type: string
           port:
             description: |-
               Port for incoming traffic.
@@ -1207,12 +1175,6 @@ components:
             description: |-
               Required.
               Protocol for incoming traffic.
-          targetPort:
-            description: |-
-              Port of a target.
-              Acceptable values are 1 to 65535, inclusive.
-            type: string
-            format: int64
       - title: address
         type: object
         maxProperties: 1
@@ -1220,9 +1182,6 @@ components:
           externalAddressSpec:
             $ref: '#/components/schemas/ExternalAddressSpec'
             description: External IP address specification.
-          internalAddressSpec:
-            $ref: '#/components/schemas/InternalAddressSpec'
-            description: Internal IP address specification.
     NetworkLoadBalancer:
       description: A NetworkLoadBalancer resource. For more information, see [Network
         Load Balancer](/docs/load-balancer/concepts).
@@ -1308,11 +1267,9 @@ components:
         Type of the load balancer. Only external load balancers are currently available.
 
          - EXTERNAL: External network load balancer.
-         - INTERNAL: Internal network load balancer.
       type: string
       enum:
       - EXTERNAL
-      - INTERNAL
     Operation:
       description: An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
       type: object
@@ -1380,13 +1337,22 @@ components:
     RemoveNetworkLoadBalancerListenerRequest:
       type: object
       properties:
-        listenerName:
+        address:
           description: |-
             Required.
-            Name of the listener to delete.
+            IP address of the listener.
 
-            Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+            The maximum string length in characters is 50.
           type: string
+        protocol:
+          $ref: '#/components/schemas/ListenerProtocol_in_RemoveNetworkLoadBalancerListenerRequest_protocol'
+        port:
+          description: |-
+            Port.
+
+            Acceptable values are 1 to 65535, inclusive.
+          type: string
+          format: int64
     RemoveTargetsMetadata:
       type: object
       properties:
@@ -1419,7 +1385,7 @@ components:
           type: string
     Target:
       description: A Target resource. For more information, see [Target groups and
-        resources](/docs/load-balancer/concepts/target-resources).
+        resources](/docs/load-balancer/target-resources).
       type: object
       properties:
         subnetId:
@@ -1618,13 +1584,6 @@ components:
       allOf:
       - type: object
         properties:
-          name:
-            description: |-
-              Required.
-              Name of the listener. The name must be unique for each listener on a single load balancer. 3-63 characters long.
-
-              Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
-            type: string
           port:
             description: |-
               Port for incoming traffic.
@@ -1637,12 +1596,6 @@ components:
             description: |-
               Required.
               Protocol for incoming traffic.
-          targetPort:
-            description: |-
-              Port of a target.
-              Acceptable values are 1 to 65535, inclusive.
-            type: string
-            format: int64
       - title: address
         type: object
         maxProperties: 1
@@ -1650,16 +1603,13 @@ components:
           externalAddressSpec:
             $ref: '#/components/schemas/ExternalAddressSpec'
             description: External IP address specification.
-          internalAddressSpec:
-            $ref: '#/components/schemas/InternalAddressSpec'
-            description: Internal IP address specification.
     AttachedTargetGroup_in_AttachNetworkLoadBalancerTargetGroupRequest_attachedTargetGroup:
       description: |-
         Required.
         ID of the attached target group to attach to the network load balancer.
         To get the network load balancer ID, use a [list](/docs/load-balancer/api-ref/NetworkLoadBalancer/list) request.
 
-        An AttachedTargetGroup resource. For more information, see [Targets and groups](/docs/load-balancer/concepts/target-resources).
+        An AttachedTargetGroup resource. For more information, see [Attached Target Groups](/load-balancer/concepts)
       type: object
       properties:
         targetGroupId:
@@ -1687,25 +1637,10 @@ components:
         Type of the load balancer. Only external load balancers are currently available.
 
          - EXTERNAL: External network load balancer.
-         - INTERNAL: Internal network load balancer.
       type: string
       enum:
       - EXTERNAL
-      - INTERNAL
     IpVersion_in_ExternalAddressSpec_ipVersion:
-      description: |-
-        IP version.
-
-        IP version of the addresses that the load balancer works with.
-        Only IPv4 is currently available.
-
-         - IPV4: IPv4
-         - IPV6: IPv6
-      type: string
-      enum:
-      - IPV4
-      - IPV6
-    IpVersion_in_InternalAddressSpec_ipVersion:
       description: |-
         IP version.
 
@@ -1726,7 +1661,6 @@ components:
       type: string
       enum:
       - TCP
-      - UDP
     NetworkLoadBalancerStatus_in_NetworkLoadBalancer_status:
       description: |-
         Status of the network load balancer.
@@ -1756,11 +1690,9 @@ components:
         Type of the load balancer. Only external load balancers are currently available.
 
          - EXTERNAL: External network load balancer.
-         - INTERNAL: Internal network load balancer.
       type: string
       enum:
       - EXTERNAL
-      - INTERNAL
     NetworkLoadBalancerSessionAffinity_in_NetworkLoadBalancer_sessionAffinity:
       description: |-
         Type of the session affinity. Only 5-tuple affinity is available now.
@@ -1772,6 +1704,15 @@ components:
       type: string
       enum:
       - CLIENT_IP_PORT_PROTO
+    ListenerProtocol_in_RemoveNetworkLoadBalancerListenerRequest_protocol:
+      description: |-
+        Required.
+        Network protocol for incoming traffic.
+
+        Network protocol to use.
+      type: string
+      enum:
+      - TCP
     TargetStateStatus_in_TargetState_status:
       description: |-
         Status of the target.

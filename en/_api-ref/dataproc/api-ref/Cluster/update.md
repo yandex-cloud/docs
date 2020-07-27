@@ -41,7 +41,9 @@ clusterId | ID of the cluster to update.  To get the cluster ID, make a [list](/
   },
   "name": "string",
   "serviceAccountId": "string",
-  "bucket": "string"
+  "bucket": "string",
+  "decommissionTimeout": "string",
+  "uiProxy": true
 }
 ```
 
@@ -63,6 +65,8 @@ configSpec.<br>subclustersSpec[].<br>hostsCount | **string** (int64)<br><p>Numbe
 name | **string**<br><p>New name for the Data Proc cluster. The name must be unique within the folder.</p> <p>Value must match the regular expression <code>\|[a-z][-a-z0-9]{1,61}[a-z0-9]</code>.</p> 
 serviceAccountId | **string**<br><p>ID of the new service account to be used by the Data Proc manager agent.</p> 
 bucket | **string**<br><p>Name of the new Object Storage bucket to use for Data Proc jobs.</p> 
+decommissionTimeout | **string** (int64)<br><p>Timeout to gracefully decommission nodes. In seconds. Default value: 0</p> <p>Acceptable values are 0 to 86400, inclusive.</p> 
+uiProxy | **boolean** (boolean)<br><p>Enable UI Proxy feature.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

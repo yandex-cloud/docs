@@ -23,13 +23,13 @@ A set of methods for managing Network resources.
 
 Returns the specified Network resource. <br>Get the list of available Network resources by making a [List](#List) request.
 
-**rpc Get ([GetNetworkRequest](#GetNetworkRequest)) returns ([Network](#Network))**
+**rpc Get ([GetNetworkRequest](#GetNetworkRequest)) returns ([Network](../network.proto#Network))**
 
 ### GetNetworkRequest {#GetNetworkRequest}
 
 Field | Description
 --- | ---
-network_id | **string**<br>Required. ID of the Network resource to return. To get the network ID, use a [NetworkService.List](#List) request.  The maximum string length in characters is 50.
+network_id | **string**<br>Required. ID of the Network resource to return. To get the network ID, use a [NetworkService.List](#List) request. false The maximum string length in characters is 50.
 
 
 ### Network {#Network}
@@ -54,17 +54,17 @@ Retrieves the list of Network resources in the specified folder.
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder to list networks in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request.  The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the folder to list networks in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. false The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListNetworksResponse.next_page_token](#ListNetworksResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListNetworksResponse.next_page_token](#ListNetworksResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently you can use filtering only on the [Network.name](#Network1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.</li></ol> The maximum string length in characters is 1000.
+filter | **string**<br><ol><li>The field name. Currently you can use filtering only on the [Network.name](../network.proto#Network1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.</li></ol> The maximum string length in characters is 1000.
 
 
 ### ListNetworksResponse {#ListNetworksResponse}
 
 Field | Description
 --- | ---
-networks[] | **[Network](#Network1)**<br>List of Network resources. 
+networks[] | **[Network](../network.proto#Network1)**<br>List of Network resources. 
 next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListNetworksRequest.page_size](#ListNetworksRequest1), use the `next_page_token` as the value for the [ListNetworksRequest.page_token](#ListNetworksRequest1) query parameter in the next list request. Subsequent list requests will have their own `next_page_token` to continue paging through the results. 
 
 
@@ -88,13 +88,13 @@ Creates a network in the specified folder using the data specified in the reques
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateNetworkMetadata](#CreateNetworkMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Network](#Network2)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Network](../network.proto#Network2)<br>
 
 ### CreateNetworkRequest {#CreateNetworkRequest}
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder for this request to create a network in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request.  The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the folder for this request to create a network in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. false The maximum string length in characters is 50.
 name | **string**<br>Name of the network. The name must be unique within the folder. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>Description of the network. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
@@ -113,7 +113,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateNetworkMetadata](#CreateNetworkMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Network](#Network2)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Network](../network.proto#Network2)>**<br>if operation finished successfully. 
 
 
 ### CreateNetworkMetadata {#CreateNetworkMetadata}
@@ -143,13 +143,13 @@ Updates the specified network. Method starts an asynchronous operation that can 
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateNetworkMetadata](#UpdateNetworkMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Network](#Network3)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Network](../network.proto#Network3)<br>
 
 ### UpdateNetworkRequest {#UpdateNetworkRequest}
 
 Field | Description
 --- | ---
-network_id | **string**<br>Required. ID of the Network resource to update. To get the network ID use a [NetworkService.List](#List) request.  The maximum string length in characters is 50.
+network_id | **string**<br>Required. ID of the Network resource to update. To get the network ID use a [NetworkService.List](#List) request. false The maximum string length in characters is 50.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the Network resource are going to be updated. 
 name | **string**<br>Name of the network. The name must be unique within the folder. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>Description of the network. The maximum string length in characters is 256.
@@ -169,7 +169,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateNetworkMetadata](#UpdateNetworkMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Network](#Network3)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Network](../network.proto#Network3)>**<br>if operation finished successfully. 
 
 
 ### UpdateNetworkMetadata {#UpdateNetworkMetadata}
@@ -205,7 +205,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-network_id | **string**<br>Required. ID of the Network resource to update. To get the network ID, use a [NetworkService.List](#List) request.  The maximum string length in characters is 50.
+network_id | **string**<br>Required. ID of the Network resource to update. To get the network ID, use a [NetworkService.List](#List) request. false The maximum string length in characters is 50.
 
 
 ### Operation {#Operation}
@@ -241,7 +241,7 @@ Lists subnets from the specified network.
 
 Field | Description
 --- | ---
-network_id | **string**<br>Required. ID of the Network resource to list subnets for.  The maximum string length in characters is 50.
+network_id | **string**<br>Required. ID of the Network resource to list subnets for. false The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page that should be returned. If the number of available results is larger than `page_size`, the service returns a [ListNetworkSubnetsResponse.next_page_token](#ListNetworkSubnetsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
 page_token | **string**<br>Page token. Set `page_token` to the [ListNetworkSubnetsResponse.next_page_token](#ListNetworkSubnetsResponse) returned by a previous list request to get the next page of results. The maximum string length in characters is 100.
 
@@ -250,7 +250,7 @@ page_token | **string**<br>Page token. Set `page_token` to the [ListNetworkSubne
 
 Field | Description
 --- | ---
-subnets[] | **[Subnet](#Subnet)**<br>List of subnets that belong to the network which is specified in the request. 
+subnets[] | **[Subnet](../subnet.proto#Subnet)**<br>List of subnets that belong to the network which is specified in the request. 
 next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListNetworkSubnetsRequest.page_size](#ListNetworkSubnetsRequest1), use the `next_page_token` as the value for the [ListNetworkSubnetsRequest.page_token](#ListNetworkSubnetsRequest1) query parameter in the next list request. Subsequent list requests will have their own `next_page_token` to continue paging through the results. 
 
 
@@ -269,6 +269,16 @@ zone_id | **string**<br>ID of the availability zone where the subnet resides.
 v4_cidr_blocks[] | **string**<br><ol><li></li></ol> 
 v6_cidr_blocks[] | **string**<br>IPv6 not available yet. 
 route_table_id | **string**<br>ID of route table the subnet is linked to. 
+dhcp_options | **[DhcpOptions](../subnet.proto#DhcpOptions)**<br> 
+
+
+### DhcpOptions {#DhcpOptions}
+
+Field | Description
+--- | ---
+domain_name_servers[] | **string**<br> 
+domain_name | **string**<br> 
+ntp_servers[] | **string**<br> 
 
 
 ## ListOperations {#ListOperations}
@@ -281,7 +291,7 @@ Lists operations for the specified network.
 
 Field | Description
 --- | ---
-network_id | **string**<br>Required. ID of the Network resource to list operations for.  The maximum string length in characters is 50.
+network_id | **string**<br>Required. ID of the Network resource to list operations for. false The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page that should be returned. If the number of available results is larger than `page_size`, the service returns a [ListNetworkOperationsResponse.next_page_token](#ListNetworkOperationsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListNetworkOperationsResponse.next_page_token](#ListNetworkOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
@@ -318,14 +328,14 @@ Move network to another folder.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[MoveNetworkMetadata](#MoveNetworkMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Network](#Network4)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Network](../network.proto#Network4)<br>
 
 ### MoveNetworkRequest {#MoveNetworkRequest}
 
 Field | Description
 --- | ---
-network_id | **string**<br>Required. ID of the Network resource to move.  The maximum string length in characters is 50.
-destination_folder_id | **string**<br>Required. ID of the destination folder.  The maximum string length in characters is 50.
+network_id | **string**<br>Required. ID of the Network resource to move. false The maximum string length in characters is 50.
+destination_folder_id | **string**<br>Required. ID of the destination folder. false The maximum string length in characters is 50.
 
 
 ### Operation {#Operation}
@@ -341,7 +351,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[MoveNetworkMetadata](#MoveNetworkMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Network](#Network4)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Network](../network.proto#Network4)>**<br>if operation finished successfully. 
 
 
 ### MoveNetworkMetadata {#MoveNetworkMetadata}

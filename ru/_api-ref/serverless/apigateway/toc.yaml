@@ -1,0 +1,27 @@
+items:
+  - name: Обзор
+    href: apigateway/api-ref/index.md
+  - name: ApiGateway
+    items:
+      - name: Обзор
+        href: apigateway/api-ref/ApiGateway/index.md
+      - name: create
+        href: apigateway/api-ref/ApiGateway/create.md
+      - name: delete
+        href: apigateway/api-ref/ApiGateway/delete.md
+      - name: get
+        href: apigateway/api-ref/ApiGateway/get.md
+      - name: getOpenapiSpec
+        href: apigateway/api-ref/ApiGateway/getOpenapiSpec.md
+      - name: list
+        href: apigateway/api-ref/ApiGateway/list.md
+      - name: listAccessBindings
+        href: apigateway/api-ref/ApiGateway/listAccessBindings.md
+      - name: listOperations
+        href: apigateway/api-ref/ApiGateway/listOperations.md
+      - name: setAccessBindings
+        href: apigateway/api-ref/ApiGateway/setAccessBindings.md
+      - name: update
+        href: apigateway/api-ref/ApiGateway/update.md
+      - name: updateAccessBindings
+        href: apigateway/api-ref/ApiGateway/updateAccessBindings.md

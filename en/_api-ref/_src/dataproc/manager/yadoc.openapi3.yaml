@@ -38,10 +38,20 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/HDFSNodeInfo'
-        decomNodes:
+        safemode:
+          type: string
+        decommissioningNodes:
           type: array
           items:
             $ref: '#/components/schemas/HDFSNodeInfo'
+        decommissionedNodes:
+          type: array
+          items:
+            $ref: '#/components/schemas/HDFSNodeInfo'
+        requestedDecommissionHosts:
+          type: array
+          items:
+            type: string
     HDFSNodeInfo:
       type: object
       properties:
@@ -169,6 +179,13 @@ components:
           $ref: '#/components/schemas/HbaseInfo_in_Info_hbase'
         oozie:
           $ref: '#/components/schemas/OozieInfo_in_Info_oozie'
+        reportCount:
+          description: |-
+            Report count is incremented every time report is sent by Dataproc Agent.
+            So Worker can use this property to make sure that Dataproc Agent got data sent by Worker through Dataproc Manager
+            for synchronization purposes
+          type: string
+          format: int64
     Job:
       description: Data Proc job.
       type: object
@@ -206,6 +223,9 @@ components:
             format: date-time
           name:
             description: Name of the Data Proc job.
+            type: string
+          createdBy:
+            description: The id of the user who created the job
             type: string
           status:
             $ref: '#/components/schemas/JobStatus'
@@ -347,7 +367,18 @@ components:
       description: The response message containing the agent commands to apply on
         host.
       type: object
-      properties: {}
+      properties:
+        decommissionTimeout:
+          type: string
+          format: int64
+        yarnHostsToDecommission:
+          type: array
+          items:
+            type: string
+        hdfsHostsToDecommission:
+          type: array
+          items:
+            type: string
     SparkJob:
       type: object
       properties:
@@ -399,6 +430,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/YarnNodeInfo'
+        requestedDecommissionHosts:
+          type: array
+          items:
+            type: string
     YarnNodeInfo:
       type: object
       properties:
@@ -413,6 +448,9 @@ components:
           type: string
           format: int64
         availableMemoryMb:
+          type: string
+          format: int64
+        updateTime:
           type: string
           format: int64
     ZookeeperInfo:
@@ -453,10 +491,20 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/HDFSNodeInfo'
-        decomNodes:
+        safemode:
+          type: string
+        decommissioningNodes:
           type: array
           items:
             $ref: '#/components/schemas/HDFSNodeInfo'
+        decommissionedNodes:
+          type: array
+          items:
+            $ref: '#/components/schemas/HDFSNodeInfo'
+        requestedDecommissionHosts:
+          type: array
+          items:
+            type: string
     YarnInfo_in_Info_yarn:
       type: object
       properties:
@@ -467,6 +515,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/YarnNodeInfo'
+        requestedDecommissionHosts:
+          type: array
+          items:
+            type: string
     HiveInfo_in_Info_hive:
       type: object
       properties:

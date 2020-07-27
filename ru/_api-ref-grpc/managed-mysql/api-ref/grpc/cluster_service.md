@@ -32,13 +32,13 @@ editable: false
 
 Возвращает указанный кластер MySQL. <br>Чтобы получить список доступных кластеров MySQL, выполните запрос [List](#List).
 
-**rpc Get ([GetClusterRequest](#GetClusterRequest)) returns ([Cluster](#Cluster))**
+**rpc Get ([GetClusterRequest](#GetClusterRequest)) returns ([Cluster](../cluster.proto#Cluster))**
 
 ### GetClusterRequest {#GetClusterRequest}
 
 Поле | Описание
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор возвращаемого кластера MySQL. Чтобы получить идентификатор кластера, используйте запрос [ClusterService.List](#List).  Максимальная длина строки в символах — 50.
+cluster_id | **string**<br>Обязательное поле. Идентификатор возвращаемого кластера MySQL. Чтобы получить идентификатор кластера, используйте запрос [ClusterService.List](#List). false Максимальная длина строки в символах — 50.
 
 
 ### Cluster {#Cluster}
@@ -52,10 +52,10 @@ name | **string**<br>Имя кластера MySQL. Имя должно быть
 description | **string**<br>Описание кластера MySQL. Длина описания должна быть от 0 до 256 символов. 
 labels | **map<string,string>**<br>Пользовательские метки для кластера MySQL в виде пар `key:value`. Максимум 64 на ресурс. 
 environment | enum **Environment**<br>Среда развертывания кластера MySQL. <ul><li>`PRODUCTION`: Стабильная среда с осторожной политикой обновления: во время регулярного обслуживания применяются только срочные исправления.</li><li>`PRESTABLE`: Среда с более агрессивной политикой обновления: новые версии развертываются независимо от обратной совместимости.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring)**<br>Описание систем мониторинга, относящихся к данному кластеру MySQL. 
-config | **[ClusterConfig](#ClusterConfig)**<br>Конфигурация кластера MySQL. 
+monitoring[] | **[Monitoring](../cluster.proto#Monitoring)**<br>Описание систем мониторинга, относящихся к данному кластеру MySQL. 
+config | **[ClusterConfig](../cluster.proto#ClusterConfig)**<br>Конфигурация кластера MySQL. 
 network_id | **string**<br>Идентификатор сети, к которой принадлежит кластер. 
-health | enum **Health**<br>Агрегированная работоспособность кластера. <ul><li>`HEALTH_UNKNOWN`: Состояние кластера неизвестно ([Host.health](#Host) для каждого хоста в кластере — UNKNOWN).</li><li>`ALIVE`: Кластер работает нормально ([Host.health](#Host) для каждого хоста в кластере — ALIVE).</li><li>`DEAD`: Кластер не работает ([Host.health](#Host) для каждого узла в кластере — DEAD).</li><li>`DEGRADED`: Кластер работает неоптимально ([Host.health](#Host) по крайней мере для одного узла в кластере не ALIVE).</li><ul/>
+health | enum **Health**<br>Агрегированная работоспособность кластера. <ul><li>`HEALTH_UNKNOWN`: Состояние кластера неизвестно ([Host.health](../cluster.proto#Host) для каждого хоста в кластере — UNKNOWN).</li><li>`ALIVE`: Кластер работает нормально ([Host.health](../cluster.proto#Host) для каждого хоста в кластере — ALIVE).</li><li>`DEAD`: Кластер не работает ([Host.health](../cluster.proto#Host) для каждого узла в кластере — DEAD).</li><li>`DEGRADED`: Кластер работает неоптимально ([Host.health](../cluster.proto#Host) по крайней мере для одного узла в кластере не ALIVE).</li><ul/>
 status | enum **Status**<br>Текущее состояние кластера. <ul><li>`STATUS_UNKNOWN`: Состояние кластера неизвестно.</li><li>`CREATING`: Кластер создается.</li><li>`RUNNING`: Кластер работает нормально.</li><li>`ERROR`: На кластере произошла ошибка, блокирующая работу.</li><li>`UPDATING`: Кластер изменяется.</li><li>`STOPPING`: Кластер останавливается.</li><li>`STOPPED`: Кластер остановлен.</li><li>`STARTING`: Кластер запускается.</li><ul/>
 
 
@@ -76,9 +76,9 @@ version | **string**<br>Версия серверного программног
 mysql_config | **oneof:** `mysql_config_5_7` или `mysql_config_8_0`<br>Конфигурация для серверов MySQL в кластере.
 &nbsp;&nbsp;mysql_config_5_7 | **[config.MysqlConfigSet5_7](#MysqlConfigSet5_7)**<br>Конфигурация сервера MySQL 5.7. 
 &nbsp;&nbsp;mysql_config_8_0 | **[config.MysqlConfigSet8_0](#MysqlConfigSet8_0)**<br>Конфигурация сервера MySQL 8.0. 
-resources | **[Resources](#Resources)**<br>Ресурсы, выделенные хостам MySQL. 
+resources | **[Resources](../cluster.proto#Resources)**<br>Ресурсы, выделенные хостам MySQL. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Время запуска ежедневного резервного копирования, в часовом поясе UTC. 
-access | **[Access](#Access)**<br>Политика доступа к БД 
+access | **[Access](../cluster.proto#Access)**<br>Политика доступа к БД 
 
 
 ### Resources {#Resources}
@@ -87,7 +87,7 @@ access | **[Access](#Access)**<br>Политика доступа к БД
 --- | ---
 resource_preset_id | **string**<br>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в [документации](/docs/managed-mysql/concepts/instance-types). 
 disk_size | **int64**<br>Объем хранилища, доступного хосту. 
-disk_type_id | **string**<br><ul><li>network-ssd — быстрое сетевое хранилище; </li><li>local-ssd — быстрое локальное хранилище.</li></ul> 
+disk_type_id | **string**<br><ul><li>network-ssd — сетевой SSD-диск; </li><li>local-ssd — локальное SSD-хранилище.</li></ul> 
 
 
 ### Access {#Access}
@@ -107,17 +107,17 @@ data_lens | **bool**<br>Разрешить доступ для DataLens
 
 Поле | Описание
 --- | ---
-folder_id | **string**<br>Обязательное поле. Идентификатор каталога, для которого нужно получить список кластеров MySQL. Чтобы получить идентификатор каталога, используйте запрос [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List).  Максимальная длина строки в символах — 50.
+folder_id | **string**<br>Обязательное поле. Идентификатор каталога, для которого нужно получить список кластеров MySQL. Чтобы получить идентификатор каталога, используйте запрос [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List). false Максимальная длина строки в символах — 50.
 page_size | **int64**<br>Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `page_size`, сервис вернет значение [ListClustersResponse.next_page_token](#ListClustersResponse), которое можно использовать для получения следующей страницы. Допустимые значения — от 0 до 1000 включительно.
 page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListClustersResponse.next_page_token](#ListClustersResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
-filter | **string**<br><ol><li>Имя поля. В настоящее время фильтрацию можно использовать только с полем [Cluster.name](#Cluster1). </li><li>Оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений. </li><li>Значение. Должен содержать от 1 до 63 символов и соответствовать регулярному выражению `^[a-zA-Z0-9_-]+$`.</li></ol> Максимальная длина строки в символах — 1000.
+filter | **string**<br><ol><li>Имя поля. В настоящее время фильтрацию можно использовать только с полем [Cluster.name](../cluster.proto#Cluster1). </li><li>Оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений. </li><li>Значение. Должен содержать от 1 до 63 символов и соответствовать регулярному выражению `^[a-zA-Z0-9_-]+$`.</li></ol> Максимальная длина строки в символах — 1000.
 
 
 ### ListClustersResponse {#ListClustersResponse}
 
 Поле | Описание
 --- | ---
-clusters[] | **[Cluster](#Cluster1)**<br>Список кластеров MySQL. 
+clusters[] | **[Cluster](../cluster.proto#Cluster1)**<br>Список кластеров MySQL. 
 next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListClustersRequest.page_size](#ListClustersRequest1), используйте `next_page_token` в качестве значения параметра [ListClustersRequest.page_token](#ListClustersRequest1) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
 
 
@@ -132,10 +132,10 @@ name | **string**<br>Имя кластера MySQL. Имя должно быть
 description | **string**<br>Описание кластера MySQL. Длина описания должна быть от 0 до 256 символов. 
 labels | **map<string,string>**<br>Пользовательские метки для кластера MySQL в виде пар `key:value`. Максимум 64 на ресурс. 
 environment | enum **Environment**<br>Среда развертывания кластера MySQL. <ul><li>`PRODUCTION`: Стабильная среда с осторожной политикой обновления: во время регулярного обслуживания применяются только срочные исправления.</li><li>`PRESTABLE`: Среда с более агрессивной политикой обновления: новые версии развертываются независимо от обратной совместимости.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring1)**<br>Описание систем мониторинга, относящихся к данному кластеру MySQL. 
-config | **[ClusterConfig](#ClusterConfig1)**<br>Конфигурация кластера MySQL. 
+monitoring[] | **[Monitoring](../cluster.proto#Monitoring1)**<br>Описание систем мониторинга, относящихся к данному кластеру MySQL. 
+config | **[ClusterConfig](../cluster.proto#ClusterConfig1)**<br>Конфигурация кластера MySQL. 
 network_id | **string**<br>Идентификатор сети, к которой принадлежит кластер. 
-health | enum **Health**<br>Агрегированная работоспособность кластера. <ul><li>`HEALTH_UNKNOWN`: Состояние кластера неизвестно ([Host.health](#Host) для каждого хоста в кластере — UNKNOWN).</li><li>`ALIVE`: Кластер работает нормально ([Host.health](#Host) для каждого хоста в кластере — ALIVE).</li><li>`DEAD`: Кластер не работает ([Host.health](#Host) для каждого узла в кластере — DEAD).</li><li>`DEGRADED`: Кластер работает неоптимально ([Host.health](#Host) по крайней мере для одного узла в кластере не ALIVE).</li><ul/>
+health | enum **Health**<br>Агрегированная работоспособность кластера. <ul><li>`HEALTH_UNKNOWN`: Состояние кластера неизвестно ([Host.health](../cluster.proto#Host) для каждого хоста в кластере — UNKNOWN).</li><li>`ALIVE`: Кластер работает нормально ([Host.health](../cluster.proto#Host) для каждого хоста в кластере — ALIVE).</li><li>`DEAD`: Кластер не работает ([Host.health](../cluster.proto#Host) для каждого узла в кластере — DEAD).</li><li>`DEGRADED`: Кластер работает неоптимально ([Host.health](../cluster.proto#Host) по крайней мере для одного узла в кластере не ALIVE).</li><ul/>
 status | enum **Status**<br>Текущее состояние кластера. <ul><li>`STATUS_UNKNOWN`: Состояние кластера неизвестно.</li><li>`CREATING`: Кластер создается.</li><li>`RUNNING`: Кластер работает нормально.</li><li>`ERROR`: На кластере произошла ошибка, блокирующая работу.</li><li>`UPDATING`: Кластер изменяется.</li><li>`STOPPING`: Кластер останавливается.</li><li>`STOPPED`: Кластер остановлен.</li><li>`STARTING`: Кластер запускается.</li><ul/>
 
 
@@ -156,9 +156,9 @@ version | **string**<br>Версия серверного программног
 mysql_config | **oneof:** `mysql_config_5_7` или `mysql_config_8_0`<br>Конфигурация для серверов MySQL в кластере.
 &nbsp;&nbsp;mysql_config_5_7 | **[config.MysqlConfigSet5_7](#MysqlConfigSet5_7)**<br>Конфигурация сервера MySQL 5.7. 
 &nbsp;&nbsp;mysql_config_8_0 | **[config.MysqlConfigSet8_0](#MysqlConfigSet8_0)**<br>Конфигурация сервера MySQL 8.0. 
-resources | **[Resources](#Resources1)**<br>Ресурсы, выделенные хостам MySQL. 
+resources | **[Resources](../cluster.proto#Resources1)**<br>Ресурсы, выделенные хостам MySQL. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Время запуска ежедневного резервного копирования, в часовом поясе UTC. 
-access | **[Access](#Access1)**<br>Политика доступа к БД 
+access | **[Access](../cluster.proto#Access1)**<br>Политика доступа к БД 
 
 
 ### Resources {#Resources}
@@ -167,7 +167,7 @@ access | **[Access](#Access1)**<br>Политика доступа к БД
 --- | ---
 resource_preset_id | **string**<br>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в [документации](/docs/managed-mysql/concepts/instance-types). 
 disk_size | **int64**<br>Объем хранилища, доступного хосту. 
-disk_type_id | **string**<br><ul><li>network-ssd — быстрое сетевое хранилище; </li><li>local-ssd — быстрое локальное хранилище.</li></ul> 
+disk_type_id | **string**<br><ul><li>network-ssd — сетевой SSD-диск; </li><li>local-ssd — локальное SSD-хранилище.</li></ul> 
 
 
 ### Access {#Access}
@@ -185,20 +185,20 @@ data_lens | **bool**<br>Разрешить доступ для DataLens
 
 Метаданные и результат операции:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateClusterMetadata](#CreateClusterMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster2)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](../cluster.proto#Cluster2)<br>
 
 ### CreateClusterRequest {#CreateClusterRequest}
 
 Поле | Описание
 --- | ---
-folder_id | **string**<br>Обязательное поле. Идентификатор каталога, в котором нужно создать кластер MySQL.  Максимальная длина строки в символах — 50.
-name | **string**<br>Обязательное поле. Имя кластера MySQL. Имя должно быть уникальным в каталоге.  Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_-]* `.
+folder_id | **string**<br>Обязательное поле. Идентификатор каталога, в котором нужно создать кластер MySQL. false Максимальная длина строки в символах — 50.
+name | **string**<br>Обязательное поле. Имя кластера MySQL. Имя должно быть уникальным в каталоге. false Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_-]* `.
 description | **string**<br>Описание кластера MySQL. Максимальная длина строки в символах — 256.
 labels | **map<string,string>**<br>Пользовательские метки для кластера MySQL в виде пар `key:value`. Максимум 64 на ресурс. Например, "project": "mvp" или "source": "dictionary". Не более 64 на ресурс. Максимальная длина строки в символах для каждого значения — 63. Каждое значение должно соответствовать регулярному выражению ` [-_0-9a-z]* `. Длина строки в символах для каждого ключа должна быть от 1 до 63. Каждый ключ должен соответствовать регулярному выражению ` [a-z][-_0-9a-z]* `.
-environment | **[Cluster.Environment](#Cluster2)**<br>Среда развертывания кластера MySQL. 
+environment | **[Cluster.Environment](../cluster.proto#Cluster2)**<br>Среда развертывания кластера MySQL. 
 config_spec | **[ConfigSpec](#ConfigSpec)**<br>Конфигурация и ресурсы для хостов, которые должны быть созданы для кластера MySQL. 
-database_specs[] | **[DatabaseSpec](#DatabaseSpec)**<br>Описания баз данных, которые нужно создать в кластере MySQL. 
-user_specs[] | **[UserSpec](#UserSpec)**<br>Описания пользователей базы данных, которых нужно создать в кластере MySQL. 
+database_specs[] | **[DatabaseSpec](../database.proto#DatabaseSpec)**<br>Описания баз данных, которые нужно создать в кластере MySQL. 
+user_specs[] | **[UserSpec](../user.proto#UserSpec)**<br>Описания пользователей базы данных, которых нужно создать в кластере MySQL. 
 host_specs[] | **[HostSpec](#HostSpec)**<br>Конфигурации для отдельных хостов, которые должны быть созданы для кластера MySQL. 
 network_id | **string**<br>Идентификатор сети, в которой нужно создать кластер. Максимальная длина строки в символах — 50.
 
@@ -211,9 +211,9 @@ version | **string**<br><ul><li>5.7 </li><li>8.0</li></ul>
 mysql_config | **oneof:** `mysql_config_5_7` или `mysql_config_8_0`<br>Конфигурация кластера MySQL.
 &nbsp;&nbsp;mysql_config_5_7 | **[config.MysqlConfig5_7](#MysqlConfig5_7)**<br>Конфигурация для кластера MySQL 5.7. 
 &nbsp;&nbsp;mysql_config_8_0 | **[config.MysqlConfig8_0](#MysqlConfig8_0)**<br>Конфигурация для кластера MySQL 8.0. 
-resources | **[Resources](#Resources2)**<br>Ресурсы, выделенные хостам MySQL. 
+resources | **[Resources](../cluster.proto#Resources2)**<br>Ресурсы, выделенные хостам MySQL. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Время запуска ежедневного резервного копирования, в часовом поясе UTC. 
-access | **[Access](#Access2)**<br>Политика доступа к БД. 
+access | **[Access](../cluster.proto#Access2)**<br>Политика доступа к БД. 
 
 
 ### Resources {#Resources}
@@ -222,7 +222,7 @@ access | **[Access](#Access2)**<br>Политика доступа к БД.
 --- | ---
 resource_preset_id | **string**<br>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в [документации](/docs/managed-mysql/concepts/instance-types). 
 disk_size | **int64**<br>Объем хранилища, доступного хосту. 
-disk_type_id | **string**<br><ul><li>network-ssd — быстрое сетевое хранилище; </li><li>local-ssd — быстрое локальное хранилище.</li></ul> 
+disk_type_id | **string**<br><ul><li>network-ssd — сетевой SSD-диск; </li><li>local-ssd — локальное SSD-хранилище.</li></ul> 
 
 
 ### Access {#Access}
@@ -236,16 +236,19 @@ data_lens | **bool**<br>Разрешить доступ для DataLens
 
 Поле | Описание
 --- | ---
-name | **string**<br>Обязательное поле. Имя базы данных MySQL.  Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_-]* `.
+name | **string**<br>Обязательное поле. Имя базы данных MySQL. false Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_-]* `.
 
 
 ### UserSpec {#UserSpec}
 
 Поле | Описание
 --- | ---
-name | **string**<br>Обязательное поле. Имя пользователя MySQL.  Максимальная длина строки в символах — 32. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_]* `.
-password | **string**<br>Обязательное поле. Пароль пользователя MySQL.  Длина строки в символах должна быть от 8 до 128.
-permissions[] | **[Permission](#Permission)**<br>Набор разрешений, которые следует предоставить пользователю. 
+name | **string**<br>Обязательное поле. Имя пользователя MySQL. false Максимальная длина строки в символах — 32. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_]* `.
+password | **string**<br>Обязательное поле. Пароль пользователя MySQL. false Длина строки в символах должна быть от 8 до 128.
+permissions[] | **[Permission](../user.proto#Permission)**<br>Набор разрешений, которые следует предоставить пользователю. 
+global_permissions[] | enum **GlobalPermission**<br>Набор глобальных разрешений, которые следует предоставить пользователю. <ul><li>`REPLICATION_CLIENT`: Разрешает использование SHOW MASTER STATUS, SHOW SLAVE STATUS, и SHOW BINARY LOGS.</li><li>`REPLICATION_SLAVE`: Разрешает использование SHOW SLAVE HOSTS, SHOW RELAYLOG EVENTS и SHOW BINLOG EVENTS.</li><li>`PROCESS`: Разрешает использование SHOW ENGINE INNODB STATUS.</li><ul/>
+connection_limits | **[ConnectionLimits](../user.proto#ConnectionLimits)**<br>Набор ограничений на коннекты пользователя. 
+authentication_plugin | enum **AuthPlugin**<br>Аутентификационный плагин пользователя. <ul><li>`MYSQL_NATIVE_PASSWORD`: Использует [Native Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/native-pluggable-authentication.html).</li><li>`CACHING_SHA2_PASSWORD`: Использует [Caching SHA-2 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/caching-sha2-pluggable-authentication.html).</li><li>`SHA256_PASSWORD`: Использует [SHA-256 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/sha256-pluggable-authentication.html).</li><ul/>
 
 
 ### Permission {#Permission}
@@ -256,12 +259,22 @@ database_name | **string**<br>Имя базы данных, к которой п
 roles[] | enum **Privilege**<br>Роли, предоставленные пользователю в базе данных. Минимальное количество элементов — 1.<ul><li>`ALL_PRIVILEGES`: Все привилегии, которые могут быть предоставлены пользователю.</li><li>`ALTER`: Изменение таблиц.</li><li>`ALTER_ROUTINE`: Изменение хранимых процедур и функций.</li><li>`CREATE`: Создание таблиц или индексов.</li><li>`CREATE_ROUTINE`: Создание хранимых процедур.</li><li>`CREATE_TEMPORARY_TABLES`: Создание временных таблиц.</li><li>`CREATE_VIEW`: Создание представлений.</li><li>`DELETE`: Удаление таблиц.</li><li>`DROP`: Удаление таблиц или представлений.</li><li>`EVENT`: Создание, изменение, удаление или отображение событий для планировщика событий.</li><li>`EXECUTE`: Выполнение хранимых процедур.</li><li>`INDEX`: Создание и удаление индексов.</li><li>`INSERT`: Вставка строк в базу данных.</li><li>`LOCK_TABLES`: Использование инструкции LOCK TABLES для таблиц, доступных с привилегией SELECT.</li><li>`SELECT`: Получение строк из таблиц. <br>Некоторые операторы SELECT могут быть разрешены без привилегии SELECT. Привилегия SELECT необходима для всех операторов, считывающих значения столбцов. Подробнее в [документации MySQL](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_select).</li><li>`SHOW_VIEW`: Использование инструкции SHOW CREATE VIEW. Также необходимо для представлений, используемых с EXPLAIN.</li><li>`TRIGGER`: Создание, удаление, выполнение или отображение триггеров для таблицы.</li><li>`UPDATE`: Обновление строк в базе данных.</li><ul/>
 
 
+### ConnectionLimits {#ConnectionLimits}
+
+Поле | Описание
+--- | ---
+max_questions_per_hour | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Максимально допустимое число вопросов в час. Минимальная значение — 0.
+max_updates_per_hour | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Максимально допустимое число апдейтов в час. Минимальная значение — 0.
+max_connections_per_hour | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Максимально допустимое число коннектов в час. Минимальная значение — 0.
+max_user_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Максимально допустимое число коннектов. Минимальная значение — 0.
+
+
 ### HostSpec {#HostSpec}
 
 Поле | Описание
 --- | ---
 zone_id | **string**<br>Идентификатор зоны доступности, в которой находится хост. Чтобы получить список доступных зон, используйте запрос [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/grpc/zone_service#List). Максимальная длина строки в символах — 50.
-subnet_id | **string**<br>Идентификатор подсети, к которой должен принадлежать хост. Эта подсеть должна быть частью сети, к которой принадлежит кластер. Идентификатор сети задан в поле [Cluster.network_id](#Cluster2). Максимальная длина строки в символах — 50.
+subnet_id | **string**<br>Идентификатор подсети, к которой должен принадлежать хост. Эта подсеть должна быть частью сети, к которой принадлежит кластер. Идентификатор сети задан в поле [Cluster.network_id](../cluster.proto#Cluster2). Максимальная длина строки в символах — 50.
 assign_public_ip | **bool**<br><ul><li>false — не назначать хосту публичный IP-адрес. </li><li>true — у хоста должен быть публичный IP-адрес.</li></ul> 
 
 
@@ -278,7 +291,7 @@ done | **bool**<br>Если значение равно `false` — операц
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateClusterMetadata](#CreateClusterMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
 result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster2)>**<br>в случае успешного выполнения операции. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](../cluster.proto#Cluster2)>**<br>в случае успешного выполнения операции. 
 
 
 ### CreateClusterMetadata {#CreateClusterMetadata}
@@ -299,10 +312,10 @@ name | **string**<br>Имя кластера MySQL. Имя должно быть
 description | **string**<br>Описание кластера MySQL. Длина описания должна быть от 0 до 256 символов. 
 labels | **map<string,string>**<br>Пользовательские метки для кластера MySQL в виде пар `key:value`. Максимум 64 на ресурс. 
 environment | enum **Environment**<br>Среда развертывания кластера MySQL. <ul><li>`PRODUCTION`: Стабильная среда с осторожной политикой обновления: во время регулярного обслуживания применяются только срочные исправления.</li><li>`PRESTABLE`: Среда с более агрессивной политикой обновления: новые версии развертываются независимо от обратной совместимости.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring2)**<br>Описание систем мониторинга, относящихся к данному кластеру MySQL. 
-config | **[ClusterConfig](#ClusterConfig2)**<br>Конфигурация кластера MySQL. 
+monitoring[] | **[Monitoring](../cluster.proto#Monitoring2)**<br>Описание систем мониторинга, относящихся к данному кластеру MySQL. 
+config | **[ClusterConfig](../cluster.proto#ClusterConfig2)**<br>Конфигурация кластера MySQL. 
 network_id | **string**<br>Идентификатор сети, к которой принадлежит кластер. 
-health | enum **Health**<br>Агрегированная работоспособность кластера. <ul><li>`HEALTH_UNKNOWN`: Состояние кластера неизвестно ([Host.health](#Host) для каждого хоста в кластере — UNKNOWN).</li><li>`ALIVE`: Кластер работает нормально ([Host.health](#Host) для каждого хоста в кластере — ALIVE).</li><li>`DEAD`: Кластер не работает ([Host.health](#Host) для каждого узла в кластере — DEAD).</li><li>`DEGRADED`: Кластер работает неоптимально ([Host.health](#Host) по крайней мере для одного узла в кластере не ALIVE).</li><ul/>
+health | enum **Health**<br>Агрегированная работоспособность кластера. <ul><li>`HEALTH_UNKNOWN`: Состояние кластера неизвестно ([Host.health](../cluster.proto#Host) для каждого хоста в кластере — UNKNOWN).</li><li>`ALIVE`: Кластер работает нормально ([Host.health](../cluster.proto#Host) для каждого хоста в кластере — ALIVE).</li><li>`DEAD`: Кластер не работает ([Host.health](../cluster.proto#Host) для каждого узла в кластере — DEAD).</li><li>`DEGRADED`: Кластер работает неоптимально ([Host.health](../cluster.proto#Host) по крайней мере для одного узла в кластере не ALIVE).</li><ul/>
 status | enum **Status**<br>Текущее состояние кластера. <ul><li>`STATUS_UNKNOWN`: Состояние кластера неизвестно.</li><li>`CREATING`: Кластер создается.</li><li>`RUNNING`: Кластер работает нормально.</li><li>`ERROR`: На кластере произошла ошибка, блокирующая работу.</li><li>`UPDATING`: Кластер изменяется.</li><li>`STOPPING`: Кластер останавливается.</li><li>`STOPPED`: Кластер остановлен.</li><li>`STARTING`: Кластер запускается.</li><ul/>
 
 
@@ -314,13 +327,13 @@ status | enum **Status**<br>Текущее состояние кластера. 
 
 Метаданные и результат операции:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateClusterMetadata](#UpdateClusterMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster3)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](../cluster.proto#Cluster3)<br>
 
 ### UpdateClusterRequest {#UpdateClusterRequest}
 
 Поле | Описание
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера MySQL, который следует изменить. Чтобы получить идентификатор MySQL кластера, используйте запрос [ClusterService.List](#List).  Максимальная длина строки в символах — 50.
+cluster_id | **string**<br>Обязательное поле. Идентификатор кластера MySQL, который следует изменить. Чтобы получить идентификатор MySQL кластера, используйте запрос [ClusterService.List](#List). false Максимальная длина строки в символах — 50.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Маска, которая указывает, какие атрибуты кластера MySQL должны быть изменены. 
 description | **string**<br>Новое описание кластера MySQL. Максимальная длина строки в символах — 256.
 labels | **map<string,string>**<br>Пользовательские метки для кластера MySQL в виде пар `key:value`. Максимум 64 на ресурс. Например, "project": "mvp" или "source": "dictionary". <br>Новый набор меток полностью заменит старый. Чтобы добавить метку, запросите текущий набор меток с помощью метода [ClusterService.Get](#Get), затем отправьте запрос [ClusterService.Update](#Update), добавив новую метку в этот набор. Не более 64 на ресурс. Максимальная длина строки в символах для каждого значения — 63. Каждое значение должно соответствовать регулярному выражению ` [-_0-9a-z]* `. Длина строки в символах для каждого ключа должна быть от 1 до 63. Каждый ключ должен соответствовать регулярному выражению ` [a-z][-_0-9a-z]* `.
@@ -336,9 +349,9 @@ version | **string**<br><ul><li>5.7 </li><li>8.0</li></ul>
 mysql_config | **oneof:** `mysql_config_5_7` или `mysql_config_8_0`<br>Конфигурация кластера MySQL.
 &nbsp;&nbsp;mysql_config_5_7 | **[config.MysqlConfig5_7](#MysqlConfig5_7)**<br>Конфигурация для кластера MySQL 5.7. 
 &nbsp;&nbsp;mysql_config_8_0 | **[config.MysqlConfig8_0](#MysqlConfig8_0)**<br>Конфигурация для кластера MySQL 8.0. 
-resources | **[Resources](#Resources3)**<br>Ресурсы, выделенные хостам MySQL. 
+resources | **[Resources](../cluster.proto#Resources3)**<br>Ресурсы, выделенные хостам MySQL. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Время запуска ежедневного резервного копирования, в часовом поясе UTC. 
-access | **[Access](#Access3)**<br>Политика доступа к БД. 
+access | **[Access](../cluster.proto#Access3)**<br>Политика доступа к БД. 
 
 
 ### Resources {#Resources}
@@ -347,7 +360,7 @@ access | **[Access](#Access3)**<br>Политика доступа к БД.
 --- | ---
 resource_preset_id | **string**<br>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в [документации](/docs/managed-mysql/concepts/instance-types). 
 disk_size | **int64**<br>Объем хранилища, доступного хосту. 
-disk_type_id | **string**<br><ul><li>network-ssd — быстрое сетевое хранилище; </li><li>local-ssd — быстрое локальное хранилище.</li></ul> 
+disk_type_id | **string**<br><ul><li>network-ssd — сетевой SSD-диск; </li><li>local-ssd — локальное SSD-хранилище.</li></ul> 
 
 
 ### Access {#Access}
@@ -370,7 +383,7 @@ done | **bool**<br>Если значение равно `false` — операц
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateClusterMetadata](#UpdateClusterMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
 result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster3)>**<br>в случае успешного выполнения операции. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](../cluster.proto#Cluster3)>**<br>в случае успешного выполнения операции. 
 
 
 ### UpdateClusterMetadata {#UpdateClusterMetadata}
@@ -391,10 +404,10 @@ name | **string**<br>Имя кластера MySQL. Имя должно быть
 description | **string**<br>Описание кластера MySQL. Длина описания должна быть от 0 до 256 символов. 
 labels | **map<string,string>**<br>Пользовательские метки для кластера MySQL в виде пар `key:value`. Максимум 64 на ресурс. 
 environment | enum **Environment**<br>Среда развертывания кластера MySQL. <ul><li>`PRODUCTION`: Стабильная среда с осторожной политикой обновления: во время регулярного обслуживания применяются только срочные исправления.</li><li>`PRESTABLE`: Среда с более агрессивной политикой обновления: новые версии развертываются независимо от обратной совместимости.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring2)**<br>Описание систем мониторинга, относящихся к данному кластеру MySQL. 
-config | **[ClusterConfig](#ClusterConfig2)**<br>Конфигурация кластера MySQL. 
+monitoring[] | **[Monitoring](../cluster.proto#Monitoring2)**<br>Описание систем мониторинга, относящихся к данному кластеру MySQL. 
+config | **[ClusterConfig](../cluster.proto#ClusterConfig2)**<br>Конфигурация кластера MySQL. 
 network_id | **string**<br>Идентификатор сети, к которой принадлежит кластер. 
-health | enum **Health**<br>Агрегированная работоспособность кластера. <ul><li>`HEALTH_UNKNOWN`: Состояние кластера неизвестно ([Host.health](#Host) для каждого хоста в кластере — UNKNOWN).</li><li>`ALIVE`: Кластер работает нормально ([Host.health](#Host) для каждого хоста в кластере — ALIVE).</li><li>`DEAD`: Кластер не работает ([Host.health](#Host) для каждого узла в кластере — DEAD).</li><li>`DEGRADED`: Кластер работает неоптимально ([Host.health](#Host) по крайней мере для одного узла в кластере не ALIVE).</li><ul/>
+health | enum **Health**<br>Агрегированная работоспособность кластера. <ul><li>`HEALTH_UNKNOWN`: Состояние кластера неизвестно ([Host.health](../cluster.proto#Host) для каждого хоста в кластере — UNKNOWN).</li><li>`ALIVE`: Кластер работает нормально ([Host.health](../cluster.proto#Host) для каждого хоста в кластере — ALIVE).</li><li>`DEAD`: Кластер не работает ([Host.health](../cluster.proto#Host) для каждого узла в кластере — DEAD).</li><li>`DEGRADED`: Кластер работает неоптимально ([Host.health](../cluster.proto#Host) по крайней мере для одного узла в кластере не ALIVE).</li><ul/>
 status | enum **Status**<br>Текущее состояние кластера. <ul><li>`STATUS_UNKNOWN`: Состояние кластера неизвестно.</li><li>`CREATING`: Кластер создается.</li><li>`RUNNING`: Кластер работает нормально.</li><li>`ERROR`: На кластере произошла ошибка, блокирующая работу.</li><li>`UPDATING`: Кластер изменяется.</li><li>`STOPPING`: Кластер останавливается.</li><li>`STOPPED`: Кластер остановлен.</li><li>`STARTING`: Кластер запускается.</li><ul/>
 
 
@@ -412,7 +425,7 @@ status | enum **Status**<br>Текущее состояние кластера. 
 
 Поле | Описание
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера MySQL, который следует удалить. Чтобы получить идентификатор MySQL кластера, используйте запрос [ClusterService.List](#List).  Максимальная длина строки в символах — 50.
+cluster_id | **string**<br>Обязательное поле. Идентификатор кластера MySQL, который следует удалить. Чтобы получить идентификатор MySQL кластера, используйте запрос [ClusterService.List](#List). false Максимальная длина строки в символах — 50.
 
 
 ### Operation {#Operation}
@@ -446,13 +459,13 @@ cluster_id | **string**<br>Идентификатор удаляемого кл�
 
 Метаданные и результат операции:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[StartClusterMetadata](#StartClusterMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster4)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](../cluster.proto#Cluster4)<br>
 
 ### StartClusterRequest {#StartClusterRequest}
 
 Поле | Описание
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера MySQL, который следует запустить.  Максимальная длина строки в символах — 50.
+cluster_id | **string**<br>Обязательное поле. Идентификатор кластера MySQL, который следует запустить. false Максимальная длина строки в символах — 50.
 
 
 ### Operation {#Operation}
@@ -468,7 +481,7 @@ done | **bool**<br>Если значение равно `false` — операц
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[StartClusterMetadata](#StartClusterMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
 result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster4)>**<br>в случае успешного выполнения операции. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](../cluster.proto#Cluster4)>**<br>в случае успешного выполнения операции. 
 
 
 ### StartClusterMetadata {#StartClusterMetadata}
@@ -489,10 +502,10 @@ name | **string**<br>Имя кластера MySQL. Имя должно быть
 description | **string**<br>Описание кластера MySQL. Длина описания должна быть от 0 до 256 символов. 
 labels | **map<string,string>**<br>Пользовательские метки для кластера MySQL в виде пар `key:value`. Максимум 64 на ресурс. 
 environment | enum **Environment**<br>Среда развертывания кластера MySQL. <ul><li>`PRODUCTION`: Стабильная среда с осторожной политикой обновления: во время регулярного обслуживания применяются только срочные исправления.</li><li>`PRESTABLE`: Среда с более агрессивной политикой обновления: новые версии развертываются независимо от обратной совместимости.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring2)**<br>Описание систем мониторинга, относящихся к данному кластеру MySQL. 
-config | **[ClusterConfig](#ClusterConfig2)**<br>Конфигурация кластера MySQL. 
+monitoring[] | **[Monitoring](../cluster.proto#Monitoring2)**<br>Описание систем мониторинга, относящихся к данному кластеру MySQL. 
+config | **[ClusterConfig](../cluster.proto#ClusterConfig2)**<br>Конфигурация кластера MySQL. 
 network_id | **string**<br>Идентификатор сети, к которой принадлежит кластер. 
-health | enum **Health**<br>Агрегированная работоспособность кластера. <ul><li>`HEALTH_UNKNOWN`: Состояние кластера неизвестно ([Host.health](#Host) для каждого хоста в кластере — UNKNOWN).</li><li>`ALIVE`: Кластер работает нормально ([Host.health](#Host) для каждого хоста в кластере — ALIVE).</li><li>`DEAD`: Кластер не работает ([Host.health](#Host) для каждого узла в кластере — DEAD).</li><li>`DEGRADED`: Кластер работает неоптимально ([Host.health](#Host) по крайней мере для одного узла в кластере не ALIVE).</li><ul/>
+health | enum **Health**<br>Агрегированная работоспособность кластера. <ul><li>`HEALTH_UNKNOWN`: Состояние кластера неизвестно ([Host.health](../cluster.proto#Host) для каждого хоста в кластере — UNKNOWN).</li><li>`ALIVE`: Кластер работает нормально ([Host.health](../cluster.proto#Host) для каждого хоста в кластере — ALIVE).</li><li>`DEAD`: Кластер не работает ([Host.health](../cluster.proto#Host) для каждого узла в кластере — DEAD).</li><li>`DEGRADED`: Кластер работает неоптимально ([Host.health](../cluster.proto#Host) по крайней мере для одного узла в кластере не ALIVE).</li><ul/>
 status | enum **Status**<br>Текущее состояние кластера. <ul><li>`STATUS_UNKNOWN`: Состояние кластера неизвестно.</li><li>`CREATING`: Кластер создается.</li><li>`RUNNING`: Кластер работает нормально.</li><li>`ERROR`: На кластере произошла ошибка, блокирующая работу.</li><li>`UPDATING`: Кластер изменяется.</li><li>`STOPPING`: Кластер останавливается.</li><li>`STOPPED`: Кластер остановлен.</li><li>`STARTING`: Кластер запускается.</li><ul/>
 
 
@@ -504,13 +517,13 @@ status | enum **Status**<br>Текущее состояние кластера. 
 
 Метаданные и результат операции:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[StopClusterMetadata](#StopClusterMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster5)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](../cluster.proto#Cluster5)<br>
 
 ### StopClusterRequest {#StopClusterRequest}
 
 Поле | Описание
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера MySQL, который следует остановить.  Максимальная длина строки в символах — 50.
+cluster_id | **string**<br>Обязательное поле. Идентификатор кластера MySQL, который следует остановить. false Максимальная длина строки в символах — 50.
 
 
 ### Operation {#Operation}
@@ -526,7 +539,7 @@ done | **bool**<br>Если значение равно `false` — операц
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[StopClusterMetadata](#StopClusterMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
 result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster5)>**<br>в случае успешного выполнения операции. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](../cluster.proto#Cluster5)>**<br>в случае успешного выполнения операции. 
 
 
 ### StopClusterMetadata {#StopClusterMetadata}
@@ -547,10 +560,10 @@ name | **string**<br>Имя кластера MySQL. Имя должно быть
 description | **string**<br>Описание кластера MySQL. Длина описания должна быть от 0 до 256 символов. 
 labels | **map<string,string>**<br>Пользовательские метки для кластера MySQL в виде пар `key:value`. Максимум 64 на ресурс. 
 environment | enum **Environment**<br>Среда развертывания кластера MySQL. <ul><li>`PRODUCTION`: Стабильная среда с осторожной политикой обновления: во время регулярного обслуживания применяются только срочные исправления.</li><li>`PRESTABLE`: Среда с более агрессивной политикой обновления: новые версии развертываются независимо от обратной совместимости.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring2)**<br>Описание систем мониторинга, относящихся к данному кластеру MySQL. 
-config | **[ClusterConfig](#ClusterConfig2)**<br>Конфигурация кластера MySQL. 
+monitoring[] | **[Monitoring](../cluster.proto#Monitoring2)**<br>Описание систем мониторинга, относящихся к данному кластеру MySQL. 
+config | **[ClusterConfig](../cluster.proto#ClusterConfig2)**<br>Конфигурация кластера MySQL. 
 network_id | **string**<br>Идентификатор сети, к которой принадлежит кластер. 
-health | enum **Health**<br>Агрегированная работоспособность кластера. <ul><li>`HEALTH_UNKNOWN`: Состояние кластера неизвестно ([Host.health](#Host) для каждого хоста в кластере — UNKNOWN).</li><li>`ALIVE`: Кластер работает нормально ([Host.health](#Host) для каждого хоста в кластере — ALIVE).</li><li>`DEAD`: Кластер не работает ([Host.health](#Host) для каждого узла в кластере — DEAD).</li><li>`DEGRADED`: Кластер работает неоптимально ([Host.health](#Host) по крайней мере для одного узла в кластере не ALIVE).</li><ul/>
+health | enum **Health**<br>Агрегированная работоспособность кластера. <ul><li>`HEALTH_UNKNOWN`: Состояние кластера неизвестно ([Host.health](../cluster.proto#Host) для каждого хоста в кластере — UNKNOWN).</li><li>`ALIVE`: Кластер работает нормально ([Host.health](../cluster.proto#Host) для каждого хоста в кластере — ALIVE).</li><li>`DEAD`: Кластер не работает ([Host.health](../cluster.proto#Host) для каждого узла в кластере — DEAD).</li><li>`DEGRADED`: Кластер работает неоптимально ([Host.health](../cluster.proto#Host) по крайней мере для одного узла в кластере не ALIVE).</li><ul/>
 status | enum **Status**<br>Текущее состояние кластера. <ul><li>`STATUS_UNKNOWN`: Состояние кластера неизвестно.</li><li>`CREATING`: Кластер создается.</li><li>`RUNNING`: Кластер работает нормально.</li><li>`ERROR`: На кластере произошла ошибка, блокирующая работу.</li><li>`UPDATING`: Кластер изменяется.</li><li>`STOPPING`: Кластер останавливается.</li><li>`STOPPED`: Кластер остановлен.</li><li>`STARTING`: Кластер запускается.</li><ul/>
 
 
@@ -562,14 +575,14 @@ status | enum **Status**<br>Текущее состояние кластера. 
 
 Метаданные и результат операции:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[MoveClusterMetadata](#MoveClusterMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster6)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](../cluster.proto#Cluster6)<br>
 
 ### MoveClusterRequest {#MoveClusterRequest}
 
 Поле | Описание
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера MySQL, который следует переместить.  Максимальная длина строки в символах — 50.
-destination_folder_id | **string**<br>Обязательное поле. Идентификатор каталога, в который следует переместить кластер.  Максимальная длина строки в символах — 50.
+cluster_id | **string**<br>Обязательное поле. Идентификатор кластера MySQL, который следует переместить. false Максимальная длина строки в символах — 50.
+destination_folder_id | **string**<br>Обязательное поле. Идентификатор каталога, в который следует переместить кластер. false Максимальная длина строки в символах — 50.
 
 
 ### Operation {#Operation}
@@ -585,7 +598,7 @@ done | **bool**<br>Если значение равно `false` — операц
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[MoveClusterMetadata](#MoveClusterMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
 result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster6)>**<br>в случае успешного выполнения операции. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](../cluster.proto#Cluster6)>**<br>в случае успешного выполнения операции. 
 
 
 ### MoveClusterMetadata {#MoveClusterMetadata}
@@ -608,10 +621,10 @@ name | **string**<br>Имя кластера MySQL. Имя должно быть
 description | **string**<br>Описание кластера MySQL. Длина описания должна быть от 0 до 256 символов. 
 labels | **map<string,string>**<br>Пользовательские метки для кластера MySQL в виде пар `key:value`. Максимум 64 на ресурс. 
 environment | enum **Environment**<br>Среда развертывания кластера MySQL. <ul><li>`PRODUCTION`: Стабильная среда с осторожной политикой обновления: во время регулярного обслуживания применяются только срочные исправления.</li><li>`PRESTABLE`: Среда с более агрессивной политикой обновления: новые версии развертываются независимо от обратной совместимости.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring2)**<br>Описание систем мониторинга, относящихся к данному кластеру MySQL. 
-config | **[ClusterConfig](#ClusterConfig2)**<br>Конфигурация кластера MySQL. 
+monitoring[] | **[Monitoring](../cluster.proto#Monitoring2)**<br>Описание систем мониторинга, относящихся к данному кластеру MySQL. 
+config | **[ClusterConfig](../cluster.proto#ClusterConfig2)**<br>Конфигурация кластера MySQL. 
 network_id | **string**<br>Идентификатор сети, к которой принадлежит кластер. 
-health | enum **Health**<br>Агрегированная работоспособность кластера. <ul><li>`HEALTH_UNKNOWN`: Состояние кластера неизвестно ([Host.health](#Host) для каждого хоста в кластере — UNKNOWN).</li><li>`ALIVE`: Кластер работает нормально ([Host.health](#Host) для каждого хоста в кластере — ALIVE).</li><li>`DEAD`: Кластер не работает ([Host.health](#Host) для каждого узла в кластере — DEAD).</li><li>`DEGRADED`: Кластер работает неоптимально ([Host.health](#Host) по крайней мере для одного узла в кластере не ALIVE).</li><ul/>
+health | enum **Health**<br>Агрегированная работоспособность кластера. <ul><li>`HEALTH_UNKNOWN`: Состояние кластера неизвестно ([Host.health](../cluster.proto#Host) для каждого хоста в кластере — UNKNOWN).</li><li>`ALIVE`: Кластер работает нормально ([Host.health](../cluster.proto#Host) для каждого хоста в кластере — ALIVE).</li><li>`DEAD`: Кластер не работает ([Host.health](../cluster.proto#Host) для каждого узла в кластере — DEAD).</li><li>`DEGRADED`: Кластер работает неоптимально ([Host.health](../cluster.proto#Host) по крайней мере для одного узла в кластере не ALIVE).</li><ul/>
 status | enum **Status**<br>Текущее состояние кластера. <ul><li>`STATUS_UNKNOWN`: Состояние кластера неизвестно.</li><li>`CREATING`: Кластер создается.</li><li>`RUNNING`: Кластер работает нормально.</li><li>`ERROR`: На кластере произошла ошибка, блокирующая работу.</li><li>`UPDATING`: Кластер изменяется.</li><li>`STOPPING`: Кластер останавливается.</li><li>`STOPPED`: Кластер остановлен.</li><li>`STARTING`: Кластер запускается.</li><ul/>
 
 
@@ -623,13 +636,13 @@ status | enum **Status**<br>Текущее состояние кластера. 
 
 Метаданные и результат операции:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[BackupClusterMetadata](#BackupClusterMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster7)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](../cluster.proto#Cluster7)<br>
 
 ### BackupClusterRequest {#BackupClusterRequest}
 
 Поле | Описание
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера MySQL, для которого следует создать резервную копию. Чтобы получить идентификатор MySQL кластера, используйте запрос [ClusterService.List](#List).  Максимальная длина строки в символах — 50.
+cluster_id | **string**<br>Обязательное поле. Идентификатор кластера MySQL, для которого следует создать резервную копию. Чтобы получить идентификатор MySQL кластера, используйте запрос [ClusterService.List](#List). false Максимальная длина строки в символах — 50.
 
 
 ### Operation {#Operation}
@@ -645,7 +658,7 @@ done | **bool**<br>Если значение равно `false` — операц
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[BackupClusterMetadata](#BackupClusterMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
 result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster7)>**<br>в случае успешного выполнения операции. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](../cluster.proto#Cluster7)>**<br>в случае успешного выполнения операции. 
 
 
 ### BackupClusterMetadata {#BackupClusterMetadata}
@@ -666,10 +679,10 @@ name | **string**<br>Имя кластера MySQL. Имя должно быть
 description | **string**<br>Описание кластера MySQL. Длина описания должна быть от 0 до 256 символов. 
 labels | **map<string,string>**<br>Пользовательские метки для кластера MySQL в виде пар `key:value`. Максимум 64 на ресурс. 
 environment | enum **Environment**<br>Среда развертывания кластера MySQL. <ul><li>`PRODUCTION`: Стабильная среда с осторожной политикой обновления: во время регулярного обслуживания применяются только срочные исправления.</li><li>`PRESTABLE`: Среда с более агрессивной политикой обновления: новые версии развертываются независимо от обратной совместимости.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring2)**<br>Описание систем мониторинга, относящихся к данному кластеру MySQL. 
-config | **[ClusterConfig](#ClusterConfig2)**<br>Конфигурация кластера MySQL. 
+monitoring[] | **[Monitoring](../cluster.proto#Monitoring2)**<br>Описание систем мониторинга, относящихся к данному кластеру MySQL. 
+config | **[ClusterConfig](../cluster.proto#ClusterConfig2)**<br>Конфигурация кластера MySQL. 
 network_id | **string**<br>Идентификатор сети, к которой принадлежит кластер. 
-health | enum **Health**<br>Агрегированная работоспособность кластера. <ul><li>`HEALTH_UNKNOWN`: Состояние кластера неизвестно ([Host.health](#Host) для каждого хоста в кластере — UNKNOWN).</li><li>`ALIVE`: Кластер работает нормально ([Host.health](#Host) для каждого хоста в кластере — ALIVE).</li><li>`DEAD`: Кластер не работает ([Host.health](#Host) для каждого узла в кластере — DEAD).</li><li>`DEGRADED`: Кластер работает неоптимально ([Host.health](#Host) по крайней мере для одного узла в кластере не ALIVE).</li><ul/>
+health | enum **Health**<br>Агрегированная работоспособность кластера. <ul><li>`HEALTH_UNKNOWN`: Состояние кластера неизвестно ([Host.health](../cluster.proto#Host) для каждого хоста в кластере — UNKNOWN).</li><li>`ALIVE`: Кластер работает нормально ([Host.health](../cluster.proto#Host) для каждого хоста в кластере — ALIVE).</li><li>`DEAD`: Кластер не работает ([Host.health](../cluster.proto#Host) для каждого узла в кластере — DEAD).</li><li>`DEGRADED`: Кластер работает неоптимально ([Host.health](../cluster.proto#Host) по крайней мере для одного узла в кластере не ALIVE).</li><ul/>
 status | enum **Status**<br>Текущее состояние кластера. <ul><li>`STATUS_UNKNOWN`: Состояние кластера неизвестно.</li><li>`CREATING`: Кластер создается.</li><li>`RUNNING`: Кластер работает нормально.</li><li>`ERROR`: На кластере произошла ошибка, блокирующая работу.</li><li>`UPDATING`: Кластер изменяется.</li><li>`STOPPING`: Кластер останавливается.</li><li>`STOPPED`: Кластер остановлен.</li><li>`STARTING`: Кластер запускается.</li><ul/>
 
 
@@ -681,18 +694,18 @@ status | enum **Status**<br>Текущее состояние кластера. 
 
 Метаданные и результат операции:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[RestoreClusterMetadata](#RestoreClusterMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster8)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](../cluster.proto#Cluster8)<br>
 
 ### RestoreClusterRequest {#RestoreClusterRequest}
 
 Поле | Описание
 --- | ---
-backup_id | **string**<br>Обязательное поле. Идентификатор резервной копии, из которой следует создать кластер. Чтобы получить идентификатор резервной копии, используйте запрос [ClusterService.ListBackups](#ListBackups). 
-time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Обязательное поле. Момент времени, на который должен быть восстановлен кластер MySQL. 
-name | **string**<br>Обязательное поле. Имя нового кластера MySQL. Имя должно быть уникальным в каталоге.  Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_-]* `.
+backup_id | **string**<br>Обязательное поле. Идентификатор резервной копии, из которой следует создать кластер. Чтобы получить идентификатор резервной копии, используйте запрос [ClusterService.ListBackups](#ListBackups). false
+time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Обязательное поле. Момент времени, на который должен быть восстановлен кластер MySQL. false
+name | **string**<br>Обязательное поле. Имя нового кластера MySQL. Имя должно быть уникальным в каталоге. false Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_-]* `.
 description | **string**<br>Описание нового кластера MySQL. Максимальная длина строки в символах — 256.
 labels | **map<string,string>**<br>Пользовательские метки для кластера MySQL в виде пар `key:value`. Максимум 64 на ресурс. Например, "project": "mvp" или "source": "dictionary". Не более 64 на ресурс. Максимальная длина строки в символах для каждого значения — 63. Каждое значение должно соответствовать регулярному выражению ` [-_0-9a-z]* `. Длина строки в символах для каждого ключа должна быть от 1 до 63. Каждый ключ должен соответствовать регулярному выражению ` [a-z][-_0-9a-z]* `.
-environment | **[Cluster.Environment](#Cluster8)**<br>Среда развертывания для нового кластера MySQL. 
+environment | **[Cluster.Environment](../cluster.proto#Cluster8)**<br>Среда развертывания для нового кластера MySQL. 
 config_spec | **[ConfigSpec](#ConfigSpec2)**<br>Конфигурация для создаваемого кластера MySQL. 
 host_specs[] | **[HostSpec](#HostSpec1)**<br>Конфигурации для хостов MySQL, которые должны быть добавлены к кластеру, создаваемогму из резервной копии. 
 network_id | **string**<br>Идентификатор сети, в которой нужно создать кластер MySQL. Максимальная длина строки в символах — 50.
@@ -707,9 +720,9 @@ version | **string**<br><ul><li>5.7 </li><li>8.0</li></ul>
 mysql_config | **oneof:** `mysql_config_5_7` или `mysql_config_8_0`<br>Конфигурация кластера MySQL.
 &nbsp;&nbsp;mysql_config_5_7 | **[config.MysqlConfig5_7](#MysqlConfig5_7)**<br>Конфигурация для кластера MySQL 5.7. 
 &nbsp;&nbsp;mysql_config_8_0 | **[config.MysqlConfig8_0](#MysqlConfig8_0)**<br>Конфигурация для кластера MySQL 8.0. 
-resources | **[Resources](#Resources4)**<br>Ресурсы, выделенные хостам MySQL. 
+resources | **[Resources](../cluster.proto#Resources4)**<br>Ресурсы, выделенные хостам MySQL. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Время запуска ежедневного резервного копирования, в часовом поясе UTC. 
-access | **[Access](#Access4)**<br>Политика доступа к БД. 
+access | **[Access](../cluster.proto#Access4)**<br>Политика доступа к БД. 
 
 
 ### Resources {#Resources}
@@ -718,7 +731,7 @@ access | **[Access](#Access4)**<br>Политика доступа к БД.
 --- | ---
 resource_preset_id | **string**<br>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в [документации](/docs/managed-mysql/concepts/instance-types). 
 disk_size | **int64**<br>Объем хранилища, доступного хосту. 
-disk_type_id | **string**<br><ul><li>network-ssd — быстрое сетевое хранилище; </li><li>local-ssd — быстрое локальное хранилище.</li></ul> 
+disk_type_id | **string**<br><ul><li>network-ssd — сетевой SSD-диск; </li><li>local-ssd — локальное SSD-хранилище.</li></ul> 
 
 
 ### Access {#Access}
@@ -733,7 +746,7 @@ data_lens | **bool**<br>Разрешить доступ для DataLens
 Поле | Описание
 --- | ---
 zone_id | **string**<br>Идентификатор зоны доступности, в которой находится хост. Чтобы получить список доступных зон, используйте запрос [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/grpc/zone_service#List). Максимальная длина строки в символах — 50.
-subnet_id | **string**<br>Идентификатор подсети, к которой должен принадлежать хост. Эта подсеть должна быть частью сети, к которой принадлежит кластер. Идентификатор сети задан в поле [Cluster.network_id](#Cluster8). Максимальная длина строки в символах — 50.
+subnet_id | **string**<br>Идентификатор подсети, к которой должен принадлежать хост. Эта подсеть должна быть частью сети, к которой принадлежит кластер. Идентификатор сети задан в поле [Cluster.network_id](../cluster.proto#Cluster8). Максимальная длина строки в символах — 50.
 assign_public_ip | **bool**<br><ul><li>false — не назначать хосту публичный IP-адрес. </li><li>true — у хоста должен быть публичный IP-адрес.</li></ul> 
 
 
@@ -750,7 +763,7 @@ done | **bool**<br>Если значение равно `false` — операц
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RestoreClusterMetadata](#RestoreClusterMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
 result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster8)>**<br>в случае успешного выполнения операции. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](../cluster.proto#Cluster8)>**<br>в случае успешного выполнения операции. 
 
 
 ### RestoreClusterMetadata {#RestoreClusterMetadata}
@@ -772,10 +785,10 @@ name | **string**<br>Имя кластера MySQL. Имя должно быть
 description | **string**<br>Описание кластера MySQL. Длина описания должна быть от 0 до 256 символов. 
 labels | **map<string,string>**<br>Пользовательские метки для кластера MySQL в виде пар `key:value`. Максимум 64 на ресурс. 
 environment | enum **Environment**<br>Среда развертывания кластера MySQL. <ul><li>`PRODUCTION`: Стабильная среда с осторожной политикой обновления: во время регулярного обслуживания применяются только срочные исправления.</li><li>`PRESTABLE`: Среда с более агрессивной политикой обновления: новые версии развертываются независимо от обратной совместимости.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring2)**<br>Описание систем мониторинга, относящихся к данному кластеру MySQL. 
-config | **[ClusterConfig](#ClusterConfig2)**<br>Конфигурация кластера MySQL. 
+monitoring[] | **[Monitoring](../cluster.proto#Monitoring2)**<br>Описание систем мониторинга, относящихся к данному кластеру MySQL. 
+config | **[ClusterConfig](../cluster.proto#ClusterConfig2)**<br>Конфигурация кластера MySQL. 
 network_id | **string**<br>Идентификатор сети, к которой принадлежит кластер. 
-health | enum **Health**<br>Агрегированная работоспособность кластера. <ul><li>`HEALTH_UNKNOWN`: Состояние кластера неизвестно ([Host.health](#Host) для каждого хоста в кластере — UNKNOWN).</li><li>`ALIVE`: Кластер работает нормально ([Host.health](#Host) для каждого хоста в кластере — ALIVE).</li><li>`DEAD`: Кластер не работает ([Host.health](#Host) для каждого узла в кластере — DEAD).</li><li>`DEGRADED`: Кластер работает неоптимально ([Host.health](#Host) по крайней мере для одного узла в кластере не ALIVE).</li><ul/>
+health | enum **Health**<br>Агрегированная работоспособность кластера. <ul><li>`HEALTH_UNKNOWN`: Состояние кластера неизвестно ([Host.health](../cluster.proto#Host) для каждого хоста в кластере — UNKNOWN).</li><li>`ALIVE`: Кластер работает нормально ([Host.health](../cluster.proto#Host) для каждого хоста в кластере — ALIVE).</li><li>`DEAD`: Кластер не работает ([Host.health](../cluster.proto#Host) для каждого узла в кластере — DEAD).</li><li>`DEGRADED`: Кластер работает неоптимально ([Host.health](../cluster.proto#Host) по крайней мере для одного узла в кластере не ALIVE).</li><ul/>
 status | enum **Status**<br>Текущее состояние кластера. <ul><li>`STATUS_UNKNOWN`: Состояние кластера неизвестно.</li><li>`CREATING`: Кластер создается.</li><li>`RUNNING`: Кластер работает нормально.</li><li>`ERROR`: На кластере произошла ошибка, блокирующая работу.</li><li>`UPDATING`: Кластер изменяется.</li><li>`STOPPING`: Кластер останавливается.</li><li>`STOPPED`: Кластер остановлен.</li><li>`STARTING`: Кластер запускается.</li><ul/>
 
 
@@ -787,13 +800,13 @@ status | enum **Status**<br>Текущее состояние кластера. 
 
 Метаданные и результат операции:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[StartClusterFailoverMetadata](#StartClusterFailoverMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster9)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](../cluster.proto#Cluster9)<br>
 
 ### StartClusterFailoverRequest {#StartClusterFailoverRequest}
 
 Поле | Описание
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера MySQL.  Максимальная длина строки в символах — 50.
+cluster_id | **string**<br>Обязательное поле. Идентификатор кластера MySQL. false Максимальная длина строки в символах — 50.
 host_name | **string**<br>Новый хост-мастер. Если хост не указан, кластер переключается на реплику с самыми свежими данными. Максимальная длина строки в символах — 253.
 
 
@@ -810,7 +823,7 @@ done | **bool**<br>Если значение равно `false` — операц
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[StartClusterFailoverMetadata](#StartClusterFailoverMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
 result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster9)>**<br>в случае успешного выполнения операции. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](../cluster.proto#Cluster9)>**<br>в случае успешного выполнения операции. 
 
 
 ### StartClusterFailoverMetadata {#StartClusterFailoverMetadata}
@@ -831,10 +844,10 @@ name | **string**<br>Имя кластера MySQL. Имя должно быть
 description | **string**<br>Описание кластера MySQL. Длина описания должна быть от 0 до 256 символов. 
 labels | **map<string,string>**<br>Пользовательские метки для кластера MySQL в виде пар `key:value`. Максимум 64 на ресурс. 
 environment | enum **Environment**<br>Среда развертывания кластера MySQL. <ul><li>`PRODUCTION`: Стабильная среда с осторожной политикой обновления: во время регулярного обслуживания применяются только срочные исправления.</li><li>`PRESTABLE`: Среда с более агрессивной политикой обновления: новые версии развертываются независимо от обратной совместимости.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring2)**<br>Описание систем мониторинга, относящихся к данному кластеру MySQL. 
-config | **[ClusterConfig](#ClusterConfig2)**<br>Конфигурация кластера MySQL. 
+monitoring[] | **[Monitoring](../cluster.proto#Monitoring2)**<br>Описание систем мониторинга, относящихся к данному кластеру MySQL. 
+config | **[ClusterConfig](../cluster.proto#ClusterConfig2)**<br>Конфигурация кластера MySQL. 
 network_id | **string**<br>Идентификатор сети, к которой принадлежит кластер. 
-health | enum **Health**<br>Агрегированная работоспособность кластера. <ul><li>`HEALTH_UNKNOWN`: Состояние кластера неизвестно ([Host.health](#Host) для каждого хоста в кластере — UNKNOWN).</li><li>`ALIVE`: Кластер работает нормально ([Host.health](#Host) для каждого хоста в кластере — ALIVE).</li><li>`DEAD`: Кластер не работает ([Host.health](#Host) для каждого узла в кластере — DEAD).</li><li>`DEGRADED`: Кластер работает неоптимально ([Host.health](#Host) по крайней мере для одного узла в кластере не ALIVE).</li><ul/>
+health | enum **Health**<br>Агрегированная работоспособность кластера. <ul><li>`HEALTH_UNKNOWN`: Состояние кластера неизвестно ([Host.health](../cluster.proto#Host) для каждого хоста в кластере — UNKNOWN).</li><li>`ALIVE`: Кластер работает нормально ([Host.health](../cluster.proto#Host) для каждого хоста в кластере — ALIVE).</li><li>`DEAD`: Кластер не работает ([Host.health](../cluster.proto#Host) для каждого узла в кластере — DEAD).</li><li>`DEGRADED`: Кластер работает неоптимально ([Host.health](../cluster.proto#Host) по крайней мере для одного узла в кластере не ALIVE).</li><ul/>
 status | enum **Status**<br>Текущее состояние кластера. <ul><li>`STATUS_UNKNOWN`: Состояние кластера неизвестно.</li><li>`CREATING`: Кластер создается.</li><li>`RUNNING`: Кластер работает нормально.</li><li>`ERROR`: На кластере произошла ошибка, блокирующая работу.</li><li>`UPDATING`: Кластер изменяется.</li><li>`STOPPING`: Кластер останавливается.</li><li>`STOPPED`: Кластер остановлен.</li><li>`STARTING`: Кластер запускается.</li><ul/>
 
 
@@ -848,7 +861,7 @@ status | enum **Status**<br>Текущее состояние кластера. 
 
 Поле | Описание
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера MySQL, для которого следует запросить логи. Чтобы получить идентификатор MySQL кластера, используйте запрос [ClusterService.List](#List).  Максимальная длина строки в символах — 50.
+cluster_id | **string**<br>Обязательное поле. Идентификатор кластера MySQL, для которого следует запросить логи. Чтобы получить идентификатор MySQL кластера, используйте запрос [ClusterService.List](#List). false Максимальная длина строки в символах — 50.
 column_filter[] | **string**<br>Столбцы из таблицы логов для запроса. Если столбцы не указаны, записи логов возвращаются целиком. 
 service_type | enum **ServiceType**<br>Тип сервиса, для которого следует запросить логи. <ul><li>`MYSQL_ERROR`: Лог ошибок MySQL.</li><li>`MYSQL_GENERAL`: Общий лог запросов MySQL.</li><li>`MYSQL_SLOW_QUERY`: Лог медленных запросов MySQL.</li><li>`MYSQL_AUDIT`: Лог аудита MySQL.</li><ul/>
 from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Начало периода, для которого следует запросить логи. 
@@ -884,7 +897,7 @@ message | **map<string,string>**<br>Содержание записи журна
 
 Поле | Описание
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера MySQL, для которого запрашивается список операций.  Максимальная длина строки в символах — 50.
+cluster_id | **string**<br>Обязательное поле. Идентификатор кластера MySQL, для которого запрашивается список операций. false Максимальная длина строки в символах — 50.
 page_size | **int64**<br>Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `page_size`, сервис вернет значение [ListClusterOperationsResponse.next_page_token](#ListClusterOperationsResponse), которое можно использовать для получения следующей страницы. Допустимые значения — от 0 до 1000 включительно.
 page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListClusterOperationsResponse.next_page_token](#ListClusterOperationsResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
 
@@ -923,7 +936,7 @@ result | **oneof:** `error` или `response`<br>Результат операц
 
 Поле | Описание
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера MySQL. Чтобы получить идентификатор MySQL кластера, используйте запрос [ClusterService.List](#List).  Максимальная длина строки в символах — 50.
+cluster_id | **string**<br>Обязательное поле. Идентификатор кластера MySQL. Чтобы получить идентификатор MySQL кластера, используйте запрос [ClusterService.List](#List). false Максимальная длина строки в символах — 50.
 page_size | **int64**<br>Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `page_size`, сервис вернет значение [ListClusterBackupsResponse.next_page_token](#ListClusterBackupsResponse), которое можно использовать для получения следующей страницы. Максимальное значение — 1000.
 page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListClusterBackupsResponse.next_page_token](#ListClusterBackupsResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
 
@@ -940,7 +953,7 @@ next_page_token | **string**<br>Токен для получения следу�
 
 Поле | Описание
 --- | ---
-id | **string**<br>Обязательное поле. Идентификатор резервной копии. 
+id | **string**<br>Обязательное поле. Идентификатор резервной копии. false
 folder_id | **string**<br>Идентификатор каталога, которому принадлежит резервная копия. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
 source_cluster_id | **string**<br>Идентификатор кластера MySQL, для которого была создана резервная копия. 
@@ -957,7 +970,7 @@ started_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 
 Поле | Описание
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера MySQL. Чтобы получить идентификатор MySQL кластера, используйте запрос [ClusterService.List](#List).  Максимальная длина строки в символах — 50.
+cluster_id | **string**<br>Обязательное поле. Идентификатор кластера MySQL. Чтобы получить идентификатор MySQL кластера, используйте запрос [ClusterService.List](#List). false Максимальная длина строки в символах — 50.
 page_size | **int64**<br>Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `page_size`, сервис вернет значение [ListClusterHostsResponse.next_page_token](#ListClusterHostsResponse), которое можно использовать для получения следующей страницы. Допустимые значения — от 0 до 1000 включительно.
 page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListClusterHostsResponse.next_page_token](#ListClusterHostsResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
 
@@ -966,7 +979,7 @@ page_token | **string**<br>Токен страницы. Установите з�
 
 Поле | Описание
 --- | ---
-hosts[] | **[Host](#Host)**<br>Список хостов MySQL. 
+hosts[] | **[Host](../cluster.proto#Host)**<br>Список хостов MySQL. 
 next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListClusterHostsRequest.page_size](#ListClusterHostsRequest1), используйте `next_page_token` в качестве значения параметра [ListClusterHostsRequest.page_token](#ListClusterHostsRequest1) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
 
 
@@ -977,10 +990,10 @@ next_page_token | **string**<br>Токен для получения следу�
 name | **string**<br>Имя хоста MySQL. Имя хоста Managed Service for MySQL назначает во время создания, его нельзя изменить. Длина 1-63 символов. <br>Имя уникально для всех существующих хостов баз данных в Яндекс.Облаке, так как оно определяет полное доменное имя (FQDN) хоста. 
 cluster_id | **string**<br>Идентификатор хоста MySQL. Этот идентификатор Managed Service for MySQL генерирует при создании. 
 zone_id | **string**<br>Идентификатор зоны доступности, в которой находится хост MySQL. 
-resources | **[Resources](#Resources5)**<br>Ресурсы, выделенные хосту. 
+resources | **[Resources](../cluster.proto#Resources5)**<br>Ресурсы, выделенные хосту. 
 role | enum **Role**<br>Роль хоста в кластере. <ul><li>`ROLE_UNKNOWN`: Роль хоста в кластере неизвестна.</li><li>`MASTER`: Хост является мастером в кластере MySQL.</li><li>`REPLICA`: Хост является репликой в кластере MySQL.</li><ul/>
 health | enum **Health**<br>Код работоспособности хоста. <ul><li>`HEALTH_UNKNOWN`: Состояние хоста неизвестно.</li><li>`ALIVE`: Хозяин выполняет все свои функции нормально.</li><li>`DEAD`: Хост не работает и не может выполнять свои основные функции.</li><li>`DEGRADED`: Хост деградировал, и может выполнять только некоторые из своих основных функций.</li><ul/>
-services[] | **[Service](#Service)**<br>Сервисы, предоставляемые хостом. 
+services[] | **[Service](../cluster.proto#Service)**<br>Сервисы, предоставляемые хостом. 
 subnet_id | **string**<br>Идентификатор подсети, к которой принадлежит хост. 
 assign_public_ip | **bool**<br>Флаг, показывающий статус публичного IP-адреса для этого хоста. 
 
@@ -991,7 +1004,7 @@ assign_public_ip | **bool**<br>Флаг, показывающий статус �
 --- | ---
 resource_preset_id | **string**<br>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в [документации](/docs/managed-mysql/concepts/instance-types). 
 disk_size | **int64**<br>Объем хранилища, доступного хосту. 
-disk_type_id | **string**<br><ul><li>network-ssd — быстрое сетевое хранилище; </li><li>local-ssd — быстрое локальное хранилище.</li></ul> 
+disk_type_id | **string**<br><ul><li>network-ssd — сетевой SSD-диск; </li><li>local-ssd — локальное SSD-хранилище.</li></ul> 
 
 
 ### Service {#Service}
@@ -1016,7 +1029,7 @@ health | enum **Health**<br>Код состояния доступности с�
 
 Поле | Описание
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера MySQL, для которого следует добавить хосты. Чтобы получить идентификатор MySQL кластера, используйте запрос [ClusterService.List](#List).  Максимальная длина строки в символах — 50.
+cluster_id | **string**<br>Обязательное поле. Идентификатор кластера MySQL, для которого следует добавить хосты. Чтобы получить идентификатор MySQL кластера, используйте запрос [ClusterService.List](#List). false Максимальная длина строки в символах — 50.
 host_specs[] | **[HostSpec](#HostSpec2)**<br>Конфигурации для хостов MySQL, которые должны быть добавлены в кластер. Количество элементов должно быть больше 0.
 
 
@@ -1025,7 +1038,7 @@ host_specs[] | **[HostSpec](#HostSpec2)**<br>Конфигурации для х�
 Поле | Описание
 --- | ---
 zone_id | **string**<br>Идентификатор зоны доступности, в которой находится хост. Чтобы получить список доступных зон, используйте запрос [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/grpc/zone_service#List). Максимальная длина строки в символах — 50.
-subnet_id | **string**<br>Идентификатор подсети, к которой должен принадлежать хост. Эта подсеть должна быть частью сети, к которой принадлежит кластер. Идентификатор сети задан в поле [Cluster.network_id](#Cluster10). Максимальная длина строки в символах — 50.
+subnet_id | **string**<br>Идентификатор подсети, к которой должен принадлежать хост. Эта подсеть должна быть частью сети, к которой принадлежит кластер. Идентификатор сети задан в поле [Cluster.network_id](../cluster.proto#Cluster10). Максимальная длина строки в символах — 50.
 assign_public_ip | **bool**<br><ul><li>false — не назначать хосту публичный IP-адрес. </li><li>true — у хоста должен быть публичный IP-адрес.</li></ul> 
 
 
@@ -1067,7 +1080,7 @@ host_names[] | **string**<br>Имена хостов, добавляемых в 
 
 Поле | Описание
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера MySQL, из которого следует удалить хосты. Чтобы получить идентификатор MySQL кластера, используйте запрос [ClusterService.List](#List).  Максимальная длина строки в символах — 50.
+cluster_id | **string**<br>Обязательное поле. Идентификатор кластера MySQL, из которого следует удалить хосты. Чтобы получить идентификатор MySQL кластера, используйте запрос [ClusterService.List](#List). false Максимальная длина строки в символах — 50.
 host_names[] | **string**<br>Имена хостов, которые следует удалить. Количество элементов должно быть больше 0. Максимальная длина строки в символах для каждого значения — 253.
 
 

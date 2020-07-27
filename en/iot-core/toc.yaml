@@ -47,7 +47,7 @@ items:
             href: operations/device/device-delete.md
       - name: Managing certificates
         items:
-          - name: Creating a certificate
+          - name: Create a certificate
             href: operations/certificates/create-certificates.md
           - name: Managing registry certificates
             href: operations/certificates/registry-certificates.md
@@ -59,7 +59,6 @@ items:
             href: operations/password/registry-password.md
           - name: Managing device passwords
             href: operations/password/device-password.md
-
   - name: Concepts
     items:
         - name: Authorization
@@ -72,14 +71,22 @@ items:
           href: concepts/topic.md
         - name: Quotas and limits
           href: concepts/limits.md
-  - name: Solutions
+  - name: Use cases
     items:
+      - name: All use cases
+        href: solutions/index.md
       - name: Working with Mosquitto
         items:
           - name: Sending messages
             href: solutions/mosquitto/mosquitto-publish.md
           - name: Subscribing a device or registry to receive messages
             href: solutions/mosquitto/mosquitto-subscribe.md
+      - name: Working with Yandex IoT Core from an Android device in Java
+        href: solutions/android-java.md
+      - name: Working with Yandex IoT Core in C#
+        href: solutions/c-sharp.md
+      - name: Working with Yandex IoT Core in Java
+        href: solutions/java.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

@@ -20,14 +20,14 @@ editable: false
 
 
 
-**rpc Get ([GetFormatSchemaRequest](#GetFormatSchemaRequest)) returns ([FormatSchema](#FormatSchema))**
+**rpc Get ([GetFormatSchemaRequest](#GetFormatSchemaRequest)) returns ([FormatSchema](../format_schema.proto#FormatSchema))**
 
 ### GetFormatSchemaRequest {#GetFormatSchemaRequest}
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required.   The maximum string length in characters is 50.
-format_schema_name | **string**<br>Required.   The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+cluster_id | **string**<br>Required.  false The maximum string length in characters is 50.
+format_schema_name | **string**<br>Required.  false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
 ### FormatSchema {#FormatSchema}
@@ -50,7 +50,7 @@ uri | **string**<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required.   The maximum string length in characters is 50.
+cluster_id | **string**<br>Required.  false The maximum string length in characters is 50.
 page_size | **int64**<br> The maximum value is 1000.
 page_token | **string**<br> The maximum string length in characters is 100.
 
@@ -59,7 +59,7 @@ page_token | **string**<br> The maximum string length in characters is 100.
 
 Field | Description
 --- | ---
-format_schemas[] | **[FormatSchema](#FormatSchema1)**<br> 
+format_schemas[] | **[FormatSchema](../format_schema.proto#FormatSchema1)**<br> 
 next_page_token | **string**<br> 
 
 
@@ -81,16 +81,16 @@ uri | **string**<br>
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateFormatSchemaMetadata](#CreateFormatSchemaMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[FormatSchema](#FormatSchema2)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[FormatSchema](../format_schema.proto#FormatSchema2)<br>
 
 ### CreateFormatSchemaRequest {#CreateFormatSchemaRequest}
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required.   The maximum string length in characters is 50.
-format_schema_name | **string**<br>Required.   The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
-type | enum **FormatSchemaType**<br>Required.  <ul><ul/>
-uri | **string**<br>Required.  
+cluster_id | **string**<br>Required.  false The maximum string length in characters is 50.
+format_schema_name | **string**<br>Required.  false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+type | enum **FormatSchemaType**<br>Required.  false<ul><ul/>
+uri | **string**<br>Required.  false
 
 
 ### Operation {#Operation}
@@ -106,7 +106,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateFormatSchemaMetadata](#CreateFormatSchemaMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[FormatSchema](#FormatSchema2)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[FormatSchema](../format_schema.proto#FormatSchema2)>**<br>if operation finished successfully. 
 
 
 ### CreateFormatSchemaMetadata {#CreateFormatSchemaMetadata}
@@ -135,14 +135,14 @@ uri | **string**<br>
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateFormatSchemaMetadata](#UpdateFormatSchemaMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[FormatSchema](#FormatSchema3)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[FormatSchema](../format_schema.proto#FormatSchema3)<br>
 
 ### UpdateFormatSchemaRequest {#UpdateFormatSchemaRequest}
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required.   The maximum string length in characters is 50.
-format_schema_name | **string**<br>Required.   The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+cluster_id | **string**<br>Required.  false The maximum string length in characters is 50.
+format_schema_name | **string**<br>Required.  false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br> 
 uri | **string**<br> 
 
@@ -160,7 +160,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateFormatSchemaMetadata](#UpdateFormatSchemaMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[FormatSchema](#FormatSchema3)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[FormatSchema](../format_schema.proto#FormatSchema3)>**<br>if operation finished successfully. 
 
 
 ### UpdateFormatSchemaMetadata {#UpdateFormatSchemaMetadata}
@@ -195,8 +195,8 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required.   The maximum string length in characters is 50.
-format_schema_name | **string**<br>Required.   The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+cluster_id | **string**<br>Required.  false The maximum string length in characters is 50.
+format_schema_name | **string**<br>Required.  false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
 ### Operation {#Operation}

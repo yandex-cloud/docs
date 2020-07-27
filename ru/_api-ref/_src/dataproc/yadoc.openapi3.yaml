@@ -478,6 +478,68 @@ paths:
               schema:
                 $ref: '#/components/schemas/Job'
       x-y-navtitle: get
+  /dataproc/v1/resourcePresets/{resourcePresetId}:
+    get:
+      tags:
+      - ResourcePreset
+      summary: Возвращает указанный ресурс ResourcePreset.
+      description: Чтобы получить список доступных ресурсов ResourcePreset, используйте
+        запрос [list](/docs/data-proc/api-ref/ResourcePreset/list).
+      operationId: ResourcePresetGet
+      parameters:
+      - name: resourcePresetId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор набора ресурсов, данные о котором запрашиваются. Чтобы получить
+          идентификатор набора ресурсов, используйте запрос [list](/docs/data-proc/api-ref/ResourcePreset/list).
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourcePreset'
+      x-y-navtitle: get
+  /dataproc/v1/resourcePresets:
+    get:
+      tags:
+      - ResourcePreset
+      summary: Получает список доступных ресурсов ResourcePreset.
+      operationId: ResourcePresetList
+      parameters:
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на запрос. Если количество
+          результатов больше чем [pageSize](/docs/data-proc/api-ref/ResourcePreset/list#query_params), сервис вернет значение [nextPageToken](/docs/data-proc/api-ref/ResourcePreset/list#responses),
+          которое можно использовать для получения следующей страницы.
+
+          Максимальное значение — 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение [pageToken](/docs/data-proc/api-ref/ResourcePreset/list#query_params) равным значению поля
+          [nextPageToken](/docs/data-proc/api-ref/ResourcePreset/list#responses) предыдущего запроса, чтобы получить следующую страницу
+          результатов.
+
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListResourcePresetsResponse'
+      x-y-navtitle: list
   /dataproc/v1/clusters/{clusterId}/subclusters/{subclusterId}:
     get:
       tags:
@@ -1277,6 +1339,24 @@ components:
             У каждой последующей страницы будет собственный `next_page_token`, чтобы можно было
             продолжать просматривать результаты.
           type: string
+    ListResourcePresetsResponse:
+      type: object
+      properties:
+        resourcePresets:
+          description: Список ресурсов ResourcePreset.
+          type: array
+          items:
+            $ref: '#/components/schemas/ResourcePreset'
+        nextPageToken:
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество
+            результатов больше чем [pageSize](/docs/data-proc/api-ref/ResourcePreset/list#query_params), используйте [nextPageToken](/docs/data-proc/api-ref/ResourcePreset/list#responses) в качестве
+            значения параметра [pageToken](/docs/data-proc/api-ref/ResourcePreset/list#query_params) в следующем запросе списка ресурсов. Все
+            последующие запросы будут получать свои значения [nextPageToken](/docs/data-proc/api-ref/ResourcePreset/list#responses) для перебора страниц
+            результатов.
+
+            Максимальная длина строки в символах — 100.
+          type: string
     ListSubclustersResponse:
       type: object
       properties:
@@ -1473,6 +1553,30 @@ components:
           type: array
           items:
             type: string
+    ResourcePreset:
+      description: Описание конфигурации ресурсов.
+      type: object
+      properties:
+        id:
+          description: Идентификатор конфигурации ресурсов.
+          type: string
+        zoneIds:
+          description: Идентификаторы зон доступности, в которых доступен данный набор
+            ресурсов.
+          type: array
+          items:
+            type: string
+        cores:
+          description: Количество ядер CPU для хоста Data Proc, созданного с данным
+            набором ресурсов.
+          type: string
+          format: int64
+        memory:
+          description: |-
+            Объем оперативной памяти для хоста Data Proc, созданного с данным набором ресурсов, в
+            байтах.
+          type: string
+          format: int64
     Resources:
       type: object
       properties:
@@ -2149,5 +2253,7 @@ tags:
   description: Набор методов для управления кластерами Data Proc.
 - name: Job
   description: Набор методов для управления задачами Data Proc.
+- name: ResourcePreset
+  description: Набор методов для управления ресурсами ResourcePreset.
 - name: Subcluster
   description: Набор методов для управления подкластерами Data Proc.

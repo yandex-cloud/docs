@@ -22,7 +22,7 @@ A set of methods for managing placement groups.
 
 Returns the specified placement group. <br>To get the list of all available placement groups, make a [List](#List) request.
 
-**rpc Get ([GetPlacementGroupRequest](#GetPlacementGroupRequest)) returns ([PlacementGroup](#PlacementGroup))**
+**rpc Get ([GetPlacementGroupRequest](#GetPlacementGroupRequest)) returns ([PlacementGroup](../placement_group.proto#PlacementGroup))**
 
 ### GetPlacementGroupRequest {#GetPlacementGroupRequest}
 
@@ -42,13 +42,12 @@ name | **string**<br>Name of the placement group. The name is unique within the 
 description | **string**<br>Description of the placement group. 0-256 characters long. 
 labels | **map<string,string>**<br>Placement group labels as `key:value` pairs. 
 placement_strategy | **oneof:** `spread_placement_strategy`<br>Placement strategy. To specify a placement strategy, send the corresponding field containing an empty structure.
-&nbsp;&nbsp;spread_placement_strategy | **[SpreadPlacementStrategy](#SpreadPlacementStrategy)**<br>Anti-affinity placement strategy (`spread`). Instances are distributed over distinct failure domains. 
+&nbsp;&nbsp;spread_placement_strategy | **[SpreadPlacementStrategy](../placement_group.proto#SpreadPlacementStrategy)**<br>Anti-affinity placement strategy (`spread`). Instances are distributed over distinct failure domains. 
 
 
 ### SpreadPlacementStrategy {#SpreadPlacementStrategy}
 
-This is an empty structure that must be passed to explicitly 
-specify the required placement strategy.
+
 
 ## List {#List}
 
@@ -63,14 +62,14 @@ Field | Description
 folder_id | **string**<br>ID of the folder to list placement groups in. <br>To get the folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. 
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListPlacementGroupsResponse.next_page_token](#ListPlacementGroupsResponse) that can be used to get the next page of results in subsequent list requests. 
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListPlacementGroupsResponse.next_page_token](#ListPlacementGroupsResponse) returned by a previous list request. 
-filter | **string**<br>A filter expression that filters resources listed in the response. Currently you can use filtering only on the [PlacementGroup.name](#PlacementGroup1) field. 
+filter | **string**<br>A filter expression that filters resources listed in the response. Currently you can use filtering only on the [PlacementGroup.name](../placement_group.proto#PlacementGroup1) field. 
 
 
 ### ListPlacementGroupsResponse {#ListPlacementGroupsResponse}
 
 Field | Description
 --- | ---
-placement_groups[] | **[PlacementGroup](#PlacementGroup1)**<br>Lists placement groups in the specified folder. 
+placement_groups[] | **[PlacementGroup](../placement_group.proto#PlacementGroup1)**<br>Lists placement groups in the specified folder. 
 next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListPlacementGroupsRequest.page_size](#ListPlacementGroupsRequest1), use `next_page_token` as the value for the [ListPlacementGroupsRequest.page_token](#ListPlacementGroupsRequest1) parameter in the next list request. <br>Each subsequent page will have its own `next_page_token` to continue paging through the results. 
 
 
@@ -85,13 +84,12 @@ name | **string**<br>Name of the placement group. The name is unique within the 
 description | **string**<br>Description of the placement group. 0-256 characters long. 
 labels | **map<string,string>**<br>Placement group labels as `key:value` pairs. 
 placement_strategy | **oneof:** `spread_placement_strategy`<br>Placement strategy. To specify a placement strategy, send the corresponding field containing an empty structure.
-&nbsp;&nbsp;spread_placement_strategy | **[SpreadPlacementStrategy](#SpreadPlacementStrategy1)**<br>Anti-affinity placement strategy (`spread`). Instances are distributed over distinct failure domains. 
+&nbsp;&nbsp;spread_placement_strategy | **[SpreadPlacementStrategy](../placement_group.proto#SpreadPlacementStrategy1)**<br>Anti-affinity placement strategy (`spread`). Instances are distributed over distinct failure domains. 
 
 
 ### SpreadPlacementStrategy {#SpreadPlacementStrategy}
 
-This is an empty structure that must be passed to explicitly 
-specify the required placement strategy.
+
 
 ## Create {#Create}
 
@@ -101,7 +99,7 @@ Creates a placement group in the specified folder.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreatePlacementGroupMetadata](#CreatePlacementGroupMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[PlacementGroup](#PlacementGroup2)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[PlacementGroup](../placement_group.proto#PlacementGroup2)<br>
 
 ### CreatePlacementGroupRequest {#CreatePlacementGroupRequest}
 
@@ -112,13 +110,12 @@ name | **string**<br>Name of the placement group.
 description | **string**<br>Description of the placement group. 
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
 placement_strategy | **oneof:** `spread_placement_strategy`<br>Placement strategy.
-&nbsp;&nbsp;spread_placement_strategy | **[SpreadPlacementStrategy](#SpreadPlacementStrategy2)**<br>Anti-affinity placement strategy (`spread`). Instances are distributed over distinct failure domains. 
+&nbsp;&nbsp;spread_placement_strategy | **[SpreadPlacementStrategy](../placement_group.proto#SpreadPlacementStrategy2)**<br>Anti-affinity placement strategy (`spread`). Instances are distributed over distinct failure domains. 
 
 
 ### SpreadPlacementStrategy {#SpreadPlacementStrategy}
 
-This is an empty structure that must be passed to explicitly 
-specify the required placement strategy.
+
 
 ### Operation {#Operation}
 
@@ -133,7 +130,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreatePlacementGroupMetadata](#CreatePlacementGroupMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[PlacementGroup](#PlacementGroup2)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[PlacementGroup](../placement_group.proto#PlacementGroup2)>**<br>if operation finished successfully. 
 
 
 ### CreatePlacementGroupMetadata {#CreatePlacementGroupMetadata}
@@ -154,7 +151,7 @@ name | **string**<br>Name of the placement group. The name is unique within the 
 description | **string**<br>Description of the placement group. 0-256 characters long. 
 labels | **map<string,string>**<br>Placement group labels as `key:value` pairs. 
 placement_strategy | **oneof:** `spread_placement_strategy`<br>Placement strategy. To specify a placement strategy, send the corresponding field containing an empty structure.
-&nbsp;&nbsp;spread_placement_strategy | **[SpreadPlacementStrategy](#SpreadPlacementStrategy3)**<br>Anti-affinity placement strategy (`spread`). Instances are distributed over distinct failure domains. 
+&nbsp;&nbsp;spread_placement_strategy | **[SpreadPlacementStrategy](../placement_group.proto#SpreadPlacementStrategy3)**<br>Anti-affinity placement strategy (`spread`). Instances are distributed over distinct failure domains. 
 
 
 ## Update {#Update}
@@ -165,7 +162,7 @@ Updates the specified placement group.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdatePlacementGroupMetadata](#UpdatePlacementGroupMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[PlacementGroup](#PlacementGroup3)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[PlacementGroup](../placement_group.proto#PlacementGroup3)<br>
 
 ### UpdatePlacementGroupRequest {#UpdatePlacementGroupRequest}
 
@@ -191,7 +188,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdatePlacementGroupMetadata](#UpdatePlacementGroupMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[PlacementGroup](#PlacementGroup3)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[PlacementGroup](../placement_group.proto#PlacementGroup3)>**<br>if operation finished successfully. 
 
 
 ### UpdatePlacementGroupMetadata {#UpdatePlacementGroupMetadata}
@@ -212,7 +209,7 @@ name | **string**<br>Name of the placement group. The name is unique within the 
 description | **string**<br>Description of the placement group. 0-256 characters long. 
 labels | **map<string,string>**<br>Placement group labels as `key:value` pairs. 
 placement_strategy | **oneof:** `spread_placement_strategy`<br>Placement strategy. To specify a placement strategy, send the corresponding field containing an empty structure.
-&nbsp;&nbsp;spread_placement_strategy | **[SpreadPlacementStrategy](#SpreadPlacementStrategy3)**<br>Anti-affinity placement strategy (`spread`). Instances are distributed over distinct failure domains. 
+&nbsp;&nbsp;spread_placement_strategy | **[SpreadPlacementStrategy](../placement_group.proto#SpreadPlacementStrategy3)**<br>Anti-affinity placement strategy (`spread`). Instances are distributed over distinct failure domains. 
 
 
 ## Delete {#Delete}
@@ -274,7 +271,7 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 
 Field | Description
 --- | ---
-instances[] | **[Instance](#Instance)**<br>Lists instances for the specified placement group. 
+instances[] | **[Instance](../instance.proto#Instance)**<br>Lists instances for the specified placement group. 
 next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is more than [ListPlacementGroupInstancesRequest.page_size](#ListPlacementGroupInstancesRequest1), use `next_page_token` as the value for the [ListPlacementGroupInstancesRequest.page_token](#ListPlacementGroupInstancesRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
@@ -290,17 +287,17 @@ description | **string**<br>Description of the instance. 0-256 characters long.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
 zone_id | **string**<br>ID of the availability zone where the instance resides. 
 platform_id | **string**<br>ID of the hardware platform configuration for the instance. 
-resources | **[Resources](#Resources)**<br>Computing resources of the instance such as the amount of memory and number of cores. 
+resources | **[Resources](../instance.proto#Resources)**<br>Computing resources of the instance such as the amount of memory and number of cores. 
 status | enum **Status**<br>Status of the instance. <ul><li>`PROVISIONING`: Instance is waiting for resources to be allocated.</li><li>`RUNNING`: Instance is running normally.</li><li>`STOPPING`: Instance is being stopped.</li><li>`STOPPED`: Instance stopped.</li><li>`STARTING`: Instance is being started.</li><li>`RESTARTING`: Instance is being restarted.</li><li>`UPDATING`: Instance is being updated.</li><li>`ERROR`: Instance encountered a problem and cannot operate.</li><li>`CRASHED`: Instance crashed and will be restarted automatically.</li><li>`DELETING`: Instance is being deleted.</li><ul/>
 metadata | **map<string,string>**<br>The metadata `key:value` pairs assigned to this instance. This includes custom metadata and predefined keys. <br>For example, you may use the metadata in order to provide your public SSH key to the instance. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). 
-boot_disk | **[AttachedDisk](#AttachedDisk)**<br>Boot disk that is attached to the instance. 
-secondary_disks[] | **[AttachedDisk](#AttachedDisk)**<br>Array of secondary disks that are attached to the instance. 
-network_interfaces[] | **[NetworkInterface](#NetworkInterface)**<br>Array of network interfaces that are attached to the instance. 
+boot_disk | **[AttachedDisk](../instance.proto#AttachedDisk)**<br>Boot disk that is attached to the instance. 
+secondary_disks[] | **[AttachedDisk](../instance.proto#AttachedDisk)**<br>Array of secondary disks that are attached to the instance. 
+network_interfaces[] | **[NetworkInterface](../instance.proto#NetworkInterface)**<br>Array of network interfaces that are attached to the instance. 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
-scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy)**<br>Scheduling policy configuration. 
+scheduling_policy | **[SchedulingPolicy](../instance.proto#SchedulingPolicy)**<br>Scheduling policy configuration. 
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/grpc/service_account_service#List) request. 
-network_settings | **[NetworkSettings](#NetworkSettings)**<br>Do not specify this field, network settings are not supported yet. 
-placement_policy | **[PlacementPolicy](#PlacementPolicy)**<br>Placement policy configuration. 
+network_settings | **[NetworkSettings](../instance.proto#NetworkSettings)**<br>Network Settings 
+placement_policy | **[PlacementPolicy](../instance.proto#PlacementPolicy)**<br>Placement policy configuration. 
 
 
 ### Resources {#Resources}
@@ -330,8 +327,9 @@ Field | Description
 index | **string**<br>The index of the network interface, generated by the server, 0,1,2... etc. Currently only one network interface is supported per instance. 
 mac_address | **string**<br>MAC address that is assigned to the network interface. 
 subnet_id | **string**<br>ID of the subnet. 
-primary_v4_address | **[PrimaryAddress](#PrimaryAddress)**<br>Primary IPv4 address that is assigned to the instance for this network interface. 
-primary_v6_address | **[PrimaryAddress](#PrimaryAddress)**<br>Primary IPv6 address that is assigned to the instance for this network interface. IPv6 not available yet. 
+primary_v4_address | **[PrimaryAddress](../instance.proto#PrimaryAddress)**<br>Primary IPv4 address that is assigned to the instance for this network interface. 
+primary_v6_address | **[PrimaryAddress](../instance.proto#PrimaryAddress)**<br>Primary IPv6 address that is assigned to the instance for this network interface. IPv6 not available yet. 
+security_group_ids[] | **string**<br>ID's of security groups attached to the interface 
 
 
 ### PrimaryAddress {#PrimaryAddress}
@@ -339,7 +337,7 @@ primary_v6_address | **[PrimaryAddress](#PrimaryAddress)**<br>Primary IPv6 addre
 Field | Description
 --- | ---
 address | **string**<br>An IPv4 internal network address that is assigned to the instance for this network interface. 
-one_to_one_nat | **[OneToOneNat](#OneToOneNat)**<br>One-to-one NAT configuration. If missing, NAT has not been set up. 
+one_to_one_nat | **[OneToOneNat](../instance.proto#OneToOneNat)**<br>One-to-one NAT configuration. If missing, NAT has not been set up. 
 
 
 ### OneToOneNat {#OneToOneNat}
@@ -361,7 +359,7 @@ preemptible | **bool**<br>True for short-lived compute instances. For more infor
 
 Field | Description
 --- | ---
-type | enum **[Type](./disk_type#undefined)**<br>Do not specify this field, network settings are not supported yet. <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li><ul/>
+type | enum **[Type](./disk_type#undefined)**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li><ul/>
 
 
 ### PlacementPolicy {#PlacementPolicy}

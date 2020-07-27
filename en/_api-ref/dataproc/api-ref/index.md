@@ -9,4 +9,5 @@ Resource | Description
 --- | ---
 [Cluster](Cluster/index.md) | A set of methods for managing Data Proc clusters.
 [Job](Job/index.md) | A set of methods for managing Data Proc jobs.
+[ResourcePreset](ResourcePreset/index.md) | A set of methods for managing ResourcePreset resources.
 [Subcluster](Subcluster/index.md) | A set of methods for managing Data Proc subclusters.

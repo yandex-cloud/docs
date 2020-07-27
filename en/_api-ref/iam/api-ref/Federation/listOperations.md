@@ -22,7 +22,7 @@ federationId | ID of the federation to list operations for.  The maximum string 
  
 Parameter | Description
 --- | ---
-pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/iam/api-ref/Federation/listOperations#query_params), the service returns a [ListFederationOperationsOperationsResponse.next_page_token] that can be used to get the next page of results in subsequent list requests. Default value: 100.  Acceptable values are 0 to 1000, inclusive.
+pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/iam/api-ref/Federation/listOperations#query_params), the service returns a [nextPageToken](/docs/iam/api-ref/Federation/listOperations#responses) that can be used to get the next page of results in subsequent list requests. Default value: 100.  Acceptable values are 0 to 1000, inclusive.
 pageToken | Page token. To get the next page of results, set [pageToken](/docs/iam/api-ref/Federation/listOperations#query_params) to the [nextPageToken](/docs/iam/api-ref/Federation/listOperations#responses) returned by a previous list request.  The maximum string length in characters is 100.
  
 ## Response {#responses}

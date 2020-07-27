@@ -17,13 +17,13 @@ A set of methods for managing resource presets.
 
 Returns the specified resource preset. <br>To get the list of available resource presets, make a [List](#List) request.
 
-**rpc Get ([GetResourcePresetRequest](#GetResourcePresetRequest)) returns ([ResourcePreset](#ResourcePreset))**
+**rpc Get ([GetResourcePresetRequest](#GetResourcePresetRequest)) returns ([ResourcePreset](../resource_preset.proto#ResourcePreset))**
 
 ### GetResourcePresetRequest {#GetResourcePresetRequest}
 
 Field | Description
 --- | ---
-resource_preset_id | **string**<br>Required. ID of the resource preset to return. To get the resource preset ID, use a [ResourcePresetService.List](#List) request. 
+resource_preset_id | **string**<br>Required. ID of the resource preset to return. To get the resource preset ID, use a [ResourcePresetService.List](#List) request. false
 
 
 ### ResourcePreset {#ResourcePreset}
@@ -54,7 +54,7 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 
 Field | Description
 --- | ---
-resource_presets[] | **[ResourcePreset](#ResourcePreset1)**<br>List of resource presets. 
+resource_presets[] | **[ResourcePreset](../resource_preset.proto#ResourcePreset1)**<br>List of resource presets. 
 next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListResourcePresetsRequest.page_size](#ListResourcePresetsRequest1), use the `next_page_token` as the value for the [ListResourcePresetsRequest.page_token](#ListResourcePresetsRequest1) parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. The maximum string length in characters is 100.
 
 

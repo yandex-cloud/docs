@@ -27,7 +27,16 @@ subnetId | Required. ID of the Subnet resource to update.  The maximum string le
   "name": "string",
   "description": "string",
   "labels": "object",
-  "routeTableId": "string"
+  "routeTableId": "string",
+  "dhcpOptions": {
+    "domainNameServers": [
+      "string"
+    ],
+    "domainName": "string",
+    "ntpServers": [
+      "string"
+    ]
+  }
 }
 ```
 
@@ -39,6 +48,10 @@ name | **string**<br><p>Name of the subnet. The name must be unique within the f
 description | **string**<br><p>Description of the subnet.</p> <p>The maximum string length in characters is 256.</p> 
 labels | **object**<br><p>Resource labels as <code>key:value</code> pairs.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression <code>[a-z][-_0-9a-z]*</code>. The maximum string length in characters for each value is 63. Each value must match the regular expression <code>[-_0-9a-z]*</code>.</p> 
 routeTableId | **string**<br><p>ID of route table the subnet is linked to.</p> <p>The maximum string length in characters is 50.</p> 
+dhcpOptions | **object**<br>
+dhcpOptions.<br>domainNameServers[] | **string**<br>
+dhcpOptions.<br>domainName | **string**<br>
+dhcpOptions.<br>ntpServers[] | **string**<br>
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

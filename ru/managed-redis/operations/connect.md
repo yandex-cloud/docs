@@ -55,7 +55,7 @@
    $ sudo wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" -O /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt
    ```
 
-1. Создайте переменную, содержащую адрес и порт хоста, а также имя мастера БД.
+1. Создайте переменную, содержащую имя и порт хоста, а также имя мастера БД.
 
    ```
    $ host=$(redis-cli -h <адрес хоста> -p 26379 sentinel get-master-addr-by-name <имя кластера> | head -n 1)

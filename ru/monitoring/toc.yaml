@@ -7,14 +7,14 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
-      - name: Работа с графиками
+      - name: Работа с метриками
         items:
-          - name: Создание графика с помощью конструктора запроса
-            href: operations/chart/create.md
-          - name: Создание графика с помощью текстового запроса
-            href: operations/chart/create-query.md
-          - name: Удаление графика
-            href: operations/chart/delete-chart.md
+          - name: Получение списка метрик
+            href: operations/metric/list.md
+          - name: Выгрузка метрик
+            href: operations/metric/get.md
+          - name: Запись пользовательских метрик
+            href: operations/metric/add.md
       - name: Работа с дашбордами
         items:
           - name: Создание дашборда
@@ -27,14 +27,6 @@ items:
             href: operations/dashboard/delete-widget.md
           - name: Удаление дашборда
             href: operations/dashboard/delete-dashboard.md
-      - name: Работа с метриками
-        items:
-          - name: Получение списка метрик
-            href: operations/metric/list.md
-          - name: Выгрузка метрик
-            href: operations/metric/get.md
-          - name: Запись пользовательских метрик
-            href: operations/metric/add.md
       - name: Работа с алертами
         items:
           - name: Создание алерта
@@ -53,12 +45,18 @@ items:
         items:
           - name: Обзор
             href: concepts/visualization/index.md
+          - name: Строка запроса
+            href: concepts/visualization/query-string.md
           - name: Виджеты
             href: concepts/visualization/widget.md
           - name: Дашборд
             href: concepts/visualization/dashboard.md
+      - name: Язык запросов
+        href: concepts/querying.md
       - name: Алертинг
         href: concepts/alerting.md
+      - name: Удаление устаревших метрик (TTL)
+        href: concepts/ttl.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Управление доступом

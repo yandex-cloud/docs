@@ -17,13 +17,13 @@ A set of methods for managing Role resources.
 
 Returns the specified Role resource. <br>To get the list of available Role resources, make a [List](#List) request.
 
-**rpc Get ([GetRoleRequest](#GetRoleRequest)) returns ([Role](#Role))**
+**rpc Get ([GetRoleRequest](#GetRoleRequest)) returns ([Role](../role.proto#Role))**
 
 ### GetRoleRequest {#GetRoleRequest}
 
 Field | Description
 --- | ---
-role_id | **string**<br>Required. ID of the Role resource to return. To get the role ID, use a [RoleService.List](#List) request.  The maximum string length in characters is 50.
+role_id | **string**<br>Required. ID of the Role resource to return. To get the role ID, use a [RoleService.List](#List) request. false The maximum string length in characters is 50.
 
 
 ### Role {#Role}
@@ -53,7 +53,7 @@ filter | **string**<br>A filter expression that filters resources listed in the 
 
 Field | Description
 --- | ---
-roles[] | **[Role](#Role1)**<br>List of Role resources. 
+roles[] | **[Role](../role.proto#Role1)**<br>List of Role resources. 
 next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListRolesRequest.page_size](#ListRolesRequest1), use the `next_page_token` as the value for the [ListRolesRequest.page_token](#ListRolesRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 

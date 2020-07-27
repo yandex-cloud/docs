@@ -36,7 +36,8 @@ A set of methods for managing Data Proc clusters.
   "status": "string",
   "zoneId": "string",
   "serviceAccountId": "string",
-  "bucket": "string"
+  "bucket": "string",
+  "uiProxy": true
 }
 ```
  
@@ -63,6 +64,7 @@ status | **string**<br><p>Cluster status.</p> <ul> <li>STATUS_UNKNOWN: Cluster s
 zoneId | **string**<br><p>ID of the availability zone where the cluster resides.</p> 
 serviceAccountId | **string**<br><p>ID of service account for the Data Proc manager agent.</p> 
 bucket | **string**<br><p>Object Storage bucket to be used for Data Proc jobs that are run in the cluster.</p> 
+uiProxy | **boolean** (boolean)<br><p>Whether UI Proxy feature is enabled.</p> 
 
 ## Methods {#methods}
 Method | Description
@@ -73,6 +75,7 @@ Method | Description
 [list](list.md) | Retrieves the list of clusters in the specified folder.
 [listHosts](listHosts.md) | Retrieves the list of hosts in the specified cluster.
 [listOperations](listOperations.md) | Lists operations for the specified cluster.
+[listUILinks](listUILinks.md) | Retrieves a list of links to web interfaces being proxied by Data Proc UI Proxy.
 [start](start.md) | Starts the specified cluster.
 [stop](stop.md) | Stops the specified cluster.
 [update](update.md) | Updates the configuration of the specified cluster.
