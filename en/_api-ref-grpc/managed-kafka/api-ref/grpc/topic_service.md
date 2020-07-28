@@ -20,7 +20,7 @@ A set of methods for managing Apache Kafka Topic resources.
 
 Returns the specified Apache Kafka Topic resource. <br>To get the list of available Apache Kafka Topic resources, make a [List](#List) request.
 
-**rpc Get ([GetTopicRequest](#GetTopicRequest)) returns ([Topic](#Topic))**
+**rpc Get ([GetTopicRequest](#GetTopicRequest)) returns ([Topic](../topic.proto#Topic))**
 
 ### GetTopicRequest {#GetTopicRequest}
 
@@ -39,7 +39,7 @@ cluster_id | **string**<br>ID of the Apache Kafka cluster that the topic belongs
 partitions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Number of topic partitions. 
 replication_factor | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Amount of copies of a topic data kept in a cluster. 
 topic_config | **oneof:** `topic_config_2_1`<br>User-defined settings for a topic.
-&nbsp;&nbsp;topic_config_2_1 | **[TopicConfig2_1](#TopicConfig2_1)**<br>User-defined settings for a topic. 
+&nbsp;&nbsp;topic_config_2_1 | **[TopicConfig2_1](../topic.proto#TopicConfig2_1)**<br>User-defined settings for a topic. 
 
 
 ### TopicConfig2_1 {#TopicConfig2_1}
@@ -76,7 +76,7 @@ page_token | **string**<br>Page token. To get the next page of results, Set `pag
 
 Field | Description
 --- | ---
-topics[] | **[Topic](#Topic1)**<br>List of Apache Kafka Topic resources. 
+topics[] | **[Topic](../topic.proto#Topic1)**<br>List of Apache Kafka Topic resources. 
 next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListTopicsRequest.page_size](#ListTopicsRequest1), use the `next_page_token` as the value for the [ListTopicsRequest.page_token](#ListTopicsRequest1) parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
@@ -89,7 +89,7 @@ cluster_id | **string**<br>ID of the Apache Kafka cluster that the topic belongs
 partitions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Number of topic partitions. 
 replication_factor | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Amount of copies of a topic data kept in a cluster. 
 topic_config | **oneof:** `topic_config_2_1`<br>User-defined settings for a topic.
-&nbsp;&nbsp;topic_config_2_1 | **[TopicConfig2_1](#TopicConfig2_11)**<br>User-defined settings for a topic. 
+&nbsp;&nbsp;topic_config_2_1 | **[TopicConfig2_1](../topic.proto#TopicConfig2_11)**<br>User-defined settings for a topic. 
 
 
 ### TopicConfig2_1 {#TopicConfig2_1}
@@ -115,14 +115,14 @@ Creates a new Apache Kafka topic in the specified cluster.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateTopicMetadata](#CreateTopicMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Topic](#Topic2)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Topic](../topic.proto#Topic2)<br>
 
 ### CreateTopicRequest {#CreateTopicRequest}
 
 Field | Description
 --- | ---
 cluster_id | **string**<br>Required. Required. ID of the Apache Kafka cluster to create a topic in. To get the cluster ID use a [ClusterService.List](./cluster_service#List) request. false The maximum string length in characters is 50.
-topic_spec | **[TopicSpec](#TopicSpec)**<br>Required. Required. Configuration of the topic to create. false
+topic_spec | **[TopicSpec](../topic.proto#TopicSpec)**<br>Required. Required. Configuration of the topic to create. false
 
 
 ### TopicSpec {#TopicSpec}
@@ -133,7 +133,7 @@ name | **string**<br>Name of the topic.
 partitions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Number of topic partitions 
 replication_factor | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Amount of copies of a topic data kept in a cluster. 
 topic_config | **oneof:** `topic_config_2_1`<br>User-defined settings for a topic.
-&nbsp;&nbsp;topic_config_2_1 | **[TopicConfig2_1](#TopicConfig2_12)**<br>User-defined settings for a topic. 
+&nbsp;&nbsp;topic_config_2_1 | **[TopicConfig2_1](../topic.proto#TopicConfig2_12)**<br>User-defined settings for a topic. 
 
 
 ### TopicConfig2_1 {#TopicConfig2_1}
@@ -164,7 +164,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateTopicMetadata](#CreateTopicMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Topic](#Topic2)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Topic](../topic.proto#Topic2)>**<br>if operation finished successfully. 
 
 
 ### CreateTopicMetadata {#CreateTopicMetadata}
@@ -184,7 +184,7 @@ cluster_id | **string**<br>ID of the Apache Kafka cluster that the topic belongs
 partitions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Number of topic partitions. 
 replication_factor | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Amount of copies of a topic data kept in a cluster. 
 topic_config | **oneof:** `topic_config_2_1`<br>User-defined settings for a topic.
-&nbsp;&nbsp;topic_config_2_1 | **[TopicConfig2_1](#TopicConfig2_13)**<br>User-defined settings for a topic. 
+&nbsp;&nbsp;topic_config_2_1 | **[TopicConfig2_1](../topic.proto#TopicConfig2_13)**<br>User-defined settings for a topic. 
 
 
 ## Update {#Update}
@@ -195,7 +195,7 @@ Updates the specified Apache Kafka topic.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateTopicMetadata](#UpdateTopicMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Topic](#Topic3)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Topic](../topic.proto#Topic3)<br>
 
 ### UpdateTopicRequest {#UpdateTopicRequest}
 
@@ -204,7 +204,7 @@ Field | Description
 cluster_id | **string**<br>Required. Required. ID of the Apache Kafka cluster to update a topic in. To get the cluster ID use a [ClusterService.List](./cluster_service#List) request. false The maximum string length in characters is 50.
 topic_name | **string**<br>Required. Required. Name of the topic to update. To get the name of the topic use a [TopicService.List](#List) request. false The string length in characters must be 1-63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the Topic resource should be updated. 
-topic_spec | **[TopicSpec](#TopicSpec1)**<br>Required. Configuration of the topic to create. 
+topic_spec | **[TopicSpec](../topic.proto#TopicSpec1)**<br>Required. Configuration of the topic to create. 
 
 
 ### TopicSpec {#TopicSpec}
@@ -215,7 +215,7 @@ name | **string**<br>Name of the topic.
 partitions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Number of topic partitions 
 replication_factor | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Amount of copies of a topic data kept in a cluster. 
 topic_config | **oneof:** `topic_config_2_1`<br>User-defined settings for a topic.
-&nbsp;&nbsp;topic_config_2_1 | **[TopicConfig2_1](#TopicConfig2_13)**<br>User-defined settings for a topic. 
+&nbsp;&nbsp;topic_config_2_1 | **[TopicConfig2_1](../topic.proto#TopicConfig2_13)**<br>User-defined settings for a topic. 
 
 
 ### TopicConfig2_1 {#TopicConfig2_1}
@@ -246,7 +246,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateTopicMetadata](#UpdateTopicMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Topic](#Topic3)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Topic](../topic.proto#Topic3)>**<br>if operation finished successfully. 
 
 
 ### UpdateTopicMetadata {#UpdateTopicMetadata}
@@ -266,7 +266,7 @@ cluster_id | **string**<br>ID of the Apache Kafka cluster that the topic belongs
 partitions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Number of topic partitions. 
 replication_factor | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Amount of copies of a topic data kept in a cluster. 
 topic_config | **oneof:** `topic_config_2_1`<br>User-defined settings for a topic.
-&nbsp;&nbsp;topic_config_2_1 | **[TopicConfig2_1](#TopicConfig2_14)**<br>User-defined settings for a topic. 
+&nbsp;&nbsp;topic_config_2_1 | **[TopicConfig2_1](../topic.proto#TopicConfig2_14)**<br>User-defined settings for a topic. 
 
 
 ## Delete {#Delete}

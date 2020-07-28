@@ -365,6 +365,31 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListClusterHostsResponse'
       x-y-navtitle: listHosts
+  /dataproc/v1/clusters/{clusterId}/ui_links:
+    get:
+      tags:
+      - Cluster
+      summary: Retrieves a list of links to web interfaces being proxied by Data Proc
+        UI Proxy.
+      operationId: ClusterListUILinks
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required. ID of the Hadoop cluster.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListUILinksResponse'
+      x-y-navtitle: listUILinks
   /dataproc/v1/clusters/{clusterId}/jobs:
     get:
       tags:
@@ -900,6 +925,10 @@ components:
           description: Object Storage bucket to be used for Data Proc jobs that are
             run in the cluster.
           type: string
+        uiProxy:
+          description: Whether UI Proxy feature is enabled.
+          type: boolean
+          format: boolean
     ClusterConfig:
       type: object
       properties:
@@ -1007,6 +1036,10 @@ components:
         bucket:
           description: Name of the Object Storage bucket to use for Data Proc jobs.
           type: string
+        uiProxy:
+          description: Enable UI Proxy feature.
+          type: boolean
+          format: boolean
     CreateJobMetadata:
       type: object
       properties:
@@ -1455,6 +1488,14 @@ components:
 
             Each subsequent page will have its own `next_page_token` to continue paging through the results.
           type: string
+    ListUILinksResponse:
+      type: object
+      properties:
+        links:
+          description: Requested list of ui links.
+          type: array
+          items:
+            $ref: '#/components/schemas/UILink'
     MapreduceJob:
       type: object
       allOf:
@@ -1785,6 +1826,13 @@ components:
           description: Number of hosts in the subcluster.
           type: string
           format: int64
+    UILink:
+      type: object
+      properties:
+        name:
+          type: string
+        url:
+          type: string
     UpdateClusterConfigSpec:
       type: object
       properties:
@@ -1845,6 +1893,10 @@ components:
             Acceptable values are 0 to 86400, inclusive.
           type: string
           format: int64
+        uiProxy:
+          description: Enable UI Proxy feature.
+          type: boolean
+          format: boolean
     UpdateSubclusterConfigSpec:
       type: object
       properties:

@@ -60,6 +60,13 @@ paths:
         required: true
         schema:
           type: string
+      - name: deviceView
+        in: query
+        description: |-
+          Specifies which parts of the device resource should be returned
+          in the response.
+        schema:
+          $ref: '#/components/schemas/DeviceView'
       responses:
         "200":
           description: OK
@@ -180,6 +187,13 @@ paths:
           The maximum string length in characters is 100.
         schema:
           type: string
+      - name: deviceView
+        in: query
+        description: |-
+          Specifies which parts of the device resource should be returned
+          in the response.
+        schema:
+          $ref: '#/components/schemas/DeviceView'
       responses:
         "200":
           description: OK
@@ -1274,6 +1288,8 @@ components:
             type: string
         status:
           $ref: '#/components/schemas/DeviceStatus_in_Device_status'
+        monitoringData:
+          $ref: '#/components/schemas/DeviceMonitoringData_in_Device_monitoringData'
     DeviceAlias:
       description: |-
         A device topic alias.
@@ -1311,6 +1327,31 @@ components:
             String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
+    DeviceMonitoringData:
+      type: object
+      properties:
+        lastAuthIp:
+          type: string
+        lastAuthTime:
+          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+            format.
+          type: string
+          format: date-time
+        lastPubActivityTime:
+          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+            format.
+          type: string
+          format: date-time
+        lastSubActivityTime:
+          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+            format.
+          type: string
+          format: date-time
+        lastOnlineTime:
+          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+            format.
+          type: string
+          format: date-time
     DevicePassword:
       description: A device password.
       type: object
@@ -1338,6 +1379,16 @@ components:
       - CREATING
       - ACTIVE
       - DELETING
+    DeviceView:
+      description: |2-
+         - BASIC: Server responses without monitoring data.
+        The default value.
+         - FULL: Server responses with monitoring data.
+      type: string
+      enum:
+      - BASIC
+      - FULL
+      default: BASIC
     Empty:
       description: Empty JSON object `` {} ``.
       type: object
@@ -1741,6 +1792,32 @@ components:
       - CREATING
       - ACTIVE
       - DELETING
+    DeviceMonitoringData_in_Device_monitoringData:
+      description: Device monitoring data, returns if FULL view specified.
+      type: object
+      properties:
+        lastAuthIp:
+          type: string
+        lastAuthTime:
+          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+            format.
+          type: string
+          format: date-time
+        lastPubActivityTime:
+          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+            format.
+          type: string
+          format: date-time
+        lastSubActivityTime:
+          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+            format.
+          type: string
+          format: date-time
+        lastOnlineTime:
+          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+            format.
+          type: string
+          format: date-time
     RegistryStatus_in_Registry_status:
       description: |-
         Status of the registry.

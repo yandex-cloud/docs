@@ -42,7 +42,8 @@ clusterId | ID of the cluster to update.  To get the cluster ID, make a [list](/
   "name": "string",
   "serviceAccountId": "string",
   "bucket": "string",
-  "decommissionTimeout": "string"
+  "decommissionTimeout": "string",
+  "uiProxy": true
 }
 ```
 
@@ -65,6 +66,7 @@ name | **string**<br><p>New name for the Data Proc cluster. The name must be uni
 serviceAccountId | **string**<br><p>ID of the new service account to be used by the Data Proc manager agent.</p> 
 bucket | **string**<br><p>Name of the new Object Storage bucket to use for Data Proc jobs.</p> 
 decommissionTimeout | **string** (int64)<br><p>Timeout to gracefully decommission nodes. In seconds. Default value: 0</p> <p>Acceptable values are 0 to 86400, inclusive.</p> 
+uiProxy | **boolean** (boolean)<br><p>Enable UI Proxy feature.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

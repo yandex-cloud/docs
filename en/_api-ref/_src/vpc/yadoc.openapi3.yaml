@@ -1053,6 +1053,11 @@ components:
         Fields specified in the request will be updated to provided values.
         The rest of the fields will be reset to the default.
       type: string
+    IpVersion:
+      type: string
+      enum:
+      - IPV4
+      - IPV6
     ListNetworkOperationsResponse:
       type: object
       properties:
@@ -1184,6 +1189,15 @@ components:
             for the [pageToken](/docs/vpc/api-ref/Subnet/list#query_params) query parameter
             in the next list request. Subsequent list requests will have their own
             [nextPageToken](/docs/vpc/api-ref/Subnet/list#responses) to continue paging through the results.
+          type: string
+    ListUsedAddressesResponse:
+      type: object
+      properties:
+        addresses:
+          type: array
+          items:
+            $ref: '#/components/schemas/UsedAddress'
+        nextPageToken:
           type: string
     MoveNetworkMetadata:
       type: object
@@ -1337,6 +1351,31 @@ components:
           description: Acceptable values are 0 to 65535, inclusive.
           type: string
           format: int64
+    Reference:
+      type: object
+      properties:
+        referrer:
+          $ref: '#/components/schemas/Referrer_in_Reference_referrer'
+        type:
+          $ref: '#/components/schemas/ReferenceType_in_Reference_type'
+    ReferenceType:
+      type: string
+      enum:
+      - MANAGED_BY
+      - USED_BY
+    Referrer:
+      type: object
+      properties:
+        type:
+          description: |-
+            * `type = compute.instance, id = <instance id>`
+            * `type = compute.instanceGroup, id = <instanceGroup id>`
+            * `type = loadbalancer.networkLoadBalancer, id = <networkLoadBalancer id>`
+            * `type = managed-kubernetes.cluster, id = <cluster id>`
+            * `type = managed-mysql.cluster, id = <cluster id>`
+          type: string
+        id:
+          type: string
     RouteTable:
       description: A RouteTable resource. For more information, see [Static Routes](/docs/vpc/concepts/static-routes).
       type: object
@@ -1706,6 +1745,17 @@ components:
           type: string
         dhcpOptions:
           $ref: '#/components/schemas/DhcpOptions_in_UpdateSubnetRequest_dhcpOptions'
+    UsedAddress:
+      type: object
+      properties:
+        address:
+          type: string
+        ipVersion:
+          $ref: '#/components/schemas/IpVersion_in_UsedAddress_ipVersion'
+        references:
+          type: array
+          items:
+            $ref: '#/components/schemas/Reference'
     rpcStatus:
       description: The error result of the operation in case of failure or cancellation.
       type: object
@@ -1735,6 +1785,24 @@ components:
           type: array
           items:
             type: string
+    Referrer_in_Reference_referrer:
+      type: object
+      properties:
+        type:
+          description: |-
+            * `type = compute.instance, id = <instance id>`
+            * `type = compute.instanceGroup, id = <instanceGroup id>`
+            * `type = loadbalancer.networkLoadBalancer, id = <networkLoadBalancer id>`
+            * `type = managed-kubernetes.cluster, id = <cluster id>`
+            * `type = managed-mysql.cluster, id = <cluster id>`
+          type: string
+        id:
+          type: string
+    ReferenceType_in_Reference_type:
+      type: string
+      enum:
+      - MANAGED_BY
+      - USED_BY
     SecurityGroupStatus_in_SecurityGroup_status:
       description: ' - UPDATING: updating is a long operation because we must update
         all instances in SG'
@@ -1809,6 +1877,11 @@ components:
           type: array
           items:
             type: string
+    IpVersion_in_UsedAddress_ipVersion:
+      type: string
+      enum:
+      - IPV4
+      - IPV6
 tags:
 - name: Network
   description: A set of methods for managing Network resources.

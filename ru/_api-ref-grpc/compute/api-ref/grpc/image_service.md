@@ -22,7 +22,7 @@ editable: false
 
 Возвращает указанный ресурс Image. <br>Чтобы получить список доступных ресурсов Image, используйте запрос [List](#List).
 
-**rpc Get ([GetImageRequest](#GetImageRequest)) returns ([Image](#Image))**
+**rpc Get ([GetImageRequest](#GetImageRequest)) returns ([Image](../image.proto#Image))**
 
 ### GetImageRequest {#GetImageRequest}
 
@@ -46,7 +46,7 @@ storage_size | **int64**<br>Размер образа в байтах.
 min_disk_size | **int64**<br>Минимальный размер диска, который будет создан из этого образа. 
 product_ids[] | **string**<br>Идентификаторы лицензий, указывающие, какие лицензии подключены к этому ресурсу. Идентификаторы лицензий используются для расчета дополнительной платы за использование виртуальной машины. <br>Правильный идентификатор лицензии генерируется Яндекс.Облаком. Идентификаторы наследуются новыми ресурсами, созданными из этого ресурса. <br>Если вам известны идентификаторы лицензий, укажите их при создании образа. Например, если создать образ диска с помощью сторонней утилиты и загрузить его в Yandex Object Storage, то идентификаторы лицензий будут потеряны. Вы можете указать их в запросе [yandex.cloud.compute.v1.ImageService.Create](/docs/compute/grpc/image_service#Create). 
 status | enum **Status**<br>Текущий статус образа диска. <ul><li>`CREATING`: Образ диска создается.</li><li>`READY`: Образ диска готов к использованию.</li><li>`ERROR`: С образом произошла ошибка, блокирующая работу.</li><li>`DELETING`: Образ диска удаляется.</li><ul/>
-os | **[Os](#Os)**<br>Операционная система, содержащаяся в образе. 
+os | **[Os](../image.proto#Os)**<br>Операционная система, содержащаяся в образе. 
 
 
 ### Os {#Os}
@@ -60,7 +60,7 @@ type | enum **[Type](./disk_type#undefined)**<br>Тип операционной
 
 Возвращает последний образ из указанного семейства образов.
 
-**rpc GetLatestByFamily ([GetImageLatestByFamilyRequest](#GetImageLatestByFamilyRequest)) returns ([Image](#Image1))**
+**rpc GetLatestByFamily ([GetImageLatestByFamilyRequest](#GetImageLatestByFamilyRequest)) returns ([Image](../image.proto#Image1))**
 
 ### GetImageLatestByFamilyRequest {#GetImageLatestByFamilyRequest}
 
@@ -85,7 +85,7 @@ storage_size | **int64**<br>Размер образа в байтах.
 min_disk_size | **int64**<br>Минимальный размер диска, который будет создан из этого образа. 
 product_ids[] | **string**<br>Идентификаторы лицензий, указывающие, какие лицензии подключены к этому ресурсу. Идентификаторы лицензий используются для расчета дополнительной платы за использование виртуальной машины. <br>Правильный идентификатор лицензии генерируется Яндекс.Облаком. Идентификаторы наследуются новыми ресурсами, созданными из этого ресурса. <br>Если вам известны идентификаторы лицензий, укажите их при создании образа. Например, если создать образ диска с помощью сторонней утилиты и загрузить его в Yandex Object Storage, то идентификаторы лицензий будут потеряны. Вы можете указать их в запросе [yandex.cloud.compute.v1.ImageService.Create](/docs/compute/grpc/image_service#Create). 
 status | enum **Status**<br>Текущий статус образа диска. <ul><li>`CREATING`: Образ диска создается.</li><li>`READY`: Образ диска готов к использованию.</li><li>`ERROR`: С образом произошла ошибка, блокирующая работу.</li><li>`DELETING`: Образ диска удаляется.</li><ul/>
-os | **[Os](#Os1)**<br>Операционная система, содержащаяся в образе. 
+os | **[Os](../image.proto#Os1)**<br>Операционная система, содержащаяся в образе. 
 
 
 ### Os {#Os}
@@ -108,15 +108,15 @@ type | enum **[Type](./disk_type#undefined)**<br>Тип операционной
 folder_id | **string**<br>Обязательное поле. Идентификатор каталога для получения списка образов. Чтобы получить идентификатор каталога, используйте запрос [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List). false Максимальная длина строки в символах — 50.
 page_size | **int64**<br>Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `page_size`, сервис вернет значение [ListImagesResponse.next_page_token](#ListImagesResponse), которое можно использовать для получения следующей страницы. Максимальное значение — 1000.
 page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListImagesResponse.next_page_token](#ListImagesResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
-filter | **string**<br><ol><li>Имя поля. В настоящее время фильтрация осуществляется только по полю [Image.name](#Image2). </li><li>Оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений. </li><li>Значение. Должен содержать от 3 до 63 символов и соответствовать регулярному выражению `^[a-z]([-a-z0-9]{,61}[a-z0-9])?$`.</li></ol> Максимальная длина строки в символах — 1000.
+filter | **string**<br><ol><li>Имя поля. В настоящее время фильтрация осуществляется только по полю [Image.name](../image.proto#Image2). </li><li>Оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений. </li><li>Значение. Должен содержать от 3 до 63 символов и соответствовать регулярному выражению `^[a-z]([-a-z0-9]{,61}[a-z0-9])?$`.</li></ol> Максимальная длина строки в символах — 1000.
 
 
 ### ListImagesResponse {#ListImagesResponse}
 
 Поле | Описание
 --- | ---
-images[] | **[Image](#Image2)**<br>Список образов. 
-next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListSnapshotsRequest.page_size](#ListSnapshotsRequest), используйте `next_page_token` в качестве значения параметра [ListSnapshotsRequest.page_token](#ListSnapshotsRequest) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
+images[] | **[Image](../image.proto#Image2)**<br>Список образов. 
+next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListSnapshotsRequest.page_size](../snapshot_service.proto#ListSnapshotsRequest), используйте `next_page_token` в качестве значения параметра [ListSnapshotsRequest.page_token](../snapshot_service.proto#ListSnapshotsRequest) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
 
 
 ### Image {#Image}
@@ -134,7 +134,7 @@ storage_size | **int64**<br>Размер образа в байтах.
 min_disk_size | **int64**<br>Минимальный размер диска, который будет создан из этого образа. 
 product_ids[] | **string**<br>Идентификаторы лицензий, указывающие, какие лицензии подключены к этому ресурсу. Идентификаторы лицензий используются для расчета дополнительной платы за использование виртуальной машины. <br>Правильный идентификатор лицензии генерируется Яндекс.Облаком. Идентификаторы наследуются новыми ресурсами, созданными из этого ресурса. <br>Если вам известны идентификаторы лицензий, укажите их при создании образа. Например, если создать образ диска с помощью сторонней утилиты и загрузить его в Yandex Object Storage, то идентификаторы лицензий будут потеряны. Вы можете указать их в запросе [yandex.cloud.compute.v1.ImageService.Create](/docs/compute/grpc/image_service#Create). 
 status | enum **Status**<br>Текущий статус образа диска. <ul><li>`CREATING`: Образ диска создается.</li><li>`READY`: Образ диска готов к использованию.</li><li>`ERROR`: С образом произошла ошибка, блокирующая работу.</li><li>`DELETING`: Образ диска удаляется.</li><ul/>
-os | **[Os](#Os2)**<br>Операционная система, содержащаяся в образе. 
+os | **[Os](../image.proto#Os2)**<br>Операционная система, содержащаяся в образе. 
 
 
 ### Os {#Os}
@@ -152,7 +152,7 @@ type | enum **[Type](./disk_type#undefined)**<br>Тип операционной
 
 Метаданные и результат операции:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateImageMetadata](#CreateImageMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Image](#Image3)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Image](../image.proto#Image3)<br>
 
 ### CreateImageRequest {#CreateImageRequest}
 
@@ -170,7 +170,7 @@ source | **oneof:** `image_id`, `disk_id`, `snapshot_id` или `uri`<br>
 &nbsp;&nbsp;disk_id | **string**<br>Идентификатор диска, из которого будет создан образ. Максимальная длина строки в символах — 50.
 &nbsp;&nbsp;snapshot_id | **string**<br>Идентификатор снимка, из которого будет создан образ. Максимальная длина строки в символах — 50.
 &nbsp;&nbsp;uri | **string**<br>URI образа, из которого будет создан новый образ. В настоящее время поддерживаются только ссылки на образы, которые хранятся в Yandex Object Storage. В настоящее время поддерживаются только форматы Qcow2, VMDK и VHD. 
-os | **[Os](#Os3)**<br>Операционная система, содержащаяся в образе. <br>По умолчанию наследуется от исходного ресурса, если в качестве источника вы использовали `image_id` или `disk_id`. 
+os | **[Os](../image.proto#Os3)**<br>Операционная система, содержащаяся в образе. <br>По умолчанию наследуется от исходного ресурса, если в качестве источника вы использовали `image_id` или `disk_id`. 
 
 
 ### Os {#Os}
@@ -193,7 +193,7 @@ done | **bool**<br>Если значение равно `false` — операц
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateImageMetadata](#CreateImageMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
 result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Image](#Image3)>**<br>в случае успешного выполнения операции. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Image](../image.proto#Image3)>**<br>в случае успешного выполнения операции. 
 
 
 ### CreateImageMetadata {#CreateImageMetadata}
@@ -218,7 +218,7 @@ storage_size | **int64**<br>Размер образа в байтах.
 min_disk_size | **int64**<br>Минимальный размер диска, который будет создан из этого образа. 
 product_ids[] | **string**<br>Идентификаторы лицензий, указывающие, какие лицензии подключены к этому ресурсу. Идентификаторы лицензий используются для расчета дополнительной платы за использование виртуальной машины. <br>Правильный идентификатор лицензии генерируется Яндекс.Облаком. Идентификаторы наследуются новыми ресурсами, созданными из этого ресурса. <br>Если вам известны идентификаторы лицензий, укажите их при создании образа. Например, если создать образ диска с помощью сторонней утилиты и загрузить его в Yandex Object Storage, то идентификаторы лицензий будут потеряны. Вы можете указать их в запросе [yandex.cloud.compute.v1.ImageService.Create](/docs/compute/grpc/image_service#Create). 
 status | enum **Status**<br>Текущий статус образа диска. <ul><li>`CREATING`: Образ диска создается.</li><li>`READY`: Образ диска готов к использованию.</li><li>`ERROR`: С образом произошла ошибка, блокирующая работу.</li><li>`DELETING`: Образ диска удаляется.</li><ul/>
-os | **[Os](#Os4)**<br>Операционная система, содержащаяся в образе. 
+os | **[Os](../image.proto#Os4)**<br>Операционная система, содержащаяся в образе. 
 
 
 ## Update {#Update}
@@ -229,7 +229,7 @@ os | **[Os](#Os4)**<br>Операционная система, содержащ
 
 Метаданные и результат операции:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateImageMetadata](#UpdateImageMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Image](#Image4)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Image](../image.proto#Image4)<br>
 
 ### UpdateImageRequest {#UpdateImageRequest}
 
@@ -256,7 +256,7 @@ done | **bool**<br>Если значение равно `false` — операц
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateImageMetadata](#UpdateImageMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
 result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Image](#Image4)>**<br>в случае успешного выполнения операции. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Image](../image.proto#Image4)>**<br>в случае успешного выполнения операции. 
 
 
 ### UpdateImageMetadata {#UpdateImageMetadata}
@@ -281,7 +281,7 @@ storage_size | **int64**<br>Размер образа в байтах.
 min_disk_size | **int64**<br>Минимальный размер диска, который будет создан из этого образа. 
 product_ids[] | **string**<br>Идентификаторы лицензий, указывающие, какие лицензии подключены к этому ресурсу. Идентификаторы лицензий используются для расчета дополнительной платы за использование виртуальной машины. <br>Правильный идентификатор лицензии генерируется Яндекс.Облаком. Идентификаторы наследуются новыми ресурсами, созданными из этого ресурса. <br>Если вам известны идентификаторы лицензий, укажите их при создании образа. Например, если создать образ диска с помощью сторонней утилиты и загрузить его в Yandex Object Storage, то идентификаторы лицензий будут потеряны. Вы можете указать их в запросе [yandex.cloud.compute.v1.ImageService.Create](/docs/compute/grpc/image_service#Create). 
 status | enum **Status**<br>Текущий статус образа диска. <ul><li>`CREATING`: Образ диска создается.</li><li>`READY`: Образ диска готов к использованию.</li><li>`ERROR`: С образом произошла ошибка, блокирующая работу.</li><li>`DELETING`: Образ диска удаляется.</li><ul/>
-os | **[Os](#Os4)**<br>Операционная система, содержащаяся в образе. 
+os | **[Os](../image.proto#Os4)**<br>Операционная система, содержащаяся в образе. 
 
 
 ## Delete {#Delete}

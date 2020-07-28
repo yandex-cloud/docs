@@ -37,7 +37,7 @@ A set of methods for managing serverless functions.
 
 Returns the specified function. <br>To get the list of all available functions, make a [List](#List) request.
 
-**rpc Get ([GetFunctionRequest](#GetFunctionRequest)) returns ([Function](#Function))**
+**rpc Get ([GetFunctionRequest](#GetFunctionRequest)) returns ([Function](../function.proto#Function))**
 
 ### GetFunctionRequest {#GetFunctionRequest}
 
@@ -74,14 +74,14 @@ Field | Description
 folder_id | **string**<br>Required. ID of the folder to list functions in. <br>To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. false
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `pageSize`, the service returns a [ListFunctionsResponse.next_page_token](#ListFunctionsResponse) that can be used to get the next page of results in subsequent list requests. <br>Default value: 100. 
 page_token | **string**<br>Page token. To get the next page of results, set `pageToken` to the [ListFunctionsResponse.next_page_token](#ListFunctionsResponse) returned by a previous list request. 
-filter | **string**<br><ol><li>The field name. Currently filtering can only be applied to the [Function.name](#Function1) field. </li><li>A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. </li></ol> 
+filter | **string**<br><ol><li>The field name. Currently filtering can only be applied to the [Function.name](../function.proto#Function1) field. </li><li>A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. </li></ol> 
 
 
 ### ListFunctionsResponse {#ListFunctionsResponse}
 
 Field | Description
 --- | ---
-functions[] | **[Function](#Function1)**<br>List of functions in the specified folder. 
+functions[] | **[Function](../function.proto#Function1)**<br>List of functions in the specified folder. 
 next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListFunctionsRequest.page_size](#ListFunctionsRequest1), use `nextPageToken` as the value for the [ListFunctionsRequest.page_token](#ListFunctionsRequest1) parameter in the next list request. <br>Each subsequent page will have its own `nextPageToken` to continue paging through the results. 
 
 
@@ -108,7 +108,7 @@ Creates a function in the specified folder.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateFunctionMetadata](#CreateFunctionMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Function](#Function2)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Function](../function.proto#Function2)<br>
 
 ### CreateFunctionRequest {#CreateFunctionRequest}
 
@@ -133,7 +133,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateFunctionMetadata](#CreateFunctionMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Function](#Function2)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Function](../function.proto#Function2)>**<br>if operation finished successfully. 
 
 
 ### CreateFunctionMetadata {#CreateFunctionMetadata}
@@ -166,7 +166,7 @@ Updates the specified function.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateFunctionMetadata](#UpdateFunctionMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Function](#Function3)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Function](../function.proto#Function3)<br>
 
 ### UpdateFunctionRequest {#UpdateFunctionRequest}
 
@@ -192,7 +192,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateFunctionMetadata](#UpdateFunctionMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Function](#Function3)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Function](../function.proto#Function3)>**<br>if operation finished successfully. 
 
 
 ### UpdateFunctionMetadata {#UpdateFunctionMetadata}
@@ -261,7 +261,7 @@ function_id | **string**<br>ID of the function that is being deleted.
 
 Returns the specified version of a function. <br>To get the list of available version, make a [ListVersions](#ListVersions) request.
 
-**rpc GetVersion ([GetFunctionVersionRequest](#GetFunctionVersionRequest)) returns ([Version](#Version))**
+**rpc GetVersion ([GetFunctionVersionRequest](#GetFunctionVersionRequest)) returns ([Version](../function.proto#Version))**
 
 ### GetFunctionVersionRequest {#GetFunctionVersionRequest}
 
@@ -280,7 +280,7 @@ description | **string**<br>Description of the version. The string length in cha
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp for the version. 
 runtime | **string**<br>ID of the runtime environment for the function. <br>Supported environments and their identifiers are listed in the [Runtime environments](/docs/functions/concepts/runtime). 
 entrypoint | **string**<br>Entrypoint for the function: the name of the function to be called as the handler. <br>Specified in the format `<function file name>.<handler name>`, for example, `index.myFunction`. 
-resources | **[Resources](#Resources)**<br>Resources allocated to the version. 
+resources | **[Resources](../function.proto#Resources)**<br>Resources allocated to the version. 
 execution_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for the execution of the version. <br>If the timeout is exceeded, Cloud Functions responds with a 504 HTTP code. 
 service_account_id | **string**<br>ID of the service account associated with the version. 
 image_size | **int64**<br>Final size of the deployment package after unpacking. 
@@ -288,7 +288,7 @@ status | enum **Status**<br>Status of the version. <ul><li>`CREATING`: Version i
 tags[] | **string**<br>Version tags. For details, see [Version tag](/docs/functions/concepts/function#tag). 
 log_group_id | **string**<br>ID of the log group for the version. 
 environment | **map<string,string>**<br>Environment settings for the version. 
-connectivity | **[Connectivity](#Connectivity)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
+connectivity | **[Connectivity](../function.proto#Connectivity)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
 
 
 ### Resources {#Resources}
@@ -310,7 +310,7 @@ subnet_id[] | **string**<br>Complete list of subnets (from the same network) the
 
 Deprecated. Use [GetVersion](#GetVersion).
 
-**rpc GetFunctionVersion ([GetFunctionVersionRequest](#GetFunctionVersionRequest1)) returns ([Version](#Version1))**
+**rpc GetFunctionVersion ([GetFunctionVersionRequest](#GetFunctionVersionRequest1)) returns ([Version](../function.proto#Version1))**
 
 ### GetFunctionVersionRequest {#GetFunctionVersionRequest}
 
@@ -329,7 +329,7 @@ description | **string**<br>Description of the version. The string length in cha
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp for the version. 
 runtime | **string**<br>ID of the runtime environment for the function. <br>Supported environments and their identifiers are listed in the [Runtime environments](/docs/functions/concepts/runtime). 
 entrypoint | **string**<br>Entrypoint for the function: the name of the function to be called as the handler. <br>Specified in the format `<function file name>.<handler name>`, for example, `index.myFunction`. 
-resources | **[Resources](#Resources1)**<br>Resources allocated to the version. 
+resources | **[Resources](../function.proto#Resources1)**<br>Resources allocated to the version. 
 execution_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for the execution of the version. <br>If the timeout is exceeded, Cloud Functions responds with a 504 HTTP code. 
 service_account_id | **string**<br>ID of the service account associated with the version. 
 image_size | **int64**<br>Final size of the deployment package after unpacking. 
@@ -337,7 +337,7 @@ status | enum **Status**<br>Status of the version. <ul><li>`CREATING`: Version i
 tags[] | **string**<br>Version tags. For details, see [Version tag](/docs/functions/concepts/function#tag). 
 log_group_id | **string**<br>ID of the log group for the version. 
 environment | **map<string,string>**<br>Environment settings for the version. 
-connectivity | **[Connectivity](#Connectivity1)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
+connectivity | **[Connectivity](../function.proto#Connectivity1)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
 
 
 ### Resources {#Resources}
@@ -359,7 +359,7 @@ subnet_id[] | **string**<br>Complete list of subnets (from the same network) the
 
 Returns all versions with the specified tag. <br>To get the list of all available versions, make a [ListVersions](#ListVersions) request.
 
-**rpc GetVersionByTag ([GetFunctionVersionByTagRequest](#GetFunctionVersionByTagRequest)) returns ([Version](#Version2))**
+**rpc GetVersionByTag ([GetFunctionVersionByTagRequest](#GetFunctionVersionByTagRequest)) returns ([Version](../function.proto#Version2))**
 
 ### GetFunctionVersionByTagRequest {#GetFunctionVersionByTagRequest}
 
@@ -379,7 +379,7 @@ description | **string**<br>Description of the version. The string length in cha
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp for the version. 
 runtime | **string**<br>ID of the runtime environment for the function. <br>Supported environments and their identifiers are listed in the [Runtime environments](/docs/functions/concepts/runtime). 
 entrypoint | **string**<br>Entrypoint for the function: the name of the function to be called as the handler. <br>Specified in the format `<function file name>.<handler name>`, for example, `index.myFunction`. 
-resources | **[Resources](#Resources2)**<br>Resources allocated to the version. 
+resources | **[Resources](../function.proto#Resources2)**<br>Resources allocated to the version. 
 execution_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for the execution of the version. <br>If the timeout is exceeded, Cloud Functions responds with a 504 HTTP code. 
 service_account_id | **string**<br>ID of the service account associated with the version. 
 image_size | **int64**<br>Final size of the deployment package after unpacking. 
@@ -387,7 +387,7 @@ status | enum **Status**<br>Status of the version. <ul><li>`CREATING`: Version i
 tags[] | **string**<br>Version tags. For details, see [Version tag](/docs/functions/concepts/function#tag). 
 log_group_id | **string**<br>ID of the log group for the version. 
 environment | **map<string,string>**<br>Environment settings for the version. 
-connectivity | **[Connectivity](#Connectivity2)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
+connectivity | **[Connectivity](../function.proto#Connectivity2)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
 
 
 ### Resources {#Resources}
@@ -409,7 +409,7 @@ subnet_id[] | **string**<br>Complete list of subnets (from the same network) the
 
 Deprecated. Use [GetVersionByTag](#GetVersionByTag).
 
-**rpc GetFunctionVersionByTag ([GetFunctionVersionByTagRequest](#GetFunctionVersionByTagRequest1)) returns ([Version](#Version3))**
+**rpc GetFunctionVersionByTag ([GetFunctionVersionByTagRequest](#GetFunctionVersionByTagRequest1)) returns ([Version](../function.proto#Version3))**
 
 ### GetFunctionVersionByTagRequest {#GetFunctionVersionByTagRequest}
 
@@ -429,7 +429,7 @@ description | **string**<br>Description of the version. The string length in cha
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp for the version. 
 runtime | **string**<br>ID of the runtime environment for the function. <br>Supported environments and their identifiers are listed in the [Runtime environments](/docs/functions/concepts/runtime). 
 entrypoint | **string**<br>Entrypoint for the function: the name of the function to be called as the handler. <br>Specified in the format `<function file name>.<handler name>`, for example, `index.myFunction`. 
-resources | **[Resources](#Resources3)**<br>Resources allocated to the version. 
+resources | **[Resources](../function.proto#Resources3)**<br>Resources allocated to the version. 
 execution_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for the execution of the version. <br>If the timeout is exceeded, Cloud Functions responds with a 504 HTTP code. 
 service_account_id | **string**<br>ID of the service account associated with the version. 
 image_size | **int64**<br>Final size of the deployment package after unpacking. 
@@ -437,7 +437,7 @@ status | enum **Status**<br>Status of the version. <ul><li>`CREATING`: Version i
 tags[] | **string**<br>Version tags. For details, see [Version tag](/docs/functions/concepts/function#tag). 
 log_group_id | **string**<br>ID of the log group for the version. 
 environment | **map<string,string>**<br>Environment settings for the version. 
-connectivity | **[Connectivity](#Connectivity3)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
+connectivity | **[Connectivity](../function.proto#Connectivity3)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
 
 
 ### Resources {#Resources}
@@ -470,14 +470,14 @@ id | **oneof:** `folder_id` or `function_id`<br>
 &nbsp;&nbsp;function_id | **string**<br>ID of the function to list versions for. To get a function ID use a [FunctionService.List](#List) request. 
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `pageSize`, the service returns a [ListFunctionsVersionsResponse.next_page_token](#ListFunctionsVersionsResponse) that can be used to get the next page of results in subsequent list requests. <br>Default value: 100. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `pageToken` to the [ListFunctionsVersionsResponse.next_page_token](#ListFunctionsVersionsResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently filtering can only be applied to the [Function.name](#Function4) field. </li><li>A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. </li></ol> The maximum string length in characters is 1000.
+filter | **string**<br><ol><li>The field name. Currently filtering can only be applied to the [Function.name](../function.proto#Function4) field. </li><li>A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. </li></ol> The maximum string length in characters is 1000.
 
 
 ### ListFunctionsVersionsResponse {#ListFunctionsVersionsResponse}
 
 Field | Description
 --- | ---
-versions[] | **[Version](#Version4)**<br>List of versions for the specified folder or function. 
+versions[] | **[Version](../function.proto#Version4)**<br>List of versions for the specified folder or function. 
 next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListFunctionsVersionsRequest.page_size](#ListFunctionsVersionsRequest1), use `nextPageToken` as the value for the [ListFunctionsVersionsRequest.page_token](#ListFunctionsVersionsRequest1) parameter in the next list request. <br>Each subsequent page will have its own `nextPageToken` to continue paging through the results. 
 
 
@@ -491,7 +491,7 @@ description | **string**<br>Description of the version. The string length in cha
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp for the version. 
 runtime | **string**<br>ID of the runtime environment for the function. <br>Supported environments and their identifiers are listed in the [Runtime environments](/docs/functions/concepts/runtime). 
 entrypoint | **string**<br>Entrypoint for the function: the name of the function to be called as the handler. <br>Specified in the format `<function file name>.<handler name>`, for example, `index.myFunction`. 
-resources | **[Resources](#Resources4)**<br>Resources allocated to the version. 
+resources | **[Resources](../function.proto#Resources4)**<br>Resources allocated to the version. 
 execution_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for the execution of the version. <br>If the timeout is exceeded, Cloud Functions responds with a 504 HTTP code. 
 service_account_id | **string**<br>ID of the service account associated with the version. 
 image_size | **int64**<br>Final size of the deployment package after unpacking. 
@@ -499,7 +499,7 @@ status | enum **Status**<br>Status of the version. <ul><li>`CREATING`: Version i
 tags[] | **string**<br>Version tags. For details, see [Version tag](/docs/functions/concepts/function#tag). 
 log_group_id | **string**<br>ID of the log group for the version. 
 environment | **map<string,string>**<br>Environment settings for the version. 
-connectivity | **[Connectivity](#Connectivity4)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
+connectivity | **[Connectivity](../function.proto#Connectivity4)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
 
 
 ### Resources {#Resources}
@@ -532,14 +532,14 @@ id | **oneof:** `folder_id` or `function_id`<br>
 &nbsp;&nbsp;function_id | **string**<br>ID of the function to list versions for. To get a function ID use a [FunctionService.List](#List) request. 
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `pageSize`, the service returns a [ListFunctionsVersionsResponse.next_page_token](#ListFunctionsVersionsResponse1) that can be used to get the next page of results in subsequent list requests. <br>Default value: 100. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `pageToken` to the [ListFunctionsVersionsResponse.next_page_token](#ListFunctionsVersionsResponse1) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently filtering can only be applied to the [Function.name](#Function4) field. </li><li>A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. </li></ol> The maximum string length in characters is 1000.
+filter | **string**<br><ol><li>The field name. Currently filtering can only be applied to the [Function.name](../function.proto#Function4) field. </li><li>A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. </li></ol> The maximum string length in characters is 1000.
 
 
 ### ListFunctionsVersionsResponse {#ListFunctionsVersionsResponse}
 
 Field | Description
 --- | ---
-versions[] | **[Version](#Version5)**<br>List of versions for the specified folder or function. 
+versions[] | **[Version](../function.proto#Version5)**<br>List of versions for the specified folder or function. 
 next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListFunctionsVersionsRequest.page_size](#ListFunctionsVersionsRequest2), use `nextPageToken` as the value for the [ListFunctionsVersionsRequest.page_token](#ListFunctionsVersionsRequest2) parameter in the next list request. <br>Each subsequent page will have its own `nextPageToken` to continue paging through the results. 
 
 
@@ -553,7 +553,7 @@ description | **string**<br>Description of the version. The string length in cha
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp for the version. 
 runtime | **string**<br>ID of the runtime environment for the function. <br>Supported environments and their identifiers are listed in the [Runtime environments](/docs/functions/concepts/runtime). 
 entrypoint | **string**<br>Entrypoint for the function: the name of the function to be called as the handler. <br>Specified in the format `<function file name>.<handler name>`, for example, `index.myFunction`. 
-resources | **[Resources](#Resources5)**<br>Resources allocated to the version. 
+resources | **[Resources](../function.proto#Resources5)**<br>Resources allocated to the version. 
 execution_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for the execution of the version. <br>If the timeout is exceeded, Cloud Functions responds with a 504 HTTP code. 
 service_account_id | **string**<br>ID of the service account associated with the version. 
 image_size | **int64**<br>Final size of the deployment package after unpacking. 
@@ -561,7 +561,7 @@ status | enum **Status**<br>Status of the version. <ul><li>`CREATING`: Version i
 tags[] | **string**<br>Version tags. For details, see [Version tag](/docs/functions/concepts/function#tag). 
 log_group_id | **string**<br>ID of the log group for the version. 
 environment | **map<string,string>**<br>Environment settings for the version. 
-connectivity | **[Connectivity](#Connectivity5)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
+connectivity | **[Connectivity](../function.proto#Connectivity5)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
 
 
 ### Resources {#Resources}
@@ -587,7 +587,7 @@ Set a tag for the specified version of a function.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[SetFunctionTagMetadata](#SetFunctionTagMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Version](#Version6)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Version](../function.proto#Version6)<br>
 
 ### SetFunctionTagRequest {#SetFunctionTagRequest}
 
@@ -610,7 +610,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[SetFunctionTagMetadata](#SetFunctionTagMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Version](#Version6)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Version](../function.proto#Version6)>**<br>if operation finished successfully. 
 
 
 ### SetFunctionTagMetadata {#SetFunctionTagMetadata}
@@ -630,7 +630,7 @@ description | **string**<br>Description of the version. The string length in cha
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp for the version. 
 runtime | **string**<br>ID of the runtime environment for the function. <br>Supported environments and their identifiers are listed in the [Runtime environments](/docs/functions/concepts/runtime). 
 entrypoint | **string**<br>Entrypoint for the function: the name of the function to be called as the handler. <br>Specified in the format `<function file name>.<handler name>`, for example, `index.myFunction`. 
-resources | **[Resources](#Resources6)**<br>Resources allocated to the version. 
+resources | **[Resources](../function.proto#Resources6)**<br>Resources allocated to the version. 
 execution_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for the execution of the version. <br>If the timeout is exceeded, Cloud Functions responds with a 504 HTTP code. 
 service_account_id | **string**<br>ID of the service account associated with the version. 
 image_size | **int64**<br>Final size of the deployment package after unpacking. 
@@ -638,7 +638,7 @@ status | enum **Status**<br>Status of the version. <ul><li>`CREATING`: Version i
 tags[] | **string**<br>Version tags. For details, see [Version tag](/docs/functions/concepts/function#tag). 
 log_group_id | **string**<br>ID of the log group for the version. 
 environment | **map<string,string>**<br>Environment settings for the version. 
-connectivity | **[Connectivity](#Connectivity6)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
+connectivity | **[Connectivity](../function.proto#Connectivity6)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
 
 
 ## RemoveTag {#RemoveTag}
@@ -649,7 +649,7 @@ Remove a tag from the specified version of a function.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[RemoveFunctionTagMetadata](#RemoveFunctionTagMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Version](#Version7)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Version](../function.proto#Version7)<br>
 
 ### RemoveFunctionTagRequest {#RemoveFunctionTagRequest}
 
@@ -672,7 +672,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RemoveFunctionTagMetadata](#RemoveFunctionTagMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Version](#Version7)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Version](../function.proto#Version7)>**<br>if operation finished successfully. 
 
 
 ### RemoveFunctionTagMetadata {#RemoveFunctionTagMetadata}
@@ -692,7 +692,7 @@ description | **string**<br>Description of the version. The string length in cha
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp for the version. 
 runtime | **string**<br>ID of the runtime environment for the function. <br>Supported environments and their identifiers are listed in the [Runtime environments](/docs/functions/concepts/runtime). 
 entrypoint | **string**<br>Entrypoint for the function: the name of the function to be called as the handler. <br>Specified in the format `<function file name>.<handler name>`, for example, `index.myFunction`. 
-resources | **[Resources](#Resources6)**<br>Resources allocated to the version. 
+resources | **[Resources](../function.proto#Resources6)**<br>Resources allocated to the version. 
 execution_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for the execution of the version. <br>If the timeout is exceeded, Cloud Functions responds with a 504 HTTP code. 
 service_account_id | **string**<br>ID of the service account associated with the version. 
 image_size | **int64**<br>Final size of the deployment package after unpacking. 
@@ -700,7 +700,7 @@ status | enum **Status**<br>Status of the version. <ul><li>`CREATING`: Version i
 tags[] | **string**<br>Version tags. For details, see [Version tag](/docs/functions/concepts/function#tag). 
 log_group_id | **string**<br>ID of the log group for the version. 
 environment | **map<string,string>**<br>Environment settings for the version. 
-connectivity | **[Connectivity](#Connectivity6)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
+connectivity | **[Connectivity](../function.proto#Connectivity6)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
 
 
 ## ListTagHistory {#ListTagHistory}
@@ -717,7 +717,7 @@ function_id | **string**<br>Required. ID of the function to retrieve tag history
 tag | **string**<br>Specific tag that history should be limited to. Value must match the regular expression ` [a-z][-_0-9a-z]*|[$]latest `.
 page_size | **int64**<br>The maximum number of results per page that should be returned. If the number of available results is larger than `pageSize`, the service returns a [ListFunctionOperationsResponse.next_page_token](#ListFunctionOperationsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `pageToken` to the [ListFunctionOperationsResponse.next_page_token](#ListFunctionOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently filtering can only be applied to the [Function.name](#Function4) field. </li><li>A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. </li></ol> The maximum string length in characters is 1000.
+filter | **string**<br><ol><li>The field name. Currently filtering can only be applied to the [Function.name](../function.proto#Function4) field. </li><li>A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. </li></ol> The maximum string length in characters is 1000.
 
 
 ### ListFunctionTagHistoryResponse {#ListFunctionTagHistoryResponse}
@@ -753,7 +753,7 @@ function_id | **string**<br>Required. ID of the function to retrieve tag history
 tag | **string**<br>Specific tag that history should be limited to. Value must match the regular expression ` [a-z][-_0-9a-z]*|[$]latest `.
 page_size | **int64**<br>The maximum number of results per page that should be returned. If the number of available results is larger than `pageSize`, the service returns a [ListFunctionOperationsResponse.next_page_token](#ListFunctionOperationsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `pageToken` to the [ListFunctionOperationsResponse.next_page_token](#ListFunctionOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently filtering can only be applied to the [Function.name](#Function4) field. </li><li>A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. </li></ol> The maximum string length in characters is 1000.
+filter | **string**<br><ol><li>The field name. Currently filtering can only be applied to the [Function.name](../function.proto#Function4) field. </li><li>A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. </li></ol> The maximum string length in characters is 1000.
 
 
 ### ListFunctionTagHistoryResponse {#ListFunctionTagHistoryResponse}
@@ -783,7 +783,7 @@ Creates a version for the specified function.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateFunctionVersionMetadata](#CreateFunctionVersionMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Version](#Version8)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Version](../function.proto#Version8)<br>
 
 ### CreateFunctionVersionRequest {#CreateFunctionVersionRequest}
 
@@ -793,15 +793,16 @@ function_id | **string**<br>Required. ID of the function to create a version for
 runtime | **string**<br>Required. Runtime environment for the version. false
 description | **string**<br>Description of the version The string length in characters must be 0-256.
 entrypoint | **string**<br>Required. Entrypoint of the version. false
-resources | **[Resources](#Resources6)**<br>Required. Resources allocated to the version. false
+resources | **[Resources](../function.proto#Resources6)**<br>Required. Resources allocated to the version. false
 execution_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Timeout for the execution of the version. <br>If the timeout is exceeded, Cloud Functions responds with a 504 HTTP code. false
 service_account_id | **string**<br>ID of the service account to associate with the version. 
-package_source | **oneof:** `package` or `content`<br>Source of the deployment package for the version.
-&nbsp;&nbsp;package | **[Package](#Package)**<br>Functions deployment package. 
+package_source | **oneof:** `package`, `content` or `version_id`<br>Source of the deployment package for the version.
+&nbsp;&nbsp;package | **[Package](../function.proto#Package)**<br>Functions deployment package. 
 &nbsp;&nbsp;content | **bytes**<br>Content of the deployment package. The maximum string length in characters is 52428800.
+&nbsp;&nbsp;version_id | **string**<br>ID of the version to be copied from. Source version must belong to the same folder as the created version and the user must have read permissions to the source version. 
 environment | **map<string,string>**<br>Environment settings for the version. The maximum string length in characters for each value is 4096. Each key must match the regular expression ` [a-zA-Z][a-zA-Z0-9_]* `.
 tag[] | **string**<br>Function version tags. For details, see [Version tag](/docs/functions/concepts/function#tag). Each value must match the regular expression ` [a-z][-_0-9a-z]* `.
-connectivity | **[Connectivity](#Connectivity6)**<br>Function version connectivity. If specified the version will be attached to specified network/subnet(s). 
+connectivity | **[Connectivity](../function.proto#Connectivity6)**<br>Function version connectivity. If specified the version will be attached to specified network/subnet(s). 
 
 
 ### Resources {#Resources}
@@ -841,7 +842,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateFunctionVersionMetadata](#CreateFunctionVersionMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Version](#Version8)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Version](../function.proto#Version8)>**<br>if operation finished successfully. 
 
 
 ### CreateFunctionVersionMetadata {#CreateFunctionVersionMetadata}
@@ -861,7 +862,7 @@ description | **string**<br>Description of the version. The string length in cha
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp for the version. 
 runtime | **string**<br>ID of the runtime environment for the function. <br>Supported environments and their identifiers are listed in the [Runtime environments](/docs/functions/concepts/runtime). 
 entrypoint | **string**<br>Entrypoint for the function: the name of the function to be called as the handler. <br>Specified in the format `<function file name>.<handler name>`, for example, `index.myFunction`. 
-resources | **[Resources](#Resources7)**<br>Resources allocated to the version. 
+resources | **[Resources](../function.proto#Resources7)**<br>Resources allocated to the version. 
 execution_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for the execution of the version. <br>If the timeout is exceeded, Cloud Functions responds with a 504 HTTP code. 
 service_account_id | **string**<br>ID of the service account associated with the version. 
 image_size | **int64**<br>Final size of the deployment package after unpacking. 
@@ -869,7 +870,7 @@ status | enum **Status**<br>Status of the version. <ul><li>`CREATING`: Version i
 tags[] | **string**<br>Version tags. For details, see [Version tag](/docs/functions/concepts/function#tag). 
 log_group_id | **string**<br>ID of the log group for the version. 
 environment | **map<string,string>**<br>Environment settings for the version. 
-connectivity | **[Connectivity](#Connectivity7)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
+connectivity | **[Connectivity](../function.proto#Connectivity7)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
 
 
 ## CreateFunctionVersion {#CreateFunctionVersion}
@@ -880,7 +881,7 @@ Deprecated. Use [CreateVersion](#CreateVersion).
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateFunctionVersionMetadata](#CreateFunctionVersionMetadata1)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Version](#Version9)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Version](../function.proto#Version9)<br>
 
 ### CreateFunctionVersionRequest {#CreateFunctionVersionRequest}
 
@@ -890,15 +891,16 @@ function_id | **string**<br>Required. ID of the function to create a version for
 runtime | **string**<br>Required. Runtime environment for the version. false
 description | **string**<br>Description of the version The string length in characters must be 0-256.
 entrypoint | **string**<br>Required. Entrypoint of the version. false
-resources | **[Resources](#Resources7)**<br>Required. Resources allocated to the version. false
+resources | **[Resources](../function.proto#Resources7)**<br>Required. Resources allocated to the version. false
 execution_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Timeout for the execution of the version. <br>If the timeout is exceeded, Cloud Functions responds with a 504 HTTP code. false
 service_account_id | **string**<br>ID of the service account to associate with the version. 
-package_source | **oneof:** `package` or `content`<br>Source of the deployment package for the version.
-&nbsp;&nbsp;package | **[Package](#Package1)**<br>Functions deployment package. 
+package_source | **oneof:** `package`, `content` or `version_id`<br>Source of the deployment package for the version.
+&nbsp;&nbsp;package | **[Package](../function.proto#Package1)**<br>Functions deployment package. 
 &nbsp;&nbsp;content | **bytes**<br>Content of the deployment package. The maximum string length in characters is 52428800.
+&nbsp;&nbsp;version_id | **string**<br>ID of the version to be copied from. Source version must belong to the same folder as the created version and the user must have read permissions to the source version. 
 environment | **map<string,string>**<br>Environment settings for the version. The maximum string length in characters for each value is 4096. Each key must match the regular expression ` [a-zA-Z][a-zA-Z0-9_]* `.
 tag[] | **string**<br>Function version tags. For details, see [Version tag](/docs/functions/concepts/function#tag). Each value must match the regular expression ` [a-z][-_0-9a-z]* `.
-connectivity | **[Connectivity](#Connectivity7)**<br>Function version connectivity. If specified the version will be attached to specified network/subnet(s). 
+connectivity | **[Connectivity](../function.proto#Connectivity7)**<br>Function version connectivity. If specified the version will be attached to specified network/subnet(s). 
 
 
 ### Resources {#Resources}
@@ -938,7 +940,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateFunctionVersionMetadata](#CreateFunctionVersionMetadata1)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Version](#Version9)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Version](../function.proto#Version9)>**<br>if operation finished successfully. 
 
 
 ### CreateFunctionVersionMetadata {#CreateFunctionVersionMetadata}
@@ -958,7 +960,7 @@ description | **string**<br>Description of the version. The string length in cha
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp for the version. 
 runtime | **string**<br>ID of the runtime environment for the function. <br>Supported environments and their identifiers are listed in the [Runtime environments](/docs/functions/concepts/runtime). 
 entrypoint | **string**<br>Entrypoint for the function: the name of the function to be called as the handler. <br>Specified in the format `<function file name>.<handler name>`, for example, `index.myFunction`. 
-resources | **[Resources](#Resources8)**<br>Resources allocated to the version. 
+resources | **[Resources](../function.proto#Resources8)**<br>Resources allocated to the version. 
 execution_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for the execution of the version. <br>If the timeout is exceeded, Cloud Functions responds with a 504 HTTP code. 
 service_account_id | **string**<br>ID of the service account associated with the version. 
 image_size | **int64**<br>Final size of the deployment package after unpacking. 
@@ -966,7 +968,7 @@ status | enum **Status**<br>Status of the version. <ul><li>`CREATING`: Version i
 tags[] | **string**<br>Version tags. For details, see [Version tag](/docs/functions/concepts/function#tag). 
 log_group_id | **string**<br>ID of the log group for the version. 
 environment | **map<string,string>**<br>Environment settings for the version. 
-connectivity | **[Connectivity](#Connectivity8)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
+connectivity | **[Connectivity](../function.proto#Connectivity8)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
 
 
 ## ListRuntimes {#ListRuntimes}

@@ -25,7 +25,7 @@ A set of methods for managing API gateways.
 
 Returns the specified API gateway. Note that only API gateway basic attributes are returned. To get associated openapi specification, make a [GetOpenapiSpec](#GetOpenapiSpec) request. <br>To get the list of all available API gateways, make a [List](#List) request.
 
-**rpc Get ([GetApiGatewayRequest](#GetApiGatewayRequest)) returns ([ApiGateway](#ApiGateway))**
+**rpc Get ([GetApiGatewayRequest](#GetApiGatewayRequest)) returns ([ApiGateway](../apigateway.proto#ApiGateway))**
 
 ### GetApiGatewayRequest {#GetApiGatewayRequest}
 
@@ -62,14 +62,14 @@ Field | Description
 folder_id | **string**<br>Required. ID of the folder to list API gateways in. <br>To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. false
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `pageSize`, the service returns a [ListApiGatewayResponse.next_page_token](#ListApiGatewayResponse) that can be used to get the next page of results in subsequent list requests. <br>Default value: 100. 
 page_token | **string**<br>Page token. To get the next page of results, set `pageToken` to the [ListApiGatewayResponse.next_page_token](#ListApiGatewayResponse) returned by a previous list request. 
-filter | **string**<br><ol><li>The field name. Currently filtering can only be applied to the [ApiGateway.name](#ApiGateway1) field. </li><li>A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. </li></ol> 
+filter | **string**<br><ol><li>The field name. Currently filtering can only be applied to the [ApiGateway.name](../apigateway.proto#ApiGateway1) field. </li><li>A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. </li></ol> 
 
 
 ### ListApiGatewayResponse {#ListApiGatewayResponse}
 
 Field | Description
 --- | ---
-api_gateways[] | **[ApiGateway](#ApiGateway1)**<br>List of API gateways in the specified folder. 
+api_gateways[] | **[ApiGateway](../apigateway.proto#ApiGateway1)**<br>List of API gateways in the specified folder. 
 next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListApiGatewayRequest.page_size](#ListApiGatewayRequest1), use `nextPageToken` as the value for the [ListApiGatewayRequest.page_token](#ListApiGatewayRequest1) parameter in the next list request. <br>Each subsequent page will have its own `nextPageToken` to continue paging through the results. 
 
 
@@ -96,7 +96,7 @@ Creates an API gateway in the specified folder.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateApiGatewayMetadata](#CreateApiGatewayMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[ApiGateway](#ApiGateway2)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[ApiGateway](../apigateway.proto#ApiGateway2)<br>
 
 ### CreateApiGatewayRequest {#CreateApiGatewayRequest}
 
@@ -123,7 +123,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateApiGatewayMetadata](#CreateApiGatewayMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[ApiGateway](#ApiGateway2)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[ApiGateway](../apigateway.proto#ApiGateway2)>**<br>if operation finished successfully. 
 
 
 ### CreateApiGatewayMetadata {#CreateApiGatewayMetadata}
@@ -156,7 +156,7 @@ Updates the specified API gateway.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateApiGatewayMetadata](#UpdateApiGatewayMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[ApiGateway](#ApiGateway3)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[ApiGateway](../apigateway.proto#ApiGateway3)<br>
 
 ### UpdateApiGatewayRequest {#UpdateApiGatewayRequest}
 
@@ -184,7 +184,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateApiGatewayMetadata](#UpdateApiGatewayMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[ApiGateway](#ApiGateway3)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[ApiGateway](../apigateway.proto#ApiGateway3)>**<br>if operation finished successfully. 
 
 
 ### UpdateApiGatewayMetadata {#UpdateApiGatewayMetadata}

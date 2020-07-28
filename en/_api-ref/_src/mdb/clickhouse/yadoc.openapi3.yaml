@@ -427,6 +427,40 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/RestoreClusterMetadata'
       x-y-operation-response: '[Cluster](/docs/managed-clickhouse/api-ref/Cluster#representation)'
+  /managed-clickhouse/v1/clusters/{clusterId}:rescheduleMaintenance:
+    post:
+      tags:
+      - Cluster
+      summary: Reschedule planned maintenance operation.
+      operationId: ClusterRescheduleMaintenance
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          Required. ID of the ClickHouse cluster to maintenance reschedule.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RescheduleMaintenanceRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: rescheduleMaintenance
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/RescheduleMaintenanceMetadata'
+      x-y-operation-response: '[Cluster](/docs/managed-clickhouse/api-ref/Cluster#representation)'
   /managed-clickhouse/v1/clusters/{clusterId}:logs:
     get:
       tags:
@@ -2155,19 +2189,25 @@ components:
       type: object
       properties:
         dataLens:
-          description: Allow access for DataLens
+          description: Allow to export data from the cluster to Yandex DataLens.
           type: boolean
           format: boolean
         webSql:
-          description: Allow access for Web SQL
+          description: |-
+            Allow SQL queries to the cluster databases from the Yandex.Cloud management console.
+
+            See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details.
           type: boolean
           format: boolean
         metrika:
-          description: Allow access for Metrika
+          description: |-
+            Allow to import data from Yandex.Metrica and AppMetrica to the cluster.
+
+            See [Export data to Yandex.Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details.
           type: boolean
           format: boolean
         serverless:
-          description: Allow access for Serverless
+          description: Allow access to cluster for Serverless.
           type: boolean
           format: boolean
     AddClusterHostsMetadata:
@@ -2240,6 +2280,9 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/HostSpec'
+    AnytimeMaintenanceWindow:
+      type: object
+      properties: {}
     Backup:
       description: |-
         A ClickHouse Backup resource. See the [Developer's Guide](/docs/managed-clickhouse/concepts)
@@ -3045,6 +3088,10 @@ components:
           description: ID of the service account used for access to Yandex Object
             Storage.
           type: string
+        maintenanceWindow:
+          $ref: '#/components/schemas/MaintenanceWindow_in_Cluster_maintenanceWindow'
+        plannedOperation:
+          $ref: '#/components/schemas/MaintenanceOperation_in_Cluster_plannedOperation'
     ClusterConfig:
       type: object
       properties:
@@ -3821,6 +3868,28 @@ components:
           type: object
           additionalProperties:
             type: string
+    MaintenanceOperation:
+      type: object
+      properties:
+        info:
+          description: The maximum string length in characters is 256.
+          type: string
+        delayedUntil:
+          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+            format.
+          type: string
+          format: date-time
+    MaintenanceWindow:
+      type: object
+      allOf:
+      - title: policy
+        type: object
+        maxProperties: 1
+        properties:
+          anytime:
+            $ref: '#/components/schemas/AnytimeMaintenanceWindow'
+          weeklyMaintenanceWindow:
+            $ref: '#/components/schemas/WeeklyMaintenanceWindow'
     MlModel:
       type: object
       properties:
@@ -3939,6 +4008,37 @@ components:
         databaseName:
           description: Name of the database that the permission grants access to.
           type: string
+    RescheduleMaintenanceMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: Required. ID of the ClickHouse cluster.
+          type: string
+        delayedUntil:
+          description: |-
+            Required. New time of the planned maintenance. Can be in the past for rescheduled to "IMMEDIATE".
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+    RescheduleMaintenanceRequest:
+      type: object
+      properties:
+        rescheduleType:
+          $ref: '#/components/schemas/RescheduleMaintenanceRequestRescheduleType_in_RescheduleMaintenanceRequest_rescheduleType'
+        delayedUntil:
+          description: |-
+            The time for SPECIFIC_TIME reschedule. Limited by two weeks since first time scheduled.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+    RescheduleMaintenanceRequestRescheduleType:
+      type: string
+      enum:
+      - IMMEDIATE
+      - NEXT_AVAILABLE_WINDOW
+      - SPECIFIC_TIME
     ResourcePreset:
       description: A ResourcePreset resource for describing hardware configuration
         presets.
@@ -4271,6 +4371,8 @@ components:
           description: ID of the service account used for access to Yandex Object
             Storage.
           type: string
+        maintenanceWindow:
+          $ref: '#/components/schemas/MaintenanceWindow_in_UpdateClusterRequest_maintenanceWindow'
     UpdateClusterShardGroupMetadata:
       type: object
       properties:
@@ -4907,6 +5009,8 @@ components:
             value: false.'
           type: boolean
           format: boolean
+        quotaMode:
+          $ref: '#/components/schemas/UserSettingsQuotaMode_in_UserSettings_quotaMode'
     UserSettingsDistributedProductMode:
       description: |2-
          - DISTRIBUTED_PRODUCT_MODE_DENY: Default value. Prohibits using these types of subqueries (returns the "Double-distributed in/JOIN subqueries is denied" exception).
@@ -4930,6 +5034,12 @@ components:
       enum:
       - OVERFLOW_MODE_THROW
       - OVERFLOW_MODE_BREAK
+    UserSettingsQuotaMode:
+      type: string
+      enum:
+      - QUOTA_MODE_DEFAULT
+      - QUOTA_MODE_KEYED
+      - QUOTA_MODE_KEYED_BY_IP
     UserSpec:
       type: object
       properties:
@@ -4960,6 +5070,28 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/UserQuota'
+    WeeklyMaintenanceWindow:
+      type: object
+      properties:
+        day:
+          $ref: '#/components/schemas/WeeklyMaintenanceWindowWeekDay_in_WeeklyMaintenanceWindow_day'
+        hour:
+          description: |-
+            Hour of the day in UTC.
+
+            Acceptable values are 1 to 24, inclusive.
+          type: string
+          format: int64
+    WeeklyMaintenanceWindowWeekDay:
+      type: string
+      enum:
+      - MON
+      - TUE
+      - WED
+      - THU
+      - FRI
+      - SAT
+      - SUN
     rpcStatus:
       description: The error result of the operation in case of failure or cancellation.
       type: object
@@ -5821,6 +5953,30 @@ components:
       - STOPPED
       - STARTING
       default: STATUS_UNKNOWN
+    MaintenanceWindow_in_Cluster_maintenanceWindow:
+      description: Window of maintenance operations.
+      type: object
+      allOf:
+      - title: policy
+        type: object
+        maxProperties: 1
+        properties:
+          anytime:
+            $ref: '#/components/schemas/AnytimeMaintenanceWindow'
+          weeklyMaintenanceWindow:
+            $ref: '#/components/schemas/WeeklyMaintenanceWindow'
+    MaintenanceOperation_in_Cluster_plannedOperation:
+      description: Maintenance operation planned at nearest maintenance_window.
+      type: object
+      properties:
+        info:
+          description: The maximum string length in characters is 256.
+          type: string
+        delayedUntil:
+          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+            format.
+          type: string
+          format: date-time
     ClusterConfigClickhouse_in_ClusterConfig_clickhouse:
       description: Configuration and resource allocation for ClickHouse hosts.
       type: object
@@ -5865,23 +6021,29 @@ components:
           type: integer
           format: int32
     Access_in_ClusterConfig_access:
-      description: Access policy to DB
+      description: Access policy for external services.
       type: object
       properties:
         dataLens:
-          description: Allow access for DataLens
+          description: Allow to export data from the cluster to Yandex DataLens.
           type: boolean
           format: boolean
         webSql:
-          description: Allow access for Web SQL
+          description: |-
+            Allow SQL queries to the cluster databases from the Yandex.Cloud management console.
+
+            See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details.
           type: boolean
           format: boolean
         metrika:
-          description: Allow access for Metrika
+          description: |-
+            Allow to import data from Yandex.Metrica and AppMetrica to the cluster.
+
+            See [Export data to Yandex.Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details.
           type: boolean
           format: boolean
         serverless:
-          description: Allow access for Serverless
+          description: Allow access to cluster for Serverless.
           type: boolean
           format: boolean
     ClickhouseConfigSet_in_ClusterConfigClickhouse_config:
@@ -5980,23 +6142,32 @@ components:
           type: integer
           format: int32
     Access_in_ConfigSpec_access:
-      description: Access policy to DB
+      description: |-
+        Access policy for external services.
+
+        If you want a specific service to access the ClickHouse cluster, then set the necessary values in this policy.
       type: object
       properties:
         dataLens:
-          description: Allow access for DataLens
+          description: Allow to export data from the cluster to Yandex DataLens.
           type: boolean
           format: boolean
         webSql:
-          description: Allow access for Web SQL
+          description: |-
+            Allow SQL queries to the cluster databases from the Yandex.Cloud management console.
+
+            See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details.
           type: boolean
           format: boolean
         metrika:
-          description: Allow access for Metrika
+          description: |-
+            Allow to import data from Yandex.Metrica and AppMetrica to the cluster.
+
+            See [Export data to Yandex.Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details.
           type: boolean
           format: boolean
         serverless:
-          description: Allow access for Serverless
+          description: Allow access to cluster for Serverless.
           type: boolean
           format: boolean
     ClickhouseConfig_in_ConfigSpecClickhouse_config:
@@ -6446,6 +6617,15 @@ components:
       type: string
       enum:
       - ML_MODEL_TYPE_CATBOOST
+    RescheduleMaintenanceRequestRescheduleType_in_RescheduleMaintenanceRequest_rescheduleType:
+      description: |-
+        Required.
+        Required. The type of reschedule request.
+      type: string
+      enum:
+      - IMMEDIATE
+      - NEXT_AVAILABLE_WINDOW
+      - SPECIFIC_TIME
     ClusterEnvironment_in_RestoreClusterRequest_environment:
       description: |-
         Required.
@@ -6809,6 +6989,18 @@ components:
           $ref: '#/components/schemas/TimeOfDay_in_ConfigSpec_backupWindowStart'
         access:
           $ref: '#/components/schemas/Access_in_ConfigSpec_access'
+    MaintenanceWindow_in_UpdateClusterRequest_maintenanceWindow:
+      description: Window of maintenance operations.
+      type: object
+      allOf:
+      - title: policy
+        type: object
+        maxProperties: 1
+        properties:
+          anytime:
+            $ref: '#/components/schemas/AnytimeMaintenanceWindow'
+          weeklyMaintenanceWindow:
+            $ref: '#/components/schemas/WeeklyMaintenanceWindow'
     FieldMask_in_UpdateClusterShardGroupRequest_updateMask:
       description: |-
         Field mask that specifies which attributes of the ClickHouse shard group should be updated.
@@ -7333,6 +7525,8 @@ components:
             value: false.'
           type: boolean
           format: boolean
+        quotaMode:
+          $ref: '#/components/schemas/UserSettingsQuotaMode_in_UserSettings_quotaMode'
     UserSettings_in_User_settings:
       description: |-
         ClickHouse user settings. Supported settings are a limited subset of all settings
@@ -7790,6 +7984,8 @@ components:
             value: false.'
           type: boolean
           format: boolean
+        quotaMode:
+          $ref: '#/components/schemas/UserSettingsQuotaMode_in_UserSettings_quotaMode'
     UserSettingsDistributedProductMode_in_UserSettings_distributedProductMode:
       description: |-
         Determine the behavior of distributed subqueries. Possible values: DISTRIBUTED_PRODUCT_MODE_DENY,
@@ -7862,6 +8058,14 @@ components:
       enum:
       - OVERFLOW_MODE_THROW
       - OVERFLOW_MODE_BREAK
+    UserSettingsQuotaMode_in_UserSettings_quotaMode:
+      description: 'Quota accounting mode. Possible values: QUOTA_MODE_DEFAULT, QUOTA_MODE_KEYED
+        and QUOTA_MODE_KEYED_BY_IP.'
+      type: string
+      enum:
+      - QUOTA_MODE_DEFAULT
+      - QUOTA_MODE_KEYED
+      - QUOTA_MODE_KEYED_BY_IP
     UserSettings_in_UserSpec_settings:
       description: |-
         ClickHouse user settings. Supported settings are a limited subset of all settings
@@ -8319,6 +8523,18 @@ components:
             value: false.'
           type: boolean
           format: boolean
+        quotaMode:
+          $ref: '#/components/schemas/UserSettingsQuotaMode_in_UserSettings_quotaMode'
+    WeeklyMaintenanceWindowWeekDay_in_WeeklyMaintenanceWindow_day:
+      type: string
+      enum:
+      - MON
+      - TUE
+      - WED
+      - THU
+      - FRI
+      - SAT
+      - SUN
 tags:
 - name: Backup
   description: A set of methods for managing ClickHouse Backup resources.

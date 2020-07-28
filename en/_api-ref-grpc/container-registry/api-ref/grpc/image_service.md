@@ -29,7 +29,7 @@ repository_name | **string**<br>Name of the repository to list Docker images in.
 folder_id | **string**<br>ID of the folder to list Docker images in. <br>`folder_id` is ignored if a [ListImagesRequest.repository_name](#ListImagesRequest) or a [ListImagesRequest.registry_id](#ListImagesRequest) are specified in the request. <br>To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListImagesResponse.next_page_token](#ListImagesResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListImagesResponse.next_page_token](#ListImagesResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently you can use filtering only on [Image.name](#Image) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be a maximum of 256 characters and match the regular expression `[a-z0-9]+(?:[._-](./#)(./#)[a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))`.</li></ol> The maximum string length in characters is 1000.
+filter | **string**<br><ol><li>The field name. Currently you can use filtering only on [Image.name](../image.proto#Image) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be a maximum of 256 characters and match the regular expression `[a-z0-9]+(?:[._-](./#)(./#)[a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))`.</li></ol> The maximum string length in characters is 1000.
 order_by | **string**<br> The maximum string length in characters is 100.
 
 
@@ -37,7 +37,7 @@ order_by | **string**<br> The maximum string length in characters is 100.
 
 Field | Description
 --- | ---
-images[] | **[Image](#Image)**<br>List of Image resources. 
+images[] | **[Image](../image.proto#Image)**<br>List of Image resources. 
 next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListImagesRequest.page_size](#ListImagesRequest1), use the `next_page_token` as the value for the [ListImagesRequest.page_token](#ListImagesRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
@@ -49,8 +49,8 @@ id | **string**<br>Output only. ID of the Docker image.
 name | **string**<br>Name of the Docker image. The name is unique within the registry. 
 digest | **string**<br>Content-addressable identifier of the Docker image. 
 compressed_size | **int64**<br>Compressed size of the Docker image, specified in bytes. 
-config | **[Blob](#Blob)**<br>Configuration of the Docker image. 
-layers[] | **[Blob](#Blob)**<br>Layers of the Docker image. 
+config | **[Blob](../blob.proto#Blob)**<br>Configuration of the Docker image. 
+layers[] | **[Blob](../blob.proto#Blob)**<br>Layers of the Docker image. 
 tags[] | **string**<br>Tags of the Docker image. <br>Each tag is unique within the repository. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Output only. Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
 
@@ -69,7 +69,7 @@ urls[] | **string**<br>
 
 Returns the specified Image resource. <br>To get the list of available Image resources, make a [List](#List) request.
 
-**rpc Get ([GetImageRequest](#GetImageRequest)) returns ([Image](#Image1))**
+**rpc Get ([GetImageRequest](#GetImageRequest)) returns ([Image](../image.proto#Image1))**
 
 ### GetImageRequest {#GetImageRequest}
 
@@ -86,8 +86,8 @@ id | **string**<br>Output only. ID of the Docker image.
 name | **string**<br>Name of the Docker image. The name is unique within the registry. 
 digest | **string**<br>Content-addressable identifier of the Docker image. 
 compressed_size | **int64**<br>Compressed size of the Docker image, specified in bytes. 
-config | **[Blob](#Blob1)**<br>Configuration of the Docker image. 
-layers[] | **[Blob](#Blob1)**<br>Layers of the Docker image. 
+config | **[Blob](../blob.proto#Blob1)**<br>Configuration of the Docker image. 
+layers[] | **[Blob](../blob.proto#Blob1)**<br>Layers of the Docker image. 
 tags[] | **string**<br>Tags of the Docker image. <br>Each tag is unique within the repository. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Output only. Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
 
