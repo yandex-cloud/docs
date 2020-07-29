@@ -1,0 +1,1 @@
+На платформе Intel Cascade Lake можно создать ВМ с конфигурацией от 68 до 80 vCPU в [зонах доступности](../../overview/concepts/geo-scope.md) `ru-central1-b` и `ru-central1-c`. Такие ВМ доступны только в сервисе {{ compute-short-name }}.
