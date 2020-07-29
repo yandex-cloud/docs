@@ -243,8 +243,6 @@
 
 {% include [initialization-windows-vm](../../../_includes/initialization-windows-vm.md) %}
 
-При создании виртуальной машине назначаются IP-адрес и FQDN. Эти данные можно использовать для доступа к виртуальной машине по RDP.
-
 Публичный IP-адрес можно сделать статическим. Подробнее читайте в разделе [{#T}](../vm-control/vm-set-static-ip.md).
 
 #### См. также {#see-also}
