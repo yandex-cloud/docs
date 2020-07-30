@@ -36,11 +36,11 @@ To use the service, create a cluster and connect to a DBMS:
 
 1. Select **{{ mpg-name }}**.
 
-2. Click **Create cluster** and select the necessary DBMS.
+2. Click **Create cluster**.
 
 3. Set the cluster parameters and click **Create cluster**. This process is described in detail in [{#T}](operations/cluster-create.md).
 
-4. When the cluster is ready, its status on the {{ mpg-short-name }} dashboard will change to **RUNNING**.
+4. When the cluster is ready to operate, its status on the {{ mpg-short-name }} dashboard changes to **Running** and its state to **Alive**. This may take some time.
 
 5. To connect to the DB server, you need an SSL certificate. You can prepare all the necessary authentication data as follows:
 
