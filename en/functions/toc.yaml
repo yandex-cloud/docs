@@ -21,7 +21,7 @@ items:
         href: operations/index.md
       - name: Using functions to get an IAM token for a service account
         href: operations/function-sa.md
-      - name: Managing rights to run functions
+      - name: Managing rights to access functions
         href: operations/function-public.md
       - name: Managing functions
         items:
@@ -73,6 +73,8 @@ items:
             href: concepts/runtime/environment-variables.md
           - name: Execution context
             href: concepts/runtime/execution-context.md
+      - name: Builder
+        href: concepts/builder.md
       - name: Triggers
         items:
           - name: Overview
@@ -89,7 +91,65 @@ items:
         href: concepts/monitoring.md
       - name: Quotas and limits
         href: concepts/limits.md
-  - name: Solutions
+  - name: Developing in Node.js
+    items:
+      - name: Overview
+        href: lang/nodejs/index.md
+      - name: Managing dependencies
+        href: lang/nodejs/dependencies.md
+      - name: Request handler
+        href: lang/nodejs/handler.md
+      - name: Invocation context
+        href: lang/nodejs/context.md
+      - name: Logging
+        href: lang/nodejs/logging.md
+      - name: Handling errors
+        href: lang/nodejs/errors.md
+      - name: Using the SDK
+        href: lang/nodejs/sdk.md
+  - name: Developing in Go
+    items:
+      - name: Overview
+        href: lang/golang/index.md
+      - name: Managing dependencies
+        href: lang/golang/dependencies.md
+      - name: Request handler
+        href: lang/golang/handler.md
+      - name: Invocation context
+        href: lang/golang/context.md
+      - name: Logging
+        href: lang/golang/logging.md
+      - name: Handling errors
+        href: lang/golang/errors.md
+      - name: Using the SDK
+        href: lang/golang/sdk.md
+  - name: Developing in PHP
+    items:
+      - name: Overview
+        href: lang/php/index.md
+      - name: Managing dependencies
+        href: lang/php/dependencies.md
+      - name: Request handler
+        href: lang/php/handler.md
+      - name: Invocation context
+        href: lang/php/context.md
+      - name: Logging
+        href: lang/php/logging.md
+      - name: Handling errors
+        href: lang/php/errors.md
+  - name: Developing in Bash
+    items:
+      - name: Overview
+        href: lang/bash/index.md
+      - name: Request handler
+        href: lang/bash/handler.md
+      - name: Logging
+        href: lang/bash/logging.md
+      - name: Handling errors
+        href: lang/bash/errors.md
+      - name: Using the SDK
+        href: lang/bash/sdk.md
+  - name: Use cases
     items:
       - name: Creating skills for Alice
         href: solutions/alice-skill.md
@@ -111,7 +171,7 @@ items:
         include:
           repo: docs
           path: en/_api-ref/serverless/functions/toc.yaml
-  - name: Triggers API reference
+  - name: API Triggers reference
     items:
       - name: Authentication in the API
         href: api-ref/triggers/authentication.md

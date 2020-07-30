@@ -105,3 +105,4 @@ Choose the programming language and create a [version of the function](../concep
 1. Open the **Testing** tab on the skill page in your [dashboard](https://dialogs.yandex.ru/developer/).
 1. If everything is set up correctly, the **Chat** section will display a message inviting you to start a conversation: `Hello! I'll repeat anything you say to me.`.
 1. Send a message and make sure the response is the same.
+
