@@ -11,9 +11,6 @@
 - [{#T}](dashboard/create.md)
 - [{#T}](dashboard/copy.md)
 - [{#T}](dashboard/add-widget.md)
-- [{#T}](chart/create.md)
-- [{#T}](chart/create-query.md)
-- [{#T}](chart/delete-chart.md)
 - [{#T}](dashboard/delete-widget.md)
 - [{#T}](dashboard/delete-dashboard.md)
 
