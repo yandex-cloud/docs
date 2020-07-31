@@ -27,15 +27,7 @@ items:
             href: operations/dashboard/delete-widget.md
           - name: Удаление дашборда
             href: operations/dashboard/delete-dashboard.md
-      - name: Работа с метриками
-        items:
-          - name: Получение списка метрик
-            href: operations/metric/list.md
-          - name: Выгрузка метрик
-            href: operations/metric/get.md
-          - name: Запись пользовательских метрик
-            href: operations/metric/add.md
-      - name: Работа с алертами
+       - name: Работа с алертами
         items:
           - name: Создание алерта
             href: operations/alert/create-alert.md
