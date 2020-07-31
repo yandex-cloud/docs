@@ -12,8 +12,8 @@ To visualize and explore your data, follow these steps:
 1. [Before you start](#before-you-begin).
 1. [Create a connection](data-from-csv-visualization.md#step1).
 1. [Create a dataset](data-from-csv-visualization.md#step2).
-1. [Create the first chart](data-from-csv-visualization.md#step3).
-1. [Create the second chart](data-from-csv-visualization.md#step4).
+1. [Create your first chart](data-from-csv-visualization.md#step3).
+1. [Create your second chart](data-from-csv-visualization.md#step4).
 1. [Create a dashboard](data-from-csv-visualization.md#step5).
 1. [Add charts to the dashboard](data-from-csv-visualization.md#step6).
 1. [Add selectors to the dashboard](data-from-csv-visualization.md#step7).
@@ -28,7 +28,7 @@ To visualize and explore your data, follow these steps:
 
 Create a dataset based on the [connection](../../datalens/concepts/connection.md) to the CSV file.
 
-1. Go to the [interface{{ datalens-short-name }}](https://datalens.yandex.ru).
+1. Go to the [interface{{ datalens-short-name }}](https://datalens.yandex.com).
 
 1. Click **Create connection**.
 
@@ -114,7 +114,7 @@ To visualize data by gender, create a [chart](../../datalens/concepts/chart.md):
 
         ![image](../../_assets/datalens/solution-01/14-Chart-Filter.png)
 
-1. Add to the chart a color division for superheroes depending on their gender. To do this, drag the **Gender** field from the **Dimensions** section to the **Colors** section.
+1. Add a color division for superheroes depending on their gender to the chart. To do this, drag the **Gender** field from the **Dimensions** section to the **Colors** section.
 
     ![image](../../_assets/datalens/solution-01/15-Chart-Color.png)
 
