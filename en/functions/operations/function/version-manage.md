@@ -7,7 +7,7 @@ For function versioning, you need to know the name or unique ID of the function 
 With function versioning, you can:
 
 - [Create a version](version-manage.md#func-version-create)
-- [Get information about a function version](version-manage.md#info)
+- [Get information about a function version](version-manage.md#version-info)
     - [Get a list of function versions](version-manage.md#version-list)
     - [Get detailed information about a function's version](version-manage.md#version-get)
 - [Manage version tags](function-update.md#manage-tags)
@@ -64,14 +64,14 @@ When creating a version, set the following parameters:
     1. Select the function to create the version for.
     1. Under **Latest version**, click **Create in editor**.
     1. Set the version parameters:
-      - Runtime environment: `nodejs`.
-      - Timeout: 5 sec.
-      - RAM: 128 MB.
-      - Service account: None selected.
+       - Runtime environment: `nodejs`.
+       - Timeout: 5 sec.
+       - RAM: 128 MB.
+       - Service account: None selected.
     1. Prepare the function code:
-      - Method: ZIP archive.
-      - File: `hello-js.zip`.
-      - Entry point: `index.handler`.
+       - Method: ZIP archive.
+       - File: `hello-js.zip`.
+       - Entry point: `index.handler`.
     1. Click **Create version**.
 
 - CLI
