@@ -2,19 +2,19 @@
 
 ## Версия 0.61.0 (03.08.20) {#latest-release}
 
-**Исправлено**
+### Изменения в сервисах Облака {#services}
+
+#### {{ managed-k8s-name }} {#k8s}
 
 - Команда `yc managed-kubernetes cluster create`.
 
   Теперь значение флага `--version` корректно учитывается при создании регионального кластера.
 
-### Изменения в сервисах Облака {#services}
-
 #### {{ compute-name }} {#compute}
 
 - Команда `yc compute instance update-network-interface`.
    
-   Флаг `--security-group-id` теперь принимает список значений разделённых запятыми.
+   Флаг `--security-group-id` теперь принимает список значений, разделенных запятыми.
 
 - Команды `yc compute instance create-with-container` и `yc compute instance update-container`.
     
@@ -24,7 +24,7 @@
 
 - Команды `yc vpc subnet create` и `yc vpc subnet update`.
 
-   Флаги `--domain-name-server` и `--ntp-server` теперь принимают список значений разделённых запятыми.
+   Флаги `--domain-name-server` и `--ntp-server` теперь принимают список значений, разделенных запятыми.
 
 - Добавлена команда `yc vpc list-used list-used-addresses`.
 
