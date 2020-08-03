@@ -1,6 +1,32 @@
 # Релизы YC CLI
 
-## Версия 0.60.0 (20.07.20) {#latest-release}
+## Версия 0.61.0 (03.08.20) {#latest-release}
+
+**Исправлено**
+
+- Команда `yc managed-kubernetes cluster create`.
+
+  Теперь значение флага `--version` корректно учитывается при создании регионального кластера.
+
+#### {{ compute-name }} {#compute}
+
+- Флаг `--security-group-id` команды `yc compute instance update-network-interface` теперь принимает список значений разделённых запятыми.
+
+- Команды `yc compute instance create-with-container` и `yc compute instance update-container`.
+    
+    Добавлен флаг `--coi-spec-file` для передачи [спецификации образа](https://cloud.yandex.ru/docs/cos/concepts/#spec-example).
+
+#### {{ vpc-name }} {#vpc}
+
+- Флаги `--domain-name-server` и `--ntp-server` команд `yc vpc subnet create` и `yc vpc subnet update` теперь принимают список значений разделённых запятыми.
+
+- Добавлена команда `yc vpc list-used list-used-addresses`.
+
+  Команда выводит список используемых в подсети адресов.
+  
+## Предыдущие релизы {#previous-releases}
+
+## Версия 0.60.0 (20.07.20) {#version0.60.0}
 
 ### Изменения в сервисах Облака {#services}
 
@@ -25,7 +51,6 @@
     Добавлен флаг `--service account` для выбора сервисного аккаунта, привязанного к хостам.
 * Добавлены команды для управления группами шардов `yc managed-clickhouse shard-groups`.
 
-## Предыдущие релизы {#previous-releases}
 
 ### Версия 0.59.0 (02.07.20) {#version0.59.0}
 
