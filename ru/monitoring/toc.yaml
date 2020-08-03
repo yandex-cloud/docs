@@ -27,7 +27,7 @@ items:
             href: operations/dashboard/delete-widget.md
           - name: Удаление дашборда
             href: operations/dashboard/delete-dashboard.md
-       - name: Работа с алертами
+      - name: Работа с алертами
         items:
           - name: Создание алерта
             href: operations/alert/create-alert.md
