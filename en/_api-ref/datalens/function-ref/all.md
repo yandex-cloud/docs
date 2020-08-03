@@ -147,7 +147,7 @@ Performs a Boolean join of two expressions with the `AND` condition.
 
 **Syntax:**`ANY( value )`
 
-Returns any value of `value` from the group. The result is not guaranteed to be the same over multiple queries.
+Returns any of the values of `value` from the group. This is a nondeterministic aggregation — the result may vary for the same data over multiple queries.
 
 
 
