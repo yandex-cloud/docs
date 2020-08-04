@@ -8,4 +8,5 @@ Below are tutorials for using {{ datalens-full-name }}:
 - [{#T}](data-from-metrica-logsapi-visualization.md)
 - [{#T}](data-from-csv-to-public-visualization.md)
 - [{#T}](data-from-appmetrica-visualization.md)
+- [{#T}](data-from-csv-geo-visualization.md)
 

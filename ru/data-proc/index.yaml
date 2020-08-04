@@ -6,9 +6,6 @@ description:
 meta:
   title: "Yandex Data Proc"
 links:
-- title: "Начало работы"
-  description: "Создайте первый кластер баз данных"
-  href: "quickstart"
 - title: "Пошаговые инструкции"
   description: "Инструкции по выполнению рутинных операций"
   href: "operations/"

@@ -41,11 +41,11 @@ The cost for backup and recovery includes:
 
 To create a VM:
 
-1. On the catalog page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
+1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
 
 1. In the **Name** field, enter a name for the VM: `bacula-vm`.
 
-1. Select an [availability zone](../../overview/concepts/geo-scope.md) to host the VM in.
+1. Select the [availability zone](../../overview/concepts/geo-scope.md) to host the VM in.
 
 1. Under **Images from {{ marketplace-name }}**, click **Select**. Select a public **CentOS 7** image.
 
@@ -63,7 +63,7 @@ To create a VM:
 
     - Enter the username in the **Login** field.
 
-    - Under **SSH key**, paste the contents of the public key file.
+    - In the **SSH key** field, paste the contents of the public key file.
 
        You need to create a key pair for the SSH connection yourself. Learn [how to connect to VMs via SSH](../../compute/operations/vm-connect/ssh.md).
 
@@ -140,7 +140,7 @@ After `bacula-vm` switches to `RUNNING`:
     ```
 
     The command will request values for parameters:
-    * `AWS Access Key ID`: Enter the `key_id` ID that you received when [creating the static key](#create-access-key).
+    * `AWS Access Key ID`: Enter the `key_id` ID that you received when [generating the static key](#create-access-key).
     * `AWS Secret Access Key`: Enter the `secret` key that you received when [creating the static key](#create-access-key).
     * `Default region name`: `ru-central1`.
     * `Default output format`: `json`.
@@ -388,24 +388,24 @@ Mount the bucket to the file system to upload copied files to {{ objstorage-name
     * Specify `File = /` to back up the entire file system.
 
     ```
-	FileSet {
-	  Name = "Full Set"
-	  Include {
-		Options {
-		  signature = MD5
-		  compression = GZIP
-		}
-		File = /
-	  }
-	  Exclude {
-		File = /var/spool/bacula
-		File = /tmp
-		File = /proc
-		File = /tmp
-		File = /.journal
-		File = /.fsck
-	  }
-	}
+    	FileSet {
+    	  Name = "Full Set"
+    	  Include {
+    		Options {
+    		  signature = MD5
+    		  compression = GZIP
+    		}
+    		File = /
+    	  }
+    	  Exclude {
+    		File = /var/spool/bacula
+    		File = /tmp
+    		File = /proc
+    		File = /tmp
+    		File = /.journal
+    		File = /.fsck
+    	  }
+    	}
     ```
 
 1. You can find the internal IP address of the VM under **Network** on the VM page in the [management console]({{ link-console-main }}).
