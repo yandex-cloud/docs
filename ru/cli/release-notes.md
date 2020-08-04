@@ -1,20 +1,132 @@
 # Релизы YC CLI
 
-## Версия 0.57.0 (26.05.20) {#latest-release}
+## Версия 0.61.0 (03.08.20) {#latest-release}
 
-### Изменения в CLI {#cli}
+### Изменения в сервисах Облака {#services}
+
+#### {{ managed-k8s-name }} {#k8s}
+
+- Команда `yc managed-kubernetes cluster create`.
+
+  Теперь значение флага `--version` корректно учитывается при создании регионального кластера.
+
+#### {{ compute-name }} {#compute}
+
+- Команда `yc compute instance update-network-interface`.
+   
+   Флаг `--security-group-id` теперь принимает список значений, разделенных запятыми.
+
+- Команды `yc compute instance create-with-container` и `yc compute instance update-container`.
+    
+   Добавлен флаг `--coi-spec-file` для передачи [спецификации образа](https://cloud.yandex.ru/docs/cos/concepts/#spec-example).
+
+#### {{ vpc-name }} {#vpc}
+
+- Команды `yc vpc subnet create` и `yc vpc subnet update`.
+
+   Флаги `--domain-name-server` и `--ntp-server` теперь принимают список значений, разделенных запятыми.
+
+- Добавлена команда `yc vpc list-used list-used-addresses`.
+
+   Команда выводит список используемых в подсети адресов.
+  
+## Предыдущие релизы {#previous-releases}
+
+### Версия 0.60.0 (20.07.20) {#version0.60.0}
+
+#### Изменения в сервисах Облака {#services}
+
+##### {{ compute-name }} {#compute}
+
+- Добавлена команда `yc compute instance update-network-interface`.
+
+  Команда позволяет изменять параметры сетевого интерфейса на уже созданных виртуальных машинах.
+
+##### {{ sf-name }} {#serverless-functions}
+
+- Команда `yc serverless function logs`.
+
+    Использование флага `--follow` теперь гарантирует получение журналов выполнения самой свежей версии функции с переданным тегом. 
+
+##### Сервисы управляемых баз данных {#managed-db}
+
+**{{ mch-name }}**
+
+* Команды `yc managed-clickhouse cluster create`, `yc managed-clickhouse cluster update` и `yc managed-clickhouse cluster restore`
+    
+    Добавлен флаг `--service account` для выбора сервисного аккаунта, привязанного к хостам.
+* Добавлены команды для управления группами шардов `yc managed-clickhouse shard-groups`.
+
+### Версия 0.59.0 (02.07.20) {#version0.59.0}
+
+#### Изменения в сервисах Облака {#services}
+
+#### {{ api-gw-name }} {#api-gw}
+
+Появилась поддержка сервиса {{ api-gw-full-name }}.
+
+{{ api-gw-full-name }} — сервис для управления API-шлюзами, поддерживающий спецификацию [OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification) и набор расширений для взаимодействия с другими облачными сервисами.
+
+Сервис {{ api-gw-full-name }} находится на стадии Preview. Подробнее о сервисе читайте в [документации](https://cloud.yandex.ru/docs/api-gateway/).
+
+#### {{ iam-name }} {#iam}
+
+* Командам `yc iam federation create` и `yc iam federation update` добавлены флаги:
+   * `--encrypted-assertions` для включения шифрования утверждений SAML;
+   * `--case-insensitive-name-ids` для включения нечувствительных к регистру Name IDs пользователей.
+
+### Версия 0.58.0 (16.06.20) {#version0.58.0}
+
+#### Изменения в сервисах Облака {#services}
+
+##### {{ sf-name }} {#serverless-functions}
+
+- Добавлены команды для остановки и возобновления работы триггеров `yc serverless trigger pause` и `yc serverless trigger resume`.
+- Команда `yc serverless function invoke`.
+
+    Увеличено время ожидания результата вызова функции с 30 секунд до 25 минут.
+
+##### {{ vpc-name }} {#vpc}
+
+- Команды `yc vpc subnet create` и `yc vpc subnet update`.
+
+    Добавлены флаги для настройки опций DHCP: `--domain-name`, `--domain-name-server` и `--ntp-server`.
+
+##### {{ managed-k8s-name }} {#k8s}
+
+* Команды `yc managed-kubernetes node-group create` и `yc managed-kubernetes node-group update`.
+
+    Добавлен флаг `--gpus=GPUS` для указания количества GPU, которые будут на узлах.
+
+##### {{ container-registry-name }} {#container-registry}
+
+* Добавлены команды для управления политиками автоматического удаления Docker-образов `yc container repository lifecycle-policy`.
+
+##### Сервисы управляемых баз данных {#managed-db}
+
+**{{ mch-name }}**
+
+* Добавлены команды для управления метками `yc managed-mysql cluster add-labels` и `yc managed-mysql cluster remove-labels`.
+
+**{{ mrd-name }}**
+
+* Добавлена поддержка {{ RD }} версии 6.
+
+### Версия 0.57.0 (26.05.20) {#version0.57.0}
+
+#### Изменения в CLI {#cli}
 
 **Исправлено**
 
 * Исправлена работа Docker Credential helper с HTTPS-адресами. Теперь возможно получить аутентификационные данные для адреса вида `https://cr.yandex`.
 
-### Изменения в сервисах Облака {#services}
+#### Изменения в сервисах Облака {#services}
 
 #### {{ sf-name }} {#serverless-functions}
 
 - Добавлена команда `yc serverless trigger create container-registry` создания триггеров для {{ container-registry-name }}.
 
-### {{ managed-k8s-name }} {#k8s}
+#### {{ managed-k8s-name }} {#k8s}
 
 - Команда `yc managed-kubernetes node-group create`.
 
@@ -33,8 +145,6 @@
 - Добавлена команда `{{ yc-mdb-mg }} hosts resetup`.
 
   Команда перезагружает данные на выбранном хосте: сначала удаляет все данные, а затем восстанавливает их из реплики.
-
-## Предыдущие релизы {#previous-releases}
 
 ### Версия 0.56.0 (23.04.20) {#version0.56.0}
 

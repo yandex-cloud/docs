@@ -3,5 +3,5 @@ editable: false
 ---
 # Quotas and limits
 
-There are no quotas or limits for {{ iam-full-name }}.
+{% include [iam-limits.md](../../_includes/iam/iam-limits.md) %}
 

@@ -1,6 +1,5 @@
 title: "Yandex Key Management Service"
 description:
-  - "<em>Yandex Key Management Service is currently in the <a href=\"/docs/overview/concepts/launch-stages\">Preview stage</a></em>."
   - "Yandex Key Management Service helps you create and manage encryption keys, which you can use to protect your data in the Yandex.Cloud infrastructure and encrypt or decrypt any of your data."
 meta:
   title: "Yandex Key Management Service"
@@ -14,6 +13,9 @@ links:
 - title: "Concepts"
   description: "Learn about service concepts and entities"
   href: "concepts/"
+- title: "Use cases"
+  description: "Perform common tasks with KMS keys"
+  href: "solutions/"
 - title: "API reference"
   description: "HTTP API method descriptions"
   href: "api-ref/"

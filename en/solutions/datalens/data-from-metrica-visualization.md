@@ -1,9 +1,8 @@
 # Visualizing data from Yandex.Metriсa
 
-One of the Yandex.Metrica tags that you have access to will be used as the data source. You can view a list of tags available to you at [https://metrika.yandex.ru/list](https://metrika.yandex.ru/list).
-![image](../../_assets/datalens/solution-03/01-metrica-list.png)
+One of the Yandex.Metrica tags that you have access to will be used as the data source. You can view a list of tags available to you at [https://metrika.yandex.com/list](https://metrika.yandex.com/list).![image](../../_assets/datalens/solution-03/01-metrica-list.png)
 
-If no tags are available in your list, then before performing this scenario, gain access to a tag or use the demo dashboard with Yandex.Metrica data. It's automatically created when you create a {{ datalens-short-name }} instance.
+If no tags are available in your list, gain access to a tag or use the Yandex.Metrica demo dashboard. It's automatically created when you create a {{ datalens-short-name }} instance.
 
 To visualize your data, follow these steps:
 
@@ -20,11 +19,11 @@ To visualize your data, follow these steps:
 
 {% note warning %}
 
-This step is available to users who have permission to a Yandex.Metrica tag. If you don't have tag permissions, open the ready-to-use [**Metrica Live Demo Dashboard**](https://datalens.yandex.ru/navigation?path=Demo/Metrica/Metrica%20Live%20Demo%20Dashboard) and go to step 2.
+This step is available to users who have permission to a Yandex.Metrica tag. If you don't have permissions for the tag, open the ready-to-use [**Metriсa Live Demo Dashboard**](https://datalens.yandex.com/navigation?path=Demo/Metrica/Metrica%20Live%20Demo%20Dashboard) and go to step 2.
 
 {% endnote %}
 
-1. Go to [{{ datalens-short-name }}](https://datalens.yandex.ru).
+1. Go to [{{ datalens-short-name }}](https://datalens.yandex.com).
 
 1. Click **Create connection**.
 
@@ -38,21 +37,25 @@ This step is available to users who have permission to a Yandex.Metrica tag. If 
 
     ![image](../../_assets/datalens/solution-03/04-metrica-creation1.png)
 
-1. If this is your first connection to a Yandex.Metrica tag, grant the necessary permissions to the service.
+    If this is your first connection to a Yandex.Metrica tag, grant the necessary permissions to the service.
 
 1. Select the tag from the drop-down list.
 
     ![image](../../_assets/datalens/solution-03/05-metrica-creation2.png)
 
+1. Select [accuracy](https://yandex.com/dev/metrika/doc/api2/api_v1/sampling-docpage/) level from the drop-down list.
+
+    ![image](../../_assets/datalens/solution-03/06-01-metrica-creation-accuracy.png)
+
 1. Select the **Direct access** connection type.
 
-1. Enable **Automatically create a dashboard on this connection**.
+1. Enable **Automatically create a dashboard, charts, and a dataset on the connection**.
 
-1. Click **Create connection**.
+1. Click **Create**.
 
     ![image](../../_assets/datalens/solution-03/06-metrica-creation3.png)
 
-    When the connection is created, a folder containing the datasets, charts, and a dashboard based on the new connection opens.
+    When the connection is created, a folder containing the datasets, charts, and dashboard opens.
 
 1. Go to **Dashboard with Yandex.Metrica data**.
 
@@ -62,7 +65,7 @@ This step is available to users who have permission to a Yandex.Metrica tag. If 
 
 {% note warning %}
 
-If you don't have a Yandex.Metrica tag and you skipped step 1, use the dashboard [**Metrica Live Demo Dashboard**](https://datalens.yandex.ru/navigation?path=Demo/Metrica/Metrica%20Live%20Demo%20Dashboard).
+If you don't have a Yandex.Metrica tag and you skipped step 1, use the [**Metriсa Live Demo Dashboard**](https://datalens.yandex.com/navigation?path=Demo/Metrica/Metrica%20Live%20Demo%20Dashboard).
 
 {% endnote %}
 
@@ -72,11 +75,11 @@ You can edit the standard [dashboard](../../datalens/concepts/dashboard.md) howe
 
     ![image](../../_assets/datalens/solution-03/09-edit-dashboard.png)
 
-1. Delete the **Page depth** chart. To do this, click ![image](../../_assets/datalens/cross.svg) in the upper-right corner of the chart.
+1. Delete the **Page depth** chart. To do this, click ![image](../../_assets/datalens/horizontal-ellipsis-black.svg) in the upper-right corner of the chart and select **Delete**.
 
     ![image](../../_assets/datalens/solution-03/10-delete-charts1.png)
 
-1. Position the **Bounce rate** and **Time on site** charts so that they fill in the empty space left after deleting the chart in the previous step. You can drag the charts by clicking on them. You can resize charts (expand or shrink) using the triangle in the lower-right corner.
+1. Position the **Bounce rate** and **Time on site** charts so that they fill in the empty space left after deleting the chart in the previous step. Drag the chart by clicking on the chart itself. Resize the chart using the triangle in the lower-right corner.
 
     ![image](../../_assets/datalens/solution-03/11-replace-charts.png)
 
@@ -108,7 +111,7 @@ You can edit any chart on the dashboard. For example, change the visualization t
 
 1. Close the chart editing tab and go back to the dashboard window.
 
-1. Update the dashboard and make sure that the chart changed in the **Technologies** section.
+1. Update the dashboard and make sure that the chart in the **Technologies** section changed.
 
     ![image](../../_assets/datalens/solution-03/17-refresh-dashboard.png)
 

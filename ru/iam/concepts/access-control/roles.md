@@ -71,3 +71,5 @@ _Роль_ — это набор разрешений, который опре�
 ## {{ datalens-name }} {#datalens-roles}
 
 {% include [datalens-instances-user](../../../_includes/roles-datalens-user.md)%}
+
+{% include [datalens-instances-admin](../../../_includes/roles-datalens-admin.md)%}

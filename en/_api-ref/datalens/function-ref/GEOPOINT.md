@@ -6,14 +6,14 @@ editable: false
 
 _Type conversion functions_
 
-#### Syntax
+#### Syntax {#syntax}
 
 
 ```
 GEOPOINT( value_1 [ , value_2 ] )
 ```
 
-#### Description
+#### Description {#description}
 Generates a Geopoint type value. For the input, it accepts a string, a "geopoint" type value, or coordinates — latitude `value_1` and longitude `value_2`. If a single string is input, it must contain a list of two numbers (latitude and longitude) in JSON syntax.
 
 **Argument types:**
@@ -23,7 +23,7 @@ Generates a Geopoint type value. For the input, it accepts a string, a "geopoint
 
 **Return type**: `Geopoint`
 
-#### Examples
+#### Examples {#examples}
 
 ```
 GEOPOINT("[55.75222,37.61556]") = "[55.75222,37.61556]"
@@ -34,6 +34,6 @@ GEOPOINT(55.75222, 37.61556) = "[55.75222,37.61556]"
 ```
 
 
-#### Data source support
+#### Data source support {#data-source-support}
 
 `Materialized Dataset`, `ClickHouse 1.1`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`.

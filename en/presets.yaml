@@ -62,8 +62,8 @@ default:
   interconnect-name: Cloud Interconnect
   cos-name: Container Optimized Solutions
   ml-platform-name: DataSphere
-  marketplace-name: Cloud Marketplace
   certificate-manager-name: Certificate Manager
+  marketplace-name: Cloud Marketplace
 
   # Короткие имена
   iam-short-name: IAM

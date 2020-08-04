@@ -4,11 +4,11 @@ info:
   description: This API reference is organized by resource. Actions are performed
     by sending HTTP requests to resource URLs or making RPC calls. For more information
     about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
-  version: v1
+  version: v1alpha
   x-y-docUri: api-ref
   x-y-baseUrl: https://mdb.api.cloud.yandex.net
 paths:
-  /managed-redis/v1/backups/{backupId}:
+  /managed-redis/v1alpha/backups/{backupId}:
     get:
       tags:
       - Backup
@@ -34,7 +34,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Backup'
       x-y-navtitle: get
-  /managed-redis/v1/backups:
+  /managed-redis/v1alpha/backups:
     get:
       tags:
       - Backup
@@ -79,7 +79,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListBackupsResponse'
       x-y-navtitle: list
-  /managed-redis/v1/clusters/{clusterId}:
+  /managed-redis/v1alpha/clusters/{clusterId}:
     get:
       tags:
       - Cluster
@@ -169,7 +169,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/UpdateClusterMetadata'
       x-y-operation-response: '[Cluster](/docs/managed-redis/api-ref/Cluster#representation)'
-  /managed-redis/v1/clusters:
+  /managed-redis/v1alpha/clusters:
     get:
       tags:
       - Cluster
@@ -250,7 +250,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/CreateClusterMetadata'
       x-y-operation-response: '[Cluster](/docs/managed-redis/api-ref/Cluster#representation)'
-  /managed-redis/v1/clusters/{clusterId}:start:
+  /managed-redis/v1alpha/clusters/{clusterId}:start:
     post:
       tags:
       - Cluster
@@ -278,7 +278,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/StartClusterMetadata'
       x-y-operation-response: '[Cluster](/docs/managed-redis/api-ref/Cluster#representation)'
-  /managed-redis/v1/clusters/{clusterId}:stop:
+  /managed-redis/v1alpha/clusters/{clusterId}:stop:
     post:
       tags:
       - Cluster
@@ -306,41 +306,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/StopClusterMetadata'
       x-y-operation-response: '[Cluster](/docs/managed-redis/api-ref/Cluster#representation)'
-  /managed-redis/v1/clusters/{clusterId}:move:
-    post:
-      tags:
-      - Cluster
-      summary: Moves a Redis cluster to the specified folder.
-      operationId: ClusterMove
-      parameters:
-      - name: clusterId
-        in: path
-        description: |-
-          Required.
-          ID of the Redis cluster to move.
-
-          The maximum string length in characters is 50.
-        required: true
-        schema:
-          type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/MoveClusterRequest'
-        required: true
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Operation'
-      x-y-navtitle: move
-      x-y-operation-metadata:
-        $ref: '#/components/schemas/MoveClusterMetadata'
-      x-y-operation-response: '[Cluster](/docs/managed-redis/api-ref/Cluster#representation)'
-  /managed-redis/v1/clusters/{clusterId}:backup:
+  /managed-redis/v1alpha/clusters/{clusterId}:backup:
     post:
       tags:
       - Cluster
@@ -369,7 +335,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/BackupClusterMetadata'
       x-y-operation-response: '[Cluster](/docs/managed-redis/api-ref/Cluster#representation)'
-  /managed-redis/v1/clusters:restore:
+  /managed-redis/v1alpha/clusters:restore:
     post:
       tags:
       - Cluster
@@ -392,7 +358,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/RestoreClusterMetadata'
       x-y-operation-response: '[Cluster](/docs/managed-redis/api-ref/Cluster#representation)'
-  /managed-redis/v1/clusters/{clusterId}:startFailover:
+  /managed-redis/v1alpha/clusters/{clusterId}:startFailover:
     post:
       tags:
       - Cluster
@@ -420,7 +386,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/StartClusterFailoverMetadata'
       x-y-operation-response: '[Cluster](/docs/managed-redis/api-ref/Cluster#representation)'
-  /managed-redis/v1/clusters/{clusterId}:logs:
+  /managed-redis/v1alpha/clusters/{clusterId}:logs:
     get:
       tags:
       - Cluster
@@ -497,7 +463,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListClusterLogsResponse'
       x-y-navtitle: listLogs
-  /managed-redis/v1/clusters/{clusterId}/operations:
+  /managed-redis/v1alpha/clusters/{clusterId}/operations:
     get:
       tags:
       - Cluster
@@ -542,7 +508,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListClusterOperationsResponse'
       x-y-navtitle: listOperations
-  /managed-redis/v1/clusters/{clusterId}/backups:
+  /managed-redis/v1alpha/clusters/{clusterId}/backups:
     get:
       tags:
       - Cluster
@@ -588,7 +554,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListClusterBackupsResponse'
       x-y-navtitle: listBackups
-  /managed-redis/v1/clusters/{clusterId}/hosts:
+  /managed-redis/v1alpha/clusters/{clusterId}/hosts:
     get:
       tags:
       - Cluster
@@ -634,7 +600,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListClusterHostsResponse'
       x-y-navtitle: listHosts
-  /managed-redis/v1/clusters/{clusterId}/hosts:batchCreate:
+  /managed-redis/v1alpha/clusters/{clusterId}/hosts:batchCreate:
     post:
       tags:
       - Cluster
@@ -669,7 +635,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/AddClusterHostsMetadata'
       x-y-operation-response: Empty
-  /managed-redis/v1/clusters/{clusterId}/hosts:batchDelete:
+  /managed-redis/v1alpha/clusters/{clusterId}/hosts:batchDelete:
     post:
       tags:
       - Cluster
@@ -704,197 +670,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/DeleteClusterHostsMetadata'
       x-y-operation-response: Empty
-  /managed-redis/v1/clusters/{clusterId}/shards/{shardName}:
-    get:
-      tags:
-      - Cluster
-      summary: Returns the specified shard.
-      operationId: ClusterGetShard
-      parameters:
-      - name: clusterId
-        in: path
-        description: |-
-          Required.
-          ID of the Redis cluster the shard belongs to.
-          To get the cluster ID use a [list](/docs/managed-redis/api-ref/Cluster/list) request.
-
-          The maximum string length in characters is 50.
-        required: true
-        schema:
-          type: string
-      - name: shardName
-        in: path
-        description: |-
-          Required.
-          Name of Redis shard to return.
-          To get the shard name use a [listShards](/docs/managed-redis/api-ref/Cluster/listShards) request.
-
-          The maximum string length in characters is 63.
-          Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
-        required: true
-        schema:
-          type: string
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Shard'
-      x-y-navtitle: getShard
-    delete:
-      tags:
-      - Cluster
-      summary: Deletes the specified shard.
-      operationId: ClusterDeleteShard
-      parameters:
-      - name: clusterId
-        in: path
-        description: |-
-          Required.
-          ID of the Redis cluster the shard belongs to.
-          To get the cluster ID use a [list](/docs/managed-redis/api-ref/Cluster/list) request.
-
-          The maximum string length in characters is 50.
-        required: true
-        schema:
-          type: string
-      - name: shardName
-        in: path
-        description: |-
-          Required.
-          Name of the Redis shard to delete.
-          To get the shard name use a [listShards](/docs/managed-redis/api-ref/Cluster/listShards) request.
-
-          The maximum string length in characters is 63.
-          Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
-        required: true
-        schema:
-          type: string
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Operation'
-      x-y-navtitle: deleteShard
-      x-y-operation-metadata:
-        $ref: '#/components/schemas/DeleteClusterShardMetadata'
-      x-y-operation-response: Empty
-  /managed-redis/v1/clusters/{clusterId}/shards:
-    get:
-      tags:
-      - Cluster
-      summary: Retrieves a list of shards.
-      operationId: ClusterListShards
-      parameters:
-      - name: clusterId
-        in: path
-        description: |-
-          Required.
-          ID of the Redis cluster to list shards in.
-          To get the cluster ID use a [list](/docs/managed-redis/api-ref/Cluster/list) request.
-
-          The maximum string length in characters is 50.
-        required: true
-        schema:
-          type: string
-      - name: pageSize
-        in: query
-        description: |-
-          The maximum number of results per page to return. If the number of available
-          results is larger than [pageSize](/docs/managed-redis/api-ref/Cluster/listShards#query_params),
-          the service returns a [nextPageToken](/docs/managed-redis/api-ref/Cluster/listShards#responses)
-          that can be used to get the next page of results in subsequent list requests.
-          Default value: 100.
-
-          The maximum value is 1000.
-        schema:
-          type: string
-          format: int64
-      - name: pageToken
-        in: query
-        description: |-
-          Page token. To get the next page of results, set [pageToken](/docs/managed-redis/api-ref/Cluster/listShards#query_params) to the
-          [nextPageToken](/docs/managed-redis/api-ref/Cluster/listShards#responses) returned by a previous list request.
-
-          The maximum string length in characters is 100.
-        schema:
-          type: string
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ListClusterShardsResponse'
-      x-y-navtitle: listShards
-    post:
-      tags:
-      - Cluster
-      summary: Creates a new shard.
-      operationId: ClusterAddShard
-      parameters:
-      - name: clusterId
-        in: path
-        description: |-
-          Required.
-          ID of the Redis cluster to create a shard in.
-          To get the cluster ID use a [list](/docs/managed-redis/api-ref/Cluster/list) request.
-
-          The maximum string length in characters is 50.
-        required: true
-        schema:
-          type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/AddClusterShardRequest'
-        required: true
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Operation'
-      x-y-navtitle: addShard
-      x-y-operation-metadata:
-        $ref: '#/components/schemas/AddClusterShardMetadata'
-      x-y-operation-response: '`Shard`'
-  /managed-redis/v1/clusters/{clusterId}:rebalance:
-    post:
-      tags:
-      - Cluster
-      summary: Rebalances the cluster. Evenly distributes all the hash slots between
-        the shards.
-      operationId: ClusterRebalance
-      parameters:
-      - name: clusterId
-        in: path
-        description: |-
-          Required.
-          ID of the Redis cluster to rebalance.
-          To get the cluster ID use a [list](/docs/managed-redis/api-ref/Cluster/list) request.
-
-          The maximum string length in characters is 50.
-        required: true
-        schema:
-          type: string
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Operation'
-      x-y-navtitle: rebalance
-      x-y-operation-metadata:
-        $ref: '#/components/schemas/RebalanceClusterMetadata'
-      x-y-operation-response: '[Cluster](/docs/managed-redis/api-ref/Cluster#representation)'
-  /managed-redis/v1/resourcePresets/{resourcePresetId}:
+  /managed-redis/v1alpha/resourcePresets/{resourcePresetId}:
     get:
       tags:
       - ResourcePreset
@@ -920,7 +696,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ResourcePreset'
       x-y-navtitle: get
-  /managed-redis/v1/resourcePresets:
+  /managed-redis/v1alpha/resourcePresets:
     get:
       tags:
       - ResourcePreset
@@ -953,13 +729,6 @@ paths:
       x-y-navtitle: list
 components:
   schemas:
-    Access:
-      type: object
-      properties:
-        dataLens:
-          description: Allow access for DataLens
-          type: boolean
-          format: boolean
     AddClusterHostsMetadata:
       type: object
       properties:
@@ -978,37 +747,6 @@ components:
           description: |-
             Required.
             Configurations for Redis hosts that should be added to the cluster.
-
-            Must contain at least one element.
-          type: array
-          items:
-            $ref: '#/components/schemas/HostSpec'
-    AddClusterShardMetadata:
-      type: object
-      properties:
-        clusterId:
-          description: ID of the Redis cluster that a shard is being added to.
-          type: string
-        shardName:
-          description: Name of the Redis shard that is being created.
-          type: string
-    AddClusterShardRequest:
-      type: object
-      properties:
-        shardName:
-          description: |-
-            Required.
-            Name of the shard.
-            The name must be unique within the cluster.
-
-            The maximum string length in characters is 63.
-            Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
-          type: string
-        hostSpecs:
-          description: |-
-            Required.
-            Configurations for Redis hosts that should be created with the shard.
-            Must contain at least one element.
 
             Must contain at least one element.
           type: array
@@ -1045,11 +783,6 @@ components:
             String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
-        sourceShardNames:
-          description: Shard names used as a source for backup.
-          type: array
-          items:
-            type: string
     BackupClusterMetadata:
       type: object
       properties:
@@ -1107,10 +840,6 @@ components:
           $ref: '#/components/schemas/ClusterHealth_in_Cluster_health'
         status:
           $ref: '#/components/schemas/ClusterStatus_in_Cluster_status'
-        sharded:
-          description: Redis cluster mode on/off.
-          type: boolean
-          format: boolean
     ClusterConfig:
       type: object
       allOf:
@@ -1122,12 +851,6 @@ components:
           resources:
             $ref: '#/components/schemas/Resources'
             description: Resources allocated to Redis hosts.
-          backupWindowStart:
-            $ref: '#/components/schemas/TimeOfDay'
-            description: Time to start the daily backup, in the UTC timezone.
-          access:
-            $ref: '#/components/schemas/Access'
-            description: Access policy to DB
       - title: redis_config
         type: object
         maxProperties: 1
@@ -1192,12 +915,6 @@ components:
           resources:
             $ref: '#/components/schemas/Resources'
             description: Resources allocated to Redis hosts.
-          backupWindowStart:
-            $ref: '#/components/schemas/TimeOfDay'
-            description: Time to start the daily backup, in the UTC timezone.
-          access:
-            $ref: '#/components/schemas/Access'
-            description: Access policy to DB
       - title: redis_spec
         type: object
         maxProperties: 1
@@ -1267,10 +984,6 @@ components:
 
             The maximum string length in characters is 50.
           type: string
-        sharded:
-          description: Redis cluster mode on/off.
-          type: boolean
-          format: boolean
     DeleteClusterHostsMetadata:
       type: object
       properties:
@@ -1301,15 +1014,6 @@ components:
         clusterId:
           description: ID of the Redis cluster that is being deleted.
           type: string
-    DeleteClusterShardMetadata:
-      type: object
-      properties:
-        clusterId:
-          description: ID of the Redis cluster the shard belongs to.
-          type: string
-        shardName:
-          description: Name of the Redis shard that is being deleted.
-          type: string
     Empty:
       description: Empty JSON object `` {} ``.
       type: object
@@ -1336,7 +1040,7 @@ components:
             The name is unique across all existing MDB hosts in Yandex.Cloud, as it defines the FQDN of the host.
           type: string
         clusterId:
-          description: ID of the Redis cluster. The ID is assigned by MDB at creation
+          description: ID of the Redis host. The ID is assigned by MDB at creation
             time.
           type: string
         zoneId:
@@ -1356,8 +1060,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Service'
-        shardName:
-          type: string
     HostHealth:
       description: |2-
          - HEALTH_UNKNOWN: Health of the host is unknown.
@@ -1395,14 +1097,6 @@ components:
             ID of the subnet that the host should belong to. This subnet should be a part
             of the network that the cluster belongs to.
             The ID of the network is set in the field [Cluster.networkId](/docs/managed-redis/api-ref/Cluster#representation).
-          type: string
-        shardName:
-          description: |-
-            ID of the Redis shard the host belongs to.
-            To get the shard ID use a [listShards](/docs/managed-redis/api-ref/Cluster/listShards) request.
-
-            The maximum string length in characters is 63.
-            Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
           type: string
     ListBackupsResponse:
       type: object
@@ -1484,23 +1178,6 @@ components:
             for the [pageToken](/docs/managed-redis/api-ref/Cluster/listOperations#query_params) query parameter in the next list request.
             Each subsequent list request will have its own [nextPageToken](/docs/managed-redis/api-ref/Cluster/listOperations#responses) to continue paging through the results.
           type: string
-    ListClusterShardsResponse:
-      type: object
-      properties:
-        shards:
-          description: List of Redis shards.
-          type: array
-          items:
-            $ref: '#/components/schemas/Shard'
-        nextPageToken:
-          description: |-
-            This token allows you to get the next page of results for list requests. If the number of results
-            is larger than [pageSize](/docs/managed-redis/api-ref/Cluster/listShards#query_params), use
-            the [nextPageToken](/docs/managed-redis/api-ref/Cluster/listShards#responses) as the value
-            for the [pageToken](/docs/managed-redis/api-ref/Cluster/listShards#query_params) query parameter
-            in the next list request. Each subsequent list request will have its own
-            [nextPageToken](/docs/managed-redis/api-ref/Cluster/listShards#responses) to continue paging through the results.
-          type: string
     ListClustersResponse:
       type: object
       properties:
@@ -1557,28 +1234,6 @@ components:
           type: string
         link:
           description: Link to the monitoring system charts for the Redis cluster.
-          type: string
-    MoveClusterMetadata:
-      type: object
-      properties:
-        clusterId:
-          description: ID of the Redis cluster being moved.
-          type: string
-        sourceFolderId:
-          description: ID of the source folder.
-          type: string
-        destinationFolderId:
-          description: ID of the destination folder.
-          type: string
-    MoveClusterRequest:
-      type: object
-      properties:
-        destinationFolderId:
-          description: |-
-            Required.
-            ID of the destination folder.
-
-            The maximum string length in characters is 50.
           type: string
     Operation:
       description: An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
@@ -1637,12 +1292,6 @@ components:
               the response should be the target resource of the operation.
               Any method that returns a long-running operation should document the response type, if any.
             type: object
-    RebalanceClusterMetadata:
-      type: object
-      properties:
-        clusterId:
-          description: ID of the Redis cluster that is being rebalancing.
-          type: string
     RedisConfig5_0:
       description: |-
         Fields and structure of `RedisConfig` reflects Redis configuration file
@@ -1706,6 +1355,10 @@ components:
           type: array
           items:
             type: string
+        cores:
+          description: Number of CPU cores for a Redis host created with the preset.
+          type: string
+          format: int64
         memory:
           description: RAM volume for a Redis host created with the preset, in bytes.
           type: string
@@ -1788,12 +1441,6 @@ components:
 
             The maximum string length in characters is 50.
           type: string
-        folderId:
-          description: |-
-            ID of the folder to create the Redis cluster in.
-
-            The maximum string length in characters is 50.
-          type: string
     Service:
       type: object
       properties:
@@ -1815,25 +1462,11 @@ components:
     ServiceType:
       description: |2-
          - REDIS: The host is a Redis server.
-         - ARBITER: The host provides a Sentinel-only service (a quorum node).
-         - REDIS_CLUSTER: The host is a Redis Cluster node.
+         - SENTINEL: The host provides a Sentinel service.
       type: string
       enum:
       - REDIS
-      - ARBITER
-      - REDIS_CLUSTER
-    Shard:
-      type: object
-      properties:
-        name:
-          description: |-
-            Name of the Redis shard. The shard name is assigned by user at creation time, and cannot be changed.
-            1-63 characters long.
-          type: string
-        clusterId:
-          description: ID of the Redis cluster the shard belongs to. The ID is assigned
-            by MDB at creation time.
-          type: string
+      - SENTINEL
     StartClusterFailoverMetadata:
       type: object
       properties:
@@ -1852,33 +1485,6 @@ components:
         clusterId:
           description: ID of the Redis cluster.
           type: string
-    TimeOfDay:
-      description: |-
-        Represents a time of day. The date and time zone are either not significant
-        or are specified elsewhere. An API may choose to allow leap seconds. Related
-        types are [google.type.Date](https://github.com/googleapis/googleapis/blob/master/google/type/date.proto) and [google.protobuf.Timestamp](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto).
-      type: object
-      properties:
-        hours:
-          description: |-
-            Hours of day in 24 hour format. Should be from 0 to 23. An API may choose
-            to allow the value "24:00:00" for scenarios like business closing time.
-          type: integer
-          format: int32
-        minutes:
-          description: Minutes of hour of day. Must be from 0 to 59.
-          type: integer
-          format: int32
-        seconds:
-          description: |-
-            Seconds of minutes of the time. Must normally be from 0 to 59. An API may
-            allow the value 60 if it allows leap-seconds.
-          type: integer
-          format: int32
-        nanos:
-          description: Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.
-          type: integer
-          format: int32
     UpdateClusterMetadata:
       type: object
       properties:
@@ -1961,12 +1567,6 @@ components:
           resources:
             $ref: '#/components/schemas/Resources'
             description: Resources allocated to Redis hosts.
-          backupWindowStart:
-            $ref: '#/components/schemas/TimeOfDay'
-            description: Time to start the daily backup, in the UTC timezone.
-          access:
-            $ref: '#/components/schemas/Access'
-            description: Access policy to DB
       - title: redis_config
         type: object
         maxProperties: 1
@@ -1976,7 +1576,7 @@ components:
             description: Configuration of a Redis 5.0 server.
     ClusterHealth_in_Cluster_health:
       description: |-
-        Aggregated cluster health.
+        Aggregated cluster health
 
          - HEALTH_UNKNOWN: Cluster is in unknown state (we have no data)
          - ALIVE: Cluster is alive and well (all hosts are alive)
@@ -1991,7 +1591,7 @@ components:
       default: HEALTH_UNKNOWN
     ClusterStatus_in_Cluster_status:
       description: |-
-        Cluster status.
+        Cluster status
 
          - STATUS_UNKNOWN: Cluster status is unknown
          - CREATING: Cluster is being created
@@ -2041,12 +1641,6 @@ components:
           resources:
             $ref: '#/components/schemas/Resources'
             description: Resources allocated to Redis hosts.
-          backupWindowStart:
-            $ref: '#/components/schemas/TimeOfDay'
-            description: Time to start the daily backup, in the UTC timezone.
-          access:
-            $ref: '#/components/schemas/Access'
-            description: Access policy to DB
       - title: redis_spec
         type: object
         maxProperties: 1
@@ -2218,12 +1812,6 @@ components:
           resources:
             $ref: '#/components/schemas/Resources'
             description: Resources allocated to Redis hosts.
-          backupWindowStart:
-            $ref: '#/components/schemas/TimeOfDay'
-            description: Time to start the daily backup, in the UTC timezone.
-          access:
-            $ref: '#/components/schemas/Access'
-            description: Access policy to DB
       - title: redis_spec
         type: object
         maxProperties: 1
@@ -2235,13 +1823,11 @@ components:
         Type of the service provided by the host.
 
          - REDIS: The host is a Redis server.
-         - ARBITER: The host provides a Sentinel-only service (a quorum node).
-         - REDIS_CLUSTER: The host is a Redis Cluster node.
+         - SENTINEL: The host provides a Sentinel service.
       type: string
       enum:
       - REDIS
-      - ARBITER
-      - REDIS_CLUSTER
+      - SENTINEL
     ServiceHealth_in_Service_health:
       description: |-
         Status code of server availability.
@@ -2282,12 +1868,6 @@ components:
           resources:
             $ref: '#/components/schemas/Resources'
             description: Resources allocated to Redis hosts.
-          backupWindowStart:
-            $ref: '#/components/schemas/TimeOfDay'
-            description: Time to start the daily backup, in the UTC timezone.
-          access:
-            $ref: '#/components/schemas/Access'
-            description: Access policy to DB
       - title: redis_spec
         type: object
         maxProperties: 1

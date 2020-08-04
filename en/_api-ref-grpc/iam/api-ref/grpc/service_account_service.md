@@ -24,13 +24,13 @@ A set of methods for managing ServiceAccount resources.
 
 Returns the specified ServiceAccount resource. <br>To get the list of available ServiceAccount resources, make a [List](#List) request.
 
-**rpc Get ([GetServiceAccountRequest](#GetServiceAccountRequest)) returns ([ServiceAccount](#ServiceAccount))**
+**rpc Get ([GetServiceAccountRequest](#GetServiceAccountRequest)) returns ([ServiceAccount](../service_account.proto#ServiceAccount))**
 
 ### GetServiceAccountRequest {#GetServiceAccountRequest}
 
 Field | Description
 --- | ---
-service_account_id | **string**<br>Required. ID of the ServiceAccount resource to return. To get the service account ID, use a [ServiceAccountService.List](#List) request.  The maximum string length in characters is 50.
+service_account_id | **string**<br>Required. ID of the ServiceAccount resource to return. To get the service account ID, use a [ServiceAccountService.List](#List) request. false The maximum string length in characters is 50.
 
 
 ### ServiceAccount {#ServiceAccount}
@@ -54,17 +54,17 @@ Retrieves the list of ServiceAccount resources in the specified folder.
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder to list service accounts in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request.  The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the folder to list service accounts in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. false The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListServiceAccountsResponse.next_page_token](#ListServiceAccountsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100 The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListServiceAccountsResponse.next_page_token](#ListServiceAccountsResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently you can use filtering only on the [ServiceAccount.name](#ServiceAccount1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.</li></ol> The maximum string length in characters is 1000.
+filter | **string**<br><ol><li>The field name. Currently you can use filtering only on the [ServiceAccount.name](../service_account.proto#ServiceAccount1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.</li></ol> The maximum string length in characters is 1000.
 
 
 ### ListServiceAccountsResponse {#ListServiceAccountsResponse}
 
 Field | Description
 --- | ---
-service_accounts[] | **[ServiceAccount](#ServiceAccount1)**<br>List of ServiceAccount resources. 
+service_accounts[] | **[ServiceAccount](../service_account.proto#ServiceAccount1)**<br>List of ServiceAccount resources. 
 next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListServiceAccountsRequest.page_size](#ListServiceAccountsRequest1), use the `next_page_token` as the value for the [ListServiceAccountsRequest.page_token](#ListServiceAccountsRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
@@ -87,14 +87,14 @@ Creates a service account in the specified folder.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateServiceAccountMetadata](#CreateServiceAccountMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[ServiceAccount](#ServiceAccount2)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[ServiceAccount](../service_account.proto#ServiceAccount2)<br>
 
 ### CreateServiceAccountRequest {#CreateServiceAccountRequest}
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder to create a service account in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request.  The maximum string length in characters is 50.
-name | **string**<br>Required. Name of the service account. The name must be unique within the cloud.  Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+folder_id | **string**<br>Required. ID of the folder to create a service account in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. false The maximum string length in characters is 50.
+name | **string**<br>Required. Name of the service account. The name must be unique within the cloud. false Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>Description of the service account. The maximum string length in characters is 256.
 
 
@@ -111,7 +111,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateServiceAccountMetadata](#CreateServiceAccountMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[ServiceAccount](#ServiceAccount2)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[ServiceAccount](../service_account.proto#ServiceAccount2)>**<br>if operation finished successfully. 
 
 
 ### CreateServiceAccountMetadata {#CreateServiceAccountMetadata}
@@ -140,15 +140,15 @@ Updates the specified service account.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateServiceAccountMetadata](#UpdateServiceAccountMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[ServiceAccount](#ServiceAccount3)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[ServiceAccount](../service_account.proto#ServiceAccount3)<br>
 
 ### UpdateServiceAccountRequest {#UpdateServiceAccountRequest}
 
 Field | Description
 --- | ---
-service_account_id | **string**<br>Required. ID of the ServiceAccount resource to update. To get the service account ID, use a [ServiceAccountService.List](#List) request.  The maximum string length in characters is 50.
+service_account_id | **string**<br>Required. ID of the ServiceAccount resource to update. To get the service account ID, use a [ServiceAccountService.List](#List) request. false The maximum string length in characters is 50.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the ServiceAccount resource are going to be updated. 
-name | **string**<br>Required. Name of the service account. The name must be unique within the cloud.  Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+name | **string**<br>Required. Name of the service account. The name must be unique within the cloud. false Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>Description of the service account. The maximum string length in characters is 256.
 
 
@@ -165,7 +165,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateServiceAccountMetadata](#UpdateServiceAccountMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[ServiceAccount](#ServiceAccount3)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[ServiceAccount](../service_account.proto#ServiceAccount3)>**<br>if operation finished successfully. 
 
 
 ### UpdateServiceAccountMetadata {#UpdateServiceAccountMetadata}
@@ -200,7 +200,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-service_account_id | **string**<br>Required. ID of the service account to delete. To get the service account ID, use a [ServiceAccountService.List](#List) request.  The maximum string length in characters is 50.
+service_account_id | **string**<br>Required. ID of the service account to delete. To get the service account ID, use a [ServiceAccountService.List](#List) request. false The maximum string length in characters is 50.
 
 
 ### Operation {#Operation}
@@ -236,7 +236,7 @@ access Lists access bindings for the specified service account.
 
 Field | Description
 --- | ---
-resource_id | **string**<br>Required. ID of the resource to list access bindings for. <br>To get the resource ID, use a corresponding List request. For example, use the [yandex.cloud.resourcemanager.v1.CloudService.List](/docs/resource-manager/grpc/cloud_service#List) request to get the Cloud resource ID. 
+resource_id | **string**<br>Required. ID of the resource to list access bindings for. <br>To get the resource ID, use a corresponding List request. For example, use the [yandex.cloud.resourcemanager.v1.CloudService.List](/docs/resource-manager/grpc/cloud_service#List) request to get the Cloud resource ID. false
 page_size | **int64**<br>The maximum number of results per page that should be returned. If the number of available results is larger than `page_size`, the service returns a [ListAccessBindingsResponse.next_page_token](#ListAccessBindingsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
 page_token | **string**<br>Page token. Set `page_token` to the [ListAccessBindingsResponse.next_page_token](#ListAccessBindingsResponse) returned by a previous list request to get the next page of results. The maximum string length in characters is 100.
 
@@ -254,7 +254,7 @@ next_page_token | **string**<br>This token allows you to get the next page of re
 Field | Description
 --- | ---
 role_id | **string**<br>ID of the `yandex.cloud.iam.v1.Role` that is assigned to the `subject`. The maximum string length in characters is 50.
-subject | **[Subject](#Subject)**<br>Required. Identity for which access binding is being created. It can represent an account with a unique ID or several accounts with a system identifier. 
+subject | **[Subject](#Subject)**<br>Required. Identity for which access binding is being created. It can represent an account with a unique ID or several accounts with a system identifier. false
 
 
 ### Subject {#Subject}
@@ -279,8 +279,8 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-resource_id | **string**<br>Required. ID of the resource for which access bindings are being set. <br>To get the resource ID, use a corresponding List request. 
-access_bindings[] | **[AccessBinding](#AccessBinding)**<br>Required. Access bindings to be set. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings). 
+resource_id | **string**<br>Required. ID of the resource for which access bindings are being set. <br>To get the resource ID, use a corresponding List request. false
+access_bindings[] | **[AccessBinding](#AccessBinding)**<br>Required. Access bindings to be set. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings). false
 
 
 ### AccessBinding {#AccessBinding}
@@ -288,7 +288,7 @@ access_bindings[] | **[AccessBinding](#AccessBinding)**<br>Required. Access bind
 Field | Description
 --- | ---
 role_id | **string**<br>ID of the `yandex.cloud.iam.v1.Role` that is assigned to the `subject`. The maximum string length in characters is 50.
-subject | **[Subject](#Subject)**<br>Required. Identity for which access binding is being created. It can represent an account with a unique ID or several accounts with a system identifier. 
+subject | **[Subject](#Subject)**<br>Required. Identity for which access binding is being created. It can represent an account with a unique ID or several accounts with a system identifier. false
 
 
 ### Subject {#Subject}
@@ -336,16 +336,16 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-resource_id | **string**<br>Required. ID of the resource for which access bindings are being updated. 
-access_binding_deltas[] | **[AccessBindingDelta](#AccessBindingDelta)**<br>Required. Updates to access bindings. 
+resource_id | **string**<br>Required. ID of the resource for which access bindings are being updated. false
+access_binding_deltas[] | **[AccessBindingDelta](#AccessBindingDelta)**<br>Required. Updates to access bindings. false
 
 
 ### AccessBindingDelta {#AccessBindingDelta}
 
 Field | Description
 --- | ---
-action | enum **AccessBindingAction**<br>Required. The action that is being performed on an access binding. <ul><li>`ADD`: Addition of an access binding.</li><li>`REMOVE`: Removal of an access binding.</li><ul/>
-access_binding | **[AccessBinding](#AccessBinding)**<br>Required. Access binding. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings). 
+action | enum **AccessBindingAction**<br>Required. The action that is being performed on an access binding. false<ul><li>`ADD`: Addition of an access binding.</li><li>`REMOVE`: Removal of an access binding.</li><ul/>
+access_binding | **[AccessBinding](#AccessBinding)**<br>Required. Access binding. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings). false
 
 
 ### AccessBinding {#AccessBinding}
@@ -353,7 +353,7 @@ access_binding | **[AccessBinding](#AccessBinding)**<br>Required. Access binding
 Field | Description
 --- | ---
 role_id | **string**<br>ID of the `yandex.cloud.iam.v1.Role` that is assigned to the `subject`. The maximum string length in characters is 50.
-subject | **[Subject](#Subject)**<br>Required. Identity for which access binding is being created. It can represent an account with a unique ID or several accounts with a system identifier. 
+subject | **[Subject](#Subject)**<br>Required. Identity for which access binding is being created. It can represent an account with a unique ID or several accounts with a system identifier. false
 
 
 ### Subject {#Subject}
@@ -397,7 +397,7 @@ Lists operations for the specified service account.
 
 Field | Description
 --- | ---
-service_account_id | **string**<br>Required. ID of the ServiceAccount resource to list operations for.  The maximum string length in characters is 50.
+service_account_id | **string**<br>Required. ID of the ServiceAccount resource to list operations for. false The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListServiceAccountOperationsResponse.next_page_token](#ListServiceAccountOperationsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListServiceAccountOperationsResponse.next_page_token](#ListServiceAccountOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
 

@@ -33,7 +33,7 @@ The infrastructure support cost for OpenCart includes:
 
 To create a VM:
 
-1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
+1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource**, and select **Virtual machine**.
 
 1. In the **Name** field, enter a name for the VM, such as `opencart`.
 
@@ -57,7 +57,7 @@ To create a VM:
    - Select the network and subnet to connect the VM to. If you don't have a network or subnet yet, you can create them on the VM creation page: click **Create new network** or **Create new subnet**.
    - In the **Public address** field, leave the **Auto** value to assign a random external IP address from the Yandex.Cloud pool, or select a static address from the list if you reserved one in advance.
 
-1. Under **Access**, specify the information required to access the virtual machine:
+1. Under **Access**, specify the information required to access the VM:
    - In the **Login** field, enter your preferred username to be created on the VM, for example, `ubuntu`.
    - In the **SSH key** field, paste your public SSH key. You need to create a key pair for the SSH connection yourself. Learn [how to connect to VMs via SSH](../../compute/operations/vm-connect/ssh.md).
 
@@ -139,7 +139,7 @@ Leave the other fields as they are.
          1. Go to the section **{{ mmy-name }}**.
          1. Select the cluster you created in the table.
          1. Select the **Hosts** tab in the left menu.
-         1. Move the cursor to the **Hostname** field (for example, `rc1c-vok617m35g3dj23i`) and copy the full database domain name by clicking the icon ![copy](../../_assets/copy.svg).
+         1. Move the cursor to the **Hostname** field (for example, `rc1c-vok617m35g3dj23i`) and copy the full database domain name by clicking the icon ![copy](../../_assets/copy.svg) that appears.
        - **Username**: The username (`user1` in the example).
        - **Database**: The DB name (`db1` in the example).
        - **Password**: The user password you specified.

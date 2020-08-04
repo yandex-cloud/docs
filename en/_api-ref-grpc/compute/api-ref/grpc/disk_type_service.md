@@ -17,13 +17,13 @@ A set of methods to retrieve information about disk types.
 
 Returns the information about specified disk type. <br>To get the list of available disk types, make a [List](#List) request.
 
-**rpc Get ([GetDiskTypeRequest](#GetDiskTypeRequest)) returns ([DiskType](#DiskType))**
+**rpc Get ([GetDiskTypeRequest](#GetDiskTypeRequest)) returns ([DiskType](../disk_type.proto#DiskType))**
 
 ### GetDiskTypeRequest {#GetDiskTypeRequest}
 
 Field | Description
 --- | ---
-disk_type_id | **string**<br>Required. ID of the disk type to return information about. To get the disk type ID use a [DiskTypeService.List](#List) request. 
+disk_type_id | **string**<br>Required. ID of the disk type to return information about. To get the disk type ID use a [DiskTypeService.List](#List) request. false
 
 
 ### DiskType {#DiskType}
@@ -53,7 +53,7 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 
 Field | Description
 --- | ---
-disk_types[] | **[DiskType](#DiskType1)**<br>List of disk types. 
+disk_types[] | **[DiskType](../disk_type.proto#DiskType1)**<br>List of disk types. 
 next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListDiskTypesRequest.page_size](#ListDiskTypesRequest1), use the `next_page_token` as the value for the [ListDiskTypesRequest.page_token](#ListDiskTypesRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 

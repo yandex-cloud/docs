@@ -6,14 +6,14 @@ editable: false
 
 _Операторы_
 
-#### Синтаксис
+#### Синтаксис {#syntax}
 
 
 ```
 value_1 OR value_2
 ```
 
-#### Описание
+#### Описание {#description}
 Выполняет логическое соединение двух выражений по условию `ИЛИ`.
 
 **Типы аргументов:**
@@ -30,13 +30,13 @@ value_1 OR value_2
 {% endnote %}
 
 
-#### Примеры
+#### Примеры {#examples}
 
 ```
 [Month] = "January" OR [Year] < 2019
 ```
 
 
-#### Поддержка источников данных
+#### Поддержка источников данных {#data-source-support}
 
 `Материализованный датасет`, `ClickHouse 1.1`, `Yandex.Metrica`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`.

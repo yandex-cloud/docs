@@ -1,6 +1,5 @@
 title: "Yandex Key Management Service"
 href: index.yaml
-stage: preview
 items:
   - name: Getting started
     href: quickstart/index.md
@@ -12,14 +11,44 @@ items:
         href: operations/key.md
       - name: Key version
         href: operations/version.md
+      - name: Data encryption
+        href: operations/encryption.md
   - name: Concepts
     items:
-        - name: Overview
-          href: concepts/index.md
-        - name: Applicable cryptographic concepts
-          href: concepts/encryption.md
-        - name: Quotas and limits
-          href: concepts/limits.md
+      - name: Overview
+        href: concepts/index.md
+      - name: Keys
+        href: concepts/key.md
+      - name: Key version
+        href: concepts/version.md
+      - name: Encryption
+        href: concepts/encryption.md
+      - name: Envelope encryption
+        href: concepts/envelope.md
+      - name: Key consistency
+        href: concepts/consistency.md
+      - name: Quotas and limits
+        href: concepts/limits.md
+  - name: Use cases
+    items:
+      - name: Data encryption
+        items:
+          - name: Which encryption method should I choose?
+            href: solutions/encrypt/index.md
+          - name: Encrypting data using the Yandex.Cloud CLI and API
+            href: solutions/encrypt/cli-api.md
+          - name: Encrypting data using the Yandex.Cloud SDK
+            href: solutions/encrypt/sdk.md
+          - name: Encrypting data using the AWS Encryption SDK
+            href: solutions/encrypt/aws-encryption-sdk.md
+          - name: Encrypting data using Google Tink
+            href: solutions/encrypt/google-tink.md
+      - name: Encrypting secrets in Managed Service for Kubernetes
+        href: solutions/k8s.md
+      - name: KMS key management with Hashicorp Terraform
+        href: solutions/terraform-key.md
+      - name: Encrypting secrets in Hashicorp Terraform
+        href: solutions/terraform-secret.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

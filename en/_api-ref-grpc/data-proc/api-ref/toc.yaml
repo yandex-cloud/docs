@@ -5,6 +5,8 @@ items:
     href: grpc/cluster_service.md
   - name: JobService
     href: grpc/job_service.md
+  - name: ResourcePresetService
+    href: grpc/resource_preset_service.md
   - name: SubclusterService
     href: grpc/subcluster_service.md
   - name: OperationService

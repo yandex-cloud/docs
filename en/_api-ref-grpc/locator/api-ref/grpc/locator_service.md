@@ -26,6 +26,7 @@ folder_id | **string**<br>ID of the folder to which you have access. Required fo
 cell_towers[] | **[CellInfo](#CellInfo)**<br>An array of visible cell towers around device. 
 wifi_access_points[] | **[WifiInfo](#WifiInfo)**<br>An array of visible WiFi access points around device. 
 ip | **string**<br>User IP address in IPv4 or IPv6 format. 
+uuid | **string**<br>Unique user identifier that can be used for debugging. May be empty. Value must match the regular expression ` [A-Za-z0-9._-] `. The maximum string length in characters is 64.
 
 
 ### CellInfo {#CellInfo}
@@ -43,7 +44,7 @@ signal_strength | **int64**<br>Required. The current signal strength measured in
 
 Field | Description
 --- | ---
-bssid | **string**<br>Required. The MAC address of the WiFi access point. It's typically called a BSS, BSSID or MAC address. <br>The value is 12 hexadecimal digits without `:` (colon) separators.  Value must match the regular expression ` [0-9a-fA-F]{12} `.
+bssid | **string**<br>Required. The MAC address of the WiFi access point. It's typically called a BSS, BSSID or MAC address. <br>The value is 12 hexadecimal digits without `:` (colon) separators. false Value must match the regular expression ` [0-9a-fA-F]{12} `.
 signal_strength | **int64**<br>Required. The current signal strength measured in dBm. Value must be less than 0.
 
 

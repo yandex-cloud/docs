@@ -6,14 +6,14 @@ editable: false
 
 _Operators_
 
-#### Syntax
+#### Syntax {#syntax}
 
 
 ```
 value_1 + value_2
 ```
 
-#### Description
+#### Description {#description}
 Behaves differently depending on the argument types. Possible options are listed in the table:
 
 | Type of `value_1`   | Type of `value_2`   | Return value                                                                                                                                                                     |
@@ -32,7 +32,7 @@ Changing the order of arguments does not affect the result.
 
 **Return type**: Depends on argument types
 
-#### Examples
+#### Examples {#examples}
 
 ```
 2 + 3 = 5
@@ -59,6 +59,6 @@ Changing the order of arguments does not affect the result.
 ```
 
 
-#### Data source support
+#### Data source support {#data-source-support}
 
 `Materialized Dataset`, `ClickHouse 1.1`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`.

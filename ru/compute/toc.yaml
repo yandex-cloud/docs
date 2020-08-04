@@ -149,6 +149,12 @@ items:
             href: operations/instance-groups/update.md
           - name: Настроить проверку состояния приложения на ВМ
             href: operations/instance-groups/enable-autohealing.md
+          - name: Обновить группу
+            items:
+              - name: Постепенное обновление
+                href: operations/instance-groups/deploy/rolling-update.md
+              - name: Обновление без простоя
+                href: operations/instance-groups/deploy/zero-downtime.md
           - name: Остановить группу
             href: operations/instance-groups/stop.md
           - name: Запустить группу
@@ -209,8 +215,16 @@ items:
             href: concepts/instance-groups/scale.md
           - name: Автоматическое восстановление
             href: concepts/instance-groups/autohealing.md
-          - name: Конфигурационное обновление
-            href: concepts/instance-groups/configuration-update.md
+          - name: Обновление
+            items:
+              - name: Обзор
+                href: concepts/instance-groups/deploy/index.md
+              - name: Распределение виртуальных машин по зонам
+                href: concepts/instance-groups/deploy/zones.md
+              - name: Алгоритм развертывания
+                href: concepts/instance-groups/deploy/deploy.md
+              - name: Правила обновления виртуальных машин
+                href: concepts/instance-groups/deploy/instance.md
           - name: Статусы
             href: concepts/instance-groups/statuses.md
       - name: Резервное копирование
@@ -253,6 +267,8 @@ items:
         href: qa/vm.md
       - name: Диски и снимки
         href: qa/disks.md
+      - name: Аварийное восстановление
+        href: qa/disaster-recovery.md
       - name: Лицензирование
         href: qa/licensing.md
       - name: Все вопросы на одной странице

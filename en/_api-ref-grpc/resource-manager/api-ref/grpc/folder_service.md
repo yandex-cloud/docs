@@ -24,13 +24,13 @@ A set of methods for managing Folder resources.
 
 Returns the specified Folder resource. <br>To get the list of available Folder resources, make a [List](#List) request.
 
-**rpc Get ([GetFolderRequest](#GetFolderRequest)) returns ([Folder](#Folder))**
+**rpc Get ([GetFolderRequest](#GetFolderRequest)) returns ([Folder](../folder.proto#Folder))**
 
 ### GetFolderRequest {#GetFolderRequest}
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the Folder resource to return. To get the folder ID, use a [FolderService.List](#List) request.  The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the Folder resource to return. To get the folder ID, use a [FolderService.List](#List) request. false The maximum string length in characters is 50.
 
 
 ### Folder {#Folder}
@@ -56,17 +56,17 @@ Retrieves the list of Folder resources in the specified cloud.
 
 Field | Description
 --- | ---
-cloud_id | **string**<br>Required. ID of the cloud to list folders in. To get the cloud ID, use a [yandex.cloud.resourcemanager.v1.CloudService.List](/docs/resource-manager/grpc/cloud_service#List) request.  The maximum string length in characters is 50.
+cloud_id | **string**<br>Required. ID of the cloud to list folders in. To get the cloud ID, use a [yandex.cloud.resourcemanager.v1.CloudService.List](/docs/resource-manager/grpc/cloud_service#List) request. false The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListFoldersResponse.next_page_token](#ListFoldersResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
 page_token | **string**<br>Page token. Set `page_token` to the [ListFoldersResponse.next_page_token](#ListFoldersResponse) returned by a previous list request to get the next page of results. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently you can use filtering only on the [Folder.name](#Folder1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.</li></ol> The maximum string length in characters is 1000.
+filter | **string**<br><ol><li>The field name. Currently you can use filtering only on the [Folder.name](../folder.proto#Folder1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.</li></ol> The maximum string length in characters is 1000.
 
 
 ### ListFoldersResponse {#ListFoldersResponse}
 
 Field | Description
 --- | ---
-folders[] | **[Folder](#Folder1)**<br>List of Folder resources. 
+folders[] | **[Folder](../folder.proto#Folder1)**<br>List of Folder resources. 
 next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListFoldersRequest.page_size](#ListFoldersRequest1), use the `next_page_token` as the value for the [ListFoldersRequest.page_token](#ListFoldersRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
@@ -91,14 +91,14 @@ Creates a folder in the specified cloud.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateFolderMetadata](#CreateFolderMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Folder](#Folder2)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Folder](../folder.proto#Folder2)<br>
 
 ### CreateFolderRequest {#CreateFolderRequest}
 
 Field | Description
 --- | ---
-cloud_id | **string**<br>Required. ID of the cloud to create a folder in. To get the cloud ID, use a [yandex.cloud.resourcemanager.v1.CloudService.List](/docs/resource-manager/grpc/cloud_service#List) request.  The maximum string length in characters is 50.
-name | **string**<br>Required. Name of the folder. The name must be unique within the cloud.  Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+cloud_id | **string**<br>Required. ID of the cloud to create a folder in. To get the cloud ID, use a [yandex.cloud.resourcemanager.v1.CloudService.List](/docs/resource-manager/grpc/cloud_service#List) request. false The maximum string length in characters is 50.
+name | **string**<br>Required. Name of the folder. The name must be unique within the cloud. false Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>Description of the folder. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 
@@ -116,7 +116,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateFolderMetadata](#CreateFolderMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Folder](#Folder2)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Folder](../folder.proto#Folder2)>**<br>if operation finished successfully. 
 
 
 ### CreateFolderMetadata {#CreateFolderMetadata}
@@ -147,15 +147,15 @@ Updates the specified folder.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateFolderMetadata](#UpdateFolderMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Folder](#Folder3)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Folder](../folder.proto#Folder3)<br>
 
 ### UpdateFolderRequest {#UpdateFolderRequest}
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the Folder resource to update. To get the folder ID, use a [FolderService.List](#List) request.  The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the Folder resource to update. To get the folder ID, use a [FolderService.List](#List) request. false The maximum string length in characters is 50.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the Folder resource are going to be updated. 
-name | **string**<br>Required. Name of the folder. The name must be unique within the cloud.  Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+name | **string**<br>Required. Name of the folder. The name must be unique within the cloud. false Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>Description of the folder. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 
@@ -173,7 +173,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateFolderMetadata](#UpdateFolderMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Folder](#Folder3)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Folder](../folder.proto#Folder3)>**<br>if operation finished successfully. 
 
 
 ### UpdateFolderMetadata {#UpdateFolderMetadata}
@@ -210,7 +210,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder to delete. To get the folder ID, use a [FolderService.List](#List) request.  The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the folder to delete. To get the folder ID, use a [FolderService.List](#List) request. false The maximum string length in characters is 50.
 
 
 ### Operation {#Operation}
@@ -246,7 +246,7 @@ Lists operations for the specified folder.
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the Folder resource to list operations for.  The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the Folder resource to list operations for. false The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListFolderOperationsResponse.next_page_token](#ListFolderOperationsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
 page_token | **string**<br>Page token. Set `page_token` to the [ListFolderOperationsResponse.next_page_token](#ListFolderOperationsResponse) returned by a previous list request to get the next page of results. The maximum string length in characters is 100.
 
@@ -285,7 +285,7 @@ access Lists access bindings for the specified folder.
 
 Field | Description
 --- | ---
-resource_id | **string**<br>Required. ID of the resource to list access bindings for. <br>To get the resource ID, use a corresponding List request. For example, use the [yandex.cloud.resourcemanager.v1.CloudService.List](/docs/resource-manager/grpc/cloud_service#List) request to get the Cloud resource ID. 
+resource_id | **string**<br>Required. ID of the resource to list access bindings for. <br>To get the resource ID, use a corresponding List request. For example, use the [yandex.cloud.resourcemanager.v1.CloudService.List](/docs/resource-manager/grpc/cloud_service#List) request to get the Cloud resource ID. false
 page_size | **int64**<br>The maximum number of results per page that should be returned. If the number of available results is larger than `page_size`, the service returns a [ListAccessBindingsResponse.next_page_token](#ListAccessBindingsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
 page_token | **string**<br>Page token. Set `page_token` to the [ListAccessBindingsResponse.next_page_token](#ListAccessBindingsResponse) returned by a previous list request to get the next page of results. The maximum string length in characters is 100.
 
@@ -303,7 +303,7 @@ next_page_token | **string**<br>This token allows you to get the next page of re
 Field | Description
 --- | ---
 role_id | **string**<br>ID of the `yandex.cloud.iam.v1.Role` that is assigned to the `subject`. The maximum string length in characters is 50.
-subject | **[Subject](#Subject)**<br>Required. Identity for which access binding is being created. It can represent an account with a unique ID or several accounts with a system identifier. 
+subject | **[Subject](#Subject)**<br>Required. Identity for which access binding is being created. It can represent an account with a unique ID or several accounts with a system identifier. false
 
 
 ### Subject {#Subject}
@@ -328,8 +328,8 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-resource_id | **string**<br>Required. ID of the resource for which access bindings are being set. <br>To get the resource ID, use a corresponding List request. 
-access_bindings[] | **[AccessBinding](#AccessBinding)**<br>Required. Access bindings to be set. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings). 
+resource_id | **string**<br>Required. ID of the resource for which access bindings are being set. <br>To get the resource ID, use a corresponding List request. false
+access_bindings[] | **[AccessBinding](#AccessBinding)**<br>Required. Access bindings to be set. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings). false
 
 
 ### AccessBinding {#AccessBinding}
@@ -337,7 +337,7 @@ access_bindings[] | **[AccessBinding](#AccessBinding)**<br>Required. Access bind
 Field | Description
 --- | ---
 role_id | **string**<br>ID of the `yandex.cloud.iam.v1.Role` that is assigned to the `subject`. The maximum string length in characters is 50.
-subject | **[Subject](#Subject)**<br>Required. Identity for which access binding is being created. It can represent an account with a unique ID or several accounts with a system identifier. 
+subject | **[Subject](#Subject)**<br>Required. Identity for which access binding is being created. It can represent an account with a unique ID or several accounts with a system identifier. false
 
 
 ### Subject {#Subject}
@@ -385,16 +385,16 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-resource_id | **string**<br>Required. ID of the resource for which access bindings are being updated. 
-access_binding_deltas[] | **[AccessBindingDelta](#AccessBindingDelta)**<br>Required. Updates to access bindings. 
+resource_id | **string**<br>Required. ID of the resource for which access bindings are being updated. false
+access_binding_deltas[] | **[AccessBindingDelta](#AccessBindingDelta)**<br>Required. Updates to access bindings. false
 
 
 ### AccessBindingDelta {#AccessBindingDelta}
 
 Field | Description
 --- | ---
-action | enum **AccessBindingAction**<br>Required. The action that is being performed on an access binding. <ul><li>`ADD`: Addition of an access binding.</li><li>`REMOVE`: Removal of an access binding.</li><ul/>
-access_binding | **[AccessBinding](#AccessBinding)**<br>Required. Access binding. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings). 
+action | enum **AccessBindingAction**<br>Required. The action that is being performed on an access binding. false<ul><li>`ADD`: Addition of an access binding.</li><li>`REMOVE`: Removal of an access binding.</li><ul/>
+access_binding | **[AccessBinding](#AccessBinding)**<br>Required. Access binding. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings). false
 
 
 ### AccessBinding {#AccessBinding}
@@ -402,7 +402,7 @@ access_binding | **[AccessBinding](#AccessBinding)**<br>Required. Access binding
 Field | Description
 --- | ---
 role_id | **string**<br>ID of the `yandex.cloud.iam.v1.Role` that is assigned to the `subject`. The maximum string length in characters is 50.
-subject | **[Subject](#Subject)**<br>Required. Identity for which access binding is being created. It can represent an account with a unique ID or several accounts with a system identifier. 
+subject | **[Subject](#Subject)**<br>Required. Identity for which access binding is being created. It can represent an account with a unique ID or several accounts with a system identifier. false
 
 
 ### Subject {#Subject}

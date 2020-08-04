@@ -143,7 +143,7 @@ end_of_utterance | **bool**<br>This flag shows that the received chunk is the en
 Field | Description
 --- | ---
 text | **string**<br> 
-confidence | **float**<br> 
+confidence | **float**<br> false
 words[] | **[WordInfo](#WordInfo)**<br> 
 
 
@@ -154,6 +154,6 @@ Field | Description
 start_time | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br> 
 end_time | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br> 
 word | **string**<br> 
-confidence | **float**<br> 
+confidence | **float**<br> false
 
 

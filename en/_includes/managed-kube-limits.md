@@ -15,4 +15,4 @@
 
 | Type of limit | Value |
 | ----- | ----- |
-| Maximum number of [volumes](../managed-kubernetes/concepts/volume.md) connected to a single node | 5 |
+| Maximum number of [volumes](../managed-kubernetes/concepts/volume.md) connected to a single node | 56 |

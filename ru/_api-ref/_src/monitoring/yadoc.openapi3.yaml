@@ -2,8 +2,8 @@ openapi: "3.0"
 info:
   title: Yandex Monitoring API
   description: Методы справочника API сгруппированы по ресурсам. Чтобы выполнить операцию
-    над ресурсом, отправьте HTTP-запрос к соответствующему URL. Подробнее об архитектуре
-    API Яндекс.Облака, см. [Концепции API Яндекс.Облака](/docs/api-design-guide/).
+    над ресурсом, отправьте HTTP-запрос к соответствующему URL или выполните RPC-вызов.
+    Подробнее об архитектуре API Яндекс.Облака, см. [Концепции API Яндекс.Облака](/docs/api-design-guide/).
   version: Version not set.
   x-y-docUri: api-ref
   x-y-baseUrl: https://monitoring.api.cloud.yandex.net

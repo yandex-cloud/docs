@@ -1,34 +1,59 @@
-# Concepts {{ kms-name }}
+# Overview
 
-{{ kms-name }} is a service for creating and managing encryption keys in Yandex.Cloud. Using it, you can manage access rights for encryption keys, enable rotation of cryptographic material, and encrypt data. At the Preview stage, you can only create symmetric keys.
+{{ kms-name }} is a service for creating and managing encryption keys in Yandex.Cloud.
 
-The service lets you manage _keys_ and their _versions_.
+Modern encryption algorithms are public. Without access to keys, the knowledge of the ciphertext and encryption algorithm is not enough to decrypt data. Secure data storage thus means secure storage of encryption keys.
 
-## Keys {#key}
+There are various types of encrypted data: from passwords, OAuth tokens, and SSH keys, to data arrays that are several GB in size. This may require different types of access (random or sequential) and different types of storage. The optimal encryption algorithms are selected depending on all these factors. With a large amount of data, it's important to both control access to this data consistently and consider the specifics of each type.
 
-A key is a set of versions of cryptographic material that can be used to encrypt or decrypt data.
+{{ kms-name }} meets the above objectives and provides secure and centralized storage for encryption keys.
 
-Each key has the following characteristics:
+## Interfaces for using the service {#interface}
 
-* The primary version that is used if the encryption or decryption request omits the key version.
-* The encryption algorithm. Each new version of the key uses the selected algorithm: AES-128, AES-192, or AES-256 (in AES-GCM mode).
-* Rotation period: the amount of time between automatic key rotations.
+To interact with {{ kms-short-name }}, you can use:
 
-### Rotation {#rotation}
+* [Management console]({{ link-console-main }}).
+* [Command line interface (CLI)](../../cli/).
+* SDK: in [Java](https://github.com/yandex-cloud/java-sdk), [Go](https://github.com/yandex-cloud/go-sdk), [Python](https://github.com/yandex-cloud/python-sdk), or [Node.js](https://github.com/yandex-cloud/nodejs-sdk).
+* API: [REST](../api-ref/) or [gRPC](../grpc/).
 
-_Rotation_ is the generation of a new key version that immediately becomes the primary version. You can rotate manually or automatically by setting the key rotation period.
+## Key management {#keys-control}
 
-Rotation is the only way to create a new key version. If you want to use the new version by default, [make another version primary](../operations/version.md#make-primary).
+[A key](key.md) is the main {{ kms-short-name }} resource, which is a set of versions of cryptographic material that can be used to encrypt or decrypt data. Control the lifecycle of crypto material by managing keys:
 
-## Version {#version}
+* [Create keys](../operations/key.md#create).
+* [Rotate keys](../operations/key.md#rotate).
+* [Update keys](../operations/key.md#update).
+* [Destroy keys](../operations/key.md#delete).
 
-Key versions are the cryptographic material that you can use for encrypting and decrypting data. Every key has a default version to be used if a request omits the version. You can't destroy the default version.
+### Key integration with services and tools {#integration}
 
-For any other key version, you can schedule destruction: after the specified period, {{kms-name}} permanently destroys the version and you can no longer use it for encrypting data.
+You can use {{ kms-short-name }} keys:
 
-{% note alert %}
+* In Yandex.Cloud services:
+  * [Managed Service for Kubernetes](../../managed-kubernetes/).
+  * [Certificate Manager](../../certificate-manager/).
+* When working with [Terraform](../solutions/terraform-key.md).
+* In cryptographic libraries:
+  * [AWS Encryption SDK](../solutions/encrypt/aws-encryption-sdk.md).
+  * [Google Tink](../solutions/encrypt/google-tink.md).
 
-If you destroy a key version, you can't decrypt any data encrypted with it: destroying a version is practically the same as deleting the data.
+### Secure key storage {#keys-storage}
 
-{% endnote %}
+The cryptographic key material is stored in encrypted form and isn't available as plaintext outside {{ kms-short-name }}. When using the service API, you can encrypt or decrypt the transmitted data with a specific key, but you can't explicitly get the crypto material. It's only restored to the RAM and just for the duration of operations with the corresponding key.
+
+All access control features provided by {{ iam-name }} are available for keys. For more information about managing access and assigning roles, see [{#T}](../security/index.md)
+
+### Key usage audit {#keys-audit}
+
+You can't read the ciphertext without access to the appropriate key. All key operations are written to audit logs. So, in addition to encryption, an important advantage of using {{ kms-short-name }} is the verification of access to encrypted data via key logs.
+
+Each entry in the audit log contains the following information:
+
+* Date and time.
+* Type of operation.
+* The key used.
+* Subject (a Yandex.Cloud account or service account).
+
+To get the audit logs, contact [technical support]({{ link-console-support }}).
 

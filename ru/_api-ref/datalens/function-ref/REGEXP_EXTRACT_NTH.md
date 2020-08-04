@@ -6,14 +6,14 @@ editable: false
 
 _Строковые функции_
 
-#### Синтаксис
+#### Синтаксис {#syntax}
 
 
 ```
 REGEXP_EXTRACT_NTH( string, pattern, match_index )
 ```
 
-#### Описание
+#### Описание {#description}
 Возвращает подстроку `string`, которая соответствует шаблону регулярного выражения `pattern`, начиная с указанного индекса.
 
 **Типы аргументов:**
@@ -40,13 +40,13 @@ REGEXP_EXTRACT_NTH( string, pattern, match_index )
 
 
 
-#### Примеры
+#### Примеры {#examples}
 
 ```
 REGEXP_EXTRACT_NTH("RU 912 EN 873", "[A-Z]+\s+(\d+)", 2) = "873"
 ```
 
 
-#### Поддержка источников данных
+#### Поддержка источников данных {#data-source-support}
 
 `Материализованный датасет`, `ClickHouse 1.1`, `MySQL 8.0.12`, `PostgreSQL 9.3`.

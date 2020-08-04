@@ -24,7 +24,9 @@ To set up automatic deployment, specify the master address and {{ k8s }} service
 
     ```
     deploy:
-      image: gcr.io/cloud-builders/kubectl:latest
+      image:
+        name: gcr.io/cloud-builders/kubectl:latest
+        entrypoint: [""]
       stage: deploy
       script:
         - kubectl config set-cluster k8s --server="$KUBE_URL" --insecure-skip-tls-verify=true

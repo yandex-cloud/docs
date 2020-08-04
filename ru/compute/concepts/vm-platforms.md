@@ -7,7 +7,11 @@
 Платформа | Процессор | Макс. кол-во ядер (vCPU)</br> на виртуальной машине | Базовая тактовая</br> частота процессора, ГГц
 --- | --- | --- | ---
 Intel Broadwell</br> (`standard-v1`) | [Intel Xeon Processor E5-2660 v4](https://ark.intel.com/ru/products/91772/Intel-Xeon-Processor-E5-2660-v4-35M-Cache-2_00-GHz) | 32 | 2.00
-Intel Cascade Lake</br> (`standard-v2`) | [Intel Xeon Gold 6230](https://ark.intel.com/content/www/ru/ru/ark/products/192437/intel-xeon-gold-6230-processor-27-5m-cache-2-10-ghz.html) | 64 | 2.10
+Intel Cascade Lake</br> (`standard-v2`) | [Intel Xeon Gold 6230](https://ark.intel.com/content/www/ru/ru/ark/products/192437/intel-xeon-gold-6230-processor-27-5m-cache-2-10-ghz.html) | 64[*](../../compute/concepts/vm-platforms.md#max-vcpu) | 2.10
+
+##### * {#max-vcpu}
+
+{% include [80-vcpu](../../_includes/compute/80-vcpu.md) %}
 
 ## Платформы с GPU {#gpu-platforms}
 

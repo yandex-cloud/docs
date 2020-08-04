@@ -6,14 +6,14 @@ editable: false
 
 _String functions_
 
-#### Syntax
+#### Syntax {#syntax}
 
 
 ```
 UTF8( string, old_encoding )
 ```
 
-#### Description
+#### Description {#description}
 Converts the `string` string encoding to `UTF8`.
 
 **Argument types:**
@@ -23,13 +23,13 @@ Converts the `string` string encoding to `UTF8`.
 
 **Return type**: `String`
 
-#### Examples
+#### Examples {#examples}
 
 ```
 UTF8([Name], "CP-1251")
 ```
 
 
-#### Data source support
+#### Data source support {#data-source-support}
 
 `Materialized Dataset`, `ClickHouse 1.1`.

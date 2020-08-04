@@ -11,6 +11,7 @@ A set of methods for managing API keys.
 | [List](#List) | Retrieves the list of API keys for the specified service account. |
 | [Get](#Get) | Returns the specified API key. |
 | [Create](#Create) | Creates an API key for the specified service account. |
+| [Update](#Update) | Updates the specified API key. |
 | [Delete](#Delete) | Deletes the specified API key. |
 | [ListOperations](#ListOperations) | Retrieves the list of operations for the specified API key. |
 
@@ -35,7 +36,7 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 
 Field | Description
 --- | ---
-api_keys[] | **[ApiKey](#ApiKey)**<br>List of API keys. 
+api_keys[] | **[ApiKey](../api_key.proto#ApiKey)**<br>List of API keys. 
 next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListApiKeysRequest.page_size](#ListApiKeysRequest1), use the `next_page_token` as the value for the [ListApiKeysRequest.page_token](#ListApiKeysRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
@@ -53,13 +54,13 @@ description | **string**<br>Description of the API key. 0-256 characters long.
 
 Returns the specified API key. <br>To get the list of available API keys, make a [List](#List) request.
 
-**rpc Get ([GetApiKeyRequest](#GetApiKeyRequest)) returns ([ApiKey](#ApiKey1))**
+**rpc Get ([GetApiKeyRequest](#GetApiKeyRequest)) returns ([ApiKey](../api_key.proto#ApiKey1))**
 
 ### GetApiKeyRequest {#GetApiKeyRequest}
 
 Field | Description
 --- | ---
-api_key_id | **string**<br>Required. ID of the API key to return. To get the API key ID, use a [ApiKeyService.List](#List) request.  The maximum string length in characters is 50.
+api_key_id | **string**<br>Required. ID of the API key to return. To get the API key ID, use a [ApiKeyService.List](#List) request. false The maximum string length in characters is 50.
 
 
 ### ApiKey {#ApiKey}
@@ -90,8 +91,60 @@ description | **string**<br>Description of the API key. The maximum string lengt
 
 Field | Description
 --- | ---
-api_key | **[ApiKey](#ApiKey2)**<br>ApiKey resource. 
+api_key | **[ApiKey](../api_key.proto#ApiKey2)**<br>ApiKey resource. 
 secret | **string**<br>Secret part of the API key. This secret key you may use in the requests for authentication. 
+
+
+### ApiKey {#ApiKey}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the API Key. 
+service_account_id | **string**<br>ID of the service account that the API key belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+description | **string**<br>Description of the API key. 0-256 characters long. 
+
+
+## Update {#Update}
+
+Updates the specified API key.
+
+**rpc Update ([UpdateApiKeyRequest](#UpdateApiKeyRequest)) returns ([operation.Operation](#Operation))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateApiKeyMetadata](#UpdateApiKeyMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[ApiKey](../api_key.proto#ApiKey3)<br>
+
+### UpdateApiKeyRequest {#UpdateApiKeyRequest}
+
+Field | Description
+--- | ---
+api_key_id | **string**<br>Required. ID of the ApiKey resource to update. To get the API key ID, use a [ApiKeyService.List](#List) request. false The maximum string length in characters is 50.
+update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the ApiKey resource are going to be updated. 
+description | **string**<br>Description of the API key. The maximum string length in characters is 256.
+
+
+### Operation {#Operation}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateApiKeyMetadata](#UpdateApiKeyMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[ApiKey](../api_key.proto#ApiKey3)>**<br>if operation finished successfully. 
+
+
+### UpdateApiKeyMetadata {#UpdateApiKeyMetadata}
+
+Field | Description
+--- | ---
+api_key_id | **string**<br>ID of the ApiKey resource that is being updated. 
 
 
 ### ApiKey {#ApiKey}
@@ -108,7 +161,7 @@ description | **string**<br>Description of the API key. 0-256 characters long.
 
 Deletes the specified API key.
 
-**rpc Delete ([DeleteApiKeyRequest](#DeleteApiKeyRequest)) returns ([operation.Operation](#Operation))**
+**rpc Delete ([DeleteApiKeyRequest](#DeleteApiKeyRequest)) returns ([operation.Operation](#Operation1))**
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[DeleteApiKeyMetadata](#DeleteApiKeyMetadata)<br>
@@ -118,7 +171,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-api_key_id | **string**<br>Required. ID of the API key to delete. To get the API key ID, use a [ApiKeyService.List](#List) request.  The maximum string length in characters is 50.
+api_key_id | **string**<br>Required. ID of the API key to delete. To get the API key ID, use a [ApiKeyService.List](#List) request. false The maximum string length in characters is 50.
 
 
 ### Operation {#Operation}
@@ -154,7 +207,7 @@ Retrieves the list of operations for the specified API key.
 
 Field | Description
 --- | ---
-api_key_id | **string**<br>Required. ID of the key to list operations for.  The maximum string length in characters is 50.
+api_key_id | **string**<br>Required. ID of the key to list operations for. false The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListApiKeyOperationsResponse.next_page_token](#ListApiKeyOperationsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListApiKeyOperationsResponse.next_page_token](#ListApiKeyOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
@@ -163,7 +216,7 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 
 Field | Description
 --- | ---
-operations[] | **[operation.Operation](#Operation1)**<br>List of operations for the specified API key. 
+operations[] | **[operation.Operation](#Operation2)**<br>List of operations for the specified API key. 
 next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListApiKeyOperationsRequest.page_size](#ListApiKeyOperationsRequest1), use the `next_page_token` as the value for the [ListApiKeyOperationsRequest.page_token](#ListApiKeyOperationsRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 

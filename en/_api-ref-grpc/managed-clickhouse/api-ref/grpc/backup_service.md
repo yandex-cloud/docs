@@ -17,13 +17,13 @@ A set of methods for managing ClickHouse Backup resources.
 
 Returns the specified ClickHouse Backup resource. <br>To get the list of available ClickHouse Backup resources, make a [List](#List) request.
 
-**rpc Get ([GetBackupRequest](#GetBackupRequest)) returns ([Backup](#Backup))**
+**rpc Get ([GetBackupRequest](#GetBackupRequest)) returns ([Backup](../backup.proto#Backup))**
 
 ### GetBackupRequest {#GetBackupRequest}
 
 Field | Description
 --- | ---
-backup_id | **string**<br>Required. ID of the backup to return information about. To get the backup ID, use a [ClusterService.ListBackups](./cluster_service#ListBackups) request. 
+backup_id | **string**<br>Required. ID of the backup to return information about. To get the backup ID, use a [ClusterService.ListBackups](./cluster_service#ListBackups) request. false
 
 
 ### Backup {#Backup}
@@ -48,7 +48,7 @@ Retrieves the list of Backup resources available for the specified folder.
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder to list backups in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request.  The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the folder to list backups in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. false The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListBackupsResponse.next_page_token](#ListBackupsResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListBackupsResponse.next_page_token](#ListBackupsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
@@ -57,7 +57,7 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 
 Field | Description
 --- | ---
-backups[] | **[Backup](#Backup1)**<br>List of Backup resources. 
+backups[] | **[Backup](../backup.proto#Backup1)**<br>List of Backup resources. 
 next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListBackupsRequest.page_size](#ListBackupsRequest1), use the `next_page_token` as the value for the [ListBackupsRequest.page_token](#ListBackupsRequest1) parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 

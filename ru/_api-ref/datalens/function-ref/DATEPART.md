@@ -6,14 +6,14 @@ editable: false
 
 _Функции даты и времени_
 
-#### Синтаксис
+#### Синтаксис {#syntax}
 
 
 ```
 DATEPART( datetime, unit [ , firstday ] )
 ```
 
-#### Описание
+#### Описание {#description}
 Возвращает часть даты в виде целого числа.
 
 В зависимости от аргумента `unit` возвращает следующие значения:
@@ -44,7 +44,7 @@ DATEPART( datetime, unit [ , firstday ] )
 {% endnote %}
 
 
-#### Примеры
+#### Примеры {#examples}
 
 ```
 DATEPART(#2019-01-23#, "year") = 2019
@@ -79,6 +79,6 @@ DATEPART(#1971-01-14 01:02:03#, "dayofweek", "wed") = 2
 ```
 
 
-#### Поддержка источников данных
+#### Поддержка источников данных {#data-source-support}
 
 `Материализованный датасет`, `ClickHouse 1.1`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`.

@@ -25,7 +25,7 @@ Translates the text to the specified language.
 Field | Description
 --- | ---
 source_language_code | **string**<br>The text language to translate from. Specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format (for example, `` ru ``). <br>Required for translating with glossary. The maximum string length in characters is 3.
-target_language_code | **string**<br>Required. The target language to translate the text. Specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format (for example, `` en ``).  The maximum string length in characters is 3.
+target_language_code | **string**<br>Required. The target language to translate the text. Specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format (for example, `` en ``). false The maximum string length in characters is 3.
 format | enum **Format**<br>Format of the text. <ul><li>`PLAIN_TEXT`: Text without markup. Default value.</li><li>`HTML`: Text in the HTML format.</li><ul/>
 texts[] | **string**<br>Array of the strings to translate. The maximum total length of all strings is 10000 characters. The number of elements must be greater than 0.
 folder_id | **string**<br>ID of the folder to which you have access. Required for authorization with a user account (see `yandex.cloud.iam.v1.UserAccount` resource). Don't specify this field if you make the request on behalf of a service account. The maximum string length in characters is 50.
@@ -52,15 +52,15 @@ glossary_pairs[] | **[GlossaryPair](#GlossaryPair)**<br>Array of text pairs. <br
 
 Field | Description
 --- | ---
-source_text | **string**<br>Required. Text in the source language. 
-translated_text | **string**<br>Required. Text in the target language. 
+source_text | **string**<br>Required. Text in the source language. false
+translated_text | **string**<br>Required. Text in the target language. false
 
 
 ### TranslateResponse {#TranslateResponse}
 
 Field | Description
 --- | ---
-translations[] | **[TranslatedText](#TranslatedText)**<br>Array of the translations. 
+translations[] | **[TranslatedText](../translation.proto#TranslatedText)**<br>Array of the translations. 
 
 
 ### TranslatedText {#TranslatedText}
@@ -81,7 +81,7 @@ Detects the language of the text.
 
 Field | Description
 --- | ---
-text | **string**<br>Required. The text to detect the language for.  The maximum string length in characters is 1000.
+text | **string**<br>Required. The text to detect the language for. false The maximum string length in characters is 1000.
 language_code_hints[] | **string**<br>List of the most likely languages. These languages will be given preference when detecting the text language. Specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format (for example, `` ru ``). <br>To get the list of supported languages, use a [TranslationService.ListLanguages](#ListLanguages) request. The maximum number of elements is 10. The maximum string length in characters for each value is 3.
 folder_id | **string**<br>ID of the folder to which you have access. Required for authorization with a user account (see `yandex.cloud.iam.v1.UserAccount` resource). Don't specify this field if you make the request on behalf of a service account. The maximum string length in characters is 50.
 
@@ -110,7 +110,7 @@ folder_id | **string**<br>ID of the folder to which you have access. Required fo
 
 Field | Description
 --- | ---
-languages[] | **[Language](#Language)**<br>List of supported languages. 
+languages[] | **[Language](../translation.proto#Language)**<br>List of supported languages. 
 
 
 ### Language {#Language}

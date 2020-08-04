@@ -921,6 +921,203 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/AddClusterShardMetadata'
       x-y-operation-response: '`Shard`'
+  /managed-clickhouse/v1/clusters/{clusterId}/shardGroups/{shardGroupName}:
+    get:
+      tags:
+      - Cluster
+      summary: Возвращает группу шардов по имени.
+      operationId: ClusterGetShardGroup
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера.
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: shardGroupName
+        in: path
+        description: |-
+          Обязательное поле.
+          Имя группы шардов.
+          Чтобы получить имя группы шардов, используйте запрос [listShardGroups](/docs/managed-clickhouse/api-ref/Cluster/listShardGroups).
+
+          Максимальная длина строки в символах — 63.
+          Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_-]* ``.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ShardGroup'
+      x-y-navtitle: getShardGroup
+    delete:
+      tags:
+      - Cluster
+      summary: Удаляет группу шардов.
+      operationId: ClusterDeleteShardGroup
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера.
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: shardGroupName
+        in: path
+        description: |-
+          Обязательное поле.
+          Им удаляемой группы шардов.
+
+          Максимальная длина строки в символах — 63.
+          Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_-]* ``.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: deleteShardGroup
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteClusterShardGroupMetadata'
+      x-y-operation-response: Empty
+    patch:
+      tags:
+      - Cluster
+      summary: Изменяет указанную группу шардов.
+      operationId: ClusterUpdateShardGroup
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера.
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: shardGroupName
+        in: path
+        description: |-
+          Обязательное поле.
+          Имя изменяемой группы шардов.
+
+          Максимальная длина строки в символах — 63.
+          Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_-]* ``.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateClusterShardGroupRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: updateShardGroup
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateClusterShardGroupMetadata'
+      x-y-operation-response: '`ShardGroup`'
+  /managed-clickhouse/v1/clusters/{clusterId}/shardGroups:
+    get:
+      tags:
+      - Cluster
+      summary: Возвращает список групп шардов в указанном кластере.
+      operationId: ClusterListShardGroups
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера.
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на запрос. Если количество
+          результатов больше чем [pageSize](/docs/managed-clickhouse/api-ref/Cluster/listShardGroups#query_params) , сервис вернет значение [nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/listShards#responses),
+          которое можно использовать для получения следующей страницы.
+
+          Допустимые значения — от 0 до 1000 включительно.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Номер страницы. Чтобы получить следующую страницу результатов, установите значение
+          [pageToken](/docs/managed-clickhouse/api-ref/Cluster/listShardGroups#query_params) равным значению поля [nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/listShards#responses) прошлого запроса.
+
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListClusterShardGroupsResponse'
+      x-y-navtitle: listShardGroups
+    post:
+      tags:
+      - Cluster
+      summary: Создает новую группу шардов.
+      operationId: ClusterCreateShardGroup
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера.
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateClusterShardGroupRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: createShardGroup
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateClusterShardGroupMetadata'
+      x-y-operation-response: '`ShardGroup`'
   /managed-clickhouse/v1/clusters/{clusterId}:createExternalDictionary:
     post:
       tags:
@@ -1720,6 +1917,25 @@ paths:
       x-y-operation-response: '[User](/docs/managed-clickhouse/api-ref/User#representation)'
 components:
   schemas:
+    Access:
+      type: object
+      properties:
+        dataLens:
+          description: Разрешить доступ для DataLens
+          type: boolean
+          format: boolean
+        webSql:
+          description: Разрешить доступ для Web SQL
+          type: boolean
+          format: boolean
+        metrika:
+          description: Разрешить доступ для Metrika
+          type: boolean
+          format: boolean
+        serverless:
+          description: Разрешить доступ для Serverless
+          type: boolean
+          format: boolean
     AddClusterHostsMetadata:
       type: object
       properties:
@@ -2548,6 +2764,8 @@ components:
           $ref: '#/components/schemas/ConfigSpecZookeeper_in_ConfigSpec_zookeeper'
         backupWindowStart:
           $ref: '#/components/schemas/TimeOfDay_in_ConfigSpec_backupWindowStart'
+        access:
+          $ref: '#/components/schemas/Access_in_ConfigSpec_access'
     ConfigSpecClickhouse:
       type: object
       properties:
@@ -2659,6 +2877,35 @@ components:
             Максимальная длина строки в символах — 63.
             Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_-]* ``.
           type: string
+    CreateClusterShardGroupMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: Идентификатор кластера.
+          type: string
+        shardGroupName:
+          description: Имя создаваемой группы шардов.
+          type: string
+    CreateClusterShardGroupRequest:
+      type: object
+      properties:
+        shardGroupName:
+          description: |-
+            Обязательное поле.
+            Имя создаваемой группы шардов.
+
+            Максимальная длина строки в символах — 63.
+            Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_-]* ``.
+          type: string
+        description:
+          description: Описание группы шардов. Длина описания должна быть от 0 до
+            256 символов.
+          type: string
+        shardNames:
+          description: Список шардов, взодящих в группу.
+          type: array
+          items:
+            type: string
     CreateDatabaseMetadata:
       type: object
       properties:
@@ -2780,6 +3027,15 @@ components:
       properties:
         clusterId:
           description: Идентификатор удаляемого кластера ClickHouse.
+          type: string
+    DeleteClusterShardGroupMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: Идентификатор кластера.
+          type: string
+        shardGroupName:
+          description: Имя удаляемой группы шардов.
           type: string
     DeleteClusterShardMetadata:
       type: object
@@ -3028,6 +3284,22 @@ components:
             результатов больше чем [pageSize](/docs/managed-clickhouse/api-ref/Cluster/listOperations#query_params), используйте [nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/listOperations#responses) в качестве
             значения параметра [pageToken](/docs/managed-clickhouse/api-ref/Cluster/listOperations#query_params) в следующем запросе списка ресурсов. Все
             последующие запросы будут получать свои значения [nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/listOperations#responses) для перебора страниц
+            результатов.
+          type: string
+    ListClusterShardGroupsResponse:
+      type: object
+      properties:
+        shardGroups:
+          description: Список групп шардов в кластере.
+          type: array
+          items:
+            $ref: '#/components/schemas/ShardGroup'
+        nextPageToken:
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество
+            результатов больше чем [pageSize](/docs/managed-clickhouse/api-ref/Cluster/listShards#query_params), используйте [nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/listShardGroups#responses) в качестве
+            значения параметра [pageToken](/docs/managed-clickhouse/api-ref/Cluster/listShards#query_params) в следующем запросе списка ресурсов. Все
+            последующие запросы будут получать свои значения [nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/listShardGroups#responses) для перебора страниц
             результатов.
           type: string
     ListClusterShardsResponse:
@@ -3468,6 +3740,24 @@ components:
             Подробнее см. в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/table_engines/distributed/).
           type: integer
           format: int64
+    ShardGroup:
+      type: object
+      properties:
+        name:
+          description: Имя группы шардов
+          type: string
+        clusterId:
+          description: Идентификатор кластера, к которому принадлежит группа шардов.
+          type: string
+        description:
+          description: Описание группы шардов. Длина описания должна быть от 0 до
+            256 символов.
+          type: string
+        shardNames:
+          description: Список имен шардов, которые взоядят в группу.
+          type: array
+          items:
+            type: string
     StartClusterMetadata:
       type: object
       properties:
@@ -3482,30 +3772,29 @@ components:
           type: string
     TimeOfDay:
       description: |-
-        Описывает время суток. Дата и часовой пояс либо не имеют значения, либо указаны другим
-        образом. API может разрешить високосные секунды. Связанные типы: [google.type.Date][google.type.Date] и
-        `google.protobuf.Timestamp`.
+        Represents a time of day. The date and time zone are either not significant
+        or are specified elsewhere. An API may choose to allow leap seconds. Related
+        types are [google.type.Date](https://github.com/googleapis/googleapis/blob/master/google/type/date.proto) and [google.protobuf.Timestamp](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto).
       type: object
       properties:
         hours:
           description: |-
-            Час в 24-часовом формате. Допустимые значения — от 0 до 23. API может разрешить значение
-            "24:00:00" для таких сценариев, как время закрытия заведения.
+            Hours of day in 24 hour format. Should be from 0 to 23. An API may choose
+            to allow the value "24:00:00" for scenarios like business closing time.
           type: integer
           format: int32
         minutes:
-          description: Минута часа. Допустимые значения — от 0 до 59.
+          description: Minutes of hour of day. Must be from 0 to 59.
           type: integer
           format: int32
         seconds:
           description: |-
-            Секунда минуты. Обычно допустимые значения — от 0 до 59. API может разрешить значение 60,
-            если поддерживаются високосные секунды.
+            Seconds of minutes of the time. Must normally be from 0 to 59. An API may
+            allow the value 60 if it allows leap-seconds.
           type: integer
           format: int32
         nanos:
-          description: Доли секунды, в наносекундах. Допустимые значения — от 0 до
-            999 999 999.
+          description: Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.
           type: integer
           format: int32
     UpdateClusterMetadata:
@@ -3551,6 +3840,29 @@ components:
             Максимальная длина строки в символах — 63.
             Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_-]* ``.
           type: string
+    UpdateClusterShardGroupMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: Идентификатор кластера.
+          type: string
+        shardGroupName:
+          description: Имя изменяемой группы шардов.
+          type: string
+    UpdateClusterShardGroupRequest:
+      type: object
+      properties:
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateClusterShardGroupRequest_updateMask'
+        description:
+          description: Описание группы шардов. Длина описания должна быть от 0 до
+            256 символов.
+          type: string
+        shardNames:
+          description: Список шардов, воходящих в группу.
+          type: array
+          items:
+            type: string
     UpdateClusterShardMetadata:
       type: object
       properties:
@@ -4730,30 +5042,29 @@ components:
       description: |-
         Время запуска ежедневного резервного копирования, в часовом поясе UTC.
 
-        Описывает время суток. Дата и часовой пояс либо не имеют значения, либо указаны другим
-        образом. API может разрешить високосные секунды. Связанные типы: [google.type.Date][google.type.Date] и
-        `google.protobuf.Timestamp`.
+        Represents a time of day. The date and time zone are either not significant
+        or are specified elsewhere. An API may choose to allow leap seconds. Related
+        types are [google.type.Date](https://github.com/googleapis/googleapis/blob/master/google/type/date.proto) and [google.protobuf.Timestamp](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto).
       type: object
       properties:
         hours:
           description: |-
-            Час в 24-часовом формате. Допустимые значения — от 0 до 23. API может разрешить значение
-            "24:00:00" для таких сценариев, как время закрытия заведения.
+            Hours of day in 24 hour format. Should be from 0 to 23. An API may choose
+            to allow the value "24:00:00" for scenarios like business closing time.
           type: integer
           format: int32
         minutes:
-          description: Минута часа. Допустимые значения — от 0 до 59.
+          description: Minutes of hour of day. Must be from 0 to 59.
           type: integer
           format: int32
         seconds:
           description: |-
-            Секунда минуты. Обычно допустимые значения — от 0 до 59. API может разрешить значение 60,
-            если поддерживаются високосные секунды.
+            Seconds of minutes of the time. Must normally be from 0 to 59. An API may
+            allow the value 60 if it allows leap-seconds.
           type: integer
           format: int32
         nanos:
-          description: Доли секунды, в наносекундах. Допустимые значения — от 0 до
-            999 999 999.
+          description: Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.
           type: integer
           format: int32
     ClickhouseConfigSet_in_ClusterConfigClickhouse_config:
@@ -4824,32 +5135,51 @@ components:
       description: |-
         Время запуска ежедневного резервного копирования, в часовом поясе UTC.
 
-        Описывает время суток. Дата и часовой пояс либо не имеют значения, либо указаны другим
-        образом. API может разрешить високосные секунды. Связанные типы: [google.type.Date][google.type.Date] и
-        `google.protobuf.Timestamp`.
+        Represents a time of day. The date and time zone are either not significant
+        or are specified elsewhere. An API may choose to allow leap seconds. Related
+        types are [google.type.Date](https://github.com/googleapis/googleapis/blob/master/google/type/date.proto) and [google.protobuf.Timestamp](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto).
       type: object
       properties:
         hours:
           description: |-
-            Час в 24-часовом формате. Допустимые значения — от 0 до 23. API может разрешить значение
-            "24:00:00" для таких сценариев, как время закрытия заведения.
+            Hours of day in 24 hour format. Should be from 0 to 23. An API may choose
+            to allow the value "24:00:00" for scenarios like business closing time.
           type: integer
           format: int32
         minutes:
-          description: Минута часа. Допустимые значения — от 0 до 59.
+          description: Minutes of hour of day. Must be from 0 to 59.
           type: integer
           format: int32
         seconds:
           description: |-
-            Секунда минуты. Обычно допустимые значения — от 0 до 59. API может разрешить значение 60,
-            если поддерживаются високосные секунды.
+            Seconds of minutes of the time. Must normally be from 0 to 59. An API may
+            allow the value 60 if it allows leap-seconds.
           type: integer
           format: int32
         nanos:
-          description: Доли секунды, в наносекундах. Допустимые значения — от 0 до
-            999 999 999.
+          description: Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.
           type: integer
           format: int32
+    Access_in_ConfigSpec_access:
+      description: Политика доступа к БД
+      type: object
+      properties:
+        dataLens:
+          description: Разрешить доступ для DataLens
+          type: boolean
+          format: boolean
+        webSql:
+          description: Разрешить доступ для Web SQL
+          type: boolean
+          format: boolean
+        metrika:
+          description: Разрешить доступ для Metrika
+          type: boolean
+          format: boolean
+        serverless:
+          description: Разрешить доступ для Serverless
+          type: boolean
+          format: boolean
     ClickhouseConfig_in_ConfigSpecClickhouse_config:
       description: |-
         Конфигурация для сервера ClickHouse.
@@ -5059,6 +5389,8 @@ components:
           $ref: '#/components/schemas/ConfigSpecZookeeper_in_ConfigSpec_zookeeper'
         backupWindowStart:
           $ref: '#/components/schemas/TimeOfDay_in_ConfigSpec_backupWindowStart'
+        access:
+          $ref: '#/components/schemas/Access_in_ConfigSpec_access'
     DatabaseSpec_in_CreateDatabaseRequest_databaseSpec:
       description: |-
         Обязательное поле.
@@ -5216,6 +5548,8 @@ components:
           $ref: '#/components/schemas/ConfigSpecZookeeper_in_ConfigSpec_zookeeper'
         backupWindowStart:
           $ref: '#/components/schemas/TimeOfDay_in_ConfigSpec_backupWindowStart'
+        access:
+          $ref: '#/components/schemas/Access_in_ConfigSpec_access'
     ServiceType_in_Service_type:
       description: |-
         Тип сервиса, предоставляемого хостом.
@@ -5433,6 +5767,21 @@ components:
           $ref: '#/components/schemas/ConfigSpecZookeeper_in_ConfigSpec_zookeeper'
         backupWindowStart:
           $ref: '#/components/schemas/TimeOfDay_in_ConfigSpec_backupWindowStart'
+        access:
+          $ref: '#/components/schemas/Access_in_ConfigSpec_access'
+    FieldMask_in_UpdateClusterShardGroupRequest_updateMask:
+      description: |-
+        Маска, которая указывает, какие атрибуты группы должны быть изменены.
+
+        Имена всех обновляемых полей, разделенные запятыми.
+        Только значения указанных полей будут изменены. Остальные останутся нетронутыми.
+        Если поле указано в параметре `` updateMask `` и в запросе не было отправлено значение для этого поля,
+        значение поля будет сброшено на значение по умолчанию. Значение по умолчанию для большинства полей — null или 0.
+
+        Если в запросе не передается `` updateMask ``, значения всех полей будут обновлены.
+        Для полей, указанных в запросе, будут использованы переданные значения.
+        Значения остальных полей будут сброшены на значения по умолчанию.
+      type: string
     FieldMask_in_UpdateClusterShardRequest_updateMask:
       description: |-
         Маска, которая указывает, какие атрибуты шарда должны быть изменены.

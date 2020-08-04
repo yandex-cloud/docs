@@ -145,6 +145,65 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/CreateDatabaseMetadata'
       x-y-operation-response: '[Database](/docs/ydb/api-ref/Database#representation)'
+  /ydb/v1/locations/{locationId}:
+    get:
+      tags:
+      - Location
+      summary: Returns the specified location.
+      operationId: LocationGet
+      parameters:
+      - name: locationId
+        in: path
+        description: |-
+          Required.
+          Required. ID of the location to return.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Location'
+      x-y-navtitle: get
+  /ydb/v1/locations:
+    get:
+      tags:
+      - Location
+      summary: Returns the list of available locations.
+      operationId: LocationList
+      parameters:
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page that should be returned. If the number of available
+          results is larger than `page_size`, the service returns a `next_page_token` that can be used
+          to get the next page of results in subsequent ListLocations requests.
+          Acceptable values are 0 to 1000, inclusive. Default value: 100.
+
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. Set `page_token` to the `next_page_token` returned by a previous ListLocations
+          request to get the next page of results.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListLocationsResponse'
+      x-y-navtitle: list
   /ydb/v1/resourcePresets/{resourcePresetId}:
     get:
       tags:
@@ -286,14 +345,11 @@ components:
           description:
             type: string
           resourcePresetId:
-            description: Required.
             type: string
           storageConfig:
             $ref: '#/components/schemas/StorageConfig'
-            description: Required.
           scalePolicy:
             $ref: '#/components/schemas/ScalePolicy'
-            description: Required.
           networkId:
             type: string
           subnetIds:
@@ -303,14 +359,26 @@ components:
           assignPublicIps:
             type: boolean
             format: boolean
+          locationId:
+            type: string
+          labels:
+            type: object
+            additionalProperties:
+              type: string
       - title: database_type
         type: object
         maxProperties: 1
         properties:
           zonalDatabase:
             $ref: '#/components/schemas/ZonalDatabase'
+            description: deprecated field
           regionalDatabase:
             $ref: '#/components/schemas/RegionalDatabase'
+            description: deprecated field
+          provisionedDatabase:
+            $ref: '#/components/schemas/ProvisionedDatabase'
+          serverlessDatabase:
+            $ref: '#/components/schemas/ServerlessDatabase'
     Database:
       description: YDB database.
       type: object
@@ -349,14 +417,26 @@ components:
           assignPublicIps:
             type: boolean
             format: boolean
+          locationId:
+            type: string
+          labels:
+            type: object
+            additionalProperties:
+              type: string
       - title: database_type
         type: object
         maxProperties: 1
         properties:
           zonalDatabase:
             $ref: '#/components/schemas/ZonalDatabase'
+            description: deprecated field
           regionalDatabase:
             $ref: '#/components/schemas/RegionalDatabase'
+            description: deprecated field
+          provisionedDatabase:
+            $ref: '#/components/schemas/ProvisionedDatabase'
+          serverlessDatabase:
+            $ref: '#/components/schemas/ServerlessDatabase'
     DatabaseStatus:
       type: string
       enum:
@@ -402,6 +482,22 @@ components:
             the `page_token` parameter in the next ListDatabases request. Subsequent ListDatabases
             requests will have their own `next_page_token` to continue paging through the results.
           type: string
+    ListLocationsResponse:
+      type: object
+      properties:
+        locations:
+          description: Requested list of locations.
+          type: array
+          items:
+            $ref: '#/components/schemas/Location'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for ListLocations requests,
+            if the number of results is larger than `page_size` specified in the request.
+            To get the next page, specify the value of `next_page_token` as a value for
+            the `page_token` parameter in the next ListLocations request. Subsequent ListLocations
+            requests will have their own `next_page_token` to continue paging through the results.
+          type: string
     ListResourcePresetsResponse:
       type: object
       properties:
@@ -433,6 +529,13 @@ components:
             To get the next page, specify the value of `next_page_token` as a value for
             the `page_token` parameter in the next ListStorageTypes request. Subsequent ListStorageTypes
             requests will have their own `next_page_token` to continue paging through the results.
+          type: string
+    Location:
+      type: object
+      properties:
+        id:
+          type: string
+        description:
           type: string
     Operation:
       description: An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
@@ -491,6 +594,24 @@ components:
               the response should be the target resource of the operation.
               Any method that returns a long-running operation should document the response type, if any.
             type: object
+    ProvisionedDatabase:
+      type: object
+      properties:
+        resourcePresetId:
+          type: string
+        storageConfig:
+          $ref: '#/components/schemas/StorageConfig_in_ProvisionedDatabase_storageConfig'
+        scalePolicy:
+          $ref: '#/components/schemas/ScalePolicy_in_ProvisionedDatabase_scalePolicy'
+        networkId:
+          type: string
+        subnetIds:
+          type: array
+          items:
+            type: string
+        assignPublicIps:
+          type: boolean
+          format: boolean
     RegionalDatabase:
       type: object
       properties:
@@ -524,6 +645,9 @@ components:
           description: The minimum value is 1.
           type: string
           format: int64
+    ServerlessDatabase:
+      type: object
+      properties: {}
     StorageConfig:
       type: object
       properties:
@@ -572,14 +696,11 @@ components:
           description:
             type: string
           resourcePresetId:
-            description: Required.
             type: string
           storageConfig:
             $ref: '#/components/schemas/StorageConfig'
-            description: Required.
           scalePolicy:
             $ref: '#/components/schemas/ScalePolicy'
-            description: Required.
           networkId:
             type: string
           subnetIds:
@@ -589,6 +710,12 @@ components:
           assignPublicIps:
             type: boolean
             format: boolean
+          locationId:
+            type: string
+          labels:
+            type: object
+            additionalProperties:
+              type: string
       - title: database_type
         type: object
         maxProperties: 1
@@ -597,6 +724,10 @@ components:
             $ref: '#/components/schemas/ZonalDatabase'
           regionalDatabase:
             $ref: '#/components/schemas/RegionalDatabase'
+          provisionedDatabase:
+            $ref: '#/components/schemas/ProvisionedDatabase'
+          serverlessDatabase:
+            $ref: '#/components/schemas/ServerlessDatabase'
     ZonalDatabase:
       type: object
       properties:
@@ -619,8 +750,28 @@ components:
           type: array
           items:
             type: object
+    StorageConfig_in_ProvisionedDatabase_storageConfig:
+      type: object
+      properties:
+        storageOptions:
+          description: |-
+            Required.
+            The minimum number of elements is 1.
+          type: array
+          items:
+            $ref: '#/components/schemas/StorageOption'
+    ScalePolicy_in_ProvisionedDatabase_scalePolicy:
+      type: object
+      allOf:
+      - title: scale_type
+        type: object
+        maxProperties: 1
+        properties:
+          fixedScale:
+            $ref: '#/components/schemas/ScalePolicyFixedScale'
 tags:
 - name: Database
   description: A set of methods for managing databases.
+- name: Location
 - name: ResourcePreset
 - name: StorageType

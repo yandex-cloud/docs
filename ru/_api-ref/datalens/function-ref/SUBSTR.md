@@ -6,14 +6,14 @@ editable: false
 
 _Строковые функции_
 
-#### Синтаксис
+#### Синтаксис {#syntax}
 
 
 ```
 SUBSTR( string, from_index [ , length ] )
 ```
 
-#### Описание
+#### Описание {#description}
 Возвращает подстроку `string`, начиная с индекса `from_index`.
 
 Если указан дополнительный аргумент `length`, то будет возвращена подстрока указанной длины.
@@ -26,13 +26,13 @@ SUBSTR( string, from_index [ , length ] )
 
 **Возвращаемый тип**: `Строка`
 
-#### Примеры
+#### Примеры {#examples}
 
 ```
 SUBSTR("Computer", 2) = "mputer"
 ```
 
 
-#### Поддержка источников данных
+#### Поддержка источников данных {#data-source-support}
 
 `Материализованный датасет`, `ClickHouse 1.1`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`.

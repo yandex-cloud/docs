@@ -33,14 +33,17 @@
 Действие | Методы | Необходимые роли
 ----- | ----- | -----
 **Certificate Manager** | | 
-Получение списка сертификатов | `list` | `viewer` на каталог
-Получение информации о сертификате | `get` | `viewer` на сертификат или каталог
+Получение списков сертификатов или доменов | `list` | `viewer` на каталог
+Получение информации о сертификате или домене | `get` | `viewer` на сертификат или каталог
 [Создание](../operations/managed/cert-create.md) сертификата от Let's Encrypt<sup>®</sup> | `requestNew` | `editor` на каталог
 [Изменение](../operations/managed/cert-modify.md), [удаление](../operations/managed/cert-delete.md) сертификата от Let's Encrypt | `update`, `delete` | `editor` на сертификат или каталог
 [Создание](../operations/import/cert-create.md) пользовательского сертификата | `create` | `editor` на каталог
 [Обновление](../operations/import/cert-update.md), [изменение](../operations/import/cert-modify.md), [удаление](../operations/import/cert-delete.md) пользовательского сертификата | `update`, `delete` | `editor` на сертификат или каталог
+[Создание домена](../operations/domain/domain-create.md) | `create` | `editor` на каталог
+[Изменение домена](../operations/domain/domain-modify.md) и [удаление домена](../operations/domain/domain-delete.md) | `update`, `delete` | `editor` на домен или каталог
+[Обновление сертификата у домена](../operations/domain/domain-link-cert.md) | `setPrimaryCertificate` | `editor` на домен или каталог
 **IAM** | |
-[Назначение роли](../../iam/operations/roles/grant.md), [отзыв роли](../../iam/operations/roles/revoke.md) и просмотр назначенных ролей на каталог или облако | `setAccessBinding`, `updateAccessBindings`, `listAccessBindings` | `admin` на сертификат или каталог 
+[Назначение роли](../../iam/operations/roles/grant.md), [отзыв роли](../../iam/operations/roles/revoke.md) и просмотр назначенных ролей на каталог или облако | `setAccessBinding`, `updateAccessBindings`, `listAccessBindings` | `admin` на сертификат, домен или каталог 
 
 #### Что дальше {what-is-next}
 

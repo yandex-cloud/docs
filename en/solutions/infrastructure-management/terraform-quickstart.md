@@ -54,7 +54,7 @@ The VMs will have a different number of cores and amount of RAM: 1 core and 2 GB
 
 Resource configurations are specified immediately after the provider's configuration:
 
-```
+```hcl
 provider "yandex" {
   token     = "OAuth_token"
   cloud_id  = "cloud-id"
@@ -77,7 +77,7 @@ resource "yandex_compute_instance" "vm-1" {
   }
 
   network_interface {
-    subnet_id = "${yandex_vpc_subnet.subnet-1.id}"
+    subnet_id = yandex_vpc_subnet.subnet-1.id
     nat       = true
   }
 
@@ -101,7 +101,7 @@ resource "yandex_compute_instance" "vm-2" {
   }
 
   network_interface {
-    subnet_id = "${yandex_vpc_subnet.subnet-1.id}"
+    subnet_id = yandex_vpc_subnet.subnet-1.id
     nat       = true
   }
 
@@ -117,25 +117,25 @@ resource "yandex_vpc_network" "network-1" {
 resource "yandex_vpc_subnet" "subnet-1" {
   name           = "subnet1"
   zone           = "ru-central1-a"
-  network_id     = "${yandex_vpc_network.network-1.id}"
+  network_id     = yandex_vpc_network.network-1.id
   v4_cidr_blocks = ["192.168.10.0/24"]
 }
 
 output "internal_ip_address_vm_1" {
-  value = "${yandex_compute_instance.vm-1.network_interface.0.ip_address}"
+  value = yandex_compute_instance.vm-1.network_interface.0.ip_address
 }
 
 output "internal_ip_address_vm_2" {
-  value = "${yandex_compute_instance.vm-2.network_interface.0.ip_address}"
+  value = yandex_compute_instance.vm-2.network_interface.0.ip_address
 }
 
 
 output "external_ip_address_vm_1" {
-  value = "${yandex_compute_instance.vm-1.network_interface.0.nat_ip_address}"
+  value = yandex_compute_instance.vm-1.network_interface.0.nat_ip_address
 }
 
 output "external_ip_address_vm_2" {
-  value = "${yandex_compute_instance.vm-2.network_interface.0.nat_ip_address}"
+  value = yandex_compute_instance.vm-2.network_interface.0.nat_ip_address
 }
 ```
 
@@ -167,9 +167,8 @@ All resources created via Terraform are charged, therefore check the plan carefu
 
 {% endnote %}
 
-If there are no errors in the configuration, run the `terraform apply` command. Terraform will ask you to confirm the resource creation: type `yes` in the terminal and press Enter. After this, all the necessary resources will be created in the specified folder and the IP addresses of the VMs will be displayed in the terminal. You can check resource availability and their settings in [management console]({{ link-console-main }}).
+If there are no errors in the configuration, run the `terraform apply` command. Terraform will ask you to confirm the resource creation: type `yes` in the terminal and press Enter. After this, all the necessary resources will be created in the specified folder and the IP addresses of the VMs will be displayed in the terminal. You can check resource availability and their settings in the [management console]({{ link-console-main }}).
 
 ## Delete resources {#delete-resources}
 
 To delete all resources created via Terraform, run the `terraform destroy` command. After the command has been executed, the terminal will display a list of resources that will be deleted. Type `yes` to confirm them and press Enter.
-
