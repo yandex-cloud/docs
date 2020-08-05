@@ -19,7 +19,7 @@ There are the following features of using aggregations:
 
 **Syntax:**`ANY( value )`
 
-Returns any of the values of `value` from the group. This is a nondeterministic aggregation — the result may vary for the same data over multiple queries.
+Returns one of the values of `value` from the group. This is a nondeterministic aggregation — the result may vary for the same data over multiple queries.
 
 
 
