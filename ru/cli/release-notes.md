@@ -26,7 +26,7 @@
 
    Флаги `--domain-name-server` и `--ntp-server` теперь принимают список значений, разделенных запятыми.
 
-- Добавлена команда `yc vpc list-used list-used-addresses`.
+- Добавлена команда `yc vpc subnet list-used-addresses`.
 
    Команда выводит список используемых в подсети адресов.
   
