@@ -1,6 +1,6 @@
-# Host configurations
+# Host classes
 
-The host configuration determines the computing power allocated for each host in the cluster. When you change the host configuration for a cluster, all existing hosts change to match it.
+The host class determines the computing power allocated for each host in the cluster. When you change the host class for a cluster, all existing hosts change to match it.
 
 {% note info %}
 
@@ -10,7 +10,7 @@ The amount of memory allocated to a host is also determined by the `maxmemory` c
 
 The hard disk space available to the host should be at least two times more than the selected memory size. For technical and organizational limitations of {{ mrd-name }}, see [{#T}](limits.md).
 
-## Available host configurations {#available-flavors}
+## Available host classes {#available-flavors}
 
 {% if audience == "internal" %}
 
