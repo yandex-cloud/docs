@@ -50,8 +50,8 @@ package main
 
 import (
   "context"
-  "fmt"
   "encoding/json"
+  "fmt"
 )
 
 // Входной JSON-документ будет автоматически преобразован в объект данного типа
@@ -65,7 +65,7 @@ type ResponseBody struct {
   Request interface{}     `json:"request"`
 }
 
-func Handler (ctx context.Context, request *Request) ([]byte, error) {
+func Handler(ctx context.Context, request *Request) ([]byte, error) {
   // В логах функции будут напечатаны значения контекста вызова и тела запроса
   fmt.Println("context", ctx)
   fmt.Println("request", request)
@@ -152,4 +152,86 @@ func Handler() (string, error) {
 
 ```
 "Lucky one!"
+```
+
+### Разбор HTTP-запроса
+
+Функция вызывается с помощью HTTP-запроса с именем пользователя, записывает в журнал метод и тело запроса и возвращает приветствие.
+
+{% note warning %}
+
+Не используйте для вызова функции параметр `integration=raw`. При применении этого параметра функция не получает данных о методах, заголовках и парамтрах исходного запроса.
+
+{% endnote %}
+
+```golang
+package main
+
+import (
+  "context"
+  "encoding/json"
+  "fmt"
+)
+
+// Структура запроса (см. https://cloud.yandex.ru/docs/functions/concepts/function-invoke#request)
+// Остальные поля нигде не используются в данном примере, поэтому можно обойтись без них
+type RequestBody struct {
+  HttpMethod string `json:"httpMethod"`
+  Body       []byte `json:"body"`
+}
+
+// Преобразуем поле body объекта RequestBody
+type Request struct {
+  Name string `json:"name"`
+}
+
+type Response struct {
+  StatusCode int         `json:"statusCode"`
+  Body       interface{} `json:"body"`
+}
+
+func Greet(ctx context.Context, request []byte) (*Response, error) {
+  requestBody := &RequestBody{}
+  // Массив байтов, содержащий тело запроса, преобразуется в соответствующий объект
+  err := json.Unmarshal(request, &requestBody)
+  if err != nil {
+    return nil, fmt.Errorf("an error has occurred when parsing request: %v", err)
+  }
+
+  // В журнале будет напечатано название HTTP-метода, с помощью которого осуществлен запрос, а так же тело запроса
+  fmt.Println(requestBody.HttpMethod, string(requestBody.Body))
+
+  req := &Request{}
+  // Поле body запроса преобразуется в объект типа Request для получения переданного имени
+  err = json.Unmarshal(requestBody.Body, &req)
+  if err != nil {
+    return nil, fmt.Errorf("an error has occurred when parsing body: %v", err)
+  }
+
+  name := req.Name
+  // Тело ответа необходимо вернуть в виде структуры, которая автоматически преобразуется в JSON-документ,
+  // который отобразится на экране
+  return &Response{
+    StatusCode: 200,
+    Body:       fmt.Sprintf("Hello, %s", name),
+  }, nil
+}
+```
+
+Пример входных данных (метод POST):
+
+```json
+{
+  "name": "Anonymous"
+}
+```
+
+В журнале будет напечатано:
+```
+POST { "name": "Anonymous" }
+```
+
+Возвращаемый ответ:
+```
+Hello, Anonymous
 ```
