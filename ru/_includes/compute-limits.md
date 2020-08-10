@@ -23,16 +23,12 @@
 
 Вид ограничения | Значение
 ----- | -----
-Максимальное количество vCPU для одной виртуальной машины | 32 и 64[*](../compute/concepts/limits.md#max-vcpu) для [платформ](../compute/concepts/vm-platforms.md) Intel Broadwell и Intel Cascade Lake соответственно
+Максимальное количество vCPU для одной виртуальной машины | 32 и 80 для [платформ](../compute/concepts/vm-platforms.md) Intel Broadwell и Intel Cascade Lake соответственно
 Максимальный объем виртуальной памяти для одной виртуальной машины | 256 ГБ и 512 ГБ для [платформ](../compute/concepts/vm-platforms.md) Intel Broadwell и Intel Cascade Lake соответственно
 Максимальное количество дисков, подключенных к одной виртуальной машине | 7
 Максимальное количество GPU, подключенных к одной виртуальной машине | 4
 Максимальное количество vCPU для виртуальных машин с GPU | 32
 Максимальное количество RAM для виртуальных машин с GPU | 384
-
-##### * {#max-vcpu}
-
-{% include [80-vcpu](../_includes/compute/80-vcpu.md) %}
 
 #### Лимиты дисков {#limits-disks}
 
@@ -45,14 +41,14 @@
     Максимальный размер диска | 4 ТБ
     Максимальный размер снимка диска | 4 ТБ
     Размер [блока размещения](../compute/concepts/disk.md#rw) | 32 ГБ
-    Максимальный[**](../compute/concepts/limits.md#max_iops) [IOPS](../compute/concepts/disk.md#rw) на запись, на 1 диск | 40000
-    Максимальный[**](../compute/concepts/limits.md#max_iops) IOPS на запись, на блок размещения | 1000
-    Максимальная[***](../compute/concepts/limits.md#max_bandwidth) [пропускная способность](../compute/concepts/disk.md#rw) на запись, на 1 диск | 450 МБ/с
-    Максимальная[***](../compute/concepts/limits.md#max_bandwidth) пропускная способность на запись, на блок размещения | 15 МБ/с
-    Максимальный[**](../compute/concepts/limits.md#max_iops) IOPS на чтение, на 1 диск | 12000
-    Максимальный[**](../compute/concepts/limits.md#max_iops) IOPS на чтение, на блок размещения | 400
-    Максимальная[***](../compute/concepts/limits.md#max_bandwidth) пропускная способность на чтение, на 1 диск | 450 МБ/с
-    Максимальная[***](../compute/concepts/limits.md#max_bandwidth) пропускная способность на чтение, на блок размещения | 15 МБ/с
+    Максимальный[*](../compute/concepts/limits.md#max_iops) [IOPS](../compute/concepts/disk.md#rw) на запись, на 1 диск | 40000
+    Максимальный[*](../compute/concepts/limits.md#max_iops) IOPS на запись, на блок размещения | 1000
+    Максимальная[**](../compute/concepts/limits.md#max_bandwidth) [пропускная способность](../compute/concepts/disk.md#rw) на запись, на 1 диск | 450 МБ/с
+    Максимальная[**](../compute/concepts/limits.md#max_bandwidth) пропускная способность на запись, на блок размещения | 15 МБ/с
+    Максимальный[*](../compute/concepts/limits.md#max_iops) IOPS на чтение, на 1 диск | 12000
+    Максимальный[*](../compute/concepts/limits.md#max_iops) IOPS на чтение, на блок размещения | 400
+    Максимальная[**](../compute/concepts/limits.md#max_bandwidth) пропускная способность на чтение, на 1 диск | 450 МБ/с
+    Максимальная[**](../compute/concepts/limits.md#max_bandwidth) пропускная способность на чтение, на блок размещения | 15 МБ/с
 
 - Cетевой HDD-диск
 
@@ -61,23 +57,23 @@
     Максимальный размер диска | 4 ТБ
     Максимальный размер снимка диска | 4 ТБ
     Размер [блока размещения](../compute/concepts/disk.md#rw) | 256 ГБ
-    Максимальный[**](../compute/concepts/limits.md#max_iops) [IOPS](../compute/concepts/disk.md#rw) на запись, на 1 диск | 11000
-    Максимальный[**](../compute/concepts/limits.md#max_iops) IOPS на запись, на блок размещения | 300
-    Максимальная[***](../compute/concepts/limits.md#max_bandwidth) [пропускная способность](../compute/concepts/disk.md#rw) на запись, на 1 диск | 240 МБ/с
-    Максимальная[***](../compute/concepts/limits.md#max_bandwidth) пропускная способность на запись, на блок размещения | 30 МБ/с
-    Максимальный[**](../compute/concepts/limits.md#max_iops) IOPS на чтение, на 1 диск | 300
-    Максимальный[**](../compute/concepts/limits.md#max_iops) IOPS на чтение, на блок размещения | 100
-    Максимальная[***](../compute/concepts/limits.md#max_bandwidth) пропускная способность на чтение, на 1 диск | 240 МБ/с
-    Максимальная[***](../compute/concepts/limits.md#max_bandwidth) пропускная способность на чтение, на блок размещения | 30 МБ/с
+    Максимальный[*](../compute/concepts/limits.md#max_iops) [IOPS](../compute/concepts/disk.md#rw) на запись, на 1 диск | 11000
+    Максимальный[*](../compute/concepts/limits.md#max_iops) IOPS на запись, на блок размещения | 300
+    Максимальная[**](../compute/concepts/limits.md#max_bandwidth) [пропускная способность](../compute/concepts/disk.md#rw) на запись, на 1 диск | 240 МБ/с
+    Максимальная[**](../compute/concepts/limits.md#max_bandwidth) пропускная способность на запись, на блок размещения | 30 МБ/с
+    Максимальный[*](../compute/concepts/limits.md#max_iops) IOPS на чтение, на 1 диск | 300
+    Максимальный[*](../compute/concepts/limits.md#max_iops) IOPS на чтение, на блок размещения | 100
+    Максимальная[**](../compute/concepts/limits.md#max_bandwidth) пропускная способность на чтение, на 1 диск | 240 МБ/с
+    Максимальная[**](../compute/concepts/limits.md#max_bandwidth) пропускная способность на чтение, на блок размещения | 30 МБ/с
 
 {% endlist %}
 
 Операции чтения и записи потребляют один и тот же дисковый ресурс — чем больше производится операций чтения, тем меньше операций записи, и наоборот. Подробнее читайте в разделе [Диски](../compute/concepts/disk.md#rw).
 
-##### ** {#max_iops}
+##### * {#max_iops}
 
 Для получения максимального значения IOPS рекомендуется делать чтения и записи, не превышающие 4 КБ.
 
-##### *** {#max_bandwidth}
+##### ** {#max_bandwidth}
 
 Для получения максимального значения пропускной способности рекомендуется делать чтения и записи размером 4 МБ.
