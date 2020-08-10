@@ -1,3 +1,10 @@
+#### Quotas {#quotas}
+
+| Type of limit | Value |
+| ----- | ----- |
+| Geocoding (number of unique records per day) in the Free plan | 0 |
+| Geocoding (number of unique records per day) in the Standard plan | 25,000 |
+
 #### General limits {#common-limits}
 
 | Type of limit | Value |
