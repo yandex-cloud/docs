@@ -208,6 +208,9 @@ default:
   s2-5xlarge: s2.5xlarge (48 vCPU, 192 ГБ)
   s2-6xlarge: s2.6xlarge (64 vCPU, 256 ГБ)
 
+  mch-backup-retention: 7
+  mch-dedup-retention: 30
+
   # SpeechKit specific
   stt-short-fileSize: 1 МБ
   stt-short-audioLength: 30 секунд
@@ -270,6 +273,9 @@ internal:
   ZK: ZooKeeper
   zone-id: vla
   host-class: db1.micro
+
+  mch-backup-retention: 7
+  mch-dedup-retention: 30
 
   # links
   link-console-billing: https://console.cloud.yandex.ru/billing
