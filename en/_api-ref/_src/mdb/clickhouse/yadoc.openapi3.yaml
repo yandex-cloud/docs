@@ -2183,6 +2183,42 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/RevokeUserPermissionMetadata'
       x-y-operation-response: '[User](/docs/managed-clickhouse/api-ref/User#representation)'
+  /managed-clickhouse/v1/versions:
+    get:
+      tags:
+      - Versions
+      summary: Returns list of available ClickHouse versions.
+      operationId: VersionsList
+      parameters:
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page that should be returned. If the number of available
+          results is larger than `page_size`, the service returns a `next_page_token` that can be used
+          to get the next page of results in subsequent ListVersions requests.
+          Acceptable values are 0 to 1000, inclusive. Default value: 100.
+
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. Set `page_token` to the `next_page_token` returned by a previous ListVersions
+          request to get the next page of results.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListVersionsResponse'
+      x-y-navtitle: list
 components:
   schemas:
     Access:
@@ -2327,7 +2363,7 @@ components:
     ClickhouseConfig:
       description: |-
         ClickHouse configuration options. Detailed description for each set of options
-        is available in [ClickHouse documentation](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/).
+        is available in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/).
 
         Any options not listed here are not supported.
       type: object
@@ -2500,6 +2536,14 @@ components:
           format: int64
         textLogLevel:
           $ref: '#/components/schemas/ClickhouseConfigLogLevel_in_ClickhouseConfig_textLogLevel'
+        backgroundPoolSize:
+          description: Value must be greater than 0.
+          type: integer
+          format: int64
+        backgroundSchedulePoolSize:
+          description: Value must be greater than 0.
+          type: integer
+          format: int64
     ClickhouseConfigCompression:
       type: object
       properties:
@@ -3853,6 +3897,22 @@ components:
             for the [pageToken](/docs/managed-clickhouse/api-ref/User/list#query_params) parameter in the next list request. Each subsequent
             list request will have its own [nextPageToken](/docs/managed-clickhouse/api-ref/User/list#responses) to continue paging through the results.
           type: string
+    ListVersionsResponse:
+      type: object
+      properties:
+        version:
+          description: Requested list of available versions.
+          type: array
+          items:
+            $ref: '#/components/schemas/Version'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for ListVersions requests,
+            if the number of results is larger than `page_size` specified in the request.
+            To get the next page, specify the value of `next_page_token` as a value for
+            the `page_token` parameter in the next ListVerions request. Subsequent ListVersions
+            requests will have their own `next_page_token` to continue paging through the results.
+          type: string
     LogRecord:
       type: object
       properties:
@@ -4900,6 +4960,38 @@ components:
           format: int64
         timeoutOverflowMode:
           $ref: '#/components/schemas/UserSettingsOverflowMode_in_UserSettings_timeoutOverflowMode'
+        maxRowsInSet:
+          description: |-
+            Limit on the number of rows in the set resulting from the execution of the IN section.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        maxBytesInSet:
+          description: |-
+            Limit on the number of bytes in the set resulting from the execution of the IN section.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        setOverflowMode:
+          $ref: '#/components/schemas/UserSettingsOverflowMode_in_UserSettings_setOverflowMode'
+        maxRowsInJoin:
+          description: |-
+            Limit on maximum size of the hash table for JOIN, in rows.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        maxBytesInJoin:
+          description: |-
+            Limit on maximum size of the hash table for JOIN, in bytes.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        joinOverflowMode:
+          $ref: '#/components/schemas/UserSettingsOverflowMode_in_UserSettings_joinOverflowMode'
         maxColumnsToRead:
           description: |-
             The maximum number of columns that can be read from a table in a single query.
@@ -4949,6 +5041,22 @@ components:
             Value must be greater than 0.
           type: integer
           format: int64
+        minExecutionSpeed:
+          description: |-
+            Minimal execution speed in rows per second.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        minExecutionSpeedBytes:
+          description: |-
+            Minimal execution speed in bytes per second.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        countDistinctImplementation:
+          $ref: '#/components/schemas/UserSettingsCountDistinctImplementation_in_UserSettings_countDistinctImplementation'
         inputFormatValuesInterpretExpressions:
           description: Enables or disables the full SQL parser if the fast stream
             parser cannot parse the data.
@@ -5011,6 +5119,14 @@ components:
           format: boolean
         quotaMode:
           $ref: '#/components/schemas/UserSettingsQuotaMode_in_UserSettings_quotaMode'
+    UserSettingsCountDistinctImplementation:
+      type: string
+      enum:
+      - COUNT_DISTINCT_IMPLEMENTATION_UNIQ
+      - COUNT_DISTINCT_IMPLEMENTATION_UNIQ_COMBINED
+      - COUNT_DISTINCT_IMPLEMENTATION_UNIQ_COMBINED_64
+      - COUNT_DISTINCT_IMPLEMENTATION_UNIQ_HLL_12
+      - COUNT_DISTINCT_IMPLEMENTATION_UNIQ_EXACT
     UserSettingsDistributedProductMode:
       description: |2-
          - DISTRIBUTED_PRODUCT_MODE_DENY: Default value. Prohibits using these types of subqueries (returns the "Double-distributed in/JOIN subqueries is denied" exception).
@@ -5070,6 +5186,24 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/UserQuota'
+    Version:
+      type: object
+      properties:
+        id:
+          description: Version ID
+          type: string
+        name:
+          description: Version name
+          type: string
+        deprecated:
+          description: Is version deprecated
+          type: boolean
+          format: boolean
+        updatableTo:
+          description: List of versions that can be updated from current
+          type: array
+          items:
+            type: string
     WeeklyMaintenanceWindow:
       type: object
       properties:
@@ -5357,7 +5491,7 @@ components:
         in `userConfig` and `defaultConfig`).
 
         ClickHouse configuration options. Detailed description for each set of options
-        is available in [ClickHouse documentation](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/).
+        is available in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/).
 
         Any options not listed here are not supported.
       type: object
@@ -5530,12 +5664,20 @@ components:
           format: int64
         textLogLevel:
           $ref: '#/components/schemas/ClickhouseConfigLogLevel_in_ClickhouseConfig_textLogLevel'
+        backgroundPoolSize:
+          description: Value must be greater than 0.
+          type: integer
+          format: int64
+        backgroundSchedulePoolSize:
+          description: Value must be greater than 0.
+          type: integer
+          format: int64
     ClickhouseConfig_in_ClickhouseConfigSet_userConfig:
       description: |-
         User-defined settings for a ClickHouse cluster.
 
         ClickHouse configuration options. Detailed description for each set of options
-        is available in [ClickHouse documentation](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/).
+        is available in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/).
 
         Any options not listed here are not supported.
       type: object
@@ -5708,12 +5850,20 @@ components:
           format: int64
         textLogLevel:
           $ref: '#/components/schemas/ClickhouseConfigLogLevel_in_ClickhouseConfig_textLogLevel'
+        backgroundPoolSize:
+          description: Value must be greater than 0.
+          type: integer
+          format: int64
+        backgroundSchedulePoolSize:
+          description: Value must be greater than 0.
+          type: integer
+          format: int64
     ClickhouseConfig_in_ClickhouseConfigSet_defaultConfig:
       description: |-
         Default configuration for a ClickHouse cluster.
 
         ClickHouse configuration options. Detailed description for each set of options
-        is available in [ClickHouse documentation](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/).
+        is available in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/).
 
         Any options not listed here are not supported.
       type: object
@@ -5886,6 +6036,14 @@ components:
           format: int64
         textLogLevel:
           $ref: '#/components/schemas/ClickhouseConfigLogLevel_in_ClickhouseConfig_textLogLevel'
+        backgroundPoolSize:
+          description: Value must be greater than 0.
+          type: integer
+          format: int64
+        backgroundSchedulePoolSize:
+          description: Value must be greater than 0.
+          type: integer
+          format: int64
     ClusterEnvironment_in_Cluster_environment:
       description: |-
         Deployment environment of the ClickHouse cluster.
@@ -6175,7 +6333,7 @@ components:
         Configuration for a ClickHouse server.
 
         ClickHouse configuration options. Detailed description for each set of options
-        is available in [ClickHouse documentation](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/).
+        is available in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/).
 
         Any options not listed here are not supported.
       type: object
@@ -6348,6 +6506,14 @@ components:
           format: int64
         textLogLevel:
           $ref: '#/components/schemas/ClickhouseConfigLogLevel_in_ClickhouseConfig_textLogLevel'
+        backgroundPoolSize:
+          description: Value must be greater than 0.
+          type: integer
+          format: int64
+        backgroundSchedulePoolSize:
+          description: Value must be greater than 0.
+          type: integer
+          format: int64
     Resources_in_ConfigSpecClickhouse_resources:
       description: Resources allocated to ClickHouse hosts.
       type: object
@@ -6751,7 +6917,7 @@ components:
         ClickHouse settings for the shard.
 
         ClickHouse configuration options. Detailed description for each set of options
-        is available in [ClickHouse documentation](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/).
+        is available in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/).
 
         Any options not listed here are not supported.
       type: object
@@ -6924,6 +7090,14 @@ components:
           format: int64
         textLogLevel:
           $ref: '#/components/schemas/ClickhouseConfigLogLevel_in_ClickhouseConfig_textLogLevel'
+        backgroundPoolSize:
+          description: Value must be greater than 0.
+          type: integer
+          format: int64
+        backgroundSchedulePoolSize:
+          description: Value must be greater than 0.
+          type: integer
+          format: int64
     Resources_in_ShardConfigSpecClickhouse_resources:
       description: Computational resources for the shard.
       type: object
@@ -7416,6 +7590,38 @@ components:
           format: int64
         timeoutOverflowMode:
           $ref: '#/components/schemas/UserSettingsOverflowMode_in_UserSettings_timeoutOverflowMode'
+        maxRowsInSet:
+          description: |-
+            Limit on the number of rows in the set resulting from the execution of the IN section.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        maxBytesInSet:
+          description: |-
+            Limit on the number of bytes in the set resulting from the execution of the IN section.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        setOverflowMode:
+          $ref: '#/components/schemas/UserSettingsOverflowMode_in_UserSettings_setOverflowMode'
+        maxRowsInJoin:
+          description: |-
+            Limit on maximum size of the hash table for JOIN, in rows.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        maxBytesInJoin:
+          description: |-
+            Limit on maximum size of the hash table for JOIN, in bytes.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        joinOverflowMode:
+          $ref: '#/components/schemas/UserSettingsOverflowMode_in_UserSettings_joinOverflowMode'
         maxColumnsToRead:
           description: |-
             The maximum number of columns that can be read from a table in a single query.
@@ -7465,6 +7671,22 @@ components:
             Value must be greater than 0.
           type: integer
           format: int64
+        minExecutionSpeed:
+          description: |-
+            Minimal execution speed in rows per second.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        minExecutionSpeedBytes:
+          description: |-
+            Minimal execution speed in bytes per second.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        countDistinctImplementation:
+          $ref: '#/components/schemas/UserSettingsCountDistinctImplementation_in_UserSettings_countDistinctImplementation'
         inputFormatValuesInterpretExpressions:
           description: Enables or disables the full SQL parser if the fast stream
             parser cannot parse the data.
@@ -7875,6 +8097,38 @@ components:
           format: int64
         timeoutOverflowMode:
           $ref: '#/components/schemas/UserSettingsOverflowMode_in_UserSettings_timeoutOverflowMode'
+        maxRowsInSet:
+          description: |-
+            Limit on the number of rows in the set resulting from the execution of the IN section.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        maxBytesInSet:
+          description: |-
+            Limit on the number of bytes in the set resulting from the execution of the IN section.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        setOverflowMode:
+          $ref: '#/components/schemas/UserSettingsOverflowMode_in_UserSettings_setOverflowMode'
+        maxRowsInJoin:
+          description: |-
+            Limit on maximum size of the hash table for JOIN, in rows.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        maxBytesInJoin:
+          description: |-
+            Limit on maximum size of the hash table for JOIN, in bytes.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        joinOverflowMode:
+          $ref: '#/components/schemas/UserSettingsOverflowMode_in_UserSettings_joinOverflowMode'
         maxColumnsToRead:
           description: |-
             The maximum number of columns that can be read from a table in a single query.
@@ -7924,6 +8178,22 @@ components:
             Value must be greater than 0.
           type: integer
           format: int64
+        minExecutionSpeed:
+          description: |-
+            Minimal execution speed in rows per second.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        minExecutionSpeedBytes:
+          description: |-
+            Minimal execution speed in bytes per second.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        countDistinctImplementation:
+          $ref: '#/components/schemas/UserSettingsCountDistinctImplementation_in_UserSettings_countDistinctImplementation'
         inputFormatValuesInterpretExpressions:
           description: Enables or disables the full SQL parser if the fast stream
             parser cannot parse the data.
@@ -8058,6 +8328,32 @@ components:
       enum:
       - OVERFLOW_MODE_THROW
       - OVERFLOW_MODE_BREAK
+    UserSettingsOverflowMode_in_UserSettings_setOverflowMode:
+      description: |-
+        Determine the behavior on exceeding max_rows_in_set or max_bytes_in_set limit.
+        Possible values: OVERFLOW_MODE_THROW, OVERFLOW_MODE_BREAK.
+      type: string
+      enum:
+      - OVERFLOW_MODE_THROW
+      - OVERFLOW_MODE_BREAK
+    UserSettingsOverflowMode_in_UserSettings_joinOverflowMode:
+      description: |-
+        Determine the behavior on exceeding max_rows_in_join or max_bytes_in_join limit.
+        Possible values: OVERFLOW_MODE_THROW, OVERFLOW_MODE_BREAK.
+      type: string
+      enum:
+      - OVERFLOW_MODE_THROW
+      - OVERFLOW_MODE_BREAK
+    UserSettingsCountDistinctImplementation_in_UserSettings_countDistinctImplementation:
+      description: Aggregate function to use for implementation of count(DISTINCT
+        ...).
+      type: string
+      enum:
+      - COUNT_DISTINCT_IMPLEMENTATION_UNIQ
+      - COUNT_DISTINCT_IMPLEMENTATION_UNIQ_COMBINED
+      - COUNT_DISTINCT_IMPLEMENTATION_UNIQ_COMBINED_64
+      - COUNT_DISTINCT_IMPLEMENTATION_UNIQ_HLL_12
+      - COUNT_DISTINCT_IMPLEMENTATION_UNIQ_EXACT
     UserSettingsQuotaMode_in_UserSettings_quotaMode:
       description: 'Quota accounting mode. Possible values: QUOTA_MODE_DEFAULT, QUOTA_MODE_KEYED
         and QUOTA_MODE_KEYED_BY_IP.'
@@ -8414,6 +8710,38 @@ components:
           format: int64
         timeoutOverflowMode:
           $ref: '#/components/schemas/UserSettingsOverflowMode_in_UserSettings_timeoutOverflowMode'
+        maxRowsInSet:
+          description: |-
+            Limit on the number of rows in the set resulting from the execution of the IN section.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        maxBytesInSet:
+          description: |-
+            Limit on the number of bytes in the set resulting from the execution of the IN section.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        setOverflowMode:
+          $ref: '#/components/schemas/UserSettingsOverflowMode_in_UserSettings_setOverflowMode'
+        maxRowsInJoin:
+          description: |-
+            Limit on maximum size of the hash table for JOIN, in rows.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        maxBytesInJoin:
+          description: |-
+            Limit on maximum size of the hash table for JOIN, in bytes.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        joinOverflowMode:
+          $ref: '#/components/schemas/UserSettingsOverflowMode_in_UserSettings_joinOverflowMode'
         maxColumnsToRead:
           description: |-
             The maximum number of columns that can be read from a table in a single query.
@@ -8463,6 +8791,22 @@ components:
             Value must be greater than 0.
           type: integer
           format: int64
+        minExecutionSpeed:
+          description: |-
+            Minimal execution speed in rows per second.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        minExecutionSpeedBytes:
+          description: |-
+            Minimal execution speed in bytes per second.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        countDistinctImplementation:
+          $ref: '#/components/schemas/UserSettingsCountDistinctImplementation_in_UserSettings_countDistinctImplementation'
         inputFormatValuesInterpretExpressions:
           description: Enables or disables the full SQL parser if the fast stream
             parser cannot parse the data.
@@ -8549,3 +8893,4 @@ tags:
   description: A set of methods for managing ResourcePreset resources.
 - name: User
   description: A set of methods for managing ClickHouse User resources.
+- name: Versions

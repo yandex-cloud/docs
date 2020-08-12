@@ -1233,6 +1233,7 @@ components:
       - SPARK
       - ZEPPELIN
       - OOZIE
+      - LIVY
     Health:
       description: |2-
          - HEALTH_UNKNOWN: State of the cluster is unknown (`health` for every host in the cluster is UNKNOWN).

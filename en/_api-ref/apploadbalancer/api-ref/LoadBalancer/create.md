@@ -1,0 +1,253 @@
+---
+editable: false
+---
+
+# Method create
+
+ 
+
+ 
+## HTTP request {#https-request}
+```
+POST https://apploadbalancer.api.cloud.yandex.net/apploadbalancer/v1/loadBalancers
+```
+ 
+## Body parameters {#body_params}
+ 
+```json 
+{
+  "folderId": "string",
+  "name": "string",
+  "description": "string",
+  "labels": "object",
+  "listenerSpecs": [
+    {
+      "name": "string",
+      "port": "string",
+
+      // `listenerSpecs[]` includes only one of the fields `http`, `tls`
+      "externalAddressSpec": {
+        "address": "string",
+        "ipVersion": "string"
+      },
+      "internalAddressSpec": {
+        "address": "string",
+        "subnetId": "string",
+        "ipVersion": "string"
+      },
+      // end of the list of possible fields`listenerSpecs[]`
+
+      "http": {
+        "handler": {
+          "httpRouterId": "string",
+
+          // `listenerSpecs[].http.handler` includes only one of the fields `http2Options`, `allowHttp10`
+          "http2Options": {
+            "maxConcurrentStreams": "string"
+          },
+          "allowHttp10": true,
+          // end of the list of possible fields`listenerSpecs[].http.handler`
+
+        }
+      },
+      "tls": {
+        "defaultHandler": {
+          "tls": {
+            "certificateIds": [
+              "string"
+            ],
+            "tlsOptions": {
+              "tlsMinVersion": "string",
+              "tlsMaxVersion": "string",
+              "cipherSuites": [
+                "string"
+              ],
+              "ecdhCurves": [
+                "string"
+              ]
+            }
+          },
+
+          // `listenerSpecs[].tls.defaultHandler` includes only one of the fields `streamHandler`, `httpHandler`
+          "streamHandler": {
+            "backendGroupId": "string"
+          },
+          "httpHandler": {
+            "httpRouterId": "string",
+
+            // `listenerSpecs[].tls.defaultHandler.httpHandler` includes only one of the fields `http2Options`, `allowHttp10`
+            "http2Options": {
+              "maxConcurrentStreams": "string"
+            },
+            "allowHttp10": true,
+            // end of the list of possible fields`listenerSpecs[].tls.defaultHandler.httpHandler`
+
+          },
+          // end of the list of possible fields`listenerSpecs[].tls.defaultHandler`
+
+        },
+        "sniHandlers": [
+          {
+            "name": "string",
+            "serverNames": [
+              "string"
+            ],
+            "handler": {
+              "tls": {
+                "certificateIds": [
+                  "string"
+                ],
+                "tlsOptions": {
+                  "tlsMinVersion": "string",
+                  "tlsMaxVersion": "string",
+                  "cipherSuites": [
+                    "string"
+                  ],
+                  "ecdhCurves": [
+                    "string"
+                  ]
+                }
+              },
+
+              // `listenerSpecs[].tls.sniHandlers[].handler` includes only one of the fields `streamHandler`, `httpHandler`
+              "streamHandler": {
+                "backendGroupId": "string"
+              },
+              "httpHandler": {
+                "httpRouterId": "string",
+
+                // `listenerSpecs[].tls.sniHandlers[].handler.httpHandler` includes only one of the fields `http2Options`, `allowHttp10`
+                "http2Options": {
+                  "maxConcurrentStreams": "string"
+                },
+                "allowHttp10": true,
+                // end of the list of possible fields`listenerSpecs[].tls.sniHandlers[].handler.httpHandler`
+
+              },
+              // end of the list of possible fields`listenerSpecs[].tls.sniHandlers[].handler`
+
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "allocationPolicy": {
+    "locations": [
+      {
+        "zoneId": "string",
+        "subnetId": "string",
+        "disableTraffic": true
+      }
+    ]
+  },
+  "networkId": "string"
+}
+```
+
+ 
+Field | Description
+--- | ---
+folderId | **string**<br><p>Required.</p> 
+name | **string**<br><p>Value must match the regular expression <code>\|[a-z]([-a-z0-9]{0,61}[a-z0-9])?</code>.</p> 
+description | **string**<br><p>The maximum string length in characters is 256.</p> 
+labels | **object**<br><p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression <code>[a-z][-_./\@0-9a-z]*</code>. The maximum string length in characters for each value is 63. Each value must match the regular expression <code>[-_./\@0-9a-z]*</code>.</p> 
+listenerSpecs[] | **object**<br>
+listenerSpecs[].<br>name | **string**<br><p>Required. Value must match the regular expression <code>\|[a-z]([-a-z0-9]{0,61}[a-z0-9])?</code>.</p> 
+listenerSpecs[].<br>port | **string** (int64)<br><p>Acceptable values are 1 to 65535, inclusive.</p> 
+listenerSpecs[].<br>externalAddressSpec | **object** <br>`listenerSpecs[]` includes only one of the fields `externalAddressSpec`, `internalAddressSpec`<br><br>
+listenerSpecs[].<br>externalAddressSpec.<br>address | **string**<br>
+listenerSpecs[].<br>externalAddressSpec.<br>ipVersion | **string**<br><p>Required.</p> 
+listenerSpecs[].<br>internalAddressSpec | **object** <br>`listenerSpecs[]` includes only one of the fields `externalAddressSpec`, `internalAddressSpec`<br><br>
+listenerSpecs[].<br>internalAddressSpec.<br>address | **string**<br>
+listenerSpecs[].<br>internalAddressSpec.<br>subnetId | **string**<br>
+listenerSpecs[].<br>internalAddressSpec.<br>ipVersion | **string**<br><p>Required.</p> 
+listenerSpecs[].<br>http | **object** <br>`listenerSpecs[]` includes only one of the fields `http`, `tls`<br><br>
+listenerSpecs[].<br>http.<br>handler | **object**<br><p>Required.</p> 
+listenerSpecs[].<br>http.<br>handler.<br>httpRouterId | **string**<br><p>Required.</p> 
+listenerSpecs[].<br>http.<br>handler.<br>http2Options | **object** <br>`listenerSpecs[].http.handler` includes only one of the fields `http2Options`, `allowHttp10`<br><br>
+listenerSpecs[].<br>http.<br>handler.<br>http2Options.<br>maxConcurrentStreams | **string** (int64)<br>
+listenerSpecs[].<br>http.<br>handler.<br>allowHttp10 | **boolean** (boolean) <br>`listenerSpecs[].http.handler` includes only one of the fields `http2Options`, `allowHttp10`<br><br>
+listenerSpecs[].<br>tls | **object** <br>`listenerSpecs[]` includes only one of the fields `http`, `tls`<br><br>
+listenerSpecs[].<br>tls.<br>defaultHandler | **object**<br><p>Required.</p> 
+listenerSpecs[].<br>tls.<br>defaultHandler.<br>tls | **object**<br>Required. <br>`listenerSpecs[]` includes only one of the fields `http`, `tls`<br><br>
+listenerSpecs[].<br>tls.<br>defaultHandler.<br>tls.<br>certificateIds[] | **string**<br><p>Required. Certificate IDs in the Certificate Manager. Multiple TLS certificates can be associated with the same context to allow both RSA and ECDSA certificates. Only the first certificate of each type will be used.</p> <p>Must contain at least one element.</p> 
+listenerSpecs[].<br>tls.<br>defaultHandler.<br>tls.<br>tlsOptions | **object**<br>
+listenerSpecs[].<br>tls.<br>defaultHandler.<br>tls.<br>tlsOptions.<br>tlsMinVersion | **string**<br><p>Minimum TLS protocol version.</p> 
+listenerSpecs[].<br>tls.<br>defaultHandler.<br>tls.<br>tlsOptions.<br>tlsMaxVersion | **string**<br><p>Maximum TLS protocol version.</p> 
+listenerSpecs[].<br>tls.<br>defaultHandler.<br>tls.<br>tlsOptions.<br>cipherSuites[] | **string**<br><p>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used.</p> 
+listenerSpecs[].<br>tls.<br>defaultHandler.<br>tls.<br>tlsOptions.<br>ecdhCurves[] | **string**<br><p>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used.</p> 
+listenerSpecs[].<br>tls.<br>defaultHandler.<br>streamHandler | **object** <br>`listenerSpecs[].tls.defaultHandler` includes only one of the fields `streamHandler`, `httpHandler`<br><br>
+listenerSpecs[].<br>tls.<br>defaultHandler.<br>streamHandler.<br>backendGroupId | **string**<br><p>Required.</p> 
+listenerSpecs[].<br>tls.<br>defaultHandler.<br>httpHandler | **object** <br>`listenerSpecs[].tls.defaultHandler` includes only one of the fields `streamHandler`, `httpHandler`<br><br>
+listenerSpecs[].<br>tls.<br>defaultHandler.<br>httpHandler.<br>httpRouterId | **string**<br><p>Required.</p> 
+listenerSpecs[].<br>tls.<br>defaultHandler.<br>httpHandler.<br>http2Options | **object** <br>`listenerSpecs[].tls.defaultHandler.httpHandler` includes only one of the fields `http2Options`, `allowHttp10`<br><br>
+listenerSpecs[].<br>tls.<br>defaultHandler.<br>httpHandler.<br>http2Options.<br>maxConcurrentStreams | **string** (int64)<br>
+listenerSpecs[].<br>tls.<br>defaultHandler.<br>httpHandler.<br>allowHttp10 | **boolean** (boolean) <br>`listenerSpecs[].tls.defaultHandler.httpHandler` includes only one of the fields `http2Options`, `allowHttp10`<br><br>
+listenerSpecs[].<br>tls.<br>sniHandlers[] | **object**<br>
+listenerSpecs[].<br>tls.<br>sniHandlers[].<br>name | **string**<br><p>Required.</p> 
+listenerSpecs[].<br>tls.<br>sniHandlers[].<br>serverNames[] | **string**<br><p>Required. Must contain at least one element.</p> 
+listenerSpecs[].<br>tls.<br>sniHandlers[].<br>handler | **object**<br><p>Required.</p> 
+listenerSpecs[].<br>tls.<br>sniHandlers[].<br>handler.<br>tls | **object**<br>Required. <br>`listenerSpecs[]` includes only one of the fields `http`, `tls`<br><br>
+listenerSpecs[].<br>tls.<br>sniHandlers[].<br>handler.<br>tls.<br>certificateIds[] | **string**<br><p>Required. Certificate IDs in the Certificate Manager. Multiple TLS certificates can be associated with the same context to allow both RSA and ECDSA certificates. Only the first certificate of each type will be used.</p> <p>Must contain at least one element.</p> 
+listenerSpecs[].<br>tls.<br>sniHandlers[].<br>handler.<br>tls.<br>tlsOptions | **object**<br>
+listenerSpecs[].<br>tls.<br>sniHandlers[].<br>handler.<br>tls.<br>tlsOptions.<br>tlsMinVersion | **string**<br><p>Minimum TLS protocol version.</p> 
+listenerSpecs[].<br>tls.<br>sniHandlers[].<br>handler.<br>tls.<br>tlsOptions.<br>tlsMaxVersion | **string**<br><p>Maximum TLS protocol version.</p> 
+listenerSpecs[].<br>tls.<br>sniHandlers[].<br>handler.<br>tls.<br>tlsOptions.<br>cipherSuites[] | **string**<br><p>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used.</p> 
+listenerSpecs[].<br>tls.<br>sniHandlers[].<br>handler.<br>tls.<br>tlsOptions.<br>ecdhCurves[] | **string**<br><p>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used.</p> 
+listenerSpecs[].<br>tls.<br>sniHandlers[].<br>handler.<br>streamHandler | **object** <br>`listenerSpecs[].tls.sniHandlers[].handler` includes only one of the fields `streamHandler`, `httpHandler`<br><br>
+listenerSpecs[].<br>tls.<br>sniHandlers[].<br>handler.<br>streamHandler.<br>backendGroupId | **string**<br><p>Required.</p> 
+listenerSpecs[].<br>tls.<br>sniHandlers[].<br>handler.<br>httpHandler | **object** <br>`listenerSpecs[].tls.sniHandlers[].handler` includes only one of the fields `streamHandler`, `httpHandler`<br><br>
+listenerSpecs[].<br>tls.<br>sniHandlers[].<br>handler.<br>httpHandler.<br>httpRouterId | **string**<br><p>Required.</p> 
+listenerSpecs[].<br>tls.<br>sniHandlers[].<br>handler.<br>httpHandler.<br>http2Options | **object** <br>`listenerSpecs[].tls.sniHandlers[].handler.httpHandler` includes only one of the fields `http2Options`, `allowHttp10`<br><br>
+listenerSpecs[].<br>tls.<br>sniHandlers[].<br>handler.<br>httpHandler.<br>http2Options.<br>maxConcurrentStreams | **string** (int64)<br>
+listenerSpecs[].<br>tls.<br>sniHandlers[].<br>handler.<br>httpHandler.<br>allowHttp10 | **boolean** (boolean) <br>`listenerSpecs[].tls.sniHandlers[].handler.httpHandler` includes only one of the fields `http2Options`, `allowHttp10`<br><br>
+allocationPolicy | **object**<br>
+allocationPolicy.<br>locations[] | **object**<br><p>Required. The minimum number of elements is 1.</p> 
+allocationPolicy.<br>locations[].<br>zoneId | **string**<br><p>Required.</p> 
+allocationPolicy.<br>locations[].<br>subnetId | **string**<br>
+allocationPolicy.<br>locations[].<br>disableTraffic | **boolean** (boolean)<br><p>If set, will disable all L7 instances in the zone for request handling.</p> 
+networkId | **string**<br><p>Required.</p> 
+ 
+## Response {#responses}
+**HTTP Code: 200 - OK**
+
+```json 
+{
+  "id": "string",
+  "description": "string",
+  "createdAt": "string",
+  "createdBy": "string",
+  "modifiedAt": "string",
+  "done": true,
+  "metadata": "object",
+
+  //  includes only one of the fields `error`, `response`
+  "error": {
+    "code": "integer",
+    "message": "string",
+    "details": [
+      "object"
+    ]
+  },
+  "response": "object",
+  // end of the list of possible fields
+
+}
+```
+An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
+ 
+Field | Description
+--- | ---
+id | **string**<br><p>ID of the operation.</p> 
+description | **string**<br><p>Description of the operation. 0-256 characters long.</p> 
+createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+createdBy | **string**<br><p>ID of the user or service account who initiated the operation.</p> 
+modifiedAt | **string** (date-time)<br><p>The time when the Operation resource was last modified.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+done | **boolean** (boolean)<br><p>If the value is <code>false</code>, it means the operation is still in progress. If <code>true</code>, the operation is completed, and either <code>error</code> or <code>response</code> is available.</p> 
+metadata | **object**<br><p>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any.</p> 
+error | **object**<br>The error result of the operation in case of failure or cancellation. <br> includes only one of the fields `error`, `response`<br><br><p>The error result of the operation in case of failure or cancellation.</p> 
+error.<br>code | **integer** (int32)<br><p>Error code. An enum value of <a href="https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto">google.rpc.Code</a>.</p> 
+error.<br>message | **string**<br><p>An error message.</p> 
+error.<br>details[] | **object**<br><p>A list of messages that carry the error details.</p> 
+response | **object** <br> includes only one of the fields `error`, `response`<br><br><p>The normal response of the operation in case of success. If the original method returns no data on success, such as Delete, the response is <a href="https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty">google.protobuf.Empty</a>. If the original method is the standard Create/Update, the response should be the target resource of the operation. Any method that returns a long-running operation should document the response type, if any.</p> 

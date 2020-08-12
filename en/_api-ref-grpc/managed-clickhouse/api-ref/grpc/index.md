@@ -12,4 +12,5 @@ Service | Description
 [MlModelService](./ml_model_service.md) | A set of methods for managing machine learning models.
 [ResourcePresetService](./resource_preset_service.md) | A set of methods for managing ResourcePreset resources.
 [UserService](./user_service.md) | A set of methods for managing ClickHouse User resources.
+[VersionsService](./versions_service.md) | 
 [OperationService](./operation_service.md) | A set of methods for managing operations for asynchronous API requests.

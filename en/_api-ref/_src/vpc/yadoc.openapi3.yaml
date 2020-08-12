@@ -814,6 +814,47 @@ paths:
       x-y-operation-response: '[Subnet](/docs/vpc/api-ref/Subnet#representation)'
 components:
   schemas:
+    Address:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          id:
+            type: string
+          folderId:
+            type: string
+          createdAt:
+            description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+              text format.
+            type: string
+            format: date-time
+          name:
+            type: string
+          description:
+            type: string
+          labels:
+            type: object
+            additionalProperties:
+              type: string
+          reserved:
+            type: boolean
+            format: boolean
+          used:
+            type: boolean
+            format: boolean
+      - title: address
+        type: object
+        maxProperties: 1
+        properties:
+          externalIpv4Address:
+            $ref: '#/components/schemas/ExternalIpv4Address'
+    AddressRequirements:
+      type: object
+      properties:
+        ddosProtectionProvider:
+          type: string
+        outgoingSmtpCapability:
+          type: string
     CidrBlocks:
       type: object
       properties:
@@ -825,6 +866,11 @@ components:
           type: array
           items:
             type: string
+    CreateAddressMetadata:
+      type: object
+      properties:
+        addressId:
+          type: string
     CreateNetworkMetadata:
       type: object
       properties:
@@ -1002,6 +1048,11 @@ components:
           type: string
         dhcpOptions:
           $ref: '#/components/schemas/DhcpOptions_in_CreateSubnetRequest_dhcpOptions'
+    DeleteAddressMetadata:
+      type: object
+      properties:
+        addressId:
+          type: string
     DeleteNetworkMetadata:
       type: object
       properties:
@@ -1042,6 +1093,24 @@ components:
       description: Empty JSON object `` {} ``.
       type: object
       maxProperties: 0
+    ExternalIpv4Address:
+      type: object
+      properties:
+        address:
+          type: string
+        zoneId:
+          type: string
+        requirements:
+          $ref: '#/components/schemas/AddressRequirements_in_ExternalIpv4Address_requirements'
+    ExternalIpv4AddressSpec:
+      type: object
+      properties:
+        address:
+          type: string
+        zoneId:
+          type: string
+        requirements:
+          $ref: '#/components/schemas/AddressRequirements_in_ExternalIpv4AddressSpec_requirements'
     FieldMask:
       description: |-
         A comma-separated names off ALL fields to be updated.
@@ -1058,6 +1127,24 @@ components:
       enum:
       - IPV4
       - IPV6
+    ListAddressOperationsResponse:
+      type: object
+      properties:
+        operations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Operation'
+        nextPageToken:
+          type: string
+    ListAddressesResponse:
+      type: object
+      properties:
+        addresses:
+          type: array
+          items:
+            $ref: '#/components/schemas/Address'
+        nextPageToken:
+          type: string
     ListNetworkOperationsResponse:
       type: object
       properties:
@@ -1612,6 +1699,11 @@ components:
           type: string
         dhcpOptions:
           $ref: '#/components/schemas/DhcpOptions_in_Subnet_dhcpOptions'
+    UpdateAddressMetadata:
+      type: object
+      properties:
+        addressId:
+          type: string
     UpdateNetworkMetadata:
       type: object
       properties:
@@ -1785,6 +1877,20 @@ components:
           type: array
           items:
             type: string
+    AddressRequirements_in_ExternalIpv4Address_requirements:
+      type: object
+      properties:
+        ddosProtectionProvider:
+          type: string
+        outgoingSmtpCapability:
+          type: string
+    AddressRequirements_in_ExternalIpv4AddressSpec_requirements:
+      type: object
+      properties:
+        ddosProtectionProvider:
+          type: string
+        outgoingSmtpCapability:
+          type: string
     Referrer_in_Reference_referrer:
       type: object
       properties:
@@ -1883,6 +1989,7 @@ components:
       - IPV4
       - IPV6
 tags:
+- name: Address
 - name: Network
   description: A set of methods for managing Network resources.
 - name: RouteTable

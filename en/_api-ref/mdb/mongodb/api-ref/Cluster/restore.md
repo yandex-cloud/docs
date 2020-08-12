@@ -100,6 +100,34 @@ POST https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters:restore
           "diskSize": "string",
           "diskTypeId": "string"
         }
+      },
+      "mongoinfra": {
+        "configMongos": {
+          "net": {
+            "maxIncomingConnections": "integer"
+          }
+        },
+        "configMongocfg": {
+          "storage": {
+            "wiredTiger": {
+              "engineConfig": {
+                "cacheSizeGb": "number"
+              }
+            }
+          },
+          "operationProfiling": {
+            "mode": "string",
+            "slowOpThreshold": "integer"
+          },
+          "net": {
+            "maxIncomingConnections": "integer"
+          }
+        },
+        "resources": {
+          "resourcePresetId": "string",
+          "diskSize": "string",
+          "diskTypeId": "string"
+        }
       }
     },
     "mongodbSpec_4_0": {
@@ -166,6 +194,34 @@ POST https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters:restore
           "diskSize": "string",
           "diskTypeId": "string"
         }
+      },
+      "mongoinfra": {
+        "configMongos": {
+          "net": {
+            "maxIncomingConnections": "integer"
+          }
+        },
+        "configMongocfg": {
+          "storage": {
+            "wiredTiger": {
+              "engineConfig": {
+                "cacheSizeGb": "number"
+              }
+            }
+          },
+          "operationProfiling": {
+            "mode": "string",
+            "slowOpThreshold": "integer"
+          },
+          "net": {
+            "maxIncomingConnections": "integer"
+          }
+        },
+        "resources": {
+          "resourcePresetId": "string",
+          "diskSize": "string",
+          "diskTypeId": "string"
+        }
       }
     },
     "mongodbSpec_4_2": {
@@ -223,6 +279,34 @@ POST https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters:restore
       },
       "mongos": {
         "config": {
+          "net": {
+            "maxIncomingConnections": "integer"
+          }
+        },
+        "resources": {
+          "resourcePresetId": "string",
+          "diskSize": "string",
+          "diskTypeId": "string"
+        }
+      },
+      "mongoinfra": {
+        "configMongos": {
+          "net": {
+            "maxIncomingConnections": "integer"
+          }
+        },
+        "configMongocfg": {
+          "storage": {
+            "wiredTiger": {
+              "engineConfig": {
+                "cacheSizeGb": "number"
+              }
+            }
+          },
+          "operationProfiling": {
+            "mode": "string",
+            "slowOpThreshold": "integer"
+          },
           "net": {
             "maxIncomingConnections": "integer"
           }
@@ -316,6 +400,24 @@ configSpec.<br>mongodbSpec_3_6.<br>mongos.<br>resources | **object**<br><p>Resou
 configSpec.<br>mongodbSpec_3_6.<br>mongos.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
 configSpec.<br>mongodbSpec_3_6.<br>mongos.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
 configSpec.<br>mongodbSpec_3_6.<br>mongos.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. Possible values:</p> <ul> <li>network-hdd — network HDD drive,</li> <li>network-ssd — network SSD drive,</li> <li>local-ssd — local SSD storage.</li> </ul> 
+configSpec.<br>mongodbSpec_3_6.<br>mongoinfra | **object**<br><p>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 3.6 hosts.</p> 
+configSpec.<br>mongodbSpec_3_6.<br>mongoinfra.<br>configMongos | **object**<br><p>Configuration for mongoinfra 3.6 hosts.</p> 
+configSpec.<br>mongodbSpec_3_6.<br>mongoinfra.<br>configMongos.<br>net | **object**<br><p>Network settings for mongos.</p> 
+configSpec.<br>mongodbSpec_3_6.<br>mongoinfra.<br>configMongos.<br>net.<br>maxIncomingConnections | **integer** (int64)<br><p>The maximum number of incoming connections.</p> <p>Acceptable values are 10 to 16384, inclusive.</p> 
+configSpec.<br>mongodbSpec_3_6.<br>mongoinfra.<br>configMongocfg | **object**<br>
+configSpec.<br>mongodbSpec_3_6.<br>mongoinfra.<br>configMongocfg.<br>storage | **object**<br><p><code>storage</code> section of mongocfg configuration.</p> 
+configSpec.<br>mongodbSpec_3_6.<br>mongoinfra.<br>configMongocfg.<br>storage.<br>wiredTiger | **object**<br><p>Configuration of the WiredTiger storage engine.</p> <p>Configuration of WiredTiger storage engine.</p> 
+configSpec.<br>mongodbSpec_3_6.<br>mongoinfra.<br>configMongocfg.<br>storage.<br>wiredTiger.<br>engineConfig | **object**<br><p>Engine configuration for WiredTiger.</p> 
+configSpec.<br>mongodbSpec_3_6.<br>mongoinfra.<br>configMongocfg.<br>storage.<br>wiredTiger.<br>engineConfig.<br>cacheSizeGb | **number** (double)<br><p>The maximum size of the internal cache that WiredTiger will use for all data.</p> 
+configSpec.<br>mongodbSpec_3_6.<br>mongoinfra.<br>configMongocfg.<br>operationProfiling | **object**<br><p><code>operationProfiling</code> section of mongocfg configuration.</p> 
+configSpec.<br>mongodbSpec_3_6.<br>mongoinfra.<br>configMongocfg.<br>operationProfiling.<br>mode | **string**<br><p>Operation profiling level. For details, see <a href="https://docs.mongodb.com/v3.6/tutorial/manage-the-database-profiler/">MongoDB documentation</a>.</p> <ul> <li>OFF: The profiler is off and does not collect any data. This is the default profiler level.</li> <li>SLOW_OP: The profiler collects data for operations that take longer than the value of <code>slowOpThreshold</code>.</li> <li>ALL: The profiler collects data for all operations.</li> </ul> 
+configSpec.<br>mongodbSpec_3_6.<br>mongoinfra.<br>configMongocfg.<br>operationProfiling.<br>slowOpThreshold | **integer** (int64)<br><p>The slow operation time threshold, in milliseconds. Operations that run for longer than this threshold are considered slow, and are processed by the profiler running in the SLOW_OP mode. For details see <a href="https://docs.mongodb.com/v3.6/reference/configuration-options/#operationProfiling.slowOpThresholdMs">MongoDB documentation</a>.</p> <p>Value must be greater than 0.</p> 
+configSpec.<br>mongodbSpec_3_6.<br>mongoinfra.<br>configMongocfg.<br>net | **object**<br><p><code>net</code> section of mongocfg configuration.</p> 
+configSpec.<br>mongodbSpec_3_6.<br>mongoinfra.<br>configMongocfg.<br>net.<br>maxIncomingConnections | **integer** (int64)<br><p>The maximum number of incoming connections.</p> <p>Acceptable values are 10 to 16384, inclusive.</p> 
+configSpec.<br>mongodbSpec_3_6.<br>mongoinfra.<br>resources | **object**<br><p>Resources allocated to each mongoinfra (mongos+mongocfg) host.</p> 
+configSpec.<br>mongodbSpec_3_6.<br>mongoinfra.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
+configSpec.<br>mongodbSpec_3_6.<br>mongoinfra.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
+configSpec.<br>mongodbSpec_3_6.<br>mongoinfra.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. Possible values:</p> <ul> <li>network-hdd — network HDD drive,</li> <li>network-ssd — network SSD drive,</li> <li>local-ssd — local SSD storage.</li> </ul> 
 configSpec.<br>mongodbSpec_4_0 | **object**<br>Configuration and resource allocation for a MongoDB 4.0 cluster. <br>`configSpec` includes only one of the fields `mongodbSpec_3_6`, `mongodbSpec_4_0`, `mongodbSpec_4_2`<br><br>
 configSpec.<br>mongodbSpec_4_0.<br>mongod | **object**<br><p>Configuration and resource allocation for mongod 4.0 hosts.</p> 
 configSpec.<br>mongodbSpec_4_0.<br>mongod.<br>config | **object**<br><p>Configuration for mongod 4.0 hosts.</p> <p>Configuration of a mongod daemon. Supported options are a limited subset of all options described in <a href="https://docs.mongodb.com/v4.0/reference/configuration-options/">MongoDB documentation</a>.</p> 
@@ -359,6 +461,24 @@ configSpec.<br>mongodbSpec_4_0.<br>mongos.<br>resources | **object**<br><p>Resou
 configSpec.<br>mongodbSpec_4_0.<br>mongos.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
 configSpec.<br>mongodbSpec_4_0.<br>mongos.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
 configSpec.<br>mongodbSpec_4_0.<br>mongos.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. Possible values:</p> <ul> <li>network-hdd — network HDD drive,</li> <li>network-ssd — network SSD drive,</li> <li>local-ssd — local SSD storage.</li> </ul> 
+configSpec.<br>mongodbSpec_4_0.<br>mongoinfra | **object**<br><p>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.0 hosts.</p> 
+configSpec.<br>mongodbSpec_4_0.<br>mongoinfra.<br>configMongos | **object**<br><p>Configuration for mongoinfra 4.0 hosts.</p> 
+configSpec.<br>mongodbSpec_4_0.<br>mongoinfra.<br>configMongos.<br>net | **object**<br><p>Network settings for mongos.</p> 
+configSpec.<br>mongodbSpec_4_0.<br>mongoinfra.<br>configMongos.<br>net.<br>maxIncomingConnections | **integer** (int64)<br><p>The maximum number of simultaneous connections that mongos will accept.</p> <p>Acceptable values are 10 to 16384, inclusive.</p> 
+configSpec.<br>mongodbSpec_4_0.<br>mongoinfra.<br>configMongocfg | **object**<br>
+configSpec.<br>mongodbSpec_4_0.<br>mongoinfra.<br>configMongocfg.<br>storage | **object**<br><p><code>storage</code> section of mongocfg configuration.</p> 
+configSpec.<br>mongodbSpec_4_0.<br>mongoinfra.<br>configMongocfg.<br>storage.<br>wiredTiger | **object**<br><p>Configuration of the WiredTiger storage engine.</p> <p>Configuration of WiredTiger storage engine.</p> 
+configSpec.<br>mongodbSpec_4_0.<br>mongoinfra.<br>configMongocfg.<br>storage.<br>wiredTiger.<br>engineConfig | **object**<br><p>Engine configuration for WiredTiger.</p> 
+configSpec.<br>mongodbSpec_4_0.<br>mongoinfra.<br>configMongocfg.<br>storage.<br>wiredTiger.<br>engineConfig.<br>cacheSizeGb | **number** (double)<br><p>The maximum size of the internal cache that WiredTiger will use for all data.</p> 
+configSpec.<br>mongodbSpec_4_0.<br>mongoinfra.<br>configMongocfg.<br>operationProfiling | **object**<br><p><code>operationProfiling</code> section of mongocfg configuration.</p> 
+configSpec.<br>mongodbSpec_4_0.<br>mongoinfra.<br>configMongocfg.<br>operationProfiling.<br>mode | **string**<br><p>Mode which specifies operations that should be profiled.</p> <ul> <li>OFF: The profiler is off and does not collect any data.</li> <li>SLOW_OP: The profiler collects data for operations that take longer than the value of <code>slowOpThreshold</code>.</li> <li>ALL: The profiler collects data for all operations.</li> </ul> 
+configSpec.<br>mongodbSpec_4_0.<br>mongoinfra.<br>configMongocfg.<br>operationProfiling.<br>slowOpThreshold | **integer** (int64)<br><p>The slow operation time threshold, in milliseconds. Operations that run for longer than this threshold are considered slow, and are processed by the profiler running in the SLOW_OP mode. For details see <a href="https://docs.mongodb.com/v4.0/reference/configuration-options/#operationProfiling.slowOpThresholdMs">MongoDB documentation</a>.</p> <p>Value must be greater than 0.</p> 
+configSpec.<br>mongodbSpec_4_0.<br>mongoinfra.<br>configMongocfg.<br>net | **object**<br><p><code>net</code> section of mongocfg configuration.</p> 
+configSpec.<br>mongodbSpec_4_0.<br>mongoinfra.<br>configMongocfg.<br>net.<br>maxIncomingConnections | **integer** (int64)<br><p>The maximum number of simultaneous connections that mongocfg will accept.</p> <p>Acceptable values are 10 to 16384, inclusive.</p> 
+configSpec.<br>mongodbSpec_4_0.<br>mongoinfra.<br>resources | **object**<br><p>Resources allocated to each mongoinfra (mongos+mongocfg) host.</p> 
+configSpec.<br>mongodbSpec_4_0.<br>mongoinfra.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
+configSpec.<br>mongodbSpec_4_0.<br>mongoinfra.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
+configSpec.<br>mongodbSpec_4_0.<br>mongoinfra.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. Possible values:</p> <ul> <li>network-hdd — network HDD drive,</li> <li>network-ssd — network SSD drive,</li> <li>local-ssd — local SSD storage.</li> </ul> 
 configSpec.<br>mongodbSpec_4_2 | **object**<br>Configuration and resource allocation for a MongoDB 4.2 cluster. <br>`configSpec` includes only one of the fields `mongodbSpec_3_6`, `mongodbSpec_4_0`, `mongodbSpec_4_2`<br><br>
 configSpec.<br>mongodbSpec_4_2.<br>mongod | **object**<br><p>Configuration and resource allocation for mongod 4.2 hosts.</p> 
 configSpec.<br>mongodbSpec_4_2.<br>mongod.<br>config | **object**<br><p>Configuration for mongod 4.2 hosts.</p> <p>Configuration of a mongod daemon. Supported options are a limited subset of all options described in <a href="https://docs.mongodb.com/v4.2/reference/configuration-options/">MongoDB documentation</a>.</p> 
@@ -402,11 +522,29 @@ configSpec.<br>mongodbSpec_4_2.<br>mongos.<br>resources | **object**<br><p>Resou
 configSpec.<br>mongodbSpec_4_2.<br>mongos.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
 configSpec.<br>mongodbSpec_4_2.<br>mongos.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
 configSpec.<br>mongodbSpec_4_2.<br>mongos.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. Possible values:</p> <ul> <li>network-hdd — network HDD drive,</li> <li>network-ssd — network SSD drive,</li> <li>local-ssd — local SSD storage.</li> </ul> 
+configSpec.<br>mongodbSpec_4_2.<br>mongoinfra | **object**<br><p>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.2 hosts.</p> 
+configSpec.<br>mongodbSpec_4_2.<br>mongoinfra.<br>configMongos | **object**<br><p>Configuration for mongoinfra 4.2 hosts.</p> 
+configSpec.<br>mongodbSpec_4_2.<br>mongoinfra.<br>configMongos.<br>net | **object**<br><p>Network settings for mongos.</p> 
+configSpec.<br>mongodbSpec_4_2.<br>mongoinfra.<br>configMongos.<br>net.<br>maxIncomingConnections | **integer** (int64)<br><p>The maximum number of simultaneous connections that mongos will accept.</p> <p>Acceptable values are 10 to 16384, inclusive.</p> 
+configSpec.<br>mongodbSpec_4_2.<br>mongoinfra.<br>configMongocfg | **object**<br>
+configSpec.<br>mongodbSpec_4_2.<br>mongoinfra.<br>configMongocfg.<br>storage | **object**<br><p><code>storage</code> section of mongocfg configuration.</p> 
+configSpec.<br>mongodbSpec_4_2.<br>mongoinfra.<br>configMongocfg.<br>storage.<br>wiredTiger | **object**<br><p>Configuration of the WiredTiger storage engine.</p> <p>Configuration of WiredTiger storage engine.</p> 
+configSpec.<br>mongodbSpec_4_2.<br>mongoinfra.<br>configMongocfg.<br>storage.<br>wiredTiger.<br>engineConfig | **object**<br><p>Engine configuration for WiredTiger.</p> 
+configSpec.<br>mongodbSpec_4_2.<br>mongoinfra.<br>configMongocfg.<br>storage.<br>wiredTiger.<br>engineConfig.<br>cacheSizeGb | **number** (double)<br><p>The maximum size of the internal cache that WiredTiger will use for all data.</p> 
+configSpec.<br>mongodbSpec_4_2.<br>mongoinfra.<br>configMongocfg.<br>operationProfiling | **object**<br><p><code>operationProfiling</code> section of mongocfg configuration.</p> 
+configSpec.<br>mongodbSpec_4_2.<br>mongoinfra.<br>configMongocfg.<br>operationProfiling.<br>mode | **string**<br><p>Mode which specifies operations that should be profiled.</p> <ul> <li>OFF: The profiler is off and does not collect any data.</li> <li>SLOW_OP: The profiler collects data for operations that take longer than the value of <code>slowOpThreshold</code>.</li> <li>ALL: The profiler collects data for all operations.</li> </ul> 
+configSpec.<br>mongodbSpec_4_2.<br>mongoinfra.<br>configMongocfg.<br>operationProfiling.<br>slowOpThreshold | **integer** (int64)<br><p>The slow operation time threshold, in milliseconds. Operations that run for longer than this threshold are considered slow, and are processed by the profiler running in the SLOW_OP mode. For details see <a href="https://docs.mongodb.com/v4.2/reference/configuration-options/#operationProfiling.slowOpThresholdMs">MongoDB documentation</a>.</p> <p>Value must be greater than 0.</p> 
+configSpec.<br>mongodbSpec_4_2.<br>mongoinfra.<br>configMongocfg.<br>net | **object**<br><p><code>net</code> section of mongocfg configuration.</p> 
+configSpec.<br>mongodbSpec_4_2.<br>mongoinfra.<br>configMongocfg.<br>net.<br>maxIncomingConnections | **integer** (int64)<br><p>The maximum number of simultaneous connections that mongocfg will accept.</p> <p>Acceptable values are 10 to 16384, inclusive.</p> 
+configSpec.<br>mongodbSpec_4_2.<br>mongoinfra.<br>resources | **object**<br><p>Resources allocated to each mongoinfra (mongos+mongocfg) host.</p> 
+configSpec.<br>mongodbSpec_4_2.<br>mongoinfra.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
+configSpec.<br>mongodbSpec_4_2.<br>mongoinfra.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
+configSpec.<br>mongodbSpec_4_2.<br>mongoinfra.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. Possible values:</p> <ul> <li>network-hdd — network HDD drive,</li> <li>network-ssd — network SSD drive,</li> <li>local-ssd — local SSD storage.</li> </ul> 
 hostSpecs[] | **object**<br><p>Required. Configurations for MongoDB hosts that should be created for the cluster that is being created from the backup.</p> <p>Must contain at least one element.</p> 
 hostSpecs[].<br>zoneId | **string**<br><p>ID of the availability zone where the host resides. To get a list of available zones, use the <a href="/docs/compute/api-ref/Zone/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
 hostSpecs[].<br>subnetId | **string**<br><p>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The network ID is set in the <a href="/docs/managed-mongodb/api-ref/Cluster#representation">Cluster.networkId</a> field.</p> <p>The maximum string length in characters is 50.</p> 
 hostSpecs[].<br>assignPublicIp | **boolean** (boolean)<br><p>Whether the host should get a public IP address on creation.</p> <p>After a host has been created, this setting cannot be changed. To remove an assigned public IP, or to assign a public IP to a host without one, recreate the host with <code>assignPublicIp</code> set as needed.</p> <p>Possible values:</p> <ul> <li>false — don't assign a public IP to the host.</li> <li>true — the host should have a public IP address.</li> </ul> 
-hostSpecs[].<br>type | **string**<br><p>Type of the host to be deployed.</p> <ul> <li>MONGOD: A mongod host.</li> <li>MONGOS: A mongos host.</li> <li>MONGOCFG: A mongocfg host.</li> </ul> 
+hostSpecs[].<br>type | **string**<br><p>Type of the host to be deployed.</p> <ul> <li>MONGOD: A mongod host.</li> <li>MONGOS: A mongos host.</li> <li>MONGOCFG: A mongocfg host.</li> <li>MONGOINFRA: A mongoinfra (mongos+mongocfg) host.</li> </ul> 
 hostSpecs[].<br>shardName | **string**<br><p>Name of the shard that the host belongs to.</p> <p>The maximum string length in characters is 63. Value must match the regular expression <code>[a-zA-Z0-9_-]*</code>.</p> 
 networkId | **string**<br><p>Required. ID of the network to create the MongoDB cluster in.</p> <p>The maximum string length in characters is 50.</p> 
 folderId | **string**<br><p>Required. ID of the folder to create the MongoDB cluster in.</p> <p>The maximum string length in characters is 50.</p> 
