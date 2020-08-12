@@ -13,7 +13,7 @@ Minimum and maximum configurations for:
 
     | Configuration | vCPU | RAM, GB |
     | --- | --- | --- | --- |
-    | Min | 1 | 1 |
+    | Min | 2 | 1 |
     | Max | 32 | 256 |
 
 - Platform Intel Cascade Lake (`standard-v2`):
@@ -21,7 +21,7 @@ Minimum and maximum configurations for:
     | Configuration | vCPU | RAM, GB |
     | --- | --- | --- | --- |
     | Min | 2 | 0.5 |
-    | Max | 64 | 384 |
+    | Max | 80 | 400 |
 
 Available configurations of computing resources:
 
@@ -29,9 +29,9 @@ Available configurations of computing resources:
 
     | Performance</br> level | vCPU | RAM per core, GB |
     | --- | --- | --- | --- |
-    | 5% | 1, 2, 4 | 0.5, 1, 1.5, 2 |
-    | 20% | 1, 2, 4 | 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4 |
-    | 100% | 1, 2, 4, 6, 8, 10, 12,</br> 14, 16, 18, 20, 22, 24,</br> 26, 28, 30, 32 | 1, 2, 3, 4, 5, 6, 7, 8 |
+    | 5% | 2, 4 | 0.5, 1, 1.5, 2 |
+    | 20% | 2, 4 | 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4 |
+    | 100% | 2, 4, 6, 8, 10, 12, 14,</br> 16, 20, 24, 28, 32 | 1, 2, 3, 4, 5, 6, 7, 8 |
 
 - Platform Intel Cascade Lake (`standard-v2`):
 
@@ -40,10 +40,4 @@ Available configurations of computing resources:
     | 5% | 2, 4 | 0.25, 0.5, 1, 1.5, 2 |
     | 20% | 2, 4 | 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4 |
     | 50% | 2, 4 | 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4 |
-    | 100% | 2, 4, 6, 8, 10, 12, 14,</br> 16, 20, 24, 28, 32, 36,</br> 40, 44, 48, 52, 56, 60, 64 | 1, 2, 3, 4, 5, 6, 7, 8 |
-
-
-
-
-
-
+    | 100% | 2, 4, 6, 8, 10, 12, 14,</br> 16, 20, 24, 28, 32, 36,</br> 40, 44, 48, 52, 56, 60,</br> 64, 68, 72, 76, 80 | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,</br> 11, 12, 13, 14, 15, 16 |
