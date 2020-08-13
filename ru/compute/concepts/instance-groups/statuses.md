@@ -41,4 +41,4 @@
 
 ## Жизненный цикл виртуальных машин в группе {#life-cycle-instance}
 
-![life cycle instance](../../../_assets/life-cycle-instance.svg)
+![life cycle instance](../../../_assets/life-cycle-instance.svg =330x465)
