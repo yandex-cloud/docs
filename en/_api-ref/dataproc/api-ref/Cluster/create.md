@@ -41,7 +41,15 @@ POST https://dataproc.api.cloud.yandex.net/dataproc/v1/clusters
           "diskSize": "string"
         },
         "subnetId": "string",
-        "hostsCount": "string"
+        "hostsCount": "string",
+        "autoscalingConfig": {
+          "maxHostsCount": "string",
+          "preemptible": true,
+          "measurementDuration": "string",
+          "warmupDuration": "string",
+          "stabilizationDuration": "string",
+          "cpuUtilizationTarget": "number"
+        }
       }
     ]
   },
@@ -74,6 +82,13 @@ configSpec.<br>subclustersSpec[].<br>resources.<br>diskTypeId | **string**<br><p
 configSpec.<br>subclustersSpec[].<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
 configSpec.<br>subclustersSpec[].<br>subnetId | **string**<br><p>Required. ID of the VPC subnet used for hosts in the subcluster.</p> <p>The maximum string length in characters is 50.</p> 
 configSpec.<br>subclustersSpec[].<br>hostsCount | **string** (int64)<br><p>Required. Number of hosts in the subcluster.</p> <p>The minimum value is 1.</p> 
+configSpec.<br>subclustersSpec[].<br>autoscalingConfig | **object**<br><p>Configuration for instance group based subclusters</p> 
+configSpec.<br>subclustersSpec[].<br>autoscalingConfig.<br>maxHostsCount | **string** (int64)<br><p>Upper limit for total instance subcluster count.</p> <p>Acceptable values are 1 to 100, inclusive.</p> 
+configSpec.<br>subclustersSpec[].<br>autoscalingConfig.<br>preemptible | **boolean** (boolean)<br><p>Preemptible instances are stopped at least once every 24 hours, and can be stopped at any time if their resources are needed by Compute. For more information, see <a href="/docs/compute/concepts/preemptible-vm">Preemptible Virtual Machines</a>.</p> 
+configSpec.<br>subclustersSpec[].<br>autoscalingConfig.<br>measurementDuration | **string**<br><p>Required. Time in seconds allotted for averaging metrics.</p> <p>Acceptable values are 60 seconds to 600 seconds, inclusive.</p> 
+configSpec.<br>subclustersSpec[].<br>autoscalingConfig.<br>warmupDuration | **string**<br><p>The warmup time of the instance in seconds. During this time, traffic is sent to the instance, but instance metrics are not collected.</p> <p>The maximum value is 600 seconds.</p> 
+configSpec.<br>subclustersSpec[].<br>autoscalingConfig.<br>stabilizationDuration | **string**<br><p>Minimum amount of time in seconds allotted for monitoring before Instance Groups can reduce the number of instances in the group. During this time, the group size doesn't decrease, even if the new metric values indicate that it should.</p> <p>Acceptable values are 60 seconds to 1800 seconds, inclusive.</p> 
+configSpec.<br>subclustersSpec[].<br>autoscalingConfig.<br>cpuUtilizationTarget | **number** (double)<br><p>Defines an autoscaling rule based on the average CPU utilization of the instance group.</p> <p>Acceptable values are 10 to 100, inclusive.</p> 
 zoneId | **string**<br><p>Required. ID of the availability zone where the cluster should be placed.</p> <p>To get the list of available zones make a <a href="/docs/compute/api-ref/Zone/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
 serviceAccountId | **string**<br><p>Required. ID of the service account to be used by the Data Proc manager agent.</p> 
 bucket | **string**<br><p>Name of the Object Storage bucket to use for Data Proc jobs.</p> 

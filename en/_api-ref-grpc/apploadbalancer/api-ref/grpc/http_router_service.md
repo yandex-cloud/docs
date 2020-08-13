@@ -109,7 +109,7 @@ support_websockets | **bool**<br>Allows websocket upgrades.
 
 Field | Description
 --- | ---
-redirect_uri | **string**<br>Required. A URI consists of the following components: protocol://hostname:port/path?query <br>URI components of the original URL in the target URL using the following reserved keywords: #{protocol} - Retains the protocol. Use in the protocol and query components #{host} - Retains the domain. Use in the hostname, path, and query components #{port} - Retains the port. Use in the port, path, and query components #{path} - Retains the path. Use in the path and query components #{query} - Retains the query parameters. Use in the query component false
+replace_scheme | **string**<br>Replaces scheme. If the original scheme is `http` or `https`, will also remove the 80 or 443 port, if present. 
 response_code | enum **RedirectResponseCode**<br>The HTTP status code to use in the redirect response. <ul><li>`MOVED_PERMANENTLY`: Moved Permanently HTTP Status Code - 301.</li><li>`FOUND`: Found HTTP Status Code - 302.</li><li>`SEE_OTHER`: See Other HTTP Status Code - 303.</li><li>`TEMPORARY_REDIRECT`: Temporary Redirect HTTP Status Code - 307.</li><li>`PERMANENT_REDIRECT`: Permanent Redirect HTTP Status Code - 308.</li><ul/>
 
 
@@ -288,7 +288,7 @@ support_websockets | **bool**<br>Allows websocket upgrades.
 
 Field | Description
 --- | ---
-redirect_uri | **string**<br>Required. A URI consists of the following components: protocol://hostname:port/path?query <br>URI components of the original URL in the target URL using the following reserved keywords: #{protocol} - Retains the protocol. Use in the protocol and query components #{host} - Retains the domain. Use in the hostname, path, and query components #{port} - Retains the port. Use in the port, path, and query components #{path} - Retains the path. Use in the path and query components #{query} - Retains the query parameters. Use in the query component false
+replace_scheme | **string**<br>Replaces scheme. If the original scheme is `http` or `https`, will also remove the 80 or 443 port, if present. 
 response_code | enum **RedirectResponseCode**<br>The HTTP status code to use in the redirect response. <ul><li>`MOVED_PERMANENTLY`: Moved Permanently HTTP Status Code - 301.</li><li>`FOUND`: Found HTTP Status Code - 302.</li><li>`SEE_OTHER`: See Other HTTP Status Code - 303.</li><li>`TEMPORARY_REDIRECT`: Temporary Redirect HTTP Status Code - 307.</li><li>`PERMANENT_REDIRECT`: Permanent Redirect HTTP Status Code - 308.</li><ul/>
 
 
@@ -453,7 +453,7 @@ support_websockets | **bool**<br>Allows websocket upgrades.
 
 Field | Description
 --- | ---
-redirect_uri | **string**<br>Required. A URI consists of the following components: protocol://hostname:port/path?query <br>URI components of the original URL in the target URL using the following reserved keywords: #{protocol} - Retains the protocol. Use in the protocol and query components #{host} - Retains the domain. Use in the hostname, path, and query components #{port} - Retains the port. Use in the port, path, and query components #{path} - Retains the path. Use in the path and query components #{query} - Retains the query parameters. Use in the query component false
+replace_scheme | **string**<br>Replaces scheme. If the original scheme is `http` or `https`, will also remove the 80 or 443 port, if present. 
 response_code | enum **RedirectResponseCode**<br>The HTTP status code to use in the redirect response. <ul><li>`MOVED_PERMANENTLY`: Moved Permanently HTTP Status Code - 301.</li><li>`FOUND`: Found HTTP Status Code - 302.</li><li>`SEE_OTHER`: See Other HTTP Status Code - 303.</li><li>`TEMPORARY_REDIRECT`: Temporary Redirect HTTP Status Code - 307.</li><li>`PERMANENT_REDIRECT`: Permanent Redirect HTTP Status Code - 308.</li><ul/>
 
 
@@ -654,7 +654,7 @@ support_websockets | **bool**<br>Allows websocket upgrades.
 
 Field | Description
 --- | ---
-redirect_uri | **string**<br>Required. A URI consists of the following components: protocol://hostname:port/path?query <br>URI components of the original URL in the target URL using the following reserved keywords: #{protocol} - Retains the protocol. Use in the protocol and query components #{host} - Retains the domain. Use in the hostname, path, and query components #{port} - Retains the port. Use in the port, path, and query components #{path} - Retains the path. Use in the path and query components #{query} - Retains the query parameters. Use in the query component false
+replace_scheme | **string**<br>Replaces scheme. If the original scheme is `http` or `https`, will also remove the 80 or 443 port, if present. 
 response_code | enum **RedirectResponseCode**<br>The HTTP status code to use in the redirect response. <ul><li>`MOVED_PERMANENTLY`: Moved Permanently HTTP Status Code - 301.</li><li>`FOUND`: Found HTTP Status Code - 302.</li><li>`SEE_OTHER`: See Other HTTP Status Code - 303.</li><li>`TEMPORARY_REDIRECT`: Temporary Redirect HTTP Status Code - 307.</li><li>`PERMANENT_REDIRECT`: Permanent Redirect HTTP Status Code - 308.</li><ul/>
 
 

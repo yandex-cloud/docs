@@ -63,7 +63,7 @@ POST https://apploadbalancer.api.cloud.yandex.net/apploadbalancer/v1/httpRouters
 
             },
             "redirect": {
-              "redirectUri": "string",
+              "replaceScheme": "string",
               "responseCode": "string"
             },
             "directResponse": {
@@ -167,7 +167,7 @@ virtualHosts[].<br>routes[].<br>http.<br>route.<br>supportWebsockets | **boolean
 virtualHosts[].<br>routes[].<br>http.<br>route.<br>hostRewrite | **string** <br>`virtualHosts[].routes[].http.route` includes only one of the fields `hostRewrite`, `autoHostRewrite`<br><br>
 virtualHosts[].<br>routes[].<br>http.<br>route.<br>autoHostRewrite | **boolean** (boolean) <br>`virtualHosts[].routes[].http.route` includes only one of the fields `hostRewrite`, `autoHostRewrite`<br><br>
 virtualHosts[].<br>routes[].<br>http.<br>redirect | **object** <br>`virtualHosts[].routes[].http` includes only one of the fields `route`, `redirect`, `directResponse`<br><br>
-virtualHosts[].<br>routes[].<br>http.<br>redirect.<br>redirectUri | **string**<br><p>Required. A URI consists of the following components: protocol://hostname:port/path?query</p> <p>URI components of the original URL in the target URL using the following reserved keywords: #{protocol} - Retains the protocol. Use in the protocol and query components #{host} - Retains the domain. Use in the hostname, path, and query components #{port} - Retains the port. Use in the port, path, and query components #{path} - Retains the path. Use in the path and query components #{query} - Retains the query parameters. Use in the query component</p> 
+virtualHosts[].<br>routes[].<br>http.<br>redirect.<br>replaceScheme | **string**<br><p>Replaces scheme. If the original scheme is <code>http</code> or <code>https</code>, will also remove the 80 or 443 port, if present.</p> 
 virtualHosts[].<br>routes[].<br>http.<br>redirect.<br>responseCode | **string**<br><p>The HTTP status code to use in the redirect response.</p> <ul> <li>MOVED_PERMANENTLY: Moved Permanently HTTP Status Code - 301.</li> <li>FOUND: Found HTTP Status Code - 302.</li> <li>SEE_OTHER: See Other HTTP Status Code - 303.</li> <li>TEMPORARY_REDIRECT: Temporary Redirect HTTP Status Code - 307.</li> <li>PERMANENT_REDIRECT: Permanent Redirect HTTP Status Code - 308.</li> </ul> 
 virtualHosts[].<br>routes[].<br>http.<br>directResponse | **object** <br>`virtualHosts[].routes[].http` includes only one of the fields `route`, `redirect`, `directResponse`<br><br>
 virtualHosts[].<br>routes[].<br>http.<br>directResponse.<br>status | **string** (int64)<br><p>HTTP response status.</p> <p>Acceptable values are 100 to 599, inclusive.</p> 
