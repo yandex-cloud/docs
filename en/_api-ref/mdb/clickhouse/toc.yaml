@@ -141,6 +141,12 @@ items:
         href: api-ref/User/revokePermission.md
       - name: update
         href: api-ref/User/update.md
+  - name: Versions
+    items:
+      - name: Overview
+        href: api-ref/Versions/index.md
+      - name: list
+        href: api-ref/Versions/list.md
   - name: Operation
     items:
       - name: Overview

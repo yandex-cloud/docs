@@ -1,0 +1,223 @@
+---
+editable: false
+---
+
+# Method list
+
+ 
+
+ 
+## HTTP request {#https-request}
+```
+GET https://apploadbalancer.api.cloud.yandex.net/apploadbalancer/v1/loadBalancers
+```
+ 
+## Query parameters {#query_params}
+ 
+Parameter | Description
+--- | ---
+folderId | Required.
+pageSize | Acceptable values are 0 to 1000, inclusive.
+pageToken | The maximum string length in characters is 100.
+filter | The maximum string length in characters is 1000.
+ 
+## Response {#responses}
+**HTTP Code: 200 - OK**
+
+```json 
+{
+  "loadBalancers": [
+    {
+      "id": "string",
+      "name": "string",
+      "description": "string",
+      "folderId": "string",
+      "labels": "object",
+      "listeners": [
+        {
+          "name": "string",
+          "port": "string",
+          "address": "string",
+          "subnetId": "string",
+          "ipVersion": "string",
+          "type": "string",
+
+          // `loadBalancers[].listeners[]` includes only one of the fields `http`, `tls`
+          "http": {
+            "handler": {
+              "httpRouterId": "string",
+
+              // `loadBalancers[].listeners[].http.handler` includes only one of the fields `http2Options`, `allowHttp10`
+              "http2Options": {
+                "maxConcurrentStreams": "string"
+              },
+              "allowHttp10": true,
+              // end of the list of possible fields`loadBalancers[].listeners[].http.handler`
+
+            }
+          },
+          "tls": {
+            "defaultHandler": {
+              "tls": {
+                "certificateIds": [
+                  "string"
+                ],
+                "tlsOptions": {
+                  "tlsMinVersion": "string",
+                  "tlsMaxVersion": "string",
+                  "cipherSuites": [
+                    "string"
+                  ],
+                  "ecdhCurves": [
+                    "string"
+                  ]
+                }
+              },
+
+              // `loadBalancers[].listeners[].tls.defaultHandler` includes only one of the fields `streamHandler`, `httpHandler`
+              "streamHandler": {
+                "backendGroupId": "string"
+              },
+              "httpHandler": {
+                "httpRouterId": "string",
+
+                // `loadBalancers[].listeners[].tls.defaultHandler.httpHandler` includes only one of the fields `http2Options`, `allowHttp10`
+                "http2Options": {
+                  "maxConcurrentStreams": "string"
+                },
+                "allowHttp10": true,
+                // end of the list of possible fields`loadBalancers[].listeners[].tls.defaultHandler.httpHandler`
+
+              },
+              // end of the list of possible fields`loadBalancers[].listeners[].tls.defaultHandler`
+
+            },
+            "sniHandlers": [
+              {
+                "name": "string",
+                "serverNames": [
+                  "string"
+                ],
+                "handler": {
+                  "tls": {
+                    "certificateIds": [
+                      "string"
+                    ],
+                    "tlsOptions": {
+                      "tlsMinVersion": "string",
+                      "tlsMaxVersion": "string",
+                      "cipherSuites": [
+                        "string"
+                      ],
+                      "ecdhCurves": [
+                        "string"
+                      ]
+                    }
+                  },
+
+                  // `loadBalancers[].listeners[].tls.sniHandlers[].handler` includes only one of the fields `streamHandler`, `httpHandler`
+                  "streamHandler": {
+                    "backendGroupId": "string"
+                  },
+                  "httpHandler": {
+                    "httpRouterId": "string",
+
+                    // `loadBalancers[].listeners[].tls.sniHandlers[].handler.httpHandler` includes only one of the fields `http2Options`, `allowHttp10`
+                    "http2Options": {
+                      "maxConcurrentStreams": "string"
+                    },
+                    "allowHttp10": true,
+                    // end of the list of possible fields`loadBalancers[].listeners[].tls.sniHandlers[].handler.httpHandler`
+
+                  },
+                  // end of the list of possible fields`loadBalancers[].listeners[].tls.sniHandlers[].handler`
+
+                }
+              }
+            ]
+          },
+          // end of the list of possible fields`loadBalancers[].listeners[]`
+
+        }
+      ],
+      "allocationPolicy": {
+        "locations": [
+          {
+            "zoneId": "string",
+            "subnetId": "string",
+            "disableTraffic": true
+          }
+        ]
+      },
+      "logGroupId": "string",
+      "regionId": "string"
+    }
+  ],
+  "nextPageToken": "string"
+}
+```
+
+ 
+Field | Description
+--- | ---
+loadBalancers[] | **object**<br><p>A LoadBalancer resource.</p> 
+loadBalancers[].<br>id | **string**<br><p>Output only. ID of the load balancer.</p> 
+loadBalancers[].<br>name | **string**<br><p>The name is unique within the folder. 3-63 characters long.</p> 
+loadBalancers[].<br>description | **string**<br><p>Description of the load balancer. 0-256 characters long.</p> 
+loadBalancers[].<br>folderId | **string**<br><p>ID of the folder that the load balancer belongs to.</p> 
+loadBalancers[].<br>labels | **object**<br><p>Resource labels as <code>key:value</code> pairs. Maximum of 64 per resource.</p> 
+loadBalancers[].<br>listeners[] | **object**<br><p>A Listener resource.</p> 
+loadBalancers[].<br>listeners[].<br>name | **string**<br><p>Required. Name of the listener. The name must be unique for each listener on a single load balancer. 3-63 characters long.</p> 
+loadBalancers[].<br>listeners[].<br>port | **string** (int64)<br><p>Port.</p> <p>Acceptable values are 1 to 65535, inclusive.</p> 
+loadBalancers[].<br>listeners[].<br>address | **string**<br><p>IP address for the listener.</p> 
+loadBalancers[].<br>listeners[].<br>subnetId | **string**<br><p>ID of the subnet.</p> 
+loadBalancers[].<br>listeners[].<br>ipVersion | **string**<br>
+loadBalancers[].<br>listeners[].<br>type | **string**<br>
+loadBalancers[].<br>listeners[].<br>http | **object** <br>`loadBalancers[].listeners[]` includes only one of the fields `http`, `tls`<br><br>
+loadBalancers[].<br>listeners[].<br>http.<br>handler | **object**<br><p>Required.</p> 
+loadBalancers[].<br>listeners[].<br>http.<br>handler.<br>httpRouterId | **string**<br><p>Required.</p> 
+loadBalancers[].<br>listeners[].<br>http.<br>handler.<br>http2Options | **object** <br>`loadBalancers[].listeners[].http.handler` includes only one of the fields `http2Options`, `allowHttp10`<br><br>
+loadBalancers[].<br>listeners[].<br>http.<br>handler.<br>http2Options.<br>maxConcurrentStreams | **string** (int64)<br>
+loadBalancers[].<br>listeners[].<br>http.<br>handler.<br>allowHttp10 | **boolean** (boolean) <br>`loadBalancers[].listeners[].http.handler` includes only one of the fields `http2Options`, `allowHttp10`<br><br>
+loadBalancers[].<br>listeners[].<br>tls | **object** <br>`loadBalancers[].listeners[]` includes only one of the fields `http`, `tls`<br><br>
+loadBalancers[].<br>listeners[].<br>tls.<br>defaultHandler | **object**<br><p>Required.</p> 
+loadBalancers[].<br>listeners[].<br>tls.<br>defaultHandler.<br>tls | **object**<br>Required. <br>`loadBalancers[].listeners[]` includes only one of the fields `http`, `tls`<br><br>
+loadBalancers[].<br>listeners[].<br>tls.<br>defaultHandler.<br>tls.<br>certificateIds[] | **string**<br><p>Required. Certificate IDs in the Certificate Manager. Multiple TLS certificates can be associated with the same context to allow both RSA and ECDSA certificates. Only the first certificate of each type will be used.</p> <p>Must contain at least one element.</p> 
+loadBalancers[].<br>listeners[].<br>tls.<br>defaultHandler.<br>tls.<br>tlsOptions | **object**<br>
+loadBalancers[].<br>listeners[].<br>tls.<br>defaultHandler.<br>tls.<br>tlsOptions.<br>tlsMinVersion | **string**<br><p>Minimum TLS protocol version.</p> 
+loadBalancers[].<br>listeners[].<br>tls.<br>defaultHandler.<br>tls.<br>tlsOptions.<br>tlsMaxVersion | **string**<br><p>Maximum TLS protocol version.</p> 
+loadBalancers[].<br>listeners[].<br>tls.<br>defaultHandler.<br>tls.<br>tlsOptions.<br>cipherSuites[] | **string**<br><p>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used.</p> 
+loadBalancers[].<br>listeners[].<br>tls.<br>defaultHandler.<br>tls.<br>tlsOptions.<br>ecdhCurves[] | **string**<br><p>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used.</p> 
+loadBalancers[].<br>listeners[].<br>tls.<br>defaultHandler.<br>streamHandler | **object** <br>`loadBalancers[].listeners[].tls.defaultHandler` includes only one of the fields `streamHandler`, `httpHandler`<br><br>
+loadBalancers[].<br>listeners[].<br>tls.<br>defaultHandler.<br>streamHandler.<br>backendGroupId | **string**<br><p>Required.</p> 
+loadBalancers[].<br>listeners[].<br>tls.<br>defaultHandler.<br>httpHandler | **object** <br>`loadBalancers[].listeners[].tls.defaultHandler` includes only one of the fields `streamHandler`, `httpHandler`<br><br>
+loadBalancers[].<br>listeners[].<br>tls.<br>defaultHandler.<br>httpHandler.<br>httpRouterId | **string**<br><p>Required.</p> 
+loadBalancers[].<br>listeners[].<br>tls.<br>defaultHandler.<br>httpHandler.<br>http2Options | **object** <br>`loadBalancers[].listeners[].tls.defaultHandler.httpHandler` includes only one of the fields `http2Options`, `allowHttp10`<br><br>
+loadBalancers[].<br>listeners[].<br>tls.<br>defaultHandler.<br>httpHandler.<br>http2Options.<br>maxConcurrentStreams | **string** (int64)<br>
+loadBalancers[].<br>listeners[].<br>tls.<br>defaultHandler.<br>httpHandler.<br>allowHttp10 | **boolean** (boolean) <br>`loadBalancers[].listeners[].tls.defaultHandler.httpHandler` includes only one of the fields `http2Options`, `allowHttp10`<br><br>
+loadBalancers[].<br>listeners[].<br>tls.<br>sniHandlers[] | **object**<br>
+loadBalancers[].<br>listeners[].<br>tls.<br>sniHandlers[].<br>name | **string**<br><p>Required.</p> 
+loadBalancers[].<br>listeners[].<br>tls.<br>sniHandlers[].<br>serverNames[] | **string**<br><p>Required. Must contain at least one element.</p> 
+loadBalancers[].<br>listeners[].<br>tls.<br>sniHandlers[].<br>handler | **object**<br><p>Required.</p> 
+loadBalancers[].<br>listeners[].<br>tls.<br>sniHandlers[].<br>handler.<br>tls | **object**<br>Required. <br>`loadBalancers[].listeners[]` includes only one of the fields `http`, `tls`<br><br>
+loadBalancers[].<br>listeners[].<br>tls.<br>sniHandlers[].<br>handler.<br>tls.<br>certificateIds[] | **string**<br><p>Required. Certificate IDs in the Certificate Manager. Multiple TLS certificates can be associated with the same context to allow both RSA and ECDSA certificates. Only the first certificate of each type will be used.</p> <p>Must contain at least one element.</p> 
+loadBalancers[].<br>listeners[].<br>tls.<br>sniHandlers[].<br>handler.<br>tls.<br>tlsOptions | **object**<br>
+loadBalancers[].<br>listeners[].<br>tls.<br>sniHandlers[].<br>handler.<br>tls.<br>tlsOptions.<br>tlsMinVersion | **string**<br><p>Minimum TLS protocol version.</p> 
+loadBalancers[].<br>listeners[].<br>tls.<br>sniHandlers[].<br>handler.<br>tls.<br>tlsOptions.<br>tlsMaxVersion | **string**<br><p>Maximum TLS protocol version.</p> 
+loadBalancers[].<br>listeners[].<br>tls.<br>sniHandlers[].<br>handler.<br>tls.<br>tlsOptions.<br>cipherSuites[] | **string**<br><p>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used.</p> 
+loadBalancers[].<br>listeners[].<br>tls.<br>sniHandlers[].<br>handler.<br>tls.<br>tlsOptions.<br>ecdhCurves[] | **string**<br><p>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used.</p> 
+loadBalancers[].<br>listeners[].<br>tls.<br>sniHandlers[].<br>handler.<br>streamHandler | **object** <br>`loadBalancers[].listeners[].tls.sniHandlers[].handler` includes only one of the fields `streamHandler`, `httpHandler`<br><br>
+loadBalancers[].<br>listeners[].<br>tls.<br>sniHandlers[].<br>handler.<br>streamHandler.<br>backendGroupId | **string**<br><p>Required.</p> 
+loadBalancers[].<br>listeners[].<br>tls.<br>sniHandlers[].<br>handler.<br>httpHandler | **object** <br>`loadBalancers[].listeners[].tls.sniHandlers[].handler` includes only one of the fields `streamHandler`, `httpHandler`<br><br>
+loadBalancers[].<br>listeners[].<br>tls.<br>sniHandlers[].<br>handler.<br>httpHandler.<br>httpRouterId | **string**<br><p>Required.</p> 
+loadBalancers[].<br>listeners[].<br>tls.<br>sniHandlers[].<br>handler.<br>httpHandler.<br>http2Options | **object** <br>`loadBalancers[].listeners[].tls.sniHandlers[].handler.httpHandler` includes only one of the fields `http2Options`, `allowHttp10`<br><br>
+loadBalancers[].<br>listeners[].<br>tls.<br>sniHandlers[].<br>handler.<br>httpHandler.<br>http2Options.<br>maxConcurrentStreams | **string** (int64)<br>
+loadBalancers[].<br>listeners[].<br>tls.<br>sniHandlers[].<br>handler.<br>httpHandler.<br>allowHttp10 | **boolean** (boolean) <br>`loadBalancers[].listeners[].tls.sniHandlers[].handler.httpHandler` includes only one of the fields `http2Options`, `allowHttp10`<br><br>
+loadBalancers[].<br>allocationPolicy | **object**<br><p>Allocation sites for application load balancer instances.</p> 
+loadBalancers[].<br>allocationPolicy.<br>locations[] | **object**<br><p>Required. The minimum number of elements is 1.</p> 
+loadBalancers[].<br>allocationPolicy.<br>locations[].<br>zoneId | **string**<br><p>Required.</p> 
+loadBalancers[].<br>allocationPolicy.<br>locations[].<br>subnetId | **string**<br>
+loadBalancers[].<br>allocationPolicy.<br>locations[].<br>disableTraffic | **boolean** (boolean)<br><p>If set, will disable all L7 instances in the zone for request handling.</p> 
+loadBalancers[].<br>logGroupId | **string**<br>
+loadBalancers[].<br>regionId | **string**<br>
+nextPageToken | **string**<br>

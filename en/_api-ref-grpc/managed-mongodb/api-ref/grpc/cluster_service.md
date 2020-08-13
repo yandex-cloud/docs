@@ -26,7 +26,7 @@ A set of methods for managing MongoDB Cluster resources.
 | [ListHosts](#ListHosts) | Retrieves a list of hosts for the specified cluster. |
 | [AddHosts](#AddHosts) | Creates new hosts for a cluster. |
 | [DeleteHosts](#DeleteHosts) | Deletes the specified hosts for a cluster. |
-| [EnableSharding](#EnableSharding) | Enables sharding for the cluster: creates 3 mongocfg and 2 mongos hosts that would support adding and using shards in the cluster. |
+| [EnableSharding](#EnableSharding) | Enables sharding for the cluster: creates 3 mongoinfra (or 3 mongocfg and 2 mongos) hosts that would support adding and using shards in the cluster. |
 | [GetShard](#GetShard) | Returns the specified shard. |
 | [ListShards](#ListShards) | Retrieves a list of shards. |
 | [AddShard](#AddShard) | Creates a new shard. |
@@ -100,6 +100,7 @@ Field | Description
 mongod | **[Mongod](../cluster.proto#Mongod)**<br>Configuration and resource allocation for mongod in a MongoDB 3.6 cluster. 
 mongocfg | **[MongoCfg](../cluster.proto#MongoCfg)**<br>Configuration and resource allocation for mongocfg in a MongoDB 3.6 cluster. 
 mongos | **[Mongos](../cluster.proto#Mongos)**<br>Configuration and resource allocation for mongos in a MongoDB 3.6 cluster. 
+mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 3.6 cluster. 
 
 
 ### Mongod {#Mongod}
@@ -126,6 +127,15 @@ config | **`config.MongosConfigSet3_6`**<br>
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongocfg hosts. 
 
 
+### MongoInfra {#MongoInfra}
+
+Field | Description
+--- | ---
+config_mongos | **[config.MongosConfigSet3_6](#MongosConfigSet3_6)**<br> 
+config_mongocfg | **[config.MongoCfgConfigSet3_6](#MongoCfgConfigSet3_6)**<br> 
+resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+
+
 ### Mongodb4_0 {#Mongodb4_0}
 
 Field | Description
@@ -133,6 +143,7 @@ Field | Description
 mongod | **[Mongod](../cluster.proto#Mongod1)**<br>Configuration and resource allocation for mongod in a MongoDB 4.0 cluster. 
 mongocfg | **[MongoCfg](../cluster.proto#MongoCfg1)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.0 cluster. 
 mongos | **[Mongos](../cluster.proto#Mongos1)**<br>Configuration and resource allocation for mongos in a MongoDB 4.0 cluster. 
+mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra1)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.0 cluster. 
 
 
 ### Mongod {#Mongod}
@@ -159,6 +170,15 @@ config | **`config.MongosConfigSet4_0`**<br>Configuration for mongos 4.0 hosts.
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongos hosts. 
 
 
+### MongoInfra {#MongoInfra}
+
+Field | Description
+--- | ---
+config_mongos | **[config.MongosConfigSet4_0](#MongosConfigSet4_0)**<br> 
+config_mongocfg | **[config.MongoCfgConfigSet4_0](#MongoCfgConfigSet4_0)**<br> 
+resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+
+
 ### Mongodb4_2 {#Mongodb4_2}
 
 Field | Description
@@ -166,6 +186,7 @@ Field | Description
 mongod | **[Mongod](../cluster.proto#Mongod2)**<br>Configuration and resource allocation for mongod in a MongoDB 4.2 cluster. 
 mongocfg | **[MongoCfg](../cluster.proto#MongoCfg2)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.2 cluster. 
 mongos | **[Mongos](../cluster.proto#Mongos2)**<br>Configuration and resource allocation for mongos in a MongoDB 4.2 cluster. 
+mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra2)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.2 cluster. 
 
 
 ### Mongod {#Mongod}
@@ -190,6 +211,15 @@ Field | Description
 --- | ---
 config | **`config.MongosConfigSet4_2`**<br>Configuration for mongos 4.2 hosts. 
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongos hosts. 
+
+
+### MongoInfra {#MongoInfra}
+
+Field | Description
+--- | ---
+config_mongos | **[config.MongosConfigSet4_2](#MongosConfigSet4_2)**<br> 
+config_mongocfg | **[config.MongoCfgConfigSet4_2](#MongoCfgConfigSet4_2)**<br> 
+resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Access {#Access}
@@ -303,6 +333,7 @@ Field | Description
 mongod | **[Mongod](../cluster.proto#Mongod3)**<br>Configuration and resource allocation for mongod in a MongoDB 3.6 cluster. 
 mongocfg | **[MongoCfg](../cluster.proto#MongoCfg3)**<br>Configuration and resource allocation for mongocfg in a MongoDB 3.6 cluster. 
 mongos | **[Mongos](../cluster.proto#Mongos3)**<br>Configuration and resource allocation for mongos in a MongoDB 3.6 cluster. 
+mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra3)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 3.6 cluster. 
 
 
 ### Mongod {#Mongod}
@@ -329,6 +360,15 @@ config | **`config.MongosConfigSet3_6`**<br>
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongocfg hosts. 
 
 
+### MongoInfra {#MongoInfra}
+
+Field | Description
+--- | ---
+config_mongos | **[config.MongosConfigSet3_6](#MongosConfigSet3_6)**<br> 
+config_mongocfg | **[config.MongoCfgConfigSet3_6](#MongoCfgConfigSet3_6)**<br> 
+resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+
+
 ### Mongodb4_0 {#Mongodb4_0}
 
 Field | Description
@@ -336,6 +376,7 @@ Field | Description
 mongod | **[Mongod](../cluster.proto#Mongod4)**<br>Configuration and resource allocation for mongod in a MongoDB 4.0 cluster. 
 mongocfg | **[MongoCfg](../cluster.proto#MongoCfg4)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.0 cluster. 
 mongos | **[Mongos](../cluster.proto#Mongos4)**<br>Configuration and resource allocation for mongos in a MongoDB 4.0 cluster. 
+mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra4)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.0 cluster. 
 
 
 ### Mongod {#Mongod}
@@ -362,6 +403,15 @@ config | **`config.MongosConfigSet4_0`**<br>Configuration for mongos 4.0 hosts.
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongos hosts. 
 
 
+### MongoInfra {#MongoInfra}
+
+Field | Description
+--- | ---
+config_mongos | **[config.MongosConfigSet4_0](#MongosConfigSet4_0)**<br> 
+config_mongocfg | **[config.MongoCfgConfigSet4_0](#MongoCfgConfigSet4_0)**<br> 
+resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+
+
 ### Mongodb4_2 {#Mongodb4_2}
 
 Field | Description
@@ -369,6 +419,7 @@ Field | Description
 mongod | **[Mongod](../cluster.proto#Mongod5)**<br>Configuration and resource allocation for mongod in a MongoDB 4.2 cluster. 
 mongocfg | **[MongoCfg](../cluster.proto#MongoCfg5)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.2 cluster. 
 mongos | **[Mongos](../cluster.proto#Mongos5)**<br>Configuration and resource allocation for mongos in a MongoDB 4.2 cluster. 
+mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra5)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.2 cluster. 
 
 
 ### Mongod {#Mongod}
@@ -393,6 +444,15 @@ Field | Description
 --- | ---
 config | **`config.MongosConfigSet4_2`**<br>Configuration for mongos 4.2 hosts. 
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongos hosts. 
+
+
+### MongoInfra {#MongoInfra}
+
+Field | Description
+--- | ---
+config_mongos | **[config.MongosConfigSet4_2](#MongosConfigSet4_2)**<br> 
+config_mongocfg | **[config.MongoCfgConfigSet4_2](#MongoCfgConfigSet4_2)**<br> 
+resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Access {#Access}
@@ -478,6 +538,7 @@ Field | Description
 mongod | **[Mongod](../cluster.proto#Mongod6)**<br>Configuration and resource allocation for mongod 3.6 hosts. 
 mongocfg | **[MongoCfg](../cluster.proto#MongoCfg6)**<br>Configuration and resource allocation for mongocfg 3.6 hosts. 
 mongos | **[Mongos](../cluster.proto#Mongos6)**<br>Configuration and resource allocation for mongos 3.6 hosts. 
+mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra6)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 3.6 hosts. 
 
 
 ### Mongod {#Mongod}
@@ -504,6 +565,15 @@ config | **`config.MongosConfig3_6`**<br>Configuration for mongos 3.6 hosts.
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongos host. 
 
 
+### MongoInfra {#MongoInfra}
+
+Field | Description
+--- | ---
+config_mongos | **[config.MongosConfig3_6](#MongosConfig3_6)**<br>Configuration for mongoinfra 3.6 hosts. 
+config_mongocfg | **[config.MongoCfgConfig3_6](#MongoCfgConfig3_6)**<br> 
+resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
+
+
 ### MongodbSpec4_0 {#MongodbSpec4_0}
 
 Field | Description
@@ -511,6 +581,7 @@ Field | Description
 mongod | **[Mongod](../cluster.proto#Mongod7)**<br>Configuration and resource allocation for mongod 4.0 hosts. 
 mongocfg | **[MongoCfg](../cluster.proto#MongoCfg7)**<br>Configuration and resource allocation for mongocfg 4.0 hosts. 
 mongos | **[Mongos](../cluster.proto#Mongos7)**<br>Configuration and resource allocation for mongos 4.0 hosts. 
+mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra7)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.0 hosts. 
 
 
 ### Mongod {#Mongod}
@@ -537,6 +608,15 @@ config | **`config.MongosConfig4_0`**<br>Configuration for mongos 4.0 hosts.
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongos host. 
 
 
+### MongoInfra {#MongoInfra}
+
+Field | Description
+--- | ---
+config_mongos | **[config.MongosConfig4_0](#MongosConfig4_0)**<br>Configuration for mongoinfra 4.0 hosts. 
+config_mongocfg | **[config.MongoCfgConfig4_0](#MongoCfgConfig4_0)**<br> 
+resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
+
+
 ### MongodbSpec4_2 {#MongodbSpec4_2}
 
 Field | Description
@@ -544,6 +624,7 @@ Field | Description
 mongod | **[Mongod](../cluster.proto#Mongod8)**<br>Configuration and resource allocation for mongod 4.2 hosts. 
 mongocfg | **[MongoCfg](../cluster.proto#MongoCfg8)**<br>Configuration and resource allocation for mongocfg 4.2 hosts. 
 mongos | **[Mongos](../cluster.proto#Mongos8)**<br>Configuration and resource allocation for mongos 4.2 hosts. 
+mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra8)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.2 hosts. 
 
 
 ### Mongod {#Mongod}
@@ -568,6 +649,15 @@ Field | Description
 --- | ---
 config | **`config.MongosConfig4_2`**<br>Configuration for mongos 4.2 hosts. 
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongos host. 
+
+
+### MongoInfra {#MongoInfra}
+
+Field | Description
+--- | ---
+config_mongos | **[config.MongosConfig4_2](#MongosConfig4_2)**<br>Configuration for mongoinfra 4.2 hosts. 
+config_mongocfg | **[config.MongoCfgConfig4_2](#MongoCfgConfig4_2)**<br> 
+resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
 
 
 ### Access {#Access}
@@ -700,6 +790,7 @@ Field | Description
 mongod | **[Mongod](../cluster.proto#Mongod9)**<br>Configuration and resource allocation for mongod 3.6 hosts. 
 mongocfg | **[MongoCfg](../cluster.proto#MongoCfg9)**<br>Configuration and resource allocation for mongocfg 3.6 hosts. 
 mongos | **[Mongos](../cluster.proto#Mongos9)**<br>Configuration and resource allocation for mongos 3.6 hosts. 
+mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra9)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 3.6 hosts. 
 
 
 ### Mongod {#Mongod}
@@ -726,6 +817,15 @@ config | **`config.MongosConfig3_6`**<br>Configuration for mongos 3.6 hosts.
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongos host. 
 
 
+### MongoInfra {#MongoInfra}
+
+Field | Description
+--- | ---
+config_mongos | **[config.MongosConfig3_6](#MongosConfig3_6)**<br>Configuration for mongoinfra 3.6 hosts. 
+config_mongocfg | **[config.MongoCfgConfig3_6](#MongoCfgConfig3_6)**<br> 
+resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
+
+
 ### MongodbSpec4_0 {#MongodbSpec4_0}
 
 Field | Description
@@ -733,6 +833,7 @@ Field | Description
 mongod | **[Mongod](../cluster.proto#Mongod10)**<br>Configuration and resource allocation for mongod 4.0 hosts. 
 mongocfg | **[MongoCfg](../cluster.proto#MongoCfg10)**<br>Configuration and resource allocation for mongocfg 4.0 hosts. 
 mongos | **[Mongos](../cluster.proto#Mongos10)**<br>Configuration and resource allocation for mongos 4.0 hosts. 
+mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra10)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.0 hosts. 
 
 
 ### Mongod {#Mongod}
@@ -759,6 +860,15 @@ config | **`config.MongosConfig4_0`**<br>Configuration for mongos 4.0 hosts.
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongos host. 
 
 
+### MongoInfra {#MongoInfra}
+
+Field | Description
+--- | ---
+config_mongos | **[config.MongosConfig4_0](#MongosConfig4_0)**<br>Configuration for mongoinfra 4.0 hosts. 
+config_mongocfg | **[config.MongoCfgConfig4_0](#MongoCfgConfig4_0)**<br> 
+resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
+
+
 ### MongodbSpec4_2 {#MongodbSpec4_2}
 
 Field | Description
@@ -766,6 +876,7 @@ Field | Description
 mongod | **[Mongod](../cluster.proto#Mongod11)**<br>Configuration and resource allocation for mongod 4.2 hosts. 
 mongocfg | **[MongoCfg](../cluster.proto#MongoCfg11)**<br>Configuration and resource allocation for mongocfg 4.2 hosts. 
 mongos | **[Mongos](../cluster.proto#Mongos11)**<br>Configuration and resource allocation for mongos 4.2 hosts. 
+mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra11)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.2 hosts. 
 
 
 ### Mongod {#Mongod}
@@ -790,6 +901,15 @@ Field | Description
 --- | ---
 config | **`config.MongosConfig4_2`**<br>Configuration for mongos 4.2 hosts. 
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongos host. 
+
+
+### MongoInfra {#MongoInfra}
+
+Field | Description
+--- | ---
+config_mongos | **[config.MongosConfig4_2](#MongosConfig4_2)**<br>Configuration for mongoinfra 4.2 hosts. 
+config_mongocfg | **[config.MongoCfgConfig4_2](#MongoCfgConfig4_2)**<br> 
+resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
 
 
 ### Access {#Access}
@@ -1205,6 +1325,7 @@ Field | Description
 mongod | **[Mongod](../cluster.proto#Mongod12)**<br>Configuration and resource allocation for mongod 3.6 hosts. 
 mongocfg | **[MongoCfg](../cluster.proto#MongoCfg12)**<br>Configuration and resource allocation for mongocfg 3.6 hosts. 
 mongos | **[Mongos](../cluster.proto#Mongos12)**<br>Configuration and resource allocation for mongos 3.6 hosts. 
+mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra12)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 3.6 hosts. 
 
 
 ### Mongod {#Mongod}
@@ -1231,6 +1352,15 @@ config | **`config.MongosConfig3_6`**<br>Configuration for mongos 3.6 hosts.
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongos host. 
 
 
+### MongoInfra {#MongoInfra}
+
+Field | Description
+--- | ---
+config_mongos | **[config.MongosConfig3_6](#MongosConfig3_6)**<br>Configuration for mongoinfra 3.6 hosts. 
+config_mongocfg | **[config.MongoCfgConfig3_6](#MongoCfgConfig3_6)**<br> 
+resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
+
+
 ### MongodbSpec4_0 {#MongodbSpec4_0}
 
 Field | Description
@@ -1238,6 +1368,7 @@ Field | Description
 mongod | **[Mongod](../cluster.proto#Mongod13)**<br>Configuration and resource allocation for mongod 4.0 hosts. 
 mongocfg | **[MongoCfg](../cluster.proto#MongoCfg13)**<br>Configuration and resource allocation for mongocfg 4.0 hosts. 
 mongos | **[Mongos](../cluster.proto#Mongos13)**<br>Configuration and resource allocation for mongos 4.0 hosts. 
+mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra13)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.0 hosts. 
 
 
 ### Mongod {#Mongod}
@@ -1264,6 +1395,15 @@ config | **`config.MongosConfig4_0`**<br>Configuration for mongos 4.0 hosts.
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongos host. 
 
 
+### MongoInfra {#MongoInfra}
+
+Field | Description
+--- | ---
+config_mongos | **[config.MongosConfig4_0](#MongosConfig4_0)**<br>Configuration for mongoinfra 4.0 hosts. 
+config_mongocfg | **[config.MongoCfgConfig4_0](#MongoCfgConfig4_0)**<br> 
+resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
+
+
 ### MongodbSpec4_2 {#MongodbSpec4_2}
 
 Field | Description
@@ -1271,6 +1411,7 @@ Field | Description
 mongod | **[Mongod](../cluster.proto#Mongod14)**<br>Configuration and resource allocation for mongod 4.2 hosts. 
 mongocfg | **[MongoCfg](../cluster.proto#MongoCfg14)**<br>Configuration and resource allocation for mongocfg 4.2 hosts. 
 mongos | **[Mongos](../cluster.proto#Mongos14)**<br>Configuration and resource allocation for mongos 4.2 hosts. 
+mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra14)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.2 hosts. 
 
 
 ### Mongod {#Mongod}
@@ -1295,6 +1436,15 @@ Field | Description
 --- | ---
 config | **`config.MongosConfig4_2`**<br>Configuration for mongos 4.2 hosts. 
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongos host. 
+
+
+### MongoInfra {#MongoInfra}
+
+Field | Description
+--- | ---
+config_mongos | **[config.MongosConfig4_2](#MongosConfig4_2)**<br>Configuration for mongoinfra 4.2 hosts. 
+config_mongocfg | **[config.MongoCfgConfig4_2](#MongoCfgConfig4_2)**<br> 
+resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
 
 
 ### Access {#Access}
@@ -1604,7 +1754,7 @@ services[] | **[Service](../cluster.proto#Service)**<br>Services provided by the
 subnet_id | **string**<br>ID of the subnet that the host belongs to. 
 assign_public_ip | **bool**<br>Flag showing public IP assignment status to this host. 
 shard_name | **string**<br>Shard which this host belongs to. 
-type | enum **Type**<br>Host type <ul><li>`MONGOD`: A mongod host.</li><li>`MONGOS`: A mongos host.</li><li>`MONGOCFG`: A mongocfg host.</li><ul/>
+type | enum **Type**<br>Host type <ul><li>`MONGOD`: A mongod host.</li><li>`MONGOS`: A mongos host.</li><li>`MONGOCFG`: A mongocfg host.</li><li>`MONGOINFRA`: A mongoinfra (mongos+mongocfg) host.</li><ul/>
 
 
 ### Resources {#Resources}
@@ -1721,7 +1871,7 @@ host_names[] | **string**<br>Names of hosts that are being deleted.
 
 ## EnableSharding {#EnableSharding}
 
-Enables sharding for the cluster: creates 3 mongocfg and 2 mongos hosts that would support adding and using shards in the cluster.
+Enables sharding for the cluster: creates 3 mongoinfra (or 3 mongocfg and 2 mongos) hosts that would support adding and using shards in the cluster.
 
 **rpc EnableSharding ([EnableClusterShardingRequest](#EnableClusterShardingRequest)) returns ([operation.Operation](#Operation12))**
 
@@ -1734,9 +1884,10 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 cluster_id | **string**<br>Required. ID of the MongoDB cluster to enable sharding for. false The maximum string length in characters is 50.
-mongocfg | **[MongoCfg](../cluster.proto#MongoCfg15)**<br>Required. mongocfg specification for sharding. false
-mongos | **[Mongos](../cluster.proto#Mongos15)**<br>Required. mongos specification for sharding. false
+mongocfg | **[MongoCfg](../cluster.proto#MongoCfg15)**<br>mongocfg specification for sharding. 
+mongos | **[Mongos](../cluster.proto#Mongos15)**<br>mongos specification for sharding. 
 host_specs[] | **[HostSpec](#HostSpec3)**<br>Configurations for mongos and mongocfg hosts. The number of elements must be greater than 0.
+mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra15)**<br>mongos specification for sharding. 
 
 
 ### MongoCfg {#MongoCfg}
@@ -1751,6 +1902,13 @@ resources | **[Resources](../cluster.proto#Resources1)**<br>Required. Resources 
 Field | Description
 --- | ---
 resources | **[Resources](../cluster.proto#Resources1)**<br>Required. Resources for mongos hosts. false
+
+
+### MongoInfra {#MongoInfra}
+
+Field | Description
+--- | ---
+resources | **[Resources](../cluster.proto#Resources1)**<br>Required. Resources for mongoinfra (mongos+mongocfg) hosts. false
 
 
 ### HostSpec {#HostSpec}

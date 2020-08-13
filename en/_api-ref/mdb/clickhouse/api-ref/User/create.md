@@ -91,6 +91,12 @@ clusterId | Required. ID of the ClickHouse cluster to create a user in. To get t
       "transferOverflowMode": "string",
       "maxExecutionTime": "integer",
       "timeoutOverflowMode": "string",
+      "maxRowsInSet": "integer",
+      "maxBytesInSet": "integer",
+      "setOverflowMode": "string",
+      "maxRowsInJoin": "integer",
+      "maxBytesInJoin": "integer",
+      "joinOverflowMode": "string",
       "maxColumnsToRead": "integer",
       "maxTemporaryColumns": "integer",
       "maxTemporaryNonConstColumns": "integer",
@@ -98,6 +104,9 @@ clusterId | Required. ID of the ClickHouse cluster to create a user in. To get t
       "maxAstDepth": "integer",
       "maxAstElements": "integer",
       "maxExpandedAstElements": "integer",
+      "minExecutionSpeed": "integer",
+      "minExecutionSpeedBytes": "integer",
+      "countDistinctImplementation": "string",
       "inputFormatValuesInterpretExpressions": true,
       "inputFormatDefaultsForOmittedFields": true,
       "outputFormatJsonQuote_64BitIntegers": true,
@@ -196,6 +205,12 @@ userSpec.<br>settings.<br>maxBytesToTransfer | **integer** (int64)<br><p>The max
 userSpec.<br>settings.<br>transferOverflowMode | **string**<br><p>Determine the behavior on exceeding max_rows_to_transfer or max_bytes_to_transfer limit. Possible values: OVERFLOW_MODE_THROW, OVERFLOW_MODE_BREAK.</p> 
 userSpec.<br>settings.<br>maxExecutionTime | **integer** (int64)<br><p>The maximum query execution time in milliseconds.</p> <p>The minimum value is 0.</p> 
 userSpec.<br>settings.<br>timeoutOverflowMode | **string**<br><p>Determine the behavior on exceeding max_execution_time limit. Possible values: OVERFLOW_MODE_THROW, OVERFLOW_MODE_BREAK.</p> 
+userSpec.<br>settings.<br>maxRowsInSet | **integer** (int64)<br><p>Limit on the number of rows in the set resulting from the execution of the IN section.</p> <p>The minimum value is 0.</p> 
+userSpec.<br>settings.<br>maxBytesInSet | **integer** (int64)<br><p>Limit on the number of bytes in the set resulting from the execution of the IN section.</p> <p>The minimum value is 0.</p> 
+userSpec.<br>settings.<br>setOverflowMode | **string**<br><p>Determine the behavior on exceeding max_rows_in_set or max_bytes_in_set limit. Possible values: OVERFLOW_MODE_THROW, OVERFLOW_MODE_BREAK.</p> 
+userSpec.<br>settings.<br>maxRowsInJoin | **integer** (int64)<br><p>Limit on maximum size of the hash table for JOIN, in rows.</p> <p>The minimum value is 0.</p> 
+userSpec.<br>settings.<br>maxBytesInJoin | **integer** (int64)<br><p>Limit on maximum size of the hash table for JOIN, in bytes.</p> <p>The minimum value is 0.</p> 
+userSpec.<br>settings.<br>joinOverflowMode | **string**<br><p>Determine the behavior on exceeding max_rows_in_join or max_bytes_in_join limit. Possible values: OVERFLOW_MODE_THROW, OVERFLOW_MODE_BREAK.</p> 
 userSpec.<br>settings.<br>maxColumnsToRead | **integer** (int64)<br><p>The maximum number of columns that can be read from a table in a single query.</p> <p>The minimum value is 0.</p> 
 userSpec.<br>settings.<br>maxTemporaryColumns | **integer** (int64)<br><p>The maximum number of temporary columns that must be kept in RAM at the same time when running a query, including constant columns.</p> <p>The minimum value is 0.</p> 
 userSpec.<br>settings.<br>maxTemporaryNonConstColumns | **integer** (int64)<br><p>The maximum number of temporary columns that must be kept in RAM at the same time when running a query, excluding constant columns.</p> <p>The minimum value is 0.</p> 
@@ -203,6 +218,9 @@ userSpec.<br>settings.<br>maxQuerySize | **integer** (int64)<br><p>The maximum p
 userSpec.<br>settings.<br>maxAstDepth | **integer** (int64)<br><p>The maximum depth of query syntax tree. Default value: 1000.</p> <p>Value must be greater than 0.</p> 
 userSpec.<br>settings.<br>maxAstElements | **integer** (int64)<br><p>The maximum size of query syntax tree in number of nodes. Default value: 50000.</p> <p>Value must be greater than 0.</p> 
 userSpec.<br>settings.<br>maxExpandedAstElements | **integer** (int64)<br><p>The maximum size of query syntax tree in number of nodes after expansion of aliases and the asterisk. Default value: 500000.</p> <p>Value must be greater than 0.</p> 
+userSpec.<br>settings.<br>minExecutionSpeed | **integer** (int64)<br><p>Minimal execution speed in rows per second.</p> <p>The minimum value is 0.</p> 
+userSpec.<br>settings.<br>minExecutionSpeedBytes | **integer** (int64)<br><p>Minimal execution speed in bytes per second.</p> <p>The minimum value is 0.</p> 
+userSpec.<br>settings.<br>countDistinctImplementation | **string**<br><p>Aggregate function to use for implementation of count(DISTINCT ...).</p> 
 userSpec.<br>settings.<br>inputFormatValuesInterpretExpressions | **boolean** (boolean)<br><p>Enables or disables the full SQL parser if the fast stream parser cannot parse the data.</p> 
 userSpec.<br>settings.<br>inputFormatDefaultsForOmittedFields | **boolean** (boolean)<br><p>When performing INSERT queries, replace omitted input column values with default values of the respective columns.</p> 
 userSpec.<br>settings.<br>outputFormatJsonQuote_64BitIntegers | **boolean** (boolean)<br><p>Whether quoting of 64-bit integers is enabled in JSON output format.</p> 
