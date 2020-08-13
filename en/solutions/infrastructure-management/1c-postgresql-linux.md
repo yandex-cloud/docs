@@ -14,13 +14,14 @@ To configure 1C:Enterprise servers:
 1. [Prepare the infrastructure](#prepare).
 1. [Create a VM for the 1C:Enterprise server](#create-1c-vm).
 1. [Create a VM for the license server](#create-1c-license-vm).
-1. [Create a {{ mpg-name }} cluster](#create-pg-cluster).
+1. [Create a cluster {{ mpg-name }}](#create-pg-cluster).
 1. [Set up a Samba server](#set-up-samba).
+1. [Install the 1C:Enterprise server](#setup-1c-server)
 1. [Set up a Samba server for the license server](#set-up-samba-for-license-server).
+1. [Install the 1C:Enterprise server for the license server](#setup-1c-license-server)
 1. [Set up a server cluster](#setup-cluster).
-1. [Set up an infobase](#setup-infobase).
+1. [Set up the infobase](#setup-infobase).
 1. [Connect to the infobase](#connect-to-infobase).
-1. [Delete the created resources](#clear-out).
 
 If you no longer need the created resources, [delete them](#clear-out).
 
@@ -459,4 +460,3 @@ The infobase should appear on the list of infobases. You can now start configuri
 To stop paying for the deployed infrastructure, [delete](../../compute/operations/vm-control/vm-delete.md) the `server-1c` and `licensing-server-1c` VMs and the `1c-pg` cluster.
 
 If you reserved a public static IP address, [delete it](../../vpc/operations/address-delete.md).
-
