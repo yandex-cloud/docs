@@ -20,7 +20,10 @@
     Сделайте функцию публичной: 
     
     ```
-    $ yc serverless function allow-unauthenticated-invoke my-function
+    $ yc serverless function allow-unauthenticated-invoke <имя функции>
+    ```
+    Результат:
+    ```
     done (1s)    
     ```
 
@@ -38,7 +41,10 @@
     Посмотрите роли, назначенные на функцию: 
     
     ```
-    $ yc serverless function list-access-bindings my-function
+    $ yc serverless function list-access-bindings <имя функции>
+    ```
+    Результат:
+    ```
     +------------------------------+--------------+------------+
     |           ROLE ID            | SUBJECT TYPE | SUBJECT ID |
     +------------------------------+--------------+------------+
@@ -64,7 +70,10 @@
 
     Сделайте функцию приватной:
     ```
-    $ yc serverless function deny-unauthenticated-invoke my-function
+    $ yc serverless function deny-unauthenticated-invoke <имя функции>
+    ```
+    Результат:
+    ```
     done (1s)   
     ```
 
