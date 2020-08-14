@@ -35,7 +35,15 @@ clusterId | ID of the cluster to update.  To get the cluster ID, make a [list](/
           "diskTypeId": "string",
           "diskSize": "string"
         },
-        "hostsCount": "string"
+        "hostsCount": "string",
+        "autoscalingConfig": {
+          "maxHostsCount": "string",
+          "preemptible": true,
+          "measurementDuration": "string",
+          "warmupDuration": "string",
+          "stabilizationDuration": "string",
+          "cpuUtilizationTarget": "number"
+        }
       }
     ]
   },
@@ -62,6 +70,13 @@ configSpec.<br>subclustersSpec[].<br>resources.<br>resourcePresetId | **string**
 configSpec.<br>subclustersSpec[].<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. Possible values:</p> <ul> <li>network-hdd — network HDD drive,</li> <li>network-ssd — network SSD drive.</li> </ul> 
 configSpec.<br>subclustersSpec[].<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
 configSpec.<br>subclustersSpec[].<br>hostsCount | **string** (int64)<br><p>Number of hosts in the subcluster.</p> <p>The minimum value is 1.</p> 
+configSpec.<br>subclustersSpec[].<br>autoscalingConfig | **object**<br><p>Configuration for instance group based subclusters</p> 
+configSpec.<br>subclustersSpec[].<br>autoscalingConfig.<br>maxHostsCount | **string** (int64)<br><p>Upper limit for total instance subcluster count.</p> <p>Acceptable values are 1 to 100, inclusive.</p> 
+configSpec.<br>subclustersSpec[].<br>autoscalingConfig.<br>preemptible | **boolean** (boolean)<br><p>Preemptible instances are stopped at least once every 24 hours, and can be stopped at any time if their resources are needed by Compute. For more information, see <a href="/docs/compute/concepts/preemptible-vm">Preemptible Virtual Machines</a>.</p> 
+configSpec.<br>subclustersSpec[].<br>autoscalingConfig.<br>measurementDuration | **string**<br><p>Required. Time in seconds allotted for averaging metrics.</p> <p>Acceptable values are 60 seconds to 600 seconds, inclusive.</p> 
+configSpec.<br>subclustersSpec[].<br>autoscalingConfig.<br>warmupDuration | **string**<br><p>The warmup time of the instance in seconds. During this time, traffic is sent to the instance, but instance metrics are not collected.</p> <p>The maximum value is 600 seconds.</p> 
+configSpec.<br>subclustersSpec[].<br>autoscalingConfig.<br>stabilizationDuration | **string**<br><p>Minimum amount of time in seconds allotted for monitoring before Instance Groups can reduce the number of instances in the group. During this time, the group size doesn't decrease, even if the new metric values indicate that it should.</p> <p>Acceptable values are 60 seconds to 1800 seconds, inclusive.</p> 
+configSpec.<br>subclustersSpec[].<br>autoscalingConfig.<br>cpuUtilizationTarget | **number** (double)<br><p>Defines an autoscaling rule based on the average CPU utilization of the instance group.</p> <p>Acceptable values are 10 to 100, inclusive.</p> 
 name | **string**<br><p>New name for the Data Proc cluster. The name must be unique within the folder.</p> <p>Value must match the regular expression <code>\|[a-z][-a-z0-9]{1,61}[a-z0-9]</code>.</p> 
 serviceAccountId | **string**<br><p>ID of the new service account to be used by the Data Proc manager agent.</p> 
 bucket | **string**<br><p>Name of the new Object Storage bucket to use for Data Proc jobs.</p> 
