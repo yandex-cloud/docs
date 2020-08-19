@@ -5,6 +5,7 @@ Yandex.Cloud lets you configure internet connections for multiple VMs via a NAT 
 To set up routing through a NAT instance:
 
 1. [Before you start](#before-you-begin).
+1. [Create a network, subnet, and test VM](#create-environment).
 1. [Create and configure a NAT instance](#create-nat-instance).
 1. [Set up static routing in the cloud network](#configure-static-route).
 1. [Test the NAT instance](#test-nat-instance).
@@ -28,7 +29,7 @@ The cost of NAT instance support includes:
 * A fee for continuously running VMs (see [pricing{{ compute-full-name }}](../../compute/pricing.md)).
 * A fee for using a dynamic external IP address (see [pricing {{ vpc-full-name }}](../../vpc/pricing.md)).
 
-## Create a network, subnet, and test VM {#before-you-begin}
+## Create a network, subnet, and test VM {#create-environment}
 
 1. Create a [cloud network](../../vpc/operations/network-create.md) with any name, such as `my-vpc`.
 1. In the cloud network, create a [subnet](../../vpc/operations/subnet-create.md) for your NAT instance with any name, such as `nat-subnet`. Don't assign any routing tables to it.
