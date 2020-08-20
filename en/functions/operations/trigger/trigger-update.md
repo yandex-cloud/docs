@@ -125,7 +125,7 @@ You can perform the following actions with trigger labels:
 
     {% note warning %}
 
-    The existing set of `labels` is completely replaced by the set provided.
+    The existing set of `labels` is completely replaced by the set transmitted.
 
     {% endnote %}
 

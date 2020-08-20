@@ -24,7 +24,7 @@ editable: false
 
 
 
-**rpc Get ([GetLifecyclePolicyRequest](#GetLifecyclePolicyRequest)) returns ([LifecyclePolicy](#LifecyclePolicy))**
+**rpc Get ([GetLifecyclePolicyRequest](#GetLifecyclePolicyRequest)) returns ([LifecyclePolicy](../lifecycle_policy.proto#LifecyclePolicy))**
 
 ### GetLifecyclePolicyRequest {#GetLifecyclePolicyRequest}
 
@@ -43,7 +43,7 @@ repository_id | **string**<br>
 description | **string**<br> 
 status | enum **Status**<br> <ul><ul/>
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
-rules[] | **[LifecycleRule](#LifecycleRule)**<br> 
+rules[] | **[LifecycleRule](../lifecycle_policy.proto#LifecycleRule)**<br> 
 
 
 ### LifecycleRule {#LifecycleRule}
@@ -80,7 +80,7 @@ order_by | **string**<br> The maximum string length in characters is 100.
 
 Field | Description
 --- | ---
-lifecycle_policies[] | **[LifecyclePolicy](#LifecyclePolicy1)**<br> 
+lifecycle_policies[] | **[LifecyclePolicy](../lifecycle_policy.proto#LifecyclePolicy1)**<br> 
 next_page_token | **string**<br> 
 
 
@@ -94,7 +94,7 @@ repository_id | **string**<br>
 description | **string**<br> 
 status | enum **Status**<br> <ul><ul/>
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
-rules[] | **[LifecycleRule](#LifecycleRule1)**<br> 
+rules[] | **[LifecycleRule](../lifecycle_policy.proto#LifecycleRule1)**<br> 
 
 
 ### LifecycleRule {#LifecycleRule}
@@ -116,7 +116,7 @@ retained_top | **int64**<br> The minimum value is 0.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateLifecyclePolicyMetadata](#CreateLifecyclePolicyMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[LifecyclePolicy](#LifecyclePolicy2)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[LifecyclePolicy](../lifecycle_policy.proto#LifecyclePolicy2)<br>
 
 ### CreateLifecyclePolicyRequest {#CreateLifecyclePolicyRequest}
 
@@ -125,8 +125,8 @@ Field | Description
 repository_id | **string**<br>Required.  false The maximum string length in characters is 50.
 name | **string**<br> Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br> The maximum string length in characters is 256.
-status | **[LifecyclePolicy.Status](#LifecyclePolicy2)**<br>Required.  false
-rules[] | **[LifecycleRule](#LifecycleRule2)**<br> 
+status | **[LifecyclePolicy.Status](../lifecycle_policy.proto#LifecyclePolicy2)**<br>Required.  false
+rules[] | **[LifecycleRule](../lifecycle_policy.proto#LifecycleRule2)**<br> 
 
 
 ### LifecycleRule {#LifecycleRule}
@@ -153,7 +153,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateLifecyclePolicyMetadata](#CreateLifecyclePolicyMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[LifecyclePolicy](#LifecyclePolicy2)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[LifecyclePolicy](../lifecycle_policy.proto#LifecyclePolicy2)>**<br>if operation finished successfully. 
 
 
 ### CreateLifecyclePolicyMetadata {#CreateLifecyclePolicyMetadata}
@@ -173,7 +173,7 @@ repository_id | **string**<br>
 description | **string**<br> 
 status | enum **Status**<br> <ul><ul/>
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
-rules[] | **[LifecycleRule](#LifecycleRule3)**<br> 
+rules[] | **[LifecycleRule](../lifecycle_policy.proto#LifecycleRule3)**<br> 
 
 
 ## Update {#Update}
@@ -184,7 +184,7 @@ rules[] | **[LifecycleRule](#LifecycleRule3)**<br>
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateLifecyclePolicyMetadata](#UpdateLifecyclePolicyMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[LifecyclePolicy](#LifecyclePolicy3)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[LifecyclePolicy](../lifecycle_policy.proto#LifecyclePolicy3)<br>
 
 ### UpdateLifecyclePolicyRequest {#UpdateLifecyclePolicyRequest}
 
@@ -194,8 +194,8 @@ lifecycle_policy_id | **string**<br>Required.  false The maximum string length i
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br> 
 name | **string**<br> Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br> The maximum string length in characters is 256.
-status | **[LifecyclePolicy.Status](#LifecyclePolicy3)**<br>Required.  false
-rules[] | **[LifecycleRule](#LifecycleRule3)**<br> 
+status | **[LifecyclePolicy.Status](../lifecycle_policy.proto#LifecyclePolicy3)**<br>Required.  false
+rules[] | **[LifecycleRule](../lifecycle_policy.proto#LifecycleRule3)**<br> 
 
 
 ### LifecycleRule {#LifecycleRule}
@@ -222,7 +222,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateLifecyclePolicyMetadata](#UpdateLifecyclePolicyMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[LifecyclePolicy](#LifecyclePolicy3)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[LifecyclePolicy](../lifecycle_policy.proto#LifecyclePolicy3)>**<br>if operation finished successfully. 
 
 
 ### UpdateLifecyclePolicyMetadata {#UpdateLifecyclePolicyMetadata}
@@ -242,7 +242,7 @@ repository_id | **string**<br>
 description | **string**<br> 
 status | enum **Status**<br> <ul><ul/>
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
-rules[] | **[LifecycleRule](#LifecycleRule4)**<br> 
+rules[] | **[LifecycleRule](../lifecycle_policy.proto#LifecycleRule4)**<br> 
 
 
 ## Delete {#Delete}
@@ -415,7 +415,7 @@ order_by | **string**<br> The maximum string length in characters is 100.
 
 Field | Description
 --- | ---
-affected_images[] | **[Image](#Image)**<br> 
+affected_images[] | **[Image](../image.proto#Image)**<br> 
 next_page_token | **string**<br> 
 
 
@@ -427,8 +427,8 @@ id | **string**<br>Output only. ID of the Docker image.
 name | **string**<br>Name of the Docker image. The name is unique within the registry. 
 digest | **string**<br>Content-addressable identifier of the Docker image. 
 compressed_size | **int64**<br>Compressed size of the Docker image, specified in bytes. 
-config | **[Blob](#Blob)**<br>Configuration of the Docker image. 
-layers[] | **[Blob](#Blob)**<br>Layers of the Docker image. 
+config | **[Blob](../blob.proto#Blob)**<br>Configuration of the Docker image. 
+layers[] | **[Blob](../blob.proto#Blob)**<br>Layers of the Docker image. 
 tags[] | **string**<br>Tags of the Docker image. <br>Each tag is unique within the repository. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Output only. Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
 

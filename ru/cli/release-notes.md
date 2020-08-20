@@ -1,8 +1,65 @@
 # Релизы YC CLI
 
-## Версия 0.59.0 (02.07.20) {#latest-release}
+## Версия 0.61.0 (03.08.20) {#latest-release}
 
 ### Изменения в сервисах Облака {#services}
+
+#### {{ managed-k8s-name }} {#k8s}
+
+- Команда `yc managed-kubernetes cluster create`.
+
+  Теперь значение флага `--version` корректно учитывается при создании регионального кластера.
+
+#### {{ compute-name }} {#compute}
+
+- Команда `yc compute instance update-network-interface`.
+   
+   Флаг `--security-group-id` теперь принимает список значений, разделенных запятыми.
+
+- Команды `yc compute instance create-with-container` и `yc compute instance update-container`.
+    
+   Добавлен флаг `--coi-spec-file` для передачи [спецификации образа](https://cloud.yandex.ru/docs/cos/concepts/#spec-example).
+
+#### {{ vpc-name }} {#vpc}
+
+- Команды `yc vpc subnet create` и `yc vpc subnet update`.
+
+   Флаги `--domain-name-server` и `--ntp-server` теперь принимают список значений, разделенных запятыми.
+
+- Добавлена команда `yc vpc subnet list-used-addresses`.
+
+   Команда выводит список используемых в подсети адресов.
+  
+## Предыдущие релизы {#previous-releases}
+
+### Версия 0.60.0 (20.07.20) {#version0.60.0}
+
+#### Изменения в сервисах Облака {#services}
+
+##### {{ compute-name }} {#compute}
+
+- Добавлена команда `yc compute instance update-network-interface`.
+
+  Команда позволяет изменять параметры сетевого интерфейса на уже созданных виртуальных машинах.
+
+##### {{ sf-name }} {#serverless-functions}
+
+- Команда `yc serverless function logs`.
+
+    Использование флага `--follow` теперь гарантирует получение журналов выполнения самой свежей версии функции с переданным тегом. 
+
+##### Сервисы управляемых баз данных {#managed-db}
+
+**{{ mch-name }}**
+
+* Команды `yc managed-clickhouse cluster create`, `yc managed-clickhouse cluster update` и `yc managed-clickhouse cluster restore`
+    
+    Добавлен флаг `--service account` для выбора сервисного аккаунта, привязанного к хостам.
+* Добавлены команды для управления группами шардов `yc managed-clickhouse shard-groups`.
+
+### Версия 0.59.0 (02.07.20) {#version0.59.0}
+
+#### Изменения в сервисах Облака {#services}
 
 #### {{ api-gw-name }} {#api-gw}
 
@@ -17,8 +74,6 @@
 * Командам `yc iam federation create` и `yc iam federation update` добавлены флаги:
    * `--encrypted-assertions` для включения шифрования утверждений SAML;
    * `--case-insensitive-name-ids` для включения нечувствительных к регистру Name IDs пользователей.
-
-## Предыдущие релизы {#previous-releases}
 
 ### Версия 0.58.0 (16.06.20) {#version0.58.0}
 

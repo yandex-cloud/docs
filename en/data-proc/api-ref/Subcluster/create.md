@@ -30,7 +30,15 @@ clusterId | Required. ID of the Data Proc cluster to create a subcluster in.  To
     "diskSize": "string"
   },
   "subnetId": "string",
-  "hostsCount": "string"
+  "hostsCount": "string",
+  "autoscalingConfig": {
+    "maxHostsCount": "string",
+    "preemptible": true,
+    "measurementDuration": "string",
+    "warmupDuration": "string",
+    "stabilizationDuration": "string",
+    "cpuUtilizationTarget": "number"
+  }
 }
 ```
 
@@ -45,6 +53,13 @@ resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for 
 resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
 subnetId | **string**<br><p>Required. ID of the VPC subnet used for hosts in the subcluster.</p> <p>The maximum string length in characters is 50.</p> 
 hostsCount | **string** (int64)<br><p>Required. Number of hosts in the subcluster.</p> <p>The minimum value is 1.</p> 
+autoscalingConfig | **object**<br><p>Configuration for instance group based subclusters</p> 
+autoscalingConfig.<br>maxHostsCount | **string** (int64)<br><p>Upper limit for total instance subcluster count.</p> <p>Acceptable values are 1 to 100, inclusive.</p> 
+autoscalingConfig.<br>preemptible | **boolean** (boolean)<br><p>Preemptible instances are stopped at least once every 24 hours, and can be stopped at any time if their resources are needed by Compute. For more information, see <a href="/docs/compute/concepts/preemptible-vm">Preemptible Virtual Machines</a>.</p> 
+autoscalingConfig.<br>measurementDuration | **string**<br><p>Required. Time in seconds allotted for averaging metrics.</p> <p>Acceptable values are 60 seconds to 600 seconds, inclusive.</p> 
+autoscalingConfig.<br>warmupDuration | **string**<br><p>The warmup time of the instance in seconds. During this time, traffic is sent to the instance, but instance metrics are not collected.</p> <p>The maximum value is 600 seconds.</p> 
+autoscalingConfig.<br>stabilizationDuration | **string**<br><p>Minimum amount of time in seconds allotted for monitoring before Instance Groups can reduce the number of instances in the group. During this time, the group size doesn't decrease, even if the new metric values indicate that it should.</p> <p>Acceptable values are 60 seconds to 1800 seconds, inclusive.</p> 
+autoscalingConfig.<br>cpuUtilizationTarget | **number** (double)<br><p>Defines an autoscaling rule based on the average CPU utilization of the instance group.</p> <p>Acceptable values are 10 to 100, inclusive.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

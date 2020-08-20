@@ -5,7 +5,7 @@
 Чтобы настроить VPN-туннель:
 
 1. [Подготовьте облако к работе](#before-you-begin).
-1. [Создайте сети и подсети](#before-you-begin).
+1. [Создайте подсети и тестовую ВМ](#create-environment).
 1. [Создайте OpenVPN-инстанс](#create-openvpn-instance).
 1. [Задайте пароль администратора](#set-up-admin).
 1. [Создайте пользователя OpenVPN](#configure-openvpn).
@@ -30,7 +30,7 @@
 * плата за постоянно запущенные виртуальные машины (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
 * плата за использование динамического внешнего IP-адреса (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 
-## Создайте подсети и тестовую ВМ {#before-you-begin}
+## Создайте подсети и тестовую ВМ {#create-environment}
 
 Для связи облачных ресурсов с интернетом необходимо иметь созданные [сети](../../vpc/operations/network-create.md) и [подсети](../../vpc/operations/subnet-create.md).
 

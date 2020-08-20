@@ -24,8 +24,10 @@
     Измените имя функции:
     
     ```
-    $ yc serverless function update my-function --new-name my-beta-function
-    
+    $ yc serverless function update <имя функции> --new-name <новое имя функции>
+    ```
+    Результат:
+    ```    
     id: b097d9ous3gep99khe83
     folder_id: aoek49ghmknnpj1ll45e
     created_at: "2019-06-06T11:36:48.688Z"
@@ -33,7 +35,8 @@
     labels:
      test: test
     log_group_id: eolv6578frac08uh5h6s
-    http_invoke_url: https://functions.yandexcloud.net/b097d9ous3gep99khe83 
+    http_invoke_url: https://functions.yandexcloud.net/b097d9ous3gep99khe83
+    status: ACTIVE
   ```
   
 {% endlist %}
@@ -59,8 +62,10 @@
     Измените описание функции:
     
     ```
-    $ yc serverless function update my-beta-function --description "My beta function."
-    
+    $ yc serverless function update <имя функции> --description "<описание функции>"
+    ```
+    Результат:
+    ```       
     id: b097d9ous3gep99khe83
     folder_id: aoek49ghmknnpj1ll45e
     created_at: "2019-06-06T11:36:48.688Z"
@@ -70,6 +75,7 @@
       test: test
     log_group_id: eolv6578frac08uh5h6s
     http_invoke_url: https://functions.yandexcloud.net/b097d9ous3gep99khe83
+    status: ACTIVE
     ```
   
 {% endlist %}
@@ -93,8 +99,10 @@
     Добавьте метку функции:
     
     ```
-    $ yc serverless function add-labels my-beta-function --labels version=beta
-    
+    $ yc serverless function add-labels <имя функции> --labels <ключ>=<значение>
+    ```
+    Результат:
+    ```     
     id: b097d9ous3gep99khe83
     folder_id: aoek49ghmknnpj1ll45e
     created_at: "2019-06-06T11:36:48.688Z"
@@ -105,6 +113,7 @@
       version: beta
     log_group_id: eolv6578frac08uh5h6s
     http_invoke_url: https://functions.yandexcloud.net/b097d9ous3gep99khe83
+    status: ACTIVE
     ```
 
 {% endlist %}
@@ -126,8 +135,10 @@
     {% endnote %}
   
     ```
-    $ yc serverless function update my-beta-function --labels new_labels=my-beta-function
-    
+    $ yc serverless function update <имя функции> --labels <ключ>=<значение>
+    ```
+    Результат:
+    ```
     id: b097d9ous3gep99khe83
     folder_id: aoek49ghmknnpj1ll45e
     created_at: "2019-06-06T11:36:48.688Z"
@@ -152,8 +163,10 @@
     Удалите метку функции:
     
     ```
-    $ yc serverless function remove-labels my-beta-function --labels test
-    
+    $ yc serverless function remove-labels <имя функции> --labels <ключ>
+    ```
+    Результат:
+    ```
     id: b097d9ous3gep99khe83
     folder_id: aoek49ghmknnpj1ll45e
     created_at: "2019-06-06T11:36:48.688Z"
@@ -163,6 +176,7 @@
       version: beta
     log_group_id: eolv6578frac08uh5h6s
     http_invoke_url: https://functions.yandexcloud.net/b097d9ous3gep99khe83
+    status: ACTIVE
     ```
   
 {% endlist %}

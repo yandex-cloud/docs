@@ -21,7 +21,7 @@ editable: false
 
 Возвращает указанный ресурс Snapshot. <br>Чтобы получить список доступных ресурсов Snapshot, используйте запрос [List](#List).
 
-**rpc Get ([GetSnapshotRequest](#GetSnapshotRequest)) returns ([Snapshot](#Snapshot))**
+**rpc Get ([GetSnapshotRequest](#GetSnapshotRequest)) returns ([Snapshot](../snapshot.proto#Snapshot))**
 
 ### GetSnapshotRequest {#GetSnapshotRequest}
 
@@ -60,14 +60,14 @@ source_disk_id | **string**<br>Идентификатор диска, испол
 folder_id | **string**<br>Обязательное поле. Идентификатор каталога для получения списка снимков. Чтобы получить идентификатор каталога, используйте запрос [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List). false Максимальная длина строки в символах — 50.
 page_size | **int64**<br>Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `page_size`, сервис вернет значение [ListSnapshotsResponse.next_page_token](#ListSnapshotsResponse), которое можно использовать для получения следующей страницы. Максимальное значение — 1000.
 page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListSnapshotsResponse.next_page_token](#ListSnapshotsResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
-filter | **string**<br><ol><li>Имя поля. В настоящее время фильтрация осуществляется только по полю [Snapshot.name](#Snapshot1). </li><li>Оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений. </li><li>Значение. Должен содержать от 3 до 63 символов и соответствовать регулярному выражению `^[a-z]([-a-z0-9]{,61}[a-z0-9])?$`.</li></ol> Максимальная длина строки в символах — 1000.
+filter | **string**<br><ol><li>Имя поля. В настоящее время фильтрация осуществляется только по полю [Snapshot.name](../snapshot.proto#Snapshot1). </li><li>Оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений. </li><li>Значение. Должен содержать от 3 до 63 символов и соответствовать регулярному выражению `^[a-z]([-a-z0-9]{,61}[a-z0-9])?$`.</li></ol> Максимальная длина строки в символах — 1000.
 
 
 ### ListSnapshotsResponse {#ListSnapshotsResponse}
 
 Поле | Описание
 --- | ---
-snapshots[] | **[Snapshot](#Snapshot1)**<br>Список снимков. 
+snapshots[] | **[Snapshot](../snapshot.proto#Snapshot1)**<br>Список снимков. 
 next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListSnapshotsRequest.page_size](#ListSnapshotsRequest1), используйте `next_page_token` в качестве значения параметра [ListSnapshotsRequest.page_token](#ListSnapshotsRequest1) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
 
 
@@ -96,7 +96,7 @@ source_disk_id | **string**<br>Идентификатор диска, испол
 
 Метаданные и результат операции:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateSnapshotMetadata](#CreateSnapshotMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Snapshot](#Snapshot2)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Snapshot](../snapshot.proto#Snapshot2)<br>
 
 ### CreateSnapshotRequest {#CreateSnapshotRequest}
 
@@ -122,7 +122,7 @@ done | **bool**<br>Если значение равно `false` — операц
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateSnapshotMetadata](#CreateSnapshotMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
 result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Snapshot](#Snapshot2)>**<br>в случае успешного выполнения операции. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Snapshot](../snapshot.proto#Snapshot2)>**<br>в случае успешного выполнения операции. 
 
 
 ### CreateSnapshotMetadata {#CreateSnapshotMetadata}
@@ -158,7 +158,7 @@ source_disk_id | **string**<br>Идентификатор диска, испол
 
 Метаданные и результат операции:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateSnapshotMetadata](#UpdateSnapshotMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Snapshot](#Snapshot3)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Snapshot](../snapshot.proto#Snapshot3)<br>
 
 ### UpdateSnapshotRequest {#UpdateSnapshotRequest}
 
@@ -184,7 +184,7 @@ done | **bool**<br>Если значение равно `false` — операц
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateSnapshotMetadata](#UpdateSnapshotMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
 result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Snapshot](#Snapshot3)>**<br>в случае успешного выполнения операции. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Snapshot](../snapshot.proto#Snapshot3)>**<br>в случае успешного выполнения операции. 
 
 
 ### UpdateSnapshotMetadata {#UpdateSnapshotMetadata}

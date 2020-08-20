@@ -44,10 +44,13 @@
 
     ```    
     $ yc serverless trigger create timer \
-        --name my-timer \
-        --cron-expression '5 12 * * ? *' \
-        --invoke-function-id d4eofc7n0m03lmudse8l \
-        --invoke-function-service-account-id aje3932acd0c5ur7dagp
+        --name <имя таймера> \
+        --cron-expression '<cron-выражение>' \
+        --invoke-function-id <идентификатор функции> \
+        --invoke-function-service-account-id <идентификатор сервисного аккаунта>
+    ```
+    Результат:
+    ```
     id: a1sfe084v4se4morbu2i
     folder_id: b1g88tflru0ek1omtsu0
     created_at: "2019-12-04T08:45:31.131391Z"
@@ -55,10 +58,14 @@
     rule:
       timer:
         cron_expression: 5 12 * * ? *
-        invoke_function:
+        invoke_function_with_retry:
           function_id: d4eofc7n0m03lmudse8l
           function_tag: $latest
           service_account_id: aje3932acd0c5ur7dagp
+          retry_settings:
+            retry_attempts: "1"
+            interval: 10s
+    status: ACTIVE
     ```
   
 {% endlist %}

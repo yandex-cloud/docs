@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method enableSharding
-Enables sharding for the cluster: creates 3 mongocfg and 2 mongos hosts
+Enables sharding for the cluster: creates 3 mongoinfra (or 3 mongocfg and 2 mongos) hosts
 that would support adding and using shards in the cluster.
  
 
@@ -45,19 +45,26 @@ clusterId | Required. ID of the MongoDB cluster to enable sharding for.  The max
       "type": "string",
       "shardName": "string"
     }
-  ]
+  ],
+  "mongoinfra": {
+    "resources": {
+      "resourcePresetId": "string",
+      "diskSize": "string",
+      "diskTypeId": "string"
+    }
+  }
 }
 ```
 
  
 Field | Description
 --- | ---
-mongocfg | **object**<br><p>Required. mongocfg specification for sharding.</p> 
+mongocfg | **object**<br><p>mongocfg specification for sharding.</p> 
 mongocfg.<br>resources | **object**<br><p>Required. Resources for mongocfg hosts.</p> 
 mongocfg.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
 mongocfg.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
 mongocfg.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. Possible values:</p> <ul> <li>network-hdd — network HDD drive,</li> <li>network-ssd — network SSD drive,</li> <li>local-ssd — local SSD storage.</li> </ul> 
-mongos | **object**<br><p>Required. mongos specification for sharding.</p> 
+mongos | **object**<br><p>mongos specification for sharding.</p> 
 mongos.<br>resources | **object**<br><p>Required. Resources for mongos hosts.</p> 
 mongos.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
 mongos.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
@@ -66,8 +73,13 @@ hostSpecs[] | **object**<br><p>Required. Configurations for mongos and mongocfg 
 hostSpecs[].<br>zoneId | **string**<br><p>ID of the availability zone where the host resides. To get a list of available zones, use the <a href="/docs/compute/api-ref/Zone/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
 hostSpecs[].<br>subnetId | **string**<br><p>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The network ID is set in the <a href="/docs/managed-mongodb/api-ref/Cluster#representation">Cluster.networkId</a> field.</p> <p>The maximum string length in characters is 50.</p> 
 hostSpecs[].<br>assignPublicIp | **boolean** (boolean)<br><p>Whether the host should get a public IP address on creation.</p> <p>After a host has been created, this setting cannot be changed. To remove an assigned public IP, or to assign a public IP to a host without one, recreate the host with <code>assignPublicIp</code> set as needed.</p> <p>Possible values:</p> <ul> <li>false — don't assign a public IP to the host.</li> <li>true — the host should have a public IP address.</li> </ul> 
-hostSpecs[].<br>type | **string**<br><p>Type of the host to be deployed.</p> <ul> <li>MONGOD: A mongod host.</li> <li>MONGOS: A mongos host.</li> <li>MONGOCFG: A mongocfg host.</li> </ul> 
+hostSpecs[].<br>type | **string**<br><p>Type of the host to be deployed.</p> <ul> <li>MONGOD: A mongod host.</li> <li>MONGOS: A mongos host.</li> <li>MONGOCFG: A mongocfg host.</li> <li>MONGOINFRA: A mongoinfra (mongos+mongocfg) host.</li> </ul> 
 hostSpecs[].<br>shardName | **string**<br><p>Name of the shard that the host belongs to.</p> <p>The maximum string length in characters is 63. Value must match the regular expression <code>[a-zA-Z0-9_-]*</code>.</p> 
+mongoinfra | **object**<br><p>mongos specification for sharding.</p> 
+mongoinfra.<br>resources | **object**<br><p>Required. Resources for mongoinfra (mongos+mongocfg) hosts.</p> 
+mongoinfra.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
+mongoinfra.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
+mongoinfra.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. Possible values:</p> <ul> <li>network-hdd — network HDD drive,</li> <li>network-ssd — network SSD drive,</li> <li>local-ssd — local SSD storage.</li> </ul> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

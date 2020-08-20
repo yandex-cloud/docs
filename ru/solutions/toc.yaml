@@ -97,6 +97,8 @@ items:
         href: windows/exchange.md
       - name: Развертывание Remote Desktop Services
         href: windows/rds.md
+      - name: Развертывание группы доступности Always On
+        href: windows/mssql-alwayson.md
   - name: Сетевая маршрутизация
     items:
       - name: Все сценарии

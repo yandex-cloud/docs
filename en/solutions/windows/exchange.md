@@ -3,33 +3,33 @@
 This scenario describes how to deploy Microsoft Exchange servers in Yandex.Cloud. The following Microsoft Exchange servers will be installed in `ru-central1-a` and `ru-central1-b` availability zones: two mail servers, two Active Directory servers, and two Edge Transport servers. A network load balancer is used to distribute load across servers. A separate VM with internet access in the `ru-central1-c` availability zone will manage all the servers.
 
 1. Prepare for deployment:
-   1. [Before you start](#before-begin)
-   1. [Create a cloud network and subnets](#create-network)
-   1. [Create a script to manage a local administrator account](#admin-script)
+   1. [Before you start](#before-you-begin).
+   1. [Create a cloud network and subnets](#create-network).
+   1. [Create a script to manage a local administrator account](#admin-script).
 1. Install and configure Active Directory on a VM:
-   1. [Create a VM for Active Directory](#ad-vm)
-   1. [Create a VM for File Share Witness](#ad-fsw-vm)
-   1. [Install and configure Active Directory](#install-ad)
-   1. [Configure the second domain controller](#install-ad-2)
+   1. [Create a VM for Active Directory](#ad-vm).
+   1. [Create a VM for File Share Witness](#ad-fsw-vm).
+   1. [Install and configure Active Directory](#install-ad).
+   1. [Configure the second domain controller](#install-ad-2).
 1. Install and configure Microsoft Exchange:
-   1. [Install Microsoft Exchange](#install-exchange)
-   1. [Create Microsoft Exchange servers](#create-ms-exchange-servers)
-   1. [Create a Database Availability Group](#create-dag)
-   1. [Create disks for VM databases](#create-db-disks)
-   1. [Configure the Database Availability Group](#dag-configuration)
-   1. [Configure Client Access](#configure-access)
-1. [Configure the network load balancer](#set-up-load-balancer)
-1. [Configure Accepted Domains and Email Address Policy](#set-up-AC-domains)
-1. [Create and configure a VM for Edge Transport servers](#create-edge-vm)
-   1. [Configure Edge Transport servers](#set-up-edge-transport)
-   1. [Configure the Edge Transport server in the ru-central1-a zone](#edge-a)
-   1. [Configure the Edge Transport server in the ru-central1-b zone](#edge-b)
-   1. [Add Edge Transport servers to Exchange](#add-edges-to-exchange)
-   1. [Set up a subscription on the vm-edge-a server](#subscribe-vm-edge-a)
-   1. [Set up a subscription on the vm-edge-b server](#subscribe-vm-edge-b)
-1. [Delete created cloud resources if you no longer need them](#clear-out)
+   1. [Install Microsoft Exchange](#install-exchange).
+   1. [Create Microsoft Exchange servers](#create-ms-exchange-servers).
+   1. [Create a Database Availability Group](#create-dag).
+   1. [Create disks for VM databases](#create-db-disks).
+   1. [Configure the Database Availability Group](#dag-configuration).
+   1. [Configure Client Access](#configure-access).
+1. [Configure the network load balancer](#set-up-load-balancer).
+1. [Configure Accepted Domains and Email Address Policy](#set-up-AC-domains).
+1. [Create and configure a VM for Edge Transport servers](#create-edge-vm):
+   1. [Configure Edge Transport servers](#set-up-edge-transport).
+   1. [Configure the Edge Transport server in the ru-central1-a zone](#edge-a).
+   1. [Configure the Edge Transport server in the ru-central1-b zone](#edge-b).
+   1. [Add Edge Transport servers to Exchange](#add-edges-to-exchange).
+   1. [Set up a subscription on the vm-edge-a server](#subscribe-vm-edge-a).
+   1. [Set up a subscription on the vm-edge-b server](#subscribe-vm-edge-b).
+1. [Delete created cloud resources if you no longer need them](#clear-out).
 
-## Before you start {#before-begin}
+## Before you start {#before-you-begin}
 
 Before deploying servers, you need to sign up for Yandex.Cloud and create a billing account:
 
@@ -43,10 +43,10 @@ If you have an active billing account, you can create or select a folder to run 
 
 The cost of a Microsoft Exchange installation includes:
 
-* A fee for continuously running VMs (see [pricing {{ compute-full-name }}](../../compute/pricing.md)).
-* A fee for load balancing (see [pricing {{ load-balancer-full-name }}](../../load-balancer/pricing.md)).
-* A fee for using dynamic or static public IP addresses (see [pricing {{ vpc-full-name }}](../../vpc/pricing.md)).
-* The cost of outgoing traffic from Yandex.Cloud to the internet (see [pricing {{ compute-full-name }}](../../compute/pricing.md)).
+* A fee for continuously running VMs (see [pricing{{ compute-full-name }}](../../compute/pricing.md)).
+* A fee for load balancing (see [pricing{{ load-balancer-full-name }}](../../load-balancer/pricing.md)).
+* A fee for using dynamic or static public IP addresses (see [pricing{{ vpc-full-name }}](../../vpc/pricing.md)).
+* The cost of outgoing traffic from Yandex.Cloud to the internet (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 
 ## Create a cloud network and subnets {#create-network}
 
@@ -100,13 +100,13 @@ Create a cloud network named `exchange-network` with subnets in all the availabi
          --zone ru-central1-a \
          --network-name exchange-network \
          --range 10.1.0.0/16
-
+       
        yc vpc subnet create \
          --name exchange-subnet-b \
          --zone ru-central1-b \
          --network-name exchange-network \
          --range 10.2.0.0/16
-
+       
        yc vpc subnet create \
          --name exchange-subnet-c \
          --zone ru-central1-c \
@@ -125,9 +125,9 @@ Create a file named `setpass` with a script that sets a password for the local a
 Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertTo-SecureString "<your password>" -AsPlainText -Force)
 ```
 
-Your password must meet [complexity requirements](https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference).
+The password must meet the [complexity requirements](https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference).
 
-Read more about Active Directory security practices on the [developer's website](https://docs.microsoft.com/ru-ru/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory).
+Read more about the best practices for securing Active Directory on the [official website](https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory).
 
 ## Create a VM for Active Directory {#ad-vm}
 
@@ -141,14 +141,14 @@ Create two virtual machines for Active Directory. These VMs don't have internet 
 
   1. In the **Name** field, enter the VM name `ad-vm-a`.
 
-  1. Select [availability zone](../../overview/concepts/geo-scope.md) `ru-central1-a`.
+  1. Select the [availability zone](../../overview/concepts/geo-scope.md) `ru-central1-a`.
 
   1. Under **Images from {{ marketplace-name }}**, click **Select**. In the window that opens, select the **2016 Datacenter** image.
 
   1. Under **Disks**, enter 35 GB for the size of the boot disk.
 
   1. Under **Computing resources**:
-      - Choose the [platform](../../compute/concepts/vm-platforms.md): Intel Cascade Lake.
+      - Choose a [platform](../../compute/concepts/vm-platforms.md): Intel Cascade Lake.
       - Specify the number of vCPUs and amount of RAM:
          * **vCPU**: 4.
          * **Guaranteed vCPU share**: 100%.
@@ -156,7 +156,7 @@ Create two virtual machines for Active Directory. These VMs don't have internet 
 
   1. Under **Network settings**, click **Add network** and select `exchange-network`. Select `exchange-subnet-a`. Under **Public address**, select **No address**.
 
-  1. In the **Access** section, specify the data required to access the VM:
+  1. Under **Access**, specify the data required to access the VM:
       - In the **Password** field, enter your password.
 
   1. Click **Create VM**.
@@ -175,7 +175,7 @@ Create two virtual machines for Active Directory. These VMs don't have internet 
       --network-interface subnet-name=exchange-subnet-a,ipv4-address=10.1.0.3 \
       --create-boot-disk image-folder-id=standard-images,image-family=windows-2016-gvlk \
       --metadata-from-file user-data=setpass
-
+  
   $ yc compute instance create \
       --name ad-vm-b \
       --hostname ad-vm-b \
@@ -201,14 +201,14 @@ A file server with internet access is used to configure VMs with Active Director
 
   1. In the **Name** field, enter the VM name: `fsw-vm`.
 
-  1. Select [availability zone](../../overview/concepts/geo-scope.md) `ru-central1-c`.
+  1. Select the [availability zone](../../overview/concepts/geo-scope.md) `ru-central1-c`.
 
   1. Under **Images from {{ marketplace-name }}**, click **Select**. In the window that opens, select the **2016 Datacenter** image.
 
   1. Under **Disks**, enter 35 GB for the size of the boot disk.
 
   1. Under **Computing resources**:
-      - Choose the [platform](../../compute/concepts/vm-platforms.md): Intel Cascade Lake.
+      - Choose a [platform](../../compute/concepts/vm-platforms.md): Intel Cascade Lake.
       - Specify the number of vCPUs and amount of RAM:
          * **vCPU**: 2.
          * **Guaranteed vCPU share**: 100%.
@@ -216,7 +216,7 @@ A file server with internet access is used to configure VMs with Active Director
 
   1. Under **Network settings**, click **Add network** and select `exchange-network`. Select `exchange-subnet-c`. Under **Public address**, select **No address**.
 
-  1. In the **Access** section, specify the data required to access the VM:
+  1. Under **Access**, specify the data required to access the VM:
       - In the **Password** field, enter your password.
 
   1. Click **Create VM**.
@@ -241,11 +241,11 @@ A file server with internet access is used to configure VMs with Active Director
 
 VMs with Active Directory don't have internet access, so they should be configured from the `fsw-vm` VM using RDP.
 
-1. Connect to `fsw-vm` [using RDP](../../compute/operations/vm-connect/rdp.md). Enter `Administrator` as the username and your password.
+1. Connect to `fsw-vm` [using RDP](../../compute/operations/vm-connect/rdp.md). Enter `Administrator` as the username and then your password.
 
-1. On `fsw-vm`, start the RDP client and connect to `ad-vm-a`. Enter `Administrator` as the username and your password.
+1. On `fsw-vm`, start the RDP client and connect to `ad-vm-a`. Enter `Administrator` as the username and then your password.
 
-1. On the `ad-vm-a` VM, launch PowerShell and set a static address:
+1. On `ad-vm-a`, launch PowerShell and set a static address:
 
    ```powershell
    netsh interface ip set address "Ethernet 2" static 10.1.0.3 255.255.255.0 10.1.0.1
@@ -261,7 +261,7 @@ VMs with Active Directory don't have internet access, so they should be configur
 
    ```powershell
    Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
-
+   
    Success Restart Needed Exit Code      Feature Result
    ------- -------------- ---------      --------------
    True    No             Success        {Active Directory Domain Services, Group P...
@@ -273,7 +273,7 @@ VMs with Active Directory don't have internet access, so they should be configur
    Install-ADDSForest -DomainName 'yantoso.net' -Force:$true
    ```
 
-   Windows restarts automatically. Reconnect to `ad-vm-a`. Enter `yantoso\Administrator` as the username and your password. Relaunch PowerShell.
+   Windows restarts automatically. Reconnect to `ad-vm-a`. Enter `yantoso\Administrator` as the username and then your password. Relaunch PowerShell.
 
 1. Rename the default site to `ru-central1-a`:
 
@@ -319,9 +319,9 @@ VMs with Active Directory don't have internet access, so they should be configur
 
 ## Configure the second domain controller {#install-ad-2}
 
-1. Connect to `fsw-vm` [using RDP](../../compute/operations/vm-connect/rdp.md). Enter `Administrator` as the username and your password.
+1. Connect to `fsw-vm` [using RDP](../../compute/operations/vm-connect/rdp.md). Enter `Administrator` as the username and then your password.
 
-1. On `fsw-vm`, start the RDP client and connect to `ad-vm-b`. Enter `Administrator` as the username and your password.
+1. On `fsw-vm`, start the RDP client and connect to `ad-vm-b`. Enter `Administrator` as the username and then your password.
 
 1. Create a temporary folder:
 
@@ -333,7 +333,7 @@ VMs with Active Directory don't have internet access, so they should be configur
 
    ```powershell
    Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
-
+   
    Success Restart Needed Exit Code      Feature Result
    ------- -------------- ---------      --------------
    True    No             Success        {Active Directory Domain Services, Group P...
@@ -360,7 +360,7 @@ VMs with Active Directory don't have internet access, so they should be configur
        -Force:$true
    ```
 
-   Windows restarts automatically. Reconnect to `ad-vm-b`. Enter `yantoso\Administrator` as the username and your password. Relaunch PowerShell.
+   Windows restarts automatically. Reconnect to `ad-vm-b`. Enter `yantoso\Administrator` as the username and then your password. Relaunch PowerShell.
 
 1. Set the DNS redirect server:
 
@@ -385,7 +385,7 @@ VMs with Active Directory don't have internet access, so they should be configur
    Add-Computer -DomainName yantoso.net -DomainCredential $Credentials -Force -Restart
    ```
 
-   Windows restarts automatically. Reconnect to `fsw-vm`. Enter `yantoso\Administrator` as the username and your password. Relaunch PowerShell.
+   Windows restarts automatically. Reconnect to `fsw-vm`. Enter `yantoso\Administrator` as the username and then your password. Relaunch PowerShell.
 
 1. Create a folder named `distrib`:
 
@@ -401,7 +401,7 @@ VMs with Active Directory don't have internet access, so they should be configur
 
    Put the distributions in the directory `C:\distrib`.
 
-1. Grant shared access from the domain to the directory containing the distributions:
+1. Grant shared access from the domain to the directory with distributions:
 
    ```powershell
    New-SmbShare -ReadAccess 'yantoso\domain users' -Path 'c:\distrib' -Name 'distrib'
@@ -421,7 +421,7 @@ VMs with Active Directory don't have internet access, so they should be configur
 
      1. In the **Name** field, enter the VM name `vm-exchange-a`.
 
-     1. Select [availability zone](../../overview/concepts/geo-scope.md) `ru-central1-a`.
+     1. Select the [availability zone](../../overview/concepts/geo-scope.md) `ru-central1-a`.
 
      1. Under **Images from {{ marketplace-name }}**, click **Select**. In the window that opens, select the **2016 Datacenter** image.
 
@@ -430,7 +430,7 @@ VMs with Active Directory don't have internet access, so they should be configur
      1. Add another 250 GB SSD named `db`.
 
      1. Under **Computing resources**:
-         - Choose the [platform](../../compute/concepts/vm-platforms.md): Intel Cascade Lake.
+         - Choose a [platform](../../compute/concepts/vm-platforms.md): Intel Cascade Lake.
          - Specify the number of vCPUs and amount of RAM:
             * **vCPU**: 8.
             * **Guaranteed vCPU share**: 100%.
@@ -438,7 +438,7 @@ VMs with Active Directory don't have internet access, so they should be configur
 
      1. Under **Network settings**, click **Add network** and select `exchange-network`. Select `exchange-subnet-a`. Under **Public address**, select **No address**.
 
-     1. In the **Access** section, specify the data required to access the VM:
+     1. Under **Access**, specify the data required to access the VM:
          - In the **Password** field, enter your password.
 
      1. Click **Create VM**.
@@ -462,7 +462,7 @@ VMs with Active Directory don't have internet access, so they should be configur
 
 1. Connect to `fsw-vm` using RDP.
 
-1. On `fsw-vm`, start the RDP client and use it to connect to `vm-exchange-a`. Enter `Administrator` as the username and your password. Launch PowerShell.
+1. On `fsw-vm`, start the RDP client and use it to connect to `vm-exchange-a`. Enter `Administrator` as the username and then your password. Launch PowerShell.
 
 1. Configure the DNS client:
 
@@ -477,7 +477,7 @@ VMs with Active Directory don't have internet access, so they should be configur
    Add-Computer -DomainName yantoso.net -DomainCredential $Credentials -Force -Restart
    ```
 
-   After restarting, log in to the VM as `yantoso\Administrator` with your password. Relaunch PowerShell.
+   After restarting, log in to the VM as `yantoso\Administrator` and enter your password. Relaunch PowerShell.
 
 1. Install the downloaded dependencies in the following order:
    1. `& \\fsw-vm\distrib\vcredist_x64_2012.exe /install /passive /norestart`
@@ -487,7 +487,7 @@ VMs with Active Directory don't have internet access, so they should be configur
 
 1. Restart the VM: `Restart-Computer -Force`.
 
-   After restarting, log in to the VM as `yantoso\Administrator` with your password. Relaunch PowerShell.
+   After restarting, log in to the VM as `yantoso\Administrator` and enter your password. Relaunch PowerShell.
 
 1. Install Exchange Mailbox Server on `vm-exchange-a`. Mount the distribution image from the shared directory with distributions:
 
@@ -495,7 +495,7 @@ VMs with Active Directory don't have internet access, so they should be configur
    Mount-DiskImage \\fsw-vm\distrib\ExchangeServer2016-x64-cu13.iso
    ```
 
-1. Launch the Exchange Mailbox Server installer:
+1. Install the Exchange Mailbox Server installer:
 
    ```powershell
    & D:\Setup.exe /Mode:Install /InstallWindowsComponents /Role:Mailbox /IAcceptExchangeServerLicenseTerms /OrganizationName:MyOrg
@@ -516,7 +516,7 @@ VMs with Active Directory don't have internet access, so they should be configur
 
      1. In the **Name** field, enter the VM name `vm-exchange-b`.
 
-     1. Select [availability zone](../../overview/concepts/geo-scope.md) `ru-central1-b`.
+     1. Select the [availability zone](../../overview/concepts/geo-scope.md) `ru-central1-b`.
 
      1. Under **Images from {{ marketplace-name }}**, click **Select**. In the window that opens, select the **2016 Datacenter** image.
 
@@ -525,7 +525,7 @@ VMs with Active Directory don't have internet access, so they should be configur
      1. Add another 250 GB SSD named `db`.
 
      1. Under **Computing resources**:
-         - Choose the [platform](../../compute/concepts/vm-platforms.md): Intel Cascade Lake.
+         - Choose a [platform](../../compute/concepts/vm-platforms.md): Intel Cascade Lake.
          - Specify the number of vCPUs and amount of RAM:
             * **vCPU**: 8.
             * **Guaranteed vCPU share**: 100%.
@@ -533,7 +533,7 @@ VMs with Active Directory don't have internet access, so they should be configur
 
      1. Under **Network settings**, click **Add network** and select `exchange-network`. Select `exchange-subnet-b`. Under **Public address**, select **No address**.
 
-     1. In the **Access** section, specify the data required to access the VM:
+     1. Under **Access**, specify the data required to access the VM:
          - In the **Password** field, enter your password.
 
      1. Click **Create VM**.
@@ -557,7 +557,7 @@ VMs with Active Directory don't have internet access, so they should be configur
 
 1. Connect to `fsw-vm` using RDP.
 
-1. On the `fsw-vm` VM, start the RDP client and use it to connect to `vm-exchange-b`. Enter `Administrator` as the username and your password. Launch PowerShell.
+1. On `fsw-vm`, start the RDP client and use it to connect to `vm-exchange-b`. Enter `Administrator` as the username and then your password. Launch PowerShell.
 
 1. Configure the DNS client:
 
@@ -572,7 +572,7 @@ VMs with Active Directory don't have internet access, so they should be configur
    Add-Computer -DomainName yantoso.net -DomainCredential $Credentials -Force -Restart
    ```
 
-   After restarting, log in to the VM as `yantoso\Administrator` with your password. Relaunch PowerShell.
+   After restarting, log in to the VM as `yantoso\Administrator` and enter your password. Relaunch PowerShell.
 
 1. Install the downloaded dependencies in the following order:
    1. `& \\fsw-vm\distrib\vcredist_x64_2012.exe /install /passive /norestart`
@@ -582,7 +582,7 @@ VMs with Active Directory don't have internet access, so they should be configur
 
 1. Restart the VM: `Restart-Computer -Force`.
 
-   After restarting, log in to the VM as `yantoso\Administrator` with your password. Relaunch PowerShell.
+   After restarting, log in to the VM as `yantoso\Administrator` and enter your password. Relaunch PowerShell.
 
 1. Install Exchange Mailbox Server on `vm-exchange-b`. Mount the distribution image from the shared directory with distributions:
 
@@ -590,7 +590,7 @@ VMs with Active Directory don't have internet access, so they should be configur
    Mount-DiskImage \\fsw-vm\distrib\ExchangeServer2016-x64-cu13.iso
    ```
 
-1. Launch the Exchange Mailbox Server installer:
+1. Install the Exchange Mailbox Server installer:
 
    ```powershell
    & D:\Setup.exe /Mode:Install /InstallWindowsComponents /Role:Mailbox /IAcceptExchangeServerLicenseTerms /OrganizationName:MyOrg
@@ -613,7 +613,7 @@ A Database Availability Group ensures fault tolerance for mail servers via DB re
 
 ### Create disks for VM databases {#create-db-disks}
 
-1. On `fsw-vm`, start the RDP client and use it to connect to `vm-exchange-a`. Enter `yantoso\Administrator` as the username and your password.
+1. On `fsw-vm`, start the RDP client and use it to connect to `vm-exchange-a`. Enter `yantoso\Administrator` as the username and then your password.
 
 1. Create an additional disk and format it:
 
@@ -635,7 +635,7 @@ Repeat these commands for the `vm-exchange-b` VM.
 
 ### Configure the Database Availability Group {#dag-configuration}
 
-1. On `fsw-vm`, start the RDP client and use it to connect to `vm-exchange-a`. Enter `yantoso\Administrator` as the username and your password.
+1. On `fsw-vm`, start the RDP client and use it to connect to `vm-exchange-a`. Enter `yantoso\Administrator` as the username and then your password.
 
 1. Run the Exchange Management Shell.
 
@@ -659,7 +659,7 @@ Repeat these commands for the `vm-exchange-b` VM.
 
    ```powershell
    Get-DatabaseAvailabilityGroup -Status
-
+   
    Name             Member Servers                                      Operational Servers
    ----             --------------                                      -------------------
    ycdag            {VM-EXCHANGE-A, VM-EXCHANGE-B}                    {VM-EXCHANGE-A, VM-EXCHANGE-B}
@@ -798,7 +798,7 @@ It distributes the load across Exchange servers in different availability zones.
          --target address=10.1.0.24,subnet-id=e9bkdrnv156ctcp14p5q
      ```
 
-  1. Add the listener to the network load balancer:
+  1. Add a listener to the network load balancer:
 
      ```
      $ yc lb nlb add-listener --name exchange-lb --listener name=yassl,port=443,target-port=443,external-ip-version=ipv4
@@ -854,14 +854,14 @@ Create a VM named `vm-edge-a`:
 
   1. In the **Name** field, enter the VM name: `vm-edge-a`.
 
-  1. Select [availability zone](../../overview/concepts/geo-scope.md) `ru-central1-a`.
+  1. Select the [availability zone](../../overview/concepts/geo-scope.md) `ru-central1-a`.
 
   1. Under **Images from {{ marketplace-name }}**, click **Select**. In the window that opens, select the **2016 Datacenter** image.
 
-  1. Under **Disks**, enter 50 GB for the size of the boot disk:
+  1. Under **Disks**, enter 50 GB for the size of the boot disk.
 
   1. Under **Computing resources**:
-      - Choose the [platform](../../compute/concepts/vm-platforms.md): Intel Cascade Lake.
+      - Choose a [platform](../../compute/concepts/vm-platforms.md): Intel Cascade Lake.
       - Specify the number of vCPUs and amount of RAM:
          * **vCPU**: 4.
          * **Guaranteed vCPU share**: 100%.
@@ -869,7 +869,7 @@ Create a VM named `vm-edge-a`:
 
   1. Under **Network settings**, click **Add network** and select `exchange-network`. Select `exchange-subnet-a`. Under **Public address**, select **Automatically** or choose an address from the list of reserved ones.
 
-  1. In the **Access** section, specify the data required to access the VM:
+  1. Under **Access**, specify the data required to access the VM:
       - In the **Password** field, enter your password.
 
   1. Click **Create VM**.
@@ -902,14 +902,14 @@ Create a VM named `vm-edge-b`:
 
   1. In the **Name** field, enter the VM name: `vm-edge-b`.
 
-  1. Select [availability zone](../../overview/concepts/geo-scope.md) `ru-central1-b`.
+  1. Select the [availability zone](../../overview/concepts/geo-scope.md) `ru-central1-b`.
 
   1. Under **Images from {{ marketplace-name }}**, click **Select**. In the window that opens, select the **2016 Datacenter** image.
 
-  1. Under **Disks**, enter 50 GB for the size of the boot disk:
+  1. Under **Disks**, enter 50 GB for the size of the boot disk.
 
   1. Under **Computing resources**:
-      - Choose the [platform](../../compute/concepts/vm-platforms.md): Intel Cascade Lake.
+      - Choose a [platform](../../compute/concepts/vm-platforms.md): Intel Cascade Lake.
       - Specify the number of vCPUs and amount of RAM:
          * **vCPU**: 4.
          * **Guaranteed vCPU share**: 100%.
@@ -917,7 +917,7 @@ Create a VM named `vm-edge-b`:
 
   1. Under **Network settings**, click **Add network** and select `exchange-network`. Select `exchange-subnet-b`. Under **Public address**, select **Automatically** or choose an address from the list of reserved ones.
 
-  1. In the **Access** section, specify the data required to access the VM:
+  1. Under **Access**, specify the data required to access the VM:
       - In the **Password** field, enter your password.
 
   1. Click **Create VM**.
@@ -944,7 +944,7 @@ Create a VM named `vm-edge-b`:
 
 1. Connect to `fsw-vm` using RDP.
 
-1. Connect to `vm-edge-a` using RDP. Enter `Administrator` as the username and your password. Launch PowerShell.
+1. Connect to `vm-edge-a` using RDP. Enter `Administrator` as the username and then your password. Launch PowerShell.
 
 1. Create a temporary folder:
 
@@ -969,11 +969,11 @@ Create a VM named `vm-edge-b`:
 
    ```powershell
    $Credential = Get-Credential # Username: yantoso\Administrator
-
+   
    New-PSDrive -Name 'fsw-vm' -PSProvider:FileSystem -Root '\\fsw-vm.ru-central1.internal\distrib' -Credential $Credential
    ```
 
-   Enter `yantoso\Administrator` as the username and your password.
+   Enter `yantoso\Administrator` as the username and then your password.
 
 1. Install the dependencies:
 
@@ -992,9 +992,9 @@ Create a VM named `vm-edge-b`:
 
    ```powershell
    $Suffix = 'ru-central1.internal'
-
+   
    Set-ItemProperty -path HKLM:\system\CurrentControlSet\Services\tcpip\parameters -Name Domain -Value $Suffix
-
+   
    Set-ItemProperty -path HKLM:\system\CurrentControlSet\Services\tcpip\parameters -Name 'NV Domain' -Value $Suffix
    ```
 
@@ -1022,7 +1022,7 @@ Create a VM named `vm-edge-b`:
 
 1. Connect to `fsw-vm` using RDP.
 
-1. Connect to `vm-edge-b` using RDP. Enter `Administrator` as the username and your password. Launch PowerShell.
+1. Connect to `vm-edge-b` using RDP. Enter `Administrator` as the username and then your password. Launch PowerShell.
 
 1. Create a temporary folder:
 
@@ -1047,11 +1047,11 @@ Create a VM named `vm-edge-b`:
 
    ```powershell
    $Credential = Get-Credential # Username: yantoso\Administrator
-
+   
    New-PSDrive -Name 'fsw-vm' -PSProvider:FileSystem -Root '\\fsw-vm.ru-central1.internal\distrib' -Credential $Credential
    ```
 
-   Enter `yantoso\Administrator` as the username and your password.
+   Enter `yantoso\Administrator` as the username and then your password.
 
 1. Install the dependencies:
 
@@ -1070,9 +1070,9 @@ Create a VM named `vm-edge-b`:
 
    ```powershell
    $Suffix = 'ru-central1.internal'
-
+   
    Set-ItemProperty -path HKLM:\system\CurrentControlSet\Services\tcpip\parameters -Name Domain -Value $Suffix
-
+   
    Set-ItemProperty -path HKLM:\system\CurrentControlSet\Services\tcpip\parameters -Name 'NV Domain' -Value $Suffix
    ```
 
@@ -1128,7 +1128,7 @@ Each Edge Transport server must subscribe to a website in its own availability z
 
    ```powershell
    Get-EdgeSubscription
-
+   
    Name            Site                 Domain
    ----            ----                 ------
    vm-edge-a       yantoso.net/Confi... ru-central1.internal
@@ -1170,7 +1170,7 @@ Each Edge Transport server must subscribe to a website in its own availability z
 
    ```powershell
    Get-EdgeSubscription
-
+   
    Name            Site                 Domain
    ----            ----                 ------
    vm-edge-a       yantoso.net/Confi... ru-central1.internal
@@ -1187,7 +1187,7 @@ Each Edge Transport server must subscribe to a website in its own availability z
 
 ## Delete the created resources {#clear-out}
 
-To stop paying for deployed servers, delete all the [VMs](../../compute/operations/vm-control/vm-delete.md) and [load balancer](../../load-balancer/operations/load-balancer-delete.md) you created:
+To stop paying for deployed servers, delete all the [VMs you created](../../compute/operations/vm-control/vm-delete.md) and [load balancer](../../load-balancer/operations/load-balancer-delete.md) you created:
 
 * `fsw-vm`
 * `ad-vm-a`

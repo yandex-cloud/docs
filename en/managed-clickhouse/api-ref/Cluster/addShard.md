@@ -198,7 +198,9 @@ clusterId | Required. ID of the ClickHouse cluster to add a shard to. To get the
         "textLogEnabled": true,
         "textLogRetentionSize": "integer",
         "textLogRetentionTime": "integer",
-        "textLogLevel": "string"
+        "textLogLevel": "string",
+        "backgroundPoolSize": "integer",
+        "backgroundSchedulePoolSize": "integer"
       },
       "resources": {
         "resourcePresetId": "string",
@@ -226,7 +228,7 @@ Field | Description
 shardName | **string**<br><p>Required. Name for the new shard.</p> <p>The maximum string length in characters is 63. Value must match the regular expression <code>[a-zA-Z0-9_-]*</code>.</p> 
 configSpec | **object**<br><p>Configuration of the new shard.</p> 
 configSpec.<br>clickhouse | **object**<br><p>ClickHouse configuration for a shard.</p> 
-configSpec.<br>clickhouse.<br>config | **object**<br><p>ClickHouse settings for the shard.</p> <p>ClickHouse configuration options. Detailed description for each set of options is available in <a href="https://clickhouse.yandex/docs/ru/operations/server_settings/settings/">ClickHouse documentation</a>.</p> <p>Any options not listed here are not supported.</p> 
+configSpec.<br>clickhouse.<br>config | **object**<br><p>ClickHouse settings for the shard.</p> <p>ClickHouse configuration options. Detailed description for each set of options is available in <a href="https://clickhouse.yandex/docs/en/operations/server_settings/settings/">ClickHouse documentation</a>.</p> <p>Any options not listed here are not supported.</p> 
 configSpec.<br>clickhouse.<br>config.<br>logLevel | **string**<br><p>Logging level for the ClickHouse cluster. Possible values: TRACE, DEBUG, INFORMATION, WARNING, ERROR.</p> 
 configSpec.<br>clickhouse.<br>config.<br>mergeTree | **object**<br><p>Settings for the MergeTree engine. See description in <a href="https://clickhouse.yandex/docs/en/operations/server_settings/settings/#merge_tree">ClickHouse documentation</a>.</p> <p>Options specific to the MergeTree table engine.</p> 
 configSpec.<br>clickhouse.<br>config.<br>mergeTree.<br>replicatedDeduplicationWindow | **integer** (int64)<br><p>Number of blocks of hashes to keep in ZooKeeper.</p> 
@@ -357,6 +359,8 @@ configSpec.<br>clickhouse.<br>config.<br>textLogEnabled | **boolean** (boolean)<
 configSpec.<br>clickhouse.<br>config.<br>textLogRetentionSize | **integer** (int64)<br><p>The maximum size that text_log can grow to before old data will be removed. If set to 0, automatic removal of text_log data based on size is disabled.</p> 
 configSpec.<br>clickhouse.<br>config.<br>textLogRetentionTime | **integer** (int64)<br><p>The maximum time that text_log records will be retained before removal. If set to 0, automatic removal of text_log data based on time is disabled.</p> 
 configSpec.<br>clickhouse.<br>config.<br>textLogLevel | **string**<br><p>Logging level for text_log system table. Possible values: TRACE, DEBUG, INFORMATION, WARNING, ERROR.</p> 
+configSpec.<br>clickhouse.<br>config.<br>backgroundPoolSize | **integer** (int64)<br><p>Value must be greater than 0.</p> 
+configSpec.<br>clickhouse.<br>config.<br>backgroundSchedulePoolSize | **integer** (int64)<br><p>Value must be greater than 0.</p> 
 configSpec.<br>clickhouse.<br>resources | **object**<br><p>Computational resources for the shard.</p> 
 configSpec.<br>clickhouse.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-clickhouse/concepts/instance-types">documentation</a></p> 
 configSpec.<br>clickhouse.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 

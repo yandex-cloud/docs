@@ -286,6 +286,7 @@ Create a virtual machine for Windows Server with Remote Desktop Services. This V
 1. (Optional) Limit the number of permissible concurrent server sessions.
 
     {% list tabs %}
+    
     - PowerShell
 
       ```powershell

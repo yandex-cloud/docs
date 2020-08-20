@@ -8,7 +8,7 @@ With this guide, you will:
 * Recognize text in images using Yandex Vision.
 * Upload the results to [Yandex Object Storage](https://cloud.yandex.com/docs/storage/).
 
-1. [Before you start](#before-begin).
+1. [Before you start](#before-you-begin).
 1. [Create and configure a virtual machine](#create-vm).
 1. [Set up the AWS CLI](#aws-cli).
 1. [Set up access to Object Storage](#object-storage-access).
@@ -17,7 +17,7 @@ With this guide, you will:
 1. [Check the digitized content](#check).
 1. [Delete the created cloud resources](#cleanup).
 
-## Before you start {#before-begin}
+## Before you start {#before-you-begin}
 
 Before creating a virtual machine, you need to sign up for Yandex.Cloud and create a billing account:
 
@@ -38,22 +38,22 @@ Infrastructure costs for recognition and data storage include:
 
 ### Create a virtual machine:
 
-1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
+1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource**, and select **Virtual machine**.
 
-1. In the **Name** field, enter the VM name.
+1. In the **Name** field, enter a name for the VM.
 
     {% include [name-format](../../_includes/name-format.md) %}
 
 1. Select the [availability zone](../../overview/concepts/geo-scope.md) to host the VM in.
 
-1. Under **Images from {{ marketplace-name }}**, click Centos 7.
+1. Under **Images from {{ marketplace-name }}**, select the Centos 7 image.
 
 1. Under **Disks**, select:
     * SSD
     * 19 GB
 
 1. Under **Computing resources**:
-    - Choose a [platform](../../compute/concepts/vm-platforms.md) for the virtual machine.
+    - Choose a [platform](../../compute/concepts/vm-platforms.md) for the VM.
     - Specify the number of vCPUs and amount of RAM:
       * **Platform**: Intel Cascade Lake.
       * **Guaranteed vCPU share**: 20%.
@@ -62,13 +62,13 @@ Infrastructure costs for recognition and data storage include:
 
 1. In the **Network settings** section, select the network and subnet to connect the VM to. If you don't have a network or subnet yet, you can create them on the VM creation page.
 
-1. In the **Public address** field, leave the **Automatically** value to assign a random external IP address from the Yandex.Cloud pool. To ensure that the external IP address doesn't change after the VM is stopped, [make it static](../../vpc/operations/set-static-ip.md).
+1. In the **Public address** field, leave the **Automatically** value to assign a random external IP address from the Yandex.Cloud pool. To ensure that the external IP address doesn't change after the VM is stopped, [make it static](https://cloud.yandex.com/docs/vpc/operations/set-static-ip).
 
 1. Specify data required for accessing the VM:
 
     - Enter the username in the **Login** field.
 
-    - Under **SSH key**, paste the contents of the public key file.
+    - In the **SSH key** field, paste the contents of the public key file.
 
       You need to create a key pair for the SSH connection yourself. Learn [how to connect to VMs via SSH](../../compute/operations/vm-connect/ssh.md).
 
@@ -188,7 +188,11 @@ Creating the VM may take several minutes.
     * Leave the default value for the maximum size.
     * Bucket access: **Limited**.
     * Storage class: **Cold**.
-1. Go to the Yandex.Cloud console and make sure that the bucket is in the list: ```https://console.cloud.yandex.com/folders/<FOLDER-ID>/storage```
+1. Go to the Yandex.Cloud console and make sure that the bucket is in the list:
+
+   ```
+   https://console.cloud.yandex.com/folders/<FOLDER-ID>/storage
+   ```
 
 ## Create an archive with images {#create-archive}
 
@@ -238,7 +242,7 @@ Creating the VM may take several minutes.
 
 ### Writing a script
 
-This script performs the following steps:
+This script implements the following steps:
 
 1. Creates the necessary directories.
 1. Unpacks the archive with images.
@@ -302,7 +306,7 @@ To make it easier to read, each step is commented in the script body.
         curl -X POST --silent \
         -H "Content-Type: application/json" \
         -H "Authorization: Bearer ${IAMTOKEN}" \
-        -d @body.json \
+        -d '@body.json' \
         https://vision.api.cloud.yandex.net/vision/v1/batchAnalyze > output.json
     
         # Get the name of the image for later use.

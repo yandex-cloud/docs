@@ -168,7 +168,10 @@
     * Доступ к бакету - **Ограниченный**.
     * Класс хранилища - **Холодное**.
 1. Зайдите в консоль Яндекс.Облака и убедитесь, что бакет отображается в списке:
-    ```https://console.cloud.yandex.ru/folders/<FOLDER-ID>/storage```
+    
+    ```
+    https://console.cloud.yandex.ru/folders/<FOLDER-ID>/storage
+    ```
 
 ## Создайте архив с изображениями {#create-archive}
 1. Загрузите изображения с текстом в ваш бакет по [инструкции](../../storage/operations/objects/upload.md).

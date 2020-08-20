@@ -36,7 +36,7 @@ page_token | **string**<br>Токен страницы. Установите з�
 
 Поле | Описание
 --- | ---
-access_keys[] | **[AccessKey](#AccessKey)**<br>Список ключей доступа. 
+access_keys[] | **[AccessKey](../access_key.proto#AccessKey)**<br>Список ключей доступа. 
 next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListAccessKeysRequest.page_size](#ListAccessKeysRequest1), используйте `next_page_token` в качестве значения параметра [ListAccessKeysRequest.page_token](#ListAccessKeysRequest1) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
 
 
@@ -55,7 +55,7 @@ key_id | **string**<br>Идентификатор ключа доступа. К�
 
 Возвращает указанный ключ доступа. <br>Чтобы получить список доступных ключей доступа, используйте запрос [List](#List).
 
-**rpc Get ([GetAccessKeyRequest](#GetAccessKeyRequest)) returns ([AccessKey](#AccessKey1))**
+**rpc Get ([GetAccessKeyRequest](#GetAccessKeyRequest)) returns ([AccessKey](../access_key.proto#AccessKey1))**
 
 ### GetAccessKeyRequest {#GetAccessKeyRequest}
 
@@ -93,7 +93,7 @@ description | **string**<br>Описание ключа доступа. Макс
 
 Поле | Описание
 --- | ---
-access_key | **[AccessKey](#AccessKey2)**<br>Ресурс AccessKey. 
+access_key | **[AccessKey](../access_key.proto#AccessKey2)**<br>Ресурс AccessKey. 
 secret | **string**<br>Секретный ключ доступа. Ключ совместим с сервисами AWS. 
 
 
@@ -116,7 +116,7 @@ key_id | **string**<br>Идентификатор ключа доступа. К�
 
 Метаданные и результат операции:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateAccessKeyMetadata](#UpdateAccessKeyMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[AccessKey](#AccessKey3)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[AccessKey](../access_key.proto#AccessKey3)<br>
 
 ### UpdateAccessKeyRequest {#UpdateAccessKeyRequest}
 
@@ -140,7 +140,7 @@ done | **bool**<br>Если значение равно `false` — операц
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateAccessKeyMetadata](#UpdateAccessKeyMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
 result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[AccessKey](#AccessKey3)>**<br>в случае успешного выполнения операции. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[AccessKey](../access_key.proto#AccessKey3)>**<br>в случае успешного выполнения операции. 
 
 
 ### UpdateAccessKeyMetadata {#UpdateAccessKeyMetadata}

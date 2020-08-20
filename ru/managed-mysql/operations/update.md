@@ -29,7 +29,7 @@
 
   1. Запросите список доступных классов хостов (в колонке `ZONES` указаны зоны доступности, в которых можно выбрать соответствующий класс):
 
-          
+     
      ```
      $ yc managed-mysql resource-preset list
 
@@ -43,7 +43,7 @@
      | ...                                                           |
      +-----------+--------------------------------+-------+----------+
      ```
-     
+
     
 
   1. Укажите нужный класс в команде изменения кластера:
@@ -58,7 +58,7 @@
 
 - API
 
-  Изменить [класс хостов](../concepts/instance-types.md) кластера можно с помощью метода API [update](../api-ref/Cluster/update.md): передайте в запросе нужное значение в параметре `configSpec.clickhouse.resources.resourcePresetId`.
+  Изменить [класс хостов](../concepts/instance-types.md) кластера можно с помощью метода API [update](../api-ref/Cluster/update.md): передайте в запросе нужное значение в параметре `configSpec.resources.resourcePresetId`.
 
   Список поддерживаемых значений запрашивайте методом [list](../api-ref/ResourcePreset/list.md) для ресурсов `ResourcePreset`.
 

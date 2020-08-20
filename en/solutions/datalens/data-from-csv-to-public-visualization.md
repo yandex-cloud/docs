@@ -10,14 +10,14 @@ Before publishing your own data, make sure that your charts and dashboards don't
 
 In this scenario, the population measure will be visualized on the Moscow district map and published to DataLens Public using {{ datalens-short-name }}.
 
-The file [Moscow Population 2018.csv](https://yadi.sk/d/H4dQKVDpU4Rd8g) is used as the source of data on the Moscow population and area for 2018. Source: [List of Moscow districts](https://ru.wikipedia.org/wiki/%D0%A1%D0%BF%D0%B8%D1%81%D0%BE%D0%BA_%D1%80%D0%B0%D0%B9%D0%BE%D0%BD%D0%BE%D0%B2_%D0%B8_%D0%BF%D0%BE%D1%81%D0%B5%D0%BB%D0%B5%D0%BD%D0%B8%D0%B9_%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D1%8B).
+The file [Moscow Population 2018.csv](https://yadi.sk/d/H4dQKVDpU4Rd8g) is used as the source of data on the Moscow population and area for 2018. The source is the [List of Moscow districts and settlements](https://ru.wikipedia.org/wiki/%D0%A1%D0%BF%D0%B8%D1%81%D0%BE%D0%BA_%D1%80%D0%B0%D0%B9%D0%BE%D0%BD%D0%BE%D0%B2_%D0%B8_%D0%BF%D0%BE%D1%81%D0%B5%D0%BB%D0%B5%D0%BD%D0%B8%D0%B9_%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D1%8B).
 
 To visualize and publish your data, follow these steps:
 
 1. [Before you start](#before-you-begin).
 1. [Create a connection](data-from-csv-visualization.md#step1).
 1. [Create a dataset](data-from-csv-visualization.md#step2).
-1. [Create a chart with a map of the Moscow districts](data-from-csv-visualization.md#step3).
+1. [Create a chart with a map of Moscow districts](data-from-csv-visualization.md#step3).
 1. [Publish the chart in DataLens Public](data-from-csv-visualization.md#step4).
 
 ## Before you start {#before-you-begin}
@@ -28,7 +28,7 @@ To visualize and publish your data, follow these steps:
 
 Create a dataset based on the [connection](../../datalens/concepts/connection.md) to the CSV file.
 
-1. Go to the [interface{{ datalens-short-name }}](https://datalens.yandex.ru).
+1. Go to the [interface{{ datalens-short-name }}](https://datalens.yandex.com).
 
 1. Click **Create connection**.
 
@@ -46,11 +46,11 @@ Create a dataset based on the [connection](../../datalens/concepts/connection.md
 
 1. Wait until the table content appears on the screen.
 
-1. Click **Save**.
+1. Click **Create**.
 
     ![image](../../_assets/datalens/solution-05/04-save-connection.png)
 
-1. After the data is saved, click **Create dataset**.
+1. After the connection is created, click **Create dataset**.
 
     ![image](../../_assets/datalens/solution-05/05-create-dataset.png)
 
@@ -60,7 +60,7 @@ Create a dataset based on the [connection](../../datalens/concepts/connection.md
 
     ![image](../../_assets/datalens/solution-05/06-drag-table.png)
 
-1. Go to the **Dataset** tab.
+1. Go to the **Fields** tab.
 
     ![image](../../_assets/datalens/solution-05/07-dataset-tab.png)
 
@@ -86,7 +86,7 @@ Create a dataset based on the [connection](../../datalens/concepts/connection.md
 
     ![image](../../_assets/datalens/solution-05/12-create-chart.png)
 
-## Step 3. Create a chart with a map of the Moscow districts {#step3}
+## Step 3. Create a chart with a map of Moscow districts {#step3}
 
 1. Choose the **Choropleth map** visualization type.
 

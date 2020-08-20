@@ -6,28 +6,28 @@ Follow these instructions to create a cluster of [preemptible VMs](../../compute
 
 To create a cluster and run a computational task:
 
-1. [Before you start](#before-begin)
-1. [Create a master VM in the cloud](#create-master-vm)
-	1. [Creating VMs](#create-vm)
-	1. [Configure the VM](#setup-vm)
-1. [Prepare a VM cluster](#prepare-cluster)
-1. [Create a cluster](#create-cluster)
-	1. [Test the cluster](#test-cluster)
-	1. [Configure the NFS](#configure-nfs)
-	1. [Mount directories on group VMs](#mount)
-1. [Create a task for computations in the cluster](#config-hpc)
-1. [Run and analyze the computations](#start-hpc)
-1. [How to delete created resources](#clear-out)
+1. [Before you start](#before-you-begin).
+1. [Create a master VM in the cloud](#create-master-vm).
+   1. [Create a VM](#create-vm).
+   1. [Configure the VM](#setup-vm).
+1. [Prepare a VM cluster](#prepare-cluster).
+   1. [Create a cluster](#create-cluster).
+   1. [Test the cluster](#test-cluster).
+   1. [Configure the NFS](#configure-nfs).
+   1. [Mount directories on group VMs](#mount).
+1. [Create a computational task in the cluster](#config-hpc).
+1. [Run and analyze the computations](#start-hpc).
+1. [How to delete created resources](#clear-out).
 
-## Before you start {#before-begin}
+## Before you start {#before-you-begin}
 
-{% include [before-begin](../_solutions_includes/before-you-begin.md) %}
+{% include [before-you-begin](../_solutions_includes/before-you-begin.md) %}
 
-### Required paid resources {#required-paid-resources}
+### Required paid resources {#paid-resources}
 
 The cost for hosting servers includes:
 
-* A fee for multiple running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* A fee for running multiple VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * A fee for using a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 ## Create a master VM in the cloud {#create-master-vm}
@@ -36,13 +36,13 @@ The cost for hosting servers includes:
 
 To create a VM:
 
-1. On the folder page in [management console]({{ link-console-main }}), click **Create resource**, and select **Virtual machine**.
+1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource**, and select **Virtual machine**.
 
 1. In the **Name** field, enter a name for the VM. For clarity, enter `master-node`.
 
 1. Select the [availability zone](../../overview/concepts/geo-scope.md) to host the VM in.
 
-1. Under **Images from {{ marketplace-name }}**, select **Ubuntu**.
+1. Under **Images from {{ marketplace-name }}**, select the **Ubuntu** image.
 
 1. Under **Disks**, select an SSD with 13 GB. The disk type should be **SSD** since other VMs will use it for network access.
 
@@ -104,7 +104,7 @@ To create a VM:
    - In the **Name** field, enter a name for the future group (for example, `compute-group`).
    - In the **Service account** field, add a [service account](../../compute/concepts/instance-groups/access.md) to this group. If you don't have a service account, click **Create new**, enter a name, and click **Create**.
    - Choose the same **Availability zone** that the `master-node` is in. VMs should be in the same availability zone to reduce latency between them.
-   - Under **Instance template**, click **Define**: This opens a screen for creating a template.
+   - Under **Instance template**, click **Define**: You'll see a screen for creating a template.
      - Under **Disks**, select **Add disk**. In the window that opens, specify:
        - **Disk designation**: Boot.
        - **Disk type**: SSD.

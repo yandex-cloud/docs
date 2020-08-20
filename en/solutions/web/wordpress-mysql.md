@@ -31,11 +31,11 @@ The cost for supporting your website in WordPress with a MySQL cluster includes:
 
 To create a VM:
 
-1. On the folder page in [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
+1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
 
 2. In the **Name** field, enter a name for the VM: `wp-mysql-tutorial-web`.
 
-3. Select an [availability zone](../../overview/concepts/geo-scope.md) to host the VM in.
+3. Select the [availability zone](../../overview/concepts/geo-scope.md) to host the VM in.
 
 4. Under **Images from {{ marketplace-name }}**, click **Select**. Select a public image of **Debian 10**, **Ubuntu 18.04**, or **CentOS 7**.
 
@@ -46,7 +46,7 @@ To create a VM:
        * **Guaranteed vCPU share**: 5%.
        * **RAM**: 1 GB.
 
-6. In the **Network settings** section, select the network and subnet to connect the VM to. If you don't have a network or subnet, you can create them right on the VM creation page.
+6. In the **Network settings** section, select the network and subnet to connect the VM to. If you don't have a network or subnet, create them right on the VM creation page.
 
 7. In the **Public address** field, leave the **Auto** value to assign a random external IP address from the Yandex.Cloud pool, or select a static address from the list if you reserved one in advance.
 
@@ -54,7 +54,7 @@ To create a VM:
 
     - Enter the username in the **Login** field.
 
-    - Under **SSH key**, paste the contents of the public key file.
+    - In the **SSH key** field, paste the contents of the public key file.
 
       You need to create a key pair for the SSH connection yourself. Learn [how to connect to VMs via SSH](../../compute/operations/vm-connect/ssh.md).
 
@@ -72,7 +72,7 @@ When the VM is created, it is assigned a public IP address and hostname (FQDN). 
 
 ## Create a MySQL database cluster {#create-cluster}
 
-1. On the folder page in [management console]({{ link-console-main }}), click **Create resource** and select **MySQL Cluster**.
+1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **MySQL Cluster**.
 
 1. In the **Name** field, enter the cluster name: `wp-mysql-tutorial-db-cluster`.
 
@@ -100,7 +100,7 @@ Creating the DB cluster may take several minutes.
 
 After the `wp-mysql-tutorial-web` VM changes its status to `RUNNING`:
 
-1. You can learn the IP address of the VM under **Network** on the VM page in [management console]({{ link-console-main }}).
+1. You can learn the IP address of the VM under **Network** on the VM page in the [management console]({{ link-console-main }}).
 
 1. [Connect](../../compute/operations/vm-connect/ssh.md) to the VM over SSH. You can use the `ssh` tool in Linux and macOS or [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) for Windows.
 
@@ -410,7 +410,7 @@ After the `wp-mysql-tutorial-web` VM changes its status to `RUNNING`:
    - `<DB_NAME>` — with the DB name, `wp-mysql-tutorial-db`.
    - `<DB_USER>` — with the `wordpress` username.
    - `<DB_PASSWORD>` — with the password specified when [creating a DB cluster](#create-cluster).
-   - `<DB_HOST>`  — with the host in the format `c-<master ID>.rw.mdb.yandexcloud.net`. To find out the master ID, [get the list of hosts](../../managed-mysql/operations/hosts.md#list) via the CLI and copy `CLUSTER ID` with the `MASTER` role.
+   - `<DB_HOST>` — with the host in the format `c-<master ID>.rw.mdb.yandexcloud.net`. To find out the master ID, [get the list of hosts](../../managed-mysql/operations/hosts.md#list) via the CLI and copy `CLUSTER ID` with the `MASTER` role.
 
 3. Restart Nginx and PHP-FPM:
 
@@ -441,7 +441,7 @@ After the `wp-mysql-tutorial-web` VM changes its status to `RUNNING`:
 
 ## Configure WordPress {#configure-wordpress}
 
-1. You can learn the IP address of the VM under **Network** on the VM page in [management console]({{ link-console-main }}).
+1. You can learn the IP address of the VM under **Network** on the VM page in the [management console]({{ link-console-main }}).
 
 1. Open the VM by entering its address in your browser.
 

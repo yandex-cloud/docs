@@ -36,13 +36,14 @@ POST https://serverless-functions.api.cloud.yandex.net/functions/v1/versions
     ]
   },
 
-  //  includes only one of the fields `package`, `content`
+  //  includes only one of the fields `package`, `content`, `versionId`
   "package": {
     "bucketName": "string",
     "objectName": "string",
     "sha256": "string"
   },
   "content": "string",
+  "versionId": "string",
   // end of the list of possible fields
 
 }
@@ -64,11 +65,12 @@ tag[] | **string**<br><p>Function version tags. For details, see <a href="/docs/
 connectivity | **object**<br>Function version connectivity. If specified the version will be attached to specified network/subnet(s).<br><p>Version connectivity specification.</p> 
 connectivity.<br>networkId | **string**<br><p>Network the version will have access to. It's essential to specify network with subnets in all availability zones.</p> 
 connectivity.<br>subnetId[] | **string**<br><p>Complete list of subnets (from the same network) the version can be attached to. It's essential to specify at least one subnet for each availability zones.</p> 
-package | **object**<br>Functions deployment package. <br> includes only one of the fields `package`, `content`<br><br><p>Version deployment package.</p> 
+package | **object**<br>Functions deployment package. <br> includes only one of the fields `package`, `content`, `versionId`<br><br><p>Version deployment package.</p> 
 package.<br>bucketName | **string**<br><p>Required. Name of the bucket that stores the code for the version.</p> 
 package.<br>objectName | **string**<br><p>Required. Name of the object in the bucket that stores the code for the version.</p> 
 package.<br>sha256 | **string**<br><p>SHA256 hash of the version deployment package.</p> 
-content | **string** (byte) <br> includes only one of the fields `package`, `content`<br><br><p>Content of the deployment package.</p> <p>The maximum string length in characters is 52428800.</p> 
+content | **string** (byte) <br> includes only one of the fields `package`, `content`, `versionId`<br><br><p>Content of the deployment package.</p> <p>The maximum string length in characters is 52428800.</p> 
+versionId | **string** <br> includes only one of the fields `package`, `content`, `versionId`<br><br><p>ID of the version to be copied from. Source version must belong to the same folder as the created version and the user must have read permissions to the source version.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

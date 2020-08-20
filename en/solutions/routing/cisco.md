@@ -2,18 +2,18 @@
 
 In Yandex.Cloud, you can deploy a virtual Cisco Cloud Services Router (CSR) 1000v from a VM image. To install the CSR 1000v and configure SSH access to it:
 
-1. [Before you start](#before-begin).
+1. [Before you start](#before-you-begin).
 1. [Create a VM with a Cisco Cloud Services Router](#create-router).
 1. [Set the host name for the router](#hostname).
 1. [Create a user with administrator rights](#create-user).
 1. [Configure authentication using SSH keys](#enable-ssh).
-1. [Check the SSH connection to the router](#test-ssh).
+1. [Check the connection to the router](#test-ssh).
 
 If you no longer need the created resources, [delete them](#clear-out).
 
-## Before you start {#before-begin}
+## Before you start {#before-you-begin}
 
-{% include [before-begin](../_solutions_includes/before-you-begin.md) %}
+{% include [before-you-begin](../_solutions_includes/before-you-begin.md) %}
 
 ### Required paid resources {#paid-resources}
 
@@ -25,23 +25,23 @@ When you use a Cisco CSR 1000v image without a license, the router throughput is
 
 The cost of using a virtual router includes:
 
-* A fee for a disk and continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* A fee for a disk and continuously running VM (see [pricing{{ compute-full-name }}](../../compute/pricing.md)).
 * A fee for using a public IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 ## Create a VM with a Cisco Cloud Services Router {#create-router}
 
 1. Open your folder and click **Create resource**. Select **Virtual machine**.
 1. Enter a name for the VM, like `cisco-router`.
-1. Select an [availability zone](../../overview/concepts/geo-scope.md) with a subnet. If you don't know which availability zone you need, leave the default.
+1. Select the [availability zone](../../overview/concepts/geo-scope.md) with a subnet. If you don't know which availability zone you need, leave the default.
 1. Under **Images from {{ marketplace-name }}**, click **Select** and choose the **Cloud Hosted Router** image.
 1. Under **Computing resources**:
-    - Choose the [platform](../../compute/concepts/vm-platforms.md) for the virtual machine.
+    - Choose a [platform](../../compute/concepts/vm-platforms.md) for the VM.
 
     - Specify the number of vCPUs and amount of RAM:
       - **Platform**: Intel Cascade Lake.
       - **Guaranteed vCPU share**: 100%.
       - **vCPU**: 2.
-      - **RAM** — 4 GB.
+      - **RAM**: 4 GB.
 1. In the **Network settings** section, choose the required network and subnet and assign a public IP to the VM either by selecting it from the list or automatically. If you don't have a network or subnet, create them on the VM creation screen.
 1. In the **Access** field, enter the login and SSH key.
 1. Set the **Grant access to serial console** flag.
@@ -51,7 +51,7 @@ Creating the VM may take several minutes. When the VM status changes to `RUNNING
 
 ## Set the host name for the router {#hostname}
 
-1. Open the page of the `cisco-router` VM in [management console]({{ link-console-main }}).
+1. Open the page of the `cisco-router` VM in the [management console]({{ link-console-main }}).
 
 1. Open **Serial console** and click **Connect**.
 
@@ -78,7 +78,7 @@ Make sure that the router name in the command line prompt changes to `cisco-rout
 Create a user with administrator rights and password authentication disabled:
 
 ```
-cisco-router(config)#username test-user privilege 15
+cisco-router(config)#username test-user privilege 15 
 ```
 
 ## Configure authentication using SSH keys {#enable-ssh}
@@ -115,14 +115,14 @@ cisco-router(config)#username test-user privilege 15
    You can compare the key hash on the router with the key hash on your computer:
 
    ```
-   $ ssh-keygen-E md5 -lf <path to the file with public key>.pub
+   $ ssh-keygen -E md5 -lf <path to the file with public key>.pub
    ```
 
 1. Set a password for privileged mode:
 
    ```
    cisco-router#configure terminal
-   cisco-router (config)#enable secret <password>
+   cisco-router(config)#enable secret <password>
    ```
 
 ## Check the SSH connection to the router {#test-ssh}

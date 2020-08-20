@@ -17,7 +17,7 @@ editable: false
 
 Возвращает указанный ресурс Role. <br>Чтобы получить список доступных ресурсов Role, используйте запрос [List](#List).
 
-**rpc Get ([GetRoleRequest](#GetRoleRequest)) returns ([Role](#Role))**
+**rpc Get ([GetRoleRequest](#GetRoleRequest)) returns ([Role](../role.proto#Role))**
 
 ### GetRoleRequest {#GetRoleRequest}
 
@@ -53,7 +53,7 @@ filter | **string**<br>Параметры фильтрации ресурсов 
 
 Поле | Описание
 --- | ---
-roles[] | **[Role](#Role1)**<br>Список ресурсов Role. 
+roles[] | **[Role](../role.proto#Role1)**<br>Список ресурсов Role. 
 next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListRolesRequest.page_size](#ListRolesRequest1), используйте `next_page_token` в качестве значения параметра [ListRolesRequest.page_token](#ListRolesRequest1) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
 
 

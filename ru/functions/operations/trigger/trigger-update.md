@@ -17,14 +17,17 @@
     Измените имя триггера:
     
     ```
-    $ yc serverless trigger update test-trigger --new-name my-trigger
+    $ yc serverless trigger update <имя триггера> --new-name <новое имя триггера>
+    ```
+    Результат:
+    ```
     id: dd0gj5tsj2pq9at8ja8i
     folder_id: aoek49ghmknnpj1ll45e
     created_at: "2019-08-28T12:26:25.675Z"
     name: my-trigger
     rule:
       message_queue:
-        arn: yrn:yc:ymq:ru-central1:aoek49ghmknnpj1ll45e:my-mq
+        queue_id: yrn:yc:ymq:ru-central1:aoek49ghmknnpj1ll45e:my-mq
         service_account_id: bfbqqeo6jkpls2tse5o6
         batch_settings:
           size: "10"
@@ -33,6 +36,7 @@
           function_id: b09e5lu91ta21vdrrgma
           function_tag: $latest
           service_account_id: bfbqqeo6jkpls2tse5o6
+    status: ACTIVE
   ```
   
 {% endlist %}
@@ -51,7 +55,10 @@
     Измените описание триггера:
     
     ```
-    $ yc serverless trigger update my-trigger --description "My YMQ trigger."
+    $ yc serverless trigger update <имя триггера> --description "<описание триггера>"
+    ```
+    Результат:
+    ```
     id: dd0gj5tsj2pq9at8ja8i
     folder_id: aoek49ghmknnpj1ll45e
     created_at: "2019-08-28T12:26:25.675Z"
@@ -59,7 +66,7 @@
     description: My YMQ trigger.
     rule:
       message_queue:
-        arn: yrn:yc:ymq:ru-central1:aoek49ghmknnpj1ll45e:my-mq
+        queue_id: yrn:yc:ymq:ru-central1:aoek49ghmknnpj1ll45e:my-mq
         service_account_id: bfbqqeo6jkpls2tse5o6
         batch_settings:
           size: "10"
@@ -68,6 +75,7 @@
           function_id: b09e5lu91ta21vdrrgma
           function_tag: $latest
           service_account_id: bfbqqeo6jkpls2tse5o6
+    status: ACTIVE
     ```
   
 {% endlist %}
@@ -91,7 +99,10 @@
     Добавьте метку триггеру:
     
     ```
-    $ yc serverless trigger add-labels my-trigger --labels version=beta
+    $ yc serverless trigger add-labels <имя триггера> --labels <ключ>=<значение>
+    ```
+    Результат:
+    ```
     id: dd0gj5tsj2pq9at8ja8i
     folder_id: aoek49ghmknnpj1ll45e
     created_at: "2019-08-28T12:26:25.675Z"
@@ -101,7 +112,7 @@
       version: beta
     rule:
       message_queue:
-        arn: yrn:yc:ymq:ru-central1:aoek49ghmknnpj1ll45e:my-mq
+        queue_id: yrn:yc:ymq:ru-central1:aoek49ghmknnpj1ll45e:my-mq
         service_account_id: bfbqqeo6jkpls2tse5o6
         batch_settings:
           size: "10"
@@ -110,6 +121,7 @@
           function_id: b09e5lu91ta21vdrrgma
           function_tag: $latest
           service_account_id: bfbqqeo6jkpls2tse5o6
+    status: ACTIVE
     ```
 
 {% endlist %}
@@ -131,7 +143,10 @@
     {% endnote %}
   
     ```
-    $ yc serverless trigger update my-trigger --labels new_labels=my-beta-trigger
+    $ yc serverless trigger update <имя триггера> --labels <ключ>=<значение>
+    ```
+    Результат:
+    ```
     id: dd0gj5tsj2pq9at8ja8i
     folder_id: aoek49ghmknnpj1ll45e
     created_at: "2019-08-28T12:26:25.675Z"
@@ -141,7 +156,7 @@
       new_labels: my-beta-trigger
     rule:
       message_queue:
-        arn: yrn:yc:ymq:ru-central1:aoek49ghmknnpj1ll45e:my-mq
+        queue_id: yrn:yc:ymq:ru-central1:aoek49ghmknnpj1ll45e:my-mq
         service_account_id: bfbqqeo6jkpls2tse5o6
         batch_settings:
           size: "10"
@@ -150,6 +165,7 @@
           function_id: b09e5lu91ta21vdrrgma
           function_tag: $latest
           service_account_id: bfbqqeo6jkpls2tse5o6
+    status: ACTIVE
     ```
   
 {% endlist %}
@@ -165,7 +181,10 @@
     Удалите метку триггера:
     
     ```
-    $ yc serverless trigger remove-labels my-trigger --labels new_labels
+    $ yc serverless trigger remove-labels <имя триггера> --labels <ключ>
+    ```
+    Результат:
+    ```
     id: dd0gj5tsj2pq9at8ja8i
     folder_id: aoek49ghmknnpj1ll45e
     created_at: "2019-08-28T12:26:25.675Z"
@@ -173,7 +192,7 @@
     description: My YMQ trigger.
     rule:
       message_queue:
-        arn: yrn:yc:ymq:ru-central1:aoek49ghmknnpj1ll45e:my-mq
+        queue_id: yrn:yc:ymq:ru-central1:aoek49ghmknnpj1ll45e:my-mq
         service_account_id: bfbqqeo6jkpls2tse5o6
         batch_settings:
           size: "10"
@@ -182,6 +201,7 @@
           function_id: b09e5lu91ta21vdrrgma
           function_tag: $latest
           service_account_id: bfbqqeo6jkpls2tse5o6
+    status: ACTIVE
     ```
   
 {% endlist %}

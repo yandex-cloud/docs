@@ -27,7 +27,7 @@ editable: false
 
 Возвращает указанное устройство. <br>Чтобы получить список доступных устройств, используйте запрос [List](#List).
 
-**rpc Get ([GetDeviceRequest](#GetDeviceRequest)) returns ([Device](#Device))**
+**rpc Get ([GetDeviceRequest](#GetDeviceRequest)) returns ([Device](../device.proto#Device))**
 
 ### GetDeviceRequest {#GetDeviceRequest}
 
@@ -69,7 +69,7 @@ page_token | **string**<br>Токен страницы. Установите з�
 
 Поле | Описание
 --- | ---
-devices[] | **[Device](#Device1)**<br>Список устройств. 
+devices[] | **[Device](../device.proto#Device1)**<br>Список устройств. 
 next_page_token | **string**<br>Токен для получения следующей страницы списка. Если количество результатов больше чем [ListDevicesRequest.page_size](#ListDevicesRequest1), используйте `next_page_token` в качестве значения параметра [ListDevicesRequest.page_token](#ListDevicesRequest1) в следующем запросе списка ресурсов. <br>Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
 
 
@@ -93,7 +93,7 @@ topic_aliases | **map<string,string>**<br>Алиас топика устройс
 
 Метаданные и результат операции:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateDeviceMetadata](#CreateDeviceMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Device](#Device2)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Device](../device.proto#Device2)<br>
 
 ### CreateDeviceRequest {#CreateDeviceRequest}
 
@@ -102,7 +102,7 @@ topic_aliases | **map<string,string>**<br>Алиас топика устройс
 registry_id | **string**<br>Обязательное поле. Идентификатор реестра, в котором создается устройство. <br>Чтобы получить идентификатор реестра, используйте запрос [yandex.cloud.iot.devices.v1.RegistryService.List](/docs/iot-core/grpc/registry_service#List). false Максимальная длина строки в символах — 50.
 name | **string**<br>Обязательное поле. Имя устройства. Имя должно быть уникальным в рамках реестра. false Максимальная длина строки в символах — 50. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_-]* `.
 description | **string**<br>Описание устройства. Максимальная длина строки в символах — 256.
-certificates[] | **[Certificate](#Certificate)**<br>Сертификат устройства. 
+certificates[] | **[Certificate](../registry_service.proto#Certificate)**<br>Сертификат устройства. 
 topic_aliases | **map<string,string>**<br>Алиас топика устройства. <br>Алиас — это альтернативное имя топика устройства, назначенное пользователем. Алиас сопоставляется со стандартным топиком, например `my/custom/alias` эквивалентен `$device/{id}/events`. 
 password | **string**<br>Пароль устройства. <br>Пароль должен содержать не менее трех категорий символов: строчные латинские буквы, прописные латинские буквы, цифры, специальные символы. 
 
@@ -127,7 +127,7 @@ done | **bool**<br>Если значение равно `false` — операц
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateDeviceMetadata](#CreateDeviceMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
 result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Device](#Device2)>**<br>в случае успешного выполнения операции. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Device](../device.proto#Device2)>**<br>в случае успешного выполнения операции. 
 
 
 ### CreateDeviceMetadata {#CreateDeviceMetadata}
@@ -157,7 +157,7 @@ topic_aliases | **map<string,string>**<br>Алиас топика устройс
 
 Метаданные и результат операции:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateDeviceMetadata](#UpdateDeviceMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Device](#Device3)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Device](../device.proto#Device3)<br>
 
 ### UpdateDeviceRequest {#UpdateDeviceRequest}
 
@@ -183,7 +183,7 @@ done | **bool**<br>Если значение равно `false` — операц
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateDeviceMetadata](#UpdateDeviceMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
 result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Device](#Device3)>**<br>в случае успешного выполнения операции. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Device](../device.proto#Device3)>**<br>в случае успешного выполнения операции. 
 
 
 ### UpdateDeviceMetadata {#UpdateDeviceMetadata}
@@ -262,7 +262,7 @@ device_id | **string**<br>Обязательное поле. Идентифик�
 
 Поле | Описание
 --- | ---
-certificates[] | **[DeviceCertificate](#DeviceCertificate)**<br>Список сертификатов для указанного устройства. 
+certificates[] | **[DeviceCertificate](../device.proto#DeviceCertificate)**<br>Список сертификатов для указанного устройства. 
 
 
 ### DeviceCertificate {#DeviceCertificate}
@@ -283,7 +283,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 
 Метаданные и результат операции:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[AddDeviceCertificateMetadata](#AddDeviceCertificateMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[DeviceCertificate](#DeviceCertificate1)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[DeviceCertificate](../device.proto#DeviceCertificate1)<br>
 
 ### AddDeviceCertificateRequest {#AddDeviceCertificateRequest}
 
@@ -306,7 +306,7 @@ done | **bool**<br>Если значение равно `false` — операц
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[AddDeviceCertificateMetadata](#AddDeviceCertificateMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
 result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeviceCertificate](#DeviceCertificate1)>**<br>в случае успешного выполнения операции. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeviceCertificate](../device.proto#DeviceCertificate1)>**<br>в случае успешного выполнения операции. 
 
 
 ### AddDeviceCertificateMetadata {#AddDeviceCertificateMetadata}
@@ -386,7 +386,7 @@ device_id | **string**<br>Обязательное поле. Идентифик�
 
 Поле | Описание
 --- | ---
-passwords[] | **[DevicePassword](#DevicePassword)**<br>Возвращает список паролей для указанного устройства. 
+passwords[] | **[DevicePassword](../device.proto#DevicePassword)**<br>Возвращает список паролей для указанного устройства. 
 
 
 ### DevicePassword {#DevicePassword}
@@ -406,7 +406,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 
 Метаданные и результат операции:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[AddDevicePasswordMetadata](#AddDevicePasswordMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[DevicePassword](#DevicePassword1)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[DevicePassword](../device.proto#DevicePassword1)<br>
 
 ### AddDevicePasswordRequest {#AddDevicePasswordRequest}
 
@@ -429,7 +429,7 @@ done | **bool**<br>Если значение равно `false` — операц
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[AddDevicePasswordMetadata](#AddDevicePasswordMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
 result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DevicePassword](#DevicePassword1)>**<br>в случае успешного выполнения операции. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DevicePassword](../device.proto#DevicePassword1)>**<br>в случае успешного выполнения операции. 
 
 
 ### AddDevicePasswordMetadata {#AddDevicePasswordMetadata}
@@ -504,7 +504,7 @@ password_id | **string**<br>Обязательное поле. Идентифи�
 device_id | **string**<br>Обязательное поле. Идентификатор устройства для получения списка операций. <br>Для получения идентификатора устройства используйте запрос [DeviceService.List](#List). false
 page_size | **int64**<br>Максимальное число возвращаемых результатов на странице. Если количество результатов больше чем `page_size`, сервис вернет значение [ListDeviceOperationsResponse.next_page_token](#ListDeviceOperationsResponse), которое можно использовать для получения следующей страницы. Значение по умолчанию: 100. Допустимые значения — от 0 до 1000 включительно.
 page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListDeviceOperationsResponse.next_page_token](#ListDeviceOperationsResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
-filter | **string**<br>Параметры фильтрации ресурсов в ответе. В настоящее время фильтрация осуществляется только по полю [Device.name](#Device4). Максимальная длина строки в символах — 1000.
+filter | **string**<br>Параметры фильтрации ресурсов в ответе. В настоящее время фильтрация осуществляется только по полю [Device.name](../device.proto#Device4). Максимальная длина строки в символах — 1000.
 
 
 ### ListDeviceOperationsResponse {#ListDeviceOperationsResponse}

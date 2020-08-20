@@ -8,8 +8,8 @@ To perform this scenario, you need have access to a Yandex.Metrica tag and a Cli
 
 {% endnote %}
 
-You can view a list of tags available to you at https://metrika.yandex.ru/list.
-   ![image](../../_assets/datalens/solution-04/01-metrica-list.png)
+See the list of available tags at [metrika.yandex.com/list](https://metrika.yandex.com/list).
+![image](../../_assets/datalens/solution-04/01-metrica-list.png)
 
 You can find instructions for creating a ClickHouse cluster in the [Managed Service for ClickHouse documentation](../../managed-clickhouse/operations/cluster-create.md).
 
@@ -26,7 +26,7 @@ To visualize the data, follow these steps:
 
 ## Step 1. Create a connection and a standard dashboard {#step1}
 
-1. Go to the [interface{{ datalens-short-name }}](https://datalens.yandex.ru).
+1. Go to the [interface{{ datalens-short-name }}](https://datalens.yandex.com).
 
 1. Click **Create connection**.
 
@@ -53,20 +53,27 @@ To visualize the data, follow these steps:
     ![image](../../_assets/datalens/solution-04/06-use-logsapi.png)
 
 1. Fill in the upload parameters and access credentials for the target database.
+
     1. In the **Tag source** field, choose **Sessions**.
+
     1. In the **Upload from** field, select from which date you wish to upload data. For example, **01.07.2019**.
+
     1. Select the **Regular** option. The data will be updated automatically every day.
+
     1. In the **Hostname** field, specify the ClickHouse database host. You can get your database access credentials on the ClickHouse cluster connection page in the console.
-    
+
         {% note warning %}
-    
+
         The Metrica Logs API connection can only access ClickHouse databases deployed in Yandex.Cloud.
-    
+
         {% endnote %}
-    
+
     1. In the **Port** field, specify the default database port **8443**.
+
     1. Specify the **database name**, **username**, and **password**.
+
     1. Click **Check connection** to verify that your database access credentials are correct. A green check mark next to the button indicates that the connection was established successfully.
+
     1. Enable **Automatically create a dashboard on this connection**.
 
     ![image](../../_assets/datalens/solution-04/07-metrica-creation3.png)
@@ -75,11 +82,11 @@ To visualize the data, follow these steps:
 
     ![image](../../_assets/datalens/solution-04/08-save-connection.png)
 
-    {% note warning %}
+     {% note warning %}
 
-    It can take from several minutes to dozens of hours to upload tag data from Yandex.Metrica to the ClickHouse database depending on the amount of data and the upload start date.
+     It can take from several minutes to dozens of hours to upload tag data from Yandex.Metrica to the ClickHouse database depending on the amount of data and the upload start date.
 
-    {% endnote %}
+     {% endnote %}
 
 1. When the connection is created, a folder containing the datasets, charts, and dashboard opens. Go to **Dashboard with Yandex.Metrica data**.
 

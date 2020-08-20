@@ -31,5 +31,9 @@
       "QueueUrl": "https://message-queue.api.cloud.yandex.net/aoeaql9r10cd9cfue7v6/000000000000002n034r/sample-queue"
   }
   ```
-  
+
+- Terraform
+
+  {% include [ymq-terraform](../_includes_service/mq-terraform.md) %}
+
 {% endlist %}

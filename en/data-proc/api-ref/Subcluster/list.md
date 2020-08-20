@@ -44,7 +44,16 @@ filter | A filter expression that filters subclusters listed in the response.  T
         "diskSize": "string"
       },
       "subnetId": "string",
-      "hostsCount": "string"
+      "hostsCount": "string",
+      "autoscalingConfig": {
+        "maxHostsCount": "string",
+        "preemptible": true,
+        "measurementDuration": "string",
+        "warmupDuration": "string",
+        "stabilizationDuration": "string",
+        "cpuUtilizationTarget": "number"
+      },
+      "instanceGroupId": "string"
     }
   ],
   "nextPageToken": "string"
@@ -66,4 +75,12 @@ subclusters[].<br>resources.<br>diskTypeId | **string**<br><p>Type of the storag
 subclusters[].<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
 subclusters[].<br>subnetId | **string**<br><p>ID of the VPC subnet used for hosts in the subcluster.</p> 
 subclusters[].<br>hostsCount | **string** (int64)<br><p>Number of hosts in the subcluster.</p> 
+subclusters[].<br>autoscalingConfig | **object**<br><p>Configuration for instance group based subclusters</p> 
+subclusters[].<br>autoscalingConfig.<br>maxHostsCount | **string** (int64)<br><p>Upper limit for total instance subcluster count.</p> <p>Acceptable values are 1 to 100, inclusive.</p> 
+subclusters[].<br>autoscalingConfig.<br>preemptible | **boolean** (boolean)<br><p>Preemptible instances are stopped at least once every 24 hours, and can be stopped at any time if their resources are needed by Compute. For more information, see <a href="/docs/compute/concepts/preemptible-vm">Preemptible Virtual Machines</a>.</p> 
+subclusters[].<br>autoscalingConfig.<br>measurementDuration | **string**<br><p>Required. Time in seconds allotted for averaging metrics.</p> <p>Acceptable values are 60 seconds to 600 seconds, inclusive.</p> 
+subclusters[].<br>autoscalingConfig.<br>warmupDuration | **string**<br><p>The warmup time of the instance in seconds. During this time, traffic is sent to the instance, but instance metrics are not collected.</p> <p>The maximum value is 600 seconds.</p> 
+subclusters[].<br>autoscalingConfig.<br>stabilizationDuration | **string**<br><p>Minimum amount of time in seconds allotted for monitoring before Instance Groups can reduce the number of instances in the group. During this time, the group size doesn't decrease, even if the new metric values indicate that it should.</p> <p>Acceptable values are 60 seconds to 1800 seconds, inclusive.</p> 
+subclusters[].<br>autoscalingConfig.<br>cpuUtilizationTarget | **number** (double)<br><p>Defines an autoscaling rule based on the average CPU utilization of the instance group.</p> <p>Acceptable values are 10 to 100, inclusive.</p> 
+subclusters[].<br>instanceGroupId | **string**<br><p>ID of Compute Instance Group for autoscaling subclusters</p> 
 nextPageToken | **string**<br><p>Token for getting the next page of the list. If the number of results is greater than the specified <a href="/docs/data-proc/api-ref/Subcluster/list#query_params">pageSize</a>, use <code>next_page_token</code> as the value for the <a href="/docs/data-proc/api-ref/Subcluster/list#query_params">pageToken</a> parameter in the next list request.</p> <p>Each subsequent page will have its own <code>next_page_token</code> to continue paging through the results.</p> 

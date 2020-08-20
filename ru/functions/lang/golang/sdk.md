@@ -8,6 +8,12 @@
 
 Следующая функция получает на вход запрос с двумя полями: ID папки (`FolderId`) и тег (`Tag`), авторизуется в SDK, получает список всех виртуальных машин {{ compute-name }} в заданной папке, фильтрует их по заданному тегу, и запускает остановленные машины. В качестве результата возвращает сообщение-отчёт с количеством запущенных машин.
 
+{% note warning %}
+
+Функцию необходимо вызывать с помощью [YC CLI](../../concepts/function-invoke.md) или с помощью HTTP-запроса с параметром `integration=raw`.
+
+{% endnote %}
+
 ```golang
 package main
 
@@ -36,7 +42,7 @@ type Response struct {
   Body       interface{} `json:"body"`
 }
 
-func StartComputeInstances(ctx context.Context, request Request) (*Response, error) {
+func StartComputeInstances(ctx context.Context, request *Request) (*Response, error) {
   // Авторизация в SDK при помощи сервисного аккаунта
   sdk, err := ycsdk.Build(ctx, ycsdk.Config{
     // Вызов InstanceServiceAccount автоматически запрашивает IAM-токен и формирует

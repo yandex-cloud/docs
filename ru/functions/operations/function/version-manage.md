@@ -7,7 +7,7 @@
 Управление версиями функции позволяет:
 
 - [Создать версию](version-manage.md#func-version-create)
-- [Получить информацию о версии функции](version-manage.md#info)
+- [Получить информацию о версии функции](version-manage.md#version-info)
     - [Получить список версий функции](version-manage.md#version-list)
     - [Получить подробную информацию о версии функции](version-manage.md#version-get)
 - [Управлять тегами версии](function-update.md#manage-tags)
@@ -63,14 +63,14 @@
     1. Выберите функцию, для которой необходимо создать версию.
     1. В разделе **Последняя версия** нажмите кнопку **Создать в редакторе**.
     1. Задайте параметры версии:
-      - Среда выполнения: `nodejs`.
-      - Таймаут, с: 5.
-      - Память: 128 МБ.
-      - Сервисный аккаунт: Не выбрано.
+       - Среда выполнения: `nodejs`.
+       - Таймаут, с: 5.
+       - Память: 128 МБ.
+       - Сервисный аккаунт: Не выбрано.
     1. Подготовьте код функции:
-      - Способ: ZIP-архив.
-      - Файл: `hello-js.zip`.
-      - Точка входа: `index.handler`.
+       - Способ: ZIP-архив.
+       - Файл: `hello-js.zip`.
+       - Точка входа: `index.handler`.
     1. Нажмите кнопку **Создать версию**.
 
 - CLI
@@ -86,7 +86,24 @@
     --entrypoint index.handler \ # Обработчик, указывается в формате <имя файла с функцией>.<имя обработчика>.
     --memory 128m \ # Объем RAM.
     --execution-timeout 5s \ # Максимальное время выполнения функции до таймаута.
-    --source-path ./hello-js.zip # ZIP-архив c кодом функции и всеми необходимыми зависимостями.
+    --source-path ./hello-js.zip # ZIP-архив c кодом функции и всеми необходимыми зависимостями.    
+    ```
+    Результат:
+    ```
+    done (1s)
+    id: d4evvn8obisajd51plaq
+    function_id: d4elpv8pft639ku7k0u6
+    created_at: "2020-08-01T19:09:19.531Z"
+    runtime: nodejs12
+    entrypoint: index.handler
+    resources:
+    memory: "134217728"
+    execution_timeout: 5s
+    image_size: "4096"
+    status: ACTIVE
+    tags:
+    - $latest
+    log_group_id: ckg3qh8h363p40gmr9gn
     ```
 
 {% endlist %}
@@ -110,7 +127,10 @@
 
     Получите список версий функции:
     ```
-    $ yc serverless function version list --function-name my-beta-function
+    $ yc serverless function version list --function-name <имя функции>
+    ```
+    Результат:
+    ```
     +----------------------+----------------------+----------+--------------+---------+---------------------+
     |          ID          |     FUNCTION ID      | RUNTIME  |  ENTRYPOINT  |  TAGS   |     CREATED AT      |
     +----------------------+----------------------+----------+--------------+---------+---------------------+
@@ -141,11 +161,12 @@
     - Получите подробную информацию о версии с помощью **уникального идентификатора**:
 
         ```
-        $ yc serverless function version get b09u830mb1n32a7rj0n8
-
+        $ yc serverless function version get <идентификатор версии>
+        ```
+        Результат:
+        ```
         id: b09u830mb1n32a7rj0n8
         function_id: b097d9ous3gep99khe83
-        description: test2
         created_at: "2019-06-13T09:23:23.383Z"
         runtime: python37
         entrypoint: test.handler
@@ -157,12 +178,15 @@
         tags:
         - $latest
         log_group_id: eolv6578frac08uh5h6s
+        ```
 
     - Получите подробную информацию о версии с помощью **тега**:
 
-        ````
-        $ yc serverless function version get-by-tag --function-name my-beta-function --tag beta
-
+        ```
+        $ yc serverless function version get-by-tag --function-name <имя функции> --tag <тег>
+        ```
+        Результат:
+        ```
         id: b09ch6pmpohfc9sogj5f
         function_id: b097d9ous3gep99khe83
         created_at: "2019-06-13T09:12:38.464Z"
@@ -187,7 +211,7 @@
 - Консоль управления
     
     Добавьте переменную окружения:
-    1. В [консоли управления](https://console.cloud.yandex.ru/) выберите сервис **Cloud Functions**.
+    1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ sf-name }}**.
     1. Нажмите значок ![image](../../../_assets/vertical-ellipsis.svg) в строке функции, для версии которой вы хотите добавить переменную окружения.
     1. Откройте раздел **Редактор**. 
     1. В открывшемся окне в блоке **Параметры** добавьте переменную окружения в поле **Переменные окружения** и нажмите **Добавить переменную окружения**. Можно добавить несколько переменных.
@@ -212,8 +236,10 @@
     Добавьте тег версии:
 
     ```
-    $ yc serverless function version set-tag --id b09ch6pmpohfc9sogj5f --tag first
-
+    $ yc serverless function version set-tag --id <идентификатор версии> --tag <тег>
+    ```
+    Результат:
+    ```
     id: b09ch6pmpohfc9sogj5f
     function_id: b097d9ous3gep99khe83
     created_at: "2019-06-13T09:12:38.464Z"
@@ -243,8 +269,10 @@
     Удалите тег версии:
 
     ```
-    $ yc serverless function version remove-tag --id b09ch6pmpohfc9sogj5f --tag first
-
+    $ yc serverless function version remove-tag --id <идентификатор версии> --tag <тег>
+    ```
+    Результат:
+    ```
     id: b09ch6pmpohfc9sogj5f
     function_id: b097d9ous3gep99khe83
     created_at: "2019-06-13T09:12:38.464Z"

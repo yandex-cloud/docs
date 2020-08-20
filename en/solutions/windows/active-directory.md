@@ -4,18 +4,18 @@ The scenario provides an example of how to deploy Active Directory in Yandex.Clo
 
 To deploy the Active Directory infrastructure:
 
-1. [Before you start](#before-begin)
-1. [Required paid resources](#paid-resources)
-1. [Create a cloud network and subnets](#create-network)
-1. [Create a script to manage a local administrator account](#admin-script)
-1. [Create a VM for Active Directory](#ad-vm)
-1. [Create a VM for a bastion host](#ajump-server-vm)
-1. [Install and configure Active Directory](#install-ad)
-1. [Configure the second domain controller](#install-ad-2)
-1. [Test Active Directory](#test-ad)
-1. [Delete the created resources](#clear-out)
+1. [Before you start](#before-you-begin).
+1. [Required paid resources](#paid-resources).
+1. [Create a cloud network and subnets](#create-network).
+1. [Create a script to manage a local administrator account](#admin-script).
+1. [Create a VM for Active Directory](#ad-vm).
+1. [Create a VM for a bastion host](#jump-server-vm).
+1. [Install and configure Active Directory](#install-ad).
+1. [Configure the second domain controller](#install-ad-2).
+1. [Test Active Directory](#test-ad).
+1. [Delete the created resources](#clear-out).
 
-## Before you start {#before-begin}
+## Before you start {#before-you-begin}
 
 Before deploying servers, you need to sign up for Yandex.Cloud and create a billing account:
 
@@ -29,9 +29,9 @@ If you have an active billing account, you can create or select a folder to run 
 
 The cost of an Active Directory installation includes:
 
-* A fee for continuously running VMs (see [pricing {{ compute-full-name }}](../../compute/pricing.md)).
-* A fee for using dynamic or static public IP addresses (see [pricing {{ vpc-full-name }}](../../vpc/pricing.md)).
-* The cost of outgoing traffic from Yandex.Cloud to the internet (see [pricing {{ compute-full-name }}](../../compute/pricing.md)).
+* A fee for continuously running VMs (see [pricing{{ compute-full-name }}](../../compute/pricing.md)).
+* A fee for using dynamic or static public IP addresses (see [pricing{{ vpc-full-name }}](../../vpc/pricing.md)).
+* The cost of outgoing traffic from Yandex.Cloud to the internet (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 
 ## Create a cloud network and subnets {#create-network}
 
@@ -85,13 +85,13 @@ Create a cloud network named `ad-network` with subnets in all the availability z
          --zone ru-central1-a \
          --network-name ad-network \
          --range 10.1.0.0/16
-
+       
        yc vpc subnet create \
          --name ad-subnet-b \
          --zone ru-central1-b \
          --network-name ad-network \
          --range 10.2.0.0/16
-
+       
        yc vpc subnet create \
          --name ad-subnet-c \
          --zone ru-central1-c \
@@ -110,9 +110,9 @@ Create a file named `setpass` with a script that sets a password for the local a
 Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertTo-SecureString "<your password>" -AsPlainText -Force)
 ```
 
-Your password must meet [complexity requirements](https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference).
+The password must meet the [complexity requirements](https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference).
 
-Read more about Active Directory security practices on the [developer's website](https://docs.microsoft.com/ru-ru/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory).
+Read more about the best practices for securing Active Directory on the [official website](https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory).
 
 ## Create a VM for Active Directory {#ad-vm}
 
@@ -126,14 +126,14 @@ Create two VMs for Active Directory domain controllers. These VMs don't have int
 
   1. In the **Name** field, enter the VM name `ad-vm-a`.
 
-  1. Select [availability zone](../../overview/concepts/geo-scope.md) `ru-central1-a`.
+  1. Select the [availability zone](../../overview/concepts/geo-scope.md) `ru-central1-a`.
 
   1. Under **Images from {{ marketplace-name }}**, click **Select**. In the window that opens, select the **2016 Datacenter** image.
 
   1. Under **Disks**, enter 35 GB for the size of the boot disk.
 
   1. Under **Computing resources**:
-      - Choose the [platform](../../compute/concepts/vm-platforms.md): Intel Cascade Lake.
+      - Choose a [platform](../../compute/concepts/vm-platforms.md): Intel Cascade Lake.
       - Specify the number of vCPUs and amount of RAM:
          * **vCPU**: 4.
          * **Guaranteed vCPU share**: 100%.
@@ -141,7 +141,7 @@ Create two VMs for Active Directory domain controllers. These VMs don't have int
 
   1. Under **Network settings**, click **Add network** and select `exchange-network`. Select `exchange-subnet-a`. Under **Public address**, select **No address**.
 
-  1. In the **Access** section, specify the data required to access the VM:
+  1. Under **Access**, specify the data required to access the VM:
       - In the **Password** field, enter your password.
 
   1. Click **Create VM**.
@@ -160,7 +160,7 @@ Create two VMs for Active Directory domain controllers. These VMs don't have int
       --network-interface subnet-name=exchange-subnet-a,ipv4-address=10.1.0.3 \
       --create-boot-disk image-folder-id=standard-images,image-family=windows-2016-gvlk \
       --metadata-from-file user-data=setpass
-
+  
   $ yc compute instance create \
       --name ad-vm-b \
       --hostname ad-vm-b \
@@ -186,14 +186,14 @@ A file server with internet access is used to configure VMs with Active Director
 
   1. In the **Name** field, enter the VM name `jump-server-vm`.
 
-  1. Select [availability zone](../../overview/concepts/geo-scope.md) `ru-central1-c`.
+  1. Select the [availability zone](../../overview/concepts/geo-scope.md) `ru-central1-c`.
 
   1. Under **Images from {{ marketplace-name }}**, click **Select**. In the window that opens, select the **2016 Datacenter** image.
 
   1. Under **Disks**, enter 35 GB for the size of the boot disk.
 
   1. Under **Computing resources**:
-      - Choose the [platform](../../compute/concepts/vm-platforms.md): Intel Cascade Lake.
+      - Choose a [platform](../../compute/concepts/vm-platforms.md): Intel Cascade Lake.
       - Specify the number of vCPUs and amount of RAM:
          * **vCPU**: 2.
          * **Guaranteed vCPU share**: 100%.
@@ -201,7 +201,7 @@ A file server with internet access is used to configure VMs with Active Director
 
   1. Under **Network settings**, click **Add network** and select `exchange-network`. Select `exchange-subnet-c`. Under **Public address**, select **No address**.
 
-  1. In the **Access** section, specify the data required to access the VM:
+  1. Under **Access**, specify the data required to access the VM:
       - In the **Password** field, enter your password.
 
   1. Click **Create VM**.
@@ -226,11 +226,11 @@ A file server with internet access is used to configure VMs with Active Director
 
 VMs with Active Directory don't have internet access, so they should be configured from the `jump-server-vm` VM using RDP.
 
-1. Connect to `jump-server-vm` using RDP. Enter `Administrator` as the username and your password.
+1. Connect to `jump-server-vm` using RDP. Enter `Administrator` as the username and then your password.
 
 1. Start the RDP client and connect to `ad-vm-a`.
 
-1. Run PowerShell and set a static address:
+1. Run the PowerShell and set a static address:
 
    ```powershell
    netsh interface ip set address "Ethernet 2" static 10.1.0.3 255.255.255.0 10.1.0.1
@@ -246,7 +246,7 @@ VMs with Active Directory don't have internet access, so they should be configur
 
    ```powershell
    Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
-
+   
    Success Restart Needed Exit Code      Feature Result
    ------- -------------- ---------      --------------
    True    No             Success        {Active Directory Domain Services, Group P...
@@ -306,7 +306,7 @@ VMs with Active Directory don't have internet access, so they should be configur
 
 1. Connect to `jump-server-vm` using RDP.
 
-1. Connect to `ad-vm-b` using RDP. Enter `Administrator` as the username and your password.
+1. Connect to `ad-vm-b` using RDP. Specify `Administrator` as the username and enter your password.
 
 1. Create a temporary folder:
 
@@ -318,7 +318,7 @@ VMs with Active Directory don't have internet access, so they should be configur
 
    ```powershell
    Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
-
+   
    Success Restart Needed Exit Code      Feature Result
    ------- -------------- ---------      --------------
    True    No             Success        {Active Directory Domain Services, Group P...
@@ -357,7 +357,7 @@ VMs with Active Directory don't have internet access, so they should be configur
 
 1. Connect to `jump-server-vm` using RDP.
 
-1. Connect to `ad-vm-b` using RDP. Enter `Administrator` as the username and your password as the password. Launch PowerShell.
+1. Connect to `ad-vm-b` using RDP. Specify `Administrator` as the username and enter your password. Launch PowerShell.
 
 1. Create a test user:
 

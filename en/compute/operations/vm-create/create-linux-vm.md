@@ -2,8 +2,6 @@
 
 This section provides guidelines for creating a VM with a Linux OS. To create a Windows-based VM, follow the instructions [{#T}](create-windows-vm.md).
 
-To create a VM:
-
 {% list tabs %}
 
 - Management console

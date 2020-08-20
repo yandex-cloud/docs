@@ -48,19 +48,22 @@
        
     ```
     $ yc serverless trigger create message-queue \
-        --name test-trigger \
-        --queue yrn:yc:ymq:ru-central1:aoek49ghmknnpj1ll45e:my-mq \
-        --queue-service-account-id bfbqqeo6jkpls2tse5o6 \
-        --invoke-function-id b09e5lu91ta21vdrrgma \
-        --invoke-function-service-account-id bfbqqeo6jkpls2tse5o6 \
+        --name <имя триггера> \
+        --queue <идентификатор очереди> \
+        --queue-service-account-id <идентификатор сервисного аккаунта> \
+        --invoke-function-id <идентификатор функции> \
+        --invoke-function-service-account-id <идентификатор сервисного аккаунта> \
         --batch-size 10
+    ```
+    Результат:
+    ```
     id: dd0cspdch6dslu9n3i5g
     folder_id: aoek49ghmknnpj1ll45e
     created_at: "2019-08-28T12:14:45.762915Z"
     name: test-trigger
     rule:
       message_queue:
-        arn: yrn:yc:ymq:ru-central1:aoek49ghmknnpj1ll45e:my-mq
+        queue_id: yrn:yc:ymq:ru-central1:aoek49ghmknnpj1ll45e:my-mq
         service_account_id: bfbqqeo6jkpls2tse5o6
         batch_settings:
           size: "10"
@@ -68,7 +71,8 @@
         invoke_function:
           function_id: b09e5lu91ta21vdrrgma
           function_tag: $latest
-          service_account_id: bfbqqeo6jkpls2tse5o6        
+          service_account_id: bfbqqeo6jkpls2tse5o6  
+    status: ACTIVE      
     ```
     
 {% endlist %}
@@ -86,8 +90,10 @@
     1. Посмотрите логи функции, в них должна отображаться информация о вызове функции. В данном примере функция выводит информацию об обработанных сообщениях. 
     
         ```
-        $ yc serverless function logs b09e5lu91ta21vdrrgma
-        
+        $ yc serverless function logs <идентификатор функции>
+        ```
+        Результат:
+        ```        
         2019-08-28 12:26:50     START RequestID: a5e4f3a3-9533-4eca-820c-82887258da46 Version: b09m126ee29375fq7qva
         2019-08-28 12:26:51     MESSAGE_BATCH
         2019-08-28 12:26:51     [

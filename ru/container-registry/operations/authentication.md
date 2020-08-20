@@ -135,29 +135,31 @@ Docker Engine может хранить учетные данные пользо
 
 В роли Docker Credential helper для Яндекс.Облака выступает программа `docker-credential-yc`. Она хранит учетные данные пользователя и позволяет работать с приватными реестрами Яндекс.Облака, не выполняя команду `docker login`. Этот способ аутентификации поддерживает использование от имени пользователя и от имени сервисного аккаунта. Для работы с `docker-credential-yc` вам понадобится интерфейс командной строки Облака: [YC CLI](../../cli/quickstart.md).
 
-### Настройка Credential helper {#ch-setting}
-
-{% note warning %}
-
 Устанавливать `docker-credential-yc` отдельно не требуется, достаточно установить YC CLI и сконфигурировать Credential helper, как описано ниже.
 
-{% endnote %}
+### Настройка Credential helper {#ch-setting}
 
 1. Если у вас еще нет профиля для YC CLI, [создайте его](../../cli/quickstart.md#initialize).
 1. Сконфигурируйте Docker для использования `docker-credential-yc`:
 
-    ```
+    ```bash
     $ yc container registry configure-docker
     Credential helper is configured in '/home/<user>/.docker/config.json'
     ```
 
-    При конфигурации сохраняется информация о текущем профиле пользователя.
+    Настройки сохраняются в профиле текущего пользователя.
+
+    {% note warning %}
+
+    Credential helper работает только при использовании Docker без `sudo`. О том, как настроить запуск Docker от имени текущего пользователя без использования `sudo` читайте в [официальной документации](https://h.yandex-team.ru/?https%3A%2F%2Fdocs.docker.com%2Fengine%2Finstall%2Flinux-postinstall%2F%23manage-docker-as-a-non-root-user).
+
+    {% endnote %}
 
 1. Проверьте, что Docker сконфигурирован.
 
     В конфигурационном файле `/home/<user>/.docker/config.json` должна появиться строка:
 
-    ```
+    ```json
     "cr.yandex": "yc"
     ```
 

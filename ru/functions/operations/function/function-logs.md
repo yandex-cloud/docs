@@ -35,7 +35,10 @@
     1. Посмотрите журнал выполнения функции:
 
         ```
-        $ yc serverless function logs my-python-function
+        $ yc serverless function logs <имя функции>
+        ```
+        Результат:
+        ```
         2019-07-04 09:27:43     START RequestID: 34dc9533-ed6e-4468-b9f2-2aa082266fad Version: b09i2s85a0c1fisjboft
         2019-07-04 09:27:43     END RequestID: 34dc9533-ed6e-4468-b9f2-2aa082266fad
         2019-07-04 09:27:43     REPORT RequestID: 34dc9533-ed6e-4468-b9f2-2aa082266fad Duration: 538.610 ms Billed Duration: 538.700 ms Memory Size: 128 MB Max Memory Used: 13 MB

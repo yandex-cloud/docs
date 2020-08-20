@@ -13,7 +13,14 @@ A set of methods for managing devices.
   "name": "string",
   "description": "string",
   "topicAliases": "object",
-  "status": "string"
+  "status": "string",
+  "monitoringData": {
+    "lastAuthIp": "string",
+    "lastAuthTime": "string",
+    "lastPubActivityTime": "string",
+    "lastSubActivityTime": "string",
+    "lastOnlineTime": "string"
+  }
 }
 ```
  
@@ -26,6 +33,12 @@ name | **string**<br><p>Name of the device. The name is unique within the regist
 description | **string**<br><p>Description of the device. 0-256 characters long.</p> 
 topicAliases | **object**<br><p>Alias of a device topic.</p> <p>Alias is an alternate name of a device topic assigned by the user. Map alias to canonical topic name prefix, e.g. <code>my/custom/alias</code> match to <code>$device/abcdef/events</code>.</p> 
 status | **string**<br><p>Status of the device.</p> <ul> <li>CREATING: Device is being created.</li> <li>ACTIVE: Device is ready to use.</li> <li>DELETING: Device is being deleted.</li> </ul> 
+monitoringData | **object**<br><p>Device monitoring data, returns if FULL view specified.</p> 
+monitoringData.<br>lastAuthIp | **string**<br>
+monitoringData.<br>lastAuthTime | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+monitoringData.<br>lastPubActivityTime | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+monitoringData.<br>lastSubActivityTime | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+monitoringData.<br>lastOnlineTime | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 
 ## Methods {#methods}
 Method | Description

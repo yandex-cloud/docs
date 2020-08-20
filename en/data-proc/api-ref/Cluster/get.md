@@ -52,7 +52,8 @@ clusterId | Required. ID of the Data Proc cluster.  To get a cluster ID make a [
   "status": "string",
   "zoneId": "string",
   "serviceAccountId": "string",
-  "bucket": "string"
+  "bucket": "string",
+  "uiProxy": true
 }
 ```
 A Data Proc cluster. For details about the concept, see [documentation](/docs/data-proc/concepts/).
@@ -80,3 +81,4 @@ status | **string**<br><p>Cluster status.</p> <ul> <li>STATUS_UNKNOWN: Cluster s
 zoneId | **string**<br><p>ID of the availability zone where the cluster resides.</p> 
 serviceAccountId | **string**<br><p>ID of service account for the Data Proc manager agent.</p> 
 bucket | **string**<br><p>Object Storage bucket to be used for Data Proc jobs that are run in the cluster.</p> 
+uiProxy | **boolean** (boolean)<br><p>Whether UI Proxy feature is enabled.</p> 

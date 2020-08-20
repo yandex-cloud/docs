@@ -57,7 +57,8 @@ filter | A filter expression that filters clusters listed in the response.  The 
       "status": "string",
       "zoneId": "string",
       "serviceAccountId": "string",
-      "bucket": "string"
+      "bucket": "string",
+      "uiProxy": true
     }
   ],
   "nextPageToken": "string"
@@ -89,4 +90,5 @@ clusters[].<br>status | **string**<br><p>Cluster status.</p> <ul> <li>STATUS_UNK
 clusters[].<br>zoneId | **string**<br><p>ID of the availability zone where the cluster resides.</p> 
 clusters[].<br>serviceAccountId | **string**<br><p>ID of service account for the Data Proc manager agent.</p> 
 clusters[].<br>bucket | **string**<br><p>Object Storage bucket to be used for Data Proc jobs that are run in the cluster.</p> 
+clusters[].<br>uiProxy | **boolean** (boolean)<br><p>Whether UI Proxy feature is enabled.</p> 
 nextPageToken | **string**<br><p>Token for getting the next page of the list. If the number of results is greater than the specified <a href="/docs/data-proc/api-ref/Cluster/list#query_params">pageSize</a>, use <code>next_page_token</code> as the value for the <a href="/docs/data-proc/api-ref/Cluster/list#query_params">pageToken</a> parameter in the next list request.</p> <p>Each subsequent page will have its own <code>next_page_token</code> to continue paging through the results.</p> 

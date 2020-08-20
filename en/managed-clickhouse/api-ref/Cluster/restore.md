@@ -197,7 +197,9 @@ POST https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters:restore
         "textLogEnabled": true,
         "textLogRetentionSize": "integer",
         "textLogRetentionTime": "integer",
-        "textLogLevel": "string"
+        "textLogLevel": "string",
+        "backgroundPoolSize": "integer",
+        "backgroundSchedulePoolSize": "integer"
       },
       "resources": {
         "resourcePresetId": "string",
@@ -251,7 +253,7 @@ environment | **string**<br><p>Required. Deployment environment of the new Click
 configSpec | **object**<br><p>Required. Configuration for the ClickHouse cluster to be created.</p> 
 configSpec.<br>version | **string**<br><p>Version of the ClickHouse server software.</p> 
 configSpec.<br>clickhouse | **object**<br><p>Configuration and resources for a ClickHouse server.</p> 
-configSpec.<br>clickhouse.<br>config | **object**<br><p>Configuration for a ClickHouse server.</p> <p>ClickHouse configuration options. Detailed description for each set of options is available in <a href="https://clickhouse.yandex/docs/ru/operations/server_settings/settings/">ClickHouse documentation</a>.</p> <p>Any options not listed here are not supported.</p> 
+configSpec.<br>clickhouse.<br>config | **object**<br><p>Configuration for a ClickHouse server.</p> <p>ClickHouse configuration options. Detailed description for each set of options is available in <a href="https://clickhouse.yandex/docs/en/operations/server_settings/settings/">ClickHouse documentation</a>.</p> <p>Any options not listed here are not supported.</p> 
 configSpec.<br>clickhouse.<br>config.<br>logLevel | **string**<br><p>Logging level for the ClickHouse cluster. Possible values: TRACE, DEBUG, INFORMATION, WARNING, ERROR.</p> 
 configSpec.<br>clickhouse.<br>config.<br>mergeTree | **object**<br><p>Settings for the MergeTree engine. See description in <a href="https://clickhouse.yandex/docs/en/operations/server_settings/settings/#merge_tree">ClickHouse documentation</a>.</p> <p>Options specific to the MergeTree table engine.</p> 
 configSpec.<br>clickhouse.<br>config.<br>mergeTree.<br>replicatedDeduplicationWindow | **integer** (int64)<br><p>Number of blocks of hashes to keep in ZooKeeper.</p> 
@@ -382,6 +384,8 @@ configSpec.<br>clickhouse.<br>config.<br>textLogEnabled | **boolean** (boolean)<
 configSpec.<br>clickhouse.<br>config.<br>textLogRetentionSize | **integer** (int64)<br><p>The maximum size that text_log can grow to before old data will be removed. If set to 0, automatic removal of text_log data based on size is disabled.</p> 
 configSpec.<br>clickhouse.<br>config.<br>textLogRetentionTime | **integer** (int64)<br><p>The maximum time that text_log records will be retained before removal. If set to 0, automatic removal of text_log data based on time is disabled.</p> 
 configSpec.<br>clickhouse.<br>config.<br>textLogLevel | **string**<br><p>Logging level for text_log system table. Possible values: TRACE, DEBUG, INFORMATION, WARNING, ERROR.</p> 
+configSpec.<br>clickhouse.<br>config.<br>backgroundPoolSize | **integer** (int64)<br><p>Value must be greater than 0.</p> 
+configSpec.<br>clickhouse.<br>config.<br>backgroundSchedulePoolSize | **integer** (int64)<br><p>Value must be greater than 0.</p> 
 configSpec.<br>clickhouse.<br>resources | **object**<br><p>Resources allocated to ClickHouse hosts.</p> 
 configSpec.<br>clickhouse.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-clickhouse/concepts/instance-types">documentation</a></p> 
 configSpec.<br>clickhouse.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
@@ -396,11 +400,11 @@ configSpec.<br>backupWindowStart.<br>hours | **integer** (int32)<br><p>Hours of 
 configSpec.<br>backupWindowStart.<br>minutes | **integer** (int32)<br><p>Minutes of hour of day. Must be from 0 to 59.</p> 
 configSpec.<br>backupWindowStart.<br>seconds | **integer** (int32)<br><p>Seconds of minutes of the time. Must normally be from 0 to 59. An API may allow the value 60 if it allows leap-seconds.</p> 
 configSpec.<br>backupWindowStart.<br>nanos | **integer** (int32)<br><p>Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.</p> 
-configSpec.<br>access | **object**<br><p>Access policy to DB</p> 
-configSpec.<br>access.<br>dataLens | **boolean** (boolean)<br><p>Allow access for DataLens</p> 
-configSpec.<br>access.<br>webSql | **boolean** (boolean)<br><p>Allow access for Web SQL</p> 
-configSpec.<br>access.<br>metrika | **boolean** (boolean)<br><p>Allow access for Metrika</p> 
-configSpec.<br>access.<br>serverless | **boolean** (boolean)<br><p>Allow access for Serverless</p> 
+configSpec.<br>access | **object**<br><p>Access policy for external services.</p> <p>If you want a specific service to access the ClickHouse cluster, then set the necessary values in this policy.</p> 
+configSpec.<br>access.<br>dataLens | **boolean** (boolean)<br><p>Allow to export data from the cluster to Yandex DataLens.</p> 
+configSpec.<br>access.<br>webSql | **boolean** (boolean)<br><p>Allow SQL queries to the cluster databases from the Yandex.Cloud management console.</p> <p>See <a href="/docs/managed-clickhouse/operations/web-sql-query">SQL queries in the management console</a> for more details.</p> 
+configSpec.<br>access.<br>metrika | **boolean** (boolean)<br><p>Allow to import data from Yandex.Metrica and AppMetrica to the cluster.</p> <p>See <a href="https://appmetrica.yandex.com/docs/cloud/index.html">Export data to Yandex.Cloud</a> for more details.</p> 
+configSpec.<br>access.<br>serverless | **boolean** (boolean)<br><p>Allow access to cluster for Serverless.</p> 
 hostSpecs[] | **object**<br><p>Required. Configurations for ClickHouse hosts that should be created for the cluster that is being created from the backup.</p> <p>Must contain at least one element.</p> 
 hostSpecs[].<br>zoneId | **string**<br><p>ID of the availability zone where the host resides. To get a list of available zones, use the <a href="/docs/compute/api-ref/Zone/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
 hostSpecs[].<br>type | **string**<br><p>Required. Type of the host to be deployed.</p> <ul> <li>CLICKHOUSE: ClickHouse host.</li> <li>ZOOKEEPER: ZooKeeper host.</li> </ul> 

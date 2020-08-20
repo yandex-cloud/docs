@@ -128,6 +128,7 @@
         service_account_id: aje3932acd8avp6edhbt
         description: "This instance group was created from YAML config"
         instance_template:
+            service_account_id: aje3932acd8avp6edhbt # Идентификатор сервисного аккаунта для доступа к приватным Docker-образам.
             platform_id: standard-v1
             resources_spec:
                 memory: 4G

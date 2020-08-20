@@ -8,7 +8,7 @@
 
 {% endnote %}
 
-Просмотреть список доступных вам счетчиков можно перейдя по ссылке https://metrika.yandex.ru/list.
+Просмотреть список доступных вам счетчиков можно перейдя по ссылке [metrika.yandex.ru/list](https://metrika.yandex.ru/list).
     ![image](../../_assets/datalens/solution-04/01-metrica-list.png)
 
 Инструкция по созданию кластера ClickHouse вы сможете найти в [документации Managed Service for ClickHouse](../../managed-clickhouse/operations/cluster-create.md).

@@ -22,7 +22,7 @@ editable: false
 
 Возвращает указанный ресурс User для MongoDB. <br>Чтобы получить список доступных ресурсов User для MongoDB, отправьте запрос [List](#List).
 
-**rpc Get ([GetUserRequest](#GetUserRequest)) returns ([User](#User))**
+**rpc Get ([GetUserRequest](#GetUserRequest)) returns ([User](../user.proto#User))**
 
 ### GetUserRequest {#GetUserRequest}
 
@@ -38,7 +38,7 @@ user_name | **string**<br>Обязательное поле. Имя запраш
 --- | ---
 name | **string**<br>Имя пользователя базы данных MongoDB. 
 cluster_id | **string**<br>Идентификатор кластера MongoDB, к которому принадлежит пользователь. 
-permissions[] | **[Permission](#Permission)**<br>Набор разрешений, предоставленных пользователю. 
+permissions[] | **[Permission](../user.proto#Permission)**<br>Набор разрешений, предоставленных пользователю. 
 
 
 ### Permission {#Permission}
@@ -68,7 +68,7 @@ page_token | **string**<br>Токен страницы. Установите з�
 
 Поле | Описание
 --- | ---
-users[] | **[User](#User1)**<br>Список ресурсов User для MongoDB. 
+users[] | **[User](../user.proto#User1)**<br>Список ресурсов User для MongoDB. 
 next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListUsersRequest.page_size](#ListUsersRequest1), используйте `next_page_token` в качестве значения параметра [ListUsersRequest.page_token](#ListUsersRequest1) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
 
 
@@ -78,7 +78,7 @@ next_page_token | **string**<br>Токен для получения следу�
 --- | ---
 name | **string**<br>Имя пользователя базы данных MongoDB. 
 cluster_id | **string**<br>Идентификатор кластера MongoDB, к которому принадлежит пользователь. 
-permissions[] | **[Permission](#Permission1)**<br>Набор разрешений, предоставленных пользователю. 
+permissions[] | **[Permission](../user.proto#Permission1)**<br>Набор разрешений, предоставленных пользователю. 
 
 
 ### Permission {#Permission}
@@ -97,14 +97,14 @@ roles[] | **string**<br>Роли MongoDB базы данных `database_name`, 
 
 Метаданные и результат операции:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateUserMetadata](#CreateUserMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[User](#User2)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[User](../user.proto#User2)<br>
 
 ### CreateUserRequest {#CreateUserRequest}
 
 Поле | Описание
 --- | ---
 cluster_id | **string**<br>Обязательное поле. Идентификатор кластера MongoDB, для которого следует создать пользователя. Чтобы получить идентификатор кластера, используйте запрос [ClusterService.List](./cluster_service#List). false Максимальная длина строки в символах — 50.
-user_spec | **[UserSpec](#UserSpec)**<br>Свойства создаваемого пользователя. 
+user_spec | **[UserSpec](../user.proto#UserSpec)**<br>Свойства создаваемого пользователя. 
 
 
 ### UserSpec {#UserSpec}
@@ -113,7 +113,7 @@ user_spec | **[UserSpec](#UserSpec)**<br>Свойства создаваемог
 --- | ---
 name | **string**<br>Обязательное поле. Имя пользователя базы данных MongoDB. false Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_]* `.
 password | **string**<br>Обязательное поле. Пароль пользователя MongoDB. false Длина строки в символах должна быть от 8 до 128.
-permissions[] | **[Permission](#Permission2)**<br>Набор разрешений, которые следует предоставить пользователю. 
+permissions[] | **[Permission](../user.proto#Permission2)**<br>Набор разрешений, которые следует предоставить пользователю. 
 
 
 ### Permission {#Permission}
@@ -137,7 +137,7 @@ done | **bool**<br>Если значение равно `false` — операц
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateUserMetadata](#CreateUserMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
 result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[User](#User2)>**<br>в случае успешного выполнения операции. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[User](../user.proto#User2)>**<br>в случае успешного выполнения операции. 
 
 
 ### CreateUserMetadata {#CreateUserMetadata}
@@ -154,7 +154,7 @@ user_name | **string**<br>Имя создаваемого пользовател
 --- | ---
 name | **string**<br>Имя пользователя базы данных MongoDB. 
 cluster_id | **string**<br>Идентификатор кластера MongoDB, к которому принадлежит пользователь. 
-permissions[] | **[Permission](#Permission3)**<br>Набор разрешений, предоставленных пользователю. 
+permissions[] | **[Permission](../user.proto#Permission3)**<br>Набор разрешений, предоставленных пользователю. 
 
 
 ## Update {#Update}
@@ -165,7 +165,7 @@ permissions[] | **[Permission](#Permission3)**<br>Набор разрешени�
 
 Метаданные и результат операции:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateUserMetadata](#UpdateUserMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[User](#User3)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[User](../user.proto#User3)<br>
 
 ### UpdateUserRequest {#UpdateUserRequest}
 
@@ -175,7 +175,7 @@ cluster_id | **string**<br>Обязательное поле. Идентифик
 user_name | **string**<br>Обязательное поле. Имя пользователя, которого следует изменить. Чтобы получить имя пользователя, используйте запрос [UserService.List](#List). false Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_]* `.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Маска, которая указывает, какие поля ресурса User для MongoDB должны быть обновлены. 
 password | **string**<br>Новый пароль для пользователя. Длина строки в символах должна быть от 8 до 128.
-permissions[] | **[Permission](#Permission3)**<br>Новый набор разрешений для пользователя. 
+permissions[] | **[Permission](../user.proto#Permission3)**<br>Новый набор разрешений для пользователя. 
 
 
 ### Permission {#Permission}
@@ -199,7 +199,7 @@ done | **bool**<br>Если значение равно `false` — операц
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateUserMetadata](#UpdateUserMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
 result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[User](#User3)>**<br>в случае успешного выполнения операции. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[User](../user.proto#User3)>**<br>в случае успешного выполнения операции. 
 
 
 ### UpdateUserMetadata {#UpdateUserMetadata}
@@ -216,7 +216,7 @@ user_name | **string**<br>Имя изменяемого пользователя
 --- | ---
 name | **string**<br>Имя пользователя базы данных MongoDB. 
 cluster_id | **string**<br>Идентификатор кластера MongoDB, к которому принадлежит пользователь. 
-permissions[] | **[Permission](#Permission4)**<br>Набор разрешений, предоставленных пользователю. 
+permissions[] | **[Permission](../user.proto#Permission4)**<br>Набор разрешений, предоставленных пользователю. 
 
 
 ## Delete {#Delete}
@@ -269,7 +269,7 @@ user_name | **string**<br>Имя удаляемого пользователя.
 
 Метаданные и результат операции:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[GrantUserPermissionMetadata](#GrantUserPermissionMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[User](#User4)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[User](../user.proto#User4)<br>
 
 ### GrantUserPermissionRequest {#GrantUserPermissionRequest}
 
@@ -277,7 +277,7 @@ user_name | **string**<br>Имя удаляемого пользователя.
 --- | ---
 cluster_id | **string**<br>Обязательное поле. Идентификатор кластера MongoDB, к которому принадлежит пользователь. Чтобы получить идентификатор кластера, используйте запрос [ClusterService.List](./cluster_service#List). false Максимальная длина строки в символах — 50.
 user_name | **string**<br>Обязательное поле. Имя пользователя, которому следует предоставить разрешение. Чтобы получить имя пользователя, используйте запрос [UserService.List](#List). false Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_]* `.
-permission | **[Permission](#Permission4)**<br>Обязательное поле. Разрешение, которое должно быть предоставлено указанному пользователю. false
+permission | **[Permission](../user.proto#Permission4)**<br>Обязательное поле. Разрешение, которое должно быть предоставлено указанному пользователю. false
 
 
 ### Permission {#Permission}
@@ -301,7 +301,7 @@ done | **bool**<br>Если значение равно `false` — операц
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[GrantUserPermissionMetadata](#GrantUserPermissionMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
 result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[User](#User4)>**<br>в случае успешного выполнения операции. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[User](../user.proto#User4)>**<br>в случае успешного выполнения операции. 
 
 
 ### GrantUserPermissionMetadata {#GrantUserPermissionMetadata}
@@ -318,7 +318,7 @@ user_name | **string**<br>Имя пользователя, которому пр
 --- | ---
 name | **string**<br>Имя пользователя базы данных MongoDB. 
 cluster_id | **string**<br>Идентификатор кластера MongoDB, к которому принадлежит пользователь. 
-permissions[] | **[Permission](#Permission5)**<br>Набор разрешений, предоставленных пользователю. 
+permissions[] | **[Permission](../user.proto#Permission5)**<br>Набор разрешений, предоставленных пользователю. 
 
 
 ## RevokePermission {#RevokePermission}
@@ -329,7 +329,7 @@ permissions[] | **[Permission](#Permission5)**<br>Набор разрешени�
 
 Метаданные и результат операции:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[RevokeUserPermissionMetadata](#RevokeUserPermissionMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[User](#User5)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[User](../user.proto#User5)<br>
 
 ### RevokeUserPermissionRequest {#RevokeUserPermissionRequest}
 
@@ -353,7 +353,7 @@ done | **bool**<br>Если значение равно `false` — операц
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RevokeUserPermissionMetadata](#RevokeUserPermissionMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
 result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[User](#User5)>**<br>в случае успешного выполнения операции. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[User](../user.proto#User5)>**<br>в случае успешного выполнения операции. 
 
 
 ### RevokeUserPermissionMetadata {#RevokeUserPermissionMetadata}
@@ -370,6 +370,6 @@ user_name | **string**<br>Имя пользователя, чье разреше
 --- | ---
 name | **string**<br>Имя пользователя базы данных MongoDB. 
 cluster_id | **string**<br>Идентификатор кластера MongoDB, к которому принадлежит пользователь. 
-permissions[] | **[Permission](#Permission5)**<br>Набор разрешений, предоставленных пользователю. 
+permissions[] | **[Permission](../user.proto#Permission5)**<br>Набор разрешений, предоставленных пользователю. 
 
 

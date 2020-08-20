@@ -17,7 +17,7 @@ A set of methods for managing PostgreSQL Backup resources.
 
 Returns the specified PostgreSQL Backup resource. <br>To get the list of available PostgreSQL Backup resources, make a [List](#List) request.
 
-**rpc Get ([GetBackupRequest](#GetBackupRequest)) returns ([Backup](#Backup))**
+**rpc Get ([GetBackupRequest](#GetBackupRequest)) returns ([Backup](../backup.proto#Backup))**
 
 ### GetBackupRequest {#GetBackupRequest}
 
@@ -56,7 +56,7 @@ page_token | **string**<br>Page token.  To get the next page of results, Set `pa
 
 Field | Description
 --- | ---
-backups[] | **[Backup](#Backup1)**<br>List of PostgreSQL Backup resources. 
+backups[] | **[Backup](../backup.proto#Backup1)**<br>List of PostgreSQL Backup resources. 
 next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListBackupsRequest.page_size](#ListBackupsRequest1), use the `next_page_token` as the value for the [ListBackupsRequest.page_token](#ListBackupsRequest1) parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. The maximum string length in characters is 100.
 
 

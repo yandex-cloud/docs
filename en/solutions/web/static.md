@@ -1,6 +1,6 @@
 # Static website in {{ objstorage-full-name }}
 
-In this guide, you'll learn how to upload your the static HTML files of your website to [{{ objstorage-full-name }}](../../storage) storage and link your domain name to a [bucket](../../storage/concepts/bucket.md), which will store the files.
+In this guide, you'll learn how to upload your the static HTML files of your website to [{{ objstorage-full-name }}](../../storage) storage and link your domain name to a [bucket](../../storage/concepts/bucket.md) that will store the files.
 
 To host a static website in Object Storage:
 
@@ -87,10 +87,10 @@ By default, the website is accessible only over HTTP, for instance, `http://www.
 
 {% endnote %}
 
-The instructions below describe how to configure an external DNS service using [reg.ru](https://www.reg.ru/) for the `www.example.com.{{ s3-web-host }}` and `www.example.com` domain names:
+The instructions below describe how to configure an external DNS service using [reg.com](https://www.reg.com/) for the `www.example.com.{{ s3-web-host }}` and `www.example.com` domain names:
 
-1. Find the website address on the **Website** tab of the bucket page in the [консоли управления]({{ link-console-main }}).
-1. Log in to the control panel of the external DNS service. Go to the [list of your domains](https://www.reg.ru/user/domain_list) and click on the required domain name.
+1. Find the website address on the **Website** tab of the bucket page in the [management console]({{ link-console-main }}).
+1. Log in to the control panel of the external DNS service. Go to the [list of your domains](https://www.reg.com/user/domain_list) and click on the required domain name.
 1. Follow the **Zone management** link in the **Domain management** section.
 1. Create a CNAME record with the following field values:
    * **Subdomain**: `www`.

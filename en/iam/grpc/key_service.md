@@ -21,7 +21,7 @@ A set of methods for managing Key resources.
 
 Returns the specified Key resource. <br>To get the list of available Key resources, make a [List](#List) request.
 
-**rpc Get ([GetKeyRequest](#GetKeyRequest)) returns ([Key](#Key))**
+**rpc Get ([GetKeyRequest](#GetKeyRequest)) returns ([Key](../key.proto#Key))**
 
 ### GetKeyRequest {#GetKeyRequest}
 
@@ -65,7 +65,7 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 
 Field | Description
 --- | ---
-keys[] | **[Key](#Key1)**<br>List of Key resources. 
+keys[] | **[Key](../key.proto#Key1)**<br>List of Key resources. 
 next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListKeysRequest.page_size](#ListKeysRequest1), use the `next_page_token` as the value for the [ListKeysRequest.page_token](#ListKeysRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
@@ -96,14 +96,14 @@ Field | Description
 service_account_id | **string**<br>ID of the service account to create a key pair for. To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/grpc/service_account_service#List) request. If not specified, it defaults to the subject that made the request. The maximum string length in characters is 50.
 description | **string**<br>Description of the key pair. The maximum string length in characters is 256.
 format | enum **KeyFormat**<br>Output format of the key. <ul><li>`PEM_FILE`: Privacy-Enhanced Mail (PEM) format. Default value.</li><ul/>
-key_algorithm | **[Key.Algorithm](#Key2)**<br>An algorithm used to generate a key pair of the Key resource. 
+key_algorithm | **[Key.Algorithm](../key.proto#Key2)**<br>An algorithm used to generate a key pair of the Key resource. 
 
 
 ### CreateKeyResponse {#CreateKeyResponse}
 
 Field | Description
 --- | ---
-key | **[Key](#Key2)**<br>Key resource. 
+key | **[Key](../key.proto#Key2)**<br>Key resource. 
 private_key | **string**<br>A private key of the Key resource. This key must be stored securely. 
 
 
@@ -129,7 +129,7 @@ Updates the specified key pair.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateKeyMetadata](#UpdateKeyMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Key](#Key3)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Key](../key.proto#Key3)<br>
 
 ### UpdateKeyRequest {#UpdateKeyRequest}
 
@@ -153,7 +153,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateKeyMetadata](#UpdateKeyMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Key](#Key3)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Key](../key.proto#Key3)>**<br>if operation finished successfully. 
 
 
 ### UpdateKeyMetadata {#UpdateKeyMetadata}

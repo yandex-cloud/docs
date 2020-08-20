@@ -22,7 +22,7 @@ A set of methods for managing PostgreSQL User resources.
 
 Returns the specified PostgreSQL User resource. <br>To get the list of available PostgreSQL User resources, make a [List](#List) request.
 
-**rpc Get ([GetUserRequest](#GetUserRequest)) returns ([User](#User))**
+**rpc Get ([GetUserRequest](#GetUserRequest)) returns ([User](../user.proto#User))**
 
 ### GetUserRequest {#GetUserRequest}
 
@@ -38,9 +38,9 @@ Field | Description
 --- | ---
 name | **string**<br>Name of the PostgreSQL user. 
 cluster_id | **string**<br>ID of the PostgreSQL cluster the user belongs to. 
-permissions[] | **[Permission](#Permission)**<br>Set of permissions granted to the user. 
+permissions[] | **[Permission](../user.proto#Permission)**<br>Set of permissions granted to the user. 
 conn_limit | **int64**<br>Number of database connections available to the user. 
-settings | **[UserSettings](#UserSettings)**<br>Postgresql settings for this user 
+settings | **[UserSettings](../user.proto#UserSettings)**<br>Postgresql settings for this user 
 login | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>User can login (default True) 
 grants[] | **string**<br>User grants (GRANT <role> TO <user>), role must be other user The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-zA-Z0-9_]* `.
 
@@ -83,7 +83,7 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 
 Field | Description
 --- | ---
-users[] | **[User](#User1)**<br>List of PostgreSQL User resources. 
+users[] | **[User](../user.proto#User1)**<br>List of PostgreSQL User resources. 
 next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListUsersRequest.page_size](#ListUsersRequest1), use the `next_page_token` as the value for the [ListUsersRequest.page_token](#ListUsersRequest1) parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
@@ -93,9 +93,9 @@ Field | Description
 --- | ---
 name | **string**<br>Name of the PostgreSQL user. 
 cluster_id | **string**<br>ID of the PostgreSQL cluster the user belongs to. 
-permissions[] | **[Permission](#Permission1)**<br>Set of permissions granted to the user. 
+permissions[] | **[Permission](../user.proto#Permission1)**<br>Set of permissions granted to the user. 
 conn_limit | **int64**<br>Number of database connections available to the user. 
-settings | **[UserSettings](#UserSettings1)**<br>Postgresql settings for this user 
+settings | **[UserSettings](../user.proto#UserSettings1)**<br>Postgresql settings for this user 
 login | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>User can login (default True) 
 grants[] | **string**<br>User grants (GRANT <role> TO <user>), role must be other user The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-zA-Z0-9_]* `.
 
@@ -127,14 +127,14 @@ Creates a PostgreSQL user in the specified cluster.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateUserMetadata](#CreateUserMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[User](#User2)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[User](../user.proto#User2)<br>
 
 ### CreateUserRequest {#CreateUserRequest}
 
 Field | Description
 --- | ---
 cluster_id | **string**<br>Required. ID of the PostgreSQL cluster to create a user in. To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request. false The maximum string length in characters is 50.
-user_spec | **[UserSpec](#UserSpec)**<br>Required. Properties of the user to be created. false
+user_spec | **[UserSpec](../user.proto#UserSpec)**<br>Required. Properties of the user to be created. false
 
 
 ### UserSpec {#UserSpec}
@@ -143,9 +143,9 @@ Field | Description
 --- | ---
 name | **string**<br>Required. Name of the PostgreSQL user. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
 password | **string**<br>Required. Password of the PostgreSQL user. false The string length in characters must be 8-128.
-permissions[] | **[Permission](#Permission2)**<br>Set of permissions to grant to the user. 
+permissions[] | **[Permission](../user.proto#Permission2)**<br>Set of permissions to grant to the user. 
 conn_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Number of database connections that should be available to the user. The minimum value is 10.
-settings | **[UserSettings](#UserSettings2)**<br>Postgresql settings for this user 
+settings | **[UserSettings](../user.proto#UserSettings2)**<br>Postgresql settings for this user 
 login | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>User can login (default True) 
 grants[] | **string**<br>User grants (GRANT <role> TO <user>), role must be other user The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-zA-Z0-9_]* `.
 
@@ -182,7 +182,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateUserMetadata](#CreateUserMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[User](#User2)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[User](../user.proto#User2)>**<br>if operation finished successfully. 
 
 
 ### CreateUserMetadata {#CreateUserMetadata}
@@ -199,9 +199,9 @@ Field | Description
 --- | ---
 name | **string**<br>Name of the PostgreSQL user. 
 cluster_id | **string**<br>ID of the PostgreSQL cluster the user belongs to. 
-permissions[] | **[Permission](#Permission3)**<br>Set of permissions granted to the user. 
+permissions[] | **[Permission](../user.proto#Permission3)**<br>Set of permissions granted to the user. 
 conn_limit | **int64**<br>Number of database connections available to the user. 
-settings | **[UserSettings](#UserSettings3)**<br>Postgresql settings for this user 
+settings | **[UserSettings](../user.proto#UserSettings3)**<br>Postgresql settings for this user 
 login | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>User can login (default True) 
 grants[] | **string**<br>User grants (GRANT <role> TO <user>), role must be other user The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-zA-Z0-9_]* `.
 
@@ -214,7 +214,7 @@ Updates the specified PostgreSQL user.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateUserMetadata](#UpdateUserMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[User](#User3)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[User](../user.proto#User3)<br>
 
 ### UpdateUserRequest {#UpdateUserRequest}
 
@@ -224,9 +224,9 @@ cluster_id | **string**<br>Required. ID of the PostgreSQL cluster the user belon
 user_name | **string**<br>Required. Name of the user to be updated. To get the name of the user use a [UserService.List](#List) request. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the PostgreSQL User resource should be updated. 
 password | **string**<br>New password for the user. The string length in characters must be 8-128.
-permissions[] | **[Permission](#Permission3)**<br>New set of permissions for the user. 
+permissions[] | **[Permission](../user.proto#Permission3)**<br>New set of permissions for the user. 
 conn_limit | **int64**<br>Number of connections that should be available to the user. The minimum value is 10.
-settings | **[UserSettings](#UserSettings3)**<br>Postgresql settings for this user 
+settings | **[UserSettings](../user.proto#UserSettings3)**<br>Postgresql settings for this user 
 login | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>User can login (default True) 
 grants[] | **string**<br>User grants (GRANT <role> TO <user>), role must be other user The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-zA-Z0-9_]* `.
 
@@ -263,7 +263,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateUserMetadata](#UpdateUserMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[User](#User3)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[User](../user.proto#User3)>**<br>if operation finished successfully. 
 
 
 ### UpdateUserMetadata {#UpdateUserMetadata}
@@ -280,9 +280,9 @@ Field | Description
 --- | ---
 name | **string**<br>Name of the PostgreSQL user. 
 cluster_id | **string**<br>ID of the PostgreSQL cluster the user belongs to. 
-permissions[] | **[Permission](#Permission4)**<br>Set of permissions granted to the user. 
+permissions[] | **[Permission](../user.proto#Permission4)**<br>Set of permissions granted to the user. 
 conn_limit | **int64**<br>Number of database connections available to the user. 
-settings | **[UserSettings](#UserSettings4)**<br>Postgresql settings for this user 
+settings | **[UserSettings](../user.proto#UserSettings4)**<br>Postgresql settings for this user 
 login | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>User can login (default True) 
 grants[] | **string**<br>User grants (GRANT <role> TO <user>), role must be other user The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-zA-Z0-9_]* `.
 
@@ -337,7 +337,7 @@ Grants permission to the specified PostgreSQL user.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[GrantUserPermissionMetadata](#GrantUserPermissionMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[User](#User4)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[User](../user.proto#User4)<br>
 
 ### GrantUserPermissionRequest {#GrantUserPermissionRequest}
 
@@ -345,7 +345,7 @@ Field | Description
 --- | ---
 cluster_id | **string**<br>Required. ID of the PostgreSQL cluster the user belongs to. To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request. false The maximum string length in characters is 50.
 user_name | **string**<br>Required. Name of the user to grant the permission to. To get the name of the user, use a [UserService.List](#List) request. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
-permission | **[Permission](#Permission4)**<br>Required. Permission that should be granted to the specified user. false
+permission | **[Permission](../user.proto#Permission4)**<br>Required. Permission that should be granted to the specified user. false
 
 
 ### Permission {#Permission}
@@ -368,7 +368,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[GrantUserPermissionMetadata](#GrantUserPermissionMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[User](#User4)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[User](../user.proto#User4)>**<br>if operation finished successfully. 
 
 
 ### GrantUserPermissionMetadata {#GrantUserPermissionMetadata}
@@ -385,9 +385,9 @@ Field | Description
 --- | ---
 name | **string**<br>Name of the PostgreSQL user. 
 cluster_id | **string**<br>ID of the PostgreSQL cluster the user belongs to. 
-permissions[] | **[Permission](#Permission5)**<br>Set of permissions granted to the user. 
+permissions[] | **[Permission](../user.proto#Permission5)**<br>Set of permissions granted to the user. 
 conn_limit | **int64**<br>Number of database connections available to the user. 
-settings | **[UserSettings](#UserSettings4)**<br>Postgresql settings for this user 
+settings | **[UserSettings](../user.proto#UserSettings4)**<br>Postgresql settings for this user 
 login | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>User can login (default True) 
 grants[] | **string**<br>User grants (GRANT <role> TO <user>), role must be other user The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-zA-Z0-9_]* `.
 
@@ -400,7 +400,7 @@ Revokes permission from the specified PostgreSQL user.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[RevokeUserPermissionMetadata](#RevokeUserPermissionMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[User](#User5)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[User](../user.proto#User5)<br>
 
 ### RevokeUserPermissionRequest {#RevokeUserPermissionRequest}
 
@@ -424,7 +424,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RevokeUserPermissionMetadata](#RevokeUserPermissionMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[User](#User5)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[User](../user.proto#User5)>**<br>if operation finished successfully. 
 
 
 ### RevokeUserPermissionMetadata {#RevokeUserPermissionMetadata}
@@ -441,9 +441,9 @@ Field | Description
 --- | ---
 name | **string**<br>Name of the PostgreSQL user. 
 cluster_id | **string**<br>ID of the PostgreSQL cluster the user belongs to. 
-permissions[] | **[Permission](#Permission5)**<br>Set of permissions granted to the user. 
+permissions[] | **[Permission](../user.proto#Permission5)**<br>Set of permissions granted to the user. 
 conn_limit | **int64**<br>Number of database connections available to the user. 
-settings | **[UserSettings](#UserSettings4)**<br>Postgresql settings for this user 
+settings | **[UserSettings](../user.proto#UserSettings4)**<br>Postgresql settings for this user 
 login | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>User can login (default True) 
 grants[] | **string**<br>User grants (GRANT <role> TO <user>), role must be other user The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-zA-Z0-9_]* `.
 

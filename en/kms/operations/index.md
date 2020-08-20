@@ -12,3 +12,7 @@
 - [{#T}](version.md#make-primary)
 - [{#T}](version.md#delete)
 
+## Data encryption {#encrypt}
+
+- [{#T}](encryption.md).
+

@@ -27,6 +27,27 @@
 
 {% list tabs %}
 
+- Консоль управления
+
+   Чтобы создать триггер:
+
+   1. В [консоли управления](https://console.cloud.yandex.ru/) выберите каталог, в котором вы хотите создать триггер.
+   1. Выберите сервис **{{ sf-name }}**.
+   1. В левой части окна выберите раздел **Триггеры**.
+   1. Нажмите кнопку **Создать триггер**.
+   1. В поле **Имя** введите имя триггера.
+   1. В выпадающем списке **Тип** выберите `Yandex IoT Core`.
+   1. В блоке **Настройки сообщений Yandex IoT Core** введите ранее заданные параметры вашего реестра и устройства:
+      - **Реестр**: выберите реестр с нужным устройством.
+      - **Устройство**: выберите нужное устройство.
+      - **MQTT-топик** введите топик, для которого вы хотите создать триггер.
+   1. В блоке **Настройки функции** введите ранее заданные параметры вашей функции:
+      - **Функция**: выберите нужную функцию.
+      - **Сервисный аккаунт**: выберите сервисный аккаунт для выполнения функции.
+   1. Нажмите кнопку "Создать триггер"
+
+   Триггер будет создан и отобразится в таблице в разделе **Триггеры**.
+
 - CLI
 
     {% include [cli-install](../../_includes/cli-install.md) %}
@@ -43,13 +64,16 @@
     - `--invoke-function-service-account-id` — сервисный аккаунт с правами на вызов функции. 
            
     ```
-    $ yc serverless trigger create internet-of-things 
-        --name iot-trigger \
-        --registry-id arenou2oj4ct42eq8g3n \
-        --device-id areqjd6un3afc3cefcvm \
-        --mqtt-topic '$devices/areqjd6un3afc3cefcvm/events' \
-        --invoke-function-id d4eofc7n0m03lmudse8l \
-        --invoke-function-service-account-id aje3932acd0c5ur7dagp
+    $ yc serverless trigger create internet-of-things \
+        --name <имя триггера> \
+        --registry-id <идентификатор реестра> \
+        --device-id <идентификатор устройства> \
+        --mqtt-topic '$devices/<идентификатор устройства>/events' \
+        --invoke-function-id <идентификатор функции> \
+        --invoke-function-service-account-id <идентификатор сервисного аккаунта>
+    ```
+    Результат:
+    ```
     id: a1sl0mkmimfj3uv52fr8
     folder_id: b1g88tflru0ek1omtsu0
     created_at: "2019-09-25T13:54:35.654935Z"
@@ -65,7 +89,8 @@
           service_account_id: aje3932acd0c5ur7dagp
           retry_settings:
             retry_attempts: "1"
-            interval: 10s   
+            interval: 10s
+    status: ACTIVE
     ```
     
 {% endlist %}
@@ -77,8 +102,10 @@
 1. Посмотрите логи функции, в них должна отображаться информация о вызове функции. В данном примере функция выводит информацию об обработанных сообщениях. 
 
     ```
-    $ yc serverless function logs b09e5lu91ta21vdrrgma
-    
+    $ yc serverless function logs <идентификатор функции>
+    ```
+    Результат:
+    ```    
     2019-09-25 14:00:00     MESSAGE_BATCH
     2019-09-25 14:00:00     {
     2019-09-25 14:00:00       "event_metadata": {

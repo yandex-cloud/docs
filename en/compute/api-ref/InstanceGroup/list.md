@@ -53,6 +53,7 @@ view | Defines which information about the Instance template should be returned 
             "description": "string",
             "typeId": "string",
             "size": "string",
+            "preserveAfterInstanceDelete": true,
 
             // `instanceGroups[].instanceTemplate.bootDiskSpec.diskSpec` includes only one of the fields `imageId`, `snapshotId`
             "imageId": "string",
@@ -70,6 +71,7 @@ view | Defines which information about the Instance template should be returned 
               "description": "string",
               "typeId": "string",
               "size": "string",
+              "preserveAfterInstanceDelete": true,
 
               // `instanceGroups[].instanceTemplate.secondaryDiskSpecs[].diskSpec` includes only one of the fields `imageId`, `snapshotId`
               "imageId": "string",
@@ -254,6 +256,7 @@ instanceGroups[].<br>instanceTemplate.<br>bootDiskSpec.<br>diskSpec | **object**
 instanceGroups[].<br>instanceTemplate.<br>bootDiskSpec.<br>diskSpec.<br>description | **string**<br><p>Description of the disk.</p> <p>The maximum string length in characters is 256.</p> 
 instanceGroups[].<br>instanceTemplate.<br>bootDiskSpec.<br>diskSpec.<br>typeId | **string**<br><p>Required. ID of the disk type.</p> 
 instanceGroups[].<br>instanceTemplate.<br>bootDiskSpec.<br>diskSpec.<br>size | **string** (int64)<br><p>Size of the disk, specified in bytes.</p> <p>Acceptable values are 4194304 to 4398046511104, inclusive.</p> 
+instanceGroups[].<br>instanceTemplate.<br>bootDiskSpec.<br>diskSpec.<br>preserveAfterInstanceDelete | **boolean** (boolean)<br><p>When set to true, disk will not be deleted even after managed instance is deleted. It will be a user's responsibility to delete such disks.</p> 
 instanceGroups[].<br>instanceTemplate.<br>bootDiskSpec.<br>diskSpec.<br>imageId | **string** <br>`instanceGroups[].instanceTemplate.bootDiskSpec.diskSpec` includes only one of the fields `imageId`, `snapshotId`<br><br><p>ID of the image that will be used for disk creation.</p> <p>The maximum string length in characters is 50.</p> 
 instanceGroups[].<br>instanceTemplate.<br>bootDiskSpec.<br>diskSpec.<br>snapshotId | **string** <br>`instanceGroups[].instanceTemplate.bootDiskSpec.diskSpec` includes only one of the fields `imageId`, `snapshotId`<br><br><p>ID of the snapshot that will be used for disk creation.</p> <p>The maximum string length in characters is 50.</p> 
 instanceGroups[].<br>instanceTemplate.<br>bootDiskSpec.<br>diskId | **string**<br><p>Set to use an existing disk. To set use variables.</p> <p>The maximum string length in characters is 128. Value must match the regular expression <code>[-a-zA-Z0-9._{}]*</code>.</p> 
@@ -264,6 +267,7 @@ instanceGroups[].<br>instanceTemplate.<br>secondaryDiskSpecs[].<br>diskSpec | **
 instanceGroups[].<br>instanceTemplate.<br>secondaryDiskSpecs[].<br>diskSpec.<br>description | **string**<br><p>Description of the disk.</p> <p>The maximum string length in characters is 256.</p> 
 instanceGroups[].<br>instanceTemplate.<br>secondaryDiskSpecs[].<br>diskSpec.<br>typeId | **string**<br><p>Required. ID of the disk type.</p> 
 instanceGroups[].<br>instanceTemplate.<br>secondaryDiskSpecs[].<br>diskSpec.<br>size | **string** (int64)<br><p>Size of the disk, specified in bytes.</p> <p>Acceptable values are 4194304 to 4398046511104, inclusive.</p> 
+instanceGroups[].<br>instanceTemplate.<br>secondaryDiskSpecs[].<br>diskSpec.<br>preserveAfterInstanceDelete | **boolean** (boolean)<br><p>When set to true, disk will not be deleted even after managed instance is deleted. It will be a user's responsibility to delete such disks.</p> 
 instanceGroups[].<br>instanceTemplate.<br>secondaryDiskSpecs[].<br>diskSpec.<br>imageId | **string** <br>`instanceGroups[].instanceTemplate.secondaryDiskSpecs[].diskSpec` includes only one of the fields `imageId`, `snapshotId`<br><br><p>ID of the image that will be used for disk creation.</p> <p>The maximum string length in characters is 50.</p> 
 instanceGroups[].<br>instanceTemplate.<br>secondaryDiskSpecs[].<br>diskSpec.<br>snapshotId | **string** <br>`instanceGroups[].instanceTemplate.secondaryDiskSpecs[].diskSpec` includes only one of the fields `imageId`, `snapshotId`<br><br><p>ID of the snapshot that will be used for disk creation.</p> <p>The maximum string length in characters is 50.</p> 
 instanceGroups[].<br>instanceTemplate.<br>secondaryDiskSpecs[].<br>diskId | **string**<br><p>Set to use an existing disk. To set use variables.</p> <p>The maximum string length in characters is 128. Value must match the regular expression <code>[-a-zA-Z0-9._{}]*</code>.</p> 
@@ -319,8 +323,8 @@ instanceGroups[].<br>scalePolicy.<br>autoScale.<br>customRules[].<br>labels | **
 instanceGroups[].<br>scalePolicy.<br>autoScale.<br>customRules[].<br>target | **number** (double)<br><p>Target value for the custom metric. Instance Groups maintains this level for each availability zone.</p> <p>Value must be greater than 0.</p> 
 instanceGroups[].<br>deployPolicy | **object**<br><p>Deployment policy of the instance group.</p> 
 instanceGroups[].<br>deployPolicy.<br>maxUnavailable | **string** (int64)<br><p>The maximum number of running instances that can be taken offline (i.e., stopped or deleted) at the same time during the update process. If <code>maxExpansion</code> is not specified or set to zero, <code>maxUnavailable</code> must be set to a non-zero value.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
-instanceGroups[].<br>deployPolicy.<br>maxDeleting | **string** (int64)<br><p>The maximum number of instances that can be deleted at the same time.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
-instanceGroups[].<br>deployPolicy.<br>maxCreating | **string** (int64)<br><p>The maximum number of instances that can be created at the same time.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+instanceGroups[].<br>deployPolicy.<br>maxDeleting | **string** (int64)<br><p>The maximum number of instances that can be deleted at the same time.</p> <p>The value 0 is any number of virtual machines within the allowed values.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+instanceGroups[].<br>deployPolicy.<br>maxCreating | **string** (int64)<br><p>The maximum number of instances that can be created at the same time.</p> <p>The value 0 is any number of virtual machines within the allowed values.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
 instanceGroups[].<br>deployPolicy.<br>maxExpansion | **string** (int64)<br><p>The maximum number of instances that can be temporarily allocated above the group's target size during the update process. If <code>maxUnavailable</code> is not specified or set to zero, <code>maxExpansion</code> must be set to a non-zero value.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
 instanceGroups[].<br>deployPolicy.<br>startupDuration | **string**<br><p>Instance startup duration. Instance will be considered up and running (and start receiving traffic) only after startup_duration has elapsed and all health checks are passed. See <code>ManagedInstanceStatus</code> for more information.</p> <p>Acceptable values are 0 seconds to 3600 seconds, inclusive.</p> 
 instanceGroups[].<br>allocationPolicy | **object**<br><p>Allocation policy of the instance group by zones and regions.</p> 

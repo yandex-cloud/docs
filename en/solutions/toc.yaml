@@ -19,8 +19,14 @@ items:
         href: web/wordpress.md
       - name: WordPress website on a MySQL database
         href: web/wordpress-mysql.md
+      - name: 1C-Bitrix website
+        href: web/bitrix-website.md
   - name: Online stores
     items:
+      - name: All tutorials
+        href: internet-store/index.md
+      - name: 1C-Bitrix online store
+        href: internet-store/bitrix-shop.md
       - name: Opencart online store
         href: internet-store/opencart.md
   - name: Data archive
@@ -39,6 +45,8 @@ items:
         href: archive/object-storage-duplicati.md
       - name: Backup to Object Storage via Bacula
         href: archive/backup-with-bacula.md
+      - name: Configuring an SFTP server on Centos 7
+        href: archive/backup-and-archive-to-sftp.md
       - name: Digitizing archives in Yandex Vision
         href: archive/archive-from-vision-to-object-storage.md
   - name: Test environment
@@ -49,7 +57,7 @@ items:
         href: testing/gitlab.md
       - name: Creating test VMs using GitLab CI
         href: testing/ci-for-snapshots.md
-      - name: High-performance computing (HPC) on preemptible VMs
+      - name: High-performance computing on preemptible VMs
         href: testing/hpc-on-preemptible.md
   - name: Performing infrastructure management
     items:
@@ -65,19 +73,25 @@ items:
         href: infrastructure-management/jenkins.md
       - name: Continuous deployment of containerized applications using GitLab
         href: infrastructure-management/gitlab-containers.md
+      - name: >-
+          Creating a cluster of 1C:Enterprise Linux servers with a Managed
+          Service for PostgreSQL cluster
+        href: infrastructure-management/1c-postgresql-linux.md
+      - name: 'Creating a cluster of 1C:Enterprise Windows servers with MS SQL Server'
+        href: infrastructure-management/1c-mssql-windows.md
       - name: Migrating to Yandex.Cloud using Hystax Acura
         href: infrastructure-management/hystax-migration.md
-      - name: Emergency recovery in Yandex.Cloud using Hystax Acura
+      - name: Emergency recovery to Yandex.Cloud using Hystax Acura
         href: infrastructure-management/hystax-disaster-recovery.md
   - name: Windows in Yandex.Cloud
     items:
       - name: All tutorials
         href: windows/index.md
-      - name: Active Directory Deployment
+      - name: Deploying Active Directory
         href: windows/active-directory.md
       - name: Deploying Microsoft Exchange
         href: windows/exchange.md
-      - name: Deploying Microsoft Remote Desktop Services
+      - name: Deploying Remote Desktop Services
         href: windows/rds.md
   - name: Network routing
     items:
@@ -91,6 +105,8 @@ items:
         href: routing/cisco.md
       - name: Installing a Mikrotik CHR virtual router
         href: routing/mikrotik.md
+      - name: Creating a VPN connection using OpenVPN
+        href: routing/openvpn.md
   - name: DataLens
     items:
       - name: All tutorials
@@ -107,3 +123,5 @@ items:
         href: datalens/data-from-csv-to-public-visualization.md
       - name: Visualizing data from AppMetrica
         href: datalens/data-from-appmetrica-visualization.md
+      - name: Visualizing geodata from a CSV file
+        href: datalens/data-from-csv-geo-visualization.md

@@ -82,14 +82,16 @@
     - Вызовите функцию, указав в параметре имя для приветствия:
 
         ```
-        $ yc serverless function invoke b09bhaokchn9pnbrlseb -d '{"queryStringParameters": {"name": "Username"}}'
-    
+        $ yc serverless function invoke <идентификатор функции> -d '{"queryStringParameters": {"name": "Username"}}'
+        ```
+        Результат:
+        ```    
         {"statusCode": 200, "headers": {"Content-Type": "text/plain"}, "isBase64Encoded": false, "body": "Hello, Username!"}
         ```
     - Вызовите определенную версию функции с помощью тега:
     
         ```
-        $ yc serverless function invoke b09bhaokchn9pnbrlseb --tag <тег версии функции>
+        $ yc serverless function invoke <идентификатор функции> --tag <тег версии функции>
         ```
 
 {% endlist %}
