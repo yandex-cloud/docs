@@ -92,7 +92,16 @@ view | Defines which information about the Instance resource should be returned 
     "type": "string"
   },
   "placementPolicy": {
-    "placementGroupId": "string"
+    "placementGroupId": "string",
+    "hostAffinityRules": [
+      {
+        "key": "string",
+        "op": "string",
+        "values": [
+          "string"
+        ]
+      }
+    ]
   }
 }
 ```
@@ -148,3 +157,7 @@ networkSettings | **object**<br><p>Network Settings</p>
 networkSettings.<br>type | **string**<br><p>Network Type</p> <ul> <li>STANDARD: Standard network.</li> <li>SOFTWARE_ACCELERATED: Software accelerated network.</li> <li>HARDWARE_ACCELERATED: Hardware accelerated network (not available yet, reserved for future use).</li> </ul> 
 placementPolicy | **object**<br><p>Placement policy configuration.</p> 
 placementPolicy.<br>placementGroupId | **string**<br><p>Placement group ID.</p> 
+placementPolicy.<br>hostAffinityRules[] | **object**<br><p>Affinitity definition</p> 
+placementPolicy.<br>hostAffinityRules[].<br>key | **string**<br><p>Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId'</p> 
+placementPolicy.<br>hostAffinityRules[].<br>op | **string**<br><p>Include or exclude action</p> 
+placementPolicy.<br>hostAffinityRules[].<br>values[] | **string**<br><p>Affinity value or host ID or host group ID</p> 

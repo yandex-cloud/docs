@@ -1,26 +1,61 @@
 # Релизы YC CLI
 
-## Версия 0.61.0 (03.08.20) {#latest-release}
+## Версия 0.62.0 (20.08.20) {#latest-release}
 
 ### Изменения в сервисах Облака {#services}
 
-#### {{ managed-k8s-name }} {#k8s}
+#### {{ sf-name }} {#serverless-functions}
+
+- Команда `yc serverless function version create`.
+
+    - Добавлен флаг `--source-version-id` для указания базовой версии функции.
+    - Добавлены флаги `--network-id` и `--network-name` для указания сети для версии функции, детальный список подсетей можно указать с помощью флагов `--subnet-id` и `--subnet-name`.
+
+#### Сервисы управляемых баз данных {#managed-db}
+
+**{{ mmy-name }}**
+
+- Команда `yc managed-mysql user update`
+
+    Флаг `--global-permissions` позволяет выдать привилегию `PROCESS`.
+
+**{{ mch-name }}, {{ mmy-name }}, {{ mpg-name }}, {{ mrd-name }}, {{ mmg-name }}**
+ 
+- Команда `yc <имя сервиса управляемой БД> cluster update`.
+
+    Добавлены флаги `--maintenance-window-anytime` и `--maintenance-window-weekly` для указания параметров окон обслуживания. Они будут использованы для планирования времени работ с кластером.
+    
+- Добавлена команда `yc <имя сервиса управляемой БД> cluster reschedule-maintenance` для управления запланированной задачей по обслуживанию кластера.
+
+**{{ mmg-name }}**
+
+- Команда `yc managed-mongodb cluster restore`.
+    
+    Добавлен флаг `--recovery-target-timestamp` для указания точки восстановления резервной копии.
+
+## Предыдущие релизы {#previous-releases}
+
+### Версия 0.61.0 (03.08.20) {#version0.61.0}
+
+#### Изменения в сервисах Облака {#services}
+
+##### {{ managed-k8s-name }} {#k8s}
 
 - Команда `yc managed-kubernetes cluster create`.
 
   Теперь значение флага `--version` корректно учитывается при создании регионального кластера.
 
-#### {{ compute-name }} {#compute}
+##### {{ compute-name }} {#compute}
 
 - Команда `yc compute instance update-network-interface`.
-   
+
    Флаг `--security-group-id` теперь принимает список значений, разделенных запятыми.
 
 - Команды `yc compute instance create-with-container` и `yc compute instance update-container`.
-    
+
    Добавлен флаг `--coi-spec-file` для передачи [спецификации образа](https://cloud.yandex.ru/docs/cos/concepts/#spec-example).
 
-#### {{ vpc-name }} {#vpc}
+##### {{ vpc-name }} {#vpc}
 
 - Команды `yc vpc subnet create` и `yc vpc subnet update`.
 
@@ -29,8 +64,6 @@
 - Добавлена команда `yc vpc subnet list-used-addresses`.
 
    Команда выводит список используемых в подсети адресов.
-  
-## Предыдущие релизы {#previous-releases}
 
 ### Версия 0.60.0 (20.07.20) {#version0.60.0}
 
@@ -46,14 +79,14 @@
 
 - Команда `yc serverless function logs`.
 
-    Использование флага `--follow` теперь гарантирует получение журналов выполнения самой свежей версии функции с переданным тегом. 
+    Использование флага `--follow` теперь гарантирует получение журналов выполнения самой свежей версии функции с переданным тегом.
 
 ##### Сервисы управляемых баз данных {#managed-db}
 
 **{{ mch-name }}**
 
 * Команды `yc managed-clickhouse cluster create`, `yc managed-clickhouse cluster update` и `yc managed-clickhouse cluster restore`
-    
+
     Добавлен флаг `--service account` для выбора сервисного аккаунта, привязанного к хостам.
 * Добавлены команды для управления группами шардов `yc managed-clickhouse shard-groups`.
 
@@ -165,7 +198,7 @@
 **{{ mch-name }}, {{ mpg-name }}, {{ mmy-name }}**
 
 * Команда `yc <имя сервиса управляемой БД> host list`.
- 
+
     В выводе появился столбец со значениями `assign_public_ip`.
 
 **{{ mrd-name }}**
@@ -173,11 +206,11 @@
 * Команда `yc managed-redis host list`.
 
     В выводе появились столбцы со значениями `type` и `shard_name`.
-    
+
 ##### {{ coi }} {#coi}
 
 * Команды `yc compute instance create-with-container` и `yc compute instance update-container`.
- 
+
   При передаче файла с переменными окружения через флаг `--container-env-file` корректно обрабатываются символы `=` в значениях переменных.
 
 ### Версия 0.55.0 (13.04.20) {#version0.55.0}

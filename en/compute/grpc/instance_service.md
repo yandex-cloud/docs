@@ -133,6 +133,16 @@ type | enum **[Type](./disk_type#undefined)**<br>Network Type <ul><li>`STANDARD`
 Field | Description
 --- | ---
 placement_group_id | **string**<br>Placement group ID. 
+host_affinity_rules[] | **[HostAffinityRule](../instance.proto#HostAffinityRule)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
+
+
+### HostAffinityRule {#HostAffinityRule}
+
+Field | Description
+--- | ---
+key | **string**<br>Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId' 
+op | enum **Operator**<br>Include or exclude action <ul><ul/>
+values[] | **string**<br>Affinity value or host ID or host group ID 
 
 
 ## List {#List}
@@ -251,6 +261,16 @@ type | enum **[Type](./disk_type#undefined)**<br>Network Type <ul><li>`STANDARD`
 Field | Description
 --- | ---
 placement_group_id | **string**<br>Placement group ID. 
+host_affinity_rules[] | **[HostAffinityRule](../instance.proto#HostAffinityRule1)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
+
+
+### HostAffinityRule {#HostAffinityRule}
+
+Field | Description
+--- | ---
+key | **string**<br>Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId' 
+op | enum **Operator**<br>Include or exclude action <ul><ul/>
+values[] | **string**<br>Affinity value or host ID or host group ID 
 
 
 ## Create {#Create}
@@ -365,6 +385,16 @@ type | enum **[Type](./disk_type#undefined)**<br>Network Type <ul><li>`STANDARD`
 Field | Description
 --- | ---
 placement_group_id | **string**<br>Placement group ID. 
+host_affinity_rules[] | **[HostAffinityRule](../instance.proto#HostAffinityRule2)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
+
+
+### HostAffinityRule {#HostAffinityRule}
+
+Field | Description
+--- | ---
+key | **string**<br>Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId' 
+op | enum **Operator**<br>Include or exclude action <ul><ul/>
+values[] | **string**<br>Affinity value or host ID or host group ID 
 
 
 ### Operation {#Operation}
@@ -464,6 +494,16 @@ type | enum **[Type](./disk_type#undefined)**<br>Network Type <ul><li>`STANDARD`
 Field | Description
 --- | ---
 placement_group_id | **string**<br>Placement group ID. 
+host_affinity_rules[] | **[HostAffinityRule](../instance.proto#HostAffinityRule3)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
+
+
+### HostAffinityRule {#HostAffinityRule}
+
+Field | Description
+--- | ---
+key | **string**<br>Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId' 
+op | enum **Operator**<br>Include or exclude action <ul><ul/>
+values[] | **string**<br>Affinity value or host ID or host group ID 
 
 
 ### Operation {#Operation}
