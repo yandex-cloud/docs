@@ -1370,6 +1370,9 @@ components:
           type: object
           additionalProperties:
             type: string
+        defaultSecurityGroupId:
+          description: ID of default security group for network.
+          type: string
     Operation:
       description: An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
       type: object

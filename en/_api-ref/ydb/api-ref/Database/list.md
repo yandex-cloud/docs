@@ -56,14 +56,14 @@ pageToken | Page token. Set `page_token` to the `next_page_token` returned by a 
       "locationId": "string",
       "labels": "object",
 
-      // `databases[]` includes only one of the fields `zonalDatabase`, `regionalDatabase`, `provisionedDatabase`, `serverlessDatabase`
+      // `databases[]` includes only one of the fields `zonalDatabase`, `regionalDatabase`, `dedicatedDatabase`, `serverlessDatabase`
       "zonalDatabase": {
         "zoneId": "string"
       },
       "regionalDatabase": {
         "regionId": "string"
       },
-      "provisionedDatabase": {
+      "dedicatedDatabase": {
         "resourcePresetId": "string",
         "storageConfig": {
           "storageOptions": [
@@ -117,21 +117,21 @@ databases[].<br>subnetIds[] | **string**<br>
 databases[].<br>assignPublicIps | **boolean** (boolean)<br>
 databases[].<br>locationId | **string**<br>
 databases[].<br>labels | **object**<br>
-databases[].<br>zonalDatabase | **object**<br>deprecated field <br>`databases[]` includes only one of the fields `zonalDatabase`, `regionalDatabase`, `provisionedDatabase`, `serverlessDatabase`<br><br>
+databases[].<br>zonalDatabase | **object**<br>deprecated field <br>`databases[]` includes only one of the fields `zonalDatabase`, `regionalDatabase`, `dedicatedDatabase`, `serverlessDatabase`<br><br>
 databases[].<br>zonalDatabase.<br>zoneId | **string**<br><p>Required.</p> 
-databases[].<br>regionalDatabase | **object**<br>deprecated field <br>`databases[]` includes only one of the fields `zonalDatabase`, `regionalDatabase`, `provisionedDatabase`, `serverlessDatabase`<br><br>
+databases[].<br>regionalDatabase | **object**<br>deprecated field <br>`databases[]` includes only one of the fields `zonalDatabase`, `regionalDatabase`, `dedicatedDatabase`, `serverlessDatabase`<br><br>
 databases[].<br>regionalDatabase.<br>regionId | **string**<br><p>Required.</p> 
-databases[].<br>provisionedDatabase | **object** <br>`databases[]` includes only one of the fields `zonalDatabase`, `regionalDatabase`, `provisionedDatabase`, `serverlessDatabase`<br><br>
-databases[].<br>provisionedDatabase.<br>resourcePresetId | **string**<br>
-databases[].<br>provisionedDatabase.<br>storageConfig | **object**<br>
-databases[].<br>provisionedDatabase.<br>storageConfig.<br>storageOptions[] | **object**<br><p>Required. The minimum number of elements is 1.</p> 
-databases[].<br>provisionedDatabase.<br>storageConfig.<br>storageOptions[].<br>storageTypeId | **string**<br>
-databases[].<br>provisionedDatabase.<br>storageConfig.<br>storageOptions[].<br>groupCount | **string** (int64)<br>
-databases[].<br>provisionedDatabase.<br>scalePolicy | **object**<br>
-databases[].<br>provisionedDatabase.<br>scalePolicy.<br>fixedScale | **object**<br>
-databases[].<br>provisionedDatabase.<br>scalePolicy.<br>fixedScale.<br>size | **string** (int64)<br><p>The minimum value is 1.</p> 
-databases[].<br>provisionedDatabase.<br>networkId | **string**<br>
-databases[].<br>provisionedDatabase.<br>subnetIds[] | **string**<br>
-databases[].<br>provisionedDatabase.<br>assignPublicIps | **boolean** (boolean)<br>
-databases[].<br>serverlessDatabase | **object** <br>`databases[]` includes only one of the fields `zonalDatabase`, `regionalDatabase`, `provisionedDatabase`, `serverlessDatabase`<br><br>
+databases[].<br>dedicatedDatabase | **object** <br>`databases[]` includes only one of the fields `zonalDatabase`, `regionalDatabase`, `dedicatedDatabase`, `serverlessDatabase`<br><br>
+databases[].<br>dedicatedDatabase.<br>resourcePresetId | **string**<br>
+databases[].<br>dedicatedDatabase.<br>storageConfig | **object**<br>
+databases[].<br>dedicatedDatabase.<br>storageConfig.<br>storageOptions[] | **object**<br><p>Required. The minimum number of elements is 1.</p> 
+databases[].<br>dedicatedDatabase.<br>storageConfig.<br>storageOptions[].<br>storageTypeId | **string**<br>
+databases[].<br>dedicatedDatabase.<br>storageConfig.<br>storageOptions[].<br>groupCount | **string** (int64)<br>
+databases[].<br>dedicatedDatabase.<br>scalePolicy | **object**<br>
+databases[].<br>dedicatedDatabase.<br>scalePolicy.<br>fixedScale | **object**<br>
+databases[].<br>dedicatedDatabase.<br>scalePolicy.<br>fixedScale.<br>size | **string** (int64)<br><p>The minimum value is 1.</p> 
+databases[].<br>dedicatedDatabase.<br>networkId | **string**<br>
+databases[].<br>dedicatedDatabase.<br>subnetIds[] | **string**<br>
+databases[].<br>dedicatedDatabase.<br>assignPublicIps | **boolean** (boolean)<br>
+databases[].<br>serverlessDatabase | **object** <br>`databases[]` includes only one of the fields `zonalDatabase`, `regionalDatabase`, `dedicatedDatabase`, `serverlessDatabase`<br><br>
 nextPageToken | **string**<br><p>This token allows you to get the next page of results for ListDatabases requests, if the number of results is larger than <code>page_size</code> specified in the request. To get the next page, specify the value of <code>next_page_token</code> as a value for the <code>page_token</code> parameter in the next ListDatabases request. Subsequent ListDatabases requests will have their own <code>next_page_token</code> to continue paging through the results.</p> 

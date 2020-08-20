@@ -13,8 +13,6 @@ A set of methods for managing ElasticSearch clusters.
 | [Create](#Create) | Creates an ElasticSearch cluster. |
 | [Update](#Update) | Updates the specified ElasticSearch cluster. |
 | [Delete](#Delete) | Deletes the specified ElasticSearch cluster. |
-| [Backup](#Backup) | Create a backup for the specified ElasticSearch cluster. |
-| [Restore](#Restore) | Creates a new ElasticSearch cluster from the specified backup. |
 | [Move](#Move) | Moves the specified ElasticSearch cluster to the specified folder. |
 | [Start](#Start) | Start the specified ElasticSearch cluster. |
 | [Stop](#Stop) | Stop the specified ElasticSearch cluster. |
@@ -425,183 +423,15 @@ Field | Description
 cluster_id | **string**<br>ID of the ElasticSearch cluster that is being deleted. 
 
 
-## Backup {#Backup}
-
-Create a backup for the specified ElasticSearch cluster.
-
-**rpc Backup ([BackupClusterRequest](#BackupClusterRequest)) returns ([operation.Operation](#Operation3))**
-
-Metadata and response of Operation:<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[BackupClusterMetadata](#BackupClusterMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](../cluster.proto#Cluster4)<br>
-
-### BackupClusterRequest {#BackupClusterRequest}
-
-Field | Description
---- | ---
-cluster_id | **string**<br>Required. Required. ID of the ElasticSearch cluster to back up. false The maximum string length in characters is 50.
-
-
-### Operation {#Operation}
-
-Field | Description
---- | ---
-id | **string**<br>ID of the operation. 
-description | **string**<br>Description of the operation. 0-256 characters long. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
-created_by | **string**<br>ID of the user or service account who initiated the operation. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
-done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[BackupClusterMetadata](#BackupClusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
-result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](../cluster.proto#Cluster4)>**<br>if operation finished successfully. 
-
-
-### BackupClusterMetadata {#BackupClusterMetadata}
-
-Field | Description
---- | ---
-cluster_id | **string**<br>Required. ID of the ElasticSearch cluster. 
-
-
-### Cluster {#Cluster}
-
-Field | Description
---- | ---
-id | **string**<br>ID of the ElasticSearch cluster. This ID is assigned by MDB at creation time. 
-folder_id | **string**<br>ID of the folder that the ElasticSearch cluster belongs to. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
-name | **string**<br>Name of the ElasticSearch cluster. The name is unique within the folder. 1-63 characters long. 
-description | **string**<br>Description of the ElasticSearch cluster. 0-256 characters long. 
-labels | **map<string,string>**<br>Custom labels for the ElasticSearch cluster as `` key:value `` pairs. Maximum 64 per resource. 
-environment | enum **Environment**<br>Deployment environment of the ElasticSearch cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
-monitoring[] | **[Monitoring](../cluster.proto#Monitoring2)**<br>Description of monitoring systems relevant to the ElasticSearch cluster. 
-config | **[ClusterConfig](../cluster.proto#ClusterConfig2)**<br>Configuration of the ElasticSearch cluster. 
-network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](../cluster.proto#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](../cluster.proto#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](../cluster.proto#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](../cluster.proto#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
-status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
-
-
-## Restore {#Restore}
-
-Creates a new ElasticSearch cluster from the specified backup.
-
-**rpc Restore ([RestoreClusterRequest](#RestoreClusterRequest)) returns ([operation.Operation](#Operation4))**
-
-Metadata and response of Operation:<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[RestoreClusterMetadata](#RestoreClusterMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](../cluster.proto#Cluster5)<br>
-
-### RestoreClusterRequest {#RestoreClusterRequest}
-
-Field | Description
---- | ---
-backup_id | **string**<br>Required. Required. ID of the backup to restore from. false
-name | **string**<br>Required. Required. Name of the new ElasticSearch cluster. The name must be unique within the folder. The name must be 1-63 characters long and match the regular expression `^[a-zA-Z0-9_-]+$`. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
-description | **string**<br>Description of the new ElasticSearch cluster. 0-256 characters long. The maximum string length in characters is 256.
-labels | **map<string,string>**<br> No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
-environment | **[Cluster.Environment](../cluster.proto#Cluster5)**<br>Required. Deployment environment of the new ElasticSearch cluster. false
-config_spec | **[ConfigSpec](#ConfigSpec2)**<br>Required.  false
-host_specs[] | **[HostSpec](#HostSpec1)**<br> The number of elements must be greater than 0.
-network_id | **string**<br>Required.  false The maximum string length in characters is 50.
-folder_id | **string**<br> The maximum string length in characters is 50.
-
-
-### ConfigSpec {#ConfigSpec}
-
-Field | Description
---- | ---
-version | **string**<br>ElasticSearch version. 
-elasticsearch_spec | **[ElasticsearchSpec](#ElasticsearchSpec2)**<br> 
-
-
-### ElasticsearchSpec {#ElasticsearchSpec}
-
-Field | Description
---- | ---
-data_node | **[DataNode](../cluster.proto#DataNode4)**<br> 
-master_node | **[MasterNode](../cluster.proto#MasterNode4)**<br> 
-
-
-### DataNode {#DataNode}
-
-Field | Description
---- | ---
-config | **oneof:** `elasticsearch_config_7_6`<br>
-&nbsp;&nbsp;elasticsearch_config_7_6 | **[config.ElasticsearchConfig7_6](#ElasticsearchConfig7_6)**<br> 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to data node hosts. 
-
-
-### MasterNode {#MasterNode}
-
-Field | Description
---- | ---
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to master node hosts. 
-
-
-### HostSpec {#HostSpec}
-
-Field | Description
---- | ---
-zone_id | **string**<br>ID of the availability zone. The maximum string length in characters is 50.
-subnet_id | **string**<br> The maximum string length in characters is 50.
-assign_public_ip | **bool**<br> 
-type | **[Host.Type](../cluster.proto#Host)**<br>Required.  false
-shard_name | **string**<br> The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
-
-
-### Operation {#Operation}
-
-Field | Description
---- | ---
-id | **string**<br>ID of the operation. 
-description | **string**<br>Description of the operation. 0-256 characters long. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
-created_by | **string**<br>ID of the user or service account who initiated the operation. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
-done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RestoreClusterMetadata](#RestoreClusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
-result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](../cluster.proto#Cluster5)>**<br>if operation finished successfully. 
-
-
-### RestoreClusterMetadata {#RestoreClusterMetadata}
-
-Field | Description
---- | ---
-cluster_id | **string**<br>Required. ID of the new ElasticSearch cluster. 
-backup_id | **string**<br>Required. ID of the backup used for recovery. 
-
-
-### Cluster {#Cluster}
-
-Field | Description
---- | ---
-id | **string**<br>ID of the ElasticSearch cluster. This ID is assigned by MDB at creation time. 
-folder_id | **string**<br>ID of the folder that the ElasticSearch cluster belongs to. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
-name | **string**<br>Name of the ElasticSearch cluster. The name is unique within the folder. 1-63 characters long. 
-description | **string**<br>Description of the ElasticSearch cluster. 0-256 characters long. 
-labels | **map<string,string>**<br>Custom labels for the ElasticSearch cluster as `` key:value `` pairs. Maximum 64 per resource. 
-environment | enum **Environment**<br>Deployment environment of the ElasticSearch cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
-monitoring[] | **[Monitoring](../cluster.proto#Monitoring2)**<br>Description of monitoring systems relevant to the ElasticSearch cluster. 
-config | **[ClusterConfig](../cluster.proto#ClusterConfig2)**<br>Configuration of the ElasticSearch cluster. 
-network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](../cluster.proto#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](../cluster.proto#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](../cluster.proto#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](../cluster.proto#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
-status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
-
-
 ## Move {#Move}
 
 Moves the specified ElasticSearch cluster to the specified folder.
 
-**rpc Move ([MoveClusterRequest](#MoveClusterRequest)) returns ([operation.Operation](#Operation5))**
+**rpc Move ([MoveClusterRequest](#MoveClusterRequest)) returns ([operation.Operation](#Operation3))**
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[MoveClusterMetadata](#MoveClusterMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](../cluster.proto#Cluster6)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](../cluster.proto#Cluster4)<br>
 
 ### MoveClusterRequest {#MoveClusterRequest}
 
@@ -624,7 +454,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[MoveClusterMetadata](#MoveClusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](../cluster.proto#Cluster6)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](../cluster.proto#Cluster4)>**<br>if operation finished successfully. 
 
 
 ### MoveClusterMetadata {#MoveClusterMetadata}
@@ -658,11 +488,11 @@ status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOW
 
 Start the specified ElasticSearch cluster.
 
-**rpc Start ([StartClusterRequest](#StartClusterRequest)) returns ([operation.Operation](#Operation6))**
+**rpc Start ([StartClusterRequest](#StartClusterRequest)) returns ([operation.Operation](#Operation4))**
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[StartClusterMetadata](#StartClusterMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](../cluster.proto#Cluster7)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](../cluster.proto#Cluster5)<br>
 
 ### StartClusterRequest {#StartClusterRequest}
 
@@ -684,7 +514,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[StartClusterMetadata](#StartClusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](../cluster.proto#Cluster7)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](../cluster.proto#Cluster5)>**<br>if operation finished successfully. 
 
 
 ### StartClusterMetadata {#StartClusterMetadata}
@@ -716,11 +546,11 @@ status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOW
 
 Stop the specified ElasticSearch cluster.
 
-**rpc Stop ([StopClusterRequest](#StopClusterRequest)) returns ([operation.Operation](#Operation7))**
+**rpc Stop ([StopClusterRequest](#StopClusterRequest)) returns ([operation.Operation](#Operation5))**
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[StopClusterMetadata](#StopClusterMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](../cluster.proto#Cluster8)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](../cluster.proto#Cluster6)<br>
 
 ### StopClusterRequest {#StopClusterRequest}
 
@@ -742,7 +572,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[StopClusterMetadata](#StopClusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](../cluster.proto#Cluster8)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](../cluster.proto#Cluster6)>**<br>if operation finished successfully. 
 
 
 ### StopClusterMetadata {#StopClusterMetadata}
@@ -859,7 +689,7 @@ page_token | **string**<br>Page token.  To get the next page of results, set `pa
 
 Field | Description
 --- | ---
-operations[] | **[operation.Operation](#Operation8)**<br>List of Operation resources for the specified ElasticSearch cluster. 
+operations[] | **[operation.Operation](#Operation6)**<br>List of Operation resources for the specified ElasticSearch cluster. 
 next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterOperationsRequest.page_size](#ListClusterOperationsRequest1), use the `next_page_token` as the value for the [ListClusterOperationsRequest.page_token](#ListClusterOperationsRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
@@ -938,7 +768,7 @@ health | enum **Health**<br>Status code of server availability. <ul><li>`UNKNOWN
 
 Creates new hosts.
 
-**rpc AddHosts ([AddClusterHostsRequest](#AddClusterHostsRequest)) returns ([operation.Operation](#Operation9))**
+**rpc AddHosts ([AddClusterHostsRequest](#AddClusterHostsRequest)) returns ([operation.Operation](#Operation7))**
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[AddClusterHostsMetadata](#AddClusterHostsMetadata)<br>
@@ -949,7 +779,7 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 cluster_id | **string**<br>Required. Required. ID of the ElasticSearch cluster. false The maximum string length in characters is 50.
-host_specs[] | **[HostSpec](#HostSpec2)**<br>Required. The number of elements must be greater than 0.
+host_specs[] | **[HostSpec](#HostSpec1)**<br>Required. The number of elements must be greater than 0.
 
 
 ### HostSpec {#HostSpec}
@@ -991,7 +821,7 @@ host_names[] | **string**<br>Required. The name of adding host.
 
 Deletes specified hosts.
 
-**rpc DeleteHosts ([DeleteClusterHostsRequest](#DeleteClusterHostsRequest)) returns ([operation.Operation](#Operation10))**
+**rpc DeleteHosts ([DeleteClusterHostsRequest](#DeleteClusterHostsRequest)) returns ([operation.Operation](#Operation8))**
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[DeleteClusterHostsMetadata](#DeleteClusterHostsMetadata)<br>

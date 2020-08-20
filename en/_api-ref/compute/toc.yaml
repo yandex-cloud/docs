@@ -25,6 +25,34 @@ items:
         href: api-ref/DiskType/get.md
       - name: list
         href: api-ref/DiskType/list.md
+  - name: HostGroup
+    items:
+      - name: Overview
+        href: api-ref/HostGroup/index.md
+      - name: create
+        href: api-ref/HostGroup/create.md
+      - name: delete
+        href: api-ref/HostGroup/delete.md
+      - name: get
+        href: api-ref/HostGroup/get.md
+      - name: list
+        href: api-ref/HostGroup/list.md
+      - name: listHosts
+        href: api-ref/HostGroup/listHosts.md
+      - name: listInstances
+        href: api-ref/HostGroup/listInstances.md
+      - name: listOperations
+        href: api-ref/HostGroup/listOperations.md
+      - name: update
+        href: api-ref/HostGroup/update.md
+  - name: HostType
+    items:
+      - name: Overview
+        href: api-ref/HostType/index.md
+      - name: get
+        href: api-ref/HostType/get.md
+      - name: list
+        href: api-ref/HostType/list.md
   - name: Image
     items:
       - name: Overview

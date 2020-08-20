@@ -41,14 +41,14 @@ POST https://ydb.api.cloud.yandex.net/ydb/v1/databases
   "locationId": "string",
   "labels": "object",
 
-  //  includes only one of the fields `zonalDatabase`, `regionalDatabase`, `provisionedDatabase`, `serverlessDatabase`
+  //  includes only one of the fields `zonalDatabase`, `regionalDatabase`, `dedicatedDatabase`, `serverlessDatabase`
   "zonalDatabase": {
     "zoneId": "string"
   },
   "regionalDatabase": {
     "regionId": "string"
   },
-  "provisionedDatabase": {
+  "dedicatedDatabase": {
     "resourcePresetId": "string",
     "storageConfig": {
       "storageOptions": [
@@ -94,23 +94,23 @@ subnetIds[] | **string**<br>
 assignPublicIps | **boolean** (boolean)<br>
 locationId | **string**<br>
 labels | **object**<br>
-zonalDatabase | **object**<br>deprecated field <br> includes only one of the fields `zonalDatabase`, `regionalDatabase`, `provisionedDatabase`, `serverlessDatabase`<br><br>
+zonalDatabase | **object**<br>deprecated field <br> includes only one of the fields `zonalDatabase`, `regionalDatabase`, `dedicatedDatabase`, `serverlessDatabase`<br><br>
 zonalDatabase.<br>zoneId | **string**<br><p>Required.</p> 
-regionalDatabase | **object**<br>deprecated field <br> includes only one of the fields `zonalDatabase`, `regionalDatabase`, `provisionedDatabase`, `serverlessDatabase`<br><br>
+regionalDatabase | **object**<br>deprecated field <br> includes only one of the fields `zonalDatabase`, `regionalDatabase`, `dedicatedDatabase`, `serverlessDatabase`<br><br>
 regionalDatabase.<br>regionId | **string**<br><p>Required.</p> 
-provisionedDatabase | **object** <br> includes only one of the fields `zonalDatabase`, `regionalDatabase`, `provisionedDatabase`, `serverlessDatabase`<br><br>
-provisionedDatabase.<br>resourcePresetId | **string**<br>
-provisionedDatabase.<br>storageConfig | **object**<br>
-provisionedDatabase.<br>storageConfig.<br>storageOptions[] | **object**<br><p>Required. The minimum number of elements is 1.</p> 
-provisionedDatabase.<br>storageConfig.<br>storageOptions[].<br>storageTypeId | **string**<br>
-provisionedDatabase.<br>storageConfig.<br>storageOptions[].<br>groupCount | **string** (int64)<br>
-provisionedDatabase.<br>scalePolicy | **object**<br>
-provisionedDatabase.<br>scalePolicy.<br>fixedScale | **object**<br>
-provisionedDatabase.<br>scalePolicy.<br>fixedScale.<br>size | **string** (int64)<br><p>The minimum value is 1.</p> 
-provisionedDatabase.<br>networkId | **string**<br>
-provisionedDatabase.<br>subnetIds[] | **string**<br>
-provisionedDatabase.<br>assignPublicIps | **boolean** (boolean)<br>
-serverlessDatabase | **object** <br> includes only one of the fields `zonalDatabase`, `regionalDatabase`, `provisionedDatabase`, `serverlessDatabase`<br><br>
+dedicatedDatabase | **object** <br> includes only one of the fields `zonalDatabase`, `regionalDatabase`, `dedicatedDatabase`, `serverlessDatabase`<br><br>
+dedicatedDatabase.<br>resourcePresetId | **string**<br>
+dedicatedDatabase.<br>storageConfig | **object**<br>
+dedicatedDatabase.<br>storageConfig.<br>storageOptions[] | **object**<br><p>Required. The minimum number of elements is 1.</p> 
+dedicatedDatabase.<br>storageConfig.<br>storageOptions[].<br>storageTypeId | **string**<br>
+dedicatedDatabase.<br>storageConfig.<br>storageOptions[].<br>groupCount | **string** (int64)<br>
+dedicatedDatabase.<br>scalePolicy | **object**<br>
+dedicatedDatabase.<br>scalePolicy.<br>fixedScale | **object**<br>
+dedicatedDatabase.<br>scalePolicy.<br>fixedScale.<br>size | **string** (int64)<br><p>The minimum value is 1.</p> 
+dedicatedDatabase.<br>networkId | **string**<br>
+dedicatedDatabase.<br>subnetIds[] | **string**<br>
+dedicatedDatabase.<br>assignPublicIps | **boolean** (boolean)<br>
+serverlessDatabase | **object** <br> includes only one of the fields `zonalDatabase`, `regionalDatabase`, `dedicatedDatabase`, `serverlessDatabase`<br><br>
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

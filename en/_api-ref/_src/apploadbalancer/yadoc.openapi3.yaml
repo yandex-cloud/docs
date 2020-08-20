@@ -1625,9 +1625,9 @@ components:
         type: object
         maxProperties: 1
         properties:
-          targetGroup:
-            $ref: '#/components/schemas/TargetGroupBackend'
-            description: References target group for the backend.
+          targetGroups:
+            $ref: '#/components/schemas/TargetGroupsBackend'
+            description: References target groups for the backend.
     GrpcBackendGroup:
       type: object
       properties:
@@ -1856,9 +1856,9 @@ components:
         type: object
         maxProperties: 1
         properties:
-          targetGroup:
-            $ref: '#/components/schemas/TargetGroupBackend'
-            description: References target group for the backend.
+          targetGroups:
+            $ref: '#/components/schemas/TargetGroupsBackend'
+            description: References target groups for the backend.
     HttpBackendGroup:
       type: object
       properties:
@@ -2492,12 +2492,16 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Target'
-    TargetGroupBackend:
+    TargetGroupsBackend:
       type: object
       properties:
-        targetGroupId:
-          description: Required.
-          type: string
+        targetGroupIds:
+          description: |-
+            Required.
+            Must contain at least one element.
+          type: array
+          items:
+            type: string
     TargetState:
       type: object
       properties:

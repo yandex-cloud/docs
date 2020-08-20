@@ -41,6 +41,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Имя облачной сети. Имя должно быть уникальным в каталоге. Длина имени должна быть от 3 до 63 символов. 
 description | **string**<br>Описание облачной сети. Длина описания должна быть от 0 до 256 символов. 
 labels | **map<string,string>**<br>Метки ресурса в формате `` ключ:значение ``. Максимум 64 метки на ресурс. 
+default_security_group_id | **string**<br>Идентификатор группы безопасности по умолчанию. 
 
 
 ## List {#List}
@@ -77,6 +78,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Имя облачной сети. Имя должно быть уникальным в каталоге. Длина имени должна быть от 3 до 63 символов. 
 description | **string**<br>Описание облачной сети. Длина описания должна быть от 0 до 256 символов. 
 labels | **map<string,string>**<br>Метки ресурса в формате `` ключ:значение ``. Максимум 64 метки на ресурс. 
+default_security_group_id | **string**<br>Идентификатор группы безопасности по умолчанию. 
 
 
 ## Create {#Create}
@@ -132,6 +134,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Имя облачной сети. Имя должно быть уникальным в каталоге. Длина имени должна быть от 3 до 63 символов. 
 description | **string**<br>Описание облачной сети. Длина описания должна быть от 0 до 256 символов. 
 labels | **map<string,string>**<br>Метки ресурса в формате `` ключ:значение ``. Максимум 64 метки на ресурс. 
+default_security_group_id | **string**<br>Идентификатор группы безопасности по умолчанию. 
 
 
 ## Update {#Update}
@@ -188,6 +191,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Имя облачной сети. Имя должно быть уникальным в каталоге. Длина имени должна быть от 3 до 63 символов. 
 description | **string**<br>Описание облачной сети. Длина описания должна быть от 0 до 256 символов. 
 labels | **map<string,string>**<br>Метки ресурса в формате `` ключ:значение ``. Максимум 64 метки на ресурс. 
+default_security_group_id | **string**<br>Идентификатор группы безопасности по умолчанию. 
 
 
 ## Delete {#Delete}

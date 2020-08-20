@@ -1,0 +1,2860 @@
+openapi: "3.0"
+info:
+  title: Yandex Managed Service for SQLServer API
+  description: This API reference is organized by resource. Actions are performed
+    by sending HTTP requests to resource URLs or making RPC calls. For more information
+    about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
+  version: v1
+  x-y-docUri: api-ref
+  x-y-baseUrl: https://mdb.api.cloud.yandex.net
+paths:
+  /mdb/sqlserver/v1alpha/backups/{backupId}:
+    get:
+      tags:
+      - Backup
+      summary: Returns the specified SQLServer backup.
+      description: To get the list of available SQLServer backups, make a [list](/docs/managed-sqlserver/api-ref/Backup/list)
+        request.
+      operationId: BackupGet
+      parameters:
+      - name: backupId
+        in: path
+        description: |-
+          Required.
+          ID of the backup to return information about.
+          To get the backup ID, use a [listBackups](/docs/managed-sqlserver/api-ref/Cluster/listBackups) request.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Backup'
+      x-y-navtitle: get
+  /mdb/sqlserver/v1alpha/backups:
+    get:
+      tags:
+      - Backup
+      summary: Retrieves the list of SQLServer backups available for the specified
+        folder.
+      operationId: BackupList
+      parameters:
+      - name: folderId
+        in: query
+        description: |-
+          Required.
+          ID of the folder to list backups in.
+          To get the folder ID, use a [yandex.cloud.resourcemanager.v1alpha.FolderService.List] request.
+
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/managed-sqlserver/api-ref/Backup/list#query_params), the service returns a [nextPageToken](/docs/managed-sqlserver/api-ref/Backup/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token.  To get the next page of results, Set [pageToken](/docs/managed-sqlserver/api-ref/Backup/list#query_params) to the [nextPageToken](/docs/managed-sqlserver/api-ref/Backup/list#responses)
+          returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListBackupsResponse'
+      x-y-navtitle: list
+  /mdb/sqlserver/v1alpha/clusters/{clusterId}:
+    get:
+      tags:
+      - Cluster
+      summary: Returns the specified sqlserver cluster.
+      description: To get the list of available sqlserver clusters, make a [list](/docs/managed-sqlserver/api-ref/Cluster/list)
+        request.
+      operationId: ClusterGet
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the sqlserver cluster to return.
+          To get the cluster ID use a [list](/docs/managed-sqlserver/api-ref/Cluster/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cluster'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - Cluster
+      summary: Deletes the specified sqlserver cluster.
+      operationId: ClusterDelete
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the sqlserver cluster to delete.
+          To get the sqlserver cluster ID, use a [list](/docs/managed-sqlserver/api-ref/Cluster/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteClusterMetadata'
+      x-y-operation-response: Empty
+    patch:
+      tags:
+      - Cluster
+      summary: Modifies the specified sqlserver cluster.
+      operationId: ClusterUpdate
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the sqlserver cluster to update.
+          To get the sqlserver cluster ID, use a [list](/docs/managed-sqlserver/api-ref/Cluster/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateClusterRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateClusterMetadata'
+      x-y-operation-response: '[Cluster](/docs/managed-sqlserver/api-ref/Cluster#representation)'
+  /mdb/sqlserver/v1alpha/clusters:
+    get:
+      tags:
+      - Cluster
+      summary: Retrieves the list of sqlserver clusters that belong to the specified
+        folder.
+      operationId: ClusterList
+      parameters:
+      - name: folderId
+        in: query
+        description: |-
+          Required.
+          ID of the folder to list sqlserver clusters in.
+          To get the folder ID, use a [yandex.cloud.resourcemanager.v1alpha.FolderService.List] request.
+
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/managed-sqlserver/api-ref/Cluster/list#query_params), the service returns a [nextPageToken](/docs/managed-sqlserver/api-ref/Cluster/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
+
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/managed-sqlserver/api-ref/Cluster/list#query_params) to the [nextPageToken](/docs/managed-sqlserver/api-ref/Cluster/list#responses)
+          returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          A filter expression that filters resources listed in the response.
+          The expression must specify:
+          1. The field name. Currently you can only use filtering with the [Cluster.name](/docs/managed-sqlserver/api-ref/Cluster#representation) field.
+          2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
+          3. The value. Мust be 1-63 characters long and match the regular expression `^[a-zA-Z0-9_-]+$`.
+
+          The maximum string length in characters is 1000.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListClustersResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - Cluster
+      summary: Creates a sqlserver cluster in the specified folder.
+      operationId: ClusterCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateClusterRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateClusterMetadata'
+      x-y-operation-response: '[Cluster](/docs/managed-sqlserver/api-ref/Cluster#representation)'
+  /mdb/sqlserver/v1alpha/clusters/{clusterId}:start:
+    post:
+      tags:
+      - Cluster
+      summary: Starts the specified sqlserver cluster.
+      operationId: ClusterStart
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the sqlserver cluster to start.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: start
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/StartClusterMetadata'
+      x-y-operation-response: '[Cluster](/docs/managed-sqlserver/api-ref/Cluster#representation)'
+  /mdb/sqlserver/v1alpha/clusters/{clusterId}:stop:
+    post:
+      tags:
+      - Cluster
+      summary: Stops the specified sqlserver cluster.
+      operationId: ClusterStop
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the sqlserver cluster to stop.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: stop
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/StopClusterMetadata'
+      x-y-operation-response: '[Cluster](/docs/managed-sqlserver/api-ref/Cluster#representation)'
+  /mdb/sqlserver/v1alpha/clusters/{clusterId}:move:
+    post:
+      tags:
+      - Cluster
+      summary: Moves the specified sqlserver cluster to the specified folder.
+      operationId: ClusterMove
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the sqlserver cluster to move.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MoveClusterRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: move
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/MoveClusterMetadata'
+      x-y-operation-response: '[Cluster](/docs/managed-sqlserver/api-ref/Cluster#representation)'
+  /mdb/sqlserver/v1alpha/clusters/{clusterId}:backup:
+    post:
+      tags:
+      - Cluster
+      summary: Creates a backup for the specified sqlserver cluster.
+      operationId: ClusterBackup
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the sqlserver cluster to back up.
+          To get the sqlserver cluster ID, use a [list](/docs/managed-sqlserver/api-ref/Cluster/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: backup
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/BackupClusterMetadata'
+      x-y-operation-response: '[Cluster](/docs/managed-sqlserver/api-ref/Cluster#representation)'
+  /mdb/sqlserver/v1alpha/clusters:restore:
+    post:
+      tags:
+      - Cluster
+      summary: Creates a new sqlserver cluster using the specified backup.
+      operationId: ClusterRestore
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RestoreClusterRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: restore
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/RestoreClusterMetadata'
+      x-y-operation-response: '[Cluster](/docs/managed-sqlserver/api-ref/Cluster#representation)'
+  /mdb/sqlserver/v1alpha/clusters/{clusterId}:logs:
+    get:
+      tags:
+      - Cluster
+      summary: |-
+        Retrieves logs for the specified sqlserver cluster.
+        For more information about logs, see the [Logs](/docs/managed-sqlserver/concepts/logs) section in the documentation.
+      operationId: ClusterListLogs
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the sqlserver cluster to request logs for.
+          To get the sqlserver cluster ID use a [list](/docs/managed-sqlserver/api-ref/Cluster/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: columnFilter
+        in: query
+        description: |-
+          Columns from the logs table to request.
+          If no columns are specified, entire log records are returned.
+        schema:
+          type: array
+          items:
+            type: string
+      - name: serviceType
+        in: query
+        description: Type of the service to request logs about.
+        schema:
+          $ref: '#/components/schemas/ListClusterLogsRequestServiceType'
+      - name: fromTime
+        in: query
+        description: |-
+          Start timestamp for the logs request.
+
+          String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+        schema:
+          type: string
+          format: date-time
+      - name: toTime
+        in: query
+        description: |-
+          End timestamp for the logs request.
+
+          String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+        schema:
+          type: string
+          format: date-time
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/managed-sqlserver/api-ref/Cluster/listLogs#query_params), the service returns a [nextPageToken](/docs/managed-sqlserver/api-ref/Cluster/listLogs#responses)
+          that can be used to get the next page of results in subsequent list requests.
+
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/managed-sqlserver/api-ref/Cluster/listLogs#query_params) to the
+          [nextPageToken](/docs/managed-sqlserver/api-ref/Cluster/listLogs#responses) returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: alwaysNextPageToken
+        in: query
+        description: Always return `next_page_token`, even if current page is empty.
+        schema:
+          type: boolean
+          format: boolean
+      - name: filter
+        in: query
+        description: |-
+          A filter expression that filters resources listed in the response.
+          The expression must specify:
+          1. The field name. Currently filtering can be applied to the [LogRecord.logs.message.hostname] field.
+          2. A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
+          3. The value. Must be 1-63 characters long and match the regular expression `^[a-z0-9.-]{1,61}$`.
+          Examples of a filter: `hostname='node1.db.cloud.yandex.net'`
+
+          The maximum string length in characters is 1000.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListClusterLogsResponse'
+      x-y-navtitle: listLogs
+  /mdb/sqlserver/v1alpha/clusters/{clusterId}/operations:
+    get:
+      tags:
+      - Cluster
+      summary: Retrieves the list of operations for the specified sqlserver cluster.
+      operationId: ClusterListOperations
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the sqlserver cluster to list operations for.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/managed-sqlserver/api-ref/Cluster/listOperations#query_params), the service returns a [nextPageToken](/docs/managed-sqlserver/api-ref/Cluster/listOperations#responses)
+          that can be used to get the next page of results in subsequent list requests.
+
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token.  To get the next page of results, set [pageToken](/docs/managed-sqlserver/api-ref/Cluster/listOperations#query_params) to the [nextPageToken](/docs/managed-sqlserver/api-ref/Cluster/listOperations#responses)
+          returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListClusterOperationsResponse'
+      x-y-navtitle: listOperations
+  /mdb/sqlserver/v1alpha/clusters/{clusterId}/backups:
+    get:
+      tags:
+      - Cluster
+      summary: Retrieves the list of available backups for the specified sqlserver
+        cluster.
+      operationId: ClusterListBackups
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the sqlserver cluster.
+          To get the sqlserver cluster ID use a [list](/docs/managed-sqlserver/api-ref/Cluster/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/managed-sqlserver/api-ref/Cluster/listBackups#query_params), the service returns a [nextPageToken](/docs/managed-sqlserver/api-ref/Cluster/listBackups#responses)
+          that can be used to get the next page of results in subsequent list requests.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token.  To get the next page of results, set [pageToken](/docs/managed-sqlserver/api-ref/Cluster/listBackups#query_params) to the [nextPageToken](/docs/managed-sqlserver/api-ref/Cluster/listBackups#responses)
+          returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListClusterBackupsResponse'
+      x-y-navtitle: listBackups
+  /mdb/sqlserver/v1alpha/clusters/{clusterId}/hosts:
+    get:
+      tags:
+      - Cluster
+      summary: Retrieves a list of hosts for the specified sqlserver cluster.
+      operationId: ClusterListHosts
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the sqlserver cluster.
+          To get the sqlserver cluster ID use a [list](/docs/managed-sqlserver/api-ref/Cluster/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/managed-sqlserver/api-ref/Cluster/listHosts#query_params), the service returns a [nextPageToken](/docs/managed-sqlserver/api-ref/Cluster/listHosts#responses)
+          that can be used to get the next page of results in subsequent list requests.
+
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token.  To get the next page of results, set [pageToken](/docs/managed-sqlserver/api-ref/Cluster/listHosts#query_params) to the [nextPageToken](/docs/managed-sqlserver/api-ref/Cluster/listHosts#responses)
+          returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListClusterHostsResponse'
+      x-y-navtitle: listHosts
+  /mdb/sqlserver/v1alpha/clusters/{clusterId}/databases/{databaseName}:
+    get:
+      tags:
+      - Database
+      summary: Returns the specified SQLServer database.
+      description: To get the list of available SQLServer databases, make a [list](/docs/managed-sqlserver/api-ref/Database/list)
+        request.
+      operationId: DatabaseGet
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the SQLServer cluster that the database belongs to.
+          To get the cluster ID use a [list](/docs/managed-sqlserver/api-ref/Cluster/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: databaseName
+        in: path
+        description: |-
+          Required.
+          Name of the SQLServer database to return.
+          To get the name of the database use a [list](/docs/managed-sqlserver/api-ref/Database/list) request.
+
+          The maximum string length in characters is 63.
+          Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Database'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - Database
+      summary: Deletes the specified SQLServer database.
+      operationId: DatabaseDelete
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          Required. ID of the SQLServer cluster to delete a database in.
+          To get the cluster ID, use a [list](/docs/managed-sqlserver/api-ref/Cluster/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: databaseName
+        in: path
+        description: |-
+          Required.
+          Required. Name of the database to delete.
+          To get the name of the database, use a [list](/docs/managed-sqlserver/api-ref/Database/list) request.
+
+          The maximum string length in characters is 63.
+          Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteDatabaseMetadata'
+      x-y-operation-response: Empty
+  /mdb/sqlserver/v1alpha/clusters/{clusterId}/databases:
+    get:
+      tags:
+      - Database
+      summary: Retrieves the list of SQLServer databases in the specified cluster.
+      operationId: DatabaseList
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the SQLServer cluster to list databases in.
+          To get the cluster ID use a [list](/docs/managed-sqlserver/api-ref/Cluster/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/managed-sqlserver/api-ref/Database/list#query_params), the service returns a [nextPageToken](/docs/managed-sqlserver/api-ref/Database/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
+
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, Set [pageToken](/docs/managed-sqlserver/api-ref/Database/list#query_params) to the [nextPageToken](/docs/managed-sqlserver/api-ref/Database/list#responses)
+          returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListDatabasesResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - Database
+      summary: Creates a new SQLServer database in the specified cluster.
+      operationId: DatabaseCreate
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the SQLServer cluster to create a database in.
+          To get the cluster ID use a [list](/docs/managed-sqlserver/api-ref/Cluster/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateDatabaseRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateDatabaseMetadata'
+      x-y-operation-response: '[Database](/docs/managed-sqlserver/api-ref/Database#representation)'
+  /mdb/sqlserver/v1alpha/operations/{operationId}:
+    get:
+      tags:
+      - Operation
+      summary: Returns the specified operation.
+      operationId: OperationGet
+      parameters:
+      - name: operationId
+        in: path
+        description: |-
+          Required.
+          Required. ID of the operation to return.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: get
+  /mdb/sqlserver/v1alpha/resourcePresets/{resourcePresetId}:
+    get:
+      tags:
+      - ResourcePreset
+      summary: Returns the specified resource preset.
+      description: To get the list of available resource presets, make a [list](/docs/managed-sqlserver/api-ref/ResourcePreset/list)
+        request.
+      operationId: ResourcePresetGet
+      parameters:
+      - name: resourcePresetId
+        in: path
+        description: |-
+          Required.
+          Required. ID of the resource preset to return.
+          To get the resource preset ID, use a [list](/docs/managed-sqlserver/api-ref/ResourcePreset/list) request.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourcePreset'
+      x-y-navtitle: get
+  /mdb/sqlserver/v1alpha/resourcePresets:
+    get:
+      tags:
+      - ResourcePreset
+      summary: Retrieves the list of available resource presets.
+      operationId: ResourcePresetList
+      parameters:
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/managed-sqlserver/api-ref/ResourcePreset/list#query_params), the service returns a [nextPageToken](/docs/managed-sqlserver/api-ref/ResourcePreset/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
+
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/managed-sqlserver/api-ref/ResourcePreset/list#query_params) to the [nextPageToken](/docs/managed-sqlserver/api-ref/ResourcePreset/list#responses)
+          returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListResourcePresetsResponse'
+      x-y-navtitle: list
+  /mdb/sqlserver/v1alpha/clusters/{clusterId}/users/{userName}:
+    get:
+      tags:
+      - User
+      summary: Returns the specified SQLServer user.
+      description: To get the list of available SQLServer users, make a [list](/docs/managed-sqlserver/api-ref/User/list)
+        request.
+      operationId: UserGet
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          Required. ID of the SQLServer cluster.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: userName
+        in: path
+        description: |-
+          Required.
+          Required.
+
+          The maximum string length in characters is 63.
+          Value must match the regular expression `` [a-zA-Z0-9_]* ``.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - User
+      summary: Deletes the specified SQLServer user.
+      operationId: UserDelete
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          Required. ID of the SQLServer cluster the user belongs to.
+          To get the cluster ID, use a [list](/docs/managed-sqlserver/api-ref/Cluster/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: userName
+        in: path
+        description: |-
+          Required.
+          Required. Name of the user to delete.
+          To get the name of the user, use a [list](/docs/managed-sqlserver/api-ref/User/list) request.
+
+          The maximum string length in characters is 63.
+          Value must match the regular expression `` [a-zA-Z0-9_]* ``.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteUserMetadata'
+      x-y-operation-response: Empty
+    patch:
+      tags:
+      - User
+      summary: Modifies the specified SQLServer user.
+      operationId: UserUpdate
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          Required. ID of the SQLServer cluster the user belongs to.
+          To get the cluster ID use a [list](/docs/managed-sqlserver/api-ref/Cluster/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: userName
+        in: path
+        description: |-
+          Required.
+          Required. Name of the user to be updated.
+          To get the name of the user use a [list](/docs/managed-sqlserver/api-ref/User/list) request.
+
+          The maximum string length in characters is 63.
+          Value must match the regular expression `` [a-zA-Z0-9_]* ``.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateUserRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateUserMetadata'
+      x-y-operation-response: '[User](/docs/managed-sqlserver/api-ref/User#representation)'
+  /mdb/sqlserver/v1alpha/clusters/{clusterId}/users:
+    get:
+      tags:
+      - User
+      summary: Retrieves a list of SQLServer users in the specified cluster.
+      operationId: UserList
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          Required. ID of the cluster to list SQLServer users in.
+          To get the cluster ID, use a [list](/docs/managed-sqlserver/api-ref/Cluster/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/managed-sqlserver/api-ref/User/list#query_params), the service returns a [nextPageToken](/docs/managed-sqlserver/api-ref/User/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
+
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/managed-sqlserver/api-ref/User/list#query_params) to the [nextPageToken](/docs/managed-sqlserver/api-ref/User/list#responses)
+          returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListUsersResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - User
+      summary: Creates a SQLServer user in the specified cluster.
+      operationId: UserCreate
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          Required. ID of the SQLServer cluster to create a user for.
+          To get the cluster ID, use a [list](/docs/managed-sqlserver/api-ref/Cluster/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateUserRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateUserMetadata'
+      x-y-operation-response: '[User](/docs/managed-sqlserver/api-ref/User#representation)'
+  /mdb/sqlserver/v1alpha/clusters/{clusterId}/users/{userName}:grantPermission:
+    post:
+      tags:
+      - User
+      summary: Grants a permission to the specified SQLServer user.
+      operationId: UserGrantPermission
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          Required. ID of the SQLServer cluster the user belongs to.
+          To get the cluster ID, use a [list](/docs/managed-sqlserver/api-ref/Cluster/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: userName
+        in: path
+        description: |-
+          Required.
+          Required. Name of the user to grant the permission to.
+          To get the name of the user, use a [list](/docs/managed-sqlserver/api-ref/User/list) request.
+
+          The maximum string length in characters is 63.
+          Value must match the regular expression `` [a-zA-Z0-9_]* ``.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GrantUserPermissionRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: grantPermission
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/GrantUserPermissionMetadata'
+      x-y-operation-response: '[User](/docs/managed-sqlserver/api-ref/User#representation)'
+  /mdb/sqlserver/v1alpha/clusters/{clusterId}/users/{userName}:revokePermission:
+    post:
+      tags:
+      - User
+      summary: Revokes a permission from the specified SQLServer user.
+      operationId: UserRevokePermission
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          Required. ID of the SQLServer cluster the user belongs to.
+          To get the cluster ID, use a [list](/docs/managed-sqlserver/api-ref/Cluster/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: userName
+        in: path
+        description: |-
+          Required.
+          Required. Name of the user to revoke a permission from.
+          To get the name of the user, use a [list](/docs/managed-sqlserver/api-ref/User/list) request.
+
+          The maximum string length in characters is 63.
+          Value must match the regular expression `` [a-zA-Z0-9_]* ``.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RevokeUserPermissionRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: revokePermission
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/RevokeUserPermissionMetadata'
+      x-y-operation-response: '[User](/docs/managed-sqlserver/api-ref/User#representation)'
+components:
+  schemas:
+    Backup:
+      description: |-
+        A SQLServer Backup resource. For more information, see
+        the [Developer's Guide](/docs/managed-sqlserver/concepts/backup).
+      type: object
+      properties:
+        id:
+          description: ID of the backup.
+          type: string
+        folderId:
+          description: ID of the folder that the backup belongs to.
+          type: string
+        createdAt:
+          description: |-
+            Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format
+            (i.e. when the backup operation was completed).
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        sourceClusterId:
+          description: ID of the SQLServer cluster that the backup was created for.
+          type: string
+        startedAt:
+          description: |-
+            Time when the backup operation was started.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+    BackupClusterMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: ID of the sqlserver cluster that is being backed up.
+          type: string
+    Cluster:
+      description: |-
+        A sqlserver cluster. For more information, see
+        the [documentation](/docs/managed-sqlserver/concepts).
+      type: object
+      properties:
+        id:
+          description: |-
+            ID of the sqlserver cluster.
+            This ID is assigned by Managed Service for sqlserver at creation time.
+          type: string
+        folderId:
+          description: ID of the folder that the sqlserver cluster belongs to.
+          type: string
+        createdAt:
+          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+            format.
+          type: string
+          format: date-time
+        name:
+          description: |-
+            Name of the sqlserver cluster.
+            The name must be unique within the folder, comply with RFC 1035
+            and be 1-63 characters long.
+          type: string
+        description:
+          description: Description of the sqlserver cluster. 0-256 characters long.
+          type: string
+        labels:
+          description: |-
+            Custom labels for the sqlserver cluster as `key:value` pairs.
+            Maximum 64 per resource.
+          type: object
+          additionalProperties:
+            type: string
+        environment:
+          $ref: '#/components/schemas/ClusterEnvironment_in_Cluster_environment'
+        monitoring:
+          description: Description of monitoring systems relevant to the sqlserver
+            cluster.
+          type: array
+          items:
+            $ref: '#/components/schemas/Monitoring'
+        config:
+          $ref: '#/components/schemas/ClusterConfig_in_Cluster_config'
+        networkId:
+          description: ID of the network that the cluster belongs to.
+          type: string
+        health:
+          $ref: '#/components/schemas/ClusterHealth_in_Cluster_health'
+        status:
+          $ref: '#/components/schemas/ClusterStatus_in_Cluster_status'
+    ClusterConfig:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          version:
+            description: Version of sqlserver server software.
+            type: string
+          resources:
+            $ref: '#/components/schemas/Resources'
+            description: Resources allocated to sqlserver hosts.
+          backupWindowStart:
+            $ref: '#/components/schemas/TimeOfDay'
+            description: Start time for the daily backup in UTC timezone
+      - title: sqlserver_config
+        type: object
+        maxProperties: 1
+        properties:
+          sqlserverConfig_2016Sp2:
+            $ref: '#/components/schemas/SQLServerConfigSet2016sp2'
+            description: Configuration of a sqlserver 2016sp2 server.
+    ClusterEnvironment:
+      description: |2-
+         - PRODUCTION: Stable environment with a conservative update policy:
+        only hotfixes are applied during regular maintenance.
+         - PRESTABLE: Environment with more aggressive update policy: new versions
+        are rolled out irrespective of backward compatibility.
+      type: string
+      enum:
+      - PRODUCTION
+      - PRESTABLE
+    ClusterHealth:
+      description: |2-
+         - HEALTH_UNKNOWN: State of the cluster is unknown (`health` for every host in the cluster is UNKNOWN).
+         - ALIVE: Cluster is alive and well (`health` for every host in the cluster is ALIVE).
+         - DEAD: Cluster is inoperable (`health` for every host in the cluster is DEAD).
+         - DEGRADED: Cluster is working below capacity (`health` for at least one host in the cluster is not ALIVE).
+      type: string
+      enum:
+      - HEALTH_UNKNOWN
+      - ALIVE
+      - DEAD
+      - DEGRADED
+      default: HEALTH_UNKNOWN
+    ClusterStatus:
+      description: |2-
+         - STATUS_UNKNOWN: Cluster state is unknown.
+         - CREATING: Cluster is being created.
+         - RUNNING: Cluster is running normally.
+         - ERROR: Cluster encountered a problem and cannot operate.
+         - UPDATING: Cluster is being updated.
+         - STOPPING: Cluster is stopping.
+         - STOPPED: Cluster stopped.
+         - STARTING: Cluster is starting.
+      type: string
+      enum:
+      - STATUS_UNKNOWN
+      - CREATING
+      - RUNNING
+      - ERROR
+      - UPDATING
+      - STOPPING
+      - STOPPED
+      - STARTING
+      default: STATUS_UNKNOWN
+    ConfigSpec:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          version:
+            description: |-
+              Version of sqlserver used in the cluster.
+              Possible values:
+              * 2016sp2
+            type: string
+          resources:
+            $ref: '#/components/schemas/Resources'
+            description: Resources allocated to sqlserver hosts.
+      - title: sqlserver_config
+        type: object
+        maxProperties: 1
+        properties:
+          sqlserverConfig_2016Sp2:
+            $ref: '#/components/schemas/SQLServerConfig2016sp2'
+            description: Configuration for a sqlserver 5.7 cluster.
+    CreateClusterMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: ID of the sqlserver cluster that is being created.
+          type: string
+    CreateClusterRequest:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            Required.
+            ID of the folder to create the sqlserver cluster in.
+
+            The maximum string length in characters is 50.
+          type: string
+        name:
+          description: |-
+            Required.
+            Name of the sqlserver cluster. The name must be unique within the folder.
+
+            The maximum string length in characters is 63.
+            Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+          type: string
+        description:
+          description: |-
+            Description of the sqlserver cluster.
+
+            The maximum string length in characters is 256.
+          type: string
+        labels:
+          description: |-
+            Custom labels for the sqlserver cluster as `key:value` pairs. Maximum 64 per resource.
+            For example, "project": "mvp" or "source": "dictionary".
+
+            No more than 64 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+        environment:
+          $ref: '#/components/schemas/ClusterEnvironment_in_CreateClusterRequest_environment'
+        configSpec:
+          $ref: '#/components/schemas/ConfigSpec_in_CreateClusterRequest_configSpec'
+        databaseSpecs:
+          description: Descriptions of databases to be created in the sqlserver cluster.
+          type: array
+          items:
+            $ref: '#/components/schemas/DatabaseSpec'
+        userSpecs:
+          description: Descriptions of database logins to be created in the sqlserver
+            cluster.
+          type: array
+          items:
+            $ref: '#/components/schemas/UserSpec'
+        hostSpecs:
+          description: Individual configurations for hosts that should be created
+            for the sqlserver cluster.
+          type: array
+          items:
+            $ref: '#/components/schemas/HostSpec'
+        networkId:
+          description: |-
+            ID of the network to create the cluster in.
+
+            The maximum string length in characters is 50.
+          type: string
+    CreateDatabaseMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: ID of the SQLServer cluster where a database is being created.
+          type: string
+        databaseName:
+          description: Name of the SQLServer database that is being created.
+          type: string
+    CreateDatabaseRequest:
+      type: object
+      properties:
+        databaseSpec:
+          $ref: '#/components/schemas/DatabaseSpec_in_CreateDatabaseRequest_databaseSpec'
+    CreateUserMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: ID of the SQLServer cluster the user is being created for.
+          type: string
+        userName:
+          description: Name of the user that is being created.
+          type: string
+    CreateUserRequest:
+      type: object
+      properties:
+        userSpec:
+          $ref: '#/components/schemas/UserSpec_in_CreateUserRequest_userSpec'
+    Database:
+      description: |-
+        A sqlserver database. For more information, see
+        the [documentation](/docs/managed-sqlserver/concepts).
+      type: object
+      properties:
+        name:
+          description: Name of the database.
+          type: string
+        clusterId:
+          description: ID of the sqlserver cluster that the database belongs to.
+          type: string
+    DatabaseSpec:
+      type: object
+      properties:
+        name:
+          description: |-
+            Required.
+            Name of the sqlserver database.
+
+            The maximum string length in characters is 63.
+            Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+          type: string
+    DeleteClusterMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: ID of the sqlserver cluster that is being deleted.
+          type: string
+    DeleteDatabaseMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: ID of the SQLServer cluster where a database is being deleted.
+          type: string
+        databaseName:
+          description: Name of the SQLServer database that is being deleted.
+          type: string
+    DeleteUserMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: ID of the SQLServer cluster the user belongs to.
+          type: string
+        userName:
+          description: Name of the user that is being deleted.
+          type: string
+    Empty:
+      description: Empty JSON object `` {} ``.
+      type: object
+      maxProperties: 0
+    FieldMask:
+      description: |-
+        A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
+    GrantUserPermissionMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            ID of the SQLServer cluster the user belongs to.
+            To get the cluster ID, use a [list](/docs/managed-sqlserver/api-ref/Cluster/list) request.
+          type: string
+        userName:
+          description: Name of the user that is being granted a permission.
+          type: string
+    GrantUserPermissionRequest:
+      type: object
+      properties:
+        permission:
+          $ref: '#/components/schemas/Permission_in_GrantUserPermissionRequest_permission'
+    Host:
+      type: object
+      properties:
+        name:
+          description: |-
+            Name of the sqlserver host. The host name is assigned by Managed Service for sqlserver
+            at creation time, and cannot be changed. 1-63 characters long.
+
+            The name is unique across all existing database hosts in Yandex.Cloud,
+            as it defines the FQDN of the host.
+          type: string
+        clusterId:
+          description: |-
+            ID of the sqlserver host. The ID is assigned by Managed Service for sqlserver
+            at creation time.
+          type: string
+        zoneId:
+          description: ID of the availability zone where the sqlserver host resides.
+          type: string
+        resources:
+          $ref: '#/components/schemas/Resources_in_Host_resources'
+        role:
+          $ref: '#/components/schemas/HostRole_in_Host_role'
+        health:
+          $ref: '#/components/schemas/HostHealth_in_Host_health'
+        services:
+          description: Services provided by the host.
+          type: array
+          items:
+            $ref: '#/components/schemas/Service'
+        subnetId:
+          description: ID of the subnet that the host belongs to.
+          type: string
+        assignPublicIp:
+          description: Flag showing public IP assignment status to this host.
+          type: boolean
+          format: boolean
+    HostHealth:
+      description: |2-
+         - HEALTH_UNKNOWN: Health of the host is unknown.
+         - ALIVE: The host is performing all its functions normally.
+         - DEAD: The host is inoperable, and cannot perform any of its essential functions.
+         - DEGRADED: The host is degraded, and can perform only some of its essential functions.
+      type: string
+      enum:
+      - HEALTH_UNKNOWN
+      - ALIVE
+      - DEAD
+      - DEGRADED
+      default: HEALTH_UNKNOWN
+    HostRole:
+      description: |2-
+         - ROLE_UNKNOWN: Role of the host in the cluster is unknown.
+         - MASTER: Host is the master sqlserver server in the cluster.
+         - REPLICA: Host is a replica sqlserver server in the cluster.
+      type: string
+      enum:
+      - ROLE_UNKNOWN
+      - MASTER
+      - REPLICA
+      default: ROLE_UNKNOWN
+    HostSpec:
+      type: object
+      properties:
+        zoneId:
+          description: |-
+            ID of the availability zone where the host resides.
+            To get a list of available zones, use the [yandex.cloud.compute.v1alpha.ZoneService.List] request.
+
+            The maximum string length in characters is 50.
+          type: string
+        subnetId:
+          description: |-
+            ID of the subnet that the host should belong to. This subnet should be a part
+            of the network that the cluster belongs to.
+            The ID of the network is set in the field [Cluster.networkId](/docs/managed-sqlserver/api-ref/Cluster#representation).
+
+            The maximum string length in characters is 50.
+          type: string
+        assignPublicIp:
+          description: |-
+            Whether the host should get a public IP address on creation.
+
+            After a host has been created, this setting cannot be changed. To remove an assigned public IP, or to assign
+            a public IP to a host without one, recreate the host with `assignPublicIp` set as needed.
+
+            Possible values:
+            * false — don't assign a public IP to the host.
+            * true — the host should have a public IP address.
+          type: boolean
+          format: boolean
+    ListBackupsResponse:
+      type: object
+      properties:
+        backups:
+          description: List of SQLServer backups.
+          type: array
+          items:
+            $ref: '#/components/schemas/Backup'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/managed-sqlserver/api-ref/Backup/list#query_params), use the [nextPageToken](/docs/managed-sqlserver/api-ref/Backup/list#responses) as the value
+            for the [pageToken](/docs/managed-sqlserver/api-ref/Backup/list#query_params) parameter in the next list request. Each subsequent
+            list request will have its own [nextPageToken](/docs/managed-sqlserver/api-ref/Backup/list#responses) to continue paging through the results.
+
+            The maximum string length in characters is 100.
+          type: string
+    ListClusterBackupsResponse:
+      type: object
+      properties:
+        backups:
+          description: List of sqlserver backups.
+          type: array
+          items:
+            $ref: '#/components/schemas/Backup'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/managed-sqlserver/api-ref/Cluster/listBackups#query_params), use the [nextPageToken](/docs/managed-sqlserver/api-ref/Cluster/listBackups#responses) as the value
+            for the [pageToken](/docs/managed-sqlserver/api-ref/Cluster/listBackups#query_params) query parameter in the next list request.
+            Each subsequent list request will have its own [nextPageToken](/docs/managed-sqlserver/api-ref/Cluster/listBackups#responses) to continue paging through the results.
+          type: string
+    ListClusterHostsResponse:
+      type: object
+      properties:
+        hosts:
+          description: List of sqlserver hosts.
+          type: array
+          items:
+            $ref: '#/components/schemas/Host'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/managed-sqlserver/api-ref/Cluster/listHosts#query_params), use the [nextPageToken](/docs/managed-sqlserver/api-ref/Cluster/listHosts#responses) as the value
+            for the [pageToken](/docs/managed-sqlserver/api-ref/Cluster/listHosts#query_params) query parameter in the next list request.
+            Each subsequent list request will have its own [nextPageToken](/docs/managed-sqlserver/api-ref/Cluster/listHosts#responses) to continue paging through the results.
+          type: string
+    ListClusterLogsRequestServiceType:
+      description: |2-
+         - SQLSERVER_ERROR: sqlserver error log.
+         - SQLSERVER_APPLICATION: sqlserver application log.
+      type: string
+      enum:
+      - SQLSERVER_ERROR
+      - SQLSERVER_APPLICATION
+    ListClusterLogsResponse:
+      type: object
+      properties:
+        logs:
+          description: Requested log records.
+          type: array
+          items:
+            $ref: '#/components/schemas/LogRecord'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/managed-sqlserver/api-ref/Cluster/listLogs#query_params), use the [nextPageToken](/docs/managed-sqlserver/api-ref/Cluster/listLogs#responses) as the value
+            for the [pageToken](/docs/managed-sqlserver/api-ref/Cluster/listLogs#query_params) query parameter in the next list request.
+            Each subsequent list request will have its own [nextPageToken](/docs/managed-sqlserver/api-ref/Cluster/listLogs#responses) to continue paging through the results.
+          type: string
+    ListClusterOperationsResponse:
+      type: object
+      properties:
+        operations:
+          description: List of operations for the specified sqlserver cluster.
+          type: array
+          items:
+            $ref: '#/components/schemas/Operation'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/managed-sqlserver/api-ref/Cluster/listOperations#query_params), use the [nextPageToken](/docs/managed-sqlserver/api-ref/Cluster/listOperations#responses) as the value
+            for the [pageToken](/docs/managed-sqlserver/api-ref/Cluster/listOperations#query_params) query parameter in the next list request.
+            Each subsequent list request will have its own [nextPageToken](/docs/managed-sqlserver/api-ref/Cluster/listOperations#responses) to continue paging through the results.
+          type: string
+    ListClustersResponse:
+      type: object
+      properties:
+        clusters:
+          description: List of sqlserver clusters.
+          type: array
+          items:
+            $ref: '#/components/schemas/Cluster'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/managed-sqlserver/api-ref/Cluster/list#query_params), use the [nextPageToken](/docs/managed-sqlserver/api-ref/Cluster/list#responses) as the value
+            for the [pageToken](/docs/managed-sqlserver/api-ref/Cluster/list#query_params) parameter in the next list request. Each subsequent
+            list request will have its own [nextPageToken](/docs/managed-sqlserver/api-ref/Cluster/list#responses) to continue paging through the results.
+          type: string
+    ListDatabasesResponse:
+      type: object
+      properties:
+        databases:
+          description: List of SQLServer databases.
+          type: array
+          items:
+            $ref: '#/components/schemas/Database'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/managed-sqlserver/api-ref/Database/list#query_params), use the [nextPageToken](/docs/managed-sqlserver/api-ref/Database/list#responses) as the value
+            for the [pageToken](/docs/managed-sqlserver/api-ref/Database/list#query_params) parameter in the next list request. Each subsequent
+            list request will have its own [nextPageToken](/docs/managed-sqlserver/api-ref/Database/list#responses) to continue paging through the results.
+          type: string
+    ListResourcePresetsResponse:
+      type: object
+      properties:
+        resourcePresets:
+          description: List of resource presets.
+          type: array
+          items:
+            $ref: '#/components/schemas/ResourcePreset'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/managed-sqlserver/api-ref/ResourcePreset/list#query_params), use the [nextPageToken](/docs/managed-sqlserver/api-ref/ResourcePreset/list#responses) as the value
+            for the [pageToken](/docs/managed-sqlserver/api-ref/ResourcePreset/list#query_params) parameter in the next list request. Each subsequent
+            list request will have its own [nextPageToken](/docs/managed-sqlserver/api-ref/ResourcePreset/list#responses) to continue paging through the results.
+
+            The maximum string length in characters is 100.
+          type: string
+    ListUsersResponse:
+      type: object
+      properties:
+        users:
+          description: Requested list of SQLServer users.
+          type: array
+          items:
+            $ref: '#/components/schemas/User'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/managed-sqlserver/api-ref/User/list#query_params), use the [nextPageToken](/docs/managed-sqlserver/api-ref/User/list#responses) as the value
+            for the [pageToken](/docs/managed-sqlserver/api-ref/User/list#query_params) parameter in the next list request. Each subsequent
+            list request will have its own [nextPageToken](/docs/managed-sqlserver/api-ref/User/list#responses) to continue paging through the results.
+          type: string
+    LogRecord:
+      type: object
+      properties:
+        timestamp:
+          description: |-
+            Log record timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        message:
+          description: Contents of the log record.
+          type: object
+          additionalProperties:
+            type: string
+    Monitoring:
+      type: object
+      properties:
+        name:
+          description: Name of the monitoring system.
+          type: string
+        description:
+          description: Description of the monitoring system.
+          type: string
+        link:
+          description: Link to the monitoring system charts for the sqlserver cluster.
+          type: string
+    MoveClusterMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: ID of the sqlserver cluster being moved.
+          type: string
+        sourceFolderId:
+          description: ID of the source folder.
+          type: string
+        destinationFolderId:
+          description: ID of the destnation folder.
+          type: string
+    MoveClusterRequest:
+      type: object
+      properties:
+        destinationFolderId:
+          description: |-
+            Required.
+            ID of the destination folder.
+
+            The maximum string length in characters is 50.
+          type: string
+    Operation:
+      description: An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
+      type: object
+      allOf:
+      - type: object
+        properties:
+          id:
+            description: ID of the operation.
+            type: string
+          description:
+            description: Description of the operation. 0-256 characters long.
+            type: string
+          createdAt:
+            description: |-
+              Creation timestamp.
+
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          createdBy:
+            description: ID of the user or service account who initiated the operation.
+            type: string
+          modifiedAt:
+            description: |-
+              The time when the Operation resource was last modified.
+
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          done:
+            description: |-
+              If the value is `false`, it means the operation is still in progress.
+              If `true`, the operation is completed, and either `error` or `response` is available.
+            type: boolean
+            format: boolean
+          metadata:
+            description: |-
+              Service-specific metadata associated with the operation.
+              It typically contains the ID of the target resource that the operation is performed on.
+              Any method that returns a long-running operation should document the metadata type, if any.
+            type: object
+      - title: result
+        type: object
+        maxProperties: 1
+        properties:
+          error:
+            $ref: '#/components/schemas/rpcStatus'
+            description: The error result of the operation in case of failure or cancellation.
+          response:
+            description: |-
+              The normal response of the operation in case of success.
+              If the original method returns no data on success, such as Delete,
+              the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty).
+              If the original method is the standard Create/Update,
+              the response should be the target resource of the operation.
+              Any method that returns a long-running operation should document the response type, if any.
+            type: object
+    Permission:
+      type: object
+      properties:
+        databaseName:
+          description: Name of the database that the permission grants access to.
+          type: string
+        roles:
+          description: |-
+            Required.
+            Roles granted to the user within the database.
+
+            The minimum number of elements is 1.
+          type: array
+          items:
+            $ref: '#/components/schemas/PermissionRole'
+    PermissionRole:
+      description: |2-
+         - DB_OWNER: Члены предопределенной роли базы данных db_owner могут выполнять все действия по настройке и обслуживанию базы данных, а также удалять базу данных в SQL Server. (В База данных SQL и Хранилище данных SQLнекоторые операции по обслуживанию требуют наличие разрешений на уровне сервера и не может быть выполнены членами db_owner.)
+         - DB_SECURITYADMIN: Элементы предопределенной роли базы данных db_securityadmin могут изменять членство в роли (только для настраиваемых ролей) и управлять разрешениями. Элементы этой роли потенциально могут повышать свои права доступа, поэтому необходимо отслеживать их действия.
+         - DB_ACCESSADMIN: Члены предопределенной роли базы данных db_accessadmin могут добавлять или удалять права удаленного доступа к базе данных для имен входа и групп Windows, а также имен входа SQL Server .
+         - DB_BACKUPOPERATOR: Члены предопределенной роли базы данных db_backupoperator могут создавать резервные копии базы данных.
+         - DB_DDLADMIN: Члены предопределенной роли базы данных db_ddladmin могут выполнять любые команды языка определения данных (DDL) в базе данных.
+         - DB_DATAWRITER: Члены предопределенной роли базы данных db_datawriter могут добавлять, удалять или изменять данные во всех пользовательских таблицах.
+         - DB_DATAREADER: Элементы предопределенной роли базы данных db_datareader могут считывать все данные из всех пользовательских таблиц.
+         - DB_DENYDATAWRITER: Члены предопределенной роли базы данных db_denydatawriter не могут добавлять, изменять или удалять данные в пользовательских таблицах базы данных.
+         - DB_DENYDATAREADER: Члены предопределенной роли базы данных db_denydatareader не могут считывать данные из пользовательских таблиц базы данных.
+      type: string
+      enum:
+      - DB_OWNER
+      - DB_SECURITYADMIN
+      - DB_ACCESSADMIN
+      - DB_BACKUPOPERATOR
+      - DB_DDLADMIN
+      - DB_DATAWRITER
+      - DB_DATAREADER
+      - DB_DENYDATAWRITER
+      - DB_DENYDATAREADER
+    ResourcePreset:
+      description: A preset of resources for hardware configuration of SQLServer hosts.
+      type: object
+      properties:
+        id:
+          description: ID of the resource preset.
+          type: string
+        zoneIds:
+          description: IDs of availability zones where the resource preset is available.
+          type: array
+          items:
+            type: string
+        cores:
+          description: Number of CPU cores for a SQLServer host created with the preset.
+          type: string
+          format: int64
+        memory:
+          description: RAM volume for a SQLServer host created with the preset, in
+            bytes.
+          type: string
+          format: int64
+    Resources:
+      type: object
+      properties:
+        resourcePresetId:
+          description: |-
+            ID of the preset for computational resources available to a host (CPU, memory etc.).
+            All available presets are listed in the [documentation](/docs/managed-sqlserver/concepts/instance-types).
+          type: string
+        diskSize:
+          description: Volume of the storage available to a host.
+          type: string
+          format: int64
+        diskTypeId:
+          description: |-
+            Type of the storage environment for the host.
+            Possible values:
+            * network-nvme — network SSD drive,
+            * local-nvme — local SSD storage.
+          type: string
+    RestoreClusterMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: ID of the new sqlserver cluster that is being created from
+            a backup.
+          type: string
+        backupId:
+          description: ID of the backup that is being used for creating a cluster.
+          type: string
+    RestoreClusterRequest:
+      type: object
+      properties:
+        backupId:
+          description: |-
+            Required.
+            ID of the backup to create a cluster from.
+            To get the backup ID, use a [listBackups](/docs/managed-sqlserver/api-ref/Cluster/listBackups) request.
+          type: string
+        time:
+          description: |-
+            Required.
+            Timestamp of the moment to which the sqlserver cluster should be restored.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        name:
+          description: |-
+            Required.
+            Name of the new sqlserver cluster. The name must be unique within the folder.
+
+            Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+          type: string
+        description:
+          description: |-
+            Description of the new sqlserver cluster.
+
+            The maximum string length in characters is 256.
+          type: string
+        labels:
+          description: |-
+            Custom labels for the sqlserver cluster as `key:value` pairs. Maximum 64 per resource.
+            For example, "project": "mvp" or "source": "dictionary".
+
+            No more than 64 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+        environment:
+          $ref: '#/components/schemas/ClusterEnvironment_in_RestoreClusterRequest_environment'
+        configSpec:
+          $ref: '#/components/schemas/ConfigSpec_in_RestoreClusterRequest_configSpec'
+        hostSpecs:
+          description: |-
+            Configurations for sqlserver hosts that should be added
+            to the cluster that is being created from the backup.
+          type: array
+          items:
+            $ref: '#/components/schemas/HostSpec'
+        networkId:
+          description: |-
+            ID of the network to create the sqlserver cluster in.
+
+            The maximum string length in characters is 50.
+          type: string
+        folderId:
+          description: The maximum string length in characters is 50.
+          type: string
+    RevokeUserPermissionMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: ID of the SQLServer cluster the user belongs to.
+          type: string
+        userName:
+          description: Name of the user whose permission is being revoked.
+          type: string
+    RevokeUserPermissionRequest:
+      type: object
+      properties:
+        permission:
+          $ref: '#/components/schemas/Permission_in_RevokeUserPermissionRequest_permission'
+    SQLServerConfig2016sp2:
+      description: Options and structure of `SQLServerConfig2016sp2` reflects sqlserver
+        2016 sp2 configuration file
+      type: object
+      properties:
+        maxDegreeOfParallelism:
+          description: |-
+            sp_configure option for contolling degree of parallelism. https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option?view=sql-server-ver15
+
+            Acceptable values are 1 to 99, inclusive.
+          type: integer
+          format: int64
+        costThresholdForParallelism:
+          description: |-
+            sp_configure option for controling how heavy the query should be to be eligible for parallel plan
+
+            Acceptable values are 1 to 999999, inclusive.
+          type: integer
+          format: int64
+        sqlcollation:
+          description: setup option SQLCOLLATION - collation used for system databases
+            across the instance. Not easy to change after installation. Determines
+            if instance is case sensitive, accent sensitive etc.
+          type: string
+        auditLevel:
+          description: |-
+            Logon auditing option. 0 - no logon audit, 1 - failed logins only, 2 - Successfull logins only (not recommended),  3 - All logins (not recommended).
+            https://docs.microsoft.com/en-us/sql/ssms/configure-login-auditing-sql-server-management-studio?view=sql-server-ver15
+
+            Acceptable values are 0 to 3, inclusive.
+          type: integer
+          format: int64
+        filestreamAccessLevel:
+          description: |-
+            sp_configure option for managing FILESTREAM technology (storing blob data outside of datase). 0 - FILESTREAM is disabled, 1 - Enables FILESTREAM for Transact-SQL access, 2- Enables FILESTREAM for Transact-SQL and Win32 streaming access.
+            https://docs.microsoft.com/en-us/sql/relational-databases/blob/enable-and-configure-filestream?view=sql-server-ver15
+            https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/filestream-access-level-server-configuration-option?view=sql-server-ver15
+
+            Acceptable values are 0 to 2, inclusive.
+          type: integer
+          format: int64
+        fillFactorPercent:
+          description: |-
+            sp_configure option for managing database pages fullness. 0 or 100 means full page usage (no space reserve), anything in between equals to percent of fullness maintained when index is created or rebuilt to avoid future page splits
+            https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-fill-factor-server-configuration-option?view=sql-server-ver15
+
+            Acceptable values are 0 to 100, inclusive.
+          type: integer
+          format: int64
+        inDoubtXactResolution:
+          description: |-
+            sp_configure option. Determines how to resolve the in-doubt distributed transactions. 0 means no autmatic resolution, 1 - assume them commited, 2 - assume them uncommitted and roll them back.
+            https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/in-doubt-xact-resolution-server-configuration-option?view=sql-server-ver15
+
+            Acceptable values are 0 to 2, inclusive.
+          type: integer
+          format: int64
+        optimizeForAdHocWorkloads:
+          description: |-
+            sp_configure option. If enabled then plans are cached only after second execution. Allows to avoid SQL cache bloat because of single-use plans
+            https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/optimize-for-ad-hoc-workloads-server-configuration-option?view=sql-server-ver15
+          type: boolean
+          format: boolean
+        crossDbOwnershipChaining:
+          description: |-
+            sp_configure option enabling cross db ownership chaining - complex and convoluted security option. Having access to stored procedure in one database that refers to an object in another database that you don't have explicit access, you'll be able to execute the procedure without permission related error.
+            https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/cross-db-ownership-chaining-server-configuration-option?view=sql-server-ver15
+          type: boolean
+          format: boolean
+    SQLServerConfigSet2016sp2:
+      type: object
+      properties:
+        effectiveConfig:
+          $ref: '#/components/schemas/SQLServerConfig2016sp2_in_SQLServerConfigSet2016sp2_effectiveConfig'
+        userConfig:
+          $ref: '#/components/schemas/SQLServerConfig2016sp2_in_SQLServerConfigSet2016sp2_userConfig'
+        defaultConfig:
+          $ref: '#/components/schemas/SQLServerConfig2016sp2_in_SQLServerConfigSet2016sp2_defaultConfig'
+    Service:
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/ServiceType_in_Service_type'
+        health:
+          $ref: '#/components/schemas/ServiceHealth_in_Service_health'
+    ServiceHealth:
+      description: |2-
+         - HEALTH_UNKNOWN: Health of the server is unknown.
+         - ALIVE: The server is working normally.
+         - DEAD: The server is dead or unresponsive.
+      type: string
+      enum:
+      - HEALTH_UNKNOWN
+      - ALIVE
+      - DEAD
+      default: HEALTH_UNKNOWN
+    ServiceType:
+      description: ' - SQLSERVER: SQLServer service'
+      type: string
+      enum:
+      - SQLSERVER
+    StartClusterMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: ID of the sqlserver cluster being started.
+          type: string
+    StopClusterMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: ID of the sqlserver cluster being stopped.
+          type: string
+    TimeOfDay:
+      description: |-
+        Represents a time of day. The date and time zone are either not significant
+        or are specified elsewhere. An API may choose to allow leap seconds. Related
+        types are [google.type.Date](https://github.com/googleapis/googleapis/blob/master/google/type/date.proto) and [google.protobuf.Timestamp](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto).
+      type: object
+      properties:
+        hours:
+          description: |-
+            Hours of day in 24 hour format. Should be from 0 to 23. An API may choose
+            to allow the value "24:00:00" for scenarios like business closing time.
+          type: integer
+          format: int32
+        minutes:
+          description: Minutes of hour of day. Must be from 0 to 59.
+          type: integer
+          format: int32
+        seconds:
+          description: |-
+            Seconds of minutes of the time. Must normally be from 0 to 59. An API may
+            allow the value 60 if it allows leap-seconds.
+          type: integer
+          format: int32
+        nanos:
+          description: Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.
+          type: integer
+          format: int32
+    UpdateClusterMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: ID of the sqlserver cluster that is being modified.
+          type: string
+    UpdateClusterRequest:
+      type: object
+      properties:
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateClusterRequest_updateMask'
+        description:
+          description: |-
+            New description of the sqlserver cluster.
+
+            The maximum string length in characters is 256.
+          type: string
+        labels:
+          description: |-
+            Custom labels for the sqlserver cluster as `key:value` pairs. Maximum 64 per resource.
+            For example, "project": "mvp" or "source": "dictionary".
+
+            The new set of labels will completely replace the old ones. To add a label, request the current
+            set with the [get](/docs/managed-sqlserver/api-ref/Cluster/get) method, then send an [update](/docs/managed-sqlserver/api-ref/Cluster/update) request with the new label added to the set.
+
+            No more than 64 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+        configSpec:
+          $ref: '#/components/schemas/ConfigSpec_in_UpdateClusterRequest_configSpec'
+        name:
+          description: |-
+            New name for the cluster.
+
+            The maximum string length in characters is 63.
+            Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+          type: string
+    UpdateUserMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: ID of the SQLServer cluster the user belongs to.
+          type: string
+        userName:
+          description: Name of the user that is being updated.
+          type: string
+    UpdateUserRequest:
+      type: object
+      properties:
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateUserRequest_updateMask'
+        password:
+          description: |-
+            New password for the user.
+
+            The string length in characters must be 8-128.
+          type: string
+        permissions:
+          description: New set of permissions for the user.
+          type: array
+          items:
+            $ref: '#/components/schemas/Permission'
+    User:
+      description: |-
+        A sqlserver user. For more information, see
+        the [documentation](/docs/managed-sqlserver/concepts).
+      type: object
+      properties:
+        name:
+          description: Name of the sqlserver user.
+          type: string
+        clusterId:
+          description: ID of the sqlserver cluster the user belongs to.
+          type: string
+        permissions:
+          description: Set of permissions granted to the user.
+          type: array
+          items:
+            $ref: '#/components/schemas/Permission'
+    UserSpec:
+      type: object
+      properties:
+        name:
+          description: |-
+            Required.
+            Name of the sqlserver user.
+
+            The maximum string length in characters is 32.
+            Value must match the regular expression `` [a-zA-Z0-9_]* ``.
+          type: string
+        password:
+          description: |-
+            Required.
+            Password of the sqlserver user.
+
+            The string length in characters must be 8-128.
+          type: string
+        permissions:
+          description: Set of permissions to grant to the user.
+          type: array
+          items:
+            $ref: '#/components/schemas/Permission'
+    rpcStatus:
+      description: The error result of the operation in case of failure or cancellation.
+      type: object
+      properties:
+        code:
+          description: Error code. An enum value of [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
+          type: integer
+          format: int32
+        message:
+          description: An error message.
+          type: string
+        details:
+          description: A list of messages that carry the error details.
+          type: array
+          items:
+            type: object
+    ClusterEnvironment_in_Cluster_environment:
+      description: |-
+        Deployment environment of the sqlserver cluster.
+
+         - PRODUCTION: Stable environment with a conservative update policy:
+        only hotfixes are applied during regular maintenance.
+         - PRESTABLE: Environment with more aggressive update policy: new versions
+        are rolled out irrespective of backward compatibility.
+      type: string
+      enum:
+      - PRODUCTION
+      - PRESTABLE
+    ClusterConfig_in_Cluster_config:
+      description: Configuration of the sqlserver cluster.
+      type: object
+      allOf:
+      - type: object
+        properties:
+          version:
+            description: Version of sqlserver server software.
+            type: string
+          resources:
+            $ref: '#/components/schemas/Resources'
+            description: Resources allocated to sqlserver hosts.
+          backupWindowStart:
+            $ref: '#/components/schemas/TimeOfDay'
+            description: Start time for the daily backup in UTC timezone
+      - title: sqlserver_config
+        type: object
+        maxProperties: 1
+        properties:
+          sqlserverConfig_2016Sp2:
+            $ref: '#/components/schemas/SQLServerConfigSet2016sp2'
+            description: Configuration of a sqlserver 2016sp2 server.
+    ClusterHealth_in_Cluster_health:
+      description: |-
+        Aggregated cluster health.
+
+         - HEALTH_UNKNOWN: State of the cluster is unknown (`health` for every host in the cluster is UNKNOWN).
+         - ALIVE: Cluster is alive and well (`health` for every host in the cluster is ALIVE).
+         - DEAD: Cluster is inoperable (`health` for every host in the cluster is DEAD).
+         - DEGRADED: Cluster is working below capacity (`health` for at least one host in the cluster is not ALIVE).
+      type: string
+      enum:
+      - HEALTH_UNKNOWN
+      - ALIVE
+      - DEAD
+      - DEGRADED
+      default: HEALTH_UNKNOWN
+    ClusterStatus_in_Cluster_status:
+      description: |-
+        Current state of the cluster.
+
+         - STATUS_UNKNOWN: Cluster state is unknown.
+         - CREATING: Cluster is being created.
+         - RUNNING: Cluster is running normally.
+         - ERROR: Cluster encountered a problem and cannot operate.
+         - UPDATING: Cluster is being updated.
+         - STOPPING: Cluster is stopping.
+         - STOPPED: Cluster stopped.
+         - STARTING: Cluster is starting.
+      type: string
+      enum:
+      - STATUS_UNKNOWN
+      - CREATING
+      - RUNNING
+      - ERROR
+      - UPDATING
+      - STOPPING
+      - STOPPED
+      - STARTING
+      default: STATUS_UNKNOWN
+    ClusterEnvironment_in_CreateClusterRequest_environment:
+      description: |-
+        Deployment environment of the sqlserver cluster.
+
+         - PRODUCTION: Stable environment with a conservative update policy:
+        only hotfixes are applied during regular maintenance.
+         - PRESTABLE: Environment with more aggressive update policy: new versions
+        are rolled out irrespective of backward compatibility.
+      type: string
+      enum:
+      - PRODUCTION
+      - PRESTABLE
+    ConfigSpec_in_CreateClusterRequest_configSpec:
+      description: Configuration and resources for hosts that should be created for
+        the sqlserver cluster.
+      type: object
+      allOf:
+      - type: object
+        properties:
+          version:
+            description: |-
+              Version of sqlserver used in the cluster.
+              Possible values:
+              * 2016sp2
+            type: string
+          resources:
+            $ref: '#/components/schemas/Resources'
+            description: Resources allocated to sqlserver hosts.
+      - title: sqlserver_config
+        type: object
+        maxProperties: 1
+        properties:
+          sqlserverConfig_2016Sp2:
+            $ref: '#/components/schemas/SQLServerConfig2016sp2'
+            description: Configuration for a sqlserver 5.7 cluster.
+    DatabaseSpec_in_CreateDatabaseRequest_databaseSpec:
+      description: |-
+        Required.
+        Configuration of the database to create.
+      type: object
+      properties:
+        name:
+          description: |-
+            Required.
+            Name of the sqlserver database.
+
+            The maximum string length in characters is 63.
+            Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+          type: string
+    UserSpec_in_CreateUserRequest_userSpec:
+      description: |-
+        Required.
+        Properties of the user to be created.
+      type: object
+      properties:
+        name:
+          description: |-
+            Required.
+            Name of the sqlserver user.
+
+            The maximum string length in characters is 32.
+            Value must match the regular expression `` [a-zA-Z0-9_]* ``.
+          type: string
+        password:
+          description: |-
+            Required.
+            Password of the sqlserver user.
+
+            The string length in characters must be 8-128.
+          type: string
+        permissions:
+          description: Set of permissions to grant to the user.
+          type: array
+          items:
+            $ref: '#/components/schemas/Permission'
+    Permission_in_GrantUserPermissionRequest_permission:
+      description: |-
+        Required.
+        Permission that should be granted to the specified user.
+      type: object
+      properties:
+        databaseName:
+          description: Name of the database that the permission grants access to.
+          type: string
+        roles:
+          description: |-
+            Required.
+            Roles granted to the user within the database.
+
+            The minimum number of elements is 1.
+          type: array
+          items:
+            $ref: '#/components/schemas/PermissionRole'
+    Resources_in_Host_resources:
+      description: Resources allocated to the host.
+      type: object
+      properties:
+        resourcePresetId:
+          description: |-
+            ID of the preset for computational resources available to a host (CPU, memory etc.).
+            All available presets are listed in the [documentation](/docs/managed-sqlserver/concepts/instance-types).
+          type: string
+        diskSize:
+          description: Volume of the storage available to a host.
+          type: string
+          format: int64
+        diskTypeId:
+          description: |-
+            Type of the storage environment for the host.
+            Possible values:
+            * network-nvme — network SSD drive,
+            * local-nvme — local SSD storage.
+          type: string
+    HostRole_in_Host_role:
+      description: |-
+        Role of the host in the cluster.
+
+         - ROLE_UNKNOWN: Role of the host in the cluster is unknown.
+         - MASTER: Host is the master sqlserver server in the cluster.
+         - REPLICA: Host is a replica sqlserver server in the cluster.
+      type: string
+      enum:
+      - ROLE_UNKNOWN
+      - MASTER
+      - REPLICA
+      default: ROLE_UNKNOWN
+    HostHealth_in_Host_health:
+      description: |-
+        Status code of the aggregated health of the host.
+
+         - HEALTH_UNKNOWN: Health of the host is unknown.
+         - ALIVE: The host is performing all its functions normally.
+         - DEAD: The host is inoperable, and cannot perform any of its essential functions.
+         - DEGRADED: The host is degraded, and can perform only some of its essential functions.
+      type: string
+      enum:
+      - HEALTH_UNKNOWN
+      - ALIVE
+      - DEAD
+      - DEGRADED
+      default: HEALTH_UNKNOWN
+    ClusterEnvironment_in_RestoreClusterRequest_environment:
+      description: |-
+        Deployment environment of the new sqlserver cluster.
+
+         - PRODUCTION: Stable environment with a conservative update policy:
+        only hotfixes are applied during regular maintenance.
+         - PRESTABLE: Environment with more aggressive update policy: new versions
+        are rolled out irrespective of backward compatibility.
+      type: string
+      enum:
+      - PRODUCTION
+      - PRESTABLE
+    ConfigSpec_in_RestoreClusterRequest_configSpec:
+      description: Configuration for the sqlserver cluster to be created.
+      type: object
+      allOf:
+      - type: object
+        properties:
+          version:
+            description: |-
+              Version of sqlserver used in the cluster.
+              Possible values:
+              * 2016sp2
+            type: string
+          resources:
+            $ref: '#/components/schemas/Resources'
+            description: Resources allocated to sqlserver hosts.
+      - title: sqlserver_config
+        type: object
+        maxProperties: 1
+        properties:
+          sqlserverConfig_2016Sp2:
+            $ref: '#/components/schemas/SQLServerConfig2016sp2'
+            description: Configuration for a sqlserver 5.7 cluster.
+    Permission_in_RevokeUserPermissionRequest_permission:
+      description: |-
+        Required.
+        Permission that should be revoked from the specified user.
+      type: object
+      properties:
+        databaseName:
+          description: Name of the database that the permission grants access to.
+          type: string
+        roles:
+          description: |-
+            Required.
+            Roles granted to the user within the database.
+
+            The minimum number of elements is 1.
+          type: array
+          items:
+            $ref: '#/components/schemas/PermissionRole'
+    SQLServerConfig2016sp2_in_SQLServerConfigSet2016sp2_effectiveConfig:
+      description: |-
+        Effective settings for a sqlserver 2016 sp2 cluster (a combination of settings defined
+        in `userConfig` and `defaultConfig`).
+
+        Options and structure of `SQLServerConfig2016sp2` reflects sqlserver 2016 sp2 configuration file
+      type: object
+      properties:
+        maxDegreeOfParallelism:
+          description: |-
+            sp_configure option for contolling degree of parallelism. https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option?view=sql-server-ver15
+
+            Acceptable values are 1 to 99, inclusive.
+          type: integer
+          format: int64
+        costThresholdForParallelism:
+          description: |-
+            sp_configure option for controling how heavy the query should be to be eligible for parallel plan
+
+            Acceptable values are 1 to 999999, inclusive.
+          type: integer
+          format: int64
+        sqlcollation:
+          description: setup option SQLCOLLATION - collation used for system databases
+            across the instance. Not easy to change after installation. Determines
+            if instance is case sensitive, accent sensitive etc.
+          type: string
+        auditLevel:
+          description: |-
+            Logon auditing option. 0 - no logon audit, 1 - failed logins only, 2 - Successfull logins only (not recommended),  3 - All logins (not recommended).
+            https://docs.microsoft.com/en-us/sql/ssms/configure-login-auditing-sql-server-management-studio?view=sql-server-ver15
+
+            Acceptable values are 0 to 3, inclusive.
+          type: integer
+          format: int64
+        filestreamAccessLevel:
+          description: |-
+            sp_configure option for managing FILESTREAM technology (storing blob data outside of datase). 0 - FILESTREAM is disabled, 1 - Enables FILESTREAM for Transact-SQL access, 2- Enables FILESTREAM for Transact-SQL and Win32 streaming access.
+            https://docs.microsoft.com/en-us/sql/relational-databases/blob/enable-and-configure-filestream?view=sql-server-ver15
+            https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/filestream-access-level-server-configuration-option?view=sql-server-ver15
+
+            Acceptable values are 0 to 2, inclusive.
+          type: integer
+          format: int64
+        fillFactorPercent:
+          description: |-
+            sp_configure option for managing database pages fullness. 0 or 100 means full page usage (no space reserve), anything in between equals to percent of fullness maintained when index is created or rebuilt to avoid future page splits
+            https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-fill-factor-server-configuration-option?view=sql-server-ver15
+
+            Acceptable values are 0 to 100, inclusive.
+          type: integer
+          format: int64
+        inDoubtXactResolution:
+          description: |-
+            sp_configure option. Determines how to resolve the in-doubt distributed transactions. 0 means no autmatic resolution, 1 - assume them commited, 2 - assume them uncommitted and roll them back.
+            https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/in-doubt-xact-resolution-server-configuration-option?view=sql-server-ver15
+
+            Acceptable values are 0 to 2, inclusive.
+          type: integer
+          format: int64
+        optimizeForAdHocWorkloads:
+          description: |-
+            sp_configure option. If enabled then plans are cached only after second execution. Allows to avoid SQL cache bloat because of single-use plans
+            https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/optimize-for-ad-hoc-workloads-server-configuration-option?view=sql-server-ver15
+          type: boolean
+          format: boolean
+        crossDbOwnershipChaining:
+          description: |-
+            sp_configure option enabling cross db ownership chaining - complex and convoluted security option. Having access to stored procedure in one database that refers to an object in another database that you don't have explicit access, you'll be able to execute the procedure without permission related error.
+            https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/cross-db-ownership-chaining-server-configuration-option?view=sql-server-ver15
+          type: boolean
+          format: boolean
+    SQLServerConfig2016sp2_in_SQLServerConfigSet2016sp2_userConfig:
+      description: |-
+        User-defined settings for a sqlserver 2016 sp2 cluster.
+
+        Options and structure of `SQLServerConfig2016sp2` reflects sqlserver 2016 sp2 configuration file
+      type: object
+      properties:
+        maxDegreeOfParallelism:
+          description: |-
+            sp_configure option for contolling degree of parallelism. https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option?view=sql-server-ver15
+
+            Acceptable values are 1 to 99, inclusive.
+          type: integer
+          format: int64
+        costThresholdForParallelism:
+          description: |-
+            sp_configure option for controling how heavy the query should be to be eligible for parallel plan
+
+            Acceptable values are 1 to 999999, inclusive.
+          type: integer
+          format: int64
+        sqlcollation:
+          description: setup option SQLCOLLATION - collation used for system databases
+            across the instance. Not easy to change after installation. Determines
+            if instance is case sensitive, accent sensitive etc.
+          type: string
+        auditLevel:
+          description: |-
+            Logon auditing option. 0 - no logon audit, 1 - failed logins only, 2 - Successfull logins only (not recommended),  3 - All logins (not recommended).
+            https://docs.microsoft.com/en-us/sql/ssms/configure-login-auditing-sql-server-management-studio?view=sql-server-ver15
+
+            Acceptable values are 0 to 3, inclusive.
+          type: integer
+          format: int64
+        filestreamAccessLevel:
+          description: |-
+            sp_configure option for managing FILESTREAM technology (storing blob data outside of datase). 0 - FILESTREAM is disabled, 1 - Enables FILESTREAM for Transact-SQL access, 2- Enables FILESTREAM for Transact-SQL and Win32 streaming access.
+            https://docs.microsoft.com/en-us/sql/relational-databases/blob/enable-and-configure-filestream?view=sql-server-ver15
+            https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/filestream-access-level-server-configuration-option?view=sql-server-ver15
+
+            Acceptable values are 0 to 2, inclusive.
+          type: integer
+          format: int64
+        fillFactorPercent:
+          description: |-
+            sp_configure option for managing database pages fullness. 0 or 100 means full page usage (no space reserve), anything in between equals to percent of fullness maintained when index is created or rebuilt to avoid future page splits
+            https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-fill-factor-server-configuration-option?view=sql-server-ver15
+
+            Acceptable values are 0 to 100, inclusive.
+          type: integer
+          format: int64
+        inDoubtXactResolution:
+          description: |-
+            sp_configure option. Determines how to resolve the in-doubt distributed transactions. 0 means no autmatic resolution, 1 - assume them commited, 2 - assume them uncommitted and roll them back.
+            https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/in-doubt-xact-resolution-server-configuration-option?view=sql-server-ver15
+
+            Acceptable values are 0 to 2, inclusive.
+          type: integer
+          format: int64
+        optimizeForAdHocWorkloads:
+          description: |-
+            sp_configure option. If enabled then plans are cached only after second execution. Allows to avoid SQL cache bloat because of single-use plans
+            https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/optimize-for-ad-hoc-workloads-server-configuration-option?view=sql-server-ver15
+          type: boolean
+          format: boolean
+        crossDbOwnershipChaining:
+          description: |-
+            sp_configure option enabling cross db ownership chaining - complex and convoluted security option. Having access to stored procedure in one database that refers to an object in another database that you don't have explicit access, you'll be able to execute the procedure without permission related error.
+            https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/cross-db-ownership-chaining-server-configuration-option?view=sql-server-ver15
+          type: boolean
+          format: boolean
+    SQLServerConfig2016sp2_in_SQLServerConfigSet2016sp2_defaultConfig:
+      description: |-
+        Default configuration for a sqlserver 2016 sp2 cluster.
+
+        Options and structure of `SQLServerConfig2016sp2` reflects sqlserver 2016 sp2 configuration file
+      type: object
+      properties:
+        maxDegreeOfParallelism:
+          description: |-
+            sp_configure option for contolling degree of parallelism. https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option?view=sql-server-ver15
+
+            Acceptable values are 1 to 99, inclusive.
+          type: integer
+          format: int64
+        costThresholdForParallelism:
+          description: |-
+            sp_configure option for controling how heavy the query should be to be eligible for parallel plan
+
+            Acceptable values are 1 to 999999, inclusive.
+          type: integer
+          format: int64
+        sqlcollation:
+          description: setup option SQLCOLLATION - collation used for system databases
+            across the instance. Not easy to change after installation. Determines
+            if instance is case sensitive, accent sensitive etc.
+          type: string
+        auditLevel:
+          description: |-
+            Logon auditing option. 0 - no logon audit, 1 - failed logins only, 2 - Successfull logins only (not recommended),  3 - All logins (not recommended).
+            https://docs.microsoft.com/en-us/sql/ssms/configure-login-auditing-sql-server-management-studio?view=sql-server-ver15
+
+            Acceptable values are 0 to 3, inclusive.
+          type: integer
+          format: int64
+        filestreamAccessLevel:
+          description: |-
+            sp_configure option for managing FILESTREAM technology (storing blob data outside of datase). 0 - FILESTREAM is disabled, 1 - Enables FILESTREAM for Transact-SQL access, 2- Enables FILESTREAM for Transact-SQL and Win32 streaming access.
+            https://docs.microsoft.com/en-us/sql/relational-databases/blob/enable-and-configure-filestream?view=sql-server-ver15
+            https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/filestream-access-level-server-configuration-option?view=sql-server-ver15
+
+            Acceptable values are 0 to 2, inclusive.
+          type: integer
+          format: int64
+        fillFactorPercent:
+          description: |-
+            sp_configure option for managing database pages fullness. 0 or 100 means full page usage (no space reserve), anything in between equals to percent of fullness maintained when index is created or rebuilt to avoid future page splits
+            https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-fill-factor-server-configuration-option?view=sql-server-ver15
+
+            Acceptable values are 0 to 100, inclusive.
+          type: integer
+          format: int64
+        inDoubtXactResolution:
+          description: |-
+            sp_configure option. Determines how to resolve the in-doubt distributed transactions. 0 means no autmatic resolution, 1 - assume them commited, 2 - assume them uncommitted and roll them back.
+            https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/in-doubt-xact-resolution-server-configuration-option?view=sql-server-ver15
+
+            Acceptable values are 0 to 2, inclusive.
+          type: integer
+          format: int64
+        optimizeForAdHocWorkloads:
+          description: |-
+            sp_configure option. If enabled then plans are cached only after second execution. Allows to avoid SQL cache bloat because of single-use plans
+            https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/optimize-for-ad-hoc-workloads-server-configuration-option?view=sql-server-ver15
+          type: boolean
+          format: boolean
+        crossDbOwnershipChaining:
+          description: |-
+            sp_configure option enabling cross db ownership chaining - complex and convoluted security option. Having access to stored procedure in one database that refers to an object in another database that you don't have explicit access, you'll be able to execute the procedure without permission related error.
+            https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/cross-db-ownership-chaining-server-configuration-option?view=sql-server-ver15
+          type: boolean
+          format: boolean
+    ServiceType_in_Service_type:
+      description: |-
+        Type of the service provided by the host.
+
+         - SQLSERVER: SQLServer service
+      type: string
+      enum:
+      - SQLSERVER
+    ServiceHealth_in_Service_health:
+      description: |-
+        Status code of server availability.
+
+         - HEALTH_UNKNOWN: Health of the server is unknown.
+         - ALIVE: The server is working normally.
+         - DEAD: The server is dead or unresponsive.
+      type: string
+      enum:
+      - HEALTH_UNKNOWN
+      - ALIVE
+      - DEAD
+      default: HEALTH_UNKNOWN
+    FieldMask_in_UpdateClusterRequest_updateMask:
+      description: |-
+        Field mask that specifies which fields of the sqlserver cluster should be updated.
+
+        A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
+    ConfigSpec_in_UpdateClusterRequest_configSpec:
+      description: New configuration and resources for hosts in the cluster.
+      type: object
+      allOf:
+      - type: object
+        properties:
+          version:
+            description: |-
+              Version of sqlserver used in the cluster.
+              Possible values:
+              * 2016sp2
+            type: string
+          resources:
+            $ref: '#/components/schemas/Resources'
+            description: Resources allocated to sqlserver hosts.
+      - title: sqlserver_config
+        type: object
+        maxProperties: 1
+        properties:
+          sqlserverConfig_2016Sp2:
+            $ref: '#/components/schemas/SQLServerConfig2016sp2'
+            description: Configuration for a sqlserver 5.7 cluster.
+    FieldMask_in_UpdateUserRequest_updateMask:
+      description: |-
+        Field mask that specifies which fields of the SQLServer user should be updated.
+
+        A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
+tags:
+- name: Backup
+  description: A set of methods for managing SQLServer backups.
+- name: Cluster
+  description: A set of methods for managing sqlserver clusters.
+- name: Database
+  description: A set of methods for managing SQLServer databases.
+- name: Operation
+  description: A set of methods for managing operations that are asynchronous API
+    requests.
+- name: ResourcePreset
+  description: A set of methods for managing resource presets.
+- name: User
+  description: A set of methods for managing SQLServer users.

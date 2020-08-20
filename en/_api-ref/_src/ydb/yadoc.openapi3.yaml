@@ -375,8 +375,8 @@ components:
           regionalDatabase:
             $ref: '#/components/schemas/RegionalDatabase'
             description: deprecated field
-          provisionedDatabase:
-            $ref: '#/components/schemas/ProvisionedDatabase'
+          dedicatedDatabase:
+            $ref: '#/components/schemas/DedicatedDatabase'
           serverlessDatabase:
             $ref: '#/components/schemas/ServerlessDatabase'
     Database:
@@ -433,8 +433,8 @@ components:
           regionalDatabase:
             $ref: '#/components/schemas/RegionalDatabase'
             description: deprecated field
-          provisionedDatabase:
-            $ref: '#/components/schemas/ProvisionedDatabase'
+          dedicatedDatabase:
+            $ref: '#/components/schemas/DedicatedDatabase'
           serverlessDatabase:
             $ref: '#/components/schemas/ServerlessDatabase'
     DatabaseStatus:
@@ -445,6 +445,24 @@ components:
       - UPDATING
       - ERROR
       - DELETING
+    DedicatedDatabase:
+      type: object
+      properties:
+        resourcePresetId:
+          type: string
+        storageConfig:
+          $ref: '#/components/schemas/StorageConfig_in_DedicatedDatabase_storageConfig'
+        scalePolicy:
+          $ref: '#/components/schemas/ScalePolicy_in_DedicatedDatabase_scalePolicy'
+        networkId:
+          type: string
+        subnetIds:
+          type: array
+          items:
+            type: string
+        assignPublicIps:
+          type: boolean
+          format: boolean
     DeleteDatabaseMetadata:
       type: object
       properties:
@@ -594,24 +612,6 @@ components:
               the response should be the target resource of the operation.
               Any method that returns a long-running operation should document the response type, if any.
             type: object
-    ProvisionedDatabase:
-      type: object
-      properties:
-        resourcePresetId:
-          type: string
-        storageConfig:
-          $ref: '#/components/schemas/StorageConfig_in_ProvisionedDatabase_storageConfig'
-        scalePolicy:
-          $ref: '#/components/schemas/ScalePolicy_in_ProvisionedDatabase_scalePolicy'
-        networkId:
-          type: string
-        subnetIds:
-          type: array
-          items:
-            type: string
-        assignPublicIps:
-          type: boolean
-          format: boolean
     RegionalDatabase:
       type: object
       properties:
@@ -724,8 +724,8 @@ components:
             $ref: '#/components/schemas/ZonalDatabase'
           regionalDatabase:
             $ref: '#/components/schemas/RegionalDatabase'
-          provisionedDatabase:
-            $ref: '#/components/schemas/ProvisionedDatabase'
+          dedicatedDatabase:
+            $ref: '#/components/schemas/DedicatedDatabase'
           serverlessDatabase:
             $ref: '#/components/schemas/ServerlessDatabase'
     ZonalDatabase:
@@ -750,7 +750,7 @@ components:
           type: array
           items:
             type: object
-    StorageConfig_in_ProvisionedDatabase_storageConfig:
+    StorageConfig_in_DedicatedDatabase_storageConfig:
       type: object
       properties:
         storageOptions:
@@ -760,7 +760,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/StorageOption'
-    ScalePolicy_in_ProvisionedDatabase_scalePolicy:
+    ScalePolicy_in_DedicatedDatabase_scalePolicy:
       type: object
       allOf:
       - title: scale_type

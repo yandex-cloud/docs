@@ -293,6 +293,388 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListDiskTypesResponse'
       x-y-navtitle: list
+  /compute/v1/hostGroups/{hostGroupId}:
+    get:
+      tags:
+      - HostGroup
+      summary: Returns the specified host group
+      operationId: HostGroupGet
+      parameters:
+      - name: hostGroupId
+        in: path
+        description: |-
+          Required.
+          ID of the host group to return.
+          To get the host group ID, use [list](/docs/compute/api-ref/HostGroup/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HostGroup'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - HostGroup
+      summary: Deletes the specified host group.
+      operationId: HostGroupDelete
+      parameters:
+      - name: hostGroupId
+        in: path
+        description: |-
+          Required.
+          ID of the host group to delete.
+          To get the host group ID, use [list](/docs/compute/api-ref/HostGroup/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteHostGroupMetadata'
+      x-y-operation-response: Empty
+    patch:
+      tags:
+      - HostGroup
+      summary: Updates the specified host group.
+      operationId: HostGroupUpdate
+      parameters:
+      - name: hostGroupId
+        in: path
+        description: |-
+          Required.
+          ID of the host group to update.
+          To get the host group ID, use an [list](/docs/compute/api-ref/HostGroup/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateHostGroupRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateHostGroupMetadata'
+      x-y-operation-response: '[HostGroup](/docs/compute/api-ref/HostGroup#representation)'
+  /compute/v1/hostGroups:
+    get:
+      tags:
+      - HostGroup
+      summary: Retrieves the list of host groups in the specified folder
+      operationId: HostGroupList
+      parameters:
+      - name: folderId
+        in: query
+        description: |-
+          Required.
+          ID of the folder to list host groups in.
+          To get the folder ID, use [list](/docs/resource-manager/api-ref/Folder/list) request.
+
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/compute/api-ref/HostGroup/list#query_params),
+          the service returns a [nextPageToken](/docs/compute/api-ref/HostGroup/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results,
+          set [pageToken](/docs/compute/api-ref/HostGroup/list#query_params) to the [nextPageToken](/docs/compute/api-ref/HostGroup/list#responses)
+          returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          A filter expression that filters resources listed in the response.
+          Currently you can use filtering only on the [HostGroup.name](/docs/compute/api-ref/HostGroup#representation) field.
+
+          The maximum string length in characters is 1000.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListHostGroupsResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - HostGroup
+      summary: Creates a host group in the specified folder.
+      operationId: HostGroupCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateHostGroupRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateHostGroupMetadata'
+      x-y-operation-response: '[HostGroup](/docs/compute/api-ref/HostGroup#representation)'
+  /compute/v1/hostGroups/{hostGroupId}/operations:
+    get:
+      tags:
+      - HostGroup
+      summary: Lists operations for the specified host group
+      operationId: HostGroupListOperations
+      parameters:
+      - name: hostGroupId
+        in: path
+        description: |-
+          Required.
+          ID of the host group to list operations for.
+          To get the host group ID, use [list](/docs/compute/api-ref/HostGroup/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/compute/api-ref/HostGroup/listOperations#query_params), the service returns a [nextPageToken](/docs/compute/api-ref/HostGroup/listOperations#responses)
+          that can be used to get the next page of results in subsequent list requests.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/compute/api-ref/HostGroup/listOperations#query_params) to the
+          [nextPageToken](/docs/compute/api-ref/HostGroup/listOperations#responses) returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListHostGroupOperationsResponse'
+      x-y-navtitle: listOperations
+  /compute/v1/hostGroups/{hostGroupId}/instances:
+    get:
+      tags:
+      - HostGroup
+      summary: Lists instances that belongs to the specified host group
+      operationId: HostGroupListInstances
+      parameters:
+      - name: hostGroupId
+        in: path
+        description: |-
+          Required.
+          ID of the host group to list instances for.
+          To get the host group ID, use [list](/docs/compute/api-ref/HostGroup/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/compute/api-ref/HostGroup/listInstances#query_params),
+          the service returns a [nextPageToken](/docs/compute/api-ref/HostGroup/listInstances#responses)
+          that can be used to get the next page of results in subsequent list requests.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results,
+          set [pageToken](/docs/compute/api-ref/HostGroup/listInstances#query_params) to the [nextPageToken](/docs/compute/api-ref/HostGroup/listInstances#responses)
+          returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          A filter expression that filters resources listed in the response.
+          Currently you can use filtering only on the `id` field.
+          To get the host ID, use [listHosts](/docs/compute/api-ref/HostGroup/listHosts) request.
+
+          The maximum string length in characters is 1000.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListHostGroupInstancesResponse'
+      x-y-navtitle: listInstances
+  /compute/v1/hostGroups/{hostGroupId}/hosts:
+    get:
+      tags:
+      - HostGroup
+      summary: Lists hosts that belongs to the specified host group
+      operationId: HostGroupListHosts
+      parameters:
+      - name: hostGroupId
+        in: path
+        description: |-
+          Required.
+          ID of the host group to list hosts for.
+          To get the host group ID, use [list](/docs/compute/api-ref/HostGroup/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/compute/api-ref/HostGroup/listHosts#query_params),
+          the service returns a [nextPageToken](/docs/compute/api-ref/HostGroup/listHosts#responses)
+          that can be used to get the next page of results in subsequent list requests.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results,
+          set [pageToken](/docs/compute/api-ref/HostGroup/listHosts#query_params) to the [nextPageToken](/docs/compute/api-ref/HostGroup/listHosts#responses)
+          returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListHostGroupHostsResponse'
+      x-y-navtitle: listHosts
+  /compute/v1/hostTypes/{hostTypeId}:
+    get:
+      tags:
+      - HostType
+      summary: Returns information about specified host type
+      operationId: HostTypeGet
+      parameters:
+      - name: hostTypeId
+        in: path
+        description: |-
+          Required.
+          ID of the host type to return.
+
+          To get a host type ID make a [list](/docs/compute/api-ref/HostType/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HostType'
+      x-y-navtitle: get
+  /compute/v1/hostTypes:
+    get:
+      tags:
+      - HostType
+      summary: List avaliable host types
+      operationId: HostTypeList
+      parameters:
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/compute/api-ref/HostType/list#query_params),
+          the service returns a [nextPageToken](/docs/compute/api-ref/HostType/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results,
+          set [pageToken](/docs/compute/api-ref/HostType/list#query_params) to the [nextPageToken](/docs/compute/api-ref/HostType/list#responses)
+          returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListHostTypesResponse'
+      x-y-navtitle: list
   /compute/v1/images/{imageId}:
     get:
       tags:
@@ -1832,6 +2214,65 @@ components:
 
               The maximum string length in characters is 50.
             type: string
+    CreateHostGroupMetadata:
+      type: object
+      properties:
+        hostGroupId:
+          description: ID of the host group that is being created.
+          type: string
+    CreateHostGroupRequest:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            Required.
+            ID of the folder to create a host group in.
+            To get the folder ID, use a [list](/docs/resource-manager/api-ref/Folder/list) request.
+
+            The maximum string length in characters is 50.
+          type: string
+        name:
+          description: |-
+            Name of the group.
+
+            Value must match the regular expression `` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
+          type: string
+        description:
+          description: |-
+            Description of the group.
+
+            The maximum string length in characters is 256.
+          type: string
+        labels:
+          description: |-
+            Resource labels as `key:value` pairs.
+
+            No more than 64 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_./\@0-9a-z]* ``.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `` [-_./\@0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+        zoneId:
+          description: |-
+            Required.
+            Availability zone where all dedicated hosts will be allocated
+
+            The maximum string length in characters is 50.
+          type: string
+        typeId:
+          description: |-
+            Required.
+            ID of host type. Resources provided by each host of the group
+
+            The maximum string length in characters is 50.
+          type: string
+        maintenancePolicy:
+          $ref: '#/components/schemas/MaintenancePolicy_in_CreateHostGroupRequest_maintenancePolicy'
+        scalePolicy:
+          $ref: '#/components/schemas/ScalePolicy_in_CreateHostGroupRequest_scalePolicy'
     CreateImageMetadata:
       type: object
       properties:
@@ -2153,6 +2594,12 @@ components:
         diskId:
           description: ID of the disk that is being deleted.
           type: string
+    DeleteHostGroupMetadata:
+      type: object
+      properties:
+        hostGroupId:
+          description: ID of the host group that is being deleted.
+          type: string
     DeleteImageMetadata:
       type: object
       properties:
@@ -2328,6 +2775,88 @@ components:
             The contents of the serial port output, starting from the time when the instance
             started to boot.
           type: string
+    Host:
+      description: Represents a dedicated host
+      type: object
+      properties:
+        id:
+          description: ID of the host.
+          type: string
+        status:
+          $ref: '#/components/schemas/HostStatus_in_Host_status'
+        serverId:
+          description: ID of the physical server that the host belongs to.
+          type: string
+    HostGroup:
+      description: Represents group of dedicated hosts
+      type: object
+      properties:
+        id:
+          description: ID of the group
+          type: string
+        folderId:
+          description: ID of the folder that the group belongs to.
+          type: string
+        createdAt:
+          description: |-
+            Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        name:
+          description: Name of the group. The name is unique within the folder.
+          type: string
+        description:
+          description: Description of the group.
+          type: string
+        labels:
+          description: Resource labels as `key:value` pairs.
+          type: object
+          additionalProperties:
+            type: string
+        zoneId:
+          description: Availability zone where all dedicated hosts are allocated
+          type: string
+        status:
+          $ref: '#/components/schemas/HostGroupStatus_in_HostGroup_status'
+        typeId:
+          description: ID  of host type. Resources provided by each host of the group
+          type: string
+        maintenancePolicy:
+          $ref: '#/components/schemas/MaintenancePolicy_in_HostGroup_maintenancePolicy'
+        scalePolicy:
+          $ref: '#/components/schemas/ScalePolicy_in_HostGroup_scalePolicy'
+    HostGroupStatus:
+      type: string
+      enum:
+      - CREATING
+      - READY
+      - UPDATING
+      - DELETING
+    HostStatus:
+      type: string
+      enum:
+      - UP
+      - DOWN
+    HostType:
+      description: |-
+        Represents host resources
+        Note: Platform can use hosts with different number of memory and cores
+        TODO: Do we need sockets here?
+      type: object
+      properties:
+        id:
+          description: Unique type identifier
+          type: string
+        cores:
+          description: Total number of cores available for instances
+          type: string
+          format: int64
+        memory:
+          description: Ammount of memory available for instances
+          type: string
+          format: int64
     Image:
       description: An Image resource.
       type: object
@@ -2563,6 +3092,88 @@ components:
             in the next list request. Each subsequent list request will have its own
             [nextPageToken](/docs/compute/api-ref/Disk/list#responses) to continue paging through the results.
           type: string
+    ListHostGroupHostsResponse:
+      type: object
+      properties:
+        hosts:
+          description: Lists hosts for the specified host group.
+          type: array
+          items:
+            $ref: '#/components/schemas/Host'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is more than [pageSize](/docs/compute/api-ref/HostGroup/listHosts#query_params), use
+            [nextPageToken](/docs/compute/api-ref/HostGroup/listHosts#responses) as the value
+            for the [pageToken](/docs/compute/api-ref/HostGroup/listHosts#query_params) query parameter
+            in the next list request. Each subsequent list request will have its own
+            [nextPageToken](/docs/compute/api-ref/HostGroup/listHosts#responses) to continue paging through the results.
+          type: string
+    ListHostGroupInstancesResponse:
+      type: object
+      properties:
+        instances:
+          description: Lists instances for the specified host group.
+          type: array
+          items:
+            $ref: '#/components/schemas/Instance'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is more than [pageSize](/docs/compute/api-ref/HostGroup/listInstances#query_params), use
+            [nextPageToken](/docs/compute/api-ref/HostGroup/listInstances#responses) as the value
+            for the [pageToken](/docs/compute/api-ref/HostGroup/listInstances#query_params) query parameter
+            in the next list request. Each subsequent list request will have its own
+            [nextPageToken](/docs/compute/api-ref/HostGroup/listInstances#responses) to continue paging through the results.
+          type: string
+    ListHostGroupOperationsResponse:
+      type: object
+      properties:
+        operations:
+          description: List of operations for the specified host group.
+          type: array
+          items:
+            $ref: '#/components/schemas/Operation'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/compute/api-ref/HostGroup/listOperations#query_params), use the [nextPageToken](/docs/compute/api-ref/HostGroup/listOperations#responses) as the value
+            for the [pageToken](/docs/compute/api-ref/HostGroup/listOperations#query_params) query parameter in the next list request.
+            Each subsequent list request will have its own [nextPageToken](/docs/compute/api-ref/HostGroup/listOperations#responses) to continue paging through the results.
+          type: string
+    ListHostGroupsResponse:
+      type: object
+      properties:
+        hostGroups:
+          description: Lists host groups for the specified folder.
+          type: array
+          items:
+            $ref: '#/components/schemas/HostGroup'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/compute/api-ref/HostGroup/list#query_params), use
+            [nextPageToken](/docs/compute/api-ref/HostGroup/list#responses) as the value
+            for the [pageToken](/docs/compute/api-ref/HostGroup/list#query_params) query parameter
+            in the next list request. Each subsequent list request will have its own
+            [nextPageToken](/docs/compute/api-ref/HostGroup/list#responses) to continue paging through the results.
+          type: string
+    ListHostTypesResponse:
+      type: object
+      properties:
+        hostTypes:
+          description: Lists host types.
+          type: array
+          items:
+            $ref: '#/components/schemas/HostType'
+        nextPageToken:
+          description: |-
+            Token for getting the next page of the list. If the number of results is greater than
+            the specified [pageSize](/docs/compute/api-ref/HostType/list#query_params), use `next_page_token` as the value
+            for the [pageToken](/docs/compute/api-ref/HostType/list#query_params) parameter in the next list request.
+
+            Each subsequent page will have its own `next_page_token` to continue paging through the results.
+          type: string
     ListImageOperationsResponse:
       type: object
       properties:
@@ -2724,6 +3335,14 @@ components:
             in the next list request. Subsequent list requests will have their own
             [pageToken](/docs/compute/api-ref/Zone/list#query_params) to continue paging through the results.
           type: string
+    MaintenancePolicy:
+      description: |2-
+         - RESTART: Restart instances on the same host after maintenance event
+         - MIGRATE: Migrate instances to another host before maintenance event
+      type: string
+      enum:
+      - RESTART
+      - MIGRATE
     NetworkInterface:
       type: object
       properties:
@@ -2912,6 +3531,31 @@ components:
         placementGroupId:
           description: Placement group ID.
           type: string
+        hostAffinityRules:
+          description: List of affinity rules. Scheduler will attempt to allocate
+            instances according to order of rules.
+          type: array
+          items:
+            $ref: '#/components/schemas/PlacementPolicyHostAffinityRule'
+    PlacementPolicyHostAffinityRule:
+      description: Affinitity definition
+      type: object
+      properties:
+        key:
+          description: Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId'
+          type: string
+        op:
+          $ref: '#/components/schemas/PlacementPolicyHostAffinityRuleOperator_in_PlacementPolicyHostAffinityRule_op'
+        values:
+          description: Affinity value or host ID or host group ID
+          type: array
+          items:
+            type: string
+    PlacementPolicyHostAffinityRuleOperator:
+      type: string
+      enum:
+      - IN
+      - NOT_IN
     PrimaryAddress:
       type: object
       properties:
@@ -3008,6 +3652,21 @@ components:
         instanceId:
           description: ID of the instance.
           type: string
+    ScalePolicy:
+      type: object
+      allOf:
+      - title: scale_type
+        type: object
+        maxProperties: 1
+        properties:
+          fixedScale:
+            $ref: '#/components/schemas/ScalePolicyFixedScale'
+    ScalePolicyFixedScale:
+      type: object
+      properties:
+        size:
+          type: string
+          format: int64
     SchedulingPolicy:
       type: object
       properties:
@@ -3143,6 +3802,47 @@ components:
             Acceptable values are 4194304 to 4398046511104, inclusive.
           type: string
           format: int64
+    UpdateHostGroupMetadata:
+      type: object
+      properties:
+        hostGroupId:
+          description: ID of the host group that is being updated.
+          type: string
+    UpdateHostGroupRequest:
+      type: object
+      properties:
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateHostGroupRequest_updateMask'
+        name:
+          description: |-
+            Name of the group.
+
+            Value must match the regular expression `` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
+          type: string
+        description:
+          description: |-
+            Description of the group.
+
+            The maximum string length in characters is 256.
+          type: string
+        labels:
+          description: |-
+            Resource labels as `key:value` pairs.
+
+            The existing set of `labels` is completely replaced by the provided set.
+
+            No more than 64 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_./\@0-9a-z]* ``.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `` [-_./\@0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+        maintenancePolicy:
+          $ref: '#/components/schemas/MaintenancePolicy_in_UpdateHostGroupRequest_maintenancePolicy'
+        scalePolicy:
+          $ref: '#/components/schemas/ScalePolicy_in_UpdateHostGroupRequest_scalePolicy'
     UpdateImageMetadata:
       type: object
       properties:
@@ -3459,6 +4159,27 @@ components:
       enum:
       - READ_ONLY
       - READ_WRITE
+    MaintenancePolicy_in_CreateHostGroupRequest_maintenancePolicy:
+      description: |-
+        Behaviour on maintenance events
+
+         - RESTART: Restart instances on the same host after maintenance event
+         - MIGRATE: Migrate instances to another host before maintenance event
+      type: string
+      enum:
+      - RESTART
+      - MIGRATE
+    ScalePolicy_in_CreateHostGroupRequest_scalePolicy:
+      description: Scale policy. Only fixed number of hosts are supported at this
+        moment.
+      type: object
+      allOf:
+      - title: scale_type
+        type: object
+        maxProperties: 1
+        properties:
+          fixedScale:
+            $ref: '#/components/schemas/ScalePolicyFixedScale'
     ResourcesSpec_in_CreateInstanceRequest_resourcesSpec:
       description: |-
         Required.
@@ -3561,6 +4282,48 @@ components:
         placementGroupId:
           description: Placement group ID.
           type: string
+        hostAffinityRules:
+          description: List of affinity rules. Scheduler will attempt to allocate
+            instances according to order of rules.
+          type: array
+          items:
+            $ref: '#/components/schemas/PlacementPolicyHostAffinityRule'
+    HostStatus_in_Host_status:
+      description: Current status of the host. New instances are unable to start on
+        host in DOWN status.
+      type: string
+      enum:
+      - UP
+      - DOWN
+    HostGroupStatus_in_HostGroup_status:
+      description: Status of the group
+      type: string
+      enum:
+      - CREATING
+      - READY
+      - UPDATING
+      - DELETING
+    MaintenancePolicy_in_HostGroup_maintenancePolicy:
+      description: |-
+        Behaviour on maintenance events
+
+         - RESTART: Restart instances on the same host after maintenance event
+         - MIGRATE: Migrate instances to another host before maintenance event
+      type: string
+      enum:
+      - RESTART
+      - MIGRATE
+    ScalePolicy_in_HostGroup_scalePolicy:
+      description: Scale policy. Only fixed number of hosts are supported at this
+        moment.
+      type: object
+      allOf:
+      - title: scale_type
+        type: object
+        maxProperties: 1
+        properties:
+          fixedScale:
+            $ref: '#/components/schemas/ScalePolicyFixedScale'
     ImageStatus_in_Image_status:
       description: |-
         Current status of the image.
@@ -3674,6 +4437,12 @@ components:
         placementGroupId:
           description: Placement group ID.
           type: string
+        hostAffinityRules:
+          description: List of affinity rules. Scheduler will attempt to allocate
+            instances according to order of rules.
+          type: array
+          items:
+            $ref: '#/components/schemas/PlacementPolicyHostAffinityRule'
     PrimaryAddress_in_NetworkInterface_primaryV4Address:
       description: Primary IPv4 address that is assigned to the instance for this
         network interface.
@@ -3764,6 +4533,12 @@ components:
       enum:
       - LINUX
       - WINDOWS
+    PlacementPolicyHostAffinityRuleOperator_in_PlacementPolicyHostAffinityRule_op:
+      description: Include or exclude action
+      type: string
+      enum:
+      - IN
+      - NOT_IN
     OneToOneNat_in_PrimaryAddress_oneToOneNat:
       description: One-to-one NAT configuration. If missing, NAT has not been set
         up.
@@ -3811,6 +4586,40 @@ components:
         Fields specified in the request will be updated to provided values.
         The rest of the fields will be reset to the default.
       type: string
+    FieldMask_in_UpdateHostGroupRequest_updateMask:
+      description: |-
+        Field mask that specifies which fields of the HostGroup resource are going to be updated.
+
+        A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
+    MaintenancePolicy_in_UpdateHostGroupRequest_maintenancePolicy:
+      description: |-
+        Behaviour on maintenance events
+
+         - RESTART: Restart instances on the same host after maintenance event
+         - MIGRATE: Migrate instances to another host before maintenance event
+      type: string
+      enum:
+      - RESTART
+      - MIGRATE
+    ScalePolicy_in_UpdateHostGroupRequest_scalePolicy:
+      description: Scale policy. Only fixed number of hosts are supported at this
+        moment.
+      type: object
+      allOf:
+      - title: scale_type
+        type: object
+        maxProperties: 1
+        properties:
+          fixedScale:
+            $ref: '#/components/schemas/ScalePolicyFixedScale'
     FieldMask_in_UpdateImageRequest_updateMask:
       description: |-
         Field mask that specifies which fields of the Image resource are going to be updated.
@@ -3921,6 +4730,12 @@ components:
         placementGroupId:
           description: Placement group ID.
           type: string
+        hostAffinityRules:
+          description: List of affinity rules. Scheduler will attempt to allocate
+            instances according to order of rules.
+          type: array
+          items:
+            $ref: '#/components/schemas/PlacementPolicyHostAffinityRule'
     FieldMask_in_UpdatePlacementGroupRequest_updateMask:
       description: |-
         Field mask that specifies which fields of the PlacementGroup resource should be updated.
@@ -3962,6 +4777,10 @@ tags:
   description: A set of methods for managing Disk resources.
 - name: DiskType
   description: A set of methods to retrieve information about disk types.
+- name: HostGroup
+  description: A set of methods for managing groups of dedicated hosts
+- name: HostType
+  description: Set of methods to view possible host configurations
 - name: Image
   description: A set of methods for managing Image resources.
 - name: Instance

@@ -7,7 +7,6 @@ This API reference is organized by resource. Actions are performed by sending HT
 
 Resource | Description
 --- | ---
-[Backup](Backup/index.md) | A set of methods for managing ElasticSearch Backup resources.
 [Cluster](Cluster/index.md) | A set of methods for managing ElasticSearch clusters.
 [Operation](Operation/index.md) | A set of methods for managing operations that are asynchronous API requests.
 [ResourcePreset](ResourcePreset/index.md) | A set of methods for managing ResourcePreset resources.

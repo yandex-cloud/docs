@@ -84,8 +84,10 @@ POST https://apploadbalancer.api.cloud.yandex.net/apploadbalancer/v1/backendGrou
           }
         },
         "useHttp2": true,
-        "targetGroup": {
-          "targetGroupId": "string"
+        "targetGroups": {
+          "targetGroupIds": [
+            "string"
+          ]
         }
       }
     ]
@@ -151,8 +153,10 @@ POST https://apploadbalancer.api.cloud.yandex.net/apploadbalancer/v1/backendGrou
 
           }
         },
-        "targetGroup": {
-          "targetGroupId": "string"
+        "targetGroups": {
+          "targetGroupIds": [
+            "string"
+          ]
         }
       }
     ]
@@ -206,8 +210,8 @@ http.<br>backends[].<br>tls.<br>validationContext | **object**<br><p>Validation 
 http.<br>backends[].<br>tls.<br>validationContext.<br>trustedCaId | **string** <br>`http.backends[].tls.validationContext` includes only one of the fields `trustedCaId`, `trustedCaBytes`<br><br><p>Trusted CA certificate ID in the Certificate Manager.</p> 
 http.<br>backends[].<br>tls.<br>validationContext.<br>trustedCaBytes | **string** <br>`http.backends[].tls.validationContext` includes only one of the fields `trustedCaId`, `trustedCaBytes`<br><br><p>Trusted CA blob.</p> 
 http.<br>backends[].<br>useHttp2 | **boolean** (boolean)<br><p>Enables HTTP2 for upstream requests. If not set, HTTP 1.1 will be used by default.</p> 
-http.<br>backends[].<br>targetGroup | **object**<br>References target group for the backend.<br>
-http.<br>backends[].<br>targetGroup.<br>targetGroupId | **string**<br><p>Required.</p> 
+http.<br>backends[].<br>targetGroups | **object**<br>References target groups for the backend.<br>
+http.<br>backends[].<br>targetGroups.<br>targetGroupIds[] | **string**<br><p>Required. Must contain at least one element.</p> 
 grpc | **object** <br> includes only one of the fields `http`, `grpc`<br><br>
 grpc.<br>backends[] | **object**<br>
 grpc.<br>backends[].<br>name | **string**<br><p>Required. Name.</p> 
@@ -244,8 +248,8 @@ grpc.<br>backends[].<br>tls.<br>tlsOptions.<br>ecdhCurves[] | **string**<br><p>I
 grpc.<br>backends[].<br>tls.<br>validationContext | **object**<br><p>Validation context for backend TLS connections.</p> 
 grpc.<br>backends[].<br>tls.<br>validationContext.<br>trustedCaId | **string** <br>`grpc.backends[].tls.validationContext` includes only one of the fields `trustedCaId`, `trustedCaBytes`<br><br><p>Trusted CA certificate ID in the Certificate Manager.</p> 
 grpc.<br>backends[].<br>tls.<br>validationContext.<br>trustedCaBytes | **string** <br>`grpc.backends[].tls.validationContext` includes only one of the fields `trustedCaId`, `trustedCaBytes`<br><br><p>Trusted CA blob.</p> 
-grpc.<br>backends[].<br>targetGroup | **object**<br>References target group for the backend.<br>
-grpc.<br>backends[].<br>targetGroup.<br>targetGroupId | **string**<br><p>Required.</p> 
+grpc.<br>backends[].<br>targetGroups | **object**<br>References target groups for the backend.<br>
+grpc.<br>backends[].<br>targetGroups.<br>targetGroupIds[] | **string**<br><p>Required. Must contain at least one element.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

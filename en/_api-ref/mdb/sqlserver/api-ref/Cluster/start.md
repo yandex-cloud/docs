@@ -2,21 +2,21 @@
 editable: false
 ---
 
-# Method backup
-Create a backup for the specified ElasticSearch cluster.
+# Method start
+Starts the specified sqlserver cluster.
  
 
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.api.cloud.yandex.net/managed-elasticsearch/v1/clusters/{clusterId}:backup
+POST https://mdb.api.cloud.yandex.net/mdb/sqlserver/v1alpha/clusters/{clusterId}:start
 ```
  
 ## Path parameters {#path_params}
  
 Parameter | Description
 --- | ---
-clusterId | Required. Required. ID of the ElasticSearch cluster to back up.  The maximum string length in characters is 50.
+clusterId | Required. ID of the sqlserver cluster to start.  The maximum string length in characters is 50.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

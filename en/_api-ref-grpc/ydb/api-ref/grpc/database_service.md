@@ -45,10 +45,10 @@ storage_config | **[StorageConfig](../database.proto#StorageConfig)**<br>
 scale_policy | **[ScalePolicy](../database.proto#ScalePolicy)**<br> 
 network_id | **string**<br> 
 subnet_ids[] | **string**<br> 
-database_type | **oneof:** `zonal_database`, `regional_database`, `provisioned_database` or `serverless_database`<br>
+database_type | **oneof:** `zonal_database`, `regional_database`, `dedicated_database` or `serverless_database`<br>
 &nbsp;&nbsp;zonal_database | **[ZonalDatabase](../database.proto#ZonalDatabase)**<br>deprecated field 
 &nbsp;&nbsp;regional_database | **[RegionalDatabase](../database.proto#RegionalDatabase)**<br>deprecated field 
-&nbsp;&nbsp;provisioned_database | **[ProvisionedDatabase](../database.proto#ProvisionedDatabase)**<br> 
+&nbsp;&nbsp;dedicated_database | **[DedicatedDatabase](../database.proto#DedicatedDatabase)**<br> 
 &nbsp;&nbsp;serverless_database | **[ServerlessDatabase](../database.proto#ServerlessDatabase)**<br> 
 assign_public_ips | **bool**<br> 
 location_id | **string**<br> 
@@ -99,7 +99,7 @@ Field | Description
 region_id | **string**<br>Required.  false
 
 
-### ProvisionedDatabase {#ProvisionedDatabase}
+### DedicatedDatabase {#DedicatedDatabase}
 
 Field | Description
 --- | ---
@@ -184,10 +184,10 @@ storage_config | **[StorageConfig](../database.proto#StorageConfig2)**<br>
 scale_policy | **[ScalePolicy](../database.proto#ScalePolicy2)**<br> 
 network_id | **string**<br> 
 subnet_ids[] | **string**<br> 
-database_type | **oneof:** `zonal_database`, `regional_database`, `provisioned_database` or `serverless_database`<br>
+database_type | **oneof:** `zonal_database`, `regional_database`, `dedicated_database` or `serverless_database`<br>
 &nbsp;&nbsp;zonal_database | **[ZonalDatabase](../database.proto#ZonalDatabase1)**<br>deprecated field 
 &nbsp;&nbsp;regional_database | **[RegionalDatabase](../database.proto#RegionalDatabase1)**<br>deprecated field 
-&nbsp;&nbsp;provisioned_database | **[ProvisionedDatabase](../database.proto#ProvisionedDatabase1)**<br> 
+&nbsp;&nbsp;dedicated_database | **[DedicatedDatabase](../database.proto#DedicatedDatabase1)**<br> 
 &nbsp;&nbsp;serverless_database | **[ServerlessDatabase](../database.proto#ServerlessDatabase1)**<br> 
 assign_public_ips | **bool**<br> 
 location_id | **string**<br> 
@@ -238,7 +238,7 @@ Field | Description
 region_id | **string**<br>Required.  false
 
 
-### ProvisionedDatabase {#ProvisionedDatabase}
+### DedicatedDatabase {#DedicatedDatabase}
 
 Field | Description
 --- | ---
@@ -306,10 +306,10 @@ storage_config | **[StorageConfig](../database.proto#StorageConfig4)**<br>
 scale_policy | **[ScalePolicy](../database.proto#ScalePolicy4)**<br> 
 network_id | **string**<br> 
 subnet_ids[] | **string**<br> 
-database_type | **oneof:** `zonal_database`, `regional_database`, `provisioned_database` or `serverless_database`<br>
+database_type | **oneof:** `zonal_database`, `regional_database`, `dedicated_database` or `serverless_database`<br>
 &nbsp;&nbsp;zonal_database | **[ZonalDatabase](../database.proto#ZonalDatabase2)**<br>deprecated field 
 &nbsp;&nbsp;regional_database | **[RegionalDatabase](../database.proto#RegionalDatabase2)**<br>deprecated field 
-&nbsp;&nbsp;provisioned_database | **[ProvisionedDatabase](../database.proto#ProvisionedDatabase2)**<br> 
+&nbsp;&nbsp;dedicated_database | **[DedicatedDatabase](../database.proto#DedicatedDatabase2)**<br> 
 &nbsp;&nbsp;serverless_database | **[ServerlessDatabase](../database.proto#ServerlessDatabase2)**<br> 
 assign_public_ips | **bool**<br> 
 location_id | **string**<br> 
@@ -360,7 +360,7 @@ Field | Description
 region_id | **string**<br>Required.  false
 
 
-### ProvisionedDatabase {#ProvisionedDatabase}
+### DedicatedDatabase {#DedicatedDatabase}
 
 Field | Description
 --- | ---
@@ -446,10 +446,10 @@ storage_config | **[StorageConfig](../database.proto#StorageConfig6)**<br>
 scale_policy | **[ScalePolicy](../database.proto#ScalePolicy6)**<br> 
 network_id | **string**<br> 
 subnet_ids[] | **string**<br> 
-database_type | **oneof:** `zonal_database`, `regional_database`, `provisioned_database` or `serverless_database`<br>
+database_type | **oneof:** `zonal_database`, `regional_database`, `dedicated_database` or `serverless_database`<br>
 &nbsp;&nbsp;zonal_database | **[ZonalDatabase](../database.proto#ZonalDatabase3)**<br>deprecated field 
 &nbsp;&nbsp;regional_database | **[RegionalDatabase](../database.proto#RegionalDatabase3)**<br>deprecated field 
-&nbsp;&nbsp;provisioned_database | **[ProvisionedDatabase](../database.proto#ProvisionedDatabase3)**<br> 
+&nbsp;&nbsp;dedicated_database | **[DedicatedDatabase](../database.proto#DedicatedDatabase3)**<br> 
 &nbsp;&nbsp;serverless_database | **[ServerlessDatabase](../database.proto#ServerlessDatabase3)**<br> 
 assign_public_ips | **bool**<br> 
 location_id | **string**<br> 
@@ -480,10 +480,10 @@ storage_config | **[StorageConfig](../database.proto#StorageConfig6)**<br>
 scale_policy | **[ScalePolicy](../database.proto#ScalePolicy6)**<br> 
 network_id | **string**<br> 
 subnet_ids[] | **string**<br> 
-database_type | **oneof:** `zonal_database`, `regional_database`, `provisioned_database` or `serverless_database`<br>
+database_type | **oneof:** `zonal_database`, `regional_database`, `dedicated_database` or `serverless_database`<br>
 &nbsp;&nbsp;zonal_database | **[ZonalDatabase](../database.proto#ZonalDatabase3)**<br> 
 &nbsp;&nbsp;regional_database | **[RegionalDatabase](../database.proto#RegionalDatabase3)**<br> 
-&nbsp;&nbsp;provisioned_database | **[ProvisionedDatabase](../database.proto#ProvisionedDatabase3)**<br> 
+&nbsp;&nbsp;dedicated_database | **[DedicatedDatabase](../database.proto#DedicatedDatabase3)**<br> 
 &nbsp;&nbsp;serverless_database | **[ServerlessDatabase](../database.proto#ServerlessDatabase3)**<br> 
 assign_public_ips | **bool**<br> 
 location_id | **string**<br> 
@@ -534,7 +534,7 @@ Field | Description
 region_id | **string**<br>Required.  false
 
 
-### ProvisionedDatabase {#ProvisionedDatabase}
+### DedicatedDatabase {#DedicatedDatabase}
 
 Field | Description
 --- | ---
@@ -620,10 +620,10 @@ storage_config | **[StorageConfig](../database.proto#StorageConfig8)**<br>
 scale_policy | **[ScalePolicy](../database.proto#ScalePolicy8)**<br> 
 network_id | **string**<br> 
 subnet_ids[] | **string**<br> 
-database_type | **oneof:** `zonal_database`, `regional_database`, `provisioned_database` or `serverless_database`<br>
+database_type | **oneof:** `zonal_database`, `regional_database`, `dedicated_database` or `serverless_database`<br>
 &nbsp;&nbsp;zonal_database | **[ZonalDatabase](../database.proto#ZonalDatabase4)**<br>deprecated field 
 &nbsp;&nbsp;regional_database | **[RegionalDatabase](../database.proto#RegionalDatabase4)**<br>deprecated field 
-&nbsp;&nbsp;provisioned_database | **[ProvisionedDatabase](../database.proto#ProvisionedDatabase4)**<br> 
+&nbsp;&nbsp;dedicated_database | **[DedicatedDatabase](../database.proto#DedicatedDatabase4)**<br> 
 &nbsp;&nbsp;serverless_database | **[ServerlessDatabase](../database.proto#ServerlessDatabase4)**<br> 
 assign_public_ips | **bool**<br> 
 location_id | **string**<br> 
