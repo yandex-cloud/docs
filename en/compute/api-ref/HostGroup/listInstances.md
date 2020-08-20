@@ -2,24 +2,29 @@
 editable: false
 ---
 
-# Method list
-Retrieves the list of Instance resources in the specified folder.
+# Method listInstances
+Lists instances that belongs to the specified host group
  
 
  
 ## HTTP request {#https-request}
 ```
-GET https://compute.api.cloud.yandex.net/compute/v1/instances
+GET https://compute.api.cloud.yandex.net/compute/v1/hostGroups/{hostGroupId}/instances
 ```
+ 
+## Path parameters {#path_params}
+ 
+Parameter | Description
+--- | ---
+hostGroupId | Required. ID of the host group to list instances for. To get the host group ID, use [list](/docs/compute/api-ref/HostGroup/list) request.  The maximum string length in characters is 50.
  
 ## Query parameters {#query_params}
  
 Parameter | Description
 --- | ---
-folderId | Required. ID of the Folder to list instances in. To get the folder ID, use a [list](/docs/resource-manager/api-ref/Folder/list) request.  The maximum string length in characters is 50.
-pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/compute/api-ref/Instance/list#query_params), the service returns a [nextPageToken](/docs/compute/api-ref/Instance/list#responses) that can be used to get the next page of results in subsequent list requests.  The maximum value is 1000.
-pageToken | Page token. To get the next page of results, set [pageToken](/docs/compute/api-ref/Instance/list#query_params) to the [nextPageToken](/docs/compute/api-ref/Instance/list#responses) returned by a previous list request.  The maximum string length in characters is 100.
-filter | A filter expression that filters resources listed in the response. The expression must specify: 1. The field name. Currently you can use filtering only on the [Instance.name](/docs/compute/api-ref/Instance#representation) field. 2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. 3. The value. Must be 3-63 characters long and match the regular expression `^[a-z]([-a-z0-9]{,61}[a-z0-9])?$`.  The maximum string length in characters is 1000.
+pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/compute/api-ref/HostGroup/listInstances#query_params), the service returns a [nextPageToken](/docs/compute/api-ref/HostGroup/listInstances#responses) that can be used to get the next page of results in subsequent list requests.  The maximum value is 1000.
+pageToken | Page token. To get the next page of results, set [pageToken](/docs/compute/api-ref/HostGroup/listInstances#query_params) to the [nextPageToken](/docs/compute/api-ref/HostGroup/listInstances#responses) returned by a previous list request.  The maximum string length in characters is 100.
+filter | A filter expression that filters resources listed in the response. Currently you can use filtering only on the `id` field. To get the host ID, use [listHosts](/docs/compute/api-ref/HostGroup/listHosts) request.  The maximum string length in characters is 1000.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -164,4 +169,4 @@ instances[].<br>placementPolicy.<br>hostAffinityRules[] | **object**<br><p>Affin
 instances[].<br>placementPolicy.<br>hostAffinityRules[].<br>key | **string**<br><p>Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId'</p> 
 instances[].<br>placementPolicy.<br>hostAffinityRules[].<br>op | **string**<br><p>Include or exclude action</p> 
 instances[].<br>placementPolicy.<br>hostAffinityRules[].<br>values[] | **string**<br><p>Affinity value or host ID or host group ID</p> 
-nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/compute/api-ref/Instance/list#query_params">pageSize</a>, use the <a href="/docs/compute/api-ref/Instance/list#responses">nextPageToken</a> as the value for the <a href="/docs/compute/api-ref/Instance/list#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own <a href="/docs/compute/api-ref/Instance/list#responses">nextPageToken</a> to continue paging through the results.</p> 
+nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is more than <a href="/docs/compute/api-ref/HostGroup/listInstances#query_params">pageSize</a>, use <a href="/docs/compute/api-ref/HostGroup/listInstances#responses">nextPageToken</a> as the value for the <a href="/docs/compute/api-ref/HostGroup/listInstances#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own <a href="/docs/compute/api-ref/HostGroup/listInstances#responses">nextPageToken</a> to continue paging through the results.</p> 

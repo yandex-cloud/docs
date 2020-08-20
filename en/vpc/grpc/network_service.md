@@ -42,6 +42,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the network. The name is unique within the folder. 3-63 characters long. 
 description | **string**<br>Optional description of the network. 0-256 characters long. 
 labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Мaximum of 64 per resource. 
+default_security_group_id | **string**<br>ID of default security group for network. 
 
 
 ## List {#List}
@@ -78,6 +79,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the network. The name is unique within the folder. 3-63 characters long. 
 description | **string**<br>Optional description of the network. 0-256 characters long. 
 labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Мaximum of 64 per resource. 
+default_security_group_id | **string**<br>ID of default security group for network. 
 
 
 ## Create {#Create}
@@ -133,6 +135,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the network. The name is unique within the folder. 3-63 characters long. 
 description | **string**<br>Optional description of the network. 0-256 characters long. 
 labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Мaximum of 64 per resource. 
+default_security_group_id | **string**<br>ID of default security group for network. 
 
 
 ## Update {#Update}
@@ -189,6 +192,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the network. The name is unique within the folder. 3-63 characters long. 
 description | **string**<br>Optional description of the network. 0-256 characters long. 
 labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Мaximum of 64 per resource. 
+default_security_group_id | **string**<br>ID of default security group for network. 
 
 
 ## Delete {#Delete}
@@ -371,5 +375,6 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the network. The name is unique within the folder. 3-63 characters long. 
 description | **string**<br>Optional description of the network. 0-256 characters long. 
 labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Мaximum of 64 per resource. 
+default_security_group_id | **string**<br>ID of default security group for network. 
 
 
