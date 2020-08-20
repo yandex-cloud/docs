@@ -9,7 +9,7 @@ If the function version was created with a service account, you can get an IAM t
 
 If you create a function in a runtime environment supported by {{ sf-name }}, you can get an IAM token from the handler [context](../concepts/function.md#model-desc) (which is the second parameter: `context`).
 
-To get an IAM token, add the row `token: context.token` to the function code and call the function:
+To get an IAM token, add the row `token: context.token` to the function code and invoke the function:
 
 1. Save the following code to a file named `index.js`:
 
@@ -21,7 +21,9 @@ To get an IAM token, add the row `token: context.token` to the function code and
         };
     };
     ```
+
 1. [Create a function version](../operations/function/version-manage.md#version-create) using the `index.js` file.
+
 1. [Run the function](../operations/function/function-invoke.md).
 
     The function response looks like this:
@@ -43,5 +45,5 @@ To get an IAM token, add the row `token: context.token` to the function code and
 
 ## Get an IAM token using the API {#api}
 
-If you work with Yandex.Cloud from inside the VM, you can get an IAM token from the VM's metadata in [Google Compute Engine](../../compute/operations/vm-info/get-info.md#gce-metadata) format, and also add this logic to your function. Read more about this in [Working with Yandex.Cloud from inside a VM](../../compute/operations/vm-connect/auth-inside-vm.md#auth-inside-vm).
+If you work with Yandex.Cloud from inside a VM, you can get an IAM token from the metadata service in [Google Compute Engine](../../compute/operations/vm-info/get-info.md#gce-metadata) format, and also add this logic to your function. Read more about this in [Working with Yandex.Cloud from inside a VM](../../compute/operations/vm-connect/auth-inside-vm.md#auth-inside-vm).
 

@@ -146,7 +146,7 @@ To visualize sales dynamics by month, create a [chart](../../datalens/concepts/c
 
     ![image](../../_assets/datalens/solution-02/19-choose-line-chart.png)
 
-1. Add the sales date to the chart. Drag the **OrderDate** field from **Dimensions** to the **X** section.
+1. Add the sales date to the chart. Drag the **OrderDate** field from the **Dimensions** section to the **X** section.
 
 1. Add a sales measure to the chart. To do this, drag the **Sales** field from the **Measures** section to the **Y** section.
 
@@ -162,9 +162,11 @@ To visualize sales dynamics by month, create a [chart](../../datalens/concepts/c
      ![image](../../_assets/datalens/solution-02/21-date-to-month.png)
 
 1. Save the chart.
+
     1. Click **Save** in the upper-right corner to save the chart.
 
-    ![image](../../_assets/datalens/solution-02/22-save-chart.png)
+       ![image](../../_assets/datalens/solution-02/22-save-chart.png)
+
     1. In the window that opens, enter a name for the chart: **Sales dynamics by month and payment type**, and click **Save**.
 
 ## Step 4. Create a bar chart {#step4}
@@ -179,7 +181,7 @@ To visualize sales by brands and product categories, create a [chart](../../data
 
         ![image](../../_assets/datalens/solution-02/23-save-as.png)
 
-    1. In the window that opens, enter the name **Sales by year and product** for the new chart and click **Save**.
+    1. In the window that opens, enter the name **Sales by brand and category** for the new chart and click **Save**.
 
 1. For the visualization type, choose **Bar chart**.
 
@@ -258,7 +260,7 @@ To visualize the density of orders on the Moscow map, create a [chart](../../dat
 
 1. Delete the **Sales** field from the **Colors** section.
 
-1. Add the delivery point coordinates to the map. To do this, drag the **DeliveryAdressCoord** field from the **Dimensions** section to the **Geopoint** section.
+1. Add the delivery point coordinates to the map. To do this, drag the **DeliveryAdressCoord** field from the **Dimensions** section to the **Geopoints** section.
 
     ![image](../../_assets/datalens/solution-02/34-heatmap.png)
 
@@ -295,9 +297,9 @@ Create a [Dashboard](../../datalens/concepts/dashboard.md) to add your charts to
     ![image](../../_assets/datalens/solution-02/38-add-chart-window.png)
 
 1. Similarly, add the following charts:
-   * **Sales by brand and category**
-   * **Sales by year and product**
-   * **Sales heat map**
+    * **Sales by brand and category**
+    * **Sales by year and product**
+    * **Sales heat map**
 
 1. Position the charts on the dashboard however you like.
 
@@ -344,6 +346,7 @@ Add [selectors](../../datalens/concepts/dashboard.md#selector) to filter the cha
 
     ![image](../../_assets/datalens/solution-02/43-dashboard2.png)
 
-Your dashboard is ready. Now you can filter charts using selectors.
-![image](../../_assets/datalens/solution-02/44-dashboard3.png)
+1. Your dashboard is ready. Now you can filter charts using selectors.
+
+    ![image](../../_assets/datalens/solution-02/44-dashboard3.png)
 

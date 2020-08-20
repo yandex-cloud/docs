@@ -2,7 +2,7 @@
 
 In Yandex.Cloud, you can deploy a virtual Mikrotik Cloud Hosted Router from a VM image. To install Mikrotik Cloud Hosted Router and check its operability:
 
-1. [Before you start](#before-begin).
+1. [Before you start](#before-you-begin).
 1. [Create a VM with Mikrotik Cloud Hosted Router](#create-router).
 1. [Log in to your VM and change your password](#change-password).
 1. [Create a test VM](#create-test-vm).
@@ -10,9 +10,9 @@ In Yandex.Cloud, you can deploy a virtual Mikrotik Cloud Hosted Router from a VM
 
 If you no longer need the created resources, [delete them](#clear-out).
 
-## Before you start {#before-begin}
+## Before you start {#before-you-begin}
 
-{% include [before-begin](../_solutions_includes/before-you-begin.md) %}
+{% include [before-you-begin](../_solutions_includes/before-you-begin.md) %}
 
 ### Required paid resources {#paid-resources}
 
@@ -24,14 +24,14 @@ When you use a Mikrotik Cloud Hosted Router image without a license, the router 
 
 The cost of using a virtual router and test VM includes:
 
-* A fee for the disks and continuously running VMs (see [{{ compute-full-name }}pricing](../../compute/pricing.md)).
+* A fee for the disks and continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * A fee for using a public IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 ## Create a VM with Mikrotik Cloud Hosted Router {#create-router}
 
 1. Open your folder and click **Create resource**. Select **Virtual machine**.
 1. Enter a name for the VM, like `mikrotik-router`.
-1. Select an [availability zone](../../overview/concepts/geo-scope.md) with a subnet. If you don't know which availability zone you need, leave the default.
+1. Select the [availability zone](../../overview/concepts/geo-scope.md) with a subnet. If you don't know which availability zone you need, leave the default.
 1. Under **Images from {{ marketplace-name }}**, click **Select** and choose the **Cloud Hosted Router** image.
 1. Under **Computing resources**:
     - Choose a [platform](../../compute/concepts/vm-platforms.md) for the VM.
@@ -65,13 +65,13 @@ The router is created with a public IP address, so you need to change the defaul
 
 Create a test VM in the subnet that hosts the router, to test connectivity between the router and VM.
 
-1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
+1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource**, and select **Virtual machine**.
 
 1. In the **Name** field, enter the VM name: `test-vm`.
 
 1. Select the same [availability zone](../../overview/concepts/geo-scope.md) where the `mikrotik-router` VM is located.
 
-1. Under **Images from {{ marketplace-name }}**, select **Ubuntu**.
+1. Under **Images from {{ marketplace-name }}**, select the **Ubuntu** image.
 
 1. Under **Computing resources**:
     - Choose a [platform](../../compute/concepts/vm-platforms.md) for the VM.
@@ -81,7 +81,7 @@ Create a test VM in the subnet that hosts the router, to test connectivity betwe
      * **vCPU**: 2.
      * **RAM**: 0.5 GB.
 
-1. Under **Network settings**, select the network and subnet hosting the  `mikrotik-router` VM.
+1. Under **Network settings**, select the network and subnet hosting the `mikrotik-router` VM.
 
 1. In the **Public address** field, select **No address**.
 

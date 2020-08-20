@@ -6,7 +6,7 @@ In the example, we set up a tunnel between two VPN gateways. To test the tunnel,
 
 To set up a VPN tunnel:
 
-1. [Before you start](#before-begin).
+1. [Before you start](#before-you-begin).
 1. [Create and configure an IPSec instance](#create-ipsec-instance).
 1. [Configure IPsec](#create-ipsec-instance).
 1. [Set up static routing in the cloud network](#configure-static-route).
@@ -15,7 +15,7 @@ To set up a VPN tunnel:
 
 If you no longer need the IPSec instance, [delete it](#clear-out).
 
-## Before you start {#before-begin}
+## Before you start {#before-you-begin}
 
 Before deploying the server, you need to sign up for Yandex.Cloud and create a billing account:
 
@@ -32,7 +32,7 @@ The cost of IPSec VPN infrastructure support includes:
 * A fee for continuously running VMs (see [pricing{{ compute-full-name }}](../../compute/pricing.md)).
 * A fee for using a dynamic external IP address (see [pricing {{ vpc-full-name }}](../../vpc/pricing.md)).
 
-## Create networks and subnets {#before-begin}
+## Create networks and subnets {#before-you-begin}
 
 To connect cloud resources to the internet, make sure you have [networks](../../vpc/operations/network-create.md) and [subnets](../../vpc/operations/subnet-create.md).
 
@@ -46,7 +46,7 @@ Create a VM in Yandex.Cloud to serve as a gateway for an IPSec tunnel.
 
 1. Select the subnet availability zone to connect the IPSec instance to and where the test VM is already located.
 
-1. Under **Images from {{ marketplace-name }}**, click **Select** and choose the **IPSec instance** image.
+1. In the **Images from {{ marketplace-name }}** section, click **Select** and choose the **IPSec instance** image.
 
 1. In the **Network settings** section, choose the required network and subnet and assign a public IP to the VM either by selecting it from the list or automatically.
 
@@ -187,7 +187,7 @@ For the VPN tunnel to work, you need to set up another IPSec gateway. You can cr
 1. In `/etc/ipsec.secrets`, enter the swapped gateway IP addresses followed by your password :
 
    ```
-   1.1.1.1 130.193.32.25 : PSK ""
+   1.1.1.1 130.193.32.25 : PSK "<password>"
    ```
 
 1. Restart strongSwan:
@@ -203,9 +203,9 @@ To make sure the tunnel between gateways is established, run the following comma
 ```
 $ sudo ipsec status
 Security Associations (1 up, 0 connecting):
- hq-to-cloud[3]: ESTABLISHED 29 minutes ago, 10.10.10.26[130.193.33.12]...1.1.1.1[1.1.1.1]
+ hq-to-cloud[3]: ESTABLISHED 29 minutes ago, 10.128.0.26[130.193.33.12]...192.168.0.23[1.1.1.1]
  hq-to-cloud{3}:  INSTALLED, TUNNEL, reqid 3, ESP in UDP SPIs: c7fa371d_i ce8b91ad_o
- hq-to-cloud{3}:   10.10.10.0/24 === 192.168.0.0/24
+ hq-to-cloud{3}:   10.128.0.0/24 === 192.168.0.0/24
 ```
 
 The `ESTABLISHED` status means that a tunnel between gateways was created.

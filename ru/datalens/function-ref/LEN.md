@@ -25,7 +25,7 @@ LEN( string )
 #### Примеры {#examples}
 
 ```
-LEN("Computer") = 9
+LEN("Computer") = 8
 ```
 
 

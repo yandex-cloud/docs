@@ -1,6 +1,6 @@
 # Visualizing data from AppMetrica
 
-The application added to [AppMetrica](https://appmetrica.yandex.ru) will be used as the data source. You can view a list of applications available to you under [Applications](https://appmetrica.yandex.ru/application/list).
+The application added to [AppMetrica](https://appmetrica.yandex.com) will be used as the data source. You can view a list of applications available to you under [Applications](https://appmetrica.yandex.com/application/list).
 
 If you don't have any apps available, then before performing this scenario, [add an app](https://appmetrica.yandex.com/docs/quick-start/concepts/quick-start.html) or use the standard **AppMetrica dashboard**.
 
@@ -22,7 +22,7 @@ This step is available to users who have an app in AppMetrica. If you don't have
 
 {% endnote %}
 
-1. Go to [{{ datalens-short-name }}](https://datalens.yandex.ru) and click **Create connection**.
+1. Go to [{{ datalens-short-name }}](https://datalens.yandex.com) and click **Create connection**.
 
     ![image](../../_assets/datalens/solution-06/02-create-connection.png)
 

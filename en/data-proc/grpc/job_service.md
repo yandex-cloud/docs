@@ -28,14 +28,14 @@ Field | Description
 cluster_id | **string**<br>Required. ID of the cluster to list jobs for. false The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListJobsResponse.next_page_token](#ListJobsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListJobsResponse.next_page_token](#ListJobsResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently you can use filtering only on [Job.name](#Job) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]. </li></ol> The maximum string length in characters is 1000.
+filter | **string**<br><ol><li>The field name. Currently you can use filtering only on [Job.name](../job.proto#Job) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]. </li></ol> The maximum string length in characters is 1000.
 
 
 ### ListJobsResponse {#ListJobsResponse}
 
 Field | Description
 --- | ---
-jobs[] | **[Job](#Job)**<br>List of jobs for the specified cluster. 
+jobs[] | **[Job](../job.proto#Job)**<br>List of jobs for the specified cluster. 
 next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListJobsRequest.page_size](#ListJobsRequest1), use `next_page_token` as the value for the [ListJobsRequest.page_token](#ListJobsRequest1) parameter in the next list request. <br>Each subsequent page will have its own `next_page_token` to continue paging through the results. 
 
 
@@ -52,10 +52,10 @@ name | **string**<br>Name of the job, specified in the [JobService.Create](#Crea
 created_by | **string**<br>The id of the user who created the job 
 status | enum **Status**<br>Job status. <ul><li>`PROVISIONING`: Job is logged in the database and is waiting for the agent to run it.</li><li>`PENDING`: Job is acquired by the agent and is in the queue for execution.</li><li>`RUNNING`: Job is being run in the cluster.</li><li>`ERROR`: Job failed to finish the run properly.</li><li>`DONE`: Job is finished.</li><ul/>
 job_spec | **oneof:** `mapreduce_job`, `spark_job`, `pyspark_job` or `hive_job`<br>Specification for the job.
-&nbsp;&nbsp;mapreduce_job | **[MapreduceJob](#MapreduceJob)**<br>Specification for a MapReduce job. 
-&nbsp;&nbsp;spark_job | **[SparkJob](#SparkJob)**<br>Specification for a Spark job. 
-&nbsp;&nbsp;pyspark_job | **[PysparkJob](#PysparkJob)**<br>Specification for a PySpark job. 
-&nbsp;&nbsp;hive_job | **[HiveJob](#HiveJob)**<br>Specification for a Hive job. 
+&nbsp;&nbsp;mapreduce_job | **[MapreduceJob](../job.proto#MapreduceJob)**<br>Specification for a MapReduce job. 
+&nbsp;&nbsp;spark_job | **[SparkJob](../job.proto#SparkJob)**<br>Specification for a Spark job. 
+&nbsp;&nbsp;pyspark_job | **[PysparkJob](../job.proto#PysparkJob)**<br>Specification for a PySpark job. 
+&nbsp;&nbsp;hive_job | **[HiveJob](../job.proto#HiveJob)**<br>Specification for a Hive job. 
 
 
 ### MapreduceJob {#MapreduceJob}
@@ -108,7 +108,7 @@ script_variables | **map<string,string>**<br>Query variables and their values.
 jar_file_uris[] | **string**<br>JAR file URIs to add to CLASSPATH of the Hive driver and each task. 
 query_type | **oneof:** `query_file_uri` or `query_list`<br>
 &nbsp;&nbsp;query_file_uri | **string**<br>URI of the script with all the necessary Hive queries. 
-&nbsp;&nbsp;query_list | **[QueryList](#QueryList)**<br>List of Hive queries to be used in the job. 
+&nbsp;&nbsp;query_list | **[QueryList](../job.proto#QueryList)**<br>List of Hive queries to be used in the job. 
 
 
 ### QueryList {#QueryList}
@@ -126,7 +126,7 @@ Creates a job for a cluster.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateJobMetadata](#CreateJobMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Job](#Job1)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Job](../job.proto#Job1)<br>
 
 ### CreateJobRequest {#CreateJobRequest}
 
@@ -135,10 +135,10 @@ Field | Description
 cluster_id | **string**<br>Required. ID of the cluster to create a job for. false The maximum string length in characters is 50.
 name | **string**<br>Name of the job. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 job_spec | **oneof:** `mapreduce_job`, `spark_job`, `pyspark_job` or `hive_job`<br>Specification for the job.
-&nbsp;&nbsp;mapreduce_job | **[MapreduceJob](#MapreduceJob1)**<br>Specification for a MapReduce job. 
-&nbsp;&nbsp;spark_job | **[SparkJob](#SparkJob1)**<br>Specification for a Spark job. 
-&nbsp;&nbsp;pyspark_job | **[PysparkJob](#PysparkJob1)**<br>Specification for a PySpark job. 
-&nbsp;&nbsp;hive_job | **[HiveJob](#HiveJob1)**<br>Specification for a Hive job. 
+&nbsp;&nbsp;mapreduce_job | **[MapreduceJob](../job.proto#MapreduceJob1)**<br>Specification for a MapReduce job. 
+&nbsp;&nbsp;spark_job | **[SparkJob](../job.proto#SparkJob1)**<br>Specification for a Spark job. 
+&nbsp;&nbsp;pyspark_job | **[PysparkJob](../job.proto#PysparkJob1)**<br>Specification for a PySpark job. 
+&nbsp;&nbsp;hive_job | **[HiveJob](../job.proto#HiveJob1)**<br>Specification for a Hive job. 
 
 
 ### MapreduceJob {#MapreduceJob}
@@ -191,7 +191,7 @@ script_variables | **map<string,string>**<br>Query variables and their values.
 jar_file_uris[] | **string**<br>JAR file URIs to add to CLASSPATH of the Hive driver and each task. 
 query_type | **oneof:** `query_file_uri` or `query_list`<br>
 &nbsp;&nbsp;query_file_uri | **string**<br>URI of the script with all the necessary Hive queries. 
-&nbsp;&nbsp;query_list | **[QueryList](#QueryList1)**<br>List of Hive queries to be used in the job. 
+&nbsp;&nbsp;query_list | **[QueryList](../job.proto#QueryList1)**<br>List of Hive queries to be used in the job. 
 
 
 ### QueryList {#QueryList}
@@ -214,7 +214,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateJobMetadata](#CreateJobMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Job](#Job1)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Job](../job.proto#Job1)>**<br>if operation finished successfully. 
 
 
 ### CreateJobMetadata {#CreateJobMetadata}
@@ -238,17 +238,17 @@ name | **string**<br>Name of the job, specified in the [JobService.Create](#Crea
 created_by | **string**<br>The id of the user who created the job 
 status | enum **Status**<br>Job status. <ul><li>`PROVISIONING`: Job is logged in the database and is waiting for the agent to run it.</li><li>`PENDING`: Job is acquired by the agent and is in the queue for execution.</li><li>`RUNNING`: Job is being run in the cluster.</li><li>`ERROR`: Job failed to finish the run properly.</li><li>`DONE`: Job is finished.</li><ul/>
 job_spec | **oneof:** `mapreduce_job`, `spark_job`, `pyspark_job` or `hive_job`<br>Specification for the job.
-&nbsp;&nbsp;mapreduce_job | **[MapreduceJob](#MapreduceJob2)**<br>Specification for a MapReduce job. 
-&nbsp;&nbsp;spark_job | **[SparkJob](#SparkJob2)**<br>Specification for a Spark job. 
-&nbsp;&nbsp;pyspark_job | **[PysparkJob](#PysparkJob2)**<br>Specification for a PySpark job. 
-&nbsp;&nbsp;hive_job | **[HiveJob](#HiveJob2)**<br>Specification for a Hive job. 
+&nbsp;&nbsp;mapreduce_job | **[MapreduceJob](../job.proto#MapreduceJob2)**<br>Specification for a MapReduce job. 
+&nbsp;&nbsp;spark_job | **[SparkJob](../job.proto#SparkJob2)**<br>Specification for a Spark job. 
+&nbsp;&nbsp;pyspark_job | **[PysparkJob](../job.proto#PysparkJob2)**<br>Specification for a PySpark job. 
+&nbsp;&nbsp;hive_job | **[HiveJob](../job.proto#HiveJob2)**<br>Specification for a Hive job. 
 
 
 ## Get {#Get}
 
 Returns the specified job.
 
-**rpc Get ([GetJobRequest](#GetJobRequest)) returns ([Job](#Job2))**
+**rpc Get ([GetJobRequest](#GetJobRequest)) returns ([Job](../job.proto#Job2))**
 
 ### GetJobRequest {#GetJobRequest}
 
@@ -271,10 +271,10 @@ name | **string**<br>Name of the job, specified in the [JobService.Create](#Crea
 created_by | **string**<br>The id of the user who created the job 
 status | enum **Status**<br>Job status. <ul><li>`PROVISIONING`: Job is logged in the database and is waiting for the agent to run it.</li><li>`PENDING`: Job is acquired by the agent and is in the queue for execution.</li><li>`RUNNING`: Job is being run in the cluster.</li><li>`ERROR`: Job failed to finish the run properly.</li><li>`DONE`: Job is finished.</li><ul/>
 job_spec | **oneof:** `mapreduce_job`, `spark_job`, `pyspark_job` or `hive_job`<br>Specification for the job.
-&nbsp;&nbsp;mapreduce_job | **[MapreduceJob](#MapreduceJob2)**<br>Specification for a MapReduce job. 
-&nbsp;&nbsp;spark_job | **[SparkJob](#SparkJob2)**<br>Specification for a Spark job. 
-&nbsp;&nbsp;pyspark_job | **[PysparkJob](#PysparkJob2)**<br>Specification for a PySpark job. 
-&nbsp;&nbsp;hive_job | **[HiveJob](#HiveJob2)**<br>Specification for a Hive job. 
+&nbsp;&nbsp;mapreduce_job | **[MapreduceJob](../job.proto#MapreduceJob2)**<br>Specification for a MapReduce job. 
+&nbsp;&nbsp;spark_job | **[SparkJob](../job.proto#SparkJob2)**<br>Specification for a Spark job. 
+&nbsp;&nbsp;pyspark_job | **[PysparkJob](../job.proto#PysparkJob2)**<br>Specification for a PySpark job. 
+&nbsp;&nbsp;hive_job | **[HiveJob](../job.proto#HiveJob2)**<br>Specification for a Hive job. 
 
 
 ### MapreduceJob {#MapreduceJob}
@@ -327,7 +327,7 @@ script_variables | **map<string,string>**<br>Query variables and their values.
 jar_file_uris[] | **string**<br>JAR file URIs to add to CLASSPATH of the Hive driver and each task. 
 query_type | **oneof:** `query_file_uri` or `query_list`<br>
 &nbsp;&nbsp;query_file_uri | **string**<br>URI of the script with all the necessary Hive queries. 
-&nbsp;&nbsp;query_list | **[QueryList](#QueryList2)**<br>List of Hive queries to be used in the job. 
+&nbsp;&nbsp;query_list | **[QueryList](../job.proto#QueryList2)**<br>List of Hive queries to be used in the job. 
 
 
 ### QueryList {#QueryList}

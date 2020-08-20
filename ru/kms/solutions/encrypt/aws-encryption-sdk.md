@@ -51,7 +51,7 @@
     Где: 
     
     * `credentials` – определяет способ аутентификации, подробнее читайте в разделе [Аутентификация в SDK Яндекс.Облака](sdk.md#auth).
-    * `keyId` – идентификатор [ключа {{ kms-short-name }}](../../concepts/key.md)
+    * `keyId` – идентификатор [ключа {{ kms-short-name }}](../../concepts/key.md).
     * `plaintext` – открытый текст.
     * `ciphertext` – шифртекст.
     * `aad` – [AAD-контекст](../../concepts/encryption.md#add-context).

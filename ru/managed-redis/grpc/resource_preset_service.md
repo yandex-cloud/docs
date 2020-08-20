@@ -17,7 +17,7 @@ editable: false
 
 Возвращает указанный набор ресурсов. <br>Чтобы получить список доступных наборов ресурсов, используйте запрос [List](#List).
 
-**rpc Get ([GetResourcePresetRequest](#GetResourcePresetRequest)) returns ([ResourcePreset](#ResourcePreset))**
+**rpc Get ([GetResourcePresetRequest](#GetResourcePresetRequest)) returns ([ResourcePreset](../resource_preset.proto#ResourcePreset))**
 
 ### GetResourcePresetRequest {#GetResourcePresetRequest}
 
@@ -53,7 +53,7 @@ page_token | **string**<br>Токен страницы. Установите з�
 
 Поле | Описание
 --- | ---
-resource_presets[] | **[ResourcePreset](#ResourcePreset1)**<br>Список наборов ресурсов. 
+resource_presets[] | **[ResourcePreset](../resource_preset.proto#ResourcePreset1)**<br>Список наборов ресурсов. 
 next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListResourcePresetsRequest.page_size](#ListResourcePresetsRequest1), используйте `next_page_token` в качестве значения параметра [ListResourcePresetsRequest.page_token](#ListResourcePresetsRequest1) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
 
 

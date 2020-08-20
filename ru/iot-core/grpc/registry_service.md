@@ -28,7 +28,7 @@ editable: false
 
 Возвращает указанный реестр. <br>Чтобы получить список доступных реестров, используйте запрос [List](#List).
 
-**rpc Get ([GetRegistryRequest](#GetRegistryRequest)) returns ([Registry](#Registry))**
+**rpc Get ([GetRegistryRequest](#GetRegistryRequest)) returns ([Registry](../registry.proto#Registry))**
 
 ### GetRegistryRequest {#GetRegistryRequest}
 
@@ -70,7 +70,7 @@ page_token | **string**<br>Токен страницы. Установите з�
 
 Поле | Описание
 --- | ---
-registries[] | **[Registry](#Registry1)**<br>Список реестров. 
+registries[] | **[Registry](../registry.proto#Registry1)**<br>Список реестров. 
 next_page_token | **string**<br>Токен для получения следующей страницы списка. Если количество результатов больше чем [ListRegistriesRequest.page_size](#ListRegistriesRequest1), используйте `next_page_token` в качестве значения параметра [ListRegistriesRequest.page_token](#ListRegistriesRequest1) в следующем запросе списка ресурсов. <br>Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
 
 
@@ -96,7 +96,7 @@ log_group_id | **string**<br>Идентификатор группы журна�
 
 Метаданные и результат операции:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateRegistryMetadata](#CreateRegistryMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Registry](#Registry2)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Registry](../registry.proto#Registry2)<br>
 
 ### CreateRegistryRequest {#CreateRegistryRequest}
 
@@ -106,7 +106,7 @@ folder_id | **string**<br>Обязательное поле. Идентифик�
 name | **string**<br>Обязательное поле. Название реестра. Имя должно быть уникальным в рамках каталога. false Максимальная длина строки в символах — 50. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_-]* `.
 description | **string**<br>Описание реестра. Максимальная длина строки в символах — 256.
 labels | **map<string,string>**<br>Метки группы размещения в формате `key:value`. Не более 64 на ресурс. Максимальная длина строки в символах для каждого значения — 63. Каждое значение должно соответствовать регулярному выражению ` [-_0-9a-z]* `. Длина строки в символах для каждого ключа должна быть от 1 до 63. Каждый ключ должен соответствовать регулярному выражению ` [a-z][-_0-9a-z]* `.
-certificates[] | **[Certificate](#Certificate)**<br>Сертификат реестра. 
+certificates[] | **[Certificate](../device_service.proto#Certificate)**<br>Сертификат реестра. 
 password | **string**<br>Пароль реестра. <br>Пароль должен содержать не менее трех категорий символов: строчные латинские буквы, прописные латинские буквы, цифры, специальные символы. 
 
 
@@ -130,7 +130,7 @@ done | **bool**<br>Если значение равно `false` — операц
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateRegistryMetadata](#CreateRegistryMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
 result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Registry](#Registry2)>**<br>в случае успешного выполнения операции. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Registry](../registry.proto#Registry2)>**<br>в случае успешного выполнения операции. 
 
 
 ### CreateRegistryMetadata {#CreateRegistryMetadata}
@@ -162,7 +162,7 @@ log_group_id | **string**<br>Идентификатор группы журна�
 
 Метаданные и результат операции:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateRegistryMetadata](#UpdateRegistryMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Registry](#Registry3)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Registry](../registry.proto#Registry3)<br>
 
 ### UpdateRegistryRequest {#UpdateRegistryRequest}
 
@@ -188,7 +188,7 @@ done | **bool**<br>Если значение равно `false` — операц
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateRegistryMetadata](#UpdateRegistryMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
 result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Registry](#Registry3)>**<br>в случае успешного выполнения операции. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Registry](../registry.proto#Registry3)>**<br>в случае успешного выполнения операции. 
 
 
 ### UpdateRegistryMetadata {#UpdateRegistryMetadata}
@@ -269,7 +269,7 @@ registry_id | **string**<br>Обязательное поле. Идентифи�
 
 Поле | Описание
 --- | ---
-certificates[] | **[RegistryCertificate](#RegistryCertificate)**<br>Список сертификатов для указанного реестра. 
+certificates[] | **[RegistryCertificate](../registry.proto#RegistryCertificate)**<br>Список сертификатов для указанного реестра. 
 
 
 ### RegistryCertificate {#RegistryCertificate}
@@ -290,7 +290,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 
 Метаданные и результат операции:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[AddRegistryCertificateMetadata](#AddRegistryCertificateMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[RegistryCertificate](#RegistryCertificate1)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[RegistryCertificate](../registry.proto#RegistryCertificate1)<br>
 
 ### AddRegistryCertificateRequest {#AddRegistryCertificateRequest}
 
@@ -313,7 +313,7 @@ done | **bool**<br>Если значение равно `false` — операц
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[AddRegistryCertificateMetadata](#AddRegistryCertificateMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
 result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RegistryCertificate](#RegistryCertificate1)>**<br>в случае успешного выполнения операции. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RegistryCertificate](../registry.proto#RegistryCertificate1)>**<br>в случае успешного выполнения операции. 
 
 
 ### AddRegistryCertificateMetadata {#AddRegistryCertificateMetadata}
@@ -393,7 +393,7 @@ registry_id | **string**<br>Обязательное поле. Идентифи�
 
 Поле | Описание
 --- | ---
-passwords[] | **[RegistryPassword](#RegistryPassword)**<br>Возращает список паролей для указанного реестра. 
+passwords[] | **[RegistryPassword](../registry.proto#RegistryPassword)**<br>Возращает список паролей для указанного реестра. 
 
 
 ### RegistryPassword {#RegistryPassword}
@@ -413,7 +413,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 
 Метаданные и результат операции:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[AddRegistryPasswordMetadata](#AddRegistryPasswordMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[RegistryPassword](#RegistryPassword1)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[RegistryPassword](../registry.proto#RegistryPassword1)<br>
 
 ### AddRegistryPasswordRequest {#AddRegistryPasswordRequest}
 
@@ -436,7 +436,7 @@ done | **bool**<br>Если значение равно `false` — операц
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[AddRegistryPasswordMetadata](#AddRegistryPasswordMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
 result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RegistryPassword](#RegistryPassword1)>**<br>в случае успешного выполнения операции. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RegistryPassword](../registry.proto#RegistryPassword1)>**<br>в случае успешного выполнения операции. 
 
 
 ### AddRegistryPasswordMetadata {#AddRegistryPasswordMetadata}
@@ -517,7 +517,7 @@ page_token | **string**<br>Токен страницы. Установите з�
 
 Поле | Описание
 --- | ---
-aliases[] | **[DeviceAlias](#DeviceAlias)**<br>Список алиасов устройств для указанного реестра. 
+aliases[] | **[DeviceAlias](../registry.proto#DeviceAlias)**<br>Список алиасов устройств для указанного реестра. 
 next_page_token | **string**<br>Токен для получения следующей страницы списка. Если количество результатов больше чем [ListDeviceTopicAliasesRequest.page_size](#ListDeviceTopicAliasesRequest1), используйте `next_page_token` в качестве значения параметра [ListDeviceTopicAliasesRequest.page_token](#ListDeviceTopicAliasesRequest1) в следующем запросе списка ресурсов. <br>Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
 
 
@@ -543,7 +543,7 @@ alias | **string**<br>Алиас топика устройства.
 registry_id | **string**<br>Обязательное поле. Идентификатор реестра для получения списка операций. false
 page_size | **int64**<br>Максимальное число возвращаемых результатов на странице. Если количество результатов больше чем `page_size`, сервис вернет значение [ListRegistryOperationsResponse.next_page_token](#ListRegistryOperationsResponse), которое можно использовать для получения следующей страницы. Значение по умолчанию: 100. Допустимые значения — от 0 до 1000 включительно.
 page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListRegistryOperationsResponse.next_page_token](#ListRegistryOperationsResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
-filter | **string**<br>Параметры фильтрации ресурсов в ответе. В настоящее время фильтрация осуществляется только по полю [Registry.name](#Registry4). Максимальная длина строки в символах — 1000.
+filter | **string**<br>Параметры фильтрации ресурсов в ответе. В настоящее время фильтрация осуществляется только по полю [Registry.name](../registry.proto#Registry4). Максимальная длина строки в символах — 1000.
 
 
 ### ListRegistryOperationsResponse {#ListRegistryOperationsResponse}

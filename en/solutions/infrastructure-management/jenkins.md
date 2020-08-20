@@ -8,7 +8,7 @@ The images built can be used to create a cloud infrastructure. In this scenario,
 To install and configure Jenkins, Packer, GitHub, and Terraform to interact with one another:
 
 1. [Create a service account](#create-service-account)
-1. [Create a virtual machine with Jenkins](#create-jenkins-vm)
+1. [Create a VM with Jenkins](#create-jenkins-vm)
 1. [Install Packer](#install-packer)
 1. [Configure Jenkins](#configure-jenkins)
 1. [Set up a Jenkins job](#jenkins-job)
@@ -16,17 +16,34 @@ To install and configure Jenkins, Packer, GitHub, and Terraform to interact with
 1. [Create an image using Jenkins](#create-image)
 1. [Deploy the images using Terraform](#deploy-image)
 
-## Before you start {#prepare}
+If you no longer need the created VM and images, [delete them](#clear-out).
 
-1. Install the Yandex.Cloud command line interface.
-1. Install [Terraform](terraform-quickstart.md) and configure it to work with Yandex.Cloud.
-1. Configure the git client. If you are running Windows, use [git-bash](https://gitforwindows.org).
-1. Create a [repository](https://github.com/yandex-cloud/examples) branch with examples in your GitHub account.
-1. Prepare an SSH key to access the virtual machines.
-1. [Create](../../vpc/operations/network-create.md) a cloud network and subnet in the selected availability zone.
-1. Get the ID of the subnet where images will be built by running the `yc vpc subnet list` command.
+## Before you start {#before-you-begin}
 
-## 1. Create a service account {#create-service-account}
+Before deploying your applications, sign up for Yandex.Cloud and create a billing account:
+
+{% include [prepare-register-billing](../_solutions_includes/prepare-register-billing.md) %}
+
+If you have an active billing account, you can create or select a folder to run your VM in from the [Yandex.Cloud page](https://console.cloud.yandex.com/cloud).
+
+[Learn more about clouds and folders](../../resource-manager/concepts/resources-hierarchy.md).
+
+* Install the Yandex.Cloud command line interface.
+* Install [Terraform](terraform-quickstart.md) and configure it to work with Yandex.Cloud.
+* Configure the Git client. If you are running Windows, use [Git Bash](https://gitforwindows.org).
+* Create a [repository](https://github.com/yandex-cloud/examples) branch with examples in your GitHub account.
+* Prepare an SSH key to access the virtual machines.
+* [Create](../../vpc/operations/network-create.md) a cloud network and subnet in the selected availability zone.
+
+### Required paid resources {#paid-resources}
+
+The cost of this infrastructure includes:
+
+* A fee for continuously running VMs (see [pricing{{ compute-full-name }}](../../compute/pricing.md)).
+* A fee for storing created images (see [{{ compute-full-name }} pricing](../../compute/pricing#prices-storage)).
+* A fee for using dynamic public IP addresses (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+
+## Create a service account {#create-service-account}
 
 Jenkins uses service accounts to perform actions in your cloud and folder. To create a service account:
 
@@ -46,40 +63,39 @@ Jenkins uses service accounts to perform actions in your cloud and folder. To cr
    $ yc resource-manager folder add-access-binding <folder_name> --role admin --subject serviceAccount:$SERVICE_ACCOUNT_ID
    ```
 
-## 2. Create a virtual machine with Jenkins {#create-jenkins-vm}
+## Create a VM with Jenkins {#create-jenkins-vm}
 
 Jenkins will get VM image configuration changes from GitHub and then use Packer to create images in the cloud.
 
 To create a virtual machine with Jenkins:
 
-1. On the folder page of the [management console](https://console.cloud.yandex.com), click **Create resource** and select **Virtual machine**.
+1. On the folder page in the [management console](https://console.cloud.yandex.com), click **Create resource** and select **Virtual machine**.
+
 1. In the **Name** field, enter a name for the VM: `jenkins-tutorial`.
 
-{% include [name-format](../../_includes/name-format.md) %}
+1. Select the [availability zone](../../overview/concepts/geo-scope.md) to host the VM in.
 
-1. Select the [availability zone](../../overview/concepts/geo-scope.md) to locate the VM in.
-
-1. Under **Images from {{ marketplace-name }}**, click **Select**. In the window that opens, select a **Jenkins**  image.
+1. Under **Images from {{ marketplace-name }}**, click **Select**. In the window that opens, select the **Jenkins** image.
 
 1. Under **Disks**, enter 15 GB for the size of the boot disk:
 
 1. Under **Computing resources**:
-    - Choose the [platform](../../compute/concepts/vm-platforms.md): Intel Cascade Lake.
-    - Specify the necessary number of vCPUs and amount of RAM:
+    - Choose a [platform](../../compute/concepts/vm-platforms.md): Intel Cascade Lake.
+    - Specify the number of vCPUs and amount of RAM:
        * **vCPU**: 2.
        * **Guaranteed vCPU share**: 5%.
        * **RAM**: 2 GB.
 
 1. Under **Network settings**, click **Add network** and choose the subnet to connect the virtual machine to. Under **Public IP**, assign a public address to the VM automatically or select a reserved address.
 
-1. In the **Access** section, specify data required for accessing the VM:
+1. Under **Access**, specify the data required to access the VM:
     - Enter the username in the **Login** field.
-    - Under **SSH key**, paste the contents of the public key file.
-You have to [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) a key pair for SSH connections on your own.
+    - In the **SSH key** field, paste the contents of the public key file.
+You need to [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) a key pair for SSH connections on your own.
 
 1. Click **Create VM**.
 
-## 3. Install Packer {#install-packer}
+## Install Packer {#install-packer}
 
 Packer lets you create [virtual machine images](../../compute/concepts/image.md) with parameters specified in the configuration file.
 
@@ -114,7 +130,7 @@ Yandex.Cloud requires Packer 1.4.1 and higher.
    $ sudo chown jenkins:jenkins /opt/yandex-packer/packer*
    ```
 
-## 4. Configure Jenkins {#configure-jenkins}
+## Configure Jenkins {#configure-jenkins}
 
 To build images based on configurations from GitHub, configure Jenkins:
 
@@ -145,13 +161,14 @@ To build images based on configurations from GitHub, configure Jenkins:
 
 1. Click **Start using Jenkins** to complete the installation and go to the Jenkins administration panel.
 
-## 5. Set up a Jenkins task {#jenkins-job}
+## Set up a Jenkins task {#jenkins-job}
 
 Enter your Yandex.Cloud authorization data and create a task to download changes from the github repository so that Jenkins can build images. The authorization data is used in the variables stored in the Packer configuration files.
 
 1. Open the Jenkins administration panel.
 1. Select **Credentials**.
 1. Under **Stores scoped to Jenkins**, click the `Global` link.
+1. Get the ID of the subnet where images will be built by running the `yc vpc subnet list` command.
 1. Click **Add credentials**. Specify the following parameters:
    1. In the **Kind** list, click `Secret text`.
    1. In the **Scope** list, leave `Global`.
@@ -176,11 +193,11 @@ Enter your Yandex.Cloud authorization data and create a task to download changes
 1. In the **Script path** field, enter `jenkins-packer/Jenkinsfile`.
 1. Leave the other fields unchanged and click **Save**.
 
-## 6. Configure the GitHub repository {#configure-github-repo}
+## Configure the GitHub repository {#configure-github-repo}
 
 In the GitHub repository settings, set up a webhook to run builds in Jenkins and add the public SSH key for authorization.
 
-### 6.1. Set up a webhook {#configure-webhook}
+### Set up a webhook {#configure-webhook}
 
 1. Open the fork of your GitHub repository in the browser.
 1. Click the **Settings** tab.
@@ -188,7 +205,7 @@ In the GitHub repository settings, set up a webhook to run builds in Jenkins and
 1. In the **Payload URL** field, enter `http://<VM public IP address>/github-webhook/`.
 1. Click **Add webhook**.
 
-### 6.1. Add an SSH key to GitHub {#add-ssh-key}
+### Add an SSH key to GitHub {#add-ssh-key}
 
 1. Click your GitHub avatar. In the menu that opens, select **Settings**.
 1. Click **SSH and GPG keys**.
@@ -197,7 +214,7 @@ In the GitHub repository settings, set up a webhook to run builds in Jenkins and
 1. Paste your SSH key into the **Key** box.
 1. Click **Add SSH key**.
 
-## 7. Create an image using Jenkins {#create-image}
+## Create an image using Jenkins {#create-image}
 
 The image is built in Jenkins automatically after you `push` to the `master` branch of your GitHub repository.
 
@@ -225,11 +242,11 @@ The image is built in Jenkins automatically after you `push` to the `master` bra
 
 Then there are three new images in **Compute Cloud** under **Images**:
 
-* `Debian` — The basic image with the latest updates.
-* `nginx` — An image with the nginx web server, based on the `Debian` image.
-* `Django` — An image with the Django framework, based on the `Debian` image.
+* `Debian`: The basic image with the latest updates.
+* `nginx`: An image with the nginx web server, based on the `Debian` image.
+* `Django`: An image with the Django framework, based on the `Debian` image.
 
-## 8. Deploy the images {#deploy-image}
+## Deploy the images {#deploy-image}
 
 Once the images are created, you can use them to create your virtual machines. Create a test infrastructure using Terraform:
 
@@ -258,4 +275,13 @@ This will create:
 1. A cloud network.
 1. Subnets in all availability zones.
 1. Virtual machines from images created by Packer. Virtual machines with nginx get public IP addresses. All virtual machines are connected to subnets.
+
+### Delete the created resources {#clear-out}
+
+If you no longer need the VMs and images:
+
+* [Delete the created VMs](../../compute/operations/vm-control/vm-delete.md).
+* [Delete the created images](../../compute/operations/image-control/delete.md).
+
+To delete the resources created with Terraform, run `terraform destroy`.
 

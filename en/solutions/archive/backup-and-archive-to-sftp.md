@@ -7,7 +7,7 @@ In this guide, you will learn how to:
 
 To deploy the necessary infrastructure, follow the instructions:
 
-1. [Before you start](#before-begin).
+1. [Before you start](#before-you-begin).
 1. [Create a VM for the SFTP server](#create-vm-sftp-server).
 1. [Configure the SFTP server](#config-sftp-server).
 1. [Create an SFTP user](#create-sftp-user).
@@ -19,7 +19,7 @@ To deploy the necessary infrastructure, follow the instructions:
 1. [Check the restore results](#check-restore).
 1. [Delete the created cloud resources](#cleanup).
 
-## Before you start {#before-begin}
+## Before you start {#before-you-begin}
 
 Before deploying the server, you need to sign up for Yandex.Cloud and create a billing account:
 
@@ -40,7 +40,7 @@ The infrastructure cost in the example includes:
 
 To create a VM:
 
-1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
+1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource**, and select **Virtual machine**.
 
 1. In the **Name** field, enter a name for the VM, like `sftp-server`.
 
@@ -48,7 +48,7 @@ To create a VM:
 
 1. Select the [availability zone](../../overview/concepts/geo-scope.md) to host the VM in.
 
-1. In the **Images from {{ marketplace-name }}** section, click **Centos 7**.
+1. In the **Images from {{ marketplace-name }}** section, select the **Centos 7** image.
 
 1. In the **Computing resources** section, select the following configuration:
    * **Platform**: Intel Cascade Lake.
@@ -62,7 +62,7 @@ To create a VM:
 
 1. Specify data required for accessing the VM:
     - Enter the username in the **Login** field.
-    - Under **SSH key**, paste the contents of the public key file. You need to create a key pair for the SSH connection yourself. Learn [how to connect to VMs via SSH](../../compute/operations/vm-connect/ssh.md).
+    - In the **SSH key** field, paste the contents of the public key file. You need to create a key pair for the SSH connection yourself. Learn [how to connect to VMs via SSH](../../compute/operations/vm-connect/ssh.md).
 
     {% note alert %}
 
@@ -161,7 +161,7 @@ SFTP server functionality is included in the standard SSH program that comes wit
     $ sudo mkdir -p /var/sftp/backups
     ```
     * `sftp`: The root directory of the SFTP server.
-    * `backups`: The directory for storing backups on the SFTP server.
+    * `backups`: The directory to store backups on the SFTP server.
 
 1. Set folder permissions so that all users in the `ftpusers` group can write and read files on the SFTP server:
 
@@ -209,7 +209,7 @@ SFTP server functionality is included in the standard SSH program that comes wit
     ```
     [yc-user@ftp-server ~]$ sudo runuser -l fuser -c 'ssh-keygen'
     Generating public/private rsa key pair.
-    Enter file in which to save the key (/home/fuser/.ssh/id_rsa):
+    Enter file in which to save the key (/home/fuser/.ssh/id_rsa): 
     Created directory '/home/fuser/.ssh'.
     Enter passphrase (empty for no passphrase):
     Enter same passphrase again:
@@ -335,7 +335,7 @@ To set up the backup process:
 
 1. Log in to the SFTP client VM via SSH the same way you did for the SFTP server.
 
-1. Set environment variables for the script to work properly. To do this, open the file `~/.bash_profile`
+1. Set environment variables for the script to work properly. To do this, open the `~/.bash_profile` file:
 
     ```bash
     $ vi ~/.bash_profile
@@ -389,7 +389,7 @@ To set up the backup process:
 
       For example, the name of the archive on the server might look like this: `backup_ftp-server.ru-central1.internal_20190803_180228.tar.gz`.
 
-    * `--insecure`: Disable SSL certificate verification by the SFTP server. In this case, traffic passing through an SSH session is still encrypted.
+    * `--insecure`: Disable SSL certificate verification by the SFTP server. In this case, traffic within the SSH session is still encrypted.
 
     * `$SFTP_USER`: A variable that automatically takes the SFTP user value.
 
@@ -514,5 +514,5 @@ Make sure that the test phrase is displayed on the screen:
 If you no longer need the SFTP server and client:
 
 * [Delete the VMs](../../compute/operations/vm-control/vm-delete.md) for the SFTP client and server (in the example, they're named `sftp-server` and `sftp-client`).
-* [Delete the static IP address](../../vpc/operations/address-delete.md) if you created it.
+* [Delete the static IP address](../../vpc/operations/address-delete.md) if you created one.
 

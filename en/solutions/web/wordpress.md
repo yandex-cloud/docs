@@ -1,59 +1,83 @@
 # Creating a website in WordPress
 
+This scenario describes how to create and set up a WordPress CMS-based website using a special VM image.
+
 To set up a website in WordPress:
 
-1. [Create a VM for WordPress](#create-vm)
-1. [Set up WordPress](#wordpress-setup)
-1. [Configure DNS](#configure-dns)
+1. [Create a VM for WordPress](#create-vm).
+1. [Set up WordPress](#wordpress-setup).
+1. [Configure DNS](#configure-dns).
 
-## Before you start {#before-begin}
+If you no longer need the website, [delete the VM with it](#clear-out).
 
-Before creating a VM:
+## Before you start {#before-you-begin}
 
-1. Go to the Yandex.Cloud [management console]({{ link-console-main }}) and select the folder where you want to perform the operations.
-1. Make sure the selected folder has a cloud network with a subnet in at least one availability zone. To do this, click **Yandex Virtual Private Cloud** on the folder page. If the list contains a network, click on its name to see the list of subnets. If the subnets or network you need are not listed, [create them](../../vpc/quickstart.md).
+Before deploying the server, you need to sign up for Yandex.Cloud and create a billing account:
 
-## 1. Create a VM for WordPress {#create-vm}
+{% include [prepare-register-billing](../_solutions_includes/prepare-register-billing.md) %}
+
+If you have an active billing account, you can create or select a folder to run your VM in from the [Yandex.Cloud page](https://console.cloud.yandex.com/cloud).
+
+[Learn more about clouds and folders](../../resource-manager/concepts/resources-hierarchy.md).
+
+Make sure the selected folder has a cloud network with a subnet in at least one availability zone. To do this, select **Yandex Virtual Private Cloud** on the folder page. If the list contains a network, click on its name to see the list of subnets. If the subnets or network you need are not listed, [create them](../../vpc/quickstart.md).
+
+### Required paid resources {#paid-resources}
+
+The cost of hosting a website in WordPress includes:
+
+* A fee for a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* A fee for using a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+
+## Creating a VM for WordPress {#create-vm}
 
 To create a VM:
 
-1. On the folder page of the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
+1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
+
 1. In the **Name** field, enter the VM name: `wordpress`.
 
    {% include [name-format](../../_includes/name-format.md) %}
 
-1. Select the [availability zone](../../overview/concepts/geo-scope.md) to locate the VM in.
-1. In the **Images from {{ marketplace-name }}** section, click **Select**. Select the **WordPress** public image.
-1. In the **Computing resources** section:
-    - Select the [platform](../../compute/concepts/vm-platforms.md).
+1. Select the [availability zone](../../overview/concepts/geo-scope.md) to host the VM in.
+
+1. Under **Images from {{ marketplace-name }}**, click **Select**. Select the **WordPress** public image.
+
+1. Under **Computing resources**:
+    - Choose a [platform](../../compute/concepts/vm-platforms.md).
     - Specify the necessary number of vCPUs and amount of RAM.
 
    The minimum configuration is enough for testing:
    * **Platform**: Intel Cascade Lake.
-   * **Guaranteed vCPU fraction**: 5%.
    * **vCPU**: 2.
+   * **Guaranteed vCPU share**: 5%.
    * **RAM**: 1 GB.
 
-1. In the **Network settings** section, click **Add network**.
-1. In the window that opens, select the subnet to connect the VM to when creating it.
-1. In **Public address**, select **Automatically**. Click **Select**.
+1. In the **Network settings** section, select the subnet to connect the VM to when creating it.
+
+1. In **Public address**, select **Automatically**.
+
 1. Specify data required for accessing the VM:
     - Enter the username in the **Login** field.
     - In the **SSH key** field, paste the contents of the public key file.
-You need to create a key pair for SSH connection yourself. For more information, see [{#T}](../../compute/operations/vm-connect/ssh.md).
+You need to create a key pair for an SSH connection yourself. For details, see [{#T}](../../compute/operations/vm-connect/ssh.md).
+
 1. Click **Create VM**.
 
 Creating the VM may take several minutes. When the VM's status changes to `RUNNING`, you can begin configuring the website.
 
 When the VM is created, it is assigned a public IP address and hostname (FQDN). This data can be used for SSH access.
 
-## 2. Set up WordPress {#wordpress-setup}
+## Setting up WordPress {#wordpress-setup}
 
 After the `wordpress` VM's status changes to `RUNNING`, do the following:
 
-1. Go to the VM page of the [management console]({{ link-console-main }}). In the **Network** section, find the VM's public IP address.
+1. You can learn the IP address of the VM under **Network** on the VM page in the [management console]({{ link-console-main }}).
+
 1. Open the VM by entering its address in your browser.
+
 1. Select the language and click **Continue**.
+
 1. Fill out information to access the website:
    1. Enter any name for the website (for example, `yc-wordpress`).
    1. Specify the username to be used to log in to the admin panel (for example, `yc-user`).
@@ -68,10 +92,20 @@ After the `wordpress` VM's status changes to `RUNNING`, do the following:
 
 1. Make sure the website is accessible by opening the VM's public IP address in your browser.
 
-## 3. Configure DNS {#configure-dns}
+## Configuring DNS {#configure-dns}
 
 To link the website to your domain, configure DNS at your registrar as follows:
 
 * A record: `@` subdomain (use the VM's public IP address as the address).
 * CNAME record: `www` subdomain (use a domain with a dot at the end as the canonical name, like `example.com).`
+
+## How to delete created resources {#clear-out}
+
+To stop paying for your deployed server, just [delete](../../compute/operations/vm-control/vm-delete.md) the `wordpress` VM.
+
+If you reserved a static public IP address specifically for this VM:
+
+1. Open the **Virtual Private Cloud** in your folder.
+1. Go to the **IP addresses** tab.
+1. Find the address you need, click ![ellipsis](../../_assets/options.svg), and select **Delete**.
 

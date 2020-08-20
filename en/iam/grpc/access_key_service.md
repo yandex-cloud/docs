@@ -36,7 +36,7 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 
 Field | Description
 --- | ---
-access_keys[] | **[AccessKey](#AccessKey)**<br>List of access keys. 
+access_keys[] | **[AccessKey](../access_key.proto#AccessKey)**<br>List of access keys. 
 next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListAccessKeysRequest.page_size](#ListAccessKeysRequest1), use the `next_page_token` as the value for the [ListAccessKeysRequest.page_token](#ListAccessKeysRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
@@ -55,7 +55,7 @@ key_id | **string**<br>ID of the access key. The key is AWS compatible.
 
 Returns the specified access key. <br>To get the list of available access keys, make a [List](#List) request.
 
-**rpc Get ([GetAccessKeyRequest](#GetAccessKeyRequest)) returns ([AccessKey](#AccessKey1))**
+**rpc Get ([GetAccessKeyRequest](#GetAccessKeyRequest)) returns ([AccessKey](../access_key.proto#AccessKey1))**
 
 ### GetAccessKeyRequest {#GetAccessKeyRequest}
 
@@ -93,7 +93,7 @@ description | **string**<br>Description of the access key. The maximum string le
 
 Field | Description
 --- | ---
-access_key | **[AccessKey](#AccessKey2)**<br>AccessKey resource. 
+access_key | **[AccessKey](../access_key.proto#AccessKey2)**<br>AccessKey resource. 
 secret | **string**<br>Secret access key. The key is AWS compatible. 
 
 
@@ -116,7 +116,7 @@ Updates the specified access key.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateAccessKeyMetadata](#UpdateAccessKeyMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[AccessKey](#AccessKey3)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[AccessKey](../access_key.proto#AccessKey3)<br>
 
 ### UpdateAccessKeyRequest {#UpdateAccessKeyRequest}
 
@@ -140,7 +140,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateAccessKeyMetadata](#UpdateAccessKeyMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[AccessKey](#AccessKey3)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[AccessKey](../access_key.proto#AccessKey3)>**<br>if operation finished successfully. 
 
 
 ### UpdateAccessKeyMetadata {#UpdateAccessKeyMetadata}

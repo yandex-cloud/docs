@@ -1,6 +1,8 @@
 # Connecting to a VM's serial console via CLI
 
-After [enabling access](index.md), you can connect to the serial console to work with the VM. Serial console access is not secure, so enabling it might allow hackers to access your VM. [Disable](disable.md) access after you finish working with the serial console.
+After [enabling access](./index.md), you can connect to the serial console to work with the VM.
+
+{% include [sc-warning](../../../_includes/compute/serial-console-warning.md) %}
 
 ## Connecting to the serial console {#connect-to-serial-console}
 
@@ -26,7 +28,7 @@ To connect to the serial console, use the CLI.
 
     {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
 
-1. Select the `ID` or `NAME` of the VM (for example, `first-instance`).
+1. Select the VM `ID` or `NAME` (for example, `first-instance`).
 
 1. Connect to the Linux serial console:
 
@@ -47,7 +49,7 @@ To connect to the serial console, use the CLI.
     | Parameter | Value |
     | ----- | ----- |
     | `instance-name` | Required parameter. Name of the instance. |
-    | `user` | Optional parameter. User name. If this parameter is omitted, the default `yc-user` user will be used. The `yc-user` user is generated automatically when the VM is being created. Learn more in [{#T}](../vm-create/create-linux-vm.md). |
+    | `user` | Optional parameter. Username. If this parameter is omitted, the default `yc-user` user will be used. The `yc-user` user is generated automatically when the VM is being created. Learn more in [{#T}](../vm-create/create-linux-vm.md). |
     | `port` | Optional parameter. Port number to connect to the serial console. The default value is 1. You don't need to specify this parameter to connect to the Linux serial console. When connecting to the Windows serial console (SAC), pass the value 2. |
     | `ssh-key` | Optional parameter. Path to the private key for SSH access to the Linux VM to be added to the [metadata](../../concepts/vm-metadata.md). If this parameter is omitted, the `yc_serialssh_key` SSH key is generated. |
 

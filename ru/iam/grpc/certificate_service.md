@@ -21,7 +21,7 @@ editable: false
 
 Возвращает указанный сертификат. <br>Чтобы получить список доступных сертификатов, используйте запрос [List](#List).
 
-**rpc Get ([GetCertificateRequest](#GetCertificateRequest)) returns ([Certificate](#Certificate))**
+**rpc Get ([GetCertificateRequest](#GetCertificateRequest)) returns ([Certificate](../certificate.proto#Certificate))**
 
 ### GetCertificateRequest {#GetCertificateRequest}
 
@@ -55,14 +55,14 @@ data | **string**<br>Обязательное поле. Данные серти�
 federation_id | **string**<br>Обязательное поле. Идентификатор федерации для получения списка сертификатов. Чтобы получить идентификатор федерации, используйте запрос [yandex.cloud.iam.v1.FederationService.List]. Максимальная длина строки в символах — 50. false
 page_size | **int64**<br>Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `page_size`, сервис вернет значение [ListCertificatesResponse.next_page_token](#ListCertificatesResponse), которое можно использовать для получения следующей страницы. Значение по умолчанию: 100. Допустимые значения — от 0 до 1000 включительно.
 page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListCertificatesResponse.next_page_token](#ListCertificatesResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
-filter | **string**<br><ol><li>Имя поля. В настоящее время фильтрация осуществляется только по полю [Certificate.name](#Certificate1). </li><li>Оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений. </li><li>Значение. Значение длиной от 3 до 63 символов, совпадающее с регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.</li></ol> Максимальная длина строки в символах — 1000.
+filter | **string**<br><ol><li>Имя поля. В настоящее время фильтрация осуществляется только по полю [Certificate.name](../certificate.proto#Certificate1). </li><li>Оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений. </li><li>Значение. Значение длиной от 3 до 63 символов, совпадающее с регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.</li></ol> Максимальная длина строки в символах — 1000.
 
 
 ### ListCertificatesResponse {#ListCertificatesResponse}
 
 Поле | Описание
 --- | ---
-certificates[] | **[Certificate](#Certificate1)**<br>Список сертификатов. 
+certificates[] | **[Certificate](../certificate.proto#Certificate1)**<br>Список сертификатов. 
 next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListCertificatesRequest.page_size](#ListCertificatesRequest1), используйте `next_page_token` в качестве значения параметра [ListCertificatesRequest.page_token](#ListCertificatesRequest1) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
 
 
@@ -86,7 +86,7 @@ data | **string**<br>Обязательное поле. Данные серти�
 
 Метаданные и результат операции:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateCertificateMetadata](#CreateCertificateMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Certificate](#Certificate2)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Certificate](../certificate.proto#Certificate2)<br>
 
 ### CreateCertificateRequest {#CreateCertificateRequest}
 
@@ -111,7 +111,7 @@ done | **bool**<br>Если значение равно `false` — операц
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateCertificateMetadata](#CreateCertificateMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
 result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Certificate](#Certificate2)>**<br>в случае успешного выполнения операции. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Certificate](../certificate.proto#Certificate2)>**<br>в случае успешного выполнения операции. 
 
 
 ### CreateCertificateMetadata {#CreateCertificateMetadata}
@@ -141,7 +141,7 @@ data | **string**<br>Обязательное поле. Данные серти�
 
 Метаданные и результат операции:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateCertificateMetadata](#UpdateCertificateMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Certificate](#Certificate3)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Certificate](../certificate.proto#Certificate3)<br>
 
 ### UpdateCertificateRequest {#UpdateCertificateRequest}
 
@@ -167,7 +167,7 @@ done | **bool**<br>Если значение равно `false` — операц
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateCertificateMetadata](#UpdateCertificateMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
 result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Certificate](#Certificate3)>**<br>в случае успешного выполнения операции. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Certificate](../certificate.proto#Certificate3)>**<br>в случае успешного выполнения операции. 
 
 
 ### UpdateCertificateMetadata {#UpdateCertificateMetadata}

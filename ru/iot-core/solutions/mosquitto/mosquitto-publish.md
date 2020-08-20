@@ -3,7 +3,9 @@
 Вы можете отправлять сообщения следующих типов:
 
 - Отправлять данные с устройства в реестр, используя топики `$devices/<ID устройства>/events` или `$registries/<ID реестра>/events`.
+- Отправлять данные с устройства в реестр, используя перманентные топики `$devices/<ID устройства>/state` или `$registries/<ID реестра>/state`.
 - Отправлять команды из реестра на устройство, используя топики `$devices/<ID устройства>/commands` или `$registries/<ID реестра>/commands`.
+- Отправлять команды из реестра на устройство, используя перманентные топики `$devices/<ID устройства>/config` или `$registries/<ID реестра>/config`.
 
 Для получения сообщения необходимо быть подписанным на отправителя. Как это сделать, читайте в разделе [{#T}](mosquitto-subscribe.md).
 
@@ -33,7 +35,7 @@
  
 - Mosquitto
 
-    - Отправьте данные с устройства в топик устройства:
+    - Отправьте данные в топик устройства:
 
         ```
         $ mosquitto_pub -h mqtt.cloud.yandex.net \
@@ -46,8 +48,22 @@
         -q 1
         ```
 
+    - Отправьте данные в перманентный топик устройства:
+
+        ```
+        $ mosquitto_pub -h mqtt.cloud.yandex.net \
+        -p 8883 \
+        --cafile rootCA.crt \
+        --cert device-cert.pem \
+        --key device-key.pem \
+        -t '$devices/<ID устройства>/state' \
+        -m 'Test data' \
+        -q 1
+        ```
+		
         Реестр, подписанный на данный топик, будет знать, какое именно устройство отправило данные, так как в топике присутствует уникальный идентификатор устройства.
-    - Отправьте данные с устройства в топик реестра:
+
+	- Отправьте данные в топик реестра:
 
         ```
         $ mosquitto_pub -h mqtt.cloud.yandex.net \
@@ -60,6 +76,19 @@
         -q 1
         ```
 
+    - Отправьте данные в перманентный топик реестра:
+
+        ```
+        $ mosquitto_pub -h mqtt.cloud.yandex.net \
+        -p 8883 \
+        --cafile rootCA.crt \
+        --cert device-cert.pem \
+        --key device-key.pem \
+        -t '$registries/<ID реестра>/state' \
+        -m 'Test data' \
+        -q 1
+        ```
+		
         Реестр, подписанный на данный топик, не будет знать, какое именно устройство отправило данные, так как в топике отсутствует уникальный идентификатор устройства.
 
 {% endlist %}
@@ -96,6 +125,20 @@
         -m 'Test command for first device' \
         -q 1
         ```
+		
+    - Отправьте команду одному устройству, используя перманентный топик:
+
+        ```
+        $ mosquitto_pub -h mqtt.cloud.yandex.net \
+        -p 8883 \
+        --cafile rootCA.crt \
+        --cert registry-cert.pem \
+        --key registry-key.pem \
+        -t '$devices/<ID устройства>/config' \
+        -m 'Test command for first device via permanent topic' \
+        -q 1
+        ```
+		
     - Отправьте команду двум устройствам:
         
         ```
@@ -109,6 +152,21 @@
         -m 'Test command for first and second device' \
         -q 1 # Уровень качества обслуживания QoS 1.
         ```
+		
+    - Отправьте команду двум устройствам, используя перманентный топик:
+        
+        ```
+        $ mosquitto_pub -h mqtt.cloud.yandex.net \
+        -p 8883 \
+        --cafile cert.pem \
+        --cert registry-cert.pem \
+        --key registry-key.pem \
+        -t '$devices/<ID первого устройства>/config' \
+        -t '$devices/<ID второго устройства>/config' \
+        -m 'Test command for first and second devices via permanent topic' \
+        -q 1 # Уровень качества обслуживания QoS 1.
+        ```
+		
     - Отправьте команду всем устройствам, добавленным в реестр:
             
         ```
@@ -119,6 +177,19 @@
         --key registry-key.pem \
         -t '$registries/<ID реестра>/commands' \
         -m 'Test command for all devices' \
+        -q 1
+        ```
+		
+    - Отправьте команду всем устройствам, добавленным в реестр, используя перманентный топик:
+            
+        ```
+        $ mosquitto_pub -h mqtt.cloud.yandex.net \
+        -p 8883 \
+        --cafile cert.pem \
+        --cert registry-cert.pem \
+        --key registry-key.pem \
+        -t '$registries/<ID реестра>/config' \
+        -m 'Test command for all devices via permanent topic' \
         -q 1
         ```
 

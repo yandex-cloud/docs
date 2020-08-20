@@ -80,6 +80,8 @@ items:
         items:
           - name: Overview
             href: grpc/index.md
+          - name: AddressService
+            href: grpc/address_service.md
           - name: NetworkService
             href: grpc/network_service.md
           - name: RouteTableService
@@ -94,6 +96,10 @@ items:
         items:
           - name: Overview
             href: api-ref/index.md
+          - name: Address
+            items:
+              - name: Overview
+                href: api-ref/Address/index.md
           - name: Network
             items:
               - name: Overview
