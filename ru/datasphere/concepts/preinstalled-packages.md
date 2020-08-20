@@ -9,7 +9,7 @@
 * [NumPy](https://numpy.org/)
 * [Pandas](https://pandas.pydata.org/)
 * [scikit-learn](https://scikit-learn.org/stable/)
-* [TensonFlow](https://www.tensorflow.org/)
+* [TensorFlow](https://www.tensorflow.org/)
 * [Keras](https://keras.io/)
 * [Matplotlib](https://matplotlib.org/)
 * [CatBoost](https://catboost.ai/docs/concepts/about.html)
