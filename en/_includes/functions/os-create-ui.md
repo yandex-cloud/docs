@@ -2,7 +2,7 @@ To create a trigger:
 
 1. Open **{{ sf-name }}** in the folder where you want to create a trigger for {{ objstorage-name }}.
 1. Go to the **Triggers** tab.
-1. Click**Create trigger**.
+1. Click **Create trigger**.
 1. Under **Basic parameters**:
     * Enter a name and description for the trigger.
     * In the **Type** field, select **Object Storage**.
@@ -18,5 +18,5 @@ To create a trigger:
     * Select the function for the trigger to call.
     * Specify [the function version tag](../../functions/concepts/function.md#tag).
     * Specify the service account that will be used to call the function.
-1. Click**Create trigger**.
+1. Click **Create trigger**.
 
