@@ -320,6 +320,24 @@ components:
             Maximum wait time. Trigger will send the batch of messages the time since the last batch
             exceeds the `cutoff` value, regardless of the amount of messages in the queue.
           type: string
+    CloudLogsBatchSettings:
+      type: object
+      properties:
+        size:
+          description: |-
+            Batch size. Trigger will send the batch of messages to the associated function
+            when the number of log events reaches this value, or the `cutoff` time has passed.
+
+            Acceptable values are 0 to 100, inclusive.
+          type: string
+          format: int64
+        cutoff:
+          description: |-
+            Maximum wait time. Trigger will send the batch of messages the time since the last batch
+            exceeds the `cutoff` value, regardless of the amount of log events.
+
+            Acceptable values are 1 seconds to 60 seconds, inclusive.
+          type: string
     CreateTriggerMetadata:
       type: object
       properties:
@@ -609,6 +627,27 @@ components:
           $ref: '#/components/schemas/TriggerRule_in_Trigger_rule'
         status:
           $ref: '#/components/schemas/TriggerStatus_in_Trigger_status'
+    TriggerCloudLogs:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          logGroupId:
+            description: Log group identifiers, at least one value is required.
+            type: array
+            items:
+              type: string
+          batchSettings:
+            $ref: '#/components/schemas/CloudLogsBatchSettings'
+            description: |-
+              Required.
+              Batch settings for processing log events.
+      - title: action
+        type: object
+        maxProperties: 1
+        properties:
+          invokeFunction:
+            $ref: '#/components/schemas/InvokeFunctionWithRetry'
     TriggerContainerRegistry:
       type: object
       allOf:
@@ -757,6 +796,8 @@ components:
             $ref: '#/components/schemas/TriggerObjectStorage'
           containerRegistry:
             $ref: '#/components/schemas/TriggerContainerRegistry'
+          cloudLogs:
+            $ref: '#/components/schemas/TriggerCloudLogs'
     TriggerStatus:
       type: string
       enum:
@@ -866,6 +907,8 @@ components:
             $ref: '#/components/schemas/TriggerObjectStorage'
           containerRegistry:
             $ref: '#/components/schemas/TriggerContainerRegistry'
+          cloudLogs:
+            $ref: '#/components/schemas/TriggerCloudLogs'
     RetrySettings_in_InvokeFunctionWithRetry_retrySettings:
       description: |-
         Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.
@@ -924,6 +967,8 @@ components:
             $ref: '#/components/schemas/TriggerObjectStorage'
           containerRegistry:
             $ref: '#/components/schemas/TriggerContainerRegistry'
+          cloudLogs:
+            $ref: '#/components/schemas/TriggerCloudLogs'
     TriggerStatus_in_Trigger_status:
       description: Trigger status
       type: string

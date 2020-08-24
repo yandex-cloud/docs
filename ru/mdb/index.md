@@ -17,7 +17,7 @@
 
 - С несрочными вопросами по настройке и эксплуатации MDB внутри Яндекса рисуйте задачи в [очередь MDBSUPPORT](https://st.yandex-team.ru/MDBSUPPORT).
 - Для заказа или дозаказа квоты [используйте Dispenser](../managed-postgresql/quotas.md).
-- Со срочными вопросами пишите в [чат mdb-support](https://t.me/joinchat/AAAAAEDje_JvGnMnVZxVvA), если там нет реакции — обзванивайте по порядку дежурных, которых показывает [бот Yandex.Cloud Duty](https://t.me/ycloud_duty_bot) по следующим командам:
+- Со срочными вопросами пишите в [чат mdb-support](https://t.me/joinchat/CCDG-0Dje_KWvyMQ-bFMtA), если там нет реакции — обзванивайте по порядку дежурных, которых показывает [бот Yandex.Cloud Duty](https://t.me/ycloud_duty_bot) по следующим командам:
 
   - `/duty mdb-clickhouse`
   - `/duty mdb-mongodb`

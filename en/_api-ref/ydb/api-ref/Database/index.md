@@ -33,14 +33,38 @@ A set of methods for managing databases.
     "string"
   ],
   "assignPublicIps": true,
+  "locationId": "string",
+  "labels": "object",
 
-  //  includes only one of the fields `zonalDatabase`, `regionalDatabase`
+  //  includes only one of the fields `zonalDatabase`, `regionalDatabase`, `dedicatedDatabase`, `serverlessDatabase`
   "zonalDatabase": {
     "zoneId": "string"
   },
   "regionalDatabase": {
     "regionId": "string"
   },
+  "dedicatedDatabase": {
+    "resourcePresetId": "string",
+    "storageConfig": {
+      "storageOptions": [
+        {
+          "storageTypeId": "string",
+          "groupCount": "string"
+        }
+      ]
+    },
+    "scalePolicy": {
+      "fixedScale": {
+        "size": "string"
+      }
+    },
+    "networkId": "string",
+    "subnetIds": [
+      "string"
+    ],
+    "assignPublicIps": true
+  },
+  "serverlessDatabase": {},
   // end of the list of possible fields
 
 }
@@ -66,10 +90,25 @@ scalePolicy.<br>fixedScale.<br>size | **string** (int64)<br><p>The minimum value
 networkId | **string**<br>
 subnetIds[] | **string**<br>
 assignPublicIps | **boolean** (boolean)<br>
-zonalDatabase | **object** <br> includes only one of the fields `zonalDatabase`, `regionalDatabase`<br><br>
+locationId | **string**<br>
+labels | **object**<br>
+zonalDatabase | **object** <br> includes only one of the fields `zonalDatabase`, `regionalDatabase`, `dedicatedDatabase`, `serverlessDatabase`<br><br>
 zonalDatabase.<br>zoneId | **string**<br><p>Required.</p> 
-regionalDatabase | **object** <br> includes only one of the fields `zonalDatabase`, `regionalDatabase`<br><br>
+regionalDatabase | **object** <br> includes only one of the fields `zonalDatabase`, `regionalDatabase`, `dedicatedDatabase`, `serverlessDatabase`<br><br>
 regionalDatabase.<br>regionId | **string**<br><p>Required.</p> 
+dedicatedDatabase | **object** <br> includes only one of the fields `zonalDatabase`, `regionalDatabase`, `dedicatedDatabase`, `serverlessDatabase`<br><br>
+dedicatedDatabase.<br>resourcePresetId | **string**<br>
+dedicatedDatabase.<br>storageConfig | **object**<br>
+dedicatedDatabase.<br>storageConfig.<br>storageOptions[] | **object**<br><p>Required. The minimum number of elements is 1.</p> 
+dedicatedDatabase.<br>storageConfig.<br>storageOptions[].<br>storageTypeId | **string**<br>
+dedicatedDatabase.<br>storageConfig.<br>storageOptions[].<br>groupCount | **string** (int64)<br>
+dedicatedDatabase.<br>scalePolicy | **object**<br>
+dedicatedDatabase.<br>scalePolicy.<br>fixedScale | **object**<br>
+dedicatedDatabase.<br>scalePolicy.<br>fixedScale.<br>size | **string** (int64)<br><p>The minimum value is 1.</p> 
+dedicatedDatabase.<br>networkId | **string**<br>
+dedicatedDatabase.<br>subnetIds[] | **string**<br>
+dedicatedDatabase.<br>assignPublicIps | **boolean** (boolean)<br>
+serverlessDatabase | **object** <br> includes only one of the fields `zonalDatabase`, `regionalDatabase`, `dedicatedDatabase`, `serverlessDatabase`<br><br>
 
 ## Methods {#methods}
 Method | Description

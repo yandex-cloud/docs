@@ -17,7 +17,7 @@ editable: false
 
 
 
-**rpc Get ([GetApiEndpointRequest](#GetApiEndpointRequest)) returns ([ApiEndpoint](#ApiEndpoint))**
+**rpc Get ([GetApiEndpointRequest](#GetApiEndpointRequest)) returns ([ApiEndpoint](../api_endpoint.proto#ApiEndpoint))**
 
 ### GetApiEndpointRequest {#GetApiEndpointRequest}
 
@@ -52,7 +52,7 @@ page_token | **string**<br>
 
 Поле | Описание
 --- | ---
-endpoints[] | **[ApiEndpoint](#ApiEndpoint1)**<br> 
+endpoints[] | **[ApiEndpoint](../api_endpoint.proto#ApiEndpoint1)**<br> 
 next_page_token | **string**<br> 
 
 

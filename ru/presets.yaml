@@ -11,6 +11,7 @@ default:
   mmg-full-name: Yandex Managed Service for MongoDB
   mmy-full-name: Yandex Managed Service for MySQL
   mrd-full-name: Yandex Managed Service for Redis
+  mkf-full-name: Yandex Managed Service for Apache Kafka<sup>®</sup>
   vpc-full-name: Yandex Virtual Private Cloud
   monitoring-full-name: Yandex Monitoring
   dsvm-full-name: Yandex Data Science Virtual Machine
@@ -45,6 +46,7 @@ default:
   mmg-name: Managed Service for MongoDB
   mmy-name: Managed Service for MySQL
   mrd-name: Managed Service for Redis
+  mkf-name: Managed Service for Apache Kafka<sup>®</sup>
   monitoring-name: Yandex Monitoring
   vpc-name: Virtual Private Cloud
   dsvm-name: Data Science Virtual Machine
@@ -79,6 +81,7 @@ default:
   mmg-short-name: Managed Service for MongoDB
   mrd-short-name: Managed Service for Redis
   mmy-short-name: Managed Service for MySQL
+  mkf-short-name: Managed Service for Apache Kafka<sup>®</sup>
   monitoring-short-name: Monitoring
   vpc-short-name: VPC
   dsvm-short-name: DSVM
@@ -108,6 +111,7 @@ default:
   roles-cr-puller: container-registry.images.puller
   roles-cr-pusher: container-registry.images.pusher
   roles-datalens-instances-user: datalens.instances.user
+  roles-datalens-instances-admin: datalens.instances.admin
   roles-functions-ivoker: serverless.functions.invoker
   roles-image-user: compute.images.user
   roles-cloud-owner: resource-manager.clouds.owner
@@ -131,6 +135,7 @@ default:
   yc-mdb-pg: yc managed-postgresql
   yc-mdb-rd: yc managed-redis
   yc-mdb-my: yc managed-mysql
+  yc-mdb-kf: yc managed-kafka
   yc-compute-ig: yc compute instance-group
   yc-compute: yc compute
   yc-compute-instance: yc compute instance
@@ -152,6 +157,7 @@ default:
   MG: MongoDB
   MY: MySQL
   RD: Redis
+  KF: Apache Kafka<sup>®</sup>
   ZK: ZooKeeper
   zone-id: ru-central1-c
   host-class: s2.micro
@@ -201,6 +207,9 @@ default:
   s2-4xlarge: s2.4xlarge (40 vCPU, 160 ГБ)
   s2-5xlarge: s2.5xlarge (48 vCPU, 192 ГБ)
   s2-6xlarge: s2.6xlarge (64 vCPU, 256 ГБ)
+
+  mch-backup-retention: 7
+  mch-dedup-retention: 30
 
   # SpeechKit specific
   stt-short-fileSize: 1 МБ
@@ -260,9 +269,13 @@ internal:
   MG: MongoDB
   MY: MySQL
   RD: Redis
+  KF: Apache Kafka<sup>®</sup>
   ZK: ZooKeeper
   zone-id: vla
   host-class: db1.micro
+
+  mch-backup-retention: 7
+  mch-dedup-retention: 30
 
   # links
   link-console-billing: https://console.cloud.yandex.ru/billing

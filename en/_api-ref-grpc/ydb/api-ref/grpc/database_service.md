@@ -20,7 +20,7 @@ A set of methods for managing databases.
 
 Returns the specified database.
 
-**rpc Get ([GetDatabaseRequest](#GetDatabaseRequest)) returns ([Database](#Database))**
+**rpc Get ([GetDatabaseRequest](#GetDatabaseRequest)) returns ([Database](../database.proto#Database))**
 
 ### GetDatabaseRequest {#GetDatabaseRequest}
 
@@ -41,21 +41,25 @@ description | **string**<br>
 status | enum **Status**<br> <ul><ul/>
 endpoint | **string**<br> 
 resource_preset_id | **string**<br> 
-storage_config | **[StorageConfig](#StorageConfig)**<br> 
-scale_policy | **[ScalePolicy](#ScalePolicy)**<br> 
+storage_config | **[StorageConfig](../database.proto#StorageConfig)**<br> 
+scale_policy | **[ScalePolicy](../database.proto#ScalePolicy)**<br> 
 network_id | **string**<br> 
 subnet_ids[] | **string**<br> 
-database_type | **oneof:** `zonal_database` or `regional_database`<br>
-&nbsp;&nbsp;zonal_database | **[ZonalDatabase](#ZonalDatabase)**<br> 
-&nbsp;&nbsp;regional_database | **[RegionalDatabase](#RegionalDatabase)**<br> 
+database_type | **oneof:** `zonal_database`, `regional_database`, `dedicated_database` or `serverless_database`<br>
+&nbsp;&nbsp;zonal_database | **[ZonalDatabase](../database.proto#ZonalDatabase)**<br>deprecated field 
+&nbsp;&nbsp;regional_database | **[RegionalDatabase](../database.proto#RegionalDatabase)**<br>deprecated field 
+&nbsp;&nbsp;dedicated_database | **[DedicatedDatabase](../database.proto#DedicatedDatabase)**<br> 
+&nbsp;&nbsp;serverless_database | **[ServerlessDatabase](../database.proto#ServerlessDatabase)**<br> 
 assign_public_ips | **bool**<br> 
+location_id | **string**<br> 
+labels | **map<string,string>**<br> 
 
 
 ### StorageConfig {#StorageConfig}
 
 Field | Description
 --- | ---
-storage_options[] | **[StorageOption](#StorageOption)**<br> The minimum number of elements is 1.
+storage_options[] | **[StorageOption](../database.proto#StorageOption)**<br> The minimum number of elements is 1.
 
 
 ### StorageOption {#StorageOption}
@@ -71,7 +75,7 @@ group_count | **int64**<br>
 Field | Description
 --- | ---
 scale_type | **oneof:** `fixed_scale`<br>
-&nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale)**<br> 
+&nbsp;&nbsp;fixed_scale | **[FixedScale](../database.proto#FixedScale)**<br> 
 
 
 ### FixedScale {#FixedScale}
@@ -93,6 +97,52 @@ zone_id | **string**<br>Required.  false
 Field | Description
 --- | ---
 region_id | **string**<br>Required.  false
+
+
+### DedicatedDatabase {#DedicatedDatabase}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br> 
+storage_config | **[StorageConfig](../database.proto#StorageConfig1)**<br> 
+scale_policy | **[ScalePolicy](../database.proto#ScalePolicy1)**<br> 
+network_id | **string**<br> 
+subnet_ids[] | **string**<br> 
+assign_public_ips | **bool**<br> 
+
+
+### StorageConfig {#StorageConfig}
+
+Field | Description
+--- | ---
+storage_options[] | **[StorageOption](../database.proto#StorageOption1)**<br> The minimum number of elements is 1.
+
+
+### StorageOption {#StorageOption}
+
+Field | Description
+--- | ---
+storage_type_id | **string**<br> 
+group_count | **int64**<br> 
+
+
+### ScalePolicy {#ScalePolicy}
+
+Field | Description
+--- | ---
+scale_type | **oneof:** `fixed_scale`<br>
+&nbsp;&nbsp;fixed_scale | **[FixedScale](../database.proto#FixedScale1)**<br> 
+
+
+### FixedScale {#FixedScale}
+
+Field | Description
+--- | ---
+size | **int64**<br> The minimum value is 1.
+
+
+### ServerlessDatabase {#ServerlessDatabase}
+
 
 
 ## List {#List}
@@ -114,7 +164,7 @@ page_token | **string**<br>Page token. Set `page_token` to the `next_page_token`
 
 Field | Description
 --- | ---
-databases[] | **[Database](#Database1)**<br> 
+databases[] | **[Database](../database.proto#Database1)**<br> 
 next_page_token | **string**<br>This token allows you to get the next page of results for ListDatabases requests, if the number of results is larger than `page_size` specified in the request. To get the next page, specify the value of `next_page_token` as a value for the `page_token` parameter in the next ListDatabases request. Subsequent ListDatabases requests will have their own `next_page_token` to continue paging through the results. 
 
 
@@ -130,21 +180,25 @@ description | **string**<br>
 status | enum **Status**<br> <ul><ul/>
 endpoint | **string**<br> 
 resource_preset_id | **string**<br> 
-storage_config | **[StorageConfig](#StorageConfig1)**<br> 
-scale_policy | **[ScalePolicy](#ScalePolicy1)**<br> 
+storage_config | **[StorageConfig](../database.proto#StorageConfig2)**<br> 
+scale_policy | **[ScalePolicy](../database.proto#ScalePolicy2)**<br> 
 network_id | **string**<br> 
 subnet_ids[] | **string**<br> 
-database_type | **oneof:** `zonal_database` or `regional_database`<br>
-&nbsp;&nbsp;zonal_database | **[ZonalDatabase](#ZonalDatabase1)**<br> 
-&nbsp;&nbsp;regional_database | **[RegionalDatabase](#RegionalDatabase1)**<br> 
+database_type | **oneof:** `zonal_database`, `regional_database`, `dedicated_database` or `serverless_database`<br>
+&nbsp;&nbsp;zonal_database | **[ZonalDatabase](../database.proto#ZonalDatabase1)**<br>deprecated field 
+&nbsp;&nbsp;regional_database | **[RegionalDatabase](../database.proto#RegionalDatabase1)**<br>deprecated field 
+&nbsp;&nbsp;dedicated_database | **[DedicatedDatabase](../database.proto#DedicatedDatabase1)**<br> 
+&nbsp;&nbsp;serverless_database | **[ServerlessDatabase](../database.proto#ServerlessDatabase1)**<br> 
 assign_public_ips | **bool**<br> 
+location_id | **string**<br> 
+labels | **map<string,string>**<br> 
 
 
 ### StorageConfig {#StorageConfig}
 
 Field | Description
 --- | ---
-storage_options[] | **[StorageOption](#StorageOption1)**<br> The minimum number of elements is 1.
+storage_options[] | **[StorageOption](../database.proto#StorageOption2)**<br> The minimum number of elements is 1.
 
 
 ### StorageOption {#StorageOption}
@@ -160,7 +214,7 @@ group_count | **int64**<br>
 Field | Description
 --- | ---
 scale_type | **oneof:** `fixed_scale`<br>
-&nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale1)**<br> 
+&nbsp;&nbsp;fixed_scale | **[FixedScale](../database.proto#FixedScale2)**<br> 
 
 
 ### FixedScale {#FixedScale}
@@ -182,6 +236,52 @@ zone_id | **string**<br>Required.  false
 Field | Description
 --- | ---
 region_id | **string**<br>Required.  false
+
+
+### DedicatedDatabase {#DedicatedDatabase}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br> 
+storage_config | **[StorageConfig](../database.proto#StorageConfig3)**<br> 
+scale_policy | **[ScalePolicy](../database.proto#ScalePolicy3)**<br> 
+network_id | **string**<br> 
+subnet_ids[] | **string**<br> 
+assign_public_ips | **bool**<br> 
+
+
+### StorageConfig {#StorageConfig}
+
+Field | Description
+--- | ---
+storage_options[] | **[StorageOption](../database.proto#StorageOption3)**<br> The minimum number of elements is 1.
+
+
+### StorageOption {#StorageOption}
+
+Field | Description
+--- | ---
+storage_type_id | **string**<br> 
+group_count | **int64**<br> 
+
+
+### ScalePolicy {#ScalePolicy}
+
+Field | Description
+--- | ---
+scale_type | **oneof:** `fixed_scale`<br>
+&nbsp;&nbsp;fixed_scale | **[FixedScale](../database.proto#FixedScale3)**<br> 
+
+
+### FixedScale {#FixedScale}
+
+Field | Description
+--- | ---
+size | **int64**<br> The minimum value is 1.
+
+
+### ServerlessDatabase {#ServerlessDatabase}
+
 
 
 ## Create {#Create}
@@ -192,7 +292,7 @@ Creates a new database.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateDatabaseMetadata](#CreateDatabaseMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Database](#Database2)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Database](../database.proto#Database2)<br>
 
 ### CreateDatabaseRequest {#CreateDatabaseRequest}
 
@@ -201,22 +301,26 @@ Field | Description
 folder_id | **string**<br> 
 name | **string**<br> 
 description | **string**<br> 
-resource_preset_id | **string**<br>Required.  false
-storage_config | **[StorageConfig](#StorageConfig2)**<br>Required.  false
-scale_policy | **[ScalePolicy](#ScalePolicy2)**<br>Required.  false
+resource_preset_id | **string**<br> 
+storage_config | **[StorageConfig](../database.proto#StorageConfig4)**<br> 
+scale_policy | **[ScalePolicy](../database.proto#ScalePolicy4)**<br> 
 network_id | **string**<br> 
 subnet_ids[] | **string**<br> 
-database_type | **oneof:** `zonal_database` or `regional_database`<br>
-&nbsp;&nbsp;zonal_database | **[ZonalDatabase](#ZonalDatabase2)**<br> 
-&nbsp;&nbsp;regional_database | **[RegionalDatabase](#RegionalDatabase2)**<br> 
+database_type | **oneof:** `zonal_database`, `regional_database`, `dedicated_database` or `serverless_database`<br>
+&nbsp;&nbsp;zonal_database | **[ZonalDatabase](../database.proto#ZonalDatabase2)**<br>deprecated field 
+&nbsp;&nbsp;regional_database | **[RegionalDatabase](../database.proto#RegionalDatabase2)**<br>deprecated field 
+&nbsp;&nbsp;dedicated_database | **[DedicatedDatabase](../database.proto#DedicatedDatabase2)**<br> 
+&nbsp;&nbsp;serverless_database | **[ServerlessDatabase](../database.proto#ServerlessDatabase2)**<br> 
 assign_public_ips | **bool**<br> 
+location_id | **string**<br> 
+labels | **map<string,string>**<br> 
 
 
 ### StorageConfig {#StorageConfig}
 
 Field | Description
 --- | ---
-storage_options[] | **[StorageOption](#StorageOption2)**<br> The minimum number of elements is 1.
+storage_options[] | **[StorageOption](../database.proto#StorageOption4)**<br> The minimum number of elements is 1.
 
 
 ### StorageOption {#StorageOption}
@@ -232,7 +336,7 @@ group_count | **int64**<br>
 Field | Description
 --- | ---
 scale_type | **oneof:** `fixed_scale`<br>
-&nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale2)**<br> 
+&nbsp;&nbsp;fixed_scale | **[FixedScale](../database.proto#FixedScale4)**<br> 
 
 
 ### FixedScale {#FixedScale}
@@ -254,6 +358,52 @@ zone_id | **string**<br>Required.  false
 Field | Description
 --- | ---
 region_id | **string**<br>Required.  false
+
+
+### DedicatedDatabase {#DedicatedDatabase}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br> 
+storage_config | **[StorageConfig](../database.proto#StorageConfig5)**<br> 
+scale_policy | **[ScalePolicy](../database.proto#ScalePolicy5)**<br> 
+network_id | **string**<br> 
+subnet_ids[] | **string**<br> 
+assign_public_ips | **bool**<br> 
+
+
+### StorageConfig {#StorageConfig}
+
+Field | Description
+--- | ---
+storage_options[] | **[StorageOption](../database.proto#StorageOption5)**<br> The minimum number of elements is 1.
+
+
+### StorageOption {#StorageOption}
+
+Field | Description
+--- | ---
+storage_type_id | **string**<br> 
+group_count | **int64**<br> 
+
+
+### ScalePolicy {#ScalePolicy}
+
+Field | Description
+--- | ---
+scale_type | **oneof:** `fixed_scale`<br>
+&nbsp;&nbsp;fixed_scale | **[FixedScale](../database.proto#FixedScale5)**<br> 
+
+
+### FixedScale {#FixedScale}
+
+Field | Description
+--- | ---
+size | **int64**<br> The minimum value is 1.
+
+
+### ServerlessDatabase {#ServerlessDatabase}
+
 
 
 ### Operation {#Operation}
@@ -269,7 +419,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateDatabaseMetadata](#CreateDatabaseMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Database](#Database2)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Database](../database.proto#Database2)>**<br>if operation finished successfully. 
 
 
 ### CreateDatabaseMetadata {#CreateDatabaseMetadata}
@@ -292,14 +442,18 @@ description | **string**<br>
 status | enum **Status**<br> <ul><ul/>
 endpoint | **string**<br> 
 resource_preset_id | **string**<br> 
-storage_config | **[StorageConfig](#StorageConfig3)**<br> 
-scale_policy | **[ScalePolicy](#ScalePolicy3)**<br> 
+storage_config | **[StorageConfig](../database.proto#StorageConfig6)**<br> 
+scale_policy | **[ScalePolicy](../database.proto#ScalePolicy6)**<br> 
 network_id | **string**<br> 
 subnet_ids[] | **string**<br> 
-database_type | **oneof:** `zonal_database` or `regional_database`<br>
-&nbsp;&nbsp;zonal_database | **[ZonalDatabase](#ZonalDatabase3)**<br> 
-&nbsp;&nbsp;regional_database | **[RegionalDatabase](#RegionalDatabase3)**<br> 
+database_type | **oneof:** `zonal_database`, `regional_database`, `dedicated_database` or `serverless_database`<br>
+&nbsp;&nbsp;zonal_database | **[ZonalDatabase](../database.proto#ZonalDatabase3)**<br>deprecated field 
+&nbsp;&nbsp;regional_database | **[RegionalDatabase](../database.proto#RegionalDatabase3)**<br>deprecated field 
+&nbsp;&nbsp;dedicated_database | **[DedicatedDatabase](../database.proto#DedicatedDatabase3)**<br> 
+&nbsp;&nbsp;serverless_database | **[ServerlessDatabase](../database.proto#ServerlessDatabase3)**<br> 
 assign_public_ips | **bool**<br> 
+location_id | **string**<br> 
+labels | **map<string,string>**<br> 
 
 
 ## Update {#Update}
@@ -310,7 +464,7 @@ Modifies the specified database.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateDatabaseMetadata](#UpdateDatabaseMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Database](#Database3)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Database](../database.proto#Database3)<br>
 
 ### UpdateDatabaseRequest {#UpdateDatabaseRequest}
 
@@ -321,22 +475,26 @@ update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protoc
 database_id | **string**<br> 
 name | **string**<br> 
 description | **string**<br> 
-resource_preset_id | **string**<br>Required.  false
-storage_config | **[StorageConfig](#StorageConfig3)**<br>Required.  false
-scale_policy | **[ScalePolicy](#ScalePolicy3)**<br>Required.  false
+resource_preset_id | **string**<br> 
+storage_config | **[StorageConfig](../database.proto#StorageConfig6)**<br> 
+scale_policy | **[ScalePolicy](../database.proto#ScalePolicy6)**<br> 
 network_id | **string**<br> 
 subnet_ids[] | **string**<br> 
-database_type | **oneof:** `zonal_database` or `regional_database`<br>
-&nbsp;&nbsp;zonal_database | **[ZonalDatabase](#ZonalDatabase3)**<br> 
-&nbsp;&nbsp;regional_database | **[RegionalDatabase](#RegionalDatabase3)**<br> 
+database_type | **oneof:** `zonal_database`, `regional_database`, `dedicated_database` or `serverless_database`<br>
+&nbsp;&nbsp;zonal_database | **[ZonalDatabase](../database.proto#ZonalDatabase3)**<br> 
+&nbsp;&nbsp;regional_database | **[RegionalDatabase](../database.proto#RegionalDatabase3)**<br> 
+&nbsp;&nbsp;dedicated_database | **[DedicatedDatabase](../database.proto#DedicatedDatabase3)**<br> 
+&nbsp;&nbsp;serverless_database | **[ServerlessDatabase](../database.proto#ServerlessDatabase3)**<br> 
 assign_public_ips | **bool**<br> 
+location_id | **string**<br> 
+labels | **map<string,string>**<br> 
 
 
 ### StorageConfig {#StorageConfig}
 
 Field | Description
 --- | ---
-storage_options[] | **[StorageOption](#StorageOption3)**<br> The minimum number of elements is 1.
+storage_options[] | **[StorageOption](../database.proto#StorageOption6)**<br> The minimum number of elements is 1.
 
 
 ### StorageOption {#StorageOption}
@@ -352,7 +510,7 @@ group_count | **int64**<br>
 Field | Description
 --- | ---
 scale_type | **oneof:** `fixed_scale`<br>
-&nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale3)**<br> 
+&nbsp;&nbsp;fixed_scale | **[FixedScale](../database.proto#FixedScale6)**<br> 
 
 
 ### FixedScale {#FixedScale}
@@ -376,6 +534,52 @@ Field | Description
 region_id | **string**<br>Required.  false
 
 
+### DedicatedDatabase {#DedicatedDatabase}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br> 
+storage_config | **[StorageConfig](../database.proto#StorageConfig7)**<br> 
+scale_policy | **[ScalePolicy](../database.proto#ScalePolicy7)**<br> 
+network_id | **string**<br> 
+subnet_ids[] | **string**<br> 
+assign_public_ips | **bool**<br> 
+
+
+### StorageConfig {#StorageConfig}
+
+Field | Description
+--- | ---
+storage_options[] | **[StorageOption](../database.proto#StorageOption7)**<br> The minimum number of elements is 1.
+
+
+### StorageOption {#StorageOption}
+
+Field | Description
+--- | ---
+storage_type_id | **string**<br> 
+group_count | **int64**<br> 
+
+
+### ScalePolicy {#ScalePolicy}
+
+Field | Description
+--- | ---
+scale_type | **oneof:** `fixed_scale`<br>
+&nbsp;&nbsp;fixed_scale | **[FixedScale](../database.proto#FixedScale7)**<br> 
+
+
+### FixedScale {#FixedScale}
+
+Field | Description
+--- | ---
+size | **int64**<br> The minimum value is 1.
+
+
+### ServerlessDatabase {#ServerlessDatabase}
+
+
+
 ### Operation {#Operation}
 
 Field | Description
@@ -389,7 +593,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateDatabaseMetadata](#UpdateDatabaseMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Database](#Database3)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Database](../database.proto#Database3)>**<br>if operation finished successfully. 
 
 
 ### UpdateDatabaseMetadata {#UpdateDatabaseMetadata}
@@ -412,14 +616,18 @@ description | **string**<br>
 status | enum **Status**<br> <ul><ul/>
 endpoint | **string**<br> 
 resource_preset_id | **string**<br> 
-storage_config | **[StorageConfig](#StorageConfig4)**<br> 
-scale_policy | **[ScalePolicy](#ScalePolicy4)**<br> 
+storage_config | **[StorageConfig](../database.proto#StorageConfig8)**<br> 
+scale_policy | **[ScalePolicy](../database.proto#ScalePolicy8)**<br> 
 network_id | **string**<br> 
 subnet_ids[] | **string**<br> 
-database_type | **oneof:** `zonal_database` or `regional_database`<br>
-&nbsp;&nbsp;zonal_database | **[ZonalDatabase](#ZonalDatabase4)**<br> 
-&nbsp;&nbsp;regional_database | **[RegionalDatabase](#RegionalDatabase4)**<br> 
+database_type | **oneof:** `zonal_database`, `regional_database`, `dedicated_database` or `serverless_database`<br>
+&nbsp;&nbsp;zonal_database | **[ZonalDatabase](../database.proto#ZonalDatabase4)**<br>deprecated field 
+&nbsp;&nbsp;regional_database | **[RegionalDatabase](../database.proto#RegionalDatabase4)**<br>deprecated field 
+&nbsp;&nbsp;dedicated_database | **[DedicatedDatabase](../database.proto#DedicatedDatabase4)**<br> 
+&nbsp;&nbsp;serverless_database | **[ServerlessDatabase](../database.proto#ServerlessDatabase4)**<br> 
 assign_public_ips | **bool**<br> 
+location_id | **string**<br> 
+labels | **map<string,string>**<br> 
 
 
 ## Delete {#Delete}

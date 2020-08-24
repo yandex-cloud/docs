@@ -22,7 +22,7 @@ editable: false
 
 Возвращает указанного пользователя MySQL. <br>Чтобы получить список доступных пользователей MySQL, выполните запрос [List](#List).
 
-**rpc Get ([GetUserRequest](#GetUserRequest)) returns ([User](#User))**
+**rpc Get ([GetUserRequest](#GetUserRequest)) returns ([User](../user.proto#User))**
 
 ### GetUserRequest {#GetUserRequest}
 
@@ -38,9 +38,9 @@ user_name | **string**<br>Обязательное поле. Обязатель�
 --- | ---
 name | **string**<br>Имя пользователя MySQL. 
 cluster_id | **string**<br>Идентификатор кластера MySQL, которому принадлежит пользователь. 
-permissions[] | **[Permission](#Permission)**<br>Набор разрешений, предоставленных пользователю. 
-global_permissions[] | enum **GlobalPermission**<br>Набор глобальных разрешений, которые следует предоставить пользователю. <ul><li>`REPLICATION_CLIENT`: Разрешает использование SHOW MASTER STATUS, SHOW SLAVE STATUS, и SHOW BINARY LOGS.</li><li>`REPLICATION_SLAVE`: Разрешает использование SHOW SLAVE HOSTS, SHOW RELAYLOG EVENTS и SHOW BINLOG EVENTS.</li><ul/>
-connection_limits | **[ConnectionLimits](#ConnectionLimits)**<br>Набор ограничений на коннекты пользователя. 
+permissions[] | **[Permission](../user.proto#Permission)**<br>Набор разрешений, предоставленных пользователю. 
+global_permissions[] | enum **GlobalPermission**<br>Набор глобальных разрешений, которые следует предоставить пользователю. <ul><li>`REPLICATION_CLIENT`: Разрешает использование SHOW MASTER STATUS, SHOW SLAVE STATUS, и SHOW BINARY LOGS.</li><li>`REPLICATION_SLAVE`: Разрешает использование SHOW SLAVE HOSTS, SHOW RELAYLOG EVENTS и SHOW BINLOG EVENTS.</li><li>`PROCESS`: Разрешает использование SHOW ENGINE INNODB STATUS.</li><ul/>
+connection_limits | **[ConnectionLimits](../user.proto#ConnectionLimits)**<br>Набор ограничений на коннекты пользователя. 
 authentication_plugin | enum **AuthPlugin**<br>Аутентификационный плагин пользователя. <ul><li>`MYSQL_NATIVE_PASSWORD`: Использует [Native Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/native-pluggable-authentication.html).</li><li>`CACHING_SHA2_PASSWORD`: Использует [Caching SHA-2 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/caching-sha2-pluggable-authentication.html).</li><li>`SHA256_PASSWORD`: Использует [SHA-256 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/sha256-pluggable-authentication.html).</li><ul/>
 
 
@@ -81,7 +81,7 @@ page_token | **string**<br>Токен страницы. Установите з�
 
 Поле | Описание
 --- | ---
-users[] | **[User](#User1)**<br>Запрошенный список пользователей MySQL. 
+users[] | **[User](../user.proto#User1)**<br>Запрошенный список пользователей MySQL. 
 next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListUsersRequest.page_size](#ListUsersRequest1), используйте `next_page_token` в качестве значения параметра [ListUsersRequest.page_token](#ListUsersRequest1) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
 
 
@@ -91,9 +91,9 @@ next_page_token | **string**<br>Токен для получения следу�
 --- | ---
 name | **string**<br>Имя пользователя MySQL. 
 cluster_id | **string**<br>Идентификатор кластера MySQL, которому принадлежит пользователь. 
-permissions[] | **[Permission](#Permission1)**<br>Набор разрешений, предоставленных пользователю. 
-global_permissions[] | enum **GlobalPermission**<br>Набор глобальных разрешений, которые следует предоставить пользователю. <ul><li>`REPLICATION_CLIENT`: Разрешает использование SHOW MASTER STATUS, SHOW SLAVE STATUS, и SHOW BINARY LOGS.</li><li>`REPLICATION_SLAVE`: Разрешает использование SHOW SLAVE HOSTS, SHOW RELAYLOG EVENTS и SHOW BINLOG EVENTS.</li><ul/>
-connection_limits | **[ConnectionLimits](#ConnectionLimits1)**<br>Набор ограничений на коннекты пользователя. 
+permissions[] | **[Permission](../user.proto#Permission1)**<br>Набор разрешений, предоставленных пользователю. 
+global_permissions[] | enum **GlobalPermission**<br>Набор глобальных разрешений, которые следует предоставить пользователю. <ul><li>`REPLICATION_CLIENT`: Разрешает использование SHOW MASTER STATUS, SHOW SLAVE STATUS, и SHOW BINARY LOGS.</li><li>`REPLICATION_SLAVE`: Разрешает использование SHOW SLAVE HOSTS, SHOW RELAYLOG EVENTS и SHOW BINLOG EVENTS.</li><li>`PROCESS`: Разрешает использование SHOW ENGINE INNODB STATUS.</li><ul/>
+connection_limits | **[ConnectionLimits](../user.proto#ConnectionLimits1)**<br>Набор ограничений на коннекты пользователя. 
 authentication_plugin | enum **AuthPlugin**<br>Аутентификационный плагин пользователя. <ul><li>`MYSQL_NATIVE_PASSWORD`: Использует [Native Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/native-pluggable-authentication.html).</li><li>`CACHING_SHA2_PASSWORD`: Использует [Caching SHA-2 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/caching-sha2-pluggable-authentication.html).</li><li>`SHA256_PASSWORD`: Использует [SHA-256 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/sha256-pluggable-authentication.html).</li><ul/>
 
 
@@ -123,14 +123,14 @@ max_user_connections | **[google.protobuf.Int64Value](https://developers.google.
 
 Метаданные и результат операции:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateUserMetadata](#CreateUserMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[User](#User2)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[User](../user.proto#User2)<br>
 
 ### CreateUserRequest {#CreateUserRequest}
 
 Поле | Описание
 --- | ---
 cluster_id | **string**<br>Обязательное поле. Идентификатор кластера MySQL, для которого следует создать пользователя. Чтобы получить идентификатор кластера, используйте запрос [ClusterService.List](./cluster_service#List). false Максимальная длина строки в символах — 50.
-user_spec | **[UserSpec](#UserSpec)**<br>Обязательное поле. Свойства создаваемого пользователя. false
+user_spec | **[UserSpec](../user.proto#UserSpec)**<br>Обязательное поле. Свойства создаваемого пользователя. false
 
 
 ### UserSpec {#UserSpec}
@@ -139,9 +139,9 @@ user_spec | **[UserSpec](#UserSpec)**<br>Обязательное поле. Св
 --- | ---
 name | **string**<br>Обязательное поле. Имя пользователя MySQL. false Максимальная длина строки в символах — 32. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_]* `.
 password | **string**<br>Обязательное поле. Пароль пользователя MySQL. false Длина строки в символах должна быть от 8 до 128.
-permissions[] | **[Permission](#Permission2)**<br>Набор разрешений, которые следует предоставить пользователю. 
-global_permissions[] | enum **GlobalPermission**<br>Набор глобальных разрешений, которые следует предоставить пользователю. <ul><li>`REPLICATION_CLIENT`: Разрешает использование SHOW MASTER STATUS, SHOW SLAVE STATUS, и SHOW BINARY LOGS.</li><li>`REPLICATION_SLAVE`: Разрешает использование SHOW SLAVE HOSTS, SHOW RELAYLOG EVENTS и SHOW BINLOG EVENTS.</li><ul/>
-connection_limits | **[ConnectionLimits](#ConnectionLimits2)**<br>Набор ограничений на коннекты пользователя. 
+permissions[] | **[Permission](../user.proto#Permission2)**<br>Набор разрешений, которые следует предоставить пользователю. 
+global_permissions[] | enum **GlobalPermission**<br>Набор глобальных разрешений, которые следует предоставить пользователю. <ul><li>`REPLICATION_CLIENT`: Разрешает использование SHOW MASTER STATUS, SHOW SLAVE STATUS, и SHOW BINARY LOGS.</li><li>`REPLICATION_SLAVE`: Разрешает использование SHOW SLAVE HOSTS, SHOW RELAYLOG EVENTS и SHOW BINLOG EVENTS.</li><li>`PROCESS`: Разрешает использование SHOW ENGINE INNODB STATUS.</li><ul/>
+connection_limits | **[ConnectionLimits](../user.proto#ConnectionLimits2)**<br>Набор ограничений на коннекты пользователя. 
 authentication_plugin | enum **AuthPlugin**<br>Аутентификационный плагин пользователя. <ul><li>`MYSQL_NATIVE_PASSWORD`: Использует [Native Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/native-pluggable-authentication.html).</li><li>`CACHING_SHA2_PASSWORD`: Использует [Caching SHA-2 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/caching-sha2-pluggable-authentication.html).</li><li>`SHA256_PASSWORD`: Использует [SHA-256 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/sha256-pluggable-authentication.html).</li><ul/>
 
 
@@ -176,7 +176,7 @@ done | **bool**<br>Если значение равно `false` — операц
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateUserMetadata](#CreateUserMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
 result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[User](#User2)>**<br>в случае успешного выполнения операции. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[User](../user.proto#User2)>**<br>в случае успешного выполнения операции. 
 
 
 ### CreateUserMetadata {#CreateUserMetadata}
@@ -193,9 +193,9 @@ user_name | **string**<br>Имя создаваемого пользовател
 --- | ---
 name | **string**<br>Имя пользователя MySQL. 
 cluster_id | **string**<br>Идентификатор кластера MySQL, которому принадлежит пользователь. 
-permissions[] | **[Permission](#Permission3)**<br>Набор разрешений, предоставленных пользователю. 
-global_permissions[] | enum **GlobalPermission**<br>Набор глобальных разрешений, которые следует предоставить пользователю. <ul><li>`REPLICATION_CLIENT`: Разрешает использование SHOW MASTER STATUS, SHOW SLAVE STATUS, и SHOW BINARY LOGS.</li><li>`REPLICATION_SLAVE`: Разрешает использование SHOW SLAVE HOSTS, SHOW RELAYLOG EVENTS и SHOW BINLOG EVENTS.</li><ul/>
-connection_limits | **[ConnectionLimits](#ConnectionLimits3)**<br>Набор ограничений на коннекты пользователя. 
+permissions[] | **[Permission](../user.proto#Permission3)**<br>Набор разрешений, предоставленных пользователю. 
+global_permissions[] | enum **GlobalPermission**<br>Набор глобальных разрешений, которые следует предоставить пользователю. <ul><li>`REPLICATION_CLIENT`: Разрешает использование SHOW MASTER STATUS, SHOW SLAVE STATUS, и SHOW BINARY LOGS.</li><li>`REPLICATION_SLAVE`: Разрешает использование SHOW SLAVE HOSTS, SHOW RELAYLOG EVENTS и SHOW BINLOG EVENTS.</li><li>`PROCESS`: Разрешает использование SHOW ENGINE INNODB STATUS.</li><ul/>
+connection_limits | **[ConnectionLimits](../user.proto#ConnectionLimits3)**<br>Набор ограничений на коннекты пользователя. 
 authentication_plugin | enum **AuthPlugin**<br>Аутентификационный плагин пользователя. <ul><li>`MYSQL_NATIVE_PASSWORD`: Использует [Native Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/native-pluggable-authentication.html).</li><li>`CACHING_SHA2_PASSWORD`: Использует [Caching SHA-2 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/caching-sha2-pluggable-authentication.html).</li><li>`SHA256_PASSWORD`: Использует [SHA-256 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/sha256-pluggable-authentication.html).</li><ul/>
 
 
@@ -207,7 +207,7 @@ authentication_plugin | enum **AuthPlugin**<br>Аутентификационн�
 
 Метаданные и результат операции:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateUserMetadata](#UpdateUserMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[User](#User3)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[User](../user.proto#User3)<br>
 
 ### UpdateUserRequest {#UpdateUserRequest}
 
@@ -217,9 +217,9 @@ cluster_id | **string**<br>Обязательное поле. Идентифик
 user_name | **string**<br>Обязательное поле. Имя пользователя, которого следует изменить. Чтобы получить имя пользователя, используйте запрос [UserService.List](#List). false Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_]* `.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Маска, которая указывает, какие атрибуты пользователя MySQL должны быть обновлены. 
 password | **string**<br>Новый пароль для пользователя. Длина строки в символах должна быть от 8 до 128.
-permissions[] | **[Permission](#Permission3)**<br>Новый набор разрешений для пользователя. 
-global_permissions[] | enum **GlobalPermission**<br>Новый набор глобальных разрешений, которые следует предоставить пользователю. <ul><li>`REPLICATION_CLIENT`: Разрешает использование SHOW MASTER STATUS, SHOW SLAVE STATUS, и SHOW BINARY LOGS.</li><li>`REPLICATION_SLAVE`: Разрешает использование SHOW SLAVE HOSTS, SHOW RELAYLOG EVENTS и SHOW BINLOG EVENTS.</li><ul/>
-connection_limits | **[ConnectionLimits](#ConnectionLimits3)**<br>Набор изменившихся ограничений на коннекты пользователя. 
+permissions[] | **[Permission](../user.proto#Permission3)**<br>Новый набор разрешений для пользователя. 
+global_permissions[] | enum **GlobalPermission**<br>Новый набор глобальных разрешений, которые следует предоставить пользователю. <ul><li>`REPLICATION_CLIENT`: Разрешает использование SHOW MASTER STATUS, SHOW SLAVE STATUS, и SHOW BINARY LOGS.</li><li>`REPLICATION_SLAVE`: Разрешает использование SHOW SLAVE HOSTS, SHOW RELAYLOG EVENTS и SHOW BINLOG EVENTS.</li><li>`PROCESS`: Разрешает использование SHOW ENGINE INNODB STATUS.</li><ul/>
+connection_limits | **[ConnectionLimits](../user.proto#ConnectionLimits3)**<br>Набор изменившихся ограничений на коннекты пользователя. 
 authentication_plugin | enum **AuthPlugin**<br>Новый аутентификационный плагин пользователя. <ul><li>`MYSQL_NATIVE_PASSWORD`: Использует [Native Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/native-pluggable-authentication.html).</li><li>`CACHING_SHA2_PASSWORD`: Использует [Caching SHA-2 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/caching-sha2-pluggable-authentication.html).</li><li>`SHA256_PASSWORD`: Использует [SHA-256 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/sha256-pluggable-authentication.html).</li><ul/>
 
 
@@ -254,7 +254,7 @@ done | **bool**<br>Если значение равно `false` — операц
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateUserMetadata](#UpdateUserMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
 result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[User](#User3)>**<br>в случае успешного выполнения операции. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[User](../user.proto#User3)>**<br>в случае успешного выполнения операции. 
 
 
 ### UpdateUserMetadata {#UpdateUserMetadata}
@@ -271,9 +271,9 @@ user_name | **string**<br>Имя изменяемого пользователя
 --- | ---
 name | **string**<br>Имя пользователя MySQL. 
 cluster_id | **string**<br>Идентификатор кластера MySQL, которому принадлежит пользователь. 
-permissions[] | **[Permission](#Permission4)**<br>Набор разрешений, предоставленных пользователю. 
-global_permissions[] | enum **GlobalPermission**<br>Набор глобальных разрешений, которые следует предоставить пользователю. <ul><li>`REPLICATION_CLIENT`: Разрешает использование SHOW MASTER STATUS, SHOW SLAVE STATUS, и SHOW BINARY LOGS.</li><li>`REPLICATION_SLAVE`: Разрешает использование SHOW SLAVE HOSTS, SHOW RELAYLOG EVENTS и SHOW BINLOG EVENTS.</li><ul/>
-connection_limits | **[ConnectionLimits](#ConnectionLimits4)**<br>Набор ограничений на коннекты пользователя. 
+permissions[] | **[Permission](../user.proto#Permission4)**<br>Набор разрешений, предоставленных пользователю. 
+global_permissions[] | enum **GlobalPermission**<br>Набор глобальных разрешений, которые следует предоставить пользователю. <ul><li>`REPLICATION_CLIENT`: Разрешает использование SHOW MASTER STATUS, SHOW SLAVE STATUS, и SHOW BINARY LOGS.</li><li>`REPLICATION_SLAVE`: Разрешает использование SHOW SLAVE HOSTS, SHOW RELAYLOG EVENTS и SHOW BINLOG EVENTS.</li><li>`PROCESS`: Разрешает использование SHOW ENGINE INNODB STATUS.</li><ul/>
+connection_limits | **[ConnectionLimits](../user.proto#ConnectionLimits4)**<br>Набор ограничений на коннекты пользователя. 
 authentication_plugin | enum **AuthPlugin**<br>Аутентификационный плагин пользователя. <ul><li>`MYSQL_NATIVE_PASSWORD`: Использует [Native Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/native-pluggable-authentication.html).</li><li>`CACHING_SHA2_PASSWORD`: Использует [Caching SHA-2 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/caching-sha2-pluggable-authentication.html).</li><li>`SHA256_PASSWORD`: Использует [SHA-256 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/sha256-pluggable-authentication.html).</li><ul/>
 
 
@@ -327,7 +327,7 @@ user_name | **string**<br>Имя удаляемого пользователя.
 
 Метаданные и результат операции:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[GrantUserPermissionMetadata](#GrantUserPermissionMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[User](#User4)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[User](../user.proto#User4)<br>
 
 ### GrantUserPermissionRequest {#GrantUserPermissionRequest}
 
@@ -335,7 +335,7 @@ user_name | **string**<br>Имя удаляемого пользователя.
 --- | ---
 cluster_id | **string**<br>Обязательное поле. Идентификатор кластера MySQL, которому принадлежит пользователь. Чтобы получить идентификатор кластера, используйте запрос [ClusterService.List](./cluster_service#List). false Максимальная длина строки в символах — 50.
 user_name | **string**<br>Обязательное поле. Имя пользователя, которому следует предоставить разрешение. Чтобы получить имя пользователя, используйте запрос [UserService.List](#List). false Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_]* `.
-permission | **[Permission](#Permission4)**<br>Обязательное поле. Разрешение, которое должно быть предоставлено указанному пользователю. false
+permission | **[Permission](../user.proto#Permission4)**<br>Обязательное поле. Разрешение, которое должно быть предоставлено указанному пользователю. false
 
 
 ### Permission {#Permission}
@@ -359,7 +359,7 @@ done | **bool**<br>Если значение равно `false` — операц
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[GrantUserPermissionMetadata](#GrantUserPermissionMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
 result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[User](#User4)>**<br>в случае успешного выполнения операции. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[User](../user.proto#User4)>**<br>в случае успешного выполнения операции. 
 
 
 ### GrantUserPermissionMetadata {#GrantUserPermissionMetadata}
@@ -376,9 +376,9 @@ user_name | **string**<br>Имя пользователя, которому пр
 --- | ---
 name | **string**<br>Имя пользователя MySQL. 
 cluster_id | **string**<br>Идентификатор кластера MySQL, которому принадлежит пользователь. 
-permissions[] | **[Permission](#Permission5)**<br>Набор разрешений, предоставленных пользователю. 
-global_permissions[] | enum **GlobalPermission**<br>Набор глобальных разрешений, которые следует предоставить пользователю. <ul><li>`REPLICATION_CLIENT`: Разрешает использование SHOW MASTER STATUS, SHOW SLAVE STATUS, и SHOW BINARY LOGS.</li><li>`REPLICATION_SLAVE`: Разрешает использование SHOW SLAVE HOSTS, SHOW RELAYLOG EVENTS и SHOW BINLOG EVENTS.</li><ul/>
-connection_limits | **[ConnectionLimits](#ConnectionLimits4)**<br>Набор ограничений на коннекты пользователя. 
+permissions[] | **[Permission](../user.proto#Permission5)**<br>Набор разрешений, предоставленных пользователю. 
+global_permissions[] | enum **GlobalPermission**<br>Набор глобальных разрешений, которые следует предоставить пользователю. <ul><li>`REPLICATION_CLIENT`: Разрешает использование SHOW MASTER STATUS, SHOW SLAVE STATUS, и SHOW BINARY LOGS.</li><li>`REPLICATION_SLAVE`: Разрешает использование SHOW SLAVE HOSTS, SHOW RELAYLOG EVENTS и SHOW BINLOG EVENTS.</li><li>`PROCESS`: Разрешает использование SHOW ENGINE INNODB STATUS.</li><ul/>
+connection_limits | **[ConnectionLimits](../user.proto#ConnectionLimits4)**<br>Набор ограничений на коннекты пользователя. 
 authentication_plugin | enum **AuthPlugin**<br>Аутентификационный плагин пользователя. <ul><li>`MYSQL_NATIVE_PASSWORD`: Использует [Native Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/native-pluggable-authentication.html).</li><li>`CACHING_SHA2_PASSWORD`: Использует [Caching SHA-2 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/caching-sha2-pluggable-authentication.html).</li><li>`SHA256_PASSWORD`: Использует [SHA-256 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/sha256-pluggable-authentication.html).</li><ul/>
 
 
@@ -390,7 +390,7 @@ authentication_plugin | enum **AuthPlugin**<br>Аутентификационн�
 
 Метаданные и результат операции:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[RevokeUserPermissionMetadata](#RevokeUserPermissionMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[User](#User5)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[User](../user.proto#User5)<br>
 
 ### RevokeUserPermissionRequest {#RevokeUserPermissionRequest}
 
@@ -398,7 +398,7 @@ authentication_plugin | enum **AuthPlugin**<br>Аутентификационн�
 --- | ---
 cluster_id | **string**<br>Обязательное поле. Идентификатор кластера MySQL, которому принадлежит пользователь. Чтобы получить идентификатор кластера, используйте запрос [ClusterService.List](./cluster_service#List). false Максимальная длина строки в символах — 50.
 user_name | **string**<br>Обязательное поле. Имя пользователя, у которого следует отозвать разрешение. Чтобы получить имя пользователя, используйте запрос [UserService.List](#List). false Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_]* `.
-permission | **[Permission](#Permission5)**<br>Обязательное поле. Разрешение, которое должно быть отозвано у указанного пользователя. false
+permission | **[Permission](../user.proto#Permission5)**<br>Обязательное поле. Разрешение, которое должно быть отозвано у указанного пользователя. false
 
 
 ### Permission {#Permission}
@@ -422,7 +422,7 @@ done | **bool**<br>Если значение равно `false` — операц
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RevokeUserPermissionMetadata](#RevokeUserPermissionMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
 result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[User](#User5)>**<br>в случае успешного выполнения операции. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[User](../user.proto#User5)>**<br>в случае успешного выполнения операции. 
 
 
 ### RevokeUserPermissionMetadata {#RevokeUserPermissionMetadata}
@@ -439,9 +439,9 @@ user_name | **string**<br>Имя пользователя, чье разреше
 --- | ---
 name | **string**<br>Имя пользователя MySQL. 
 cluster_id | **string**<br>Идентификатор кластера MySQL, которому принадлежит пользователь. 
-permissions[] | **[Permission](#Permission6)**<br>Набор разрешений, предоставленных пользователю. 
-global_permissions[] | enum **GlobalPermission**<br>Набор глобальных разрешений, которые следует предоставить пользователю. <ul><li>`REPLICATION_CLIENT`: Разрешает использование SHOW MASTER STATUS, SHOW SLAVE STATUS, и SHOW BINARY LOGS.</li><li>`REPLICATION_SLAVE`: Разрешает использование SHOW SLAVE HOSTS, SHOW RELAYLOG EVENTS и SHOW BINLOG EVENTS.</li><ul/>
-connection_limits | **[ConnectionLimits](#ConnectionLimits4)**<br>Набор ограничений на коннекты пользователя. 
+permissions[] | **[Permission](../user.proto#Permission6)**<br>Набор разрешений, предоставленных пользователю. 
+global_permissions[] | enum **GlobalPermission**<br>Набор глобальных разрешений, которые следует предоставить пользователю. <ul><li>`REPLICATION_CLIENT`: Разрешает использование SHOW MASTER STATUS, SHOW SLAVE STATUS, и SHOW BINARY LOGS.</li><li>`REPLICATION_SLAVE`: Разрешает использование SHOW SLAVE HOSTS, SHOW RELAYLOG EVENTS и SHOW BINLOG EVENTS.</li><li>`PROCESS`: Разрешает использование SHOW ENGINE INNODB STATUS.</li><ul/>
+connection_limits | **[ConnectionLimits](../user.proto#ConnectionLimits4)**<br>Набор ограничений на коннекты пользователя. 
 authentication_plugin | enum **AuthPlugin**<br>Аутентификационный плагин пользователя. <ul><li>`MYSQL_NATIVE_PASSWORD`: Использует [Native Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/native-pluggable-authentication.html).</li><li>`CACHING_SHA2_PASSWORD`: Использует [Caching SHA-2 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/caching-sha2-pluggable-authentication.html).</li><li>`SHA256_PASSWORD`: Использует [SHA-256 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/sha256-pluggable-authentication.html).</li><ul/>
 
 

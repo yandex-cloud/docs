@@ -88,8 +88,8 @@ C помощью {{ kms-short-name }} вы можете шифровать и р
     ```
 - API 
 
-    Воспользуйтесь методом [reEncrypt](../../kms/api-ref/SymmetricCrypto/reEncrypt) для ресурса `SymmetricCrypto`.
-    
+    Воспользуйтесь методом [reEncrypt](../../api-ref/SymmetricCrypto/reEncrypt) для ресурса `SymmetricCrypto`.
+
 {% endlist %}
 
 

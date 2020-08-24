@@ -33,7 +33,7 @@ You can change the [name](function-update.md#update-name) and [description](func
     labels:
      test: test
     log_group_id: eolv6578frac08uh5h6s
-    http_invoke_url: https://functions.cloud-preprod.yandex.net/b097d9ous3gep99khe83 
+    http_invoke_url: https://functions.yandexcloud.net/b097d9ous3gep99khe83 
     ```
 
 {% endlist %}
@@ -68,7 +68,7 @@ You can change the [name](function-update.md#update-name) and [description](func
     labels:
       test: test
     log_group_id: eolv6578frac08uh5h6s
-    http_invoke_url: https://functions.cloud-preprod.yandex.net/b097d9ous3gep99khe83
+    http_invoke_url: https://functions.yandexcloud.net/b097d9ous3gep99khe83
     ```
 
 {% endlist %}
@@ -103,7 +103,7 @@ You can perform the following actions with function labels:
       test: test
       version: beta
     log_group_id: eolv6578frac08uh5h6s
-    http_invoke_url: https://functions.cloud-preprod.yandex.net/b097d9ous3gep99khe83
+    http_invoke_url: https://functions.yandexcloud.net/b097d9ous3gep99khe83
     ```
 
 {% endlist %}
@@ -120,7 +120,7 @@ You can perform the following actions with function labels:
 
     {% note warning %}
 
-    The existing set of `labels` is completely replaced by the set provided.
+    The existing set of `labels` is completely replaced by the set transmitted.
 
     {% endnote %}
 
@@ -135,7 +135,7 @@ You can perform the following actions with function labels:
     labels:
       new_labels: my-beta-function
     log_group_id: eolv6578frac08uh5h6s
-    http_invoke_url: https://functions.cloud-preprod.yandex.net/b097d9ous3gep99khe83
+    http_invoke_url: https://functions.yandexcloud.net/b097d9ous3gep99khe83
     ```
 
 {% endlist %}
@@ -161,7 +161,7 @@ You can perform the following actions with function labels:
     labels:
       version: beta
     log_group_id: eolv6578frac08uh5h6s
-    http_invoke_url: https://functions.cloud-preprod.yandex.net/b097d9ous3gep99khe83
+    http_invoke_url: https://functions.yandexcloud.net/b097d9ous3gep99khe83
     ```
 
 {% endlist %}

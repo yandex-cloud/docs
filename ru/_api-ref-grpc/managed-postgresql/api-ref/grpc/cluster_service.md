@@ -33,7 +33,7 @@ editable: false
 
 Возвращает указанный ресурс Cluster для PostgreSQL. <br>Чтобы получить список доступных ресурсов Cluster для PostgreSQL, отправьте запрос [List](#List).
 
-**rpc Get ([GetClusterRequest](#GetClusterRequest)) returns ([Cluster](#Cluster))**
+**rpc Get ([GetClusterRequest](#GetClusterRequest)) returns ([Cluster](../cluster.proto#Cluster))**
 
 ### GetClusterRequest {#GetClusterRequest}
 
@@ -53,10 +53,10 @@ name | **string**<br>Имя кластера PostgreSQL. Имя уникальн
 description | **string**<br>Описание кластера PostgreSQL. Длина описания должна быть от 0 до 256 символов. 
 labels | **map<string,string>**<br>Пользовательские метки для кластера PostgreSQL в виде пар `` key:value ``. Максимум 64 на ресурс. 
 environment | enum **Environment**<br>Среда развертывания для кластера PostgreSQL. <ul><li>`PRODUCTION`: Стабильная среда с осторожной политикой обновления: во время регулярного обслуживания применяются только срочные исправления.</li><li>`PRESTABLE`: Среда с более агрессивной политикой обновления: новые версии развертываются независимо от обратной совместимости.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring)**<br>Описание систем мониторинга, относящихся к данному кластеру PostgreSQL. 
-config | **[ClusterConfig](#ClusterConfig)**<br>Конфигурация кластера PostgreSQL. 
+monitoring[] | **[Monitoring](../cluster.proto#Monitoring)**<br>Описание систем мониторинга, относящихся к данному кластеру PostgreSQL. 
+config | **[ClusterConfig](../cluster.proto#ClusterConfig)**<br>Конфигурация кластера PostgreSQL. 
 network_id | **string**<br>Идентификатор сети, к которой принадлежит кластер. 
-health | enum **Health**<br>Агрегированная работоспособность кластера. <ul><li>`HEALTH_UNKNOWN`: Состояние кластера неизвестно ([Host.health](#Host) для каждого хоста в кластере — UNKNOWN).</li><li>`ALIVE`: Кластер работает нормально ([Host.health](#Host) для каждого хоста в кластере — ALIVE).</li><li>`DEAD`: Кластер не работает ([Host.health](#Host) для каждого узла в кластере — DEAD).</li><li>`DEGRADED`: Кластер работает неоптимально ([Host.health](#Host) по крайней мере для одного узла в кластере не ALIVE).</li><ul/>
+health | enum **Health**<br>Агрегированная работоспособность кластера. <ul><li>`HEALTH_UNKNOWN`: Состояние кластера неизвестно ([Host.health](../cluster.proto#Host) для каждого хоста в кластере — UNKNOWN).</li><li>`ALIVE`: Кластер работает нормально ([Host.health](../cluster.proto#Host) для каждого хоста в кластере — ALIVE).</li><li>`DEAD`: Кластер не работает ([Host.health](../cluster.proto#Host) для каждого узла в кластере — DEAD).</li><li>`DEGRADED`: Кластер работает неоптимально ([Host.health](../cluster.proto#Host) по крайней мере для одного узла в кластере не ALIVE).</li><ul/>
 status | enum **Status**<br>Текущее состояние кластера. <ul><li>`STATUS_UNKNOWN`: Состояние кластера неизвестно.</li><li>`CREATING`: Кластер создается.</li><li>`RUNNING`: Кластер работает нормально.</li><li>`ERROR`: На кластере произошла ошибка, блокирующая работу.</li><li>`UPDATING`: Кластер изменяется.</li><li>`STOPPING`: Кластер останавливается.</li><li>`STOPPED`: Кластер остановлен.</li><li>`STARTING`: Кластер запускается.</li><ul/>
 
 
@@ -80,11 +80,11 @@ postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c
 &nbsp;&nbsp;postgresql_config_10 | **[PostgresqlConfigSet10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10.proto)**<br>Конфигурация сервера PostgreSQL 10. 
 &nbsp;&nbsp;postgresql_config_11 | **[PostgresqlConfigSet11](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql11.proto)**<br>Конфигурация сервера PostgreSQL 11. 
 &nbsp;&nbsp;postgresql_config_12 | **[PostgresqlConfigSet12](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql12.proto)**<br>Конфигурация сервера PostgreSQL 12. 
-pooler_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig)**<br>Конфигурация менеджера соединений. 
-resources | **[Resources](#Resources)**<br>Ресурсы, выделенные хостам PostgreSQL. 
+pooler_config | **[ConnectionPoolerConfig](../cluster.proto#ConnectionPoolerConfig)**<br>Конфигурация менеджера соединений. 
+resources | **[Resources](../cluster.proto#Resources)**<br>Ресурсы, выделенные хостам PostgreSQL. 
 autofailover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Параметр конфигурации, который включает / отключает автоматическое переключение мастера в кластере. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Время запуска ежедневного резервного копирования, в часовом поясе UTC. 
-access | **[Access](#Access)**<br>Политика доступа к БД 
+access | **[Access](../cluster.proto#Access)**<br>Политика доступа к БД 
 
 
 ### ConnectionPoolerConfig {#ConnectionPoolerConfig}
@@ -124,14 +124,14 @@ data_lens | **bool**<br>Разрешить доступ для DataLens
 folder_id | **string**<br>Обязательное поле. Идентификатор каталога для вывода списка кластеров PostgreSQL. Чтобы получить идентификатор каталога, используйте запрос [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List). false Максимальная длина строки в символах — 50.
 page_size | **int64**<br>Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `page_size`, сервис вернет значение [ListClustersResponse.next_page_token](#ListClustersResponse), которое можно использовать для получения следующей страницы. Максимальное значение — 1000.
 page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListClustersResponse.next_page_token](#ListClustersResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
-filter | **string**<br><ol><li>Имя поля. В настоящее время фильтрацию можно использовать только с полем [Cluster.name](#Cluster1). </li><li>Оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений. </li><li>Значение. Должен содержать от 1 до 63 символов и соответствовать регулярному выражению `^[a-zA-Z0-9_-]+$`.</li></ol> Максимальная длина строки в символах — 1000.
+filter | **string**<br><ol><li>Имя поля. В настоящее время фильтрацию можно использовать только с полем [Cluster.name](../cluster.proto#Cluster1). </li><li>Оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений. </li><li>Значение. Должен содержать от 1 до 63 символов и соответствовать регулярному выражению `^[a-zA-Z0-9_-]+$`.</li></ol> Максимальная длина строки в символах — 1000.
 
 
 ### ListClustersResponse {#ListClustersResponse}
 
 Поле | Описание
 --- | ---
-clusters[] | **[Cluster](#Cluster1)**<br>Список ресурсов Cluster для PostgreSQL. 
+clusters[] | **[Cluster](../cluster.proto#Cluster1)**<br>Список ресурсов Cluster для PostgreSQL. 
 next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListClustersRequest.page_size](#ListClustersRequest1), используйте `next_page_token` в качестве значения параметра [ListClustersRequest.page_token](#ListClustersRequest1) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
 
 
@@ -146,10 +146,10 @@ name | **string**<br>Имя кластера PostgreSQL. Имя уникальн
 description | **string**<br>Описание кластера PostgreSQL. Длина описания должна быть от 0 до 256 символов. 
 labels | **map<string,string>**<br>Пользовательские метки для кластера PostgreSQL в виде пар `` key:value ``. Максимум 64 на ресурс. 
 environment | enum **Environment**<br>Среда развертывания для кластера PostgreSQL. <ul><li>`PRODUCTION`: Стабильная среда с осторожной политикой обновления: во время регулярного обслуживания применяются только срочные исправления.</li><li>`PRESTABLE`: Среда с более агрессивной политикой обновления: новые версии развертываются независимо от обратной совместимости.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring1)**<br>Описание систем мониторинга, относящихся к данному кластеру PostgreSQL. 
-config | **[ClusterConfig](#ClusterConfig1)**<br>Конфигурация кластера PostgreSQL. 
+monitoring[] | **[Monitoring](../cluster.proto#Monitoring1)**<br>Описание систем мониторинга, относящихся к данному кластеру PostgreSQL. 
+config | **[ClusterConfig](../cluster.proto#ClusterConfig1)**<br>Конфигурация кластера PostgreSQL. 
 network_id | **string**<br>Идентификатор сети, к которой принадлежит кластер. 
-health | enum **Health**<br>Агрегированная работоспособность кластера. <ul><li>`HEALTH_UNKNOWN`: Состояние кластера неизвестно ([Host.health](#Host) для каждого хоста в кластере — UNKNOWN).</li><li>`ALIVE`: Кластер работает нормально ([Host.health](#Host) для каждого хоста в кластере — ALIVE).</li><li>`DEAD`: Кластер не работает ([Host.health](#Host) для каждого узла в кластере — DEAD).</li><li>`DEGRADED`: Кластер работает неоптимально ([Host.health](#Host) по крайней мере для одного узла в кластере не ALIVE).</li><ul/>
+health | enum **Health**<br>Агрегированная работоспособность кластера. <ul><li>`HEALTH_UNKNOWN`: Состояние кластера неизвестно ([Host.health](../cluster.proto#Host) для каждого хоста в кластере — UNKNOWN).</li><li>`ALIVE`: Кластер работает нормально ([Host.health](../cluster.proto#Host) для каждого хоста в кластере — ALIVE).</li><li>`DEAD`: Кластер не работает ([Host.health](../cluster.proto#Host) для каждого узла в кластере — DEAD).</li><li>`DEGRADED`: Кластер работает неоптимально ([Host.health](../cluster.proto#Host) по крайней мере для одного узла в кластере не ALIVE).</li><ul/>
 status | enum **Status**<br>Текущее состояние кластера. <ul><li>`STATUS_UNKNOWN`: Состояние кластера неизвестно.</li><li>`CREATING`: Кластер создается.</li><li>`RUNNING`: Кластер работает нормально.</li><li>`ERROR`: На кластере произошла ошибка, блокирующая работу.</li><li>`UPDATING`: Кластер изменяется.</li><li>`STOPPING`: Кластер останавливается.</li><li>`STOPPED`: Кластер остановлен.</li><li>`STARTING`: Кластер запускается.</li><ul/>
 
 
@@ -173,11 +173,11 @@ postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c
 &nbsp;&nbsp;postgresql_config_10 | **[PostgresqlConfigSet10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10.proto)**<br>Конфигурация сервера PostgreSQL 10. 
 &nbsp;&nbsp;postgresql_config_11 | **[PostgresqlConfigSet11](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql11.proto)**<br>Конфигурация сервера PostgreSQL 11. 
 &nbsp;&nbsp;postgresql_config_12 | **[PostgresqlConfigSet12](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql12.proto)**<br>Конфигурация сервера PostgreSQL 12. 
-pooler_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig1)**<br>Конфигурация менеджера соединений. 
-resources | **[Resources](#Resources1)**<br>Ресурсы, выделенные хостам PostgreSQL. 
+pooler_config | **[ConnectionPoolerConfig](../cluster.proto#ConnectionPoolerConfig1)**<br>Конфигурация менеджера соединений. 
+resources | **[Resources](../cluster.proto#Resources1)**<br>Ресурсы, выделенные хостам PostgreSQL. 
 autofailover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Параметр конфигурации, который включает / отключает автоматическое переключение мастера в кластере. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Время запуска ежедневного резервного копирования, в часовом поясе UTC. 
-access | **[Access](#Access1)**<br>Политика доступа к БД 
+access | **[Access](../cluster.proto#Access1)**<br>Политика доступа к БД 
 
 
 ### ConnectionPoolerConfig {#ConnectionPoolerConfig}
@@ -212,7 +212,7 @@ data_lens | **bool**<br>Разрешить доступ для DataLens
 
 Метаданные и результат операции:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateClusterMetadata](#CreateClusterMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster2)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](../cluster.proto#Cluster2)<br>
 
 ### CreateClusterRequest {#CreateClusterRequest}
 
@@ -222,10 +222,10 @@ folder_id | **string**<br>Обязательное поле. Идентифик�
 name | **string**<br>Обязательное поле. Имя кластера PostgreSQL. Имя должно быть уникальным в каталоге. false Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_-]* `.
 description | **string**<br>Описание кластера PostgreSQL. Максимальная длина строки в символах — 256.
 labels | **map<string,string>**<br>Пользовательские метки для кластера PostgreSQL в виде пар `` key:value ``. Не больше 64 меток на ресурс. Например, "project": "mvp" или "source": "dictionary". Не более 64 на ресурс. Максимальная длина строки в символах для каждого значения — 63. Каждое значение должно соответствовать регулярному выражению ` [-_0-9a-z]* `. Максимальная длина строки в символах для каждого ключа — 63. Каждый ключ должен соответствовать регулярному выражению ` [a-z][-_0-9a-z]* `.
-environment | **[Cluster.Environment](#Cluster2)**<br>Обязательное поле. Среда развертывания для кластера PostgreSQL. false
+environment | **[Cluster.Environment](../cluster.proto#Cluster2)**<br>Обязательное поле. Среда развертывания для кластера PostgreSQL. false
 config_spec | **[ConfigSpec](#ConfigSpec)**<br>Обязательное поле. Конфигурация и ресурсы для хостов, которые должны быть созданы для кластера PostgreSQL. false
-database_specs[] | **[DatabaseSpec](#DatabaseSpec)**<br>Обязательное поле. Описания баз данных, которые нужно создать в кластере PostgreSQL. false
-user_specs[] | **[UserSpec](#UserSpec)**<br>Обязательное поле. Описания пользователей базы данных, которых нужно создать в кластере PostgreSQL. false
+database_specs[] | **[DatabaseSpec](../database.proto#DatabaseSpec)**<br>Обязательное поле. Описания баз данных, которые нужно создать в кластере PostgreSQL. false
+user_specs[] | **[UserSpec](../user.proto#UserSpec)**<br>Обязательное поле. Описания пользователей базы данных, которых нужно создать в кластере PostgreSQL. false
 host_specs[] | **[HostSpec](#HostSpec)**<br>Обязательное поле. Конфигурации для отдельных хостов, которые должны быть созданы для кластера PostgreSQL. false
 network_id | **string**<br>Обязательное поле. Идентификатор сети, в которой нужно создать кластер. false Максимальная длина строки в символах — 50.
 
@@ -241,11 +241,11 @@ postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c
 &nbsp;&nbsp;postgresql_config_10 | **[PostgresqlConfig10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10.proto)**<br>Конфигурация для кластера PostgreSQL 10. 
 &nbsp;&nbsp;postgresql_config_11 | **[PostgresqlConfig11](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql11.proto)**<br>Конфигурация для кластера PostgreSQL 11. 
 &nbsp;&nbsp;postgresql_config_12 | **[PostgresqlConfig12](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql12.proto)**<br>Конфигурация для кластера PostgreSQL 12. 
-pooler_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig2)**<br>Конфигурация менеджера соединений. 
-resources | **[Resources](#Resources2)**<br>Ресурсы, выделенные хостам PostgreSQL. 
+pooler_config | **[ConnectionPoolerConfig](../cluster.proto#ConnectionPoolerConfig2)**<br>Конфигурация менеджера соединений. 
+resources | **[Resources](../cluster.proto#Resources2)**<br>Ресурсы, выделенные хостам PostgreSQL. 
 autofailover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Параметр конфигурации, который включает / отключает автоматическое переключение мастера в кластере. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Время запуска ежедневного резервного копирования, в часовом поясе UTC. 
-access | **[Access](#Access2)**<br>Политика доступа к БД 
+access | **[Access](../cluster.proto#Access2)**<br>Политика доступа к БД 
 
 
 ### ConnectionPoolerConfig {#ConnectionPoolerConfig}
@@ -280,7 +280,7 @@ name | **string**<br>Обязательное поле. Имя базы данн
 owner | **string**<br>Обязательное поле. Имя пользователя, которого нужно назначить владельцем базы данных. Чтобы получить список доступных пользователей PostgreSQL, сделайте запрос [UserService.List](./user_service#List). false Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_]* `.
 lc_collate | **string**<br>POSIX-локаль для порядка сортировки строк. Может быть установлен только во время создания. Значение должно соответствовать регулярному выражению ` |[a-zA-Z_]+.UTF-8|C `.
 lc_ctype | **string**<br>POSIX-локаль для классификации символов. Может быть установлена только во время создания. Значение должно соответствовать регулярному выражению ` |[a-zA-Z_]+.UTF-8|C `.
-extensions[] | **[Extension](#Extension)**<br>Расширения PostgreSQL, которые следует подключить для базы данных. 
+extensions[] | **[Extension](../database.proto#Extension)**<br>Расширения PostgreSQL, которые следует подключить для базы данных. 
 
 
 ### Extension {#Extension}
@@ -297,9 +297,9 @@ version | **string**<br>Версия расширения.
 --- | ---
 name | **string**<br>Обязательное поле. Имя пользователя PostgreSQL. false Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_]* `.
 password | **string**<br>Обязательное поле. Пароль пользователя PostgreSQL. false Длина строки в символах должна быть от 8 до 128.
-permissions[] | **[Permission](#Permission)**<br>Набор разрешений, которые следует предоставить пользователю. 
+permissions[] | **[Permission](../user.proto#Permission)**<br>Набор разрешений, которые следует предоставить пользователю. 
 conn_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Количество подключений к базе данных, которые должны быть доступны пользователю. Минимальная значение — 10.
-settings | **[UserSettings](#UserSettings)**<br>Настройки PostgreSQL для этого пользователя 
+settings | **[UserSettings](../user.proto#UserSettings)**<br>Настройки PostgreSQL для этого пользователя 
 login | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Пользователь может войти (по умолчанию True). 
 grants[] | **string**<br>Пользовательские гранты (GRANT <роль> TO <пользователь>), роль должна быть другим пользователем. Максимальная длина строки в символах для каждого значения — 63. Каждое значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_]* `.
 
@@ -327,9 +327,9 @@ temp_file_limit | **[google.protobuf.Int64Value](https://developers.google.com/p
 Поле | Описание
 --- | ---
 zone_id | **string**<br>Идентификатор зоны доступности, в которой находится хост. Чтобы получить список доступных зон, используйте запрос [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/grpc/zone_service#List). Максимальная длина строки в символах — 50.
-subnet_id | **string**<br>Идентификатор подсети, к которой должен принадлежать хост. Эта подсеть должна быть частью сети, к которой принадлежит кластер. Идентификатор сети задан в поле [Cluster.network_id](#Cluster2). Максимальная длина строки в символах — 50.
+subnet_id | **string**<br>Идентификатор подсети, к которой должен принадлежать хост. Эта подсеть должна быть частью сети, к которой принадлежит кластер. Идентификатор сети задан в поле [Cluster.network_id](../cluster.proto#Cluster2). Максимальная длина строки в символах — 50.
 assign_public_ip | **bool**<br><ul><li>false — не назначать хосту публичный IP-адрес. </li><li>true — у хоста должен быть публичный IP-адрес.</li></ul> 
-replication_source | **string**<br>[Host.name](#Host) of the host to be used as the replication source (for cascading replication). 
+replication_source | **string**<br>[Host.name](../cluster.proto#Host) of the host to be used as the replication source (for cascading replication). 
 priority | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Приоритет хоста как реплики. Большее значение соответствует более высокому приоритету. <br>Хост с наивысшим приоритетом является синхронной репликой. Все остальные асинхронны. Синхронная реплика при необходимости заменяет мастер. <br>Когда реплика становится мастером, ее приоритет игнорируется. 
 config_spec | **[ConfigHostSpec](#ConfigHostSpec)**<br>Конфигурация сервера PostgreSQL для хоста. 
 
@@ -359,7 +359,7 @@ done | **bool**<br>Если значение равно `false` — операц
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateClusterMetadata](#CreateClusterMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
 result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster2)>**<br>в случае успешного выполнения операции. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](../cluster.proto#Cluster2)>**<br>в случае успешного выполнения операции. 
 
 
 ### CreateClusterMetadata {#CreateClusterMetadata}
@@ -380,10 +380,10 @@ name | **string**<br>Имя кластера PostgreSQL. Имя уникальн
 description | **string**<br>Описание кластера PostgreSQL. Длина описания должна быть от 0 до 256 символов. 
 labels | **map<string,string>**<br>Пользовательские метки для кластера PostgreSQL в виде пар `` key:value ``. Максимум 64 на ресурс. 
 environment | enum **Environment**<br>Среда развертывания для кластера PostgreSQL. <ul><li>`PRODUCTION`: Стабильная среда с осторожной политикой обновления: во время регулярного обслуживания применяются только срочные исправления.</li><li>`PRESTABLE`: Среда с более агрессивной политикой обновления: новые версии развертываются независимо от обратной совместимости.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring2)**<br>Описание систем мониторинга, относящихся к данному кластеру PostgreSQL. 
-config | **[ClusterConfig](#ClusterConfig2)**<br>Конфигурация кластера PostgreSQL. 
+monitoring[] | **[Monitoring](../cluster.proto#Monitoring2)**<br>Описание систем мониторинга, относящихся к данному кластеру PostgreSQL. 
+config | **[ClusterConfig](../cluster.proto#ClusterConfig2)**<br>Конфигурация кластера PostgreSQL. 
 network_id | **string**<br>Идентификатор сети, к которой принадлежит кластер. 
-health | enum **Health**<br>Агрегированная работоспособность кластера. <ul><li>`HEALTH_UNKNOWN`: Состояние кластера неизвестно ([Host.health](#Host) для каждого хоста в кластере — UNKNOWN).</li><li>`ALIVE`: Кластер работает нормально ([Host.health](#Host) для каждого хоста в кластере — ALIVE).</li><li>`DEAD`: Кластер не работает ([Host.health](#Host) для каждого узла в кластере — DEAD).</li><li>`DEGRADED`: Кластер работает неоптимально ([Host.health](#Host) по крайней мере для одного узла в кластере не ALIVE).</li><ul/>
+health | enum **Health**<br>Агрегированная работоспособность кластера. <ul><li>`HEALTH_UNKNOWN`: Состояние кластера неизвестно ([Host.health](../cluster.proto#Host) для каждого хоста в кластере — UNKNOWN).</li><li>`ALIVE`: Кластер работает нормально ([Host.health](../cluster.proto#Host) для каждого хоста в кластере — ALIVE).</li><li>`DEAD`: Кластер не работает ([Host.health](../cluster.proto#Host) для каждого узла в кластере — DEAD).</li><li>`DEGRADED`: Кластер работает неоптимально ([Host.health](../cluster.proto#Host) по крайней мере для одного узла в кластере не ALIVE).</li><ul/>
 status | enum **Status**<br>Текущее состояние кластера. <ul><li>`STATUS_UNKNOWN`: Состояние кластера неизвестно.</li><li>`CREATING`: Кластер создается.</li><li>`RUNNING`: Кластер работает нормально.</li><li>`ERROR`: На кластере произошла ошибка, блокирующая работу.</li><li>`UPDATING`: Кластер изменяется.</li><li>`STOPPING`: Кластер останавливается.</li><li>`STOPPED`: Кластер остановлен.</li><li>`STARTING`: Кластер запускается.</li><ul/>
 
 
@@ -395,7 +395,7 @@ status | enum **Status**<br>Текущее состояние кластера. 
 
 Метаданные и результат операции:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateClusterMetadata](#UpdateClusterMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster3)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](../cluster.proto#Cluster3)<br>
 
 ### UpdateClusterRequest {#UpdateClusterRequest}
 
@@ -420,11 +420,11 @@ postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c
 &nbsp;&nbsp;postgresql_config_10 | **[PostgresqlConfig10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10.proto)**<br>Конфигурация для кластера PostgreSQL 10. 
 &nbsp;&nbsp;postgresql_config_11 | **[PostgresqlConfig11](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql11.proto)**<br>Конфигурация для кластера PostgreSQL 11. 
 &nbsp;&nbsp;postgresql_config_12 | **[PostgresqlConfig12](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql12.proto)**<br>Конфигурация для кластера PostgreSQL 12. 
-pooler_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig3)**<br>Конфигурация менеджера соединений. 
-resources | **[Resources](#Resources3)**<br>Ресурсы, выделенные хостам PostgreSQL. 
+pooler_config | **[ConnectionPoolerConfig](../cluster.proto#ConnectionPoolerConfig3)**<br>Конфигурация менеджера соединений. 
+resources | **[Resources](../cluster.proto#Resources3)**<br>Ресурсы, выделенные хостам PostgreSQL. 
 autofailover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Параметр конфигурации, который включает / отключает автоматическое переключение мастера в кластере. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Время запуска ежедневного резервного копирования, в часовом поясе UTC. 
-access | **[Access](#Access3)**<br>Политика доступа к БД 
+access | **[Access](../cluster.proto#Access3)**<br>Политика доступа к БД 
 
 
 ### ConnectionPoolerConfig {#ConnectionPoolerConfig}
@@ -464,7 +464,7 @@ done | **bool**<br>Если значение равно `false` — операц
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateClusterMetadata](#UpdateClusterMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
 result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster3)>**<br>в случае успешного выполнения операции. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](../cluster.proto#Cluster3)>**<br>в случае успешного выполнения операции. 
 
 
 ### UpdateClusterMetadata {#UpdateClusterMetadata}
@@ -485,10 +485,10 @@ name | **string**<br>Имя кластера PostgreSQL. Имя уникальн
 description | **string**<br>Описание кластера PostgreSQL. Длина описания должна быть от 0 до 256 символов. 
 labels | **map<string,string>**<br>Пользовательские метки для кластера PostgreSQL в виде пар `` key:value ``. Максимум 64 на ресурс. 
 environment | enum **Environment**<br>Среда развертывания для кластера PostgreSQL. <ul><li>`PRODUCTION`: Стабильная среда с осторожной политикой обновления: во время регулярного обслуживания применяются только срочные исправления.</li><li>`PRESTABLE`: Среда с более агрессивной политикой обновления: новые версии развертываются независимо от обратной совместимости.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring2)**<br>Описание систем мониторинга, относящихся к данному кластеру PostgreSQL. 
-config | **[ClusterConfig](#ClusterConfig2)**<br>Конфигурация кластера PostgreSQL. 
+monitoring[] | **[Monitoring](../cluster.proto#Monitoring2)**<br>Описание систем мониторинга, относящихся к данному кластеру PostgreSQL. 
+config | **[ClusterConfig](../cluster.proto#ClusterConfig2)**<br>Конфигурация кластера PostgreSQL. 
 network_id | **string**<br>Идентификатор сети, к которой принадлежит кластер. 
-health | enum **Health**<br>Агрегированная работоспособность кластера. <ul><li>`HEALTH_UNKNOWN`: Состояние кластера неизвестно ([Host.health](#Host) для каждого хоста в кластере — UNKNOWN).</li><li>`ALIVE`: Кластер работает нормально ([Host.health](#Host) для каждого хоста в кластере — ALIVE).</li><li>`DEAD`: Кластер не работает ([Host.health](#Host) для каждого узла в кластере — DEAD).</li><li>`DEGRADED`: Кластер работает неоптимально ([Host.health](#Host) по крайней мере для одного узла в кластере не ALIVE).</li><ul/>
+health | enum **Health**<br>Агрегированная работоспособность кластера. <ul><li>`HEALTH_UNKNOWN`: Состояние кластера неизвестно ([Host.health](../cluster.proto#Host) для каждого хоста в кластере — UNKNOWN).</li><li>`ALIVE`: Кластер работает нормально ([Host.health](../cluster.proto#Host) для каждого хоста в кластере — ALIVE).</li><li>`DEAD`: Кластер не работает ([Host.health](../cluster.proto#Host) для каждого узла в кластере — DEAD).</li><li>`DEGRADED`: Кластер работает неоптимально ([Host.health](../cluster.proto#Host) по крайней мере для одного узла в кластере не ALIVE).</li><ul/>
 status | enum **Status**<br>Текущее состояние кластера. <ul><li>`STATUS_UNKNOWN`: Состояние кластера неизвестно.</li><li>`CREATING`: Кластер создается.</li><li>`RUNNING`: Кластер работает нормально.</li><li>`ERROR`: На кластере произошла ошибка, блокирующая работу.</li><li>`UPDATING`: Кластер изменяется.</li><li>`STOPPING`: Кластер останавливается.</li><li>`STOPPED`: Кластер остановлен.</li><li>`STARTING`: Кластер запускается.</li><ul/>
 
 
@@ -540,7 +540,7 @@ cluster_id | **string**<br>Идентификатор удаляемого кл�
 
 Метаданные и результат операции:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[StartClusterMetadata](#StartClusterMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster4)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](../cluster.proto#Cluster4)<br>
 
 ### StartClusterRequest {#StartClusterRequest}
 
@@ -562,7 +562,7 @@ done | **bool**<br>Если значение равно `false` — операц
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[StartClusterMetadata](#StartClusterMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
 result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster4)>**<br>в случае успешного выполнения операции. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](../cluster.proto#Cluster4)>**<br>в случае успешного выполнения операции. 
 
 
 ### StartClusterMetadata {#StartClusterMetadata}
@@ -583,10 +583,10 @@ name | **string**<br>Имя кластера PostgreSQL. Имя уникальн
 description | **string**<br>Описание кластера PostgreSQL. Длина описания должна быть от 0 до 256 символов. 
 labels | **map<string,string>**<br>Пользовательские метки для кластера PostgreSQL в виде пар `` key:value ``. Максимум 64 на ресурс. 
 environment | enum **Environment**<br>Среда развертывания для кластера PostgreSQL. <ul><li>`PRODUCTION`: Стабильная среда с осторожной политикой обновления: во время регулярного обслуживания применяются только срочные исправления.</li><li>`PRESTABLE`: Среда с более агрессивной политикой обновления: новые версии развертываются независимо от обратной совместимости.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring2)**<br>Описание систем мониторинга, относящихся к данному кластеру PostgreSQL. 
-config | **[ClusterConfig](#ClusterConfig2)**<br>Конфигурация кластера PostgreSQL. 
+monitoring[] | **[Monitoring](../cluster.proto#Monitoring2)**<br>Описание систем мониторинга, относящихся к данному кластеру PostgreSQL. 
+config | **[ClusterConfig](../cluster.proto#ClusterConfig2)**<br>Конфигурация кластера PostgreSQL. 
 network_id | **string**<br>Идентификатор сети, к которой принадлежит кластер. 
-health | enum **Health**<br>Агрегированная работоспособность кластера. <ul><li>`HEALTH_UNKNOWN`: Состояние кластера неизвестно ([Host.health](#Host) для каждого хоста в кластере — UNKNOWN).</li><li>`ALIVE`: Кластер работает нормально ([Host.health](#Host) для каждого хоста в кластере — ALIVE).</li><li>`DEAD`: Кластер не работает ([Host.health](#Host) для каждого узла в кластере — DEAD).</li><li>`DEGRADED`: Кластер работает неоптимально ([Host.health](#Host) по крайней мере для одного узла в кластере не ALIVE).</li><ul/>
+health | enum **Health**<br>Агрегированная работоспособность кластера. <ul><li>`HEALTH_UNKNOWN`: Состояние кластера неизвестно ([Host.health](../cluster.proto#Host) для каждого хоста в кластере — UNKNOWN).</li><li>`ALIVE`: Кластер работает нормально ([Host.health](../cluster.proto#Host) для каждого хоста в кластере — ALIVE).</li><li>`DEAD`: Кластер не работает ([Host.health](../cluster.proto#Host) для каждого узла в кластере — DEAD).</li><li>`DEGRADED`: Кластер работает неоптимально ([Host.health](../cluster.proto#Host) по крайней мере для одного узла в кластере не ALIVE).</li><ul/>
 status | enum **Status**<br>Текущее состояние кластера. <ul><li>`STATUS_UNKNOWN`: Состояние кластера неизвестно.</li><li>`CREATING`: Кластер создается.</li><li>`RUNNING`: Кластер работает нормально.</li><li>`ERROR`: На кластере произошла ошибка, блокирующая работу.</li><li>`UPDATING`: Кластер изменяется.</li><li>`STOPPING`: Кластер останавливается.</li><li>`STOPPED`: Кластер остановлен.</li><li>`STARTING`: Кластер запускается.</li><ul/>
 
 
@@ -598,7 +598,7 @@ status | enum **Status**<br>Текущее состояние кластера. 
 
 Метаданные и результат операции:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[StopClusterMetadata](#StopClusterMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster5)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](../cluster.proto#Cluster5)<br>
 
 ### StopClusterRequest {#StopClusterRequest}
 
@@ -620,7 +620,7 @@ done | **bool**<br>Если значение равно `false` — операц
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[StopClusterMetadata](#StopClusterMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
 result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster5)>**<br>в случае успешного выполнения операции. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](../cluster.proto#Cluster5)>**<br>в случае успешного выполнения операции. 
 
 
 ### StopClusterMetadata {#StopClusterMetadata}
@@ -641,10 +641,10 @@ name | **string**<br>Имя кластера PostgreSQL. Имя уникальн
 description | **string**<br>Описание кластера PostgreSQL. Длина описания должна быть от 0 до 256 символов. 
 labels | **map<string,string>**<br>Пользовательские метки для кластера PostgreSQL в виде пар `` key:value ``. Максимум 64 на ресурс. 
 environment | enum **Environment**<br>Среда развертывания для кластера PostgreSQL. <ul><li>`PRODUCTION`: Стабильная среда с осторожной политикой обновления: во время регулярного обслуживания применяются только срочные исправления.</li><li>`PRESTABLE`: Среда с более агрессивной политикой обновления: новые версии развертываются независимо от обратной совместимости.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring2)**<br>Описание систем мониторинга, относящихся к данному кластеру PostgreSQL. 
-config | **[ClusterConfig](#ClusterConfig2)**<br>Конфигурация кластера PostgreSQL. 
+monitoring[] | **[Monitoring](../cluster.proto#Monitoring2)**<br>Описание систем мониторинга, относящихся к данному кластеру PostgreSQL. 
+config | **[ClusterConfig](../cluster.proto#ClusterConfig2)**<br>Конфигурация кластера PostgreSQL. 
 network_id | **string**<br>Идентификатор сети, к которой принадлежит кластер. 
-health | enum **Health**<br>Агрегированная работоспособность кластера. <ul><li>`HEALTH_UNKNOWN`: Состояние кластера неизвестно ([Host.health](#Host) для каждого хоста в кластере — UNKNOWN).</li><li>`ALIVE`: Кластер работает нормально ([Host.health](#Host) для каждого хоста в кластере — ALIVE).</li><li>`DEAD`: Кластер не работает ([Host.health](#Host) для каждого узла в кластере — DEAD).</li><li>`DEGRADED`: Кластер работает неоптимально ([Host.health](#Host) по крайней мере для одного узла в кластере не ALIVE).</li><ul/>
+health | enum **Health**<br>Агрегированная работоспособность кластера. <ul><li>`HEALTH_UNKNOWN`: Состояние кластера неизвестно ([Host.health](../cluster.proto#Host) для каждого хоста в кластере — UNKNOWN).</li><li>`ALIVE`: Кластер работает нормально ([Host.health](../cluster.proto#Host) для каждого хоста в кластере — ALIVE).</li><li>`DEAD`: Кластер не работает ([Host.health](../cluster.proto#Host) для каждого узла в кластере — DEAD).</li><li>`DEGRADED`: Кластер работает неоптимально ([Host.health](../cluster.proto#Host) по крайней мере для одного узла в кластере не ALIVE).</li><ul/>
 status | enum **Status**<br>Текущее состояние кластера. <ul><li>`STATUS_UNKNOWN`: Состояние кластера неизвестно.</li><li>`CREATING`: Кластер создается.</li><li>`RUNNING`: Кластер работает нормально.</li><li>`ERROR`: На кластере произошла ошибка, блокирующая работу.</li><li>`UPDATING`: Кластер изменяется.</li><li>`STOPPING`: Кластер останавливается.</li><li>`STOPPED`: Кластер остановлен.</li><li>`STARTING`: Кластер запускается.</li><ul/>
 
 
@@ -656,7 +656,7 @@ status | enum **Status**<br>Текущее состояние кластера. 
 
 Метаданные и результат операции:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[MoveClusterMetadata](#MoveClusterMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster6)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](../cluster.proto#Cluster6)<br>
 
 ### MoveClusterRequest {#MoveClusterRequest}
 
@@ -679,7 +679,7 @@ done | **bool**<br>Если значение равно `false` — операц
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[MoveClusterMetadata](#MoveClusterMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
 result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster6)>**<br>в случае успешного выполнения операции. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](../cluster.proto#Cluster6)>**<br>в случае успешного выполнения операции. 
 
 
 ### MoveClusterMetadata {#MoveClusterMetadata}
@@ -702,10 +702,10 @@ name | **string**<br>Имя кластера PostgreSQL. Имя уникальн
 description | **string**<br>Описание кластера PostgreSQL. Длина описания должна быть от 0 до 256 символов. 
 labels | **map<string,string>**<br>Пользовательские метки для кластера PostgreSQL в виде пар `` key:value ``. Максимум 64 на ресурс. 
 environment | enum **Environment**<br>Среда развертывания для кластера PostgreSQL. <ul><li>`PRODUCTION`: Стабильная среда с осторожной политикой обновления: во время регулярного обслуживания применяются только срочные исправления.</li><li>`PRESTABLE`: Среда с более агрессивной политикой обновления: новые версии развертываются независимо от обратной совместимости.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring2)**<br>Описание систем мониторинга, относящихся к данному кластеру PostgreSQL. 
-config | **[ClusterConfig](#ClusterConfig2)**<br>Конфигурация кластера PostgreSQL. 
+monitoring[] | **[Monitoring](../cluster.proto#Monitoring2)**<br>Описание систем мониторинга, относящихся к данному кластеру PostgreSQL. 
+config | **[ClusterConfig](../cluster.proto#ClusterConfig2)**<br>Конфигурация кластера PostgreSQL. 
 network_id | **string**<br>Идентификатор сети, к которой принадлежит кластер. 
-health | enum **Health**<br>Агрегированная работоспособность кластера. <ul><li>`HEALTH_UNKNOWN`: Состояние кластера неизвестно ([Host.health](#Host) для каждого хоста в кластере — UNKNOWN).</li><li>`ALIVE`: Кластер работает нормально ([Host.health](#Host) для каждого хоста в кластере — ALIVE).</li><li>`DEAD`: Кластер не работает ([Host.health](#Host) для каждого узла в кластере — DEAD).</li><li>`DEGRADED`: Кластер работает неоптимально ([Host.health](#Host) по крайней мере для одного узла в кластере не ALIVE).</li><ul/>
+health | enum **Health**<br>Агрегированная работоспособность кластера. <ul><li>`HEALTH_UNKNOWN`: Состояние кластера неизвестно ([Host.health](../cluster.proto#Host) для каждого хоста в кластере — UNKNOWN).</li><li>`ALIVE`: Кластер работает нормально ([Host.health](../cluster.proto#Host) для каждого хоста в кластере — ALIVE).</li><li>`DEAD`: Кластер не работает ([Host.health](../cluster.proto#Host) для каждого узла в кластере — DEAD).</li><li>`DEGRADED`: Кластер работает неоптимально ([Host.health](../cluster.proto#Host) по крайней мере для одного узла в кластере не ALIVE).</li><ul/>
 status | enum **Status**<br>Текущее состояние кластера. <ul><li>`STATUS_UNKNOWN`: Состояние кластера неизвестно.</li><li>`CREATING`: Кластер создается.</li><li>`RUNNING`: Кластер работает нормально.</li><li>`ERROR`: На кластере произошла ошибка, блокирующая работу.</li><li>`UPDATING`: Кластер изменяется.</li><li>`STOPPING`: Кластер останавливается.</li><li>`STOPPED`: Кластер остановлен.</li><li>`STARTING`: Кластер запускается.</li><ul/>
 
 
@@ -717,7 +717,7 @@ status | enum **Status**<br>Текущее состояние кластера. 
 
 Метаданные и результат операции:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[BackupClusterMetadata](#BackupClusterMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster7)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](../cluster.proto#Cluster7)<br>
 
 ### BackupClusterRequest {#BackupClusterRequest}
 
@@ -739,7 +739,7 @@ done | **bool**<br>Если значение равно `false` — операц
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[BackupClusterMetadata](#BackupClusterMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
 result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster7)>**<br>в случае успешного выполнения операции. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](../cluster.proto#Cluster7)>**<br>в случае успешного выполнения операции. 
 
 
 ### BackupClusterMetadata {#BackupClusterMetadata}
@@ -760,10 +760,10 @@ name | **string**<br>Имя кластера PostgreSQL. Имя уникальн
 description | **string**<br>Описание кластера PostgreSQL. Длина описания должна быть от 0 до 256 символов. 
 labels | **map<string,string>**<br>Пользовательские метки для кластера PostgreSQL в виде пар `` key:value ``. Максимум 64 на ресурс. 
 environment | enum **Environment**<br>Среда развертывания для кластера PostgreSQL. <ul><li>`PRODUCTION`: Стабильная среда с осторожной политикой обновления: во время регулярного обслуживания применяются только срочные исправления.</li><li>`PRESTABLE`: Среда с более агрессивной политикой обновления: новые версии развертываются независимо от обратной совместимости.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring2)**<br>Описание систем мониторинга, относящихся к данному кластеру PostgreSQL. 
-config | **[ClusterConfig](#ClusterConfig2)**<br>Конфигурация кластера PostgreSQL. 
+monitoring[] | **[Monitoring](../cluster.proto#Monitoring2)**<br>Описание систем мониторинга, относящихся к данному кластеру PostgreSQL. 
+config | **[ClusterConfig](../cluster.proto#ClusterConfig2)**<br>Конфигурация кластера PostgreSQL. 
 network_id | **string**<br>Идентификатор сети, к которой принадлежит кластер. 
-health | enum **Health**<br>Агрегированная работоспособность кластера. <ul><li>`HEALTH_UNKNOWN`: Состояние кластера неизвестно ([Host.health](#Host) для каждого хоста в кластере — UNKNOWN).</li><li>`ALIVE`: Кластер работает нормально ([Host.health](#Host) для каждого хоста в кластере — ALIVE).</li><li>`DEAD`: Кластер не работает ([Host.health](#Host) для каждого узла в кластере — DEAD).</li><li>`DEGRADED`: Кластер работает неоптимально ([Host.health](#Host) по крайней мере для одного узла в кластере не ALIVE).</li><ul/>
+health | enum **Health**<br>Агрегированная работоспособность кластера. <ul><li>`HEALTH_UNKNOWN`: Состояние кластера неизвестно ([Host.health](../cluster.proto#Host) для каждого хоста в кластере — UNKNOWN).</li><li>`ALIVE`: Кластер работает нормально ([Host.health](../cluster.proto#Host) для каждого хоста в кластере — ALIVE).</li><li>`DEAD`: Кластер не работает ([Host.health](../cluster.proto#Host) для каждого узла в кластере — DEAD).</li><li>`DEGRADED`: Кластер работает неоптимально ([Host.health](../cluster.proto#Host) по крайней мере для одного узла в кластере не ALIVE).</li><ul/>
 status | enum **Status**<br>Текущее состояние кластера. <ul><li>`STATUS_UNKNOWN`: Состояние кластера неизвестно.</li><li>`CREATING`: Кластер создается.</li><li>`RUNNING`: Кластер работает нормально.</li><li>`ERROR`: На кластере произошла ошибка, блокирующая работу.</li><li>`UPDATING`: Кластер изменяется.</li><li>`STOPPING`: Кластер останавливается.</li><li>`STOPPED`: Кластер остановлен.</li><li>`STARTING`: Кластер запускается.</li><ul/>
 
 
@@ -775,7 +775,7 @@ status | enum **Status**<br>Текущее состояние кластера. 
 
 Метаданные и результат операции:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[RestoreClusterMetadata](#RestoreClusterMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster8)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](../cluster.proto#Cluster8)<br>
 
 ### RestoreClusterRequest {#RestoreClusterRequest}
 
@@ -787,7 +787,7 @@ time_inclusive | **bool**<br><ul><li>false (по умолчанию) — точ�
 name | **string**<br>Обязательное поле. Имя нового кластера PostgreSQL. Имя должно быть уникальным в каталоге. false Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_-]* `.
 description | **string**<br>Описание нового кластера PostgreSQL. Максимальная длина строки в символах — 256.
 labels | **map<string,string>**<br>Пользовательские метки для кластера PostgreSQL в виде пар `` key:value ``. Не больше 64 меток на ресурс. Например, "project": "mvp" или "source": "dictionary". Не более 64 на ресурс. Максимальная длина строки в символах для каждого значения — 63. Каждое значение должно соответствовать регулярному выражению ` [-_0-9a-z]* `. Максимальная длина строки в символах для каждого ключа — 63. Каждый ключ должен соответствовать регулярному выражению ` [a-z][-_0-9a-z]* `.
-environment | **[Cluster.Environment](#Cluster8)**<br>Среда развертывания для нового кластера PostgreSQL. 
+environment | **[Cluster.Environment](../cluster.proto#Cluster8)**<br>Среда развертывания для нового кластера PostgreSQL. 
 config_spec | **[ConfigSpec](#ConfigSpec2)**<br>Конфигурация для создаваемого кластера PostgreSQL. 
 host_specs[] | **[HostSpec](#HostSpec1)**<br>Конфигурации для хостов PostgreSQL, которые должны быть созданы для кластера, создаваемого из резервной копии. Количество элементов должно быть больше 0.
 network_id | **string**<br>Обязательное поле. Идентификатор сети, в которой нужно создать PostgreSQL кластер. false Максимальная длина строки в символах — 50.
@@ -805,11 +805,11 @@ postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c
 &nbsp;&nbsp;postgresql_config_10 | **[PostgresqlConfig10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10.proto)**<br>Конфигурация для кластера PostgreSQL 10. 
 &nbsp;&nbsp;postgresql_config_11 | **[PostgresqlConfig11](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql11.proto)**<br>Конфигурация для кластера PostgreSQL 11. 
 &nbsp;&nbsp;postgresql_config_12 | **[PostgresqlConfig12](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql12.proto)**<br>Конфигурация для кластера PostgreSQL 12. 
-pooler_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig4)**<br>Конфигурация менеджера соединений. 
-resources | **[Resources](#Resources4)**<br>Ресурсы, выделенные хостам PostgreSQL. 
+pooler_config | **[ConnectionPoolerConfig](../cluster.proto#ConnectionPoolerConfig4)**<br>Конфигурация менеджера соединений. 
+resources | **[Resources](../cluster.proto#Resources4)**<br>Ресурсы, выделенные хостам PostgreSQL. 
 autofailover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Параметр конфигурации, который включает / отключает автоматическое переключение мастера в кластере. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Время запуска ежедневного резервного копирования, в часовом поясе UTC. 
-access | **[Access](#Access4)**<br>Политика доступа к БД 
+access | **[Access](../cluster.proto#Access4)**<br>Политика доступа к БД 
 
 
 ### ConnectionPoolerConfig {#ConnectionPoolerConfig}
@@ -841,9 +841,9 @@ data_lens | **bool**<br>Разрешить доступ для DataLens
 Поле | Описание
 --- | ---
 zone_id | **string**<br>Идентификатор зоны доступности, в которой находится хост. Чтобы получить список доступных зон, используйте запрос [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/grpc/zone_service#List). Максимальная длина строки в символах — 50.
-subnet_id | **string**<br>Идентификатор подсети, к которой должен принадлежать хост. Эта подсеть должна быть частью сети, к которой принадлежит кластер. Идентификатор сети задан в поле [Cluster.network_id](#Cluster8). Максимальная длина строки в символах — 50.
+subnet_id | **string**<br>Идентификатор подсети, к которой должен принадлежать хост. Эта подсеть должна быть частью сети, к которой принадлежит кластер. Идентификатор сети задан в поле [Cluster.network_id](../cluster.proto#Cluster8). Максимальная длина строки в символах — 50.
 assign_public_ip | **bool**<br><ul><li>false — не назначать хосту публичный IP-адрес. </li><li>true — у хоста должен быть публичный IP-адрес.</li></ul> 
-replication_source | **string**<br>[Host.name](#Host) of the host to be used as the replication source (for cascading replication). 
+replication_source | **string**<br>[Host.name](../cluster.proto#Host) of the host to be used as the replication source (for cascading replication). 
 priority | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Приоритет хоста как реплики. Большее значение соответствует более высокому приоритету. <br>Хост с наивысшим приоритетом является синхронной репликой. Все остальные асинхронны. Синхронная реплика при необходимости заменяет мастер. <br>Когда реплика становится мастером, ее приоритет игнорируется. 
 config_spec | **[ConfigHostSpec](#ConfigHostSpec1)**<br>Конфигурация сервера PostgreSQL для хоста. 
 
@@ -873,7 +873,7 @@ done | **bool**<br>Если значение равно `false` — операц
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RestoreClusterMetadata](#RestoreClusterMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
 result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster8)>**<br>в случае успешного выполнения операции. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](../cluster.proto#Cluster8)>**<br>в случае успешного выполнения операции. 
 
 
 ### RestoreClusterMetadata {#RestoreClusterMetadata}
@@ -895,10 +895,10 @@ name | **string**<br>Имя кластера PostgreSQL. Имя уникальн
 description | **string**<br>Описание кластера PostgreSQL. Длина описания должна быть от 0 до 256 символов. 
 labels | **map<string,string>**<br>Пользовательские метки для кластера PostgreSQL в виде пар `` key:value ``. Максимум 64 на ресурс. 
 environment | enum **Environment**<br>Среда развертывания для кластера PostgreSQL. <ul><li>`PRODUCTION`: Стабильная среда с осторожной политикой обновления: во время регулярного обслуживания применяются только срочные исправления.</li><li>`PRESTABLE`: Среда с более агрессивной политикой обновления: новые версии развертываются независимо от обратной совместимости.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring2)**<br>Описание систем мониторинга, относящихся к данному кластеру PostgreSQL. 
-config | **[ClusterConfig](#ClusterConfig2)**<br>Конфигурация кластера PostgreSQL. 
+monitoring[] | **[Monitoring](../cluster.proto#Monitoring2)**<br>Описание систем мониторинга, относящихся к данному кластеру PostgreSQL. 
+config | **[ClusterConfig](../cluster.proto#ClusterConfig2)**<br>Конфигурация кластера PostgreSQL. 
 network_id | **string**<br>Идентификатор сети, к которой принадлежит кластер. 
-health | enum **Health**<br>Агрегированная работоспособность кластера. <ul><li>`HEALTH_UNKNOWN`: Состояние кластера неизвестно ([Host.health](#Host) для каждого хоста в кластере — UNKNOWN).</li><li>`ALIVE`: Кластер работает нормально ([Host.health](#Host) для каждого хоста в кластере — ALIVE).</li><li>`DEAD`: Кластер не работает ([Host.health](#Host) для каждого узла в кластере — DEAD).</li><li>`DEGRADED`: Кластер работает неоптимально ([Host.health](#Host) по крайней мере для одного узла в кластере не ALIVE).</li><ul/>
+health | enum **Health**<br>Агрегированная работоспособность кластера. <ul><li>`HEALTH_UNKNOWN`: Состояние кластера неизвестно ([Host.health](../cluster.proto#Host) для каждого хоста в кластере — UNKNOWN).</li><li>`ALIVE`: Кластер работает нормально ([Host.health](../cluster.proto#Host) для каждого хоста в кластере — ALIVE).</li><li>`DEAD`: Кластер не работает ([Host.health](../cluster.proto#Host) для каждого узла в кластере — DEAD).</li><li>`DEGRADED`: Кластер работает неоптимально ([Host.health](../cluster.proto#Host) по крайней мере для одного узла в кластере не ALIVE).</li><ul/>
 status | enum **Status**<br>Текущее состояние кластера. <ul><li>`STATUS_UNKNOWN`: Состояние кластера неизвестно.</li><li>`CREATING`: Кластер создается.</li><li>`RUNNING`: Кластер работает нормально.</li><li>`ERROR`: На кластере произошла ошибка, блокирующая работу.</li><li>`UPDATING`: Кластер изменяется.</li><li>`STOPPING`: Кластер останавливается.</li><li>`STOPPED`: Кластер остановлен.</li><li>`STARTING`: Кластер запускается.</li><ul/>
 
 
@@ -910,7 +910,7 @@ status | enum **Status**<br>Текущее состояние кластера. 
 
 Метаданные и результат операции:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[StartClusterFailoverMetadata](#StartClusterFailoverMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster9)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](../cluster.proto#Cluster9)<br>
 
 ### StartClusterFailoverRequest {#StartClusterFailoverRequest}
 
@@ -933,7 +933,7 @@ done | **bool**<br>Если значение равно `false` — операц
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[StartClusterFailoverMetadata](#StartClusterFailoverMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
 result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster9)>**<br>в случае успешного выполнения операции. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](../cluster.proto#Cluster9)>**<br>в случае успешного выполнения операции. 
 
 
 ### StartClusterFailoverMetadata {#StartClusterFailoverMetadata}
@@ -954,10 +954,10 @@ name | **string**<br>Имя кластера PostgreSQL. Имя уникальн
 description | **string**<br>Описание кластера PostgreSQL. Длина описания должна быть от 0 до 256 символов. 
 labels | **map<string,string>**<br>Пользовательские метки для кластера PostgreSQL в виде пар `` key:value ``. Максимум 64 на ресурс. 
 environment | enum **Environment**<br>Среда развертывания для кластера PostgreSQL. <ul><li>`PRODUCTION`: Стабильная среда с осторожной политикой обновления: во время регулярного обслуживания применяются только срочные исправления.</li><li>`PRESTABLE`: Среда с более агрессивной политикой обновления: новые версии развертываются независимо от обратной совместимости.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring2)**<br>Описание систем мониторинга, относящихся к данному кластеру PostgreSQL. 
-config | **[ClusterConfig](#ClusterConfig2)**<br>Конфигурация кластера PostgreSQL. 
+monitoring[] | **[Monitoring](../cluster.proto#Monitoring2)**<br>Описание систем мониторинга, относящихся к данному кластеру PostgreSQL. 
+config | **[ClusterConfig](../cluster.proto#ClusterConfig2)**<br>Конфигурация кластера PostgreSQL. 
 network_id | **string**<br>Идентификатор сети, к которой принадлежит кластер. 
-health | enum **Health**<br>Агрегированная работоспособность кластера. <ul><li>`HEALTH_UNKNOWN`: Состояние кластера неизвестно ([Host.health](#Host) для каждого хоста в кластере — UNKNOWN).</li><li>`ALIVE`: Кластер работает нормально ([Host.health](#Host) для каждого хоста в кластере — ALIVE).</li><li>`DEAD`: Кластер не работает ([Host.health](#Host) для каждого узла в кластере — DEAD).</li><li>`DEGRADED`: Кластер работает неоптимально ([Host.health](#Host) по крайней мере для одного узла в кластере не ALIVE).</li><ul/>
+health | enum **Health**<br>Агрегированная работоспособность кластера. <ul><li>`HEALTH_UNKNOWN`: Состояние кластера неизвестно ([Host.health](../cluster.proto#Host) для каждого хоста в кластере — UNKNOWN).</li><li>`ALIVE`: Кластер работает нормально ([Host.health](../cluster.proto#Host) для каждого хоста в кластере — ALIVE).</li><li>`DEAD`: Кластер не работает ([Host.health](../cluster.proto#Host) для каждого узла в кластере — DEAD).</li><li>`DEGRADED`: Кластер работает неоптимально ([Host.health](../cluster.proto#Host) по крайней мере для одного узла в кластере не ALIVE).</li><ul/>
 status | enum **Status**<br>Текущее состояние кластера. <ul><li>`STATUS_UNKNOWN`: Состояние кластера неизвестно.</li><li>`CREATING`: Кластер создается.</li><li>`RUNNING`: Кластер работает нормально.</li><li>`ERROR`: На кластере произошла ошибка, блокирующая работу.</li><li>`UPDATING`: Кластер изменяется.</li><li>`STOPPING`: Кластер останавливается.</li><li>`STOPPED`: Кластер остановлен.</li><li>`STARTING`: Кластер запускается.</li><ul/>
 
 
@@ -1089,7 +1089,7 @@ page_token | **string**<br>Токен страницы. Установите з�
 
 Поле | Описание
 --- | ---
-hosts[] | **[Host](#Host)**<br>Список ресурсов Host. 
+hosts[] | **[Host](../cluster.proto#Host)**<br>Список ресурсов Host. 
 next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListClusterHostsRequest.page_size](#ListClusterHostsRequest1), используйте `next_page_token` в качестве значения параметра [ListClusterHostsRequest.page_token](#ListClusterHostsRequest1) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
 
 
@@ -1100,14 +1100,14 @@ next_page_token | **string**<br>Токен для получения следу�
 name | **string**<br>Имя хоста PostgreSQL. Имя хоста назначается MDB во время создания и не может быть изменено. Длина 1-63 символов. <br>Имя уникально для всех существующих хостов MDB в Яндекс.Облаке, так как оно определяет полное доменное имя (FQDN) хоста. 
 cluster_id | **string**<br>Идентификатор хоста PostgreSQL. Этот идентификатор генерирует MDB при создании. 
 zone_id | **string**<br>Идентификатор зоны доступности, в которой находится хост PostgreSQL. 
-resources | **[Resources](#Resources5)**<br>Ресурсы, выделенные для хоста PostgreSQL. 
+resources | **[Resources](../cluster.proto#Resources5)**<br>Ресурсы, выделенные для хоста PostgreSQL. 
 role | enum **Role**<br>Роль хоста в кластере. <ul><li>`ROLE_UNKNOWN`: Роль хоста в кластере неизвестна.</li><li>`MASTER`: Хост является мастером в кластере PostgreSQL.</li><li>`REPLICA`: Хост является репликой в кластере PostgreSQL.</li><ul/>
 health | enum **Health**<br>Код работоспособности хоста. <ul><li>`HEALTH_UNKNOWN`: Состояние хоста неизвестно.</li><li>`ALIVE`: Хозяин выполняет все свои функции нормально.</li><li>`DEAD`: Хост не работает и не может выполнять свои основные функции.</li><li>`DEGRADED`: Хост деградировал, и может выполнять только некоторые из своих основных функций.</li><ul/>
-services[] | **[Service](#Service)**<br>Сервисы, предоставляемые хостом. 
+services[] | **[Service](../cluster.proto#Service)**<br>Сервисы, предоставляемые хостом. 
 subnet_id | **string**<br>Идентификатор подсети, к которой принадлежит хост. 
 replication_source | **string**<br>Имя хоста, который будет использоваться в качестве источника репликации (для каскадной репликации). 
 priority | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Приоритет хоста как реплики. Более высокое значение соответствует более высокому приоритету. <br>Хост с наивысшим приоритетом является синхронной репликой. Все остальные асинхронны. Синхронная реплика при необходимости заменяет мастер. <br>Когда реплика становится мастером, ее приоритет игнорируется. 
-config | **[HostConfig](#HostConfig)**<br>Конфигурация сервера PostgreSQL для хоста. 
+config | **[HostConfig](../cluster.proto#HostConfig)**<br>Конфигурация сервера PostgreSQL для хоста. 
 assign_public_ip | **bool**<br>Флаг, показывающий статус публичного IP-адреса для этого хоста. 
 replica_type | enum **ReplicaType**<br> <ul><ul/>
 
@@ -1164,9 +1164,9 @@ host_specs[] | **[HostSpec](#HostSpec2)**<br>Конфигурации для х�
 Поле | Описание
 --- | ---
 zone_id | **string**<br>Идентификатор зоны доступности, в которой находится хост. Чтобы получить список доступных зон, используйте запрос [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/grpc/zone_service#List). Максимальная длина строки в символах — 50.
-subnet_id | **string**<br>Идентификатор подсети, к которой должен принадлежать хост. Эта подсеть должна быть частью сети, к которой принадлежит кластер. Идентификатор сети задан в поле [Cluster.network_id](#Cluster10). Максимальная длина строки в символах — 50.
+subnet_id | **string**<br>Идентификатор подсети, к которой должен принадлежать хост. Эта подсеть должна быть частью сети, к которой принадлежит кластер. Идентификатор сети задан в поле [Cluster.network_id](../cluster.proto#Cluster10). Максимальная длина строки в символах — 50.
 assign_public_ip | **bool**<br><ul><li>false — не назначать хосту публичный IP-адрес. </li><li>true — у хоста должен быть публичный IP-адрес.</li></ul> 
-replication_source | **string**<br>[Host.name](#Host1) of the host to be used as the replication source (for cascading replication). 
+replication_source | **string**<br>[Host.name](../cluster.proto#Host1) of the host to be used as the replication source (for cascading replication). 
 priority | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Приоритет хоста как реплики. Большее значение соответствует более высокому приоритету. <br>Хост с наивысшим приоритетом является синхронной репликой. Все остальные асинхронны. Синхронная реплика при необходимости заменяет мастер. <br>Когда реплика становится мастером, ее приоритет игнорируется. 
 config_spec | **[ConfigHostSpec](#ConfigHostSpec2)**<br>Конфигурация сервера PostgreSQL для хоста. 
 
@@ -1272,7 +1272,7 @@ update_host_specs[] | **[UpdateHostSpec](#UpdateHostSpec)**<br>Новые кон
 Поле | Описание
 --- | ---
 host_name | **string**<br>Обязательное поле. Имя хоста, который следует обновить. Чтобы получить имя хоста PostgreSQL, используйте запрос [ClusterService.ListHosts](#ListHosts). false
-replication_source | **string**<br>[Host.name](#Host1) хоста, который будет использоваться в качестве источника репликации (для каскадной репликации). Чтобы получить имя хоста PostgreSQL, используйте запрос [ClusterService.ListHosts](#ListHosts). 
+replication_source | **string**<br>[Host.name](../cluster.proto#Host1) хоста, который будет использоваться в качестве источника репликации (для каскадной репликации). Чтобы получить имя хоста PostgreSQL, используйте запрос [ClusterService.ListHosts](#ListHosts). 
 priority | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Хост с наивысшим приоритетом является синхронной репликой. Все остальные асинхронны. Синхронная реплика при необходимости заменяет мастер. <br>Когда реплика становится мастером, ее приоритет игнорируется. 
 config_spec | **[ConfigHostSpec](#ConfigHostSpec3)**<br>Конфигурация сервера PostgreSQL для хоста. 
 

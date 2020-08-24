@@ -8,78 +8,6 @@ info:
   x-y-docUri: api-ref
   x-y-baseUrl: https://mdb.api.cloud.yandex.net
 paths:
-  /managed-elasticsearch/v1/backups/{backupId}:
-    get:
-      tags:
-      - Backup
-      summary: Returns the specified ElasticSearch Backup resource.
-      description: To get the list of available ElasticSearch Backup resources, make
-        a [list](/docs/managed-elasticsearch/api-ref/Backup/list) request.
-      operationId: BackupGet
-      parameters:
-      - name: backupId
-        in: path
-        description: |-
-          Required.
-          ID of the backup to return information about.
-          To get the backup ID, use a [ClusterService.ListBackups] request.
-        required: true
-        schema:
-          type: string
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Backup'
-      x-y-navtitle: get
-  /managed-elasticsearch/v1/backups:
-    get:
-      tags:
-      - Backup
-      summary: Retrieves the list of Backup resources available for the specified
-        folder.
-      operationId: BackupList
-      parameters:
-      - name: folderId
-        in: query
-        description: |-
-          Required.
-          ID of the folder to list backups in.
-          To get the folder ID, use a [list](/docs/resource-manager/api-ref/Folder/list) request.
-
-          The maximum string length in characters is 50.
-        schema:
-          type: string
-      - name: pageSize
-        in: query
-        description: |-
-          The maximum number of results per page to return. If the number of available
-          results is larger than [pageSize](/docs/managed-elasticsearch/api-ref/Backup/list#query_params), the service returns a [nextPageToken](/docs/managed-elasticsearch/api-ref/Backup/list#responses)
-          that can be used to get the next page of results in subsequent list requests.
-
-          The maximum value is 1000.
-        schema:
-          type: string
-          format: int64
-      - name: pageToken
-        in: query
-        description: |-
-          Page token. To get the next page of results, set [pageToken](/docs/managed-elasticsearch/api-ref/Backup/list#query_params) to the [nextPageToken](/docs/managed-elasticsearch/api-ref/Backup/list#responses)
-          returned by a previous list request.
-
-          The maximum string length in characters is 100.
-        schema:
-          type: string
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ListBackupsResponse'
-      x-y-navtitle: list
   /managed-elasticsearch/v1/clusters/{clusterId}:
     get:
       tags:
@@ -246,57 +174,6 @@ paths:
       x-y-navtitle: create
       x-y-operation-metadata:
         $ref: '#/components/schemas/CreateClusterMetadata'
-      x-y-operation-response: '[Cluster](/docs/managed-elasticsearch/api-ref/Cluster#representation)'
-  /managed-elasticsearch/v1/clusters/{clusterId}:backup:
-    post:
-      tags:
-      - Cluster
-      summary: Create a backup for the specified ElasticSearch cluster.
-      operationId: ClusterBackup
-      parameters:
-      - name: clusterId
-        in: path
-        description: |-
-          Required.
-          Required. ID of the ElasticSearch cluster to back up.
-
-          The maximum string length in characters is 50.
-        required: true
-        schema:
-          type: string
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Operation'
-      x-y-navtitle: backup
-      x-y-operation-metadata:
-        $ref: '#/components/schemas/BackupClusterMetadata'
-      x-y-operation-response: '[Cluster](/docs/managed-elasticsearch/api-ref/Cluster#representation)'
-  /managed-elasticsearch/v1/clusters:restore:
-    post:
-      tags:
-      - Cluster
-      summary: Creates a new ElasticSearch cluster from the specified backup.
-      operationId: ClusterRestore
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/RestoreClusterRequest'
-        required: true
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Operation'
-      x-y-navtitle: restore
-      x-y-operation-metadata:
-        $ref: '#/components/schemas/RestoreClusterMetadata'
       x-y-operation-response: '[Cluster](/docs/managed-elasticsearch/api-ref/Cluster#representation)'
   /managed-elasticsearch/v1/clusters/{clusterId}:move:
     post:
@@ -827,43 +704,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/HostSpec'
-    Backup:
-      description: |-
-        A ElasticSearch Backup resource. See the [Developer's Guide](/docs/managed-elasticsearch/concepts)
-        for more information.
-      type: object
-      properties:
-        id:
-          description: ID of the backup.
-          type: string
-        folderId:
-          description: ID of the folder that the backup belongs to.
-          type: string
-        createdAt:
-          description: |-
-            Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format
-            (i.e. when the backup operation was completed).
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
-          type: string
-          format: date-time
-        sourceClusterId:
-          description: ID of the ElasticSearch cluster that the backup was created
-            for.
-          type: string
-        startedAt:
-          description: |-
-            Time when the backup operation was started.
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
-          type: string
-          format: date-time
-    BackupClusterMetadata:
-      type: object
-      properties:
-        clusterId:
-          description: Required. ID of the ElasticSearch cluster.
-          type: string
     Cluster:
       description: Elasticsearch cluster resource
       type: object
@@ -1219,21 +1059,6 @@ components:
       enum:
       - DATA_NODE
       - MASTER_NODE
-    ListBackupsResponse:
-      type: object
-      properties:
-        backups:
-          description: List of Backup resources.
-          type: array
-          items:
-            $ref: '#/components/schemas/Backup'
-        nextPageToken:
-          description: |-
-            This token allows you to get the next page of results for list requests. If the number of results
-            is larger than [pageSize](/docs/managed-elasticsearch/api-ref/Backup/list#query_params), use the [nextPageToken](/docs/managed-elasticsearch/api-ref/Backup/list#responses) as the value
-            for the [pageToken](/docs/managed-elasticsearch/api-ref/Backup/list#query_params) parameter in the next list request. Each subsequent
-            list request will have its own [nextPageToken](/docs/managed-elasticsearch/api-ref/Backup/list#responses) to continue paging through the results.
-          type: string
     ListClusterHostsResponse:
       type: object
       properties:
@@ -1454,67 +1279,6 @@ components:
           format: int64
         diskTypeId:
           description: Type of the storage environment for the host.
-          type: string
-    RestoreClusterMetadata:
-      type: object
-      properties:
-        clusterId:
-          description: Required. ID of the new ElasticSearch cluster.
-          type: string
-        backupId:
-          description: Required. ID of the backup used for recovery.
-          type: string
-    RestoreClusterRequest:
-      type: object
-      properties:
-        backupId:
-          description: |-
-            Required.
-            Required. ID of the backup to restore from.
-          type: string
-        name:
-          description: |-
-            Required.
-            Required. Name of the new ElasticSearch cluster. The name must be unique within the folder.
-            The name must be 1-63 characters long and match the regular expression `^[a-zA-Z0-9_-]+$`.
-
-            The maximum string length in characters is 63.
-            Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
-          type: string
-        description:
-          description: |-
-            Description of the new ElasticSearch cluster. 0-256 characters long.
-
-            The maximum string length in characters is 256.
-          type: string
-        labels:
-          description: |-
-            No more than 64 per resource.
-            The string length in characters for each key must be 1-63.
-            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
-            The maximum string length in characters for each value is 63.
-            Each value must match the regular expression `` [-_0-9a-z]* ``.
-          type: object
-          additionalProperties:
-            type: string
-        environment:
-          $ref: '#/components/schemas/ClusterEnvironment_in_RestoreClusterRequest_environment'
-        configSpec:
-          $ref: '#/components/schemas/ConfigSpec_in_RestoreClusterRequest_configSpec'
-        hostSpecs:
-          description: |-
-            Required.
-            Must contain at least one element.
-          type: array
-          items:
-            $ref: '#/components/schemas/HostSpec'
-        networkId:
-          description: |-
-            Required.
-            The maximum string length in characters is 50.
-          type: string
-        folderId:
-          description: The maximum string length in characters is 50.
           type: string
     Service:
       type: object
@@ -1853,28 +1617,6 @@ components:
       enum:
       - DATA_NODE
       - MASTER_NODE
-    ClusterEnvironment_in_RestoreClusterRequest_environment:
-      description: |-
-        Required.
-        Deployment environment of the new ElasticSearch cluster.
-
-         - PRODUCTION: Stable environment with a conservative update policy:
-        only hotfixes are applied during regular maintenance.
-         - PRESTABLE: Environment with more aggressive update policy: new versions
-        are rolled out irrespective of backward compatibility.
-      type: string
-      enum:
-      - PRODUCTION
-      - PRESTABLE
-    ConfigSpec_in_RestoreClusterRequest_configSpec:
-      description: Required.
-      type: object
-      properties:
-        version:
-          description: ElasticSearch version.
-          type: string
-        elasticsearchSpec:
-          $ref: '#/components/schemas/ElasticsearchSpec_in_ConfigSpec_elasticsearchSpec'
     ServiceType_in_Service_type:
       description: Type of the service provided by the host.
       type: string
@@ -1932,8 +1674,6 @@ components:
         elasticsearchSpec:
           $ref: '#/components/schemas/ElasticsearchSpec_in_ConfigSpec_elasticsearchSpec'
 tags:
-- name: Backup
-  description: A set of methods for managing ElasticSearch Backup resources.
 - name: Cluster
   description: A set of methods for managing ElasticSearch clusters.
 - name: Operation

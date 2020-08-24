@@ -59,6 +59,8 @@ items:
         href: api-ref/Cluster/listShards.md
       - name: move
         href: api-ref/Cluster/move.md
+      - name: rescheduleMaintenance
+        href: api-ref/Cluster/rescheduleMaintenance.md
       - name: restore
         href: api-ref/Cluster/restore.md
       - name: start
@@ -139,6 +141,12 @@ items:
         href: api-ref/User/revokePermission.md
       - name: update
         href: api-ref/User/update.md
+  - name: Versions
+    items:
+      - name: Overview
+        href: api-ref/Versions/index.md
+      - name: list
+        href: api-ref/Versions/list.md
   - name: Operation
     items:
       - name: Overview

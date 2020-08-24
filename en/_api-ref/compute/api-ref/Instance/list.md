@@ -91,7 +91,16 @@ filter | A filter expression that filters resources listed in the response. The 
         "type": "string"
       },
       "placementPolicy": {
-        "placementGroupId": "string"
+        "placementGroupId": "string",
+        "hostAffinityRules": [
+          {
+            "key": "string",
+            "op": "string",
+            "values": [
+              "string"
+            ]
+          }
+        ]
       }
     }
   ],
@@ -151,4 +160,8 @@ instances[].<br>networkSettings | **object**<br><p>Network Settings</p>
 instances[].<br>networkSettings.<br>type | **string**<br><p>Network Type</p> <ul> <li>STANDARD: Standard network.</li> <li>SOFTWARE_ACCELERATED: Software accelerated network.</li> <li>HARDWARE_ACCELERATED: Hardware accelerated network (not available yet, reserved for future use).</li> </ul> 
 instances[].<br>placementPolicy | **object**<br><p>Placement policy configuration.</p> 
 instances[].<br>placementPolicy.<br>placementGroupId | **string**<br><p>Placement group ID.</p> 
+instances[].<br>placementPolicy.<br>hostAffinityRules[] | **object**<br><p>Affinitity definition</p> 
+instances[].<br>placementPolicy.<br>hostAffinityRules[].<br>key | **string**<br><p>Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId'</p> 
+instances[].<br>placementPolicy.<br>hostAffinityRules[].<br>op | **string**<br><p>Include or exclude action</p> 
+instances[].<br>placementPolicy.<br>hostAffinityRules[].<br>values[] | **string**<br><p>Affinity value or host ID or host group ID</p> 
 nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/compute/api-ref/Instance/list#query_params">pageSize</a>, use the <a href="/docs/compute/api-ref/Instance/list#responses">nextPageToken</a> as the value for the <a href="/docs/compute/api-ref/Instance/list#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own <a href="/docs/compute/api-ref/Instance/list#responses">nextPageToken</a> to continue paging through the results.</p> 

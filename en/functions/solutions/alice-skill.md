@@ -2,18 +2,11 @@
 
 As an example, we'll create a skill called <q>Parrot</q>, which repeats everything a user writes or says. We implement our example in two programming languages: Python and Node.js.
 
-{% note info %}
-
-Functions can't be used for Smart Home skills yet.
-
-{% endnote %}
-
 To add skills based on a [function](../concepts/function.md) to Alice:
 
 1. [Prepare the skill code](#prepare-code).
 1. [Create a function](#create-function).
 1. [Create a version of the function](#create-version).
-1. [Make the function public](#public).
 1. [Add the function link to Alice's skill](#add-link).
 1. [Test the skill](#test).
 
@@ -112,3 +105,4 @@ Choose the programming language and create a [version of the function](../concep
 1. Open the **Testing** tab on the skill page in your [dashboard](https://dialogs.yandex.ru/developer/).
 1. If everything is set up correctly, the **Chat** section will display a message inviting you to start a conversation: `Hello! I'll repeat anything you say to me.`.
 1. Send a message and make sure the response is the same.
+

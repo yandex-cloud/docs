@@ -28,9 +28,9 @@
 
 Чтобы воспользоваться {{ datalens-short-name }}, нужно зарегистрироваться в Облаке и создать платежный аккаунт (без платежного аккаунта {{ datalens-short-name }} доступен только в демо-режиме):
 
-1. Перейдите в [консоль управления](https://console.cloud.yandex.ru/), затем войдите в Яндекс.Облако или зарегистрируйтесь, если вы еще не зарегистрированы.
+1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в Яндекс.Облако или зарегистрируйтесь, если вы еще не зарегистрированы.
 
-1. [На странице биллинга](https://console.cloud.yandex.ru/billing) убедитесь, что у вас подключен [платежный аккаунт](https://cloud.yandex.ru/docs/billing/concepts/billing-account), и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](https://cloud.yandex.ru/docs/billing/quickstart/#create_billing_account).
+1. [На странице биллинга]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](https://cloud.yandex.ru/docs/billing/concepts/billing-account), и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](https://cloud.yandex.ru/docs/billing/quickstart/#create_billing_account).
 
 Когда вы активируете платежный аккаунт, вы автоматически переходите на тариф {{ datalens-short-name }} **Бесплатный**. По умолчанию вы можете создать экземпляр {{ datalens-short-name }} не более чем для 1 каталога. Если вы еще этого не сделали:
 
@@ -48,7 +48,7 @@
 
    ![image](../../_assets/datalens/solution-07/01-files.png)
 
-1. Откройте главную страницу [{{ datalens-short-name }}](datalens.yandex.ru) и нажмите **Создать подключение**.
+1. Откройте главную страницу [{{ datalens-short-name }}](https://datalens.yandex.ru/) и нажмите **Создать подключение**.
 
    ![image](../../_assets/datalens/solution-07/02-create-connection.png)
 
@@ -501,7 +501,7 @@
 
 ## Шаг 10. Добавьте новые поля в датасет {#step10}
 
-Необходимо обогатить созданный ранее датасет **ДТП** новыми поля.
+Необходимо обогатить созданный ранее датасет **ДТП** новыми полями.
 
 1. Через левое меню перейдите в раздел **Датасеты**.
 

@@ -104,7 +104,6 @@ status | **string**<br><p>Current state of the cluster.</p> <ul> <li>STATUS_UNKN
 Method | Description
 --- | ---
 [addHosts](addHosts.md) | Creates new hosts.
-[backup](backup.md) | Create a backup for the specified ElasticSearch cluster.
 [create](create.md) | Creates an ElasticSearch cluster.
 [delete](delete.md) | Deletes the specified ElasticSearch cluster.
 [deleteHosts](deleteHosts.md) | Deletes specified hosts.
@@ -114,7 +113,6 @@ Method | Description
 [listLogs](listLogs.md) | Retrieves logs for the specified ElasticSearch cluster. See the [Logs](/yandex-mdb-guide/concepts/logs.html) section in the developers guide for detailed logs description.
 [listOperations](listOperations.md) | Retrieves the list of Operation resources for the specified cluster.
 [move](move.md) | Moves the specified ElasticSearch cluster to the specified folder.
-[restore](restore.md) | Creates a new ElasticSearch cluster from the specified backup.
 [start](start.md) | Start the specified ElasticSearch cluster.
 [stop](stop.md) | Stop the specified ElasticSearch cluster.
 [streamLogs](streamLogs.md) | Same as ListLogs but using server-side streaming. Also allows for 'tail -f' semantics.

@@ -5,6 +5,10 @@ items:
     href: grpc/disk_service.md
   - name: DiskTypeService
     href: grpc/disk_type_service.md
+  - name: HostGroupService
+    href: grpc/host_group_service.md
+  - name: HostTypeService
+    href: grpc/host_type_service.md
   - name: ImageService
     href: grpc/image_service.md
   - name: InstanceService

@@ -365,6 +365,31 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListClusterHostsResponse'
       x-y-navtitle: listHosts
+  /dataproc/v1/clusters/{clusterId}/ui_links:
+    get:
+      tags:
+      - Cluster
+      summary: Retrieves a list of links to web interfaces being proxied by Data Proc
+        UI Proxy.
+      operationId: ClusterListUILinks
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required. ID of the Hadoop cluster.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListUILinksResponse'
+      x-y-navtitle: listUILinks
   /dataproc/v1/clusters/{clusterId}/jobs:
     get:
       tags:
@@ -842,6 +867,53 @@ paths:
       x-y-operation-response: '[Subcluster](/docs/data-proc/api-ref/Subcluster#representation)'
 components:
   schemas:
+    AutoscalingConfig:
+      type: object
+      properties:
+        maxHostsCount:
+          description: |-
+            Upper limit for total instance subcluster count.
+
+            Acceptable values are 1 to 100, inclusive.
+          type: string
+          format: int64
+        preemptible:
+          description: |-
+            Preemptible instances are stopped at least once every 24 hours, and can be stopped at any time
+            if their resources are needed by Compute.
+            For more information, see [Preemptible Virtual Machines](/docs/compute/concepts/preemptible-vm).
+          type: boolean
+          format: boolean
+        measurementDuration:
+          description: |-
+            Required.
+            Time in seconds allotted for averaging metrics.
+
+            Acceptable values are 60 seconds to 600 seconds, inclusive.
+          type: string
+        warmupDuration:
+          description: |-
+            The warmup time of the instance in seconds. During this time,
+            traffic is sent to the instance, but instance metrics are not collected.
+
+            The maximum value is 600 seconds.
+          type: string
+        stabilizationDuration:
+          description: |-
+            Minimum amount of time in seconds allotted for monitoring before
+            Instance Groups can reduce the number of instances in the group.
+            During this time, the group size doesn't decrease, even if the new metric values
+            indicate that it should.
+
+            Acceptable values are 60 seconds to 1800 seconds, inclusive.
+          type: string
+        cpuUtilizationTarget:
+          description: |-
+            Defines an autoscaling rule based on the average CPU utilization of the instance group.
+
+            Acceptable values are 10 to 100, inclusive.
+          type: number
+          format: double
     Cluster:
       description: A Data Proc cluster. For details about the concept, see [documentation](/docs/data-proc/concepts/).
       type: object
@@ -900,6 +972,10 @@ components:
           description: Object Storage bucket to be used for Data Proc jobs that are
             run in the cluster.
           type: string
+        uiProxy:
+          description: Whether UI Proxy feature is enabled.
+          type: boolean
+          format: boolean
     ClusterConfig:
       type: object
       properties:
@@ -1007,6 +1083,10 @@ components:
         bucket:
           description: Name of the Object Storage bucket to use for Data Proc jobs.
           type: string
+        uiProxy:
+          description: Enable UI Proxy feature.
+          type: boolean
+          format: boolean
     CreateJobMetadata:
       type: object
       properties:
@@ -1078,6 +1158,8 @@ components:
             The minimum value is 1.
           type: string
           format: int64
+        autoscalingConfig:
+          $ref: '#/components/schemas/AutoscalingConfig_in_CreateSubclusterConfigSpec_autoscalingConfig'
     CreateSubclusterMetadata:
       type: object
       properties:
@@ -1122,6 +1204,8 @@ components:
             The minimum value is 1.
           type: string
           format: int64
+        autoscalingConfig:
+          $ref: '#/components/schemas/AutoscalingConfig_in_CreateSubclusterRequest_autoscalingConfig'
     DeleteClusterMetadata:
       type: object
       properties:
@@ -1200,6 +1284,7 @@ components:
       - SPARK
       - ZEPPELIN
       - OOZIE
+      - LIVY
     Health:
       description: |2-
          - HEALTH_UNKNOWN: State of the cluster is unknown (`health` for every host in the cluster is UNKNOWN).
@@ -1455,6 +1540,14 @@ components:
 
             Each subsequent page will have its own `next_page_token` to continue paging through the results.
           type: string
+    ListUILinksResponse:
+      type: object
+      properties:
+        links:
+          description: Requested list of ui links.
+          type: array
+          items:
+            $ref: '#/components/schemas/UILink'
     MapreduceJob:
       type: object
       allOf:
@@ -1785,6 +1878,18 @@ components:
           description: Number of hosts in the subcluster.
           type: string
           format: int64
+        autoscalingConfig:
+          $ref: '#/components/schemas/AutoscalingConfig_in_Subcluster_autoscalingConfig'
+        instanceGroupId:
+          description: ID of Compute Instance Group for autoscaling subclusters
+          type: string
+    UILink:
+      type: object
+      properties:
+        name:
+          type: string
+        url:
+          type: string
     UpdateClusterConfigSpec:
       type: object
       properties:
@@ -1845,6 +1950,10 @@ components:
             Acceptable values are 0 to 86400, inclusive.
           type: string
           format: int64
+        uiProxy:
+          description: Enable UI Proxy feature.
+          type: boolean
+          format: boolean
     UpdateSubclusterConfigSpec:
       type: object
       properties:
@@ -1869,6 +1978,8 @@ components:
             The minimum value is 1.
           type: string
           format: int64
+        autoscalingConfig:
+          $ref: '#/components/schemas/AutoscalingConfig_in_UpdateSubclusterConfigSpec_autoscalingConfig'
     UpdateSubclusterMetadata:
       type: object
       properties:
@@ -1912,6 +2023,8 @@ components:
             Acceptable values are 0 to 86400, inclusive.
           type: string
           format: int64
+        autoscalingConfig:
+          $ref: '#/components/schemas/AutoscalingConfig_in_UpdateSubclusterRequest_autoscalingConfig'
     rpcStatus:
       description: The error result of the operation in case of failure or cancellation.
       type: object
@@ -2106,6 +2219,54 @@ components:
           description: Volume of the storage available to a host, in bytes.
           type: string
           format: int64
+    AutoscalingConfig_in_CreateSubclusterConfigSpec_autoscalingConfig:
+      description: Configuration for instance group based subclusters
+      type: object
+      properties:
+        maxHostsCount:
+          description: |-
+            Upper limit for total instance subcluster count.
+
+            Acceptable values are 1 to 100, inclusive.
+          type: string
+          format: int64
+        preemptible:
+          description: |-
+            Preemptible instances are stopped at least once every 24 hours, and can be stopped at any time
+            if their resources are needed by Compute.
+            For more information, see [Preemptible Virtual Machines](/docs/compute/concepts/preemptible-vm).
+          type: boolean
+          format: boolean
+        measurementDuration:
+          description: |-
+            Required.
+            Time in seconds allotted for averaging metrics.
+
+            Acceptable values are 60 seconds to 600 seconds, inclusive.
+          type: string
+        warmupDuration:
+          description: |-
+            The warmup time of the instance in seconds. During this time,
+            traffic is sent to the instance, but instance metrics are not collected.
+
+            The maximum value is 600 seconds.
+          type: string
+        stabilizationDuration:
+          description: |-
+            Minimum amount of time in seconds allotted for monitoring before
+            Instance Groups can reduce the number of instances in the group.
+            During this time, the group size doesn't decrease, even if the new metric values
+            indicate that it should.
+
+            Acceptable values are 60 seconds to 1800 seconds, inclusive.
+          type: string
+        cpuUtilizationTarget:
+          description: |-
+            Defines an autoscaling rule based on the average CPU utilization of the instance group.
+
+            Acceptable values are 10 to 100, inclusive.
+          type: number
+          format: double
     Role_in_CreateSubclusterRequest_role:
       description: |-
         Required.
@@ -2160,6 +2321,54 @@ components:
           description: Volume of the storage available to a host, in bytes.
           type: string
           format: int64
+    AutoscalingConfig_in_CreateSubclusterRequest_autoscalingConfig:
+      description: Configuration for instance group based subclusters
+      type: object
+      properties:
+        maxHostsCount:
+          description: |-
+            Upper limit for total instance subcluster count.
+
+            Acceptable values are 1 to 100, inclusive.
+          type: string
+          format: int64
+        preemptible:
+          description: |-
+            Preemptible instances are stopped at least once every 24 hours, and can be stopped at any time
+            if their resources are needed by Compute.
+            For more information, see [Preemptible Virtual Machines](/docs/compute/concepts/preemptible-vm).
+          type: boolean
+          format: boolean
+        measurementDuration:
+          description: |-
+            Required.
+            Time in seconds allotted for averaging metrics.
+
+            Acceptable values are 60 seconds to 600 seconds, inclusive.
+          type: string
+        warmupDuration:
+          description: |-
+            The warmup time of the instance in seconds. During this time,
+            traffic is sent to the instance, but instance metrics are not collected.
+
+            The maximum value is 600 seconds.
+          type: string
+        stabilizationDuration:
+          description: |-
+            Minimum amount of time in seconds allotted for monitoring before
+            Instance Groups can reduce the number of instances in the group.
+            During this time, the group size doesn't decrease, even if the new metric values
+            indicate that it should.
+
+            Acceptable values are 60 seconds to 1800 seconds, inclusive.
+          type: string
+        cpuUtilizationTarget:
+          description: |-
+            Defines an autoscaling rule based on the average CPU utilization of the instance group.
+
+            Acceptable values are 10 to 100, inclusive.
+          type: number
+          format: double
     Health_in_Host_health:
       description: |-
         Host status code.
@@ -2257,6 +2466,54 @@ components:
           description: Volume of the storage available to a host, in bytes.
           type: string
           format: int64
+    AutoscalingConfig_in_Subcluster_autoscalingConfig:
+      description: Configuration for instance group based subclusters
+      type: object
+      properties:
+        maxHostsCount:
+          description: |-
+            Upper limit for total instance subcluster count.
+
+            Acceptable values are 1 to 100, inclusive.
+          type: string
+          format: int64
+        preemptible:
+          description: |-
+            Preemptible instances are stopped at least once every 24 hours, and can be stopped at any time
+            if their resources are needed by Compute.
+            For more information, see [Preemptible Virtual Machines](/docs/compute/concepts/preemptible-vm).
+          type: boolean
+          format: boolean
+        measurementDuration:
+          description: |-
+            Required.
+            Time in seconds allotted for averaging metrics.
+
+            Acceptable values are 60 seconds to 600 seconds, inclusive.
+          type: string
+        warmupDuration:
+          description: |-
+            The warmup time of the instance in seconds. During this time,
+            traffic is sent to the instance, but instance metrics are not collected.
+
+            The maximum value is 600 seconds.
+          type: string
+        stabilizationDuration:
+          description: |-
+            Minimum amount of time in seconds allotted for monitoring before
+            Instance Groups can reduce the number of instances in the group.
+            During this time, the group size doesn't decrease, even if the new metric values
+            indicate that it should.
+
+            Acceptable values are 60 seconds to 1800 seconds, inclusive.
+          type: string
+        cpuUtilizationTarget:
+          description: |-
+            Defines an autoscaling rule based on the average CPU utilization of the instance group.
+
+            Acceptable values are 10 to 100, inclusive.
+          type: number
+          format: double
     FieldMask_in_UpdateClusterRequest_updateMask:
       description: |-
         Field mask that specifies which attributes of the cluster should be updated.
@@ -2300,6 +2557,54 @@ components:
           description: Volume of the storage available to a host, in bytes.
           type: string
           format: int64
+    AutoscalingConfig_in_UpdateSubclusterConfigSpec_autoscalingConfig:
+      description: Configuration for instance group based subclusters
+      type: object
+      properties:
+        maxHostsCount:
+          description: |-
+            Upper limit for total instance subcluster count.
+
+            Acceptable values are 1 to 100, inclusive.
+          type: string
+          format: int64
+        preemptible:
+          description: |-
+            Preemptible instances are stopped at least once every 24 hours, and can be stopped at any time
+            if their resources are needed by Compute.
+            For more information, see [Preemptible Virtual Machines](/docs/compute/concepts/preemptible-vm).
+          type: boolean
+          format: boolean
+        measurementDuration:
+          description: |-
+            Required.
+            Time in seconds allotted for averaging metrics.
+
+            Acceptable values are 60 seconds to 600 seconds, inclusive.
+          type: string
+        warmupDuration:
+          description: |-
+            The warmup time of the instance in seconds. During this time,
+            traffic is sent to the instance, but instance metrics are not collected.
+
+            The maximum value is 600 seconds.
+          type: string
+        stabilizationDuration:
+          description: |-
+            Minimum amount of time in seconds allotted for monitoring before
+            Instance Groups can reduce the number of instances in the group.
+            During this time, the group size doesn't decrease, even if the new metric values
+            indicate that it should.
+
+            Acceptable values are 60 seconds to 1800 seconds, inclusive.
+          type: string
+        cpuUtilizationTarget:
+          description: |-
+            Defines an autoscaling rule based on the average CPU utilization of the instance group.
+
+            Acceptable values are 10 to 100, inclusive.
+          type: number
+          format: double
     FieldMask_in_UpdateSubclusterRequest_updateMask:
       description: |-
         Field mask that specifies which attributes of the subcluster should be updated.
@@ -2334,6 +2639,54 @@ components:
           description: Volume of the storage available to a host, in bytes.
           type: string
           format: int64
+    AutoscalingConfig_in_UpdateSubclusterRequest_autoscalingConfig:
+      description: Configuration for instance group based subclusters
+      type: object
+      properties:
+        maxHostsCount:
+          description: |-
+            Upper limit for total instance subcluster count.
+
+            Acceptable values are 1 to 100, inclusive.
+          type: string
+          format: int64
+        preemptible:
+          description: |-
+            Preemptible instances are stopped at least once every 24 hours, and can be stopped at any time
+            if their resources are needed by Compute.
+            For more information, see [Preemptible Virtual Machines](/docs/compute/concepts/preemptible-vm).
+          type: boolean
+          format: boolean
+        measurementDuration:
+          description: |-
+            Required.
+            Time in seconds allotted for averaging metrics.
+
+            Acceptable values are 60 seconds to 600 seconds, inclusive.
+          type: string
+        warmupDuration:
+          description: |-
+            The warmup time of the instance in seconds. During this time,
+            traffic is sent to the instance, but instance metrics are not collected.
+
+            The maximum value is 600 seconds.
+          type: string
+        stabilizationDuration:
+          description: |-
+            Minimum amount of time in seconds allotted for monitoring before
+            Instance Groups can reduce the number of instances in the group.
+            During this time, the group size doesn't decrease, even if the new metric values
+            indicate that it should.
+
+            Acceptable values are 60 seconds to 1800 seconds, inclusive.
+          type: string
+        cpuUtilizationTarget:
+          description: |-
+            Defines an autoscaling rule based on the average CPU utilization of the instance group.
+
+            Acceptable values are 10 to 100, inclusive.
+          type: number
+          format: double
 tags:
 - name: Cluster
   description: A set of methods for managing Data Proc clusters.

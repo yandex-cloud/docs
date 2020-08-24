@@ -381,6 +381,40 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/RestoreClusterMetadata'
       x-y-operation-response: '[Cluster](/docs/managed-mongodb/api-ref/Cluster#representation)'
+  /managed-mongodb/v1/clusters/{clusterId}:rescheduleMaintenance:
+    post:
+      tags:
+      - Cluster
+      summary: Reschedule planned maintenance operation.
+      operationId: ClusterRescheduleMaintenance
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          Required. ID of the MongoDB cluster to maintenance reschedule.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RescheduleMaintenanceRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: rescheduleMaintenance
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/RescheduleMaintenanceMetadata'
+      x-y-operation-response: '[Cluster](/docs/managed-mongodb/api-ref/Cluster#representation)'
   /managed-mongodb/v1/clusters/{clusterId}:logs:
     get:
       tags:
@@ -717,7 +751,7 @@ paths:
       tags:
       - Cluster
       summary: |-
-        Enables sharding for the cluster: creates 3 mongocfg and 2 mongos hosts
+        Enables sharding for the cluster: creates 3 mongoinfra (or 3 mongocfg and 2 mongos) hosts
         that would support adding and using shards in the cluster.
       operationId: ClusterEnableSharding
       parameters:
@@ -1548,6 +1582,9 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/HostSpec'
+    AnytimeMaintenanceWindow:
+      type: object
+      properties: {}
     Backup:
       description: "A MongoDB Backup resource. For more information, see the \n[Developer's
         Guide](/docs/managed-mongodb/concepts)."
@@ -1641,6 +1678,10 @@ components:
           description: Indicates current sharding status of the cluster.
           type: boolean
           format: boolean
+        maintenanceWindow:
+          $ref: '#/components/schemas/MaintenanceWindow_in_Cluster_maintenanceWindow'
+        plannedOperation:
+          $ref: '#/components/schemas/MaintenanceOperation_in_Cluster_plannedOperation'
     ClusterConfig:
       type: object
       allOf:
@@ -1975,11 +2016,18 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/HostSpec'
+        mongoinfra:
+          $ref: '#/components/schemas/EnableClusterShardingRequestMongoInfra_in_EnableClusterShardingRequest_mongoinfra'
     EnableClusterShardingRequestMongoCfg:
       type: object
       properties:
         resources:
           $ref: '#/components/schemas/Resources_in_EnableClusterShardingRequestMongoCfg_resources'
+    EnableClusterShardingRequestMongoInfra:
+      type: object
+      properties:
+        resources:
+          $ref: '#/components/schemas/Resources_in_EnableClusterShardingRequestMongoInfra_resources'
     EnableClusterShardingRequestMongos:
       type: object
       properties:
@@ -2120,11 +2168,13 @@ components:
          - MONGOD: A mongod host.
          - MONGOS: A mongos host.
          - MONGOCFG: A mongocfg host.
+         - MONGOINFRA: A mongoinfra (mongos+mongocfg) host.
       type: string
       enum:
       - MONGOD
       - MONGOS
       - MONGOCFG
+      - MONGOINFRA
     ListBackupsResponse:
       type: object
       properties:
@@ -2175,6 +2225,8 @@ components:
       type: string
       enum:
       - MONGOD
+      - MONGOS
+      - MONGOCFG
     ListClusterLogsResponse:
       type: object
       properties:
@@ -2296,6 +2348,28 @@ components:
           type: object
           additionalProperties:
             type: string
+    MaintenanceOperation:
+      type: object
+      properties:
+        info:
+          description: The maximum string length in characters is 256.
+          type: string
+        delayedUntil:
+          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+            format.
+          type: string
+          format: date-time
+    MaintenanceWindow:
+      type: object
+      allOf:
+      - title: policy
+        type: object
+        maxProperties: 1
+        properties:
+          anytime:
+            $ref: '#/components/schemas/AnytimeMaintenanceWindow'
+          weeklyMaintenanceWindow:
+            $ref: '#/components/schemas/WeeklyMaintenanceWindow'
     MongoCfgConfig3_6:
       type: object
       properties:
@@ -2839,6 +2913,8 @@ components:
           $ref: '#/components/schemas/Mongodb3_6MongoCfg_in_Mongodb3_6_mongocfg'
         mongos:
           $ref: '#/components/schemas/Mongodb3_6Mongos_in_Mongodb3_6_mongos'
+        mongoinfra:
+          $ref: '#/components/schemas/Mongodb3_6MongoInfra_in_Mongodb3_6_mongoinfra'
     Mongodb3_6MongoCfg:
       type: object
       properties:
@@ -2846,6 +2922,15 @@ components:
           $ref: '#/components/schemas/MongoCfgConfigSet3_6_in_Mongodb3_6MongoCfg_config'
         resources:
           $ref: '#/components/schemas/Resources_in_Mongodb3_6MongoCfg_resources'
+    Mongodb3_6MongoInfra:
+      type: object
+      properties:
+        configMongos:
+          $ref: '#/components/schemas/MongosConfigSet3_6_in_Mongodb3_6MongoInfra_configMongos'
+        configMongocfg:
+          $ref: '#/components/schemas/MongoCfgConfigSet3_6_in_Mongodb3_6MongoInfra_configMongocfg'
+        resources:
+          $ref: '#/components/schemas/Resources_in_Mongodb3_6MongoInfra_resources'
     Mongodb3_6Mongod:
       type: object
       properties:
@@ -2869,6 +2954,8 @@ components:
           $ref: '#/components/schemas/Mongodb4_0MongoCfg_in_Mongodb4_0_mongocfg'
         mongos:
           $ref: '#/components/schemas/Mongodb4_0Mongos_in_Mongodb4_0_mongos'
+        mongoinfra:
+          $ref: '#/components/schemas/Mongodb4_0MongoInfra_in_Mongodb4_0_mongoinfra'
     Mongodb4_0MongoCfg:
       type: object
       properties:
@@ -2876,6 +2963,15 @@ components:
           $ref: '#/components/schemas/MongoCfgConfigSet4_0_in_Mongodb4_0MongoCfg_config'
         resources:
           $ref: '#/components/schemas/Resources_in_Mongodb4_0MongoCfg_resources'
+    Mongodb4_0MongoInfra:
+      type: object
+      properties:
+        configMongos:
+          $ref: '#/components/schemas/MongosConfigSet4_0_in_Mongodb4_0MongoInfra_configMongos'
+        configMongocfg:
+          $ref: '#/components/schemas/MongoCfgConfigSet4_0_in_Mongodb4_0MongoInfra_configMongocfg'
+        resources:
+          $ref: '#/components/schemas/Resources_in_Mongodb4_0MongoInfra_resources'
     Mongodb4_0Mongod:
       type: object
       properties:
@@ -2899,6 +2995,8 @@ components:
           $ref: '#/components/schemas/Mongodb4_2MongoCfg_in_Mongodb4_2_mongocfg'
         mongos:
           $ref: '#/components/schemas/Mongodb4_2Mongos_in_Mongodb4_2_mongos'
+        mongoinfra:
+          $ref: '#/components/schemas/Mongodb4_2MongoInfra_in_Mongodb4_2_mongoinfra'
     Mongodb4_2MongoCfg:
       type: object
       properties:
@@ -2906,6 +3004,15 @@ components:
           $ref: '#/components/schemas/MongoCfgConfigSet4_2_in_Mongodb4_2MongoCfg_config'
         resources:
           $ref: '#/components/schemas/Resources_in_Mongodb4_2MongoCfg_resources'
+    Mongodb4_2MongoInfra:
+      type: object
+      properties:
+        configMongos:
+          $ref: '#/components/schemas/MongosConfigSet4_2_in_Mongodb4_2MongoInfra_configMongos'
+        configMongocfg:
+          $ref: '#/components/schemas/MongoCfgConfigSet4_2_in_Mongodb4_2MongoInfra_configMongocfg'
+        resources:
+          $ref: '#/components/schemas/Resources_in_Mongodb4_2MongoInfra_resources'
     Mongodb4_2Mongod:
       type: object
       properties:
@@ -2929,6 +3036,8 @@ components:
           $ref: '#/components/schemas/MongodbSpec3_6MongoCfg_in_MongodbSpec3_6_mongocfg'
         mongos:
           $ref: '#/components/schemas/MongodbSpec3_6Mongos_in_MongodbSpec3_6_mongos'
+        mongoinfra:
+          $ref: '#/components/schemas/MongodbSpec3_6MongoInfra_in_MongodbSpec3_6_mongoinfra'
     MongodbSpec3_6MongoCfg:
       type: object
       properties:
@@ -2936,6 +3045,15 @@ components:
           $ref: '#/components/schemas/MongoCfgConfig3_6_in_MongodbSpec3_6MongoCfg_config'
         resources:
           $ref: '#/components/schemas/Resources_in_MongodbSpec3_6MongoCfg_resources'
+    MongodbSpec3_6MongoInfra:
+      type: object
+      properties:
+        configMongos:
+          $ref: '#/components/schemas/MongosConfig3_6_in_MongodbSpec3_6MongoInfra_configMongos'
+        configMongocfg:
+          $ref: '#/components/schemas/MongoCfgConfig3_6_in_MongodbSpec3_6MongoInfra_configMongocfg'
+        resources:
+          $ref: '#/components/schemas/Resources_in_MongodbSpec3_6MongoInfra_resources'
     MongodbSpec3_6Mongod:
       type: object
       properties:
@@ -2959,6 +3077,8 @@ components:
           $ref: '#/components/schemas/MongodbSpec4_0MongoCfg_in_MongodbSpec4_0_mongocfg'
         mongos:
           $ref: '#/components/schemas/MongodbSpec4_0Mongos_in_MongodbSpec4_0_mongos'
+        mongoinfra:
+          $ref: '#/components/schemas/MongodbSpec4_0MongoInfra_in_MongodbSpec4_0_mongoinfra'
     MongodbSpec4_0MongoCfg:
       type: object
       properties:
@@ -2966,6 +3086,15 @@ components:
           $ref: '#/components/schemas/MongoCfgConfig4_0_in_MongodbSpec4_0MongoCfg_config'
         resources:
           $ref: '#/components/schemas/Resources_in_MongodbSpec4_0MongoCfg_resources'
+    MongodbSpec4_0MongoInfra:
+      type: object
+      properties:
+        configMongos:
+          $ref: '#/components/schemas/MongosConfig4_0_in_MongodbSpec4_0MongoInfra_configMongos'
+        configMongocfg:
+          $ref: '#/components/schemas/MongoCfgConfig4_0_in_MongodbSpec4_0MongoInfra_configMongocfg'
+        resources:
+          $ref: '#/components/schemas/Resources_in_MongodbSpec4_0MongoInfra_resources'
     MongodbSpec4_0Mongod:
       type: object
       properties:
@@ -2989,6 +3118,8 @@ components:
           $ref: '#/components/schemas/MongodbSpec4_2MongoCfg_in_MongodbSpec4_2_mongocfg'
         mongos:
           $ref: '#/components/schemas/MongodbSpec4_2Mongos_in_MongodbSpec4_2_mongos'
+        mongoinfra:
+          $ref: '#/components/schemas/MongodbSpec4_2MongoInfra_in_MongodbSpec4_2_mongoinfra'
     MongodbSpec4_2MongoCfg:
       type: object
       properties:
@@ -2996,6 +3127,15 @@ components:
           $ref: '#/components/schemas/MongoCfgConfig4_2_in_MongodbSpec4_2MongoCfg_config'
         resources:
           $ref: '#/components/schemas/Resources_in_MongodbSpec4_2MongoCfg_resources'
+    MongodbSpec4_2MongoInfra:
+      type: object
+      properties:
+        configMongos:
+          $ref: '#/components/schemas/MongosConfig4_2_in_MongodbSpec4_2MongoInfra_configMongos'
+        configMongocfg:
+          $ref: '#/components/schemas/MongoCfgConfig4_2_in_MongodbSpec4_2MongoInfra_configMongocfg'
+        resources:
+          $ref: '#/components/schemas/Resources_in_MongodbSpec4_2MongoInfra_resources'
     MongodbSpec4_2Mongod:
       type: object
       properties:
@@ -3186,6 +3326,37 @@ components:
           type: array
           items:
             type: string
+    RescheduleMaintenanceMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: Required. ID of the MongoDB cluster.
+          type: string
+        delayedUntil:
+          description: |-
+            Required. New time of the planned maintenance. Can be in the past for rescheduled to "IMMEDIATE".
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+    RescheduleMaintenanceRequest:
+      type: object
+      properties:
+        rescheduleType:
+          $ref: '#/components/schemas/RescheduleMaintenanceRequestRescheduleType_in_RescheduleMaintenanceRequest_rescheduleType'
+        delayedUntil:
+          description: |-
+            The time for SPECIFIC_TIME reschedule. Limited by two weeks since first time scheduled.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+    RescheduleMaintenanceRequestRescheduleType:
+      type: string
+      enum:
+      - IMMEDIATE
+      - NEXT_AVAILABLE_WINDOW
+      - SPECIFIC_TIME
     ResetupHostsMetadata:
       type: object
       properties:
@@ -3434,6 +3605,8 @@ components:
       type: string
       enum:
       - MONGOD
+      - MONGOS
+      - MONGOCFG
     StreamLogRecord:
       type: object
       properties:
@@ -3515,6 +3688,8 @@ components:
             The maximum string length in characters is 63.
             Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
           type: string
+        maintenanceWindow:
+          $ref: '#/components/schemas/MaintenanceWindow_in_UpdateClusterRequest_maintenanceWindow'
     UpdateUserMetadata:
       type: object
       properties:
@@ -3579,6 +3754,28 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Permission'
+    WeeklyMaintenanceWindow:
+      type: object
+      properties:
+        day:
+          $ref: '#/components/schemas/WeeklyMaintenanceWindowWeekDay_in_WeeklyMaintenanceWindow_day'
+        hour:
+          description: |-
+            Hour of the day in UTC.
+
+            Acceptable values are 1 to 24, inclusive.
+          type: string
+          format: int64
+    WeeklyMaintenanceWindowWeekDay:
+      type: string
+      enum:
+      - MON
+      - TUE
+      - WED
+      - THU
+      - FRI
+      - SAT
+      - SUN
     rpcStatus:
       description: The error result of the operation in case of failure or cancellation.
       type: object
@@ -3685,6 +3882,30 @@ components:
       - STOPPED
       - STARTING
       default: STATUS_UNKNOWN
+    MaintenanceWindow_in_Cluster_maintenanceWindow:
+      description: Window of maintenance operations.
+      type: object
+      allOf:
+      - title: policy
+        type: object
+        maxProperties: 1
+        properties:
+          anytime:
+            $ref: '#/components/schemas/AnytimeMaintenanceWindow'
+          weeklyMaintenanceWindow:
+            $ref: '#/components/schemas/WeeklyMaintenanceWindow'
+    MaintenanceOperation_in_Cluster_plannedOperation:
+      description: Maintenance operation planned at nearest maintenance_window.
+      type: object
+      properties:
+        info:
+          description: The maximum string length in characters is 256.
+          type: string
+        delayedUntil:
+          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+            format.
+          type: string
+          format: date-time
     ClusterEnvironment_in_CreateClusterRequest_environment:
       description: |-
         Required.
@@ -3779,25 +4000,50 @@ components:
           items:
             $ref: '#/components/schemas/Permission'
     EnableClusterShardingRequestMongoCfg_in_EnableClusterShardingRequest_mongocfg:
-      description: |-
-        Required.
-        mongocfg specification for sharding.
+      description: mongocfg specification for sharding.
       type: object
       properties:
         resources:
           $ref: '#/components/schemas/Resources_in_EnableClusterShardingRequestMongoCfg_resources'
     EnableClusterShardingRequestMongos_in_EnableClusterShardingRequest_mongos:
-      description: |-
-        Required.
-        mongos specification for sharding.
+      description: mongos specification for sharding.
       type: object
       properties:
         resources:
           $ref: '#/components/schemas/Resources_in_EnableClusterShardingRequestMongos_resources'
+    EnableClusterShardingRequestMongoInfra_in_EnableClusterShardingRequest_mongoinfra:
+      description: mongos specification for sharding.
+      type: object
+      properties:
+        resources:
+          $ref: '#/components/schemas/Resources_in_EnableClusterShardingRequestMongoInfra_resources'
     Resources_in_EnableClusterShardingRequestMongoCfg_resources:
       description: |-
         Required.
         Resources for mongocfg hosts.
+      type: object
+      properties:
+        resourcePresetId:
+          description: |-
+            ID of the preset for computational resources available to a host (CPU, memory etc.).
+            All available presets are listed in the [documentation](/docs/managed-mongodb/concepts/instance-types).
+          type: string
+        diskSize:
+          description: Volume of the storage available to a host, in bytes.
+          type: string
+          format: int64
+        diskTypeId:
+          description: |-
+            Type of the storage environment for the host.
+            Possible values:
+            * network-hdd — network HDD drive,
+            * network-ssd — network SSD drive,
+            * local-ssd — local SSD storage.
+          type: string
+    Resources_in_EnableClusterShardingRequestMongoInfra_resources:
+      description: |-
+        Required.
+        Resources for mongoinfra (mongos+mongocfg) hosts.
       type: object
       properties:
         resourcePresetId:
@@ -3911,11 +4157,13 @@ components:
          - MONGOD: A mongod host.
          - MONGOS: A mongos host.
          - MONGOCFG: A mongocfg host.
+         - MONGOINFRA: A mongoinfra (mongos+mongocfg) host.
       type: string
       enum:
       - MONGOD
       - MONGOS
       - MONGOCFG
+      - MONGOINFRA
     HostType_in_HostSpec_type:
       description: |-
         Type of the host to be deployed.
@@ -3923,11 +4171,13 @@ components:
          - MONGOD: A mongod host.
          - MONGOS: A mongos host.
          - MONGOCFG: A mongocfg host.
+         - MONGOINFRA: A mongoinfra (mongos+mongocfg) host.
       type: string
       enum:
       - MONGOD
       - MONGOS
       - MONGOCFG
+      - MONGOINFRA
     MongoCfgConfig3_6Storage_in_MongoCfgConfig3_6_storage:
       description: '`storage` section of mongocfg configuration.'
       type: object
@@ -4663,6 +4913,17 @@ components:
           $ref: '#/components/schemas/MongosConfigSet3_6_in_Mongodb3_6Mongos_config'
         resources:
           $ref: '#/components/schemas/Resources_in_Mongodb3_6Mongos_resources'
+    Mongodb3_6MongoInfra_in_Mongodb3_6_mongoinfra:
+      description: Configuration and resource allocation for mongoinfra (mongos+mongocfg)
+        in a MongoDB 3.6 cluster.
+      type: object
+      properties:
+        configMongos:
+          $ref: '#/components/schemas/MongosConfigSet3_6_in_Mongodb3_6MongoInfra_configMongos'
+        configMongocfg:
+          $ref: '#/components/schemas/MongoCfgConfigSet3_6_in_Mongodb3_6MongoInfra_configMongocfg'
+        resources:
+          $ref: '#/components/schemas/Resources_in_Mongodb3_6MongoInfra_resources'
     MongoCfgConfigSet3_6_in_Mongodb3_6MongoCfg_config:
       type: object
       properties:
@@ -4674,6 +4935,45 @@ components:
           $ref: '#/components/schemas/MongoCfgConfig3_6_in_MongoCfgConfigSet3_6_defaultConfig'
     Resources_in_Mongodb3_6MongoCfg_resources:
       description: Resources allocated to mongocfg hosts.
+      type: object
+      properties:
+        resourcePresetId:
+          description: |-
+            ID of the preset for computational resources available to a host (CPU, memory etc.).
+            All available presets are listed in the [documentation](/docs/managed-mongodb/concepts/instance-types).
+          type: string
+        diskSize:
+          description: Volume of the storage available to a host, in bytes.
+          type: string
+          format: int64
+        diskTypeId:
+          description: |-
+            Type of the storage environment for the host.
+            Possible values:
+            * network-hdd — network HDD drive,
+            * network-ssd — network SSD drive,
+            * local-ssd — local SSD storage.
+          type: string
+    MongosConfigSet3_6_in_Mongodb3_6MongoInfra_configMongos:
+      type: object
+      properties:
+        effectiveConfig:
+          $ref: '#/components/schemas/MongosConfig3_6_in_MongosConfigSet3_6_effectiveConfig'
+        userConfig:
+          $ref: '#/components/schemas/MongosConfig3_6_in_MongosConfigSet3_6_userConfig'
+        defaultConfig:
+          $ref: '#/components/schemas/MongosConfig3_6_in_MongosConfigSet3_6_defaultConfig'
+    MongoCfgConfigSet3_6_in_Mongodb3_6MongoInfra_configMongocfg:
+      type: object
+      properties:
+        effectiveConfig:
+          $ref: '#/components/schemas/MongoCfgConfig3_6_in_MongoCfgConfigSet3_6_effectiveConfig'
+        userConfig:
+          $ref: '#/components/schemas/MongoCfgConfig3_6_in_MongoCfgConfigSet3_6_userConfig'
+        defaultConfig:
+          $ref: '#/components/schemas/MongoCfgConfig3_6_in_MongoCfgConfigSet3_6_defaultConfig'
+    Resources_in_Mongodb3_6MongoInfra_resources:
+      description: Resources allocated to mongoinfra (mongos+mongocfg) hosts.
       type: object
       properties:
         resourcePresetId:
@@ -4781,6 +5081,17 @@ components:
           $ref: '#/components/schemas/MongosConfigSet4_0_in_Mongodb4_0Mongos_config'
         resources:
           $ref: '#/components/schemas/Resources_in_Mongodb4_0Mongos_resources'
+    Mongodb4_0MongoInfra_in_Mongodb4_0_mongoinfra:
+      description: Configuration and resource allocation for mongoinfra (mongos+mongocfg)
+        in a MongoDB 4.0 cluster.
+      type: object
+      properties:
+        configMongos:
+          $ref: '#/components/schemas/MongosConfigSet4_0_in_Mongodb4_0MongoInfra_configMongos'
+        configMongocfg:
+          $ref: '#/components/schemas/MongoCfgConfigSet4_0_in_Mongodb4_0MongoInfra_configMongocfg'
+        resources:
+          $ref: '#/components/schemas/Resources_in_Mongodb4_0MongoInfra_resources'
     MongoCfgConfigSet4_0_in_Mongodb4_0MongoCfg_config:
       description: Configuration for mongocfg 4.0 hosts.
       type: object
@@ -4793,6 +5104,45 @@ components:
           $ref: '#/components/schemas/MongoCfgConfig4_0_in_MongoCfgConfigSet4_0_defaultConfig'
     Resources_in_Mongodb4_0MongoCfg_resources:
       description: Resources allocated to mongocfg hosts.
+      type: object
+      properties:
+        resourcePresetId:
+          description: |-
+            ID of the preset for computational resources available to a host (CPU, memory etc.).
+            All available presets are listed in the [documentation](/docs/managed-mongodb/concepts/instance-types).
+          type: string
+        diskSize:
+          description: Volume of the storage available to a host, in bytes.
+          type: string
+          format: int64
+        diskTypeId:
+          description: |-
+            Type of the storage environment for the host.
+            Possible values:
+            * network-hdd — network HDD drive,
+            * network-ssd — network SSD drive,
+            * local-ssd — local SSD storage.
+          type: string
+    MongosConfigSet4_0_in_Mongodb4_0MongoInfra_configMongos:
+      type: object
+      properties:
+        effectiveConfig:
+          $ref: '#/components/schemas/MongosConfig4_0_in_MongosConfigSet4_0_effectiveConfig'
+        userConfig:
+          $ref: '#/components/schemas/MongosConfig4_0_in_MongosConfigSet4_0_userConfig'
+        defaultConfig:
+          $ref: '#/components/schemas/MongosConfig4_0_in_MongosConfigSet4_0_defaultConfig'
+    MongoCfgConfigSet4_0_in_Mongodb4_0MongoInfra_configMongocfg:
+      type: object
+      properties:
+        effectiveConfig:
+          $ref: '#/components/schemas/MongoCfgConfig4_0_in_MongoCfgConfigSet4_0_effectiveConfig'
+        userConfig:
+          $ref: '#/components/schemas/MongoCfgConfig4_0_in_MongoCfgConfigSet4_0_userConfig'
+        defaultConfig:
+          $ref: '#/components/schemas/MongoCfgConfig4_0_in_MongoCfgConfigSet4_0_defaultConfig'
+    Resources_in_Mongodb4_0MongoInfra_resources:
+      description: Resources allocated to mongoinfra (mongos+mongocfg) hosts.
       type: object
       properties:
         resourcePresetId:
@@ -4901,6 +5251,17 @@ components:
           $ref: '#/components/schemas/MongosConfigSet4_2_in_Mongodb4_2Mongos_config'
         resources:
           $ref: '#/components/schemas/Resources_in_Mongodb4_2Mongos_resources'
+    Mongodb4_2MongoInfra_in_Mongodb4_2_mongoinfra:
+      description: Configuration and resource allocation for mongoinfra (mongos+mongocfg)
+        in a MongoDB 4.2 cluster.
+      type: object
+      properties:
+        configMongos:
+          $ref: '#/components/schemas/MongosConfigSet4_2_in_Mongodb4_2MongoInfra_configMongos'
+        configMongocfg:
+          $ref: '#/components/schemas/MongoCfgConfigSet4_2_in_Mongodb4_2MongoInfra_configMongocfg'
+        resources:
+          $ref: '#/components/schemas/Resources_in_Mongodb4_2MongoInfra_resources'
     MongoCfgConfigSet4_2_in_Mongodb4_2MongoCfg_config:
       description: Configuration for mongocfg 4.2 hosts.
       type: object
@@ -4913,6 +5274,45 @@ components:
           $ref: '#/components/schemas/MongoCfgConfig4_2_in_MongoCfgConfigSet4_2_defaultConfig'
     Resources_in_Mongodb4_2MongoCfg_resources:
       description: Resources allocated to mongocfg hosts.
+      type: object
+      properties:
+        resourcePresetId:
+          description: |-
+            ID of the preset for computational resources available to a host (CPU, memory etc.).
+            All available presets are listed in the [documentation](/docs/managed-mongodb/concepts/instance-types).
+          type: string
+        diskSize:
+          description: Volume of the storage available to a host, in bytes.
+          type: string
+          format: int64
+        diskTypeId:
+          description: |-
+            Type of the storage environment for the host.
+            Possible values:
+            * network-hdd — network HDD drive,
+            * network-ssd — network SSD drive,
+            * local-ssd — local SSD storage.
+          type: string
+    MongosConfigSet4_2_in_Mongodb4_2MongoInfra_configMongos:
+      type: object
+      properties:
+        effectiveConfig:
+          $ref: '#/components/schemas/MongosConfig4_2_in_MongosConfigSet4_2_effectiveConfig'
+        userConfig:
+          $ref: '#/components/schemas/MongosConfig4_2_in_MongosConfigSet4_2_userConfig'
+        defaultConfig:
+          $ref: '#/components/schemas/MongosConfig4_2_in_MongosConfigSet4_2_defaultConfig'
+    MongoCfgConfigSet4_2_in_Mongodb4_2MongoInfra_configMongocfg:
+      type: object
+      properties:
+        effectiveConfig:
+          $ref: '#/components/schemas/MongoCfgConfig4_2_in_MongoCfgConfigSet4_2_effectiveConfig'
+        userConfig:
+          $ref: '#/components/schemas/MongoCfgConfig4_2_in_MongoCfgConfigSet4_2_userConfig'
+        defaultConfig:
+          $ref: '#/components/schemas/MongoCfgConfig4_2_in_MongoCfgConfigSet4_2_defaultConfig'
+    Resources_in_Mongodb4_2MongoInfra_resources:
+      description: Resources allocated to mongoinfra (mongos+mongocfg) hosts.
       type: object
       properties:
         resourcePresetId:
@@ -5018,6 +5418,17 @@ components:
           $ref: '#/components/schemas/MongosConfig3_6_in_MongodbSpec3_6Mongos_config'
         resources:
           $ref: '#/components/schemas/Resources_in_MongodbSpec3_6Mongos_resources'
+    MongodbSpec3_6MongoInfra_in_MongodbSpec3_6_mongoinfra:
+      description: Configuration and resource allocation for mongoinfra (mongos+mongocfg)
+        3.6 hosts.
+      type: object
+      properties:
+        configMongos:
+          $ref: '#/components/schemas/MongosConfig3_6_in_MongodbSpec3_6MongoInfra_configMongos'
+        configMongocfg:
+          $ref: '#/components/schemas/MongoCfgConfig3_6_in_MongodbSpec3_6MongoInfra_configMongocfg'
+        resources:
+          $ref: '#/components/schemas/Resources_in_MongodbSpec3_6MongoInfra_resources'
     MongoCfgConfig3_6_in_MongodbSpec3_6MongoCfg_config:
       description: Configuration for mongocfg 3.6 hosts.
       type: object
@@ -5030,6 +5441,42 @@ components:
           $ref: '#/components/schemas/MongoCfgConfig3_6Network_in_MongoCfgConfig3_6_net'
     Resources_in_MongodbSpec3_6MongoCfg_resources:
       description: Resources allocated to each mongocfg host.
+      type: object
+      properties:
+        resourcePresetId:
+          description: |-
+            ID of the preset for computational resources available to a host (CPU, memory etc.).
+            All available presets are listed in the [documentation](/docs/managed-mongodb/concepts/instance-types).
+          type: string
+        diskSize:
+          description: Volume of the storage available to a host, in bytes.
+          type: string
+          format: int64
+        diskTypeId:
+          description: |-
+            Type of the storage environment for the host.
+            Possible values:
+            * network-hdd — network HDD drive,
+            * network-ssd — network SSD drive,
+            * local-ssd — local SSD storage.
+          type: string
+    MongosConfig3_6_in_MongodbSpec3_6MongoInfra_configMongos:
+      description: Configuration for mongoinfra 3.6 hosts.
+      type: object
+      properties:
+        net:
+          $ref: '#/components/schemas/MongosConfig3_6Network_in_MongosConfig3_6_net'
+    MongoCfgConfig3_6_in_MongodbSpec3_6MongoInfra_configMongocfg:
+      type: object
+      properties:
+        storage:
+          $ref: '#/components/schemas/MongoCfgConfig3_6Storage_in_MongoCfgConfig3_6_storage'
+        operationProfiling:
+          $ref: '#/components/schemas/MongoCfgConfig3_6OperationProfiling_in_MongoCfgConfig3_6_operationProfiling'
+        net:
+          $ref: '#/components/schemas/MongoCfgConfig3_6Network_in_MongoCfgConfig3_6_net'
+    Resources_in_MongodbSpec3_6MongoInfra_resources:
+      description: Resources allocated to each mongoinfra (mongos+mongocfg) host.
       type: object
       properties:
         resourcePresetId:
@@ -5135,6 +5582,17 @@ components:
           $ref: '#/components/schemas/MongosConfig4_0_in_MongodbSpec4_0Mongos_config'
         resources:
           $ref: '#/components/schemas/Resources_in_MongodbSpec4_0Mongos_resources'
+    MongodbSpec4_0MongoInfra_in_MongodbSpec4_0_mongoinfra:
+      description: Configuration and resource allocation for mongoinfra (mongos+mongocfg)
+        4.0 hosts.
+      type: object
+      properties:
+        configMongos:
+          $ref: '#/components/schemas/MongosConfig4_0_in_MongodbSpec4_0MongoInfra_configMongos'
+        configMongocfg:
+          $ref: '#/components/schemas/MongoCfgConfig4_0_in_MongodbSpec4_0MongoInfra_configMongocfg'
+        resources:
+          $ref: '#/components/schemas/Resources_in_MongodbSpec4_0MongoInfra_resources'
     MongoCfgConfig4_0_in_MongodbSpec4_0MongoCfg_config:
       description: Configuration for mongocfg 4.0 hosts.
       type: object
@@ -5147,6 +5605,42 @@ components:
           $ref: '#/components/schemas/MongoCfgConfig4_0Network_in_MongoCfgConfig4_0_net'
     Resources_in_MongodbSpec4_0MongoCfg_resources:
       description: Resources allocated to each mongocfg host.
+      type: object
+      properties:
+        resourcePresetId:
+          description: |-
+            ID of the preset for computational resources available to a host (CPU, memory etc.).
+            All available presets are listed in the [documentation](/docs/managed-mongodb/concepts/instance-types).
+          type: string
+        diskSize:
+          description: Volume of the storage available to a host, in bytes.
+          type: string
+          format: int64
+        diskTypeId:
+          description: |-
+            Type of the storage environment for the host.
+            Possible values:
+            * network-hdd — network HDD drive,
+            * network-ssd — network SSD drive,
+            * local-ssd — local SSD storage.
+          type: string
+    MongosConfig4_0_in_MongodbSpec4_0MongoInfra_configMongos:
+      description: Configuration for mongoinfra 4.0 hosts.
+      type: object
+      properties:
+        net:
+          $ref: '#/components/schemas/MongosConfig4_0Network_in_MongosConfig4_0_net'
+    MongoCfgConfig4_0_in_MongodbSpec4_0MongoInfra_configMongocfg:
+      type: object
+      properties:
+        storage:
+          $ref: '#/components/schemas/MongoCfgConfig4_0Storage_in_MongoCfgConfig4_0_storage'
+        operationProfiling:
+          $ref: '#/components/schemas/MongoCfgConfig4_0OperationProfiling_in_MongoCfgConfig4_0_operationProfiling'
+        net:
+          $ref: '#/components/schemas/MongoCfgConfig4_0Network_in_MongoCfgConfig4_0_net'
+    Resources_in_MongodbSpec4_0MongoInfra_resources:
+      description: Resources allocated to each mongoinfra (mongos+mongocfg) host.
       type: object
       properties:
         resourcePresetId:
@@ -5252,6 +5746,17 @@ components:
           $ref: '#/components/schemas/MongosConfig4_2_in_MongodbSpec4_2Mongos_config'
         resources:
           $ref: '#/components/schemas/Resources_in_MongodbSpec4_2Mongos_resources'
+    MongodbSpec4_2MongoInfra_in_MongodbSpec4_2_mongoinfra:
+      description: Configuration and resource allocation for mongoinfra (mongos+mongocfg)
+        4.2 hosts.
+      type: object
+      properties:
+        configMongos:
+          $ref: '#/components/schemas/MongosConfig4_2_in_MongodbSpec4_2MongoInfra_configMongos'
+        configMongocfg:
+          $ref: '#/components/schemas/MongoCfgConfig4_2_in_MongodbSpec4_2MongoInfra_configMongocfg'
+        resources:
+          $ref: '#/components/schemas/Resources_in_MongodbSpec4_2MongoInfra_resources'
     MongoCfgConfig4_2_in_MongodbSpec4_2MongoCfg_config:
       description: Configuration for mongocfg 4.2 hosts.
       type: object
@@ -5264,6 +5769,42 @@ components:
           $ref: '#/components/schemas/MongoCfgConfig4_2Network_in_MongoCfgConfig4_2_net'
     Resources_in_MongodbSpec4_2MongoCfg_resources:
       description: Resources allocated to each mongocfg host.
+      type: object
+      properties:
+        resourcePresetId:
+          description: |-
+            ID of the preset for computational resources available to a host (CPU, memory etc.).
+            All available presets are listed in the [documentation](/docs/managed-mongodb/concepts/instance-types).
+          type: string
+        diskSize:
+          description: Volume of the storage available to a host, in bytes.
+          type: string
+          format: int64
+        diskTypeId:
+          description: |-
+            Type of the storage environment for the host.
+            Possible values:
+            * network-hdd — network HDD drive,
+            * network-ssd — network SSD drive,
+            * local-ssd — local SSD storage.
+          type: string
+    MongosConfig4_2_in_MongodbSpec4_2MongoInfra_configMongos:
+      description: Configuration for mongoinfra 4.2 hosts.
+      type: object
+      properties:
+        net:
+          $ref: '#/components/schemas/MongosConfig4_2Network_in_MongosConfig4_2_net'
+    MongoCfgConfig4_2_in_MongodbSpec4_2MongoInfra_configMongocfg:
+      type: object
+      properties:
+        storage:
+          $ref: '#/components/schemas/MongoCfgConfig4_2Storage_in_MongoCfgConfig4_2_storage'
+        operationProfiling:
+          $ref: '#/components/schemas/MongoCfgConfig4_2OperationProfiling_in_MongoCfgConfig4_2_operationProfiling'
+        net:
+          $ref: '#/components/schemas/MongoCfgConfig4_2Network_in_MongoCfgConfig4_2_net'
+    Resources_in_MongodbSpec4_2MongoInfra_resources:
+      description: Resources allocated to each mongoinfra (mongos+mongocfg) host.
       type: object
       properties:
         resourcePresetId:
@@ -5438,6 +5979,15 @@ components:
       properties:
         net:
           $ref: '#/components/schemas/MongosConfig4_2Network_in_MongosConfig4_2_net'
+    RescheduleMaintenanceRequestRescheduleType_in_RescheduleMaintenanceRequest_rescheduleType:
+      description: |-
+        Required.
+        Required. The type of reschedule request.
+      type: string
+      enum:
+      - IMMEDIATE
+      - NEXT_AVAILABLE_WINDOW
+      - SPECIFIC_TIME
     ClusterEnvironment_in_RestoreClusterRequest_environment:
       description: |-
         Required.
@@ -5597,6 +6147,18 @@ components:
           mongodbSpec_4_2:
             $ref: '#/components/schemas/MongodbSpec4_2'
             description: Configuration and resource allocation for a MongoDB 4.2 cluster.
+    MaintenanceWindow_in_UpdateClusterRequest_maintenanceWindow:
+      description: Window of maintenance operations.
+      type: object
+      allOf:
+      - title: policy
+        type: object
+        maxProperties: 1
+        properties:
+          anytime:
+            $ref: '#/components/schemas/AnytimeMaintenanceWindow'
+          weeklyMaintenanceWindow:
+            $ref: '#/components/schemas/WeeklyMaintenanceWindow'
     FieldMask_in_UpdateUserRequest_updateMask:
       description: |-
         Field mask that specifies which fields of the MongoDB User resource should be updated.
@@ -5610,6 +6172,16 @@ components:
         Fields specified in the request will be updated to provided values.
         The rest of the fields will be reset to the default.
       type: string
+    WeeklyMaintenanceWindowWeekDay_in_WeeklyMaintenanceWindow_day:
+      type: string
+      enum:
+      - MON
+      - TUE
+      - WED
+      - THU
+      - FRI
+      - SAT
+      - SUN
 tags:
 - name: Backup
   description: A set of methods for managing MongoDB Backup resources.

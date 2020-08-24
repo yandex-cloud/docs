@@ -814,6 +814,47 @@ paths:
       x-y-operation-response: '[Subnet](/docs/vpc/api-ref/Subnet#representation)'
 components:
   schemas:
+    Address:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          id:
+            type: string
+          folderId:
+            type: string
+          createdAt:
+            description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+              text format.
+            type: string
+            format: date-time
+          name:
+            type: string
+          description:
+            type: string
+          labels:
+            type: object
+            additionalProperties:
+              type: string
+          reserved:
+            type: boolean
+            format: boolean
+          used:
+            type: boolean
+            format: boolean
+      - title: address
+        type: object
+        maxProperties: 1
+        properties:
+          externalIpv4Address:
+            $ref: '#/components/schemas/ExternalIpv4Address'
+    AddressRequirements:
+      type: object
+      properties:
+        ddosProtectionProvider:
+          type: string
+        outgoingSmtpCapability:
+          type: string
     CidrBlocks:
       type: object
       properties:
@@ -825,6 +866,11 @@ components:
           type: array
           items:
             type: string
+    CreateAddressMetadata:
+      type: object
+      properties:
+        addressId:
+          type: string
     CreateNetworkMetadata:
       type: object
       properties:
@@ -1002,6 +1048,11 @@ components:
           type: string
         dhcpOptions:
           $ref: '#/components/schemas/DhcpOptions_in_CreateSubnetRequest_dhcpOptions'
+    DeleteAddressMetadata:
+      type: object
+      properties:
+        addressId:
+          type: string
     DeleteNetworkMetadata:
       type: object
       properties:
@@ -1042,6 +1093,24 @@ components:
       description: Empty JSON object `` {} ``.
       type: object
       maxProperties: 0
+    ExternalIpv4Address:
+      type: object
+      properties:
+        address:
+          type: string
+        zoneId:
+          type: string
+        requirements:
+          $ref: '#/components/schemas/AddressRequirements_in_ExternalIpv4Address_requirements'
+    ExternalIpv4AddressSpec:
+      type: object
+      properties:
+        address:
+          type: string
+        zoneId:
+          type: string
+        requirements:
+          $ref: '#/components/schemas/AddressRequirements_in_ExternalIpv4AddressSpec_requirements'
     FieldMask:
       description: |-
         A comma-separated names off ALL fields to be updated.
@@ -1053,6 +1122,29 @@ components:
         Fields specified in the request will be updated to provided values.
         The rest of the fields will be reset to the default.
       type: string
+    IpVersion:
+      type: string
+      enum:
+      - IPV4
+      - IPV6
+    ListAddressOperationsResponse:
+      type: object
+      properties:
+        operations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Operation'
+        nextPageToken:
+          type: string
+    ListAddressesResponse:
+      type: object
+      properties:
+        addresses:
+          type: array
+          items:
+            $ref: '#/components/schemas/Address'
+        nextPageToken:
+          type: string
     ListNetworkOperationsResponse:
       type: object
       properties:
@@ -1185,6 +1277,15 @@ components:
             in the next list request. Subsequent list requests will have their own
             [nextPageToken](/docs/vpc/api-ref/Subnet/list#responses) to continue paging through the results.
           type: string
+    ListUsedAddressesResponse:
+      type: object
+      properties:
+        addresses:
+          type: array
+          items:
+            $ref: '#/components/schemas/UsedAddress'
+        nextPageToken:
+          type: string
     MoveNetworkMetadata:
       type: object
       properties:
@@ -1269,6 +1370,9 @@ components:
           type: object
           additionalProperties:
             type: string
+        defaultSecurityGroupId:
+          description: ID of default security group for network.
+          type: string
     Operation:
       description: An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
       type: object
@@ -1337,6 +1441,31 @@ components:
           description: Acceptable values are 0 to 65535, inclusive.
           type: string
           format: int64
+    Reference:
+      type: object
+      properties:
+        referrer:
+          $ref: '#/components/schemas/Referrer_in_Reference_referrer'
+        type:
+          $ref: '#/components/schemas/ReferenceType_in_Reference_type'
+    ReferenceType:
+      type: string
+      enum:
+      - MANAGED_BY
+      - USED_BY
+    Referrer:
+      type: object
+      properties:
+        type:
+          description: |-
+            * `type = compute.instance, id = <instance id>`
+            * `type = compute.instanceGroup, id = <instanceGroup id>`
+            * `type = loadbalancer.networkLoadBalancer, id = <networkLoadBalancer id>`
+            * `type = managed-kubernetes.cluster, id = <cluster id>`
+            * `type = managed-mysql.cluster, id = <cluster id>`
+          type: string
+        id:
+          type: string
     RouteTable:
       description: A RouteTable resource. For more information, see [Static Routes](/docs/vpc/concepts/static-routes).
       type: object
@@ -1573,6 +1702,11 @@ components:
           type: string
         dhcpOptions:
           $ref: '#/components/schemas/DhcpOptions_in_Subnet_dhcpOptions'
+    UpdateAddressMetadata:
+      type: object
+      properties:
+        addressId:
+          type: string
     UpdateNetworkMetadata:
       type: object
       properties:
@@ -1706,6 +1840,17 @@ components:
           type: string
         dhcpOptions:
           $ref: '#/components/schemas/DhcpOptions_in_UpdateSubnetRequest_dhcpOptions'
+    UsedAddress:
+      type: object
+      properties:
+        address:
+          type: string
+        ipVersion:
+          $ref: '#/components/schemas/IpVersion_in_UsedAddress_ipVersion'
+        references:
+          type: array
+          items:
+            $ref: '#/components/schemas/Reference'
     rpcStatus:
       description: The error result of the operation in case of failure or cancellation.
       type: object
@@ -1735,6 +1880,38 @@ components:
           type: array
           items:
             type: string
+    AddressRequirements_in_ExternalIpv4Address_requirements:
+      type: object
+      properties:
+        ddosProtectionProvider:
+          type: string
+        outgoingSmtpCapability:
+          type: string
+    AddressRequirements_in_ExternalIpv4AddressSpec_requirements:
+      type: object
+      properties:
+        ddosProtectionProvider:
+          type: string
+        outgoingSmtpCapability:
+          type: string
+    Referrer_in_Reference_referrer:
+      type: object
+      properties:
+        type:
+          description: |-
+            * `type = compute.instance, id = <instance id>`
+            * `type = compute.instanceGroup, id = <instanceGroup id>`
+            * `type = loadbalancer.networkLoadBalancer, id = <networkLoadBalancer id>`
+            * `type = managed-kubernetes.cluster, id = <cluster id>`
+            * `type = managed-mysql.cluster, id = <cluster id>`
+          type: string
+        id:
+          type: string
+    ReferenceType_in_Reference_type:
+      type: string
+      enum:
+      - MANAGED_BY
+      - USED_BY
     SecurityGroupStatus_in_SecurityGroup_status:
       description: ' - UPDATING: updating is a long operation because we must update
         all instances in SG'
@@ -1809,7 +1986,13 @@ components:
           type: array
           items:
             type: string
+    IpVersion_in_UsedAddress_ipVersion:
+      type: string
+      enum:
+      - IPV4
+      - IPV6
 tags:
+- name: Address
 - name: Network
   description: A set of methods for managing Network resources.
 - name: RouteTable

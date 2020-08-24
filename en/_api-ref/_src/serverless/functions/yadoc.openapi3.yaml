@@ -819,6 +819,11 @@ components:
               The maximum string length in characters is 52428800.
             type: string
             format: byte
+          versionId:
+            description: |-
+              ID of the version to be copied from. Source version must belong to the same folder as the created version
+              and the user must have read permissions to the source version.
+            type: string
     DeleteFunctionMetadata:
       type: object
       properties:

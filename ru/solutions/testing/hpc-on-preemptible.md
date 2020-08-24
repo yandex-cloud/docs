@@ -24,7 +24,7 @@
 
 {% include [before-you-begin](../_solutions_includes/before-you-begin.md) %}
 
-### Необходимые платные ресурсы
+### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки серверов входит:
 

@@ -4,11 +4,7 @@ The serial console allows you to access a VM regardless of the network or OS sta
 
 Serial console access is disabled by default.
 
-{% note warning %}
-
-Serial console access is not secure, so enabling it might allow hackers to access your VM. Use these instructions if you are sure you know what you are doing.
-
-{% endnote %}
+{% include [sc-warning](../../../_includes/compute/serial-console-warning.md) %}
 
 ## Before you start {#before-you-begin}
 
@@ -119,7 +115,7 @@ To enable access to the serial console when editing the VM settings, set the `se
 
     {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
 
-1. Select the `ID` or `NAME` of the VM (for example, `first-instance`).
+1. Select the VM `ID` or `NAME` (for example, `first-instance`).
 
 1. Set `serial-port-enable=1` in the VM metadata:
 
@@ -172,9 +168,9 @@ To create a local password, use the CLI.
 
 1. Get a list of VMs in the default folder:
 
-  {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
+   {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
 
-1. Select the `ID` or `NAME` of the VM (for example, `first-instance`).
+1. Select the VM `ID` or `NAME` (for example, `first-instance`).
 
 1. Get the VM's public IP address.
 
@@ -191,8 +187,6 @@ To create a local password, use the CLI.
        ip_version: IPV4
    ...
    ```
-
-   If there is no public IP address, [update the VM](../vm-control/vm-update.md) by additionally specifying the `--public-ip` flag.
 
 1. Connect to the VM. For more information, see [{#T}](../vm-connect/ssh.md#vm-connect).
 
@@ -229,7 +223,7 @@ If you created it before February 22, 2019, you need to update the Windows regis
    ```
    $ bcdedit /ems "{current}" on
    The operation completed successfully.
-
+   
    $ bcdedit /emssettings EMSPORT:2 EMSBAUDRATE:115200
    The operation completed successfully.
    ```

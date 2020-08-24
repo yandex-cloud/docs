@@ -6,32 +6,32 @@ Using these instructions, you'll configure GitLab on a VM, create a simple C++ p
 
 To create and test a project in the GitLab environment:
 
-1. [Before you start](#before-begin)
-1. [Required paid resources](#paid-resources)
-1. [Create a VM with GitLab](#create-vm)
-1. [Configure GitLab](#confgure-gitlab)
-1. [Set privacy settings](#disable-signup)
-1. [Create a project](#create-project)
-1. [Set up and run testing for the project](#ci-cd)
-1. [Configure and register a Runner](#configure-runner)
-1. [Create a test script](#create-test-case)
-1. [Create an error in the project](#create)
-1. [How to delete created resources](#clear-out)
+1. [Before you start](#before-you-begin).
+1. [Required paid resources](#paid-resources).
+1. [Create a VM with GitLab](#create-vm).
+1. [Configure GitLab](#configure-gitlab).
+1. [Set privacy settings](#disable-signup).
+1. [Create a project](#create-project).
+1. [Set up and run testing for the project](#ci-cd).
+1. [Configure and register a Runner](#configure-runner).
+1. [Create a test script](#create-test-case).
+1. [Create an error in the project](#create).
+1. [How to delete created resources](#clear-out).
 
-## Before you start {#before-begin}
+## Before you start {#before-you-begin}
 
-{% include [before-begin](../_solutions_includes/before-you-begin.md) %}
+{% include [before-you-begin](../_solutions_includes/before-you-begin.md) %}
 
 ### Required paid resources {#paid-resources}
 
 The cost for maintaining a GitLab server includes:
 
-* A fee for a disk and continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* A fee for a disk and continuously running VM (see [pricing{{ compute-full-name }}](../../compute/pricing.md)).
 * A fee for using a dynamic or static public IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 ## Create a VM with GitLab {#create-vm}
 
-1. On the folder page in [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
+1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource**, and select **Virtual machine**.
 
 1. In the **Name** field, enter a name for the VM: `gitlab`.
 
@@ -43,7 +43,7 @@ The cost for maintaining a GitLab server includes:
 
 1. Under **Computing resources**:
 
-   * Choose a [platform](../../compute/concepts/vm-platforms.md) for the virtual machine.
+   * Choose a [platform](../../compute/concepts/vm-platforms.md) for the VM.
 
    * Specify the necessary number of vCPUs and amount of RAM.
 
@@ -54,10 +54,10 @@ The cost for maintaining a GitLab server includes:
       * **RAM**: 4 GB.
 
 1. Under **Network settings**:
-   - Select a **Network** and **Subnet** for the VM to connect to. If you don't have a network or subnet, you can create them right on the VM creation page.
+   - Select the **Network** and **Subnet** to connect the VM to. If you don't have a network or subnet, create them right on the VM creation page.
    - In the **Public address** field, leave the **Auto** value to assign a random external IP address from the Yandex.Cloud pool, or select a static address from the list if you reserved one in advance.
 
-1. Under **Access**, specify the information required to access the virtual machine:
+1. Under **Access**, specify the information required to access the VM:
    - In the **Login** field, enter a username to be created on the VM.
    - In the **SSH key** field, paste your public SSH key. You need to create a key pair for the SSH connection yourself. Learn [how to connect to VMs via SSH](../../compute/operations/vm-connect/ssh.md).
 
@@ -65,7 +65,7 @@ The cost for maintaining a GitLab server includes:
 
 1. Wait about five minutes until the VM is created and all services are started on it. After all of the services fully launch, GitLab becomes available from the web interface in the browser.
 
-## Configure GitLab {#confgure-gitlab}
+## Configure GitLab {#configure-gitlab}
 
 1. In the [management console]({{ link-console-main }}), open the {{ compute-name }} service page. Select the `gitlab` VM and copy its public IP address.
 1. Open the GitLab web interface in the browser using the VM public IP address: `http://<VM public IP>`.
@@ -98,12 +98,12 @@ To create a project:
    * If necessary, give a description and the scope of the project.
 
 1. Click **Create project**.
-![Creating a project](../../../ru/solutions/_assets/gitlab/gitlab1.png)
+![Creating a project](../_assets/gitlab/gitlab1.png)
 
 1. Once you create the project, in the left panel, go to **Settings** and select **CI/CD**.
 
 1. Under **Auto DevOps**, click **Expand**, disable the option **Default to Auto DevOps pipeline**, and save changes by clicking **Save changes**.
-![Disabling Auto DevOps](../../../ru/solutions/_assets/gitlab/gitlab2.png)
+![Disabling Auto DevOps](../_assets/gitlab/gitlab2.png)
 
 1. Add a project file.
 
@@ -111,12 +111,12 @@ To create a project:
 
    1. On the project page, click **New file**.
 
-   1. Name the file `test.cpp`. Add to it the code of a program that outputs `Hello World` and, if the check is made, that the product of multiplying 2 x 2 is 4:
+   1. Name the file `test.cpp`. Add the code of a program that checks the product of multiplying 2 x 2 and outputs `Hello World` if it's 4:
 
       ```cpp
       #include <iostream>
       #include <cassert>
-
+      
       int main() {
         assert(2 * 2 == 4);
         std::cout << "Hello world!" << std::endl;
@@ -124,11 +124,11 @@ To create a project:
       }
       ```
 
-      ![Adding a file](../../../ru/solutions/_assets/gitlab/gitlab3.png)
+      ![Adding a file](../_assets/gitlab/gitlab3.png)
 
-   1. Enter a name for the commit in the **Commit message** field.
+   2. Enter a name for the commit in the **Commit message** field.
 
-   1. Click **Commit changes**.
+   3. Click **Commit changes**.
 
 ## Set up and run testing for the project {#ci-cd}
 
@@ -136,7 +136,7 @@ A Runner is a special program that tests and builds projects in the GitLab envir
 
 ### Configure and register a Runner {#configure-runner}
 
-1. [Log in to the VM over SSH](../../compute/operations/vm-connect/ssh.md) and switch to the admin mode in the console:
+1. [Log in via SSH](../../compute/operations/vm-connect/ssh.md) to the VM and switch to admin mode in the console:
 
    ```bash
    $ sudo -i
@@ -186,9 +186,9 @@ A Runner is a special program that tests and builds projects in the GitLab envir
       <token>
       ```
 
-      ![Getting a token](../../../ru/solutions/_assets/gitlab/gitlab4.png)
+      ![Getting a token](../_assets/gitlab/gitlab4.png)
 
-   1. When you see the prompt:
+   1. When prompted:
 
       ```
       Please enter the gitlab-ci description for this runner
@@ -208,7 +208,7 @@ A Runner is a special program that tests and builds projects in the GitLab envir
 
 Runner installation and setup is complete. If everything is done correctly, the **Runners activated for this project** section with the registered Runner should appear on the page where you copied the registration token.
 
-![Successful setup](../../../ru/solutions/_assets/gitlab/gitlab5.png)
+![Successful setup](../_assets/gitlab/gitlab5.png)
 
 ### Create a test script {#create-test-case}
 
@@ -238,19 +238,19 @@ To create a test script:
         - build
         - test
         - pack
-
+      
       cache:
         paths:
           - hello
-
+      
       build:
         stage: build
         script: g++ test.cpp -o hello
-
+      
       test:
         stage: test
         script: ./hello
-
+      
       pack:
         stage: pack
         script: gzip -c hello > hello.gz
@@ -266,9 +266,9 @@ To create a test script:
 
       In the `cache`, the files and directories that are transferred between stages are specified. If you omit it, the `hello` file won't be available at the `test` stage and an error will occur.
 
-      ![Test script](../../../ru/solutions/_assets/gitlab/gitlab6.png)
+      ![Test script](../_assets/gitlab/gitlab6.png)
 
-   1. Click **Commit changes**
+   2. Click **Commit changes**
 
 After committing, the system automatically starts testing the last commit. You can view the testing process and results under **CI/CD** in the left panel. The resulting line should contain the first test and `passed` status. By clicking the cloud icon, you can download the build artifacts.
 
@@ -288,11 +288,11 @@ Now, make the project run with an error that the Runner should help you find dur
 1. Name the commit `Wrong assert in test.cpp`.
 1. Click **Commit Changes**.
 
-Open the **CI/CD** section. In the **Stages** column, you can see that, as a result of the test, the first stage, `build`, completed successfully and the second stage, `test`, ended with an error. The third stage, `pack`, was skipped and the final artifacts weren't generated.
+Open the **CI/CD** section. In the **Stages** column, you can see that, as a result of the test, the first stage, `build`, completed successfully and the second stage, `test`, ended with an error. The third stage, `pack`, was skipped and the final artifacts were not generated.
 
 If you click the `failed` progress status and go to **Failed Jobs**, you can see the error text saying that `assertion` failed:
 
-![Runtime error](../../../ru/solutions/_assets/gitlab/gitlab7.png)
+![Runtime error](../_assets/gitlab/gitlab7.png)
 
 ## How to delete created resources {#clear-out}
 
@@ -303,3 +303,4 @@ If you reserved a static public IP address specifically for this VM:
 1. Open the **Virtual Private Cloud** in your folder.
 1. Go to the **IP addresses** tab.
 1. Find the address you need, click ![ellipsis](../../_assets/options.svg), and select **Delete**.
+

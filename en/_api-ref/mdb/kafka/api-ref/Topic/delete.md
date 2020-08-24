@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method delete
-Deletes the specified Apache Kafka topic.
+Deletes the specified Kafka topic.
  
 
  
@@ -16,8 +16,8 @@ DELETE https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/{clusterId}/to
  
 Parameter | Description
 --- | ---
-clusterId | Required. Required. ID of the Apache Kafka cluster to delete a topic in. To get the cluster ID, use a [list](/docs/managed-kafka/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
-topicName | Required. Required. Name of the topic to delete. To get the name of the topic, use a [list](/docs/managed-kafka/api-ref/Topic/list) request.  The string length in characters must be 1-63. Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+clusterId | Required. ID of the Apache Kafka® cluster to delete a topic in.  To get the cluster ID, make a [list](/docs/managed-kafka/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
+topicName | Required. Name of the topic to delete.  To get the name of the topic, make a [list](/docs/managed-kafka/api-ref/Topic/list) request.  The string length in characters must be 1-63. Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
