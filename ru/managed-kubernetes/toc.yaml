@@ -47,6 +47,8 @@ items:
     items:
       - name: Интеграция с Container Registry
         href: solutions/container-registry.md
+      - name: Запуск рабочих нагрузок с GPU
+        href: solutions/running-pod-gpu.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса
@@ -67,6 +69,8 @@ items:
             href: concepts/node-group/node-drain.md
           - name: Динамическое резервирование ресурсов для узла
             href: concepts/node-group/allocatable-resources.md
+          - name: Группы узлов с GPU
+            href: concepts/node-group/node-group-gpu.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Управление доступом
@@ -87,7 +91,3 @@ items:
         include:
           repo: docs
           path: ru/_api-ref/k8s/toc.yaml
-
-
-
-

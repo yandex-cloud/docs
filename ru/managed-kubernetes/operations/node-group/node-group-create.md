@@ -14,7 +14,7 @@
 
     {% include [cli-install](../../../_includes/cli-install.md) %}
         
-    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}    
+    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
     Создайте группу узлов:
     
@@ -82,7 +82,7 @@
     - `--memory` — количество памяти для узлов. 
     - `--cores` — количество vCPU для узлов.
     - `--core-fraction` - [гарантированная доля vCPU](../../../compute/concepts/performance-levels.md) для узлов.
-    - `--preemptible` — флаг, который указывается, если виртуальные машины должены быть [прерываемые](../../../compute/concepts/preemptible-vm.md).
+    - `--preemptible` — флаг, который указывается, если виртуальные машины должны быть [прерываемыми](../../../compute/concepts/preemptible-vm.md).
     - `--disk-type` — тип диска узла.
     - `--disk-size` — размер диска узла.
     - `--fixed-size` — количество узлов в группе узлов.
