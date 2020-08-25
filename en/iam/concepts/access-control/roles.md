@@ -77,3 +77,4 @@ For example, the `{{ roles-admin }}` role lets you perform the following operati
 
 {% include [datalens-instances-user](../../../_includes/roles-datalens-user.md)%}
 
+{% include [datalens-instances-admin](../../../_includes/roles-datalens-admin.md)%}

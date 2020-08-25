@@ -25,28 +25,24 @@ items:
     href: api.md
   - name: Безопасность и соответствие стандартам
     items:
-      - name: Рекомендации по безопасности
+      - name: Обзор
+        href: security/index.md
+      - name: Архитектура платформы
+        href: security/architecture.md
+      - name: Ключевые принципы безопасности
+        href: security/principles.md
+      - name: Разделение ответственности за обеспечение безопасности
+        href: security/respons.md
+      - name: Меры безопасности на стороне Яндекс.Облака
+        href: security/standarts.md
+      - name: Соответствие требованиям
+        href: security/conform.md
+      - name: 'Средства защиты, доступные пользователям облачных сервисов'
+        href: security/user-side.md
+      - name: Бюллетени безопасности
         href: security-bulletins/index.md
       - name: Правила проведения внешних сканирований безопасности
         href: compliance/pentest.md
-      - name: Безопасность платформы Яндекс.Облако
-        items:
-          - name: Обзор
-            href: security/index.md
-          - name: Ключевые принципы безопасности
-            href: security/principles.md
-          - name: Разделение ответственности за обеспечение безопасности
-            href: security/respons.md
-          - name: Следование лучшим практикам и стандартам
-            href: security/standarts.md
-          - name: Соответствие требованиям
-            href: security/conform.md
-          - name: Технические меры защиты на стороне провайдера
-            href: security/tech-measures.md
-          - name: 'Средства защиты, доступные пользователям облачных сервисов'
-            href: security/user-side.md
-          - name: Полезные ресурсы
-            href: security/resources.md
   - name: Удаление данных пользователей
     href: concepts/data-deletion.md
   - name: SLA
