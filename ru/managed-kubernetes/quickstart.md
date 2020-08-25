@@ -22,7 +22,7 @@
 ## Создайте кластер {{ k8s }} {#kubernetes-cluster-create}
 
 {% include [create-cluster](../_includes/managed-kubernetes/cluster-create.md) %}
- 
+
 ## Добавьте учетные данные в конфигурационный файл kubectl {#add-conf}
 
 {% list tabs %}

@@ -105,6 +105,6 @@
             
 - API 
 
-    Чтобы создать  кластер {{ k8s }}, воспользуйтесь методом [create](../../api-ref/Cluster/create.md/) для ресурса [Cluster](../../api-ref/Cluster/).
+    Чтобы создать  кластер {{ k8s }}, воспользуйтесь методом [create](../../api-ref/Cluster/create.md) для ресурса [Cluster](../../api-ref/Cluster).
 
 {% endlist %}

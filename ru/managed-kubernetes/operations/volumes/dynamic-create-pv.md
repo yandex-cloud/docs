@@ -56,7 +56,7 @@
 
 1. Сохраните следующую спецификацию для создания пода в YAML-файл с названием `pod.yaml`.
     
-    Подробнее о спецификации для создания пода читайте в [документации {{ k8s }}](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.13/#pod-v1-core).
+    Подробнее о спецификации для создания пода читайте в [документации {{ k8s }}](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#pod-v1-core).
     
     ```
     apiVersion: v1

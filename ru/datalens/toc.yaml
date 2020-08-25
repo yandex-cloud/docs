@@ -149,6 +149,12 @@ items:
         items:
           - name: Обзор
             href: function-ref/aggregation-functions.md
+          - name: ANY
+            href: function-ref/ANY.md
+          - name: ARG_MAX
+            href: function-ref/ARG_MAX.md
+          - name: ARG_MIN
+            href: function-ref/ARG_MIN.md
           - name: AVG
             href: function-ref/AVG.md
           - name: AVG_IF

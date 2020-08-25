@@ -25,7 +25,7 @@ Returns the number of characters in the string `string`.
 #### Examples {#examples}
 
 ```
-LEN("Computer") = 9
+LEN("Computer") = 8
 ```
 
 

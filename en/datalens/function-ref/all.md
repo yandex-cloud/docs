@@ -143,6 +143,30 @@ Performs a Boolean join of two expressions with the `AND` condition.
 
 
 
+## [ANY](ANY.md)
+
+**Syntax:**`ANY( value )`
+
+Returns one of the values of `value` from the group. This is a nondeterministic aggregation — the result may vary for the same data over multiple queries.
+
+
+
+## [ARG_MAX](ARG_MAX.md)
+
+**Syntax:**`ARG_MAX( value, comp )`
+
+Returns `value` for the maximum value of `comp` in the group.
+
+
+
+## [ARG_MIN](ARG_MIN.md)
+
+**Syntax:**`ARG_MIN( value, comp )`
+
+Returns `value` for the minimum value of `comp` in the group.
+
+
+
 ## [ASCII](ASCII.md)
 
 **Syntax:**`ASCII( string )`
