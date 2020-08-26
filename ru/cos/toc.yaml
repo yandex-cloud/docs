@@ -11,7 +11,7 @@ items:
         href: solutions/vm-create.md
       - name: Создать ВМ с Container Optimized Image и дополнительным томом для Docker-контейнера
         href: solutions/vm-create-with-second-disk.md
-      - name: Создать ВМ с Container Optimized Image и несколькими Docker-контейнерами с помощью docker-compose.yaml файла
+      - name: Создать ВМ с Container Optimized Image и несколькими Docker-контейнерами
         href: solutions/docker-compose.md
       - name: Создать группу ВМ с Container Optimized Image
         href: solutions/ig-create.md
