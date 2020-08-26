@@ -1342,6 +1342,9 @@ components:
           resources:
             $ref: '#/components/schemas/Resources'
             description: Resources allocated to sqlserver hosts.
+          backupWindowStart:
+            $ref: '#/components/schemas/TimeOfDay'
+            description: Start time for the daily backup in UTC timezone
       - title: sqlserver_config
         type: object
         maxProperties: 1
@@ -2396,6 +2399,9 @@ components:
           resources:
             $ref: '#/components/schemas/Resources'
             description: Resources allocated to sqlserver hosts.
+          backupWindowStart:
+            $ref: '#/components/schemas/TimeOfDay'
+            description: Start time for the daily backup in UTC timezone
       - title: sqlserver_config
         type: object
         maxProperties: 1
@@ -2536,6 +2542,9 @@ components:
           resources:
             $ref: '#/components/schemas/Resources'
             description: Resources allocated to sqlserver hosts.
+          backupWindowStart:
+            $ref: '#/components/schemas/TimeOfDay'
+            description: Start time for the daily backup in UTC timezone
       - title: sqlserver_config
         type: object
         maxProperties: 1
@@ -2824,6 +2833,9 @@ components:
           resources:
             $ref: '#/components/schemas/Resources'
             description: Resources allocated to sqlserver hosts.
+          backupWindowStart:
+            $ref: '#/components/schemas/TimeOfDay'
+            description: Start time for the daily backup in UTC timezone
       - title: sqlserver_config
         type: object
         maxProperties: 1

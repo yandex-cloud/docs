@@ -94,6 +94,7 @@ clickhouse | **[Clickhouse](../cluster.proto#Clickhouse)**<br>Configuration and 
 zookeeper | **[Zookeeper](../cluster.proto#Zookeeper)**<br>Configuration and resource allocation for ZooKeeper hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](../cluster.proto#Access)**<br>Access policy for external services. 
+cloud_storage | **[CloudStorage](../cluster.proto#CloudStorage)**<br> 
 
 
 ### Clickhouse {#Clickhouse}
@@ -119,6 +120,13 @@ data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens
 web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
 metrika | **bool**<br>Allow to import data from Yandex.Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex.Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
 serverless | **bool**<br>Allow access to cluster for Serverless. 
+
+
+### CloudStorage {#CloudStorage}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>Whether to use Yandex Object Storage for storing ClickHouse data. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow}
@@ -213,6 +221,7 @@ clickhouse | **[Clickhouse](../cluster.proto#Clickhouse1)**<br>Configuration and
 zookeeper | **[Zookeeper](../cluster.proto#Zookeeper1)**<br>Configuration and resource allocation for ZooKeeper hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](../cluster.proto#Access1)**<br>Access policy for external services. 
+cloud_storage | **[CloudStorage](../cluster.proto#CloudStorage1)**<br> 
 
 
 ### Clickhouse {#Clickhouse}
@@ -238,6 +247,13 @@ data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens
 web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
 metrika | **bool**<br>Allow to import data from Yandex.Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex.Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
 serverless | **bool**<br>Allow access to cluster for Serverless. 
+
+
+### CloudStorage {#CloudStorage}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>Whether to use Yandex Object Storage for storing ClickHouse data. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow}
@@ -306,6 +322,7 @@ clickhouse | **[Clickhouse](../cluster.proto#Clickhouse2)**<br>Configuration and
 zookeeper | **[Zookeeper](../cluster.proto#Zookeeper2)**<br>Configuration and resources for a ZooKeeper server. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](../cluster.proto#Access2)**<br>Access policy for external services. <br>If you want a specific service to access the ClickHouse cluster, then set the necessary values in this policy. 
+cloud_storage | **[CloudStorage](../cluster.proto#CloudStorage2)**<br> 
 
 
 ### Clickhouse {#Clickhouse}
@@ -331,6 +348,13 @@ data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens
 web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
 metrika | **bool**<br>Allow to import data from Yandex.Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex.Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
 serverless | **bool**<br>Allow access to cluster for Serverless. 
+
+
+### CloudStorage {#CloudStorage}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>Whether to use Yandex Object Storage for storing ClickHouse data. 
 
 
 ### DatabaseSpec {#DatabaseSpec}
@@ -554,6 +578,7 @@ clickhouse | **[Clickhouse](../cluster.proto#Clickhouse3)**<br>Configuration and
 zookeeper | **[Zookeeper](../cluster.proto#Zookeeper3)**<br>Configuration and resources for a ZooKeeper server. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](../cluster.proto#Access3)**<br>Access policy for external services. <br>If you want a specific service to access the ClickHouse cluster, then set the necessary values in this policy. 
+cloud_storage | **[CloudStorage](../cluster.proto#CloudStorage3)**<br> 
 
 
 ### Clickhouse {#Clickhouse}
@@ -579,6 +604,13 @@ data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens
 web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
 metrika | **bool**<br>Allow to import data from Yandex.Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex.Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
 serverless | **bool**<br>Allow access to cluster for Serverless. 
+
+
+### CloudStorage {#CloudStorage}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>Whether to use Yandex Object Storage for storing ClickHouse data. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow}
@@ -1051,6 +1083,7 @@ clickhouse | **[Clickhouse](../cluster.proto#Clickhouse4)**<br>Configuration and
 zookeeper | **[Zookeeper](../cluster.proto#Zookeeper4)**<br>Configuration and resources for a ZooKeeper server. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](../cluster.proto#Access4)**<br>Access policy for external services. <br>If you want a specific service to access the ClickHouse cluster, then set the necessary values in this policy. 
+cloud_storage | **[CloudStorage](../cluster.proto#CloudStorage4)**<br> 
 
 
 ### Clickhouse {#Clickhouse}
@@ -1076,6 +1109,13 @@ data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens
 web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
 metrika | **bool**<br>Allow to import data from Yandex.Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex.Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
 serverless | **bool**<br>Allow access to cluster for Serverless. 
+
+
+### CloudStorage {#CloudStorage}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>Whether to use Yandex Object Storage for storing ClickHouse data. 
 
 
 ### HostSpec {#HostSpec}

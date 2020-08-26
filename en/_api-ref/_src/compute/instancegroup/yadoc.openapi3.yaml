@@ -492,6 +492,8 @@ paths:
 
           To get the resource ID, use a corresponding List request.
           For example, use the [list](/docs/resource-manager/api-ref/Cloud/list) request to get the Cloud resource ID.
+
+          The maximum string length in characters is 50.
         required: true
         schema:
           type: string
@@ -540,6 +542,8 @@ paths:
           ID of the resource for which access bindings are being set.
 
           To get the resource ID, use a corresponding List request.
+
+          The maximum string length in characters is 50.
         required: true
         schema:
           type: string
@@ -572,6 +576,8 @@ paths:
         description: |-
           Required.
           ID of the resource for which access bindings are being updated.
+
+          The maximum string length in characters is 50.
         required: true
         schema:
           type: string
@@ -599,6 +605,7 @@ components:
       properties:
         roleId:
           description: |-
+            Required.
             ID of the [Role](/docs/iam/api-ref/Role#representation) that is assigned to the `subject`.
 
             The maximum string length in characters is 50.
@@ -808,6 +815,13 @@ components:
             ID of the instance group that is being deleted.
             To get the instance group ID, use a [list](/docs/compute/api-ref/InstanceGroup/list) request.
           type: string
+    DeleteInstancesMetadata:
+      type: object
+      properties:
+        instanceGroupId:
+          description: ID of the instance group that the instances are being deleted
+            from.
+          type: string
     DeployPolicy:
       type: object
       properties:
@@ -856,6 +870,17 @@ components:
 
             Acceptable values are 0 seconds to 3600 seconds, inclusive.
           type: string
+        strategy:
+          $ref: '#/components/schemas/DeployPolicyStrategy_in_DeployPolicy_strategy'
+    DeployPolicyStrategy:
+      description: |2-
+         - PROACTIVE: Instance group may force running instance to stop. This is the default.
+         - OPPORTUNISTIC: Instance group doesn't force running instance to stop.
+        Instead, it will wait until instance stops itself or becomes unhealthy.
+      type: string
+      enum:
+      - PROACTIVE
+      - OPPORTUNISTIC
     Empty:
       description: Empty JSON object `` {} ``.
       type: object
@@ -1724,11 +1749,19 @@ components:
         instanceGroupId:
           description: ID of the InstanceGroup resource that is being stopped.
           type: string
+    StopInstancesMetadata:
+      type: object
+      properties:
+        instanceGroupId:
+          description: ID of the instance group that the instances are being stopped
+            from.
+          type: string
     Subject:
       type: object
       properties:
         id:
           description: |-
+            Required.
             ID of the subject.
 
             It can contain one of the following values:
@@ -1743,6 +1776,7 @@ components:
           type: string
         type:
           description: |-
+            Required.
             Type of the subject.
 
             It can contain one of the following values:
@@ -1752,6 +1786,8 @@ components:
             * `system`: System group. This type represents several accounts with a common system identifier.
 
             For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject).
+
+            The maximum string length in characters is 100.
           type: string
     TargetGroupSpec:
       type: object
@@ -1793,6 +1829,8 @@ components:
           description: |-
             Required.
             Updates to access bindings.
+
+            Must contain at least one element.
           type: array
           items:
             $ref: '#/components/schemas/AccessBindingDelta'
@@ -1907,6 +1945,7 @@ components:
       properties:
         id:
           description: |-
+            Required.
             ID of the subject.
 
             It can contain one of the following values:
@@ -1921,6 +1960,7 @@ components:
           type: string
         type:
           description: |-
+            Required.
             Type of the subject.
 
             It can contain one of the following values:
@@ -1930,6 +1970,8 @@ components:
             * `system`: System group. This type represents several accounts with a common system identifier.
 
             For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject).
+
+            The maximum string length in characters is 100.
           type: string
     AccessBindingAction_in_AccessBindingDelta_action:
       description: |-
@@ -1950,6 +1992,7 @@ components:
       properties:
         roleId:
           description: |-
+            Required.
             ID of the [Role](/docs/iam/api-ref/Role#representation) that is assigned to the `subject`.
 
             The maximum string length in characters is 50.
@@ -2208,6 +2251,8 @@ components:
 
             Acceptable values are 0 seconds to 3600 seconds, inclusive.
           type: string
+        strategy:
+          $ref: '#/components/schemas/DeployPolicyStrategy_in_DeployPolicy_strategy'
     AllocationPolicy_in_CreateInstanceGroupRequest_allocationPolicy:
       description: |-
         Required.
@@ -2243,6 +2288,17 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/HealthCheckSpec'
+    DeployPolicyStrategy_in_DeployPolicy_strategy:
+      description: |-
+        Affects instance lifecycle during deploy.
+
+         - PROACTIVE: Instance group may force running instance to stop. This is the default.
+         - OPPORTUNISTIC: Instance group doesn't force running instance to stop.
+        Instead, it will wait until instance stops itself or becomes unhealthy.
+      type: string
+      enum:
+      - PROACTIVE
+      - OPPORTUNISTIC
     InstanceTemplate_in_InstanceGroup_instanceTemplate:
       description: |-
         Instance template for creating the instance group.
@@ -2432,6 +2488,8 @@ components:
 
             Acceptable values are 0 seconds to 3600 seconds, inclusive.
           type: string
+        strategy:
+          $ref: '#/components/schemas/DeployPolicyStrategy_in_DeployPolicy_strategy'
     AllocationPolicy_in_InstanceGroup_allocationPolicy:
       description: Allocation policy of the instance group by zones and regions.
       type: object
@@ -2999,6 +3057,8 @@ components:
 
             Acceptable values are 0 seconds to 3600 seconds, inclusive.
           type: string
+        strategy:
+          $ref: '#/components/schemas/DeployPolicyStrategy_in_DeployPolicy_strategy'
     AllocationPolicy_in_UpdateInstanceGroupRequest_allocationPolicy:
       description: |-
         Required.

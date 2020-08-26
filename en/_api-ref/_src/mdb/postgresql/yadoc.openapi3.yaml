@@ -1265,7 +1265,7 @@ paths:
         in: query
         description: |-
           The maximum number of results per page to return. If the number of available
-          results is larger than [pageSize](/docs/managed-postgresql/api-ref/User/list#query_params), the service returns a [nextPageToken](/docs/managed-postgresql/api-ref/User/list#responses)
+          results is larger than `page_size`, the service returns a [nextPageToken](/docs/managed-postgresql/api-ref/User/list#responses)
           that can be used to get the next page of results in subsequent list requests.
 
           The maximum value is 1000.
@@ -1275,7 +1275,7 @@ paths:
       - name: pageToken
         in: query
         description: |-
-          Page token. To get the next page of results, set [pageToken](/docs/managed-postgresql/api-ref/User/list#query_params) to the [nextPageToken](/docs/managed-postgresql/api-ref/User/list#responses)
+          Page token. To get the next page of results, set `page_token` to the [nextPageToken](/docs/managed-postgresql/api-ref/User/list#responses)
           returned by a previous list request.
 
           The maximum string length in characters is 100.
@@ -2278,9 +2278,9 @@ components:
         nextPageToken:
           description: |-
             This token allows you to get the next page of results for list requests. If the number of results
-            is larger than [pageSize](/docs/managed-postgresql/api-ref/User/list#query_params), use the [nextPageToken](/docs/managed-postgresql/api-ref/User/list#responses) as the value
+            is larger than [pageSize](/docs/managed-postgresql/api-ref/User/list#query_params), use the `next_page_token` as the value
             for the [pageToken](/docs/managed-postgresql/api-ref/User/list#query_params) parameter in the next list request. Each subsequent
-            list request will have its own [nextPageToken](/docs/managed-postgresql/api-ref/User/list#responses) to continue paging through the results.
+            list request will have its own `next_page_token` to continue paging through the results.
           type: string
     LogRecord:
       type: object
@@ -6361,13 +6361,19 @@ components:
             The string length in characters must be 8-128.
           type: string
         permissions:
-          description: New set of permissions for the user.
+          description: Set of permissions granted to the user to access specific databases.
           type: array
           items:
             $ref: '#/components/schemas/Permission'
         connLimit:
           description: |-
-            Number of connections that should be available to the user.
+            Maximum number of database connections available to the user.
+
+            When used in session pooling, this setting limits the number of connections to every single host in PostgreSQL cluster. In this case, the setting's value must be greater than the total number of connections that backend services can open to access the PostgreSQL cluster. The setting's value should not exceed the value of the [Cluster.config.postgresql_config.max_connections] setting.
+
+            When used in transaction pooling, this setting limits the number of user's active transactions; therefore, in this mode user can open thousands of connections, but only `N` concurrent connections will be opened, where `N` is the value of the setting.
+
+            Minimum value: `10` (default: `50`), when used in session pooling.
 
             The minimum value is 10.
           type: string
@@ -6375,12 +6381,17 @@ components:
         settings:
           $ref: '#/components/schemas/UserSettings_in_UpdateUserRequest_settings'
         login:
-          description: User can login (default True)
+          description: |-
+            This flag defines whether the user can login to a PostgreSQL database.
+
+            Default value: `true` (login is allowed).
           type: boolean
           format: boolean
         grants:
           description: |-
-            User grants (GRANT <role> TO <user>), role must be other user
+            Roles and privileges that are granted to the user (`GRANT <role> TO <user>`).
+
+            For more information, see [the documentation](/docs/managed-postgresql/operations/grant).
 
             The maximum string length in characters for each value is 63.
             Each value must match the regular expression `` [a-zA-Z0-9_]* ``.
@@ -6400,23 +6411,35 @@ components:
           description: ID of the PostgreSQL cluster the user belongs to.
           type: string
         permissions:
-          description: Set of permissions granted to the user.
+          description: Set of permissions granted to the user to access specific databases.
           type: array
           items:
             $ref: '#/components/schemas/Permission'
         connLimit:
-          description: Number of database connections available to the user.
+          description: |-
+            Maximum number of database connections available to the user.
+
+            When used in session pooling, this setting limits the number of connections to every single host in PostgreSQL cluster. In this case, the setting's value must be greater than the total number of connections that backend services can open to access the PostgreSQL cluster. The setting's value should not exceed the value of the [Cluster.config.postgresqlConfig_12.effectiveConfig.maxConnections](/docs/managed-postgresql/api-ref/Cluster#representation) setting.
+
+            When used in transaction pooling, this setting limits the number of user's active transactions; therefore, in this mode user can open thousands of connections, but only `N` concurrent connections will be opened, where `N` is the value of the setting.
+
+            Minimum value: `10` (default: `50`), when used in session pooling.
           type: string
           format: int64
         settings:
           $ref: '#/components/schemas/UserSettings_in_User_settings'
         login:
-          description: User can login (default True)
+          description: |-
+            This flag defines whether the user can login to a PostgreSQL database.
+
+            Default value: `true` (login is allowed).
           type: boolean
           format: boolean
         grants:
           description: |-
-            User grants (GRANT <role> TO <user>), role must be other user
+            Roles and privileges that are granted to the user (`GRANT <role> TO <user>`).
+
+            For more information, see [the documentation](/docs/managed-postgresql/operations/grant).
 
             The maximum string length in characters for each value is 63.
             Each value must match the regular expression `` [a-zA-Z0-9_]* ``.
@@ -6424,28 +6447,51 @@ components:
           items:
             type: string
     UserSettings:
-      description: Postgresql user settings config
+      description: PostgreSQL user settings.
       type: object
       properties:
         defaultTransactionIsolation:
           $ref: '#/components/schemas/UserSettingsTransactionIsolation_in_UserSettings_defaultTransactionIsolation'
         lockTimeout:
-          description: in milliseconds.
+          description: |-
+            The maximum time (in milliseconds) for any statement to wait for acquiring a lock on an table, index, row or other database object.
+            If the wait time is longer than the specified amount, then this statement is aborted.
+
+            Default value: `0` (no control is enforced, a statement waiting time is unlimited).
           type: integer
           format: int64
         logMinDurationStatement:
-          description: in milliseconds.
+          description: |-
+            This setting controls logging of the duration of statements.
+
+            The duration of each completed statement will be logged if the statement ran for at least the specified amount of time (in milliseconds).
+            E.g., if this setting's value is set to `500`, a statement that took 300 milliseconds to complete will not be logged; on the other hand, the one that took 2000 milliseconds to complete, will be logged.
+
+            Value of `0` forces PostgreSQL to log the duration of all statements.
+
+            Value of `-1` (default) disables logging of the duration of statements.
+
+            See in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-logging.html).
           type: integer
           format: int64
         synchronousCommit:
           $ref: '#/components/schemas/UserSettingsSynchronousCommit_in_UserSettings_synchronousCommit'
         tempFileLimit:
-          description: in bytes.
+          description: |-
+            The maximum storage space size (in kilobytes) that a single process can use to create temporary files.
+            If a transaction exceeds this limit during execution, it will be aborted.
+
+            A huge query may not fit into a server's RAM, therefore PostgreSQL will use some storage to store and execute such a query. Too big queries can make excessive use of the storage system, effectively making other quieries to run slow. This setting prevents execution of a big queries that can influence other queries by limiting size of temporary files.
           type: integer
           format: int64
         logStatement:
           $ref: '#/components/schemas/UserSettingsLogStatement_in_UserSettings_logStatement'
     UserSettingsLogStatement:
+      description: |2-
+         - LOG_STATEMENT_NONE: (default) logs none of SQL statements.
+         - LOG_STATEMENT_DDL: logs all data definition statements (such as `CREATE`, `ALTER`, `DROP` and others).
+         - LOG_STATEMENT_MOD: logs all statements that fall in the `LOG_STATEMENT_DDL` category plus data-modifying statements (such as `INSERT`, `UPDATE` and others).
+         - LOG_STATEMENT_ALL: logs all SQL statements.
       type: string
       enum:
       - LOG_STATEMENT_NONE
@@ -6453,6 +6499,16 @@ components:
       - LOG_STATEMENT_MOD
       - LOG_STATEMENT_ALL
     UserSettingsSynchronousCommit:
+      description: |2-
+         - SYNCHRONOUS_COMMIT_ON: (default value) success is reported to the client if the data is in WAL (Write-Ahead Log), and WAL is written to the storage of both the master and its synchronous standby server.
+         - SYNCHRONOUS_COMMIT_OFF: success is reported to the client even if the data is not in WAL.
+        There is no synchronous write operation, data may be loss in case of storage subsystem failure.
+         - SYNCHRONOUS_COMMIT_LOCAL: success is reported to the client if the data is in WAL, and WAL is written to the storage of the master server.
+        The transaction may be lost due to storage subsystem failure on the master server.
+         - SYNCHRONOUS_COMMIT_REMOTE_WRITE: success is reported to the client if the data is in WAL, WAL is written to the storage of the master server, and the server's synchronous standby indicates that it has received WAL and written it out to its operating system.
+        The transaction may be lost due to simultaneous storage subsystem failure on the master and operating system's failure on the synchronous standby.
+         - SYNCHRONOUS_COMMIT_REMOTE_APPLY: success is reported to the client if the data is in WAL (Write-Ahead Log), WAL is written to the storage of the master server, and its synchronous standby indicates that it has received WAL and applied it.
+        The transaction may be lost due to irrecoverably failure of both the master and its synchronous standby.
       type: string
       enum:
       - SYNCHRONOUS_COMMIT_ON
@@ -6461,6 +6517,13 @@ components:
       - SYNCHRONOUS_COMMIT_REMOTE_WRITE
       - SYNCHRONOUS_COMMIT_REMOTE_APPLY
     UserSettingsTransactionIsolation:
+      description: |2-
+         - TRANSACTION_ISOLATION_READ_UNCOMMITTED: this level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
+         - TRANSACTION_ISOLATION_READ_COMMITTED: (default) on this level query sees only data committed before the query began.
+         - TRANSACTION_ISOLATION_REPEATABLE_READ: on this level all subsequent queries in a transaction will see the same rows, that were read by the first `SELECT` or `INSERT` query in this transaction, unchanged (these rows are locked during the first query).
+         - TRANSACTION_ISOLATION_SERIALIZABLE: this level provides the strictest transaction isolation.
+        All queries in the current transaction see only the rows that were fixed prior to execution of the first `SELECT` or `INSERT` query in this transaction.
+        If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure.
       type: string
       enum:
       - TRANSACTION_ISOLATION_READ_UNCOMMITTED
@@ -6486,13 +6549,20 @@ components:
             The string length in characters must be 8-128.
           type: string
         permissions:
-          description: Set of permissions to grant to the user.
+          description: Set of permissions to grant to the user to access specific
+            databases.
           type: array
           items:
             $ref: '#/components/schemas/Permission'
         connLimit:
           description: |-
-            Number of database connections that should be available to the user.
+            Maximum number of database connections that should be available to the user.
+
+            When used in session pooling, this setting limits the number of connections to every single host in PostgreSQL cluster. In this case, the setting's value must be greater than the total number of connections that backend services can open to access the PostgreSQL cluster. The setting's value should not exceed the value of the [Cluster.config.postgresqlConfig_12.effectiveConfig.maxConnections](/docs/managed-postgresql/api-ref/Cluster#representation) setting.
+
+            When used in transaction pooling, this setting limits the number of user's active transactions; therefore, in this mode user can open thousands of connections, but only `N` concurrent connections will be opened, where `N` is the value of the setting.
+
+            Minimum value: `10` (default: `50`), when used in session pooling.
 
             The minimum value is 10.
           type: integer
@@ -6500,12 +6570,17 @@ components:
         settings:
           $ref: '#/components/schemas/UserSettings_in_UserSpec_settings'
         login:
-          description: User can login (default True)
+          description: |-
+            This flag defines whether the user can login to a PostgreSQL database.
+
+            Default value: `true` (login is allowed).
           type: boolean
           format: boolean
         grants:
           description: |-
-            User grants (GRANT <role> TO <user>), role must be other user
+            Roles and privileges that are granted to the user (`GRANT <role> TO <user>`).
+
+            For more information, see [the documentation](/docs/managed-postgresql/operations/grant).
 
             The maximum string length in characters for each value is 63.
             Each value must match the regular expression `` [a-zA-Z0-9_]* ``.
@@ -6808,13 +6883,20 @@ components:
             The string length in characters must be 8-128.
           type: string
         permissions:
-          description: Set of permissions to grant to the user.
+          description: Set of permissions to grant to the user to access specific
+            databases.
           type: array
           items:
             $ref: '#/components/schemas/Permission'
         connLimit:
           description: |-
-            Number of database connections that should be available to the user.
+            Maximum number of database connections that should be available to the user.
+
+            When used in session pooling, this setting limits the number of connections to every single host in PostgreSQL cluster. In this case, the setting's value must be greater than the total number of connections that backend services can open to access the PostgreSQL cluster. The setting's value should not exceed the value of the [Cluster.config.postgresqlConfig_12.effectiveConfig.maxConnections](/docs/managed-postgresql/api-ref/Cluster#representation) setting.
+
+            When used in transaction pooling, this setting limits the number of user's active transactions; therefore, in this mode user can open thousands of connections, but only `N` concurrent connections will be opened, where `N` is the value of the setting.
+
+            Minimum value: `10` (default: `50`), when used in session pooling.
 
             The minimum value is 10.
           type: integer
@@ -6822,12 +6904,17 @@ components:
         settings:
           $ref: '#/components/schemas/UserSettings_in_UserSpec_settings'
         login:
-          description: User can login (default True)
+          description: |-
+            This flag defines whether the user can login to a PostgreSQL database.
+
+            Default value: `true` (login is allowed).
           type: boolean
           format: boolean
         grants:
           description: |-
-            User grants (GRANT <role> TO <user>), role must be other user
+            Roles and privileges that are granted to the user (`GRANT <role> TO <user>`).
+
+            For more information, see [the documentation](/docs/managed-postgresql/operations/grant).
 
             The maximum string length in characters for each value is 63.
             Each value must match the regular expression `` [a-zA-Z0-9_]* ``.
@@ -13428,56 +13515,98 @@ components:
         The rest of the fields will be reset to the default.
       type: string
     UserSettings_in_UpdateUserRequest_settings:
-      description: |-
-        Postgresql settings for this user
-
-        Postgresql user settings config
+      description: PostgreSQL user settings.
       type: object
       properties:
         defaultTransactionIsolation:
           $ref: '#/components/schemas/UserSettingsTransactionIsolation_in_UserSettings_defaultTransactionIsolation'
         lockTimeout:
-          description: in milliseconds.
+          description: |-
+            The maximum time (in milliseconds) for any statement to wait for acquiring a lock on an table, index, row or other database object.
+            If the wait time is longer than the specified amount, then this statement is aborted.
+
+            Default value: `0` (no control is enforced, a statement waiting time is unlimited).
           type: integer
           format: int64
         logMinDurationStatement:
-          description: in milliseconds.
+          description: |-
+            This setting controls logging of the duration of statements.
+
+            The duration of each completed statement will be logged if the statement ran for at least the specified amount of time (in milliseconds).
+            E.g., if this setting's value is set to `500`, a statement that took 300 milliseconds to complete will not be logged; on the other hand, the one that took 2000 milliseconds to complete, will be logged.
+
+            Value of `0` forces PostgreSQL to log the duration of all statements.
+
+            Value of `-1` (default) disables logging of the duration of statements.
+
+            See in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-logging.html).
           type: integer
           format: int64
         synchronousCommit:
           $ref: '#/components/schemas/UserSettingsSynchronousCommit_in_UserSettings_synchronousCommit'
         tempFileLimit:
-          description: in bytes.
+          description: |-
+            The maximum storage space size (in kilobytes) that a single process can use to create temporary files.
+            If a transaction exceeds this limit during execution, it will be aborted.
+
+            A huge query may not fit into a server's RAM, therefore PostgreSQL will use some storage to store and execute such a query. Too big queries can make excessive use of the storage system, effectively making other quieries to run slow. This setting prevents execution of a big queries that can influence other queries by limiting size of temporary files.
           type: integer
           format: int64
         logStatement:
           $ref: '#/components/schemas/UserSettingsLogStatement_in_UserSettings_logStatement'
     UserSettings_in_User_settings:
-      description: |-
-        Postgresql settings for this user
-
-        Postgresql user settings config
+      description: PostgreSQL user settings.
       type: object
       properties:
         defaultTransactionIsolation:
           $ref: '#/components/schemas/UserSettingsTransactionIsolation_in_UserSettings_defaultTransactionIsolation'
         lockTimeout:
-          description: in milliseconds.
+          description: |-
+            The maximum time (in milliseconds) for any statement to wait for acquiring a lock on an table, index, row or other database object.
+            If the wait time is longer than the specified amount, then this statement is aborted.
+
+            Default value: `0` (no control is enforced, a statement waiting time is unlimited).
           type: integer
           format: int64
         logMinDurationStatement:
-          description: in milliseconds.
+          description: |-
+            This setting controls logging of the duration of statements.
+
+            The duration of each completed statement will be logged if the statement ran for at least the specified amount of time (in milliseconds).
+            E.g., if this setting's value is set to `500`, a statement that took 300 milliseconds to complete will not be logged; on the other hand, the one that took 2000 milliseconds to complete, will be logged.
+
+            Value of `0` forces PostgreSQL to log the duration of all statements.
+
+            Value of `-1` (default) disables logging of the duration of statements.
+
+            See in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-logging.html).
           type: integer
           format: int64
         synchronousCommit:
           $ref: '#/components/schemas/UserSettingsSynchronousCommit_in_UserSettings_synchronousCommit'
         tempFileLimit:
-          description: in bytes.
+          description: |-
+            The maximum storage space size (in kilobytes) that a single process can use to create temporary files.
+            If a transaction exceeds this limit during execution, it will be aborted.
+
+            A huge query may not fit into a server's RAM, therefore PostgreSQL will use some storage to store and execute such a query. Too big queries can make excessive use of the storage system, effectively making other quieries to run slow. This setting prevents execution of a big queries that can influence other queries by limiting size of temporary files.
           type: integer
           format: int64
         logStatement:
           $ref: '#/components/schemas/UserSettingsLogStatement_in_UserSettings_logStatement'
     UserSettingsTransactionIsolation_in_UserSettings_defaultTransactionIsolation:
+      description: |-
+        SQL sets an isolation level for each transaction.
+        This setting defines the default isolation level to be set for all new SQL transactions.
+
+        See in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/transaction-iso.html).
+
+         - TRANSACTION_ISOLATION_READ_UNCOMMITTED: this level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
+         - TRANSACTION_ISOLATION_READ_COMMITTED: (default) on this level query sees only data committed before the query began.
+         - TRANSACTION_ISOLATION_REPEATABLE_READ: on this level all subsequent queries in a transaction will see the same rows, that were read by the first `SELECT` or `INSERT` query in this transaction, unchanged (these rows are locked during the first query).
+         - TRANSACTION_ISOLATION_SERIALIZABLE: this level provides the strictest transaction isolation.
+        All queries in the current transaction see only the rows that were fixed prior to execution of the first `SELECT` or `INSERT` query in this transaction.
+        If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure.
       type: string
       enum:
       - TRANSACTION_ISOLATION_READ_UNCOMMITTED
@@ -13485,6 +13614,23 @@ components:
       - TRANSACTION_ISOLATION_REPEATABLE_READ
       - TRANSACTION_ISOLATION_SERIALIZABLE
     UserSettingsSynchronousCommit_in_UserSettings_synchronousCommit:
+      description: |-
+        This setting defines whether DBMS will commit transaction in a synchronous way.
+
+        When synchronization is enabled, cluster waits for the synchronous operations to be completed prior to reporting `success` to the client.
+        These operations guarantee different levels of the data safety and visibility in the cluster.
+
+        See in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-SYNCHRONOUS-COMMIT).
+
+         - SYNCHRONOUS_COMMIT_ON: (default value) success is reported to the client if the data is in WAL (Write-Ahead Log), and WAL is written to the storage of both the master and its synchronous standby server.
+         - SYNCHRONOUS_COMMIT_OFF: success is reported to the client even if the data is not in WAL.
+        There is no synchronous write operation, data may be loss in case of storage subsystem failure.
+         - SYNCHRONOUS_COMMIT_LOCAL: success is reported to the client if the data is in WAL, and WAL is written to the storage of the master server.
+        The transaction may be lost due to storage subsystem failure on the master server.
+         - SYNCHRONOUS_COMMIT_REMOTE_WRITE: success is reported to the client if the data is in WAL, WAL is written to the storage of the master server, and the server's synchronous standby indicates that it has received WAL and written it out to its operating system.
+        The transaction may be lost due to simultaneous storage subsystem failure on the master and operating system's failure on the synchronous standby.
+         - SYNCHRONOUS_COMMIT_REMOTE_APPLY: success is reported to the client if the data is in WAL (Write-Ahead Log), WAL is written to the storage of the master server, and its synchronous standby indicates that it has received WAL and applied it.
+        The transaction may be lost due to irrecoverably failure of both the master and its synchronous standby.
       type: string
       enum:
       - SYNCHRONOUS_COMMIT_ON
@@ -13493,6 +13639,15 @@ components:
       - SYNCHRONOUS_COMMIT_REMOTE_WRITE
       - SYNCHRONOUS_COMMIT_REMOTE_APPLY
     UserSettingsLogStatement_in_UserSettings_logStatement:
+      description: |-
+        This setting specifies which SQL statements should be logged (on the user level).
+
+        See in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-logging.html).
+
+         - LOG_STATEMENT_NONE: (default) logs none of SQL statements.
+         - LOG_STATEMENT_DDL: logs all data definition statements (such as `CREATE`, `ALTER`, `DROP` and others).
+         - LOG_STATEMENT_MOD: logs all statements that fall in the `LOG_STATEMENT_DDL` category plus data-modifying statements (such as `INSERT`, `UPDATE` and others).
+         - LOG_STATEMENT_ALL: logs all SQL statements.
       type: string
       enum:
       - LOG_STATEMENT_NONE
@@ -13501,25 +13656,43 @@ components:
       - LOG_STATEMENT_ALL
     UserSettings_in_UserSpec_settings:
       description: |-
-        Postgresql settings for this user
+        PostgreSQL settings for the user.
 
-        Postgresql user settings config
+        PostgreSQL user settings.
       type: object
       properties:
         defaultTransactionIsolation:
           $ref: '#/components/schemas/UserSettingsTransactionIsolation_in_UserSettings_defaultTransactionIsolation'
         lockTimeout:
-          description: in milliseconds.
+          description: |-
+            The maximum time (in milliseconds) for any statement to wait for acquiring a lock on an table, index, row or other database object.
+            If the wait time is longer than the specified amount, then this statement is aborted.
+
+            Default value: `0` (no control is enforced, a statement waiting time is unlimited).
           type: integer
           format: int64
         logMinDurationStatement:
-          description: in milliseconds.
+          description: |-
+            This setting controls logging of the duration of statements.
+
+            The duration of each completed statement will be logged if the statement ran for at least the specified amount of time (in milliseconds).
+            E.g., if this setting's value is set to `500`, a statement that took 300 milliseconds to complete will not be logged; on the other hand, the one that took 2000 milliseconds to complete, will be logged.
+
+            Value of `0` forces PostgreSQL to log the duration of all statements.
+
+            Value of `-1` (default) disables logging of the duration of statements.
+
+            See in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-logging.html).
           type: integer
           format: int64
         synchronousCommit:
           $ref: '#/components/schemas/UserSettingsSynchronousCommit_in_UserSettings_synchronousCommit'
         tempFileLimit:
-          description: in bytes.
+          description: |-
+            The maximum storage space size (in kilobytes) that a single process can use to create temporary files.
+            If a transaction exceeds this limit during execution, it will be aborted.
+
+            A huge query may not fit into a server's RAM, therefore PostgreSQL will use some storage to store and execute such a query. Too big queries can make excessive use of the storage system, effectively making other quieries to run slow. This setting prevents execution of a big queries that can influence other queries by limiting size of temporary files.
           type: integer
           format: int64
         logStatement:

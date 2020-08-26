@@ -29,6 +29,12 @@ POST https://mdb.api.cloud.yandex.net/mdb/sqlserver/v1alpha/clusters:restore
       "diskSize": "string",
       "diskTypeId": "string"
     },
+    "backupWindowStart": {
+      "hours": "integer",
+      "minutes": "integer",
+      "seconds": "integer",
+      "nanos": "integer"
+    },
     "sqlserverConfig_2016Sp2": {
       "maxDegreeOfParallelism": "integer",
       "costThresholdForParallelism": "integer",
@@ -68,6 +74,11 @@ configSpec.<br>resources | **object**<br>Resources allocated to sqlserver hosts.
 configSpec.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-sqlserver/concepts/instance-types">documentation</a>.</p> 
 configSpec.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host.</p> 
 configSpec.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. Possible values:</p> <ul> <li>network-nvme — network SSD drive,</li> <li>local-nvme — local SSD storage.</li> </ul> 
+configSpec.<br>backupWindowStart | **object**<br>Start time for the daily backup in UTC timezone<br><p>Represents a time of day. The date and time zone are either not significant or are specified elsewhere. An API may choose to allow leap seconds. Related types are <a href="https://github.com/googleapis/googleapis/blob/master/google/type/date.proto">google.type.Date</a> and <a href="https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto">google.protobuf.Timestamp</a>.</p> 
+configSpec.<br>backupWindowStart.<br>hours | **integer** (int32)<br><p>Hours of day in 24 hour format. Should be from 0 to 23. An API may choose to allow the value &quot;24:00:00&quot; for scenarios like business closing time.</p> 
+configSpec.<br>backupWindowStart.<br>minutes | **integer** (int32)<br><p>Minutes of hour of day. Must be from 0 to 59.</p> 
+configSpec.<br>backupWindowStart.<br>seconds | **integer** (int32)<br><p>Seconds of minutes of the time. Must normally be from 0 to 59. An API may allow the value 60 if it allows leap-seconds.</p> 
+configSpec.<br>backupWindowStart.<br>nanos | **integer** (int32)<br><p>Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.</p> 
 configSpec.<br>sqlserverConfig_2016Sp2 | **object**<br>Configuration for a sqlserver 5.7 cluster.<br><p>Options and structure of <code>SQLServerConfig2016sp2</code> reflects sqlserver 2016 sp2 configuration file</p> 
 configSpec.<br>sqlserverConfig_2016Sp2.<br>maxDegreeOfParallelism | **integer** (int64)<br><p>sp_configure option for contolling degree of parallelism. https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option?view=sql-server-ver15</p> <p>Acceptable values are 1 to 99, inclusive.</p> 
 configSpec.<br>sqlserverConfig_2016Sp2.<br>costThresholdForParallelism | **integer** (int64)<br><p>sp_configure option for controling how heavy the query should be to be eligible for parallel plan</p> <p>Acceptable values are 1 to 999999, inclusive.</p> 

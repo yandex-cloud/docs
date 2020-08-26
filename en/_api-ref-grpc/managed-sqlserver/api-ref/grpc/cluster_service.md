@@ -190,6 +190,7 @@ version | **string**<br><ul><li>2016sp2</li></ul>
 sqlserver_config | **oneof:** `sqlserver_config_2016sp2`<br>Configuration of a sqlserver cluster.
 &nbsp;&nbsp;sqlserver_config_2016sp2 | **[config.SQLServerConfig2016sp2](#SQLServerConfig2016sp2)**<br>Configuration for a sqlserver 5.7 cluster. 
 resources | **[Resources](../cluster.proto#Resources2)**<br>Resources allocated to sqlserver hosts. 
+backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Start time for the daily backup in UTC timezone 
 
 
 ### Resources {#Resources}
@@ -305,6 +306,7 @@ version | **string**<br><ul><li>2016sp2</li></ul>
 sqlserver_config | **oneof:** `sqlserver_config_2016sp2`<br>Configuration of a sqlserver cluster.
 &nbsp;&nbsp;sqlserver_config_2016sp2 | **[config.SQLServerConfig2016sp2](#SQLServerConfig2016sp2)**<br>Configuration for a sqlserver 5.7 cluster. 
 resources | **[Resources](../cluster.proto#Resources3)**<br>Resources allocated to sqlserver hosts. 
+backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Start time for the daily backup in UTC timezone 
 
 
 ### Resources {#Resources}
@@ -666,6 +668,7 @@ version | **string**<br><ul><li>2016sp2</li></ul>
 sqlserver_config | **oneof:** `sqlserver_config_2016sp2`<br>Configuration of a sqlserver cluster.
 &nbsp;&nbsp;sqlserver_config_2016sp2 | **[config.SQLServerConfig2016sp2](#SQLServerConfig2016sp2)**<br>Configuration for a sqlserver 5.7 cluster. 
 resources | **[Resources](../cluster.proto#Resources4)**<br>Resources allocated to sqlserver hosts. 
+backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Start time for the daily backup in UTC timezone 
 
 
 ### Resources {#Resources}

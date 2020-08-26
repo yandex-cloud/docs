@@ -548,6 +548,8 @@ paths:
           Чтобы получить идентификатор ресурса, используйте соответствующий запрос List.
           Например, используйте запрос [list](/docs/resource-manager/api-ref/Cloud/list) для получения
           идентификатора ресурса Cloud.
+
+          Максимальная длина строки в символах — 50.
         required: true
         schema:
           type: string
@@ -595,6 +597,8 @@ paths:
           Идентификатор ресурса, для которого задается список привязок прав доступа.
 
           Чтобы получить идентификатор ресурса, используйте соответствующий запрос List.
+
+          Максимальная длина строки в символах — 50.
         required: true
         schema:
           type: string
@@ -627,6 +631,8 @@ paths:
         description: |-
           Обязательное поле.
           Идентификатор ресурса, для которого обновляется список привязок прав доступа.
+
+          Максимальная длина строки в символах — 50.
         required: true
         schema:
           type: string
@@ -654,6 +660,7 @@ components:
       properties:
         roleId:
           description: |-
+            Обязательное поле.
             Идентификатор ресурса [Role](/docs/iam/api-ref/Role#representation) который назначен для субъекта, указанного в
             параметре `subject`.
 
@@ -1138,6 +1145,7 @@ components:
       properties:
         id:
           description: |-
+            Обязательное поле.
             Идентификатор субъекта.
 
             Может иметь одно из значений:
@@ -1149,6 +1157,7 @@ components:
           type: string
         type:
           description: |-
+            Обязательное поле.
             Тип субъекта.
 
             Может иметь одно из значений:
@@ -1158,6 +1167,8 @@ components:
             * `system` — системная группа. Представляет набор аккаунтов, который описывается общим системным идентификатором.
 
             Дополнительные сведения см. в разделе [Субъект, которому назначается роль](/docs/iam/concepts/access-control/#subject).
+
+            Максимальная длина строки в символах — 100.
           type: string
     UpdateAccessBindingsMetadata:
       type: object
@@ -1173,6 +1184,8 @@ components:
           description: |-
             Обязательное поле.
             Изменения в список привязок прав доступа.
+
+            Должен содержать хотя бы один элемент.
           type: array
           items:
             $ref: '#/components/schemas/AccessBindingDelta'
@@ -1317,6 +1330,7 @@ components:
       properties:
         id:
           description: |-
+            Обязательное поле.
             Идентификатор субъекта.
 
             Может иметь одно из значений:
@@ -1328,6 +1342,7 @@ components:
           type: string
         type:
           description: |-
+            Обязательное поле.
             Тип субъекта.
 
             Может иметь одно из значений:
@@ -1337,6 +1352,8 @@ components:
             * `system` — системная группа. Представляет набор аккаунтов, который описывается общим системным идентификатором.
 
             Дополнительные сведения см. в разделе [Субъект, которому назначается роль](/docs/iam/concepts/access-control/#subject).
+
+            Максимальная длина строки в символах — 100.
           type: string
     AccessBindingAction_in_AccessBindingDelta_action:
       description: |-
@@ -1357,6 +1374,7 @@ components:
       properties:
         roleId:
           description: |-
+            Обязательное поле.
             Идентификатор ресурса [Role](/docs/iam/api-ref/Role#representation) который назначен для субъекта, указанного в
             параметре `subject`.
 

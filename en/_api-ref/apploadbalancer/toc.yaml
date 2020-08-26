@@ -59,6 +59,10 @@ items:
         href: api-ref/LoadBalancer/listOperations.md
       - name: removeListener
         href: api-ref/LoadBalancer/removeListener.md
+      - name: start
+        href: api-ref/LoadBalancer/start.md
+      - name: stop
+        href: api-ref/LoadBalancer/stop.md
       - name: update
         href: api-ref/LoadBalancer/update.md
       - name: updateListener

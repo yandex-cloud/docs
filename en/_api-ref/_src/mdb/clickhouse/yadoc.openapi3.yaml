@@ -2393,6 +2393,8 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ClickhouseConfigGraphiteRollup'
+        kafka:
+          $ref: '#/components/schemas/ClickhouseConfigKafka_in_ClickhouseConfig_kafka'
         maxConnections:
           description: |-
             Maximum number of inbound connections.
@@ -3020,6 +3022,31 @@ components:
             Value must be greater than 0.
           type: string
           format: int64
+    ClickhouseConfigKafka:
+      type: object
+      properties:
+        securityProtocol:
+          $ref: '#/components/schemas/ClickhouseConfigKafkaSecurityProtocol_in_ClickhouseConfigKafka_securityProtocol'
+        saslMechanism:
+          $ref: '#/components/schemas/ClickhouseConfigKafkaSaslMechanism_in_ClickhouseConfigKafka_saslMechanism'
+        saslUsername:
+          type: string
+        saslPassword:
+          type: string
+    ClickhouseConfigKafkaSaslMechanism:
+      type: string
+      enum:
+      - SASL_MECHANISM_GSSAPI
+      - SASL_MECHANISM_PLAIN
+      - SASL_MECHANISM_SCRAM_SHA_256
+      - SASL_MECHANISM_SCRAM_SHA_512
+    ClickhouseConfigKafkaSecurityProtocol:
+      type: string
+      enum:
+      - SECURITY_PROTOCOL_PLAINTEXT
+      - SECURITY_PROTOCOL_SSL
+      - SECURITY_PROTOCOL_SASL_PLAINTEXT
+      - SECURITY_PROTOCOL_SASL_SSL
     ClickhouseConfigLogLevel:
       type: string
       enum:
@@ -3076,6 +3103,14 @@ components:
           $ref: '#/components/schemas/ClickhouseConfig_in_ClickhouseConfigSet_userConfig'
         defaultConfig:
           $ref: '#/components/schemas/ClickhouseConfig_in_ClickhouseConfigSet_defaultConfig'
+    CloudStorage:
+      type: object
+      properties:
+        enabled:
+          description: Whether to use Yandex Object Storage for storing ClickHouse
+            data.
+          type: boolean
+          format: boolean
     Cluster:
       description: |-
         A ClickHouse Cluster resource. For more information, see the
@@ -3150,6 +3185,8 @@ components:
           $ref: '#/components/schemas/TimeOfDay_in_ClusterConfig_backupWindowStart'
         access:
           $ref: '#/components/schemas/Access_in_ClusterConfig_access'
+        cloudStorage:
+          $ref: '#/components/schemas/CloudStorage_in_ClusterConfig_cloudStorage'
     ClusterConfigClickhouse:
       type: object
       properties:
@@ -3222,6 +3259,8 @@ components:
           $ref: '#/components/schemas/TimeOfDay_in_ConfigSpec_backupWindowStart'
         access:
           $ref: '#/components/schemas/Access_in_ConfigSpec_access'
+        cloudStorage:
+          $ref: '#/components/schemas/CloudStorage_in_ConfigSpec_cloudStorage'
     ConfigSpecClickhouse:
       type: object
       properties:
@@ -5665,6 +5704,17 @@ components:
             in replication queue).
           type: integer
           format: int64
+    ClickhouseConfigKafka_in_ClickhouseConfig_kafka:
+      type: object
+      properties:
+        securityProtocol:
+          $ref: '#/components/schemas/ClickhouseConfigKafkaSecurityProtocol_in_ClickhouseConfigKafka_securityProtocol'
+        saslMechanism:
+          $ref: '#/components/schemas/ClickhouseConfigKafkaSaslMechanism_in_ClickhouseConfigKafka_saslMechanism'
+        saslUsername:
+          type: string
+        saslPassword:
+          type: string
     ClickhouseConfigLogLevel_in_ClickhouseConfig_textLogLevel:
       description: 'Logging level for text_log system table. Possible values: TRACE,
         DEBUG, INFORMATION, WARNING, ERROR.'
@@ -5827,6 +5877,20 @@ components:
             Default value: `false`.
           type: boolean
           format: boolean
+    ClickhouseConfigKafkaSecurityProtocol_in_ClickhouseConfigKafka_securityProtocol:
+      type: string
+      enum:
+      - SECURITY_PROTOCOL_PLAINTEXT
+      - SECURITY_PROTOCOL_SSL
+      - SECURITY_PROTOCOL_SASL_PLAINTEXT
+      - SECURITY_PROTOCOL_SASL_SSL
+    ClickhouseConfigKafkaSaslMechanism_in_ClickhouseConfigKafka_saslMechanism:
+      type: string
+      enum:
+      - SASL_MECHANISM_GSSAPI
+      - SASL_MECHANISM_PLAIN
+      - SASL_MECHANISM_SCRAM_SHA_256
+      - SASL_MECHANISM_SCRAM_SHA_512
     ClickhouseConfig_in_ClickhouseConfigSet_effectiveConfig:
       description: |-
         Required.
@@ -5864,6 +5928,8 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ClickhouseConfigGraphiteRollup'
+        kafka:
+          $ref: '#/components/schemas/ClickhouseConfigKafka_in_ClickhouseConfig_kafka'
         maxConnections:
           description: |-
             Maximum number of inbound connections.
@@ -6050,6 +6116,8 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ClickhouseConfigGraphiteRollup'
+        kafka:
+          $ref: '#/components/schemas/ClickhouseConfigKafka_in_ClickhouseConfig_kafka'
         maxConnections:
           description: |-
             Maximum number of inbound connections.
@@ -6236,6 +6304,8 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ClickhouseConfigGraphiteRollup'
+        kafka:
+          $ref: '#/components/schemas/ClickhouseConfigKafka_in_ClickhouseConfig_kafka'
         maxConnections:
           description: |-
             Maximum number of inbound connections.
@@ -6416,6 +6486,8 @@ components:
           $ref: '#/components/schemas/TimeOfDay_in_ClusterConfig_backupWindowStart'
         access:
           $ref: '#/components/schemas/Access_in_ClusterConfig_access'
+        cloudStorage:
+          $ref: '#/components/schemas/CloudStorage_in_ClusterConfig_cloudStorage'
     ClusterHealth_in_Cluster_health:
       description: |-
         Aggregated cluster health.
@@ -6547,6 +6619,14 @@ components:
           description: Allow access to cluster for Serverless.
           type: boolean
           format: boolean
+    CloudStorage_in_ClusterConfig_cloudStorage:
+      type: object
+      properties:
+        enabled:
+          description: Whether to use Yandex Object Storage for storing ClickHouse
+            data.
+          type: boolean
+          format: boolean
     ClickhouseConfigSet_in_ClusterConfigClickhouse_config:
       description: Configuration settings of a ClickHouse server.
       type: object
@@ -6671,6 +6751,14 @@ components:
           description: Allow access to cluster for Serverless.
           type: boolean
           format: boolean
+    CloudStorage_in_ConfigSpec_cloudStorage:
+      type: object
+      properties:
+        enabled:
+          description: Whether to use Yandex Object Storage for storing ClickHouse
+            data.
+          type: boolean
+          format: boolean
     ClickhouseConfig_in_ConfigSpecClickhouse_config:
       description: |-
         Configuration for a ClickHouse server.
@@ -6706,6 +6794,8 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ClickhouseConfigGraphiteRollup'
+        kafka:
+          $ref: '#/components/schemas/ClickhouseConfigKafka_in_ClickhouseConfig_kafka'
         maxConnections:
           description: |-
             Maximum number of inbound connections.
@@ -6987,6 +7077,8 @@ components:
           $ref: '#/components/schemas/TimeOfDay_in_ConfigSpec_backupWindowStart'
         access:
           $ref: '#/components/schemas/Access_in_ConfigSpec_access'
+        cloudStorage:
+          $ref: '#/components/schemas/CloudStorage_in_ConfigSpec_cloudStorage'
     DatabaseSpec_in_CreateDatabaseRequest_databaseSpec:
       description: |-
         Required.
@@ -7167,6 +7259,8 @@ components:
           $ref: '#/components/schemas/TimeOfDay_in_ConfigSpec_backupWindowStart'
         access:
           $ref: '#/components/schemas/Access_in_ConfigSpec_access'
+        cloudStorage:
+          $ref: '#/components/schemas/CloudStorage_in_ConfigSpec_cloudStorage'
     ServiceType_in_Service_type:
       description: |-
         Type of the service provided by the host.
@@ -7290,6 +7384,8 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ClickhouseConfigGraphiteRollup'
+        kafka:
+          $ref: '#/components/schemas/ClickhouseConfigKafka_in_ClickhouseConfig_kafka'
         maxConnections:
           description: |-
             Maximum number of inbound connections.
@@ -7506,6 +7602,8 @@ components:
           $ref: '#/components/schemas/TimeOfDay_in_ConfigSpec_backupWindowStart'
         access:
           $ref: '#/components/schemas/Access_in_ConfigSpec_access'
+        cloudStorage:
+          $ref: '#/components/schemas/CloudStorage_in_ConfigSpec_cloudStorage'
     MaintenanceWindow_in_UpdateClusterRequest_maintenanceWindow:
       description: Window of maintenance operations.
       type: object
