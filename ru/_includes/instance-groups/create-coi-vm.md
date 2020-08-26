@@ -1,4 +1,4 @@
-Для запуска нескольких экземпляров сервиса в Docker-контейнерах вы можете создать группу виртуальных машин на базе образа [{{ coi }}](../../cos/concepts/index.md). В такой группе обновлять Docker-контейнер можно с помощью метаданных ВМ.
+Для запуска нескольких экземпляров сервиса в Docker-контейнерах вы можете создать группу виртуальных машин на базе образа [{{ coi }}](../../cos/concepts/index.md). В такой группе обновлять Docker-контейнер можно с помощью метаданных ВМ используя [COI или Docker Compose спецификацию](../../cos/concepts/index.md#coi-specifications).
 
 {% include [warning.md](warning.md) %}
 
@@ -97,7 +97,7 @@
         `network_id` | Идентификатор сети `default-net`.
         `primary_v4_address_spec` | Спецификация версии интернет протокола IPv4. На данный момент доступен только протокол IPv4. Вы можете предоставить публичный доступ к виртуальным машинам группы, указав версию IP для публичного IP-адреса. Подробнее читайте в разделе [{#T}](../../compute/concepts/instance-groups/instance-template.md#instance-template).
         `metadata` | Значения, которые будут переданы в метаданные виртуальной машины.
-        `docker-container-declaration` | Ключ в метаданных виртуальной машины, по которому доступно [описание Docker-контейнера](../../cos/concepts/index.md#coi-specification).
+        `docker-container-declaration` | Ключ в метаданных виртуальной машины, при котором используется [COI спецификация Docker-контейнера](../../cos/concepts/index.md#coi-specifications). Вы можете использовать в метаданных [Docker Compose спецификацию](../../cos/concepts/index.md#compose-spec), для этого вместо ключа `docker-container-declaration` укажите ключ `docker-compose`.
 
     - [Политики](../../compute/concepts/instance-groups/policies.md):
 
@@ -162,6 +162,13 @@
             zones:
                 - zone_id: ru-central1-a
         ```
+
+        {% note info %}
+        
+        Чтобы использовать в `specification.yaml` [Docker Compose спецификацию](../../cos/concepts/index.md#compose-spec),  вместо ключа `docker-container-declaration` укажите ключ `docker-compose`.
+        
+        {% endnote %}
+
 
 1. Создайте группу виртуальных машин в каталоге по умолчанию:
 

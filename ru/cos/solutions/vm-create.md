@@ -27,16 +27,22 @@
     {% include [cli-install](../../_includes/cli-install.md) %}
     
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+    
+    При создании ВМ параметры Docker-контейнера можно задать следующими способами:
+    * [С помощью флагов команды YC CLI](#cli).
+    * [С помощью файла спецификации](#config).
+    
+    #### Создать ВМ, используя параметры YC CLI {#cli}
+    
+    Чтобы создать ВМ с помощью флагов команды YC CLI:
+    1. Посмотрите описание команды:
 
-    1. Посмотрите описание команды CLI для создания ВМ на базе образа {{ coi }}:
-
+        ```bash
+        yc compute instance create-with-container --help
         ```
-        $ yc compute instance create-with-container --help
-        ```
-
-    1. Создайте ВМ с образом {{ coi }}:
+    1. Выполните команду:
         
-        ```
+        ```bash
         $ yc compute instance create-with-container
         --name my-vm \
         --zone=ru-central1-b \
@@ -58,12 +64,12 @@
         platform_id: standard-v2
         ...
         ```
-       
-        Где: 
+    
+        Где:
         - `--name` — имя виртуальной машины.
         - `--zone` — зона доступности.
         - `--ssh-key` — содержимое файла [открытого ключа](../../compute/quickstart/quick-create-linux.md#create-ssh).
-        - `--service-account-name` — имя сервисного аккаунта. 
+        - `--service-account-name` — имя сервисного аккаунта.
         - `--public-ip` — выделение публичного IP-адреса для ВМ.
         - `--container-name` — имя Docker-контейнера.
         - `--container-image` — имя Docker-образа для запуска Docker-контейнера.
@@ -73,5 +79,49 @@
         - `--container-privileged` — запуск Docker-контейнера в привилегированном режиме.
         
         После создания виртуальная машина появится в списке ВМ в разделе **{{ compute-name }}** в [консоли управления]({{ link-console-main }}). Подробнее о работе с ВМ читайте в [пошаговых инструкциях](../../compute/operations/index.md).
+       
+    #### Создать ВМ, используя параметры YC CLI {#config}
+    
+    Чтобы создать ВМ c помощью [файла спецификации](../concepts/index.md#coi-specification):
+    1. Посмотрите описание команды:
 
+        ```bash
+        yc compute instance create-with-container --help
+        ```
+    1. Подготовьте файл спецификации Docker-контейнера. Сохраните следующие данные в файл `docker-spec.yaml`:
+        
+        ```yaml
+        spec:
+          containers:
+          - command:
+            - sleep
+            args:
+            - 100000
+            image: cr.yandex/mirror/ubuntu:20.04
+            name: my-container
+            securityContext:
+              privileged: true
+        ```
+    1. Выполните команду:
+    
+        ```bash
+        $ yc compute instance create-with-container \
+          --coi-spec-file docker-spec.yaml \
+          --name my-vm \
+          --zone=ru-central1-b \
+          --ssh-key ssh-key.pub \
+          --service-account-name my-service-account \
+          --public-ip
+        done (1m40s)
+        id: epde18u4mahl4a8n39ta
+        folder_id: b1g7gvsi89m34qmcm3ke
+        created_at: "2020-08-10T13:50:17Z"
+        name: my-vm
+        zone_id: ru-central1-b
+        platform_id: standard-v2
+        ...
+        ```
+        
+        После создания виртуальная машина появится в списке ВМ в разделе **{{ compute-name }}** в [консоли управления]({{ link-console-main }}). Подробнее о работе с ВМ читайте в [пошаговых инструкциях](../../compute/operations/index.md).
+    
 {% endlist %}

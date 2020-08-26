@@ -1,6 +1,6 @@
-# Создание ВМ с {{ coi }} и несколькими Docker-контейнерами с помощью docker-compose.yaml файла
+# Создание ВМ с {{ coi }} и несколькими Docker-контейнерами
 
-В этой инструкции вы создадите виртуальную машину из образа [{{ coi }}](../concepts/index.md) с несколькими Docker-контейнерами внутри с помощью [docker-compose.yaml](https://docs.docker.com/compose/) файла.
+В этой инструкции вы создадите виртуальную машину из образа [{{ coi }}](../concepts/index.md) с несколькими Docker-контейнерами внутри. Для создания ВМ будет использована [Docker Compose спецификация](../concepts/index.md#compose-spec).
 
 ## Перед началом работы {#before-you-begin}
 

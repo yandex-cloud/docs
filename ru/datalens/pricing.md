@@ -29,7 +29,9 @@ editable: false
 Стоимость дополнительных<br/>сессий, за 10 сессий, вкл. НДС | - | 1,90 ₽
 Коэффициент для внешних сессий | x 10 | x 10
 Объем БД для материализованых данных, ГБ | 0,5 | 10
-Использование функции геокодирования | - | ✔
+Использование функций геокодирования* | - | ✔
+
+\* Функции геокодирования — [GEOCODE](https://cloud.yandex.ru/docs/datalens/function-ref/GEOCODE) и [GEOINFO](https://cloud.yandex.ru/docs/datalens/function-ref/GEOINFO).
 
 ## Сессия {#sessions}
 
