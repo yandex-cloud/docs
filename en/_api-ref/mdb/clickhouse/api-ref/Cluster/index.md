@@ -1121,7 +1121,7 @@ Method | Description
 [restore](restore.md) | Creates a new ClickHouse cluster using the specified backup.
 [start](start.md) | Starts the specified ClickHouse cluster.
 [stop](stop.md) | Stops the specified ClickHouse cluster.
-[streamLogs](streamLogs.md) | Same as ListLogs but using server-side streaming. Also allows for 'tail -f' semantics.
+[streamLogs](streamLogs.md) | Same as ListLogs but using server-side streaming. Also allows for `tail -f` semantics.
 [update](update.md) | Updates the specified ClickHouse cluster.
 [updateShard](updateShard.md) | Modifies the specified shard.
 [updateShardGroup](updateShardGroup.md) | Modifies the specified shard group.

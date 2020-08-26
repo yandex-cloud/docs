@@ -543,8 +543,8 @@ paths:
     get:
       tags:
       - Cluster
-      summary: Same as ListLogs but using server-side streaming. Also allows for 'tail
-        -f' semantics.
+      summary: Same as ListLogs but using server-side streaming. Also allows for `tail
+        -f` semantics.
       operationId: ClusterStreamLogs
       parameters:
       - name: clusterId
@@ -582,7 +582,7 @@ paths:
         description: |-
           End timestamp for the logs request.
           If this field is not set, all existing logs will be sent and then the new ones as
-          they appear. In essence it has 'tail -f' semantics.
+          they appear. In essence it has `tail -f` semantics.
 
           String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
         schema:
@@ -591,7 +591,7 @@ paths:
       - name: recordToken
         in: query
         description: |-
-          Record token. Set `record_token` to the `next_record_token` returned by a previous StreamLogs
+          Record token. Set [recordToken](/docs/managed-clickhouse/api-ref/Cluster/streamLogs#query_params) to the `nextRecordToken` returned by a previous StreamLogs
           request to start streaming from next log record.
 
           The maximum string length in characters is 100.
@@ -3317,7 +3317,7 @@ components:
           type: string
         labels:
           description: |-
-            Custom labels for the ClickHouse cluster as `` key:value `` pairs. Maximum 64 per resource.
+            Custom labels for the ClickHouse cluster as `key:value` pairs. Maximum 64 per resource.
             For example, "project": "mvp" or "source": "dictionary".
 
             No more than 64 per resource.
@@ -3804,7 +3804,7 @@ components:
             is larger than [pageSize](/docs/managed-clickhouse/api-ref/Cluster/listLogs#query_params), use the [nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/listLogs#responses) as the value
             for the [pageToken](/docs/managed-clickhouse/api-ref/Cluster/listLogs#query_params) query parameter in the next list request.
             Each subsequent list request will have its own [nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/listLogs#responses) to continue paging through the results.
-            This value is interchangeable with `next_record_token` from StreamLogs method.
+            This value is interchangeable with the `nextRecordToken` from StreamLogs method.
           type: string
     ListClusterOperationsResponse:
       type: object
@@ -4216,7 +4216,7 @@ components:
           type: string
         labels:
           description: |-
-            Custom labels for the ClickHouse cluster as `` key:value `` pairs. Maximum 64 per resource.
+            Custom labels for the ClickHouse cluster as `key:value` pairs. Maximum 64 per resource.
             For example, "project": "mvp" or "source": "dictionary".
 
             No more than 64 per resource.
@@ -4393,9 +4393,9 @@ components:
         nextRecordToken:
           description: |-
             This token allows you to continue streaming logs starting from the exact
-            same record. To continue streaming, specify value of `next_record_token`
-            as value for `record_token` parameter in the next StreamLogs request.
-            This value is interchangeable with `next_page_token` from ListLogs method.
+            same record. To continue streaming, specify value of [next_record_token[
+            as value for the [recordToken](/docs/managed-clickhouse/api-ref/Cluster/streamLogs#query_params) parameter in the next StreamLogs request.
+            This value is interchangeable with the [nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/listLogs#responses) from ListLogs method.
           type: string
     TimeOfDay:
       description: |-
@@ -4443,7 +4443,7 @@ components:
           type: string
         labels:
           description: |-
-            Custom labels for the ClickHouse cluster as `` key:value `` pairs. Maximum 64 per resource.
+            Custom labels for the ClickHouse cluster as `key:value` pairs. Maximum 64 per resource.
             For example, "project": "mvp" or "source": "dictionary".
 
             The new set of labels will completely replace the old ones. To add a label, request the current
