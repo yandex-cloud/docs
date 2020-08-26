@@ -1,5 +1,6 @@
 # Все сценарии
 
+* [{#T}](vm-create.md)
 * [{#T}](vm-create-with-second-disk.md)
 * [{#T}](docker-compose.md)
 * [{#T}](ig-create.md)
