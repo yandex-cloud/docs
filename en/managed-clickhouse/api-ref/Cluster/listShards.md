@@ -184,6 +184,12 @@ pageToken | Page token.  to get the next page of results, set [pageToken](/docs/
                   ]
                 }
               ],
+              "kafka": {
+                "securityProtocol": "string",
+                "saslMechanism": "string",
+                "saslUsername": "string",
+                "saslPassword": "string"
+              },
               "maxConnections": "integer",
               "maxConcurrentQueries": "integer",
               "keepAliveTimeout": "integer",
@@ -361,6 +367,12 @@ pageToken | Page token.  to get the next page of results, set [pageToken](/docs/
                   ]
                 }
               ],
+              "kafka": {
+                "securityProtocol": "string",
+                "saslMechanism": "string",
+                "saslUsername": "string",
+                "saslPassword": "string"
+              },
               "maxConnections": "integer",
               "maxConcurrentQueries": "integer",
               "keepAliveTimeout": "integer",
@@ -538,6 +550,12 @@ pageToken | Page token.  to get the next page of results, set [pageToken](/docs/
                   ]
                 }
               ],
+              "kafka": {
+                "securityProtocol": "string",
+                "saslMechanism": "string",
+                "saslUsername": "string",
+                "saslPassword": "string"
+              },
               "maxConnections": "integer",
               "maxConcurrentQueries": "integer",
               "keepAliveTimeout": "integer",
@@ -696,6 +714,11 @@ shards[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>graphiteRo
 shards[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>graphiteRollup[].<br>patterns[].<br>retention[] | **object**<br><p>Required. Age of data to use for thinning.</p> <p>Must contain at least one element.</p> 
 shards[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>graphiteRollup[].<br>patterns[].<br>retention[].<br>age | **string** (int64)<br><p>Minimum age of the data in seconds.</p> <p>Value must be greater than 0.</p> 
 shards[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>graphiteRollup[].<br>patterns[].<br>retention[].<br>precision | **string** (int64)<br><p>Precision of determining the age of the data, in seconds.</p> <p>Value must be greater than 0.</p> 
+shards[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>kafka | **object**<br>
+shards[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>kafka.<br>securityProtocol | **string**<br>
+shards[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>kafka.<br>saslMechanism | **string**<br>
+shards[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>kafka.<br>saslUsername | **string**<br>
+shards[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>kafka.<br>saslPassword | **string**<br>
 shards[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>maxConnections | **integer** (int64)<br><p>Maximum number of inbound connections.</p> <p>The minimum value is 10.</p> 
 shards[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>maxConcurrentQueries | **integer** (int64)<br><p>Maximum number of simultaneously processed requests.</p> <p>The minimum value is 10.</p> 
 shards[].<br>config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>keepAliveTimeout | **integer** (int64)<br><p>Number of milliseconds that ClickHouse waits for incoming requests before closing the connection.</p> 
@@ -829,6 +852,11 @@ shards[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>graphiteRollup[
 shards[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>graphiteRollup[].<br>patterns[].<br>retention[] | **object**<br><p>Required. Age of data to use for thinning.</p> <p>Must contain at least one element.</p> 
 shards[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>graphiteRollup[].<br>patterns[].<br>retention[].<br>age | **string** (int64)<br><p>Minimum age of the data in seconds.</p> <p>Value must be greater than 0.</p> 
 shards[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>graphiteRollup[].<br>patterns[].<br>retention[].<br>precision | **string** (int64)<br><p>Precision of determining the age of the data, in seconds.</p> <p>Value must be greater than 0.</p> 
+shards[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>kafka | **object**<br>
+shards[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>kafka.<br>securityProtocol | **string**<br>
+shards[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>kafka.<br>saslMechanism | **string**<br>
+shards[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>kafka.<br>saslUsername | **string**<br>
+shards[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>kafka.<br>saslPassword | **string**<br>
 shards[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>maxConnections | **integer** (int64)<br><p>Maximum number of inbound connections.</p> <p>The minimum value is 10.</p> 
 shards[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>maxConcurrentQueries | **integer** (int64)<br><p>Maximum number of simultaneously processed requests.</p> <p>The minimum value is 10.</p> 
 shards[].<br>config.<br>clickhouse.<br>config.<br>userConfig.<br>keepAliveTimeout | **integer** (int64)<br><p>Number of milliseconds that ClickHouse waits for incoming requests before closing the connection.</p> 
@@ -962,6 +990,11 @@ shards[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>graphiteRoll
 shards[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>graphiteRollup[].<br>patterns[].<br>retention[] | **object**<br><p>Required. Age of data to use for thinning.</p> <p>Must contain at least one element.</p> 
 shards[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>graphiteRollup[].<br>patterns[].<br>retention[].<br>age | **string** (int64)<br><p>Minimum age of the data in seconds.</p> <p>Value must be greater than 0.</p> 
 shards[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>graphiteRollup[].<br>patterns[].<br>retention[].<br>precision | **string** (int64)<br><p>Precision of determining the age of the data, in seconds.</p> <p>Value must be greater than 0.</p> 
+shards[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>kafka | **object**<br>
+shards[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>kafka.<br>securityProtocol | **string**<br>
+shards[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>kafka.<br>saslMechanism | **string**<br>
+shards[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>kafka.<br>saslUsername | **string**<br>
+shards[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>kafka.<br>saslPassword | **string**<br>
 shards[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>maxConnections | **integer** (int64)<br><p>Maximum number of inbound connections.</p> <p>The minimum value is 10.</p> 
 shards[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>maxConcurrentQueries | **integer** (int64)<br><p>Maximum number of simultaneously processed requests.</p> <p>The minimum value is 10.</p> 
 shards[].<br>config.<br>clickhouse.<br>config.<br>defaultConfig.<br>keepAliveTimeout | **integer** (int64)<br><p>Number of milliseconds that ClickHouse waits for incoming requests before closing the connection.</p> 
