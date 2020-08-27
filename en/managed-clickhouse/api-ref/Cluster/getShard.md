@@ -176,6 +176,12 @@ shardName | Required. Name of the shard to request information about. To get the
               ]
             }
           ],
+          "kafka": {
+            "securityProtocol": "string",
+            "saslMechanism": "string",
+            "saslUsername": "string",
+            "saslPassword": "string"
+          },
           "maxConnections": "integer",
           "maxConcurrentQueries": "integer",
           "keepAliveTimeout": "integer",
@@ -353,6 +359,12 @@ shardName | Required. Name of the shard to request information about. To get the
               ]
             }
           ],
+          "kafka": {
+            "securityProtocol": "string",
+            "saslMechanism": "string",
+            "saslUsername": "string",
+            "saslPassword": "string"
+          },
           "maxConnections": "integer",
           "maxConcurrentQueries": "integer",
           "keepAliveTimeout": "integer",
@@ -530,6 +542,12 @@ shardName | Required. Name of the shard to request information about. To get the
               ]
             }
           ],
+          "kafka": {
+            "securityProtocol": "string",
+            "saslMechanism": "string",
+            "saslUsername": "string",
+            "saslPassword": "string"
+          },
           "maxConnections": "integer",
           "maxConcurrentQueries": "integer",
           "keepAliveTimeout": "integer",
@@ -684,6 +702,11 @@ config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>graphiteRollup[].<br>pa
 config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>graphiteRollup[].<br>patterns[].<br>retention[] | **object**<br><p>Required. Age of data to use for thinning.</p> <p>Must contain at least one element.</p> 
 config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>graphiteRollup[].<br>patterns[].<br>retention[].<br>age | **string** (int64)<br><p>Minimum age of the data in seconds.</p> <p>Value must be greater than 0.</p> 
 config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>graphiteRollup[].<br>patterns[].<br>retention[].<br>precision | **string** (int64)<br><p>Precision of determining the age of the data, in seconds.</p> <p>Value must be greater than 0.</p> 
+config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>kafka | **object**<br>
+config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>kafka.<br>securityProtocol | **string**<br>
+config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>kafka.<br>saslMechanism | **string**<br>
+config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>kafka.<br>saslUsername | **string**<br>
+config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>kafka.<br>saslPassword | **string**<br>
 config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>maxConnections | **integer** (int64)<br><p>Maximum number of inbound connections.</p> <p>The minimum value is 10.</p> 
 config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>maxConcurrentQueries | **integer** (int64)<br><p>Maximum number of simultaneously processed requests.</p> <p>The minimum value is 10.</p> 
 config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>keepAliveTimeout | **integer** (int64)<br><p>Number of milliseconds that ClickHouse waits for incoming requests before closing the connection.</p> 
@@ -817,6 +840,11 @@ config.<br>clickhouse.<br>config.<br>userConfig.<br>graphiteRollup[].<br>pattern
 config.<br>clickhouse.<br>config.<br>userConfig.<br>graphiteRollup[].<br>patterns[].<br>retention[] | **object**<br><p>Required. Age of data to use for thinning.</p> <p>Must contain at least one element.</p> 
 config.<br>clickhouse.<br>config.<br>userConfig.<br>graphiteRollup[].<br>patterns[].<br>retention[].<br>age | **string** (int64)<br><p>Minimum age of the data in seconds.</p> <p>Value must be greater than 0.</p> 
 config.<br>clickhouse.<br>config.<br>userConfig.<br>graphiteRollup[].<br>patterns[].<br>retention[].<br>precision | **string** (int64)<br><p>Precision of determining the age of the data, in seconds.</p> <p>Value must be greater than 0.</p> 
+config.<br>clickhouse.<br>config.<br>userConfig.<br>kafka | **object**<br>
+config.<br>clickhouse.<br>config.<br>userConfig.<br>kafka.<br>securityProtocol | **string**<br>
+config.<br>clickhouse.<br>config.<br>userConfig.<br>kafka.<br>saslMechanism | **string**<br>
+config.<br>clickhouse.<br>config.<br>userConfig.<br>kafka.<br>saslUsername | **string**<br>
+config.<br>clickhouse.<br>config.<br>userConfig.<br>kafka.<br>saslPassword | **string**<br>
 config.<br>clickhouse.<br>config.<br>userConfig.<br>maxConnections | **integer** (int64)<br><p>Maximum number of inbound connections.</p> <p>The minimum value is 10.</p> 
 config.<br>clickhouse.<br>config.<br>userConfig.<br>maxConcurrentQueries | **integer** (int64)<br><p>Maximum number of simultaneously processed requests.</p> <p>The minimum value is 10.</p> 
 config.<br>clickhouse.<br>config.<br>userConfig.<br>keepAliveTimeout | **integer** (int64)<br><p>Number of milliseconds that ClickHouse waits for incoming requests before closing the connection.</p> 
@@ -950,6 +978,11 @@ config.<br>clickhouse.<br>config.<br>defaultConfig.<br>graphiteRollup[].<br>patt
 config.<br>clickhouse.<br>config.<br>defaultConfig.<br>graphiteRollup[].<br>patterns[].<br>retention[] | **object**<br><p>Required. Age of data to use for thinning.</p> <p>Must contain at least one element.</p> 
 config.<br>clickhouse.<br>config.<br>defaultConfig.<br>graphiteRollup[].<br>patterns[].<br>retention[].<br>age | **string** (int64)<br><p>Minimum age of the data in seconds.</p> <p>Value must be greater than 0.</p> 
 config.<br>clickhouse.<br>config.<br>defaultConfig.<br>graphiteRollup[].<br>patterns[].<br>retention[].<br>precision | **string** (int64)<br><p>Precision of determining the age of the data, in seconds.</p> <p>Value must be greater than 0.</p> 
+config.<br>clickhouse.<br>config.<br>defaultConfig.<br>kafka | **object**<br>
+config.<br>clickhouse.<br>config.<br>defaultConfig.<br>kafka.<br>securityProtocol | **string**<br>
+config.<br>clickhouse.<br>config.<br>defaultConfig.<br>kafka.<br>saslMechanism | **string**<br>
+config.<br>clickhouse.<br>config.<br>defaultConfig.<br>kafka.<br>saslUsername | **string**<br>
+config.<br>clickhouse.<br>config.<br>defaultConfig.<br>kafka.<br>saslPassword | **string**<br>
 config.<br>clickhouse.<br>config.<br>defaultConfig.<br>maxConnections | **integer** (int64)<br><p>Maximum number of inbound connections.</p> <p>The minimum value is 10.</p> 
 config.<br>clickhouse.<br>config.<br>defaultConfig.<br>maxConcurrentQueries | **integer** (int64)<br><p>Maximum number of simultaneously processed requests.</p> <p>The minimum value is 10.</p> 
 config.<br>clickhouse.<br>config.<br>defaultConfig.<br>keepAliveTimeout | **integer** (int64)<br><p>Number of milliseconds that ClickHouse waits for incoming requests before closing the connection.</p> 

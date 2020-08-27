@@ -159,7 +159,8 @@ instanceGroupId | Required. ID of the instance group to update. To get the insta
     "maxDeleting": "string",
     "maxCreating": "string",
     "maxExpansion": "string",
-    "startupDuration": "string"
+    "startupDuration": "string",
+    "strategy": "string"
   },
   "allocationPolicy": {
     "zones": [
@@ -302,6 +303,7 @@ deployPolicy.<br>maxDeleting | **string** (int64)<br><p>The maximum number of in
 deployPolicy.<br>maxCreating | **string** (int64)<br><p>The maximum number of instances that can be created at the same time.</p> <p>The value 0 is any number of virtual machines within the allowed values.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
 deployPolicy.<br>maxExpansion | **string** (int64)<br><p>The maximum number of instances that can be temporarily allocated above the group's target size during the update process. If <code>maxUnavailable</code> is not specified or set to zero, <code>maxExpansion</code> must be set to a non-zero value.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
 deployPolicy.<br>startupDuration | **string**<br><p>Instance startup duration. Instance will be considered up and running (and start receiving traffic) only after startup_duration has elapsed and all health checks are passed. See <code>ManagedInstanceStatus</code> for more information.</p> <p>Acceptable values are 0 seconds to 3600 seconds, inclusive.</p> 
+deployPolicy.<br>strategy | **string**<br><p>Affects instance lifecycle during deploy.</p> <ul> <li>PROACTIVE: Instance group may force running instance to stop. This is the default.</li> <li>OPPORTUNISTIC: Instance group doesn't force running instance to stop. Instead, it will wait until instance stops itself or becomes unhealthy.</li> </ul> 
 allocationPolicy | **object**<br><p>Required. Allocation policy of the instance group by zones and regions.</p> 
 allocationPolicy.<br>zones[] | **object**<br><p>Required. List of availability zones.</p> <p>The minimum number of elements is 1.</p> 
 allocationPolicy.<br>zones[].<br>zoneId | **string**<br><p>Required. ID of the availability zone where the instance resides.</p> 

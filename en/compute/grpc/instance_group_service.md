@@ -18,6 +18,8 @@ A set of methods for managing InstanceGroup resources.
 | [Start](#Start) | Starts the specified instance group. |
 | [Delete](#Delete) | Deletes the specified instance group. |
 | [ListInstances](#ListInstances) | Lists instances for the specified instance group. |
+| [DeleteInstances](#DeleteInstances) | Delete instances from instance group |
+| [StopInstances](#StopInstances) | Stop instances from instance group |
 | [ListOperations](#ListOperations) | Lists operations for the specified instance group. |
 | [ListLogRecords](#ListLogRecords) | Lists logs for the specified instance group. |
 | [ListAccessBindings](#ListAccessBindings) | Lists existing access bindings for the specified instance group. |
@@ -213,6 +215,7 @@ max_deleting | **int64**<br>The maximum number of instances that can be deleted 
 max_creating | **int64**<br>The maximum number of instances that can be created at the same time. <br>The value 0 is any number of virtual machines within the allowed values. Acceptable values are 0 to 100, inclusive.
 max_expansion | **int64**<br>The maximum number of instances that can be temporarily allocated above the group's target size during the update process. If `max_unavailable` is not specified or set to zero, `max_expansion` must be set to a non-zero value. Acceptable values are 0 to 100, inclusive.
 startup_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Instance startup duration. Instance will be considered up and running (and start receiving traffic) only after startup_duration has elapsed and all health checks are passed. See `yandex.cloud.compute.v1.instancegroup.ManagedInstance.Status` for more information. Acceptable values are 0m to 1h, inclusive.
+strategy | enum **Strategy**<br>Affects instance lifecycle during deploy. <ul><li>`PROACTIVE`: Instance group may force running instance to stop. This is the default.</li><li>`OPPORTUNISTIC`: Instance group doesn't force running instance to stop. Instead, it will wait until instance stops itself or becomes unhealthy.</li><ul/>
 
 
 ### AllocationPolicy {#AllocationPolicy}
@@ -520,6 +523,7 @@ max_deleting | **int64**<br>The maximum number of instances that can be deleted 
 max_creating | **int64**<br>The maximum number of instances that can be created at the same time. <br>The value 0 is any number of virtual machines within the allowed values. Acceptable values are 0 to 100, inclusive.
 max_expansion | **int64**<br>The maximum number of instances that can be temporarily allocated above the group's target size during the update process. If `max_unavailable` is not specified or set to zero, `max_expansion` must be set to a non-zero value. Acceptable values are 0 to 100, inclusive.
 startup_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Instance startup duration. Instance will be considered up and running (and start receiving traffic) only after startup_duration has elapsed and all health checks are passed. See `yandex.cloud.compute.v1.instancegroup.ManagedInstance.Status` for more information. Acceptable values are 0m to 1h, inclusive.
+strategy | enum **Strategy**<br>Affects instance lifecycle during deploy. <ul><li>`PROACTIVE`: Instance group may force running instance to stop. This is the default.</li><li>`OPPORTUNISTIC`: Instance group doesn't force running instance to stop. Instead, it will wait until instance stops itself or becomes unhealthy.</li><ul/>
 
 
 ### AllocationPolicy {#AllocationPolicy}
@@ -807,6 +811,7 @@ max_deleting | **int64**<br>The maximum number of instances that can be deleted 
 max_creating | **int64**<br>The maximum number of instances that can be created at the same time. <br>The value 0 is any number of virtual machines within the allowed values. Acceptable values are 0 to 100, inclusive.
 max_expansion | **int64**<br>The maximum number of instances that can be temporarily allocated above the group's target size during the update process. If `max_unavailable` is not specified or set to zero, `max_expansion` must be set to a non-zero value. Acceptable values are 0 to 100, inclusive.
 startup_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Instance startup duration. Instance will be considered up and running (and start receiving traffic) only after startup_duration has elapsed and all health checks are passed. See `yandex.cloud.compute.v1.instancegroup.ManagedInstance.Status` for more information. Acceptable values are 0m to 1h, inclusive.
+strategy | enum **Strategy**<br>Affects instance lifecycle during deploy. <ul><li>`PROACTIVE`: Instance group may force running instance to stop. This is the default.</li><li>`OPPORTUNISTIC`: Instance group doesn't force running instance to stop. Instead, it will wait until instance stops itself or becomes unhealthy.</li><ul/>
 
 
 ### AllocationPolicy {#AllocationPolicy}
@@ -1173,6 +1178,7 @@ max_deleting | **int64**<br>The maximum number of instances that can be deleted 
 max_creating | **int64**<br>The maximum number of instances that can be created at the same time. <br>The value 0 is any number of virtual machines within the allowed values. Acceptable values are 0 to 100, inclusive.
 max_expansion | **int64**<br>The maximum number of instances that can be temporarily allocated above the group's target size during the update process. If `max_unavailable` is not specified or set to zero, `max_expansion` must be set to a non-zero value. Acceptable values are 0 to 100, inclusive.
 startup_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Instance startup duration. Instance will be considered up and running (and start receiving traffic) only after startup_duration has elapsed and all health checks are passed. See `yandex.cloud.compute.v1.instancegroup.ManagedInstance.Status` for more information. Acceptable values are 0m to 1h, inclusive.
+strategy | enum **Strategy**<br>Affects instance lifecycle during deploy. <ul><li>`PROACTIVE`: Instance group may force running instance to stop. This is the default.</li><li>`OPPORTUNISTIC`: Instance group doesn't force running instance to stop. Instead, it will wait until instance stops itself or becomes unhealthy.</li><ul/>
 
 
 ### AllocationPolicy {#AllocationPolicy}
@@ -1594,6 +1600,137 @@ address | **string**<br>An IPv4 external network address that is assigned to the
 ip_version | enum **IpVersion**<br>External IP address version. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
 
 
+## DeleteInstances {#DeleteInstances}
+
+Delete instances from instance group
+
+**rpc DeleteInstances ([DeleteInstancesRequest](#DeleteInstancesRequest)) returns ([operation.Operation](#Operation7))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[DeleteInstancesMetadata](#DeleteInstancesMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[InstanceGroup](../instance_group.proto#InstanceGroup8)<br>
+
+### DeleteInstancesRequest {#DeleteInstancesRequest}
+
+Field | Description
+--- | ---
+instance_group_id | **string**<br>Required. ID of the InstanceGroup resource to delete instances from. To get the instance group ID, use a [InstanceGroupService.List](#List) request. false The maximum string length in characters is 50.
+managed_instance_ids[] | **string**<br>IDs of instances to delete. Instances will be deleted along with any dependent resources. Only allowed ids from ManagedInstance.id field, not ManagedInstance.instance_id. The minimum number of elements is 1. The maximum string length in characters for each value is 50.
+create_another | **bool**<br>When set to true instance group target size will not be decreased and new instance will be created in place of deleted. By default the group target size will be decreased by specified instance ids count. 
+
+
+### Operation {#Operation}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteInstancesMetadata](#DeleteInstancesMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[InstanceGroup](../instance_group.proto#InstanceGroup8)>**<br>if operation finished successfully. 
+
+
+### DeleteInstancesMetadata {#DeleteInstancesMetadata}
+
+Field | Description
+--- | ---
+instance_group_id | **string**<br>ID of the instance group that the instances are being deleted from. 
+
+
+### InstanceGroup {#InstanceGroup}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the instance group. 
+folder_id | **string**<br>ID of the folder that the instance group belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+name | **string**<br>Name of the instance group. The name is unique within the folder. 
+description | **string**<br>Description of the instance group. 
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
+instance_template | **[InstanceTemplate](../instance_group.proto#InstanceTemplate4)**<br>Instance template for creating the instance group. For more information, see [Instance Templates](/docs/compute/concepts/ig-instance-templates). 
+scale_policy | **[ScalePolicy](../instance_group.proto#ScalePolicy4)**<br>[Scaling policy](/docs/compute/concepts/instance-groups/scale) of the instance group. 
+deploy_policy | **[DeployPolicy](../instance_group.proto#DeployPolicy4)**<br>Deployment policy of the instance group. 
+allocation_policy | **[AllocationPolicy](../instance_group.proto#AllocationPolicy4)**<br>Allocation policy of the instance group by zones and regions. 
+load_balancer_state | **[LoadBalancerState](../instance_group.proto#LoadBalancerState2)**<br>Information that indicates which entities can be related to this load balancer. 
+managed_instances_state | **[ManagedInstancesState](../instance_group.proto#ManagedInstancesState2)**<br>States of instances for this instance group. 
+load_balancer_spec | **[LoadBalancerSpec](../instance_group.proto#LoadBalancerSpec4)**<br>Load balancing specification. 
+health_checks_spec | **[HealthChecksSpec](../instance_group.proto#HealthChecksSpec4)**<br>Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check). 
+service_account_id | **string**<br>ID of the service account. The service account will be used for all API calls made by the Instance Groups component on behalf of the user (for example, creating instances, adding them to load balancer target group, etc.). For more information, see [Service accounts](/docs/iam/concepts/users/service-accounts). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/grpc/service_account_service#List) request. 
+status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/grpc/instance_group_service#Stop).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><ul/>
+variables[] | **[Variable](../instance_group.proto#Variable4)**<br> 
+deletion_protection | **bool**<br>Flag that inhibits deletion of the instance group 
+
+
+## StopInstances {#StopInstances}
+
+Stop instances from instance group
+
+**rpc StopInstances ([StopInstancesRequest](#StopInstancesRequest)) returns ([operation.Operation](#Operation8))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[StopInstancesMetadata](#StopInstancesMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[InstanceGroup](../instance_group.proto#InstanceGroup9)<br>
+
+### StopInstancesRequest {#StopInstancesRequest}
+
+Field | Description
+--- | ---
+instance_group_id | **string**<br>Required. ID of the InstanceGroup resource to stop instances from. To get the instance group ID, use a [InstanceGroupService.List](#List) request. false The maximum string length in characters is 50.
+managed_instance_ids[] | **string**<br>IDs of instances to stop. After stop instance could be updated, started or deleted according to scale and deploy policies. Only allowed ids from ManagedInstance.id field, not ManagedInstance.instance_id. The minimum number of elements is 1. The maximum string length in characters for each value is 50.
+
+
+### Operation {#Operation}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[StopInstancesMetadata](#StopInstancesMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[InstanceGroup](../instance_group.proto#InstanceGroup9)>**<br>if operation finished successfully. 
+
+
+### StopInstancesMetadata {#StopInstancesMetadata}
+
+Field | Description
+--- | ---
+instance_group_id | **string**<br>ID of the instance group that the instances are being stopped from. 
+
+
+### InstanceGroup {#InstanceGroup}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the instance group. 
+folder_id | **string**<br>ID of the folder that the instance group belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+name | **string**<br>Name of the instance group. The name is unique within the folder. 
+description | **string**<br>Description of the instance group. 
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
+instance_template | **[InstanceTemplate](../instance_group.proto#InstanceTemplate4)**<br>Instance template for creating the instance group. For more information, see [Instance Templates](/docs/compute/concepts/ig-instance-templates). 
+scale_policy | **[ScalePolicy](../instance_group.proto#ScalePolicy4)**<br>[Scaling policy](/docs/compute/concepts/instance-groups/scale) of the instance group. 
+deploy_policy | **[DeployPolicy](../instance_group.proto#DeployPolicy4)**<br>Deployment policy of the instance group. 
+allocation_policy | **[AllocationPolicy](../instance_group.proto#AllocationPolicy4)**<br>Allocation policy of the instance group by zones and regions. 
+load_balancer_state | **[LoadBalancerState](../instance_group.proto#LoadBalancerState2)**<br>Information that indicates which entities can be related to this load balancer. 
+managed_instances_state | **[ManagedInstancesState](../instance_group.proto#ManagedInstancesState2)**<br>States of instances for this instance group. 
+load_balancer_spec | **[LoadBalancerSpec](../instance_group.proto#LoadBalancerSpec4)**<br>Load balancing specification. 
+health_checks_spec | **[HealthChecksSpec](../instance_group.proto#HealthChecksSpec4)**<br>Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check). 
+service_account_id | **string**<br>ID of the service account. The service account will be used for all API calls made by the Instance Groups component on behalf of the user (for example, creating instances, adding them to load balancer target group, etc.). For more information, see [Service accounts](/docs/iam/concepts/users/service-accounts). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/grpc/service_account_service#List) request. 
+status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/grpc/instance_group_service#Stop).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><ul/>
+variables[] | **[Variable](../instance_group.proto#Variable4)**<br> 
+deletion_protection | **bool**<br>Flag that inhibits deletion of the instance group 
+
+
 ## ListOperations {#ListOperations}
 
 Lists operations for the specified instance group.
@@ -1607,14 +1744,14 @@ Field | Description
 instance_group_id | **string**<br>Required. ID of the InstanceGroup resource to list operations for. To get the instance group ID, use a [InstanceGroupService.List](#List) request. false The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is more than `page_size`, the service returns a [ListInstanceGroupOperationsResponse.next_page_token](#ListInstanceGroupOperationsResponse) that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListInstanceGroupOperationsResponse.next_page_token](#ListInstanceGroupOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br>A filter expression that filters resources listed in the response. Currently you can use filtering only on the [InstanceGroup.name](../instance_group.proto#InstanceGroup8) field. The maximum string length in characters is 1000.
+filter | **string**<br>A filter expression that filters resources listed in the response. Currently you can use filtering only on the [InstanceGroup.name](../instance_group.proto#InstanceGroup10) field. The maximum string length in characters is 1000.
 
 
 ### ListInstanceGroupOperationsResponse {#ListInstanceGroupOperationsResponse}
 
 Field | Description
 --- | ---
-operations[] | **[operation.Operation](#Operation7)**<br>Lists operations for the specified instance group. 
+operations[] | **[operation.Operation](#Operation9)**<br>Lists operations for the specified instance group. 
 next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is more than [ListInstanceGroupOperationsRequest.page_size](#ListInstanceGroupOperationsRequest1), use the `next_page_token` as the value for the [ListInstanceGroupOperationsRequest.page_token](#ListInstanceGroupOperationsRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
@@ -1647,7 +1784,7 @@ Field | Description
 instance_group_id | **string**<br>Required. ID of the InstanceGroup resource to list logs for. To get the instance group ID, use a [InstanceGroupService.List](#List) request. false
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListInstanceGroupLogRecordsResponse.next_page_token](#ListInstanceGroupLogRecordsResponse) that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListInstanceGroupLogRecordsResponse.next_page_token](#ListInstanceGroupLogRecordsResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br>A filter expression that filters resources listed in the response. Currently you can use filtering only on the [InstanceGroup.name](../instance_group.proto#InstanceGroup8) field. The maximum string length in characters is 1000.
+filter | **string**<br>A filter expression that filters resources listed in the response. Currently you can use filtering only on the [InstanceGroup.name](../instance_group.proto#InstanceGroup10) field. The maximum string length in characters is 1000.
 
 
 ### ListInstanceGroupLogRecordsResponse {#ListInstanceGroupLogRecordsResponse}
@@ -1709,7 +1846,7 @@ type | **string**<br><ul><li>`userAccount`: An account on Yandex or [Yandex.Conn
 
 Sets access bindings for the specified instance group.
 
-**rpc SetAccessBindings ([SetAccessBindingsRequest](#SetAccessBindingsRequest)) returns ([operation.Operation](#Operation8))**
+**rpc SetAccessBindings ([SetAccessBindingsRequest](#SetAccessBindingsRequest)) returns ([operation.Operation](#Operation10))**
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[SetAccessBindingsMetadata](#SetAccessBindingsMetadata)<br>
@@ -1766,7 +1903,7 @@ resource_id | **string**<br>ID of the resource for which access bindings are bei
 
 Updates access bindings for the specified instance group.
 
-**rpc UpdateAccessBindings ([UpdateAccessBindingsRequest](#UpdateAccessBindingsRequest)) returns ([operation.Operation](#Operation9))**
+**rpc UpdateAccessBindings ([UpdateAccessBindingsRequest](#UpdateAccessBindingsRequest)) returns ([operation.Operation](#Operation11))**
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateAccessBindingsMetadata](#UpdateAccessBindingsMetadata)<br>

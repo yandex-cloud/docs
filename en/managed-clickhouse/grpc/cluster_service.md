@@ -94,6 +94,7 @@ clickhouse | **[Clickhouse](../cluster.proto#Clickhouse)**<br>Configuration and 
 zookeeper | **[Zookeeper](../cluster.proto#Zookeeper)**<br>Configuration and resource allocation for ZooKeeper hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](../cluster.proto#Access)**<br>Access policy for external services. 
+cloud_storage | **[CloudStorage](../cluster.proto#CloudStorage)**<br> 
 
 
 ### Clickhouse {#Clickhouse}
@@ -119,6 +120,13 @@ data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens
 web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
 metrika | **bool**<br>Allow to import data from Yandex.Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex.Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
 serverless | **bool**<br>Allow access to cluster for Serverless. 
+
+
+### CloudStorage {#CloudStorage}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>Whether to use Yandex Object Storage for storing ClickHouse data. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow}
@@ -213,6 +221,7 @@ clickhouse | **[Clickhouse](../cluster.proto#Clickhouse1)**<br>Configuration and
 zookeeper | **[Zookeeper](../cluster.proto#Zookeeper1)**<br>Configuration and resource allocation for ZooKeeper hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](../cluster.proto#Access1)**<br>Access policy for external services. 
+cloud_storage | **[CloudStorage](../cluster.proto#CloudStorage1)**<br> 
 
 
 ### Clickhouse {#Clickhouse}
@@ -238,6 +247,13 @@ data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens
 web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
 metrika | **bool**<br>Allow to import data from Yandex.Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex.Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
 serverless | **bool**<br>Allow access to cluster for Serverless. 
+
+
+### CloudStorage {#CloudStorage}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>Whether to use Yandex Object Storage for storing ClickHouse data. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow}
@@ -286,7 +302,7 @@ Field | Description
 folder_id | **string**<br>Required. ID of the folder to create the ClickHouse cluster in. false The maximum string length in characters is 50.
 name | **string**<br>Required. Name of the ClickHouse cluster. The name must be unique within the folder. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 description | **string**<br>Description of the ClickHouse cluster. The maximum string length in characters is 256.
-labels | **map<string,string>**<br>Custom labels for the ClickHouse cluster as `` key:value `` pairs. Maximum 64 per resource. For example, "project": "mvp" or "source": "dictionary". No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+labels | **map<string,string>**<br>Custom labels for the ClickHouse cluster as `key:value` pairs. Maximum 64 per resource. For example, "project": "mvp" or "source": "dictionary". No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 environment | **[Cluster.Environment](../cluster.proto#Cluster2)**<br>Required. Deployment environment of the ClickHouse cluster. false
 config_spec | **[ConfigSpec](#ConfigSpec)**<br>Required. Configuration and resources for hosts that should be created for the ClickHouse cluster. false
 database_specs[] | **[DatabaseSpec](../database.proto#DatabaseSpec)**<br>Descriptions of databases to be created in the ClickHouse cluster. The number of elements must be greater than 0.
@@ -306,6 +322,7 @@ clickhouse | **[Clickhouse](../cluster.proto#Clickhouse2)**<br>Configuration and
 zookeeper | **[Zookeeper](../cluster.proto#Zookeeper2)**<br>Configuration and resources for a ZooKeeper server. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](../cluster.proto#Access2)**<br>Access policy for external services. <br>If you want a specific service to access the ClickHouse cluster, then set the necessary values in this policy. 
+cloud_storage | **[CloudStorage](../cluster.proto#CloudStorage2)**<br> 
 
 
 ### Clickhouse {#Clickhouse}
@@ -331,6 +348,13 @@ data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens
 web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
 metrika | **bool**<br>Allow to import data from Yandex.Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex.Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
 serverless | **bool**<br>Allow access to cluster for Serverless. 
+
+
+### CloudStorage {#CloudStorage}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>Whether to use Yandex Object Storage for storing ClickHouse data. 
 
 
 ### DatabaseSpec {#DatabaseSpec}
@@ -538,7 +562,7 @@ Field | Description
 cluster_id | **string**<br>Required. ID of the ClickHouse Cluster resource to update. To get the ClickHouse cluster ID, use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the ClickHouse Cluster resource should be updated. 
 description | **string**<br>New description of the ClickHouse cluster. The maximum string length in characters is 256.
-labels | **map<string,string>**<br>Custom labels for the ClickHouse cluster as `` key:value `` pairs. Maximum 64 per resource. For example, "project": "mvp" or "source": "dictionary". <br>The new set of labels will completely replace the old ones. To add a label, request the current set with the [ClusterService.Get](#Get) method, then send an [ClusterService.Update](#Update) request with the new label added to the set. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+labels | **map<string,string>**<br>Custom labels for the ClickHouse cluster as `key:value` pairs. Maximum 64 per resource. For example, "project": "mvp" or "source": "dictionary". <br>The new set of labels will completely replace the old ones. To add a label, request the current set with the [ClusterService.Get](#Get) method, then send an [ClusterService.Update](#Update) request with the new label added to the set. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 config_spec | **[ConfigSpec](#ConfigSpec1)**<br>New configuration and resources for hosts in the cluster. 
 name | **string**<br>New name for the cluster. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
@@ -554,6 +578,7 @@ clickhouse | **[Clickhouse](../cluster.proto#Clickhouse3)**<br>Configuration and
 zookeeper | **[Zookeeper](../cluster.proto#Zookeeper3)**<br>Configuration and resources for a ZooKeeper server. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](../cluster.proto#Access3)**<br>Access policy for external services. <br>If you want a specific service to access the ClickHouse cluster, then set the necessary values in this policy. 
+cloud_storage | **[CloudStorage](../cluster.proto#CloudStorage3)**<br> 
 
 
 ### Clickhouse {#Clickhouse}
@@ -579,6 +604,13 @@ data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens
 web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
 metrika | **bool**<br>Allow to import data from Yandex.Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex.Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
 serverless | **bool**<br>Allow access to cluster for Serverless. 
+
+
+### CloudStorage {#CloudStorage}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>Whether to use Yandex Object Storage for storing ClickHouse data. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow}
@@ -1033,7 +1065,7 @@ Field | Description
 backup_id | **string**<br>Required. ID of the backup to create a cluster from. To get the backup ID, use a [ClusterService.ListBackups](#ListBackups) request. false
 name | **string**<br>Required. Name of the new ClickHouse cluster. The name must be unique within the folder. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 description | **string**<br>Description of the new ClickHouse cluster. The maximum string length in characters is 256.
-labels | **map<string,string>**<br>Custom labels for the ClickHouse cluster as `` key:value `` pairs. Maximum 64 per resource. For example, "project": "mvp" or "source": "dictionary". No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+labels | **map<string,string>**<br>Custom labels for the ClickHouse cluster as `key:value` pairs. Maximum 64 per resource. For example, "project": "mvp" or "source": "dictionary". No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 environment | **[Cluster.Environment](../cluster.proto#Cluster9)**<br>Required. Deployment environment of the new ClickHouse cluster. false
 config_spec | **[ConfigSpec](#ConfigSpec2)**<br>Required. Configuration for the ClickHouse cluster to be created. false
 host_specs[] | **[HostSpec](#HostSpec2)**<br>Configurations for ClickHouse hosts that should be created for the cluster that is being created from the backup. The number of elements must be greater than 0.
@@ -1051,6 +1083,7 @@ clickhouse | **[Clickhouse](../cluster.proto#Clickhouse4)**<br>Configuration and
 zookeeper | **[Zookeeper](../cluster.proto#Zookeeper4)**<br>Configuration and resources for a ZooKeeper server. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](../cluster.proto#Access4)**<br>Access policy for external services. <br>If you want a specific service to access the ClickHouse cluster, then set the necessary values in this policy. 
+cloud_storage | **[CloudStorage](../cluster.proto#CloudStorage4)**<br> 
 
 
 ### Clickhouse {#Clickhouse}
@@ -1076,6 +1109,13 @@ data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens
 web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
 metrika | **bool**<br>Allow to import data from Yandex.Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex.Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
 serverless | **bool**<br>Allow access to cluster for Serverless. 
+
+
+### CloudStorage {#CloudStorage}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>Whether to use Yandex Object Storage for storing ClickHouse data. 
 
 
 ### HostSpec {#HostSpec}
@@ -1222,7 +1262,7 @@ page_token | **string**<br>Page token.  To get the next page of results, set `pa
 Field | Description
 --- | ---
 logs[] | **[LogRecord](#LogRecord)**<br>Requested log records. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterLogsRequest.page_size](#ListClusterLogsRequest1), use the `next_page_token` as the value for the [ListClusterLogsRequest.page_token](#ListClusterLogsRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. This value is interchangeable with `next_record_token` from StreamLogs method. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterLogsRequest.page_size](#ListClusterLogsRequest1), use the `next_page_token` as the value for the [ListClusterLogsRequest.page_token](#ListClusterLogsRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. This value is interchangeable with the [StreamLogRecord.next_record_token](#StreamLogRecord) from StreamLogs method. 
 
 
 ### LogRecord {#LogRecord}
@@ -1235,7 +1275,7 @@ message | **map<string,string>**<br>Contents of the log record.
 
 ## StreamLogs {#StreamLogs}
 
-Same as ListLogs but using server-side streaming. Also allows for 'tail -f' semantics.
+Same as ListLogs but using server-side streaming. Also allows for `tail -f` semantics.
 
 **rpc StreamLogs ([StreamClusterLogsRequest](#StreamClusterLogsRequest)) returns (stream [StreamLogRecord](#StreamLogRecord))**
 
@@ -1247,8 +1287,8 @@ cluster_id | **string**<br>Required. Required. ID of the ClickHouse cluster. fal
 column_filter[] | **string**<br>Columns from logs table to get in the response. 
 service_type | enum **ServiceType**<br> <ul><li>`CLICKHOUSE`: Logs of ClickHouse activity.</li><ul/>
 from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Start timestamp for the logs request. 
-to_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>End timestamp for the logs request. If this field is not set, all existing logs will be sent and then the new ones as they appear. In essence it has 'tail -f' semantics. 
-record_token | **string**<br>Record token. Set `record_token` to the `next_record_token` returned by a previous StreamLogs request to start streaming from next log record. The maximum string length in characters is 100.
+to_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>End timestamp for the logs request. If this field is not set, all existing logs will be sent and then the new ones as they appear. In essence it has `tail -f` semantics. 
+record_token | **string**<br>Record token. Set `record_token` to the [StreamLogRecord.next_record_token](#StreamLogRecord) returned by a previous StreamLogs request to start streaming from next log record. The maximum string length in characters is 100.
 
 
 ### StreamLogRecord {#StreamLogRecord}
@@ -1256,7 +1296,7 @@ record_token | **string**<br>Record token. Set `record_token` to the `next_recor
 Field | Description
 --- | ---
 record | **[LogRecord](#LogRecord1)**<br>One of the requested log records. 
-next_record_token | **string**<br>This token allows you to continue streaming logs starting from the exact same record. To continue streaming, specify value of `next_record_token` as value for `record_token` parameter in the next StreamLogs request. This value is interchangeable with `next_page_token` from ListLogs method. 
+next_record_token | **string**<br>This token allows you to continue streaming logs starting from the exact same record. To continue streaming, specify value of [next_record_token [as value for the [StreamClusterLogsRequest.record_token] parameter in the next StreamLogs request. This value is interchangeable with the [ListClusterLogsResponse.next_page_token](#ListClusterLogsResponse1) from ListLogs method. 
 
 
 ### LogRecord {#LogRecord}
