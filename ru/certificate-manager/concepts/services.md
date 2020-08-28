@@ -1,6 +1,6 @@
-# Интеграция с сервисами Яндекс.Облака
+# Интеграция с сервисами {{ yandex-cloud }}
 
-Вы можете использовать сертификаты из {{ certificate-manager-name }} в следующих сервисах Яндекс.Облака:
+Вы можете использовать сертификаты из {{ certificate-manager-name }} в следующих сервисах {{ yandex-cloud }}:
 * [{{ objstorage-full-name }}](#os).
 
 ## {{ objstorage-full-name }} {#os}

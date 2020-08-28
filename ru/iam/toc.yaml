@@ -104,7 +104,7 @@ items:
         href: concepts/users/identity-federations.md
       - name: Квоты и лимиты
         href: concepts/limits.md
-  - name: Безопасное использование Яндекс.Облака
+  - name: Безопасное использование Yandex.Cloud
     href: best-practices/using-iam-securely.md
   - name: Управление доступом
     href: security/index.md

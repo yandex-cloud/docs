@@ -8,12 +8,12 @@
 
 ## Перед началом работы {#before-you-begin}
 
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в Яндекс.Облако или зарегистрируйтесь, если вы еще не зарегистрированы.
+1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь, если вы еще не зарегистрированы.
 1. Если у вас еще нет каталога, создайте его:
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
-Подключаться к кластеру можно только изнутри Облака — для этого создайте виртуальную машину в той же сети, что и кластер (на основе [Linux](../compute/quickstart/quick-create-linux.md) или [Windows](../compute/quickstart/quick-create-windows.md)).
+Подключаться к кластеру можно только изнутри {{ yandex-cloud }} — для этого создайте виртуальную машину в той же сети, что и кластер (на основе [Linux](../compute/quickstart/quick-create-linux.md) или [Windows](../compute/quickstart/quick-create-windows.md)).
 
 ## Создайте кластер {#cluster-create}
 

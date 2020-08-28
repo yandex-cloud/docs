@@ -4,7 +4,7 @@
 
 Для управления конфигурацией CORS для каждого бакета можно применять:
 
-- [Консоль управления](../operations/buckets/cors.md) Яндекс.Облака.
+- [Консоль управления](../operations/buckets/cors.md) {{ yandex-cloud }}.
 - [HTTP API, совместимый с Amazon S3](../s3/index.md).
 
     Таким образом, конфигурацией CORS можно управлять при помощи [инструментов](../tools/index.md), поддерживающих  HTTP API Amazon S3.

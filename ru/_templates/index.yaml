@@ -24,10 +24,10 @@ description:
  — Отличительные характеристики или фичи сервиса.
  — Как осуществляется доступ к сервису? (UI, CLI, API, SDK)
  -->
-- "Взаимодействие с сервисом осуществляется с помощью <a href=\"https://github.com/yandex-cloud/ydb-python-sdk\">Python</a>, <a href=\"https://github.com/yandex-cloud/ydb-go-sdk\">Go</a> или <a href=\"https://github.com/yandex-cloud/ydb-java-sdk\">Go</a> SDK, а также в консоли управления Яндекс.Облаком. Для запросов к СУБД используется декларативный SQL-подобный язык запросов YQL."
+- "Взаимодействие с сервисом осуществляется с помощью <a href=\"https://github.com/yandex-cloud/ydb-python-sdk\">Python</a>, <a href=\"https://github.com/yandex-cloud/ydb-go-sdk\">Go</a> или <a href=\"https://github.com/yandex-cloud/ydb-java-sdk\">Go</a> SDK, а также в консоли управления Yandex.Cloud. Для запросов к СУБД используется декларативный SQL-подобный язык запросов YQL."
 
 <!-- Защита данных
-- "Инфраструктура Яндекс.Облака <a href=\"https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf\">защищена</a> в соответствии с ФЗ-152."
+- "Инфраструктура Yandex.Cloud <a href=\"https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf\">защищена</a> в соответствии с ФЗ-152."
 -->
 <!-- Cоглашение об уровне обслуживания
 - "Для сервиса действует <a href=\"https://yandex.ru/legal/cloud_sla\">соглашение об уровне обслуживания</a>. Уровень обслуживания сервиса определен в документе <a href=\"https://yandex.ru/legal/cloud_sla_storage\">Уровень обслуживания Yandex Object Storage</a>."

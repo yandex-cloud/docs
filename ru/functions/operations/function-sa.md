@@ -38,4 +38,4 @@
 
 ## Получить IAM-токен с помощью API {#api}
 
-Если вы работаете с Яндекс.Облаком изнутри ВМ, вы можете получить IAM-токен из сервиса метаданных в [формате Google Compute Engine](../../compute/operations/vm-info/get-info.md#gce-metadata), а также добавить эту логику в свою функцию. Подробнее об этом читайте в разделе [Работа с Яндекс.Облаком изнутри ВМ](../../compute/operations/vm-connect/auth-inside-vm.md#auth-inside-vm).
+Если вы работаете с {{ yandex-cloud }} изнутри ВМ, вы можете получить IAM-токен из сервиса метаданных в [формате Google Compute Engine](../../compute/operations/vm-info/get-info.md#gce-metadata), а также добавить эту логику в свою функцию. Подробнее об этом читайте в разделе [Работа с {{ yandex-cloud }} изнутри ВМ](../../compute/operations/vm-connect/auth-inside-vm.md#auth-inside-vm).

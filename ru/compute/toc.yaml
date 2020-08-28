@@ -89,7 +89,7 @@ items:
             href: operations/vm-connect/ssh.md
           - name: Подключиться к ВМ по RDP
             href: operations/vm-connect/rdp.md
-          - name: Работа с Яндекс.Облаком изнутри ВМ
+          - name: Работа с Yandex.Cloud изнутри ВМ
             href: operations/vm-connect/auth-inside-vm.md
           - name: Установка NVIDIA-драйверов
             href: operations/vm-operate/install-nvidia-drivers.md

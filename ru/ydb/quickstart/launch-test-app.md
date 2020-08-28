@@ -8,9 +8,9 @@
 
 Чтобы подключиться к базе данных:
 
-1. [Создайте базу данных](create-db.md) в Яндекс.Облаке.
+1. [Создайте базу данных](create-db.md) в {{ yandex-cloud }}.
 
-1. [Создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm) в Яндекс.Облаке.
+1. [Создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm) в {{ yandex-cloud }}.
 
 1. Сохраните публичный IP-адрес виртуальной машины. Для этого перейдите в свойства виртуальной машины или [воспользуйтесь интерфейсом командной строки](../../compute/operations/vm-info/get-info#outside-instance).
 

@@ -57,7 +57,7 @@ RAM (за 1 ГБ) | 0,2180 ₽ | 0,0200 ₽
 
 {% note info %}
 
-Возможность использовать GPU на хостах {{ dataproc-name }} предоставляется по запросу в [техподдержку](https://console.cloud.yandex.ru/support).
+Возможность использовать GPU на хостах {{ dataproc-name }} предоставляется по запросу в [службу технической поддержки](https://console.cloud.yandex.ru/support).
 
 {% endnote %}
 

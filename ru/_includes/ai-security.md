@@ -22,4 +22,4 @@
 
 * [Как назначить роль на каталог](../resource-manager/operations/folder/set-access-bindings.md)
 * [Как назначить роль на облако](../resource-manager/operations/cloud/set-access-bindings.md)
-* [Подробнее о ролях в Яндекс.Облаке](../iam/concepts/access-control/roles.md)
+* [Подробнее о ролях в {{ yandex-cloud }}](../iam/concepts/access-control/roles.md)

@@ -1,6 +1,6 @@
 ## Настройка CLI {#cli-setup}
 
-Для работы с MDB нужно использовать CLI внешнего Облака:
+Для работы с MDB нужно использовать публичный YC CLI:
 
 1. [Установите CLI](../../../cli/quickstart.md).
 1. [Получите OAuth-токен](https://oauth.yandex-team.ru/authorize?response_type=token&client_id=8cdb2f6a0dca48398c6880312ee2f78d) для доступа CLI ко внутреннему MDB.

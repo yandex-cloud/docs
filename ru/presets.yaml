@@ -254,6 +254,9 @@ default:
   link-yandex-connect: https://connect.yandex.ru
   link-passport-login: https://passport.yandex.ru/auth
   link-cloud-oauth: https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb
+
+  # Cloud specific 
+  yandex-cloud: Yandex.Cloud 
 internal:
   audience: internal
   console-link: yc.yandex-team.ru

@@ -10,7 +10,7 @@
 
 Чтобы получать детализацию расходов по каталогам:
 
-1. [Создайте бакет](https://cloud.yandex.ru/docs/storage/operations/buckets/create) в сервисе {{ objstorage-name }}. В этом бакете Яндекс.Облако будет сохранять файлы с детализацией.
+1. [Создайте бакет](https://cloud.yandex.ru/docs/storage/operations/buckets/create) в сервисе {{ objstorage-name }}. В этом бакете {{ yandex-cloud }} будет сохранять файлы с детализацией.
 
     {% note alert %}
 
@@ -58,4 +58,4 @@
 #### См. также
 
 * [Посмотреть детализацию для облака](https://cloud.yandex.ru/docs/billing/operations/check-charges)
-* [Документация биллинга в Яндекс.Облаке](https://cloud.yandex.ru/docs/billing/)
+* [Документация биллинга в {{ yandex-cloud }}](https://cloud.yandex.ru/docs/billing/)

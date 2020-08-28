@@ -242,7 +242,7 @@ paths:
         уничтожение всех версий ключа через 72 часа.
       description: |-
         Ключ и его версии отсутствуют в ответах на запросы [get](/docs/kms/api-ref/SymmetricKey/get) и [list](/docs/kms/api-ref/SymmetricKey/list), но
-        могут быть восстановлены в течение 72 часов запросом в техподдержку.
+        могут быть восстановлены в течение 72 часов запросом в службу технической поддержки.
       operationId: SymmetricKeyDelete
       parameters:
       - name: keyId

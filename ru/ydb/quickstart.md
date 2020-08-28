@@ -2,7 +2,7 @@
 
 *Сервис {{ ydb-short-name }} находится на [стадии Preview](../overview/concepts/launch-stages.md), доступ к сервису предоставляется по заявке.*
 
-Создайте базу данных {{ ydb-short-name }} в консоли управления Яндекс.Облаком и ознакомьтесть с правилами написания YQL-запросов. Также вы можете запустить тестовое приложение для знакомства с работой {{ ydb-short-name }} SDK для [Python](https://github.com/yandex-cloud/ydb-python-sdk), [Go](https://github.com/yandex-cloud/ydb-go-sdk) или [Java](https://github.com/yandex-cloud/ydb-java-sdk).
+Создайте базу данных {{ ydb-short-name }} в консоли управления {{ yandex-cloud }} и ознакомьтесть с правилами написания YQL-запросов. Также вы можете запустить тестовое приложение для знакомства с работой {{ ydb-short-name }} SDK для [Python](https://github.com/yandex-cloud/ydb-python-sdk), [Go](https://github.com/yandex-cloud/ydb-go-sdk) или [Java](https://github.com/yandex-cloud/ydb-java-sdk).
 
 ## Перед началом работы {#before-you-begin}
 
@@ -12,7 +12,7 @@
 1. Если у вас еще нет каталога, [создайте его](../resource-manager/operations/folder/create.md).
 1. Перейдите на [страницу сервиса {{ ydb-short-name }}](https://cloud.yandex.ru/services/ydb) и нажмите кнопку **Запросить доступ**.
 1. Выберите облако, в котором планируете работать с сервисом, и нажмите кнопку **Отправить**. Как только заявка будет одобрена, на вашу электронную почту придет письмо с подтверждением.
-1. Откройте письмо и нажмите кнопку **Начать тестирование**. Вы будете перенаправлены в [консоль Яндекс.Облака](https://console.cloud.yandex.ru/) и сможете начать работу с сервисом.
+1. Откройте письмо и нажмите кнопку **Начать тестирование**. Вы будете перенаправлены в [консоль {{ yandex-cloud }}](https://console.cloud.yandex.ru/) и сможете начать работу с сервисом.
 
 ## Создайте базу данных {#control-plane}
 
@@ -116,7 +116,7 @@
 
 Чтобы подключиться к базе данных:
 
-1. [Создайте виртуальную машину](../compute/operations/vm-create/create-linux-vm) в Яндекс.Облаке.
+1. [Создайте виртуальную машину](../compute/operations/vm-create/create-linux-vm) в {{ yandex-cloud }}.
 
 1. Сохраните публичный IP-адрес виртуальной машины. Для этого перейдите в свойства виртуальной машины или [воспользуйтесь интерфейсом командной строки](../compute/operations/vm-info/get-info#outside-instance).
 
