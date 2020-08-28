@@ -2,7 +2,7 @@
 
 {% include [triggers-preview](../../../_includes/functions/triggers-preview-stage.md) %}
 
-_Триггер_ — условие, при выполнении которого автоматически запускается определенная функция. Триггеры позволяют автоматизировать работу с другими сервисами Яндекс.Облака, например: {{ sf-full-name }}, {{message-queue-full-name}} и {{ iot-full-name }}. 
+_Триггер_ — условие, при выполнении которого автоматически запускается определенная функция. Триггеры позволяют автоматизировать работу с другими сервисами {{ yandex-cloud }}, например: {{ sf-full-name }}, {{message-queue-full-name}} и {{ iot-full-name }}. 
 
 {% include [trigger-time](../../../_includes/functions/trigger-time.md) %}
 

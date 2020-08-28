@@ -2,7 +2,7 @@
 
 [Tink](https://github.com/google/tink) — это библиотека шифрования от Google, альтернатива [AWS Encryption](aws-encryption-sdk.md). Библиотека помогает сосредоточиться на задаче шифрования и расшифровки данных, не отвлекаясь на выбор правильного алгоритма и параметров шифрования.
 
-Поддерживаются [Java](https://github.com/yandex-cloud/kms-clients-java/tree/master/kms-provider-tink) и [Go](https://github.com/yandex-cloud/kms-clients-go) версии клиентов для Tink, позволяющие шифровать и расшифровывать данные на ключах {{ kms-short-name }} Яндекс.Облака. Данные шифруются [по схеме envelope encryption](../../concepts/envelope.md) (объем открытого текста не ограничен).
+Поддерживаются [Java](https://github.com/yandex-cloud/kms-clients-java/tree/master/kms-provider-tink) и [Go](https://github.com/yandex-cloud/kms-clients-go) версии клиентов для Tink, позволяющие шифровать и расшифровывать данные на ключах {{ kms-short-name }} {{ yandex-cloud }}. Данные шифруются [по схеме envelope encryption](../../concepts/envelope.md) (объем открытого текста не ограничен).
 
 ## Добавление зависимости {#dependency}
 
@@ -35,7 +35,7 @@
 ## Шифрование и расшифровка {#encrypt-decrypt}
 
 В коде используются следующие переменные: 
-* `credentials` – определяет способ аутентификации, подробнее читайте в разделе [Аутентификация в SDK Яндекс.Облака](sdk.md#auth).
+* `credentials` – определяет способ аутентификации, подробнее читайте в разделе [Аутентификация в SDK {{ yandex-cloud }}](sdk.md#auth).
 * `keyId` – идентификатор [ключа {{ kms-short-name }}](../../concepts/key.md).
 * `plaintext` – открытый текст.
 * `ciphertext` – шифртекст.

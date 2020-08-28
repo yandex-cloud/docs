@@ -18,7 +18,7 @@ links:
   description: "Узнайте про устройство и возможности сервиса"
   href: "concepts/"
 #- title: "Справочник метрик"
-  ##  description: "Описание метрик сервисов Яндекс.Облака"
+  ##  description: "Описание метрик сервисов Yandex.Cloud"
   ##  href: "metrics-ref/"
 - title: "Алертинг"
   description: "Настройте оповещения об изменении метрик"

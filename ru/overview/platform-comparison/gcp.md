@@ -4,7 +4,7 @@
 
 {% include [infrastructure](../../_includes/overview/infrastructure.md) %}
 
-| Google Cloud Platform | Яндекс.Облако |
+| Google Cloud Platform | {{ yandex-cloud }} |
 |----|----|
 |Compute Engine|[{{ compute-full-name }}](../../compute/)|
 |Cloud Storage|[{{ objstorage-full-name }}](../../storage/) |
@@ -23,7 +23,7 @@
 
 {% include [ds-analytics](../../_includes/overview/ds-analytics.md) %}
 
-| Google Cloud Platform | Яндекс.Облако |
+| Google Cloud Platform | {{ yandex-cloud }} |
 |----|----|
 | Cloud SQL: PostgreSQL |[{{ mpg-full-name }}](../../managed-postgresql/)|
 | GCP: MongoDB Atlas |[{{ mmg-full-name }}](../../managed-mongodb/)|
@@ -36,7 +36,7 @@
 
 {% include [cloud-native](../../_includes/overview/cloud-native.md) %}
 
-| Google Cloud Platform | Яндекс.Облако |
+| Google Cloud Platform | {{ yandex-cloud }} |
 |----|----|
 | Cloud Spanner |[{{ ydb-full-name }}](../../ydb/)|
 | Cloud Pub/Sub |[{{ message-queue-full-name }}](../../message-queue/)|
@@ -47,7 +47,7 @@
 
 {% include [ml-ai](../../_includes/overview/ml-ai.md) %}
 
-| Google Cloud Platform | Яндекс.Облако |
+| Google Cloud Platform | {{ yandex-cloud }} |
 |----|----|
 |Cloud Speech-to-Text, Cloud Text-to-Speech|[{{ speechkit-full-name }}](../../speechkit/)|
 |Translation API|[{{ translate-full-name }}](../../translate/)|

@@ -1,6 +1,6 @@
 # Порядок оказания технической поддержки
 
-Яндекс.Облако оказывает техническую поддержку с разными тарифными планами — вы можете выбрать тот, который подходит вам.
+{{ yandex-cloud }} оказывает техническую поддержку с разными тарифными планами — вы можете выбрать тот, который подходит вам.
 
 ## Как обратиться в поддержку {#response-time}
 
@@ -32,21 +32,21 @@
 ----- | ----- | ----- | ----- | -----
 | Восстановление доступа в консоль управления | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
 | Предоставление ссылок на документацию | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
-| Диагностика ошибок в работе сервисов Яндекс.Облака и решение выявленных проблем, не связанных со сторонним программным обеспечением | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
+| Диагностика ошибок в работе сервисов {{ yandex-cloud }} и решение выявленных проблем, не связанных со сторонним программным обеспечением | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
 | Консультации по вопросам, связанным с Биллингом | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
-| Консультации по часто возникающим вопросам (в том числе по общим вида <q>Как это работает?</q> и <q>Что это такое?</q>) о  сервисах и функциональных возможностях Яндекс.Облака | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
-| Консультации и оказание помощи при настройке сервисов Яндекс.Облака | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
-| Запросы о ваших данных в Яндекс.Облаке |  ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
+| Консультации по часто возникающим вопросам (в том числе по общим вида <q>Как это работает?</q> и <q>Что это такое?</q>) о  сервисах и функциональных возможностях {{ yandex-cloud }} | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
+| Консультации и оказание помощи при настройке сервисов {{ yandex-cloud }} | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
+| Запросы о ваших данных в {{ yandex-cloud }} |  ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
 | Рекомендации по восстановлению работоспособности сервисов в случае критических инцидентов | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
 | Общие рекомендации по архитектуре |  | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
 | Консультации по настройке стороннего ПО и устранению проблем с совместимостью (указание на открытые источники информации) | | | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
 | Рекомендации по устранению проблем с операционными системами и их компонентами | | | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
 | Рекомендации по устранению проблем с совместимостью стороннего программного обеспечения (непосредственная помощь в решении) | | | | ![image](../_assets/common/yes.svg) |
-| Консультации выделенного инженера по архитектурным решениям с учетом вашего сценария использования сервисов Яндекс.Облака. | | | | ![image](../_assets/common/yes.svg) |
+| Консультации выделенного инженера по архитектурным решениям с учетом вашего сценария использования сервисов {{ yandex-cloud }}. | | | | ![image](../_assets/common/yes.svg) |
 | Персональный технический менеджер | | | | ![image](../_assets/common/yes.svg) |
-| Оказание Яндекс.Облаком дополнительных услуг (обсуждается индивидуально) | | | | ![image](../_assets/common/yes.svg) |
+| Оказание {{ yandex-cloud }} дополнительных услуг (обсуждается индивидуально) | | | | ![image](../_assets/common/yes.svg) |
 
-Инженеры службы технической поддержки Яндекс.Облака не решают задачи:
+Инженеры службы технической поддержки {{ yandex-cloud }} не решают задачи:
 
   * Разработки программного кода.
   * Отладки вашего собственного программного обеспечения.

@@ -35,9 +35,9 @@ items:
         items:
           - name: Какой способ шифрования выбрать?
             href: solutions/encrypt/index.md
-          - name: Шифрование с помощью CLI и API Яндекс.Облака
+          - name: Шифрование с помощью CLI и API Yandex.Cloud
             href: solutions/encrypt/cli-api.md
-          - name: Шифрование с помощью SDK Яндекс.Облака
+          - name: Шифрование с помощью SDK Yandex.Cloud
             href: solutions/encrypt/sdk.md
           - name: Шифрование с помощью AWS Encryption SDK
             href: solutions/encrypt/aws-encryption-sdk.md

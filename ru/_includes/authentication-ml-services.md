@@ -18,7 +18,7 @@
       {% include [api-keys-disclaimer](iam/api-keys-disclaimer.md) %}
 
       1. [Получите API-ключ](../iam/operations/api-key/create.md).
-      2. Полученный API-ключ указывайте при обращении к ресурсам Яндекс.Облака через API. Передайте API-ключ в заголовке `Authorization` в следующем формате:
+      2. Полученный API-ключ указывайте при обращении к ресурсам {{ yandex-cloud }} через API. Передайте API-ключ в заголовке `Authorization` в следующем формате:
 
           ```
           Authorization: Api-Key <API-ключ>

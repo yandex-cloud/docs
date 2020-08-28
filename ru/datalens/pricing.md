@@ -50,8 +50,8 @@ editable: false
 
 Тип сессии | Источники данных
 -----  | -----
-Внутренняя | Материализованные датасеты<br/>CSV-подключения<br/>Metrica<br/>Metrica Logs API<br/>AppMetrica<br/>AppMetrica Logs API<br/>Управляемые базы данных Яндекс.Облака:<br/> - [Managed Service for ClickHouse](../managed-clickhouse)<br/> - [Managed Service for PostgreSQL](../managed-postgresql)<br/> - [Managed Service for MySQL<sup>®</sup>](../managed-mysql)
-Внешняя | Любой источник данных, который не относится к Яндексу и Яндекс.Облаку.
+Внутренняя | Материализованные датасеты<br/>CSV-подключения<br/>Metrica<br/>Metrica Logs API<br/>AppMetrica<br/>AppMetrica Logs API<br/>Управляемые базы данных {{ yandex-cloud }}:<br/> - [Managed Service for ClickHouse](../managed-clickhouse)<br/> - [Managed Service for PostgreSQL](../managed-postgresql)<br/> - [Managed Service for MySQL<sup>®</sup>](../managed-mysql)
+Внешняя | Любой источник данных, который не относится к Яндексу и {{ yandex-cloud }}.
 
 ### Как считаются сессии {#how-sessions-counted}
 
@@ -118,4 +118,4 @@ editable: false
 
 При этом вы сможете просматривать изменять настройки текущих объектов, а также создавать новые чарты и дашборды. 
 
-Если Яндекс.Облако не сможет списать сумму для оплаты подписки, доступ к вашему экземпляру {{ datalens-short-name }} будет заблокирован.
+Если {{ yandex-cloud }} не сможет списать сумму для оплаты подписки, доступ к вашему экземпляру {{ datalens-short-name }} будет заблокирован.

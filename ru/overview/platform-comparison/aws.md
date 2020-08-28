@@ -4,7 +4,7 @@
 
 {% include [infrastructure](../../_includes/overview/infrastructure.md) %}
 
-| Amazon Web Services | Яндекс.Облако |
+| Amazon Web Services | {{ yandex-cloud }} |
 |----|----|
 |Amazon Elastic Compute Cloud |[{{ compute-full-name }}](../../compute/) |
 |Amazon S3|[{{ objstorage-full-name }}](../../storage/) |
@@ -23,7 +23,7 @@
 
 {% include [ds-analytics](../../_includes/overview/ds-analytics.md) %}
 
-| Amazon Web Services | Яндекс.Облако |
+| Amazon Web Services | {{ yandex-cloud }} |
 |----|----|
 | Amazon RDS for PostgreSQL |[{{ mpg-full-name }}](../../managed-postgresql/) |
 | Amazon DocumentDB (with MongoDB compatibility)|[{{ mmg-full-name }}](../../managed-mongodb/) |
@@ -36,7 +36,7 @@
 
 {% include [cloud-native](../../_includes/overview/cloud-native.md) %}
 
-| Amazon Web Services | Яндекс.Облако |
+| Amazon Web Services | {{ yandex-cloud }} |
 |----|----|
 | Amazon DynamoDB |[{{ ydb-full-name }}](../../ydb/) |
 | Amazon Simple Queue Service|[{{ message-queue-full-name }}](../../message-queue/)|
@@ -47,7 +47,7 @@
 
 {% include [ml-ai](../../_includes/overview/ml-ai.md) %}
 
-| Amazon Web Services | Яндекс.Облако |
+| Amazon Web Services | {{ yandex-cloud }} |
 |----|----|
 |Polly, Transcribe|[{{ speechkit-full-name }}](../../speechkit/) |
 |Translate|[{{ translate-full-name }}](../../translate/) |

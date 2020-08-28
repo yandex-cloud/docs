@@ -14,7 +14,7 @@
 
 ## Перед началом работы {#before-you-begin}
 
-1. [Создайте каталог](../../resource-manager/operations/folder/create.md) в Яндекс.Облаке.
+1. [Создайте каталог](../../resource-manager/operations/folder/create.md) в {{ yandex-cloud }}.
 1. [Установите](../../cli/quickstart.md) интерфейс командной строки YC CLI.
 
 ## Создайте функцию на Python {#python-func}

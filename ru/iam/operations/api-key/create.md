@@ -1,6 +1,6 @@
 # Создание API-ключа
 
-Это инструкция по созданию [API-ключа](../../concepts/authorization/api-key.md) для [сервисного аккаунта](../../concepts/users/service-accounts.md). _API-ключ_ — секретный ключ, используемый для упрощенной авторизации в API Яндекс.Облака.
+Это инструкция по созданию [API-ключа](../../concepts/authorization/api-key.md) для [сервисного аккаунта](../../concepts/users/service-accounts.md). _API-ключ_ — секретный ключ, используемый для упрощенной авторизации в API {{ yandex-cloud }}.
 
 Если у вас еще нет сервисного аккаунта, [создайте его](../sa/create.md) и [назначьте ему роли](../sa/assign-role-for-sa.md).
 

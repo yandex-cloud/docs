@@ -29,7 +29,7 @@ items:
             href: operations/folder/get-id.md
   - name: Концепции
     items:
-      - name: Иерархия ресурсов Яндекс.Облака
+      - name: Иерархия ресурсов Yandex.Cloud
         href: concepts/resources-hierarchy.md
       - name: Квоты и лимиты
         href: concepts/limits.md

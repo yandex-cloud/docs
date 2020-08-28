@@ -1,4 +1,4 @@
-Перед работой нужно зарегистрироваться в Облаке и создать платежный аккаунт:
+Перед работой нужно зарегистрироваться в {{ yandex-cloud }} и создать платежный аккаунт:
 
 {% include [prepare-register-billing](../_solutions_includes/prepare-register-billing.md) %}
 

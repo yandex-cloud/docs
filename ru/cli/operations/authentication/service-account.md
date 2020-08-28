@@ -82,7 +82,7 @@
     {% include [add-folder](../../../_includes/cli-add-folder.md) %}
 
 
-Подробная информация про работу с Яндекс.Облаком из ВМ в разделе [{#T}](../../../compute/operations/vm-connect/auth-inside-vm.md).
+Подробная информация про работу с {{ yandex-cloud }} из ВМ в разделе [{#T}](../../../compute/operations/vm-connect/auth-inside-vm.md).
 
 #### См. также
 

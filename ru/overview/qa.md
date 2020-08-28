@@ -1,11 +1,11 @@
 # Вопросы и ответы
 
-## Про Яндекс.Облако
+## Про {{ yandex-cloud }}
 
 - [Биллинг](../billing/qa/all.md)
 - [Техническая поддержка](../support/qa.md)
 
-## Сервисы Яндекс.Облака
+## Сервисы {{ yandex-cloud }}
 
 - [{{ compute-name }}](../compute/qa/all.md)
 - [{{ objstorage-name }}](../storage/qa.md)

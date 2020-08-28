@@ -26,7 +26,8 @@ Converts `address` to its geographical coordinates.
 
 {% note warning %}
 
-Function is available only with the Standard billing plan.
+- The geocoding quota is no more than 25 000 unique entries per day. Records in excess of the quota will be processed the next day.
+- Function is available only with the Standard billing plan.
 
 {% endnote %}
 

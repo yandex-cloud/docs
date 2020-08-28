@@ -42,6 +42,7 @@ GEOINFO( address, scale )
 
 {% endnote %}
 
+
 #### Примеры {#examples}
 
 ```

@@ -1,6 +1,6 @@
 # Управление ключами {{ kms-short-name }} с Hashicorp Terraform
 
-[Terraform-провайдер для Яндекс.Облака](https://www.terraform.io/docs/providers/yandex/index.html) поддерживает работу с ключами {{ kms-short-name }}.
+[Terraform-провайдер для {{ yandex-cloud }}](https://www.terraform.io/docs/providers/yandex/index.html) поддерживает работу с ключами {{ kms-short-name }}.
 
 ## Добавление ключа {#add}
 
@@ -50,7 +50,7 @@ resource "yandex_resourcemanager_folder_iam_policy" "folder_iam_policy" {
 
 ## См. также {#see-also}
 
-* [Начало работы с Terraform в Яндекс.Облаке](../../solutions/infrastructure-management/terraform-quickstart.md).
+* [Начало работы с Terraform в {{ yandex-cloud }}](../../solutions/infrastructure-management/terraform-quickstart.md).
 * [{#T}](../security/index.md).
-* [Документация провайдера Яндекс.Облака](https://www.terraform.io/docs/providers/yandex/index.html).
+* [Документация провайдера {{ yandex-cloud }}](https://www.terraform.io/docs/providers/yandex/index.html).
 

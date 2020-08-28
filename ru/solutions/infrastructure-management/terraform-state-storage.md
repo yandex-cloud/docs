@@ -24,7 +24,7 @@
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-Для развертывания инфраструктуры с помощью Terraform нужно зарегистрироваться в Облаке и создать платежный аккаунт:
+Для развертывания инфраструктуры с помощью Terraform нужно зарегистрироваться в {{ yandex-cloud }} и создать платежный аккаунт:
 
 {% include [prepare-register-billing](../_solutions_includes/prepare-register-billing.md) %}
 

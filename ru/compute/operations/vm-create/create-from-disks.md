@@ -19,7 +19,7 @@
   
       {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
   
-  1. В блоке **Зона доступности** выберите нужную зону доступности. [Подробнее о географии Облака](../../../overview/concepts/geo-scope.md).
+  1. В блоке **Зона доступности** выберите нужную зону доступности. [Подробнее о географии {{ yandex-cloud }}](../../../overview/concepts/geo-scope.md).
   1. Выберите один из публичных [образов](../../operations/images-with-pre-installed-software/get-list.md).
   1. В блоке **Диски** нажмите **Добавить диск**:
       - Введите имя диска.
@@ -97,7 +97,7 @@
 
 - Terraform
 
-  Если у вас ещё нет Terraform, [установите его и настройте провайдер Яндекс.Облака](../../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).  
+  Если у вас ещё нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).  
 
   Чтобы создать виртуальную машину из набора дисков:
 
