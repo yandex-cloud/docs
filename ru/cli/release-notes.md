@@ -1,8 +1,32 @@
 # Релизы YC CLI
 
-## Версия 0.62.0 (20.08.20) {#latest-release}
+## Версия 0.63.0 (28.08.20) {#latest-release}
+
+### Изменения в CLI {#cli}
+
+**Исправлено**
+
+* Исправлена проблема с авторизацией для федеративных пользователей при инициализации нового профиля YC CLI.
 
 ### Изменения в сервисах Облака {#services}
+
+#### {{ vpc-name }} {#vpc}
+
+- Добавлена группа команд `yc vpc address` для управления [IP-адресами](../vpc/concepts/address.md#public-addresses).
+
+#### {{ certificate-manager-name }} {#certificate-manager}
+
+Появилась поддержка сервиса для управления TLS-сертификатами: {{ certificate-manager-full-name }}.
+
+С помощью {{ certificate-manager-full-name }} вы можете получать и обновлять TLS-сертификаты от Let’s Encrypt®, а также импортировать собственные сертификаты. Сертификаты можно использовать в сервисах Яндекс.Облака для обеспечения безопасности соединений.
+
+Сервис {{ certificate-manager-full-name }} находится на стадии Preview. Подробнее про сервис читайте в [документации](../certificate-manager/index.yaml).
+
+## Предыдущие релизы {#previous-releases}
+
+### Версия 0.62.0 (20.08.20) {#version0.62.0}
+
+#### Изменения в сервисах Облака {#services}
 
 #### {{ sf-name }} {#serverless-functions}
 
@@ -32,8 +56,6 @@
 - Команда `yc managed-mongodb cluster restore`.
     
     Добавлен флаг `--recovery-target-timestamp` для указания точки восстановления резервной копии.
-
-## Предыдущие релизы {#previous-releases}
 
 ### Версия 0.61.0 (03.08.20) {#version0.61.0}
 
