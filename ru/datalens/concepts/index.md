@@ -3,7 +3,7 @@
 {{ datalens-full-name }} это сервис для бизнес-аналитики. Сервис позволяет загружать и обрабатывать данные, визуализировать их для анализа и проверки гипотез.
 С его помощью вы можете принимать важные маркетинговые и другие решения для вашего продукта.
 
-Вы можете создать только один экземпляр {{ datalens-full-name }} в [каталоге Яндекс.Облака](../../resource-manager/concepts/resources-hierarchy.md#folder). 
+Вы можете создать только один экземпляр {{ datalens-full-name }} в [каталоге {{ yandex-cloud }}](../../resource-manager/concepts/resources-hierarchy.md#folder). 
 
 ## Взаимосвязь объектов {#component-interrelation}
 

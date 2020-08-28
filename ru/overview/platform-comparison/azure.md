@@ -4,7 +4,7 @@
 
 {% include [infrastructure](../../_includes/overview/infrastructure.md) %}
 
-| Microsoft Azure | Яндекс.Облако |
+| Microsoft Azure | {{ yandex-cloud }} |
 |----|----|
 |Virtual Machines|[{{ compute-full-name }}](../../compute/)|
 |Blob Storage|[{{ objstorage-full-name }}](../../storage/) |
@@ -23,7 +23,7 @@
 
 {% include [ds-analytics](../../_includes/overview/ds-analytics.md) %}
 
-| Microsoft Azure | Яндекс.Облако |
+| Microsoft Azure | {{ yandex-cloud }} |
 |----|----|
 | Azure Database for PostgreSQL |[{{ mpg-full-name }}](../../managed-postgresql/)|
 | Azure Cosmos DB |[{{ mmg-full-name }}](../../managed-mongodb/) |
@@ -36,7 +36,7 @@
 
 {% include [cloud-native](../../_includes/overview/cloud-native.md) %}
 
-| Microsoft Azure | Яндекс.Облако |
+| Microsoft Azure | {{ yandex-cloud }} |
 |----|----|
 | Microsoft: Azure Cosmos DB|[{{ ydb-full-name }}](../../ydb/) |
 |Queue Storage, Service Bus|[{{ message-queue-full-name }}](../../message-queue/) |
@@ -47,7 +47,7 @@
 
 {% include [ml-ai](../../_includes/overview/ml-ai.md) %}
 
-| Microsoft Azure | Яндекс.Облако |
+| Microsoft Azure | {{ yandex-cloud }} |
 |----|----|
 |Cognitive Services: Speech|[{{ speechkit-full-name }}](../../speechkit/) |
 |Cognitive Services: Language|[{{ translate-full-name }}](../../translate/) |

@@ -28,7 +28,7 @@
 
 ## Подготовьтесь к работе {#before-you-begin}
 
-1. Если у вас еще нет интерфейса командной строки Яндекс.Облака, [установите и инициализируйте его](../../cli/quickstart.md#install).
+1. Если у вас еще нет интерфейса командной строки {{ yandex-cloud }}, [установите и инициализируйте его](../../cli/quickstart.md#install).
 1. Скачайте и установите [Java Development Kit](https://www.oracle.com/java/technologies/javase-downloads.html).
 
 ## Создайте необходимые ресурсы {{ iot-full-name }} {#resources}

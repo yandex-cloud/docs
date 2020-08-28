@@ -10,7 +10,7 @@
    ```
 
    * `provider` — название провайдера.
-   * `token` — [OAuth-токен](../../iam/concepts/authorization/oauth-token.md) для доступа к Яндекс.Облаку.
+   * `token` — [OAuth-токен](../../iam/concepts/authorization/oauth-token.md) для доступа к {{ yandex-cloud }}.
    * `cloud_id` — идентификатор облака, в котором Terraform создаст ресурсы.
    * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором по умолчанию будут создаваться ресурсы.
    * `zone` — зона доступности, в которой по умолчанию будут создаваться все облачные ресурсы.

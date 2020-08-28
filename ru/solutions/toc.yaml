@@ -83,11 +83,11 @@ items:
           Создание кластера Windows-серверов «1С:Предприятия» с базой данных MS
           SQL Server
         href: infrastructure-management/1c-mssql-windows.md
-      - name: Миграция в Яндекс.Облако с помощью Hystax Acura
+      - name: Миграция в Yandex.Cloud с помощью Hystax Acura
         href: infrastructure-management/hystax-migration.md
-      - name: Аварийное восстановление в Яндекс.Облако с помощью Hystax Acura
+      - name: Аварийное восстановление в Yandex.Cloud с помощью Hystax Acura
         href: infrastructure-management/hystax-disaster-recovery.md
-  - name: Windows в Яндекс.Облаке
+  - name: Windows в Yandex.Cloud
     items:
       - name: Все сценарии
         href: windows/index.md

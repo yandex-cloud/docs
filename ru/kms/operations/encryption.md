@@ -1,4 +1,4 @@
-# Шифрование данных с помощью CLI и API Яндекс.Облака
+# Шифрование данных с помощью CLI и API {{ yandex-cloud }}
 
 В сервисе {{ kms-short-name }} с помощью CLI и API вы можете шифровать и расшифровывать данные небольшого размера (до 32 КБ). Подробнее о возможных способах шифрования читайте в разделе [{#T}](../solutions/encrypt/index.md)
 
@@ -33,7 +33,7 @@
 
     Воспользуйтесь методом [encrypt](../api-ref/SymmetricCrypto/encrypt) для ресурса `SymmetricCrypto`.
     
-- SDK Яндекс.Облака
+- SDK {{ yandex-cloud }}
 
     {% include [yc-sdk](../../_includes/kms/sdk-encypt.md) %}
 
@@ -72,7 +72,7 @@
 
     Воспользуйтесь методом [decrypt](../api-ref/SymmetricCrypto/decrypt) для ресурса `SymmetricCrypto`.
 
-- SDK Яндекс.Облака
+- SDK {{ yandex-cloud }}
 
     {% include [yc-sdk](../../_includes/kms/sdk-encypt.md) %}
 

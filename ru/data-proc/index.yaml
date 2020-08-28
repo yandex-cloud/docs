@@ -1,7 +1,7 @@
 title: "Yandex Data Proc"
 description:
-  - "Сервис помогает разворачивать кластеры Apache Hadoop<sup>®</sup> и Apache Spark™ в инфраструктуре Яндекс.Облака. Вы сами определяете размер кластера, мощность узлов и набор сервисов Apache<sup>®</sup> (Spark™, HDFS, YARN, Hive, HBase<sup>®</sup>, Oozie™, Sqoop™, Flume™, Tez<sup>®</sup>, Zeppelin™)."
-  - "Инфраструктура Яндекс.Облака <a href=\"https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf\">защищена</a> в соответствии с ФЗ-152."
+  - "Сервис помогает разворачивать кластеры Apache Hadoop<sup>®</sup> и Apache Spark™ в инфраструктуре Yandex.Cloud. Вы сами определяете размер кластера, мощность узлов и набор сервисов Apache<sup>®</sup> (Spark™, HDFS, YARN, Hive, HBase<sup>®</sup>, Oozie™, Sqoop™, Flume™, Tez<sup>®</sup>, Zeppelin™)."
+  - "Инфраструктура Yandex.Cloud <a href=\"https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf\">защищена</a> в соответствии с ФЗ-152."
   - "<em>Apache<sup>®</sup>, Apache Hadoop<sup>®</sup> и Apache Spark™ являются зарегистрированными товарными знаками или товарными знаками Apache Software Foundation в США и/или других странах.</em>"
 meta:
   title: "Yandex Data Proc"

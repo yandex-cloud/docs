@@ -15,4 +15,4 @@
 [Резервное копирование](backup.md) | Организация резервного копирования информации, хранящейся в {{ objstorage-name }}.
 [Квоты и лимиты](limits.md) | Ограничения на использование сервиса.
 
-Oзнакомьтесь также с [общей иерархией ресурсов](../../resource-manager/concepts/resources-hierarchy.md) Яндекс.Облака.
+Oзнакомьтесь также с [общей иерархией ресурсов](../../resource-manager/concepts/resources-hierarchy.md) {{ yandex-cloud }}.

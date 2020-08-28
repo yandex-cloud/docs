@@ -1,6 +1,6 @@
 title: "Yandex Key Management Service"
 description:
-  - "Yandex Key Management Service — сервис для создания и управления ключами шифрования, которые можно использовать для защиты данных в инфраструктуре Яндекс.Облака, а также шифрования и расшифровки любых ваших данных."
+  - "Yandex Key Management Service — сервис для создания и управления ключами шифрования, которые можно использовать для защиты данных в инфраструктуре Yandex.Cloud, а также шифрования и расшифровки любых ваших данных."
 meta:
   title: "Yandex Key Management Service"
 links:

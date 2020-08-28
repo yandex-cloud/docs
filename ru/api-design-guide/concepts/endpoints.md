@@ -1,6 +1,6 @@
-# Эндпоинты API сервисов Яндекс.Облака
+# Эндпоинты API сервисов {{ yandex-cloud }}
 
-У каждого из сервисов Яндекс.Облака есть эндпоинт, к которому следует отправлять HTTP-запросы. Полный список эндпоинтов можно запросить с помощью вызова [endpoints](https://api.cloud.yandex.net/endpoints) к URL `https://api.cloud.yandex.net`.
+У каждого из сервисов {{ yandex-cloud }} есть эндпоинт, к которому следует отправлять HTTP-запросы. Полный список эндпоинтов можно запросить с помощью вызова [endpoints](https://api.cloud.yandex.net/endpoints) к URL `https://api.cloud.yandex.net`.
 
 ## Пример {#example}
 

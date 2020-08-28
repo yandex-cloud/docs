@@ -31,7 +31,7 @@ http(s)://website.yandexcloud.net/<имя_бакета>
 
 Настройка бакета выполняется:
 
-- В [консоли управления](../operations/hosting/setup.md) Яндекс.Облака.
+- В [консоли управления](../operations/hosting/setup.md) {{ yandex-cloud }}.
 - Через [HTTP API](../s3/api-ref/hosting.md), совместимый с Amazon S3.
 
 При хостинге сайта вы можете:

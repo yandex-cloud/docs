@@ -4,7 +4,7 @@
 
 * [Spark Shell](#spark-shell) (командная оболочка для языков программирования Scala и Python). Подробнее о ней читайте в [документации Spark](https://spark.apache.org/docs/latest/quick-start).
 * [Скрипт spark-submit](#spark-submit). Более подробно этот способ описан в [документации Spark](https://spark.apache.org/docs/latest/submitting-applications.html#submitting-applications).
-* [Команды CLI Яндекс.Облака](#run-cli-jobs).
+* [Команды CLI {{ yandex-cloud }}](#run-cli-jobs).
 
 
 ## Подготовка данных {#prepare-data}
@@ -25,7 +25,7 @@ $ s3cmd ls s3://yc-mdb-examples/dataproc/example01/set01/
 
 {% note info %}
 
-Перед настройкой доступа к сервисам Облака и интернет-ресурсам убедитесь, что сеть кластера [настроена правильно](./configure-network.md).
+Перед настройкой доступа к сервисам {{ yandex-cloud }} и интернет-ресурсам убедитесь, что сеть кластера [настроена правильно](./configure-network.md).
 
 {% endnote %}
 
@@ -198,7 +198,7 @@ Spark Submit позволяет запускать заранее написан
   
 Более подробно с командами YARN можно ознакомиться на странице [YARN Commands](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YarnCommands.html).
 
-## Запуск заданий (jobs) с помощью CLI Яндекс.Облака {#run-cli-jobs}
+## Запуск заданий (jobs) с помощью CLI {{ yandex-cloud }} {#run-cli-jobs}
 
 {% include [cli-install](../../_includes/cli-install.md) %}
 
