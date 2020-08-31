@@ -151,7 +151,7 @@ Docker Engine может хранить учетные данные пользо
 
     {% note warning %}
 
-    Credential helper работает только при использовании Docker без `sudo`. О том, как настроить запуск Docker от имени текущего пользователя без использования `sudo` читайте в [официальной документации](https://h.yandex-team.ru/?https%3A%2F%2Fdocs.docker.com%2Fengine%2Finstall%2Flinux-postinstall%2F%23manage-docker-as-a-non-root-user).
+    Credential helper работает только при использовании Docker без `sudo`. О том, как настроить запуск Docker от имени текущего пользователя без использования `sudo` читайте в [официальной документации](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user).
 
     {% endnote %}
 

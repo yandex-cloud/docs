@@ -286,7 +286,7 @@ rotation_period | **[google.protobuf.Duration](https://developers.google.com/pro
 
 ## Delete {#Delete}
 
-Удаляет указанный симметричный ключ KMS. Это действие также автоматически планирует уничтожение всех версий ключа через 72 часа. <br>Ключ и его версии отсутствуют в ответах на запросы [SymmetricKeyService.Get](#Get) и [SymmetricKeyService.List](#List), но могут быть восстановлены в течение 72 часов запросом в службу технической поддержки.
+Удаляет указанный симметричный ключ KMS. Это действие также автоматически планирует уничтожение всех версий ключа через 72 часа. <br>Ключ и его версии отсутствуют в ответах на запросы [SymmetricKeyService.Get](#Get) и [SymmetricKeyService.List](#List), но могут быть восстановлены в течение 72 часов запросом в техподдержку.
 
 **rpc Delete ([DeleteSymmetricKeyRequest](#DeleteSymmetricKeyRequest)) returns ([operation.Operation](#Operation2))**
 

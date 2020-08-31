@@ -18,8 +18,8 @@ A set of methods for managing InstanceGroup resources.
 | [Start](#Start) | Starts the specified instance group. |
 | [Delete](#Delete) | Deletes the specified instance group. |
 | [ListInstances](#ListInstances) | Lists instances for the specified instance group. |
-| [DeleteInstances](#DeleteInstances) | Delete instances from instance group |
-| [StopInstances](#StopInstances) | Stop instances from instance group |
+| [DeleteInstances](#DeleteInstances) | Delete instances from the instance group. |
+| [StopInstances](#StopInstances) | Stop instances from the instance group. |
 | [ListOperations](#ListOperations) | Lists operations for the specified instance group. |
 | [ListLogRecords](#ListLogRecords) | Lists logs for the specified instance group. |
 | [ListAccessBindings](#ListAccessBindings) | Lists existing access bindings for the specified instance group. |
@@ -1602,7 +1602,7 @@ ip_version | enum **IpVersion**<br>External IP address version. <ul><li>`IPV4`: 
 
 ## DeleteInstances {#DeleteInstances}
 
-Delete instances from instance group
+Delete instances from the instance group.
 
 **rpc DeleteInstances ([DeleteInstancesRequest](#DeleteInstancesRequest)) returns ([operation.Operation](#Operation7))**
 
@@ -1614,9 +1614,9 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-instance_group_id | **string**<br>Required. ID of the InstanceGroup resource to delete instances from. To get the instance group ID, use a [InstanceGroupService.List](#List) request. false The maximum string length in characters is 50.
-managed_instance_ids[] | **string**<br>IDs of instances to delete. Instances will be deleted along with any dependent resources. Only allowed ids from ManagedInstance.id field, not ManagedInstance.instance_id. The minimum number of elements is 1. The maximum string length in characters for each value is 50.
-create_another | **bool**<br>When set to true instance group target size will not be decreased and new instance will be created in place of deleted. By default the group target size will be decreased by specified instance ids count. 
+instance_group_id | **string**<br>Required. ID of the instance group that the instances are being deleted from. To get the ID of the instance group, use the [InstanceGroupService.List](#List) request. false The maximum string length in characters is 50.
+managed_instance_ids[] | **string**<br>IDs of the instances to delete. Instances will be deleted along with all dependent resources. Only IDs from the ManagedInstance.id field are allowed, not ManagedInstance.instance_id. The minimum number of elements is 1. The maximum string length in characters for each value is 50.
+create_another | **bool**<br>If set to true, the target size of instance group will not be reduced and a new instance will be created instead of the deleted one. By default, the target size of instance group will be reduced by the specified number of instance IDs. 
 
 
 ### Operation {#Operation}
@@ -1668,7 +1668,7 @@ deletion_protection | **bool**<br>Flag that inhibits deletion of the instance gr
 
 ## StopInstances {#StopInstances}
 
-Stop instances from instance group
+Stop instances from the instance group.
 
 **rpc StopInstances ([StopInstancesRequest](#StopInstancesRequest)) returns ([operation.Operation](#Operation8))**
 
@@ -1680,8 +1680,8 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-instance_group_id | **string**<br>Required. ID of the InstanceGroup resource to stop instances from. To get the instance group ID, use a [InstanceGroupService.List](#List) request. false The maximum string length in characters is 50.
-managed_instance_ids[] | **string**<br>IDs of instances to stop. After stop instance could be updated, started or deleted according to scale and deploy policies. Only allowed ids from ManagedInstance.id field, not ManagedInstance.instance_id. The minimum number of elements is 1. The maximum string length in characters for each value is 50.
+instance_group_id | **string**<br>Required. ID of the instance group that the instances are being stopped from. To get the ID of the instance group, use the [InstanceGroupService.List](#List) request. false The maximum string length in characters is 50.
+managed_instance_ids[] | **string**<br>IDs of the instances to stop. After stopping, the instance can be updated, started, or deleted according to scale and deploy policies. Only IDs from the ManagedInstance.id field are allowed, not ManagedInstance.instance_id. The minimum number of elements is 1. The maximum string length in characters for each value is 50.
 
 
 ### Operation {#Operation}
