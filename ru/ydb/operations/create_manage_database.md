@@ -72,7 +72,7 @@
 
 ## Создать базу данных {#create-db}
 
-{% include [create-db-via-console](../../_includes/ydb/create-db-via-console.md) %}
+{% include [create-db-via-console](../_includes/create-db-via-console.md) %}
 
 {% endif %}
 

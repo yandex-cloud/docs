@@ -18,7 +18,7 @@
 
 Оператор [CREATE TABLE](../../ydb/yql/reference/syntax/create_table.md) создает таблицу с указанными параметрами:
 
-{% include [create-new-table-3-columns](../../_includes/ydb/queries/create-new-table-3-columns.md) %}
+{% include [create-new-table-3-columns](../_includes/queries/create-new-table-3-columns.md) %}
 
 В результате будет создана простая таблица ```series``` с колонками ```series_id```, ```title```, ```series_info``` и ```release_date```. Колонка ```series_id``` является первичным ключом таблицы. Таблицы ```seasons``` и ```episodes``` описываются аналогичным образом.
 

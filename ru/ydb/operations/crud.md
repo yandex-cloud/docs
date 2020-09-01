@@ -72,7 +72,7 @@ REPLACE INTO имя_таблицы (список_столбцов) VALUES (сп�
 
 Данные, добавленные с помощью следующего примера кода, будут использоваться далее в этом разделе.
 
-{% include notitle [replace-into-3-columns](../../_includes/ydb/queries/replace-into-3-columns.md) %}
+{% include notitle [replace-into-3-columns](../_includes/queries/replace-into-3-columns.md) %}
 
 ### UPSERT {#upsert}
 
@@ -86,7 +86,7 @@ REPLACE INTO имя_таблицы (список_столбцов) VALUES (сп�
 
 Код приведенный ниже вставит в таблицу ```episodes``` одну строчку с данными.
 
-{% include notitle [upsert-into-3-columns](../../_includes/ydb/queries/upsert-into-3-columns.md) %}
+{% include notitle [upsert-into-3-columns](../_includes/queries/upsert-into-3-columns.md) %}
 
 ### INSERT {#insert}
 
@@ -100,7 +100,7 @@ REPLACE INTO имя_таблицы (список_столбцов) VALUES (сп�
 
 Код приведенный ниже вставит в таблицу ```episodes``` одну строчку с данными.
 
-{% include notitle [insert-into-3-columns](../../_includes/ydb/queries/insert-into-3-columns.md) %}
+{% include notitle [insert-into-3-columns](../_includes/queries/insert-into-3-columns.md) %}
 
 ### UPDATE {#update}
 
@@ -112,13 +112,13 @@ UPDATE имя_таблицы SET имя_столбца1=новое_значен�
 
 Значения первичного ключа в рамках инструкции UPDATE не могут быть изменены. Введите и выполните следующую инструкцию UPDATE, чтобы изменить значение столбца ```title``` для эпизода с значениями столбцов ```series_id = 2```, ```season_id = 1```и ```episode_id = 3``` со значения "Test Episode" на значение "Test Episode Updated".
 
-{% include notitle [update-3-columns](../../_includes/ydb/queries/update-3-columns.md) %}
+{% include notitle [update-3-columns](../_includes/queries/update-3-columns.md) %}
 
 ### DELETE {#delete}
 
 Инструкция DELETE удаляет строки таблицы, отфильтрованные по предикату из условия WHERE. Код приведенный ниже удалит из таблицы ```episodes``` эпизод со следующими значениями столбцов ```series_id = 2```, ```season_id = 1```, и ```episode_id = 3```.
 
-{% include notitle [delete-from-3-columns](../../_includes/ydb/queries/delete-from-3-columns.md) %}
+{% include notitle [delete-from-3-columns](../_includes/queries/delete-from-3-columns.md) %}
 
 ## Запросите данные при помощи SELECT {#select}
 
@@ -126,7 +126,7 @@ UPDATE имя_таблицы SET имя_столбца1=новое_значен�
 
 Чтобы запросить данные из таблицы ```series```, выполните код представленный ниже.
 
-{% include notitle [select-from-3-columns](../../_includes/ydb/queries/select-from-3-columns.md) %}
+{% include notitle [select-from-3-columns](../_includes/queries/select-from-3-columns.md) %}
 
 {% if audience == "internal" %}
 
@@ -139,7 +139,7 @@ UPDATE имя_таблицы SET имя_столбца1=новое_значен�
 Чтобы выбрать все столбцы в таблице, можно использовать звездочку. Для того чтобы получить значения всех столбцов из таблицы ```series```,
 выполните код представленный ниже.
 
-{% include notitle [select-all](../../_includes/ydb/queries/select-all.md) %}
+{% include notitle [select-all](../_includes/queries/select-all.md) %}
 
 {% note info %}
 

@@ -20,7 +20,7 @@
 
 1. Чтобы создать базу данных, перейдите в [консоль управления](https://ydb.yandex-team.ru).
 
-    {% include [iam](../_includes/iam/owner-warning.md) %}
+    {% include [iam](../../_includesdes/iam/owner-warning.md) %}
 
 1. Нажмите кнопку **Create database**.
 
@@ -42,7 +42,7 @@
 
 {% else if audience == "external" %}
 
-{% include [create-db-via-console](../_includes/ydb/create-db-via-console.md) %}
+{% include [create-db-via-console](_includes/create-db-via-console.md) %}
 
 {% endif %}
 
@@ -50,13 +50,13 @@
 
 Чтобы начать работать с базой, создайте новую таблицу с помощью оператора [CREATE TABLE](yql/reference/syntax/create_table.md).
 
-{% include [create-schema-via-console](../_includes/ydb/create-schema-via-console.md) %}
+{% include [create-schema-via-console](_includes/create-schema-via-console.md) %}
 
 ## Запишите данные в таблицу {#replace-data}
 
 Запишите новые данные в таблицу с помощью оператора [REPLACE](yql/reference/syntax/replace_into.md).
 
-{% include [replace-data-via-console](../_includes/ydb/replace-data-via-console.md) %}
+{% include [replace-data-via-console](_includes/replace-data-via-console.md) %}
 
 {% if audience == "internal" %}
 
@@ -68,7 +68,7 @@
 
 Обновите существующие данные в таблице с помощью оператора [UPDATE](yql/reference/syntax/update.md).
 
-{% include [update-data-via-console](../_includes/ydb/update-data-via-console.md) %}
+{% include [update-data-via-console](_includes/update-data-via-console.md) %}
 
 {% if audience == "internal" %}
 
@@ -80,7 +80,7 @@
 
 Удалите данные из таблицы с помощью оператора [DELETE](yql/reference/syntax/delete.md).
 
-{% include [delete-data-via-console](../_includes/ydb/delete-data-via-console.md) %}
+{% include [delete-data-via-console](_includes/delete-data-via-console.md) %}
 
 {% if audience == "internal" %}
 
@@ -92,7 +92,7 @@
 
 Прочитайте данные из таблицы с помощью оператора [SELECT](yql/reference/syntax/select.md).
 
-{% include [select-data-via-console](../_includes/ydb/select-data-via-console.md) %}
+{% include [select-data-via-console](_includes/select-data-via-console.md) %}
 
 {% if audience == "internal" %}
 
@@ -104,7 +104,7 @@
 
 Удалите таблицу с помощью оператора [DROP TABLE](yql/reference/syntax/drop_table.md).
 
-{% include [drop-table-via-console](../_includes/ydb/drop-table-via-console.md) %}
+{% include [drop-table-via-console](_includes/drop-table-via-console.md) %}
 
 ## Запустите тестовое приложение {#sdk}
 
