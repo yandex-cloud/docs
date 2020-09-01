@@ -10,3 +10,4 @@ editable: false
 --- | ---
 [read](read.md) | Возвращает данные метрик.
 [write](write.md) | Записывает данные метрик.
+[prometheusMetrics](prometheusMetrics.md) | Экспортирует метрики в формате Prometheus.

@@ -21,4 +21,4 @@
    $ wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" -O ~/.ydb/CA.pem
    ```
    
-{% include notitle [run-app](../../_includes/ydb/run-app.md) %}
+{% include notitle [run-app](../_includes/run-app.md) %}

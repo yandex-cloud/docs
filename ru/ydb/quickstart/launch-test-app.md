@@ -29,4 +29,4 @@
 
 ## Запустите тестовое приложение {#run-test}
 
-{% include notitle [run-app](../../_includes/ydb/run-app.md) %}
+{% include notitle [run-app](../_includes/run-app.md) %}

@@ -9,7 +9,7 @@
 
 1. Введите имя базы. Требования к имени:
                      
-    {% include [name-format](../name-format.md) %}
+    {% include [name-format](../../_includes/name-format.md) %}
     
 1. В блоке **Вычислительные ресурсы** выберите тип и количество [вычислительных ресурсов](../../ydb/concepts/databases.md#compute-units). 
 

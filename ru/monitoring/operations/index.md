@@ -5,6 +5,7 @@
 - [{#T}](metric/add.md)
 - [{#T}](metric/get.md)
 - [{#T}](metric/list.md)
+- [{#T}](metric/prometheusExport.md)
 
 ## Работа с дашбордами {#working-with-dashboards}
 
@@ -19,3 +20,4 @@
 - [{#T}](alert/create-alert.md)
 - [{#T}](alert/create-channel.md)
 - [{#T}](alert/delete-alert.md)
+
