@@ -14,14 +14,6 @@
 
 - Добавлена группа команд `yc vpc address` для управления [IP-адресами](../vpc/concepts/address.md#public-addresses).
 
-#### {{ certificate-manager-name }} {#certificate-manager}
-
-Появилась поддержка сервиса для управления TLS-сертификатами: {{ certificate-manager-full-name }}.
-
-С помощью {{ certificate-manager-full-name }} вы можете получать и обновлять TLS-сертификаты от Let’s Encrypt®, а также импортировать собственные сертификаты. Сертификаты можно использовать в сервисах Яндекс.Облака для обеспечения безопасности соединений.
-
-Сервис {{ certificate-manager-full-name }} находится на стадии Preview. Подробнее про сервис читайте в [документации](../certificate-manager/index.yaml).
-
 ## Предыдущие релизы {#previous-releases}
 
 ### Версия 0.62.0 (20.08.20) {#version0.62.0}
