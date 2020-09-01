@@ -13,6 +13,8 @@ items:
             href: operations/metric/list.md
           - name: Выгрузка метрик
             href: operations/metric/get.md
+          - name: Экспорт метрик в формате Prometheus
+            href: operations/metric/prometheusExport.md
           - name: Запись пользовательских метрик
             href: operations/metric/add.md
       - name: Работа с дашбордами
@@ -79,6 +81,8 @@ items:
                 href: api-ref/MetricsData/read.md
               - name: write
                 href: api-ref/MetricsData/write.md
+              - name: prometheusMetrics
+                href: api-ref/MetricsData/prometheusMetrics.md
           - name: MetricsMeta
             items:
               - name: Обзор

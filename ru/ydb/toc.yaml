@@ -37,7 +37,7 @@ items:
       - name: Транзакции
         href: concepts/transactions.md
       - name: Вторичные индексы
-        href: concepts/secondary-indexes.md
+        href: concepts/secondary_indexes.md
       - name: Термины и определения
         href: concepts/databases.md
   - name: Управление доступом
@@ -48,6 +48,8 @@ items:
     items:
       - name: Проектирование схемы
         href: best_practices/schema_design.md
+      - name: Вторичные индексы
+        href: best_practices/secondary_indexes.md
       - name: Постраничный вывод
         href: best_practices/paging.md
       - name: Загрузка больших объемов данных
@@ -56,6 +58,8 @@ items:
         href: best_practices/ttl.md
   - name: Справочник API
     items:
+      - name: Ограничения базы данных
+        href: api/limits.md
       - name: Обработка ошибок в API
         href: api/error_handling.md
   - name: Справочник YQL

@@ -29,4 +29,4 @@ CREATE TABLE my_table (
 
 ## Добавление вторичных индексов {#si-add}
 
-{% include [add_secondary_index](../../../../_includes/ydb/add-secondary-index.md) %}
+{% include [add_secondary_index](../../../_includes/add-secondary-index.md) %}

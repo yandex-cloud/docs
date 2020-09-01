@@ -15,4 +15,4 @@
 ## Создайте базу данных {#control-plane}
 
 
-{% include [create-db-via-console](../../_includes/ydb/create-db-via-console.md) %}
+{% include [create-db-via-console](../_includes/create-db-via-console.md) %}
