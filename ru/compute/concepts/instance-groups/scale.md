@@ -75,6 +75,6 @@
 
 #### См. также {#see-also}
 
-- [{#T}](policies.md#scale-policy).
+- [{#T}](policies/scale-policy.md).
 - [{#T}](../../operations/instance-groups/create-fixed-group.md).
 - [{#T}](../../operations/instance-groups/create-autoscaled-group.md).
