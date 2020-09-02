@@ -55,7 +55,7 @@
   1. Создайте YAML-файл с произвольным именем, например `group.yaml` и, исходя из полученной информации, опишите:
 
       - [шаблон](../../concepts/instance-groups/instance-template.md) виртуальной машины;
-      - [политики](../../concepts/instance-groups/policies.md);
+      - [политики](../../concepts/instance-groups/policies/index.md);
       - идентификатор сервисного аккаунта;
       - спецификацию балансировщика нагрузки, если необходимо.
 

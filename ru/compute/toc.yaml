@@ -210,7 +210,15 @@ items:
           - name: Шаблон виртуальной машины
             href: concepts/instance-groups/instance-template.md
           - name: Политики
-            href: concepts/instance-groups/policies.md
+            items:
+              - name: Обзор
+                href: concepts/instance-groups/policies/index.md
+              - name: Политика распределения
+                href: concepts/instance-groups/policies/allocation-policy.md
+              - name: Политика развертывания
+                href: concepts/instance-groups/policies/deploy-policy.md
+              - name: Политика масштабирования
+                href: concepts/instance-groups/policies/scale-policy.md
           - name: Типы масштабирования
             href: concepts/instance-groups/scale.md
           - name: Автоматическое восстановление

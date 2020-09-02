@@ -23,13 +23,13 @@
   1. Посмотрите описание команды CLI для создания группы виртуальных машин:
 
       ```
-      $ yc compute instance-group create --help
+      yc compute instance-group create --help
       ```
 
   1. Проверьте, есть ли в каталоге сети:
 
       ```
-      $ yc vpc network list
+      yc vpc network list
       ```
 
       Если ни одной сети нет, [создайте ее](../../../vpc/operations/network-create.md).
@@ -47,7 +47,7 @@
           ```
           name: first-fixed-group
           service_account_id: <ID>
-          description: "This instance group was created from YAML config"
+          description: "This instance group was created from YAML config."
           ```
 
           Ключи:
@@ -64,8 +64,8 @@
           instance_template:
               platform_id: standard-v1
               resources_spec:
-                  memory: 4g
-                  cores: 1
+                  memory: 2g
+                  cores: 2
               boot_disk_spec:
                   mode: READ_WRITE
                   disk_spec:
@@ -88,15 +88,15 @@
           `platform_id` | Идентификатор платформы.
           `memory` | Количество памяти (RAM).
           `cores` | Количество ядер процессора (vCPU).
-          `mode` | Режим доступа к диску. </br> - `READ_ONLY` — доступ на чтение. </br>- `READ_WRITE` — доступ на чтение и запись.
-          `image_id` | Идентификатор публичного образа с CentOS 7.
+          `mode` | Режим доступа к диску.</br>- `READ_ONLY` — доступ на чтение.</br>- `READ_WRITE` — доступ на чтение и запись.
+          `image_id` | Идентификатор публичного образа.
           `type_id` | Тип диска.
           `size` | Размер диска.
           `network_id` | Идентификатор сети `default-net`.
-          `primary_v4_address_spec` | Спецификация версии интернет протокола IPv4. На данный момент доступен только протокол IPv4. Вы можете предоставить публичный доступ к виртуальным машинам группы, указав версию IP для публичного IP-адреса. Подробнее читайте в разделе [{#T}](../../concepts/instance-groups/instance-template.md#instance-template).
+          `primary_v4_address_spec` | Спецификация версии интернет протокола IPv4. Вы можете предоставить публичный доступ к виртуальным машинам группы, указав версию IP для публичного IP-адреса. Подробнее читайте в разделе [{#T}](../../concepts/instance-groups/instance-template.md#instance-template).
           `scheduling_policy` | Конфигурация политики планирования.
           `preemptible` | Флаг, указывающий создавать [прерываемые виртуальные машины](../../concepts/preemptible-vm.md). Если значение `true` — будет создана прерываемая, если `false` (по умолчанию) — обычная.<br>Создавая группу прерываемых машин учитывайте, что виртуальные машины будут останавливаться спустя 24 часа непрерывной работ, а могут быть остановлены еще раньше. При этом возможна ситуация, что {{ ig-name }} не сможет сразу перезапустить их из-за нехватки ресурсов. Это может произойти, если резко возрастет потребление вычислительных ресурсов в {{ yandex-cloud }}.
-      - [Политики](../../concepts/instance-groups/policies.md):
+      - [Политики](../../concepts/instance-groups/policies/index.md):
 
           ```
           deploy_policy:
@@ -114,21 +114,21 @@
 
           Ключ | Значение
           ----- | -----
-          `deploy_policy` | Политика развертывания виртуальных машин в группе.
-          `scale_policy` | Политика масштабирования виртуальных машин в группе.
-          `allocation_policy` | Политика распределения виртуальных машин по зонам и регионам.
+          `deploy_policy` | [Политика развертывания](../../concepts/instance-groups/policies/deploy-policy.md) виртуальных машин в группе.
+          `scale_policy` | [Политика масштабирования](../../concepts/instance-groups/policies/scale-policy.md) виртуальных машин в группе.
+          `allocation_policy` | [Политика распределения](../../concepts/instance-groups/policies/allocation-policy.md) виртуальных машин по зонам и регионам.
 
           Полный код файла `specification.yaml`:
 
           ```
           name: first-fixed-group
           service_account_id: ajed6ilf11qg839dcl1e
-          description: "This instance group was created from YAML config"
+          description: "This instance group was created from YAML config."
           instance_template:
               platform_id: standard-v1
               resources_spec:
-                  memory: 4g
-                  cores: 1
+                  memory: 2g
+                  cores: 2
               boot_disk_spec:
                   mode: READ_WRITE
                   disk_spec:
@@ -152,7 +152,7 @@
   1. Создайте группу виртуальных машин в каталоге по умолчанию:
 
       ```
-      $ yc compute instance-group create --file specification.yaml
+      yc compute instance-group create --file specification.yaml
       ```
 
       Данная команда создаст группу из трех однотипных виртуальных машин со следующими характеристиками:
@@ -161,7 +161,7 @@
       - С OC CentOS 7.
       - В сети `default-net`.
       - В зоне доступности `ru-central1-a`.
-      - С одним vCPU и 4 ГБ RAM.
+      - С 2 vCPU и 2 ГБ RAM.
       - С сетевым HDD-диском объемом 32 ГБ.
 
 - API
@@ -170,7 +170,7 @@
 
 - Terraform
 
-  Если у вас ещё нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).  
+  Если у вас еще нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).  
 
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
@@ -198,17 +198,17 @@
           ----- | -----
           `platform_id` | [Платформа](../../concepts/vm-platforms.md).
           `resources` | Количество ядер vCPU и объем RAM, доступные виртуальной машине. Значения должны соответствовать выбранной [платформе](../../concepts/vm-platforms.md).
-          `boot_disk` | Настройки загрузочного диска. Укажите: </br> - Идентификатор выбранного образа. Вы можете получить идентификатор образа из [списка публичных образов](../images-with-pre-installed-software/get-list.md). </br> - Режим доступа к диску: `READ_ONLY` (чтение) или `READ_WRITE` (чтение и запись).
+          `boot_disk` | Настройки загрузочного диска. Укажите:</br>- Идентификатор выбранного образа. Вы можете получить идентификатор образа из [списка публичных образов](../images-with-pre-installed-software/get-list.md).</br>- Режим доступа к диску: `READ_ONLY` (чтение) или `READ_WRITE` (чтение и запись).
           `network_interface` | Настройка сети. Укажите идентификаторы сети и подсети.
           `metadata` | В метаданных необходимо передать открытый ключ для SSH-доступа на виртуальную машину. Подробнее в разделе [{#T}](../../concepts/vm-metadata.md).
 
-       - [Политики](../../concepts/instance-groups/policies.md):
+       - [Политики](../../concepts/instance-groups/policies/index.md):
 
           Поле | Описание
           ----- | -----
-          `deploy_policy` | [Политика развертывания](../../concepts/instance-groups/policies.md#deploy-policy) виртуальных машин в группе.
-          `scale_policy` | [Политика масштабирования](../../concepts/instance-groups/policies.md#scale-policy) виртуальных машин в группе.
-          `allocation_policy` | [Политика распределения](../../concepts/instance-groups/policies.md#allocation-policy) виртуальных машин по зонам и регионам.
+          `deploy_policy` | [Политика развертывания](../../concepts/instance-groups/policies/deploy-policy.md) виртуальных машин в группе.
+          `scale_policy` | [Политика масштабирования](../../concepts/instance-groups/policies/scale-policy.md) виртуальных машин в группе.
+          `allocation_policy` | [Политика распределения](../../concepts/instance-groups/policies/allocation-policy.md) виртуальных машин по зонам и регионам.
 
      * `yandex_vpc_network` — описание [облачной сети](../../../vpc/concepts/network.md#network).
      * `yandex_vpc_subnet` — описание [подсети](../../../vpc/concepts/network.md#network), к которой будет подключена группа виртуальных машин.
@@ -234,7 +234,7 @@
        folder_id          = "<идентификатор каталога>"
        service_account_id = "${yandex_iam_service_account.ig-sa.id}"
        instance_template {
-         platform_id = "standard-v2"
+         platform_id = "standard-v1"
          resources {
            memory = <объем RAM в ГБ>
            cores  = <количество ядер vCPU>
@@ -269,7 +269,7 @@
 
        deploy_policy {
          max_unavailable = 1
-         max_expansion   = 0
+         max_expansion = 0
        }
      }
 
@@ -293,7 +293,7 @@
      2. Выполните проверку с помощью команды:
 
         ```
-        $ terraform plan
+        terraform plan
         ```
 
      Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет. 
@@ -303,7 +303,7 @@
      1. Если в конфигурации нет ошибок, выполните команду:
 
         ```
-        $ terraform apply
+        terraform apply
         ```
 
      2. Подтвердите создание ресурсов.

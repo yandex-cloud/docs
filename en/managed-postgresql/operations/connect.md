@@ -81,7 +81,7 @@ You can find the addresses of all the hosts in the DB cluster on the appropriate
 
 ### With a driver that supports only one host {#with-a-driver-that-supports-only-one-host}
 
-If your database connection driver doesn't allow passing multiple hosts in the connection string (for example,[pg in node.js](https://www.npmjs.com/package/pg)), you can connect to a special host like `c-<cluster ID>.rw.{{ dns-zone }}`.
+If your database connection driver doesn't allow passing multiple hosts in the connection string (for example, [pg in node.js](https://www.npmjs.com/package/pg)), you can connect to a special host like `c-<cluster ID>.rw.{{ dns-zone }}`.
 
 
 This domain name always indicates the current master in the cluster. For example, you can connect to the master of the cluster with the `c9qash3nb1v9ulc8j9nm` ID as follows:
