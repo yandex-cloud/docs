@@ -41,7 +41,7 @@
         ```
         name: container-optimized-group
         service_account_id: aje3932acd8avp6edhbt
-        description: "This instance group was created from YAML config"
+        description: "This instance group was created from YAML config."
         ```
 
         Ключи:
@@ -58,8 +58,8 @@
         instance_template:
             platform_id: standard-v1
             resources_spec:
-                memory: 4G
-                cores: 1
+                memory: 2G
+                cores: 2
             boot_disk_spec:
                 mode: READ_WRITE
                 disk_spec:
@@ -90,7 +90,7 @@
         `platform_id` | Идентификатор платформы.
         `memory` | Количество памяти (RAM).
         `cores` | Количество ядер процессора (vCPU).
-        `mode` | Режим доступа к диску. </br> - `READ_ONLY` — доступ на чтение. </br>- `READ_WRITE` — доступ на чтение и запись.
+        `mode` | Режим доступа к диску.</br>- `READ_ONLY` — доступ на чтение.</br>- `READ_WRITE` — доступ на чтение и запись.
         `image_id` | Идентификатор публичного образа {{ coi }}.
         `type_id` | Тип диска.
         `size` | Размер диска.
@@ -99,7 +99,7 @@
         `metadata` | Значения, которые будут переданы в метаданные виртуальной машины.
         `docker-container-declaration` | Ключ в метаданных виртуальной машины, при котором используется [COI спецификация Docker-контейнера](../../cos/concepts/index.md#coi-specifications). Вы можете использовать в метаданных [Docker Compose спецификацию](../../cos/concepts/index.md#compose-spec), для этого вместо ключа `docker-container-declaration` укажите ключ `docker-compose`.
 
-    - [Политики](../../compute/concepts/instance-groups/policies.md):
+    - [Политики](../../compute/concepts/instance-groups/policies/index.md):
 
         ```
         deploy_policy:
@@ -126,13 +126,13 @@
         ```
         name: container-optimized-group
         service_account_id: aje3932acd8avp6edhbt
-        description: "This instance group was created from YAML config"
+        description: "This instance group was created from YAML config."
         instance_template:
             service_account_id: aje3932acd8avp6edhbt # Идентификатор сервисного аккаунта для доступа к приватным Docker-образам.
             platform_id: standard-v1
             resources_spec:
-                memory: 4G
-                cores: 1
+                memory: 2G
+                cores: 2
             boot_disk_spec:
                 mode: READ_WRITE
                 disk_spec:
@@ -183,5 +183,5 @@
     - С запущенным Docker-контейнером на основе `cr.yandex/mirror/nginx:1.17.4-alpine`.
     - В сети `default-net`.
     - В зоне доступности `ru-central1-a`.
-    - С одним vCPU и 4 ГБ RAM.
+    - С 2 vCPU и 2 ГБ RAM.
     - С сетевым HDD-диском объемом 32 ГБ.
