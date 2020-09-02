@@ -874,9 +874,9 @@ components:
           $ref: '#/components/schemas/DeployPolicyStrategy_in_DeployPolicy_strategy'
     DeployPolicyStrategy:
       description: |2-
-         - PROACTIVE: Instance group may force running instance to stop. This is the default.
-         - OPPORTUNISTIC: Instance group doesn't force running instance to stop.
-        Instead, it will wait until instance stops itself or becomes unhealthy.
+         - PROACTIVE: Instance Groups can forcefully stop a running instance. This is the default.
+         - OPPORTUNISTIC: Instance Groups does not stop a running instance.
+        Instead, it will wait until the instance stops itself or becomes unhealthy.
       type: string
       enum:
       - PROACTIVE
@@ -2290,11 +2290,11 @@ components:
             $ref: '#/components/schemas/HealthCheckSpec'
     DeployPolicyStrategy_in_DeployPolicy_strategy:
       description: |-
-        Affects instance lifecycle during deploy.
+        Affects the lifecycle of the instance during deployment.
 
-         - PROACTIVE: Instance group may force running instance to stop. This is the default.
-         - OPPORTUNISTIC: Instance group doesn't force running instance to stop.
-        Instead, it will wait until instance stops itself or becomes unhealthy.
+         - PROACTIVE: Instance Groups can forcefully stop a running instance. This is the default.
+         - OPPORTUNISTIC: Instance Groups does not stop a running instance.
+        Instead, it will wait until the instance stops itself or becomes unhealthy.
       type: string
       enum:
       - PROACTIVE
