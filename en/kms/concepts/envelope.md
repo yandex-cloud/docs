@@ -33,7 +33,7 @@ Encryption is preformed as follows:
 
 1. The encrypted DEK is saved by the client along with the ciphertext.
 
-![image](../../_assets/kms/envelope-encryption.svg)
+![image](../../_assets/kms/envelope-encryption.png)
 
 When using envelope encryption, a wider set of algorithms is available for local encryption. You can also encrypt data with multiple DEKs, for example, to enable random access to ciphertext.
 
