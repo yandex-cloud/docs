@@ -17,10 +17,14 @@
             <StorageClass>Идентификатор класса хранилища</StorageClass>
             <!-- <Date> или <Days> -->
         </Transition>
-        ...
+
         <Expiration>
             <!-- <Date> или <Days> -->
         </Expiration>
+
+        <AbortIncompleteMultipartUpload>
+            <DaysAfterInitiation>Удаление загрузок, не завершенных за указанное количество дней</DaysAfterInitiation>
+        </AbortIncompleteMultipartUpload>
         ...
     </Rule>
     <Rule>
@@ -36,6 +40,7 @@
 
 Элемент | Описание
 ----- | -----
+`AbortIncompleteMultipartUpload` | Правило для удаления загрузок, не завершенных за указанное количество дней.<br/><br/>Содержит элемент `DaysAfterInitiation`, который определяет срок исполнения правила.<br/><br/>Путь: `LifecycleConfiguration\Rule\AbortIncompleteMultipartUpload\DaysAfterInitiation`.
 `Date` | Дата исполнения правила.<br/><br/>Формат — [ISO 8601](https://ru.wikipedia.org/wiki/ISO_8601), например, `YYYY-MM-DD`. Время — всегда 00:00 UTC.<br/><br/>Путь: `LifecycleConfiguration\Rule\Expiration\Date`.
 `Days` | Интервал исполнения правила.<br/><br/>Задается количеством дней после загрузки объекта.<br/><br/>Путь: `LifecycleConfiguration\Rule\Expiration\Days`.
 `Expiration` | Правило для удаления объекта из {{ objstorage-name }}.<br/><br/>Содержит элемент `Days` или `Date`, который определяет сроки исполнения действия.<br/><br/>Путь: `LifecycleConfiguration\Rule\Expiration`.
@@ -54,6 +59,7 @@
 
 - Перемещение в холодное хранилище через 30 дней после загрузки в {{ objstorage-name }}.
 - Удаление из {{ objstorage-name }} через 365 дней после загрузки.
+- Удаление из {{ objstorage-name }} незавершенных загрузок через 5 дней после начала загрузки.
 
 ```xml
 <LifecycleConfiguration>
@@ -70,6 +76,9 @@
         <Expiration>
             <Days>365</Days>
         </Expiration>
+        <AbortIncompleteMultipartUpload>
+            <DaysAfterInitiation>5</DaysAfterInitiation>
+        </AbortIncompleteMultipartUpload>
     </Rule>
 </LifecycleConfiguration>
 ```

@@ -31,6 +31,8 @@ items:
         href: concepts/limits.md
   - name: Сценарии использования
     items:
+      - name: Все сценарии
+        href: solutions/index.md
       - name: Шифрование данных
         items:
           - name: Какой способ шифрования выбрать?

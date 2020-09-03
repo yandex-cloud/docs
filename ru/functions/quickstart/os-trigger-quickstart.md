@@ -1,4 +1,4 @@
-# Создание триггера для {{ objstorage-name }}
+# Создание триггера для {{ objstorage-full-name }}
 
 {% include [triggers-preview](../../_includes/functions/triggers-preview-stage.md) %}
 
