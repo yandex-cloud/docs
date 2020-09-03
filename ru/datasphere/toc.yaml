@@ -29,8 +29,10 @@ items:
         href: concepts/index.md
       - name: Проект
         href: concepts/project.md
-      - name: Список предустановленного ПО и доступные команды
+      - name: Список предустановленного ПО
         href: concepts/preinstalled-packages.md
+      - name: Доступные команды
+        href: concepts/magic.md
       - name: Конфигурации вычислительных ресурсов
         href: concepts/configurations.md
       - name: Интеграция с системами контроля версий и данных
