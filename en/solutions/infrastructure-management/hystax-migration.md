@@ -191,7 +191,7 @@ As soon as the replicated status of the VMs is `Synced`, you can create a migrat
 
 1. Click **Add Migration plan**.
 1. Enter a name for the migration plan: `YC Migration`
-1. Under **Devices & Ranks**, click [options](../../_assets/options.svg). In the menu that opens, select **Add machine**, the VM instance group, and VM to be added to the migration plan. Repeat the steps for all the VMs to migrate.
+1. Under **Devices & Ranks**, click ![options](../../_assets/options.svg). In the menu that opens, select **Add machine**, the VM instance group, and VM to be added to the migration plan. Repeat the steps for all the VMs to migrate.
 1. In the **Subnet ID** field, specify the subnet ID to connect the VMs to after migration.
 1. Click **Save**.
 

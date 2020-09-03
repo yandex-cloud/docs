@@ -63,7 +63,7 @@
   * Сертификат используется в [HTTPS-конфигурации](../../storage/operations/hosting/certificate#cert-manager) статического веб-сайта [{{ objstorage-name }}](../../solutions/web/static.md).
   * Для каждого домена сертификата настроен: 
      * [алиас](../../storage/operations/hosting/own-domain) на бакет статического сайта, в котором используется этот сертификат;
-     * или [переадресация](storage/operations/hosting/multiple-domains) на домен с алиасом на бакет.
+     * или [переадресация](../../storage/operations/hosting/multiple-domains) на домен с алиасом на бакет.
   * Сертификат не является [Wildcard-сертификатом](https://en.wikipedia.org/wiki/Wildcard_certificate) — не содержит масок на поддомены.        
 
 #### См. также {#see-also}
