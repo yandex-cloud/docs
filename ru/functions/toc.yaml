@@ -13,7 +13,7 @@ items:
         href: quickstart/ymq-trigger-quickstart.md
       - name: Создание триггера для Object Storage
         href: quickstart/os-trigger-quickstart.md
-      - name: Создание триггера для Yandex IoT Core
+      - name: Создание триггера для IoT Core
         href: quickstart/iot-core-trigger-quickstart.md
   - name: Пошаговые инструкции
     items:
