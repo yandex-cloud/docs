@@ -3,7 +3,7 @@
 Заголовок | Описание
 ----- | -----
 `Authorization` | Любой запрос к Yandex {{ objstorage-name }} должен быть авторизован.<br/><br/>Вместе с этим заголовком обязательно надо использовать либо заголовок `Date`, либо заголовок `x-amz-date`.<br/><br/>О способах авторизации читайте в соответствующих разделах руководства.
-`Cache-Control` | Набор директив для кеширования данных согласно [RFC 2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9).
+`Cache-Control` | Набор директив для кэширования данных согласно [RFC 2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9).
 `Content-​Disposition` | Имя, под которым {{ objstorage-name }} предложит сохранить объект как файл при выгрузке. Соответствует [RFC 2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1).
 `Content-Encoding` | Определяет кодировку содержимого согласно [RFC 2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11).
 `Content-Length` | Длина тела запроса (без заголовков) в соответствии с [RFC 2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.13).<br/><br/>Заголовок обязателен для всех запросов, которые передают в {{ objstorage-name }} какие-либо данные, например, при загрузке объекта.

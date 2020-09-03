@@ -31,7 +31,7 @@
         ssh root@rc1b-dataproc-m-ds7lj5gnnnqggbqd.mdb.yandexcloud.net "cat /srv/dataproc.gpg"  | sudo apt-key add -
         OK
         ```
-    1. Обновите кеш репозиториев:
+    1. Обновите кэш репозиториев:
     
         ```bash
         sudo apt update
