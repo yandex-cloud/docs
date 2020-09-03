@@ -31,6 +31,8 @@ items:
         href: concepts/limits.md
   - name: Use cases
     items:
+      - name: All use cases
+        href: solutions/index.md
       - name: Data encryption
         items:
           - name: Which encryption method should I choose?

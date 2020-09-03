@@ -2,7 +2,7 @@
 
 _Charts_ are the visualization of data from a dataset in the form of a table, diagram, or map.
 
-Charts are created in a [wizard](https://datalens.yandex.ru/wizard/) based on data from a dataset.
+Charts are created in a [wizard](https://datalens.yandex.com/wizard/) based on data from a dataset.
 You can create an unlimited number of charts based on a single dataset.
 
 The workspace in the wizard interface is divided into three main panels:
@@ -12,6 +12,12 @@ The workspace in the wizard interface is divided into three main panels:
 1. A preview panel where the visualization is displayed.
 
 Charts let you quickly analyze and test hypotheses. You can also save charts and add them to dashboards as widgets.
+
+{% note warning %}
+
+{{ datalens-short-name }} limits the number of data rows displayed in charts. Read about them in the section [{#T}](limits.md).
+
+{% endnote %}
 
 ## Chart type {#chart-types}
 
@@ -174,7 +180,7 @@ Displays data in table format, where the first row defines the names of fields a
 | ----- | ---- |
 | Columns | Dimensions and measures to be used as columns. Field names are used as column headers |
 | Filters | Dimension or measure. Used as a filter |
-| Colors | Measure. Affects cell shading. It may contain only one indicator |
+| Colors | Measure. Affects shading of all cells within a row. It may contain only one indicator |
 | Sorting | Dimensions and measures specified in the **Columns** section.<br/>You can use multiple dimensions and measures.<br/>The order of fields in a section affects the sorting order of table fields |
 
 ### Pivot table {#pivot-table}
@@ -187,7 +193,7 @@ Displays data in table format, where rows and columns may contain dimension valu
 | Rows | Dimensions |
 | Measures | Measures. If you add more than one measure to a section, the **Columns** section contains the `Measure Names` dimension that defines the location of the measure headers. `Measure Names` can be moved to **Rows** |
 | Filters | Dimension or measure. Used as a filter |
-| Colors | Measure. Affects cell shading. It may contain only one indicator |
+| Colors | Measure. Affects shading of all cells containing indicators. It may contain only one indicator |
 | Sorting | Dimensions and measures specified in the **Columns** and **Rows** sections.<br/>You can use multiple dimensions and measures.<br/>The order of fields in a section affects the sorting order of table fields |
 
 ### Point map {#point-map-chart}
