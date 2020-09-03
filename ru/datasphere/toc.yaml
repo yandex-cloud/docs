@@ -33,6 +33,8 @@ items:
         href: concepts/preinstalled-packages.md
       - name: Конфигурации вычислительных ресурсов
         href: concepts/configurations.md
+      - name: Интеграция с системами контроля версий и данных
+        href: concepts/dvc-and-git.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Управление доступом
