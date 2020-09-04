@@ -6,15 +6,15 @@
       terraform plan
       ```
 
-   If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If there are errors in the configuration, Terraform will point them out. This is a test step. No resources are created.
+   If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out. This is a test step. No resources are created.
 
 3. Create a cluster.
-   1. If there are no errors in the configuration, run the command:
+   1. If the configuration doesn't contain any errors, run the command:
 
       ```
       terraform apply
       ```
-   2. Confirm the creation of resources.
+   2. Confirm that you want to create the resources.
 
-   After this, all the necessary resources will be created in the specified folder and the IP addresses of the VMs will be displayed in the terminal. You can check resource availability and their settings in [console]({{ link-console-main }}).
+   After this, all the necessary resources will be created in the specified folder and the IP addresses of the VMs will be displayed in the terminal. You can check resource availability and their settings in [консоли управления]({{ link-console-main }}).
 

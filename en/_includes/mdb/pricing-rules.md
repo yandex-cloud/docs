@@ -1,8 +1,8 @@
-* Storage type and size (disk space).
+* storage type and size (disk space);
 
-* Computing resources allocated to the hosts in the cluster.
+* the computing resources allocated to the hosts in the cluster;
 
-* Settings and number of backups.
+* settings and number of backups;
 
-* Volume of outgoing traffic from Yandex.Cloud to the internet.
+* the volume of outgoing traffic from Yandex.Cloud to the internet.
 
