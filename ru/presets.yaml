@@ -13,6 +13,7 @@ default:
   mrd-full-name: Yandex Managed Service for Redis
   mkf-full-name: Yandex Managed Service for Apache Kafka<sup>®</sup>
   vpc-full-name: Yandex Virtual Private Cloud
+  ddos-protection-full-name: Yandex DDoS Protection
   monitoring-full-name: Yandex Monitoring
   dsvm-full-name: Yandex Data Science Virtual Machine
   speechkit-full-name: Yandex SpeechKit
@@ -49,6 +50,7 @@ default:
   mkf-name: Managed Service for Apache Kafka<sup>®</sup>
   monitoring-name: Yandex Monitoring
   vpc-name: Virtual Private Cloud
+  ddos-protection-name: DDoS Protection
   dsvm-name: Data Science Virtual Machine
   speechkit-name: SpeechKit
   translate-name: Translate
@@ -84,6 +86,7 @@ default:
   mkf-short-name: Managed Service for Apache Kafka<sup>®</sup>
   monitoring-short-name: Monitoring
   vpc-short-name: VPC
+  ddos-protection-short-name: DDoS Protection
   dsvm-short-name: DSVM
   speechkit-short-name: SpeechKit
   translate-short-name: Translate
