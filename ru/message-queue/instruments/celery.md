@@ -75,4 +75,3 @@ $ export AWS_DEFAULT_REGION="ru-central1"
    ```
 
 По умолчанию Celery создаёт очередь {{ message-queue-name }} с названием `celery` в каталоге, которому принадлежит сервисный аккаунт.
-

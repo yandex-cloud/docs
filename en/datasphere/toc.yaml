@@ -29,8 +29,10 @@ items:
         href: concepts/index.md
       - name: Project
         href: concepts/project.md
-      - name: List of pre-installed software and available commands
+      - name: List of pre-installed software
         href: concepts/preinstalled-packages.md
+      - name: Available commands
+        href: concepts/magic.md
       - name: Computing resource configurations
         href: concepts/configurations.md
       - name: Quotas and limits

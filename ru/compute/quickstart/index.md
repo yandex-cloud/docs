@@ -2,11 +2,11 @@
 
 Выберите сценарий для знакомства с:
 
-- {{ compute-name }}
+* {{ compute-name }}
 
-    - [Создание виртуальной машины Linux](quick-create-linux.md)
-    - [Создание виртуальной машины Windows](quick-create-windows.md)
+    * [Создание виртуальной машины Linux](quick-create-linux.md)
+    * [Создание виртуальной машины Windows](quick-create-windows.md)
 
-- {{ ig-name }}
+* {{ ig-name }}
 
-    - [Создание группы виртуальных машин](ig.md)
+    * [Создание группы виртуальных машин](ig.md)

@@ -1,10 +1,8 @@
 # List of pre-installed software and available commands
 
-This section describes preinstalled software and commands that you can run in a notebook.
+{{ ml-platform-short-name }} already has pre-installed packages for data analysis and machine learning. If you are missing a package, you can [install it](../operations/projects/install-dependencies.md) right from the notebook cell.
 
 ## List of pre-installed packages {#preinstalled-packages}
-
-Packages for data analysis and machine learning are pre-installed. If you are missing a package, you can [install it](../operations/projects/install-dependencies.md) right from the notebook cell.
 
 * [NumPy](https://numpy.org/)
 * [Pandas](https://pandas.pydata.org/)
@@ -19,37 +17,17 @@ Packages for data analysis and machine learning are pre-installed. If you are mi
 * [Scipy](https://www.scipy.org/)
 * [NLTK](https://www.nltk.org/)
 
-### Package versions {#versions}
+## Package versions {#versions}
 
-To view the version of the installed package, run the command `%pip show <Package name>` in the notebook cell.
+To view the version of the installed package, in the notebook cell run the command:
+```js
+%pip show <Package name>
+```
 
-To view the list of installed packages and their versions, run the `%pip list` command in the notebook cell.
-
-## List of available commands {#magic}
-
-The list of commands available in the notebook is made up of standard commands with some restrictions and additions. View the list of standard commands in the [IPython documentation](https://ipython.readthedocs.io/en/stable/interactive/magics.html). Restrictions and additions are given below.
-
-### Disabled standard commands {#block}
-
-Standard commands that aren't available in the notebook:
-
-* `%%bash`
-* `%%perl`
-* `%%python`
-* `%%python2`
-* `%%python3`
-* `%%ruby`
-* `%%script`
-* `%%sh`
-
-### Additional commands {#extension}
-
-Additional commands available in the notebook:
-
-* `%%state_exclude [variable names]`: Excludes the specified variables when saving a state.
-* `%%state_include [variable names]`: Adds the specified variables when saving a state.
-* `%%state_include_all`: Returns all variables when saving a state.
-* `%%state_exclude_ls`: Returns a list of all variables that were excluded when saving a state.
+To view the list of installed packages and their versions, in the notebook cell run the command:
+```js
+%pip list
+```
 
 #### See also {#see-also}
 

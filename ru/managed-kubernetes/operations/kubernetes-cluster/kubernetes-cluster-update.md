@@ -27,7 +27,7 @@
     Получите подробную информацию о команде для изменения кластера {{ k8s }}: 
         
     ```
-    $ yc managed-kubernetes cluster update --help
+    yc managed-kubernetes cluster update --help
     ```
    
     Для изменения кластера {{ k8s }} воспользуйтесь следующими параметрами:
@@ -68,7 +68,7 @@
     Добавьте метку кластеру {{ k8s }}:
     
     ```
-    $ yc managed-kubernetes cluster add-labels k8s-demo --labels new_label=test_label
+    yc managed-kubernetes cluster add-labels k8s-demo --labels new_label=test_label
     
     done (1s)
     id: cati493bu7ian006a4a8
@@ -100,7 +100,7 @@
     {% endnote %}
     
     ```
-    $ yc managed-kubernetes cluster update k8s-demo --labels test_label=my_k8s_label
+    yc managed-kubernetes cluster update k8s-demo --labels test_label=my_k8s_label
     
     done (1s)
     id: cati493bu7ian006a4a8
@@ -128,7 +128,7 @@
     Удалите метку кластера {{ k8s }}:
 
     ```
-    $ yc managed-kubernetes cluster remove-labels k8s-demo --labels test_label
+    yc managed-kubernetes cluster remove-labels k8s-demo --labels test_label
     
     done (1s)
     id: cati493bu7ian006a4a8
