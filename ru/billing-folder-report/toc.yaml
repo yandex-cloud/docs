@@ -5,3 +5,5 @@ editable: false
 items:
 - name: Получение детализации расходов по каталогам
   href: get-folder-report.md
+- name: Управление метками
+  href: label-management.md
