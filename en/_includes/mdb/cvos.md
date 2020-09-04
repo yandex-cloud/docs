@@ -5,3 +5,4 @@ You can get a guaranteed discount on Yandex.Cloud resource usage when you plan f
 1. Choose **Commitments** in the left-hand menu.
 
 A CVoS guarantees a discount on usage, but doesn't guarantee the availability of the resources ordered. Read more about CVoS in the [Billing documentation](../../billing/concepts/cvos.md).
+
