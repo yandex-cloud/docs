@@ -17,6 +17,8 @@ items:
         href: operations/cluster-stop.md
       - name: Изменение кластера
         href: operations/update.md
+      - name: Подключение к DataLens
+        href: operations/datalens-connect.md   
       - name: Управление хостами MySQL
         href: operations/hosts.md
       - name: Управление базами данных

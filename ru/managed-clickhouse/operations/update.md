@@ -6,8 +6,9 @@
 
 * [Увеличить размер хранилища](#change-disk-size) (доступно только для сетевого хранилища, `network-hdd` и `network-ssd`).
 
-* [Настраивать серверы](#change-clickhouse-config) {{ CH }} согласно [документации {{ CH }}](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/).
+* [Настроить серверы](#change-clickhouse-config) {{ CH }} согласно [документации {{ CH }}](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/).
 
+* [Изменить дополнительные настройки кластера](#change-additional-settings).
 
 ## Изменить класс хостов {#change-resource-preset}
 
@@ -144,11 +145,29 @@
   
 {% endlist %}
 
-
-
 ## Изменить настройки {{ CH }} {#change-clickhouse-config}
 
-Вы можете изменить настройки кластера и СУБД.
+{% list tabs %}
+
+- Консоль управления
+
+  1. Перейдите на страницу каталога и выберите сервис **{{ mch-name }}**.
+  1. Выберите кластер и нажмите кнопку **Изменить кластер** на панели сверху.
+  1. Измените настройки {{ CH }}, нажав на кнопку **Настроить** в блоке **Настройки СУБД**: 
+  
+     {% include [mch-additional-properties](../../_includes/mdb/mch-additional-properties.md) %}
+    
+  1. Нажмите кнопку **Сохранить изменения**.
+
+- API
+  
+  Воспользуйтесь методом API [update](../api-ref/Cluster/update.md): передайте в запросе нужные значения в параметре `configSpec.clickhouse.config`.
+  
+  Все поддерживаемые настройки описаны [в справочнике API](../api-ref/Cluster/update.md).
+  
+{% endlist %}
+
+## Изменить дополнительные настройки кластера {#change-additional-settings}
 
 {% list tabs %}
 
@@ -159,16 +178,13 @@
   1. Измените дополнительные настройки кластера:
   
      {% include [mch-extra-settings](../../_includes/mdb/mch-extra-settings-web-console.md) %}
-     
-  1. Измените настройки СУБД, нажав на кнопку **Настроить** в блоке **Настройки СУБД**: 
-  
-     {% include [mch-additional-properties](../../_includes/mdb/mch-additional-properties.md) %}
-    
-  1. Нажмите кнопку **Сохранить изменения**.
 
+  1. Нажмите кнопку **Сохранить изменения**. 
 
 - API
   
-  Изменить настройки СУБД для кластера можно с помощью метода API [update](../api-ref/Cluster/update.md): передайте в запросе нужные значения в параметре `configSpec.clickhouse.config`. Все поддерживаемые настройки описаны [в справочнике API](../api-ref/Cluster/update.md).
+  Воспользуйтесь методом API [update](../api-ref/Cluster/update.md): передайте в запросе нужные значения в параметрах `configSpec.access` и `configSpec.backupWindowStart`.
   
-{% endlist %}
+  Все поддерживаемые настройки описаны [в справочнике API](../api-ref/Cluster/update.md).
+  
+{% endlist %}  

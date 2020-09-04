@@ -28,6 +28,8 @@ items:
       href: operations/internal-dictionaries.md
     - name: Подключение моделей машинного обучения
       href: operations/ml-models.md
+    - name: Подключение к DataLens
+      href: operations/datalens-connect.md   
     - name: Изменение версии ClickHouse
       href: operations/cluster-version-update.md
     - name: Управление хостами ClickHouse
