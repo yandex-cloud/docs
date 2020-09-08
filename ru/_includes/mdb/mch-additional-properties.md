@@ -7,7 +7,7 @@
    1. `DEBUG` — системная информации для последующего использования в отладке;
    1. `TRACE` — вся доступная информации о работе кластера.
 
-   Подробнее об уровнях логирования см. в [документации {{ CH }}](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#server_settings-logger).
+   Подробнее об уровнях логирования см. в [документации {{ CH }}](https://clickhouse.tech/docs/ru/operations/server-configuration-parameters/settings/#server_configuration_parameters-logger).
 * **Mark cache size** — приблизительный размер в байтах кэша засечек, используемых движками таблиц семейства MergeTree. Кэш общий для сервера, память выделяется по мере необходимости. Подробнее о логировании в {{ CH }} см. в [документации](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#server-mark-cache-size).
 * **Max concurrent queries** — максимальное количество одновременно обрабатываемых запросов. Подробнее см. в [документации {{ CH }}](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#max-concurrent-queries).
 * **Max connections** — максимальное количество входящих соединений. Подробнее см. в [документации {{ CH }}](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#max-connections).
@@ -32,12 +32,12 @@
    1. `TRACE` — вся доступная информации о работе СУБД.
 * **Text log retention size** — максимальный размер в байтах, которого может достигнуть таблица [system.text_log](https://clickhouse.tech/docs/ru/operations/system-tables/text_log), прежде чем из нее начнут удаляться старые записи. Значение 0 означает, что старые записи не будут удаляться из-за роста размера таблицы. Значение по умолчанию: 536870912 (0,5 ГБ).
 * **Text log retention time**  — период времени в миллисекундах, по истечении которого запись в таблице [system.text_log](https://clickhouse.tech/docs/ru/operations/system-tables/text_log) подлежит удалению. Отсчет начинается в момент внесения записи в таблицу. Значение 0 означает, что записи не будут удаляться по истечении времени. Значение должно быть кратно 1000. Значение по умолчанию: 2592000000 (30 дней).
-* **Timezone** — временная зона сервера. Указывается идентификатором IANA в виде часового пояса UTC или географического положения (например, Africa/Abidjan). Подробнее см. в [документации {{ CH }}](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#timezone).
+* **Timezone** — временная зона сервера. Указывается идентификатором IANA в виде часового пояса UTC или географического положения (например, Africa/Abidjan). Подробнее см. в [документации {{ CH }}](https://clickhouse.tech/docs/ru/operations/server-configuration-parameters/settings/#server_configuration_parameters-timezone).
 * **Trace log enabled**  — включает или выключает логирование стектрейсов, собираемых профилировщиком запросов, в таблицу [system.trace_log](https://clickhouse.tech/docs/ru/operations/system-tables/trace_log). По умолчанию логирование включено (`true`).
 * **Trace log retention size**  — максимальный размер в байтах, которого может достигнуть таблица [system.trace_log](https://clickhouse.tech/docs/ru/operations/system-tables/trace_log), прежде чем из нее начнут удаляться старые записи. Значение 0 означает, что старые записи не будут удаляться из-за роста размера таблицы. Значение по умолчанию: 536870912 (0,5 ГБ).
 * **Trace log retention time**  — период времени в миллисекундах, по истечении которого запись в таблице [system.trace_log](https://clickhouse.tech/docs/ru/operations/system-tables/trace_log) подлежит удалению. Отсчет начинается в момент внесения записи в таблицу. Значение 0 означает, что записи не будут удаляться по истечении времени. Значение должно быть кратно 1000. Значение по умолчанию: 2592000000 (30 дней).
 * **Uncompressed cache size** — размер кэша в байтах для несжатых данных, используемых движками таблиц семейства MergeTree. Подробнее см. в [документации {{ CH }}](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#server-settings-uncompressed_cache_size).
-* **Compression** — правила сжатия данных для таблиц семейства [MergeTree](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#server_settings-merge_tree).
+* **Compression** — правила сжатия данных для таблиц семейства [MergeTree](https://clickhouse.tech/docs/ru/operations/server-configuration-parameters/settings/#server_configuration_parameters-merge_tree).
    * **Method** — метод сжатия. Доступно два метода: [LZ4](https://lz4.github.io/lz4/) и [zstd](https://facebook.github.io/zstd/).
    * **Min part size** — минимальный размер [куска данных](https://clickhouse.yandex/docs/ru/operations/table_engines/mergetree/#mergetree-data-storage) таблицы в байтах. {{ CH }} будет применять правило только к тем таблицам, у которых размер кусков больше или равен значению **Min part size**.
    * **Min part size ratio** — отношение размера наименьшего куска таблицы к полному размеру таблицы. {{ CH }} будет применять правило только к тем таблицам, у которых такое отношение больше или равно значению **Min part size ratio**.
@@ -55,7 +55,7 @@
          * **Age** — минимальный возраст данных в секундах.
          * **Precision** — точность определения возраста данных в секундах. Должен быть делителем для 86400 (количество секунд в сутках).
 
-* **Merge tree** — конфигурация движка MergeTree. Подробнее см. в [документации {{ CH }}](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#server_settings-merge_tree)
+* **Merge tree** — конфигурация движка MergeTree. Подробнее см. в [документации {{ CH }}](https://clickhouse.tech/docs/ru/operations/server-configuration-parameters/settings/#server_configuration_parameters-merge_tree)
    * **Max bytes to merge at min space in pool** — максимальный общий размер [куска данных](https://clickhouse.yandex/docs/ru/operations/table_engines/mergetree/#mergetree-data-storage) для слияния, когда в фоновом пуле минимум свободных потоков.
    * **Max replicated merges in queue** — максимальное число задач слияния, которые могут одновременно находиться в очереди `ReplicatedMergeTree`.
    * **Number of free entries in pool to lower max size of merge** — предельное значение свободных записей в пуле. Если количество записей в пуле становится меньше этого значения, {{ CH }} уменьшает максимальный размер куска данных для слияния. Это позволяет быстрее обрабатывать небольшие слияния, а не заполнять пул длительными.

@@ -6,10 +6,11 @@
 
 * [Увеличить размер хранилища](#change-disk-size) (доступно только для сетевого хранилища, `network-hdd` и `network-ssd`).
 
-* [Настраивать серверы](#change-postgresql-config) {{ PG }} согласно [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config.html).
+* [Настроить серверы {{ PG }}](#change-postgresql-config) согласно [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config.html).
 
-* [Устанавливать режим работы менеджера подключений](#change-pgbouncer-config).
+* [Изменить дополнительные настройки кластера](#change-additional-settings).
 
+* [Установить режим работы менеджера подключений](#change-pgbouncer-config).
 
 ## Изменить класс хостов {#change-resource-preset}
 
@@ -125,7 +126,6 @@
 
 {% endlist %}
 
-
 ## Изменить настройки {{ PG }} {#change-postgresql-config}
 
 Вы можете изменить настройки СУБД для хостов вашего кластера — как установленные по умолчанию, так и изменяющиеся вместе с классом хостов.
@@ -182,6 +182,23 @@
 
 {% endlist %}
 
+## Изменить дополнительные настройки кластера {#change-additional-settings}
+
+{% list tabs %}
+
+- Консоль управления
+
+  1. Перейдите на страницу каталога и выберите сервис **{{ mpg-name }}**.
+  1. Выберите кластер и нажмите кнопку **Изменить кластер** на панели сверху.
+  1. Измените дополнительные настройки кластера: 
+     
+     {% include [mpg-extra-settings](../../_includes/mdb/mpg-extra-settings-web-console.md) %}
+
+- API
+
+  Воспользуйтесь методом API [update](../api-ref/Cluster/update.md): передайте в запросе нужные значения в параметрах `configSpec.access` и `configSpec.backupWindowStart`.
+
+{% endlist %}
 
 ## Установить режим работы менеджера подключений {#change-pgbouncer-config}
 
