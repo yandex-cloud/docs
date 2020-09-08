@@ -21,10 +21,10 @@
     | aje3932acd0c5ur7dagp | default-sa |
     +----------------------+------------+
     ```
-1. Создайте авторизованный ключ для сервисного аккаунта и сохраните его в файл `key.json`:
+1. Создайте авторизованный ключ для сервисного аккаунта и сохраните его в файл `service-account.json`:
 
     ```
-    $ yc iam key create --service-account-name default-sa --output key.json
+    $ yc iam key create --service-account-name default-sa --output service-account.json
     id: aje83v701b1un777sh40
     service_account_id: aje3932acd0c5ur7dagp
     created_at: "2019-08-26T12:31:25Z"
@@ -40,7 +40,7 @@
     1. Добавьте авторизованный ключ:
 
         ```
-        $ yc config set service-account-key key.json
+        $ yc config set service-account-key service-account.json
         ```
 1. Проверьте, что параметры для сервисного аккаунта добавлены верно:
 
