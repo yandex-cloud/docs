@@ -1,20 +1,60 @@
 # Релизы YC CLI
 
-## Версия 0.63.0 (28.08.20) {#latest-release}
+## Версия 0.64.0 (08.09.20) {#latest-release}
 
-### Изменения в CLI {#cli}
+### Изменения в сервисах Облака {#services}
+
+#### {{ compute-name }} {#compute}
+
+- Команда `yc compute instance-group`.
+    - Добавлена возможность устанавливать и просматривать список ролей для группы виртуальных машин: `list-access-bindings`, `set-access-bindings`, `add-access-binding` и `remove-access-binding`.
+    - Добавлены команды для удаления и остановки ВМ в группе виртуальных машин: `stop-instances`, `delete-instances`.
+    
+#### Сервисы управляемых баз данных {#managed-db}
+
+- Команда `yc <имя сервиса управляемой БД> cluster list-logs` для всех управляемы БД использует новые методы API `StreamLogs` для стриминга логов. 
+
+    Всем командам добавлен флаг `--follow`, позволяющий получать новые записи логов по мере их появления.
+
+**{{ mch-name }}**
+
+- Добавлена команда `yc managed-clickhouse versions list` для получения списка версий, доступных для установки.
+- Команды `yc managed-clickhouse cluster create`, `yc managed-clickhouse cluster restore`.
+
+    Добавлен флаг `--cloud-storage` для включения хранения данных в {{ objstorage-full-name }}.
+
+**{{ mmg-name }}**
+
+- Добавлена поддержка создания кластера с версией {{ MG }} 4.4.
+
+- Команды  `{{ yc-mdb-mg }} cluster update` и `{{ yc-mdb-mg }} cluster enable-sharding`.
+
+    Для [шардированных](../managed-mongodb/concepts/sharding.md) кластеров появилась возможность задавать тип хоста: `mongoinfra`.
+
+#### {{ certificate-manager-name }} {#certificate-manager}
+
+Появилась поддержка сервиса для управления TLS-сертификатами: {{ certificate-manager-full-name }}.
+
+С помощью {{ certificate-manager-full-name }} вы можете получать и обновлять TLS-сертификаты от Let’s Encrypt®, а также импортировать собственные сертификаты.
+Сертификаты можно использовать в сервисах Яндекс.Облака для обеспечения безопасности соединений.
+
+Сервис {{ certificate-manager-full-name }} находится на стадии Preview. Подробнее про сервис читайте в [документации](../certificate-manager/).
+
+## Предыдущие релизы {#previous-releases}
+
+### Версия 0.63.0 (28.08.20)
+
+#### Изменения в CLI {#cli}
 
 **Исправлено**
 
 * Исправлена проблема с авторизацией для федеративных пользователей при инициализации нового профиля YC CLI.
 
-### Изменения в сервисах {{ yandex-cloud }} {#services}
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
 
 #### {{ vpc-name }} {#vpc}
 
 - Добавлена группа команд `yc vpc address` для управления [IP-адресами](../vpc/concepts/address.md#public-addresses).
-
-## Предыдущие релизы {#previous-releases}
 
 ### Версия 0.62.0 (20.08.20) {#version0.62.0}
 

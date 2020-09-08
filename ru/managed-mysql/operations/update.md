@@ -6,8 +6,9 @@
 
 * [Увеличить размер хранилища](#change-disk-size) (доступно только для сетевого хранилища, `network-hdd` и `network-ssd`).
 
-* [Настраивать серверы](#change-mysql-config) {{ MY }}.
+* [Настроить серверы](#change-mysql-config) {{ MY }}.
 
+* [Изменить дополнительные настройки кластера](#change-additional-settings).
 
 ## Изменить класс хостов {#change-resource-preset}
 
@@ -156,5 +157,23 @@
 - API
 
   Изменить настройки СУБД для кластера можно с помощью метода API [update](../api-ref/Cluster/update.md): передайте в запросе нужные значения в параметре `configSpec.mysql_config_5_7`.
+
+{% endlist %}
+
+## Изменить дополнительные настройки кластера {#change-additional-settings}
+
+{% list tabs %}
+
+- Консоль управления
+
+  1. Перейдите на страницу каталога и выберите сервис **{{ mmy-name }}**.
+  1. Выберите кластер и нажмите кнопку **Изменить кластер** на панели сверху.
+  1. Измените дополнительные настройки кластера: 
+     
+     {% include [mmy-extra-settings](../../_includes/mdb/mmy-extra-settings-web-console.md) %}
+
+- API
+
+  Воспользуйтесь методом API [update](../api-ref/Cluster/update.md): передайте в запросе нужные значения в параметрах `configSpec.access` и `configSpec.backupWindowStart`.
 
 {% endlist %}
