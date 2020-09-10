@@ -5,6 +5,8 @@ items:
     items:
       - name: Overview
         href: function-ref/aggregation-functions.md
+      - name: ALL_CONCAT
+        href: function-ref/ALL_CONCAT.md
       - name: ANY
         href: function-ref/ANY.md
       - name: ARG_MAX
@@ -43,6 +45,8 @@ items:
         href: function-ref/SUM.md
       - name: SUM_IF
         href: function-ref/SUM_IF.md
+      - name: TOP_CONCAT
+        href: function-ref/TOP_CONCAT.md
       - name: VAR
         href: function-ref/VAR.md
       - name: VARP

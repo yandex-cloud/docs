@@ -135,6 +135,14 @@ Returns the arccosine of `number` in radians.
 
 
 
+## [ALL_CONCAT](ALL_CONCAT.md)
+
+**Syntax:**`ALL_CONCAT( expression [ , separator ] )`
+
+Returns a string that contains all grouped values of `expression` delimited by `separator` (if `separator` is not specified, a comma is used).
+
+
+
 ## [AND](AND.md)
 
 **Syntax:**`value_1 AND value_2`
@@ -1359,6 +1367,14 @@ Returns the current date, depending on the data source and connection type:
 - For a direct connection, the function returns the server date and time of the source.
 - On materialization, the function returns the UTC+3 date and time.
 
+
+
+
+## [TOP_CONCAT](TOP_CONCAT.md)
+
+**Syntax:**`TOP_CONCAT( expression, amount [ , separator ] )`
+
+Returns a string that contains top `amount` grouped values of `expression` delimited by `separator` (if `separator` is not specified, a comma is used).
 
 
 

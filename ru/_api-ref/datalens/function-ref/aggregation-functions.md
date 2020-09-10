@@ -15,6 +15,14 @@ editable: false
 
 
 
+## [ALL_CONCAT](ALL_CONCAT.md)
+
+**Синтаксис:**`ALL_CONCAT( expression [ , separator ] )`
+
+Возвращает строку, которая содержит все попавшие в группу значения `expression`, с разделителем `separator` (по умолчанию разделитель — запятая).
+
+
+
 ## [ANY](ANY.md)
 
 **Синтаксис:**`ANY( value )`
@@ -180,6 +188,14 @@ editable: false
 **Синтаксис:**`SUM_IF( expression, condition )`
 
 Возвращает сумму всех значений выражения, которые удовлетворяют условию `condition`. Работает только с числовыми типами данных.
+
+
+
+## [TOP_CONCAT](TOP_CONCAT.md)
+
+**Синтаксис:**`TOP_CONCAT( expression, amount [ , separator ] )`
+
+Возвращает строку, которая содержит `amount` наиболее часто встречающихся значений из каждой группы `expression` с разделителем `separator` (по умолчанию разделитель — запятая).
 
 
 
