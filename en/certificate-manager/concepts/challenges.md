@@ -62,5 +62,5 @@ To check the rights for the `example.com` domain:
 
 #### See also {#see-also}
 
-- [Let's Encrypt documentation. Types of checks](https://letsencrypt.org/ru/docs/challenge-types/)
+- [Let's Encrypt documentation. Types of checks](https://letsencrypt.org/docs/challenge-types/)
 
