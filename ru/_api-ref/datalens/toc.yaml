@@ -267,6 +267,8 @@ items:
         href: function-ref/DATETIME_PARSE.md
       - name: DATE_PARSE
         href: function-ref/DATE_PARSE.md
+      - name: DB_CAST
+        href: function-ref/DB_CAST.md
       - name: FLOAT
         href: function-ref/FLOAT.md
       - name: GEOPOINT
