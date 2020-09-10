@@ -18,7 +18,7 @@
 
 ```
 CREATE TABLE db_01.table_01 (log_date Date, user_name String) \
- ENGINE = ReplicatedMergeTree('/table_01', '{replica}', log_date, (log_date, user_name), 8192);
+ ENGINE = ReplicatedMergeTree('/table_01', '{replica}') PARTITION BY log_date ORDER BY (log_date, user_name);
 ```
 
 Здесь:
@@ -36,7 +36,7 @@ CREATE TABLE db_01.table_01 (log_date Date, user_name String) \
 
 ```
 CREATE TABLE db_01.table_01 ON CLUSTER '{cluster}' (log_date Date, user_name String) \
- ENGINE = ReplicatedMergeTree('/table_01', '{replica}', log_date, (log_date, user_name), 8192);
+ ENGINE = ReplicatedMergeTree('/table_01', '{replica}') PARTITION BY log_date ORDER BY (log_date, user_name);
 ```
 
 Аргумент `'{cluster}'` автоматически разрешится в идентификатор кластера {{ CH }}.
