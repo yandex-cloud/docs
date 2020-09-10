@@ -51,6 +51,8 @@ items:
             href: concepts/visualization/dashboard.md
       - name: Alerting
         href: concepts/alerting.md
+      - name: Deleting expired metrics (TTL)
+        href: concepts/ttl.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Access management

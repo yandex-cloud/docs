@@ -106,7 +106,7 @@ You can edit the standard [dashboard](../../datalens/concepts/dashboard.md) howe
 
     ![image](../../_assets/datalens/solution-04/11-edit-dashboard.png)
 
-1. Delete the **Page depth** chart. To do this, click ![image](../../_assets/datalens/cross.svg) in the upper-right corner of the chart.
+1. Delete the **Page depth** chart. To do this, click ![image](../../_assets/datalens/horizontal-ellipsis-black.svg) in the upper-right corner of the chart, then click **Delete**.
 
     ![image](../../_assets/datalens/solution-04/12-delete-chart.png)
 

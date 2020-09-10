@@ -90,7 +90,7 @@ Create a dataset based on the [connection](../../datalens/concepts/connection.md
 
 ## Step 3. Create the first chart {#step3}
 
-To visualize data by gender, create a [chart](../../datalens/concepts/chart.md): bar chart.
+To visualize data by gender, create a [chart](../../datalens/concepts/chart.md): column chart.
 
 1. Add the names of superheroes to the chart. To do this, drag the **Name** field from the **Dimensions** section to the **X** section.
 
@@ -150,7 +150,7 @@ To visualize whether a superhero is good or bad, create a bar chart.
 
     1. In the window that opens, enter the name of the new chart: **SuperHeroes — alignment**.
 
-    1. Click **Ready**.
+    1. Click **Save**.
 
 1. Add to the chart a color division for superheroes depending on whether they are good or bad. To do this, drag the **Alignment** field from the **Dimensions** section to the **Colors** section.
 

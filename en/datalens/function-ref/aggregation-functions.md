@@ -15,6 +15,14 @@ There are the following features of using aggregations:
 
 
 
+## [ALL_CONCAT](ALL_CONCAT.md)
+
+**Syntax:**`ALL_CONCAT( expression [ , separator ] )`
+
+Returns a string that contains all grouped values of `expression` delimited by `separator` (if `separator` is not specified, a comma is used).
+
+
+
 ## [ANY](ANY.md)
 
 **Syntax:**`ANY( value )`
@@ -180,6 +188,14 @@ Returns the sum of all expression values. Applicable to numeric data types only.
 **Syntax:**`SUM_IF( expression, condition )`
 
 Returns the sum of all the expression values that meet the `condition` condition. Applicable to numeric data types only.
+
+
+
+## [TOP_CONCAT](TOP_CONCAT.md)
+
+**Syntax:**`TOP_CONCAT( expression, amount [ , separator ] )`
+
+Returns a string that contains top `amount` grouped values of `expression` delimited by `separator` (if `separator` is not specified, a comma is used).
 
 
 
