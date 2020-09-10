@@ -2,7 +2,7 @@
 
 *Сервис {{ ydb-short-name }} находится на [стадии Preview](../overview/concepts/launch-stages.md), доступ к сервису предоставляется по заявке.*
 
-Создайте базу данных {{ ydb-short-name }} в консоли управления {{ yandex-cloud }} и ознакомьтесть с правилами написания YQL-запросов. Также вы можете запустить тестовое приложение для знакомства с работой {{ ydb-short-name }} SDK для [Python](https://github.com/yandex-cloud/ydb-python-sdk), [Go](https://github.com/yandex-cloud/ydb-go-sdk) или [Java](https://github.com/yandex-cloud/ydb-java-sdk).
+Создайте базу данных {{ ydb-short-name }} в консоли управления {{ yandex-cloud }} и ознакомьтесь с правилами написания YQL-запросов. Также вы можете запустить тестовое приложение для знакомства с работой {{ ydb-short-name }} SDK для [Python](https://github.com/yandex-cloud/ydb-python-sdk), [Go](https://github.com/yandex-cloud/ydb-go-sdk) или [Java](https://github.com/yandex-cloud/ydb-java-sdk).
 
 ## Перед началом работы {#before-you-begin}
 
@@ -282,7 +282,7 @@
       * `accountId` — идентификатор сервисного аккаунта
       * `keyId` — идентификатор открытого авторизованного ключа
       * `private_key_file_path` — локальный путь к файлу с закрытым авторизованным ключом
-      * `endpoint` — эндпоинд базы данных
+      * `endpoint` — эндпоинт базы данных
       * `database` — имя базы данных
   
 {% endlist %}
