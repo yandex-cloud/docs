@@ -26,7 +26,7 @@ Returns a substring from `orig_string` using the `delimiter` delimiter character
 
 {% note info %}
 
-Only constant values are accepted for arguments (delimiter).
+Only constant values are accepted for arguments (`delimiter`).
 
 {% endnote %}
 
