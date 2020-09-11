@@ -3,9 +3,9 @@
 Для использования сервиса необходимо авторизоваться в консоли управления с [аккаунтом на Яндексе](../../iam/concepts/index.md#passport) или с [федеративным аккаунтом](../../iam/concepts/index.md#saml-federation).
 
 В этом разделе вы узнаете:
-* [какие роли необходимы](#choosing-roles) для того или иного действия.
-* [на какие ресурсы можно назначить роль](#resources);
-* [какие роли действуют в сервисе](#roles-list);
+* [Какие роли необходимы](#choosing-roles) для того или иного действия.
+* [На какие ресурсы можно назначить роль](#resources).
+* [Какие роли действуют в сервисе](#roles-list).
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
@@ -20,8 +20,6 @@
 Роль можно назначить на [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud) или [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder). Роли на облако, действуют и на вложенные каталоги.
 
 ## Какие роли действуют в сервисе {#roles-list}
-
-Роли, действующие в сервисе:
 
 * Сервисные роли:
     * `data-transfer.viewer` — позволяет просматривать информацию только о ресурсах сервиса {{ data-transfer-name }}.

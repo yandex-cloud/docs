@@ -8,6 +8,16 @@ items:
     items:
       - name: Взаимосвязь ресурсов сервиса
         href: concepts/index.md
+      - name: Какие задачи решает сервис
+        href: concepts/solutions.md
+      - name: Особенности работы сервиса
+        items:
+          - name: Обзор
+            href: concepts/specific.md
+          - name: Особенности работы с MySQL
+            href: concepts/specific-mysql.md
+          - name: Особенности работы с PostgreSQL
+            href: concepts/specific-postgresql.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Управление доступом
