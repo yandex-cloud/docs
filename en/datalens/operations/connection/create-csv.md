@@ -2,7 +2,7 @@
 
 To create a connection to a CSV file:
 
-1. Go to the [connections page](https://datalens.yandex.ru/connections).
+1. Go to the [connections page](https://datalens.yandex.com/connections).
 
 1. Click **Create connection**.
 
