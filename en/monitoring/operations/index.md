@@ -11,12 +11,9 @@
 - [{#T}](dashboard/create.md)
 - [{#T}](dashboard/copy.md)
 - [{#T}](dashboard/add-widget.md)
-- [{#T}](dashboard/delete-widget.md)
-- [{#T}](dashboard/delete-dashboard.md)
 
 ## Working with alerts {#working-with-alerts}
 
 - [{#T}](alert/create-alert.md)
 - [{#T}](alert/create-channel.md)
-- [{#T}](alert/delete-alert.md)
 
