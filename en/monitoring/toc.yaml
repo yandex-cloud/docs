@@ -5,14 +5,16 @@ items:
     href: quickstart.md
   - name: Step-by-step instructions
     items:
-      - name: Overview
+      - name: All instructions
         href: operations/index.md
-      - name: Working with charts
+      - name: Working with metrics
         items:
-          - name: Creating a chart using the query constructor
-            href: operations/chart/create.md
-          - name: Creating charts using a text query
-            href: operations/chart/create-query.md
+          - name: Getting a list of metrics
+            href: operations/metric/list.md
+          - name: Downloading metrics
+            href: operations/metric/get.md
+          - name: Writing custom metrics
+            href: operations/metric/add.md
       - name: Working with dashboards
         items:
           - name: Creating dashboards
@@ -21,19 +23,11 @@ items:
             href: operations/dashboard/copy.md
           - name: Adding widgets to a dashboard
             href: operations/dashboard/add-widget.md
-      - name: Working with metrics
-        items:
-          - name: Getting a list of metrics
-            href: operations/metric/list.md
-          - name: Reading metrics
-            href: operations/metric/get.md
-          - name: Writing custom metrics
-            href: operations/metric/add.md
       - name: Working with alerts
         items:
-          - name: Creating an alert
+          - name: Creating alerts
             href: operations/alert/create-alert.md
-          - name: Creating a notification channel
+          - name: Creating notification channels
             href: operations/alert/create-channel.md
   - name: Concepts
     items:
@@ -45,10 +39,14 @@ items:
         items:
           - name: Overview
             href: concepts/visualization/index.md
+          - name: Query string
+            href: concepts/visualization/query-string.md
           - name: Widgets
             href: concepts/visualization/widget.md
           - name: Dashboards
             href: concepts/visualization/dashboard.md
+      - name: Query language
+        href: concepts/querying.md
       - name: Alerting
         href: concepts/alerting.md
       - name: Deleting expired metrics (TTL)
@@ -59,29 +57,31 @@ items:
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
-  - name: Yandex Monitoring API
+  - name: API reference
     items:
       - name: Authentication in the API
         href: api-ref/authentication.md
-      - name: Overview
-        href: api-ref/index.md
-      - name: MetricsData
+      - name: REST
         items:
           - name: Overview
-            href: api-ref/MetricsData/index.md
-          - name: read
-            href: api-ref/MetricsData/read.md
-          - name: write
-            href: api-ref/MetricsData/write.md
-      - name: MetricsMeta
-        items:
-          - name: Overview
-            href: api-ref/MetricsMeta/index.md
-          - name: listLabelKeys
-            href: api-ref/MetricsMeta/listLabelKeys.md
-          - name: listLabelValues
-            href: api-ref/MetricsMeta/listLabelValues.md
-          - name: listMetricNames
-            href: api-ref/MetricsMeta/listMetricNames.md
-          - name: listMetrics
-            href: api-ref/MetricsMeta/listMetrics.md
+            href: api-ref/index.md
+          - name: MetricsData
+            items:
+              - name: Overview
+                href: api-ref/MetricsData/index.md
+              - name: read
+                href: api-ref/MetricsData/read.md
+              - name: write
+                href: api-ref/MetricsData/write.md
+          - name: MetricsMeta
+            items:
+              - name: Overview
+                href: api-ref/MetricsMeta/index.md
+              - name: listLabelKeys
+                href: api-ref/MetricsMeta/listLabelKeys.md
+              - name: listLabelValues
+                href: api-ref/MetricsMeta/listLabelValues.md
+              - name: listMetricNames
+                href: api-ref/MetricsMeta/listMetricNames.md
+              - name: listMetrics
+                href: api-ref/MetricsMeta/listMetrics.md
