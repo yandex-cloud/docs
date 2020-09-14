@@ -4,7 +4,7 @@
 Геокодирование* (количество уникальных записей в сутки) в тарифе Бесплатный | 0
 Геокодирование* (количество уникальных записей в сутки) в тарифе Стандарт | 25 000
 
-\* Функции геокодирования — [GEOCODE](https://cloud.yandex.ru/docs/datalens/function-ref/GEOCODE) и [GEOINFO](https://cloud.yandex.ru/docs/datalens/function-ref/GEOINFO).
+\* Функции геокодирования — [GEOCODE](../../datalens/function-ref/GEOCODE.md) и [GEOINFO](../../datalens/function-ref/GEOINFO.md).
 
 
 #### Общие лимиты {#common-limits}
