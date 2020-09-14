@@ -14,6 +14,13 @@
 - [{#T}](dsvm/index.md)
 - [{#T}](dsvm/quickstart.md)
 
+## Группы размещения виртуальных машин
+- [{#T}](placement-groups/create.md)
+- [{#T}](placement-groups/create-vm-in-pg.md)
+- [{#T}](placement-groups/add-vm.md)
+- [{#T}](placement-groups/delete-vm.md)
+- [{#T}](placement-groups/delete.md)  
+
 ## Образы с предустановленным программным обеспечением {#images-with-pre-installed-software}
 
 - [{#T}](images-with-pre-installed-software/create.md)
