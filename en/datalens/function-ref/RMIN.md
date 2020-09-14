@@ -37,7 +37,7 @@ See also [MIN](MIN.md), [MMIN](MMIN.md).
 
 {% note info %}
 
-Only constant values are accepted for arguments (direction).
+Only constant values are accepted for arguments (`direction`).
 
 {% endnote %}
 

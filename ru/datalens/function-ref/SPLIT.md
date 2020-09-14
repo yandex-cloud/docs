@@ -26,7 +26,7 @@ SPLIT( orig_string, delimiter, part_index )
 
 {% note info %}
 
-Значения аргументов (delimiter) должны быть константами.
+Значения аргументов (`delimiter`) должны быть константами.
 
 {% endnote %}
 

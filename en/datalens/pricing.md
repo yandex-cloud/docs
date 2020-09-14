@@ -33,7 +33,7 @@ Additional {{ datalens-short-name }} features that are available in {{ marketpla
   | Additional sessions,<br/> per 10 sessions, without VAT | - | $0.024358 |
   | External sessions multiplier | x 10 | x 10 |
   | Database size for materialized data, GB | 0.5 | 10 |
-  | Geocoding | - | ✔ |
+  | Geocoding* | - | ✔ |
 
 - Prices in roubles
 
@@ -44,7 +44,12 @@ Additional {{ datalens-short-name }} features that are available in {{ marketpla
   | Additional sessions,<br/> per 10 sessions, with VAT | - | ₽1.90 |
   | External sessions multiplier | x 10 | x 10 |
   | Database size for materialized data, GB | 0.5 | 10 |
-  | Geocoding | - | ✔ |
+  | Geocoding* | - | ✔ |
+
+{% endlist %}
+
+\* Geocoding functions: [GEOCODE](function-ref/GEOCODE.md) and [GEOINFO](function-ref/GEOINFO.md).
+
 
 ## Session {#sessions}
 

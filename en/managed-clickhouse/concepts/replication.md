@@ -18,7 +18,7 @@ To create a `ReplicatedMergeTree` table on a specific {{ CH }} host, send the fo
 
 ```
 CREATE TABLE db_01.table_01 (log_date Date, user_name String) \
- ENGINE = ReplicatedMergeTree('/table_01', '{replica}', log_date, (log_date, user_name), 8192);
+ ENGINE = ReplicatedMergeTree('/table_01', '{replica}') PARTITION BY log_date ORDER BY (log_date, user_name);
 ```
 
 Where:
@@ -35,7 +35,7 @@ To create replicated tables on every host in the cluster, send a distributed DDL
 
 ```
 CREATE TABLE db_01.table_01 ON CLUSTER '{cluster}' (log_date Date, user_name String) \
- ENGINE = ReplicatedMergeTree('/table_01', '{replica}', log_date, (log_date, user_name), 8192);
+ ENGINE = ReplicatedMergeTree('/table_01', '{replica}') PARTITION BY log_date ORDER BY (log_date, user_name);
 ```
 
 The `'{cluster}'` argument is automatically resolved to the {{ CH }} cluster ID.

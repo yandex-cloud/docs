@@ -29,7 +29,7 @@ DATE( expression [ , timezone ] )
 
 {% note info %}
 
-Значения аргументов (timezone) должны быть константами.
+Значения аргументов (`timezone`) должны быть константами.
 
 {% endnote %}
 

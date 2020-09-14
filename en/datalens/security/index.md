@@ -1,6 +1,6 @@
 # Managing access to DataLens
 
-Access to {{ datalens-full-name }} is managed from the Yandex.Cloud console.
+Access to {{ datalens-full-name }} is managed from the {{ yandex-cloud }} console.
 To grant a user access, assign them a {{ datalens-short-name }} role.
 
 Permission differentiation in the service is implemented at the object and directory level.
@@ -22,7 +22,7 @@ Let you define user permissions in a {{ datalens-short-name }} instance:
 - `{{ roles-datalens-instances-user }}` — A {{ datalens-short-name }} user with the rights to create, read, and update objects based on [object permissions](#permissions).
 - `{{ roles-datalens-instances-admin }}` — The {{ datalens-short-name }} instance administrator. The role is automatically assigned to the instance creator. The administrator has `{{ roles-datalens-instances-user }}` permissions and can also change the pricing plan and purchase paid content in the Cloud Marketplace.
 
-User roles are assigned in the Yandex.Cloud console.
+User roles are assigned in the {{ yandex-cloud }} console.
 
 ## Adding users {#add-new-user}
 
@@ -70,7 +70,7 @@ To add a user and grant them access to {{ datalens-short-name }}:
 
 1. Choose `{{ roles-datalens-instances-user }}` from the list.
 
-For more information about assigning roles in Yandex.Cloud, see [Roles](../../iam/concepts/access-control/roles.md).
+For more information about assigning roles in {{ yandex-cloud }}, see [Roles](../../iam/concepts/access-control/roles.md).
 
 ## Object permissions {#permissions}
 
@@ -134,7 +134,7 @@ The `{{ permission-admin }}` permission includes everything under the `{{ permis
 | **Dashboards** |
 | View dashboards | N/A | ✔ | ✔ | ✔ |
 | Edit dashboards | N/A | - | ✔ | ✔ |
-| Delete dashboards | N/A | - | - | ✔ |
+| Deleting dashboards | N/A | - | - | ✔ |
 | Edit permissions | N/A | - | - | ✔ |
 
 #### What's next {#what-is-next}

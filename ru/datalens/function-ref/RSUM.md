@@ -37,7 +37,7 @@ RSUM( value [ , direction ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ]
 
 {% note info %}
 
-Значения аргументов (direction) должны быть константами.
+Значения аргументов (`direction`) должны быть константами.
 
 {% endnote %}
 

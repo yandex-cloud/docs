@@ -25,7 +25,7 @@ REGEXP_EXTRACT( string, pattern )
 
 {% note info %}
 
-Значения аргументов (pattern) должны быть константами.
+Значения аргументов (`pattern`) должны быть константами.
 
 {% endnote %}
 

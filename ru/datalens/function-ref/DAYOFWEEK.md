@@ -37,7 +37,7 @@ DAYOFWEEK( datetime [ , firstday ] )
 
 {% note info %}
 
-Значения аргументов (firstday) должны быть константами.
+Значения аргументов (`firstday`) должны быть константами.
 
 {% endnote %}
 

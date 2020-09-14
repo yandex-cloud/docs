@@ -26,7 +26,7 @@ TOP_CONCAT( expression, amount [ , separator ] )
 
 {% note info %}
 
-Значения аргументов (amount, separator) должны быть константами.
+Значения аргументов (`amount`, `separator`) должны быть константами.
 
 {% endnote %}
 

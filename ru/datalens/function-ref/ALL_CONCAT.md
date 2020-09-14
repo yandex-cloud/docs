@@ -25,7 +25,7 @@ ALL_CONCAT( expression [ , separator ] )
 
 {% note info %}
 
-Значения аргументов (separator) должны быть константами.
+Значения аргументов (`separator`) должны быть константами.
 
 {% endnote %}
 

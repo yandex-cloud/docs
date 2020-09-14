@@ -35,7 +35,7 @@ DATETRUNC( datetime, unit [ , number ] )
 
 {% note info %}
 
-Значения аргументов (unit, number) должны быть константами.
+Значения аргументов (`unit`, `number`) должны быть константами.
 
 {% endnote %}
 

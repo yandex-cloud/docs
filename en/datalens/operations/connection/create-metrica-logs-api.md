@@ -8,7 +8,7 @@ Before creating a connection to the Yandex.Metrica Logs API, you need to create 
 
 To create a connection to the Logs API:
 
-1. Go to the [connections page](https://datalens.yandex.ru/connections).
+1. Go to the [connections page](https://datalens.yandex.com/connections).
 1. Click **Create connection**.
 1. Select the **Metrica** connector.
 1. Specify the connection parameters:
