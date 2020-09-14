@@ -31,7 +31,7 @@ editable: false
 Объем БД для материализованых данных, ГБ | 0,5 | 10
 Использование функций геокодирования* | - | ✔
 
-\* Функции геокодирования — [GEOCODE](https://cloud.yandex.ru/docs/datalens/function-ref/GEOCODE) и [GEOINFO](https://cloud.yandex.ru/docs/datalens/function-ref/GEOINFO).
+\* Функции геокодирования — [GEOCODE](function-ref/GEOCODE.md) и [GEOINFO](function-ref/GEOINFO.md).
 
 ## Сессия {#sessions}
 

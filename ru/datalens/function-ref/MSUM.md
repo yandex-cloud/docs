@@ -38,7 +38,7 @@ MSUM( value, rows_1 [ , rows_2 ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, 
 
 {% note info %}
 
-Значения аргументов (rows_1, rows_2) должны быть константами.
+Значения аргументов (`rows_1`, `rows_2`) должны быть константами.
 
 {% endnote %}
 

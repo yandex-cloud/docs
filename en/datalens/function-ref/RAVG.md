@@ -37,7 +37,7 @@ See also [AVG](AVG.md), [MAVG](MAVG.md).
 
 {% note info %}
 
-Only constant values are accepted for arguments (direction).
+Only constant values are accepted for arguments (`direction`).
 
 {% endnote %}
 

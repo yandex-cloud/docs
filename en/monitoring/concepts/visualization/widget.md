@@ -10,10 +10,9 @@ There are three types of widgets available in {{ monitoring-full-name }}:
 
 ## Chart {#chart}
 
-The visual representation of one or more metrics over a specific period of time.
-Each metric has a different color on the chart.
+The visual representation of one or more metrics over a specific period of time. Each metric has a different color on the chart.
 
-{{ monitoring-full-name }} allows you to display metrics of Yandex.Cloud resources and custom metrics written via the API.
+{{ monitoring-full-name }} lets you display {{ yandex-cloud }} service metrics on charts and custom metrics uploaded via the API.
 
 #### Chart types {#chart-types}
 
@@ -23,7 +22,7 @@ The following chart types are available:
 - ![image](../../../_assets/monitoring/chart-area.svg) Area charts.
 - ![image](../../../_assets/monitoring/chart-columns.svg) Bar charts.
 
-You can also normalize data and display it as a stacked chart.
+You can also normalize data and display it as a stacked bar chart.
 
 #### Time period on charts {#time-period-on-charts}
 
@@ -35,12 +34,7 @@ To set the interval more precisely, use the timeline located above the chart.
 
 Text in [markdown](https://en.wikipedia.org/wiki/Markdown) format, which lets you include additional information in the dashboard. For example, you can post links to other dashboards.
 
-## Heading {#heading}
+## Header {#heading}
 
 Text that lets you label a dashboard or group of charts.
-
-#### See also {#see-also}
-
-- [{#T}](../../operations/chart/create.md)
-- [{#T}](../../operations/chart/create-query.md)
 

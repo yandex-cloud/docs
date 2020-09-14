@@ -31,7 +31,7 @@ Possible values for `scale` parameter:
 
 {% note info %}
 
-Only constant values are accepted for arguments (scale).
+Only constant values are accepted for arguments (`scale`).
 
 {% endnote %}
 

@@ -26,7 +26,7 @@ REGEXP_EXTRACT_NTH( string, pattern, match_index )
 
 {% note info %}
 
-Значения аргументов (pattern) должны быть константами.
+Значения аргументов (`pattern`) должны быть константами.
 
 {% endnote %}
 

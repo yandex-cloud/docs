@@ -52,7 +52,7 @@ DB_CAST( expression, native_type [ , param_1 [ , param_2 ] ] )
 
 {% note info %}
 
-Значения аргументов (native_type) должны быть константами.
+Значения аргументов (`native_type`) должны быть константами.
 
 {% endnote %}
 
