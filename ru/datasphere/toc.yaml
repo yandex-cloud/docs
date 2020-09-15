@@ -18,7 +18,11 @@ items:
       - name: Очистка состояния интерпретатора
         href: operations/projects/clear-kernel-state.md
       - name: Поделиться ноутбуком
-        href: operations/projects/share.md
+        items:
+          - name: Публикация ноутбука
+            href: operations/projects/publication.md
+          - name: Экспорт проекта
+            href: operations/projects/export.md
       - name: Изменение имени или описания
         href: operations/projects/update.md
       - name: Удаление проекта
