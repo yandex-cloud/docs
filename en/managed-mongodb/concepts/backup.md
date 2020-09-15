@@ -33,4 +33,3 @@ Backup integrity is checked on synthetic data using integration tests available 
 
 To test the backup feature, [restore a cluster from a backup](../operations/cluster-backups.md) and check the integrity of your data.
 
-

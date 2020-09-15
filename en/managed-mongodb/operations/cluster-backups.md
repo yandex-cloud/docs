@@ -42,7 +42,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
       ```
       $ {{ yc-mdb-mg }} backup list
-
+      
       +--------------------------+----------------------+----------------------+----------------------+
       |            ID            |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
       +--------------------------+----------------------+----------------------+----------------------+
@@ -77,7 +77,7 @@ For a new cluster, you should set all the parameters that are required at creati
            --network-name {{ network-name }} \
            --host zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch63 \
            --mongod-disk-size 20 \
-           --mongod-disk-type network-ssd \
+           --mongod-disk-type {{ disk-type-example }} \
            --mongod-resource-preset {{ host-class }}
       ```
 
@@ -90,7 +90,7 @@ For a new cluster, you should set all the parameters that are required at creati
       - In the `PRODUCTION` environment.
       - With one `{{ host-class }}` class host in the `{{ zone-id }}` availability zone.
       - With the databases and users from the backup.
-      - With SSD network storage of 20 GB.
+      - With 20 GB fast network storage (`network-ssd`).
 
       {% endif %}
 
@@ -98,9 +98,9 @@ For a new cluster, you should set all the parameters that are required at creati
       - Named `mynewmg`.
       - In the `PRODUCTION` environment.
       - In the `{{ network-name }}` network.
-      - With a single `{{ host-class }}` class host in the `b0rcctk2rvtr8efcch63` subnet of the `{{ zone-id }}` availability zone.
+      - With a single `{{ host-class }}` class host in the  `b0rcctk2rvtr8efcch63` subnet of the `{{ zone-id }}` availability zone.
       - With the databases and users from the backup.
-      - With SSD network storage of 20 GB.
+      - With 20 GB fast network storage (`{{ disk-type-example }}`).
 
       {% endif %}
 
@@ -162,7 +162,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
   ```
   $ {{ yc-mdb-mg }} backup list
-
+  
   +----------+----------------------+----------------------+----------------------+
   |    ID    |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
   +----------+----------------------+----------------------+----------------------+
@@ -181,7 +181,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
   1. Go to the folder page and select **{{ mmg-name }}**.
 
-  2. Click on the name of the cluster you need and select the tab **Backup copies**.
+  1. Click on the name of the cluster you need and select the tab **Backup copies**.
 
 - CLI
 
@@ -199,34 +199,3 @@ For a new cluster, you should set all the parameters that are required at creati
 
 {% endlist %}
 
-## Set the backup process start time {#set-backup-window}
-
-{% list tabs %}
-
-- Management console
-
-  In the management console, you can only set the start time for creating backups by [editing the cluster](update.md).
-
-- CLI
-
-  To set the backup start time, use the `--backup-window-start` flag. Time is given in ``HH:MM:SS`` format.
-
-  ```
-  $ yc {{ yc-mdb-mg }} cluster create \
-     --cluster-name <cluster name> \
-     --environment <prestable or production> \
-     --network-name <network name> \
-     --host zone-id=<availability zone>,subnet-id=<subnet ID> \
-     --mongodb-version <database version> \
-     --backup-window-start 10:25:00
-  ```
-
-  To change the backup start time in an existing cluster, use the  `update` command:
-
-  ```
-  $ yc {{ yc-mdb-mg }} cluster update \
-     --cluster-name <cluster name> \
-     --backup-window-start 11:25:00
-  ```
-
-{% endlist %}

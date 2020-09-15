@@ -8,14 +8,14 @@ Before importing your data, check whether the DBMS versions of the existing data
 
 Sequence of actions:
 
-1. [Create a dump](dump) of the database you want to migrate using `mongodump`.
-2. If necessary, [create a virtual machine](#create-vm) in {{ compute-name }} to restore the database from the dump in the Yandex.Cloud infrastructure.
-3. [Create a {{ mmg-name }} cluster](create-cluster) where the restored database will be deployed.
-4. [Restore data from the dump](restore) in the cluster using`mongorestore`.
+1. [Create a dump](#dump) of the database you want to migrate using `mongodump`.
+1. If necessary, [create a virtual machine](#create-vm) in {{ compute-name }} to restore the database from the dump in the Yandex.Cloud infrastructure.
+1. [Create a {{ mmg-name }} cluster](#create-cluster) where the restored database will be deployed.
+1. [Restore data from the dump](#restore) in the cluster using`mongorestore`.
 
 ### Create a dump {#dump}
 
-You can create a database dump using `mongodump`. Fore more information about this utility, see the [{{ MG }} documentation](https://docs.mongodb.com/manual/reference/program/mongodump/).
+You can create a database dump using `mongodump`. For more information about this utility, see the [{{ MG }} documentation](https://docs.mongodb.com/manual/reference/program/mongodump/).
 
 1. Install `mongodump` and other utilities for working with MongoDB. Example for Ubuntu and Debian distributions:
 
@@ -31,9 +31,9 @@ You can create a database dump using `mongodump`. Fore more information about th
 
     Instructions for other platforms, as well as more information about installing utilities, can be found on the [Install MongoDB](https://docs.mongodb.com/manual/installation/) page.
 
-2. Before creating a dump, we recommend switching the DBMS to "read-only" to avoid losing data that might appear while the dump is created.
+1. Before creating a dump, we recommend switching the DBMS to "read-only" to avoid losing data that might appear while the dump is created.
 
-3. Create a database dump:
+1. Create a database dump:
 
     ```
     $ mongodump --host <DBMS server address> --port <port> --username <username> --password "<password>" --db <database name> --out ~/db_dump
@@ -45,7 +45,7 @@ You can create a database dump using `mongodump`. Fore more information about th
     $ mongodump --host <DBMS server address> --port <port> --username <username> --password "<password>" -j <number of cores> --db <database name> --out ~/db_dump
     ```
 
-4. Archive the dump:
+1. Archive the dump:
 
     ```
     $ tar -cvzf db_dump.tar.gz ~/db_dump
@@ -66,7 +66,7 @@ To prepare the virtual machine to restore the dump:
 
    The virtual machine must be in the same network and availability zone as the {{ mmg-name }} cluster master host. Additionally, the VM must be assigned an external IP address so that you can load the dump file from outside Yandex.Cloud.
 
-2. Install the {{ MG }} client and additional utilities for working with the DBMS:
+1. Install the {{ MG }} client and additional utilities for working with the DBMS:
 
     ```
     $ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD75D9DCB49F368818C72E52529D4
@@ -78,13 +78,13 @@ To prepare the virtual machine to restore the dump:
     $ sudo apt-get install mongodb-org-shell mongodb-org-tools
     ```
 
-3. Move the DB dump from your server to the VM. For example, you can use the `scp` utility:
+1. Move the DB dump from your server to the VM. For example, you can use the `scp` utility:
 
     ```
     scp ~/db_dump.tar.gz <VM username>@<VM public address>:/tmp/db_dump.tar.gz
     ```
 
-4. Unpack the dump on the virtual machine:
+1. Unpack the dump on the virtual machine:
 
     ```
     tar -xzf /tmp/db_dump.tar.gz
@@ -94,7 +94,7 @@ You get a virtual machine with a database dump that is ready to be restored to t
 
 ## Create a cluster {{ mmg-name }} {#create-cluster}
 
-Create a cluster with the computing power and storage size appropriate for the environment where the existing database is deployed. More information about creating {{ mmg-name }} clusters can be found here [{#T}](cluster-create.md).
+Create a cluster with the computing power and storage size appropriate for the environment where the existing database is deployed. More information about creating {{ mmg-name }} clusters can be found here: [{#T}](cluster-create.md) .
 
 ### Recover data {#restore}
 

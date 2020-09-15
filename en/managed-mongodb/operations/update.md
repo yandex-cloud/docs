@@ -4,9 +4,9 @@ After creating a cluster, you can:
 
 * [Change the host class](#change-resource-preset).
 
-* [Increase the storage size](#change-disk-size) (available only for network storage, `network-hdd` and `network-ssd`).
+* [Increase the storage size](#change-disk-size) (available only for network storage, `network-hdd`, and `network-ssd`).
 
-* [Configure {{ MG }} servers](#change-mongod-config) according to the [{{ MG }} documentation](https://docs.mongodb.com/v3.6/reference/configuration-options/).
+* [Configure servers](#change-mongod-config) {{ MG }} according to the [{{ MG }} documentation](https://docs.mongodb.com/v3.6/reference/configuration-options/).
 
 ## Changing the host class {#change-resource-preset}
 
@@ -20,13 +20,13 @@ After creating a cluster, you can:
 
   To change the [host class](../concepts/instance-types.md) for the cluster:
 
-  1. View the description of the CLI's update cluster command:
+  1. View a description of the CLI's update cluster command:
 
       ```
       $ {{ yc-mdb-mg }} cluster update --help
       ```
 
-  2. Request a list of available host classes (the `ZONES` column specifies the availability zones where you can select the appropriate class):
+  1. Request a list of available host classes (the `ZONES` column specifies the availability zones where you can select the appropriate class):
 
      {% if audience != "internal" %}
 
@@ -61,7 +61,7 @@ After creating a cluster, you can:
 
      {% endif %}
 
-  3. Specify the class in the update cluster command:
+  1. Specify the class in the update cluster command:
 
       ```
       $ {{ yc-mdb-mg }} cluster update <cluster name>
@@ -90,7 +90,7 @@ After creating a cluster, you can:
 
   To increase the storage size for a cluster:
 
-  1. View the description of the CLI's update cluster command:
+  1. View a description of the CLI's update cluster command:
 
       ```
       $ {{ yc-mdb-mg }} cluster update --help
@@ -98,7 +98,7 @@ After creating a cluster, you can:
 
   1. Make sure the cloud's quota is sufficient to increase the storage size: open the [Quotas]({{ link-console-quotas }}) page for your cloud and check that the {{ mmg-full-name }} section still has space available in the **space** line.
 
-  3. Make sure the required cluster is using network storage (it is not yet possible to increase the size of local storage). To do this, request information about the cluster and find the `disk_type_id` field: it should be set to `network-hdd` or `network-ssd`:
+  1. Make sure the required cluster is using network storage (it is not yet possible to increase the size of local storage). To do this, request information about the cluster and find the `disk_type_id` field: it should be set to `network-hdd` or `network-ssd`:
 
       ```
       $ {{ yc-mdb-mg }} cluster get <cluster name>
@@ -118,14 +118,14 @@ After creating a cluster, you can:
       ...
       ```
 
-  4. Specify the required amount of storage in the update cluster command (it must be at least as large as `disk_size` in the cluster properties):
+  1. Specify the required amount of storage in the update cluster command (it must be at least as large as `disk_size` in the cluster properties):
 
       ```
       $ {{ yc-mdb-mg }} cluster update <cluster name>
            --mongod-disk-size <storage size in GB>
       ```
 
-      If all these conditions are met, {{ mmg-short-name }} launches the operation to increase storage space.
+      If all these conditions are met, {{ mmg-short-name }}  launches the operation to increase storage space.
 
 - API
 
@@ -135,7 +135,7 @@ After creating a cluster, you can:
 
 {% endlist %}
 
-## Changing {{ MG }} settings {#change-mongod-config}
+## Changing settings {{ MG }} {#change-mongod-config}
 
 You can change the DBMS settings of the hosts in your cluster. All supported settings are described [in the API reference](../api-ref/Cluster/update.md).
 

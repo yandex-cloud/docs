@@ -37,7 +37,7 @@ You can request detailed information about each {{ mmg-short-name }} cluster you
 
 - Management console
   1. Go to the folder page and select **{{ mmg-name }}**.
-  1. Click on the name of the cluster you need.
+  1. Click on the name of the cluster you need.
 
 - CLI
 
@@ -51,7 +51,7 @@ You can request detailed information about each {{ mmg-short-name }} cluster you
   $ {{ yc-mdb-mg }} cluster get <cluster name or ID>
   ```
 
-  The cluster name and ID can be requested with a [list of clusters in the folder](list-clusters).
+  The cluster name and ID can be requested with a [list of clusters in the folder](#list-clusters).
 
 {% endlist %}
 
@@ -63,7 +63,7 @@ You can request detailed information about each {{ mmg-short-name }} cluster you
 
 - Management console
   1. Go to the folder page and select **{{ mmg-name }}**.
-  1. Click on the name of the cluster you need.
+  1. Click on the name of the cluster you need.
   1. Go to the **Operations** tab.
 
 - CLI
@@ -78,7 +78,7 @@ You can request detailed information about each {{ mmg-short-name }} cluster you
   $ {{ yc-mdb-mg }} cluster list-operations <cluster name or ID>
   ```
 
-  The cluster name and ID can be requested with a [list of clusters in the folder](list-clusters).
+  The cluster name and ID can be requested with a [list of clusters in the folder](#list-clusters).
 
 - API
 

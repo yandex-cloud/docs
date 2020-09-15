@@ -16,7 +16,7 @@ You should use sharding if:
 * Collections with non-uniform contents. For example, data can be clearly classified as frequently queried and rarely queried.
 * Collections requiring high read and write speeds. Sharding helps distribute workloads among hosts to bypass technical limitations.
 
-For more information about the sharding concept, see [{#T}](../concepts/sharding.md).
+For more information about sharding, see [{#T}](../concepts/sharding.md).
 
 ## How to enable collection sharding {#enable}
 
@@ -26,7 +26,7 @@ Run all your sharding setup commands via the `mongo` CLI from a user granted the
 
 {% endnote %}
 
-1. Open a {{ mmg-name }} cluster page in [консоли управления]({{ link-console-main }}).
+1. Open a {{ mmg-name }} cluster page in [management console]({{ link-console-main }}).
 
 1. Go to the **Shards** tab and click **Enable**.
 

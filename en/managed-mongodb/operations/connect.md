@@ -42,7 +42,7 @@ You can connect to the database using the command `mongo` by listing all the clu
 
 {% list tabs %}
 
-- SSL for MongoDB 4.2
+- SSL for mongo 4.2
 
   {% include [public-connect-ssl](../../_includes/mdb/public-connect-ssl.md) %}
 
@@ -57,7 +57,7 @@ You can connect to the database using the command `mongo` by listing all the clu
           -p <user password> \
           <DB name>
   ```
- 
+
   {% else %}
 
   ```bash

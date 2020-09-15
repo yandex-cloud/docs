@@ -5,6 +5,7 @@
 {% list tabs %}
 
 - Management console
+
   1. Open the folder page in the management console.
   1. Select **{{ mmg-name }}**.
   1. Click ![image](../../_assets/options.svg) for the necessary cluster and select **Delete**.
@@ -21,7 +22,11 @@
   $ {{ yc-mdb-mg }} cluster delete <cluster name or ID>
   ```
 
-  The cluster name and ID can be requested with a [list of clusters in the folder](list-clusters).
+  The cluster name and ID can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+- Terraform
+
+  {% include [terraform-delete-mdb-cluster](../../_includes/mdb/terraform-delete-mdb-cluster.md) %}
 
 {% endlist %}
 
