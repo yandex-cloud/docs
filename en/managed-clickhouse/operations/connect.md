@@ -2,17 +2,13 @@
 
 {% if audience != "internal" %}
 
-{% note warning %}
-
-If there is no public access to the DB cluster, you can only connect to it from the Yandex.Cloud virtual machines running in the same [cloud network](../../vpc/concepts/network.md).
-
-{% endnote %}
+In Yandex.Cloud, you can only connect to a DB cluster from a VM that's in the same subnet as the cluster.
 
 {% endif %}
 
-A {{ CH }} cluster can be accessed using the [command-line client](https://clickhouse.yandex/docs/en/interfaces/cli/) (port 9440) or [HTTP interface](https://clickhouse.yandex/docs/en/interfaces/http_interface/) (port 8443). All connections to DB clusters are encrypted.
+A {{ CH }} cluster can be accessed using the [command-line client](https://clickhouse.yandex/docs/en/interfaces/cli/) (port 9440) or [HTTP interface](https://clickhouse.tech/docs/en/interfaces/http/) (port 8443). All connections to DB clusters are encrypted.
 
-## Getting an SSL certificate {#get-ssl-cert}
+## Get an SSL certificate {#get-ssl-cert}
 
 To use an encrypted connection, you should get an SSL certificate:
 
@@ -64,7 +60,7 @@ clickhouse-client --host <host FQDN> \
 
 {% include [see-fqdn-in-console](../../_includes/mdb/see-fqdn-in-console.md) %}
 
-## How to connect via HTTP {#http}
+## Connecting via HTTP {#http}
 
 Send a request specifying the path to the received SSL certificate, database attributes, and the request text in urlencoded format:
 

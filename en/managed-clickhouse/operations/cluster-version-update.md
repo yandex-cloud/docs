@@ -1,4 +1,4 @@
-# Changing {{ CH }} versions
+# Changing versions {{ CH }}
 
 You can change the {{ CH }} version that the cluster uses. You can view a list of available versions on the create and modify cluster screen in the management console.
 
@@ -8,7 +8,7 @@ You can change the {{ CH }} version that the cluster uses. You can view a list o
 
 Before changing the {{ CH }} version, make sure this doesn't affect your apps:
 
-1. See the {{ CH }} [changelog](https://github.com/yandex/clickhouse/blob/master/CHANGELOG_RU.md) and check which updates may affect how apps function.
+1. See the {{ CH }} [changelog](https://clickhouse.tech/docs/en/whats-new/changelog/) and check which updates may affect how apps function.
 1. Try changing versions on a test cluster (you can try deploying it from a backup of the main cluster). Please note that when you deploy a cluster from a backup, only MergeTree engine tables are recovered.
 1. [Make a backup](cluster-backups.md#create-backup) of the main cluster before changing the version.
 

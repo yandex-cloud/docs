@@ -91,7 +91,7 @@
                      -q 'INSERT INTO ml_test_table FORMAT CSVWithNames' \
                      < train.csv
    ```
-1. В [консоли управления](https://console.cloud.yandex.ru/) подключите тестовую модель:
+1. В [консоли управления]({{ link-console-main }}) подключите тестовую модель:
   * **Тип** — `ML_MODEL_TYPE_CATBOOST`.
   * **Имя** — `ml_test`.
   * **URL** — `https://storage.yandexcloud.net/managed-clickhouse/catboost_model.bin`.

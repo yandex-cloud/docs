@@ -16,7 +16,7 @@ To add new hosts to a single-host cluster, first [add the {{ ZK }} hosts ](zk-ho
 
   1. Go to the folder page and select **{{ mch-name }}**.
 
-  2. Click on the name of the cluster you need and select the **Hosts** tab.
+  1. Click on the name of the cluster you need and select the **Hosts** tab.
 
 - CLI
 
@@ -24,7 +24,7 @@ To add new hosts to a single-host cluster, first [add the {{ ZK }} hosts ](zk-ho
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To get a list of hosts in a cluster, run the command:
+  To get a list of cluster hosts, run the command:
 
   ```
   $ {{ yc-mdb-ch }} host list
@@ -126,7 +126,7 @@ The number of hosts in {{ mch-short-name }} clusters is limited by the CPU and R
 
      {{ mch-short-name }} will run the add host operation.
 
-     {% if audience != "internal" %} The subnet ID should be specified if the availability zone contains multiple subnets, otherwise {{ mch-short-name }} automatically selects a single subnet. {% endif %} You can retrieve the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     {% if audience != "internal" %} The subnet ID should be specified if the availability zone contains multiple subnets, otherwise {{ mch-short-name }} automatically selects a single subnet. {% endif %} The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 
@@ -144,9 +144,9 @@ You can remove a host from a {{ CH }} cluster if it contains 3 or more hosts.
 
   1. Go to the folder page and click **{{ mch-name }}**.
 
-  2. Click on the name of the cluster you want and select the **Hosts** tab.
+  1. Click on the name of the cluster you want and select the **Hosts** tab.
 
-  3. Click ![image](../../_assets/vertical-ellipsis.svg) in the line of the necessary host and select **Delete**.
+  1. Click ![image](../../_assets/vertical-ellipsis.svg) in the line of the necessary host and select **Delete**.
 
 - CLI
 

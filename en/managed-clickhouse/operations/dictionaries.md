@@ -1,6 +1,6 @@
 # Connecting external dictionaries
 
-You can add and remove [external dictionaries](../concepts/dictionaries.md#external-dicts) from your cluster. For more information about dictionaries, see the [{{ CH }}  documentation](https://clickhouse.yandex/docs/en/query_language/dicts/).
+You can add and remove [external dictionaries](../concepts/dictionaries.md#external-dicts) from your cluster. For more information about dictionaries, see the [documentation for {{ CH }}](https://clickhouse.yandex/docs/en/query_language/dicts/).
 
 ## Adding a dictionary {#add-dictionary}
 
@@ -10,10 +10,10 @@ You can add and remove [external dictionaries](../concepts/dictionaries.md#exter
 
   1. Select the cluster:
      1. Go to the folder page and select **{{ mch-name }}**.
-     2. Click on the name of the cluster and open the **Dictionaries** tab.
-     3. Click **Add dictionary**.
+     1. Click on the name of the cluster and open the **Dictionaries** tab.
+     1. Click **Add dictionary**.
 
-  2. Configure the dictionary source parameters:
+  1. Configure the dictionary source parameters:
 
      **{{ mch-name }}** supports several types of dictionary sources: HTTP(s), {{ PG }}, {{ MY }}, {{ CH }}, and {{ MG }}.
 Different types of sources take different connection parameters.
@@ -39,7 +39,7 @@ For more information, see the [{{ PG }} documentation](https://www.postgresql.or
 
      For more information about dictionary sources and their connection parameters, see the [{{ CH }} documentation](https://clickhouse.yandex/docs/en/query_language/dicts/external_dicts_dict_sources/).
 
-  3. Configure the structure and how the dictionary is stored in the memory:
+  1. Configure the structure and how the dictionary is stored in memory:
 
      **{{ mch-name }}** supports multiple methods for storing dictionaries in memory:
 ```flat```, ```hashed```, ```cache```, ```range_hashed```, ```complex_key_hashed```, and ```complex_key_cache```.
@@ -69,11 +69,11 @@ You can't use NULL in this field. Optional parameter.
 
      For more information about column parameters, see the [{{ CH }} documentation](https://clickhouse.yandex/docs/en/query_language/dicts/external_dicts_dict_structure/#ext_dict_structure-attributes).
 
-  4. Set how often the dictionary updates:
+  1. Set how often the dictionary updates:
 
      {{ CH }} loads dictionaries to the RAM and periodically updates them.
 You can set a fixed update interval in seconds or specify a range,
-which {{ CH }} chooses a uniformly random time within.
+which {{ CH }} chooses a random time within for updating.
 This is necessary for distributing the load on the dictionary source when upgrading on a large number of servers.
 
      For more information about dictionary updates, see the [{{ CH }} documentation](https://clickhouse.yandex/docs/en/query_language/dicts/external_dicts_dict_lifetime/).
@@ -96,7 +96,7 @@ This is necessary for distributing the load on the dictionary source when upgrad
 
      ```
      $ {{ yc-mdb-ch }} cluster add-external-dictionary \
-        --cluster-name <{{ CH }} cluster name> \
+        --name <{{ CH }} cluster name> \
         --dict-name <dictionary name> \
         --structure-id <key column name> \
         --structure-attribute name=<data column name>,type=<data type>,null-value=<empty element value >,expression=<expression>,hierarchical=<true|false>,injective=<true|false> \
@@ -118,7 +118,7 @@ This is necessary for distributing the load on the dictionary source when upgrad
 
 - Management console
   1. Go to the folder page and select **{{ mch-name }}**.
-  2. Click on the name of the cluster and open the **Dictionaries** tab.
+  1. Click on the name of the cluster and open the **Dictionaries** tab.
 
 - CLI
 
@@ -127,16 +127,18 @@ This is necessary for distributing the load on the dictionary source when upgrad
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
   To add an external dictionary to a {{ CH }} cluster:
+
   1. View a description of the CLI command for getting detailed cluster information:
 
-  ```
-  $ {{ yc-mdb-ch }} cluster get --help
-  ```
+     ```
+     $ {{ yc-mdb-ch }} cluster get --help
+     ```
+
   1. Run the command:
 
-  ```
-  $ {{ yc-mdb-ch }} cluster get <cluster name>
-  ```
+     ```
+     $ {{ yc-mdb-ch }} cluster get <cluster name>
+     ```
 
   The added dictionaries are displayed in the ```dictionaries:``` section of command execution results.
 
@@ -152,8 +154,8 @@ This is necessary for distributing the load on the dictionary source when upgrad
 
 - Management console
   1. Go to the folder page and click **{{ mch-name }}**.
-  2. Click on the name of the cluster and open the **Dictionaries** tab.
-  3. Click ![image](../../_assets/vertical-ellipsis.svg) in the line of the necessary host and select **Delete**.
+  1. Click on the name of the cluster and open the **Dictionaries** tab.
+  1. Click ![image](../../_assets/vertical-ellipsis.svg) in the line of the necessary host and select **Delete**.
 
 - CLI
 
@@ -162,22 +164,23 @@ This is necessary for distributing the load on the dictionary source when upgrad
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
   To remove an external dictionary:
+
   1. View a description of the CLI command to remove dictionaries:
 
-  ```
-  $ {{ yc-mdb-ch }} cluster remove-external-dictionary --help
-  ```
+     ```
+     $ {{ yc-mdb-ch }} cluster remove-external-dictionary --help
+     ```
+
   1. Run the command to remove a dictionary:
 
-  ```
-  $ {{ yc-mdb-ch }} cluster remove-external-dictionary \
-    --cluster-name <cluster name>
-    --dict-name <dictionary name> \
-  ```
+     ```
+     $ {{ yc-mdb-ch }} cluster remove-external-dictionary \
+       --name <cluster name> \
+       --dict-name <dictionary name> \
+     ```
 
 - API
 
   You can remove a dictionary using the [deleteExternalDictionary](../api-ref/Cluster/deleteExternalDictionary.md) method.
 
 {% endlist %}
-

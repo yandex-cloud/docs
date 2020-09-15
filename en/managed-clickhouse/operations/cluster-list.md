@@ -39,6 +39,7 @@ You can request detailed information about each {{ mch-short-name }} cluster you
   1. Go to the folder page and select **{{ mch-name }}**.
   1. Click on the name of the cluster you need.
 
+
 - CLI
 
   {% include [cli-install](../../_includes/cli-install.md) %}
@@ -51,7 +52,7 @@ You can request detailed information about each {{ mch-short-name }} cluster you
   $ {{ yc-mdb-ch }} cluster get <cluster name or ID>
   ```
 
-  The cluster name and ID can be requested with a [list of clusters in the folder](list-clusters).
+  The cluster name and ID can be requested with a [list of clusters in the folder](#list-clusters).
 
 {% endlist %}
 
@@ -64,6 +65,7 @@ You can request detailed information about each {{ mch-short-name }} cluster you
 - Management console
   1. Go to the folder page and select **{{ mch-name }}**.
   1. Click on the name of the cluster you need.
+
   1. Go to the **Operations** tab.
 
 - CLI
@@ -78,7 +80,7 @@ You can request detailed information about each {{ mch-short-name }} cluster you
   $ {{ yc-mdb-ch }} cluster list-operations <cluster name or ID>
   ```
 
-  The cluster name and ID can be requested with a [list of clusters in the folder](list-clusters).
+  The cluster name and ID can be requested with a [list of clusters in the folder](#list-clusters).
 
 - API
 

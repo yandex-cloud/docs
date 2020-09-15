@@ -4,9 +4,9 @@ After creating a cluster, you can:
 
 * [Change the host class](#change-resource-preset).
 
-* [Increase the storage size](#change-disk-size) (available only for network storage, `network-hdd` and `network-ssd`).
+* [Increase the storage size](#change-disk-size) (available only for network storage, `network-hdd`, and `network-ssd`).
 
-* [Configure servers](#change-clickhouse-config){{ CH }} according to the [{{ CH }} documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/).
+* [Configure servers](#change-clickhouse-config) {{ CH }} according to the [{{ CH }} documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/).
 
 ## Changing the host class {#change-resource-preset}
 
@@ -142,9 +142,9 @@ After creating a cluster, you can:
 
 {% endlist %}
 
-## Changing {{ CH }} settings {#change-clickhouse-config}
+## Changing settings {{ CH }} {#change-clickhouse-config}
 
-You can change the DBMS settings of the hosts in your cluster.
+You can change cluster and DBMS settings.
 
 {% list tabs %}
 
@@ -154,17 +154,19 @@ You can change the DBMS settings of the hosts in your cluster.
 
   1. Select the cluster and click **Edit cluster** in the top panel.
 
-  1. Under **DBMS settings**, click **Configure**.
+  1. Change additional cluster settings:
 
-  1. Configure the cluster parameters:
+  {% include [mch-extra-settings](../../_includes/mdb/mch-extra-settings-web-console.md) %}
+
+  1. Change the DBMS settings by clicking **Configure** under **DBMS settings**:
 
      {% include [mch-additional-properties](../../_includes/mdb/mch-additional-properties.md) %}
 
-  1. Click **Save**.
+  1. Click **Save changes**.
 
 - API
 
-  You can change the DBMS settings for a cluster using the API [update](../api-ref/Cluster/update.md) method: pass the appropriate values in the request parameter `configSpec.clickhouse.config`. All supported settings are described [in the API reference](../api-ref/Cluster/update.md).
+  You can change the DBMS settings for a cluster using the API [update](../api-ref/Cluster/update.md) method: pass the appropriate values in the request parameter `configSpec.clickhouse.config`. All supported settings are described in the [API reference](../api-ref/Cluster/update.md).
 
 {% endlist %}
 
