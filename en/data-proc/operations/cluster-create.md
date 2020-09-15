@@ -10,7 +10,7 @@
 
   1. Enter the cluster name in the **Cluster name** field. The cluster name must be unique within the folder.
 
-  1. The only {{ dataproc-name }} image version available at the Preview stage is 1.0. Select the components that you want to use in the cluster.
+  1. Select a relevant [image version](../concepts/environment.md) and the components you want to use in the cluster.
 
      {% note info %}
 

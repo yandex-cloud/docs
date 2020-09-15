@@ -18,7 +18,8 @@ To assign a user a role:
 
 ## Roles {#roles}
 
-Below is a list of all roles that are used to verify access rights in {{ dataproc-name }}.
+The list below shows all the roles used when verifying access rights in
+{{ dataproc-name }}.
 
 {% include [cloud-roles](../../_includes/cloud-roles.md) %}
 
@@ -39,4 +40,3 @@ The `{{ roles-editor }}` role also includes all `{{ roles-viewer }}` role permis
 Users with the `{{ roles-admin }}` role can manage resource access rights, including allowing other users to create {{ dataproc-name }} clusters and to view information about user rights.
 
 The `{{ roles-admin }}` role also includes all `{{ roles-editor }}` role permissions.
-
