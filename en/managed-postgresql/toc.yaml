@@ -35,6 +35,8 @@ items:
       href: operations/cluster-delete.md
     - name: Database migration to the Cloud
       href: operations/data-migration.md
+    - name: Creating a logical replica of Amazon RDS for PostgreSQL in Managed Service for PostgreSQL
+      href: operations/logical-replica-from-rds.md
   - name: Solutions
     items:
       - name: Creating a PostgreSQL cluster for 1C

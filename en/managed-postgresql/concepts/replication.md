@@ -19,9 +19,9 @@ In addition, you can configure cascading replication by explicitly assigning a s
 
 ## Write sync and read consistency {#write-sync-and-read-consistency}
 
-By default, the master and replica are kept in sync by syncing the [Write-Ahead Log (WAL)](https://www.postgresql.org/docs/current/wal-intro.html) (`synchronous_commit = on`). However, the WAL isn't applied to a synchronous replica immediately after being updated, so the synchronous replica might respond with outdated data during this lag.
+By default, the master and replica are kept in sync by syncing the [Write-Ahead Log (WAL)](https://www.postgresql.org/docs/current/wal-intro.html) (`synchronous_commit = on`). However, there's a delay between WAL delivery and applying it to the synchronous replica. During that delay, the synchronous replica may have data that's out-of-sync with the master.
 
 If you want to ensure ongoing consistency of data reads between the master and synchronous replica, [specify, in the cluster settings](../operations/update.md#change-postgresql-config), the `synchronous_commit = remote_write` parameter. With this parameter value, a data write is not considered successful until the synchronous replica is ready to read the updated data. However, there is a disadvantage: write operations to the cluster will take longer.
 
-For a detailed description of the `synchronous_commit` parameter, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-SYNCHRONOUS-COMMIT).
+For a detailed description of the `synchronous_commit` parameter, see the [{{ PG }} documentation]((https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-SYNCHRONOUS-COMMIT)).
 

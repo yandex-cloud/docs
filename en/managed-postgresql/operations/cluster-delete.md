@@ -21,7 +21,11 @@
   $ {{ yc-mdb-pg }} cluster delete <cluster name or ID>
   ```
 
-  The cluster name and ID can be requested with a [list of clusters in the folder](list-clusters).
+  The cluster name and ID can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+- Terraform
+
+  {% include [terraform-delete-mdb-cluster](../../_includes/mdb/terraform-delete-mdb-cluster.md) %}
 
 {% endlist %}
 

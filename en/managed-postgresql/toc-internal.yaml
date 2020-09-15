@@ -19,10 +19,12 @@ items:
       href: operations/hosts.md
     - name: Database management
       href: operations/databases.md
-    - name: Managing PostgreSQL extensions
+    - name: How to manage PostgreSQL extensions
       href: operations/cluster-extensions.md
     - name: Managing database users
       href: operations/cluster-users.md
+    - name: Granting permissions and roles
+      href: operations/grant.md
     - name: Managing backups
       href: operations/cluster-backups.md
     - name: Deleting clusters
@@ -41,6 +43,8 @@ items:
       href: concepts/limits.md
     - name: Backups
       href: concepts/backup.md
+    - name: Assigning roles
+      href: concepts/roles.md
     - name: Replication
       href: concepts/replication.md
     - name: Supported clients
@@ -49,13 +53,20 @@ items:
     href: security/index.md
   - name: Resources and quotas
     href: quotas.md
-  - name: API reference
+  - name: gRPC API reference
     items:
-    - name: Authentication in the API
-      href: api-ref/authentication.md
+      - name: Authentication in the API
+        href: api-ref/gRPC/authentication.md
     include:
       repo: docs
-      path: ru/_api-ref/mdb/postgresql/toc.yaml
+      path: en/_api-ref-grpc/managed-postgresql/api-ref/toc.yaml
+  - name: REST API reference
+    items:
+      - name: Authentication in the API
+        href: api-ref/REST/authentication.md
+    include:
+      repo: docs
+      path: en/_api-ref/mdb/postgresql/toc.yaml
   - name: Questions and answers
     items:
     - name: General questions

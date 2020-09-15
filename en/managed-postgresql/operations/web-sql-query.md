@@ -1,6 +1,6 @@
 # SQL queries in the management console
 
-{{ mpg-name }} allows you to visualize the data structure in your {{PG}} cluster and send SQL queries to databases from the Yandex.Cloud management console. To do this, log in to the [management console]({{ link-console-main }}), open the cluster page and go to the **SQL** tab.
+{{ mpg-name }} allows you to visualize the data structure in your {{PG}} cluster and send SQL queries to databases from the Yandex.Cloud management console. To do this, log in to [management console]({{ link-console-main }}), open the cluster page and go to the **SQL** tab.
 
 See a reference list of supported queries in the [{{PG}} documentation](https://www.postgresql.org/docs/current/sql.html).
 
@@ -34,4 +34,4 @@ Enter your query and click **Execute**. The results table or error message is sh
 * The management console outputs only the first 1000 rows of the result.
 * If a cluster query takes more than 10 minutes, the management console reports an error instead of printing the result, even if the query eventually finishes processing.
 * If your cluster has multiple {{PG}} hosts, queries from the management console are sent to the current master host.
-* A table list is taken from the _public_ schema. Queries with tables from other schemas are made by explicitly specifying a schema, for example: `SELECT * from information_schema.column_udt_usage`.
+* The list of tables is taken from the _public_ schema. You can make queries to tables from other schemas by explicitly specifying the schema, for example: `SELECT * from information_schema.column_udt_usage`.

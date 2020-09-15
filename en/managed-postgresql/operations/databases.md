@@ -53,6 +53,7 @@ specific tables. Learn more in the [{{ PG }} documentation](https://www.postgres
   To create a database:
   1. Go to the folder page and select **{{ mpg-name }}**.
   1. Click on the name of the cluster you need.
+
   1. If the owner of the new database still doesn't exist, [add the user](cluster-users.md#adduser).
   1. Select the **Databases** tab.
   1. Click **Add**.
@@ -87,8 +88,8 @@ specific tables. Learn more in the [{{ PG }} documentation](https://www.postgres
      $ {{ yc-mdb-pg }} database create <database name>
           --cluster-name <cluster name>
           --owner <username of the DB owner>
-          --lc-collate ru_RU.UTF8
-          --lc-type ru_RU.UTF8
+          --lc-collate ru_RU.UTF-8
+          --lc-type ru_RU.UTF-8
      ```
 
      {{ mpg-short-name }} runs the create database operation.
