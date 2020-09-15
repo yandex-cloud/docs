@@ -34,7 +34,7 @@ After creating a cluster, you can:
      $ {{ yc-mdb-rd }} cluster update --help
      ```
 
-  2. Specify a new name and description in the cluster update command:
+  1. Specify a new name and description in the cluster update command:
 
      ```
      $ {{ yc-mdb-rd }} cluster update <cluster name> \
@@ -54,13 +54,13 @@ After creating a cluster, you can:
 
 - Management console
   1. Go to the folder page and select **{{ mrd-name }}**.
-  2. Select the cluster and click **Edit cluster** at the top of the page.
-  3. Under **Host class**, specify:
+  1. Select the cluster and click **Edit cluster** at the top of the page.
+  1. Under **Host class**, specify:
      * **Type**: Type of virtual machine that hosts are deployed on:
         * `high-memory`: More RAM per 1 vCPU.
         * `burstable`: Only a guaranteed share of vCPU performance. VMs with a guaranteed share of less than 100% ensure the specified level of performance with a possible temporary performance increase up to 100%. Clusters with such hosts are good for tasks that don't require guaranteed permanent performance (such as for testing).
      * **RAM**: Amount of RAM available to {{ RD }} on the host.
-  4. Click **Save changes**.
+  1. Click **Save changes**.
 
 - CLI
 
@@ -82,7 +82,7 @@ After creating a cluster, you can:
 
      ```bash
      $ {{ yc-mdb-rd }} resource-preset list
-
+     
      +-------------+--------------------------------+----------+
      |     ID      |            ZONE IDS            |  MEMORY  |
      +-------------+--------------------------------+----------+
@@ -105,7 +105,7 @@ After creating a cluster, you can:
 
      {% endif %}
 
-  3. Specify the class in the update cluster command:
+  1. Specify the class in the update cluster command:
 
      ```
      $ {{ yc-mdb-rd }} cluster update <cluster name>
@@ -128,9 +128,9 @@ After creating a cluster, you can:
 
 - Management console
   1. Go to the folder page and select **{{ mrd-name }}**.
-  2. Select the cluster and click **Edit cluster** at the top of the page.
-  3. Under **Host class**, set the size of the {{ RD }} host disks in the **Disk size** field. You can only increase hard disk size.
-  4. Click **Save changes**.
+  1. Select the cluster and click **Edit cluster** at the top of the page.
+  1. Under **Host class**, set the size of the {{ RD }} host disks in the **Disk size** field. You can only increase hard disk size.
+  1. Click **Save changes**.
 
 - CLI
 
@@ -179,10 +179,10 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
 - Management console
   1. Go to the folder page and select **{{ mrd-name }}**.
-  2. Select the cluster and click **Edit cluster** at the top of the page.
-  3. Under **DBMS settings**, click **Settings**.
-  4. Configure the available parameters according to the [{{ RD }} documentation](https://redis.io/documentation).
-  5. Click **Save**.
+  1. Select the cluster and click **Edit cluster** at the top of the page.
+  1. Under **DBMS settings**, click **Settings**.
+  1. Configure the available parameters according to the [{{ RD }} documentation](https://redis.io/documentation).
+  1. Click **Save**.
 
 - API
 

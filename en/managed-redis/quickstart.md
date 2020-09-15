@@ -6,7 +6,17 @@ For the internal MDB service, the [web interface]({{console-link}}) is deployed 
 
 ## Access to DB clusters {#access}
 
-[Request access](https://puncher.yandex-team.ru/) to the `_PGAASINTERNALNETS_` macro so you can connect to the created clusters. To connect to PostgreSQL clusters, you need access to ports 26379 (Sentinel) and 6379 (Redis).
+The rules for accessing MDB clusters are already given in [Puncher](https://puncher.yandex-team.ru/): from [Yandex server networks](https://puncher.yandex-team.ru/tasks?id=5cb878a6d5626d264a13ff8a) and [for developers](https://puncher.yandex-team.ru/tasks?id=5d0254aad89cb03fee5006d4).
+
+If you need more rules, request access to the `_PGAASINTERNALNETS_` macro. To connect to {{ RD }} clusters, you need access to ports 26379 (Sentinel) and 6379 (Redis).
+
+{% include [cli-setup](../_includes/mdb/internal/cli-setup.md) %}
+
+   If you did everything correctly, the list clusters query should now work:
+
+   ```bash
+   {{ yc-mdb-rd }} cluster list
+   ```
 
 {% else %}
 
@@ -35,7 +45,7 @@ Quickly create a cluster and test your connection to it:
     $ <host FQDN>:26379> sentinel get-master-addr-by-name <cluster name>
     1) "<master name>"
     2) "6379"
-
+    
     $ redis-cli -h <master FQDN> \
                 -p 6379
     $ <master FQDN>:6379> auth <cluster password>

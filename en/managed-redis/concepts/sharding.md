@@ -6,7 +6,7 @@ Sharding in {{mrd-name}} is implemented using [{{ RD }} Cluster](https://redis.i
 
 Sharding allows you to distribute loads across database hosts, which lets you overcome the resource restrictions of a single server. This is particularly important when you handle large amounts of data or run compute-intensive jobs.
 
-Horizontal scaling involves distributing datasets and load across multiple nodes. Although a single machine may be low capacity or slow, in a horizontally-scaled cluster, each machine handles only part of the total load and stores only part of the total data. This helps make your system more efficient than with a single high-capacity server.
+Horizontal scaling involves distributing datasets and load across multiple nodes. While a single machine may be slow or low-capacity, in a horizontally-scaled cluster, each machine handles only part of the total load and stores only part of the total data. This helps make your system more efficient than with a single high-capacity server.
 
 Read more about {{ RD }} database sharding in the [{{ RD }} documentation](https://redis.io/topics/cluster-spec).
 
@@ -16,7 +16,7 @@ Read more about {{ RD }} database sharding in the [{{ RD }} documentation](https
 
 Each cluster has 16,348 *hash slots* evenly distributed between shards. Slots define the dataset stored in the shard.
 
-## Fault tolerance {#failover}
+## Fault tolerant {#failover}
 
 All hosts in the cluster use service connections to exchange data about slots and regularly poll statuses from each other.
 

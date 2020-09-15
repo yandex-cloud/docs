@@ -1,6 +1,6 @@
 # Creating {{ RD }} clusters
 
-{{ RD }} clusters are one or more database hosts that replication can be configured between. Replication is enabled by default in any cluster consisting of more than one host: the master host accepts write requests and asynchronously duplicates changes on replicas.
+{{ RD }}clusters are one or more database hosts that replication can be configured between. Replication is enabled by default in any cluster consisting of more than one host: the master host accepts write requests and asynchronously duplicates changes on replicas.
 
 The number of hosts that can be created together with a {{ RD }} cluster depends on the host type selected:
 
@@ -8,13 +8,13 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
 
 * In a cluster with **burstable** hosts, you can create only one host.
 
-## How to create a {{ RD }} cluster {#create-cluster}
+## How to create a cluster {{ RD }} {#create-cluster}
 
 {% list tabs %}
 
 - Management console
 
-  1. In the [management console]({{ link-console-main }}), select the folder where you want to create a DB cluster.
+  1. In the management console, select the folder where you want to create a DB cluster.
 
   1. Select **{{ mrd-name }}**.
 
@@ -23,8 +23,8 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
   1. Enter the cluster name in the **Cluster name** field. The cluster name must be unique within the Cloud.
 
   1. Select the environment where you want to create the cluster (you can't change the environment once the cluster is created):
-      - <q>production</q>: For stable versions of your apps.
-      - <q>prestable</q>: For testing, including the {{ mrd-short-name }} service itself. The prestable environment is updated more often, which means that known problems are fixed sooner, but this may cause backward incompatible changes.
+      - `PRODUCTION`: For stable versions of your apps.
+      - `PRESTABLE`: For testing, including the {{ mrd-short-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
 
   1. Select the DBMS version.
 
@@ -83,7 +83,7 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
 
       ```bash
       $ {{ yc-mdb-rd }} cluster create \
-         --cluster-name <cluster name> \
+         --cluster-name <cluster name>
          --environment <prestable or production> \
          --network-name <network name> \
          --host zone-id=<availability zone>,subnet-id=<subnet ID> \
@@ -108,7 +108,7 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
        * Network: Description of the [cloud network](../../vpc/concepts/network.md#network) where the cluster will be located. If you already have a suitable network, you don't need to describe it again.
        * Subnets: Description of the [subnets](../../vpc/concepts/network.md#network) to connect the cluster hosts to. If you already have suitable subnets, you don't need to describe them again.
 
-       Sample configuration file structure:
+       Example configuration file structure:
 
        ```
        resource "yandex_mdb_redis_cluster" "<cluster name>" {
@@ -131,9 +131,10 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
          }
        }
        
-       resource "yandex_vpc_network" "<network name>" {}
+       resource "yandex_vpc_network" "<network name>" { name = "<network name>" }
        
        resource "yandex_vpc_subnet" "<subnet name>" {
+         name           = "<subnet name>" 
          zone           = "<availability zone>"
          network_id     = "<network ID>"
          v4_cidr_blocks = ["<range>"]
@@ -142,23 +143,23 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
 
        For more information about resources that you can create using Terraform, see the [provider's documentation](https://www.terraform.io/docs/providers/yandex/r/mdb_redis_cluster.html).
 
-    2. Make sure that the configuration files are correct.
+    1. Make sure that the configuration files are correct.
        1. In the command line, go to the folder where you created the configuration file.
-       2. Run the check using the command:
+       1. Run the check using the command:
 
           ```
           terraform plan
           ```
 
-       If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If there are errors in the configuration, Terraform will point them out. This is a test step. No resources are created.
+       If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out. This is a test step. No resources are created.
 
-    3. Create a cluster.
-       1. If there are no errors in the configuration, run the command:
+    1. Create a cluster.
+       1. If the configuration doesn't contain any errors, run the command:
 
           ```
           terraform apply
           ```
-       2. Confirm the creation of resources.
+       1. Confirm that you want to create the resources.
 
        After this, all the necessary resources will be created in the specified folder and the IP addresses of the VMs will be displayed in the terminal. You can check resource availability and their settings in [консоли управления]({{ link-console-main }}).
 
@@ -178,8 +179,8 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
   - Named `myredis`.
   - In the `production` environment.
   - In the `default` network.
-  - With a single `b1.nano` class host in the `b0rcctk2rvtr8efcch64` subnet and `ru-central1-c` availability zone.
-  - With 16 GB of storage.
+  - With a single `hm1.nano` class host in the `b0rcctk2rvtr8efcch64` subnet and the `{{ zone-id }}` availability zone.
+  - With a 16 GB fast network storage (`{{ disk-type-example }}`).
   - With the `user1user1` password.
 
   Run the command:
@@ -190,7 +191,7 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
        --environment production \
        --network-name default \
        --resource-preset hm1.nano \
-       --host zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch64 \
+       --host zone-id={{ zone-id }},subnet-id=b0rcctk2rvtr8efcch64 \
        --disk-size 16 \
        --password=user1user1
   ```
@@ -205,8 +206,8 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
     - In the cloud with ID `b1gq90dgh25иuebiu75o`.
     - In a folder named `myfolder`.
     - In a new network named `mynet`.
-    - With a single `hm1.nano` class host in a new subnet named `mysubnet` and in the `ru-central1-c` availability zone. The `mysubnet` subnet will have the `10.5.0.0/24` range.
-    - With 16 GB of storage.
+    - With a single host of the `hm1.nano` class in the new `mysubnet` subnet and the `{{ zone-id }}` availability zone. The `mysubnet` subnet will have a range of `10.5.0.0/24`.
+    - With a 16 GB fast network storage (`{{ disk-type-example }}`).
     - With the `user1user1` password.
 
   The configuration file for the cluster looks like this:
@@ -216,7 +217,7 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
     token = "<OAuth or static key of service account>"
     cloud_id  = "b1gq90dgh25иuebiu75o"
     folder_id = "${data.yandex_resourcemanager_folder.myfolder.id}"
-    zone      = "ru-central1-c"
+    zone      = "{{ zone-id }}"
   }
   
   resource "yandex_mdb_redis_cluster" "myredis" {
@@ -234,15 +235,16 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
     }
   
     host {
-      zone      = "ru-central1-c"
+      zone      = "{{ zone-id }}"
       subnet_id = "${yandex_vpc_subnet.mysubnet.id}"
     }
   }
   
-  resource "yandex_vpc_network" "mynet" {}
+  resource "yandex_vpc_network" "mynet" { name = "mynet" }
   
   resource "yandex_vpc_subnet" "mysubnet" {
-    zone           = "ru-central1-c"
+    name           = "mysubnet"
+    zone           = "{{ zone-id }}"
     network_id     = "${yandex_vpc_network.mynet.id}"
     v4_cidr_blocks = ["10.5.0.0/24"]
   }

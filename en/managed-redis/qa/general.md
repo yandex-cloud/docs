@@ -59,7 +59,7 @@ A {{ mrd-short-name }} cluster can include from 1 to 7 DB hosts.
 
 #### How can I access a running DB host? {#db-access}
 
-You can connect to {{ mrd-short-name }} databases using standard DBMS methods. However, there is one exception: {{ mrd-short-name }} hosts can only be accessed from Yandex.Cloud VMs in the same network.
+You can connect to {{ mrd-short-name }} databases using standard DBMS methods. However, there is one exception: {{ mrd-short-name }} hosts can only be accessed from Yandex.Cloud VMs connected to the same network.
 
 #### How many clusters can I create within a single cloud? {#db-limit}
 

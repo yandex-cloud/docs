@@ -1,56 +1,69 @@
 title: "Yandex Managed Service for Redis"
 href: index.yaml
 items:
-  - name: Getting started
-    href: quickstart.md
-  - name: Step-by-step instructions
-    items:
-      - name: All instructions
-        href: operations/index.md
-      - name: Information about existing clusters
-        href: operations/cluster-list.md
-      - name: Creating clusters
-        href: operations/cluster-create.md
-      - name: Connecting to databases
-        href: operations/connect.md
-      - name: Managing hosts in a cluster
-        href: operations/hosts.md
-      - name: Managing backups
-        href: operations/cluster-backups.md
-      - name: Changing the master
-        href: operations/failover.md
-      - name: Deleting clusters
-        href: operations/cluster-delete.md
-  - name: Concepts
-    items:
-    - name: Overview
-      href: concepts/index.md
-    - name: Host classes
-      href: concepts/instance-types.md
-    - name: Network in Managed Service for Redis
-      href: concepts/network.md
-    - name: Service quotas and limits
-      href: concepts/limits.md
-    - name: Backups
-      href: concepts/backup.md
-    - name: Replication and fault tolerance
-      href: concepts/replication.md
-    - name: Supported clients
-      href: concepts/supported-clients.md
-    - name: Limitations of Managed Service for Redis
-      href: concepts/supported-features.md
-  - name: Access management
-    href: security/index.md
-  - name: Resources and quotas
-    href: quotas.md
-  - name: API reference
-    items:
-      - name: Authentication in the API
-        href: api-ref/authentication.md
-    include:
-      repo: docs
-      path: ru/_api-ref/mdb/redis/toc.yaml
-  - name: Questions and answers
-    items:
-    - name: General questions
-      href: qa/general.md
+    - name: Getting started
+      href: quickstart.md
+    - name: Step-by-step instructions
+      items:
+          - name: All instructions
+            href: operations/index.md
+          - name: Information about existing clusters
+            href: operations/cluster-list.md
+          - name: Creating clusters
+            href: operations/cluster-create.md
+          - name: Changing cluster and database settings
+            href: operations/update.md
+          - name: Connecting to databases
+            href: operations/connect.md
+          - name: Managing hosts in a cluster
+            href: operations/hosts.md
+          - name: How to manage shards
+            href: operations/shards.md
+          - name: Managing backups
+            href: operations/cluster-backups.md
+          - name: Changing the master
+            href: operations/failover.md
+          - name: Deleting clusters
+            href: operations/cluster-delete.md
+    - name: Concepts
+      items:
+          - name: Overview
+            href: concepts/index.md
+          - name: Host classes
+            href: concepts/instance-types.md
+          - name: Network in Managed Service for Redis
+            href: concepts/network.md
+          - name: Sharding
+            href: concepts/sharding.md
+          - name: Backups
+            href: concepts/backup.md
+          - name: Replication and fault tolerance
+            href: concepts/replication.md
+          - name: Supported clients
+            href: concepts/supported-clients.md
+          - name: Limitations of Managed Service for Redis
+            href: concepts/supported-features.md
+          - name: Service quotas and limits
+            href: concepts/limits.md
+    - name: Access management
+      href: security/index.md
+    - name: Resources and quotas
+      href: quotas.md
+    - name: gRPC API reference
+      items:
+        - name: Authentication in the API
+          href: api-ref/gRPC/authentication.md
+      include:
+        repo: docs
+        path: en/_api-ref-grpc/managed-redis/api-ref/toc.yaml
+    - name: REST API reference
+      items:
+        - name: Authentication in the API
+          href: api-ref/REST/authentication.md
+      include:
+        repo: docs
+        path: en/_api-ref/mdb/redis/toc.yaml
+    - name: Questions and answers
+      items:
+          - name: General questions
+            href: qa/general.md
