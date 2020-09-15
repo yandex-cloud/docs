@@ -85,11 +85,11 @@ The number of databases in a cluster is unlimited.
   To delete a database, run the command:
 
   ```
-  $ {{ yc-mdb-my }} database delete <database name> --cluster-name <cluster name>
+  $ {{ yc-mdb-my }} database delete <database name> --cluster-name=<cluster name>
   ```
 
-  The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
-
+  The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+  
 {% endlist %}
 
 {% note warning %}

@@ -69,7 +69,7 @@ Connect to the database using the command `mysql`.
 
 ## Connecting to the master {#Connecting-to-master}
 
-Hosts will always identify the current master as `c-<cluster ID>.rw.{{ dns-zone }}`. For example, you can connect to the master of the cluster with the `c9qash3nb1v9ulc8j9nm` ID as follows:
+Hosts will always identify the current master as `c-<cluster ID>.rw.{{ dns-zone }}`. For example, you can connect to the master of the cluster with the ID `c9qash3nb1v9ulc8j9nm` as follows:
 
 ```bash
 $ mysql --host=c-c9qash3nb1v9ulc8j9nm.rw.{{ dns-zone }}

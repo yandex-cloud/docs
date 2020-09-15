@@ -1,10 +1,10 @@
 # Host classes
 
-The host class determines the computing power allocated for each host in the cluster. When you change the host class for a cluster, all existing hosts change to match.
+The host class determines the computing power allocated for each host in the cluster. When you change the host class for a cluster, all existing hosts change to match it.
 
 {% if audience != "internal" %}
 
-The available storage does not depend on the host class.  For storage limitations, see [{#T}](limits.md).
+The available storage doesn't depend on the host class. For storage limitations, see [{#T}](./limits.md).
 
 {% endif %}
 
@@ -48,7 +48,7 @@ The available storage does not depend on the host class.  For storage limitation
 
 Hosts in {{ mmy-name }} clusters are deployed on {{ compute-full-name }} VMs. You can create these VMs on any of the platforms that {{ compute-name }} supports. For a detailed description of the platforms, see [{#T}](../../compute/concepts/vm-platforms.md).
 
-The full list of possible host configurations on each of the platforms is provided below.
+The full list of possible host configurations on each platform is provided below.
 
 {% include [instance-types-code](../../_includes/mdb/instance-types-code.md) %}
 

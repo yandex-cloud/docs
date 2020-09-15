@@ -15,10 +15,12 @@ items:
         href: operations/connect.md
       - name: Changing clusters
         href: operations/update.md
-      - name: Managing MySQL hosts
+      - name: How to manage MySQL hosts
         href: operations/hosts.md
       - name: Database management
         href: operations/databases.md
+      - name: Database setup
+        href: operations/db-settings.md
       - name: Managing database users
         href: operations/cluster-users.md
       - name: Managing backups
@@ -48,10 +50,17 @@ items:
   - name: API reference
     items:
       - name: Authentication in the API
-        href: api-ref/authentication.md
+        href: api-ref/gRPC/authentication.md
     include:
       repo: docs
-      path: ru/_api-ref/mdb/mysql/toc.yaml
+      path: en/_api-ref-grpc/managed-mysql/api-ref/toc.yaml
+  - name: REST API reference
+    items:
+      - name: Authentication in the API
+        href: api-ref/REST/authentication.md
+    include:
+      repo: docs
+      path: en/_api-ref/mdb/mysql/toc.yaml
   - name: Questions and answers
     items:
       - name: General questions

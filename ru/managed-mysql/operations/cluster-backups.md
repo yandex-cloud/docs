@@ -78,9 +78,9 @@
   
       ```
       $ {{ yc-mdb-my }} cluster restore \
-             --backup-id c9qgo11pud7kb3cdomeg:stream_20200810T120000Z \
-             --time 2020-08-10T12:00:10Z \
-             --name mynewmy \
+             --backup-id c9qgo11pud7kb3cdomeg:stream_20190213T093643Z \
+             --time 2018-11-02T10:09:38Z \
+             --cluster-name=mynewmy \
              --environment=PRODUCTION \
              --network-id {{ network-name }} \
              --host zone-id={{ zone-id }},subnet-id=b0rcctk2rvtr8efcch63 \
@@ -94,8 +94,8 @@
       ```
       $ {{ yc-mdb-my }} cluster restore \
              --backup-id c9qgo11pud7kb3cdomeg:stream_20190213T093643Z \
-             --time 2020-08-10T12:00:10Z \
-             --name mynewmy \
+             --time 2018-11-02T10:09:38Z \
+             --cluster-name=mynewmy \
              --environment=PRODUCTION \
              --network-name {{ network-name }} \
              --host zone-id={{ zone-id }},subnet-id=b0rcctk2rvtr8efcch63 \
@@ -251,7 +251,7 @@
 
   ```
   $ yc {{ yc-mdb-my }} cluster create \
-     --cluster-name  <имя кластера> \
+     --cluster-name=<имя кластера> \
      --environment <окружение, prestable или production> \
      --network-name <имя сети> \
      --host zone-id=<зона доступности>,subnet-id=<идентификатор подсети> \
@@ -263,7 +263,7 @@
 
   ```
   $ yc {{ yc-mdb-my }} cluster update \
-     --cluster-name  <имя кластера> \
+     --cluster-name=<имя кластера> \
      --backup-window-start 11:25:00
   ```
   
