@@ -34,5 +34,5 @@
 ## Что дальше {what-is-next}
 
 - [Узнайте об особенностях сервиса](concepts/index.md).
-- [Поделитесь ссылкой на ноутбук со всеми результатами](operations/projects/share.md).
+- [Поделитесь ссылкой на ноутбук со всеми результатами](operations/projects/publication.md).
 - [Посмотрите другие инструкции по работе с сервисом](operations/index.md).
