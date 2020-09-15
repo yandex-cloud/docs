@@ -8,3 +8,4 @@
 - [{#T}](projects/share.md)
 - [{#T}](projects/update.md)
 - [{#T}](projects/delete.md)
+- [{#T}](projects/work-with-git.md)

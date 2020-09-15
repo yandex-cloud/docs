@@ -23,6 +23,8 @@ items:
         href: operations/projects/update.md
       - name: Удаление проекта
         href: operations/projects/delete.md
+      - name: Работа с Git
+        href: operations/projects/work-with-git.md
   - name: Концепции
     items:
       - name: Обзор
