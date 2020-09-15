@@ -31,6 +31,7 @@ default:
   cos-full-name: Yandex Container Optimized Solutions
   ml-platform-full-name: Yandex DataSphere
   certificate-manager-full-name: Yandex Certificate Manager
+  api-gw-full-name: Yandex API Gateway
   data-transfer-full-name: Yandex Data Transfer
 
   # Полные имена сервисов без Yandex
@@ -65,6 +66,7 @@ default:
   ml-platform-name: DataSphere
   certificate-manager-name: Certificate Manager
   marketplace-name: Cloud Marketplace
+  api-gw-name: API Gateway
   data-transfer-name: Data Transfer
 
   # Короткие имена
@@ -96,6 +98,7 @@ default:
   cos-short-name: COS
   ml-platform-short-name: DataSphere
   certificate-manager-short-name: Certificate Manager
+  api-gw-short-name: API Gateway
 
   # Тарифы
   price-per-hour-count-per-second: Prices are shown for 1 hour of use. Billing occurs per second.
@@ -242,9 +245,9 @@ default:
   link-yandex-connect: https://connect.yandex.com
   link-passport-login: https://passport.yandex.com/auth
   link-cloud-oauth: https://oauth.yandex.com/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb
-# Cloud specific 
-  yandex-cloud: Yandex.Cloud 
-  
+# Cloud specific
+  yandex-cloud: Yandex.Cloud
+
 internal:
   audience: internal
   console-link: yc.yandex-team.ru

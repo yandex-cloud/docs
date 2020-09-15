@@ -1,0 +1,55 @@
+title: Yandex API Gateway
+href: index.yaml
+items:
+  - name: Getting started
+    href: quickstart/index.md
+  - name: Step-by-step instructions
+    items:
+        - name: All instructions
+          href: operations/index.md
+        - name: Creating API gateways
+          href: operations/api-gw-create.md
+        - name: Updating API gateways and their specifications
+          href: operations/api-gw-update.md
+        - name: Deleting API gateways
+          href: operations/api-gw-delete.md
+        - name: Viewing monitoring charts
+          href: operations/api-gw-monitoring.md
+        - name: Viewing the execution log
+          href: operations/api-gw-logs.md
+  - name: Concepts
+    items:
+      - name: Relationship between service resources
+        href: concepts/index.md
+      - name: Specification extensions
+        items:
+          - name: Overview
+            href: concepts/extensions/index.md
+          - name: Static response
+            href: concepts/extensions/dummy.md
+          - name: Invoking a function
+            href: concepts/extensions/cloud-functions.md
+          - name: Access via HTTP
+            href: concepts/extensions/http.md
+          - name: Integration with Object Storage
+            href: concepts/extensions/object-storage.md
+      - name: Quotas and limits
+        href: concepts/limits.md
+  - name: Access management
+    href: security/index.md
+  - name: Pricing policy
+    href: pricing.md
+  - name: API reference
+    items:
+      - name: Authentication in the API
+        href: api-ref/authentication.md
+      - name: gRPC
+        items:
+        include:
+          repo: docs
+          path: en/_api-ref-grpc/functions/api-gateway/api-ref/toc.yaml
+      - name: REST
+        items:
+        include:
+          repo: docs
+          path: en/_api-ref/serverless/apigateway/toc.yaml
