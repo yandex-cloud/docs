@@ -8,15 +8,15 @@ To assign a user role, [use](../operations/grant.md) the Yandex.Cloud CLI or API
 
 The `mdb_admin` role includes the following privileges:
 
-- Use system role privileges:
-  - `pg_monitor`
-  - `pg_signal_backend`
-- Use subscriptions for logical replication (`CREATE | DROP | ALTER SUBSCRIPTION`).
-- Use extensions:
-  - `dblink`
-  - `pg_repack`
-  - `postgres_fdw`
-- Use extension-specific functions:
-  - `pg_stat_kcache_reset()` from the `pg_stat_kcache` extension.
-  - `pg_stat_reset()` and `pg_stat_statements_reset()` from the `pg_stat_statements` extension.
+* Use system role privileges:
+  * `pg_monitor`
+  * `pg_signal_backend`
+* Use subscriptions for logical replication (`CREATE | DROP | ALTER SUBSCRIPTION`).
+* Use extensions:
+  * `dblink`
+  * `pg_repack`
+  * `postgres_fdw`
+* Use extension-specific functions:
+  * `pg_stat_kcache_reset()` from the `pg_stat_kcache` extension.
+  * `pg_stat_reset()` and `pg_stat_statements_reset()` from the `pg_stat_statements` extension.
 

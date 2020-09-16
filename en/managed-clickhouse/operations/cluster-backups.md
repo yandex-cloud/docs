@@ -14,12 +14,6 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
 
   1. Click **Create a backup**.
 
-  1. Set up the new cluster. You can select a folder for the new cluster from the **Folder** list.
-
-  1. Click **Restore cluster**.
-
-  {{ mch-name }} runs cluster restore from backup.
-
 - CLI
 
   {% include [cli-install](../../_includes/cli-install.md) %}
@@ -93,7 +87,7 @@ For a new cluster, you should set all the parameters that are required at creati
       ```
       $ yc managed-clickhouse cluster restore \
              --backup-id c9q22suuefrmrp2lrv9f:20181109T101204 \
-             --cluster-name mynewch \
+             --name mynewch \
              --environment=PRODUCTION \
              --network-name default \
              --host type=clickhouse,zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch63 \
@@ -111,7 +105,7 @@ For a new cluster, you should set all the parameters that are required at creati
       - In the `{{ network-name }}` network.
       - With a single `{{ host-class }}` class host in the `b0rcctk2rvtr8efcch63` subnet of the `{{ zone-id }}` availability zone.
       - With the databases and users from the backup.
-      - With SSD network storage of 20 GB.
+      - With 20 GB fast network storage (`{{ disk-type-example }}`).
 
      
 
@@ -180,15 +174,15 @@ For a new cluster, you should set all the parameters that are required at creati
 
 - Management console
 
-  In the management console, you can only set the start time for creating backups by [editing the cluster](update.md).
+  When [creating](cluster-create.md) or [updating](update.md#change-clickhouse-config) a cluster, you can set the backup start time under **Additional settings**.
 
 - CLI
 
-  To set the backup start time, use the `-- backup-window-start` flag. Time is set in the format ``HH:MM:SS``.
+  To set the backup start time, use the `-- backup-window-start` flag. Time is given in ``HH:MM:SS`` format.
 
   ```
   $ yc yc managed-clickhouse cluster create \
-        --cluster-name <cluster name> \
+        --name <cluster name> \
         --environment <prestable or production> \
         --network-name <network name> \
         --host type=<clickhouse or zookeeper>,zone-id=<availability zone>,subnet-id=<subnet ID> \
@@ -204,7 +198,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
   ```
   $ yc yc managed-clickhouse cluster update \
-     --cluster-name <cluster name> \
+     --name <cluster name> \
      --backup-window-start 11:25:00
   ```
 

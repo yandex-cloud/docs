@@ -23,7 +23,7 @@ You can add and remove databases, as well as view information about them.
        --cluster-name=<cluster name>
   ```
 
-  The cluster name can be requested with a [list of folder clusters](#list-clusters).
+  The cluster name can be requested with a [list of folder clusters](cluster-list.md#list-clusters).
 
 - API
 
@@ -40,9 +40,16 @@ The number of databases in a cluster is unlimited.
 - Management console
   1. Go to the folder page and select **{{ mch-name }}**.
   1. Click on the name of the cluster you need.
+
   1. Select the **Databases** tab.
   1. Click **Add**.
-  1. Enter the DB name and click **Add**.
+  1. Enter a name for the database and click **Add**.
+
+  {% note info %}
+
+    Database names may consist of Latin letters, numbers, dashes, and underscores. The maximum name length is 63 characters. You can't create a database named `default`.
+
+  {% endnote %}
 
 - CLI
 
@@ -59,7 +66,13 @@ The number of databases in a cluster is unlimited.
 
   {{ mch-short-name }} runs the create database operation.
 
-  The cluster name can be requested with a [list of folder clusters](#list-clusters).
+  {% note info %}
+
+    Database names may consist of Latin letters, numbers, dashes, and underscores. The maximum name length is 63 characters. You can't create a database named `default`.
+
+  {% endnote %}
+
+  The cluster name can be requested with a [list of folder clusters](cluster-list.md#list-clusters).
 
 - API
 
@@ -89,7 +102,7 @@ The number of databases in a cluster is unlimited.
        --cluster-name=<cluster name>
   ```
 
-  The cluster name can be requested with a [list of folder clusters](#list-clusters).
+  The cluster name can be requested with a [list of folder clusters](cluster-list.md#list-clusters).
 
 - API
 
@@ -102,4 +115,3 @@ The number of databases in a cluster is unlimited.
 Before creating a new database with the same name, wait for the delete operation to complete, otherwise the database being deleted is restored. Operation status can be obtained with a [list of cluster operations](cluster-list.md#list-operations).
 
 {% endnote %}
-

@@ -128,9 +128,9 @@ For all DBMS types, you can track:
 
 For any DB hosts, you can track metrics specific to the type of the corresponding DBMS. For example, for {{ MG }}, you can track:
 
-- Number of queries per second;
-- Disk space used;
-- Number of connections, etc.
+- Number of queries per second.
+- Amount of disk space used.
+- Number of connections, and so on.
 
 Monitoring can be performed with a minimum granularity of 5 seconds.
 

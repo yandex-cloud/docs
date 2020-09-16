@@ -58,7 +58,7 @@ If you don't have a suitable data set or model to process it, you can test machi
 
 {% note info %}
 
-In this example, we'll use public data from the [Amazon Employee Access Challenge](https://www.kaggle.com/c/amazon-employee-access-challenge). The model is trained to predict values in the `ACTION` column. The same data and model are used in the examples provided in the [{{ CH }} documentation](https://clickhouse.yandex/docs/en/guides/apply_catboost_model/) and on [GitHub](https://github.com/ClickHouse/clickhouse-presentations/blob/master/tutorials/catboost_with_clickhouse_ru.md).
+In this example, we'll use public data from the [Amazon Employee Access Challenge](https://www.kaggle.com/c/amazon-employee-access-challenge). The model is trained to predict values in the `ACTION` column. The same data and model are used in the examples provided in the [{{ CH }} documentation](https://clickhouse.yandex/docs/en/guides/apply_catboost_model/) and on [GitHub](https://github.com/ClickHouse/clickhouse-presentations/blob/master/tutorials/catboost_with_clickhouse_en.md).
 
 {% endnote %}
 
@@ -76,7 +76,7 @@ To upload data to {{ CH }} and test the model:
    $ clickhouse-client --host <host FQDN> \
                      --database <DB name>
                      --secure \
-                     --user <DB username> \
+                     --user <DB user name> \
                      --password <DB user password> \
                      --port 9440 \
                      -q 'CREATE TABLE ml_test_table (date Date MATERIALIZED today(), ACTION UInt8, RESOURCE UInt32, MGR_ID UInt32, ROLE_ROLLUP_1 UInt32, ROLE_ROLLUP_2 UInt32, ROLE_DEPTNAME UInt32, ROLE_TITLE UInt32, ROLE_FAMILY_DESC UInt32, ROLE_FAMILY UInt32, ROLE_CODE UInt32) ENGINE = MergeTree() PARTITION BY date ORDER BY date'
@@ -87,13 +87,13 @@ To upload data to {{ CH }} and test the model:
    $ clickhouse-client --host <host FQDN> \
                      --database <DB name>
                      --secure \
-                     --user <DB username> \
+                     --user <DB user name> \
                      --password <DB user password> \
                      --port 9440 \
                      -q 'INSERT INTO ml_test_table FORMAT CSVWithNames' \
                      < train.csv
    ```
-1. In the [management console](https://console.cloud.yandex.ru/), add the test model:
+1. In the [management console]({{ link-console-main }}), add the test model:
 
   * **Type**: `ML_MODEL_TYPE_CATBOOST`.
   * **Name**: `ml_test`.

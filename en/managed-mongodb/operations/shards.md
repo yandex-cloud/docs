@@ -1,4 +1,4 @@
-# Managing shards
+# How to manage shards
 
 You can enable sharding for clusters that have {{ MG }} version 4.0 or higher. You can also add and configure individual shards.
 
@@ -12,7 +12,7 @@ Make sure that your shards consist of at least 3 hosts to ensure higher availabi
 
 ## Enable sharding {#enable}
 
-Using the {{ mmg-name }} interface, you can quickly create a {{ MG }}  sharding infrastructure: the mongos and mongocfg hosts needed to run the sharded database.
+Using the {{ mmg-name }} interface, you can quickly create a {{ MG }} sharding infrastructure: the mongos and mongocfg hosts needed to run the sharded database.
 
 To learn how to directly shard your {{ MG }} database and collections, see [{#T}](../tutorials/sharding.md).
 
@@ -48,7 +48,7 @@ To learn how to directly shard your {{ MG }} database and collections, see [{#T}
 
   1. Go to the folder page and select **{{ mmg-name }}**.
 
-  2. Click the name of a cluster and open the **Shards** tab.
+  1. Click the name of a cluster and open the **Shards** tab.
 
 - API
 
@@ -63,6 +63,7 @@ The number of shards in {{ mmg-short-name }} clusters is limited by the CPU and 
 {% list tabs %}
 
 - Management console
+
   1. Go to the folder page and select **{{ mmg-name }}**.
   1. Click on the name of the cluster you need and go to the **Hosts** tab.
   1. Click **Add shard**.
@@ -85,9 +86,9 @@ You can delete a shard from a {{ MG }} cluster provided that it's not the only s
 
   1. Go to the folder page and select **{{ mmg-name }}**.
 
-  2. Click on the name of a cluster and open the **Shards** tab.
+  1. Click on the name of a cluster and open the **Shards** tab.
 
-  3. Click ![image](../../_assets/horizontal-ellipsis.svg) in the line of the desired host and select **Delete**.
+  1. Click ![image](../../_assets/horizontal-ellipsis.svg) in the line of the desired host and select **Delete**.
 
 - API
 

@@ -2,13 +2,12 @@
 
 To migrate your database to {{ mch-name }}, you need to transfer the data directly, close the old database for writing, and then transfer the load to the database cluster in Yandex.Cloud.
 
-To transfer data to a {{ mch-name }} cluster, you can use [Apache ZooKeeper](http://zookeeper.apache.org) and [clickhouse-copier]( https://clickhouse.yandex/docs/enoperations/utils/clickhouse-copier/).
+To transfer data to a {{ mch-name }} cluster, you can use [Apache ZooKeeper](http://zookeeper.apache.org) and [clickhouse-copier]( https://clickhouse.yandex/docs/en/operations/utils/clickhouse-copier/).
 
 Transfer data to an intermediate virtual machine in Compute Cloud if:
 
 * The {{ mch-name }} cluster isn't accessible from the internet.
-* Your network equipment or connection to the {{ CH }} cluster in Yandex.Cloud isn't
-very reliable.
+* The network equipment or connection to the {{ CH }} cluster in Yandex.Cloud isn't reliable enough.
 * There is no environment to run `clickhouse-copier`.
 
 Migration stages:
@@ -24,16 +23,15 @@ Migration stages:
 
 1. Compatible software versions
     * {{ CH }} versions must be the same in both clusters.
-    * `clickhouse-copier` version must be the same (or higher) than the {{ CH }} version in the
- {{ mch-name }} cluster.
+    * The `clickhouse-copier` version must be the same or higher than the {{ CH }} version in the {{ mch-name }} cluster.
     * ZooKeeper ver. 3.4.10 and higher.
 
-2. Check that the source cluster is ready to migrate:
+1. Check that the source cluster is ready to migrate:
     * SSL is enabled for encrypting traffic.
-    * The load on the database or shard that data will be copied from won't createproblems.
-    * `clickhouse-copier` has access to the database, and the account used hasread-only access.
+    * The load on the database or shard that data will be copied from won't create any problems.
+    * `clickhouse-copier` has access to the database, and the account used has read-only access.
 
-3. If you are using a virtual machine in Yandex.Cloud for migration:
+1. If you are using a virtual machine in Yandex.Cloud for migration:
     * Create your VMs in the same cloud network as the {{ mch-name }} cluster.
     * The computing power of the VM should be chosen based on the amount of data transferred.
 
@@ -101,7 +99,7 @@ To migrate data, start a ZooKeeper node.
 
 ## Create a cluster {{ mch-name }} {#create-cluster}
 
-Make sure that the computing power and storage size of the cluster are appropriate for the environment,where the existing databases are deployed, and [create a cluster](cluster-create.md).
+Make sure that the computing power and storage size of the cluster are appropriate for the environment where the existing databases are deployed and [create a cluster](cluster-create.md).
 
 ## Create a task for clickhouse-copier {#copier-task}
 
@@ -253,7 +251,7 @@ If you didn't create the folders that you specified in the `--base-dir` flag or 
 
 {% endnote %}
 
-You can launch copier using the following command (to run it in daemon mode,add a `--daemon` flag):
+You can start the copier using the following command (to run it in daemon mode, add the `--daemon` flag):
 
 ```bash
 $ clickhouse-copier
@@ -263,5 +261,5 @@ $ clickhouse-copier
   --log-level debug
 ```
 
-Once the operation is complete, check the logs to make sure that everything wascopied successfully.
+Once the operation is complete, check the logs to make sure that everything was copied successfully.
 

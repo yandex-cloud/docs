@@ -7,41 +7,44 @@ editable: false
 
 ## What goes into the cost of using {{ dataproc-name }} {#rules}
 
-Price calculations for the usage of  {{ dataproc-name }} takes into account the use of host computing resources, storage and egress traffic:
+The total cost of using {{ dataproc-name }} includes:
 
-* vCPU or GPU usage time,
-
-* amount of RAM used per unit of time (GB×hour),
-
-* {{ compute-full-name }} platform that is specified when creating hosts,
-
-* storage type and size for each host (disk space),
-
+* The cost of using the computing resources of {{ compute-full-name }} VMs to deploy hosts.
+* Markup on using the computing resources of the {{ dataproc-name }} managed service.
+* The cost of using the {{ compute-name }} network drives.
 * The amount of outgoing traffic.
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
 ### Use of computing resources {#rules-compute}
 
-The cost is calculated for each hour of operation of the host in accordance with the requested computing resources. Prices of computing resources are calculated based on [prices for similar resources for {{ compute-name }}](../compute/pricing.md#prices), with a markup for using {{ dataproc-name }} images.
-
-The minimum billing unit is one hour (for example, the cost of 1.5 hours of operation is the same as the cost of 2 hours of operation). You are not charged for time when the {{ dataproc-name }} host is not performing its main functions.
+Cost is charged under the {{ compute-name }} service for each hour of running the host virtual machine based on the [pricing for {{ compute-name }} computing resources](../compute/pricing.md#prices), including markup for using the {{ dataproc-name }} managed service.
 
 ### Disk space usage {#rules-storage}
 
-What's charged is the amount of storage allocated for each of the cluster hosts.
+The amount of storage requested for each cluster hosts is charged under the {{ compute-name }} service according to the [disk space pricing policy](../compute/pricing.md#prices-storage).
 
-The cost is specified for one month of use. The minimum billing unit is 1 GB per hour (for example, the cost of storing 1 GB for 1.5 hours is equal to the cost of storage for 2 hours).
+### Example of price calculation {#price-calculation-example}
+
+You create a cluster with a single Data subcluster. Host master: `s2.micro` (2 vCPU, 8GB RAM) with 15GB SSD storage, one host per subcluster: `s2.small` (4 vCPU, 16 GB RAM), with 100 GB HDD storage.
+
+The cost per hour of using the cluster includes the following components:
+
+* (2 + 4) ×  ₽0.2040 + (8 + 16) ×  ₽0.0492 = ₽2.4048 (forthe  {{ compute-name }} computing resources).
+*  ₽2.4048 × 0.1 = ₽0.2405 (the markup for using {{ dataproc-name }}).
+* (15 × ₽7.4441 + 100 ×  ₽2.0847) / 30 / 24 = ₽0.4447 (for using {{ compute-name }} disks).
+
+Total price per hour: ₽2.4048 + ₽0.2405 + ₽0.4447 = ₽3.09 ₽
 
 ## Pricing {#prices}
 
-### Computing resources {#prices-compute}
+### Cost of computing resources with markup {{ dataproc-name }} {#prices-compute}
 
 {% list tabs %}
 
 - Prices in USD
 
-  | Computing resources | Rate for 1 hour, without VAT | Including markup for {{ dataproc-name }} |
+  | Computing resources | Rate for 1 hour, without VAT | Including markup for {{dataproc-name }} |
   | ----- | ----- | ----- |
   | **Intel Broadwell** |
   | 20% vCPU | $0.007233 | $0.000182 |
@@ -56,7 +59,7 @@ The cost is specified for one month of use. The minimum billing unit is 1 GB per
 
 - Prices in roubles
 
-  | Computing resources | Rate for 1 hour, with VAT | Including markup for {{ dataproc-name }} |
+  | Computing resources | Rate for 1 hour, with VAT | Including markup for {{  dataproc-name }} |
   | ----- | ----- | ----- |
   | **Intel Broadwell** |
   | 20% vCPU | ₽0.5642 | ₽0.0142 |
@@ -73,29 +76,11 @@ The cost is specified for one month of use. The minimum billing unit is 1 GB per
 
 {% note info %}
 
-The feature of using GPU on {{ dataproc-name }} hosts is available on request to [tech support](https://console.cloud.yandex.com/support).
+You can use GPUs on {{ dataproc-name }} hosts by submitting a request to [tech support](https://console.cloud.yandex.com/support).
 
 {% endnote %}
 
-### Storage {#prices-storage}
-
-{% list tabs %}
-
-- Prices in USD
-  | Service | Rate for 1 GB per month, without VAT |
-  | ----- | -----
-  | Standard network storage| $0.029334 |
-  | Fast network storage| $0.104302 |
-
-- Prices in roubles
-  | Service | Rate for 1 GB per month, with VAT |
-  | ----- | -----
-  | Standard network storage| ₽2.2881 |
-  | Fast network storage| ₽8.1356 |
-
-{% endlist %}
-
-### Outgoing traffic {#prices-traffic}
+### Egress {#prices-traffic}
 
 {% include notitle [pricing-egress-traffic](../_includes/pricing/pricing-egress-traffic.md) %}
 

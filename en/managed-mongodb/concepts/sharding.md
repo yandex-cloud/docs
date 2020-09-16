@@ -17,7 +17,7 @@ _Sharding_ is a horizontal data scaling strategy that puts parts of MongoDB coll
 
 Sharding allows you to distribute loads across database hosts, which lets you overcome the resource restrictions of a single server. This is particularly important when you handle large amounts of data or run compute-intensive jobs.
 
-Horizontal scaling is the distribution of data sets and workloads across multiple nodes. You can increase disk space by adding more servers. Although a single machine may be low capacity or slow, in a horizontally-scaled cluster, each machine handles only part of the total load and stores only part of the total data. This makes the system potentially more efficient than a single server with a large capacity and fast disks.
+Horizontal scaling is the distribution of data sets and workloads across multiple nodes. You can increase disk space by adding more servers. While a single machine may be slow or low-capacity, in a horizontally-scaled cluster, each machine handles only part of the total load and stores only part of the total data. This makes the system potentially more efficient than a single server with a large capacity and fast disks.
 
 The downside of sharding is the complexity of the infrastructure, deployment, and maintenance.
 
@@ -60,5 +60,5 @@ To reduce the risk of a whole shard going offline, we recommend configuring shar
 
 Query processing can slow down when they begin to compete for resources. This usually happens as the number of read operations or CPU time per query grows.
 
-However, in a sharded cluster, where shards process queries to the same collection in parallel, competitionfor shared resources (CPU, disk subsystem) is eliminated and query processing time reduced.
+However, in a sharded cluster, where shards query the same collection in parallel, competition for shared resources (CPU, disk subsystem) is eliminated and query processing time is reduced.
 

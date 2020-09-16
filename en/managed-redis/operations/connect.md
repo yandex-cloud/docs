@@ -55,7 +55,7 @@ In this example, we connect to the {{ RD }} host from a virtual machine connecte
    $ sudo wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" -O /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt
    ```
 
-1. Create a variable with the host address and port and master DB name.
+1. Create a variable with the host name and port and master DB name.
 
    ```
    $ host=$(redis-cli -h <host address> -p 26379 sentinel get-master-addr-by-name <cluster name> | head -n 1)

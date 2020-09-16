@@ -10,7 +10,13 @@ Each cluster consists of one or more _database hosts_, which are virtual machine
 
 * A cluster of one or two hosts is cheaper, but it doesn't guarantee fault tolerance.
 
-When creating a cluster, you need to specify the _host class_, which is a VM template for deploying the cluster hosts. For a list of available host classes and their characteristics, see [{#T}](instance-types.md).
+When creating a cluster, specify:
+
+* _Host class_: A VM template for deploying the cluster hosts. For a list of available host classes and their characteristics, see [{#T}](instance-types.md).
+
+* _Environment_: The environment where the cluster will be deployed:
+   * `PRODUCTION`: For stable versions of your apps.
+   * `PRESTABLE`: For testing, including the {{ mrd-short-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
 
 {% note info %}
 

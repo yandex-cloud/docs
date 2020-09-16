@@ -57,7 +57,7 @@
 
 {% endlist %}
 
-## Supported {{ PG }} extensions {#postgresql}
+## Supported extensions {{ PG }} {#postgresql}
 
 All supported extensions are listed here:
 

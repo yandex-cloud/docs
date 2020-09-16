@@ -16,7 +16,7 @@ You can only manage shards in sharded clusters. Existing non-sharded clusters ca
 
   1. Go to the folder page and select **{{ mrd-name }}**.
 
-  2. Click the name of a cluster and open the **Shards** tab.
+  1. Click the name of a cluster and open the **Shards** tab.
 
 - CLI
 
@@ -76,7 +76,7 @@ The cluster name and ID can be requested with a [list of clusters in the folder]
 
   After adding a new shard, you must [rebalance your cluster](../concepts/sharding.md#scaling):
   1. Wait until the cluster status changes to `Running`.
-  1. Open the **Hosts** tab and click **Rebalance cluster**. Press **OK**.
+  1. Open the **Hosts** tab and click **Rebalance cluster**. Click **OK**.
 
 - CLI
 
@@ -114,11 +114,11 @@ All the shard hosts are deleted with the shard.
 
   1. Go to the folder page and select **{{ mrd-name }}**.
 
-  2. Click on the name of a cluster and open the **Shards** tab.
+  1. Click on the name of a cluster and open the **Shards** tab.
 
-  3. Click ![image](../../_assets/options.svg) in the row of the shard, then click **Delete** in the menu that opens.
+  1. Click ![image](../../_assets/options.svg) in the row of the shard, then click **Delete** in the menu that opens.
 
-  4. In the window that opens, click **Delete**.
+  1. In the window that opens, click **Delete**.
 
 - CLI
 

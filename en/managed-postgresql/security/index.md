@@ -3,7 +3,7 @@
 
 In this section, you'll learn:
 
-* [What resources you can assign the](#resources) role to.
+* [What resources you can assign roles to](#resources).
 * [What roles exist in the service](#roles-list).
 * [What roles are required](#required-roles) for particular actions.
 

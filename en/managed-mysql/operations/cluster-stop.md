@@ -14,8 +14,8 @@ If necessary, you can stop and restart a DB cluster. You are not charged for the
 
   To stop all hosts in the cluster:
   1. Go to the folder page and select **{{ mmy-name }}**.
-  2. Select the cluster from the list, click ![options](../../_assets/horizontal-ellipsis.svg), and select **Stop**.
-  3. Confirm that you want to stop the cluster and click **Stop**.
+  1. Select the cluster from the list, click ![options](../../_assets/horizontal-ellipsis.svg), and select **Stop**.
+  1. Confirm that you want to stop the cluster and click **Stop**.
 
 {% endlist %}
 
@@ -29,7 +29,7 @@ You can restart `STOPPED` clusters.
 
   To start a cluster:
   1. Go to the folder page and select **{{ mmy-name }}**.
-  2. Select a stopped cluster from the list, click ![options](../../_assets/horizontal-ellipsis.svg), and select **Start**.
-  3. Confirm that you want to start the cluster: click **Start** in the dialog box that opens.
+  1. Select a stopped cluster from the list, click ![options](../../_assets/horizontal-ellipsis.svg), and select **Start**.
+  1. Confirm that you want to start the cluster: click **Start** in the dialog box that opens.
 
 {% endlist %}

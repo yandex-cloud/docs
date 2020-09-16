@@ -14,6 +14,14 @@
 - [{#T}](dsvm/index.md)
 - [{#T}](dsvm/quickstart.md)
 
+## Placement groups
+
+- [{#T}](placement-groups/create.md)
+- [{#T}](placement-groups/delete.md)
+- [{#T}](placement-groups/create-vm-in-pg.md)
+- [{#T}](placement-groups/add-vm.md)
+- [{#T}](placement-groups/delete-vm.md)
+
 ## Images with pre-installed software {#images-with-pre-installed-software}
 
 - [{#T}](images-with-pre-installed-software/create.md)
@@ -85,4 +93,3 @@
 - [{#T}](instance-groups/update.md)
 - [{#T}](instance-groups/delete.md)
 - [{#T}](instance-groups/enable-autohealing.md)
-

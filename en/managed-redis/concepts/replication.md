@@ -8,11 +8,11 @@
 
 Because of the asynchronous nature of replication, data on replicas might become stale: while a replica is processing updates received from the master, it continues responding to requests using the available data (the [replica-serve-stale-data yes](http://download.redis.io/redis-stable/redis.conf) parameter is set).
 
-{% include [non-replicating-hosts](../../_includes/mdb/non-replicating-hosts.md) %}
+Due to limited resources, **b1.nano** and **b1.small** class hosts aren't replicated.
 
 For more information about how replication works in {{ RD }}, see the [DBMS documentation](https://redis.io/topics/replication).
 
-## Fault tolerance {#availability}
+## Fault tolerant {#availability}
 
 High availability of cluster data is provided using Redis Sentinel: in a cluster consisting of three or more three hosts, Sentinel services automatically manage the selection of the master and the configuration of replicas.
 

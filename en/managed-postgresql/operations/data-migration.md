@@ -114,7 +114,7 @@ For logical replication to work, you need to define a publication (a group of lo
 
    {% note info %}
 
-   You need superuser rights to create publications to all tables, but not to transfer the selected tables. For more information about creating publications, see the [{{ PG }} documentation]( https://www.postgresql.org/docs/current/sql-createpublication.html).
+   You need superuser rights to create publications to all tables, but not to transfer the selected tables. For more information about creating publications, see the [documentation {{ PG }}]( https://www.postgresql.org/docs/current/sql-createpublication.html).
 
    {% endnote %}
 
@@ -158,7 +158,7 @@ To fully complete synchronization between the source and the destination, disabl
            --data-only -t '*.*_seq' > /tmp/seq-data.sql
    ```
 
-   Pay attention to the pattern used: if the database you're migrating has sequences that don't match the `*.*_seq` pattern, you have to enter a different pattern to upload them. For more information about patterns, see the [{{ PG }} documentation]( https://www.postgresql.org/docs/current/app-psql.html#APP-PSQL-PATTERNS).
+   Pay attention to the pattern used: if the database you're migrating has sequences that don't match the `*.*_seq` pattern, you have to enter a different pattern to upload them. For more information about patterns, see the [documentation {{ PG }}]( https://www.postgresql.org/docs/current/app-psql.html#APP-PSQL-PATTERNS).
 
 1. Restore sequences on the {{ mpg-name }} host:
 
@@ -192,9 +192,9 @@ Before trying to import your data, check whether the DBMS versions of the existi
 Migration stages:
 
 1. [Create a dump of the database you want to migrate](#dump).
-2. [(optional) Create a virtual machine in Yandex.Cloud and upload the database dump to it](#create-vm).
-3. [Create a cluster {{ mpg-name }}](#create-cluster).
-4. [Restore data from the dump to the cluster](#restore).
+1. [(optional) Create a virtual machine in Yandex.Cloud and upload the database dump to it](#create-vm).
+1. [Create a cluster {{ mpg-name }}](#create-cluster).
+1. [Restore data from the dump to the cluster](#restore).
 
 ### Create a database dump {#dump}
 
@@ -206,19 +206,19 @@ Use [pg_dump](https://www.postgresql.org/docs/current/app-pgdump.html) to create
     $ pg_dump -h <DBMS server address> -U <username> -Fd -d <DB name> -f ~/db_dump
     ```
 
-2. To speed up the process, you can start dumping with multiple processor cores. To do this, set the `-j` flag with the number equal to the number of cores available to the DBMS:
+1. To speed up the process, you can start dumping with multiple processor cores. To do this, set the `-j` flag with the number equal to the number of cores available to the DBMS:
 
     ```
     $ pg_dump -h <DBMS server address> -U <username> -j 4 -Fd -d <database name> ~/db_dump
     ```
 
-3. Archive the dump:
+1. Archive the dump:
 
     ```
     $ tar -cvzf db_dump.tar.gz ~/db_dump
     ```
 
-For more information about `pg_dump`, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/app-pgdump.html).
+For more information about `pg_dump`, see the [documentation {{ PG }}](https://www.postgresql.org/docs/current/app-pgdump.html).
 
 ### (optional) Create a virtual machine in Yandex.Cloud and upload a dump to it {#create-vm}
 
@@ -266,7 +266,7 @@ To prepare the virtual machine to restore the dump:
 
 ### Create a cluster {{ mpg-name }} {#create-cluster}
 
-Make sure that the computing power and storage size of the cluster are appropriate for the environment where the existing databases are deployed, and [create a cluster](cluster-create.md).
+Make sure that the computing power and storage size of the cluster are appropriate for the environment where the existing databases are deployed and [create a cluster](cluster-create.md).
 
 ### Restore data in the new environment {#restore}
 
@@ -290,5 +290,5 @@ pg_restore -Fd \
            --no-privileges
 ```
 
-For more information about `pg_restore`, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/app-pgrestore.html).
+For more information about `pg_restore`, see the [documentation {{ PG }}](https://www.postgresql.org/docs/current/app-pgrestore.html).
 

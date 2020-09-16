@@ -4,9 +4,9 @@ After creating a cluster, you can:
 
 * [Change the host class](#change-resource-preset).
 
-* [Increase the storage size](#change-disk-size) (available only for network storage, `network-hdd` and `network-ssd`).
+* [Increase the storage size](#change-disk-size) (available only for network storage, `network-hdd`, and `network-ssd`).
 
-* [Configure the {{ PG }} servers](#change-postgresql-config) according to the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config.html).
+* [Configure servers](#change-postgresql-config) {{ PG }} according to the [documentation {{ PG }}](https://www.postgresql.org/docs/current/runtime-config.html).
 
 * [Set the operation mode for the connection pooler](#change-pgbouncer-config).
 
@@ -22,18 +22,18 @@ After creating a cluster, you can:
 
   To change the [host class](../concepts/instance-types.md) for the cluster:
 
-  1. View the description of the CLI's update cluster command:
+  1. View a description of the CLI's update cluster command:
 
       ```
       $ yc managed-postgresql cluster update --help
       ```
 
-  2. Request a list of available host classes (the `ZONES` column specifies the availability zones where you can select the appropriate class):
+  1. Request a list of available host classes (the `ZONES` column specifies the availability zones where you can select the appropriate class):
 
      
      ```
      $ yc managed-postgresql resource-preset list
-
+     
      +-----------+--------------------------------+-------+----------+
      |    ID     |            ZONE IDS            | CORES |  MEMORY  |
      +-----------+--------------------------------+-------+----------+
@@ -47,7 +47,7 @@ After creating a cluster, you can:
 
     
 
-  3. Specify the class in the update cluster command:
+  1. Specify the class in the update cluster command:
 
       ```
       $ yc managed-postgresql cluster update <cluster name>
@@ -58,7 +58,7 @@ After creating a cluster, you can:
 
 - API
 
-  You can change the [host class](../concepts/instance-types.md) using the API [update](../api-ref/Cluster/update.md) method: pass the necessary value in the request parameter `configSpec.clickhouse.resources.resourcePresetId`.
+  You can change the [host class](../concepts/instance-types.md) using the API [update](../api-ref/Cluster/update.md) method: pass the necessary value in the request parameter `configSpec.resources.resourcePresetId`.
 
   To request a list of supported values, use the [list](../api-ref/ResourcePreset/list.md) method for the `ResourcePreset` resources.
 
@@ -77,11 +77,11 @@ After creating a cluster, you can:
   To increase the storage size for a cluster:
 
   
-  3. Make sure the required cluster is using network storage (it is not yet possible to increase the size of local storage). To do this, request information about the cluster and find the `disk_type_id` field: it should be set to `network-hdd` or `network-ssd`:
+  1. Make sure the required cluster is using network storage (it is not yet possible to increase the size of local storage). To do this, request information about the cluster and find the `disk_type_id` field: it should be set to `network-hdd` or `network-ssd`:
 
       ```
       $ yc managed-postgresql cluster get <cluster name>
-
+      
       id: c7qkvr3u78qiopj3u4k2
       folder_id: b1g0ftj57rrjk9thribv
       ...
@@ -96,7 +96,7 @@ After creating a cluster, you can:
 
  
 
-  1. View the description of the CLI's update cluster command:
+  1. View a description of the CLI's update cluster command:
 
      ```
      $ yc managed-postgresql cluster update --help
@@ -121,7 +121,7 @@ After creating a cluster, you can:
 
 {% endlist %}
 
-## Changing {{ PG }} settings {#change-postgresql-config}
+## Changing settings {{ PG }} {#change-postgresql-config}
 
 You can change the DBMS settings for the hosts in your cluster, both the default ones and those changing with the host class.
 
@@ -135,7 +135,7 @@ When [the host class changes](#change-resource-preset), {{ mpg-short-name }} aut
 - `autovacuum_vacuum_cost_delay`
 - `autovacuum_vacuum_cost_limit`
 
-The settings you set manually will no longer change automatically. Exceptions can occur if the set value doesn't become invalid as you change the host class: for example, it's impossible to set `max_connections` to 800 and then change the cluster host class to `s2.micro` (for more information about the maximum number of connections, see [{#T}](cluster-create.md).
+The settings you set manually will no longer change automatically. Exceptions may occur if the set value doesn't become invalid when changing the host class: for example, you can't set `max_connections` to 800 and then change the cluster host class to `s2.micro` (for more information about the maximum number of connections, see [{#T}](cluster-create.md).
 
 {% list tabs %}
 
@@ -159,7 +159,7 @@ The settings you set manually will no longer change automatically. Exceptions ca
       $ yc managed-postgresql cluster update-config --help
       ```
 
-  2. Set the required parameter values.
+  1. Set the required parameter values.
 
       All supported parameters are listed in [the request format for the update method](../api-ref/Cluster/update.md), in the `postgresqlConfig_<version>` field. To specify the parameter name in the CLI's call, convert the name from <q>lowerCamelCase</q> to <q>snake_case</q>. For example, the `logMinDurationStatement` parameter from an API request should be converted to `log_min_duration_statement` for the CLI command:
 
@@ -190,13 +190,13 @@ You can set one of the modes described in the [PgBouncer documentation](https://
 
   To change the PgBouncer operation mode:
 
-  1. View the description of the CLI's update cluster command:
+  1. View a description of the CLI's update cluster command:
 
       ```
       $ yc managed-postgresql cluster update --help
       ```
 
-  2. Specify the necessary operation mode using the `--connection-pooling-mode` flag:
+  1. Specify the necessary operation mode using the `--connection-pooling-mode` flag:
 
       ```
       $ yc managed-postgresql cluster update <cluster name>

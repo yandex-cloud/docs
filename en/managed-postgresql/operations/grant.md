@@ -34,7 +34,7 @@ To add a role, request the list of available roles with [user information](clust
        --grants="<role1, role2>"
   ```
 
-  You can request the cluster name with the [list of clusters in the folder](cluster-list.md) and the username with the [list of users](cluster-users.md#list-users).
+  You can request the cluster name with the [list of clusters in the folder](cluster-list.md) and the username with the [list of users](../operations/cluster-users.md#list-users).
 
 - API
 
@@ -51,7 +51,8 @@ To add a role, request the list of available roles with [user information](clust
 To create a user who can access data in the database but not change it:
 
 1. [Create a user](cluster-users.md#adduser) in the cluster.
-2. On behalf of the DB owner, grant the new user `SELECT` and, if necessary, `USAGE` privileges for the appropriate database or table. For example:
+
+1. On behalf of the DB owner, grant the new user `SELECT` and, if necessary, `USAGE` privileges for the appropriate database or table. For example:
 
    ```postgresql
    GRANT SELECT ON ALL TABLES IN SCHEMA myschema TO user2;

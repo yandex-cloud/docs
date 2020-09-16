@@ -14,9 +14,9 @@ For the {{ ZK }} hosts you add, you can indicate the computing power ([host clas
 
 The following characteristics are set for the {{ ZK }} hosts by default:
 
-* host class `b2.medium`
-* disk size 10 GB
-* [storage type](../concepts/storage.md) — fast network storage.
+* The `b2.medium` host class.
+* 10 GB disk size.
+* [Storage type](../concepts/storage.md): Fast network storage.
 
 To add {{ ZK }} hosts:
 
@@ -28,7 +28,7 @@ To add {{ ZK }} hosts:
 
   1. Click on the name of the cluster you need and select the **Hosts** tab.
 
-  1. Click the **Add {{ ZK }} hosts** button.
+  1. Click **Add {{ ZK }} hosts**.
 
 - CLI
 
@@ -60,3 +60,4 @@ To add {{ ZK }} hosts:
   To add {{ ZK }} hosts to the cluster, use the [addZookeeper](../api-ref/Cluster/addZookeeper.md) method.
 
 {% endlist %}
+

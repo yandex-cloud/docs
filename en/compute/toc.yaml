@@ -41,14 +41,14 @@ items:
         items:
           - name: Creating a placement group
             href: operations/placement-groups/create.md
+          - name: Deleting a placement group
+            href: operations/placement-groups/delete.md
           - name: Creating a VM instance in a placement group
             href: operations/placement-groups/create-vm-in-pg.md
           - name: Adding a VM instance to a placement group
             href: operations/placement-groups/add-vm.md
           - name: Removing a VM instance from a placement group
             href: operations/placement-groups/delete-vm.md
-          - name: Deleting a placement group
-            href: operations/placement-groups/delete.md
       - name: Images with pre-installed software
         items:
           - name: Creating a VM

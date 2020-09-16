@@ -1,0 +1,81 @@
+title: Yandex API Gateway
+href: index.yaml
+items:
+  - name: Getting started
+    href: quickstart/index.md
+  - name: Step-by-step instructions
+    items:
+      - name: All instructions
+        href: operations/index.md
+      - name: Creating API gateways
+        href: operations/api-gw-create.md
+      - name: Updating API gateways and their specifications
+        href: operations/api-gw-update.md
+      - name: Deleting API gateways
+        href: operations/api-gw-delete.md
+      - name: Viewing monitoring charts
+        href: operations/api-gw-monitoring.md
+      - name: Viewing the execution log
+        href: operations/api-gw-logs.md
+  - name: Concepts
+    items:
+      - name: Relationship between service resources
+        href: concepts/index.md
+      - name: Specification extensions
+        items:
+          - name: Overview
+            href: concepts/extensions/index.md
+          - name: Static response
+            href: concepts/extensions/dummy.md
+          - name: Invoking a function
+            href: concepts/extensions/cloud-functions.md
+          - name: Access via HTTP
+            href: concepts/extensions/http.md
+          - name: Integration with Object Storage
+            href: concepts/extensions/object-storage.md
+      - name: Quotas and limits
+        href: concepts/limits.md
+  - name: Access management
+    href: security/index.md
+  - name: Pricing policy
+    href: pricing.md
+  - name: API reference
+    items:
+      - name: Authentication in the API
+        href: api-ref/authentication.md
+      - name: gRPC
+        items:
+          - name: Overview
+            href: grpc/index.md
+          - name: ApiGatewayService
+            href: grpc/apigateway_service.md
+          - name: OperationService
+            href: grpc/operation_service.md
+      - name: REST
+        items:
+          - name: Overview
+            href: apigateway/api-ref/index.md
+          - name: ApiGateway
+            items:
+              - name: Overview
+                href: apigateway/api-ref/ApiGateway/index.md
+              - name: create
+                href: apigateway/api-ref/ApiGateway/create.md
+              - name: delete
+                href: apigateway/api-ref/ApiGateway/delete.md
+              - name: get
+                href: apigateway/api-ref/ApiGateway/get.md
+              - name: getOpenapiSpec
+                href: apigateway/api-ref/ApiGateway/getOpenapiSpec.md
+              - name: list
+                href: apigateway/api-ref/ApiGateway/list.md
+              - name: listAccessBindings
+                href: apigateway/api-ref/ApiGateway/listAccessBindings.md
+              - name: listOperations
+                href: apigateway/api-ref/ApiGateway/listOperations.md
+              - name: setAccessBindings
+                href: apigateway/api-ref/ApiGateway/setAccessBindings.md
+              - name: update
+                href: apigateway/api-ref/ApiGateway/update.md
+              - name: updateAccessBindings
+                href: apigateway/api-ref/ApiGateway/updateAccessBindings.md

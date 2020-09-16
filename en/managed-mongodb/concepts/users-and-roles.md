@@ -8,11 +8,11 @@ Standard roles available for any user database.
 
 ### read {#read}
 
-Users granted the `read` role have read access to all the non-system database collections and the [system.js](https://docs.mongodb.com/manual/reference/system-collections/index.html#%3Cdatabase%3E.system.js) collection. Learn more about this role in the [{{ MG }} documentation](https://docs.mongodb.com/manual/reference/built-in-roles/#read).
+Users granted the `read` role have read access to all non-system database collections and the [system.js](https://docs.mongodb.com/manual/reference/system-collections/index.html#%3Cdatabase%3E.system.js) collection. Learn more about this role in the [{{ MG }} documentation](https://docs.mongodb.com/manual/reference/built-in-roles/#read).
 
 ### readWrite {#readWrite}
 
-Users granted the `readWrite` role have read and write access to all the non-system database collections and the [system.js](https://docs.mongodb.com/manual/reference/system-collections/index.html#%3Cdatabase%3E.system.js) collection. Learn more about this role in the [{{ MG }} documentation](https://docs.mongodb.com/manual/reference/built-in-roles/#readWrite).
+Users granted the `readWrite` role have read and write access to all non-system database collections and the [system.js](https://docs.mongodb.com/manual/reference/system-collections/index.html#%3Cdatabase%3E.system.js) collection. Learn more about this role in the [{{ MG }} documentation](https://docs.mongodb.com/manual/reference/built-in-roles/#readWrite).
 
 ## Cluster administrator roles {#cluster-admin-roles}
 
@@ -46,10 +46,10 @@ A role for collecting statistics and monitoring. It grants the following rights 
   * [indexStats](https://docs.mongodb.com/v4.0/reference/privilege-actions/#indexStats)
   * [useUUID](https://docs.mongodb.com/v4.0/reference/privilege-actions/#useUUID)
 
-* Actions with all the [system.profile](https://docs.mongodb.com/manual/reference/system-collections/index.html#%3Cdatabase%3E.system.profile) collections in all databases:
+* Actions with all [system.profile](https://docs.mongodb.com/manual/reference/system-collections/index.html#%3Cdatabase%3E.system.profile) collections in all databases:
   * [find](https://docs.mongodb.com/v4.0/reference/privilege-actions/#find)
 
-* Actions with the [system.indexes](https://docs.mongodb.com/manual/reference/system-collections/index.html#%3Cdatabase%3E.system.indexes), [system.js](https://docs.mongodb.com/manual/reference/system-collections/index.html#%3Cdatabase%3E.system.js), [system.namespaces](https://docs.mongodb.com/manual/reference/system-collections/index.html#%3Cdatabase%3E.system.namespaces) collections of the [local](https://docs.mongodb.com/manual/reference/local-database/) and [config](https://docs.mongodb.com/v3.6/reference/config-database/) databases:
+* Actions with [system.indexes](https://docs.mongodb.com/manual/reference/system-collections/index.html#%3Cdatabase%3E.system.indexes), [system.js](https://docs.mongodb.com/manual/reference/system-collections/index.html#%3Cdatabase%3E.system.js), and [system.namespaces](https://docs.mongodb.com/manual/reference/system-collections/index.html#%3Cdatabase%3E.system.namespaces) collections of the [local](https://docs.mongodb.com/manual/reference/local-database/) and [config](https://docs.mongodb.com/v3.6/reference/config-database/) databases:
   * [collStats](https://docs.mongodb.com/v4.0/reference/privilege-actions/#collStats)
   * [dbHash](https://docs.mongodb.com/v4.0/reference/privilege-actions/#dbHash)
   * [dbStats](https://docs.mongodb.com/v4.0/reference/privilege-actions/#dbStats)

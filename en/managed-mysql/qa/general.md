@@ -57,7 +57,7 @@ For detailed instructions, see [{#T}](../quickstart.md).
 
 For a network-based storage (NBS), the number of hosts in a cluster is limited only by the requested computing resources and the size of the storage for the cluster.
 
-For SSD storage, the number of hosts is limited during cluster creation: for {{ MY }} clusters, at least three hosts must be created.
+For local SSD storage, the number of hosts is limited during cluster creation: for {{ MY }} clusters, you must create at least three hosts.
 
 #### How can I access a running DB host? {#db-access}
 
@@ -79,7 +79,7 @@ Maintenance in {{ mmy-short-name }} implies:
 
 #### Which version of {{ MY }} does {{ mmy-short-name }} use? {#dbms-version}
 
-{{ mmy-short-name }} supports {{ MY }} 5.7 and 8.
+{{ mmy-short-name }} supports {{ MY }} 5.7 and {{ MY }} 8.
 
 #### What happens when a new DBMS version is released? {#new-version}
 
@@ -97,7 +97,7 @@ In {{ mmy-short-name }}, the usage cost is calculated based on the following par
 
 - Selected host class.
 - Size of the storage reserved for the database host.
-- Size of the database cluster backups. Backup space in the amount of the reserved storage is free of charge. Storage of backups in excess of this size is charged at special [rates](../pricing.md).
+- Size of the database cluster backups. The backup size in the amount of the storage space is free of charge. Storage of backups in excess of this size is charged at special [rates](../pricing.md).
 - Number of hours of database host operation. Partial hours are rounded to an integer value. The cost per hour of operation for each host class is given in [{#T}](../pricing.md).
 
 #### How can I change the computing resources and storage size for a database cluster? {#resources-change}

@@ -1,10 +1,10 @@
 # Creating {{ CH }} clusters
 
-{{ CH }} clusters are one or more database hosts that replication can be configured between.
+{{ CH }}clusters are one or more database hosts that replication can be configured between.
 
 {% note warning %}
 
-When creating a {{ CH }} cluster with two or more hosts, {{ mch-short-name }} automatically creates a cluster of three ZooKeeper hosts for managing replication and fault tolerance. These hosts are considered when calculating the [resource quotas]({{ link-console-quotas }}) used by the cloud, and  when calculating the cost of the cluster. Read more about replication for [{{ CH }}](../concepts/replication.md#clickhouse).
+When creating a {{ CH }} cluster with 2 or more hosts, {{ mch-short-name }} automatically creates a cluster of 3 ZooKeeper hosts for managing replication and fault tolerance. These hosts are considered when calculating the cost of the [resource quotas]({{ link-console-quotas }}) used by the cloud and the. Read more about replication for [{{ CH }}](../concepts/replication.md#clickhouse).
 
 {% endnote %}
 
@@ -29,8 +29,8 @@ The number of hosts that can be created with a {{ CH }} cluster depends on the s
   1. Enter the cluster name in the **Cluster name** field. The cluster name must be unique within the folder.
 
   1. Select the environment where you want to create the cluster (you can't change the environment once the cluster is created):
-      - <q>production</q>: For stable versions of your apps.
-      - <q>prestable</q>: For testing, including the {{ mch-short-name }} service itself. The prestable environment is updated more often, which means that known problems are fixed sooner, but this may cause backward incompatible changes.
+      - `PRODUCTION`: For stable versions of your apps.
+      - `PRESTABLE`: For testing, including the {{ mch-short-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
 
   1. Select the host class that defines the technical specifications of the VMs where the DB hosts will be deployed. All available options are listed in [{#T}](../concepts/instance-types.md). When you change the host class for the cluster, the characteristics of all existing instances change, too.
 
@@ -46,9 +46,13 @@ The number of hosts that can be created with a {{ CH }} cluster depends on the s
       - Username.
       - User password. At least 8 characters.
 
-  1. Under **Hosts**, specify the parameters for the database hosts created with the cluster (keep in mind that if you use SSDs when creating the {{ CH }} cluster, you can set at least two hosts). To change the added host, place the cursor on the host line and click ![image](../../_assets/pencil.svg).
+  1. Under **Hosts**, specify the parameters for the database hosts created with the cluster (keep in mind that if you use SSDs when creating the {{ CH }} cluster, you can set at least two hosts). To change the added host, place the cursor on the host line and click  ![image](../../_assets/pencil.svg).
 
-  1. If necessary, configure the DBMS parameters:
+  1. If necessary, configure additional cluster settings:
+
+     {% include [mch-extra-settings](../../_includes/mdb/mch-extra-settings-web-console.md) %}
+
+  1. If necessary, configure the DBMS settings:
 
      {% include [mch-additional-properties](../../_includes/mdb/mch-additional-properties.md) %}
 
@@ -95,9 +99,9 @@ The number of hosts that can be created with a {{ CH }} cluster depends on the s
         --database name=<DB name>
      ```
 
-      The subnet ID `subnet-id` should be specified if the selected availability zone contains two or more subnets.
+     The subnet ID `subnet-id` should be specified if the selected availability zone contains two or more subnets.
 
-     
+    
 
 - Terraform
 
@@ -112,14 +116,14 @@ The number of hosts that can be created with a {{ CH }} cluster depends on the s
        * Network: Description of the [cloud network](../../vpc/concepts/network.md#network) where the cluster will be located. If you already have a suitable network, you don't need to describe it again.
        * Subnets: Description of the [subnets](../../vpc/concepts/network.md#network) to connect the cluster hosts to. If you already have suitable subnets, you don't need to describe them again.
 
-       Sample configuration file structure:
+       Example configuration file structure:
 
        ```
        resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
          name        = "<cluster name>"
          environment = "<environment>"
          network_id  = "<network ID>"
-
+       
          clickhouse {
            resources {
              resource_preset_id = "<host class>"
@@ -127,11 +131,11 @@ The number of hosts that can be created with a {{ CH }} cluster depends on the s
              disk_size          = "<storage size, GB>"
            }
          }
-
+       
          database {
            name = "<DB name>"
          }
-
+       
          user {
            name     = "<DB username>"
            password = "<password>"
@@ -139,17 +143,18 @@ The number of hosts that can be created with a {{ CH }} cluster depends on the s
              database_name = "<name of the DB where the user is created>"
            }
          }
-
+       
          host {
            type      = "CLICKHOUSE"
            zone      = "<availability zone>"
            subnet_id = "<subnet ID>"
          }
        }
-
-       resource "yandex_vpc_network" "<network name>" {}
-
+       
+       resource "yandex_vpc_network" "<network name>" { name = "<network name>" }
+       
        resource "yandex_vpc_subnet" "<subnet name>" {
+         name           = "<subnet name>"
          zone           = "<availability zone>"
          network_id     = "<network ID>"
          v4_cidr_blocks = ["<range>"]
@@ -158,29 +163,29 @@ The number of hosts that can be created with a {{ CH }} cluster depends on the s
 
        For more information about resources that you can create using Terraform, see the [provider's documentation](https://www.terraform.io/docs/providers/yandex/r/mdb_clickhouse_cluster.html).
 
-    2. Make sure that the configuration files are correct.
+    1. Make sure that the configuration files are correct.
        1. In the command line, go to the folder where you created the configuration file.
-       2. Run the check using the command:
+       1. Run the check using the command:
 
           ```
           terraform plan
           ```
 
-       If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If there are errors in the configuration, Terraform will point them out. This is a test step. No resources are created.
+       If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out. This is a test step. No resources are created.
 
-    3. Create a cluster.
-       1. If there are no errors in the configuration, run the command:
+    1. Create a cluster.
+       1. If the configuration doesn't contain any errors, run the command:
 
           ```
           terraform apply
           ```
-       2. Confirm the creation of resources.
+       2. Confirm that you want to create the resources.
 
-       After this, all the necessary resources will be created in the specified folder and the IP addresses of the VMs will be displayed in the terminal. You can check resource availability and their settings in [консоли управления]({{ link-console-main }}).
+       After this, all the necessary resources will be created in the specified folder and the IP addresses of the VMs will be displayed in the terminal. You can check resource availability and their settings in [management console]({{ link-console-main }}).
 
 {% endlist %}
 
-## Examples
+## Examples {#examples}
 
 {% list tabs %}
 
@@ -195,8 +200,8 @@ The number of hosts that can be created with a {{ CH }} cluster depends on the s
     - Named `mych`.
   - In the `production` environment.
   - In the `default` network.
-  - With a single ClickHouse host of the `{{ host-class }}` class in the `b0rcctk2rvtr8efcch64` subnet and the `ru-central1-c` availability zone.
-  - With SSD network storage of 20 GB.
+  - With a single `{{ host-class }}` class ClickHouse host in the `b0rcctk2rvtr8efcch64` subnet and `ru-central1-c` availability zone.
+  - With 20 GB fast network storage (`{{ disk-type-example }}`).
   - With one user, `user1`, with the password `user1user1`.
   - With one database, `db1`.
 
@@ -227,10 +232,10 @@ The number of hosts that can be created with a {{ CH }} cluster depends on the s
   Let's say we need to create a {{ CH }} cluster and a network for it with the following characteristics:
     - Named `mych`.
     - In the `PRESTABLE` environment.
-    - In the cloud with ID `b1gq90dgh25иuebiu75o`.
+    - In the cloud with ID `b1gq90dgh25иebiu75o`.
     - In a folder named `myfolder`.
     - In a new network named `mynet`.
-    - With a single `{{ host-class }}` class host in a new subnet named `mysubnet` and in the `ru-central1-c` availability zone. The `mysubnet` subnet will have the `10.5.0.0/24` range.
+    - With a single `{{ host-class }}` class host in the new subnet named `mysubnet` and the `ru-central1-c` availability zone. The `mysubnet` subnet will have a range of `10.5.0.0/24`.
     - With 32 GB of fast network storage.
     - With the database name `my_db`.
     - With the username `user1` and password `user1user1`.
@@ -240,16 +245,16 @@ The number of hosts that can be created with a {{ CH }} cluster depends on the s
   ```
   provider "yandex" {
     token = "<OAuth or static key of service account>"
-    cloud_id  = "b1gq90dgh25иuebiu75o"
+    cloud_id  = "b1gq90dgh25иebiu75o"
     folder_id = "${data.yandex_resourcemanager_folder.myfolder.id}"
     zone      = "ru-central1-c"
   }
-
+  
   resource "yandex_mdb_clickhouse_cluster" "mych" {
     name        = "mych"
     environment = "PRESTABLE"
     network_id  = "${yandex_vpc_network.mynet.id}"
-
+  
     clickhouse {
       resources {
         resource_preset_id = "s2.micro"
@@ -257,11 +262,11 @@ The number of hosts that can be created with a {{ CH }} cluster depends on the s
         disk_size          = 32
       }
     }
-
+  
     database {
       name = "my_db"
     }
-
+  
     user {
       name     = "user1"
       password = "user1user1"
@@ -269,17 +274,18 @@ The number of hosts that can be created with a {{ CH }} cluster depends on the s
         database_name = "my_db"
       }
     }
-
+  
     host {
       type      = "CLICKHOUSE"
       zone      = "ru-central1-c"
       subnet_id = "${yandex_vpc_subnet.mysubnet.id}"
     }
   }
-
-  resource "yandex_vpc_network" "mynet" {}
-
+  
+  resource "yandex_vpc_network" "mynet" { name = "mynet" }
+  
   resource "yandex_vpc_subnet" "mysubnet" {
+    name           = "mysubnet"
     zone           = "ru-central1-c"
     network_id     = "${yandex_vpc_network.mynet.id}"
     v4_cidr_blocks = ["10.5.0.0/24"]

@@ -20,13 +20,13 @@ By default, {{ mpg-short-name }} limits the maximum number of connections to eac
 
 {% include [note-pg-user-connections.md](../../_includes/mdb/note-pg-user-connections.md) %}
 
-## How to create a {{ PG }} cluster {#create-cluster}
+## How to create a cluster {{ PG }} {#create-cluster}
 
 {% list tabs %}
 
 - Management console
 
-  1. In the management console, select the folder where you want to create a DB cluster.
+  1. In the management console, select the folder where you want to create a database cluster.
 
   1. Select **{{ mpg-name }}**.
 
@@ -35,8 +35,8 @@ By default, {{ mpg-short-name }} limits the maximum number of connections to eac
   1. Enter the cluster name in the **Cluster name** field. The cluster name must be unique within the Cloud.
 
   1. Select the environment where you want to create the cluster (you can't change the environment once the cluster is created):
-      - <q>production</q>: For stable versions of your apps.
-      - <q>prestable</q>: For testing, including the {{ mpg-short-name }} service itself. The prestable environment is updated more often, which means that known problems are fixed sooner, but this may cause backward incompatible changes.
+      - `PRODUCTION`: For stable versions of your apps.
+      - `PRESTABLE`: For testing, including the {{ mpg-short-name }} service itself. The Prestable environment is sooner updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
 
   1. Select the DBMS version.
 {% note info %}
@@ -45,21 +45,21 @@ By default, {{ mpg-short-name }} limits the maximum number of connections to eac
 
      {% endnote %}
 
-  1. Select the host class that defines the technical specifications of the VMs where the DB hosts will be deployed. All available options are listed in [{#T}](../concepts/instance-types.md). When you change the host class for the cluster, the characteristics of all existing hosts change, too.
+  1. Select the host class to define the technical specifications of the VMs where the database hosts will be deployed. All available options are listed in [{#T}](../concepts/instance-types.md). When you change the host class for the cluster, the characteristics of all existing hosts change, too.
 
   1. Under **Storage size**:
 
-      - Выберите тип хранилища — более гибкое сетевое (**network-hdd** или **network-ssd**) или более быстрое локальное SSD-хранилище (**local-ssd**). Размер локального хранилища можно менять только с шагом 100 ГБ.
+      Select the type of storage, either a more flexible network storage (**network-hdd** or **network-ssd**) or faster local SSD storage (**local-ssd**). The size of the local storage can only be changed in 100 GB increments.
       - Select the size to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
 
-  1. Under **Database**, specify the DB attributes:
-      - Database name. The DB name must be unique within the folder and contain only Latin letters, numbers, and underscores.
-      - The name of the user who is the DB owner. The username may only contain Latin letters, numbers, and underscores. By default, the new user is assigned 50 connections to each host in the cluster.
+  1. Under **Database**, specify the database attributes:
+      - Database name. This name must be unique within the folder and contain only Latin letters, numbers, and underscores.
+      - Username of the database owner. This name may only contain Latin letters, numbers, and underscores. By default, the new user is assigned 50 connections to each host in the cluster.
       - User password (from 8 to 128 characters).
 
-      For the database created with the cluster, the character set and collate settings are specified as `LC_CTYPE=C` and `LC_COLLATE=C`. You can't change these settings after the database is created, but you can [create a new database](databases.md#add-db) with the right settings.
+      For the database created with the cluster, the character set and collate settings are specified as `LC_CTYPE=C` and `LC_COLLATE=C`. You can't change these settings after the database is created, but you can [create a new database](databases.md#add-the db) with the right settings.
 
-  1. Under **Hosts**, select parameters for the database hosts created with the cluster (keep in mind that if you use SSDs when creating a {{ PG }} cluster, you can set at least three hosts). If you open **Advanced settings**, you can choose specific subnets for each host. By default, each host is created in a separate subnet.
+  1. Under **Hosts**, select parameters for the database hosts created with the cluster (keep in mind that if you use SSDs when creating a {{ PG }} cluster, you must set at least three hosts). If you open **Advanced settings**, you can choose specific subnets for each host. By default, each host is created in a separate subnet.
 
   1. Click **Create cluster**.
 
@@ -90,7 +90,7 @@ By default, {{ mpg-short-name }} limits the maximum number of connections to eac
       
       ```bash
       $ yc managed-postgresql cluster create \
-         --cluster-name <cluster name> \
+         --cluster-name <cluster name>
          --environment <prestable or production> \
          --network-name <network name> \
          --host zone-id=<availability zone>,subnet-id=<subnet ID> \
@@ -104,40 +104,182 @@ By default, {{ mpg-short-name }} limits the maximum number of connections to eac
 
      
 
+- Terraform
+
+  {% include [terraform-definition](../../solutions/_solutions_includes/terraform-definition.md) %}
+
+  If you don't have Terraform yet, [install it and configure the provider](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  To create a cluster:
+
+  1. In the configuration file, describe the parameters of resources that you want to create:
+
+     {% include [terraform-create-cluster-step-1](../../_includes/mdb/terraform-create-cluster-step-1.md) %}
+
+     Example configuration file structure:
+
+     ```
+     resource "yandex_mdb_postgresql_cluster" "<cluster name>" {
+       name        = "<cluster name>"
+       environment = "<PRESTABLE or PRODUCTION>"
+       network_id  = "<network ID>"
+     
+       config {
+         version = "<PostgreSQL version: 10, 10-1c, 11 or 12>"
+         resources {
+           resource_preset_id = "<host class>"
+           disk_type_id       = "<storage type>"
+           disk_size          = "<storage size in GB>"
+         }
+       }
+     
+       database {
+         name = "<database name>"
+         owner = "<name of the database owner>"
+       }
+     
+       user {
+         name     = "<username>"
+         password = "<user password>"
+         permission {
+           database_name = "<database name>"
+         }
+       }
+     
+       host {
+         zone      = "<availability zone>"
+         subnet_id = "<subnet ID>"
+       }
+     }
+     
+     resource "yandex_vpc_network" "<network name>" { name = "<network name>" }
+     
+     resource "yandex_vpc_subnet" "<subnet name>" {
+       name           = "<subnet name>"
+       zone           = "<availability zone>"
+       network_id     = "<network ID>"
+       v4_cidr_blocks = ["<range>"]
+     }
+     ```
+
+     For more information about resources that you can create using Terraform, see the [provider's documentation](https://www.terraform.io/docs/providers/yandex/r/mdb_postgresql_cluster.html).
+
+  1. Make sure that the configuration files are correct.
+
+     {% include [terraform-create-cluster-step-2](../../_includes/mdb/terraform-create-cluster-step-2.md) %}
+
+  1. Create a cluster.
+
+     {% include [terraform-create-cluster-step-3](../../_includes/mdb/terraform-create-cluster-step-3.md) %}
+
 {% endlist %}
 
 ## Examples {#examples}
 
 ### Creating a single-host cluster {#creating-a-single-host-cluster}
 
-To create a cluster with a single host, you should pass a single parameter, `--host`.
+{% list tabs %}
 
-Let's say we need to create a {{ PG }} cluster with the following characteristics:
+- CLI
 
+  To create a cluster with a single host, you should pass a single parameter, `--host`.
 
-- Named `mypg`.
-- In the `production` environment.
-- In the `default` network.
-- With a single host of the `{{ host-class }}` class in the `b0rcctk2rvtr8efcch64` subnet and the `ru-central1-c` availability zone.
-- With SSD network storage of 20 GB.
-- With one user (`user1`) with the password `user1user1`.
-- With one `db1` database owned by the user `user1`.
+  Let's say we need to create a {{ PG }} cluster with the following characteristics:
 
+    - Named `mypg`.
+  - In the `production` environment.
+  - In the `default` network.
+  - With one `{{ host-class }}` class host in the `b0rcctk2rvtr8efcch64` subnet in the `{{ zone-id }}` availability zone.
+  - With 20 GB fast network storage (`{{ disk-type-example }}`).
+  - With one user (`user1`) with the password `user1user1`.
+  - With one `db1` database owned by the user `user1`.
 
-Run the command:
+ 
 
+  Run the command:
 
-```
-$ yc managed-postgresql cluster create \
-     --cluster-name mypg \
-     --environment production \
-     --network-name default \
-     --resource-preset s2.micro \
-     --host zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch64 \
-     --disk-type network-ssd \
-     --disk-size 20 \
-     --user name=user1,password=user1user1 \
-     --database name=db1,owner=user1
-```
+  
+  ```
+  $ yc managed-postgresql cluster create \
+       --cluster-name mypg \
+       --environment production \
+       --network-name default \
+       --resource-preset s2.micro \
+       --host zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch64 \
+       --disk-type network-ssd \
+       --disk-size 20 \
+       --user name=user1,password=user1user1 \
+       --database name=db1,owner=user1
+  ```
 
+ 
+
+- Terraform
+
+  Let's say we need to create a {{ PG }} cluster and a network for it with the following characteristics:
+  - Named `mypg`.
+  - Version `12`.
+  - In the `PRESTABLE` environment.
+  - In the cloud with ID `b1gq90dgh25иuebiu75o`.
+  - In a folder named `myfolder`.
+  - In a new network named `mynet`.
+  - With 1 `{{ host-class }}` class host in the new `mysubnet` subnet and `{{ zone-id }}` availability zone. The `mysubnet` subnet will have a range of `10.5.0.0/24`.
+  - With 20 GB fast network storage (`{{ disk-type-example }}`).
+  - With one user (`user1`) with the password `user1user1`.
+  - With one `db1` database owned by the user `user1`.
+
+  The configuration file for the cluster looks like this:
+
+  ```
+  provider "yandex" {
+    token = "<OAuth or static key of service account>"
+    cloud_id  = "b1gq90dgh25иuebiu75o"
+    folder_id = "${data.yandex_resourcemanager_folder.myfolder.id}"
+    zone      = "ru-central1-c"
+  }
+  
+  resource "yandex_mdb_postgresql_cluster" "mypg" {
+    name        = "mypg"
+    environment = "PRESTABLE"
+    network_id  = "${yandex_vpc_network.mynet.id}"
+  
+    config {
+      version = 12
+      resources {
+        resource_preset_id = "s2.micro"
+        disk_type_id       = "network-ssd"
+        disk_size          = 20
+      }
+    }
+  
+    database {
+      name  = "db1"
+      owner = "user1"
+    }
+  
+    user {
+      name     = "user1"
+      password = "user1user1"
+      permission {
+        database_name = "db1"
+      }
+    }
+  
+    host {
+      zone      = "ru-central1-c"
+      subnet_id = "${yandex_vpc_subnet.mysubnet.id}"
+    }
+  }
+  
+  resource "yandex_vpc_network" "mynet" {  name = "mynet" }
+  
+  resource "yandex_vpc_subnet" "mysubnet" {
+    name           = "mysubnet"
+    zone           = "ru-central1-c"
+    network_id     = "${yandex_vpc_network.mynet.id}"
+    v4_cidr_blocks = ["10.5.0.0/24"]
+  }
+  ```
+
+{% endlist %}
 

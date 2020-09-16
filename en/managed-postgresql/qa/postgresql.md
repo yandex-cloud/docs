@@ -30,5 +30,5 @@ For more information about {{ mpg-short-name }} limitations, see [{#T}](../conce
 
 #### Which LC_COLLATE and LC_CTYPE values are set for databases by default? {#which-lc-collate-and-lc-lctype-values-are-set-for-databases-by-default}
 
-As databases are created, `LC_CTYPE=C` and `LC_COLLATE=C` are set by default. You can't change these settings for the database you create with clusters, but you can [create new databases](../operations/databases.md) and specify values for them.
+When databases are created, `LC_CTYPE=C` and `LC_COLLATE=C` are set by default. You can't change these settings for the database you create along with the cluster. However, you can [create a new database](../operations/databases.md) and set the values you need for it.
 
