@@ -10,7 +10,7 @@ You can add and remove cluster hosts and manage {{ PG }} settings for individual
 
   1. Go to the folder page and select **{{ mpg-name }}**.
 
-  2. Click on the name of the cluster you need and select the **Hosts** tab.
+  1. Click on the name of the cluster you need and select the **Hosts** tab.
 
 - CLI
 
@@ -169,9 +169,9 @@ If the host is the master when deleted, {{ mpg-short-name }} automatically assig
 
   1. Go to the folder page and select **{{ mpg-name }}**.
 
-  2. Click on the name of the cluster you want and select the **Hosts** tab.
+  1. Click on the name of the cluster you want and select the **Hosts** tab.
 
-  3. Click ![image](../../_assets/vertical-ellipsis.svg) in the line of the necessary host and select **Delete**.
+  1. Click ![image](../../_assets/vertical-ellipsis.svg) in the line of the necessary host and select **Delete**.
 
 - CLI
 

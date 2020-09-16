@@ -2,7 +2,7 @@
 
 #### What {{ MY }} versions does {{ mmy-short-name }} support? {#supported-version}
 
-{{ mmy-short-name }} only supports {{ MY }} 5.7 and 8.
+{{ mmy-short-name }} supports {{ MY }} 5.7 and {{ MY }} 8.
 
 #### Is DB cluster backup enabled by default? {#backup}
 

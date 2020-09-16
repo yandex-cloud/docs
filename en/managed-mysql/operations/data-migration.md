@@ -6,14 +6,14 @@ To migrate data to a {{ mmy-name }} cluster, you can use `mysqldump` and `mysql`
 
 Before importing your data, check whether the DBMS versions of the existing database and your cluster in Yandex.Cloud match. Since the dump is logical and a set of SQL queries, transferring data between clusters with different versions is possible, but not guaranteed. For more information, see [MySQL 5.7 FAQ Migration](https://dev.mysql.com/doc/refman/5.7/en/faqs-migration.html).
 
-Below, the DBMS server you are migrating data from is called the _source server_, and the {{ mmy-name }}  cluster that you are migrating to is the _destination server_.
+Below, the DBMS server you are migrating data from is called the _source server_, and the {{ mmy-name }} cluster that you are migrating to is the _destination server_.
 
 Migration stages:
 
 1. [Create a dump](#dump) of the database you want to migrate.
-2. If necessary, [create a virtual machine](#create-vm) in Yandex.Cloud and upload your data to it.
-3. [Create a cluster {{ mmy-name }}](#create-cluster).
-4. [Restore data from the dump](#restore).
+1. If necessary, [create a virtual machine](#create-vm) in Yandex.Cloud and upload your data to it.
+1. [Create a cluster {{ mmy-name }}](#create-cluster).
+1. [Restore data from the dump](#restore).
 
 ## Creating a dump {#dump}
 
@@ -27,7 +27,7 @@ You can create a database dump using `mysqldump`, which is described in detail i
                 --password \
                 --port=<port> \
                 --set-gtid-purged=OFF \
-                --quick
+                --quick \
                 --single-transaction <database name> \
                 > ~/db_dump.sql
     ```
@@ -44,7 +44,7 @@ You can create a database dump using `mysqldump`, which is described in detail i
 
 ## (optional) Creating a VM in Yandex.Cloud and uploading a dump {#create-vm}
 
-Migrate your data to an intermediate VM in {{ compute-full-name }} if:
+Transfer your data to an intermediate VM in {{ compute-full-name }} if:
 
 * Your {{ mmy-name }} cluster is not accessible from the internet.
 * Your hardware or connection to the cluster in Yandex.Cloud is not very reliable.
@@ -57,19 +57,19 @@ To prepare the virtual machine to restore the dump:
 
     The virtual machine must be in the same network and availability zone as the {{ MY }} cluster master host. Additionally, the VM must be assigned an external IP address so that you can load the dump from outside Yandex.Cloud.
 
-2. Install the {{ MY }} client and additional database utilities. For Debian and Ubuntu — `mysqldump` and `mysql` are available in the [`mysql-client`](https://packages.ubuntu.com/search?keywords=mysql-client) package. To install:
+1. Install the {{ MY }} client and additional utilities for working with the DBMS. For Debian and Ubuntu, `mysqldump` and `mysql` are available in the [`mysql-client`](https://packages.ubuntu.com/search?keywords=mysql-client) package. To install it:
 
    ```
    $ sudo apt-get install mysql-client
    ```
 
-3. Move the DB dump to the VM. For example, you can use `scp`:
+1. Move the DB dump to the VM. For example, you can use `scp`:
 
     ```
     scp ~/db_dump.tar.gz <VM username>@<VM public address>:/tmp/db_dump.tar.gz
     ```
 
-4. Unpack the dump:
+1. Unpack the dump:
 
     ```
     tar -xzf /tmp/db_dump.tar.gz

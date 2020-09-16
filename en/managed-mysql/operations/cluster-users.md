@@ -57,7 +57,7 @@ Assign roles to users via the management console or API. Roles assigned by the `
   ```
   $ yc managed-mysql user create <username>
        --cluster-name=<cluster name>
-       --password=<DB user password>
+       --password=<user password>
        --permissions=<list of DBs the user will get access to>
   ```
 
@@ -69,8 +69,8 @@ Assign roles to users via the management console or API. Roles assigned by the `
 
 For the user, you can change:
 
-- Name and password.
-- List of databases the user can access.
+- Their name and password.
+- The list of databases the user can access.
 - Limitation on the number of DB connections.
 
 {% list tabs %}
@@ -93,7 +93,7 @@ For the user, you can change:
   ```
   $ yc managed-mysql user update <username>
        --cluster-name=<cluster name>
-       --password=<DB user password>
+       --password=<user password>
        --permissions=<list of DBs the user can access>
   ```
 

@@ -19,7 +19,7 @@ After a backup is created, it's compressed for storage. The exact backup size cu
 
 ## Storing backups {#storage}
 
-Backups are stored in Yandex internal storage as binary files and are encrypted using [GPG](https://en.wikipedia.org/wiki/GNU_Privacy_Guard). Each cluster has its own encryption keys.
+Backups are stored in Yandex internal storage as binary files and are encrypted using [GPG](https://en.wikipedia.org/wiki/GnuPG). Each cluster has its own encryption keys.
 
 All backups (automatic or manual) are stored for 7 days. You can store one or two full backups to ensure recovery from an automatic seven-day-old backup.
 

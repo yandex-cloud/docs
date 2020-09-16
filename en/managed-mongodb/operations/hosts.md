@@ -10,7 +10,7 @@ You can add and remove cluster hosts and manage {{ MG }} settings for individual
 
   1. Go to the folder page and select **{{ mmg-name }}**.
 
-  2. Click on the name of the cluster you need and select the **Hosts** tab.
+  1. Click on the name of the cluster you need and select the **Hosts** tab.
 
 - CLI
 
@@ -18,11 +18,11 @@ You can add and remove cluster hosts and manage {{ MG }} settings for individual
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To get a list of hosts in the cluster, run the command:
+  To get a list of cluster hosts, run the command:
 
   ```
   $ yc managed-mongodb host list
-       --cluster-name=<cluster name>
+       --cluster-name <cluster name>
   
   +----------------------------+--------------+---------+--------+---------------+
   |            NAME            |  CLUSTER ID  |  ROLE   | HEALTH |    ZONE ID    |
@@ -124,9 +124,9 @@ If the host is a primary one at the time of removal, {{ mmg-short-name }} automa
 
   1. Go to the folder page and select **{{ mmg-name }}**.
 
-  2. Click on the name of the cluster you want and select the **Hosts** tab.
+  1. Click on the name of the cluster you want and select the **Hosts** tab.
 
-  3. Click ![image](../../_assets/vertical-ellipsis.svg) in the line of the necessary host and select **Delete**.
+  1. Click ![image](../../_assets/vertical-ellipsis.svg) in the line of the necessary host and select **Delete**.
 
 - CLI
 
@@ -138,7 +138,7 @@ If the host is a primary one at the time of removal, {{ mmg-short-name }} automa
 
   ```
   $ yc managed-mongodb host delete <hostname>
-       --cluster-name=<cluster name>
+       --cluster-name <cluster name>
   ```
 
   The host name can be requested with a [list of cluster hosts](#list-hosts), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).

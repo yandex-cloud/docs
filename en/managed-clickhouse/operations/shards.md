@@ -1,10 +1,10 @@
-# Managing shards
+# How to manage shards
 
 You can enable sharding for a cluster as well as add and configure individual shards.
 
 ## Enable sharding {#enable}
 
- {{ mch-name }} clusters are created in a configuration with one shard. To start sharding data, follow the guidelines in [{#T}](../tutorials/sharding.md).
+{{ mch-name }} clusters are created in a configuration with one shard. To start sharding data, follow the guidelines in [{#T}](../tutorials/sharding.md).
 
 ## Change a shard {#shard-update}
 
@@ -68,7 +68,7 @@ You can change the shard weight as well as [host class](../concepts/instance-typ
 
   1. Go to the folder page and select **{{ mch-name }}**.
 
-  2. Click the name of a cluster and open the **Shards** tab.
+  1. Click the name of a cluster and open the **Shards** tab.
 
 - API
 
@@ -105,13 +105,12 @@ You can delete a shard from a {{ CH }} cluster provided that it's not the only s
 
   1. Go to the folder page and select **{{ mch-name }}**.
 
-  2. Click on the name of a cluster and open the **Shards** tab.
+  1. Click on the name of a cluster and open the **Shards** tab.
 
-  3. Click ![image](../../_assets/horizontal-ellipsis.svg) in the line of the desired host and select **Delete**.
+  1. Click ![image](../../_assets/horizontal-ellipsis.svg) in the line of the desired host and select **Delete**.
 
 - API
 
   Use the [deleteHosts](../api-ref/Cluster/deleteHosts.md) method to delete a host.
 
 {% endlist %}
-

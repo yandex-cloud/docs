@@ -42,7 +42,7 @@ For a new cluster, you should set all the parameters that are required at creati
       |            ID            |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
       +--------------------------+----------------------+----------------------+----------------------+
       | c9qlk4v13uq79r9cgcku:... | 2018-11-02T10:08:38Z | c9qlk4v13uq79r9cgcku | 2018-11-02T10:08:37Z |
-      | ...                                                                                           |                          
+      | ...                                                                                           |
       +--------------------------+----------------------+----------------------+----------------------+
       ```
 
@@ -75,7 +75,7 @@ For a new cluster, you should set all the parameters that are required at creati
       - In the `{{ network-name }}` network.
       - With a single `{{ host-class }}` class host in the `b0rcctk2rvtr8efcch63` subnet of the `{{ zone-id }}` availability zone.
       - With the databases and users from the backup.
-      - With SSD network storage of 20 GB.
+      - With 20 GB fast network storage (`{{ disk-type-example }}`).
 
      
 
@@ -177,7 +177,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
 - CLI
 
-  To set the backup start time, use the `-- backup-window-start` flag. Time is set in the format ``HH:MM:SS``.
+  To set the backup start time, use the `-- backup-window-start` flag. Time is given in ``HH:MM:SS`` format.
 
   ```
   $ yc yc managed-mysql cluster create \

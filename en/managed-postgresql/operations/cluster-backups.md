@@ -47,7 +47,7 @@ For a new cluster, you should set all the parameters that are required at creati
       |            ID            |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
       +--------------------------+----------------------+----------------------+----------------------+
       | c9qlk4v13uq79r9cgcku:... | 2018-11-02T10:08:38Z | c9qlk4v13uq79r9cgcku | 2018-11-02T10:08:37Z |
-      | ...                                                                                           |                          
+      | ...                                                                                           |
       +--------------------------+----------------------+----------------------+----------------------+
       ```
 
@@ -72,9 +72,9 @@ For a new cluster, you should set all the parameters that are required at creati
       - Named `mynewpg`.
       - In the `PRODUCTION` environment.
       - In the `{{ network-name }}` network.
-      - With one `{{ host-class }}` class host в подсети `b0rcctk2rvtr8efcch63` in the `{{ zone-id }}` availability zone.
+      - With a single `{{ host-class }}` class host in the `b0rcctk2rvtr8efcch63` subnet, in the `{{ zone-id }}` availability zone.
       - With the databases and users from the backup.
-      - With SSD network storage of 20 GB.
+      - With 20 GB fast network storage (`{{ disk-type-example }}`).
 
 {% endlist %}
 
@@ -174,7 +174,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
 - CLI
 
-  To set the backup start time, use the `-- backup-window-start` flag. Time is set in the format ``HH:MM:SS``.
+  To set the backup start time, use the `-- backup-window-start` flag. Time is given in ``HH:MM:SS`` format.
 
   ```bash
   $ yc managed-postgresql cluster create \
@@ -185,11 +185,11 @@ For a new cluster, you should set all the parameters that are required at creati
      --resource-preset <host class> \
      --user name=<username>,password=<user password> \
      --database name=<database name>,owner=<database owner name> \
-     --disk-size <storage size in GB>
+     --disk-size <storage size in GB> \
      --backup-window-start 10:00:00
   ```
 
-  To change the backup start time in an existing cluster, use the `update` command:
+  To change the backup start time in an existing cluster, use the  `update` command:
 
   ```
   $ yc yc managed-postgresql cluster update \

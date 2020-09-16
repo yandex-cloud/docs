@@ -10,7 +10,7 @@ You can add and remove cluster hosts and request a list of hosts in the selected
 
   1. Go to the folder page and select **{{ mrd-name }}**.
 
-  2. Click on the name of the cluster you need and select the **Hosts** tab.
+  1. Click on the name of the cluster you need and select the **Hosts** tab.
 
 - CLI
 
@@ -60,6 +60,8 @@ The number of hosts in {{ mrd-short-name }} clusters is limited by the CPU and R
 
       * Subnet (if the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md).
 
+      * If you add a host to a sharded cluster, select a shard.
+
 - CLI
 
   {% include [cli-install](../../_includes/cli-install.md) %}
@@ -103,6 +105,8 @@ The number of hosts in {{ mrd-short-name }} clusters is limited by the CPU and R
 
      The subnet ID should be specified if the availability zone contains multiple subnets, otherwise {{ mrd-short-name }} automatically selects a single subnet. You can retrieve the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
+     If you add a host to a sharded cluster, specify in the `shard-name` parameter the name of the shard to add the host to.
+
 - API
 
   To add a host to the cluster, use the [addHosts](../api-ref/Cluster/addHosts.md) method.
@@ -121,11 +125,11 @@ If the host is the master when deleted, {{ mrd-short-name }} automatically assig
 
   1. Go to the folder page and select **{{ mrd-name }}**.
 
-  2. Click on the name of the cluster you want and select the **Hosts** tab.
+  1. Click on the name of the cluster you want and select the **Hosts** tab.
 
-  3. Click ![image](../../_assets/cross.svg) in the row of the host you need.
+  1. Click ![image](../../_assets/cross.svg) in the row of the host you need.
 
-  4. In the window that opens, check **Delete host** and click **Confirm**.
+  1. In the window that opens, check **Delete host** and click **Confirm**.
 
 - CLI
 

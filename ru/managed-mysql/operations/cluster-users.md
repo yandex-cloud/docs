@@ -22,7 +22,7 @@
   
   ```
   $ yc managed-mysql user list
-       --cluster-name <имя кластера>
+       --cluster-name=<имя кластера>
   ```
   
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md).
@@ -59,7 +59,7 @@
   
   ```
   $ yc managed-mysql user create <имя пользователя>
-       --cluster-name <имя кластера>
+       --cluster-name=<имя кластера>
        --password=<пароль для пользователя>
        --permissions=<список баз, к которым пользователь получит доступ>
   ```
@@ -96,7 +96,7 @@
   
   ```
   $ yc managed-mysql user update <имя пользователя>
-       --cluster-name <имя кластера>
+       --cluster-name=<имя кластера>
        --password=<пароль для пользователя>
        --permissions=<список баз, к которым пользователь должен иметь доступ>
   ```
@@ -125,7 +125,7 @@
   
   ```
   $ yc managed-mysql user delete <имя пользователя>
-       --cluster-name <имя кластера>
+       --cluster-name=<имя кластера>
   ```
   
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md).

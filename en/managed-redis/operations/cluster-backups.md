@@ -12,13 +12,13 @@ When you restore a cluster from a backup, you create a new cluster with the data
 
   1. Go to the folder page and select **{{ mrd-name }}**.
 
-  2. Click on the name of the cluster you need and select the tab **Backup copies**.
+  1. Click on the name of the cluster you need and select the tab **Backup copies**.
 
-  3. Click ![image](../../_assets/dots.svg) for the required backup and then click **Restore cluster**.
+  1. Click ![image](../../_assets/dots.svg) for the required backup and then click **Restore cluster**.
 
-  4. Set up the new cluster. You can select a folder for the new cluster from the **Folder** list.
+  1. Set up the new cluster. You can select a folder for the new cluster from the **Folder** list.
 
-  5. Click **Restore cluster**.
+  1. Click **Restore cluster**.
 
   {{ mrd-name }} runs cluster restore from backup.
 
@@ -36,7 +36,7 @@ When you restore a cluster from a backup, you create a new cluster with the data
       $ yc managed-redis cluster restore --help
       ```
 
-  2. Getting a list of available {{ RD }} cluster backups:
+  1. Getting a list of available {{ RD }} cluster backups:
 
       ```
       $ yc managed-redis backup list
@@ -66,8 +66,8 @@ When you restore a cluster from a backup, you create a new cluster with the data
       - With the `mynewrd` name.
       - In the `PRODUCTION` environment.
       - In the `default` network.
-      - With a single host of the `s1.nano` class in the `b0rcctk2rvtr8efcch63` subnet and the `ru-central1-c` availability zone.
-      - With SSD network storage of 20 GB.
+      - With a single host of the `hm1.nano` class in the `b0rcctk2rvtr8efcch63` subnet and the `ru-central1-c` availability zone.
+      - With 20 GB fast network storage (`{{ disk-type-example }}`).
 
 {% endlist %}
 
@@ -79,9 +79,9 @@ When you restore a cluster from a backup, you create a new cluster with the data
 
   1. Go to the folder page and select **{{ mrd-name }}**.
 
-  2. Click on the name of the cluster you need and select the tab **Backup copies**.
+  1. Click on the name of the cluster you need and select the tab **Backup copies**.
 
-  3. Click **Create a backup**.
+  1. Click **Create a backup**.
 
 - CLI
 
@@ -91,13 +91,13 @@ When you restore a cluster from a backup, you create a new cluster with the data
 
   To create a cluster backup:
 
-  1. View a description of the CLI create {{ MG }} backup command:
+  1. View a description of the CLI create {{ RD }} backup command:
 
       ```
       $ yc managed-redis cluster backup --help
       ```
 
-  2. Request creation of a backup specifying the cluster name or ID:
+  1. Request creation of a backup specifying the cluster name or ID:
 
       ```
       $ yc managed-redis cluster backup my-rd-cluster
@@ -115,7 +115,7 @@ When you restore a cluster from a backup, you create a new cluster with the data
 
   1. Go to the folder page and select **{{ mrd-name }}**.
 
-  2. Click on the name of the cluster you need and select the tab **Backup copies**.
+  1. Click on the name of the cluster you need and select the tab **Backup copies**.
 
 - CLI
 
@@ -146,7 +146,7 @@ When you restore a cluster from a backup, you create a new cluster with the data
 
   1. Go to the folder page and select **{{ mrd-name }}**.
 
-  2. Click on the name of the cluster you need and select the tab **Backup copies**.
+  1. Click on the name of the cluster you need and select the tab **Backup copies**.
 
 - CLI
 
@@ -174,23 +174,24 @@ When you restore a cluster from a backup, you create a new cluster with the data
 
 - CLI
 
-  To set the backup start time, use the `-- backup-window-start` flag. Time is set in the format ``HH:MM:SS``.
+  To set the backup start time, use the `-- backup-window-start` flag. Time is given in ``HH:MM:SS`` format.
 
   ```
   $ yc yc managed-redis cluster create \
-     --cluster-name <cluster name> \
+     --cluster-name <cluster name>
      --environment <prestable or production> \
      --network-name <network name> \
      --host zone-id=<availability zone>,subnet-id=<subnet ID> \
-     --backup-window-start 10:25:00  
+     --backup-window-start 10:25:00
   ```
 
   To change the backup start time in an existing cluster, use the `update` command:
 
   ```
   $ yc yc managed-redis cluster update \
-     --cluster-name <cluster name> \
+     --cluster-name <cluster name>
      --backup-window-start 11:25:00
   ```
 
 {% endlist %}
+

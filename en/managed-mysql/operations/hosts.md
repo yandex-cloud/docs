@@ -94,7 +94,7 @@ The number of hosts in {{ mmy-short-name }} clusters is limited by the CPU and R
 
      ```
      $ yc managed-mysql host add
-          --cluster-name <cluster name>
+          --cluster-name=<cluster name>
           --host zone-id=<availability zone>,subnet-id=<subnet ID>
      ```
 
