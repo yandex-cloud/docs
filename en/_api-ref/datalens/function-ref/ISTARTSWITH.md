@@ -17,7 +17,7 @@ ISTARTSWITH( string, substring )
 Case-insensitive version of [STARTSWITH](STARTSWITH.md). Returns `TRUE`  if `string` starts with `substring`.
 
 **Argument types:**
-- `string` — `String`
+- `string` — `Boolean | Date | Datetime | Geopoint | Geopolygon | Number | String | UUID`
 - `substring` — `String`
 
 
