@@ -15,6 +15,8 @@ items:
             href: operations/metric/get.md
           - name: Writing custom metrics
             href: operations/metric/add.md
+          - name: Export metrics in Prometheus format
+            href: operations/metric/prometheusExport.md
       - name: Working with dashboards
         items:
           - name: Creating dashboards
@@ -23,12 +25,18 @@ items:
             href: operations/dashboard/copy.md
           - name: Adding widgets to a dashboard
             href: operations/dashboard/add-widget.md
+          - name: Deleting widgets from a dashboard
+            href: operations/dashboard/delete-widget.md
+          - name: Deleting dashboards
+            href: operations/dashboard/delete-dashboard.md
       - name: Working with alerts
         items:
           - name: Creating alerts
             href: operations/alert/create-alert.md
           - name: Creating notification channels
             href: operations/alert/create-channel.md
+          - name: Deleting alerts
+            href: operations/alert/delete-alert.md
   - name: Concepts
     items:
       - name: Overview
@@ -73,6 +81,8 @@ items:
                 href: api-ref/MetricsData/read.md
               - name: write
                 href: api-ref/MetricsData/write.md
+              - name: prometheusMetrics
+                href: api-ref/MetricsData/prometheusMetrics.md
           - name: MetricsMeta
             items:
               - name: Overview
