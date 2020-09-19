@@ -39,10 +39,14 @@ items:
         items:
           - name: Overview
             href: concepts/visualization/index.md
+          - name: Query string
+            href: concepts/visualization/query-string.md
           - name: Widgets
             href: concepts/visualization/widget.md
           - name: Dashboards
             href: concepts/visualization/dashboard.md
+      - name: Query language
+        href: concepts/querying.md
       - name: Alerting
         href: concepts/alerting.md
       - name: Deleting expired metrics (TTL)
