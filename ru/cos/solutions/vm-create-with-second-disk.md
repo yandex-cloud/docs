@@ -19,93 +19,51 @@
     1. Посмотрите описание команды CLI для создания ВМ:
 
         ```
-        $ yc compute instance create --help
+        $ yc compute instance create-with-container --help
         ```
 
-    1. Подготовьте спецификацию ВМ. Задайте имя пользователя и сохраните следующие данные в файл `user-data.yaml`:
-    
+    1. Подготовьте [Docker Compose спецификацию](../concepts/index.md#compose-spec). Сохраните следующие данные в файл `docker-compose.yaml`:
+        
         ```
-        #cloud-config
-        fs_setup:
-          - device: /dev/disk/by-id/virtio-coi-data
-            filesystem: ext4
-            overwrite: false
-            partition: auto
-        mounts:
-        - - /dev/disk/by-id/virtio-coi-data
-          - /home/<имя пользователя>/coi-data
-          - auto
-          - defaults
-          - "0"
-          - "0"
-        users:
-          - name: <имя пользователя>
-            groups: sudo
-            shell: /bin/bash
-            sudo: ['ALL=(ALL) NOPASSWD:ALL']
-            ssh-authorized-keys:
-              - <публичный SSH-ключ для подключения к ВМ>
+        version: '3.4'
+        services:
+          app2:
+            container_name: container-name
+            image: "mongo:latest"
+            restart: always
+            volumes: 
+              - /home/yc-user/coi-data:/data
+              
+        x-yc-disks:
+          - device_name: coi-data
+            fs_type: ext4
+            host_path: /home/yc-user/coi-data
+                      
         ```
-    1. Подготовьте спецификацию Docker-контейнера. Сохраните следующие данные в файл `container.yaml`:
-    
-        ```
-        spec:
-          containers:
-          - image: mongo:latest
-            name: container-name
-            securityContext:
-              privileged: false
-            stdin: false
-            tty: false
-            volumeMounts:
-              - mountPath: <путь, по которому файл или каталог монтируется в Docker-контейнер>
-                name: data-volume
-          restartPolicy: Always
-          volumes:
-            - name: data-volume
-              hostPath:
-                path: /home/<имя пользователя>/coi-data
-        ```
+        При создании виртуальной машины через CLI, создается пользователь по умолчанию — `yc-user`.
+
     1. Создайте ВМ с несколькими дисками.
-    
-        1. Получите идентификатор образа для создания ВМ:
-        
-            {% list tabs %}
+                 
+        ```
+        yc compute instance create-with-container \
+            --name coi-vm \
+            --zone=ru-central1-a \
+            --public-ip \
+            --create-boot-disk size=10 \
+            --create-disk name=data-disk,size=10,device-name=coi-data \
+            --ssh-key <публичный SSH-ключ для подключения к ВМ> \
+            --docker-compose-file docker-compose.yaml 
+        ```
             
-            - Bash
+        Где:
+        - `--name` — имя виртуальной машины.
+        - `--zone` — зона доступности.
+        - `--public-ip` — выделение публичного IP-адреса для ВМ.
+        - `--create-boot-disk` — параметры диска виртуальной машины.
+        - `--ssh-key` — содержимое файла [открытого ключа](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+        - `--docker-compose-file` — YAML-файл со спецификацией контенера.
             
-                ```
-                $ IMAGE_ID=$(yc compute image get-latest-from-family container-optimized-image --folder-id standard-images --format=json | jq -r .id)
-                ```
-            - PowerShell
-            
-                ```
-                > $IMAGE_ID=(yc compute image get-latest-from-family container-optimized-image --folder-id standard-images --format=json | ConvertFrom-Json).id
-                ```
-
-            {% endlist %}
-            
-        1. Создайте ВМ:
-        
-            ```
-            yc compute instance create 
-                --name coi-vm \
-                --zone=ru-central1-a 
-                --network-interface subnet-name=<имя подсети>,nat-ip-version=ipv4 \
-                --metadata-from-file user-data=user-data.yaml,docker-container-declaration=container-spec.yaml \
-                --create-boot-disk image-id=$IMAGE_ID \
-                --create-disk name=data-disk,size=10,device-name=coi-data
-            ```
-            
-            Где:
-            - `--name` — имя виртуальной машины.
-            - `--zone` — зона доступности.
-            - `--network-interface` — сетевые настройки виртуальной машины.
-            - `--metadata-from-file` — YAML-файлы метаданных для создания ВМ.
-            - `--create-boot-disk` — идентификатор образа для создания загрузочного диска.
-            - `--create-disk` — параметры тома, который необходимо примонтировать к Docker-контейнеру.
-            
-            После создания виртуальная машина появится в списке ВМ в разделе **{{ compute-name }}** в [консоли управления]({{ link-console-main }}).
+        После создания виртуальная машина появится в списке ВМ в разделе **{{ compute-name }}** в [консоли управления]({{ link-console-main }}).
             
     1. Проверьте результат.
     
@@ -113,30 +71,32 @@
         1. Получите идентификатор запущенного Docker-контейнера:
         
             ```
-            $ sudo docker ps -a
             CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS               NAMES
-            7efe42b56319        mongo:latest        "docker-entrypoint.s…"   17 hours ago        Up 17 hours                             coi-container-name-1375924429
+            1f71192ded4c        mongo:latest        "docker-entrypoint.s…"   5 minutes ago       Up 5 minutes        27017/tcp           container-name
+
+
             ```
         1. Подключитесь к запущенному Docker-контейнеру:
         
             ```
-            $ sudo docker exec -it 7efe42b56319  bash
+            $ sudo docker exec -it 1f71192ded4c bash
             ```
            
-        1. Посмотрите список подключенных дисков. Обратите внимание на смонтированный диск `/dev/vdb 11G 24M 9.9G 1% /home/<имя пользователя>/second-volume`:
+        1. Посмотрите список подключенных дисков. Обратите внимание на смонтированный диск `/dev/vdb 11G 24M 9.9G 1% /data`:
         
             ```
             $ df -H
             Filesystem      Size  Used Avail Use% Mounted on
-            overlay         3.2G  3.0G   19M 100% /
+            overlay          11G  3.1G  7.0G  31% /
             tmpfs            68M     0   68M   0% /dev
             tmpfs           1.1G     0  1.1G   0% /sys/fs/cgroup
-            /dev/vda1       3.2G  3.0G   19M 100% /data/db
+            /dev/vdb         11G   24M  9.9G   1% /data
+            /dev/vda2        11G  3.1G  7.0G  31% /data/db
             shm              68M     0   68M   0% /dev/shm
-            /dev/vdb         11G   24M  9.9G   1% /home/<имя пользователя>/second-volume
             tmpfs           1.1G     0  1.1G   0% /proc/acpi
             tmpfs           1.1G     0  1.1G   0% /proc/scsi
             tmpfs           1.1G     0  1.1G   0% /sys/firmware
+
             ```
     
 {% endlist %}
