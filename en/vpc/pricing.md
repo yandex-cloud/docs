@@ -67,6 +67,11 @@ In this case, only 4 GB of filtered traffic are billed: 2 GB that DDoS Protectio
 
 The service is provided when technically possible. Yandex Cloud Interconnect prices are provided upon request and are subject to the technical characteristics of the connection to Yandex.Cloud.
 
+### Using security groups {#prices-security-groups}
+
+The security groups function is currently at the [Preview](../overview/concepts/launch-stages.md) stage and is not charged.
+
+
 ### Outgoing traffic {#prices-traffic}
 
 Outgoing traffic from Yandex.Cloud resources is billed for the relevant service. Prices for outgoing traffic are the same for every service.

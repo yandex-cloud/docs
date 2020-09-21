@@ -11,6 +11,8 @@ items:
         items:
           - name: Создать балансировщик
             href: operations/load-balancer-create.md
+          - name: Создать внутренний сетевой балансировщик
+            href: operations/internal-lb-create.md
           - name: Запустить балансировщик
             href: operations/load-balancer-start.md
           - name: Остановить балансировщик
@@ -37,6 +39,8 @@ items:
     items:
       - name: Балансировщик нагрузки
         href: concepts/index.md
+      - name: Внутренний балансировщик
+        href: concepts/internal-load-balancer.md
       - name: Обработчик
         href: concepts/listener.md
       - name: Целевые ресурсы и группы

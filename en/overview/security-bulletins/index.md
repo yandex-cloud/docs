@@ -2,6 +2,28 @@
 
 This page lists security recommendations given by Yandex.Cloud experts.
 
+## 20.09.2020: CVE-2020-1472 (aka Zerologon)
+
+### Description
+
+A flaw in Windows Netlogon Remote Protocol allows an unauthenticated attacker with network access to a domain controller to completely compromise all Active Directory identity services. 
+
+Original report from Secura: [Zerologon](https://www.secura.com/pathtoimg.php?id=2055).
+
+Microsoft advisory: [CVE-2020-1472](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2020-1472).
+
+Microsoft guide on change management : [How to manage the changes in Netlogon secure channel connections associated with CVE-2020-1472](https://support.microsoft.com/en-us/help/4557222/how-to-manage-the-changes-in-netlogon-secure-channel-connections-assoc).
+
+### Impact on Yandex.Cloud services
+
+The OS images available to {{ compute-full-name }} are already contain all the necessary patches. However, the new VMs created in {{ compute-full-name }} are not vulnerable to those vulnerabilities.
+
+### Mitigation Techniques
+
+In addition to the patches you can implement and enforce network access control so that your DC is not accessible from untrusted networks. This can be achieved by:
+* setting up Windows Firewall or Security Groups;
+* putting your DC under a NAT-gateway.
+
 ## 15.06.2020: Special Register Buffer Data Sampling Attack (aka CrossTalk)
 
 ### Description

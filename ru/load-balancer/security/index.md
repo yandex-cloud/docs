@@ -22,6 +22,9 @@
 * Сервисные роли:
     * {% include [resource-manager.clouds.owner](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.owner.md) %}
     * {% include [resource-manager.clouds.member](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.member.md) %}
+    * {% include [load-balancer.viewer](../../_includes/iam/roles/short-descriptions/load-balancer.viewer.md) %}
+    * {% include [load-balancer.privateAdmin](../../_includes/iam/roles/short-descriptions/load-balancer.privateAdmin.md) %}
+    * {% include [load-balancer.admin](../../_includes/iam/roles/short-descriptions/load-balancer.admin.md) %}
 * Примитивные роли:
     * {% include [viewer](../../_includes/iam/roles/short-descriptions/viewer.md) %}
     * {% include [editor](../../_includes/iam/roles/short-descriptions/editor.md) %}
@@ -31,21 +34,27 @@
 
 В таблице ниже перечислено, какие роли нужны для выполнения указанного действия. Вы всегда можете назначить роль, которая дает более широкие разрешения, нежели указанная. Например, назначить `editor` вместо `viewer`.
 
+Для любых операций с балансировщиком, имеющим публичный IP-адрес, необходима роль `load-balancer.admin`. В сетях, где расположены целевые группы, допускается иметь вместо нее роль `vpc.publicAdmin`. Для операций над внутренним балансировщиком необходима роль `load-balancer.privateAdmin`, а для операций над его целевыми группами — `load-balancer.privateAdmin` или `compute.admin`.
+
+Для операций над целевыми группами, расположенных в подсетях, где указанные административные роли отсутствуют, потребуется роль `vpc.user` на эти подсети.
+
 Действие | Методы | Необходимые роли
 ----- | ----- | -----
 **Просмотр информации** | |
 Просмотр информации о любом ресурсе | `get`, `list`, `listOperations` | `viewer` на этот ресурс
 **Управление балансировщиками** | |
-[Создание балансировщиков в каталоге](../operations/load-balancer-create.md) | `create` | `editor` на каталог и на указанные целевые группы
-Изменение и [удаление балансировщиков](../operations/load-balancer-delete.md) | `update`, `delete` | `editor` на балансировщик и на указанные целевые группы
-[Присоединение](../operations/target-group-attach.md) и [отсоединение целевых групп](../operations/target-group-detach.md) | `attachTargetGroup`, `detachTargetGroup` | `editor` на балансировщик и на указанные целевые группы
-[Получение состояний целевых групп](../operations/check-resource-health.md) | `getTargetStates` | `viewer` на балансировщик и на указанные целевые группы
-[Добавление](../operations/listener-add.md), [удаление](../operations/listener-remove.md) обработчиков | `addListener`, `removeListener` | `editor` на балансировщик
-[Остановка](../operations/load-balancer-stop.md) и [запуск](../operations/load-balancer-start.md) балансировщика | `stop`, `start` | `editor` на балансировщик
+[Создание](../operations/load-balancer-create.md) и изменение балансировщиков в каталоге | `create` | `load-balancer.privateAdmin` / `load-balancer.admin` или `editor` на каталог и (в случае публичного балансировщика) сети, в которых расположены целевые группы
+[Удаление балансировщиков](../operations/load-balancer-delete.md) | `update`, `delete` | `load-balancer.privateAdmin` / `load-balancer.admin` или `editor` на балансировщик
+[Присоединение целевых групп](../operations/target-group-attach.md) | `attachTargetGroup`| `load-balancer.privateAdmin` / `load-balancer.admin` или `editor` на каталог и (в случае публичного балансировщика) сети, в которых расположены целевые группы
+[Отсоединение целевых групп](../operations/target-group-detach.md) | `detachTargetGroup` | `load-balancer.privateAdmin` / `load-balancer.admin` или `editor` на балансировщик
+[Получение состояний целевых групп](../operations/check-resource-health.md) | `getTargetStates` | `load-balancer.viewer` или `viewer` на балансировщик и на указанные целевые группы
+[Добавление](../operations/listener-add.md), [удаление](../operations/listener-remove.md) обработчиков | `addListener`, `removeListener` | `load-balancer.privateAdmin` / `load-balancer.admin` или `editor` на балансировщик
+[Остановка](../operations/load-balancer-stop.md) и [запуск](../operations/load-balancer-start.md) балансировщика | `stop`, `start` | `load-balancer.privateAdmin` / `load-balancer.admin` или `editor` на балансировщик
 **Управление целевыми группами** | |
-[Создание целевых групп в каталоге](../operations/target-group-create.md) | `create` | `editor` на каталог и на указанные подсети
-Изменение и [удаление целевых групп](../operations/target-group-delete.md) | `update`, `delete` | `editor` на целевую группу, балансировщик и на указанные подсети
-Добавление и удаление ресурсов в целевой группе | `addTargets`, `removeTargets` | `editor` на целевую группу, балансировщик и на указанные подсети
+[Создание](../operations/target-group-create.md) и изменений целевых групп в каталоге | `create` | `load-balancer.privateAdmin` / `load-balancer.admin` или `editor` на каталог и на подсети, в которых расположены целевые группы
+[Удаление целевых групп](../operations/target-group-delete.md) | `update`, `delete` | `load-balancer.privateAdmin` / `load-balancer.admin` или `editor` на целевую группу и балансировщик
+Добавление ресурсов в целевой группе | `addTargets` | `load-balancer.privateAdmin` / `load-balancer.admin` или `editor` на целевую группу, балансировщик и на подсети, в которых расположены целевые группы
+Удаление ресурсов в целевой группе | `removeTargets` | `load-balancer.privateAdmin` / `load-balancer.admin` или `editor` на целевую группу
 **Управление доступом к ресурсам** | |
 [Назначение роли](../../iam/operations/roles/grant.md), [отзыв роли](../../iam/operations/roles/revoke.md) и просмотр назначенных ролей на ресурс | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `admin` на этот ресурс
 

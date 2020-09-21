@@ -50,7 +50,7 @@ downsampling.<br>gridAggregation | **string**<br>Функция агрегаци
 downsampling.<br>gapFilling | **string**<br>Параметры заполнения пропусков в данных.<br><br><p>Список методов для заполнения пропусков в данных при прореживании.</p> <ul> <li>NULL: Возвращает <code>null</code> в качестве значения метрики и <code>timestamp</code> в качестве временной метки. Значение по умолчанию.</li> <li>NONE: Не возвращает значений.</li> <li>PREVIOUS: Возвращает значение из предыдущей временной точки.</li> </ul> 
 downsampling.<br>maxPoints | **string** (int64) <br>`downsampling` включает только одно из полей `maxPoints`, `gridInterval`, `disabled`<br><br><p>Максимальное количество точек, которое будет получено в ответе на запрос.</p> <p>Значение должно быть больше 10.</p> 
 downsampling.<br>gridInterval | **string** (int64) <br>`downsampling` включает только одно из полей `maxPoints`, `gridInterval`, `disabled`<br><br><p>Ширина временного окна (сетки) в миллисекундах. Используется для прореживания. Точки внутри окна объединяются в одну при помощи функции агрегации.</p> <p>Значение должно быть больше 0.</p> 
-downsampling.<br>disabled | **boolean** (boolean) <br>`downsampling` включает только одно из полей `maxPoints`, `gridInterval`, `disabled`<br><br><p>Указаывает, что данные в ответе на запрос будут получены без прореживания.</p> 
+downsampling.<br>disabled | **boolean** (boolean) <br>`downsampling` включает только одно из полей `maxPoints`, `gridInterval`, `disabled`<br><br><p>Указывает, что данные в ответе на запрос будут получены без прореживания.</p> 
  
 ## Ответ {#responses}
 **HTTP Code: 200 - OK**
