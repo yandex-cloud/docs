@@ -281,7 +281,7 @@ internal:
 
   mch-backup-retention: 7
   mch-dedup-retention: 30
-  
+
   # links
   link-console-billing: https://console.cloud.yandex.com/billing
   link-console-main: https://console.cloud.yandex.com/

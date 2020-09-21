@@ -40,6 +40,14 @@ items:
             href: operations/static-route-create.md
           - name: Включить NAT в интернет
             href: operations/enable-nat.md
+      - name: Группы безопасности
+        items: 
+          - name: Создать группу безопасности
+            href: operations/security-group-create.md
+          - name: Изменить группу безопасности и правила
+            href: operations/security-group-update.md
+          - name: Удалить группу безопасности
+            href: operations/security-group-delete.md
       - name: Защита от DDoS-атак
         items:
           - name: Включить защиту от DDoS-атак
@@ -54,6 +62,8 @@ items:
         href: concepts/address.md
       - name: Статические маршруты
         href: concepts/static-routes.md
+      - name: Группы безопасности
+        href: concepts/security-groups.md
       - name: MTU и MSS
         href: concepts/mtu-mss.md
       - name: Квоты и лимиты

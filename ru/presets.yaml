@@ -117,6 +117,15 @@ default:
   roles-datalens-instances-admin: datalens.instances.admin
   roles-functions-ivoker: serverless.functions.invoker
   roles-image-user: compute.images.user
+  roles-vpc-viewer: vpc.viewer
+  roles-vpc-user: vpc.user
+  roles-vpc-private-admin: vpc.privateAdmin
+  roles-vpc-public-admin: vpc.publicAdmin
+  roles-vpc-sg-admin: vpc.securityGroups.admin
+  roles-vpc-admin: vpc.admin
+  roles-lb-viewer: load-balancer.viewer
+  roles-lb-private-admin: load-balancer.privateAdmin
+  roles-lb-admin: load-balancer.admin
   roles-cloud-owner: resource-manager.clouds.owner
   roles-cloud-member: resource-manager.clouds.member
   roles-admin: admin

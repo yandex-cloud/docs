@@ -22,6 +22,12 @@
 * Сервисные роли:
     * {% include [resource-manager.clouds.owner](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.owner.md) %}
     * {% include [resource-manager.clouds.member](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.member.md) %}
+    * {% include [vpc.viewer](../../_includes/iam/roles/short-descriptions/vpc.viewer.md) %}
+    * {% include [vpc.user](../../_includes/iam/roles/short-descriptions/vpc.user.md) %}
+    * {% include [vpc.privateAdmin](../../_includes/iam/roles/short-descriptions/vpc.privateAdmin.md) %}
+    * {% include [vpc.publicAdmin](../../_includes/iam/roles/short-descriptions/vpc.publicAdmin.md) %}
+    * {% include [vpc.securityGroups.admin](../../_includes/iam/roles/short-descriptions/vpc.securityGroups.admin.md) %}
+    * {% include [vpc.admin](../../_includes/iam/roles/short-descriptions/vpc.admin.md) %}
 * Примитивные роли:
     * {% include [viewer](../../_includes/iam/roles/short-descriptions/viewer.md) %}
     * {% include [editor](../../_includes/iam/roles/short-descriptions/editor.md) %}
@@ -29,18 +35,27 @@
 
 ## Какие роли мне необходимы {#choosing-roles}
 
-В таблице ниже перечислено, какие роли нужны для выполнения указанного действия. Вы всегда можете назначить роль, которая дает более широкие разрешения, нежели указанная. Например, назначить `editor` вместо `viewer`.
+В таблице ниже перечислено, какие роли нужны для выполнения указанного действия. Вы всегда можете назначить роль, которая дает более широкие разрешения, нежели указанная. Например, назначить `editor` вместо `viewer` или `vpc.admin` вместо `vpc.publicAdmin`.
 
 Действие | Методы | Необходимые роли
 ----- | ----- | -----
 **Просмотр информации** | |
-Просмотр информации о любом ресурсе | `get`, `list`, `listOperations` | `viewer` на этот ресурс
-Получение списка подсетей в сети | `listSubnets` | `viewer` на сеть
+Просмотр информации о любом ресурсе | `get`, `list`, `listOperations` | `vpc.viewer` или `viewer` на этот ресурс
+Получение списка подсетей в сети | `listSubnets` | `vpc.viewer` или `viewer` на сеть
+**Использование ресурсов** | |
+Назначение ресурсов {{ vpc-short-name }} другим ресурсам {{ yandex-cloud }} (например, назначение адреса на ВМ или подключение сетевого интерфейса к подсети) | Различные | `vpc.user` на ресурс, а также право на изменение принимающего его объекта, если операция назначения ресурса мутирующая
 **Управление ресурсами** | |
-[Создание сетей в каталоге](../operations/network-create.md) | `create` | `editor` на каталог
-[Изменение](../operations/network-update.md), [удаление сетей](../operations/network-delete.md) | `update`, `delete` | `editor` на сеть
-[Создание подсетей в каталоге](../operations/subnet-create.md) | `create` | `editor` на каталог и на сеть
-[Изменение](../operations/subnet-update.md), [удаление подсетей](../operations/subnet-delete.md) | `update`, `delete` | `editor` на каталог
+[Создание сетей в каталоге](../operations/network-create.md) | `create` | `vpc.privateAdmin` или `editor` на каталог
+[Изменение](../operations/network-update.md), [удаление сетей](../operations/network-delete.md) | `update`, `delete` | `vpc.privateAdmin` или `editor` на сеть
+[Создание подсетей в каталоге](../operations/subnet-create.md) | `create` | `vpc.privateAdmin` или `editor` на каталог и на сеть
+[Изменение](../operations/subnet-update.md), [удаление подсетей](../operations/subnet-delete.md) | `update`, `delete` | `vpc.privateAdmin` или `editor` на каталог
+[Создание таблицы маршрутизации](../operations/static-route-create.md) | `create` | `vpc.privateAdmin` или `editor` на каталог
+Изменение, удаление таблицы маршрутизации | `update`, `delete` | `vpc.privateAdmin` или `editor` на таблицу маршрутизации
+[Создание публичных адресов](../operations/get-static-ip.md) | `create` | `vpc.publicAdmin` или `editor` на каталог
+[Удаление публичных адресов](../operations/address-delete.md) | `delete` | `vpc.publicAdmin` или `editor` на адрес
+[Включение NAT в интернет](../operations/enable-nat.md) | | `vpc.publicAdmin` или `editor` на подсеть
+Создание групп безопасности | `create` | `vpc.securityGroups.admin` или `editor` на каталог и на сеть
+Изменение, удаление групп безопасности | `update`, `delete` | `vpc.securityGroups.admin` или `editor` на сеть и на группу безопасности
 **Управление доступом к ресурсам** | |
 [Назначение роли](../../iam/operations/roles/grant.md), [отзыв роли](../../iam/operations/roles/revoke.md) и просмотр назначенных ролей на ресурс | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `admin` на этот ресурс
 
