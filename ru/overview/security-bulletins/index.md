@@ -2,6 +2,27 @@
 
 На этой странице приводятся рекомендации специалистов {{ yandex-cloud }} о вопросах безопасности.
 
+## 20.09.2020: CVE-2020-1472 (aka Zerologon)
+
+### Описание
+
+Уязвимость в Windows Netlogon Remote Protocol позволяет неаутентифицированному атакующему с сетевым доступом к контроллеру домена скомпрометировать все службы идентификации Active Directory.
+
+Исходный отчёт  Secura: [Zerologon](https://www.secura.com/pathtoimg.php?id=2055).
+
+Описание уязвимости, составленное Microsoft: [CVE-2020-1472](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2020-1472).
+
+Руководство по управлению изменениями от Microsoft: [Управление изменениями в подключениях безопасного канала Netlogon, связанными с CVE-2020-1472](https://support.microsoft.com/ru-ru/help/4557222/how-to-manage-the-changes-in-netlogon-secure-channel-connections-assoc).
+
+### Влияние на сервисы {{ yandex-cloud }}
+
+Образы операционных систем, доступные пользователям {{ compute-full-name }}, уже содержат обновления, устраняющие уязвимость. Все виртуальные машины, созданные в {{ compute-full-name }} после выхода этого сообщения, защищены от описанной атаки.
+
+### Компенсационные меры
+
+В дополнение к обновлениям, для ограничения доступа к контроллеру домена из недоверенных сетей используйте следующие системы контроля доступа к сети:
+* Windows Firewall или группы безопасности;
+* перемещение контроллера домена за NAT-gateway.
 
 ## 15.06.2020 — Special Register Buffer Data Sampling Attack (aka CrossTalk)
 
