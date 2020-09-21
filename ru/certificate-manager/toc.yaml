@@ -1,6 +1,5 @@
 title: "Yandex Certificate Manager"
 href: index.yaml
-stage: preview
 items:
   - name: Начало работы
     href: quickstart/index.md
@@ -12,6 +11,8 @@ items:
         items:
           - name: Создание сертификата
             href: operations/managed/cert-create.md
+          - name: Получение содержимого сертификата
+            href: operations/managed/cert-get-content.md
           - name: Прохождение процедуры проверки прав на домен
             href: operations/managed/cert-validate.md
           - name: Обновление сертификата
@@ -24,6 +25,8 @@ items:
         items:
           - name: Создание сертификата
             href: operations/import/cert-create.md
+          - name: Получение содержимого сертификата
+            href: operations/import/cert-get-content.md
           - name: Обновление сертификата
             href: operations/import/cert-update.md
           - name: Изменение сертификата

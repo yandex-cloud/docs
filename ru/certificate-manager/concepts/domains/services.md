@@ -1,5 +1,7 @@
 # Интеграция системы управления доменами с сервисами {{ yandex-cloud }}
 
+{% include [preview-stage](../../../_includes/certificate-manager/preview-stage.md) %}
+
 Вы можете использовать подтвержденные домены из {{ certificate-manager-name }} в следующих сервисах {{ yandex-cloud }}:
 * [{#T}](#api-gw).
 

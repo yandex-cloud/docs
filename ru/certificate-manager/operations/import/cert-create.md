@@ -22,7 +22,54 @@
         1. Выберите способ добавления: **Файл** или **Текст**.
         1. Нажмите кнопку **Добавить**.
     1. Нажмите кнопку **Создать**.
-    
-    В списке сертификатов появится новый сертификат со статусом `Issued`.
+
+- CLI
+
+    {% include [cli-install](../../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+    1. Посмотрите описание команды:
+
+        ```bash
+        yc certificate-manager certificate create --help
+        ```
+
+    1. Выполните команду:
+
+        ```bash
+        yc certificate-manager certificate create \
+          --name mycert \
+          --chain mycert.pem \
+          --key mykey.pem
+        ```
+
+        Параметры команды:
+
+          - `--name` — имя сертификата.
+          - `--chain` — путь к файлу цепочки сертификатов.
+          - `--key` — путь к файлу закрытого ключа сертификата.
+
+        Результат команды:
+
+        ```bash
+        id: fpqmg47avvimp7rvmp30
+        folder_id: b1g7gvsi89m34qmcm3ke
+        created_at: "2020-09-15T06:54:44.916325Z"
+        name: mycert
+        type: IMPORTED
+        domains:
+        - example.com
+        status: ISSUED
+        issuer: CN=example.com
+        subject: CN=example.com
+        serial: c32fd55592a376635fa53d9aea677caae6bf08f
+        updated_at: "2020-09-15T06:54:44.916325Z"
+        issued_at: "2020-09-15T06:54:44.916325Z"
+        not_after: "2021-09-15T06:48:26Z"
+        not_before: "2020-09-15T06:48:26Z"
+        ```
 
 {% endlist %}
+
+В списке сертификатов появится новый сертификат со статусом `Issued`.
