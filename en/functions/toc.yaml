@@ -13,6 +13,10 @@ items:
         href: quickstart/ymq-trigger-quickstart.md
       - name: Creating a trigger for Object Storage
         href: quickstart/os-trigger-quickstart.md
+      - name: Creating a trigger for Container Registry
+        href: quickstart/cr-trigger-quickstart.md
+      - name: Creating a trigger for Cloud Logs
+        href: quickstart/cloudlogs-trigger-quickstart.md
       - name: Creating a trigger for Yandex IoT Core
         href: quickstart/iot-core-trigger-quickstart.md
   - name: Step-by-step instructions
@@ -51,6 +55,10 @@ items:
             href: operations/trigger/ymq-trigger-create.md
           - name: Creating a trigger for Object Storage
             href: operations/trigger/os-trigger-create.md
+          - name: Creating a trigger for Container Registry
+            href: operations/trigger/cr-trigger-create.md
+          - name: Creating a trigger for Cloud Logs
+            href: operations/trigger/cloudlogs-trigger-create.md
           - name: Creating a trigger for Yandex IoT Core
             href: operations/trigger/iot-core-trigger-create.md
           - name: Updating a trigger
@@ -85,8 +93,14 @@ items:
             href: concepts/trigger/ymq-trigger.md
           - name: Trigger for Object Storage
             href: concepts/trigger/os-trigger.md
+          - name: Trigger for Container Registry
+            href: concepts/trigger/cr-trigger.md
+          - name: Trigger for Cloud Logs
+            href: concepts/trigger/cloudlogs-trigger.md
           - name: Trigger for Yandex IoT Core
             href: concepts/trigger/iot-core-trigger.md
+      - name: Log groups
+        href: concepts/log-group.md
       - name: Monitoring
         href: concepts/monitoring.md
       - name: Quotas and limits
