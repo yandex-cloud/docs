@@ -161,7 +161,7 @@ items:
             href: operations/instance-groups/start.md
           - name: Удалить группу
             href: operations/instance-groups/delete.md
-  - name: Yandex Container Optimized Solutions
+  - name: Yandex Container Solution
     href: ../cos/
   - name: Сценарии
     items:

@@ -47,7 +47,7 @@ items:
             href: operations/lifecycle-policy/lifecycle-policy-dry-run.md
           - name: Удалить политику удаления
             href: operations/lifecycle-policy/lifecycle-policy-delete.md
-  - name: Yandex Container Optimized Solutions
+  - name: Yandex Container Solution
     href: ../cos/
   - name: Концепции
     items:
