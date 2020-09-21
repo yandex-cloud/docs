@@ -1,8 +1,52 @@
 # Релизы YC CLI
 
-## Версия 0.64.0 (08.09.20) {#latest-release}
+## Версия 0.65.0 (21.09.20) {#latest-release}
 
 ### Изменения в сервисах Облака {#services}
+
+#### {{ dataproc-name }} {#dataproc}
+
+Добавлена поддержка функциональности UI Proxy:
+* Добавлена команда `yc dataproc cluster list-ui-links`, позволяющая получить список ссылок для доступа к интерфейсам кластера {{ dataproc-name }}.
+* Команды `yc dataproc cluster create` и `yc dataproc cluster update`.
+
+    Добавлен параметр  `--ui-proxy`, позволяющий включить функциональность UI Proxy для кластера {{ dataproc-name }}.
+* Команды `yc dataproc cluster create`, `yc dataproc subcluster create`, `yc dataproc subcluster update`.
+
+    Добавлены флаги для автомасштабируемых подкластеров: `--max-hosts-count`, `--preemptible`, `--warmup-duration`, `--stabilization-duration`, `--measurement-duration`, `--cpu-utilization-target` и `--autoscaling-decommission-timeout`.
+* Команда `yc dataproc subcluster list`.
+
+    В ответ добавлено поле `instance group id` с идентификаторами групп ВМ автомасштабируемых подкластеров. 
+
+#### {{ certificate-manager-name }} {#certificate-manager}
+
+- Добавлена команда `yc certificate-manager certificate content` для получения содержимого сертификата.
+
+    С ее помощью можно загрузить цепочку сертификатов и закрытый ключ для самостоятельного использования в конфигурации веб-сервера на виртуальной машине. 
+
+#### Сервисы управляемых баз данных {#managed-db}
+
+**{{ mmg-name }}**
+
+- Команды  `{{ yc-mdb-mg }} cluster get` и `{{ yc-mdb-mg }} cluster update`.
+
+    Добавлено поле `backup-retain-period-days`, показывающее сколько дней хранятся автоматические резервные копии.
+
+- Команды  `{{ yc-mdb-mg }} cluster list-backups` и `{{ yc-mdb-mg }} backup list`.
+
+    Добавлены поля `SIZE` и `TYPE`, содержащие размер и тип резервной копии.
+
+- Команда `{{ yc-mdb-mg }} cluster list-logs`.
+
+    Добавлен параметр `filter` позволяющий фильтровать запрашиваемые записи. 
+    
+    Если задан параметр `follow`, то значение по умолчанию для параметра `limit` игнорируется. При этом явное указание параметра `limit` ограничивает количество выводимых записей.
+
+## Предыдущие релизы {#previous-releases}
+
+### Версия 0.64.0 (08.09.20) {#version0.64.0}
+
+#### Изменения в сервисах Облака {#services}
 
 #### {{ compute-name }} {#compute}
 
@@ -40,9 +84,7 @@
 
 Сервис {{ certificate-manager-full-name }} находится на стадии Preview. Подробнее про сервис читайте в [документации](../certificate-manager/).
 
-## Предыдущие релизы {#previous-releases}
-
-### Версия 0.63.0 (28.08.20)
+### Версия 0.63.0 (28.08.20) {#version0.63.0}
 
 #### Изменения в CLI {#cli}
 
