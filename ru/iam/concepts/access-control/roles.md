@@ -73,3 +73,25 @@ _Роль_ — это набор разрешений, который опре�
 {% include [datalens-instances-user](../../../_includes/roles-datalens-user.md)%}
 
 {% include [datalens-instances-admin](../../../_includes/roles-datalens-admin.md)%}
+
+## {{ vpc-name }} {#vpc-roles}
+
+{% include [roles-vpc-viewer](../../../_includes/roles-vpc-viewer.md) %}
+
+{% include [roles-vpc-user](../../../_includes/roles-vpc-user.md) %}
+
+{% include [roles-vpc-private-admin](../../../_includes/roles-vpc-private-admin.md) %}
+
+{% include [roles-vpc-public-admin](../../../_includes/roles-vpc-public-admin.md) %}
+
+{% include [roles-vpc-sg-admin](../../../_includes/roles-vpc-sg-admin.md) %}
+
+{% include [roles-vpc-admin](../../../_includes/roles-vpc-admin.md) %}
+
+## {{ load-balancer-name }} {#load-balancer-roles}
+
+{% include [roles-lb-viewer](../../../_includes/roles-lb-viewer.md) %}
+
+{% include [roles-lb-private-admin](../../../_includes/roles-lb-private-admin.md) %}
+
+{% include [roles-lb-admin](../../../_includes/roles-lb-admin.md) %}

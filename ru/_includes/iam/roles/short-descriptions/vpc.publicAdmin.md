@@ -1,0 +1,1 @@
+[`vpc.publicAdmin`](../../../../iam/concepts/access-control/roles.md#vpc-public-admin) — позволяет управлять внешней связностью.

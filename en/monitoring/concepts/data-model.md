@@ -14,9 +14,9 @@ _A label_ is a metric characteristic in `key: "value"` format. Each metric is id
 
 The service has mandatory and optional labels. Mandatory labels:
 
-- `project` — The ID of the cloud that the resource belongs to.
-- `cluster` — The ID of the folder that the resource belongs to.
-- `service` — Indicates the {{ yandex-cloud }} service that the resource belongs to. For example, `compute` or `managed-postgresql`.
+- `project`: The ID of the cloud that the resource belongs to.
+- `cluster`: The ID of the folder that the resource belongs to.
+- `service`: Indicates the {{ yandex-cloud }} service that the resource belongs to. For example, `compute` or `managed-postgresql`.
 
 {% note warning %}
 

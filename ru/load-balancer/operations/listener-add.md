@@ -57,3 +57,20 @@
   Добавить обработчик можно с помощью метода API [addListener](../api-ref/NetworkLoadBalancer/addListener.md).
   
 {% endlist %}
+
+## Примеры
+
+### Добавление обработчика внутреннему балансировщику {#without-listener}
+
+{% list tabs %}
+
+- CLI
+  
+  Выполните команду, указав имя обработчика, порт и идентификатор подсети:
+  
+  ```
+  $ yc load-balancer network-load-balancer add-listener b7rc2h753djb3a5dej1i \
+  --listener name=test-listener,port=80,internal-subnet-id=e9b81t3kjmi0auoi0vpj
+  ```
+  
+{% endlist %}

@@ -21,3 +21,9 @@
 
 - [{#T}](static-route-create.md)
 - [{#T}](enable-nat.md)
+
+## Группы безопасности {#security-groups}
+
+- [{#T}](security-group-create.md)
+- [{#T}](security-group-update.md)
+- [{#T}](security-group-delete.md)

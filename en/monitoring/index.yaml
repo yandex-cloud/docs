@@ -2,7 +2,7 @@
 title: "Yandex Monitoring"
 description:
   - "You can use Yandex Monitoring to collect and store metrics and display them in charts on dashboards."
-  - "The Yandex.Cloud <a href=\"https://yandex.com/legal/cloud_sla\">Service Level Agreement</a> applies to Yandex.Monitoring. For the service-specific SLA, see <a href=\"https://yandex.ru/legal/cloud_sla_ym\">Yandex Monitoring Service Level Agreement</a>."
+  - "The Yandex.Cloud <a href=\"https://yandex.com/legal/cloud_sla\">Service Level Agreement</a> applies to Yandex.Monitoring. For the service-specific SLA, see <a href=\"https://yandex.com/legal/cloud_sla_ym\">Yandex Monitoring Service Level Agreement</a>."
 # Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
 meta:
   title: "Yandex Monitoring"
