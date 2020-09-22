@@ -39,7 +39,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder to create a symmetric KMS key in. false The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the folder to create a symmetric KMS key in. The maximum string length in characters is 50.
 name | **string**<br>Name of the key. The maximum string length in characters is 100.
 description | **string**<br>Description of the key. The maximum string length in characters is 1024.
 labels | **map<string,string>**<br>Custom labels for the symmetric KMS key as `key:value` pairs. Maximum 64 per key. For example, `"project": "mvp"` or `"source": "dictionary"`. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
@@ -98,10 +98,10 @@ Returns the specified symmetric KMS key. <br>To get the list of available symmet
 
 Field | Description
 --- | ---
-key_id | **string**<br>Required. ID of the symmetric KMS key to return. To get the ID of a symmetric KMS key use a [SymmetricKeyService.List](#List) request. false The maximum string length in characters is 50.
+key_id | **string**<br>Required. ID of the symmetric KMS key to return. To get the ID of a symmetric KMS key use a [SymmetricKeyService.List](#List) request. The maximum string length in characters is 50.
 
 
-### SymmetricKey {#SymmetricKey}
+### SymmetricKey {#SymmetricKey1}
 
 Field | Description
 --- | ---
@@ -141,7 +141,7 @@ Returns the list of symmetric KMS keys in the specified folder.
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder to list symmetric KMS keys in. false The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the folder to list symmetric KMS keys in. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListSymmetricKeysResponse.next_page_token](#ListSymmetricKeysResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListSymmetricKeysResponse.next_page_token](#ListSymmetricKeysResponse) returned by a previous list request. The maximum string length in characters is 100.
 
@@ -151,10 +151,10 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 Field | Description
 --- | ---
 keys[] | **[SymmetricKey](../symmetric_key.proto#SymmetricKey2)**<br>List of symmetric KMS keys in the specified folder. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is greater than the specified [ListSymmetricKeysRequest.page_size](#ListSymmetricKeysRequest1), use the `next_page_token` as the value for the [ListSymmetricKeysRequest.page_token](#ListSymmetricKeysRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is greater than the specified [ListSymmetricKeysRequest.page_size](#ListSymmetricKeysRequest), use the `next_page_token` as the value for the [ListSymmetricKeysRequest.page_token](#ListSymmetricKeysRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
-### SymmetricKey {#SymmetricKey}
+### SymmetricKey {#SymmetricKey2}
 
 Field | Description
 --- | ---
@@ -171,7 +171,7 @@ rotated_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 rotation_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time period between automatic key rotations. 
 
 
-### SymmetricKeyVersion {#SymmetricKeyVersion}
+### SymmetricKeyVersion {#SymmetricKeyVersion1}
 
 Field | Description
 --- | ---
@@ -194,7 +194,7 @@ Returns the list of versions of the specified symmetric KMS key.
 
 Field | Description
 --- | ---
-key_id | **string**<br>Required. ID of the symmetric KMS key to list versions for. false The maximum string length in characters is 50.
+key_id | **string**<br>Required. ID of the symmetric KMS key to list versions for. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListSymmetricKeyVersionsResponse.next_page_token](#ListSymmetricKeyVersionsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListSymmetricKeyVersionsResponse.next_page_token](#ListSymmetricKeyVersionsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
@@ -204,10 +204,10 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 Field | Description
 --- | ---
 key_versions[] | **[SymmetricKeyVersion](../symmetric_key.proto#SymmetricKeyVersion2)**<br>List of versions for the specified symmetric KMS key. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is greater than the specified [ListSymmetricKeyVersionsRequest.page_size](#ListSymmetricKeyVersionsRequest1), use the `next_page_token` as the value for the [ListSymmetricKeyVersionsRequest.page_token](#ListSymmetricKeyVersionsRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is greater than the specified [ListSymmetricKeyVersionsRequest.page_size](#ListSymmetricKeyVersionsRequest), use the `next_page_token` as the value for the [ListSymmetricKeyVersionsRequest.page_token](#ListSymmetricKeyVersionsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
-### SymmetricKeyVersion {#SymmetricKeyVersion}
+### SymmetricKeyVersion {#SymmetricKeyVersion2}
 
 Field | Description
 --- | ---
@@ -234,8 +234,8 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-key_id | **string**<br>Required. ID of the symmetric KMS key to update. To get the ID of a symmetric KMS key use a [SymmetricKeyService.List](#List) request. false The maximum string length in characters is 50.
-update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Required. Field mask that specifies which attributes of the symmetric KMS key are going to be updated. false
+key_id | **string**<br>Required. ID of the symmetric KMS key to update. To get the ID of a symmetric KMS key use a [SymmetricKeyService.List](#List) request. The maximum string length in characters is 50.
+update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Required. Field mask that specifies which attributes of the symmetric KMS key are going to be updated. 
 name | **string**<br>New name for the symmetric KMS key. The maximum string length in characters is 100.
 description | **string**<br>New description for the symmetric KMS key. The maximum string length in characters is 1024.
 status | **[SymmetricKey.Status](../symmetric_key.proto#SymmetricKey3)**<br>New status for the symmetric KMS key. Using the [SymmetricKeyService.Update](#Update) method you can only set ACTIVE or INACTIVE status. 
@@ -244,7 +244,7 @@ default_algorithm | enum **SymmetricAlgorithm**<br>Default encryption algorithm 
 rotation_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time period between automatic symmetric KMS key rotations. 
 
 
-### Operation {#Operation}
+### Operation {#Operation1}
 
 Field | Description
 --- | ---
@@ -267,7 +267,7 @@ Field | Description
 key_id | **string**<br>ID of the key being updated. 
 
 
-### SymmetricKey {#SymmetricKey}
+### SymmetricKey {#SymmetricKey3}
 
 Field | Description
 --- | ---
@@ -298,10 +298,10 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-key_id | **string**<br>Required. ID of the key to be deleted. false The maximum string length in characters is 50.
+key_id | **string**<br>Required. ID of the key to be deleted. The maximum string length in characters is 50.
 
 
-### Operation {#Operation}
+### Operation {#Operation2}
 
 Field | Description
 --- | ---
@@ -324,7 +324,7 @@ Field | Description
 key_id | **string**<br>ID of the key being deleted. 
 
 
-### SymmetricKey {#SymmetricKey}
+### SymmetricKey {#SymmetricKey4}
 
 Field | Description
 --- | ---
@@ -355,11 +355,11 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-key_id | **string**<br>Required. ID of the key to set a primary version for. false The maximum string length in characters is 50.
-version_id | **string**<br>Required. ID of the version that should become primary for the specified key. false The maximum string length in characters is 50.
+key_id | **string**<br>Required. ID of the key to set a primary version for. The maximum string length in characters is 50.
+version_id | **string**<br>Required. ID of the version that should become primary for the specified key. The maximum string length in characters is 50.
 
 
-### Operation {#Operation}
+### Operation {#Operation3}
 
 Field | Description
 --- | ---
@@ -383,7 +383,7 @@ key_id | **string**<br>ID of the key that the primary version if being changed f
 version_id | **string**<br>ID of the version that is being made primary for the key. 
 
 
-### SymmetricKey {#SymmetricKey}
+### SymmetricKey {#SymmetricKey5}
 
 Field | Description
 --- | ---
@@ -414,12 +414,12 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-key_id | **string**<br>Required. ID of the key whose version should be scheduled for destruction. false The maximum string length in characters is 50.
-version_id | **string**<br>Required. ID of the version to be destroyed. false The maximum string length in characters is 50.
+key_id | **string**<br>Required. ID of the key whose version should be scheduled for destruction. The maximum string length in characters is 50.
+version_id | **string**<br>Required. ID of the version to be destroyed. The maximum string length in characters is 50.
 pending_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time interval between the version destruction request and actual destruction. Default value: 7 days. 
 
 
-### Operation {#Operation}
+### Operation {#Operation4}
 
 Field | Description
 --- | ---
@@ -444,7 +444,7 @@ version_id | **string**<br>ID of the version that is being scheduled for destruc
 destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the version is scheduled to be destroyed. 
 
 
-### SymmetricKeyVersion {#SymmetricKeyVersion}
+### SymmetricKeyVersion {#SymmetricKeyVersion3}
 
 Field | Description
 --- | ---
@@ -471,11 +471,11 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-key_id | **string**<br>Required. ID of the key to cancel a version's destruction for. false The maximum string length in characters is 50.
-version_id | **string**<br>Required. ID of the version whose scheduled destruction should be cancelled. false The maximum string length in characters is 50.
+key_id | **string**<br>Required. ID of the key to cancel a version's destruction for. The maximum string length in characters is 50.
+version_id | **string**<br>Required. ID of the version whose scheduled destruction should be cancelled. The maximum string length in characters is 50.
 
 
-### Operation {#Operation}
+### Operation {#Operation5}
 
 Field | Description
 --- | ---
@@ -499,7 +499,7 @@ key_id | **string**<br>ID of the key whose version's destruction is being cancel
 version_id | **string**<br>ID of the version whose scheduled destruction is being cancelled. 
 
 
-### SymmetricKeyVersion {#SymmetricKeyVersion}
+### SymmetricKeyVersion {#SymmetricKeyVersion4}
 
 Field | Description
 --- | ---
@@ -526,10 +526,10 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-key_id | **string**<br>Required. ID of the key to be rotated. false The maximum string length in characters is 50.
+key_id | **string**<br>Required. ID of the key to be rotated. The maximum string length in characters is 50.
 
 
-### Operation {#Operation}
+### Operation {#Operation6}
 
 Field | Description
 --- | ---
@@ -553,7 +553,7 @@ key_id | **string**<br>ID of the key being rotated.
 new_primary_version_id | **string**<br>ID of the version generated as a result of key rotation. 
 
 
-### SymmetricKey {#SymmetricKey}
+### SymmetricKey {#SymmetricKey6}
 
 Field | Description
 --- | ---
@@ -580,7 +580,7 @@ Lists operations for the specified symmetric KMS key.
 
 Field | Description
 --- | ---
-key_id | **string**<br>Required. ID of the symmetric KMS key to get operations for. <br>To get the key ID, use a [SymmetricKeyService.List](#List) request. false The maximum string length in characters is 50.
+key_id | **string**<br>Required. ID of the symmetric KMS key to get operations for. <br>To get the key ID, use a [SymmetricKeyService.List](#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page that should be returned. If the number of available results is larger than `page_size`, the service returns a [ListSymmetricKeyOperationsResponse.next_page_token](#ListSymmetricKeyOperationsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListSymmetricKeyOperationsResponse.next_page_token](#ListSymmetricKeyOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
@@ -590,10 +590,10 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 Field | Description
 --- | ---
 operations[] | **[operation.Operation](#Operation7)**<br>List of operations for the specified key. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListSymmetricKeyOperationsRequest.page_size](#ListSymmetricKeyOperationsRequest1), use the `next_page_token` as the value for the [ListSymmetricKeyOperationsRequest.page_token](#ListSymmetricKeyOperationsRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListSymmetricKeyOperationsRequest.page_size](#ListSymmetricKeyOperationsRequest), use the `next_page_token` as the value for the [ListSymmetricKeyOperationsRequest.page_token](#ListSymmetricKeyOperationsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
-### Operation {#Operation}
+### Operation {#Operation7}
 
 Field | Description
 --- | ---
@@ -619,7 +619,7 @@ Lists existing access bindings for the specified key.
 
 Field | Description
 --- | ---
-resource_id | **string**<br>Required. ID of the resource to list access bindings for. <br>To get the resource ID, use a corresponding List request. For example, use the [yandex.cloud.resourcemanager.v1.CloudService.List](/docs/resource-manager/grpc/cloud_service#List) request to get the Cloud resource ID. false
+resource_id | **string**<br>Required. ID of the resource to list access bindings for. <br>To get the resource ID, use a corresponding List request. For example, use the [yandex.cloud.resourcemanager.v1.CloudService.List](/docs/resource-manager/grpc/cloud_service#List) request to get the Cloud resource ID. 
 page_size | **int64**<br>The maximum number of results per page that should be returned. If the number of available results is larger than `page_size`, the service returns a [ListAccessBindingsResponse.next_page_token](#ListAccessBindingsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
 page_token | **string**<br>Page token. Set `page_token` to the [ListAccessBindingsResponse.next_page_token](#ListAccessBindingsResponse) returned by a previous list request to get the next page of results. The maximum string length in characters is 100.
 
@@ -637,7 +637,7 @@ next_page_token | **string**<br>This token allows you to get the next page of re
 Field | Description
 --- | ---
 role_id | **string**<br>ID of the `yandex.cloud.iam.v1.Role` that is assigned to the `subject`. The maximum string length in characters is 50.
-subject | **[Subject](#Subject)**<br>Required. Identity for which access binding is being created. It can represent an account with a unique ID or several accounts with a system identifier. false
+subject | **[Subject](#Subject)**<br>Required. Identity for which access binding is being created. It can represent an account with a unique ID or several accounts with a system identifier. 
 
 
 ### Subject {#Subject}
@@ -662,19 +662,19 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-resource_id | **string**<br>Required. ID of the resource for which access bindings are being set. <br>To get the resource ID, use a corresponding List request. false
-access_bindings[] | **[AccessBinding](#AccessBinding)**<br>Required. Access bindings to be set. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings). false
+resource_id | **string**<br>Required. ID of the resource for which access bindings are being set. <br>To get the resource ID, use a corresponding List request. 
+access_bindings[] | **[AccessBinding](#AccessBinding)**<br>Required. Access bindings to be set. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings). 
 
 
-### AccessBinding {#AccessBinding}
+### AccessBinding {#AccessBinding1}
 
 Field | Description
 --- | ---
 role_id | **string**<br>ID of the `yandex.cloud.iam.v1.Role` that is assigned to the `subject`. The maximum string length in characters is 50.
-subject | **[Subject](#Subject)**<br>Required. Identity for which access binding is being created. It can represent an account with a unique ID or several accounts with a system identifier. false
+subject | **[Subject](#Subject)**<br>Required. Identity for which access binding is being created. It can represent an account with a unique ID or several accounts with a system identifier. 
 
 
-### Subject {#Subject}
+### Subject {#Subject1}
 
 Field | Description
 --- | ---
@@ -682,7 +682,7 @@ id | **string**<br><ul><li>`allAuthenticatedUsers`: A special system identifier 
 type | **string**<br><ul><li>`userAccount`: An account on Yandex or [Yandex.Connect](./openapi-meta.yaml#Connect)(https://connect.yandex.com), added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul> 
 
 
-### Operation {#Operation}
+### Operation {#Operation8}
 
 Field | Description
 --- | ---
@@ -719,27 +719,27 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-resource_id | **string**<br>Required. ID of the resource for which access bindings are being updated. false
-access_binding_deltas[] | **[AccessBindingDelta](#AccessBindingDelta)**<br>Required. Updates to access bindings. false
+resource_id | **string**<br>Required. ID of the resource for which access bindings are being updated. 
+access_binding_deltas[] | **[AccessBindingDelta](#AccessBindingDelta)**<br>Required. Updates to access bindings. 
 
 
 ### AccessBindingDelta {#AccessBindingDelta}
 
 Field | Description
 --- | ---
-action | enum **AccessBindingAction**<br>Required. The action that is being performed on an access binding. false<ul><li>`ADD`: Addition of an access binding.</li><li>`REMOVE`: Removal of an access binding.</li><ul/>
-access_binding | **[AccessBinding](#AccessBinding)**<br>Required. Access binding. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings). false
+action | enum **AccessBindingAction**<br>Required. The action that is being performed on an access binding. <ul><li>`ADD`: Addition of an access binding.</li><li>`REMOVE`: Removal of an access binding.</li><ul/>
+access_binding | **[AccessBinding](#AccessBinding)**<br>Required. Access binding. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings). 
 
 
-### AccessBinding {#AccessBinding}
+### AccessBinding {#AccessBinding2}
 
 Field | Description
 --- | ---
 role_id | **string**<br>ID of the `yandex.cloud.iam.v1.Role` that is assigned to the `subject`. The maximum string length in characters is 50.
-subject | **[Subject](#Subject)**<br>Required. Identity for which access binding is being created. It can represent an account with a unique ID or several accounts with a system identifier. false
+subject | **[Subject](#Subject)**<br>Required. Identity for which access binding is being created. It can represent an account with a unique ID or several accounts with a system identifier. 
 
 
-### Subject {#Subject}
+### Subject {#Subject2}
 
 Field | Description
 --- | ---
@@ -747,7 +747,7 @@ id | **string**<br><ul><li>`allAuthenticatedUsers`: A special system identifier 
 type | **string**<br><ul><li>`userAccount`: An account on Yandex or [Yandex.Connect](./openapi-meta.yaml#Connect)(https://connect.yandex.com), added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul> 
 
 
-### Operation {#Operation}
+### Operation {#Operation9}
 
 Field | Description
 --- | ---

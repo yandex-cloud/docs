@@ -95,19 +95,19 @@ chunks[] | **[SpeechRecognitionResult](#SpeechRecognitionResult)**<br>
 Field | Description
 --- | ---
 streaming_request | **oneof:** `config` or `audio_content`<br>
-&nbsp;&nbsp;config | **[RecognitionConfig](#RecognitionConfig1)**<br> 
+&nbsp;&nbsp;config | **[RecognitionConfig](#RecognitionConfig)**<br> 
 &nbsp;&nbsp;audio_content | **bytes**<br> 
 
 
-### RecognitionConfig {#RecognitionConfig}
+### RecognitionConfig {#RecognitionConfig1}
 
 Field | Description
 --- | ---
-specification | **[RecognitionSpec](#RecognitionSpec1)**<br> 
+specification | **[RecognitionSpec](#RecognitionSpec)**<br> 
 folder_id | **string**<br> 
 
 
-### RecognitionSpec {#RecognitionSpec}
+### RecognitionSpec {#RecognitionSpec1}
 
 Field | Description
 --- | ---
@@ -143,7 +143,7 @@ end_of_utterance | **bool**<br>This flag shows that the received chunk is the en
 Field | Description
 --- | ---
 text | **string**<br> 
-confidence | **float**<br> false
+confidence | **float**<br> 
 words[] | **[WordInfo](#WordInfo)**<br> 
 
 
@@ -154,6 +154,6 @@ Field | Description
 start_time | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br> 
 end_time | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br> 
 word | **string**<br> 
-confidence | **float**<br> false
+confidence | **float**<br> 
 
 

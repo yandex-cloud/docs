@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method delete
-Deletes the specified SQLServer user.
+Deletes the specified SQL Server user.
  
 
  
@@ -16,8 +16,8 @@ DELETE https://mdb.api.cloud.yandex.net/mdb/sqlserver/v1alpha/clusters/{clusterI
  
 Parameter | Description
 --- | ---
-clusterId | Required. Required. ID of the SQLServer cluster the user belongs to. To get the cluster ID, use a [list](/docs/managed-sqlserver/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
-userName | Required. Required. Name of the user to delete. To get the name of the user, use a [list](/docs/managed-sqlserver/api-ref/User/list) request.  The maximum string length in characters is 63. Value must match the regular expression `` [a-zA-Z0-9_]* ``.
+clusterId | Required. ID of the SQL Server cluster the user belongs to.  To get the cluster ID, use a [list](/docs/managed-sqlserver/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
+userName | Required. Name of the user to delete.  To get the name of the user, use a [list](/docs/managed-sqlserver/api-ref/User/list) request.  The maximum string length in characters is 63. Value must match the regular expression `` [a-zA-Z0-9_]* ``.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

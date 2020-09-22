@@ -52,7 +52,7 @@ Returns the specified ClickHouse cluster. <br>To get the list of available Click
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the ClickHouse Cluster resource to return. To get the cluster ID, use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the ClickHouse Cluster resource to return. To get the cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
 
 
 ### Cluster {#Cluster}
@@ -168,7 +168,7 @@ Retrieves a list of ClickHouse clusters that belong to the specified folder.
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder to list ClickHouse clusters in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. false The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the folder to list ClickHouse clusters in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClustersResponse.next_page_token](#ListClustersResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListClustersResponse.next_page_token](#ListClustersResponse) returned by a previous list request. The maximum string length in characters is 100.
 filter | **string**<br><ol><li>The field name. Currently you can only use filtering with the [Cluster.name](../cluster.proto#Cluster1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Мust be 1-63 characters long and match the regular expression `^[a-zA-Z0-9_-]+$`.</li></ol> The maximum string length in characters is 1000.
@@ -179,10 +179,10 @@ filter | **string**<br><ol><li>The field name. Currently you can only use filter
 Field | Description
 --- | ---
 clusters[] | **[Cluster](../cluster.proto#Cluster1)**<br>List of ClickHouse Cluster resources. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClustersRequest.page_size](#ListClustersRequest1), use the `next_page_token` as the value for the [ListClustersRequest.page_token](#ListClustersRequest1) parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClustersRequest.page_size](#ListClustersRequest), use the `next_page_token` as the value for the [ListClustersRequest.page_token](#ListClustersRequest) parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
-### Cluster {#Cluster}
+### Cluster {#Cluster1}
 
 Field | Description
 --- | ---
@@ -203,7 +203,7 @@ maintenance_window | **[MaintenanceWindow](../maintenance.proto#MaintenanceWindo
 planned_operation | **[MaintenanceOperation](../maintenance.proto#MaintenanceOperation1)**<br>Maintenance operation planned at nearest maintenance_window. 
 
 
-### Monitoring {#Monitoring}
+### Monitoring {#Monitoring1}
 
 Field | Description
 --- | ---
@@ -212,7 +212,7 @@ description | **string**<br>Description of the monitoring system.
 link | **string**<br>Link to the monitoring system charts for the ClickHouse cluster. 
 
 
-### ClusterConfig {#ClusterConfig}
+### ClusterConfig {#ClusterConfig1}
 
 Field | Description
 --- | ---
@@ -224,7 +224,7 @@ access | **[Access](../cluster.proto#Access1)**<br>Access policy for external se
 cloud_storage | **[CloudStorage](../cluster.proto#CloudStorage1)**<br> 
 
 
-### Clickhouse {#Clickhouse}
+### Clickhouse {#Clickhouse1}
 
 Field | Description
 --- | ---
@@ -232,14 +232,14 @@ config | **`config.ClickhouseConfigSet`**<br>Configuration settings of a ClickHo
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to ClickHouse hosts. 
 
 
-### Zookeeper {#Zookeeper}
+### Zookeeper {#Zookeeper1}
 
 Field | Description
 --- | ---
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to ZooKeeper hosts. 
 
 
-### Access {#Access}
+### Access {#Access1}
 
 Field | Description
 --- | ---
@@ -249,14 +249,14 @@ metrika | **bool**<br>Allow to import data from Yandex.Metrica and AppMetrica to
 serverless | **bool**<br>Allow access to cluster for Serverless. 
 
 
-### CloudStorage {#CloudStorage}
+### CloudStorage {#CloudStorage1}
 
 Field | Description
 --- | ---
 enabled | **bool**<br>Whether to use Yandex Object Storage for storing ClickHouse data. 
 
 
-### MaintenanceWindow {#MaintenanceWindow}
+### MaintenanceWindow {#MaintenanceWindow1}
 
 Field | Description
 --- | ---
@@ -265,11 +265,11 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
 &nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](../maintenance.proto#WeeklyMaintenanceWindow1)**<br> 
 
 
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow}
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow1}
 
 
 
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow}
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow1}
 
 Field | Description
 --- | ---
@@ -277,7 +277,7 @@ day | enum **WeekDay**<br> <ul><ul/>
 hour | **int64**<br>Hour of the day in UTC. Acceptable values are 1 to 24, inclusive.
 
 
-### MaintenanceOperation {#MaintenanceOperation}
+### MaintenanceOperation {#MaintenanceOperation1}
 
 Field | Description
 --- | ---
@@ -299,16 +299,16 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder to create the ClickHouse cluster in. false The maximum string length in characters is 50.
-name | **string**<br>Required. Name of the ClickHouse cluster. The name must be unique within the folder. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+folder_id | **string**<br>Required. ID of the folder to create the ClickHouse cluster in. The maximum string length in characters is 50.
+name | **string**<br>Required. Name of the ClickHouse cluster. The name must be unique within the folder. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 description | **string**<br>Description of the ClickHouse cluster. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Custom labels for the ClickHouse cluster as `key:value` pairs. Maximum 64 per resource. For example, "project": "mvp" or "source": "dictionary". No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
-environment | **[Cluster.Environment](../cluster.proto#Cluster2)**<br>Required. Deployment environment of the ClickHouse cluster. false
-config_spec | **[ConfigSpec](#ConfigSpec)**<br>Required. Configuration and resources for hosts that should be created for the ClickHouse cluster. false
+environment | **[Cluster.Environment](../cluster.proto#Cluster2)**<br>Required. Deployment environment of the ClickHouse cluster. 
+config_spec | **[ConfigSpec](#ConfigSpec)**<br>Required. Configuration and resources for hosts that should be created for the ClickHouse cluster. 
 database_specs[] | **[DatabaseSpec](../database.proto#DatabaseSpec)**<br>Descriptions of databases to be created in the ClickHouse cluster. The number of elements must be greater than 0.
 user_specs[] | **[UserSpec](../user.proto#UserSpec)**<br>Descriptions of database users to be created in the ClickHouse cluster. The number of elements must be greater than 0.
 host_specs[] | **[HostSpec](#HostSpec)**<br>Individual configurations for hosts that should be created for the ClickHouse cluster. The number of elements must be greater than 0.
-network_id | **string**<br>Required. ID of the network to create the cluster in. false The maximum string length in characters is 50.
+network_id | **string**<br>Required. ID of the network to create the cluster in. The maximum string length in characters is 50.
 shard_name | **string**<br>Name of the first shard in cluster. If not set, defaults to the value 'shard1'. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
 
@@ -325,7 +325,7 @@ access | **[Access](../cluster.proto#Access2)**<br>Access policy for external se
 cloud_storage | **[CloudStorage](../cluster.proto#CloudStorage2)**<br> 
 
 
-### Clickhouse {#Clickhouse}
+### Clickhouse {#Clickhouse2}
 
 Field | Description
 --- | ---
@@ -333,14 +333,14 @@ config | **`config.ClickhouseConfig`**<br>Configuration for a ClickHouse server.
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to ClickHouse hosts. 
 
 
-### Zookeeper {#Zookeeper}
+### Zookeeper {#Zookeeper2}
 
 Field | Description
 --- | ---
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to ZooKeeper hosts. If not set, minimal available resources will be used. All available resource presets can be retrieved with a [ResourcePresetService.List](./resource_preset_service#List) request. 
 
 
-### Access {#Access}
+### Access {#Access2}
 
 Field | Description
 --- | ---
@@ -350,7 +350,7 @@ metrika | **bool**<br>Allow to import data from Yandex.Metrica and AppMetrica to
 serverless | **bool**<br>Allow access to cluster for Serverless. 
 
 
-### CloudStorage {#CloudStorage}
+### CloudStorage {#CloudStorage2}
 
 Field | Description
 --- | ---
@@ -361,15 +361,15 @@ enabled | **bool**<br>Whether to use Yandex Object Storage for storing ClickHous
 
 Field | Description
 --- | ---
-name | **string**<br>Required. Name of the ClickHouse database. 1-63 characters long. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+name | **string**<br>Required. Name of the ClickHouse database. 1-63 characters long. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
 ### UserSpec {#UserSpec}
 
 Field | Description
 --- | ---
-name | **string**<br>Required. Name of the ClickHouse user. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
-password | **string**<br>Required. Password of the ClickHouse user. false The string length in characters must be 8-128.
+name | **string**<br>Required. Name of the ClickHouse user. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+password | **string**<br>Required. Password of the ClickHouse user. The string length in characters must be 8-128.
 permissions[] | **[Permission](../user.proto#Permission)**<br>Set of permissions to grant to the user. 
 settings | **[UserSettings](../user.proto#UserSettings)**<br> 
 quotas[] | **[UserQuota](../user.proto#UserQuota)**<br>Set of quotas assigned to the user. 
@@ -495,7 +495,7 @@ execution_time | **[google.protobuf.Int64Value](https://developers.google.com/pr
 Field | Description
 --- | ---
 zone_id | **string**<br>ID of the availability zone where the host resides. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/grpc/zone_service#List) request. The maximum string length in characters is 50.
-type | **[Host.Type](../cluster.proto#Host)**<br>Required. Type of the host to be deployed. false
+type | **[Host.Type](../cluster.proto#Host)**<br>Required. Type of the host to be deployed. 
 subnet_id | **string**<br>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The ID of the network is set in the [Cluster.network_id](../cluster.proto#Cluster2) field. The maximum string length in characters is 50.
 assign_public_ip | **bool**<br><ul><li>false — don't assign a public IP to the host. </li><li>true — the host should have a public IP address.</li></ul> 
 shard_name | **string**<br>Name of the shard that the host is assigned to. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
@@ -524,7 +524,7 @@ Field | Description
 cluster_id | **string**<br>ID of the ClickHouse cluster that is being created. 
 
 
-### Cluster {#Cluster}
+### Cluster {#Cluster2}
 
 Field | Description
 --- | ---
@@ -559,17 +559,17 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the ClickHouse Cluster resource to update. To get the ClickHouse cluster ID, use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the ClickHouse Cluster resource to update. To get the ClickHouse cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the ClickHouse Cluster resource should be updated. 
 description | **string**<br>New description of the ClickHouse cluster. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Custom labels for the ClickHouse cluster as `key:value` pairs. Maximum 64 per resource. For example, "project": "mvp" or "source": "dictionary". <br>The new set of labels will completely replace the old ones. To add a label, request the current set with the [ClusterService.Get](#Get) method, then send an [ClusterService.Update](#Update) request with the new label added to the set. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
-config_spec | **[ConfigSpec](#ConfigSpec1)**<br>New configuration and resources for hosts in the cluster. 
+config_spec | **[ConfigSpec](#ConfigSpec)**<br>New configuration and resources for hosts in the cluster. 
 name | **string**<br>New name for the cluster. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
 maintenance_window | **[MaintenanceWindow](../maintenance.proto#MaintenanceWindow2)**<br>Window of maintenance operations. 
 
 
-### ConfigSpec {#ConfigSpec}
+### ConfigSpec {#ConfigSpec1}
 
 Field | Description
 --- | ---
@@ -581,7 +581,7 @@ access | **[Access](../cluster.proto#Access3)**<br>Access policy for external se
 cloud_storage | **[CloudStorage](../cluster.proto#CloudStorage3)**<br> 
 
 
-### Clickhouse {#Clickhouse}
+### Clickhouse {#Clickhouse3}
 
 Field | Description
 --- | ---
@@ -589,14 +589,14 @@ config | **`config.ClickhouseConfig`**<br>Configuration for a ClickHouse server.
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to ClickHouse hosts. 
 
 
-### Zookeeper {#Zookeeper}
+### Zookeeper {#Zookeeper3}
 
 Field | Description
 --- | ---
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to ZooKeeper hosts. If not set, minimal available resources will be used. All available resource presets can be retrieved with a [ResourcePresetService.List](./resource_preset_service#List) request. 
 
 
-### Access {#Access}
+### Access {#Access3}
 
 Field | Description
 --- | ---
@@ -606,14 +606,14 @@ metrika | **bool**<br>Allow to import data from Yandex.Metrica and AppMetrica to
 serverless | **bool**<br>Allow access to cluster for Serverless. 
 
 
-### CloudStorage {#CloudStorage}
+### CloudStorage {#CloudStorage3}
 
 Field | Description
 --- | ---
 enabled | **bool**<br>Whether to use Yandex Object Storage for storing ClickHouse data. 
 
 
-### MaintenanceWindow {#MaintenanceWindow}
+### MaintenanceWindow {#MaintenanceWindow2}
 
 Field | Description
 --- | ---
@@ -622,11 +622,11 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
 &nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](../maintenance.proto#WeeklyMaintenanceWindow2)**<br> 
 
 
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow}
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow2}
 
 
 
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow}
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow2}
 
 Field | Description
 --- | ---
@@ -634,7 +634,7 @@ day | enum **WeekDay**<br> <ul><ul/>
 hour | **int64**<br>Hour of the day in UTC. Acceptable values are 1 to 24, inclusive.
 
 
-### Operation {#Operation}
+### Operation {#Operation1}
 
 Field | Description
 --- | ---
@@ -657,7 +657,7 @@ Field | Description
 cluster_id | **string**<br>ID of the ClickHouse Cluster resource that is being updated. 
 
 
-### Cluster {#Cluster}
+### Cluster {#Cluster3}
 
 Field | Description
 --- | ---
@@ -692,10 +692,10 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the ClickHouse cluster to delete. To get the ClickHouse cluster ID, use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the ClickHouse cluster to delete. To get the ClickHouse cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
 
 
-### Operation {#Operation}
+### Operation {#Operation2}
 
 Field | Description
 --- | ---
@@ -732,10 +732,10 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the ClickHouse cluster to start. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the ClickHouse cluster to start. The maximum string length in characters is 50.
 
 
-### Operation {#Operation}
+### Operation {#Operation3}
 
 Field | Description
 --- | ---
@@ -758,7 +758,7 @@ Field | Description
 cluster_id | **string**<br>ID of the ClickHouse cluster being started. 
 
 
-### Cluster {#Cluster}
+### Cluster {#Cluster4}
 
 Field | Description
 --- | ---
@@ -793,10 +793,10 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the ClickHouse cluster to stop. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the ClickHouse cluster to stop. The maximum string length in characters is 50.
 
 
-### Operation {#Operation}
+### Operation {#Operation4}
 
 Field | Description
 --- | ---
@@ -819,7 +819,7 @@ Field | Description
 cluster_id | **string**<br>ID of the ClickHouse cluster being stopped. 
 
 
-### Cluster {#Cluster}
+### Cluster {#Cluster5}
 
 Field | Description
 --- | ---
@@ -854,11 +854,11 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the ClickHouse cluster to move. false The maximum string length in characters is 50.
-destination_folder_id | **string**<br>Required. ID of the destination folder. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the ClickHouse cluster to move. The maximum string length in characters is 50.
+destination_folder_id | **string**<br>Required. ID of the destination folder. The maximum string length in characters is 50.
 
 
-### Operation {#Operation}
+### Operation {#Operation5}
 
 Field | Description
 --- | ---
@@ -883,7 +883,7 @@ source_folder_id | **string**<br>ID of the source folder.
 destination_folder_id | **string**<br>ID of the destination folder. 
 
 
-### Cluster {#Cluster}
+### Cluster {#Cluster6}
 
 Field | Description
 --- | ---
@@ -918,9 +918,9 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the ClickHouse cluster to modify. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the ClickHouse cluster to modify. The maximum string length in characters is 50.
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to Zookeeper hosts. 
-host_specs[] | **[HostSpec](#HostSpec1)**<br>Configuration of ZooKeeper hosts. 
+host_specs[] | **[HostSpec](#HostSpec)**<br>Configuration of ZooKeeper hosts. 
 
 
 ### Resources {#Resources}
@@ -932,18 +932,18 @@ disk_size | **int64**<br>Volume of the storage available to a host, in bytes.
 disk_type_id | **string**<br><ul><li>network-hdd — network HDD drive, </li><li>network-ssd — network SSD drive, </li><li>local-ssd — local SSD storage.</li></ul> 
 
 
-### HostSpec {#HostSpec}
+### HostSpec {#HostSpec1}
 
 Field | Description
 --- | ---
 zone_id | **string**<br>ID of the availability zone where the host resides. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/grpc/zone_service#List) request. The maximum string length in characters is 50.
-type | **[Host.Type](../cluster.proto#Host)**<br>Required. Type of the host to be deployed. false
+type | **[Host.Type](../cluster.proto#Host)**<br>Required. Type of the host to be deployed. 
 subnet_id | **string**<br>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The ID of the network is set in the [Cluster.network_id](../cluster.proto#Cluster7) field. The maximum string length in characters is 50.
 assign_public_ip | **bool**<br><ul><li>false — don't assign a public IP to the host. </li><li>true — the host should have a public IP address.</li></ul> 
 shard_name | **string**<br>Name of the shard that the host is assigned to. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
-### Operation {#Operation}
+### Operation {#Operation6}
 
 Field | Description
 --- | ---
@@ -966,7 +966,7 @@ Field | Description
 cluster_id | **string**<br>ID of the ClickHouse cluster. 
 
 
-### Cluster {#Cluster}
+### Cluster {#Cluster7}
 
 Field | Description
 --- | ---
@@ -1001,10 +1001,10 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the ClickHouse cluster to back up. To get the ClickHouse cluster ID use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the ClickHouse cluster to back up. To get the ClickHouse cluster ID use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
 
 
-### Operation {#Operation}
+### Operation {#Operation7}
 
 Field | Description
 --- | ---
@@ -1027,7 +1027,7 @@ Field | Description
 cluster_id | **string**<br>ID of the ClickHouse cluster that is being backed up. 
 
 
-### Cluster {#Cluster}
+### Cluster {#Cluster8}
 
 Field | Description
 --- | ---
@@ -1062,19 +1062,19 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-backup_id | **string**<br>Required. ID of the backup to create a cluster from. To get the backup ID, use a [ClusterService.ListBackups](#ListBackups) request. false
-name | **string**<br>Required. Name of the new ClickHouse cluster. The name must be unique within the folder. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+backup_id | **string**<br>Required. ID of the backup to create a cluster from. To get the backup ID, use a [ClusterService.ListBackups](#ListBackups) request. 
+name | **string**<br>Required. Name of the new ClickHouse cluster. The name must be unique within the folder. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 description | **string**<br>Description of the new ClickHouse cluster. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Custom labels for the ClickHouse cluster as `key:value` pairs. Maximum 64 per resource. For example, "project": "mvp" or "source": "dictionary". No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
-environment | **[Cluster.Environment](../cluster.proto#Cluster9)**<br>Required. Deployment environment of the new ClickHouse cluster. false
-config_spec | **[ConfigSpec](#ConfigSpec2)**<br>Required. Configuration for the ClickHouse cluster to be created. false
-host_specs[] | **[HostSpec](#HostSpec2)**<br>Configurations for ClickHouse hosts that should be created for the cluster that is being created from the backup. The number of elements must be greater than 0.
-network_id | **string**<br>Required. ID of the network to create the ClickHouse cluster in. false The maximum string length in characters is 50.
+environment | **[Cluster.Environment](../cluster.proto#Cluster9)**<br>Required. Deployment environment of the new ClickHouse cluster. 
+config_spec | **[ConfigSpec](#ConfigSpec)**<br>Required. Configuration for the ClickHouse cluster to be created. 
+host_specs[] | **[HostSpec](#HostSpec)**<br>Configurations for ClickHouse hosts that should be created for the cluster that is being created from the backup. The number of elements must be greater than 0.
+network_id | **string**<br>Required. ID of the network to create the ClickHouse cluster in. The maximum string length in characters is 50.
 folder_id | **string**<br>ID of the folder to create the ClickHouse cluster in. The maximum string length in characters is 50.
 service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
 
 
-### ConfigSpec {#ConfigSpec}
+### ConfigSpec {#ConfigSpec2}
 
 Field | Description
 --- | ---
@@ -1086,7 +1086,7 @@ access | **[Access](../cluster.proto#Access4)**<br>Access policy for external se
 cloud_storage | **[CloudStorage](../cluster.proto#CloudStorage4)**<br> 
 
 
-### Clickhouse {#Clickhouse}
+### Clickhouse {#Clickhouse4}
 
 Field | Description
 --- | ---
@@ -1094,14 +1094,14 @@ config | **`config.ClickhouseConfig`**<br>Configuration for a ClickHouse server.
 resources | **[Resources](../cluster.proto#Resources1)**<br>Resources allocated to ClickHouse hosts. 
 
 
-### Zookeeper {#Zookeeper}
+### Zookeeper {#Zookeeper4}
 
 Field | Description
 --- | ---
 resources | **[Resources](../cluster.proto#Resources1)**<br>Resources allocated to ZooKeeper hosts. If not set, minimal available resources will be used. All available resource presets can be retrieved with a [ResourcePresetService.List](./resource_preset_service#List) request. 
 
 
-### Access {#Access}
+### Access {#Access4}
 
 Field | Description
 --- | ---
@@ -1111,25 +1111,25 @@ metrika | **bool**<br>Allow to import data from Yandex.Metrica and AppMetrica to
 serverless | **bool**<br>Allow access to cluster for Serverless. 
 
 
-### CloudStorage {#CloudStorage}
+### CloudStorage {#CloudStorage4}
 
 Field | Description
 --- | ---
 enabled | **bool**<br>Whether to use Yandex Object Storage for storing ClickHouse data. 
 
 
-### HostSpec {#HostSpec}
+### HostSpec {#HostSpec2}
 
 Field | Description
 --- | ---
 zone_id | **string**<br>ID of the availability zone where the host resides. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/grpc/zone_service#List) request. The maximum string length in characters is 50.
-type | **[Host.Type](../cluster.proto#Host)**<br>Required. Type of the host to be deployed. false
+type | **[Host.Type](../cluster.proto#Host)**<br>Required. Type of the host to be deployed. 
 subnet_id | **string**<br>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The ID of the network is set in the [Cluster.network_id](../cluster.proto#Cluster9) field. The maximum string length in characters is 50.
 assign_public_ip | **bool**<br><ul><li>false — don't assign a public IP to the host. </li><li>true — the host should have a public IP address.</li></ul> 
 shard_name | **string**<br>Name of the shard that the host is assigned to. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
-### Operation {#Operation}
+### Operation {#Operation8}
 
 Field | Description
 --- | ---
@@ -1153,7 +1153,7 @@ cluster_id | **string**<br>ID of the new ClickHouse cluster that is being create
 backup_id | **string**<br>ID of the backup that is being used for creating a cluster. 
 
 
-### Cluster {#Cluster}
+### Cluster {#Cluster9}
 
 Field | Description
 --- | ---
@@ -1188,12 +1188,12 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. Required. ID of the ClickHouse cluster to maintenance reschedule. false The maximum string length in characters is 50.
-reschedule_type | enum **RescheduleType**<br>Required. Required. The type of reschedule request. false<ul><ul/>
+cluster_id | **string**<br>Required. Required. ID of the ClickHouse cluster to maintenance reschedule. The maximum string length in characters is 50.
+reschedule_type | enum **RescheduleType**<br>Required. Required. The type of reschedule request. <ul><ul/>
 delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time for SPECIFIC_TIME reschedule. Limited by two weeks since first time scheduled. 
 
 
-### Operation {#Operation}
+### Operation {#Operation9}
 
 Field | Description
 --- | ---
@@ -1217,7 +1217,7 @@ cluster_id | **string**<br>Required. ID of the ClickHouse cluster.
 delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Required. New time of the planned maintenance. Can be in the past for rescheduled to "IMMEDIATE". 
 
 
-### Cluster {#Cluster}
+### Cluster {#Cluster10}
 
 Field | Description
 --- | ---
@@ -1248,7 +1248,7 @@ Retrieves logs for the specified ClickHouse cluster.
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the ClickHouse cluster to request logs for. To get the ClickHouse cluster ID, use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the ClickHouse cluster to request logs for. To get the ClickHouse cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
 column_filter[] | **string**<br>Columns from logs table to request. If no columns are specified, entire log records are returned. 
 service_type | enum **ServiceType**<br>Type of the service to request logs about. <ul><li>`CLICKHOUSE`: Logs of ClickHouse activity.</li><ul/>
 from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Start timestamp for the logs request, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
@@ -1262,7 +1262,7 @@ page_token | **string**<br>Page token.  To get the next page of results, set `pa
 Field | Description
 --- | ---
 logs[] | **[LogRecord](#LogRecord)**<br>Requested log records. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterLogsRequest.page_size](#ListClusterLogsRequest1), use the `next_page_token` as the value for the [ListClusterLogsRequest.page_token](#ListClusterLogsRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. This value is interchangeable with the [StreamLogRecord.next_record_token](#StreamLogRecord) from StreamLogs method. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterLogsRequest.page_size](#ListClusterLogsRequest), use the `next_page_token` as the value for the [ListClusterLogsRequest.page_token](#ListClusterLogsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. This value is interchangeable with the [StreamLogRecord.next_record_token](#StreamLogRecord) from StreamLogs method. 
 
 
 ### LogRecord {#LogRecord}
@@ -1283,24 +1283,24 @@ Same as ListLogs but using server-side streaming. Also allows for `tail -f` sema
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. Required. ID of the ClickHouse cluster. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. Required. ID of the ClickHouse cluster. The maximum string length in characters is 50.
 column_filter[] | **string**<br>Columns from logs table to get in the response. 
 service_type | enum **ServiceType**<br> <ul><li>`CLICKHOUSE`: Logs of ClickHouse activity.</li><ul/>
 from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Start timestamp for the logs request. 
 to_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>End timestamp for the logs request. If this field is not set, all existing logs will be sent and then the new ones as they appear. In essence it has `tail -f` semantics. 
 record_token | **string**<br>Record token. Set `record_token` to the [StreamLogRecord.next_record_token](#StreamLogRecord) returned by a previous StreamLogs request to start streaming from next log record. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently filtering can be applied to the [LogRecord.logs.message.hostname](#LogRecord1), [LogRecord.logs.message.severity](#LogRecord1) fields. </li><li>A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 1-63 characters long and match the regular expression `^[a-z0-9.-]{1,61}$`. </li></ol> The maximum string length in characters is 1000.
+filter | **string**<br><ol><li>The field name. Currently filtering can be applied to the [LogRecord.logs.message.hostname](#LogRecord), [LogRecord.logs.message.severity](#LogRecord) fields. </li><li>A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 1-63 characters long and match the regular expression `^[a-z0-9.-]{1,61}$`. </li></ol> The maximum string length in characters is 1000.
 
 
 ### StreamLogRecord {#StreamLogRecord}
 
 Field | Description
 --- | ---
-record | **[LogRecord](#LogRecord1)**<br>One of the requested log records. 
-next_record_token | **string**<br>This token allows you to continue streaming logs starting from the exact same record. To continue streaming, specify value of [next_record_token [as value for the [StreamClusterLogsRequest.record_token] parameter in the next StreamLogs request. This value is interchangeable with the [ListClusterLogsResponse.next_page_token](#ListClusterLogsResponse1) from ListLogs method. 
+record | **[LogRecord](#LogRecord)**<br>One of the requested log records. 
+next_record_token | **string**<br>This token allows you to continue streaming logs starting from the exact same record. To continue streaming, specify value of [next_record_token [as value for the [StreamClusterLogsRequest.record_token] parameter in the next StreamLogs request. This value is interchangeable with the [ListClusterLogsResponse.next_page_token](#ListClusterLogsResponse) from ListLogs method. 
 
 
-### LogRecord {#LogRecord}
+### LogRecord {#LogRecord1}
 
 Field | Description
 --- | ---
@@ -1318,7 +1318,7 @@ Retrieves the list of Operation resources for the specified cluster.
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the ClickHouse Cluster resource to list operations for. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the ClickHouse Cluster resource to list operations for. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClusterOperationsResponse.next_page_token](#ListClusterOperationsResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token.  To get the next page of results, set `page_token` to the [ListClusterOperationsResponse.next_page_token](#ListClusterOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
@@ -1328,10 +1328,10 @@ page_token | **string**<br>Page token.  To get the next page of results, set `pa
 Field | Description
 --- | ---
 operations[] | **[operation.Operation](#Operation10)**<br>List of Operation resources for the specified ClickHouse cluster. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterOperationsRequest.page_size](#ListClusterOperationsRequest1), use the `next_page_token` as the value for the [ListClusterOperationsRequest.page_token](#ListClusterOperationsRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterOperationsRequest.page_size](#ListClusterOperationsRequest), use the `next_page_token` as the value for the [ListClusterOperationsRequest.page_token](#ListClusterOperationsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
-### Operation {#Operation}
+### Operation {#Operation10}
 
 Field | Description
 --- | ---
@@ -1357,7 +1357,7 @@ Retrieves the list of available backups for the specified ClickHouse cluster.
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the ClickHouse cluster. To get the ClickHouse cluster ID, use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the ClickHouse cluster. To get the ClickHouse cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClusterBackupsResponse.next_page_token](#ListClusterBackupsResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListClusterBackupsResponse.next_page_token](#ListClusterBackupsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
@@ -1367,7 +1367,7 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 Field | Description
 --- | ---
 backups[] | **[Backup](#Backup)**<br>List of ClickHouse Backup resources. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterBackupsRequest.page_size](#ListClusterBackupsRequest1), use the `next_page_token` as the value for the [ListClusterBackupsRequest.page_token](#ListClusterBackupsRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterBackupsRequest.page_size](#ListClusterBackupsRequest), use the `next_page_token` as the value for the [ListClusterBackupsRequest.page_token](#ListClusterBackupsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
 ### Backup {#Backup}
@@ -1392,7 +1392,7 @@ Retrieves a list of hosts for the specified cluster.
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the ClickHouse cluster. To get the ClickHouse cluster ID use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the ClickHouse cluster. To get the ClickHouse cluster ID use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClusterHostsResponse.next_page_token](#ListClusterHostsResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token.  To get the next page of results, set `page_token` to the [ListClusterHostsResponse.next_page_token](#ListClusterHostsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
@@ -1402,7 +1402,7 @@ page_token | **string**<br>Page token.  To get the next page of results, set `pa
 Field | Description
 --- | ---
 hosts[] | **[Host](../cluster.proto#Host)**<br>Requested list of hosts for the cluster. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterHostsRequest.page_size](#ListClusterHostsRequest1), use the `next_page_token` as the value for the [ListClusterHostsRequest.page_token](#ListClusterHostsRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterHostsRequest.page_size](#ListClusterHostsRequest), use the `next_page_token` as the value for the [ListClusterHostsRequest.page_token](#ListClusterHostsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
 ### Host {#Host}
@@ -1421,7 +1421,7 @@ assign_public_ip | **bool**<br>Flag showing public IP assignment status to this 
 shard_name | **string**<br> 
 
 
-### Resources {#Resources}
+### Resources {#Resources1}
 
 Field | Description
 --- | ---
@@ -1452,22 +1452,22 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the ClickHouse cluster to add hosts to. To get the ClickHouse cluster ID, use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
-host_specs[] | **[HostSpec](#HostSpec3)**<br>Configurations for ClickHouse hosts that should be added to the cluster. The number of elements must be greater than 0.
+cluster_id | **string**<br>Required. ID of the ClickHouse cluster to add hosts to. To get the ClickHouse cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+host_specs[] | **[HostSpec](#HostSpec)**<br>Configurations for ClickHouse hosts that should be added to the cluster. The number of elements must be greater than 0.
 
 
-### HostSpec {#HostSpec}
+### HostSpec {#HostSpec3}
 
 Field | Description
 --- | ---
 zone_id | **string**<br>ID of the availability zone where the host resides. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/grpc/zone_service#List) request. The maximum string length in characters is 50.
-type | **[Host.Type](../cluster.proto#Host1)**<br>Required. Type of the host to be deployed. false
+type | **[Host.Type](../cluster.proto#Host1)**<br>Required. Type of the host to be deployed. 
 subnet_id | **string**<br>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The ID of the network is set in the [Cluster.network_id](../cluster.proto#Cluster11) field. The maximum string length in characters is 50.
 assign_public_ip | **bool**<br><ul><li>false — don't assign a public IP to the host. </li><li>true — the host should have a public IP address.</li></ul> 
 shard_name | **string**<br>Name of the shard that the host is assigned to. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
-### Operation {#Operation}
+### Operation {#Operation11}
 
 Field | Description
 --- | ---
@@ -1505,11 +1505,11 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the ClickHouse cluster to remove hosts from. To get the ClickHouse cluster ID, use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the ClickHouse cluster to remove hosts from. To get the ClickHouse cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
 host_names[] | **string**<br>Names of hosts to delete. The number of elements must be greater than 0. The maximum string length in characters for each value is 253.
 
 
-### Operation {#Operation}
+### Operation {#Operation12}
 
 Field | Description
 --- | ---
@@ -1543,8 +1543,8 @@ Returns the specified shard.
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the cluster that the shard belongs to. To get the cluster ID, use a [ClusterService.List](#List)(#List) request. To get the name of the database, use a [ClusterService.List] request. false The maximum string length in characters is 50.
-shard_name | **string**<br>Required. Name of the shard to request information about. To get the name of a shard, use a [ClusterService.ListShards](#ListShards) request. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+cluster_id | **string**<br>Required. ID of the cluster that the shard belongs to. To get the cluster ID, use a [ClusterService.List](#List)(#List) request. To get the name of the database, use a [ClusterService.List] request. The maximum string length in characters is 50.
+shard_name | **string**<br>Required. Name of the shard to request information about. To get the name of a shard, use a [ClusterService.ListShards](#ListShards) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
 ### Shard {#Shard}
@@ -1563,7 +1563,7 @@ Field | Description
 clickhouse | **[Clickhouse](../cluster.proto#Clickhouse5)**<br>ClickHouse configuration for a shard. 
 
 
-### Clickhouse {#Clickhouse}
+### Clickhouse {#Clickhouse5}
 
 Field | Description
 --- | ---
@@ -1582,7 +1582,7 @@ Retrieves a list of shards that belong to the specified cluster.
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the ClickHouse cluster to list shards in. To get the cluster ID, use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the ClickHouse cluster to list shards in. To get the cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClusterShardsResponse.next_page_token](#ListClusterShardsResponse) that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token.  to get the next page of results, set `page_token` to the [ListClusterShardsResponse.next_page_token](#ListClusterShardsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
@@ -1592,10 +1592,10 @@ page_token | **string**<br>Page token.  to get the next page of results, set `pa
 Field | Description
 --- | ---
 shards[] | **[Shard](../cluster.proto#Shard1)**<br>List of ClickHouse shards. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterShardsRequest.page_size](#ListClusterShardsRequest1), use the `next_page_token` as the value for the [ListClusterShardsRequest.page_token](#ListClusterShardsRequest1) parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterShardsRequest.page_size](#ListClusterShardsRequest), use the `next_page_token` as the value for the [ListClusterShardsRequest.page_token](#ListClusterShardsRequest) parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
-### Shard {#Shard}
+### Shard {#Shard1}
 
 Field | Description
 --- | ---
@@ -1604,14 +1604,14 @@ cluster_id | **string**<br>ID of the cluster that the shard belongs to.
 config | **[ShardConfig](../cluster.proto#ShardConfig1)**<br>Configuration of the shard. 
 
 
-### ShardConfig {#ShardConfig}
+### ShardConfig {#ShardConfig1}
 
 Field | Description
 --- | ---
 clickhouse | **[Clickhouse](../cluster.proto#Clickhouse6)**<br>ClickHouse configuration for a shard. 
 
 
-### Clickhouse {#Clickhouse}
+### Clickhouse {#Clickhouse6}
 
 Field | Description
 --- | ---
@@ -1634,10 +1634,10 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the ClickHouse cluster to add a shard to. To get the ClickHouse cluster ID, use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
-shard_name | **string**<br>Required. Name for the new shard. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+cluster_id | **string**<br>Required. ID of the ClickHouse cluster to add a shard to. To get the ClickHouse cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+shard_name | **string**<br>Required. Name for the new shard. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 config_spec | **[ShardConfigSpec](#ShardConfigSpec)**<br>Configuration of the new shard. 
-host_specs[] | **[HostSpec](#HostSpec4)**<br>Configurations for ClickHouse hosts that should be created with the shard. The number of elements must be greater than 0.
+host_specs[] | **[HostSpec](#HostSpec)**<br>Configurations for ClickHouse hosts that should be created with the shard. The number of elements must be greater than 0.
 
 
 ### ShardConfigSpec {#ShardConfigSpec}
@@ -1647,7 +1647,7 @@ Field | Description
 clickhouse | **[Clickhouse](../cluster.proto#Clickhouse7)**<br>ClickHouse configuration for a shard. 
 
 
-### Clickhouse {#Clickhouse}
+### Clickhouse {#Clickhouse7}
 
 Field | Description
 --- | ---
@@ -1656,18 +1656,18 @@ resources | **[Resources](../cluster.proto#Resources2)**<br>Computational resour
 weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Relative weight of the shard considered when writing data to the cluster. For details, see [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/table_engines/distributed/). 
 
 
-### HostSpec {#HostSpec}
+### HostSpec {#HostSpec4}
 
 Field | Description
 --- | ---
 zone_id | **string**<br>ID of the availability zone where the host resides. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/grpc/zone_service#List) request. The maximum string length in characters is 50.
-type | **[Host.Type](../cluster.proto#Host1)**<br>Required. Type of the host to be deployed. false
+type | **[Host.Type](../cluster.proto#Host1)**<br>Required. Type of the host to be deployed. 
 subnet_id | **string**<br>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The ID of the network is set in the [Cluster.network_id](../cluster.proto#Cluster11) field. The maximum string length in characters is 50.
 assign_public_ip | **bool**<br><ul><li>false — don't assign a public IP to the host. </li><li>true — the host should have a public IP address.</li></ul> 
 shard_name | **string**<br>Name of the shard that the host is assigned to. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
-### Operation {#Operation}
+### Operation {#Operation13}
 
 Field | Description
 --- | ---
@@ -1691,7 +1691,7 @@ cluster_id | **string**<br>ID of the cluster that a shard is being added to.
 shard_name | **string**<br>Name of the shard being created. 
 
 
-### Shard {#Shard}
+### Shard {#Shard2}
 
 Field | Description
 --- | ---
@@ -1714,20 +1714,20 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the ClickHouse cluster the shard belongs to. To get the cluster ID, use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
-shard_name | **string**<br>Required. Name of the shard to be updated. To get the name of a shard, use a [ClusterService.ListShards](#ListShards) request. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+cluster_id | **string**<br>Required. ID of the ClickHouse cluster the shard belongs to. To get the cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+shard_name | **string**<br>Required. Name of the shard to be updated. To get the name of a shard, use a [ClusterService.ListShards](#ListShards) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which attributes of the ClickHouse shard should be updated. 
-config_spec | **[ShardConfigSpec](#ShardConfigSpec1)**<br>New configuration for the specified shard. 
+config_spec | **[ShardConfigSpec](#ShardConfigSpec)**<br>New configuration for the specified shard. 
 
 
-### ShardConfigSpec {#ShardConfigSpec}
+### ShardConfigSpec {#ShardConfigSpec1}
 
 Field | Description
 --- | ---
 clickhouse | **[Clickhouse](../cluster.proto#Clickhouse8)**<br>ClickHouse configuration for a shard. 
 
 
-### Clickhouse {#Clickhouse}
+### Clickhouse {#Clickhouse8}
 
 Field | Description
 --- | ---
@@ -1736,7 +1736,7 @@ resources | **[Resources](../cluster.proto#Resources2)**<br>Computational resour
 weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Relative weight of the shard considered when writing data to the cluster. For details, see [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/table_engines/distributed/). 
 
 
-### Operation {#Operation}
+### Operation {#Operation14}
 
 Field | Description
 --- | ---
@@ -1760,7 +1760,7 @@ cluster_id | **string**<br>ID of the cluster that contains the shard being updat
 shard_name | **string**<br>Name of the shard being updated. 
 
 
-### Shard {#Shard}
+### Shard {#Shard3}
 
 Field | Description
 --- | ---
@@ -1783,11 +1783,11 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the ClickHouse cluster the shard belongs to. To get the cluster ID, use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
-shard_name | **string**<br>Required. Name of the shard to be deleted. To get the name of a shard, use a [ClusterService.ListShards](#ListShards) request. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+cluster_id | **string**<br>Required. ID of the ClickHouse cluster the shard belongs to. To get the cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+shard_name | **string**<br>Required. Name of the shard to be deleted. To get the name of a shard, use a [ClusterService.ListShards](#ListShards) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
-### Operation {#Operation}
+### Operation {#Operation15}
 
 Field | Description
 --- | ---
@@ -1821,8 +1821,8 @@ Returns the specified shard group.
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the cluster that the shard group belongs to. false The maximum string length in characters is 50.
-shard_group_name | **string**<br>Required. Name of the shard group to request information about. To get the name of a shard group, use a [ClusterService.ListShardGroups](#ListShardGroups) request. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+cluster_id | **string**<br>Required. ID of the cluster that the shard group belongs to. The maximum string length in characters is 50.
+shard_group_name | **string**<br>Required. Name of the shard group to request information about. To get the name of a shard group, use a [ClusterService.ListShardGroups](#ListShardGroups) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
 ### ShardGroup {#ShardGroup}
@@ -1845,7 +1845,7 @@ Retrieves a list of shard groups that belong to specified cluster.
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the cluster that the shard group belongs to. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the cluster that the shard group belongs to. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClusterShardGroupsResponse.next_page_token](#ListClusterShardGroupsResponse) that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListClusterShardGroupsResponse.next_page_token](#ListClusterShardGroupsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
@@ -1855,10 +1855,10 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 Field | Description
 --- | ---
 shard_groups[] | **[ShardGroup](../cluster.proto#ShardGroup1)**<br>List of ClickHouse Cluster shard groups. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterShardGroupsRequest.page_size](#ListClusterShardGroupsRequest1), use the `next_page_token` as the value for the [ListClusterShardGroupsRequest.page_token](#ListClusterShardGroupsRequest1) parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterShardGroupsRequest.page_size](#ListClusterShardGroupsRequest), use the `next_page_token` as the value for the [ListClusterShardGroupsRequest.page_token](#ListClusterShardGroupsRequest) parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
-### ShardGroup {#ShardGroup}
+### ShardGroup {#ShardGroup1}
 
 Field | Description
 --- | ---
@@ -1882,13 +1882,13 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the ClickHouse cluster to add a shard group to. To get the ClickHouse cluster ID, use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
-shard_group_name | **string**<br>Required. Name for the new shard group. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+cluster_id | **string**<br>Required. ID of the ClickHouse cluster to add a shard group to. To get the ClickHouse cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+shard_group_name | **string**<br>Required. Name for the new shard group. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 description | **string**<br>Description of the ClickHouse cluster shard group. 0-256 characters long. 
 shard_names[] | **string**<br>List of shard names that belongs to the new group. 
 
 
-### Operation {#Operation}
+### Operation {#Operation16}
 
 Field | Description
 --- | ---
@@ -1912,7 +1912,7 @@ cluster_id | **string**<br>ID of the ClickHouse cluster to add a shard group to.
 shard_group_name | **string**<br>Name for the new shard group. 
 
 
-### ShardGroup {#ShardGroup}
+### ShardGroup {#ShardGroup2}
 
 Field | Description
 --- | ---
@@ -1936,14 +1936,14 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the cluster that contains the shard group being updated. false The maximum string length in characters is 50.
-shard_group_name | **string**<br>Required. Name of the shard group that should be updated. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+cluster_id | **string**<br>Required. ID of the cluster that contains the shard group being updated. The maximum string length in characters is 50.
+shard_group_name | **string**<br>Required. Name of the shard group that should be updated. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which attributes of the ClickHouse shard group should be updated. 
 description | **string**<br>Description of the ClickHouse cluster shard group. 0-256 characters long. 
 shard_names[] | **string**<br>Updated list of shard names that belongs to the new group. 
 
 
-### Operation {#Operation}
+### Operation {#Operation17}
 
 Field | Description
 --- | ---
@@ -1967,7 +1967,7 @@ cluster_id | **string**<br>ID of the cluster that contains the shard group being
 shard_group_name | **string**<br>Name of the shard group that should be updated. 
 
 
-### ShardGroup {#ShardGroup}
+### ShardGroup {#ShardGroup3}
 
 Field | Description
 --- | ---
@@ -1991,11 +1991,11 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the ClickHouse cluster the shard group belongs to. false The maximum string length in characters is 50.
-shard_group_name | **string**<br>Required. Name of the shard group that should be deleted. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+cluster_id | **string**<br>Required. ID of the ClickHouse cluster the shard group belongs to. The maximum string length in characters is 50.
+shard_group_name | **string**<br>Required. Name of the shard group that should be deleted. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
-### Operation {#Operation}
+### Operation {#Operation18}
 
 Field | Description
 --- | ---
@@ -2033,11 +2033,11 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the ClickHouse cluster to create the external dictionary for. To get the cluster ID, use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the ClickHouse cluster to create the external dictionary for. To get the cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
 external_dictionary | **[config.ClickhouseConfig.ExternalDictionary](#ClickhouseConfig)**<br>Configuration of the external dictionary. 
 
 
-### Operation {#Operation}
+### Operation {#Operation19}
 
 Field | Description
 --- | ---
@@ -2060,7 +2060,7 @@ Field | Description
 cluster_id | **string**<br>ID of the cluster for which an external dictionary is being created. 
 
 
-### Cluster {#Cluster}
+### Cluster {#Cluster11}
 
 Field | Description
 --- | ---
@@ -2095,11 +2095,11 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the ClickHouse cluster to delete the external dictionary from. To get the cluster ID, use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the ClickHouse cluster to delete the external dictionary from. To get the cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
 external_dictionary_name | **string**<br>Name of the external dictionary to delete. 
 
 
-### Operation {#Operation}
+### Operation {#Operation20}
 
 Field | Description
 --- | ---
@@ -2122,7 +2122,7 @@ Field | Description
 cluster_id | **string**<br>ID of the cluster where an external dictionary is being deleted. 
 
 
-### Cluster {#Cluster}
+### Cluster {#Cluster12}
 
 Field | Description
 --- | ---

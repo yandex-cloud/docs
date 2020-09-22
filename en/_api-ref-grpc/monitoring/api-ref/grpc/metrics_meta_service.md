@@ -25,7 +25,7 @@ Retrieves the list of metrics.
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder that the metric belongs to. false The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the folder that the metric belongs to. The maximum string length in characters is 50.
 selectors | **string**<br>Metric selectors. 
 page_size | **int64**<br>Maximum number of metrics in response. 0 means default page size = 30, maximum page size = 10000. 
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListMetricsResponse.next_page_token](#ListMetricsResponse) returned by a previous list request. 
@@ -58,11 +58,11 @@ Retrieves the list of metric names.
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder that the metric belongs to. false The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the folder that the metric belongs to. The maximum string length in characters is 50.
 selectors | **string**<br>Metric selectors. 
 name_filter | **string**<br>Substring name filter text. 
 page_size | **int64**<br>Maximum number of metrics in response. 0 means default page size = 30, maximum page size = 10000. 
-page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListMetricsResponse.next_page_token](#ListMetricsResponse1) returned by a previous list request. 
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListMetricsResponse.next_page_token](#ListMetricsResponse) returned by a previous list request. 
 
 
 ### ListMetricNamesResponse {#ListMetricNamesResponse}
@@ -83,7 +83,7 @@ Retrieves the list of label keys.
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder that the metric belongs to. false The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the folder that the metric belongs to. The maximum string length in characters is 50.
 selectors | **string**<br>Metric selectors. 
 
 
@@ -104,12 +104,12 @@ Retries the list of values for a given label key.
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder that the metric belongs to. false The maximum string length in characters is 50.
-label_key | **string**<br>Required. For which label key perform values lookup. false
+folder_id | **string**<br>Required. ID of the folder that the metric belongs to. The maximum string length in characters is 50.
+label_key | **string**<br>Required. For which label key perform values lookup. 
 selectors | **string**<br>Metric selectors. 
 value_filter | **string**<br>Substring value filter text. 
 page_size | **int64**<br>Maximum number of metrics in response. 0 means default page size = 30, maximum page size = 10000. 
-page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListMetricsResponse.next_page_token](#ListMetricsResponse1) returned by a previous list request. 
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListMetricsResponse.next_page_token](#ListMetricsResponse) returned by a previous list request. 
 
 
 ### ListLabelValuesResponse {#ListLabelValuesResponse}

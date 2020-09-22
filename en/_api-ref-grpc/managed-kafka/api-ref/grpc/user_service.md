@@ -28,8 +28,8 @@ Returns the specified Kafka user. <br>To get the list of available Kafka users, 
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the Apache Kafka® cluster the user belongs to. <br>To get the cluster ID, make a [ClusterService.List](./cluster_service#List) request. false The maximum string length in characters is 50.
-user_name | **string**<br>Required. Name of the Kafka user to return. <br>To get the name of the user, make a [UserService.List](#List) request. false The string length in characters must be 1-63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+cluster_id | **string**<br>Required. ID of the Apache Kafka® cluster the user belongs to. <br>To get the cluster ID, make a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
+user_name | **string**<br>Required. Name of the Kafka user to return. <br>To get the name of the user, make a [UserService.List](#List) request. The string length in characters must be 1-63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
 
 
 ### User {#User}
@@ -59,7 +59,7 @@ Retrieves the list of Kafka users in the specified cluster.
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the Apache Kafka® cluster to list Kafka users in. <br>To get the Apache Kafka® cluster ID, make a [ClusterService.List](./cluster_service#List) request. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the Apache Kafka® cluster to list Kafka users in. <br>To get the Apache Kafka® cluster ID, make a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. <br>If the number of available results is larger than `page_size`, the service returns a [ListUsersResponse.next_page_token](#ListUsersResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token. <br>To get the next page of results, set `page_token` to the [ListUsersResponse.next_page_token](#ListUsersResponse) returned by a previous list request. The maximum string length in characters is 100.
 
@@ -69,10 +69,10 @@ page_token | **string**<br>Page token. <br>To get the next page of results, set 
 Field | Description
 --- | ---
 users[] | **[User](../user.proto#User1)**<br>List of Kafka users. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. <br>If the number of results is larger than [ListUsersRequest.page_size](#ListUsersRequest1), use the `next_page_token` as the value for the [ListUsersRequest.page_token](#ListUsersRequest1) parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. <br>If the number of results is larger than [ListUsersRequest.page_size](#ListUsersRequest), use the `next_page_token` as the value for the [ListUsersRequest.page_token](#ListUsersRequest) parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
-### User {#User}
+### User {#User1}
 
 Field | Description
 --- | ---
@@ -81,7 +81,7 @@ cluster_id | **string**<br>ID of the Apache Kafka® cluster the user belongs to.
 permissions[] | **[Permission](../user.proto#Permission1)**<br>Set of permissions granted to this user. 
 
 
-### Permission {#Permission}
+### Permission {#Permission1}
 
 Field | Description
 --- | ---
@@ -103,20 +103,20 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the Apache Kafka® cluster to create a user in. <br>To get the cluster ID, make a [ClusterService.List](./cluster_service#List) request. false The maximum string length in characters is 50.
-user_spec | **[UserSpec](../user.proto#UserSpec)**<br>Required. Configuration of the user to create. false
+cluster_id | **string**<br>Required. ID of the Apache Kafka® cluster to create a user in. <br>To get the cluster ID, make a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
+user_spec | **[UserSpec](../user.proto#UserSpec)**<br>Required. Configuration of the user to create. 
 
 
 ### UserSpec {#UserSpec}
 
 Field | Description
 --- | ---
-name | **string**<br>Required. Name of the Kafka user. false The string length in characters must be 1-63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
-password | **string**<br>Required. Password of the Kafka user. false The string length in characters must be 8-128.
+name | **string**<br>Required. Name of the Kafka user. The string length in characters must be 1-63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+password | **string**<br>Required. Password of the Kafka user. The string length in characters must be 8-128.
 permissions[] | **[Permission](../user.proto#Permission2)**<br>Set of permissions granted to the user. 
 
 
-### Permission {#Permission}
+### Permission {#Permission2}
 
 Field | Description
 --- | ---
@@ -148,7 +148,7 @@ cluster_id | **string**<br>ID of the Apache Kafka® cluster the user is being cr
 user_name | **string**<br>Name of the user that is being created. 
 
 
-### User {#User}
+### User {#User2}
 
 Field | Description
 --- | ---
@@ -171,14 +171,14 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the Apache Kafka® cluster the user belongs to. <br>To get the cluster ID, make a [ClusterService.List](./cluster_service#List) request. false The maximum string length in characters is 50.
-user_name | **string**<br>Required. Name of the user to be updated. <br>To get the name of the user, make a [UserService.List](#List) request. false The string length in characters must be 1-63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+cluster_id | **string**<br>Required. ID of the Apache Kafka® cluster the user belongs to. <br>To get the cluster ID, make a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
+user_name | **string**<br>Required. Name of the user to be updated. <br>To get the name of the user, make a [UserService.List](#List) request. The string length in characters must be 1-63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br> 
 password | **string**<br>New password for the user. The string length in characters must be 8-128.
 permissions[] | **[Permission](../user.proto#Permission3)**<br>New set of permissions for the user. 
 
 
-### Permission {#Permission}
+### Permission {#Permission3}
 
 Field | Description
 --- | ---
@@ -186,7 +186,7 @@ topic_name | **string**<br>Name of the topic that the permission grants access t
 role | enum **AccessRole**<br>Access role type to grant to the user. <ul><li>`ACCESS_ROLE_PRODUCER`: producer role for the user.</li><li>`ACCESS_ROLE_CONSUMER`: consumer role for the user.</li><ul/>
 
 
-### Operation {#Operation}
+### Operation {#Operation1}
 
 Field | Description
 --- | ---
@@ -210,7 +210,7 @@ cluster_id | **string**<br>ID of the Apache Kafka® cluster the user belongs to.
 user_name | **string**<br>Name of the user that is being updated. 
 
 
-### User {#User}
+### User {#User3}
 
 Field | Description
 --- | ---
@@ -233,11 +233,11 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the Apache Kafka® cluster the user belongs to. To get the cluster ID, make a [ClusterService.List](./cluster_service#List) request. false The maximum string length in characters is 50.
-user_name | **string**<br>Required. Name of the user to delete. To get the name of the user, make a [UserService.List](#List) request. false The string length in characters must be 1-63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+cluster_id | **string**<br>Required. ID of the Apache Kafka® cluster the user belongs to. To get the cluster ID, make a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
+user_name | **string**<br>Required. Name of the user to delete. To get the name of the user, make a [UserService.List](#List) request. The string length in characters must be 1-63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
 
 
-### Operation {#Operation}
+### Operation {#Operation2}
 
 Field | Description
 --- | ---
@@ -275,12 +275,12 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the Apache Kafka® cluster the user belongs to. <br>To get the cluster ID, make a [ClusterService.List](./cluster_service#List) request. false The maximum string length in characters is 50.
-user_name | **string**<br>Required. Name of the user to grant the permission to. <br>To get the name of the user, make a [UserService.List](#List) request. false The string length in characters must be 1-63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
-permission | **[Permission](../user.proto#Permission4)**<br>Required. Permission that should be granted to the specified user. false
+cluster_id | **string**<br>Required. ID of the Apache Kafka® cluster the user belongs to. <br>To get the cluster ID, make a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
+user_name | **string**<br>Required. Name of the user to grant the permission to. <br>To get the name of the user, make a [UserService.List](#List) request. The string length in characters must be 1-63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+permission | **[Permission](../user.proto#Permission4)**<br>Required. Permission that should be granted to the specified user. 
 
 
-### Permission {#Permission}
+### Permission {#Permission4}
 
 Field | Description
 --- | ---
@@ -288,7 +288,7 @@ topic_name | **string**<br>Name of the topic that the permission grants access t
 role | enum **AccessRole**<br>Access role type to grant to the user. <ul><li>`ACCESS_ROLE_PRODUCER`: producer role for the user.</li><li>`ACCESS_ROLE_CONSUMER`: consumer role for the user.</li><ul/>
 
 
-### Operation {#Operation}
+### Operation {#Operation3}
 
 Field | Description
 --- | ---
@@ -312,7 +312,7 @@ cluster_id | **string**<br>ID of the Apache Kafka® cluster the user belongs to.
 user_name | **string**<br>Name of the user that is being granted a permission. 
 
 
-### User {#User}
+### User {#User4}
 
 Field | Description
 --- | ---
@@ -335,12 +335,12 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the Apache Kafka® cluster the user belongs to. <br>To get the cluster ID, make a [ClusterService.List](./cluster_service#List) request. false The maximum string length in characters is 50.
-user_name | **string**<br>Required. Name of the user to revoke a permission from. <br>To get the name of the user, make a [UserService.List](#List) request. false The string length in characters must be 1-63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
-permission | **[Permission](../user.proto#Permission5)**<br>Required. Permission that should be revoked from the specified user. false
+cluster_id | **string**<br>Required. ID of the Apache Kafka® cluster the user belongs to. <br>To get the cluster ID, make a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
+user_name | **string**<br>Required. Name of the user to revoke a permission from. <br>To get the name of the user, make a [UserService.List](#List) request. The string length in characters must be 1-63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+permission | **[Permission](../user.proto#Permission5)**<br>Required. Permission that should be revoked from the specified user. 
 
 
-### Permission {#Permission}
+### Permission {#Permission5}
 
 Field | Description
 --- | ---
@@ -348,7 +348,7 @@ topic_name | **string**<br>Name of the topic that the permission grants access t
 role | enum **AccessRole**<br>Access role type to grant to the user. <ul><li>`ACCESS_ROLE_PRODUCER`: producer role for the user.</li><li>`ACCESS_ROLE_CONSUMER`: consumer role for the user.</li><ul/>
 
 
-### Operation {#Operation}
+### Operation {#Operation4}
 
 Field | Description
 --- | ---
@@ -372,7 +372,7 @@ cluster_id | **string**<br>ID of the Apache Kafka® cluster the user belongs to.
 user_name | **string**<br>Name of the user whose permission is being revoked. 
 
 
-### User {#User}
+### User {#User5}
 
 Field | Description
 --- | ---

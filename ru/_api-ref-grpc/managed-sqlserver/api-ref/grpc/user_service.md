@@ -1,0 +1,383 @@
+---
+editable: false
+---
+
+# UserService
+
+Набор методов для управления пользователями SQL Server.
+
+| Вызов | Описание |
+| --- | --- |
+| [Get](#Get) | Возвращает указанного пользователя SQL Server. |
+| [List](#List) | Возвращает список пользователей SQL Server в указанном кластере. |
+| [Create](#Create) | Создает пользователя SQL Server в указанном кластере. |
+| [Update](#Update) | Изменяет указанного пользователя SQL Server. |
+| [Delete](#Delete) | Удаляет указанного пользователя SQL Server. |
+| [GrantPermission](#GrantPermission) | Предоставляет разрешение указанному пользователю SQL Server. |
+| [RevokePermission](#RevokePermission) | Отзывает разрешение у указанного пользователя SQL Server. |
+
+## Вызовы UserService {#calls}
+
+## Get {#Get}
+
+Возвращает указанного пользователя SQL Server. <br>Чтобы получить список доступных пользователей SQL Server, выполните запрос [List](#List).
+
+**rpc Get ([GetUserRequest](#GetUserRequest)) returns ([User](../user.proto#User))**
+
+### GetUserRequest {#GetUserRequest}
+
+Поле | Описание
+--- | ---
+cluster_id | **string**<br>Обязательное поле. Идентификатор кластера SQL Server, которому принадлежит пользователь. <br>Чтобы получить идентификатор кластера, используйте запрос [ClusterService.List](./cluster_service#List). Максимальная длина строки в символах — 50.
+user_name | **string**<br>Обязательное поле. Имя запрашиваемого пользователя SQL Server. <br>Чтобы получить имя пользователя, используйте запрос [DatabaseService.List](./database_service#List). Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_]* `.
+
+
+### User {#User}
+
+Поле | Описание
+--- | ---
+name | **string**<br>Имя пользователя SQL Server. 
+cluster_id | **string**<br>Идентификатор кластера SQL Server, которому принадлежит пользователь. 
+permissions[] | **[Permission](../user.proto#Permission)**<br>Набор разрешений, предоставленных пользователю. 
+
+
+### Permission {#Permission}
+
+Поле | Описание
+--- | ---
+database_name | **string**<br>Имя базы данных, для которой предоставляется разрешение. 
+roles[] | enum **Role**<br>Роли, предоставленные пользователю в базе данных. Минимальное количество элементов — 1.<ul><li>`DB_OWNER`: Члены этой роли могут выполнять все действия по настройке и обслуживанию базы данных, а также удалять базу данных SQL Server.</li><li>`DB_SECURITYADMIN`: Члены этой роли могут управлять разрешениями и членством в пользовательских ролях. Они потенциально могут повысить свои привилегии, поэтому их действия должны контролироваться.</li><li>`DB_ACCESSADMIN`: Члены этой роли могут управлять доступом к базе данных для пользователей Windows, групп Windows и пользователей SQL Server.</li><li>`DB_BACKUPOPERATOR`: Члены этой роли могут создавать резервные копии базы данных.</li><li>`DB_DDLADMIN`: Члены этой роли могут выполнять в базе данных любую команду языка описания данных (DDL).</li><li>`DB_DATAWRITER`: Члены этой роли могут добавлять, удалять или изменять данные во всех пользовательских таблицах.</li><li>`DB_DATAREADER`: Члены этой роли могут читать все данные из всех пользовательских таблиц.</li><li>`DB_DENYDATAWRITER`: Члены этой роли не могут добавлять, изменять или удалять никакие данные в пользовательских таблицах базы данных. Подобное ограничение привилегий имеет более высокий приоритет, чем предоставление, поэтому вы можете использовать эту роль для быстрого ограничения привилегий без явного отзыва разрешений или ролей.</li><li>`DB_DENYDATAREADER`: Члены этой фиксированной роли базы данных не могут читать никакие данные из пользовательских таблиц в базе данных. Подобное ограничение привилегий имеет более высокий приоритет, чем предоставление, поэтому вы можете использовать эту роль для быстрого ограничения привилегий без явного отзыва разрешений или ролей.</li><ul/>
+
+
+## List {#List}
+
+Возвращает список пользователей SQL Server в указанном кластере.
+
+**rpc List ([ListUsersRequest](#ListUsersRequest)) returns ([ListUsersResponse](#ListUsersResponse))**
+
+### ListUsersRequest {#ListUsersRequest}
+
+Поле | Описание
+--- | ---
+cluster_id | **string**<br>Обязательное поле. Идентификатор кластера SQL Server, список пользователей которого нужно получить. <br>Чтобы получить идентификатор кластера, используйте запрос [ClusterService.List](./cluster_service#List). Максимальная длина строки в символах — 50.
+page_size | **int64**<br>Максимальное количество результатов на одной странице в ответе. Если количество результатов больше чем `page_size`, сервис вернет значение [ListUsersResponse.next_page_token](#ListUsersResponse), которое можно использовать для получения следующей страницы. Допустимые значения — от 0 до 1000 включительно.
+page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListUsersResponse.next_page_token](#ListUsersResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
+
+
+### ListUsersResponse {#ListUsersResponse}
+
+Поле | Описание
+--- | ---
+users[] | **[User](../user.proto#User1)**<br>Запрошенный список пользователей SQL Server. 
+next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListUsersRequest.page_size](#ListUsersRequest), используйте `next_page_token` в качестве значения параметра [ListUsersRequest.page_token](#ListUsersRequest) в следующем запросе. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
+
+
+### User {#User1}
+
+Поле | Описание
+--- | ---
+name | **string**<br>Имя пользователя SQL Server. 
+cluster_id | **string**<br>Идентификатор кластера SQL Server, которому принадлежит пользователь. 
+permissions[] | **[Permission](../user.proto#Permission1)**<br>Набор разрешений, предоставленных пользователю. 
+
+
+### Permission {#Permission1}
+
+Поле | Описание
+--- | ---
+database_name | **string**<br>Имя базы данных, для которой предоставляется разрешение. 
+roles[] | enum **Role**<br>Роли, предоставленные пользователю в базе данных. Минимальное количество элементов — 1.<ul><li>`DB_OWNER`: Члены этой роли могут выполнять все действия по настройке и обслуживанию базы данных, а также удалять базу данных SQL Server.</li><li>`DB_SECURITYADMIN`: Члены этой роли могут управлять разрешениями и членством в пользовательских ролях. Они потенциально могут повысить свои привилегии, поэтому их действия должны контролироваться.</li><li>`DB_ACCESSADMIN`: Члены этой роли могут управлять доступом к базе данных для пользователей Windows, групп Windows и пользователей SQL Server.</li><li>`DB_BACKUPOPERATOR`: Члены этой роли могут создавать резервные копии базы данных.</li><li>`DB_DDLADMIN`: Члены этой роли могут выполнять в базе данных любую команду языка описания данных (DDL).</li><li>`DB_DATAWRITER`: Члены этой роли могут добавлять, удалять или изменять данные во всех пользовательских таблицах.</li><li>`DB_DATAREADER`: Члены этой роли могут читать все данные из всех пользовательских таблиц.</li><li>`DB_DENYDATAWRITER`: Члены этой роли не могут добавлять, изменять или удалять никакие данные в пользовательских таблицах базы данных. Подобное ограничение привилегий имеет более высокий приоритет, чем предоставление, поэтому вы можете использовать эту роль для быстрого ограничения привилегий без явного отзыва разрешений или ролей.</li><li>`DB_DENYDATAREADER`: Члены этой фиксированной роли базы данных не могут читать никакие данные из пользовательских таблиц в базе данных. Подобное ограничение привилегий имеет более высокий приоритет, чем предоставление, поэтому вы можете использовать эту роль для быстрого ограничения привилегий без явного отзыва разрешений или ролей.</li><ul/>
+
+
+## Create {#Create}
+
+Создает пользователя SQL Server в указанном кластере.
+
+**rpc Create ([CreateUserRequest](#CreateUserRequest)) returns ([operation.Operation](#Operation))**
+
+Метаданные и результат операции:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateUserMetadata](#CreateUserMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[User](../user.proto#User2)<br>
+
+### CreateUserRequest {#CreateUserRequest}
+
+Поле | Описание
+--- | ---
+cluster_id | **string**<br>Обязательное поле. Идентификатор кластера SQL Server, в котором следует создать пользователя. <br>Чтобы получить идентификатор кластера, используйте запрос [ClusterService.List](./cluster_service#List). Максимальная длина строки в символах — 50.
+user_spec | **[UserSpec](../user.proto#UserSpec)**<br>Обязательное поле. Свойства создаваемого пользователя. 
+
+
+### UserSpec {#UserSpec}
+
+Поле | Описание
+--- | ---
+name | **string**<br>Обязательное поле. Имя пользователя SQL Server. Максимальная длина строки в символах — 32. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_]* `.
+password | **string**<br>Обязательное поле. Пароль пользователя SQL Server. Длина строки в символах должна быть от 8 до 128.
+permissions[] | **[Permission](../user.proto#Permission2)**<br>Набор разрешений, которые следует предоставить пользователю. 
+
+
+### Permission {#Permission2}
+
+Поле | Описание
+--- | ---
+database_name | **string**<br>Имя базы данных, для которой предоставляется разрешение. 
+roles[] | enum **Role**<br>Роли, предоставленные пользователю в базе данных. Минимальное количество элементов — 1.<ul><li>`DB_OWNER`: Члены этой роли могут выполнять все действия по настройке и обслуживанию базы данных, а также удалять базу данных SQL Server.</li><li>`DB_SECURITYADMIN`: Члены этой роли могут управлять разрешениями и членством в пользовательских ролях. Они потенциально могут повысить свои привилегии, поэтому их действия должны контролироваться.</li><li>`DB_ACCESSADMIN`: Члены этой роли могут управлять доступом к базе данных для пользователей Windows, групп Windows и пользователей SQL Server.</li><li>`DB_BACKUPOPERATOR`: Члены этой роли могут создавать резервные копии базы данных.</li><li>`DB_DDLADMIN`: Члены этой роли могут выполнять в базе данных любую команду языка описания данных (DDL).</li><li>`DB_DATAWRITER`: Члены этой роли могут добавлять, удалять или изменять данные во всех пользовательских таблицах.</li><li>`DB_DATAREADER`: Члены этой роли могут читать все данные из всех пользовательских таблиц.</li><li>`DB_DENYDATAWRITER`: Члены этой роли не могут добавлять, изменять или удалять никакие данные в пользовательских таблицах базы данных. Подобное ограничение привилегий имеет более высокий приоритет, чем предоставление, поэтому вы можете использовать эту роль для быстрого ограничения привилегий без явного отзыва разрешений или ролей.</li><li>`DB_DENYDATAREADER`: Члены этой фиксированной роли базы данных не могут читать никакие данные из пользовательских таблиц в базе данных. Подобное ограничение привилегий имеет более высокий приоритет, чем предоставление, поэтому вы можете использовать эту роль для быстрого ограничения привилегий без явного отзыва разрешений или ролей.</li><ul/>
+
+
+### Operation {#Operation}
+
+Поле | Описание
+--- | ---
+id | **string**<br>Идентификатор операции. 
+description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
+created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
+done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateUserMetadata](#CreateUserMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
+result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[User](../user.proto#User2)>**<br>в случае успешного выполнения операции. 
+
+
+### CreateUserMetadata {#CreateUserMetadata}
+
+Поле | Описание
+--- | ---
+cluster_id | **string**<br>Идентификатор кластера SQL Server, в котором создается пользователь. 
+user_name | **string**<br>Имя создаваемого пользователя. 
+
+
+### User {#User2}
+
+Поле | Описание
+--- | ---
+name | **string**<br>Имя пользователя SQL Server. 
+cluster_id | **string**<br>Идентификатор кластера SQL Server, которому принадлежит пользователь. 
+permissions[] | **[Permission](../user.proto#Permission3)**<br>Набор разрешений, предоставленных пользователю. 
+
+
+## Update {#Update}
+
+Изменяет указанного пользователя SQL Server.
+
+**rpc Update ([UpdateUserRequest](#UpdateUserRequest)) returns ([operation.Operation](#Operation1))**
+
+Метаданные и результат операции:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateUserMetadata](#UpdateUserMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[User](../user.proto#User3)<br>
+
+### UpdateUserRequest {#UpdateUserRequest}
+
+Поле | Описание
+--- | ---
+cluster_id | **string**<br>Обязательное поле. Идентификатор кластера SQL Server, которому принадлежит пользователь. <br>Чтобы получить идентификатор кластера, используйте запрос [ClusterService.List](./cluster_service#List). Максимальная длина строки в символах — 50.
+user_name | **string**<br>Обязательное поле. Имя пользователя, которого следует изменить. <br>Чтобы получить имя пользователя, используйте запрос [UserService.List](#List). Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_]* `.
+update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Маска, которая указывает, какие атрибуты пользователя SQL Server должны быть изменены. 
+password | **string**<br>Новый пароль для пользователя. Длина строки в символах должна быть от 8 до 128.
+permissions[] | **[Permission](../user.proto#Permission3)**<br>Новый набор разрешений для пользователя. 
+
+
+### Permission {#Permission3}
+
+Поле | Описание
+--- | ---
+database_name | **string**<br>Имя базы данных, для которой предоставляется разрешение. 
+roles[] | enum **Role**<br>Роли, предоставленные пользователю в базе данных. Минимальное количество элементов — 1.<ul><li>`DB_OWNER`: Члены этой роли могут выполнять все действия по настройке и обслуживанию базы данных, а также удалять базу данных SQL Server.</li><li>`DB_SECURITYADMIN`: Члены этой роли могут управлять разрешениями и членством в пользовательских ролях. Они потенциально могут повысить свои привилегии, поэтому их действия должны контролироваться.</li><li>`DB_ACCESSADMIN`: Члены этой роли могут управлять доступом к базе данных для пользователей Windows, групп Windows и пользователей SQL Server.</li><li>`DB_BACKUPOPERATOR`: Члены этой роли могут создавать резервные копии базы данных.</li><li>`DB_DDLADMIN`: Члены этой роли могут выполнять в базе данных любую команду языка описания данных (DDL).</li><li>`DB_DATAWRITER`: Члены этой роли могут добавлять, удалять или изменять данные во всех пользовательских таблицах.</li><li>`DB_DATAREADER`: Члены этой роли могут читать все данные из всех пользовательских таблиц.</li><li>`DB_DENYDATAWRITER`: Члены этой роли не могут добавлять, изменять или удалять никакие данные в пользовательских таблицах базы данных. Подобное ограничение привилегий имеет более высокий приоритет, чем предоставление, поэтому вы можете использовать эту роль для быстрого ограничения привилегий без явного отзыва разрешений или ролей.</li><li>`DB_DENYDATAREADER`: Члены этой фиксированной роли базы данных не могут читать никакие данные из пользовательских таблиц в базе данных. Подобное ограничение привилегий имеет более высокий приоритет, чем предоставление, поэтому вы можете использовать эту роль для быстрого ограничения привилегий без явного отзыва разрешений или ролей.</li><ul/>
+
+
+### Operation {#Operation1}
+
+Поле | Описание
+--- | ---
+id | **string**<br>Идентификатор операции. 
+description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
+created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
+done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateUserMetadata](#UpdateUserMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
+result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[User](../user.proto#User3)>**<br>в случае успешного выполнения операции. 
+
+
+### UpdateUserMetadata {#UpdateUserMetadata}
+
+Поле | Описание
+--- | ---
+cluster_id | **string**<br>Идентификатор кластера SQL Server, которому принадлежит пользователь. 
+user_name | **string**<br>Имя изменяемого пользователя. 
+
+
+### User {#User3}
+
+Поле | Описание
+--- | ---
+name | **string**<br>Имя пользователя SQL Server. 
+cluster_id | **string**<br>Идентификатор кластера SQL Server, которому принадлежит пользователь. 
+permissions[] | **[Permission](../user.proto#Permission4)**<br>Набор разрешений, предоставленных пользователю. 
+
+
+## Delete {#Delete}
+
+Удаляет указанного пользователя SQL Server.
+
+**rpc Delete ([DeleteUserRequest](#DeleteUserRequest)) returns ([operation.Operation](#Operation2))**
+
+Метаданные и результат операции:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[DeleteUserMetadata](#DeleteUserMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
+
+### DeleteUserRequest {#DeleteUserRequest}
+
+Поле | Описание
+--- | ---
+cluster_id | **string**<br>Обязательное поле. Идентификатор кластера SQL Server, которому принадлежит пользователь. <br>Чтобы получить идентификатор кластера, используйте запрос [ClusterService.List](./cluster_service#List). Максимальная длина строки в символах — 50.
+user_name | **string**<br>Обязательное поле. Имя пользователя, которого нужно удалить. <br>Чтобы получить имя пользователя, используйте запрос [UserService.List](#List). Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_]* `.
+
+
+### Operation {#Operation2}
+
+Поле | Описание
+--- | ---
+id | **string**<br>Идентификатор операции. 
+description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
+created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
+done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteUserMetadata](#DeleteUserMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
+result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>в случае успешного выполнения операции. 
+
+
+### DeleteUserMetadata {#DeleteUserMetadata}
+
+Поле | Описание
+--- | ---
+cluster_id | **string**<br>Идентификатор кластера SQL Server, которому принадлежит пользователь. 
+user_name | **string**<br>Имя удаляемого пользователя. 
+
+
+## GrantPermission {#GrantPermission}
+
+Предоставляет разрешение указанному пользователю SQL Server.
+
+**rpc GrantPermission ([GrantUserPermissionRequest](#GrantUserPermissionRequest)) returns ([operation.Operation](#Operation3))**
+
+Метаданные и результат операции:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[GrantUserPermissionMetadata](#GrantUserPermissionMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[User](../user.proto#User4)<br>
+
+### GrantUserPermissionRequest {#GrantUserPermissionRequest}
+
+Поле | Описание
+--- | ---
+cluster_id | **string**<br>Обязательное поле. Идентификатор кластера SQL Server, которому принадлежит пользователь. <br>Чтобы получить идентификатор кластера, используйте запрос [ClusterService.List](./cluster_service#List). Максимальная длина строки в символах — 50.
+user_name | **string**<br>Обязательное поле. Имя пользователя, которому следует предоставить разрешение. Чтобы получить имя пользователя, используйте запрос [UserService.List](#List). Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_]* `.
+permission | **[Permission](../user.proto#Permission4)**<br>Обязательное поле. Разрешение, которое должно быть предоставлено указанному пользователю. 
+
+
+### Permission {#Permission4}
+
+Поле | Описание
+--- | ---
+database_name | **string**<br>Имя базы данных, для которой предоставляется разрешение. 
+roles[] | enum **Role**<br>Роли, предоставленные пользователю в базе данных. Минимальное количество элементов — 1.<ul><li>`DB_OWNER`: Члены этой роли могут выполнять все действия по настройке и обслуживанию базы данных, а также удалять базу данных SQL Server.</li><li>`DB_SECURITYADMIN`: Члены этой роли могут управлять разрешениями и членством в пользовательских ролях. Они потенциально могут повысить свои привилегии, поэтому их действия должны контролироваться.</li><li>`DB_ACCESSADMIN`: Члены этой роли могут управлять доступом к базе данных для пользователей Windows, групп Windows и пользователей SQL Server.</li><li>`DB_BACKUPOPERATOR`: Члены этой роли могут создавать резервные копии базы данных.</li><li>`DB_DDLADMIN`: Члены этой роли могут выполнять в базе данных любую команду языка описания данных (DDL).</li><li>`DB_DATAWRITER`: Члены этой роли могут добавлять, удалять или изменять данные во всех пользовательских таблицах.</li><li>`DB_DATAREADER`: Члены этой роли могут читать все данные из всех пользовательских таблиц.</li><li>`DB_DENYDATAWRITER`: Члены этой роли не могут добавлять, изменять или удалять никакие данные в пользовательских таблицах базы данных. Подобное ограничение привилегий имеет более высокий приоритет, чем предоставление, поэтому вы можете использовать эту роль для быстрого ограничения привилегий без явного отзыва разрешений или ролей.</li><li>`DB_DENYDATAREADER`: Члены этой фиксированной роли базы данных не могут читать никакие данные из пользовательских таблиц в базе данных. Подобное ограничение привилегий имеет более высокий приоритет, чем предоставление, поэтому вы можете использовать эту роль для быстрого ограничения привилегий без явного отзыва разрешений или ролей.</li><ul/>
+
+
+### Operation {#Operation3}
+
+Поле | Описание
+--- | ---
+id | **string**<br>Идентификатор операции. 
+description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
+created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
+done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[GrantUserPermissionMetadata](#GrantUserPermissionMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
+result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[User](../user.proto#User4)>**<br>в случае успешного выполнения операции. 
+
+
+### GrantUserPermissionMetadata {#GrantUserPermissionMetadata}
+
+Поле | Описание
+--- | ---
+cluster_id | **string**<br>Идентификатор кластера SQL Server, которому принадлежит пользователь. <br>Чтобы получить идентификатор кластера, используйте запрос [ClusterService.List](./cluster_service#List). 
+user_name | **string**<br>Имя пользователя, которому предоставляется разрешение. 
+
+
+### User {#User4}
+
+Поле | Описание
+--- | ---
+name | **string**<br>Имя пользователя SQL Server. 
+cluster_id | **string**<br>Идентификатор кластера SQL Server, которому принадлежит пользователь. 
+permissions[] | **[Permission](../user.proto#Permission5)**<br>Набор разрешений, предоставленных пользователю. 
+
+
+## RevokePermission {#RevokePermission}
+
+Отзывает разрешение у указанного пользователя SQL Server.
+
+**rpc RevokePermission ([RevokeUserPermissionRequest](#RevokeUserPermissionRequest)) returns ([operation.Operation](#Operation4))**
+
+Метаданные и результат операции:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[RevokeUserPermissionMetadata](#RevokeUserPermissionMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[User](../user.proto#User5)<br>
+
+### RevokeUserPermissionRequest {#RevokeUserPermissionRequest}
+
+Поле | Описание
+--- | ---
+cluster_id | **string**<br>Обязательное поле. Идентификатор кластера SQL Server, которому принадлежит пользователь. <br>Чтобы получить идентификатор кластера, используйте запрос [ClusterService.List](./cluster_service#List). Максимальная длина строки в символах — 50.
+user_name | **string**<br>Обязательное поле. Имя пользователя, у которого следует отозвать разрешение. <br>Чтобы получить имя пользователя, используйте запрос [UserService.List](#List). Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_]* `.
+permission | **[Permission](../user.proto#Permission5)**<br>Обязательное поле. Разрешение, которое должно быть отозвано у указанного пользователя. 
+
+
+### Permission {#Permission5}
+
+Поле | Описание
+--- | ---
+database_name | **string**<br>Имя базы данных, для которой предоставляется разрешение. 
+roles[] | enum **Role**<br>Роли, предоставленные пользователю в базе данных. Минимальное количество элементов — 1.<ul><li>`DB_OWNER`: Члены этой роли могут выполнять все действия по настройке и обслуживанию базы данных, а также удалять базу данных SQL Server.</li><li>`DB_SECURITYADMIN`: Члены этой роли могут управлять разрешениями и членством в пользовательских ролях. Они потенциально могут повысить свои привилегии, поэтому их действия должны контролироваться.</li><li>`DB_ACCESSADMIN`: Члены этой роли могут управлять доступом к базе данных для пользователей Windows, групп Windows и пользователей SQL Server.</li><li>`DB_BACKUPOPERATOR`: Члены этой роли могут создавать резервные копии базы данных.</li><li>`DB_DDLADMIN`: Члены этой роли могут выполнять в базе данных любую команду языка описания данных (DDL).</li><li>`DB_DATAWRITER`: Члены этой роли могут добавлять, удалять или изменять данные во всех пользовательских таблицах.</li><li>`DB_DATAREADER`: Члены этой роли могут читать все данные из всех пользовательских таблиц.</li><li>`DB_DENYDATAWRITER`: Члены этой роли не могут добавлять, изменять или удалять никакие данные в пользовательских таблицах базы данных. Подобное ограничение привилегий имеет более высокий приоритет, чем предоставление, поэтому вы можете использовать эту роль для быстрого ограничения привилегий без явного отзыва разрешений или ролей.</li><li>`DB_DENYDATAREADER`: Члены этой фиксированной роли базы данных не могут читать никакие данные из пользовательских таблиц в базе данных. Подобное ограничение привилегий имеет более высокий приоритет, чем предоставление, поэтому вы можете использовать эту роль для быстрого ограничения привилегий без явного отзыва разрешений или ролей.</li><ul/>
+
+
+### Operation {#Operation4}
+
+Поле | Описание
+--- | ---
+id | **string**<br>Идентификатор операции. 
+description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
+created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
+done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RevokeUserPermissionMetadata](#RevokeUserPermissionMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
+result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[User](../user.proto#User5)>**<br>в случае успешного выполнения операции. 
+
+
+### RevokeUserPermissionMetadata {#RevokeUserPermissionMetadata}
+
+Поле | Описание
+--- | ---
+cluster_id | **string**<br>Идентификатор кластера SQL Server, которому принадлежит пользователь. 
+user_name | **string**<br>Имя пользователя, для которого отзывается разрешение. 
+
+
+### User {#User5}
+
+Поле | Описание
+--- | ---
+name | **string**<br>Имя пользователя SQL Server. 
+cluster_id | **string**<br>Идентификатор кластера SQL Server, которому принадлежит пользователь. 
+permissions[] | **[Permission](../user.proto#Permission6)**<br>Набор разрешений, предоставленных пользователю. 
+
+

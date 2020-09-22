@@ -28,8 +28,8 @@ Returns the specified ClickHouse User resource. <br>To get the list of available
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the ClickHouse cluster the user belongs to. To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request. false The maximum string length in characters is 50.
-user_name | **string**<br>Required. Name of the ClickHouse User resource to return. To get the name of the user, use a [UserService.List](#List) request. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+cluster_id | **string**<br>Required. ID of the ClickHouse cluster the user belongs to. To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
+user_name | **string**<br>Required. Name of the ClickHouse User resource to return. To get the name of the user, use a [UserService.List](#List) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
 
 
 ### User {#User}
@@ -168,7 +168,7 @@ Retrieves the list of ClickHouse User resources in the specified cluster.
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the cluster to list ClickHouse users in. To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the cluster to list ClickHouse users in. To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListUsersResponse.next_page_token](#ListUsersResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token.  To get the next page of results, set `page_token` to the [ListUsersResponse.next_page_token](#ListUsersResponse) returned by a previous list request. The maximum string length in characters is 100.
 
@@ -178,10 +178,10 @@ page_token | **string**<br>Page token.  To get the next page of results, set `pa
 Field | Description
 --- | ---
 users[] | **[User](../user.proto#User1)**<br>List of ClickHouse User resources. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListUsersRequest.page_size](#ListUsersRequest1), use the `next_page_token` as the value for the [ListUsersRequest.page_token](#ListUsersRequest1) parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListUsersRequest.page_size](#ListUsersRequest), use the `next_page_token` as the value for the [ListUsersRequest.page_token](#ListUsersRequest) parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
-### User {#User}
+### User {#User1}
 
 Field | Description
 --- | ---
@@ -192,14 +192,14 @@ settings | **[UserSettings](../user.proto#UserSettings1)**<br>
 quotas[] | **[UserQuota](../user.proto#UserQuota1)**<br>Set of quotas assigned to the user. 
 
 
-### Permission {#Permission}
+### Permission {#Permission1}
 
 Field | Description
 --- | ---
 database_name | **string**<br>Name of the database that the permission grants access to. 
 
 
-### UserSettings {#UserSettings}
+### UserSettings {#UserSettings1}
 
 Field | Description
 --- | ---
@@ -295,7 +295,7 @@ add_http_cors_header | **[google.protobuf.BoolValue](https://developers.google.c
 quota_mode | enum **QuotaMode**<br>Quota accounting mode. Possible values: QUOTA_MODE_DEFAULT, QUOTA_MODE_KEYED and QUOTA_MODE_KEYED_BY_IP. <ul><ul/>
 
 
-### UserQuota {#UserQuota}
+### UserQuota {#UserQuota1}
 
 Field | Description
 --- | ---
@@ -321,29 +321,29 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the ClickHouse cluster to create a user in. To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request. false The maximum string length in characters is 50.
-user_spec | **[UserSpec](../user.proto#UserSpec)**<br>Required. Properties of the user to be created. false
+cluster_id | **string**<br>Required. ID of the ClickHouse cluster to create a user in. To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
+user_spec | **[UserSpec](../user.proto#UserSpec)**<br>Required. Properties of the user to be created. 
 
 
 ### UserSpec {#UserSpec}
 
 Field | Description
 --- | ---
-name | **string**<br>Required. Name of the ClickHouse user. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
-password | **string**<br>Required. Password of the ClickHouse user. false The string length in characters must be 8-128.
+name | **string**<br>Required. Name of the ClickHouse user. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+password | **string**<br>Required. Password of the ClickHouse user. The string length in characters must be 8-128.
 permissions[] | **[Permission](../user.proto#Permission2)**<br>Set of permissions to grant to the user. 
 settings | **[UserSettings](../user.proto#UserSettings2)**<br> 
 quotas[] | **[UserQuota](../user.proto#UserQuota2)**<br>Set of quotas assigned to the user. 
 
 
-### Permission {#Permission}
+### Permission {#Permission2}
 
 Field | Description
 --- | ---
 database_name | **string**<br>Name of the database that the permission grants access to. 
 
 
-### UserSettings {#UserSettings}
+### UserSettings {#UserSettings2}
 
 Field | Description
 --- | ---
@@ -439,7 +439,7 @@ add_http_cors_header | **[google.protobuf.BoolValue](https://developers.google.c
 quota_mode | enum **QuotaMode**<br>Quota accounting mode. Possible values: QUOTA_MODE_DEFAULT, QUOTA_MODE_KEYED and QUOTA_MODE_KEYED_BY_IP. <ul><ul/>
 
 
-### UserQuota {#UserQuota}
+### UserQuota {#UserQuota2}
 
 Field | Description
 --- | ---
@@ -475,7 +475,7 @@ cluster_id | **string**<br>ID of the ClickHouse cluster the user is being create
 user_name | **string**<br>Name of the user that is being created. 
 
 
-### User {#User}
+### User {#User2}
 
 Field | Description
 --- | ---
@@ -500,8 +500,8 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the ClickHouse cluster the user belongs to. To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request. false The maximum string length in characters is 50.
-user_name | **string**<br>Required. Name of the user to be updated. To get the name of the user, use a [UserService.List](#List) request. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+cluster_id | **string**<br>Required. ID of the ClickHouse cluster the user belongs to. To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
+user_name | **string**<br>Required. Name of the user to be updated. To get the name of the user, use a [UserService.List](#List) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which attributes of the ClickHouse user should be updated. 
 password | **string**<br>New password for the user. The string length in characters must be 8-128.
 permissions[] | **[Permission](../user.proto#Permission3)**<br>New set of permissions for the user. 
@@ -509,14 +509,14 @@ settings | **[UserSettings](../user.proto#UserSettings3)**<br>
 quotas[] | **[UserQuota](../user.proto#UserQuota3)**<br> 
 
 
-### Permission {#Permission}
+### Permission {#Permission3}
 
 Field | Description
 --- | ---
 database_name | **string**<br>Name of the database that the permission grants access to. 
 
 
-### UserSettings {#UserSettings}
+### UserSettings {#UserSettings3}
 
 Field | Description
 --- | ---
@@ -612,7 +612,7 @@ add_http_cors_header | **[google.protobuf.BoolValue](https://developers.google.c
 quota_mode | enum **QuotaMode**<br>Quota accounting mode. Possible values: QUOTA_MODE_DEFAULT, QUOTA_MODE_KEYED and QUOTA_MODE_KEYED_BY_IP. <ul><ul/>
 
 
-### UserQuota {#UserQuota}
+### UserQuota {#UserQuota3}
 
 Field | Description
 --- | ---
@@ -624,7 +624,7 @@ read_rows | **[google.protobuf.Int64Value](https://developers.google.com/protoco
 execution_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The total query execution time, in milliseconds (wall time). 0 - unlimited. The minimum value is 0.
 
 
-### Operation {#Operation}
+### Operation {#Operation1}
 
 Field | Description
 --- | ---
@@ -648,7 +648,7 @@ cluster_id | **string**<br>ID of the ClickHouse cluster the user belongs to.
 user_name | **string**<br>Name of the user that is being updated. 
 
 
-### User {#User}
+### User {#User3}
 
 Field | Description
 --- | ---
@@ -673,11 +673,11 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the ClickHouse cluster the user belongs to. To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request. false The maximum string length in characters is 50.
-user_name | **string**<br>Required. Name of the user to delete. To get the name of the user, use a [UserService.List](#List) request. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+cluster_id | **string**<br>Required. ID of the ClickHouse cluster the user belongs to. To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
+user_name | **string**<br>Required. Name of the user to delete. To get the name of the user, use a [UserService.List](#List) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
 
 
-### Operation {#Operation}
+### Operation {#Operation2}
 
 Field | Description
 --- | ---
@@ -715,19 +715,19 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the ClickHouse cluster the user belongs to. To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request. false The maximum string length in characters is 50.
-user_name | **string**<br>Required. Name of the user to grant the permission to. To get the name of the user, use a [UserService.List](#List) request. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+cluster_id | **string**<br>Required. ID of the ClickHouse cluster the user belongs to. To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
+user_name | **string**<br>Required. Name of the user to grant the permission to. To get the name of the user, use a [UserService.List](#List) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
 permission | **[Permission](../user.proto#Permission4)**<br>Permission that should be granted to the specified user. 
 
 
-### Permission {#Permission}
+### Permission {#Permission4}
 
 Field | Description
 --- | ---
 database_name | **string**<br>Name of the database that the permission grants access to. 
 
 
-### Operation {#Operation}
+### Operation {#Operation3}
 
 Field | Description
 --- | ---
@@ -751,7 +751,7 @@ cluster_id | **string**<br>ID of the ClickHouse cluster the user belongs to.
 user_name | **string**<br>Name of the user that is being granted a permission. 
 
 
-### User {#User}
+### User {#User4}
 
 Field | Description
 --- | ---
@@ -776,12 +776,12 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the ClickHouse cluster the user belongs to. To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request. false The maximum string length in characters is 50.
-user_name | **string**<br>Required. Name of the user to revoke a permission from. To get the name of the user, use a [UserService.List](#List) request. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+cluster_id | **string**<br>Required. ID of the ClickHouse cluster the user belongs to. To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
+user_name | **string**<br>Required. Name of the user to revoke a permission from. To get the name of the user, use a [UserService.List](#List) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
 database_name | **string**<br>Name of the database that the user should lose access to. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
-### Operation {#Operation}
+### Operation {#Operation4}
 
 Field | Description
 --- | ---
@@ -805,7 +805,7 @@ cluster_id | **string**<br>ID of the ClickHouse cluster the user belongs to.
 user_name | **string**<br>Name of the user whose permission is being revoked. 
 
 
-### User {#User}
+### User {#User5}
 
 Field | Description
 --- | ---

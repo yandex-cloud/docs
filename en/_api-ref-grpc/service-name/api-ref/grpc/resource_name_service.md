@@ -30,7 +30,7 @@ Returns the specified resource name. <br>To get the list of all available resour
 
 Field | Description
 --- | ---
-resource_name_id | **string**<br>Required. ID of the resource name to return. <br>To get a resource name ID make a [ResourceNameService.List](#List) request. false The maximum string length in characters is 50.
+resource_name_id | **string**<br>Required. ID of the resource name to return. <br>To get a resource name ID make a [ResourceNameService.List](#List) request. The maximum string length in characters is 50.
 
 
 ### ResourceName {#ResourceName}
@@ -57,7 +57,7 @@ Retrieves the list of resource names in the specified folder.
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder to list resource names in. <br>To get the folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. false The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the folder to list resource names in. <br>To get the folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListResourceNamesResponse.next_page_token](#ListResourceNamesResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListResourceNamesResponse.next_page_token](#ListResourceNamesResponse) returned by a previous list request. The maximum string length in characters is 100.
 filter | **string**<br><ol><li>The field name. Currently you can use filtering only on [ResourceName.name](../resource_name.proto#ResourceName1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]. </li></ol> The maximum string length in characters is 1000.
@@ -68,10 +68,10 @@ filter | **string**<br><ol><li>The field name. Currently you can use filtering o
 Field | Description
 --- | ---
 resource_names[] | **[ResourceName](../resource_name.proto#ResourceName1)**<br>List of resource name in the specified folder. 
-next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListResourceNamesRequest.page_size](#ListResourceNamesRequest1), use `next_page_token` as the value for the [ListResourceNamesRequest.page_token](#ListResourceNamesRequest1) parameter in the next list request. <br>Each subsequent page will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListResourceNamesRequest.page_size](#ListResourceNamesRequest), use `next_page_token` as the value for the [ListResourceNamesRequest.page_token](#ListResourceNamesRequest) parameter in the next list request. <br>Each subsequent page will have its own `next_page_token` to continue paging through the results. 
 
 
-### ResourceName {#ResourceName}
+### ResourceName {#ResourceName1}
 
 Field | Description
 --- | ---
@@ -99,11 +99,11 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder to create a resource name in. <br>To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. false The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the folder to create a resource name in. <br>To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. The maximum string length in characters is 50.
 name | **string**<br>Name of the resource name. The name must be unique within the folder. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>Description of the resource name. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource name labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
-zone_id | **string**<br>Required. ID of the availability zone where resource name resides. To get a list of available zones, make a [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/grpc/zone_service#List) request. false The maximum string length in characters is 50.
+zone_id | **string**<br>Required. ID of the availability zone where resource name resides. To get a list of available zones, make a [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/grpc/zone_service#List) request. The maximum string length in characters is 50.
 
 
 ### Operation {#Operation}
@@ -129,7 +129,7 @@ Field | Description
 resource_name_id | **string**<br>ID of the resource name that is being created. 
 
 
-### ResourceName {#ResourceName}
+### ResourceName {#ResourceName2}
 
 Field | Description
 --- | ---
@@ -157,14 +157,14 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-resource_name_id | **string**<br>Required. ID of the resource name to update. <br>To get the resource name ID make a [ResourceNameService.List](#List) request. false The maximum string length in characters is 50.
+resource_name_id | **string**<br>Required. ID of the resource name to update. <br>To get the resource name ID make a [ResourceNameService.List](#List) request. The maximum string length in characters is 50.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which attributes of the resource name should be updated. 
 name | **string**<br>New name for the resource name. The name must be unique within the folder. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>New description of the resource name. The maximum string length in characters is 256.
 labels | **map<string,string>**<br><ol><li>Get the current set of labels with a [ResourceNameService.Get](#Get) request. </li><li>Add or remove a label in this set. </li><li>Send the new set in this field.</li></ol> No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 
 
-### Operation {#Operation}
+### Operation {#Operation1}
 
 Field | Description
 --- | ---
@@ -187,7 +187,7 @@ Field | Description
 resource_name_id | **string**<br>ID of the resource name that is being updated. 
 
 
-### ResourceName {#ResourceName}
+### ResourceName {#ResourceName3}
 
 Field | Description
 --- | ---
@@ -215,10 +215,10 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-resource_name_id | **string**<br>Required. ID of the resource name to delete. <br>To get a resource name ID make a [ResourceNameService.List](#List) request. false The maximum string length in characters is 50.
+resource_name_id | **string**<br>Required. ID of the resource name to delete. <br>To get a resource name ID make a [ResourceNameService.List](#List) request. The maximum string length in characters is 50.
 
 
-### Operation {#Operation}
+### Operation {#Operation2}
 
 Field | Description
 --- | ---
@@ -251,7 +251,7 @@ access Lists access bindings for the specified resource name.
 
 Field | Description
 --- | ---
-resource_id | **string**<br>Required. ID of the resource to list access bindings for. <br>To get the resource ID, use a corresponding List request. For example, use the [yandex.cloud.resourcemanager.v1.CloudService.List](/docs/resource-manager/grpc/cloud_service#List) request to get the Cloud resource ID. false
+resource_id | **string**<br>Required. ID of the resource to list access bindings for. <br>To get the resource ID, use a corresponding List request. For example, use the [yandex.cloud.resourcemanager.v1.CloudService.List](/docs/resource-manager/grpc/cloud_service#List) request to get the Cloud resource ID. 
 page_size | **int64**<br>The maximum number of results per page that should be returned. If the number of available results is larger than `page_size`, the service returns a [ListAccessBindingsResponse.next_page_token](#ListAccessBindingsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
 page_token | **string**<br>Page token. Set `page_token` to the [ListAccessBindingsResponse.next_page_token](#ListAccessBindingsResponse) returned by a previous list request to get the next page of results. The maximum string length in characters is 100.
 
@@ -269,7 +269,7 @@ next_page_token | **string**<br>This token allows you to get the next page of re
 Field | Description
 --- | ---
 role_id | **string**<br>ID of the `yandex.cloud.iam.v1.Role` that is assigned to the `subject`. The maximum string length in characters is 50.
-subject | **[Subject](#Subject)**<br>Required. Identity for which access binding is being created. It can represent an account with a unique ID or several accounts with a system identifier. false
+subject | **[Subject](#Subject)**<br>Required. Identity for which access binding is being created. It can represent an account with a unique ID or several accounts with a system identifier. 
 
 
 ### Subject {#Subject}
@@ -294,19 +294,19 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-resource_id | **string**<br>Required. ID of the resource for which access bindings are being set. <br>To get the resource ID, use a corresponding List request. false
-access_bindings[] | **[AccessBinding](#AccessBinding)**<br>Required. Access bindings to be set. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings). false
+resource_id | **string**<br>Required. ID of the resource for which access bindings are being set. <br>To get the resource ID, use a corresponding List request. 
+access_bindings[] | **[AccessBinding](#AccessBinding)**<br>Required. Access bindings to be set. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings). 
 
 
-### AccessBinding {#AccessBinding}
+### AccessBinding {#AccessBinding1}
 
 Field | Description
 --- | ---
 role_id | **string**<br>ID of the `yandex.cloud.iam.v1.Role` that is assigned to the `subject`. The maximum string length in characters is 50.
-subject | **[Subject](#Subject)**<br>Required. Identity for which access binding is being created. It can represent an account with a unique ID or several accounts with a system identifier. false
+subject | **[Subject](#Subject)**<br>Required. Identity for which access binding is being created. It can represent an account with a unique ID or several accounts with a system identifier. 
 
 
-### Subject {#Subject}
+### Subject {#Subject1}
 
 Field | Description
 --- | ---
@@ -314,7 +314,7 @@ id | **string**<br><ul><li>`allAuthenticatedUsers`: A special system identifier 
 type | **string**<br><ul><li>`userAccount`: An account on Yandex or [Yandex.Connect](./openapi-meta.yaml#Connect)(https://connect.yandex.com), added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul> 
 
 
-### Operation {#Operation}
+### Operation {#Operation3}
 
 Field | Description
 --- | ---
@@ -351,27 +351,27 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-resource_id | **string**<br>Required. ID of the resource for which access bindings are being updated. false
-access_binding_deltas[] | **[AccessBindingDelta](#AccessBindingDelta)**<br>Required. Updates to access bindings. false
+resource_id | **string**<br>Required. ID of the resource for which access bindings are being updated. 
+access_binding_deltas[] | **[AccessBindingDelta](#AccessBindingDelta)**<br>Required. Updates to access bindings. 
 
 
 ### AccessBindingDelta {#AccessBindingDelta}
 
 Field | Description
 --- | ---
-action | enum **AccessBindingAction**<br>Required. The action that is being performed on an access binding. false<ul><li>`ADD`: Addition of an access binding.</li><li>`REMOVE`: Removal of an access binding.</li><ul/>
-access_binding | **[AccessBinding](#AccessBinding)**<br>Required. Access binding. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings). false
+action | enum **AccessBindingAction**<br>Required. The action that is being performed on an access binding. <ul><li>`ADD`: Addition of an access binding.</li><li>`REMOVE`: Removal of an access binding.</li><ul/>
+access_binding | **[AccessBinding](#AccessBinding)**<br>Required. Access binding. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings). 
 
 
-### AccessBinding {#AccessBinding}
+### AccessBinding {#AccessBinding2}
 
 Field | Description
 --- | ---
 role_id | **string**<br>ID of the `yandex.cloud.iam.v1.Role` that is assigned to the `subject`. The maximum string length in characters is 50.
-subject | **[Subject](#Subject)**<br>Required. Identity for which access binding is being created. It can represent an account with a unique ID or several accounts with a system identifier. false
+subject | **[Subject](#Subject)**<br>Required. Identity for which access binding is being created. It can represent an account with a unique ID or several accounts with a system identifier. 
 
 
-### Subject {#Subject}
+### Subject {#Subject2}
 
 Field | Description
 --- | ---
@@ -379,7 +379,7 @@ id | **string**<br><ul><li>`allAuthenticatedUsers`: A special system identifier 
 type | **string**<br><ul><li>`userAccount`: An account on Yandex or [Yandex.Connect](./openapi-meta.yaml#Connect)(https://connect.yandex.com), added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul> 
 
 
-### Operation {#Operation}
+### Operation {#Operation4}
 
 Field | Description
 --- | ---
@@ -412,7 +412,7 @@ Lists operations for the specified resource name.
 
 Field | Description
 --- | ---
-resource_name_id | **string**<br>Required. ID of the resource name to list operations for. <br>To get a resource name ID make a [ResourceNameService.List](#List) request. false The maximum string length in characters is 50.
+resource_name_id | **string**<br>Required. ID of the resource name to list operations for. <br>To get a resource name ID make a [ResourceNameService.List](#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListResourceNameOperationsResponse.next_page_token](#ListResourceNameOperationsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListResourceNameOperationsResponse.next_page_token](#ListResourceNameOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
@@ -422,10 +422,10 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 Field | Description
 --- | ---
 operations[] | **[operation.Operation](#Operation5)**<br>List of operations for the specified resource name. 
-next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListResourceNameOperationsRequest.page_size](#ListResourceNameOperationsRequest1), use `next_page_token` as the value for the [ListResourceNameOperationsRequest.page_token](#ListResourceNameOperationsRequest1) parameter in the next list request. <br>Each subsequent page will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListResourceNameOperationsRequest.page_size](#ListResourceNameOperationsRequest), use `next_page_token` as the value for the [ListResourceNameOperationsRequest.page_token](#ListResourceNameOperationsRequest) parameter in the next list request. <br>Each subsequent page will have its own `next_page_token` to continue paging through the results. 
 
 
-### Operation {#Operation}
+### Operation {#Operation5}
 
 Field | Description
 --- | ---

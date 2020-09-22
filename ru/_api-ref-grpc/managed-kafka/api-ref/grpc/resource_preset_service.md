@@ -23,7 +23,7 @@ editable: false
 
 Поле | Описание
 --- | ---
-resource_preset_id | **string**<br>Обязательное поле. Идентификатор шаблона ресурса, данные о котором запрашиваются. <br>Чтобы получить идентификатор шаблона ресурса, выполните запрос [ResourcePresetService.List](#List). false
+resource_preset_id | **string**<br>Обязательное поле. Идентификатор шаблона ресурса, данные о котором запрашиваются. <br>Чтобы получить идентификатор шаблона ресурса, выполните запрос [ResourcePresetService.List](#List). 
 
 
 ### ResourcePreset {#ResourcePreset}
@@ -55,10 +55,10 @@ page_token | **string**<br>Токен страницы. <br>Установите
 Поле | Описание
 --- | ---
 resource_presets[] | **[ResourcePreset](../resource_preset.proto#ResourcePreset1)**<br>Список шаблонов ресурсов. 
-next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. <br>Если количество результатов больше чем [ListResourcePresetsRequest.page_size](#ListResourcePresetsRequest1), используйте `next_page_token` в качестве значения параметра [ListResourcePresetsRequest.page_token](#ListResourcePresetsRequest1) в следующем запросе. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. Максимальная длина строки в символах — 100.
+next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. <br>Если количество результатов больше чем [ListResourcePresetsRequest.page_size](#ListResourcePresetsRequest), используйте `next_page_token` в качестве значения параметра [ListResourcePresetsRequest.page_token](#ListResourcePresetsRequest) в следующем запросе. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. Максимальная длина строки в символах — 100.
 
 
-### ResourcePreset {#ResourcePreset}
+### ResourcePreset {#ResourcePreset1}
 
 Поле | Описание
 --- | ---

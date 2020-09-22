@@ -28,7 +28,8 @@ networkId | Required. ID of the Network resource to return. To get the network I
   "createdAt": "string",
   "name": "string",
   "description": "string",
-  "labels": "object"
+  "labels": "object",
+  "defaultSecurityGroupId": "string"
 }
 ```
 A Network resource. For more information, see [Networks](/docs/vpc/concepts/network).
@@ -41,3 +42,4 @@ createdAt | **string** (date-time)<br><p>Creation timestamp in <a href="https://
 name | **string**<br><p>Name of the network. The name is unique within the folder. 3-63 characters long.</p> 
 description | **string**<br><p>Optional description of the network. 0-256 characters long.</p> 
 labels | **object**<br><p>Resource labels as <code>key:value</code> pairs. Мaximum of 64 per resource.</p> 
+defaultSecurityGroupId | **string**<br><p>ID of default security group for network.</p> 

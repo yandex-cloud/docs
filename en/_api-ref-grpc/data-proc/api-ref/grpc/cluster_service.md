@@ -31,7 +31,7 @@ Returns the specified cluster. <br>To get the list of all available clusters, ma
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the Data Proc cluster. <br>To get a cluster ID make a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the Data Proc cluster. <br>To get a cluster ID make a [ClusterService.List](#List) request. The maximum string length in characters is 50.
 
 
 ### Cluster {#Cluster}
@@ -90,7 +90,7 @@ Retrieves the list of clusters in the specified folder.
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder to list clusters in. <br>To get the folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. false The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the folder to list clusters in. <br>To get the folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClustersResponse.next_page_token](#ListClustersResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListClustersResponse.next_page_token](#ListClustersResponse) returned by a previous list request. The maximum string length in characters is 100.
 filter | **string**<br><ol><li>The field name. Currently you can use filtering only on [Cluster.name](../cluster.proto#Cluster1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]. </li></ol> The maximum string length in characters is 1000.
@@ -101,10 +101,10 @@ filter | **string**<br><ol><li>The field name. Currently you can use filtering o
 Field | Description
 --- | ---
 clusters[] | **[Cluster](../cluster.proto#Cluster1)**<br>List of clusters in the specified folder. 
-next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListClustersRequest.page_size](#ListClustersRequest1), use `next_page_token` as the value for the [ListClustersRequest.page_token](#ListClustersRequest1) parameter in the next list request. <br>Each subsequent page will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListClustersRequest.page_size](#ListClustersRequest), use `next_page_token` as the value for the [ListClustersRequest.page_token](#ListClustersRequest) parameter in the next list request. <br>Each subsequent page will have its own `next_page_token` to continue paging through the results. 
 
 
-### Cluster {#Cluster}
+### Cluster {#Cluster1}
 
 Field | Description
 --- | ---
@@ -124,7 +124,7 @@ bucket | **string**<br>Object Storage bucket to be used for Data Proc jobs that 
 ui_proxy | **bool**<br>Whether UI Proxy feature is enabled. 
 
 
-### Monitoring {#Monitoring}
+### Monitoring {#Monitoring1}
 
 Field | Description
 --- | ---
@@ -133,7 +133,7 @@ description | **string**<br>Description of the monitoring system.
 link | **string**<br>Link to the monitoring system. 
 
 
-### ClusterConfig {#ClusterConfig}
+### ClusterConfig {#ClusterConfig1}
 
 Field | Description
 --- | ---
@@ -141,7 +141,7 @@ version_id | **string**<br>Image version for cluster provisioning. All available
 hadoop | **[HadoopConfig](../cluster.proto#HadoopConfig1)**<br>Data Proc specific configuration options. 
 
 
-### HadoopConfig {#HadoopConfig}
+### HadoopConfig {#HadoopConfig1}
 
 Field | Description
 --- | ---
@@ -164,13 +164,13 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder to create a cluster in. <br>To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. false The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the folder to create a cluster in. <br>To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. The maximum string length in characters is 50.
 name | **string**<br>Name of the cluster. The name must be unique within the folder. The name can’t be changed after the Data Proc cluster is created. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>Description of the cluster. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Cluster labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
-config_spec | **[CreateClusterConfigSpec](#CreateClusterConfigSpec)**<br>Required. Configuration and resources for hosts that should be created with the cluster. false
-zone_id | **string**<br>Required. ID of the availability zone where the cluster should be placed. <br>To get the list of available zones make a [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/grpc/zone_service#List) request. false The maximum string length in characters is 50.
-service_account_id | **string**<br>Required. ID of the service account to be used by the Data Proc manager agent. false
+config_spec | **[CreateClusterConfigSpec](#CreateClusterConfigSpec)**<br>Required. Configuration and resources for hosts that should be created with the cluster. 
+zone_id | **string**<br>Required. ID of the availability zone where the cluster should be placed. <br>To get the list of available zones make a [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/grpc/zone_service#List) request. The maximum string length in characters is 50.
+service_account_id | **string**<br>Required. ID of the service account to be used by the Data Proc manager agent. 
 bucket | **string**<br>Name of the Object Storage bucket to use for Data Proc jobs. 
 ui_proxy | **bool**<br>Enable UI Proxy feature. 
 
@@ -184,7 +184,7 @@ hadoop | **[HadoopConfig](../cluster.proto#HadoopConfig2)**<br>Data Proc specifi
 subclusters_spec[] | **[CreateSubclusterConfigSpec](#CreateSubclusterConfigSpec)**<br>Specification for creating subclusters. 
 
 
-### HadoopConfig {#HadoopConfig}
+### HadoopConfig {#HadoopConfig2}
 
 Field | Description
 --- | ---
@@ -198,10 +198,10 @@ ssh_public_keys[] | **string**<br>List of public SSH keys to access to cluster h
 Field | Description
 --- | ---
 name | **string**<br>Name of the subcluster. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
-role | enum **Role**<br>Required. Role of the subcluster in the Data Proc cluster. false<ul><li>`MASTERNODE`: <ul><li>HDFS: Namenode, Secondary Namenode </li><li>YARN: ResourceManager, Timeline Server </li><li>HBase Master </li><li>Hive: Server, Metastore, HCatalog </li><li>Spark History Server </li><li>Zeppelin </li><li>ZooKeeper</li></ul></li><li>`DATANODE`: <ul><li>HDFS DataNode </li><li>YARN NodeManager </li><li>HBase RegionServer </li><li>Spark libraries</li></ul></li><li>`COMPUTENODE`: <ul><li>YARN NodeManager </li><li>Spark libraries</li></ul></li><ul/>
-resources | **[Resources](../common.proto#Resources)**<br>Required. Resource configuration for hosts in the subcluster. false
-subnet_id | **string**<br>Required. ID of the VPC subnet used for hosts in the subcluster. false The maximum string length in characters is 50.
-hosts_count | **int64**<br>Required. Number of hosts in the subcluster. false The minimum value is 1.
+role | enum **Role**<br>Required. Role of the subcluster in the Data Proc cluster. <ul><li>`MASTERNODE`: <ul><li>HDFS: Namenode, Secondary Namenode </li><li>YARN: ResourceManager, Timeline Server </li><li>HBase Master </li><li>Hive: Server, Metastore, HCatalog </li><li>Spark History Server </li><li>Zeppelin </li><li>ZooKeeper</li></ul></li><li>`DATANODE`: <ul><li>HDFS DataNode </li><li>YARN NodeManager </li><li>HBase RegionServer </li><li>Spark libraries</li></ul></li><li>`COMPUTENODE`: <ul><li>YARN NodeManager </li><li>Spark libraries</li></ul></li><ul/>
+resources | **[Resources](../common.proto#Resources)**<br>Required. Resource configuration for hosts in the subcluster. 
+subnet_id | **string**<br>Required. ID of the VPC subnet used for hosts in the subcluster. The maximum string length in characters is 50.
+hosts_count | **int64**<br>Required. Number of hosts in the subcluster. The minimum value is 1.
 autoscaling_config | **[AutoscalingConfig](../subcluster.proto#AutoscalingConfig)**<br>Configuration for instance group based subclusters 
 
 
@@ -220,7 +220,7 @@ Field | Description
 --- | ---
 max_hosts_count | **int64**<br>Upper limit for total instance subcluster count. Acceptable values are 1 to 100, inclusive.
 preemptible | **bool**<br>Preemptible instances are stopped at least once every 24 hours, and can be stopped at any time if their resources are needed by Compute. For more information, see [Preemptible Virtual Machines](/docs/compute/concepts/preemptible-vm). 
-measurement_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Time in seconds allotted for averaging metrics. false Acceptable values are 1m to 10m, inclusive.
+measurement_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Time in seconds allotted for averaging metrics. Acceptable values are 1m to 10m, inclusive.
 warmup_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>The warmup time of the instance in seconds. During this time, traffic is sent to the instance, but instance metrics are not collected. The maximum value is 10m.
 stabilization_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Minimum amount of time in seconds allotted for monitoring before Instance Groups can reduce the number of instances in the group. During this time, the group size doesn't decrease, even if the new metric values indicate that it should. Acceptable values are 1m to 30m, inclusive.
 cpu_utilization_target | **double**<br>Defines an autoscaling rule based on the average CPU utilization of the instance group. Acceptable values are 10 to 100, inclusive.
@@ -250,7 +250,7 @@ Field | Description
 cluster_id | **string**<br>ID of the cluster that is being created. 
 
 
-### Cluster {#Cluster}
+### Cluster {#Cluster2}
 
 Field | Description
 --- | ---
@@ -314,7 +314,7 @@ hosts_count | **int64**<br>Number of hosts in the subcluster. The minimum value 
 autoscaling_config | **[AutoscalingConfig](../subcluster.proto#AutoscalingConfig1)**<br>Configuration for instance group based subclusters 
 
 
-### Resources {#Resources}
+### Resources {#Resources1}
 
 Field | Description
 --- | ---
@@ -323,20 +323,20 @@ disk_type_id | **string**<br><ul><li>network-hdd — network HDD drive, </li><li
 disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
 
 
-### AutoscalingConfig {#AutoscalingConfig}
+### AutoscalingConfig {#AutoscalingConfig1}
 
 Field | Description
 --- | ---
 max_hosts_count | **int64**<br>Upper limit for total instance subcluster count. Acceptable values are 1 to 100, inclusive.
 preemptible | **bool**<br>Preemptible instances are stopped at least once every 24 hours, and can be stopped at any time if their resources are needed by Compute. For more information, see [Preemptible Virtual Machines](/docs/compute/concepts/preemptible-vm). 
-measurement_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Time in seconds allotted for averaging metrics. false Acceptable values are 1m to 10m, inclusive.
+measurement_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Time in seconds allotted for averaging metrics. Acceptable values are 1m to 10m, inclusive.
 warmup_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>The warmup time of the instance in seconds. During this time, traffic is sent to the instance, but instance metrics are not collected. The maximum value is 10m.
 stabilization_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Minimum amount of time in seconds allotted for monitoring before Instance Groups can reduce the number of instances in the group. During this time, the group size doesn't decrease, even if the new metric values indicate that it should. Acceptable values are 1m to 30m, inclusive.
 cpu_utilization_target | **double**<br>Defines an autoscaling rule based on the average CPU utilization of the instance group. Acceptable values are 10 to 100, inclusive.
 decommission_timeout | **int64**<br>Timeout to gracefully decommission nodes during downscaling. In seconds. Default value: 120 Acceptable values are 0 to 86400, inclusive.
 
 
-### Operation {#Operation}
+### Operation {#Operation1}
 
 Field | Description
 --- | ---
@@ -359,7 +359,7 @@ Field | Description
 cluster_id | **string**<br>ID of the cluster that is being updated. 
 
 
-### Cluster {#Cluster}
+### Cluster {#Cluster3}
 
 Field | Description
 --- | ---
@@ -393,11 +393,11 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the cluster to delete. <br>To get a cluster ID, make a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the cluster to delete. <br>To get a cluster ID, make a [ClusterService.List](#List) request. The maximum string length in characters is 50.
 decommission_timeout | **int64**<br>Timeout to gracefully decommission nodes. In seconds. Default value: 0 Acceptable values are 0 to 86400, inclusive.
 
 
-### Operation {#Operation}
+### Operation {#Operation2}
 
 Field | Description
 --- | ---
@@ -434,10 +434,10 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the cluster to start. <br>To get a cluster ID, make a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the cluster to start. <br>To get a cluster ID, make a [ClusterService.List](#List) request. The maximum string length in characters is 50.
 
 
-### Operation {#Operation}
+### Operation {#Operation3}
 
 Field | Description
 --- | ---
@@ -460,7 +460,7 @@ Field | Description
 cluster_id | **string**<br>ID of the Data Proc cluster that is being started. 
 
 
-### Cluster {#Cluster}
+### Cluster {#Cluster4}
 
 Field | Description
 --- | ---
@@ -494,11 +494,11 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the cluster to stop. <br>To get a cluster ID, make a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the cluster to stop. <br>To get a cluster ID, make a [ClusterService.List](#List) request. The maximum string length in characters is 50.
 decommission_timeout | **int64**<br>Timeout to gracefully decommission nodes. In seconds. Default value: 0 Acceptable values are 0 to 86400, inclusive.
 
 
-### Operation {#Operation}
+### Operation {#Operation4}
 
 Field | Description
 --- | ---
@@ -521,7 +521,7 @@ Field | Description
 cluster_id | **string**<br>ID of the Data Proc cluster that is being stopped. 
 
 
-### Cluster {#Cluster}
+### Cluster {#Cluster5}
 
 Field | Description
 --- | ---
@@ -551,7 +551,7 @@ Lists operations for the specified cluster.
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the cluster to list operations for. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the cluster to list operations for. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClusterOperationsResponse.next_page_token](#ListClusterOperationsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListClusterOperationsResponse.next_page_token](#ListClusterOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
@@ -561,10 +561,10 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 Field | Description
 --- | ---
 operations[] | **[operation.Operation](#Operation5)**<br>List of operations for the specified cluster. 
-next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListClusterOperationsRequest.page_size](#ListClusterOperationsRequest1), use `next_page_token` as the value for the [ListClusterOperationsRequest.page_token](#ListClusterOperationsRequest1) parameter in the next list request. <br>Each subsequent page will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListClusterOperationsRequest.page_size](#ListClusterOperationsRequest), use `next_page_token` as the value for the [ListClusterOperationsRequest.page_token](#ListClusterOperationsRequest) parameter in the next list request. <br>Each subsequent page will have its own `next_page_token` to continue paging through the results. 
 
 
-### Operation {#Operation}
+### Operation {#Operation5}
 
 Field | Description
 --- | ---
@@ -601,7 +601,7 @@ filter | **string**<br><ol><li>The field name. Currently you can use filtering o
 Field | Description
 --- | ---
 hosts[] | **[Host](../subcluster.proto#Host)**<br>Requested list of hosts. 
-next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListClusterHostsRequest.page_size](#ListClusterHostsRequest1), use `next_page_token` as the value for the [ListClusterHostsRequest.page_token](#ListClusterHostsRequest1) parameter in the next list request. <br>Each subsequent page will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListClusterHostsRequest.page_size](#ListClusterHostsRequest), use `next_page_token` as the value for the [ListClusterHostsRequest.page_token](#ListClusterHostsRequest) parameter in the next list request. <br>Each subsequent page will have its own `next_page_token` to continue paging through the results. 
 
 
 ### Host {#Host}

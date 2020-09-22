@@ -36,7 +36,7 @@ Returns the specified secret. Use [PayloadService.Get](./payload_service#Get) to
 
 Field | Description
 --- | ---
-secret_id | **string**<br>Required. ID of the secret to return. false The maximum string length in characters is 50.
+secret_id | **string**<br>Required. ID of the secret to return. The maximum string length in characters is 50.
 
 
 ### Secret {#Secret}
@@ -78,7 +78,7 @@ Returns the list of secrets in the specified folder.
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder to list secrets in. false The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the folder to list secrets in. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListSecretsRequest.next_page_token](#ListSecretsRequest) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListSecretsRequest.next_page_token](#ListSecretsRequest) returned by a previous list request. The maximum string length in characters is 100.
 
@@ -88,10 +88,10 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 Field | Description
 --- | ---
 secrets[] | **[Secret](../secret.proto#Secret1)**<br>List of secrets in the specified folder. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is greater than the specified [ListSecretsRequest.page_size](#ListSecretsRequest1), use the `next_page_token` as the value for the [ListSecretsRequest.page_token](#ListSecretsRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is greater than the specified [ListSecretsRequest.page_size](#ListSecretsRequest), use the `next_page_token` as the value for the [ListSecretsRequest.page_token](#ListSecretsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
-### Secret {#Secret}
+### Secret {#Secret1}
 
 Field | Description
 --- | ---
@@ -107,7 +107,7 @@ current_version | **[Version](../secret.proto#Version1)**<br>Current (i.e. the l
 deletion_protection | **bool**<br>Flag that inhibits deletion of the secret. 
 
 
-### Version {#Version}
+### Version {#Version1}
 
 Field | Description
 --- | ---
@@ -134,7 +134,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder to create a secret in. false The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the folder to create a secret in. The maximum string length in characters is 50.
 name | **string**<br>Name of the secret. The maximum string length in characters is 100.
 description | **string**<br>Description of the secret. The maximum string length in characters is 1024.
 labels | **map<string,string>**<br>Custom labels for the secret as `key:value` pairs. Maximum 64 per key. For example, `"project": "mvp"` or `"source": "dictionary"`. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
@@ -148,7 +148,7 @@ deletion_protection | **bool**<br>Flag that inhibits deletion of the secret.
 
 Field | Description
 --- | ---
-key | **string**<br>Required. Non-confidential key of the entry. false The maximum string length in characters is 256. Value must match the regular expression ` [.-_0-9a-zA-Z]+ `.
+key | **string**<br>Required. Non-confidential key of the entry. The maximum string length in characters is 256. Value must match the regular expression ` [.-_0-9a-zA-Z]+ `.
 value | **oneof:** `text_value` or `binary_value`<br>Confidential value of the entry.
 &nbsp;&nbsp;text_value | **string**<br>Use the field to set a text value. The maximum string length in characters is 65536.
 &nbsp;&nbsp;binary_value | **bytes**<br>Use the field to set a binary value. The maximum string length in characters is 65536.
@@ -178,7 +178,7 @@ secret_id | **string**<br>ID of the secret being created.
 version_id | **string**<br>ID of the current version of the secret being created. 
 
 
-### Secret {#Secret}
+### Secret {#Secret2}
 
 Field | Description
 --- | ---
@@ -208,15 +208,15 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-secret_id | **string**<br>Required. ID of the secret to update. false The maximum string length in characters is 50.
-update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Required. Field mask that specifies which attributes of the secret are going to be updated. false
+secret_id | **string**<br>Required. ID of the secret to update. The maximum string length in characters is 50.
+update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Required. Field mask that specifies which attributes of the secret are going to be updated. 
 name | **string**<br>New name of the secret. The maximum string length in characters is 100.
 description | **string**<br>New description of the secret. The maximum string length in characters is 1024.
 labels | **map<string,string>**<br>Custom labels for the secret as `key:value` pairs. Maximum 64 per key. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 deletion_protection | **bool**<br>Flag that inhibits deletion of the secret. 
 
 
-### Operation {#Operation}
+### Operation {#Operation1}
 
 Field | Description
 --- | ---
@@ -236,10 +236,10 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-secret_id | **string**<br>Required. ID of the secret being updated. false The maximum string length in characters is 50.
+secret_id | **string**<br>Required. ID of the secret being updated. The maximum string length in characters is 50.
 
 
-### Secret {#Secret}
+### Secret {#Secret3}
 
 Field | Description
 --- | ---
@@ -269,10 +269,10 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-secret_id | **string**<br>Required. ID of the secret to be deleted. false The maximum string length in characters is 50.
+secret_id | **string**<br>Required. ID of the secret to be deleted. The maximum string length in characters is 50.
 
 
-### Operation {#Operation}
+### Operation {#Operation2}
 
 Field | Description
 --- | ---
@@ -295,7 +295,7 @@ Field | Description
 secret_id | **string**<br>ID of the secret being deleted. 
 
 
-### Secret {#Secret}
+### Secret {#Secret4}
 
 Field | Description
 --- | ---
@@ -325,10 +325,10 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-secret_id | **string**<br>Required. ID of the secret to be activated. false The maximum string length in characters is 50.
+secret_id | **string**<br>Required. ID of the secret to be activated. The maximum string length in characters is 50.
 
 
-### Operation {#Operation}
+### Operation {#Operation3}
 
 Field | Description
 --- | ---
@@ -351,7 +351,7 @@ Field | Description
 secret_id | **string**<br>ID of the secret being activated. 
 
 
-### Secret {#Secret}
+### Secret {#Secret5}
 
 Field | Description
 --- | ---
@@ -381,10 +381,10 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-secret_id | **string**<br>Required. ID of the secret to be deactivated. false The maximum string length in characters is 50.
+secret_id | **string**<br>Required. ID of the secret to be deactivated. The maximum string length in characters is 50.
 
 
-### Operation {#Operation}
+### Operation {#Operation4}
 
 Field | Description
 --- | ---
@@ -407,7 +407,7 @@ Field | Description
 secret_id | **string**<br>ID of the secret being deactivated. 
 
 
-### Secret {#Secret}
+### Secret {#Secret6}
 
 Field | Description
 --- | ---
@@ -433,7 +433,7 @@ Returns the list of versions of the specified secret.
 
 Field | Description
 --- | ---
-secret_id | **string**<br>Required. ID of the secret to list versions for. false The maximum string length in characters is 50.
+secret_id | **string**<br>Required. ID of the secret to list versions for. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListVersionsRequest.next_page_token](#ListVersionsRequest) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListVersionsRequest.next_page_token](#ListVersionsRequest) returned by a previous list request. The maximum string length in characters is 100.
 
@@ -443,10 +443,10 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 Field | Description
 --- | ---
 versions[] | **[Version](../secret.proto#Version2)**<br>List of versions for the specified secret. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is greater than the specified [ListVersionsRequest.page_size](#ListVersionsRequest1), use the `next_page_token` as the value for the [ListVersionsRequest.page_token](#ListVersionsRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is greater than the specified [ListVersionsRequest.page_size](#ListVersionsRequest), use the `next_page_token` as the value for the [ListVersionsRequest.page_token](#ListVersionsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
-### Version {#Version}
+### Version {#Version2}
 
 Field | Description
 --- | ---
@@ -473,23 +473,23 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-secret_id | **string**<br>Required. ID of the secret. false The maximum string length in characters is 50.
+secret_id | **string**<br>Required. ID of the secret. The maximum string length in characters is 50.
 description | **string**<br>Description of the version. The maximum string length in characters is 1024.
-payload_entries[] | **[PayloadEntryChange](#PayloadEntryChange1)**<br>Describe how payload entries of the base version change in the added version. The maximum number of elements is 32.
+payload_entries[] | **[PayloadEntryChange](#PayloadEntryChange)**<br>Describe how payload entries of the base version change in the added version. The maximum number of elements is 32.
 base_version_id | **string**<br>Optional base version id. Defaults to the current version if not specified The maximum string length in characters is 50.
 
 
-### PayloadEntryChange {#PayloadEntryChange}
+### PayloadEntryChange {#PayloadEntryChange1}
 
 Field | Description
 --- | ---
-key | **string**<br>Required. Non-confidential key of the entry. false The maximum string length in characters is 256. Value must match the regular expression ` [.-_0-9a-zA-Z]+ `.
+key | **string**<br>Required. Non-confidential key of the entry. The maximum string length in characters is 256. Value must match the regular expression ` [.-_0-9a-zA-Z]+ `.
 value | **oneof:** `text_value` or `binary_value`<br>Confidential value of the entry.
 &nbsp;&nbsp;text_value | **string**<br>Use the field to set a text value. The maximum string length in characters is 65536.
 &nbsp;&nbsp;binary_value | **bytes**<br>Use the field to set a binary value. The maximum string length in characters is 65536.
 
 
-### Operation {#Operation}
+### Operation {#Operation5}
 
 Field | Description
 --- | ---
@@ -513,7 +513,7 @@ secret_id | **string**<br>ID of the secret.
 version_id | **string**<br>ID of the added version. 
 
 
-### Version {#Version}
+### Version {#Version3}
 
 Field | Description
 --- | ---
@@ -540,12 +540,12 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-secret_id | **string**<br>Required. ID of the secret whose version should be scheduled for destruction. false The maximum string length in characters is 50.
-version_id | **string**<br>Required. ID of the version to be destroyed. false The maximum string length in characters is 50.
+secret_id | **string**<br>Required. ID of the secret whose version should be scheduled for destruction. The maximum string length in characters is 50.
+version_id | **string**<br>Required. ID of the version to be destroyed. The maximum string length in characters is 50.
 pending_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time interval between the version destruction request and actual destruction. Default value: 7 days. 
 
 
-### Operation {#Operation}
+### Operation {#Operation6}
 
 Field | Description
 --- | ---
@@ -570,7 +570,7 @@ version_id | **string**<br>ID of the version that is being scheduled for destruc
 destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the version is scheduled to be destroyed. 
 
 
-### Version {#Version}
+### Version {#Version4}
 
 Field | Description
 --- | ---
@@ -597,11 +597,11 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-secret_id | **string**<br>Required. ID of the secret to cancel a version's destruction for. false The maximum string length in characters is 50.
-version_id | **string**<br>Required. ID of the secret whose scheduled destruction should be cancelled. false The maximum string length in characters is 50.
+secret_id | **string**<br>Required. ID of the secret to cancel a version's destruction for. The maximum string length in characters is 50.
+version_id | **string**<br>Required. ID of the secret whose scheduled destruction should be cancelled. The maximum string length in characters is 50.
 
 
-### Operation {#Operation}
+### Operation {#Operation7}
 
 Field | Description
 --- | ---
@@ -625,7 +625,7 @@ secret_id | **string**<br>ID of the secret whose version's destruction is being 
 version_id | **string**<br>ID of the version whose scheduled destruction is being cancelled. 
 
 
-### Version {#Version}
+### Version {#Version5}
 
 Field | Description
 --- | ---
@@ -648,7 +648,7 @@ Lists operations for the specified secret.
 
 Field | Description
 --- | ---
-secret_id | **string**<br>Required. ID of the secret to get operations for. false The maximum string length in characters is 50.
+secret_id | **string**<br>Required. ID of the secret to get operations for. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page that should be returned. If the number of available results is larger than `page_size`, the service returns a [ListSecretOperationsRequest.next_page_token](#ListSecretOperationsRequest) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListSecretOperationsRequest.next_page_token](#ListSecretOperationsRequest) returned by a previous list request. The maximum string length in characters is 100.
 
@@ -661,7 +661,7 @@ operations[] | **[operation.Operation](#Operation8)**<br>List of operations for 
 next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListSecretOperationsResponse.page_size](#ListSecretOperationsResponse), use the `next_page_token` as the value for the [ListSecretOperationsResponse.page_token](#ListSecretOperationsResponse) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
-### Operation {#Operation}
+### Operation {#Operation8}
 
 Field | Description
 --- | ---
@@ -687,7 +687,7 @@ Lists existing access bindings for the specified secret.
 
 Field | Description
 --- | ---
-resource_id | **string**<br>Required. ID of the resource to list access bindings for. <br>To get the resource ID, use a corresponding List request. For example, use the [yandex.cloud.resourcemanager.v1.CloudService.List](/docs/resource-manager/grpc/cloud_service#List) request to get the Cloud resource ID. false
+resource_id | **string**<br>Required. ID of the resource to list access bindings for. <br>To get the resource ID, use a corresponding List request. For example, use the [yandex.cloud.resourcemanager.v1.CloudService.List](/docs/resource-manager/grpc/cloud_service#List) request to get the Cloud resource ID. 
 page_size | **int64**<br>The maximum number of results per page that should be returned. If the number of available results is larger than `page_size`, the service returns a [ListAccessBindingsResponse.next_page_token](#ListAccessBindingsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
 page_token | **string**<br>Page token. Set `page_token` to the [ListAccessBindingsResponse.next_page_token](#ListAccessBindingsResponse) returned by a previous list request to get the next page of results. The maximum string length in characters is 100.
 
@@ -705,7 +705,7 @@ next_page_token | **string**<br>This token allows you to get the next page of re
 Field | Description
 --- | ---
 role_id | **string**<br>ID of the `yandex.cloud.iam.v1.Role` that is assigned to the `subject`. The maximum string length in characters is 50.
-subject | **[Subject](#Subject)**<br>Required. Identity for which access binding is being created. It can represent an account with a unique ID or several accounts with a system identifier. false
+subject | **[Subject](#Subject)**<br>Required. Identity for which access binding is being created. It can represent an account with a unique ID or several accounts with a system identifier. 
 
 
 ### Subject {#Subject}
@@ -730,19 +730,19 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-resource_id | **string**<br>Required. ID of the resource for which access bindings are being set. <br>To get the resource ID, use a corresponding List request. false
-access_bindings[] | **[AccessBinding](#AccessBinding)**<br>Required. Access bindings to be set. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings). false
+resource_id | **string**<br>Required. ID of the resource for which access bindings are being set. <br>To get the resource ID, use a corresponding List request. 
+access_bindings[] | **[AccessBinding](#AccessBinding)**<br>Required. Access bindings to be set. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings). 
 
 
-### AccessBinding {#AccessBinding}
+### AccessBinding {#AccessBinding1}
 
 Field | Description
 --- | ---
 role_id | **string**<br>ID of the `yandex.cloud.iam.v1.Role` that is assigned to the `subject`. The maximum string length in characters is 50.
-subject | **[Subject](#Subject)**<br>Required. Identity for which access binding is being created. It can represent an account with a unique ID or several accounts with a system identifier. false
+subject | **[Subject](#Subject)**<br>Required. Identity for which access binding is being created. It can represent an account with a unique ID or several accounts with a system identifier. 
 
 
-### Subject {#Subject}
+### Subject {#Subject1}
 
 Field | Description
 --- | ---
@@ -750,7 +750,7 @@ id | **string**<br><ul><li>`allAuthenticatedUsers`: A special system identifier 
 type | **string**<br><ul><li>`userAccount`: An account on Yandex or [Yandex.Connect](./openapi-meta.yaml#Connect)(https://connect.yandex.com), added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul> 
 
 
-### Operation {#Operation}
+### Operation {#Operation9}
 
 Field | Description
 --- | ---
@@ -787,27 +787,27 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-resource_id | **string**<br>Required. ID of the resource for which access bindings are being updated. false
-access_binding_deltas[] | **[AccessBindingDelta](#AccessBindingDelta)**<br>Required. Updates to access bindings. false
+resource_id | **string**<br>Required. ID of the resource for which access bindings are being updated. 
+access_binding_deltas[] | **[AccessBindingDelta](#AccessBindingDelta)**<br>Required. Updates to access bindings. 
 
 
 ### AccessBindingDelta {#AccessBindingDelta}
 
 Field | Description
 --- | ---
-action | enum **AccessBindingAction**<br>Required. The action that is being performed on an access binding. false<ul><li>`ADD`: Addition of an access binding.</li><li>`REMOVE`: Removal of an access binding.</li><ul/>
-access_binding | **[AccessBinding](#AccessBinding)**<br>Required. Access binding. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings). false
+action | enum **AccessBindingAction**<br>Required. The action that is being performed on an access binding. <ul><li>`ADD`: Addition of an access binding.</li><li>`REMOVE`: Removal of an access binding.</li><ul/>
+access_binding | **[AccessBinding](#AccessBinding)**<br>Required. Access binding. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings). 
 
 
-### AccessBinding {#AccessBinding}
+### AccessBinding {#AccessBinding2}
 
 Field | Description
 --- | ---
 role_id | **string**<br>ID of the `yandex.cloud.iam.v1.Role` that is assigned to the `subject`. The maximum string length in characters is 50.
-subject | **[Subject](#Subject)**<br>Required. Identity for which access binding is being created. It can represent an account with a unique ID or several accounts with a system identifier. false
+subject | **[Subject](#Subject)**<br>Required. Identity for which access binding is being created. It can represent an account with a unique ID or several accounts with a system identifier. 
 
 
-### Subject {#Subject}
+### Subject {#Subject2}
 
 Field | Description
 --- | ---
@@ -815,7 +815,7 @@ id | **string**<br><ul><li>`allAuthenticatedUsers`: A special system identifier 
 type | **string**<br><ul><li>`userAccount`: An account on Yandex or [Yandex.Connect](./openapi-meta.yaml#Connect)(https://connect.yandex.com), added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul> 
 
 
-### Operation {#Operation}
+### Operation {#Operation10}
 
 Field | Description
 --- | ---

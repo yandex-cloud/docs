@@ -27,7 +27,7 @@ editable: false
 
 Field | Description
 --- | ---
-http_router_id | **string**<br>Required.  false
+http_router_id | **string**<br>Required.  
 
 
 ### HttpRouter {#HttpRouter}
@@ -46,7 +46,7 @@ virtual_hosts[] | **[VirtualHost](../virtual_host.proto#VirtualHost)**<br>Only o
 
 Field | Description
 --- | ---
-name | **string**<br>Required.  false
+name | **string**<br>Required.  
 authority[] | **string**<br>A list of domains (host/authority header) that will be matched to this virtual host. Wildcard hosts are supported in the form of '*.foo.com' or '*-bar.foo.com'. If not specified, all domains will be matched. 
 ports[] | **int64**<br><ol><li></li></ol> 
 routes[] | **[Route](../virtual_host.proto#Route)**<br>Routes are matched *in-order*. Be careful when adding them to the end. For instance, having http '/' match first makes all other routes unused. 
@@ -58,7 +58,7 @@ modify_response_headers[] | **[HeaderModification](../virtual_host.proto#HeaderM
 
 Field | Description
 --- | ---
-name | **string**<br>Required.  false
+name | **string**<br>Required.  
 route | **oneof:** `http` or `grpc`<br>
 &nbsp;&nbsp;http | **[HttpRoute](../virtual_host.proto#HttpRoute)**<br> 
 &nbsp;&nbsp;grpc | **[GrpcRoute](../virtual_host.proto#GrpcRoute)**<br> 
@@ -96,7 +96,7 @@ match | **oneof:** `exact_match` or `prefix_match`<br>
 
 Field | Description
 --- | ---
-backend_group_id | **string**<br>Required. Backend group to route requests. false
+backend_group_id | **string**<br>Required. Backend group to route requests. 
 timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>If not set, default is 60 seconds. 
 host_rewrite_specifier | **oneof:** `host_rewrite` or `auto_host_rewrite`<br>
 &nbsp;&nbsp;host_rewrite | **string**<br> 
@@ -146,7 +146,7 @@ Field | Description
 fqmn | **[StringMatch](../virtual_host.proto#StringMatch1)**<br>If not set, all services/methods are assumed. 
 
 
-### StringMatch {#StringMatch}
+### StringMatch {#StringMatch1}
 
 Field | Description
 --- | ---
@@ -159,7 +159,7 @@ match | **oneof:** `exact_match` or `prefix_match`<br>
 
 Field | Description
 --- | ---
-backend_group_id | **string**<br>Required. Backend group to route requests. false
+backend_group_id | **string**<br>Required. Backend group to route requests. 
 max_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Lower timeout may be specified by the client (using grpc-timeout header). If not set, default is 60 seconds. 
 host_rewrite_specifier | **oneof:** `host_rewrite` or `auto_host_rewrite`<br>
 &nbsp;&nbsp;host_rewrite | **string**<br> 
@@ -195,7 +195,7 @@ operation | **oneof:** `append`, `replace`, `remove` or `rename`<br>Header value
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required.  false
+folder_id | **string**<br>Required.  
 page_size | **int64**<br> Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br> The maximum string length in characters is 100.
 filter | **string**<br> The maximum string length in characters is 1000.
@@ -209,7 +209,7 @@ http_routers[] | **[HttpRouter](../http_router.proto#HttpRouter1)**<br>
 next_page_token | **string**<br> 
 
 
-### HttpRouter {#HttpRouter}
+### HttpRouter {#HttpRouter1}
 
 Field | Description
 --- | ---
@@ -221,11 +221,11 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum
 virtual_hosts[] | **[VirtualHost](../virtual_host.proto#VirtualHost1)**<br>Only one virtual host with no authority (default match) can be specified. 
 
 
-### VirtualHost {#VirtualHost}
+### VirtualHost {#VirtualHost1}
 
 Field | Description
 --- | ---
-name | **string**<br>Required.  false
+name | **string**<br>Required.  
 authority[] | **string**<br>A list of domains (host/authority header) that will be matched to this virtual host. Wildcard hosts are supported in the form of '*.foo.com' or '*-bar.foo.com'. If not specified, all domains will be matched. 
 ports[] | **int64**<br><ol><li></li></ol> 
 routes[] | **[Route](../virtual_host.proto#Route1)**<br>Routes are matched *in-order*. Be careful when adding them to the end. For instance, having http '/' match first makes all other routes unused. 
@@ -233,17 +233,17 @@ modify_request_headers[] | **[HeaderModification](../virtual_host.proto#HeaderMo
 modify_response_headers[] | **[HeaderModification](../virtual_host.proto#HeaderModification1)**<br>Apply the following modifications to the response headers. 
 
 
-### Route {#Route}
+### Route {#Route1}
 
 Field | Description
 --- | ---
-name | **string**<br>Required.  false
+name | **string**<br>Required.  
 route | **oneof:** `http` or `grpc`<br>
 &nbsp;&nbsp;http | **[HttpRoute](../virtual_host.proto#HttpRoute1)**<br> 
 &nbsp;&nbsp;grpc | **[GrpcRoute](../virtual_host.proto#GrpcRoute1)**<br> 
 
 
-### HttpRoute {#HttpRoute}
+### HttpRoute {#HttpRoute1}
 
 Field | Description
 --- | ---
@@ -254,7 +254,7 @@ action | **oneof:** `route`, `redirect` or `direct_response`<br>
 &nbsp;&nbsp;direct_response | **[DirectResponseAction](../virtual_host.proto#DirectResponseAction1)**<br> 
 
 
-### HttpRouteMatch {#HttpRouteMatch}
+### HttpRouteMatch {#HttpRouteMatch1}
 
 Field | Description
 --- | ---
@@ -262,7 +262,7 @@ http_method[] | **string**<br>
 path | **[StringMatch](../virtual_host.proto#StringMatch2)**<br>If not set, '/' is assumed. 
 
 
-### StringMatch {#StringMatch}
+### StringMatch {#StringMatch2}
 
 Field | Description
 --- | ---
@@ -271,11 +271,11 @@ match | **oneof:** `exact_match` or `prefix_match`<br>
 &nbsp;&nbsp;prefix_match | **string**<br> 
 
 
-### HttpRouteAction {#HttpRouteAction}
+### HttpRouteAction {#HttpRouteAction1}
 
 Field | Description
 --- | ---
-backend_group_id | **string**<br>Required. Backend group to route requests. false
+backend_group_id | **string**<br>Required. Backend group to route requests. 
 timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>If not set, default is 60 seconds. 
 host_rewrite_specifier | **oneof:** `host_rewrite` or `auto_host_rewrite`<br>
 &nbsp;&nbsp;host_rewrite | **string**<br> 
@@ -284,7 +284,7 @@ prefix_rewrite | **string**<br>If not empty, matched path prefix will be replace
 support_websockets | **bool**<br>Allows websocket upgrades. 
 
 
-### RedirectAction {#RedirectAction}
+### RedirectAction {#RedirectAction1}
 
 Field | Description
 --- | ---
@@ -292,7 +292,7 @@ replace_scheme | **string**<br>Replaces scheme. If the original scheme is `http`
 response_code | enum **RedirectResponseCode**<br>The HTTP status code to use in the redirect response. <ul><li>`MOVED_PERMANENTLY`: Moved Permanently HTTP Status Code - 301.</li><li>`FOUND`: Found HTTP Status Code - 302.</li><li>`SEE_OTHER`: See Other HTTP Status Code - 303.</li><li>`TEMPORARY_REDIRECT`: Temporary Redirect HTTP Status Code - 307.</li><li>`PERMANENT_REDIRECT`: Permanent Redirect HTTP Status Code - 308.</li><ul/>
 
 
-### DirectResponseAction {#DirectResponseAction}
+### DirectResponseAction {#DirectResponseAction1}
 
 Field | Description
 --- | ---
@@ -300,7 +300,7 @@ status | **int64**<br>HTTP response status. Acceptable values are 100 to 599, in
 body | **[Payload](../payload.proto#Payload1)**<br>Optional response body. 
 
 
-### Payload {#Payload}
+### Payload {#Payload1}
 
 Field | Description
 --- | ---
@@ -308,7 +308,7 @@ payload | **oneof:** `text`<br>
 &nbsp;&nbsp;text | **string**<br>Text message. The string length in characters must be greater than 0.
 
 
-### GrpcRoute {#GrpcRoute}
+### GrpcRoute {#GrpcRoute1}
 
 Field | Description
 --- | ---
@@ -318,14 +318,14 @@ action | **oneof:** `route` or `status_response`<br>
 &nbsp;&nbsp;status_response | **[GrpcStatusResponseAction](../virtual_host.proto#GrpcStatusResponseAction1)**<br> 
 
 
-### GrpcRouteMatch {#GrpcRouteMatch}
+### GrpcRouteMatch {#GrpcRouteMatch1}
 
 Field | Description
 --- | ---
 fqmn | **[StringMatch](../virtual_host.proto#StringMatch3)**<br>If not set, all services/methods are assumed. 
 
 
-### StringMatch {#StringMatch}
+### StringMatch {#StringMatch3}
 
 Field | Description
 --- | ---
@@ -334,25 +334,25 @@ match | **oneof:** `exact_match` or `prefix_match`<br>
 &nbsp;&nbsp;prefix_match | **string**<br> 
 
 
-### GrpcRouteAction {#GrpcRouteAction}
+### GrpcRouteAction {#GrpcRouteAction1}
 
 Field | Description
 --- | ---
-backend_group_id | **string**<br>Required. Backend group to route requests. false
+backend_group_id | **string**<br>Required. Backend group to route requests. 
 max_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Lower timeout may be specified by the client (using grpc-timeout header). If not set, default is 60 seconds. 
 host_rewrite_specifier | **oneof:** `host_rewrite` or `auto_host_rewrite`<br>
 &nbsp;&nbsp;host_rewrite | **string**<br> 
 &nbsp;&nbsp;auto_host_rewrite | **bool**<br> 
 
 
-### GrpcStatusResponseAction {#GrpcStatusResponseAction}
+### GrpcStatusResponseAction {#GrpcStatusResponseAction1}
 
 Field | Description
 --- | ---
 status | enum **Status**<br> <ul><ul/>
 
 
-### HeaderModification {#HeaderModification}
+### HeaderModification {#HeaderModification1}
 
 Field | Description
 --- | ---
@@ -378,7 +378,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required.  false
+folder_id | **string**<br>Required.  
 name | **string**<br> Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br> The maximum string length in characters is 256.
 labels | **map<string,string>**<br> No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
@@ -386,11 +386,11 @@ virtual_hosts[] | **[VirtualHost](../virtual_host.proto#VirtualHost2)**<br>
 https_redirect | **bool**<br> 
 
 
-### VirtualHost {#VirtualHost}
+### VirtualHost {#VirtualHost2}
 
 Field | Description
 --- | ---
-name | **string**<br>Required.  false
+name | **string**<br>Required.  
 authority[] | **string**<br>A list of domains (host/authority header) that will be matched to this virtual host. Wildcard hosts are supported in the form of '*.foo.com' or '*-bar.foo.com'. If not specified, all domains will be matched. 
 ports[] | **int64**<br><ol><li></li></ol> 
 routes[] | **[Route](../virtual_host.proto#Route2)**<br>Routes are matched *in-order*. Be careful when adding them to the end. For instance, having http '/' match first makes all other routes unused. 
@@ -398,17 +398,17 @@ modify_request_headers[] | **[HeaderModification](../virtual_host.proto#HeaderMo
 modify_response_headers[] | **[HeaderModification](../virtual_host.proto#HeaderModification2)**<br>Apply the following modifications to the response headers. 
 
 
-### Route {#Route}
+### Route {#Route2}
 
 Field | Description
 --- | ---
-name | **string**<br>Required.  false
+name | **string**<br>Required.  
 route | **oneof:** `http` or `grpc`<br>
 &nbsp;&nbsp;http | **[HttpRoute](../virtual_host.proto#HttpRoute2)**<br> 
 &nbsp;&nbsp;grpc | **[GrpcRoute](../virtual_host.proto#GrpcRoute2)**<br> 
 
 
-### HttpRoute {#HttpRoute}
+### HttpRoute {#HttpRoute2}
 
 Field | Description
 --- | ---
@@ -419,7 +419,7 @@ action | **oneof:** `route`, `redirect` or `direct_response`<br>
 &nbsp;&nbsp;direct_response | **[DirectResponseAction](../virtual_host.proto#DirectResponseAction2)**<br> 
 
 
-### HttpRouteMatch {#HttpRouteMatch}
+### HttpRouteMatch {#HttpRouteMatch2}
 
 Field | Description
 --- | ---
@@ -427,7 +427,7 @@ http_method[] | **string**<br>
 path | **[StringMatch](../virtual_host.proto#StringMatch4)**<br>If not set, '/' is assumed. 
 
 
-### StringMatch {#StringMatch}
+### StringMatch {#StringMatch4}
 
 Field | Description
 --- | ---
@@ -436,11 +436,11 @@ match | **oneof:** `exact_match` or `prefix_match`<br>
 &nbsp;&nbsp;prefix_match | **string**<br> 
 
 
-### HttpRouteAction {#HttpRouteAction}
+### HttpRouteAction {#HttpRouteAction2}
 
 Field | Description
 --- | ---
-backend_group_id | **string**<br>Required. Backend group to route requests. false
+backend_group_id | **string**<br>Required. Backend group to route requests. 
 timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>If not set, default is 60 seconds. 
 host_rewrite_specifier | **oneof:** `host_rewrite` or `auto_host_rewrite`<br>
 &nbsp;&nbsp;host_rewrite | **string**<br> 
@@ -449,7 +449,7 @@ prefix_rewrite | **string**<br>If not empty, matched path prefix will be replace
 support_websockets | **bool**<br>Allows websocket upgrades. 
 
 
-### RedirectAction {#RedirectAction}
+### RedirectAction {#RedirectAction2}
 
 Field | Description
 --- | ---
@@ -457,7 +457,7 @@ replace_scheme | **string**<br>Replaces scheme. If the original scheme is `http`
 response_code | enum **RedirectResponseCode**<br>The HTTP status code to use in the redirect response. <ul><li>`MOVED_PERMANENTLY`: Moved Permanently HTTP Status Code - 301.</li><li>`FOUND`: Found HTTP Status Code - 302.</li><li>`SEE_OTHER`: See Other HTTP Status Code - 303.</li><li>`TEMPORARY_REDIRECT`: Temporary Redirect HTTP Status Code - 307.</li><li>`PERMANENT_REDIRECT`: Permanent Redirect HTTP Status Code - 308.</li><ul/>
 
 
-### DirectResponseAction {#DirectResponseAction}
+### DirectResponseAction {#DirectResponseAction2}
 
 Field | Description
 --- | ---
@@ -465,7 +465,7 @@ status | **int64**<br>HTTP response status. Acceptable values are 100 to 599, in
 body | **[Payload](../payload.proto#Payload2)**<br>Optional response body. 
 
 
-### Payload {#Payload}
+### Payload {#Payload2}
 
 Field | Description
 --- | ---
@@ -473,7 +473,7 @@ payload | **oneof:** `text`<br>
 &nbsp;&nbsp;text | **string**<br>Text message. The string length in characters must be greater than 0.
 
 
-### GrpcRoute {#GrpcRoute}
+### GrpcRoute {#GrpcRoute2}
 
 Field | Description
 --- | ---
@@ -483,14 +483,14 @@ action | **oneof:** `route` or `status_response`<br>
 &nbsp;&nbsp;status_response | **[GrpcStatusResponseAction](../virtual_host.proto#GrpcStatusResponseAction2)**<br> 
 
 
-### GrpcRouteMatch {#GrpcRouteMatch}
+### GrpcRouteMatch {#GrpcRouteMatch2}
 
 Field | Description
 --- | ---
 fqmn | **[StringMatch](../virtual_host.proto#StringMatch5)**<br>If not set, all services/methods are assumed. 
 
 
-### StringMatch {#StringMatch}
+### StringMatch {#StringMatch5}
 
 Field | Description
 --- | ---
@@ -499,25 +499,25 @@ match | **oneof:** `exact_match` or `prefix_match`<br>
 &nbsp;&nbsp;prefix_match | **string**<br> 
 
 
-### GrpcRouteAction {#GrpcRouteAction}
+### GrpcRouteAction {#GrpcRouteAction2}
 
 Field | Description
 --- | ---
-backend_group_id | **string**<br>Required. Backend group to route requests. false
+backend_group_id | **string**<br>Required. Backend group to route requests. 
 max_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Lower timeout may be specified by the client (using grpc-timeout header). If not set, default is 60 seconds. 
 host_rewrite_specifier | **oneof:** `host_rewrite` or `auto_host_rewrite`<br>
 &nbsp;&nbsp;host_rewrite | **string**<br> 
 &nbsp;&nbsp;auto_host_rewrite | **bool**<br> 
 
 
-### GrpcStatusResponseAction {#GrpcStatusResponseAction}
+### GrpcStatusResponseAction {#GrpcStatusResponseAction2}
 
 Field | Description
 --- | ---
 status | enum **Status**<br> <ul><ul/>
 
 
-### HeaderModification {#HeaderModification}
+### HeaderModification {#HeaderModification2}
 
 Field | Description
 --- | ---
@@ -552,7 +552,7 @@ Field | Description
 http_router_id | **string**<br> 
 
 
-### HttpRouter {#HttpRouter}
+### HttpRouter {#HttpRouter2}
 
 Field | Description
 --- | ---
@@ -578,7 +578,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-http_router_id | **string**<br>Required.  false
+http_router_id | **string**<br>Required.  
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br> 
 name | **string**<br> Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br> The maximum string length in characters is 256.
@@ -587,11 +587,11 @@ virtual_hosts[] | **[VirtualHost](../virtual_host.proto#VirtualHost3)**<br>
 https_redirect | **bool**<br> 
 
 
-### VirtualHost {#VirtualHost}
+### VirtualHost {#VirtualHost3}
 
 Field | Description
 --- | ---
-name | **string**<br>Required.  false
+name | **string**<br>Required.  
 authority[] | **string**<br>A list of domains (host/authority header) that will be matched to this virtual host. Wildcard hosts are supported in the form of '*.foo.com' or '*-bar.foo.com'. If not specified, all domains will be matched. 
 ports[] | **int64**<br><ol><li></li></ol> 
 routes[] | **[Route](../virtual_host.proto#Route3)**<br>Routes are matched *in-order*. Be careful when adding them to the end. For instance, having http '/' match first makes all other routes unused. 
@@ -599,17 +599,17 @@ modify_request_headers[] | **[HeaderModification](../virtual_host.proto#HeaderMo
 modify_response_headers[] | **[HeaderModification](../virtual_host.proto#HeaderModification3)**<br>Apply the following modifications to the response headers. 
 
 
-### Route {#Route}
+### Route {#Route3}
 
 Field | Description
 --- | ---
-name | **string**<br>Required.  false
+name | **string**<br>Required.  
 route | **oneof:** `http` or `grpc`<br>
 &nbsp;&nbsp;http | **[HttpRoute](../virtual_host.proto#HttpRoute3)**<br> 
 &nbsp;&nbsp;grpc | **[GrpcRoute](../virtual_host.proto#GrpcRoute3)**<br> 
 
 
-### HttpRoute {#HttpRoute}
+### HttpRoute {#HttpRoute3}
 
 Field | Description
 --- | ---
@@ -620,7 +620,7 @@ action | **oneof:** `route`, `redirect` or `direct_response`<br>
 &nbsp;&nbsp;direct_response | **[DirectResponseAction](../virtual_host.proto#DirectResponseAction3)**<br> 
 
 
-### HttpRouteMatch {#HttpRouteMatch}
+### HttpRouteMatch {#HttpRouteMatch3}
 
 Field | Description
 --- | ---
@@ -628,7 +628,7 @@ http_method[] | **string**<br>
 path | **[StringMatch](../virtual_host.proto#StringMatch6)**<br>If not set, '/' is assumed. 
 
 
-### StringMatch {#StringMatch}
+### StringMatch {#StringMatch6}
 
 Field | Description
 --- | ---
@@ -637,11 +637,11 @@ match | **oneof:** `exact_match` or `prefix_match`<br>
 &nbsp;&nbsp;prefix_match | **string**<br> 
 
 
-### HttpRouteAction {#HttpRouteAction}
+### HttpRouteAction {#HttpRouteAction3}
 
 Field | Description
 --- | ---
-backend_group_id | **string**<br>Required. Backend group to route requests. false
+backend_group_id | **string**<br>Required. Backend group to route requests. 
 timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>If not set, default is 60 seconds. 
 host_rewrite_specifier | **oneof:** `host_rewrite` or `auto_host_rewrite`<br>
 &nbsp;&nbsp;host_rewrite | **string**<br> 
@@ -650,7 +650,7 @@ prefix_rewrite | **string**<br>If not empty, matched path prefix will be replace
 support_websockets | **bool**<br>Allows websocket upgrades. 
 
 
-### RedirectAction {#RedirectAction}
+### RedirectAction {#RedirectAction3}
 
 Field | Description
 --- | ---
@@ -658,7 +658,7 @@ replace_scheme | **string**<br>Replaces scheme. If the original scheme is `http`
 response_code | enum **RedirectResponseCode**<br>The HTTP status code to use in the redirect response. <ul><li>`MOVED_PERMANENTLY`: Moved Permanently HTTP Status Code - 301.</li><li>`FOUND`: Found HTTP Status Code - 302.</li><li>`SEE_OTHER`: See Other HTTP Status Code - 303.</li><li>`TEMPORARY_REDIRECT`: Temporary Redirect HTTP Status Code - 307.</li><li>`PERMANENT_REDIRECT`: Permanent Redirect HTTP Status Code - 308.</li><ul/>
 
 
-### DirectResponseAction {#DirectResponseAction}
+### DirectResponseAction {#DirectResponseAction3}
 
 Field | Description
 --- | ---
@@ -666,7 +666,7 @@ status | **int64**<br>HTTP response status. Acceptable values are 100 to 599, in
 body | **[Payload](../payload.proto#Payload3)**<br>Optional response body. 
 
 
-### Payload {#Payload}
+### Payload {#Payload3}
 
 Field | Description
 --- | ---
@@ -674,7 +674,7 @@ payload | **oneof:** `text`<br>
 &nbsp;&nbsp;text | **string**<br>Text message. The string length in characters must be greater than 0.
 
 
-### GrpcRoute {#GrpcRoute}
+### GrpcRoute {#GrpcRoute3}
 
 Field | Description
 --- | ---
@@ -684,14 +684,14 @@ action | **oneof:** `route` or `status_response`<br>
 &nbsp;&nbsp;status_response | **[GrpcStatusResponseAction](../virtual_host.proto#GrpcStatusResponseAction3)**<br> 
 
 
-### GrpcRouteMatch {#GrpcRouteMatch}
+### GrpcRouteMatch {#GrpcRouteMatch3}
 
 Field | Description
 --- | ---
 fqmn | **[StringMatch](../virtual_host.proto#StringMatch7)**<br>If not set, all services/methods are assumed. 
 
 
-### StringMatch {#StringMatch}
+### StringMatch {#StringMatch7}
 
 Field | Description
 --- | ---
@@ -700,25 +700,25 @@ match | **oneof:** `exact_match` or `prefix_match`<br>
 &nbsp;&nbsp;prefix_match | **string**<br> 
 
 
-### GrpcRouteAction {#GrpcRouteAction}
+### GrpcRouteAction {#GrpcRouteAction3}
 
 Field | Description
 --- | ---
-backend_group_id | **string**<br>Required. Backend group to route requests. false
+backend_group_id | **string**<br>Required. Backend group to route requests. 
 max_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Lower timeout may be specified by the client (using grpc-timeout header). If not set, default is 60 seconds. 
 host_rewrite_specifier | **oneof:** `host_rewrite` or `auto_host_rewrite`<br>
 &nbsp;&nbsp;host_rewrite | **string**<br> 
 &nbsp;&nbsp;auto_host_rewrite | **bool**<br> 
 
 
-### GrpcStatusResponseAction {#GrpcStatusResponseAction}
+### GrpcStatusResponseAction {#GrpcStatusResponseAction3}
 
 Field | Description
 --- | ---
 status | enum **Status**<br> <ul><ul/>
 
 
-### HeaderModification {#HeaderModification}
+### HeaderModification {#HeaderModification3}
 
 Field | Description
 --- | ---
@@ -730,7 +730,7 @@ operation | **oneof:** `append`, `replace`, `remove` or `rename`<br>Header value
 &nbsp;&nbsp;rename | **string**<br>New name for a header. 
 
 
-### Operation {#Operation}
+### Operation {#Operation1}
 
 Field | Description
 --- | ---
@@ -753,7 +753,7 @@ Field | Description
 http_router_id | **string**<br> 
 
 
-### HttpRouter {#HttpRouter}
+### HttpRouter {#HttpRouter3}
 
 Field | Description
 --- | ---
@@ -779,10 +779,10 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-http_router_id | **string**<br>Required.  false
+http_router_id | **string**<br>Required.  
 
 
-### Operation {#Operation}
+### Operation {#Operation2}
 
 Field | Description
 --- | ---
@@ -815,7 +815,7 @@ Lists operations for the specified http router.
 
 Field | Description
 --- | ---
-http_router_id | **string**<br>Required. ID of the http router to get operations for. <br>To get the http router ID, use a [HttpRouterService.List](#List) request. false The maximum string length in characters is 50.
+http_router_id | **string**<br>Required. ID of the http router to get operations for. <br>To get the http router ID, use a [HttpRouterService.List](#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page that should be returned. If the number of available results is larger than `page_size`, the service returns a [ListHttpRouterOperationsResponse.next_page_token](#ListHttpRouterOperationsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListHttpRouterOperationsResponse.next_page_token](#ListHttpRouterOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
@@ -825,10 +825,10 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 Field | Description
 --- | ---
 operations[] | **[operation.Operation](#Operation3)**<br>List of operations for the specified target group. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListHttpRouterOperationsRequest.page_size](#ListHttpRouterOperationsRequest1), use the `next_page_token` as the value for the [ListHttpRouterOperationsRequest.page_token](#ListHttpRouterOperationsRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListHttpRouterOperationsRequest.page_size](#ListHttpRouterOperationsRequest), use the `next_page_token` as the value for the [ListHttpRouterOperationsRequest.page_token](#ListHttpRouterOperationsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
-### Operation {#Operation}
+### Operation {#Operation3}
 
 Field | Description
 --- | ---

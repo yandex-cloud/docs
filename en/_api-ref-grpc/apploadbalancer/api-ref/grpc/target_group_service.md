@@ -29,7 +29,7 @@ editable: false
 
 Field | Description
 --- | ---
-target_group_id | **string**<br>Required.  false
+target_group_id | **string**<br>Required.  
 
 
 ### TargetGroup {#TargetGroup}
@@ -64,7 +64,7 @@ subnet_id | **string**<br>ID of the subnet that target connected to.
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required.  false
+folder_id | **string**<br>Required.  
 page_size | **int64**<br> Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br> The maximum string length in characters is 100.
 filter | **string**<br> The maximum string length in characters is 1000.
@@ -78,7 +78,7 @@ target_groups[] | **[TargetGroup](../target_group.proto#TargetGroup1)**<br>
 next_page_token | **string**<br> 
 
 
-### TargetGroup {#TargetGroup}
+### TargetGroup {#TargetGroup1}
 
 Field | Description
 --- | ---
@@ -90,7 +90,7 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum
 targets[] | **[Target](../target_group.proto#Target1)**<br>NOTE: all endpoints must use the same address_type - either ip or hostname. 
 
 
-### Target {#Target}
+### Target {#Target1}
 
 Field | Description
 --- | ---
@@ -114,14 +114,14 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required.  false
+folder_id | **string**<br>Required.  
 name | **string**<br> Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br> The maximum string length in characters is 256.
 labels | **map<string,string>**<br> No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 targets[] | **[Target](../target_group.proto#Target2)**<br> 
 
 
-### Target {#Target}
+### Target {#Target2}
 
 Field | Description
 --- | ---
@@ -154,7 +154,7 @@ Field | Description
 target_group_id | **string**<br> 
 
 
-### TargetGroup {#TargetGroup}
+### TargetGroup {#TargetGroup2}
 
 Field | Description
 --- | ---
@@ -180,7 +180,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-target_group_id | **string**<br>Required.  false
+target_group_id | **string**<br>Required.  
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br> 
 name | **string**<br> Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br> The maximum string length in characters is 256.
@@ -188,7 +188,7 @@ labels | **map<string,string>**<br> No more than 64 per resource. The maximum st
 targets[] | **[Target](../target_group.proto#Target3)**<br> 
 
 
-### Target {#Target}
+### Target {#Target3}
 
 Field | Description
 --- | ---
@@ -198,7 +198,7 @@ port | **int64**<br>Endpoint port. Takes priority over Backend::port setting. Ac
 subnet_id | **string**<br>ID of the subnet that target connected to. 
 
 
-### Operation {#Operation}
+### Operation {#Operation1}
 
 Field | Description
 --- | ---
@@ -221,7 +221,7 @@ Field | Description
 target_group_id | **string**<br> 
 
 
-### TargetGroup {#TargetGroup}
+### TargetGroup {#TargetGroup3}
 
 Field | Description
 --- | ---
@@ -247,10 +247,10 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-target_group_id | **string**<br>Required.  false
+target_group_id | **string**<br>Required.  
 
 
-### Operation {#Operation}
+### Operation {#Operation2}
 
 Field | Description
 --- | ---
@@ -287,11 +287,11 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-target_group_id | **string**<br>Required.  false
+target_group_id | **string**<br>Required.  
 targets[] | **[Target](../target_group.proto#Target4)**<br> The number of elements must be greater than 0.
 
 
-### Target {#Target}
+### Target {#Target4}
 
 Field | Description
 --- | ---
@@ -301,7 +301,7 @@ port | **int64**<br>Endpoint port. Takes priority over Backend::port setting. Ac
 subnet_id | **string**<br>ID of the subnet that target connected to. 
 
 
-### Operation {#Operation}
+### Operation {#Operation3}
 
 Field | Description
 --- | ---
@@ -324,7 +324,7 @@ Field | Description
 target_group_id | **string**<br> 
 
 
-### TargetGroup {#TargetGroup}
+### TargetGroup {#TargetGroup4}
 
 Field | Description
 --- | ---
@@ -350,11 +350,11 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-target_group_id | **string**<br>Required.  false
+target_group_id | **string**<br>Required.  
 targets[] | **[Target](../target_group.proto#Target5)**<br> The number of elements must be greater than 0.
 
 
-### Target {#Target}
+### Target {#Target5}
 
 Field | Description
 --- | ---
@@ -364,7 +364,7 @@ port | **int64**<br>Endpoint port. Takes priority over Backend::port setting. Ac
 subnet_id | **string**<br>ID of the subnet that target connected to. 
 
 
-### Operation {#Operation}
+### Operation {#Operation4}
 
 Field | Description
 --- | ---
@@ -387,7 +387,7 @@ Field | Description
 target_group_id | **string**<br> 
 
 
-### TargetGroup {#TargetGroup}
+### TargetGroup {#TargetGroup5}
 
 Field | Description
 --- | ---
@@ -409,7 +409,7 @@ Lists operations for the specified target group.
 
 Field | Description
 --- | ---
-target_group_id | **string**<br>Required. ID of the target group to get operations for. <br>To get the target group ID, use a [TargetGroupService.List](#List) request. false The maximum string length in characters is 50.
+target_group_id | **string**<br>Required. ID of the target group to get operations for. <br>To get the target group ID, use a [TargetGroupService.List](#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page that should be returned. If the number of available results is larger than `page_size`, the service returns a [ListTargetGroupOperationsResponse.next_page_token](#ListTargetGroupOperationsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListTargetGroupOperationsResponse.next_page_token](#ListTargetGroupOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
@@ -419,10 +419,10 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 Field | Description
 --- | ---
 operations[] | **[operation.Operation](#Operation5)**<br>List of operations for the specified target group. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListTargetGroupOperationsRequest.page_size](#ListTargetGroupOperationsRequest1), use the `next_page_token` as the value for the [ListTargetGroupOperationsRequest.page_token](#ListTargetGroupOperationsRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListTargetGroupOperationsRequest.page_size](#ListTargetGroupOperationsRequest), use the `next_page_token` as the value for the [ListTargetGroupOperationsRequest.page_token](#ListTargetGroupOperationsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
-### Operation {#Operation}
+### Operation {#Operation5}
 
 Field | Description
 --- | ---

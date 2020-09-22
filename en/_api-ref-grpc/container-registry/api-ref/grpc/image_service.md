@@ -38,7 +38,7 @@ order_by | **string**<br> The maximum string length in characters is 100.
 Field | Description
 --- | ---
 images[] | **[Image](../image.proto#Image)**<br>List of Image resources. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListImagesRequest.page_size](#ListImagesRequest1), use the `next_page_token` as the value for the [ListImagesRequest.page_token](#ListImagesRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListImagesRequest.page_size](#ListImagesRequest), use the `next_page_token` as the value for the [ListImagesRequest.page_token](#ListImagesRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
 ### Image {#Image}
@@ -75,10 +75,10 @@ Returns the specified Image resource. <br>To get the list of available Image res
 
 Field | Description
 --- | ---
-image_id | **string**<br>Required. ID of the Docker image resource to return. <br>To get the Docker image ID use a [ImageService.List](#List) request. false The maximum string length in characters is 50.
+image_id | **string**<br>Required. ID of the Docker image resource to return. <br>To get the Docker image ID use a [ImageService.List](#List) request. The maximum string length in characters is 50.
 
 
-### Image {#Image}
+### Image {#Image1}
 
 Field | Description
 --- | ---
@@ -92,7 +92,7 @@ tags[] | **string**<br>Tags of the Docker image. <br>Each tag is unique within t
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Output only. Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
 
 
-### Blob {#Blob}
+### Blob {#Blob1}
 
 Field | Description
 --- | ---
@@ -116,7 +116,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-image_id | **string**<br>Required. ID of the Docker image to delete. <br>To get Docker image ID use a [ImageService.List](#List) request. false The maximum string length in characters is 50.
+image_id | **string**<br>Required. ID of the Docker image to delete. <br>To get Docker image ID use a [ImageService.List](#List) request. The maximum string length in characters is 50.
 
 
 ### Operation {#Operation}

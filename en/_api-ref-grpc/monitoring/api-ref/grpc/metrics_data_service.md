@@ -23,7 +23,7 @@ Returns metric data from Monitoring.
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder that the metric belongs to. false The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the folder that the metric belongs to. The maximum string length in characters is 50.
 query | **[DataQuery](#DataQuery)**<br>Query parameters. 
 
 
@@ -31,10 +31,10 @@ query | **[DataQuery](#DataQuery)**<br>Query parameters.
 
 Field | Description
 --- | ---
-query | **string**<br>Required. Query text. false
-from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Required. The beginning of the time interval, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. false
-to_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Required. The end of the time interval, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. false
-downsampling | **[Downsampling](#Downsampling)**<br>Required. Downsampling parameters. false
+query | **string**<br>Required. Query text. 
+from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Required. The beginning of the time interval, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+to_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Required. The end of the time interval, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+downsampling | **[Downsampling](#Downsampling)**<br>Required. Downsampling parameters. 
 
 
 ### Downsampling {#Downsampling}
@@ -85,8 +85,8 @@ Writes metric data to Monitoring.
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder that the metric belongs to. false The maximum string length in characters is 50.
-service | **string**<br>Required. ID of the service that the metric belongs to. Use `service=custom` for custom metrics. false The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the folder that the metric belongs to. The maximum string length in characters is 50.
+service | **string**<br>Required. ID of the service that the metric belongs to. Use `service=custom` for custom metrics. The maximum string length in characters is 50.
 data | **oneof:** `raw_data` or `typed_data`<br>
 &nbsp;&nbsp;raw_data | **RawData**<br>Raw metrics data. 
 &nbsp;&nbsp;typed_data | **TypedData**<br>Typed metrics data. 
@@ -96,15 +96,15 @@ data | **oneof:** `raw_data` or `typed_data`<br>
 
 Field | Description
 --- | ---
-content_type | **string**<br>Required. Query content type. Use "application/json". false
-content | **bytes**<br>Required. Query content. false
+content_type | **string**<br>Required. Query content type. Use "application/json". 
+content | **bytes**<br>Required. Query content. 
 
 
 ### TypedData {#TypedData}
 
 Field | Description
 --- | ---
-metrics[] | **[MetricData](#MetricData1)**<br>List of metrics with timeseries. 
+metrics[] | **[MetricData](#MetricData)**<br>List of metrics with timeseries. 
 
 
 ### WriteMetricsDataResponse {#WriteMetricsDataResponse}

@@ -71,7 +71,7 @@ subnet_id | **string**<br>ID of the subnet.
 
 Field | Description
 --- | ---
-target_group_id | **string**<br>Required. ID of the target group. false The maximum string length in characters is 50.
+target_group_id | **string**<br>Required. ID of the target group. The maximum string length in characters is 50.
 health_checks[] | **[HealthCheck](../health_check.proto#HealthCheck)**<br>A health check to perform on the target group. For now we accept only one health check per AttachedTargetGroup. The number of elemets must be exactly 1.
 
 
@@ -79,7 +79,7 @@ health_checks[] | **[HealthCheck](../health_check.proto#HealthCheck)**<br>A heal
 
 Field | Description
 --- | ---
-name | **string**<br>Required. Name of the health check. The name must be unique for each target group that attached to a single load balancer. 3-63 characters long. false Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+name | **string**<br>Required. Name of the health check. The name must be unique for each target group that attached to a single load balancer. 3-63 characters long. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>The interval between health checks. The default is 2 seconds. 
 timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for a target to return a response for the health check. The default is 1 second. 
 unhealthy_threshold | **int64**<br>Number of failed health checks before changing the status to `` UNHEALTHY ``. The default is 2. Acceptable values are 2 to 10, inclusive.
@@ -114,7 +114,7 @@ Retrieves the list of NetworkLoadBalancer resources in the specified folder.
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder that the network load balancer belongs to. To get the folder ID, use a [NetworkLoadBalancerService.List](#List) request. false The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the folder that the network load balancer belongs to. To get the folder ID, use a [NetworkLoadBalancerService.List](#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [<ResponseMessage>.next_page_token] that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListNetworkLoadBalancersResponse.next_page_token](#ListNetworkLoadBalancersResponse) returned by a previous list request. The maximum string length in characters is 100.
 filter | **string**<br><ol><li>The field name. Currently you can only filter by the [NetworkLoadBalancer.name](../network_load_balancer.proto#NetworkLoadBalancer1) field. </li><li>An operator. Can be either `=` or `!=` for single values, or `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.</li></ol> The maximum string length in characters is 1000.
@@ -125,10 +125,10 @@ filter | **string**<br><ol><li>The field name. Currently you can only filter by 
 Field | Description
 --- | ---
 network_load_balancers[] | **[NetworkLoadBalancer](../network_load_balancer.proto#NetworkLoadBalancer1)**<br>List of NetworkLoadBalancer resources. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListNetworkLoadBalancersRequest.page_size](#ListNetworkLoadBalancersRequest1), use the `next_page_token` as the value for the [ListNetworkLoadBalancersRequest.page_token](#ListNetworkLoadBalancersRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListNetworkLoadBalancersRequest.page_size](#ListNetworkLoadBalancersRequest), use the `next_page_token` as the value for the [ListNetworkLoadBalancersRequest.page_token](#ListNetworkLoadBalancersRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
-### NetworkLoadBalancer {#NetworkLoadBalancer}
+### NetworkLoadBalancer {#NetworkLoadBalancer1}
 
 Field | Description
 --- | ---
@@ -146,7 +146,7 @@ listeners[] | **[Listener](../network_load_balancer.proto#Listener1)**<br>List o
 attached_target_groups[] | **[AttachedTargetGroup](../network_load_balancer.proto#AttachedTargetGroup1)**<br>List of target groups attached to the network load balancer. 
 
 
-### Listener {#Listener}
+### Listener {#Listener1}
 
 Field | Description
 --- | ---
@@ -158,19 +158,19 @@ target_port | **int64**<br>Port of a target.
 subnet_id | **string**<br>ID of the subnet. 
 
 
-### AttachedTargetGroup {#AttachedTargetGroup}
+### AttachedTargetGroup {#AttachedTargetGroup1}
 
 Field | Description
 --- | ---
-target_group_id | **string**<br>Required. ID of the target group. false The maximum string length in characters is 50.
+target_group_id | **string**<br>Required. ID of the target group. The maximum string length in characters is 50.
 health_checks[] | **[HealthCheck](../health_check.proto#HealthCheck1)**<br>A health check to perform on the target group. For now we accept only one health check per AttachedTargetGroup. The number of elemets must be exactly 1.
 
 
-### HealthCheck {#HealthCheck}
+### HealthCheck {#HealthCheck1}
 
 Field | Description
 --- | ---
-name | **string**<br>Required. Name of the health check. The name must be unique for each target group that attached to a single load balancer. 3-63 characters long. false Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+name | **string**<br>Required. Name of the health check. The name must be unique for each target group that attached to a single load balancer. 3-63 characters long. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>The interval between health checks. The default is 2 seconds. 
 timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for a target to return a response for the health check. The default is 1 second. 
 unhealthy_threshold | **int64**<br>Number of failed health checks before changing the status to `` UNHEALTHY ``. The default is 2. Acceptable values are 2 to 10, inclusive.
@@ -180,14 +180,14 @@ options | **oneof:** `tcp_options` or `http_options`<br>Protocol to use for the 
 &nbsp;&nbsp;http_options | **[HttpOptions](../health_check.proto#HttpOptions1)**<br>Options for HTTP health check. 
 
 
-### TcpOptions {#TcpOptions}
+### TcpOptions {#TcpOptions1}
 
 Field | Description
 --- | ---
 port | **int64**<br>Port to use for TCP health checks. Acceptable values are 1 to 65535, inclusive.
 
 
-### HttpOptions {#HttpOptions}
+### HttpOptions {#HttpOptions1}
 
 Field | Description
 --- | ---
@@ -209,12 +209,12 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder to create a network load balancer in. To get the folder ID, use a [NetworkLoadBalancerService.List](#List) request. false The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the folder to create a network load balancer in. To get the folder ID, use a [NetworkLoadBalancerService.List](#List) request. The maximum string length in characters is 50.
 name | **string**<br>Name of the network load balancer. The name must be unique within the folder. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>Description of the network load balancer. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 region_id | **string**<br>ID of the region where the network load balancer resides. The maximum string length in characters is 50.
-type | **[NetworkLoadBalancer.Type](../network_load_balancer.proto#NetworkLoadBalancer2)**<br>Required. Type of the network load balancer. Only external network load balancers are currently available. false
+type | **[NetworkLoadBalancer.Type](../network_load_balancer.proto#NetworkLoadBalancer2)**<br>Required. Type of the network load balancer. Only external network load balancers are currently available. 
 listener_specs[] | **[ListenerSpec](#ListenerSpec)**<br>List of listeners and their specs for the network load balancer. The maximum number of elements is 1000.
 attached_target_groups[] | **[AttachedTargetGroup](../network_load_balancer.proto#AttachedTargetGroup2)**<br>List of attached target groups for the network load balancer. The maximum number of elements is 5.
 
@@ -223,9 +223,9 @@ attached_target_groups[] | **[AttachedTargetGroup](../network_load_balancer.prot
 
 Field | Description
 --- | ---
-name | **string**<br>Required. Name of the listener. The name must be unique for each listener on a single load balancer. 3-63 characters long. false Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+name | **string**<br>Required. Name of the listener. The name must be unique for each listener on a single load balancer. 3-63 characters long. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 port | **int64**<br>Port for incoming traffic. Acceptable values are 1 to 65535, inclusive.
-protocol | **[Listener.Protocol](../network_load_balancer.proto#Listener2)**<br>Required. Protocol for incoming traffic. false
+protocol | **[Listener.Protocol](../network_load_balancer.proto#Listener2)**<br>Required. Protocol for incoming traffic. 
 address | **oneof:** `external_address_spec` or `internal_address_spec`<br>IP address for incoming traffic. Either the ID of the previously created address or the address specification.
 &nbsp;&nbsp;external_address_spec | **[ExternalAddressSpec](#ExternalAddressSpec)**<br>External IP address specification. 
 &nbsp;&nbsp;internal_address_spec | **[InternalAddressSpec](#InternalAddressSpec)**<br>Internal IP address specification. 
@@ -249,19 +249,19 @@ subnet_id | **string**<br>ID of the subnet.
 ip_version | enum **IpVersion**<br>IP version. <ul><li>`IPV4`: IPv4</li><li>`IPV6`: IPv6</li><ul/>
 
 
-### AttachedTargetGroup {#AttachedTargetGroup}
+### AttachedTargetGroup {#AttachedTargetGroup2}
 
 Field | Description
 --- | ---
-target_group_id | **string**<br>Required. ID of the target group. false The maximum string length in characters is 50.
+target_group_id | **string**<br>Required. ID of the target group. The maximum string length in characters is 50.
 health_checks[] | **[HealthCheck](../health_check.proto#HealthCheck2)**<br>A health check to perform on the target group. For now we accept only one health check per AttachedTargetGroup. The number of elemets must be exactly 1.
 
 
-### HealthCheck {#HealthCheck}
+### HealthCheck {#HealthCheck2}
 
 Field | Description
 --- | ---
-name | **string**<br>Required. Name of the health check. The name must be unique for each target group that attached to a single load balancer. 3-63 characters long. false Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+name | **string**<br>Required. Name of the health check. The name must be unique for each target group that attached to a single load balancer. 3-63 characters long. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>The interval between health checks. The default is 2 seconds. 
 timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for a target to return a response for the health check. The default is 1 second. 
 unhealthy_threshold | **int64**<br>Number of failed health checks before changing the status to `` UNHEALTHY ``. The default is 2. Acceptable values are 2 to 10, inclusive.
@@ -271,14 +271,14 @@ options | **oneof:** `tcp_options` or `http_options`<br>Protocol to use for the 
 &nbsp;&nbsp;http_options | **[HttpOptions](../health_check.proto#HttpOptions2)**<br>Options for HTTP health check. 
 
 
-### TcpOptions {#TcpOptions}
+### TcpOptions {#TcpOptions2}
 
 Field | Description
 --- | ---
 port | **int64**<br>Port to use for TCP health checks. Acceptable values are 1 to 65535, inclusive.
 
 
-### HttpOptions {#HttpOptions}
+### HttpOptions {#HttpOptions2}
 
 Field | Description
 --- | ---
@@ -309,7 +309,7 @@ Field | Description
 network_load_balancer_id | **string**<br>ID of the network load balancer that is being created. 
 
 
-### NetworkLoadBalancer {#NetworkLoadBalancer}
+### NetworkLoadBalancer {#NetworkLoadBalancer2}
 
 Field | Description
 --- | ---
@@ -341,29 +341,29 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-network_load_balancer_id | **string**<br>Required. ID of the network load balancer to update. To get the network load balancer ID, use a [NetworkLoadBalancerService.List](#List) request. false The maximum string length in characters is 50.
+network_load_balancer_id | **string**<br>Required. ID of the network load balancer to update. To get the network load balancer ID, use a [NetworkLoadBalancerService.List](#List) request. The maximum string length in characters is 50.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the NetworkLoadBalancer resource are going to be updated. 
 name | **string**<br>Name of the network load balancer. The name must be unique within the folder. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>Description of the network load balancer. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. <br>The existing set of `` labels `` is completely replaced with the provided set. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
-listener_specs[] | **[ListenerSpec](#ListenerSpec1)**<br>A list of listeners and their specs for the network load balancer. The maximum number of elements is 1000.
+listener_specs[] | **[ListenerSpec](#ListenerSpec)**<br>A list of listeners and their specs for the network load balancer. The maximum number of elements is 1000.
 attached_target_groups[] | **[AttachedTargetGroup](../network_load_balancer.proto#AttachedTargetGroup3)**<br>A list of attached target groups for the network load balancer. The maximum number of elements is 5.
 
 
-### ListenerSpec {#ListenerSpec}
+### ListenerSpec {#ListenerSpec1}
 
 Field | Description
 --- | ---
-name | **string**<br>Required. Name of the listener. The name must be unique for each listener on a single load balancer. 3-63 characters long. false Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+name | **string**<br>Required. Name of the listener. The name must be unique for each listener on a single load balancer. 3-63 characters long. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 port | **int64**<br>Port for incoming traffic. Acceptable values are 1 to 65535, inclusive.
-protocol | **[Listener.Protocol](../network_load_balancer.proto#Listener2)**<br>Required. Protocol for incoming traffic. false
+protocol | **[Listener.Protocol](../network_load_balancer.proto#Listener2)**<br>Required. Protocol for incoming traffic. 
 address | **oneof:** `external_address_spec` or `internal_address_spec`<br>IP address for incoming traffic. Either the ID of the previously created address or the address specification.
-&nbsp;&nbsp;external_address_spec | **[ExternalAddressSpec](#ExternalAddressSpec1)**<br>External IP address specification. 
-&nbsp;&nbsp;internal_address_spec | **[InternalAddressSpec](#InternalAddressSpec1)**<br>Internal IP address specification. 
+&nbsp;&nbsp;external_address_spec | **[ExternalAddressSpec](#ExternalAddressSpec)**<br>External IP address specification. 
+&nbsp;&nbsp;internal_address_spec | **[InternalAddressSpec](#InternalAddressSpec)**<br>Internal IP address specification. 
 target_port | **int64**<br>Port of a target. Acceptable values are 1 to 65535, inclusive. 
 
 
-### ExternalAddressSpec {#ExternalAddressSpec}
+### ExternalAddressSpec {#ExternalAddressSpec1}
 
 Field | Description
 --- | ---
@@ -371,7 +371,7 @@ address | **string**<br>Public IP address for a listener. If you provide a stati
 ip_version | enum **IpVersion**<br>IP version. <ul><li>`IPV4`: IPv4</li><li>`IPV6`: IPv6</li><ul/>
 
 
-### InternalAddressSpec {#InternalAddressSpec}
+### InternalAddressSpec {#InternalAddressSpec1}
 
 Field | Description
 --- | ---
@@ -380,19 +380,19 @@ subnet_id | **string**<br>ID of the subnet.
 ip_version | enum **IpVersion**<br>IP version. <ul><li>`IPV4`: IPv4</li><li>`IPV6`: IPv6</li><ul/>
 
 
-### AttachedTargetGroup {#AttachedTargetGroup}
+### AttachedTargetGroup {#AttachedTargetGroup3}
 
 Field | Description
 --- | ---
-target_group_id | **string**<br>Required. ID of the target group. false The maximum string length in characters is 50.
+target_group_id | **string**<br>Required. ID of the target group. The maximum string length in characters is 50.
 health_checks[] | **[HealthCheck](../health_check.proto#HealthCheck3)**<br>A health check to perform on the target group. For now we accept only one health check per AttachedTargetGroup. The number of elemets must be exactly 1.
 
 
-### HealthCheck {#HealthCheck}
+### HealthCheck {#HealthCheck3}
 
 Field | Description
 --- | ---
-name | **string**<br>Required. Name of the health check. The name must be unique for each target group that attached to a single load balancer. 3-63 characters long. false Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+name | **string**<br>Required. Name of the health check. The name must be unique for each target group that attached to a single load balancer. 3-63 characters long. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>The interval between health checks. The default is 2 seconds. 
 timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for a target to return a response for the health check. The default is 1 second. 
 unhealthy_threshold | **int64**<br>Number of failed health checks before changing the status to `` UNHEALTHY ``. The default is 2. Acceptable values are 2 to 10, inclusive.
@@ -402,14 +402,14 @@ options | **oneof:** `tcp_options` or `http_options`<br>Protocol to use for the 
 &nbsp;&nbsp;http_options | **[HttpOptions](../health_check.proto#HttpOptions3)**<br>Options for HTTP health check. 
 
 
-### TcpOptions {#TcpOptions}
+### TcpOptions {#TcpOptions3}
 
 Field | Description
 --- | ---
 port | **int64**<br>Port to use for TCP health checks. Acceptable values are 1 to 65535, inclusive.
 
 
-### HttpOptions {#HttpOptions}
+### HttpOptions {#HttpOptions3}
 
 Field | Description
 --- | ---
@@ -417,7 +417,7 @@ port | **int64**<br>Port to use for HTTP health checks. Acceptable values are 1 
 path | **string**<br>URL path to set for health checking requests for every target in the target group. For example `` /ping ``. The default path is `` / ``. 
 
 
-### Operation {#Operation}
+### Operation {#Operation1}
 
 Field | Description
 --- | ---
@@ -440,7 +440,7 @@ Field | Description
 network_load_balancer_id | **string**<br>ID of the NetworkLoadBalancer resource that is being updated. 
 
 
-### NetworkLoadBalancer {#NetworkLoadBalancer}
+### NetworkLoadBalancer {#NetworkLoadBalancer3}
 
 Field | Description
 --- | ---
@@ -472,10 +472,10 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-network_load_balancer_id | **string**<br>Required. ID of the network load balancer to delete. To get the network load balancer ID, use a [NetworkLoadBalancerService.List](#List) request. false The maximum string length in characters is 50.
+network_load_balancer_id | **string**<br>Required. ID of the network load balancer to delete. To get the network load balancer ID, use a [NetworkLoadBalancerService.List](#List) request. The maximum string length in characters is 50.
 
 
-### Operation {#Operation}
+### Operation {#Operation2}
 
 Field | Description
 --- | ---
@@ -512,10 +512,10 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-network_load_balancer_id | **string**<br>Required. ID of the network load balancer to start. To get the network load balancer ID, use a [NetworkLoadBalancerService.List](#List) request. false The maximum string length in characters is 50.
+network_load_balancer_id | **string**<br>Required. ID of the network load balancer to start. To get the network load balancer ID, use a [NetworkLoadBalancerService.List](#List) request. The maximum string length in characters is 50.
 
 
-### Operation {#Operation}
+### Operation {#Operation3}
 
 Field | Description
 --- | ---
@@ -552,10 +552,10 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-network_load_balancer_id | **string**<br>Required. ID of the network load balancer to stop. To get the network load balancer ID, use a [NetworkLoadBalancerService.List](#List) request. false The maximum string length in characters is 50.
+network_load_balancer_id | **string**<br>Required. ID of the network load balancer to stop. To get the network load balancer ID, use a [NetworkLoadBalancerService.List](#List) request. The maximum string length in characters is 50.
 
 
-### Operation {#Operation}
+### Operation {#Operation4}
 
 Field | Description
 --- | ---
@@ -592,23 +592,23 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-network_load_balancer_id | **string**<br>Required. ID of the network load balancer to attach the target group to. To get the network load balancer ID, use a [NetworkLoadBalancerService.List](#List) request. false The maximum string length in characters is 50.
-attached_target_group | **[AttachedTargetGroup](../network_load_balancer.proto#AttachedTargetGroup4)**<br>Required. ID of the attached target group to attach to the network load balancer. To get the network load balancer ID, use a [NetworkLoadBalancerService.List](#List) request. false
+network_load_balancer_id | **string**<br>Required. ID of the network load balancer to attach the target group to. To get the network load balancer ID, use a [NetworkLoadBalancerService.List](#List) request. The maximum string length in characters is 50.
+attached_target_group | **[AttachedTargetGroup](../network_load_balancer.proto#AttachedTargetGroup4)**<br>Required. ID of the attached target group to attach to the network load balancer. To get the network load balancer ID, use a [NetworkLoadBalancerService.List](#List) request. 
 
 
-### AttachedTargetGroup {#AttachedTargetGroup}
+### AttachedTargetGroup {#AttachedTargetGroup4}
 
 Field | Description
 --- | ---
-target_group_id | **string**<br>Required. ID of the target group. false The maximum string length in characters is 50.
+target_group_id | **string**<br>Required. ID of the target group. The maximum string length in characters is 50.
 health_checks[] | **[HealthCheck](../health_check.proto#HealthCheck4)**<br>A health check to perform on the target group. For now we accept only one health check per AttachedTargetGroup. The number of elemets must be exactly 1.
 
 
-### HealthCheck {#HealthCheck}
+### HealthCheck {#HealthCheck4}
 
 Field | Description
 --- | ---
-name | **string**<br>Required. Name of the health check. The name must be unique for each target group that attached to a single load balancer. 3-63 characters long. false Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+name | **string**<br>Required. Name of the health check. The name must be unique for each target group that attached to a single load balancer. 3-63 characters long. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>The interval between health checks. The default is 2 seconds. 
 timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for a target to return a response for the health check. The default is 1 second. 
 unhealthy_threshold | **int64**<br>Number of failed health checks before changing the status to `` UNHEALTHY ``. The default is 2. Acceptable values are 2 to 10, inclusive.
@@ -618,14 +618,14 @@ options | **oneof:** `tcp_options` or `http_options`<br>Protocol to use for the 
 &nbsp;&nbsp;http_options | **[HttpOptions](../health_check.proto#HttpOptions4)**<br>Options for HTTP health check. 
 
 
-### TcpOptions {#TcpOptions}
+### TcpOptions {#TcpOptions4}
 
 Field | Description
 --- | ---
 port | **int64**<br>Port to use for TCP health checks. Acceptable values are 1 to 65535, inclusive.
 
 
-### HttpOptions {#HttpOptions}
+### HttpOptions {#HttpOptions4}
 
 Field | Description
 --- | ---
@@ -633,7 +633,7 @@ port | **int64**<br>Port to use for HTTP health checks. Acceptable values are 1 
 path | **string**<br>URL path to set for health checking requests for every target in the target group. For example `` /ping ``. The default path is `` / ``. 
 
 
-### Operation {#Operation}
+### Operation {#Operation5}
 
 Field | Description
 --- | ---
@@ -657,7 +657,7 @@ network_load_balancer_id | **string**<br>ID of the network load balancer that th
 target_group_id | **string**<br>ID of the target group. 
 
 
-### NetworkLoadBalancer {#NetworkLoadBalancer}
+### NetworkLoadBalancer {#NetworkLoadBalancer4}
 
 Field | Description
 --- | ---
@@ -689,11 +689,11 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-network_load_balancer_id | **string**<br>Required. ID of the network load balancer to detach the target group from. To get the network load balancer ID, use a [NetworkLoadBalancerService.List](#List) request. false The maximum string length in characters is 50.
-target_group_id | **string**<br>Required. ID of the target group. false The maximum string length in characters is 50.
+network_load_balancer_id | **string**<br>Required. ID of the network load balancer to detach the target group from. To get the network load balancer ID, use a [NetworkLoadBalancerService.List](#List) request. The maximum string length in characters is 50.
+target_group_id | **string**<br>Required. ID of the target group. The maximum string length in characters is 50.
 
 
-### Operation {#Operation}
+### Operation {#Operation6}
 
 Field | Description
 --- | ---
@@ -717,7 +717,7 @@ network_load_balancer_id | **string**<br>ID of the network load balancer that th
 target_group_id | **string**<br>ID of the target group. 
 
 
-### NetworkLoadBalancer {#NetworkLoadBalancer}
+### NetworkLoadBalancer {#NetworkLoadBalancer5}
 
 Field | Description
 --- | ---
@@ -753,7 +753,7 @@ target_group_id | **string**<br>ID of the target group to get states of resource
 
 Field | Description
 --- | ---
-target_states[] | **[TargetState](../network_load_balancer.proto#TargetState)**<br>List of states of targets within the target group that is specified in the [GetTargetStatesRequest](#GetTargetStatesRequest1) message. 
+target_states[] | **[TargetState](../network_load_balancer.proto#TargetState)**<br>List of states of targets within the target group that is specified in the [GetTargetStatesRequest](#GetTargetStatesRequest) message. 
 
 
 ### TargetState {#TargetState}
@@ -779,24 +779,24 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-network_load_balancer_id | **string**<br>Required. ID of the network load balancer to add a listener to. To get the network load balancer ID, use a [NetworkLoadBalancerService.List](#List) request. false The maximum string length in characters is 50.
-listener_spec | **[ListenerSpec](#ListenerSpec2)**<br>Required. Listener spec. false
+network_load_balancer_id | **string**<br>Required. ID of the network load balancer to add a listener to. To get the network load balancer ID, use a [NetworkLoadBalancerService.List](#List) request. The maximum string length in characters is 50.
+listener_spec | **[ListenerSpec](#ListenerSpec)**<br>Required. Listener spec. 
 
 
-### ListenerSpec {#ListenerSpec}
+### ListenerSpec {#ListenerSpec2}
 
 Field | Description
 --- | ---
-name | **string**<br>Required. Name of the listener. The name must be unique for each listener on a single load balancer. 3-63 characters long. false Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+name | **string**<br>Required. Name of the listener. The name must be unique for each listener on a single load balancer. 3-63 characters long. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 port | **int64**<br>Port for incoming traffic. Acceptable values are 1 to 65535, inclusive.
-protocol | **[Listener.Protocol](../network_load_balancer.proto#Listener2)**<br>Required. Protocol for incoming traffic. false
+protocol | **[Listener.Protocol](../network_load_balancer.proto#Listener2)**<br>Required. Protocol for incoming traffic. 
 address | **oneof:** `external_address_spec` or `internal_address_spec`<br>IP address for incoming traffic. Either the ID of the previously created address or the address specification.
-&nbsp;&nbsp;external_address_spec | **[ExternalAddressSpec](#ExternalAddressSpec2)**<br>External IP address specification. 
-&nbsp;&nbsp;internal_address_spec | **[InternalAddressSpec](#InternalAddressSpec2)**<br>Internal IP address specification. 
+&nbsp;&nbsp;external_address_spec | **[ExternalAddressSpec](#ExternalAddressSpec)**<br>External IP address specification. 
+&nbsp;&nbsp;internal_address_spec | **[InternalAddressSpec](#InternalAddressSpec)**<br>Internal IP address specification. 
 target_port | **int64**<br>Port of a target. Acceptable values are 1 to 65535, inclusive. 
 
 
-### ExternalAddressSpec {#ExternalAddressSpec}
+### ExternalAddressSpec {#ExternalAddressSpec2}
 
 Field | Description
 --- | ---
@@ -804,7 +804,7 @@ address | **string**<br>Public IP address for a listener. If you provide a stati
 ip_version | enum **IpVersion**<br>IP version. <ul><li>`IPV4`: IPv4</li><li>`IPV6`: IPv6</li><ul/>
 
 
-### InternalAddressSpec {#InternalAddressSpec}
+### InternalAddressSpec {#InternalAddressSpec2}
 
 Field | Description
 --- | ---
@@ -813,7 +813,7 @@ subnet_id | **string**<br>ID of the subnet.
 ip_version | enum **IpVersion**<br>IP version. <ul><li>`IPV4`: IPv4</li><li>`IPV6`: IPv6</li><ul/>
 
 
-### Operation {#Operation}
+### Operation {#Operation7}
 
 Field | Description
 --- | ---
@@ -836,7 +836,7 @@ Field | Description
 network_load_balancer_id | **string**<br>ID of the network load balancer that the listener is being added to. 
 
 
-### NetworkLoadBalancer {#NetworkLoadBalancer}
+### NetworkLoadBalancer {#NetworkLoadBalancer6}
 
 Field | Description
 --- | ---
@@ -868,11 +868,11 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-network_load_balancer_id | **string**<br>Required. ID of the network load balancer to remove the listener from. To get the network load balancer ID, use a [NetworkLoadBalancerService.List](#List) request. false The maximum string length in characters is 50.
-listener_name | **string**<br>Required. Name of the listener to delete. false Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+network_load_balancer_id | **string**<br>Required. ID of the network load balancer to remove the listener from. To get the network load balancer ID, use a [NetworkLoadBalancerService.List](#List) request. The maximum string length in characters is 50.
+listener_name | **string**<br>Required. Name of the listener to delete. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 
 
-### Operation {#Operation}
+### Operation {#Operation8}
 
 Field | Description
 --- | ---
@@ -895,7 +895,7 @@ Field | Description
 network_load_balancer_id | **string**<br>ID of the network load balancer that the listener is being removed from. 
 
 
-### NetworkLoadBalancer {#NetworkLoadBalancer}
+### NetworkLoadBalancer {#NetworkLoadBalancer7}
 
 Field | Description
 --- | ---
@@ -923,7 +923,7 @@ Lists operations for the specified network load balancer.
 
 Field | Description
 --- | ---
-network_load_balancer_id | **string**<br>Required. ID of the NetworkLoadBalancer resource to list operations for. false The maximum string length in characters is 50.
+network_load_balancer_id | **string**<br>Required. ID of the NetworkLoadBalancer resource to list operations for. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page that should be returned. If the number of available results is larger than `page_size`, the service returns a [ListNetworkLoadBalancerOperationsResponse.next_page_token](#ListNetworkLoadBalancerOperationsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListNetworkLoadBalancerOperationsResponse.next_page_token](#ListNetworkLoadBalancerOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
@@ -933,10 +933,10 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 Field | Description
 --- | ---
 operations[] | **[operation.Operation](#Operation9)**<br>List of operations for the specified network load balancer. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListNetworkLoadBalancerOperationsRequest.page_size](#ListNetworkLoadBalancerOperationsRequest1), use the `next_page_token` as the value for the [ListNetworkLoadBalancerOperationsRequest.page_token](#ListNetworkLoadBalancerOperationsRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListNetworkLoadBalancerOperationsRequest.page_size](#ListNetworkLoadBalancerOperationsRequest), use the `next_page_token` as the value for the [ListNetworkLoadBalancerOperationsRequest.page_token](#ListNetworkLoadBalancerOperationsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
-### Operation {#Operation}
+### Operation {#Operation9}
 
 Field | Description
 --- | ---

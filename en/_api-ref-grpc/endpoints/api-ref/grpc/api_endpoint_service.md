@@ -56,7 +56,7 @@ endpoints[] | **[ApiEndpoint](../api_endpoint.proto#ApiEndpoint1)**<br>
 next_page_token | **string**<br> 
 
 
-### ApiEndpoint {#ApiEndpoint}
+### ApiEndpoint {#ApiEndpoint1}
 
 Field | Description
 --- | ---

@@ -95,19 +95,19 @@ chunks[] | **[SpeechRecognitionResult](#SpeechRecognitionResult)**<br>
 Поле | Описание
 --- | ---
 streaming_request | **oneof:** `config` или `audio_content`<br>
-&nbsp;&nbsp;config | **[RecognitionConfig](#RecognitionConfig1)**<br> 
+&nbsp;&nbsp;config | **[RecognitionConfig](#RecognitionConfig)**<br> 
 &nbsp;&nbsp;audio_content | **bytes**<br> 
 
 
-### RecognitionConfig {#RecognitionConfig}
+### RecognitionConfig {#RecognitionConfig1}
 
 Поле | Описание
 --- | ---
-specification | **[RecognitionSpec](#RecognitionSpec1)**<br> 
+specification | **[RecognitionSpec](#RecognitionSpec)**<br> 
 folder_id | **string**<br> 
 
 
-### RecognitionSpec {#RecognitionSpec}
+### RecognitionSpec {#RecognitionSpec1}
 
 Поле | Описание
 --- | ---

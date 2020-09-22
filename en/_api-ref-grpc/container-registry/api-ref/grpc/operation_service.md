@@ -23,7 +23,7 @@ Returns the specified Operation resource.
 
 Field | Description
 --- | ---
-operation_id | **string**<br>Required. ID of the Operation resource to return. false
+operation_id | **string**<br>Required. ID of the Operation resource to return. 
 
 
 ### Operation {#Operation}
@@ -52,10 +52,10 @@ Cancels the specified operation.
 
 Field | Description
 --- | ---
-operation_id | **string**<br>Required. ID of the operation to cancel. false
+operation_id | **string**<br>Required. ID of the operation to cancel. 
 
 
-### Operation {#Operation}
+### Operation {#Operation1}
 
 Field | Description
 --- | ---

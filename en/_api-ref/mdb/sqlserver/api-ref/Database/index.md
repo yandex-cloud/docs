@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Database
-A set of methods for managing SQLServer databases.
+A set of methods for managing SQL Server databases.
 ## JSON Representation {#representation}
 ```json 
 {
@@ -15,12 +15,12 @@ A set of methods for managing SQLServer databases.
 Field | Description
 --- | ---
 name | **string**<br><p>Name of the database.</p> 
-clusterId | **string**<br><p>ID of the sqlserver cluster that the database belongs to.</p> 
+clusterId | **string**<br><p>ID of the SQL Server cluster the database belongs to.</p> 
 
 ## Methods {#methods}
 Method | Description
 --- | ---
-[create](create.md) | Creates a new SQLServer database in the specified cluster.
-[delete](delete.md) | Deletes the specified SQLServer database.
-[get](get.md) | Returns the specified SQLServer database.
-[list](list.md) | Retrieves the list of SQLServer databases in the specified cluster.
+[create](create.md) | Creates a new SQL Server database in the specified cluster.
+[delete](delete.md) | Deletes the specified SQL Server database.
+[get](get.md) | Returns the specified SQL Server database.
+[list](list.md) | Retrieves the list of SQL Server databases in the specified cluster.

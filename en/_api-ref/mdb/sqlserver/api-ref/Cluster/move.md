@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method move
-Moves the specified sqlserver cluster to the specified folder.
+Moves the specified SQL Server cluster to the specified folder.
  
 
  
@@ -16,7 +16,7 @@ POST https://mdb.api.cloud.yandex.net/mdb/sqlserver/v1alpha/clusters/{clusterId}
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the sqlserver cluster to move.  The maximum string length in characters is 50.
+clusterId | Required. ID of the SQL Server cluster to move.  To get the cluster ID, use a [list](/docs/managed-sqlserver/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
  
 ## Body parameters {#body_params}
  
@@ -29,7 +29,7 @@ clusterId | Required. ID of the sqlserver cluster to move.  The maximum string l
  
 Field | Description
 --- | ---
-destinationFolderId | **string**<br><p>Required. ID of the destination folder.</p> <p>The maximum string length in characters is 50.</p> 
+destinationFolderId | **string**<br><p>Required. ID of the destination folder.</p> <p>To get the folder ID, use a <a href="/docs/resource-manager/api-ref/Folder/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

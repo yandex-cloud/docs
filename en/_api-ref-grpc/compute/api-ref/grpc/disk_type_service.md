@@ -23,7 +23,7 @@ Returns the information about specified disk type. <br>To get the list of availa
 
 Field | Description
 --- | ---
-disk_type_id | **string**<br>Required. ID of the disk type to return information about. To get the disk type ID use a [DiskTypeService.List](#List) request. false
+disk_type_id | **string**<br>Required. ID of the disk type to return information about. To get the disk type ID use a [DiskTypeService.List](#List) request. 
 
 
 ### DiskType {#DiskType}
@@ -54,10 +54,10 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 Field | Description
 --- | ---
 disk_types[] | **[DiskType](../disk_type.proto#DiskType1)**<br>List of disk types. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListDiskTypesRequest.page_size](#ListDiskTypesRequest1), use the `next_page_token` as the value for the [ListDiskTypesRequest.page_token](#ListDiskTypesRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListDiskTypesRequest.page_size](#ListDiskTypesRequest), use the `next_page_token` as the value for the [ListDiskTypesRequest.page_token](#ListDiskTypesRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
-### DiskType {#DiskType}
+### DiskType {#DiskType1}
 
 Field | Description
 --- | ---

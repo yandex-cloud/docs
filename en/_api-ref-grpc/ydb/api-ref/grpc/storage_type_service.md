@@ -23,7 +23,7 @@ Returns the specified storage types.
 
 Field | Description
 --- | ---
-storage_type_id | **string**<br>Required. Required. ID of the storage type to return. false
+storage_type_id | **string**<br>Required. Required. ID of the storage type to return. 
 
 
 ### StorageType {#StorageType}
@@ -57,7 +57,7 @@ storage_types[] | **[StorageType](../storage_type.proto#StorageType1)**<br>Reque
 next_page_token | **string**<br>This token allows you to get the next page of results for ListStorageTypes requests, if the number of results is larger than `page_size` specified in the request. To get the next page, specify the value of `next_page_token` as a value for the `page_token` parameter in the next ListStorageTypes request. Subsequent ListStorageTypes requests will have their own `next_page_token` to continue paging through the results. 
 
 
-### StorageType {#StorageType}
+### StorageType {#StorageType1}
 
 Field | Description
 --- | ---

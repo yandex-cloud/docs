@@ -46,7 +46,7 @@ Returns the specified MongoDB Cluster resource. <br>To get the list of available
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MongoDB Cluster resource to return. To get the cluster ID, use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the MongoDB Cluster resource to return. To get the cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
 
 
 ### Cluster {#Cluster}
@@ -148,7 +148,7 @@ mongos | **[Mongos](../cluster.proto#Mongos1)**<br>Configuration and resource al
 mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra1)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.0 cluster. 
 
 
-### Mongod {#Mongod}
+### Mongod {#Mongod1}
 
 Field | Description
 --- | ---
@@ -156,7 +156,7 @@ config | **`config.MongodConfigSet4_0`**<br>Configuration for mongod 4.0 hosts.
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongod hosts. 
 
 
-### MongoCfg {#MongoCfg}
+### MongoCfg {#MongoCfg1}
 
 Field | Description
 --- | ---
@@ -164,7 +164,7 @@ config | **`config.MongoCfgConfigSet4_0`**<br>Configuration for mongocfg 4.0 hos
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongocfg hosts. 
 
 
-### Mongos {#Mongos}
+### Mongos {#Mongos1}
 
 Field | Description
 --- | ---
@@ -172,7 +172,7 @@ config | **`config.MongosConfigSet4_0`**<br>Configuration for mongos 4.0 hosts.
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongos hosts. 
 
 
-### MongoInfra {#MongoInfra}
+### MongoInfra {#MongoInfra1}
 
 Field | Description
 --- | ---
@@ -191,7 +191,7 @@ mongos | **[Mongos](../cluster.proto#Mongos2)**<br>Configuration and resource al
 mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra2)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.2 cluster. 
 
 
-### Mongod {#Mongod}
+### Mongod {#Mongod2}
 
 Field | Description
 --- | ---
@@ -199,7 +199,7 @@ config | **`config.MongodConfigSet4_2`**<br>Configuration for mongod 4.2 hosts.
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongod hosts. 
 
 
-### MongoCfg {#MongoCfg}
+### MongoCfg {#MongoCfg2}
 
 Field | Description
 --- | ---
@@ -207,7 +207,7 @@ config | **`config.MongoCfgConfigSet4_2`**<br>Configuration for mongocfg 4.2 hos
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongocfg hosts. 
 
 
-### Mongos {#Mongos}
+### Mongos {#Mongos2}
 
 Field | Description
 --- | ---
@@ -215,7 +215,7 @@ config | **`config.MongosConfigSet4_2`**<br>Configuration for mongos 4.2 hosts.
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongos hosts. 
 
 
-### MongoInfra {#MongoInfra}
+### MongoInfra {#MongoInfra2}
 
 Field | Description
 --- | ---
@@ -234,7 +234,7 @@ mongos | **[Mongos](../cluster.proto#Mongos3)**<br>Configuration and resource al
 mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra3)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.4 cluster. 
 
 
-### Mongod {#Mongod}
+### Mongod {#Mongod3}
 
 Field | Description
 --- | ---
@@ -242,7 +242,7 @@ config | **`config.MongodConfigSet4_4`**<br>Configuration for mongod 4.4 hosts.
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongod hosts. 
 
 
-### MongoCfg {#MongoCfg}
+### MongoCfg {#MongoCfg3}
 
 Field | Description
 --- | ---
@@ -250,7 +250,7 @@ config | **`config.MongoCfgConfigSet4_4`**<br>Configuration for mongocfg 4.4 hos
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongocfg hosts. 
 
 
-### Mongos {#Mongos}
+### Mongos {#Mongos3}
 
 Field | Description
 --- | ---
@@ -258,7 +258,7 @@ config | **`config.MongosConfigSet4_4`**<br>Configuration for mongos 4.4 hosts.
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongos hosts. 
 
 
-### MongoInfra {#MongoInfra}
+### MongoInfra {#MongoInfra3}
 
 Field | Description
 --- | ---
@@ -313,7 +313,7 @@ Retrieves the list of MongoDB Cluster resources that belong to the specified fol
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder to list MongoDB clusters in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. false The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the folder to list MongoDB clusters in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClustersResponse.next_page_token](#ListClustersResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListClustersResponse.next_page_token](#ListClustersResponse) returned by a previous list request. The maximum string length in characters is 100.
 filter | **string**<br><ol><li>The field name. Currently you can only use filtering with the [Cluster.name](../cluster.proto#Cluster1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Мust be 1-63 characters long and match the regular expression `^[a-zA-Z0-9_-]+$`.</li></ol> The maximum string length in characters is 1000.
@@ -324,10 +324,10 @@ filter | **string**<br><ol><li>The field name. Currently you can only use filter
 Field | Description
 --- | ---
 clusters[] | **[Cluster](../cluster.proto#Cluster1)**<br>List of MongoDB Cluster resources. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClustersRequest.page_size](#ListClustersRequest1), use the `next_page_token` as the value for the [ListClustersRequest.page_token](#ListClustersRequest1) parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClustersRequest.page_size](#ListClustersRequest), use the `next_page_token` as the value for the [ListClustersRequest.page_token](#ListClustersRequest) parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
-### Cluster {#Cluster}
+### Cluster {#Cluster1}
 
 Field | Description
 --- | ---
@@ -348,7 +348,7 @@ maintenance_window | **[MaintenanceWindow](../maintenance.proto#MaintenanceWindo
 planned_operation | **[MaintenanceOperation](../maintenance.proto#MaintenanceOperation1)**<br>Maintenance operation planned at nearest maintenance_window. 
 
 
-### Monitoring {#Monitoring}
+### Monitoring {#Monitoring1}
 
 Field | Description
 --- | ---
@@ -357,7 +357,7 @@ description | **string**<br>Description of the monitoring system.
 link | **string**<br>Link to the monitoring system charts for the MongoDB cluster. 
 
 
-### ClusterConfig {#ClusterConfig}
+### ClusterConfig {#ClusterConfig1}
 
 Field | Description
 --- | ---
@@ -373,7 +373,7 @@ backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.go
 access | **[Access](../cluster.proto#Access1)**<br>Access policy to DB 
 
 
-### Mongodb3_6 {#Mongodb3_6}
+### Mongodb3_6 {#Mongodb3_61}
 
 Field | Description
 --- | ---
@@ -383,7 +383,7 @@ mongos | **[Mongos](../cluster.proto#Mongos4)**<br>Configuration and resource al
 mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra4)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 3.6 cluster. 
 
 
-### Mongod {#Mongod}
+### Mongod {#Mongod4}
 
 Field | Description
 --- | ---
@@ -391,7 +391,7 @@ config | **`config.MongodConfigSet3_6`**<br>Configuration for a mongod 3.6 hosts
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to MongoDB hosts. 
 
 
-### MongoCfg {#MongoCfg}
+### MongoCfg {#MongoCfg4}
 
 Field | Description
 --- | ---
@@ -399,7 +399,7 @@ config | **`config.MongoCfgConfigSet3_6`**<br>
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongocfg hosts. 
 
 
-### Mongos {#Mongos}
+### Mongos {#Mongos4}
 
 Field | Description
 --- | ---
@@ -407,7 +407,7 @@ config | **`config.MongosConfigSet3_6`**<br>
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongocfg hosts. 
 
 
-### MongoInfra {#MongoInfra}
+### MongoInfra {#MongoInfra4}
 
 Field | Description
 --- | ---
@@ -416,7 +416,7 @@ config_mongocfg | **[config.MongoCfgConfigSet3_6](#MongoCfgConfigSet3_6)**<br>
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
-### Mongodb4_0 {#Mongodb4_0}
+### Mongodb4_0 {#Mongodb4_01}
 
 Field | Description
 --- | ---
@@ -426,7 +426,7 @@ mongos | **[Mongos](../cluster.proto#Mongos5)**<br>Configuration and resource al
 mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra5)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.0 cluster. 
 
 
-### Mongod {#Mongod}
+### Mongod {#Mongod5}
 
 Field | Description
 --- | ---
@@ -434,7 +434,7 @@ config | **`config.MongodConfigSet4_0`**<br>Configuration for mongod 4.0 hosts.
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongod hosts. 
 
 
-### MongoCfg {#MongoCfg}
+### MongoCfg {#MongoCfg5}
 
 Field | Description
 --- | ---
@@ -442,7 +442,7 @@ config | **`config.MongoCfgConfigSet4_0`**<br>Configuration for mongocfg 4.0 hos
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongocfg hosts. 
 
 
-### Mongos {#Mongos}
+### Mongos {#Mongos5}
 
 Field | Description
 --- | ---
@@ -450,7 +450,7 @@ config | **`config.MongosConfigSet4_0`**<br>Configuration for mongos 4.0 hosts.
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongos hosts. 
 
 
-### MongoInfra {#MongoInfra}
+### MongoInfra {#MongoInfra5}
 
 Field | Description
 --- | ---
@@ -459,7 +459,7 @@ config_mongocfg | **[config.MongoCfgConfigSet4_0](#MongoCfgConfigSet4_0)**<br>
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
-### Mongodb4_2 {#Mongodb4_2}
+### Mongodb4_2 {#Mongodb4_21}
 
 Field | Description
 --- | ---
@@ -469,7 +469,7 @@ mongos | **[Mongos](../cluster.proto#Mongos6)**<br>Configuration and resource al
 mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra6)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.2 cluster. 
 
 
-### Mongod {#Mongod}
+### Mongod {#Mongod6}
 
 Field | Description
 --- | ---
@@ -477,7 +477,7 @@ config | **`config.MongodConfigSet4_2`**<br>Configuration for mongod 4.2 hosts.
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongod hosts. 
 
 
-### MongoCfg {#MongoCfg}
+### MongoCfg {#MongoCfg6}
 
 Field | Description
 --- | ---
@@ -485,7 +485,7 @@ config | **`config.MongoCfgConfigSet4_2`**<br>Configuration for mongocfg 4.2 hos
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongocfg hosts. 
 
 
-### Mongos {#Mongos}
+### Mongos {#Mongos6}
 
 Field | Description
 --- | ---
@@ -493,7 +493,7 @@ config | **`config.MongosConfigSet4_2`**<br>Configuration for mongos 4.2 hosts.
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongos hosts. 
 
 
-### MongoInfra {#MongoInfra}
+### MongoInfra {#MongoInfra6}
 
 Field | Description
 --- | ---
@@ -502,7 +502,7 @@ config_mongocfg | **[config.MongoCfgConfigSet4_2](#MongoCfgConfigSet4_2)**<br>
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
-### Mongodb4_4 {#Mongodb4_4}
+### Mongodb4_4 {#Mongodb4_41}
 
 Field | Description
 --- | ---
@@ -512,7 +512,7 @@ mongos | **[Mongos](../cluster.proto#Mongos7)**<br>Configuration and resource al
 mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra7)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.4 cluster. 
 
 
-### Mongod {#Mongod}
+### Mongod {#Mongod7}
 
 Field | Description
 --- | ---
@@ -520,7 +520,7 @@ config | **`config.MongodConfigSet4_4`**<br>Configuration for mongod 4.4 hosts.
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongod hosts. 
 
 
-### MongoCfg {#MongoCfg}
+### MongoCfg {#MongoCfg7}
 
 Field | Description
 --- | ---
@@ -528,7 +528,7 @@ config | **`config.MongoCfgConfigSet4_4`**<br>Configuration for mongocfg 4.4 hos
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongocfg hosts. 
 
 
-### Mongos {#Mongos}
+### Mongos {#Mongos7}
 
 Field | Description
 --- | ---
@@ -536,7 +536,7 @@ config | **`config.MongosConfigSet4_4`**<br>Configuration for mongos 4.4 hosts.
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongos hosts. 
 
 
-### MongoInfra {#MongoInfra}
+### MongoInfra {#MongoInfra7}
 
 Field | Description
 --- | ---
@@ -545,14 +545,14 @@ config_mongocfg | **[config.MongoCfgConfigSet4_4](#MongoCfgConfigSet4_4)**<br>
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
-### Access {#Access}
+### Access {#Access1}
 
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
 
 
-### MaintenanceWindow {#MaintenanceWindow}
+### MaintenanceWindow {#MaintenanceWindow1}
 
 Field | Description
 --- | ---
@@ -561,11 +561,11 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
 &nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](../maintenance.proto#WeeklyMaintenanceWindow1)**<br> 
 
 
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow}
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow1}
 
 
 
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow}
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow1}
 
 Field | Description
 --- | ---
@@ -573,7 +573,7 @@ day | enum **WeekDay**<br> <ul><ul/>
 hour | **int64**<br>Hour of the day in UTC. Acceptable values are 1 to 24, inclusive.
 
 
-### MaintenanceOperation {#MaintenanceOperation}
+### MaintenanceOperation {#MaintenanceOperation1}
 
 Field | Description
 --- | ---
@@ -595,16 +595,16 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder to create MongoDB cluster in. false The maximum string length in characters is 50.
-name | **string**<br>Required. Name of the MongoDB cluster. The name must be unique within the folder. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+folder_id | **string**<br>Required. ID of the folder to create MongoDB cluster in. The maximum string length in characters is 50.
+name | **string**<br>Required. Name of the MongoDB cluster. The name must be unique within the folder. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
 description | **string**<br>Description of the MongoDB cluster. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Custom labels for the MongoDB cluster as `` key:value `` pairs. Maximum 64 per resource. For example, "project": "mvp" or "source": "dictionary". No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
-environment | **[Cluster.Environment](../cluster.proto#Cluster2)**<br>Required. Deployment environment of the MongoDB cluster. false
-config_spec | **[ConfigSpec](#ConfigSpec)**<br>Required. Configuration and resources for hosts that should be created for the MongoDB cluster. false
+environment | **[Cluster.Environment](../cluster.proto#Cluster2)**<br>Required. Deployment environment of the MongoDB cluster. 
+config_spec | **[ConfigSpec](#ConfigSpec)**<br>Required. Configuration and resources for hosts that should be created for the MongoDB cluster. 
 database_specs[] | **[DatabaseSpec](../database.proto#DatabaseSpec)**<br>Descriptions of databases to be created in the MongoDB cluster. The number of elements must be greater than 0.
 user_specs[] | **[UserSpec](../user.proto#UserSpec)**<br>Descriptions of database users to be created in the MongoDB cluster. The number of elements must be greater than 0.
 host_specs[] | **[HostSpec](#HostSpec)**<br>Individual configurations for hosts that should be created for the MongoDB cluster. The number of elements must be greater than 0.
-network_id | **string**<br>Required. ID of the network to create the cluster in. false The maximum string length in characters is 50.
+network_id | **string**<br>Required. ID of the network to create the cluster in. The maximum string length in characters is 50.
 
 
 ### ConfigSpec {#ConfigSpec}
@@ -614,10 +614,10 @@ Field | Description
 version | **string**<br>Version of MongoDB used in the cluster. Possible values: `3.6`, `4.0`, `4.2`, `4.4`. 
 feature_compatibility_version | **string**<br><ul><li>`3.6` — persist data compatibility for version 3.6. After setting this option the data will not be compatible with 3.4 or older. </li><li>`4.0` — persist data compatibility for version 4.0. After setting this option the data will not be compatible with 3.6 or older. </li><li>`4.2` — persist data compatibility for version 4.2. After setting this option the data will not be compatible with 4.0 or older. </li><li>`4.4` — persist data compatibility for version 4.4. After setting this option the data will not be compatible with 4.2 or older.</li></ul> 
 mongodb_spec | **oneof:** `mongodb_spec_3_6`, `mongodb_spec_4_0`, `mongodb_spec_4_2` or `mongodb_spec_4_4`<br>
-&nbsp;&nbsp;mongodb_spec_3_6 | **[MongodbSpec3_6](#MongodbSpec3_6)**<br>Configuration and resource allocation for a MongoDB 3.6 cluster. false
-&nbsp;&nbsp;mongodb_spec_4_0 | **[MongodbSpec4_0](#MongodbSpec4_0)**<br>Configuration and resource allocation for a MongoDB 4.0 cluster. false
-&nbsp;&nbsp;mongodb_spec_4_2 | **[MongodbSpec4_2](#MongodbSpec4_2)**<br>Configuration and resource allocation for a MongoDB 4.2 cluster. false
-&nbsp;&nbsp;mongodb_spec_4_4 | **[MongodbSpec4_4](#MongodbSpec4_4)**<br>Configuration and resource allocation for a MongoDB 4.4 cluster. false
+&nbsp;&nbsp;mongodb_spec_3_6 | **[MongodbSpec3_6](#MongodbSpec3_6)**<br>Configuration and resource allocation for a MongoDB 3.6 cluster. 
+&nbsp;&nbsp;mongodb_spec_4_0 | **[MongodbSpec4_0](#MongodbSpec4_0)**<br>Configuration and resource allocation for a MongoDB 4.0 cluster. 
+&nbsp;&nbsp;mongodb_spec_4_2 | **[MongodbSpec4_2](#MongodbSpec4_2)**<br>Configuration and resource allocation for a MongoDB 4.2 cluster. 
+&nbsp;&nbsp;mongodb_spec_4_4 | **[MongodbSpec4_4](#MongodbSpec4_4)**<br>Configuration and resource allocation for a MongoDB 4.4 cluster. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retain period of automatically created backup in days Acceptable values are 7 to 35, inclusive.
 access | **[Access](../cluster.proto#Access2)**<br>Access policy to DB 
@@ -633,7 +633,7 @@ mongos | **[Mongos](../cluster.proto#Mongos8)**<br>Configuration and resource al
 mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra8)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 3.6 hosts. 
 
 
-### Mongod {#Mongod}
+### Mongod {#Mongod8}
 
 Field | Description
 --- | ---
@@ -641,7 +641,7 @@ config | **`config.MongodConfig3_6`**<br>Configuration for mongod 3.6 hosts.
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongod host. 
 
 
-### MongoCfg {#MongoCfg}
+### MongoCfg {#MongoCfg8}
 
 Field | Description
 --- | ---
@@ -649,7 +649,7 @@ config | **`config.MongoCfgConfig3_6`**<br>Configuration for mongocfg 3.6 hosts.
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongocfg host. 
 
 
-### Mongos {#Mongos}
+### Mongos {#Mongos8}
 
 Field | Description
 --- | ---
@@ -657,7 +657,7 @@ config | **`config.MongosConfig3_6`**<br>Configuration for mongos 3.6 hosts.
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongos host. 
 
 
-### MongoInfra {#MongoInfra}
+### MongoInfra {#MongoInfra8}
 
 Field | Description
 --- | ---
@@ -676,7 +676,7 @@ mongos | **[Mongos](../cluster.proto#Mongos9)**<br>Configuration and resource al
 mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra9)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.0 hosts. 
 
 
-### Mongod {#Mongod}
+### Mongod {#Mongod9}
 
 Field | Description
 --- | ---
@@ -684,7 +684,7 @@ config | **`config.MongodConfig4_0`**<br>Configuration for mongod 4.0 hosts.
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongod host. 
 
 
-### MongoCfg {#MongoCfg}
+### MongoCfg {#MongoCfg9}
 
 Field | Description
 --- | ---
@@ -692,7 +692,7 @@ config | **`config.MongoCfgConfig4_0`**<br>Configuration for mongocfg 4.0 hosts.
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongocfg host. 
 
 
-### Mongos {#Mongos}
+### Mongos {#Mongos9}
 
 Field | Description
 --- | ---
@@ -700,7 +700,7 @@ config | **`config.MongosConfig4_0`**<br>Configuration for mongos 4.0 hosts.
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongos host. 
 
 
-### MongoInfra {#MongoInfra}
+### MongoInfra {#MongoInfra9}
 
 Field | Description
 --- | ---
@@ -719,7 +719,7 @@ mongos | **[Mongos](../cluster.proto#Mongos10)**<br>Configuration and resource a
 mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra10)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.2 hosts. 
 
 
-### Mongod {#Mongod}
+### Mongod {#Mongod10}
 
 Field | Description
 --- | ---
@@ -727,7 +727,7 @@ config | **`config.MongodConfig4_2`**<br>Configuration for mongod 4.2 hosts.
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongod host. 
 
 
-### MongoCfg {#MongoCfg}
+### MongoCfg {#MongoCfg10}
 
 Field | Description
 --- | ---
@@ -735,7 +735,7 @@ config | **`config.MongoCfgConfig4_2`**<br>Configuration for mongocfg 4.2 hosts.
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongocfg host. 
 
 
-### Mongos {#Mongos}
+### Mongos {#Mongos10}
 
 Field | Description
 --- | ---
@@ -743,7 +743,7 @@ config | **`config.MongosConfig4_2`**<br>Configuration for mongos 4.2 hosts.
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongos host. 
 
 
-### MongoInfra {#MongoInfra}
+### MongoInfra {#MongoInfra10}
 
 Field | Description
 --- | ---
@@ -762,7 +762,7 @@ mongos | **[Mongos](../cluster.proto#Mongos11)**<br>Configuration and resource a
 mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra11)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.4 hosts. 
 
 
-### Mongod {#Mongod}
+### Mongod {#Mongod11}
 
 Field | Description
 --- | ---
@@ -770,7 +770,7 @@ config | **`config.MongodConfig4_4`**<br>Configuration for mongod 4.4 hosts.
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongod host. 
 
 
-### MongoCfg {#MongoCfg}
+### MongoCfg {#MongoCfg11}
 
 Field | Description
 --- | ---
@@ -778,7 +778,7 @@ config | **`config.MongoCfgConfig4_4`**<br>Configuration for mongocfg 4.4 hosts.
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongocfg host. 
 
 
-### Mongos {#Mongos}
+### Mongos {#Mongos11}
 
 Field | Description
 --- | ---
@@ -786,7 +786,7 @@ config | **`config.MongosConfig4_4`**<br>Configuration for mongos 4.4 hosts.
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongos host. 
 
 
-### MongoInfra {#MongoInfra}
+### MongoInfra {#MongoInfra11}
 
 Field | Description
 --- | ---
@@ -795,7 +795,7 @@ config_mongocfg | **[config.MongoCfgConfig4_4](#MongoCfgConfig4_4)**<br>
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
 
 
-### Access {#Access}
+### Access {#Access2}
 
 Field | Description
 --- | ---
@@ -806,15 +806,15 @@ data_lens | **bool**<br>Allow access for DataLens
 
 Field | Description
 --- | ---
-name | **string**<br>Required. Name of the MongoDB database. 1-63 characters long. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]{1,63} `.
+name | **string**<br>Required. Name of the MongoDB database. 1-63 characters long. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]{1,63} `.
 
 
 ### UserSpec {#UserSpec}
 
 Field | Description
 --- | ---
-name | **string**<br>Required. Name of the MongoDB user. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
-password | **string**<br>Required. Password of the MongoDB user. false The string length in characters must be 8-128.
+name | **string**<br>Required. Name of the MongoDB user. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+password | **string**<br>Required. Password of the MongoDB user. The string length in characters must be 8-128.
 permissions[] | **[Permission](../user.proto#Permission)**<br>Set of permissions to grant to the user. 
 
 
@@ -860,7 +860,7 @@ Field | Description
 cluster_id | **string**<br>ID of the MongoDB cluster that is being created. 
 
 
-### Cluster {#Cluster}
+### Cluster {#Cluster2}
 
 Field | Description
 --- | ---
@@ -895,32 +895,32 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MongoDB Cluster resource to update. To get the MongoDB cluster ID use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the MongoDB Cluster resource to update. To get the MongoDB cluster ID use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the MongoDB Cluster resource should be updated. 
 description | **string**<br>New description of the MongoDB cluster. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Custom labels for the MongoDB cluster as `` key:value `` pairs. Maximum 64 per resource. For example, "project": "mvp" or "source": "dictionary". <br>The new set of labels will completely replace the old ones. To add a label, request the current set with the [ClusterService.Get](#Get) method, then send an [ClusterService.Update](#Update) request with the new label added to the set. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
-config_spec | **[ConfigSpec](#ConfigSpec1)**<br>New configuration and resources for hosts in the cluster. 
+config_spec | **[ConfigSpec](#ConfigSpec)**<br>New configuration and resources for hosts in the cluster. 
 name | **string**<br>New name for the cluster. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 maintenance_window | **[MaintenanceWindow](../maintenance.proto#MaintenanceWindow2)**<br>Window of maintenance operations. 
 
 
-### ConfigSpec {#ConfigSpec}
+### ConfigSpec {#ConfigSpec1}
 
 Field | Description
 --- | ---
 version | **string**<br>Version of MongoDB used in the cluster. Possible values: `3.6`, `4.0`, `4.2`, `4.4`. 
 feature_compatibility_version | **string**<br><ul><li>`3.6` — persist data compatibility for version 3.6. After setting this option the data will not be compatible with 3.4 or older. </li><li>`4.0` — persist data compatibility for version 4.0. After setting this option the data will not be compatible with 3.6 or older. </li><li>`4.2` — persist data compatibility for version 4.2. After setting this option the data will not be compatible with 4.0 or older. </li><li>`4.4` — persist data compatibility for version 4.4. After setting this option the data will not be compatible with 4.2 or older.</li></ul> 
 mongodb_spec | **oneof:** `mongodb_spec_3_6`, `mongodb_spec_4_0`, `mongodb_spec_4_2` or `mongodb_spec_4_4`<br>
-&nbsp;&nbsp;mongodb_spec_3_6 | **[MongodbSpec3_6](#MongodbSpec3_61)**<br>Configuration and resource allocation for a MongoDB 3.6 cluster. false
-&nbsp;&nbsp;mongodb_spec_4_0 | **[MongodbSpec4_0](#MongodbSpec4_01)**<br>Configuration and resource allocation for a MongoDB 4.0 cluster. false
-&nbsp;&nbsp;mongodb_spec_4_2 | **[MongodbSpec4_2](#MongodbSpec4_21)**<br>Configuration and resource allocation for a MongoDB 4.2 cluster. false
-&nbsp;&nbsp;mongodb_spec_4_4 | **[MongodbSpec4_4](#MongodbSpec4_41)**<br>Configuration and resource allocation for a MongoDB 4.4 cluster. false
+&nbsp;&nbsp;mongodb_spec_3_6 | **[MongodbSpec3_6](#MongodbSpec3_6)**<br>Configuration and resource allocation for a MongoDB 3.6 cluster. 
+&nbsp;&nbsp;mongodb_spec_4_0 | **[MongodbSpec4_0](#MongodbSpec4_0)**<br>Configuration and resource allocation for a MongoDB 4.0 cluster. 
+&nbsp;&nbsp;mongodb_spec_4_2 | **[MongodbSpec4_2](#MongodbSpec4_2)**<br>Configuration and resource allocation for a MongoDB 4.2 cluster. 
+&nbsp;&nbsp;mongodb_spec_4_4 | **[MongodbSpec4_4](#MongodbSpec4_4)**<br>Configuration and resource allocation for a MongoDB 4.4 cluster. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retain period of automatically created backup in days Acceptable values are 7 to 35, inclusive.
 access | **[Access](../cluster.proto#Access3)**<br>Access policy to DB 
 
 
-### MongodbSpec3_6 {#MongodbSpec3_6}
+### MongodbSpec3_6 {#MongodbSpec3_61}
 
 Field | Description
 --- | ---
@@ -930,7 +930,7 @@ mongos | **[Mongos](../cluster.proto#Mongos12)**<br>Configuration and resource a
 mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra12)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 3.6 hosts. 
 
 
-### Mongod {#Mongod}
+### Mongod {#Mongod12}
 
 Field | Description
 --- | ---
@@ -938,7 +938,7 @@ config | **`config.MongodConfig3_6`**<br>Configuration for mongod 3.6 hosts.
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongod host. 
 
 
-### MongoCfg {#MongoCfg}
+### MongoCfg {#MongoCfg12}
 
 Field | Description
 --- | ---
@@ -946,7 +946,7 @@ config | **`config.MongoCfgConfig3_6`**<br>Configuration for mongocfg 3.6 hosts.
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongocfg host. 
 
 
-### Mongos {#Mongos}
+### Mongos {#Mongos12}
 
 Field | Description
 --- | ---
@@ -954,7 +954,7 @@ config | **`config.MongosConfig3_6`**<br>Configuration for mongos 3.6 hosts.
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongos host. 
 
 
-### MongoInfra {#MongoInfra}
+### MongoInfra {#MongoInfra12}
 
 Field | Description
 --- | ---
@@ -963,7 +963,7 @@ config_mongocfg | **[config.MongoCfgConfig3_6](#MongoCfgConfig3_6)**<br>
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
 
 
-### MongodbSpec4_0 {#MongodbSpec4_0}
+### MongodbSpec4_0 {#MongodbSpec4_01}
 
 Field | Description
 --- | ---
@@ -973,7 +973,7 @@ mongos | **[Mongos](../cluster.proto#Mongos13)**<br>Configuration and resource a
 mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra13)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.0 hosts. 
 
 
-### Mongod {#Mongod}
+### Mongod {#Mongod13}
 
 Field | Description
 --- | ---
@@ -981,7 +981,7 @@ config | **`config.MongodConfig4_0`**<br>Configuration for mongod 4.0 hosts.
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongod host. 
 
 
-### MongoCfg {#MongoCfg}
+### MongoCfg {#MongoCfg13}
 
 Field | Description
 --- | ---
@@ -989,7 +989,7 @@ config | **`config.MongoCfgConfig4_0`**<br>Configuration for mongocfg 4.0 hosts.
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongocfg host. 
 
 
-### Mongos {#Mongos}
+### Mongos {#Mongos13}
 
 Field | Description
 --- | ---
@@ -997,7 +997,7 @@ config | **`config.MongosConfig4_0`**<br>Configuration for mongos 4.0 hosts.
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongos host. 
 
 
-### MongoInfra {#MongoInfra}
+### MongoInfra {#MongoInfra13}
 
 Field | Description
 --- | ---
@@ -1006,7 +1006,7 @@ config_mongocfg | **[config.MongoCfgConfig4_0](#MongoCfgConfig4_0)**<br>
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
 
 
-### MongodbSpec4_2 {#MongodbSpec4_2}
+### MongodbSpec4_2 {#MongodbSpec4_21}
 
 Field | Description
 --- | ---
@@ -1016,7 +1016,7 @@ mongos | **[Mongos](../cluster.proto#Mongos14)**<br>Configuration and resource a
 mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra14)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.2 hosts. 
 
 
-### Mongod {#Mongod}
+### Mongod {#Mongod14}
 
 Field | Description
 --- | ---
@@ -1024,7 +1024,7 @@ config | **`config.MongodConfig4_2`**<br>Configuration for mongod 4.2 hosts.
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongod host. 
 
 
-### MongoCfg {#MongoCfg}
+### MongoCfg {#MongoCfg14}
 
 Field | Description
 --- | ---
@@ -1032,7 +1032,7 @@ config | **`config.MongoCfgConfig4_2`**<br>Configuration for mongocfg 4.2 hosts.
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongocfg host. 
 
 
-### Mongos {#Mongos}
+### Mongos {#Mongos14}
 
 Field | Description
 --- | ---
@@ -1040,7 +1040,7 @@ config | **`config.MongosConfig4_2`**<br>Configuration for mongos 4.2 hosts.
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongos host. 
 
 
-### MongoInfra {#MongoInfra}
+### MongoInfra {#MongoInfra14}
 
 Field | Description
 --- | ---
@@ -1049,7 +1049,7 @@ config_mongocfg | **[config.MongoCfgConfig4_2](#MongoCfgConfig4_2)**<br>
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
 
 
-### MongodbSpec4_4 {#MongodbSpec4_4}
+### MongodbSpec4_4 {#MongodbSpec4_41}
 
 Field | Description
 --- | ---
@@ -1059,7 +1059,7 @@ mongos | **[Mongos](../cluster.proto#Mongos15)**<br>Configuration and resource a
 mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra15)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.4 hosts. 
 
 
-### Mongod {#Mongod}
+### Mongod {#Mongod15}
 
 Field | Description
 --- | ---
@@ -1067,7 +1067,7 @@ config | **`config.MongodConfig4_4`**<br>Configuration for mongod 4.4 hosts.
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongod host. 
 
 
-### MongoCfg {#MongoCfg}
+### MongoCfg {#MongoCfg15}
 
 Field | Description
 --- | ---
@@ -1075,7 +1075,7 @@ config | **`config.MongoCfgConfig4_4`**<br>Configuration for mongocfg 4.4 hosts.
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongocfg host. 
 
 
-### Mongos {#Mongos}
+### Mongos {#Mongos15}
 
 Field | Description
 --- | ---
@@ -1083,7 +1083,7 @@ config | **`config.MongosConfig4_4`**<br>Configuration for mongos 4.4 hosts.
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongos host. 
 
 
-### MongoInfra {#MongoInfra}
+### MongoInfra {#MongoInfra15}
 
 Field | Description
 --- | ---
@@ -1092,14 +1092,14 @@ config_mongocfg | **[config.MongoCfgConfig4_4](#MongoCfgConfig4_4)**<br>
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
 
 
-### Access {#Access}
+### Access {#Access3}
 
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
 
 
-### MaintenanceWindow {#MaintenanceWindow}
+### MaintenanceWindow {#MaintenanceWindow2}
 
 Field | Description
 --- | ---
@@ -1108,11 +1108,11 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
 &nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](../maintenance.proto#WeeklyMaintenanceWindow2)**<br> 
 
 
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow}
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow2}
 
 
 
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow}
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow2}
 
 Field | Description
 --- | ---
@@ -1120,7 +1120,7 @@ day | enum **WeekDay**<br> <ul><ul/>
 hour | **int64**<br>Hour of the day in UTC. Acceptable values are 1 to 24, inclusive.
 
 
-### Operation {#Operation}
+### Operation {#Operation1}
 
 Field | Description
 --- | ---
@@ -1143,7 +1143,7 @@ Field | Description
 cluster_id | **string**<br>ID of the MongoDB Cluster resource that is being updated. 
 
 
-### Cluster {#Cluster}
+### Cluster {#Cluster3}
 
 Field | Description
 --- | ---
@@ -1178,10 +1178,10 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MongoDB cluster to delete. To get the MongoDB cluster ID, use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the MongoDB cluster to delete. To get the MongoDB cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
 
 
-### Operation {#Operation}
+### Operation {#Operation2}
 
 Field | Description
 --- | ---
@@ -1218,10 +1218,10 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MongoDB cluster to start. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the MongoDB cluster to start. The maximum string length in characters is 50.
 
 
-### Operation {#Operation}
+### Operation {#Operation3}
 
 Field | Description
 --- | ---
@@ -1244,7 +1244,7 @@ Field | Description
 cluster_id | **string**<br>ID of the MongoDB cluster. 
 
 
-### Cluster {#Cluster}
+### Cluster {#Cluster4}
 
 Field | Description
 --- | ---
@@ -1279,10 +1279,10 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MongoDB cluster to stop. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the MongoDB cluster to stop. The maximum string length in characters is 50.
 
 
-### Operation {#Operation}
+### Operation {#Operation4}
 
 Field | Description
 --- | ---
@@ -1305,7 +1305,7 @@ Field | Description
 cluster_id | **string**<br>ID of the MongoDB cluster. 
 
 
-### Cluster {#Cluster}
+### Cluster {#Cluster5}
 
 Field | Description
 --- | ---
@@ -1340,11 +1340,11 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MongoDB cluster to move. false The maximum string length in characters is 50.
-destination_folder_id | **string**<br>Required. ID of the destination folder. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the MongoDB cluster to move. The maximum string length in characters is 50.
+destination_folder_id | **string**<br>Required. ID of the destination folder. The maximum string length in characters is 50.
 
 
-### Operation {#Operation}
+### Operation {#Operation5}
 
 Field | Description
 --- | ---
@@ -1369,7 +1369,7 @@ source_folder_id | **string**<br>ID of the source folder.
 destination_folder_id | **string**<br>ID of the destnation folder. 
 
 
-### Cluster {#Cluster}
+### Cluster {#Cluster6}
 
 Field | Description
 --- | ---
@@ -1404,10 +1404,10 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MongoDB cluster to back up. To get the MongoDB cluster ID, use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the MongoDB cluster to back up. To get the MongoDB cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
 
 
-### Operation {#Operation}
+### Operation {#Operation6}
 
 Field | Description
 --- | ---
@@ -1430,7 +1430,7 @@ Field | Description
 cluster_id | **string**<br>ID of the MongoDB cluster that is being backed up. 
 
 
-### Cluster {#Cluster}
+### Cluster {#Cluster7}
 
 Field | Description
 --- | ---
@@ -1465,14 +1465,14 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-backup_id | **string**<br>Required. ID of the backup to create a cluster from. To get the backup ID, use a [ClusterService.ListBackups](#ListBackups) request. false
-name | **string**<br>Required. Name of the new MongoDB cluster. The name must be unique within the folder. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+backup_id | **string**<br>Required. ID of the backup to create a cluster from. To get the backup ID, use a [ClusterService.ListBackups](#ListBackups) request. 
+name | **string**<br>Required. Name of the new MongoDB cluster. The name must be unique within the folder. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 description | **string**<br>Description of the new MongoDB cluster. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Custom labels for the MongoDB cluster as `` key:value `` pairs. Maximum 64 per resource. For example, "project": "mvp" or "source": "dictionary". No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
-environment | **[Cluster.Environment](../cluster.proto#Cluster8)**<br>Required. Deployment environment of the new MongoDB cluster. false
-config_spec | **[ConfigSpec](#ConfigSpec2)**<br>Required. Configuration for the MongoDB cluster to be created. false
-host_specs[] | **[HostSpec](#HostSpec1)**<br>Configurations for MongoDB hosts that should be created for the cluster that is being created from the backup. The number of elements must be greater than 0.
-network_id | **string**<br>Required. ID of the network to create the MongoDB cluster in. false The maximum string length in characters is 50.
+environment | **[Cluster.Environment](../cluster.proto#Cluster8)**<br>Required. Deployment environment of the new MongoDB cluster. 
+config_spec | **[ConfigSpec](#ConfigSpec)**<br>Required. Configuration for the MongoDB cluster to be created. 
+host_specs[] | **[HostSpec](#HostSpec)**<br>Configurations for MongoDB hosts that should be created for the cluster that is being created from the backup. The number of elements must be greater than 0.
+network_id | **string**<br>Required. ID of the network to create the MongoDB cluster in. The maximum string length in characters is 50.
 folder_id | **string**<br>Required. ID of the folder to create the MongoDB cluster in. The maximum string length in characters is 50.
 recovery_target_spec | **RecoveryTargetSpec**<br>Specification of the moment to which the MongoDB cluster should be restored. 
 
@@ -1484,23 +1484,23 @@ Field | Description
 timestamp | **int64**<br>Timestamp of the recovery target Value must be greater than 0.
 
 
-### ConfigSpec {#ConfigSpec}
+### ConfigSpec {#ConfigSpec2}
 
 Field | Description
 --- | ---
 version | **string**<br>Version of MongoDB used in the cluster. Possible values: `3.6`, `4.0`, `4.2`, `4.4`. 
 feature_compatibility_version | **string**<br><ul><li>`3.6` — persist data compatibility for version 3.6. After setting this option the data will not be compatible with 3.4 or older. </li><li>`4.0` — persist data compatibility for version 4.0. After setting this option the data will not be compatible with 3.6 or older. </li><li>`4.2` — persist data compatibility for version 4.2. After setting this option the data will not be compatible with 4.0 or older. </li><li>`4.4` — persist data compatibility for version 4.4. After setting this option the data will not be compatible with 4.2 or older.</li></ul> 
 mongodb_spec | **oneof:** `mongodb_spec_3_6`, `mongodb_spec_4_0`, `mongodb_spec_4_2` or `mongodb_spec_4_4`<br>
-&nbsp;&nbsp;mongodb_spec_3_6 | **[MongodbSpec3_6](#MongodbSpec3_62)**<br>Configuration and resource allocation for a MongoDB 3.6 cluster. false
-&nbsp;&nbsp;mongodb_spec_4_0 | **[MongodbSpec4_0](#MongodbSpec4_02)**<br>Configuration and resource allocation for a MongoDB 4.0 cluster. false
-&nbsp;&nbsp;mongodb_spec_4_2 | **[MongodbSpec4_2](#MongodbSpec4_22)**<br>Configuration and resource allocation for a MongoDB 4.2 cluster. false
-&nbsp;&nbsp;mongodb_spec_4_4 | **[MongodbSpec4_4](#MongodbSpec4_42)**<br>Configuration and resource allocation for a MongoDB 4.4 cluster. false
+&nbsp;&nbsp;mongodb_spec_3_6 | **[MongodbSpec3_6](#MongodbSpec3_6)**<br>Configuration and resource allocation for a MongoDB 3.6 cluster. 
+&nbsp;&nbsp;mongodb_spec_4_0 | **[MongodbSpec4_0](#MongodbSpec4_0)**<br>Configuration and resource allocation for a MongoDB 4.0 cluster. 
+&nbsp;&nbsp;mongodb_spec_4_2 | **[MongodbSpec4_2](#MongodbSpec4_2)**<br>Configuration and resource allocation for a MongoDB 4.2 cluster. 
+&nbsp;&nbsp;mongodb_spec_4_4 | **[MongodbSpec4_4](#MongodbSpec4_4)**<br>Configuration and resource allocation for a MongoDB 4.4 cluster. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retain period of automatically created backup in days Acceptable values are 7 to 35, inclusive.
 access | **[Access](../cluster.proto#Access4)**<br>Access policy to DB 
 
 
-### MongodbSpec3_6 {#MongodbSpec3_6}
+### MongodbSpec3_6 {#MongodbSpec3_62}
 
 Field | Description
 --- | ---
@@ -1510,7 +1510,7 @@ mongos | **[Mongos](../cluster.proto#Mongos16)**<br>Configuration and resource a
 mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra16)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 3.6 hosts. 
 
 
-### Mongod {#Mongod}
+### Mongod {#Mongod16}
 
 Field | Description
 --- | ---
@@ -1518,7 +1518,7 @@ config | **`config.MongodConfig3_6`**<br>Configuration for mongod 3.6 hosts.
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongod host. 
 
 
-### MongoCfg {#MongoCfg}
+### MongoCfg {#MongoCfg16}
 
 Field | Description
 --- | ---
@@ -1526,7 +1526,7 @@ config | **`config.MongoCfgConfig3_6`**<br>Configuration for mongocfg 3.6 hosts.
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongocfg host. 
 
 
-### Mongos {#Mongos}
+### Mongos {#Mongos16}
 
 Field | Description
 --- | ---
@@ -1534,7 +1534,7 @@ config | **`config.MongosConfig3_6`**<br>Configuration for mongos 3.6 hosts.
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongos host. 
 
 
-### MongoInfra {#MongoInfra}
+### MongoInfra {#MongoInfra16}
 
 Field | Description
 --- | ---
@@ -1543,7 +1543,7 @@ config_mongocfg | **[config.MongoCfgConfig3_6](#MongoCfgConfig3_6)**<br>
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
 
 
-### MongodbSpec4_0 {#MongodbSpec4_0}
+### MongodbSpec4_0 {#MongodbSpec4_02}
 
 Field | Description
 --- | ---
@@ -1553,7 +1553,7 @@ mongos | **[Mongos](../cluster.proto#Mongos17)**<br>Configuration and resource a
 mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra17)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.0 hosts. 
 
 
-### Mongod {#Mongod}
+### Mongod {#Mongod17}
 
 Field | Description
 --- | ---
@@ -1561,7 +1561,7 @@ config | **`config.MongodConfig4_0`**<br>Configuration for mongod 4.0 hosts.
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongod host. 
 
 
-### MongoCfg {#MongoCfg}
+### MongoCfg {#MongoCfg17}
 
 Field | Description
 --- | ---
@@ -1569,7 +1569,7 @@ config | **`config.MongoCfgConfig4_0`**<br>Configuration for mongocfg 4.0 hosts.
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongocfg host. 
 
 
-### Mongos {#Mongos}
+### Mongos {#Mongos17}
 
 Field | Description
 --- | ---
@@ -1577,7 +1577,7 @@ config | **`config.MongosConfig4_0`**<br>Configuration for mongos 4.0 hosts.
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongos host. 
 
 
-### MongoInfra {#MongoInfra}
+### MongoInfra {#MongoInfra17}
 
 Field | Description
 --- | ---
@@ -1586,7 +1586,7 @@ config_mongocfg | **[config.MongoCfgConfig4_0](#MongoCfgConfig4_0)**<br>
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
 
 
-### MongodbSpec4_2 {#MongodbSpec4_2}
+### MongodbSpec4_2 {#MongodbSpec4_22}
 
 Field | Description
 --- | ---
@@ -1596,7 +1596,7 @@ mongos | **[Mongos](../cluster.proto#Mongos18)**<br>Configuration and resource a
 mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra18)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.2 hosts. 
 
 
-### Mongod {#Mongod}
+### Mongod {#Mongod18}
 
 Field | Description
 --- | ---
@@ -1604,7 +1604,7 @@ config | **`config.MongodConfig4_2`**<br>Configuration for mongod 4.2 hosts.
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongod host. 
 
 
-### MongoCfg {#MongoCfg}
+### MongoCfg {#MongoCfg18}
 
 Field | Description
 --- | ---
@@ -1612,7 +1612,7 @@ config | **`config.MongoCfgConfig4_2`**<br>Configuration for mongocfg 4.2 hosts.
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongocfg host. 
 
 
-### Mongos {#Mongos}
+### Mongos {#Mongos18}
 
 Field | Description
 --- | ---
@@ -1620,7 +1620,7 @@ config | **`config.MongosConfig4_2`**<br>Configuration for mongos 4.2 hosts.
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongos host. 
 
 
-### MongoInfra {#MongoInfra}
+### MongoInfra {#MongoInfra18}
 
 Field | Description
 --- | ---
@@ -1629,7 +1629,7 @@ config_mongocfg | **[config.MongoCfgConfig4_2](#MongoCfgConfig4_2)**<br>
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
 
 
-### MongodbSpec4_4 {#MongodbSpec4_4}
+### MongodbSpec4_4 {#MongodbSpec4_42}
 
 Field | Description
 --- | ---
@@ -1639,7 +1639,7 @@ mongos | **[Mongos](../cluster.proto#Mongos19)**<br>Configuration and resource a
 mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra19)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.4 hosts. 
 
 
-### Mongod {#Mongod}
+### Mongod {#Mongod19}
 
 Field | Description
 --- | ---
@@ -1647,7 +1647,7 @@ config | **`config.MongodConfig4_4`**<br>Configuration for mongod 4.4 hosts.
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongod host. 
 
 
-### MongoCfg {#MongoCfg}
+### MongoCfg {#MongoCfg19}
 
 Field | Description
 --- | ---
@@ -1655,7 +1655,7 @@ config | **`config.MongoCfgConfig4_4`**<br>Configuration for mongocfg 4.4 hosts.
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongocfg host. 
 
 
-### Mongos {#Mongos}
+### Mongos {#Mongos19}
 
 Field | Description
 --- | ---
@@ -1663,7 +1663,7 @@ config | **`config.MongosConfig4_4`**<br>Configuration for mongos 4.4 hosts.
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongos host. 
 
 
-### MongoInfra {#MongoInfra}
+### MongoInfra {#MongoInfra19}
 
 Field | Description
 --- | ---
@@ -1672,14 +1672,14 @@ config_mongocfg | **[config.MongoCfgConfig4_4](#MongoCfgConfig4_4)**<br>
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
 
 
-### Access {#Access}
+### Access {#Access4}
 
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
 
 
-### HostSpec {#HostSpec}
+### HostSpec {#HostSpec1}
 
 Field | Description
 --- | ---
@@ -1690,7 +1690,7 @@ type | **[Host.Type](../cluster.proto#Host)**<br>Type of the host to be deployed
 shard_name | **string**<br>Name of the shard that the host belongs to. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
-### Operation {#Operation}
+### Operation {#Operation7}
 
 Field | Description
 --- | ---
@@ -1714,7 +1714,7 @@ cluster_id | **string**<br>ID of the new MongoDB cluster that is being created f
 backup_id | **string**<br>ID of the backup that is being used for creating a cluster. 
 
 
-### Cluster {#Cluster}
+### Cluster {#Cluster8}
 
 Field | Description
 --- | ---
@@ -1749,12 +1749,12 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. Required. ID of the MongoDB cluster to maintenance reschedule. false The maximum string length in characters is 50.
-reschedule_type | enum **RescheduleType**<br>Required. Required. The type of reschedule request. false<ul><ul/>
+cluster_id | **string**<br>Required. Required. ID of the MongoDB cluster to maintenance reschedule. The maximum string length in characters is 50.
+reschedule_type | enum **RescheduleType**<br>Required. Required. The type of reschedule request. <ul><ul/>
 delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time for SPECIFIC_TIME reschedule. Limited by two weeks since first time scheduled. 
 
 
-### Operation {#Operation}
+### Operation {#Operation8}
 
 Field | Description
 --- | ---
@@ -1778,7 +1778,7 @@ cluster_id | **string**<br>Required. ID of the MongoDB cluster.
 delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Required. New time of the planned maintenance. Can be in the past for rescheduled to "IMMEDIATE". 
 
 
-### Cluster {#Cluster}
+### Cluster {#Cluster9}
 
 Field | Description
 --- | ---
@@ -1809,7 +1809,7 @@ Retrieves logs for the specified MongoDB cluster.
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MongoDB cluster to request logs for. To get the MongoDB cluster ID use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the MongoDB cluster to request logs for. To get the MongoDB cluster ID use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
 column_filter[] | **string**<br>Columns from the logs table to request. If no columns are specified, entire log records are returned. 
 service_type | enum **ServiceType**<br>Type of the service to request logs about. <ul><li>`MONGOD`: Logs of MongoDB activity.</li><ul/>
 from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Start timestamp for the logs request, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
@@ -1823,7 +1823,7 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 Field | Description
 --- | ---
 logs[] | **[LogRecord](#LogRecord)**<br>Requested log records. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterLogsRequest.page_size](#ListClusterLogsRequest1), use the `next_page_token` as the value for the [ListClusterLogsRequest.page_token](#ListClusterLogsRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. This value is interchangeable with `next_record_token` from StreamLogs method. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterLogsRequest.page_size](#ListClusterLogsRequest), use the `next_page_token` as the value for the [ListClusterLogsRequest.page_token](#ListClusterLogsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. This value is interchangeable with `next_record_token` from StreamLogs method. 
 
 
 ### LogRecord {#LogRecord}
@@ -1844,24 +1844,24 @@ Same as ListLogs but using server-side streaming. Also allows for 'tail -f' sema
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. Required. ID of the MongoDB cluster. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. Required. ID of the MongoDB cluster. The maximum string length in characters is 50.
 column_filter[] | **string**<br>Columns from logs table to get in the response. 
 service_type | enum **ServiceType**<br> <ul><li>`MONGOD`: Logs of MongoDB activity.</li><ul/>
 from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Start timestamp for the logs request. 
 to_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>End timestamp for the logs request. If this field is not set, all existing logs will be sent and then the new ones as they appear. In essence it has 'tail -f' semantics. 
 record_token | **string**<br>Record token. Set `record_token` to the `next_record_token` returned by a previous StreamLogs request to start streaming from next log record. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently filtering can be applied to the [LogRecord.logs.message.hostname](#LogRecord1), [LogRecord.logs.message.severity](#LogRecord1) fields. </li><li>A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 1-63 characters long and match the regular expression `^[a-z0-9.-]{1,61}$`. </li></ol> The maximum string length in characters is 1000.
+filter | **string**<br><ol><li>The field name. Currently filtering can be applied to the [LogRecord.logs.message.hostname](#LogRecord), [LogRecord.logs.message.severity](#LogRecord) fields. </li><li>A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 1-63 characters long and match the regular expression `^[a-z0-9.-]{1,61}$`. </li></ol> The maximum string length in characters is 1000.
 
 
 ### StreamLogRecord {#StreamLogRecord}
 
 Field | Description
 --- | ---
-record | **[LogRecord](#LogRecord1)**<br>One of the requested log records. 
+record | **[LogRecord](#LogRecord)**<br>One of the requested log records. 
 next_record_token | **string**<br>This token allows you to continue streaming logs starting from the exact same record. To continue streaming, specify value of `next_record_token` as value for `record_token` parameter in the next StreamLogs request. This value is interchangeable with `next_page_token` from ListLogs method. 
 
 
-### LogRecord {#LogRecord}
+### LogRecord {#LogRecord1}
 
 Field | Description
 --- | ---
@@ -1879,7 +1879,7 @@ Retrieves the list of Operation resources for the specified cluster.
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MongoDB Cluster resource to list operations for. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the MongoDB Cluster resource to list operations for. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClusterOperationsResponse.next_page_token](#ListClusterOperationsResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListClusterOperationsResponse.next_page_token](#ListClusterOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
@@ -1889,10 +1889,10 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 Field | Description
 --- | ---
 operations[] | **[operation.Operation](#Operation9)**<br>List of Operation resources for the specified MongoDB cluster. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterOperationsRequest.page_size](#ListClusterOperationsRequest1), use the `next_page_token` as the value for the [ListClusterOperationsRequest.page_token](#ListClusterOperationsRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterOperationsRequest.page_size](#ListClusterOperationsRequest), use the `next_page_token` as the value for the [ListClusterOperationsRequest.page_token](#ListClusterOperationsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
-### Operation {#Operation}
+### Operation {#Operation9}
 
 Field | Description
 --- | ---
@@ -1918,7 +1918,7 @@ Retrieves the list of available backups for the specified MongoDB cluster.
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MongoDB cluster. To get the MongoDB cluster ID, use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the MongoDB cluster. To get the MongoDB cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClusterBackupsResponse.next_page_token](#ListClusterBackupsResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token.  To get the next page of results, set `page_token` to the [ListClusterBackupsResponse.next_page_token](#ListClusterBackupsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
@@ -1928,7 +1928,7 @@ page_token | **string**<br>Page token.  To get the next page of results, set `pa
 Field | Description
 --- | ---
 backups[] | **[Backup](#Backup)**<br>List of MongoDB Backup resources. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterBackupsRequest.page_size](#ListClusterBackupsRequest1), use the `next_page_token` as the value for the [ListClusterBackupsRequest.page_token](#ListClusterBackupsRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterBackupsRequest.page_size](#ListClusterBackupsRequest), use the `next_page_token` as the value for the [ListClusterBackupsRequest.page_token](#ListClusterBackupsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
 ### Backup {#Backup}
@@ -1955,7 +1955,7 @@ Retrieves a list of hosts for the specified cluster.
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MongoDB cluster. To get the MongoDB cluster ID, use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the MongoDB cluster. To get the MongoDB cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClusterHostsResponse.next_page_token](#ListClusterHostsResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListClusterHostsResponse.next_page_token](#ListClusterHostsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
@@ -1965,7 +1965,7 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 Field | Description
 --- | ---
 hosts[] | **[Host](../cluster.proto#Host)**<br>List of Host resources. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterHostsRequest.page_size](#ListClusterHostsRequest1), use the `next_page_token` as the value for the [ListClusterHostsRequest.page_token](#ListClusterHostsRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterHostsRequest.page_size](#ListClusterHostsRequest), use the `next_page_token` as the value for the [ListClusterHostsRequest.page_token](#ListClusterHostsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
 ### Host {#Host}
@@ -2016,11 +2016,11 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MongoDB cluster to add hosts to. To get the MongoDB cluster ID use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
-host_specs[] | **[HostSpec](#HostSpec2)**<br>Configurations for MongoDB hosts that should be added to the cluster. The number of elements must be greater than 0.
+cluster_id | **string**<br>Required. ID of the MongoDB cluster to add hosts to. To get the MongoDB cluster ID use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+host_specs[] | **[HostSpec](#HostSpec)**<br>Configurations for MongoDB hosts that should be added to the cluster. The number of elements must be greater than 0.
 
 
-### HostSpec {#HostSpec}
+### HostSpec {#HostSpec2}
 
 Field | Description
 --- | ---
@@ -2031,7 +2031,7 @@ type | **[Host.Type](../cluster.proto#Host1)**<br>Type of the host to be deploye
 shard_name | **string**<br>Name of the shard that the host belongs to. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
-### Operation {#Operation}
+### Operation {#Operation10}
 
 Field | Description
 --- | ---
@@ -2069,11 +2069,11 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MongoDB cluster to remove hosts from. To get the MongoDB cluster ID, use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the MongoDB cluster to remove hosts from. To get the MongoDB cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
 host_names[] | **string**<br>Names of hosts to delete. The number of elements must be greater than 0. The maximum string length in characters for each value is 253.
 
 
-### Operation {#Operation}
+### Operation {#Operation11}
 
 Field | Description
 --- | ---
@@ -2111,35 +2111,35 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MongoDB cluster to enable sharding for. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the MongoDB cluster to enable sharding for. The maximum string length in characters is 50.
 mongocfg | **[MongoCfg](../cluster.proto#MongoCfg20)**<br>mongocfg specification for sharding. 
 mongos | **[Mongos](../cluster.proto#Mongos20)**<br>mongos specification for sharding. 
-host_specs[] | **[HostSpec](#HostSpec3)**<br>Configurations for mongos and mongocfg hosts. The number of elements must be greater than 0.
+host_specs[] | **[HostSpec](#HostSpec)**<br>Configurations for mongos and mongocfg hosts. The number of elements must be greater than 0.
 mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra20)**<br>mongos specification for sharding. 
 
 
-### MongoCfg {#MongoCfg}
+### MongoCfg {#MongoCfg20}
 
 Field | Description
 --- | ---
-resources | **[Resources](../cluster.proto#Resources1)**<br>Required. Resources for mongocfg hosts. false
+resources | **[Resources](../cluster.proto#Resources1)**<br>Required. Resources for mongocfg hosts. 
 
 
-### Mongos {#Mongos}
-
-Field | Description
---- | ---
-resources | **[Resources](../cluster.proto#Resources1)**<br>Required. Resources for mongos hosts. false
-
-
-### MongoInfra {#MongoInfra}
+### Mongos {#Mongos20}
 
 Field | Description
 --- | ---
-resources | **[Resources](../cluster.proto#Resources1)**<br>Required. Resources for mongoinfra (mongos+mongocfg) hosts. false
+resources | **[Resources](../cluster.proto#Resources1)**<br>Required. Resources for mongos hosts. 
 
 
-### HostSpec {#HostSpec}
+### MongoInfra {#MongoInfra20}
+
+Field | Description
+--- | ---
+resources | **[Resources](../cluster.proto#Resources1)**<br>Required. Resources for mongoinfra (mongos+mongocfg) hosts. 
+
+
+### HostSpec {#HostSpec3}
 
 Field | Description
 --- | ---
@@ -2150,7 +2150,7 @@ type | **[Host.Type](../cluster.proto#Host1)**<br>Type of the host to be deploye
 shard_name | **string**<br>Name of the shard that the host belongs to. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
-### Operation {#Operation}
+### Operation {#Operation12}
 
 Field | Description
 --- | ---
@@ -2183,8 +2183,8 @@ Returns the specified shard.
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MongoDB cluster that the shard belongs to. To get the cluster ID use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
-shard_name | **string**<br>Required. Name of the MongoDB shard to return. To get the name of the shard use a [ClusterService.ListShards](#ListShards) request. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+cluster_id | **string**<br>Required. ID of the MongoDB cluster that the shard belongs to. To get the cluster ID use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+shard_name | **string**<br>Required. Name of the MongoDB shard to return. To get the name of the shard use a [ClusterService.ListShards](#ListShards) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
 ### Shard {#Shard}
@@ -2205,7 +2205,7 @@ Retrieves a list of shards.
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MongoDB cluster to list databases in. To get the cluster ID, use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the MongoDB cluster to list databases in. To get the cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClusterShardsResponse.next_page_token](#ListClusterShardsResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListClusterShardsResponse.next_page_token](#ListClusterShardsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
@@ -2215,10 +2215,10 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 Field | Description
 --- | ---
 shards[] | **[Shard](../cluster.proto#Shard1)**<br>List of MongoDB shards. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterShardsRequest.page_size](#ListClusterShardsRequest1), use the `next_page_token` as the value for the [ListClusterShardsRequest.page_token](#ListClusterShardsRequest1) parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterShardsRequest.page_size](#ListClusterShardsRequest), use the `next_page_token` as the value for the [ListClusterShardsRequest.page_token](#ListClusterShardsRequest) parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
-### Shard {#Shard}
+### Shard {#Shard1}
 
 Field | Description
 --- | ---
@@ -2240,12 +2240,12 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MongoDB cluster to add a shard to. To get the cluster ID, use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
-shard_name | **string**<br>Required. Name of the MongoDB shard to create. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
-host_specs[] | **[HostSpec](#HostSpec4)**<br>Configurations for mongod hosts to be created with the shard. The number of elements must be greater than 0.
+cluster_id | **string**<br>Required. ID of the MongoDB cluster to add a shard to. To get the cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+shard_name | **string**<br>Required. Name of the MongoDB shard to create. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+host_specs[] | **[HostSpec](#HostSpec)**<br>Configurations for mongod hosts to be created with the shard. The number of elements must be greater than 0.
 
 
-### HostSpec {#HostSpec}
+### HostSpec {#HostSpec4}
 
 Field | Description
 --- | ---
@@ -2256,7 +2256,7 @@ type | **[Host.Type](../cluster.proto#Host1)**<br>Type of the host to be deploye
 shard_name | **string**<br>Name of the shard that the host belongs to. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
-### Operation {#Operation}
+### Operation {#Operation13}
 
 Field | Description
 --- | ---
@@ -2280,7 +2280,7 @@ cluster_id | **string**<br>ID of the MongoDB cluster that a shard is being added
 shard_name | **string**<br>Name of the shard being added. 
 
 
-### Shard {#Shard}
+### Shard {#Shard2}
 
 Field | Description
 --- | ---
@@ -2302,11 +2302,11 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MongoDB cluster to delete a shard in. To get the cluster ID, use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
-shard_name | **string**<br>Required. Name of the MongoDB shard to delete. To get the name of the shard use a [ClusterService.ListShards](#ListShards) request. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+cluster_id | **string**<br>Required. ID of the MongoDB cluster to delete a shard in. To get the cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+shard_name | **string**<br>Required. Name of the MongoDB shard to delete. To get the name of the shard use a [ClusterService.ListShards](#ListShards) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
-### Operation {#Operation}
+### Operation {#Operation14}
 
 Field | Description
 --- | ---
@@ -2344,11 +2344,11 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. Required. ID of the MongoDB cluster. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. Required. ID of the MongoDB cluster. The maximum string length in characters is 50.
 host_names[] | **string**<br>Required. Name of the hosts to resetup. The number of elements must be greater than 0. The maximum string length in characters for each value is 253.
 
 
-### Operation {#Operation}
+### Operation {#Operation15}
 
 Field | Description
 --- | ---
@@ -2386,11 +2386,11 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. Required. ID of the MongoDB cluster. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. Required. ID of the MongoDB cluster. The maximum string length in characters is 50.
 host_names[] | **string**<br>Required. Name of the hosts to restart. The number of elements must be greater than 0. The maximum string length in characters for each value is 253.
 
 
-### Operation {#Operation}
+### Operation {#Operation16}
 
 Field | Description
 --- | ---

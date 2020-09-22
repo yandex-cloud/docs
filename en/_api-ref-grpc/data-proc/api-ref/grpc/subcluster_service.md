@@ -26,8 +26,8 @@ Returns the specified subcluster. <br>To get the list of all available subcluste
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the Data Proc cluster that the subcluster belongs to. false The maximum string length in characters is 50.
-subcluster_id | **string**<br>Required. ID of the subcluster to return. <br>To get a subcluster ID make a [SubclusterService.List](#List) request. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the Data Proc cluster that the subcluster belongs to. The maximum string length in characters is 50.
+subcluster_id | **string**<br>Required. ID of the subcluster to return. <br>To get a subcluster ID make a [SubclusterService.List](#List) request. The maximum string length in characters is 50.
 
 
 ### Subcluster {#Subcluster}
@@ -61,7 +61,7 @@ Field | Description
 --- | ---
 max_hosts_count | **int64**<br>Upper limit for total instance subcluster count. Acceptable values are 1 to 100, inclusive.
 preemptible | **bool**<br>Preemptible instances are stopped at least once every 24 hours, and can be stopped at any time if their resources are needed by Compute. For more information, see [Preemptible Virtual Machines](/docs/compute/concepts/preemptible-vm). 
-measurement_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Time in seconds allotted for averaging metrics. false Acceptable values are 1m to 10m, inclusive.
+measurement_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Time in seconds allotted for averaging metrics. Acceptable values are 1m to 10m, inclusive.
 warmup_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>The warmup time of the instance in seconds. During this time, traffic is sent to the instance, but instance metrics are not collected. The maximum value is 10m.
 stabilization_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Minimum amount of time in seconds allotted for monitoring before Instance Groups can reduce the number of instances in the group. During this time, the group size doesn't decrease, even if the new metric values indicate that it should. Acceptable values are 1m to 30m, inclusive.
 cpu_utilization_target | **double**<br>Defines an autoscaling rule based on the average CPU utilization of the instance group. Acceptable values are 10 to 100, inclusive.
@@ -78,7 +78,7 @@ Retrieves a list of subclusters in the specified cluster.
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the Data Proc cluster to list subclusters in. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the Data Proc cluster to list subclusters in. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListSubclustersResponse.next_page_token](#ListSubclustersResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListSubclustersResponse.next_page_token](#ListSubclustersResponse) returned by a previous list request. The maximum string length in characters is 100.
 filter | **string**<br><ol><li>The field name. Currently you can use filtering only on [Subcluster.name](../subcluster.proto#Subcluster1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]. </li></ol> The maximum string length in characters is 1000.
@@ -89,10 +89,10 @@ filter | **string**<br><ol><li>The field name. Currently you can use filtering o
 Field | Description
 --- | ---
 subclusters[] | **[Subcluster](../subcluster.proto#Subcluster1)**<br>List of subclusters in the specified cluster. 
-next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListSubclustersRequest.page_size](#ListSubclustersRequest1), use `next_page_token` as the value for the [ListSubclustersRequest.page_token](#ListSubclustersRequest1) parameter in the next list request. <br>Each subsequent page will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListSubclustersRequest.page_size](#ListSubclustersRequest), use `next_page_token` as the value for the [ListSubclustersRequest.page_token](#ListSubclustersRequest) parameter in the next list request. <br>Each subsequent page will have its own `next_page_token` to continue paging through the results. 
 
 
-### Subcluster {#Subcluster}
+### Subcluster {#Subcluster1}
 
 Field | Description
 --- | ---
@@ -108,7 +108,7 @@ autoscaling_config | **[AutoscalingConfig](../subcluster.proto#AutoscalingConfig
 instance_group_id | **string**<br>ID of Compute Instance Group for autoscaling subclusters 
 
 
-### Resources {#Resources}
+### Resources {#Resources1}
 
 Field | Description
 --- | ---
@@ -117,13 +117,13 @@ disk_type_id | **string**<br><ul><li>network-hdd — network HDD drive, </li><li
 disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
 
 
-### AutoscalingConfig {#AutoscalingConfig}
+### AutoscalingConfig {#AutoscalingConfig1}
 
 Field | Description
 --- | ---
 max_hosts_count | **int64**<br>Upper limit for total instance subcluster count. Acceptable values are 1 to 100, inclusive.
 preemptible | **bool**<br>Preemptible instances are stopped at least once every 24 hours, and can be stopped at any time if their resources are needed by Compute. For more information, see [Preemptible Virtual Machines](/docs/compute/concepts/preemptible-vm). 
-measurement_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Time in seconds allotted for averaging metrics. false Acceptable values are 1m to 10m, inclusive.
+measurement_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Time in seconds allotted for averaging metrics. Acceptable values are 1m to 10m, inclusive.
 warmup_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>The warmup time of the instance in seconds. During this time, traffic is sent to the instance, but instance metrics are not collected. The maximum value is 10m.
 stabilization_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Minimum amount of time in seconds allotted for monitoring before Instance Groups can reduce the number of instances in the group. During this time, the group size doesn't decrease, even if the new metric values indicate that it should. Acceptable values are 1m to 30m, inclusive.
 cpu_utilization_target | **double**<br>Defines an autoscaling rule based on the average CPU utilization of the instance group. Acceptable values are 10 to 100, inclusive.
@@ -144,16 +144,16 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the Data Proc cluster to create a subcluster in. <br>To get a cluster ID, make a [ClusterService.List](./cluster_service#List) request. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the Data Proc cluster to create a subcluster in. <br>To get a cluster ID, make a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
 name | **string**<br>Name of the subcluster. The name must be unique within the cluster. The name can’t be changed when the subcluster is created. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
-role | enum **Role**<br>Required. Role that is fulfilled by hosts of the subcluster. false<ul><li>`MASTERNODE`: <ul><li>HDFS: Namenode, Secondary Namenode </li><li>YARN: ResourceManager, Timeline Server </li><li>HBase Master </li><li>Hive: Server, Metastore, HCatalog </li><li>Spark History Server </li><li>Zeppelin </li><li>ZooKeeper</li></ul></li><li>`DATANODE`: <ul><li>HDFS DataNode </li><li>YARN NodeManager </li><li>HBase RegionServer </li><li>Spark libraries</li></ul></li><li>`COMPUTENODE`: <ul><li>YARN NodeManager </li><li>Spark libraries</li></ul></li><ul/>
-resources | **[Resources](../common.proto#Resources2)**<br>Required. Resources allocated for each host in the subcluster. false
-subnet_id | **string**<br>Required. ID of the VPC subnet used for hosts in the subcluster. false The maximum string length in characters is 50.
-hosts_count | **int64**<br>Required. Number of hosts in the subcluster. false The minimum value is 1.
+role | enum **Role**<br>Required. Role that is fulfilled by hosts of the subcluster. <ul><li>`MASTERNODE`: <ul><li>HDFS: Namenode, Secondary Namenode </li><li>YARN: ResourceManager, Timeline Server </li><li>HBase Master </li><li>Hive: Server, Metastore, HCatalog </li><li>Spark History Server </li><li>Zeppelin </li><li>ZooKeeper</li></ul></li><li>`DATANODE`: <ul><li>HDFS DataNode </li><li>YARN NodeManager </li><li>HBase RegionServer </li><li>Spark libraries</li></ul></li><li>`COMPUTENODE`: <ul><li>YARN NodeManager </li><li>Spark libraries</li></ul></li><ul/>
+resources | **[Resources](../common.proto#Resources2)**<br>Required. Resources allocated for each host in the subcluster. 
+subnet_id | **string**<br>Required. ID of the VPC subnet used for hosts in the subcluster. The maximum string length in characters is 50.
+hosts_count | **int64**<br>Required. Number of hosts in the subcluster. The minimum value is 1.
 autoscaling_config | **[AutoscalingConfig](../subcluster.proto#AutoscalingConfig2)**<br>Configuration for instance group based subclusters 
 
 
-### Resources {#Resources}
+### Resources {#Resources2}
 
 Field | Description
 --- | ---
@@ -162,13 +162,13 @@ disk_type_id | **string**<br><ul><li>network-hdd — network HDD drive, </li><li
 disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
 
 
-### AutoscalingConfig {#AutoscalingConfig}
+### AutoscalingConfig {#AutoscalingConfig2}
 
 Field | Description
 --- | ---
 max_hosts_count | **int64**<br>Upper limit for total instance subcluster count. Acceptable values are 1 to 100, inclusive.
 preemptible | **bool**<br>Preemptible instances are stopped at least once every 24 hours, and can be stopped at any time if their resources are needed by Compute. For more information, see [Preemptible Virtual Machines](/docs/compute/concepts/preemptible-vm). 
-measurement_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Time in seconds allotted for averaging metrics. false Acceptable values are 1m to 10m, inclusive.
+measurement_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Time in seconds allotted for averaging metrics. Acceptable values are 1m to 10m, inclusive.
 warmup_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>The warmup time of the instance in seconds. During this time, traffic is sent to the instance, but instance metrics are not collected. The maximum value is 10m.
 stabilization_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Minimum amount of time in seconds allotted for monitoring before Instance Groups can reduce the number of instances in the group. During this time, the group size doesn't decrease, even if the new metric values indicate that it should. Acceptable values are 1m to 30m, inclusive.
 cpu_utilization_target | **double**<br>Defines an autoscaling rule based on the average CPU utilization of the instance group. Acceptable values are 10 to 100, inclusive.
@@ -199,7 +199,7 @@ cluster_id | **string**<br>ID of the cluster that the subcluster is being added 
 subcluster_id | **string**<br>ID of the subcluster that is being created. The maximum string length in characters is 50.
 
 
-### Subcluster {#Subcluster}
+### Subcluster {#Subcluster2}
 
 Field | Description
 --- | ---
@@ -229,17 +229,17 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the cluster to update a subcluster in. <br>To get a cluster ID, make a [ClusterService.List](./cluster_service#List) request. false The maximum string length in characters is 50.
-subcluster_id | **string**<br>Required. ID of the subcluster to update. <br>To get a subcluster ID, make a [SubclusterService.List](#List) request. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the cluster to update a subcluster in. <br>To get a cluster ID, make a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
+subcluster_id | **string**<br>Required. ID of the subcluster to update. <br>To get a subcluster ID, make a [SubclusterService.List](#List) request. The maximum string length in characters is 50.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which attributes of the subcluster should be updated. 
 resources | **[Resources](../common.proto#Resources3)**<br>New configuration of resources that should be allocated for each host in the subcluster. 
 name | **string**<br>New name for the subcluster. The name must be unique within the cluster. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
-hosts_count | **int64**<br>Required. New number of hosts in the subcluster. false The minimum value is 1.
+hosts_count | **int64**<br>Required. New number of hosts in the subcluster. The minimum value is 1.
 decommission_timeout | **int64**<br>Timeout to gracefully decommission nodes. In seconds. Default value: 0 Acceptable values are 0 to 86400, inclusive.
 autoscaling_config | **[AutoscalingConfig](../subcluster.proto#AutoscalingConfig3)**<br>Configuration for instance group based subclusters 
 
 
-### Resources {#Resources}
+### Resources {#Resources3}
 
 Field | Description
 --- | ---
@@ -248,20 +248,20 @@ disk_type_id | **string**<br><ul><li>network-hdd — network HDD drive, </li><li
 disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
 
 
-### AutoscalingConfig {#AutoscalingConfig}
+### AutoscalingConfig {#AutoscalingConfig3}
 
 Field | Description
 --- | ---
 max_hosts_count | **int64**<br>Upper limit for total instance subcluster count. Acceptable values are 1 to 100, inclusive.
 preemptible | **bool**<br>Preemptible instances are stopped at least once every 24 hours, and can be stopped at any time if their resources are needed by Compute. For more information, see [Preemptible Virtual Machines](/docs/compute/concepts/preemptible-vm). 
-measurement_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Time in seconds allotted for averaging metrics. false Acceptable values are 1m to 10m, inclusive.
+measurement_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Time in seconds allotted for averaging metrics. Acceptable values are 1m to 10m, inclusive.
 warmup_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>The warmup time of the instance in seconds. During this time, traffic is sent to the instance, but instance metrics are not collected. The maximum value is 10m.
 stabilization_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Minimum amount of time in seconds allotted for monitoring before Instance Groups can reduce the number of instances in the group. During this time, the group size doesn't decrease, even if the new metric values indicate that it should. Acceptable values are 1m to 30m, inclusive.
 cpu_utilization_target | **double**<br>Defines an autoscaling rule based on the average CPU utilization of the instance group. Acceptable values are 10 to 100, inclusive.
 decommission_timeout | **int64**<br>Timeout to gracefully decommission nodes during downscaling. In seconds. Default value: 120 Acceptable values are 0 to 86400, inclusive.
 
 
-### Operation {#Operation}
+### Operation {#Operation1}
 
 Field | Description
 --- | ---
@@ -285,7 +285,7 @@ cluster_id | **string**<br>ID of the cluster whose subcluster is being updated. 
 subcluster_id | **string**<br>ID of the subcluster that is being updated. The maximum string length in characters is 50.
 
 
-### Subcluster {#Subcluster}
+### Subcluster {#Subcluster3}
 
 Field | Description
 --- | ---
@@ -315,12 +315,12 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the cluster to remove a subcluster from. <br>To get a cluster ID, make a [ClusterService.List](./cluster_service#List) request. false The maximum string length in characters is 50.
-subcluster_id | **string**<br>Required. ID of the subcluster to delete. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the cluster to remove a subcluster from. <br>To get a cluster ID, make a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
+subcluster_id | **string**<br>Required. ID of the subcluster to delete. The maximum string length in characters is 50.
 decommission_timeout | **int64**<br>Timeout to gracefully decommission nodes. In seconds. Default value: 0 Acceptable values are 0 to 86400, inclusive.
 
 
-### Operation {#Operation}
+### Operation {#Operation2}
 
 Field | Description
 --- | ---

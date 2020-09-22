@@ -175,6 +175,12 @@ clusterId | Required. ID of the ClickHouse Cluster resource to update. To get th
             ]
           }
         ],
+        "kafka": {
+          "securityProtocol": "string",
+          "saslMechanism": "string",
+          "saslUsername": "string",
+          "saslPassword": "string"
+        },
         "maxConnections": "integer",
         "maxConcurrentQueries": "integer",
         "keepAliveTimeout": "integer",
@@ -229,6 +235,9 @@ clusterId | Required. ID of the ClickHouse Cluster resource to update. To get th
       "webSql": true,
       "metrika": true,
       "serverless": true
+    },
+    "cloudStorage": {
+      "enabled": true
     }
   },
   "name": "string",
@@ -360,6 +369,11 @@ configSpec.<br>clickhouse.<br>config.<br>graphiteRollup[].<br>patterns[].<br>fun
 configSpec.<br>clickhouse.<br>config.<br>graphiteRollup[].<br>patterns[].<br>retention[] | **object**<br><p>Required. Age of data to use for thinning.</p> <p>Must contain at least one element.</p> 
 configSpec.<br>clickhouse.<br>config.<br>graphiteRollup[].<br>patterns[].<br>retention[].<br>age | **string** (int64)<br><p>Minimum age of the data in seconds.</p> <p>Value must be greater than 0.</p> 
 configSpec.<br>clickhouse.<br>config.<br>graphiteRollup[].<br>patterns[].<br>retention[].<br>precision | **string** (int64)<br><p>Precision of determining the age of the data, in seconds.</p> <p>Value must be greater than 0.</p> 
+configSpec.<br>clickhouse.<br>config.<br>kafka | **object**<br>
+configSpec.<br>clickhouse.<br>config.<br>kafka.<br>securityProtocol | **string**<br>
+configSpec.<br>clickhouse.<br>config.<br>kafka.<br>saslMechanism | **string**<br>
+configSpec.<br>clickhouse.<br>config.<br>kafka.<br>saslUsername | **string**<br>
+configSpec.<br>clickhouse.<br>config.<br>kafka.<br>saslPassword | **string**<br>
 configSpec.<br>clickhouse.<br>config.<br>maxConnections | **integer** (int64)<br><p>Maximum number of inbound connections.</p> <p>The minimum value is 10.</p> 
 configSpec.<br>clickhouse.<br>config.<br>maxConcurrentQueries | **integer** (int64)<br><p>Maximum number of simultaneously processed requests.</p> <p>The minimum value is 10.</p> 
 configSpec.<br>clickhouse.<br>config.<br>keepAliveTimeout | **integer** (int64)<br><p>Number of milliseconds that ClickHouse waits for incoming requests before closing the connection.</p> 
@@ -408,6 +422,8 @@ configSpec.<br>access.<br>dataLens | **boolean** (boolean)<br><p>Allow to export
 configSpec.<br>access.<br>webSql | **boolean** (boolean)<br><p>Allow SQL queries to the cluster databases from the Yandex.Cloud management console.</p> <p>See <a href="/docs/managed-clickhouse/operations/web-sql-query">SQL queries in the management console</a> for more details.</p> 
 configSpec.<br>access.<br>metrika | **boolean** (boolean)<br><p>Allow to import data from Yandex.Metrica and AppMetrica to the cluster.</p> <p>See <a href="https://appmetrica.yandex.com/docs/cloud/index.html">Export data to Yandex.Cloud</a> for more details.</p> 
 configSpec.<br>access.<br>serverless | **boolean** (boolean)<br><p>Allow access to cluster for Serverless.</p> 
+configSpec.<br>cloudStorage | **object**<br>
+configSpec.<br>cloudStorage.<br>enabled | **boolean** (boolean)<br><p>Whether to use Yandex Object Storage for storing ClickHouse data.</p> 
 name | **string**<br><p>New name for the cluster.</p> <p>The maximum string length in characters is 63. Value must match the regular expression <code>[a-zA-Z0-9_-]*</code>.</p> 
 serviceAccountId | **string**<br><p>ID of the service account used for access to Yandex Object Storage.</p> 
 maintenanceWindow | **object**<br><p>Window of maintenance operations.</p> 

@@ -28,7 +28,7 @@ Returns the specified placement group.
 
 Field | Description
 --- | ---
-disk_placement_group_id | **string**<br>Required. ID of the placement group to return. To get the placement group ID, use [DiskPlacementGroupService.List](#List) request. false The maximum string length in characters is 50.
+disk_placement_group_id | **string**<br>Required. ID of the placement group to return. To get the placement group ID, use [DiskPlacementGroupService.List](#List) request. The maximum string length in characters is 50.
 
 
 ### DiskPlacementGroup {#DiskPlacementGroup}
@@ -61,7 +61,7 @@ Retrieves the list of placement groups in the specified folder.
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder to list placement groups in. To get the folder ID, use [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. false The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the folder to list placement groups in. To get the folder ID, use [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListDiskPlacementGroupsResponse.next_page_token](#ListDiskPlacementGroupsResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListDiskPlacementGroupsResponse.next_page_token](#ListDiskPlacementGroupsResponse) returned by a previous list request. The maximum string length in characters is 100.
 filter | **string**<br>A filter expression that filters resources listed in the response. Currently you can use filtering only on the [DiskPlacementGroup.name](../disk_placement_group.proto#DiskPlacementGroup1) field. The maximum string length in characters is 1000.
@@ -72,10 +72,10 @@ filter | **string**<br>A filter expression that filters resources listed in the 
 Field | Description
 --- | ---
 disk_placement_groups[] | **[DiskPlacementGroup](../disk_placement_group.proto#DiskPlacementGroup1)**<br>Lists placement groups for the specified folder. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListDiskPlacementGroupsRequest.page_size](#ListDiskPlacementGroupsRequest1), use `next_page_token` as the value for the [ListDiskPlacementGroupsRequest.page_token](#ListDiskPlacementGroupsRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListDiskPlacementGroupsRequest.page_size](#ListDiskPlacementGroupsRequest), use `next_page_token` as the value for the [ListDiskPlacementGroupsRequest.page_token](#ListDiskPlacementGroupsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
-### DiskPlacementGroup {#DiskPlacementGroup}
+### DiskPlacementGroup {#DiskPlacementGroup1}
 
 Field | Description
 --- | ---
@@ -91,7 +91,7 @@ placement_strategy | **oneof:** `spread_placement_strategy`<br>Placement strateg
 &nbsp;&nbsp;spread_placement_strategy | **[DiskSpreadPlacementStrategy](../disk_placement_group.proto#DiskSpreadPlacementStrategy1)**<br>Distribute instances over distinct failure domains. 
 
 
-### DiskSpreadPlacementStrategy {#DiskSpreadPlacementStrategy}
+### DiskSpreadPlacementStrategy {#DiskSpreadPlacementStrategy1}
 
 
 
@@ -109,16 +109,16 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder to create a placement group in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. false The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the folder to create a placement group in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. The maximum string length in characters is 50.
 name | **string**<br>Name of the placement group. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>Description of the placement group. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
-zone_id | **string**<br>Required. ID of the availability zone where the placement group resides. To get a list of available zones use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/grpc/zone_service#List) request. false The maximum string length in characters is 50.
+zone_id | **string**<br>Required. ID of the availability zone where the placement group resides. To get a list of available zones use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/grpc/zone_service#List) request. The maximum string length in characters is 50.
 placement_strategy | **oneof:** `spread_placement_strategy`<br>Placement strategy.
 &nbsp;&nbsp;spread_placement_strategy | **[DiskSpreadPlacementStrategy](../disk_placement_group.proto#DiskSpreadPlacementStrategy2)**<br>Distribute disks over distinct failure domains. 
 
 
-### DiskSpreadPlacementStrategy {#DiskSpreadPlacementStrategy}
+### DiskSpreadPlacementStrategy {#DiskSpreadPlacementStrategy2}
 
 
 
@@ -145,7 +145,7 @@ Field | Description
 disk_placement_group_id | **string**<br>ID of the placement group that is being created. 
 
 
-### DiskPlacementGroup {#DiskPlacementGroup}
+### DiskPlacementGroup {#DiskPlacementGroup2}
 
 Field | Description
 --- | ---
@@ -175,14 +175,14 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-disk_placement_group_id | **string**<br>Required. ID of the placement group to update. To get the placement group ID, use an [DiskPlacementGroupService.List](#List) request. false The maximum string length in characters is 50.
+disk_placement_group_id | **string**<br>Required. ID of the placement group to update. To get the placement group ID, use an [DiskPlacementGroupService.List](#List) request. The maximum string length in characters is 50.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the DiskPlacementGroup resource are going to be updated. 
 name | **string**<br>Name of the placement group. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>Description of the placement group. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. <br>The existing set of `labels` is completely replaced by the provided set. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 
 
-### Operation {#Operation}
+### Operation {#Operation1}
 
 Field | Description
 --- | ---
@@ -205,7 +205,7 @@ Field | Description
 disk_placement_group_id | **string**<br>ID of the placement group that is being updated. 
 
 
-### DiskPlacementGroup {#DiskPlacementGroup}
+### DiskPlacementGroup {#DiskPlacementGroup3}
 
 Field | Description
 --- | ---
@@ -235,10 +235,10 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-disk_placement_group_id | **string**<br>Required. ID of the placement group to delete. To get the placement group ID, use [DiskPlacementGroupService.List](#List) request. false The maximum string length in characters is 50.
+disk_placement_group_id | **string**<br>Required. ID of the placement group to delete. To get the placement group ID, use [DiskPlacementGroupService.List](#List) request. The maximum string length in characters is 50.
 
 
-### Operation {#Operation}
+### Operation {#Operation2}
 
 Field | Description
 --- | ---
@@ -271,7 +271,7 @@ Lists disks for the specified placement group.
 
 Field | Description
 --- | ---
-disk_placement_group_id | **string**<br>Required. ID of the placement group to list disks for. To get the placement group ID, use [DiskPlacementGroupService.List](#List) request. false The maximum string length in characters is 50.
+disk_placement_group_id | **string**<br>Required. ID of the placement group to list disks for. To get the placement group ID, use [DiskPlacementGroupService.List](#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListDiskPlacementGroupDisksResponse.next_page_token](#ListDiskPlacementGroupDisksResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListDiskPlacementGroupDisksResponse.next_page_token](#ListDiskPlacementGroupDisksResponse) returned by a previous list request. The maximum string length in characters is 100.
 
@@ -324,7 +324,7 @@ Lists operations for the specified placement group.
 
 Field | Description
 --- | ---
-disk_placement_group_id | **string**<br>Required. ID of the placement group to list operations for. To get the placement group ID, use [DiskPlacementGroupService.List](#List) request. false The maximum string length in characters is 50.
+disk_placement_group_id | **string**<br>Required. ID of the placement group to list operations for. To get the placement group ID, use [DiskPlacementGroupService.List](#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListDiskPlacementGroupOperationsResponse.next_page_token](#ListDiskPlacementGroupOperationsResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListDiskPlacementGroupOperationsResponse.next_page_token](#ListDiskPlacementGroupOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
@@ -334,10 +334,10 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 Field | Description
 --- | ---
 operations[] | **[operation.Operation](#Operation3)**<br>List of operations for the specified placement group. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListDiskPlacementGroupOperationsRequest.page_size](#ListDiskPlacementGroupOperationsRequest1), use the `next_page_token` as the value for the [ListDiskPlacementGroupOperationsRequest.page_token](#ListDiskPlacementGroupOperationsRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListDiskPlacementGroupOperationsRequest.page_size](#ListDiskPlacementGroupOperationsRequest), use the `next_page_token` as the value for the [ListDiskPlacementGroupOperationsRequest.page_token](#ListDiskPlacementGroupOperationsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
-### Operation {#Operation}
+### Operation {#Operation3}
 
 Field | Description
 --- | ---

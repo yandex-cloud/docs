@@ -44,7 +44,7 @@ signal_strength | **int64**<br>Required. The current signal strength measured in
 
 Field | Description
 --- | ---
-bssid | **string**<br>Required. The MAC address of the WiFi access point. It's typically called a BSS, BSSID or MAC address. <br>The value is 12 hexadecimal digits without `:` (colon) separators. false Value must match the regular expression ` [0-9a-fA-F]{12} `.
+bssid | **string**<br>Required. The MAC address of the WiFi access point. It's typically called a BSS, BSSID or MAC address. <br>The value is 12 hexadecimal digits without `:` (colon) separators. Value must match the regular expression ` [0-9a-fA-F]{12} `.
 signal_strength | **int64**<br>Required. The current signal strength measured in dBm. Value must be less than 0.
 
 

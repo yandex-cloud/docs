@@ -26,7 +26,7 @@ Returns the specified database.
 
 Field | Description
 --- | ---
-database_id | **string**<br>Required. Required. ID of the YDB cluster. false The maximum string length in characters is 50.
+database_id | **string**<br>Required. Required. ID of the YDB cluster. The maximum string length in characters is 50.
 
 
 ### Database {#Database}
@@ -90,14 +90,14 @@ size | **int64**<br> The minimum value is 1.
 
 Field | Description
 --- | ---
-zone_id | **string**<br>Required.  false
+zone_id | **string**<br>Required.  
 
 
 ### RegionalDatabase {#RegionalDatabase}
 
 Field | Description
 --- | ---
-region_id | **string**<br>Required.  false
+region_id | **string**<br>Required.  
 
 
 ### DedicatedDatabase {#DedicatedDatabase}
@@ -112,14 +112,14 @@ subnet_ids[] | **string**<br>
 assign_public_ips | **bool**<br> 
 
 
-### StorageConfig {#StorageConfig}
+### StorageConfig {#StorageConfig1}
 
 Field | Description
 --- | ---
 storage_options[] | **[StorageOption](../database.proto#StorageOption1)**<br> The minimum number of elements is 1.
 
 
-### StorageOption {#StorageOption}
+### StorageOption {#StorageOption1}
 
 Field | Description
 --- | ---
@@ -127,7 +127,7 @@ storage_type_id | **string**<br>
 group_count | **int64**<br> 
 
 
-### ScalePolicy {#ScalePolicy}
+### ScalePolicy {#ScalePolicy1}
 
 Field | Description
 --- | ---
@@ -135,7 +135,7 @@ scale_type | **oneof:** `fixed_scale`<br>
 &nbsp;&nbsp;fixed_scale | **[FixedScale](../database.proto#FixedScale1)**<br> 
 
 
-### FixedScale {#FixedScale}
+### FixedScale {#FixedScale1}
 
 Field | Description
 --- | ---
@@ -169,7 +169,7 @@ databases[] | **[Database](../database.proto#Database1)**<br>
 next_page_token | **string**<br>This token allows you to get the next page of results for ListDatabases requests, if the number of results is larger than `page_size` specified in the request. To get the next page, specify the value of `next_page_token` as a value for the `page_token` parameter in the next ListDatabases request. Subsequent ListDatabases requests will have their own `next_page_token` to continue paging through the results. 
 
 
-### Database {#Database}
+### Database {#Database1}
 
 Field | Description
 --- | ---
@@ -196,14 +196,14 @@ labels | **map<string,string>**<br>
 document_api_endpoint | **string**<br> 
 
 
-### StorageConfig {#StorageConfig}
+### StorageConfig {#StorageConfig2}
 
 Field | Description
 --- | ---
 storage_options[] | **[StorageOption](../database.proto#StorageOption2)**<br> The minimum number of elements is 1.
 
 
-### StorageOption {#StorageOption}
+### StorageOption {#StorageOption2}
 
 Field | Description
 --- | ---
@@ -211,7 +211,7 @@ storage_type_id | **string**<br>
 group_count | **int64**<br> 
 
 
-### ScalePolicy {#ScalePolicy}
+### ScalePolicy {#ScalePolicy2}
 
 Field | Description
 --- | ---
@@ -219,28 +219,28 @@ scale_type | **oneof:** `fixed_scale`<br>
 &nbsp;&nbsp;fixed_scale | **[FixedScale](../database.proto#FixedScale2)**<br> 
 
 
-### FixedScale {#FixedScale}
+### FixedScale {#FixedScale2}
 
 Field | Description
 --- | ---
 size | **int64**<br> The minimum value is 1.
 
 
-### ZonalDatabase {#ZonalDatabase}
+### ZonalDatabase {#ZonalDatabase1}
 
 Field | Description
 --- | ---
-zone_id | **string**<br>Required.  false
+zone_id | **string**<br>Required.  
 
 
-### RegionalDatabase {#RegionalDatabase}
+### RegionalDatabase {#RegionalDatabase1}
 
 Field | Description
 --- | ---
-region_id | **string**<br>Required.  false
+region_id | **string**<br>Required.  
 
 
-### DedicatedDatabase {#DedicatedDatabase}
+### DedicatedDatabase {#DedicatedDatabase1}
 
 Field | Description
 --- | ---
@@ -252,14 +252,14 @@ subnet_ids[] | **string**<br>
 assign_public_ips | **bool**<br> 
 
 
-### StorageConfig {#StorageConfig}
+### StorageConfig {#StorageConfig3}
 
 Field | Description
 --- | ---
 storage_options[] | **[StorageOption](../database.proto#StorageOption3)**<br> The minimum number of elements is 1.
 
 
-### StorageOption {#StorageOption}
+### StorageOption {#StorageOption3}
 
 Field | Description
 --- | ---
@@ -267,7 +267,7 @@ storage_type_id | **string**<br>
 group_count | **int64**<br> 
 
 
-### ScalePolicy {#ScalePolicy}
+### ScalePolicy {#ScalePolicy3}
 
 Field | Description
 --- | ---
@@ -275,14 +275,14 @@ scale_type | **oneof:** `fixed_scale`<br>
 &nbsp;&nbsp;fixed_scale | **[FixedScale](../database.proto#FixedScale3)**<br> 
 
 
-### FixedScale {#FixedScale}
+### FixedScale {#FixedScale3}
 
 Field | Description
 --- | ---
 size | **int64**<br> The minimum value is 1.
 
 
-### ServerlessDatabase {#ServerlessDatabase}
+### ServerlessDatabase {#ServerlessDatabase1}
 
 
 
@@ -318,14 +318,14 @@ location_id | **string**<br>
 labels | **map<string,string>**<br> 
 
 
-### StorageConfig {#StorageConfig}
+### StorageConfig {#StorageConfig4}
 
 Field | Description
 --- | ---
 storage_options[] | **[StorageOption](../database.proto#StorageOption4)**<br> The minimum number of elements is 1.
 
 
-### StorageOption {#StorageOption}
+### StorageOption {#StorageOption4}
 
 Field | Description
 --- | ---
@@ -333,7 +333,7 @@ storage_type_id | **string**<br>
 group_count | **int64**<br> 
 
 
-### ScalePolicy {#ScalePolicy}
+### ScalePolicy {#ScalePolicy4}
 
 Field | Description
 --- | ---
@@ -341,28 +341,28 @@ scale_type | **oneof:** `fixed_scale`<br>
 &nbsp;&nbsp;fixed_scale | **[FixedScale](../database.proto#FixedScale4)**<br> 
 
 
-### FixedScale {#FixedScale}
+### FixedScale {#FixedScale4}
 
 Field | Description
 --- | ---
 size | **int64**<br> The minimum value is 1.
 
 
-### ZonalDatabase {#ZonalDatabase}
+### ZonalDatabase {#ZonalDatabase2}
 
 Field | Description
 --- | ---
-zone_id | **string**<br>Required.  false
+zone_id | **string**<br>Required.  
 
 
-### RegionalDatabase {#RegionalDatabase}
+### RegionalDatabase {#RegionalDatabase2}
 
 Field | Description
 --- | ---
-region_id | **string**<br>Required.  false
+region_id | **string**<br>Required.  
 
 
-### DedicatedDatabase {#DedicatedDatabase}
+### DedicatedDatabase {#DedicatedDatabase2}
 
 Field | Description
 --- | ---
@@ -374,14 +374,14 @@ subnet_ids[] | **string**<br>
 assign_public_ips | **bool**<br> 
 
 
-### StorageConfig {#StorageConfig}
+### StorageConfig {#StorageConfig5}
 
 Field | Description
 --- | ---
 storage_options[] | **[StorageOption](../database.proto#StorageOption5)**<br> The minimum number of elements is 1.
 
 
-### StorageOption {#StorageOption}
+### StorageOption {#StorageOption5}
 
 Field | Description
 --- | ---
@@ -389,7 +389,7 @@ storage_type_id | **string**<br>
 group_count | **int64**<br> 
 
 
-### ScalePolicy {#ScalePolicy}
+### ScalePolicy {#ScalePolicy5}
 
 Field | Description
 --- | ---
@@ -397,14 +397,14 @@ scale_type | **oneof:** `fixed_scale`<br>
 &nbsp;&nbsp;fixed_scale | **[FixedScale](../database.proto#FixedScale5)**<br> 
 
 
-### FixedScale {#FixedScale}
+### FixedScale {#FixedScale5}
 
 Field | Description
 --- | ---
 size | **int64**<br> The minimum value is 1.
 
 
-### ServerlessDatabase {#ServerlessDatabase}
+### ServerlessDatabase {#ServerlessDatabase2}
 
 
 
@@ -432,7 +432,7 @@ database_id | **string**<br>Required. ID of the YDB cluster.
 database_name | **string**<br>Required. Name of the creating database. 
 
 
-### Database {#Database}
+### Database {#Database2}
 
 Field | Description
 --- | ---
@@ -493,14 +493,14 @@ location_id | **string**<br>
 labels | **map<string,string>**<br> 
 
 
-### StorageConfig {#StorageConfig}
+### StorageConfig {#StorageConfig6}
 
 Field | Description
 --- | ---
 storage_options[] | **[StorageOption](../database.proto#StorageOption6)**<br> The minimum number of elements is 1.
 
 
-### StorageOption {#StorageOption}
+### StorageOption {#StorageOption6}
 
 Field | Description
 --- | ---
@@ -508,7 +508,7 @@ storage_type_id | **string**<br>
 group_count | **int64**<br> 
 
 
-### ScalePolicy {#ScalePolicy}
+### ScalePolicy {#ScalePolicy6}
 
 Field | Description
 --- | ---
@@ -516,28 +516,28 @@ scale_type | **oneof:** `fixed_scale`<br>
 &nbsp;&nbsp;fixed_scale | **[FixedScale](../database.proto#FixedScale6)**<br> 
 
 
-### FixedScale {#FixedScale}
+### FixedScale {#FixedScale6}
 
 Field | Description
 --- | ---
 size | **int64**<br> The minimum value is 1.
 
 
-### ZonalDatabase {#ZonalDatabase}
+### ZonalDatabase {#ZonalDatabase3}
 
 Field | Description
 --- | ---
-zone_id | **string**<br>Required.  false
+zone_id | **string**<br>Required.  
 
 
-### RegionalDatabase {#RegionalDatabase}
+### RegionalDatabase {#RegionalDatabase3}
 
 Field | Description
 --- | ---
-region_id | **string**<br>Required.  false
+region_id | **string**<br>Required.  
 
 
-### DedicatedDatabase {#DedicatedDatabase}
+### DedicatedDatabase {#DedicatedDatabase3}
 
 Field | Description
 --- | ---
@@ -549,14 +549,14 @@ subnet_ids[] | **string**<br>
 assign_public_ips | **bool**<br> 
 
 
-### StorageConfig {#StorageConfig}
+### StorageConfig {#StorageConfig7}
 
 Field | Description
 --- | ---
 storage_options[] | **[StorageOption](../database.proto#StorageOption7)**<br> The minimum number of elements is 1.
 
 
-### StorageOption {#StorageOption}
+### StorageOption {#StorageOption7}
 
 Field | Description
 --- | ---
@@ -564,7 +564,7 @@ storage_type_id | **string**<br>
 group_count | **int64**<br> 
 
 
-### ScalePolicy {#ScalePolicy}
+### ScalePolicy {#ScalePolicy7}
 
 Field | Description
 --- | ---
@@ -572,18 +572,18 @@ scale_type | **oneof:** `fixed_scale`<br>
 &nbsp;&nbsp;fixed_scale | **[FixedScale](../database.proto#FixedScale7)**<br> 
 
 
-### FixedScale {#FixedScale}
+### FixedScale {#FixedScale7}
 
 Field | Description
 --- | ---
 size | **int64**<br> The minimum value is 1.
 
 
-### ServerlessDatabase {#ServerlessDatabase}
+### ServerlessDatabase {#ServerlessDatabase3}
 
 
 
-### Operation {#Operation}
+### Operation {#Operation1}
 
 Field | Description
 --- | ---
@@ -607,7 +607,7 @@ database_id | **string**<br>
 database_name | **string**<br> 
 
 
-### Database {#Database}
+### Database {#Database3}
 
 Field | Description
 --- | ---
@@ -651,7 +651,7 @@ Field | Description
 database_id | **string**<br> 
 
 
-### Operation {#Operation}
+### Operation {#Operation2}
 
 Field | Description
 --- | ---

@@ -26,8 +26,8 @@ editable: false
 
 Поле | Описание
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера Apache Kafka®, к которому принадлежит топик. <br>Чтобы получить идентификатор кластера, выполните запрос [ClusterService.List](./cluster_service#List). false Максимальная длина строки в символах — 50.
-topic_name | **string**<br>Обязательное поле. Имя запрашиваемого топика Kafka. <br>Чтобы получить имя топика, выполните запрос [TopicService.List](#List). false Длина строки в символах должна быть от 1 до 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_-]* `.
+cluster_id | **string**<br>Обязательное поле. Идентификатор кластера Apache Kafka®, к которому принадлежит топик. <br>Чтобы получить идентификатор кластера, выполните запрос [ClusterService.List](./cluster_service#List). Максимальная длина строки в символах — 50.
+topic_name | **string**<br>Обязательное поле. Имя запрашиваемого топика Kafka. <br>Чтобы получить имя топика, выполните запрос [TopicService.List](#List). Длина строки в символах должна быть от 1 до 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_-]* `.
 
 
 ### Topic {#Topic}
@@ -67,7 +67,7 @@ retention_ms | **[google.protobuf.Int64Value](https://developers.google.com/prot
 
 Поле | Описание
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера Apache Kafka®, для которого нужно получить список топиков. <br>Чтобы получить идентификатор кластера, выполните запрос [ClusterService.List](./cluster_service#List). false Максимальная длина строки в символах — 50.
+cluster_id | **string**<br>Обязательное поле. Идентификатор кластера Apache Kafka®, для которого нужно получить список топиков. <br>Чтобы получить идентификатор кластера, выполните запрос [ClusterService.List](./cluster_service#List). Максимальная длина строки в символах — 50.
 page_size | **int64**<br>Максимальное количество результатов на одной странице в ответе. <br>Если количество результатов больше чем `page_size`, сервис вернет значение [ListTopicsResponse.next_page_token](#ListTopicsResponse), которое можно использовать для получения следующей страницы. Максимальное значение — 1000.
 page_token | **string**<br>Токен страницы. <br>Установите значение `page_token` равным значению поля [ListTopicsResponse.next_page_token](#ListTopicsResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
 
@@ -77,10 +77,10 @@ page_token | **string**<br>Токен страницы. <br>Установите
 Поле | Описание
 --- | ---
 topics[] | **[Topic](../topic.proto#Topic1)**<br>Список топиков Kafka. 
-next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. <br>Если количество результатов больше чем [ListTopicsRequest.page_size](#ListTopicsRequest1), используйте `next_page_token` в качестве значения параметра [ListTopicsRequest.page_token](#ListTopicsRequest1) в следующем запросе. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
+next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. <br>Если количество результатов больше чем [ListTopicsRequest.page_size](#ListTopicsRequest), используйте `next_page_token` в качестве значения параметра [ListTopicsRequest.page_token](#ListTopicsRequest) в следующем запросе. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
 
 
-### Topic {#Topic}
+### Topic {#Topic1}
 
 Поле | Описание
 --- | ---
@@ -92,7 +92,7 @@ topic_config | **oneof:** `topic_config_2_1`<br>Пользовательские
 &nbsp;&nbsp;topic_config_2_1 | **[TopicConfig2_1](../topic.proto#TopicConfig2_11)**<br>Пользовательские настройки топика. 
 
 
-### TopicConfig2_1 {#TopicConfig2_1}
+### TopicConfig2_1 {#TopicConfig2_11}
 
 Поле | Описание
 --- | ---
@@ -121,8 +121,8 @@ retention_ms | **[google.protobuf.Int64Value](https://developers.google.com/prot
 
 Поле | Описание
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера Apache Kafka®, в котором следует создать топик. <br>Чтобы получить идентификатор кластера, выполните запрос [ClusterService.List](./cluster_service#List). false Максимальная длина строки в символах — 50.
-topic_spec | **[TopicSpec](../topic.proto#TopicSpec)**<br>Обязательное поле. Конфигурация топика, который нужно создать. false
+cluster_id | **string**<br>Обязательное поле. Идентификатор кластера Apache Kafka®, в котором следует создать топик. <br>Чтобы получить идентификатор кластера, выполните запрос [ClusterService.List](./cluster_service#List). Максимальная длина строки в символах — 50.
+topic_spec | **[TopicSpec](../topic.proto#TopicSpec)**<br>Обязательное поле. Конфигурация топика, который нужно создать. 
 
 
 ### TopicSpec {#TopicSpec}
@@ -136,7 +136,7 @@ topic_config | **oneof:** `topic_config_2_1`<br>Пользовательские
 &nbsp;&nbsp;topic_config_2_1 | **[TopicConfig2_1](../topic.proto#TopicConfig2_12)**<br>Пользовательские настройки топика. 
 
 
-### TopicConfig2_1 {#TopicConfig2_1}
+### TopicConfig2_1 {#TopicConfig2_12}
 
 Поле | Описание
 --- | ---
@@ -172,10 +172,10 @@ result | **oneof:** `error` или `response`<br>Результат операц
 Поле | Описание
 --- | ---
 cluster_id | **string**<br>Идентификатор кластера Apache Kafka®, в котором создается топик. 
-topic_name | **string**<br>Обязательное поле. Имя создаваемого топика Kafka. false Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_-]* `.
+topic_name | **string**<br>Обязательное поле. Имя создаваемого топика Kafka. Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_-]* `.
 
 
-### Topic {#Topic}
+### Topic {#Topic2}
 
 Поле | Описание
 --- | ---
@@ -201,13 +201,13 @@ topic_config | **oneof:** `topic_config_2_1`<br>Пользовательские
 
 Поле | Описание
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера Apache Kafka®, в котором следует изменить топик. <br>Чтобы получить идентификатор кластера, выполните запрос [ClusterService.List](./cluster_service#List). false Максимальная длина строки в символах — 50.
-topic_name | **string**<br>Обязательное поле. Имя топика, который нужно изменить. <br>Чтобы получить имя топика, выполните запрос [TopicService.List](#List). false Длина строки в символах должна быть от 1 до 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_-]* `.
+cluster_id | **string**<br>Обязательное поле. Идентификатор кластера Apache Kafka®, в котором следует изменить топик. <br>Чтобы получить идентификатор кластера, выполните запрос [ClusterService.List](./cluster_service#List). Максимальная длина строки в символах — 50.
+topic_name | **string**<br>Обязательное поле. Имя топика, который нужно изменить. <br>Чтобы получить имя топика, выполните запрос [TopicService.List](#List). Длина строки в символах должна быть от 1 до 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_-]* `.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br> 
 topic_spec | **[TopicSpec](../topic.proto#TopicSpec1)**<br>Новые настройки топика. <br>Используйте параметр `update_mask` чтобы предотвратить сброс настроек топика, не перечисленных в `topic_spec`, на значения по умолчанию. 
 
 
-### TopicSpec {#TopicSpec}
+### TopicSpec {#TopicSpec1}
 
 Поле | Описание
 --- | ---
@@ -218,7 +218,7 @@ topic_config | **oneof:** `topic_config_2_1`<br>Пользовательские
 &nbsp;&nbsp;topic_config_2_1 | **[TopicConfig2_1](../topic.proto#TopicConfig2_13)**<br>Пользовательские настройки топика. 
 
 
-### TopicConfig2_1 {#TopicConfig2_1}
+### TopicConfig2_1 {#TopicConfig2_13}
 
 Поле | Описание
 --- | ---
@@ -233,7 +233,7 @@ retention_bytes | **[google.protobuf.Int64Value](https://developers.google.com/p
 retention_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Количество миллисекунд до удаления файла сегмента лога; в течение этого времени Kafka будет хранить файл сегмента лога. <br>Эта настройка переопределяет на уровне топика настройку уровня кластера [KafkaConfig2_1.log_retention_ms](../cluster.proto#KafkaConfig2_1). 
 
 
-### Operation {#Operation}
+### Operation {#Operation1}
 
 Поле | Описание
 --- | ---
@@ -257,7 +257,7 @@ cluster_id | **string**<br>Идентификатор кластера Apache Ka
 topic_name | **string**<br>Имя изменяемого топика Kafka. 
 
 
-### Topic {#Topic}
+### Topic {#Topic3}
 
 Поле | Описание
 --- | ---
@@ -283,11 +283,11 @@ topic_config | **oneof:** `topic_config_2_1`<br>Пользовательские
 
 Поле | Описание
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера Apache Kafka®, в котором следует удалить топик. <br>Чтобы получить идентификатор кластера, выполните запрос [ClusterService.List](./cluster_service#List). false Максимальная длина строки в символах — 50.
-topic_name | **string**<br>Обязательное поле. Имя удаляемого топика. <br>Чтобы получить имя топика, выполните запрос [TopicService.List](#List). false Длина строки в символах должна быть от 1 до 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_-]* `.
+cluster_id | **string**<br>Обязательное поле. Идентификатор кластера Apache Kafka®, в котором следует удалить топик. <br>Чтобы получить идентификатор кластера, выполните запрос [ClusterService.List](./cluster_service#List). Максимальная длина строки в символах — 50.
+topic_name | **string**<br>Обязательное поле. Имя удаляемого топика. <br>Чтобы получить имя топика, выполните запрос [TopicService.List](#List). Длина строки в символах должна быть от 1 до 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_-]* `.
 
 
-### Operation {#Operation}
+### Operation {#Operation2}
 
 Поле | Описание
 --- | ---

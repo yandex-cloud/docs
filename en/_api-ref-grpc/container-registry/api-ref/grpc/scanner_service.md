@@ -30,7 +30,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-image_id | **string**<br>Required. ID of the Image to be scanned for vulnerabilities. false The maximum string length in characters is 50.
+image_id | **string**<br>Required. ID of the Image to be scanned for vulnerabilities. The maximum string length in characters is 50.
 
 
 ### Operation {#Operation}
@@ -77,10 +77,10 @@ Returns the specified ScanResult resource. <br>To get the list of ScanResults fo
 
 Field | Description
 --- | ---
-scan_result_id | **string**<br>Required. ID of the ScanResult to return. false The maximum string length in characters is 50.
+scan_result_id | **string**<br>Required. ID of the ScanResult to return. The maximum string length in characters is 50.
 
 
-### ScanResult {#ScanResult}
+### ScanResult {#ScanResult1}
 
 Field | Description
 --- | ---
@@ -116,7 +116,7 @@ Field | Description
 image_id | **string**<br>ID of the Image to get last finished ScanResult. The maximum string length in characters is 50.
 
 
-### ScanResult {#ScanResult}
+### ScanResult {#ScanResult2}
 
 Field | Description
 --- | ---
@@ -127,7 +127,7 @@ status | enum **Status**<br>Output only. The status of the ScanResult. <ul><li>`
 vulnerabilities | **[VulnerabilityStats](../scanner.proto#VulnerabilityStats1)**<br>Output only. Summary information about vulnerabilities found. 
 
 
-### VulnerabilityStats {#VulnerabilityStats}
+### VulnerabilityStats {#VulnerabilityStats1}
 
 Field | Description
 --- | ---
@@ -166,7 +166,7 @@ scan_results[] | **[ScanResult](../scanner.proto#ScanResult3)**<br>List of ScanR
 next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListImagesRequest.page_size](../image_service.proto#ListImagesRequest), use the `next_page_token` as the value for the [ListImagesRequest.page_token](../image_service.proto#ListImagesRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
-### ScanResult {#ScanResult}
+### ScanResult {#ScanResult3}
 
 Field | Description
 --- | ---
@@ -177,7 +177,7 @@ status | enum **Status**<br>Output only. The status of the ScanResult. <ul><li>`
 vulnerabilities | **[VulnerabilityStats](../scanner.proto#VulnerabilityStats2)**<br>Output only. Summary information about vulnerabilities found. 
 
 
-### VulnerabilityStats {#VulnerabilityStats}
+### VulnerabilityStats {#VulnerabilityStats2}
 
 Field | Description
 --- | ---
@@ -199,7 +199,7 @@ Retrieves the list of vulnerabilities found in particular scan.
 
 Field | Description
 --- | ---
-scan_result_id | **string**<br>Required. ID of the ScanResult to get list of vulnerabilities for. false The maximum string length in characters is 50.
+scan_result_id | **string**<br>Required. ID of the ScanResult to get list of vulnerabilities for. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListRegistriesResponse.next_page_token](../registry_service.proto#ListRegistriesResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListRegistriesResponse.next_page_token](../registry_service.proto#ListRegistriesResponse) returned by a previous list request. The maximum string length in characters is 100.
 filter | **string**<br><ol><li>The field name. Currently you can use filtering only on [Vulnerability.severity](../scanner.proto#Vulnerability) and [Vulnerability.type](../scanner.proto#Vulnerability) fields. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>Value or a list of values to compare against the values of the field.</li></ol> The maximum string length in characters is 1000.

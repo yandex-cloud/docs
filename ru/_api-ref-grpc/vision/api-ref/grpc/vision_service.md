@@ -135,14 +135,14 @@ words[] | **[Word](../text_detection.proto#Word)**<br>Распознанные �
 confidence | **double**<br>Достоверность результатов OCR для строки. Диапазон [0, 1]. 
 
 
-### Polygon {#Polygon}
+### Polygon {#Polygon1}
 
 Поле | Описание
 --- | ---
 vertices[] | **[Vertex](../primitives.proto#Vertex1)**<br>Вершины обрамляющей фигуры. 
 
 
-### Vertex {#Vertex}
+### Vertex {#Vertex1}
 
 Поле | Описание
 --- | ---
@@ -168,14 +168,14 @@ language_code | **string**<br>Код распознанного языка.
 confidence | **double**<br>Достоверность распознанного языка. Диапазон [0, 1]. 
 
 
-### Polygon {#Polygon}
+### Polygon {#Polygon2}
 
 Поле | Описание
 --- | ---
 vertices[] | **[Vertex](../primitives.proto#Vertex2)**<br>Вершины обрамляющей фигуры. 
 
 
-### Vertex {#Vertex}
+### Vertex {#Vertex2}
 
 Поле | Описание
 --- | ---
@@ -212,14 +212,14 @@ faces[] | **[Face](../face_detection.proto#Face)**<br>Массив обнару�
 bounding_box | **[Polygon](../primitives.proto#Polygon3)**<br>Область на изображении, где находится лицо. 
 
 
-### Polygon {#Polygon}
+### Polygon {#Polygon3}
 
 Поле | Описание
 --- | ---
 vertices[] | **[Vertex](../primitives.proto#Vertex3)**<br>Вершины обрамляющей фигуры. 
 
 
-### Vertex {#Vertex}
+### Vertex {#Vertex3}
 
 Поле | Описание
 --- | ---

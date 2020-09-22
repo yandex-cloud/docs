@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method create
-Creates a new SQLServer database in the specified cluster.
+Creates a new SQL Server database in the specified cluster.
  
 
  
@@ -16,7 +16,7 @@ POST https://mdb.api.cloud.yandex.net/mdb/sqlserver/v1alpha/clusters/{clusterId}
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the SQLServer cluster to create a database in. To get the cluster ID use a [list](/docs/managed-sqlserver/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
+clusterId | Required. ID of the SQL Server cluster to create a database in.  To get the cluster ID, use a [list](/docs/managed-sqlserver/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
  
 ## Body parameters {#body_params}
  
@@ -32,7 +32,7 @@ clusterId | Required. ID of the SQLServer cluster to create a database in. To ge
 Field | Description
 --- | ---
 databaseSpec | **object**<br><p>Required. Configuration of the database to create.</p> 
-databaseSpec.<br>name | **string**<br><p>Required. Name of the sqlserver database.</p> <p>The maximum string length in characters is 63. Value must match the regular expression <code>[a-zA-Z0-9_-]*</code>.</p> 
+databaseSpec.<br>name | **string**<br><p>Required. Name of the database.</p> <p>The maximum string length in characters is 63. Value must match the regular expression <code>[a-zA-Z0-9_-]*</code>.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

@@ -22,7 +22,7 @@ Returns payload of the given secret
 
 Field | Description
 --- | ---
-secret_id | **string**<br>Required. ID of the secret. false The maximum string length in characters is 50.
+secret_id | **string**<br>Required. ID of the secret. The maximum string length in characters is 50.
 version_id | **string**<br>Optional ID of the version. Defaults to the current version if not specified The maximum string length in characters is 50.
 
 

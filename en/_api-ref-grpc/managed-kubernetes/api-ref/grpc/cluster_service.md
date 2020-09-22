@@ -31,7 +31,7 @@ Returns the specified Kubernetes cluster. <br>To get the list of available Kuber
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the Kubernetes cluster to return. false
+cluster_id | **string**<br>Required. ID of the Kubernetes cluster to return. 
 
 
 ### Cluster {#Cluster}
@@ -141,7 +141,7 @@ policy | **oneof:** `anytime`, `daily_maintenance_window` or `weekly_maintenance
 
 Field | Description
 --- | ---
-start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required. Window start time, in the UTC timezone. false
+start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required. Window start time, in the UTC timezone. 
 duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Window duration. Acceptable values are 1h to 24h, inclusive.
 
 
@@ -157,7 +157,7 @@ days_of_week[] | **[DaysOfWeekMaintenanceWindow](../maintenance.proto#DaysOfWeek
 Field | Description
 --- | ---
 days[] | **google.type.DayOfWeek**<br>Days of the week when automatic updates are allowed. The number of elements must be in the range 1-7.
-start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required. Window start time, in the UTC timezone. false
+start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required. Window start time, in the UTC timezone. 
 duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Window duration. Acceptable values are 1h to 24h, inclusive.
 
 
@@ -194,7 +194,7 @@ Retrieves the list of Kubernetes cluster in the specified folder.
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder to list Kubernetes cluster in. To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. false
+folder_id | **string**<br>Required. ID of the folder to list Kubernetes cluster in. To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. 
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClustersResponse.next_page_token](#ListClustersResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListClustersResponse.next_page_token](#ListClustersResponse) returned by a previous list request. The maximum string length in characters is 100.
 filter | **string**<br><ol><li>The field name. Currently you can use filtering only on [Cluster.name](../cluster.proto#Cluster1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 1-61 characters long and match the regular expression `|[a-z][-a-z0-9]{1,61}[a-z0-9]`.</li></ol> The maximum string length in characters is 1000.
@@ -205,10 +205,10 @@ filter | **string**<br><ol><li>The field name. Currently you can use filtering o
 Field | Description
 --- | ---
 clusters[] | **[Cluster](../cluster.proto#Cluster1)**<br>List of Kubernetes cluster. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClustersRequest.page_size](#ListClustersRequest1), use the `next_page_token` as the value for the [ListClustersRequest.page_token](#ListClustersRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClustersRequest.page_size](#ListClustersRequest), use the `next_page_token` as the value for the [ListClustersRequest.page_token](#ListClustersRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
-### Cluster {#Cluster}
+### Cluster {#Cluster1}
 
 Field | Description
 --- | ---
@@ -232,7 +232,7 @@ network_policy | **[NetworkPolicy](../cluster.proto#NetworkPolicy1)**<br>
 kms_provider | **[KMSProvider](../cluster.proto#KMSProvider1)**<br>KMS provider configuration. 
 
 
-### Master {#Master}
+### Master {#Master1}
 
 Field | Description
 --- | ---
@@ -246,7 +246,7 @@ version_info | **[VersionInfo](../version.proto#VersionInfo1)**<br>Detailed info
 maintenance_policy | **[MasterMaintenancePolicy](../cluster.proto#MasterMaintenancePolicy1)**<br>Maintenance policy of the master. 
 
 
-### ZonalMaster {#ZonalMaster}
+### ZonalMaster {#ZonalMaster1}
 
 Field | Description
 --- | ---
@@ -255,7 +255,7 @@ internal_v4_address | **string**<br>IPv4 internal network address that is assign
 external_v4_address | **string**<br>IPv4 external network address that is assigned to the master. 
 
 
-### RegionalMaster {#RegionalMaster}
+### RegionalMaster {#RegionalMaster1}
 
 Field | Description
 --- | ---
@@ -264,7 +264,7 @@ internal_v4_address | **string**<br>IPv4 internal network address that is assign
 external_v4_address | **string**<br>IPv4 external network address that is assigned to the master. 
 
 
-### MasterEndpoints {#MasterEndpoints}
+### MasterEndpoints {#MasterEndpoints1}
 
 Field | Description
 --- | ---
@@ -272,14 +272,14 @@ internal_v4_endpoint | **string**<br>Internal endpoint that can be used to conne
 external_v4_endpoint | **string**<br>External endpoint that can be used to access Kubernetes cluster API from the internet (outside of the cloud). 
 
 
-### MasterAuth {#MasterAuth}
+### MasterAuth {#MasterAuth1}
 
 Field | Description
 --- | ---
 cluster_ca_certificate | **string**<br>PEM-encoded public certificate that is the root of trust for the Kubernetes cluster. 
 
 
-### VersionInfo {#VersionInfo}
+### VersionInfo {#VersionInfo1}
 
 Field | Description
 --- | ---
@@ -289,7 +289,7 @@ new_revision_summary | **string**<br>Description of the changes to be applied wh
 version_deprecated | **bool**<br>The current version is on the deprecation schedule, component (master or node group) should be upgraded. 
 
 
-### MasterMaintenancePolicy {#MasterMaintenancePolicy}
+### MasterMaintenancePolicy {#MasterMaintenancePolicy1}
 
 Field | Description
 --- | ---
@@ -297,7 +297,7 @@ auto_upgrade | **bool**<br>If set to true, automatic updates are installed in th
 maintenance_window | **[MaintenanceWindow](../maintenance.proto#MaintenanceWindow1)**<br>Maintenance window settings. Update will start at the specified time and last no more than the specified duration. The time is set in UTC. 
 
 
-### MaintenanceWindow {#MaintenanceWindow}
+### MaintenanceWindow {#MaintenanceWindow1}
 
 Field | Description
 --- | ---
@@ -307,35 +307,35 @@ policy | **oneof:** `anytime`, `daily_maintenance_window` or `weekly_maintenance
 &nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](../maintenance.proto#WeeklyMaintenanceWindow1)**<br>Updating the master on selected days during the specified time window. 
 
 
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow}
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow1}
 
 
 
-### DailyMaintenanceWindow {#DailyMaintenanceWindow}
+### DailyMaintenanceWindow {#DailyMaintenanceWindow1}
 
 Field | Description
 --- | ---
-start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required. Window start time, in the UTC timezone. false
+start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required. Window start time, in the UTC timezone. 
 duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Window duration. Acceptable values are 1h to 24h, inclusive.
 
 
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow}
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow1}
 
 Field | Description
 --- | ---
 days_of_week[] | **[DaysOfWeekMaintenanceWindow](../maintenance.proto#DaysOfWeekMaintenanceWindow1)**<br>Days of the week and the maintenance window for these days when automatic updates are allowed. The number of elements must be in the range 1-7.
 
 
-### DaysOfWeekMaintenanceWindow {#DaysOfWeekMaintenanceWindow}
+### DaysOfWeekMaintenanceWindow {#DaysOfWeekMaintenanceWindow1}
 
 Field | Description
 --- | ---
 days[] | **google.type.DayOfWeek**<br>Days of the week when automatic updates are allowed. The number of elements must be in the range 1-7.
-start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required. Window start time, in the UTC timezone. false
+start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required. Window start time, in the UTC timezone. 
 duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Window duration. Acceptable values are 1h to 24h, inclusive.
 
 
-### IPAllocationPolicy {#IPAllocationPolicy}
+### IPAllocationPolicy {#IPAllocationPolicy1}
 
 Field | Description
 --- | ---
@@ -344,14 +344,14 @@ node_ipv4_cidr_mask_size | **int64**<br>Size of the masks that are assigned for 
 service_ipv4_cidr_block | **string**<br>CIDR block. IP range Kubernetes service Kubernetes cluster IP addresses will be allocated from. <br>It should not overlap with any subnet in the network the Kubernetes cluster located in. 
 
 
-### NetworkPolicy {#NetworkPolicy}
+### NetworkPolicy {#NetworkPolicy1}
 
 Field | Description
 --- | ---
 provider | enum **Provider**<br> <ul><ul/>
 
 
-### KMSProvider {#KMSProvider}
+### KMSProvider {#KMSProvider1}
 
 Field | Description
 --- | ---
@@ -372,17 +372,17 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder to create a Kubernetes cluster in. To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. false
+folder_id | **string**<br>Required. ID of the folder to create a Kubernetes cluster in. To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. 
 name | **string**<br>Name of the Kubernetes cluster. The name must be unique within the folder. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>Description of the Kubernetes cluster. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
-network_id | **string**<br>Required. ID of the network. false
-master_spec | **[MasterSpec](#MasterSpec)**<br>Required. IP allocation policy of the Kubernetes cluster. false
+network_id | **string**<br>Required. ID of the network. 
+master_spec | **[MasterSpec](#MasterSpec)**<br>Required. IP allocation policy of the Kubernetes cluster. 
 ip_allocation_policy | **[IPAllocationPolicy](../cluster.proto#IPAllocationPolicy2)**<br>IP allocation policy of the Kubernetes cluster. 
 internet_gateway | **oneof:** `gateway_ipv4_address`<br>
 &nbsp;&nbsp;gateway_ipv4_address | **string**<br>Gateway IPv4 address. 
-service_account_id | **string**<br>Required. Service account to be used for provisioning Compute Cloud and VPC resources for Kubernetes cluster. Selected service account should have `edit` role on the folder where the Kubernetes cluster will be located and on the folder where selected network resides. false
-node_service_account_id | **string**<br>Required. Service account to be used by the worker nodes of the Kubernetes cluster to access Container Registry or to push node logs and metrics. false
+service_account_id | **string**<br>Required. Service account to be used for provisioning Compute Cloud and VPC resources for Kubernetes cluster. Selected service account should have `edit` role on the folder where the Kubernetes cluster will be located and on the folder where selected network resides. 
+node_service_account_id | **string**<br>Required. Service account to be used by the worker nodes of the Kubernetes cluster to access Container Registry or to push node logs and metrics. 
 release_channel | enum **ReleaseChannel**<br>Release channel for the master. <ul><li>`RAPID`: Minor updates with new functions and improvements are often added. You can't disable automatic updates in this channel, but you can specify a time period for automatic updates.</li><li>`REGULAR`: New functions and improvements are added in chunks shortly after they appear on `RAPID`.</li><li>`STABLE`: Only updates related to bug fixes or security improvements are added.</li><ul/>
 network_policy | **[NetworkPolicy](../cluster.proto#NetworkPolicy2)**<br> 
 kms_provider | **[KMSProvider](../cluster.proto#KMSProvider2)**<br>KMS provider configuration. 
@@ -403,7 +403,7 @@ maintenance_policy | **[MasterMaintenancePolicy](../cluster.proto#MasterMaintena
 
 Field | Description
 --- | ---
-zone_id | **string**<br>Required. ID of the availability zone. false
+zone_id | **string**<br>Required. ID of the availability zone. 
 internal_v4_address_spec | **[InternalAddressSpec](#InternalAddressSpec)**<br>Specification of parameters for internal IPv4 networking. 
 external_v4_address_spec | **[ExternalAddressSpec](#ExternalAddressSpec)**<br>Specification of parameters for external IPv4 networking. 
 
@@ -423,31 +423,31 @@ subnet_id | **string**<br>ID of the subnet. If no ID is specified, and there onl
 
 Field | Description
 --- | ---
-region_id | **string**<br>Required. ID of the availability zone where the master resides. false
+region_id | **string**<br>Required. ID of the availability zone where the master resides. 
 locations[] | **[MasterLocation](#MasterLocation)**<br>List of locations where the master will be allocated. 
-external_v4_address_spec | **[ExternalAddressSpec](#ExternalAddressSpec1)**<br>Specify to allocate a static public IP for the master. 
+external_v4_address_spec | **[ExternalAddressSpec](#ExternalAddressSpec)**<br>Specify to allocate a static public IP for the master. 
 
 
 ### MasterLocation {#MasterLocation}
 
 Field | Description
 --- | ---
-zone_id | **string**<br>Required. ID of the availability zone. false
-internal_v4_address_spec | **[InternalAddressSpec](#InternalAddressSpec1)**<br>If not specified and there is a single subnet in specified zone, address in this subnet will be allocated. 
+zone_id | **string**<br>Required. ID of the availability zone. 
+internal_v4_address_spec | **[InternalAddressSpec](#InternalAddressSpec)**<br>If not specified and there is a single subnet in specified zone, address in this subnet will be allocated. 
 
 
-### InternalAddressSpec {#InternalAddressSpec}
+### InternalAddressSpec {#InternalAddressSpec1}
 
 Field | Description
 --- | ---
 subnet_id | **string**<br>ID of the subnet. If no ID is specified, and there only one subnet in specified zone, an address in this subnet will be allocated. 
 
 
-### ExternalAddressSpec {#ExternalAddressSpec}
+### ExternalAddressSpec {#ExternalAddressSpec1}
 
 
 
-### MasterMaintenancePolicy {#MasterMaintenancePolicy}
+### MasterMaintenancePolicy {#MasterMaintenancePolicy2}
 
 Field | Description
 --- | ---
@@ -455,7 +455,7 @@ auto_upgrade | **bool**<br>If set to true, automatic updates are installed in th
 maintenance_window | **[MaintenanceWindow](../maintenance.proto#MaintenanceWindow2)**<br>Maintenance window settings. Update will start at the specified time and last no more than the specified duration. The time is set in UTC. 
 
 
-### MaintenanceWindow {#MaintenanceWindow}
+### MaintenanceWindow {#MaintenanceWindow2}
 
 Field | Description
 --- | ---
@@ -465,35 +465,35 @@ policy | **oneof:** `anytime`, `daily_maintenance_window` or `weekly_maintenance
 &nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](../maintenance.proto#WeeklyMaintenanceWindow2)**<br>Updating the master on selected days during the specified time window. 
 
 
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow}
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow2}
 
 
 
-### DailyMaintenanceWindow {#DailyMaintenanceWindow}
+### DailyMaintenanceWindow {#DailyMaintenanceWindow2}
 
 Field | Description
 --- | ---
-start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required. Window start time, in the UTC timezone. false
+start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required. Window start time, in the UTC timezone. 
 duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Window duration. Acceptable values are 1h to 24h, inclusive.
 
 
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow}
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow2}
 
 Field | Description
 --- | ---
 days_of_week[] | **[DaysOfWeekMaintenanceWindow](../maintenance.proto#DaysOfWeekMaintenanceWindow2)**<br>Days of the week and the maintenance window for these days when automatic updates are allowed. The number of elements must be in the range 1-7.
 
 
-### DaysOfWeekMaintenanceWindow {#DaysOfWeekMaintenanceWindow}
+### DaysOfWeekMaintenanceWindow {#DaysOfWeekMaintenanceWindow2}
 
 Field | Description
 --- | ---
 days[] | **google.type.DayOfWeek**<br>Days of the week when automatic updates are allowed. The number of elements must be in the range 1-7.
-start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required. Window start time, in the UTC timezone. false
+start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required. Window start time, in the UTC timezone. 
 duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Window duration. Acceptable values are 1h to 24h, inclusive.
 
 
-### IPAllocationPolicy {#IPAllocationPolicy}
+### IPAllocationPolicy {#IPAllocationPolicy2}
 
 Field | Description
 --- | ---
@@ -502,14 +502,14 @@ node_ipv4_cidr_mask_size | **int64**<br>Size of the masks that are assigned for 
 service_ipv4_cidr_block | **string**<br>CIDR block. IP range Kubernetes service Kubernetes cluster IP addresses will be allocated from. <br>It should not overlap with any subnet in the network the Kubernetes cluster located in. 
 
 
-### NetworkPolicy {#NetworkPolicy}
+### NetworkPolicy {#NetworkPolicy2}
 
 Field | Description
 --- | ---
 provider | enum **Provider**<br> <ul><ul/>
 
 
-### KMSProvider {#KMSProvider}
+### KMSProvider {#KMSProvider2}
 
 Field | Description
 --- | ---
@@ -539,7 +539,7 @@ Field | Description
 cluster_id | **string**<br>ID of the Kubernetes cluster that is being created. 
 
 
-### Cluster {#Cluster}
+### Cluster {#Cluster2}
 
 Field | Description
 --- | ---
@@ -577,7 +577,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the Kubernetes cluster to update. To get the Kubernetes cluster ID use a [ClusterService.List](#List) request. false
+cluster_id | **string**<br>Required. ID of the Kubernetes cluster to update. To get the Kubernetes cluster ID use a [ClusterService.List](#List) request. 
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br> 
 name | **string**<br>Name of the Kubernetes cluster. The name must be unique within the folder. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>Description of the Kubernetes cluster. The maximum string length in characters is 256.
@@ -607,7 +607,7 @@ specifier | **oneof:** `version` or `latest_revision`<br>
 &nbsp;&nbsp;latest_revision | **bool**<br>Request update to the latest revision for the current version. 
 
 
-### MasterMaintenancePolicy {#MasterMaintenancePolicy}
+### MasterMaintenancePolicy {#MasterMaintenancePolicy3}
 
 Field | Description
 --- | ---
@@ -615,7 +615,7 @@ auto_upgrade | **bool**<br>If set to true, automatic updates are installed in th
 maintenance_window | **[MaintenanceWindow](../maintenance.proto#MaintenanceWindow3)**<br>Maintenance window settings. Update will start at the specified time and last no more than the specified duration. The time is set in UTC. 
 
 
-### MaintenanceWindow {#MaintenanceWindow}
+### MaintenanceWindow {#MaintenanceWindow3}
 
 Field | Description
 --- | ---
@@ -625,42 +625,42 @@ policy | **oneof:** `anytime`, `daily_maintenance_window` or `weekly_maintenance
 &nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](../maintenance.proto#WeeklyMaintenanceWindow3)**<br>Updating the master on selected days during the specified time window. 
 
 
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow}
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow3}
 
 
 
-### DailyMaintenanceWindow {#DailyMaintenanceWindow}
+### DailyMaintenanceWindow {#DailyMaintenanceWindow3}
 
 Field | Description
 --- | ---
-start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required. Window start time, in the UTC timezone. false
+start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required. Window start time, in the UTC timezone. 
 duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Window duration. Acceptable values are 1h to 24h, inclusive.
 
 
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow}
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow3}
 
 Field | Description
 --- | ---
 days_of_week[] | **[DaysOfWeekMaintenanceWindow](../maintenance.proto#DaysOfWeekMaintenanceWindow3)**<br>Days of the week and the maintenance window for these days when automatic updates are allowed. The number of elements must be in the range 1-7.
 
 
-### DaysOfWeekMaintenanceWindow {#DaysOfWeekMaintenanceWindow}
+### DaysOfWeekMaintenanceWindow {#DaysOfWeekMaintenanceWindow3}
 
 Field | Description
 --- | ---
 days[] | **google.type.DayOfWeek**<br>Days of the week when automatic updates are allowed. The number of elements must be in the range 1-7.
-start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required. Window start time, in the UTC timezone. false
+start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required. Window start time, in the UTC timezone. 
 duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Window duration. Acceptable values are 1h to 24h, inclusive.
 
 
-### NetworkPolicy {#NetworkPolicy}
+### NetworkPolicy {#NetworkPolicy3}
 
 Field | Description
 --- | ---
 provider | enum **Provider**<br> <ul><ul/>
 
 
-### Operation {#Operation}
+### Operation {#Operation1}
 
 Field | Description
 --- | ---
@@ -683,7 +683,7 @@ Field | Description
 cluster_id | **string**<br>ID of the Kubernetes cluster that is being updated. 
 
 
-### Cluster {#Cluster}
+### Cluster {#Cluster3}
 
 Field | Description
 --- | ---
@@ -721,10 +721,10 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the Kubernetes cluster to delete. To get Kubernetes cluster ID use a [ClusterService.List](#List) request. false
+cluster_id | **string**<br>Required. ID of the Kubernetes cluster to delete. To get Kubernetes cluster ID use a [ClusterService.List](#List) request. 
 
 
-### Operation {#Operation}
+### Operation {#Operation2}
 
 Field | Description
 --- | ---
@@ -761,10 +761,10 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the Kubernetes cluster to stop. To get Kubernetes cluster ID use a [ClusterService.List](#List) request. false
+cluster_id | **string**<br>Required. ID of the Kubernetes cluster to stop. To get Kubernetes cluster ID use a [ClusterService.List](#List) request. 
 
 
-### Operation {#Operation}
+### Operation {#Operation3}
 
 Field | Description
 --- | ---
@@ -787,7 +787,7 @@ Field | Description
 cluster_id | **string**<br>ID of the Kubernetes cluster that is being stopped. 
 
 
-### Cluster {#Cluster}
+### Cluster {#Cluster4}
 
 Field | Description
 --- | ---
@@ -825,10 +825,10 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the Kubernetes cluster to start. To get Kubernetes cluster ID use a [ClusterService.List](#List) request. false
+cluster_id | **string**<br>Required. ID of the Kubernetes cluster to start. To get Kubernetes cluster ID use a [ClusterService.List](#List) request. 
 
 
-### Operation {#Operation}
+### Operation {#Operation4}
 
 Field | Description
 --- | ---
@@ -851,7 +851,7 @@ Field | Description
 cluster_id | **string**<br>ID of the Kubernetes cluster that is being started. 
 
 
-### Cluster {#Cluster}
+### Cluster {#Cluster5}
 
 Field | Description
 --- | ---
@@ -885,7 +885,7 @@ Lists nodegroup for the specified Kubernetes cluster.
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the Kubernetes cluster to list node groups in. To get the Kubernetes cluster ID use a [ClusterService.List](#List) request. false
+cluster_id | **string**<br>Required. ID of the Kubernetes cluster to list node groups in. To get the Kubernetes cluster ID use a [ClusterService.List](#List) request. 
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClusterNodeGroupsResponse.next_page_token](#ListClusterNodeGroupsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListClusterNodeGroupsResponse.next_page_token](#ListClusterNodeGroupsResponse) returned by a previous list request. The maximum string length in characters is 100.
 filter | **string**<br>A filter expression that filters resources listed in the response. Currently you can use filtering only on [Cluster.name](../cluster.proto#Cluster6) field. The maximum string length in characters is 1000.
@@ -896,7 +896,7 @@ filter | **string**<br>A filter expression that filters resources listed in the 
 Field | Description
 --- | ---
 node_groups[] | **[NodeGroup](../node_group.proto#NodeGroup)**<br>List of node groups for the specified Kubernetes cluster. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterNodeGroupsRequest.page_size](#ListClusterNodeGroupsRequest1), use the `next_page_token` as the value for the [ListClusterNodeGroupsRequest.page_token](#ListClusterNodeGroupsRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterNodeGroupsRequest.page_size](#ListClusterNodeGroupsRequest), use the `next_page_token` as the value for the [ListClusterNodeGroupsRequest.page_token](#ListClusterNodeGroupsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
 ### NodeGroup {#NodeGroup}
@@ -1010,7 +1010,7 @@ locations[] | **[NodeGroupLocation](../node_group.proto#NodeGroupLocation)**<br>
 
 Field | Description
 --- | ---
-zone_id | **string**<br>Required. ID of the availability zone where the nodes may reside. false
+zone_id | **string**<br>Required. ID of the availability zone where the nodes may reside. 
 subnet_id | **string**<br>ID of the subnet. If a network chosen for the Kubernetes cluster has only one subnet in the specified zone, subnet ID may be omitted. 
 
 
@@ -1022,7 +1022,7 @@ max_unavailable | **int64**<br>The maximum number of running instances that can 
 max_expansion | **int64**<br>The maximum number of instances that can be temporarily allocated above the group's target size during the update process. If `max_unavailable` is not specified or set to zero, `max_expansion` must be set to a non-zero value. Acceptable values are 0 to 100, inclusive.
 
 
-### VersionInfo {#VersionInfo}
+### VersionInfo {#VersionInfo2}
 
 Field | Description
 --- | ---
@@ -1041,7 +1041,7 @@ auto_repair | **bool**<br>If set to true, automatic repairs are enabled. Default
 maintenance_window | **[MaintenanceWindow](../maintenance.proto#MaintenanceWindow4)**<br>Maintenance window settings. Update will start at the specified time and last no more than the specified duration. The time is set in UTC. 
 
 
-### MaintenanceWindow {#MaintenanceWindow}
+### MaintenanceWindow {#MaintenanceWindow4}
 
 Field | Description
 --- | ---
@@ -1051,31 +1051,31 @@ policy | **oneof:** `anytime`, `daily_maintenance_window` or `weekly_maintenance
 &nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](../maintenance.proto#WeeklyMaintenanceWindow4)**<br>Updating the master on selected days during the specified time window. 
 
 
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow}
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow4}
 
 
 
-### DailyMaintenanceWindow {#DailyMaintenanceWindow}
+### DailyMaintenanceWindow {#DailyMaintenanceWindow4}
 
 Field | Description
 --- | ---
-start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required. Window start time, in the UTC timezone. false
+start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required. Window start time, in the UTC timezone. 
 duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Window duration. Acceptable values are 1h to 24h, inclusive.
 
 
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow}
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow4}
 
 Field | Description
 --- | ---
 days_of_week[] | **[DaysOfWeekMaintenanceWindow](../maintenance.proto#DaysOfWeekMaintenanceWindow4)**<br>Days of the week and the maintenance window for these days when automatic updates are allowed. The number of elements must be in the range 1-7.
 
 
-### DaysOfWeekMaintenanceWindow {#DaysOfWeekMaintenanceWindow}
+### DaysOfWeekMaintenanceWindow {#DaysOfWeekMaintenanceWindow4}
 
 Field | Description
 --- | ---
 days[] | **google.type.DayOfWeek**<br>Days of the week when automatic updates are allowed. The number of elements must be in the range 1-7.
-start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required. Window start time, in the UTC timezone. false
+start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required. Window start time, in the UTC timezone. 
 duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Window duration. Acceptable values are 1h to 24h, inclusive.
 
 
@@ -1098,7 +1098,7 @@ Lists operations for the specified Kubernetes cluster.
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the Kubernetes cluster to list operations for. false
+cluster_id | **string**<br>Required. ID of the Kubernetes cluster to list operations for. 
 page_size | **int64**<br>The maximum number of results per page that should be returned. If the number of available results is larger than `page_size`, the service returns a [ListClusterOperationsResponse.next_page_token](#ListClusterOperationsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListClusterOperationsResponse.next_page_token](#ListClusterOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
 filter | **string**<br>A filter expression that filters resources listed in the response. Currently you can use filtering only on [Cluster.name](../cluster.proto#Cluster6) field. The maximum string length in characters is 1000.
@@ -1109,10 +1109,10 @@ filter | **string**<br>A filter expression that filters resources listed in the 
 Field | Description
 --- | ---
 operations[] | **[operation.Operation](#Operation5)**<br>List of operations for the specified Kubernetes cluster. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterOperationsRequest.page_size](#ListClusterOperationsRequest1), use the `next_page_token` as the value for the [ListClusterOperationsRequest.page_token](#ListClusterOperationsRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterOperationsRequest.page_size](#ListClusterOperationsRequest), use the `next_page_token` as the value for the [ListClusterOperationsRequest.page_token](#ListClusterOperationsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
-### Operation {#Operation}
+### Operation {#Operation5}
 
 Field | Description
 --- | ---
@@ -1138,9 +1138,9 @@ Lists cluster's nodes.
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the Kubernetes cluster to list nodes in. To get the Kubernetes cluster ID use a [ClusterService.List](#List) request. false
+cluster_id | **string**<br>Required. ID of the Kubernetes cluster to list nodes in. To get the Kubernetes cluster ID use a [ClusterService.List](#List) request. 
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClusterNodesResponse.next_page_token](#ListClusterNodesResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. Acceptable values are 0 to 1000, inclusive.
-page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListClusterNodeGroupsResponse.next_page_token](#ListClusterNodeGroupsResponse1) returned by a previous list request. The maximum string length in characters is 100.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListClusterNodeGroupsResponse.next_page_token](#ListClusterNodeGroupsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
 
 ### ListClusterNodesResponse {#ListClusterNodesResponse}
@@ -1148,7 +1148,7 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 Field | Description
 --- | ---
 nodes[] | **[Node](../node.proto#Node)**<br>List of nodes for the specified Kubernetes cluster. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterNodesRequest.page_size](#ListClusterNodesRequest1), use the `next_page_token` as the value for the [ListClusterNodesRequest.page_token](#ListClusterNodesRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterNodesRequest.page_size](#ListClusterNodesRequest), use the `next_page_token` as the value for the [ListClusterNodesRequest.page_token](#ListClusterNodesRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
 ### Node {#Node}

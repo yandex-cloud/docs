@@ -138,14 +138,14 @@ words[] | **[Word](../text_detection.proto#Word)**<br>Recognized words in this l
 confidence | **double**<br>Confidence of the OCR results for the line. Range [0, 1]. 
 
 
-### Polygon {#Polygon}
+### Polygon {#Polygon1}
 
 Field | Description
 --- | ---
 vertices[] | **[Vertex](../primitives.proto#Vertex1)**<br>The bounding polygon vertices. 
 
 
-### Vertex {#Vertex}
+### Vertex {#Vertex1}
 
 Field | Description
 --- | ---
@@ -172,14 +172,14 @@ language_code | **string**<br>Detected language code.
 confidence | **double**<br>Confidence of detected language. Range [0, 1]. 
 
 
-### Polygon {#Polygon}
+### Polygon {#Polygon2}
 
 Field | Description
 --- | ---
 vertices[] | **[Vertex](../primitives.proto#Vertex2)**<br>The bounding polygon vertices. 
 
 
-### Vertex {#Vertex}
+### Vertex {#Vertex2}
 
 Field | Description
 --- | ---
@@ -224,14 +224,14 @@ Field | Description
 bounding_box | **[Polygon](../primitives.proto#Polygon3)**<br>Area on the image where the face is located. 
 
 
-### Polygon {#Polygon}
+### Polygon {#Polygon3}
 
 Field | Description
 --- | ---
 vertices[] | **[Vertex](../primitives.proto#Vertex3)**<br>The bounding polygon vertices. 
 
 
-### Vertex {#Vertex}
+### Vertex {#Vertex3}
 
 Field | Description
 --- | ---

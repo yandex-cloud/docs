@@ -16,7 +16,7 @@ GET https://mdb.api.cloud.yandex.net/mdb/sqlserver/v1alpha/resourcePresets/{reso
  
 Parameter | Description
 --- | ---
-resourcePresetId | Required. Required. ID of the resource preset to return. To get the resource preset ID, use a [list](/docs/managed-sqlserver/api-ref/ResourcePreset/list) request.
+resourcePresetId | Required. ID of the resource preset to return.  To get the resource preset ID, use a [list](/docs/managed-sqlserver/api-ref/ResourcePreset/list) request.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -31,11 +31,11 @@ resourcePresetId | Required. Required. ID of the resource preset to return. To g
   "memory": "string"
 }
 ```
-A preset of resources for hardware configuration of SQLServer hosts.
+A preset of resources for hardware configuration of SQL Server hosts.
  
 Field | Description
 --- | ---
 id | **string**<br><p>ID of the resource preset.</p> 
 zoneIds[] | **string**<br><p>IDs of availability zones where the resource preset is available.</p> 
-cores | **string** (int64)<br><p>Number of CPU cores for a SQLServer host created with the preset.</p> 
-memory | **string** (int64)<br><p>RAM volume for a SQLServer host created with the preset, in bytes.</p> 
+cores | **string** (int64)<br><p>Number of CPU cores for an SQL Server host created with the preset.</p> 
+memory | **string** (int64)<br><p>RAM volume for an SQL Server host created with the preset, in bytes.</p> 

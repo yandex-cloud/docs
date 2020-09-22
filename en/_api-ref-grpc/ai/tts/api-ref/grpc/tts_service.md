@@ -22,8 +22,8 @@ editable: false
 
 Field | Description
 --- | ---
-template_audio | **[AudioContent](#AudioContent)**<br>Required.  false
-template_text | **string**<br>Required.  false The maximum string length in characters is 256.
+template_audio | **[AudioContent](#AudioContent)**<br>Required.  
+template_text | **string**<br>Required.  The maximum string length in characters is 256.
 replacements[] | **[ReplacementUnit](#ReplacementUnit)**<br> The maximum number of elements is 10.
 folder_id | **string**<br> The maximum string length in characters is 50.
 
@@ -34,7 +34,7 @@ Field | Description
 --- | ---
 audio_source | **oneof:** `content`<br>
 &nbsp;&nbsp;content | **bytes**<br> The maximum string length in characters is 10485760.
-audio_spec | **[AudioSpec](#AudioSpec)**<br>Required.  false
+audio_spec | **[AudioSpec](#AudioSpec)**<br>Required.  
 
 
 ### AudioSpec {#AudioSpec}
@@ -51,7 +51,7 @@ Field | Description
 --- | ---
 word_index_start | **int64**<br> Acceptable values are 0 to 128, inclusive.
 word_index_end | **int64**<br> Acceptable values are 0 to 128, inclusive.
-replacement_text | **string**<br>Required.  false The maximum string length in characters is 100.
+replacement_text | **string**<br>Required.  The maximum string length in characters is 100.
 audio_unit_start_ms | **int64**<br> The minimum value is 0.
 audio_unit_end_ms | **int64**<br> The minimum value is 0.
 

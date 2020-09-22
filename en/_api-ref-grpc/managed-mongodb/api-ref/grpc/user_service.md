@@ -28,8 +28,8 @@ Returns the specified MongoDB User resource. <br>To get the list of available Mo
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MongoDB cluster the user belongs to. To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request. false The maximum string length in characters is 50.
-user_name | **string**<br>Required. Name of the MongoDB User resource to return. To get the name of the user, use a [UserService.List](#List) request. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+cluster_id | **string**<br>Required. ID of the MongoDB cluster the user belongs to. To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
+user_name | **string**<br>Required. Name of the MongoDB User resource to return. To get the name of the user, use a [UserService.List](#List) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
 
 
 ### User {#User}
@@ -59,7 +59,7 @@ Retrieves the list of MongoDB User resources in the specified cluster.
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the cluster to list MongoDB users in. To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the cluster to list MongoDB users in. To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListUsersResponse.next_page_token](#ListUsersResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListUsersResponse.next_page_token](#ListUsersResponse) returned by a previous list request. The maximum string length in characters is 100.
 
@@ -69,10 +69,10 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 Field | Description
 --- | ---
 users[] | **[User](../user.proto#User1)**<br>List of MongoDB User resources. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListUsersRequest.page_size](#ListUsersRequest1), use the `next_page_token` as the value for the [ListUsersRequest.page_token](#ListUsersRequest1) parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListUsersRequest.page_size](#ListUsersRequest), use the `next_page_token` as the value for the [ListUsersRequest.page_token](#ListUsersRequest) parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
-### User {#User}
+### User {#User1}
 
 Field | Description
 --- | ---
@@ -81,7 +81,7 @@ cluster_id | **string**<br>ID of the MongoDB cluster the user belongs to.
 permissions[] | **[Permission](../user.proto#Permission1)**<br>Set of permissions granted to the user. 
 
 
-### Permission {#Permission}
+### Permission {#Permission1}
 
 Field | Description
 --- | ---
@@ -103,7 +103,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MongoDB cluster to create a user in. To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the MongoDB cluster to create a user in. To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
 user_spec | **[UserSpec](../user.proto#UserSpec)**<br>Properties of the user to be created. 
 
 
@@ -111,12 +111,12 @@ user_spec | **[UserSpec](../user.proto#UserSpec)**<br>Properties of the user to 
 
 Field | Description
 --- | ---
-name | **string**<br>Required. Name of the MongoDB user. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
-password | **string**<br>Required. Password of the MongoDB user. false The string length in characters must be 8-128.
+name | **string**<br>Required. Name of the MongoDB user. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+password | **string**<br>Required. Password of the MongoDB user. The string length in characters must be 8-128.
 permissions[] | **[Permission](../user.proto#Permission2)**<br>Set of permissions to grant to the user. 
 
 
-### Permission {#Permission}
+### Permission {#Permission2}
 
 Field | Description
 --- | ---
@@ -148,7 +148,7 @@ cluster_id | **string**<br>ID of the MongoDB cluster the user is being created i
 user_name | **string**<br>Name of the user that is being created. 
 
 
-### User {#User}
+### User {#User2}
 
 Field | Description
 --- | ---
@@ -171,14 +171,14 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MongoDB cluster the user belongs to. To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request. false The maximum string length in characters is 50.
-user_name | **string**<br>Required. Name of the user to be updated. To get the name of the user, use a [UserService.List](#List) request. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+cluster_id | **string**<br>Required. ID of the MongoDB cluster the user belongs to. To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
+user_name | **string**<br>Required. Name of the user to be updated. To get the name of the user, use a [UserService.List](#List) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the MongoDB User resource should be updated. 
 password | **string**<br>New password for the user. The string length in characters must be 8-128.
 permissions[] | **[Permission](../user.proto#Permission3)**<br>New set of permissions for the user. 
 
 
-### Permission {#Permission}
+### Permission {#Permission3}
 
 Field | Description
 --- | ---
@@ -186,7 +186,7 @@ database_name | **string**<br>Name of the database that the permission grants ac
 roles[] | **string**<br>MongoDB roles for the `database_name` database that the permission grants. 
 
 
-### Operation {#Operation}
+### Operation {#Operation1}
 
 Field | Description
 --- | ---
@@ -210,7 +210,7 @@ cluster_id | **string**<br>ID of the MongoDB cluster the user belongs to.
 user_name | **string**<br>Name of the user that is being updated. 
 
 
-### User {#User}
+### User {#User3}
 
 Field | Description
 --- | ---
@@ -233,11 +233,11 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MongoDB cluster the user belongs to. To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request. false The maximum string length in characters is 50.
-user_name | **string**<br>Required. Name of the user to delete. To get the name of the user use a [UserService.List](#List) request. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+cluster_id | **string**<br>Required. ID of the MongoDB cluster the user belongs to. To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
+user_name | **string**<br>Required. Name of the user to delete. To get the name of the user use a [UserService.List](#List) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
 
 
-### Operation {#Operation}
+### Operation {#Operation2}
 
 Field | Description
 --- | ---
@@ -275,12 +275,12 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MongoDB cluster the user belongs to. To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request. false The maximum string length in characters is 50.
-user_name | **string**<br>Required. Name of the user to grant the permission to. To get the name of the user, use a [UserService.List](#List) request. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
-permission | **[Permission](../user.proto#Permission4)**<br>Required. Permission that should be granted to the specified user. false
+cluster_id | **string**<br>Required. ID of the MongoDB cluster the user belongs to. To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
+user_name | **string**<br>Required. Name of the user to grant the permission to. To get the name of the user, use a [UserService.List](#List) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+permission | **[Permission](../user.proto#Permission4)**<br>Required. Permission that should be granted to the specified user. 
 
 
-### Permission {#Permission}
+### Permission {#Permission4}
 
 Field | Description
 --- | ---
@@ -288,7 +288,7 @@ database_name | **string**<br>Name of the database that the permission grants ac
 roles[] | **string**<br>MongoDB roles for the `database_name` database that the permission grants. 
 
 
-### Operation {#Operation}
+### Operation {#Operation3}
 
 Field | Description
 --- | ---
@@ -312,7 +312,7 @@ cluster_id | **string**<br>ID of the MongoDB cluster the user belongs to. To get
 user_name | **string**<br>Name of the user that is being granted a permission. 
 
 
-### User {#User}
+### User {#User4}
 
 Field | Description
 --- | ---
@@ -335,12 +335,12 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MongoDB cluster the user belongs to. To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request. false The maximum string length in characters is 50.
-user_name | **string**<br>Required. Name of the user to revoke a permission from. To get the name of the user, use a [UserService.List](#List) request. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
-database_name | **string**<br>Required. Name of the database that the user should lose access to. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+cluster_id | **string**<br>Required. ID of the MongoDB cluster the user belongs to. To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
+user_name | **string**<br>Required. Name of the user to revoke a permission from. To get the name of the user, use a [UserService.List](#List) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+database_name | **string**<br>Required. Name of the database that the user should lose access to. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
-### Operation {#Operation}
+### Operation {#Operation4}
 
 Field | Description
 --- | ---
@@ -364,7 +364,7 @@ cluster_id | **string**<br>ID of the MongoDB cluster the user belongs to.
 user_name | **string**<br>Name of the user whose permission is being revoked. 
 
 
-### User {#User}
+### User {#User5}
 
 Field | Description
 --- | ---

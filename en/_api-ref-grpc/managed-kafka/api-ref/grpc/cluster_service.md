@@ -33,7 +33,7 @@ Returns the specified Apache Kafka® cluster. <br>To get the list of available A
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the Apache Kafka® Cluster resource to return. <br>To get the cluster ID, make a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the Apache Kafka® Cluster resource to return. <br>To get the cluster ID, make a [ClusterService.List](#List) request. The maximum string length in characters is 50.
 
 
 ### Cluster {#Cluster}
@@ -101,7 +101,7 @@ Retrieves the list of Apache Kafka® clusters that belong to the specified folde
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder to list Apache Kafka® clusters in. <br>To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. false The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the folder to list Apache Kafka® clusters in. <br>To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. <br>If the number of available results is larger than `page_size`, the service returns a [ListClustersResponse.next_page_token](#ListClustersResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token. <br>To get the next page of results, set `page_token` to the [ListClustersResponse.next_page_token](#ListClustersResponse) returned by a previous list request. The maximum string length in characters is 100.
 filter | **string**<br><ol><li>The field name to filter by. Currently you can only use filtering with the [Cluster.name](../cluster.proto#Cluster1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Мust be 1-63 characters long and match the regular expression `^[a-zA-Z0-9_-]+$`. </li></ol> The maximum string length in characters is 1000.
@@ -112,10 +112,10 @@ filter | **string**<br><ol><li>The field name to filter by. Currently you can on
 Field | Description
 --- | ---
 clusters[] | **[Cluster](../cluster.proto#Cluster1)**<br>List of Apache Kafka® clusters. 
-next_page_token | **string**<br>Token that allows you to get the next page of results for list requests. <br>If the number of results is larger than [ListClustersRequest.page_size](#ListClustersRequest1), use `next_page_token` as the value for the [ListClustersRequest.page_token](#ListClustersRequest1) parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>Token that allows you to get the next page of results for list requests. <br>If the number of results is larger than [ListClustersRequest.page_size](#ListClustersRequest), use `next_page_token` as the value for the [ListClustersRequest.page_token](#ListClustersRequest) parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
-### Cluster {#Cluster}
+### Cluster {#Cluster1}
 
 Field | Description
 --- | ---
@@ -133,7 +133,7 @@ health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`:
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: cluster state is unknown.</li><li>`CREATING`: cluster is being created.</li><li>`RUNNING`: cluster is running normally.</li><li>`ERROR`: cluster encountered a problem and cannot operate.</li><li>`UPDATING`: cluster is being updated.</li><li>`STOPPING`: cluster is stopping.</li><li>`STOPPED`: cluster stopped.</li><li>`STARTING`: cluster is starting.</li><ul/>
 
 
-### Monitoring {#Monitoring}
+### Monitoring {#Monitoring1}
 
 Field | Description
 --- | ---
@@ -142,7 +142,7 @@ description | **string**<br>Description of the monitoring system.
 link | **string**<br>Link to the monitoring system charts for the Apache Kafka® cluster. 
 
 
-### ConfigSpec {#ConfigSpec}
+### ConfigSpec {#ConfigSpec1}
 
 Field | Description
 --- | ---
@@ -154,7 +154,7 @@ brokers_count | **[google.protobuf.Int64Value](https://developers.google.com/pro
 assign_public_ip | **bool**<br>The flag that defines whether a public IP address is assigned to the cluster. If the value is `true`, then Apache Kafka® cluster is available on the Internet via it's public IP address. 
 
 
-### Kafka {#Kafka}
+### Kafka {#Kafka1}
 
 Field | Description
 --- | ---
@@ -163,7 +163,7 @@ kafka_config | **oneof:** `kafka_config_2_1`<br>Kafka broker configuration.
 &nbsp;&nbsp;kafka_config_2_1 | **[KafkaConfig2_1](../cluster.proto#KafkaConfig2_1)**<br>Kafka broker configuration. 
 
 
-### Zookeeper {#Zookeeper}
+### Zookeeper {#Zookeeper1}
 
 Field | Description
 --- | ---
@@ -184,8 +184,8 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder to create the Apache Kafka® cluster in. <br>To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. false The maximum string length in characters is 50.
-name | **string**<br>Required. Name of the Apache Kafka® cluster. The name must be unique within the folder. false The string length in characters must be 1-63. Value must match the regular expression ` [a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
+folder_id | **string**<br>Required. ID of the folder to create the Apache Kafka® cluster in. <br>To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. The maximum string length in characters is 50.
+name | **string**<br>Required. Name of the Apache Kafka® cluster. The name must be unique within the folder. The string length in characters must be 1-63. Value must match the regular expression ` [a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>Description of the Apache Kafka® cluster. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Custom labels for the Apache Kafka® cluster as `key:value` pairs. <br>For example, "project": "mvp" or "source": "dictionary". No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 environment | **[Cluster.Environment](../cluster.proto#Cluster2)**<br>Deployment environment of the Apache Kafka® cluster. 
@@ -195,7 +195,7 @@ user_specs[] | **[UserSpec](../user.proto#UserSpec)**<br>Configurations of accou
 network_id | **string**<br>ID of the network to create the Apache Kafka® cluster in. The maximum string length in characters is 50.
 
 
-### ConfigSpec {#ConfigSpec}
+### ConfigSpec {#ConfigSpec2}
 
 Field | Description
 --- | ---
@@ -207,7 +207,7 @@ brokers_count | **[google.protobuf.Int64Value](https://developers.google.com/pro
 assign_public_ip | **bool**<br>The flag that defines whether a public IP address is assigned to the cluster. If the value is `true`, then Apache Kafka® cluster is available on the Internet via it's public IP address. 
 
 
-### Kafka {#Kafka}
+### Kafka {#Kafka2}
 
 Field | Description
 --- | ---
@@ -216,7 +216,7 @@ kafka_config | **oneof:** `kafka_config_2_1`<br>Kafka broker configuration.
 &nbsp;&nbsp;kafka_config_2_1 | **[KafkaConfig2_1](../cluster.proto#KafkaConfig2_1)**<br>Kafka broker configuration. 
 
 
-### Zookeeper {#Zookeeper}
+### Zookeeper {#Zookeeper2}
 
 Field | Description
 --- | ---
@@ -253,8 +253,8 @@ retention_ms | **[google.protobuf.Int64Value](https://developers.google.com/prot
 
 Field | Description
 --- | ---
-name | **string**<br>Required. Name of the Kafka user. false The string length in characters must be 1-63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
-password | **string**<br>Required. Password of the Kafka user. false The string length in characters must be 8-128.
+name | **string**<br>Required. Name of the Kafka user. The string length in characters must be 1-63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+password | **string**<br>Required. Password of the Kafka user. The string length in characters must be 8-128.
 permissions[] | **[Permission](../user.proto#Permission)**<br>Set of permissions granted to the user. 
 
 
@@ -289,7 +289,7 @@ Field | Description
 cluster_id | **string**<br>ID of the Apache Kafka® cluster that is being created. 
 
 
-### Cluster {#Cluster}
+### Cluster {#Cluster2}
 
 Field | Description
 --- | ---
@@ -321,7 +321,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the Apache Kafka® cluster to update. <br>To get the Apache Kafka® cluster ID, make a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the Apache Kafka® cluster to update. <br>To get the Apache Kafka® cluster ID, make a [ClusterService.List](#List) request. The maximum string length in characters is 50.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br> 
 description | **string**<br>New description of the Apache Kafka® cluster. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Custom labels for the Apache Kafka® cluster as `key:value` pairs. <br>For example, "project": "mvp" or "source": "dictionary". <br>The new set of labels will completely replace the old ones. To add a label, request the current set with the [ClusterService.Get](#Get) method, then send an [ClusterService.Update](#Update) request with the new label added to the set. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
@@ -329,7 +329,7 @@ config_spec | **[ConfigSpec](../cluster.proto#ConfigSpec3)**<br>New configuratio
 name | **string**<br>New name for the Apache Kafka® cluster. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
-### ConfigSpec {#ConfigSpec}
+### ConfigSpec {#ConfigSpec3}
 
 Field | Description
 --- | ---
@@ -341,7 +341,7 @@ brokers_count | **[google.protobuf.Int64Value](https://developers.google.com/pro
 assign_public_ip | **bool**<br>The flag that defines whether a public IP address is assigned to the cluster. If the value is `true`, then Apache Kafka® cluster is available on the Internet via it's public IP address. 
 
 
-### Kafka {#Kafka}
+### Kafka {#Kafka3}
 
 Field | Description
 --- | ---
@@ -350,14 +350,14 @@ kafka_config | **oneof:** `kafka_config_2_1`<br>Kafka broker configuration.
 &nbsp;&nbsp;kafka_config_2_1 | **[KafkaConfig2_1](../cluster.proto#KafkaConfig2_1)**<br>Kafka broker configuration. 
 
 
-### Zookeeper {#Zookeeper}
+### Zookeeper {#Zookeeper3}
 
 Field | Description
 --- | ---
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to ZooKeeper hosts. 
 
 
-### Operation {#Operation}
+### Operation {#Operation1}
 
 Field | Description
 --- | ---
@@ -380,7 +380,7 @@ Field | Description
 cluster_id | **string**<br>ID of the Apache Kafka® cluster that is being updated. 
 
 
-### Cluster {#Cluster}
+### Cluster {#Cluster3}
 
 Field | Description
 --- | ---
@@ -412,10 +412,10 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the Apache Kafka® cluster to delete. <br>To get the Apache Kafka® cluster ID, make a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the Apache Kafka® cluster to delete. <br>To get the Apache Kafka® cluster ID, make a [ClusterService.List](#List) request. The maximum string length in characters is 50.
 
 
-### Operation {#Operation}
+### Operation {#Operation2}
 
 Field | Description
 --- | ---
@@ -452,11 +452,11 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the Apache Kafka® cluster to move. <br>To get the Apache Kafka® cluster ID, make a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
-destination_folder_id | **string**<br>Required. ID of the destination folder. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the Apache Kafka® cluster to move. <br>To get the Apache Kafka® cluster ID, make a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+destination_folder_id | **string**<br>Required. ID of the destination folder. The maximum string length in characters is 50.
 
 
-### Operation {#Operation}
+### Operation {#Operation3}
 
 Field | Description
 --- | ---
@@ -481,7 +481,7 @@ source_folder_id | **string**<br>ID of the source folder.
 destination_folder_id | **string**<br>ID of the destnation folder. 
 
 
-### Cluster {#Cluster}
+### Cluster {#Cluster4}
 
 Field | Description
 --- | ---
@@ -513,10 +513,10 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the Apache Kafka® cluster to start. <br>To get the Apache Kafka® cluster ID, make a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the Apache Kafka® cluster to start. <br>To get the Apache Kafka® cluster ID, make a [ClusterService.List](#List) request. The maximum string length in characters is 50.
 
 
-### Operation {#Operation}
+### Operation {#Operation4}
 
 Field | Description
 --- | ---
@@ -539,7 +539,7 @@ Field | Description
 cluster_id | **string**<br>ID of the Apache Kafka® cluster. 
 
 
-### Cluster {#Cluster}
+### Cluster {#Cluster5}
 
 Field | Description
 --- | ---
@@ -571,10 +571,10 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the Apache Kafka® cluster to stop. <br>To get the Apache Kafka® cluster ID, make a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the Apache Kafka® cluster to stop. <br>To get the Apache Kafka® cluster ID, make a [ClusterService.List](#List) request. The maximum string length in characters is 50.
 
 
-### Operation {#Operation}
+### Operation {#Operation5}
 
 Field | Description
 --- | ---
@@ -597,7 +597,7 @@ Field | Description
 cluster_id | **string**<br>ID of the Apache Kafka® cluster. 
 
 
-### Cluster {#Cluster}
+### Cluster {#Cluster6}
 
 Field | Description
 --- | ---
@@ -625,7 +625,7 @@ Retrieves logs for the specified Apache Kafka® cluster. <br>For more informatio
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the Apache Kafka® cluster to request logs for. <br>To get the Apache Kafka® cluster ID, make a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the Apache Kafka® cluster to request logs for. <br>To get the Apache Kafka® cluster ID, make a [ClusterService.List](#List) request. The maximum string length in characters is 50.
 column_filter[] | **string**<br>Columns from the logs table to request. <br>If no columns are specified, full log records are returned. 
 from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Start timestamp for the logs request. 
 to_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>End timestamp for the logs request. 
@@ -640,7 +640,7 @@ filter | **string**<br><ol><li>The field name to filter by. Currently filtering 
 Field | Description
 --- | ---
 logs[] | **[LogRecord](#LogRecord)**<br>Requested log records. 
-next_page_token | **string**<br>Token that allows you to get the next page of results for list requests. <br>If the number of results is larger than [ListClusterLogsRequest.page_size](#ListClusterLogsRequest1), use `next_page_token` as the value for the [ListClusterLogsRequest.page_token](#ListClusterLogsRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. This value is interchangeable with [StreamLogRecord.next_record_token](#StreamLogRecord) from StreamLogs method. 
+next_page_token | **string**<br>Token that allows you to get the next page of results for list requests. <br>If the number of results is larger than [ListClusterLogsRequest.page_size](#ListClusterLogsRequest), use `next_page_token` as the value for the [ListClusterLogsRequest.page_token](#ListClusterLogsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. This value is interchangeable with [StreamLogRecord.next_record_token](#StreamLogRecord) from StreamLogs method. 
 
 
 ### LogRecord {#LogRecord}
@@ -661,7 +661,7 @@ Same as [ListLogs](#ListLogs) but using server-side streaming. Also allows for `
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the Apache Kafka® cluster. <br>To get the Apache Kafka® cluster ID, make a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the Apache Kafka® cluster. <br>To get the Apache Kafka® cluster ID, make a [ClusterService.List](#List) request. The maximum string length in characters is 50.
 column_filter[] | **string**<br>Columns from logs table to get in the response. <br>If no columns are specified, full log records are returned. 
 from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Start timestamp for the logs request. 
 to_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>End timestamp for the logs request. <br>If this field is not set, all existing logs will be sent and then the new ones as they appear. In essence it has `tail -f` semantics. 
@@ -673,11 +673,11 @@ filter | **string**<br><ol><li>The field name to filter by. Currently filtering 
 
 Field | Description
 --- | ---
-record | **[LogRecord](#LogRecord1)**<br>One of the requested log records. 
-next_record_token | **string**<br>This token allows you to continue streaming logs starting from the exact same record. <br>To continue streaming, specify value of `next_record_token` as value for [StreamClusterLogsRequest.record_token](#StreamClusterLogsRequest1) parameter in the next StreamLogs request. <br>This value is interchangeable with [ListClusterLogsResponse.next_page_token](#ListClusterLogsResponse1) from ListLogs method. 
+record | **[LogRecord](#LogRecord)**<br>One of the requested log records. 
+next_record_token | **string**<br>This token allows you to continue streaming logs starting from the exact same record. <br>To continue streaming, specify value of `next_record_token` as value for [StreamClusterLogsRequest.record_token](#StreamClusterLogsRequest) parameter in the next StreamLogs request. <br>This value is interchangeable with [ListClusterLogsResponse.next_page_token](#ListClusterLogsResponse) from ListLogs method. 
 
 
-### LogRecord {#LogRecord}
+### LogRecord {#LogRecord1}
 
 Field | Description
 --- | ---
@@ -695,7 +695,7 @@ Retrieves the list of operations for the specified Apache Kafka® cluster.
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the Apache Kafka® cluster to list operations for. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the Apache Kafka® cluster to list operations for. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. <br>If the number of available results is larger than `page_size`, the service returns a [ListClusterOperationsResponse.next_page_token](#ListClusterOperationsResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token. <br>To get the next page of results, set `page_token` to the [ListClusterOperationsResponse.next_page_token](#ListClusterOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
@@ -705,10 +705,10 @@ page_token | **string**<br>Page token. <br>To get the next page of results, set 
 Field | Description
 --- | ---
 operations[] | **[operation.Operation](#Operation6)**<br>List of operations for the specified Apache Kafka® cluster. 
-next_page_token | **string**<br>Token that allows you to get the next page of results for list requests. <br>If the number of results is larger than [ListClusterOperationsRequest.page_size](#ListClusterOperationsRequest1), use `next_page_token` as the value for the [ListClusterOperationsRequest.page_token](#ListClusterOperationsRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>Token that allows you to get the next page of results for list requests. <br>If the number of results is larger than [ListClusterOperationsRequest.page_size](#ListClusterOperationsRequest), use `next_page_token` as the value for the [ListClusterOperationsRequest.page_token](#ListClusterOperationsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
-### Operation {#Operation}
+### Operation {#Operation6}
 
 Field | Description
 --- | ---
@@ -734,7 +734,7 @@ Retrieves a list of hosts for the specified Apache Kafka® cluster.
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the Apache Kafka® cluster. <br>To get the Apache Kafka® cluster ID, make a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the Apache Kafka® cluster. <br>To get the Apache Kafka® cluster ID, make a [ClusterService.List](#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. <br>If the number of available results is larger than `page_size`, the service returns a [ListClusterHostsResponse.next_page_token](#ListClusterHostsResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token. <br>To get the next page of results, set `page_token` to the [ListClusterHostsResponse.next_page_token](#ListClusterHostsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
@@ -744,7 +744,7 @@ page_token | **string**<br>Page token. <br>To get the next page of results, set 
 Field | Description
 --- | ---
 hosts[] | **[Host](../cluster.proto#Host)**<br>List of hosts. 
-next_page_token | **string**<br>Token that allows you to get the next page of results for list requests. <br>If the number of results is larger than [ListClusterHostsRequest.page_size](#ListClusterHostsRequest1), use the `next_page_token` as the value for the [ListClusterHostsRequest.page_token](#ListClusterHostsRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>Token that allows you to get the next page of results for list requests. <br>If the number of results is larger than [ListClusterHostsRequest.page_size](#ListClusterHostsRequest), use the `next_page_token` as the value for the [ListClusterHostsRequest.page_token](#ListClusterHostsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
 ### Host {#Host}

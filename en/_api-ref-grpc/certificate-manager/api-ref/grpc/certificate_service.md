@@ -31,7 +31,7 @@ Returns the specified certificate. <br>To get the list of available certificates
 
 Field | Description
 --- | ---
-certificate_id | **string**<br>Required. ID of the certificate to return. To get the ID of a certificate use a [CertificateService.List](#List) request. false The maximum string length in characters is 50.
+certificate_id | **string**<br>Required. ID of the certificate to return. To get the ID of a certificate use a [CertificateService.List](#List) request. The maximum string length in characters is 50.
 view | enum **CertificateView**<br> <ul><ul/>
 
 
@@ -101,7 +101,7 @@ Returns the list of certificates in the specified folder.
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder to list certificate in. false The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the folder to list certificate in. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListCertificatesResponse.next_page_token](#ListCertificatesResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListCertificatesResponse.next_page_token](#ListCertificatesResponse) returned by a previous list request. The maximum string length in characters is 100.
 view | enum **CertificateView**<br> <ul><ul/>
@@ -112,10 +112,10 @@ view | enum **CertificateView**<br> <ul><ul/>
 Field | Description
 --- | ---
 certificates[] | **[Certificate](../certificate.proto#Certificate1)**<br>List of certificates in the specified folder. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is greater than the specified [ListCertificatesRequest.page_size](#ListCertificatesRequest1), use the `next_page_token` as the value for the [ListCertificatesRequest.page_token](#ListCertificatesRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is greater than the specified [ListCertificatesRequest.page_size](#ListCertificatesRequest), use the `next_page_token` as the value for the [ListCertificatesRequest.page_token](#ListCertificatesRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
-### Certificate {#Certificate}
+### Certificate {#Certificate1}
 
 Field | Description
 --- | ---
@@ -138,7 +138,7 @@ not_before | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 challenges[] | **[Challenge](../certificate.proto#Challenge1)**<br>Domains validation challenges of the certificate. Used only for MANAGED certificates. 
 
 
-### Challenge {#Challenge}
+### Challenge {#Challenge1}
 
 Field | Description
 --- | ---
@@ -154,7 +154,7 @@ challenge | **oneof:** `dns_challenge` or `http_challenge`<br>Data of the challe
 &nbsp;&nbsp;http_challenge | **[HttpFile](../certificate.proto#HttpFile1)**<br>HTTP file. 
 
 
-### DnsRecord {#DnsRecord}
+### DnsRecord {#DnsRecord1}
 
 Field | Description
 --- | ---
@@ -163,7 +163,7 @@ type | **string**<br>Type of the DNS record.
 value | **string**<br>Value of the DNS record. 
 
 
-### HttpFile {#HttpFile}
+### HttpFile {#HttpFile1}
 
 Field | Description
 --- | ---
@@ -185,13 +185,13 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder to create a certificate in. false The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the folder to create a certificate in. The maximum string length in characters is 50.
 name | **string**<br>Name of the certificate. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>Description of the certificate. The maximum string length in characters is 1024.
 labels | **map<string,string>**<br>Labels for the certificate as `key:value` pairs. Maximum 64 per certificate. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 certificate | **string**<br>PEM-encoded certificate content of the certificate. The maximum string length in characters is 32768.
 chain | **string**<br>PEM-encoded certificate chain content of the certificate. The maximum string length in characters is 2097152.
-private_key | **string**<br>Required. PEM-encoded private key content of the certificate. false The string length in characters must be 1-524288.
+private_key | **string**<br>Required. PEM-encoded private key content of the certificate. The string length in characters must be 1-524288.
 
 
 ### Operation {#Operation}
@@ -217,7 +217,7 @@ Field | Description
 certificate_id | **string**<br>ID of the certificate being created. 
 
 
-### Certificate {#Certificate}
+### Certificate {#Certificate2}
 
 Field | Description
 --- | ---
@@ -254,7 +254,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-certificate_id | **string**<br>Required. ID of the certificate to update. To get the ID of a certificate use a [CertificateService.List](#List) request. false The maximum string length in characters is 50.
+certificate_id | **string**<br>Required. ID of the certificate to update. To get the ID of a certificate use a [CertificateService.List](#List) request. The maximum string length in characters is 50.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which attributes of the certificate are going to be updated. 
 name | **string**<br>New name for the certificate. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>New description for the certificate. The maximum string length in characters is 1024.
@@ -264,7 +264,7 @@ chain | **string**<br>New PEM-encoded certificate chain content for the certific
 private_key | **string**<br>New PEM-encoded private key content for the certificate. Used only for IMPORTED certificates. The maximum string length in characters is 524288.
 
 
-### Operation {#Operation}
+### Operation {#Operation1}
 
 Field | Description
 --- | ---
@@ -287,7 +287,7 @@ Field | Description
 certificate_id | **string**<br>ID of the certificate being updated. 
 
 
-### Certificate {#Certificate}
+### Certificate {#Certificate3}
 
 Field | Description
 --- | ---
@@ -324,10 +324,10 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-certificate_id | **string**<br>Required. ID of the certificate to be deleted. false The maximum string length in characters is 50.
+certificate_id | **string**<br>Required. ID of the certificate to be deleted. The maximum string length in characters is 50.
 
 
-### Operation {#Operation}
+### Operation {#Operation2}
 
 Field | Description
 --- | ---
@@ -350,7 +350,7 @@ Field | Description
 certificate_id | **string**<br>ID of the certificate being deleted. 
 
 
-### Certificate {#Certificate}
+### Certificate {#Certificate4}
 
 Field | Description
 --- | ---
@@ -387,7 +387,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder to create a certificate in. false The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the folder to create a certificate in. The maximum string length in characters is 50.
 name | **string**<br>Name of the certificate. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>Description of the certificate. The maximum string length in characters is 1024.
 labels | **map<string,string>**<br>Labels for the certificate as `key:value` pairs. Maximum 64 per certificate. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
@@ -395,7 +395,7 @@ domains[] | **string**<br>Fully qualified domain names of the certificate.
 challenge_type | enum **ChallengeType**<br>Type of the domain validation challenge. <ul><li>`DNS`: Domain validation type that using DNS-records.</li><li>`HTTP`: Domain validation type that using HTTP-files.</li><ul/>
 
 
-### Operation {#Operation}
+### Operation {#Operation3}
 
 Field | Description
 --- | ---
@@ -418,7 +418,7 @@ Field | Description
 certificate_id | **string**<br>ID of the certificate being requested. 
 
 
-### Certificate {#Certificate}
+### Certificate {#Certificate5}
 
 Field | Description
 --- | ---
@@ -451,7 +451,7 @@ Lists operations for the specified certificate.
 
 Field | Description
 --- | ---
-certificate_id | **string**<br>Required. ID of the certificate to get operations for. <br>To get the certificate ID, use a [CertificateService.List](#List) request. false The maximum string length in characters is 50.
+certificate_id | **string**<br>Required. ID of the certificate to get operations for. <br>To get the certificate ID, use a [CertificateService.List](#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page that should be returned. If the number of available results is larger than `page_size`, the service returns a [ListCertificateOperationsResponse.next_page_token](#ListCertificateOperationsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListCertificateOperationsResponse.next_page_token](#ListCertificateOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
@@ -461,10 +461,10 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 Field | Description
 --- | ---
 operations[] | **[operation.Operation](#Operation4)**<br>List of operations for the specified certificate. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListCertificateOperationsRequest.page_size](#ListCertificateOperationsRequest1), use the `next_page_token` as the value for the [ListCertificateOperationsRequest.page_token](#ListCertificateOperationsRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListCertificateOperationsRequest.page_size](#ListCertificateOperationsRequest), use the `next_page_token` as the value for the [ListCertificateOperationsRequest.page_token](#ListCertificateOperationsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
-### Operation {#Operation}
+### Operation {#Operation4}
 
 Field | Description
 --- | ---
@@ -490,7 +490,7 @@ Lists existing access bindings for the specified certificate.
 
 Field | Description
 --- | ---
-resource_id | **string**<br>Required. ID of the resource to list access bindings for. <br>To get the resource ID, use a corresponding List request. For example, use the [yandex.cloud.resourcemanager.v1.CloudService.List](/docs/resource-manager/grpc/cloud_service#List) request to get the Cloud resource ID. false
+resource_id | **string**<br>Required. ID of the resource to list access bindings for. <br>To get the resource ID, use a corresponding List request. For example, use the [yandex.cloud.resourcemanager.v1.CloudService.List](/docs/resource-manager/grpc/cloud_service#List) request to get the Cloud resource ID. 
 page_size | **int64**<br>The maximum number of results per page that should be returned. If the number of available results is larger than `page_size`, the service returns a [ListAccessBindingsResponse.next_page_token](#ListAccessBindingsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
 page_token | **string**<br>Page token. Set `page_token` to the [ListAccessBindingsResponse.next_page_token](#ListAccessBindingsResponse) returned by a previous list request to get the next page of results. The maximum string length in characters is 100.
 
@@ -508,7 +508,7 @@ next_page_token | **string**<br>This token allows you to get the next page of re
 Field | Description
 --- | ---
 role_id | **string**<br>ID of the `yandex.cloud.iam.v1.Role` that is assigned to the `subject`. The maximum string length in characters is 50.
-subject | **[Subject](#Subject)**<br>Required. Identity for which access binding is being created. It can represent an account with a unique ID or several accounts with a system identifier. false
+subject | **[Subject](#Subject)**<br>Required. Identity for which access binding is being created. It can represent an account with a unique ID or several accounts with a system identifier. 
 
 
 ### Subject {#Subject}
@@ -533,19 +533,19 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-resource_id | **string**<br>Required. ID of the resource for which access bindings are being set. <br>To get the resource ID, use a corresponding List request. false
-access_bindings[] | **[AccessBinding](#AccessBinding)**<br>Required. Access bindings to be set. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings). false
+resource_id | **string**<br>Required. ID of the resource for which access bindings are being set. <br>To get the resource ID, use a corresponding List request. 
+access_bindings[] | **[AccessBinding](#AccessBinding)**<br>Required. Access bindings to be set. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings). 
 
 
-### AccessBinding {#AccessBinding}
+### AccessBinding {#AccessBinding1}
 
 Field | Description
 --- | ---
 role_id | **string**<br>ID of the `yandex.cloud.iam.v1.Role` that is assigned to the `subject`. The maximum string length in characters is 50.
-subject | **[Subject](#Subject)**<br>Required. Identity for which access binding is being created. It can represent an account with a unique ID or several accounts with a system identifier. false
+subject | **[Subject](#Subject)**<br>Required. Identity for which access binding is being created. It can represent an account with a unique ID or several accounts with a system identifier. 
 
 
-### Subject {#Subject}
+### Subject {#Subject1}
 
 Field | Description
 --- | ---
@@ -553,7 +553,7 @@ id | **string**<br><ul><li>`allAuthenticatedUsers`: A special system identifier 
 type | **string**<br><ul><li>`userAccount`: An account on Yandex or [Yandex.Connect](./certificate#Connect)(https://connect.yandex.com), added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul> 
 
 
-### Operation {#Operation}
+### Operation {#Operation5}
 
 Field | Description
 --- | ---
@@ -590,27 +590,27 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-resource_id | **string**<br>Required. ID of the resource for which access bindings are being updated. false
-access_binding_deltas[] | **[AccessBindingDelta](#AccessBindingDelta)**<br>Required. Updates to access bindings. false
+resource_id | **string**<br>Required. ID of the resource for which access bindings are being updated. 
+access_binding_deltas[] | **[AccessBindingDelta](#AccessBindingDelta)**<br>Required. Updates to access bindings. 
 
 
 ### AccessBindingDelta {#AccessBindingDelta}
 
 Field | Description
 --- | ---
-action | enum **AccessBindingAction**<br>Required. The action that is being performed on an access binding. false<ul><li>`ADD`: Addition of an access binding.</li><li>`REMOVE`: Removal of an access binding.</li><ul/>
-access_binding | **[AccessBinding](#AccessBinding)**<br>Required. Access binding. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings). false
+action | enum **AccessBindingAction**<br>Required. The action that is being performed on an access binding. <ul><li>`ADD`: Addition of an access binding.</li><li>`REMOVE`: Removal of an access binding.</li><ul/>
+access_binding | **[AccessBinding](#AccessBinding)**<br>Required. Access binding. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings). 
 
 
-### AccessBinding {#AccessBinding}
+### AccessBinding {#AccessBinding2}
 
 Field | Description
 --- | ---
 role_id | **string**<br>ID of the `yandex.cloud.iam.v1.Role` that is assigned to the `subject`. The maximum string length in characters is 50.
-subject | **[Subject](#Subject)**<br>Required. Identity for which access binding is being created. It can represent an account with a unique ID or several accounts with a system identifier. false
+subject | **[Subject](#Subject)**<br>Required. Identity for which access binding is being created. It can represent an account with a unique ID or several accounts with a system identifier. 
 
 
-### Subject {#Subject}
+### Subject {#Subject2}
 
 Field | Description
 --- | ---
@@ -618,7 +618,7 @@ id | **string**<br><ul><li>`allAuthenticatedUsers`: A special system identifier 
 type | **string**<br><ul><li>`userAccount`: An account on Yandex or [Yandex.Connect](./certificate#Connect)(https://connect.yandex.com), added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul> 
 
 
-### Operation {#Operation}
+### Operation {#Operation6}
 
 Field | Description
 --- | ---
