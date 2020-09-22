@@ -295,7 +295,37 @@ For the following products, funds are debited once for the calendar month in adv
 
 {% endlist %}
 
+### Dedicated host computing resources {#dedicated-host}
+
+{% list tabs %}
+
+- Prices in USD
+
+    Guaranteed vCPU performance | Rate for 1 hour, without VAT
+    ----- | ----- 
+    **Intel Cascade Lake** |
+    100% | $0.695897 
+
+    Other computing resources | Rate for 1 hour, without VAT
+    ----- | -----
+    **Intel Cascade Lake** |
+    RAM (for 1 GB) | $1.267692
+
+- Prices in roubles
+
+    Guaranteed vCPU performance | Rate for 1 hour, with VAT
+    ----- | -----
+    **Intel Cascade Lake** |
+    100% | ₽54.2800
+
+    Other computing resources | Rate for 1 hour, with VAT
+    ----- | -----
+    **Intel Cascade Lake** |
+    RAM (for 1 GB) | ₽98.8800
+
+{% endlist %}
+
+
 ### Outgoing traffic {#prices-traffic}
 
 {% include notitle [pricing-egress-traffic](../_includes/pricing/pricing-egress-traffic.md) %}
-

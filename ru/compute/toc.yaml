@@ -163,7 +163,7 @@ items:
             href: operations/instance-groups/delete.md
   - name: Yandex Container Solution
     href: ../cos/
-  - name: Сценарии
+  - name: Сценарии использования
     items:
       - name: Настройка синхронизации времени NTP
         href: solutions/ntp.md
@@ -235,6 +235,8 @@ items:
                 href: concepts/instance-groups/deploy/instance.md
           - name: Статусы
             href: concepts/instance-groups/statuses.md
+      - name: Выделенный хост
+        href: concepts/dedicated-host.md
       - name: Резервное копирование
         href: concepts/backups.md
       - name: Квоты и лимиты
