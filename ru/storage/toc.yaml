@@ -17,6 +17,8 @@ items:
             href: operations/buckets/limit-max-volume.md
           - name: Открытие публичного доступа к бакету
             href: operations/buckets/bucket-availability.md
+          - name: Шифрование бакета
+            href: operations/buckets/encrypt.md
           - name: Управление жизненными циклами объектов
             href: operations/buckets/lifecycles.md
           - name: Управление конфигурацией CORS
@@ -125,6 +127,8 @@ items:
                 href: s3/api-ref/bucket.md
               - name: create
                 href: s3/api-ref/bucket/create.md
+              - name: getBucketEncryption
+                href: s3/api-ref/bucket/getbucketencryption.md
               - name: getMeta
                 href: s3/api-ref/bucket/getmeta.md
               - name: listObjects
@@ -133,6 +137,10 @@ items:
                 href: s3/api-ref/bucket/list.md
               - name: deleteBucket
                 href: s3/api-ref/bucket/delete.md
+              - name: deleteBucketEncryption
+                href: s3/api-ref/bucket/deletebucketencryption.md
+              - name: putBucketEncryption
+                href: s3/api-ref/bucket/putbucketencryption.md
               - name: PutBucketVersioning
                 href: s3/api-ref/bucket/PutBucketVersioning.md
               - name: GetBucketVersioning
