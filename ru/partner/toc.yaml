@@ -1,20 +1,7 @@
-title: "Партнерский портал Yandex.Cloud"
-stage: tech-preview
+title: "Партнерская программа Yandex.Cloud"
 href: index.yaml
 items:
-  - name: Расчет партнерского гранта
-    href: premium.md
-  - name: Интерфейс партнерского портала
-    href: interface.md
-  - name: Пошаговые инструкции
+  - name: Партнерские программы
     items:
-      - name: Все инструкции
-        href: operations/index.md
-      - name: Добавить нового заказчика
-        href: operations/add-client.md
-      - name: Создать новое облако
-        href: operations/new-cloud.md
-      - name: Добавить пользователя
-        href: operations/add-user.md
-      - name: Приостановить оказание услуг
-        href: operations/stop-service.md
+      - name: Реферальная программа
+        href: program/referral.md
