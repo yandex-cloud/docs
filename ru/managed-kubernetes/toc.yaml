@@ -11,8 +11,12 @@ items:
         href: operations/node-connect-ssh.md
       - name: Создание файла конфигурации
         href: operations/create-static-conf.md
-      - name: Обеспечение доступа к приложению, запущенному в кластере Kubernetes
-        href: operations/create-load-balancer.md
+      - name: Настройка сети кластера Kubernetes
+        items:
+          - name: Обеспечение доступа к приложению, запущенному в кластере Kubernetes
+            href: operations/create-load-balancer.md
+          - name: Работа с сетевыми политиками кластера Kubernetes
+            href: operations/running-network-policy.md
       - name: Шифрование секретов
         href: operations/encrypting-secrets.md
       - name: Работа с постоянными томами
@@ -73,6 +77,8 @@ items:
             href: concepts/node-group/allocatable-resources.md
           - name: Группы узлов с GPU
             href: concepts/node-group/node-group-gpu.md
+      - name: Сетевые политики кластера Kubernetes
+        href: concepts/network-policy.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Управление доступом
