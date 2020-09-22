@@ -37,6 +37,37 @@
 
 {% include [gpu-os](../../_includes/compute/gpu-os.md) %}
 
+## Виртуальные графические ускорители (vGPU) {#vgpu}
+
+{{ compute-full-name }} предоставляет возможность виртуализации графических ускорителей (GPU). Виртуализация машин с GPU основана на технологии [NVIDIA® vGPU](https://www.nvidia.com/ru-ru/data-center/virtualization/).
+
+Технология NVIDIA® vGPU позволяет использовать карты с GPU как для решения графических, так и для вычислительных задач на vGPU. Для этого вам понадобятся соответствующие [лицензии](https://www.nvidia.com/content/dam/en-zz/Solutions/design-visualization/solutions/resources/documents1/Virtual-GPU-Packaging-and-Licensing-Guide.pdf).
+
+Чтобы воспользоваться технологией vGPU, необходимы:
+
+* ВМ на [платформе](#vm-platforms.md) `vgpu-standard-v1` с одним из образов:
+  * [Ubuntu 18.04 lts vGPU](https://cloud.yandex.ru/marketplace/products/f2ecbu7femm9edja45i8);
+  * [Windows Server 2019 Datacenter vGPU](https://cloud.yandex.ru/marketplace/products/f2eb3j87v4k61b2n0vqp).
+* Лицензия для использования технологии [NVIDIA® vGPU](https://www.nvidia.com/content/dam/en-zz/Solutions/design-visualization/solutions/resources/documents1/Virtual-GPU-Packaging-and-Licensing-Guide.pdf).
+* Сервер лицензий [NVIDIA® vGPU Software License Server](https://docs.nvidia.com/grid/ls/latest/grid-license-server-user-guide/index.html).
+
+Для работы с лицензией вы можете:
+
+* Использовать свой текущий сервер лицензий.
+  Текущий сервер лицензий должен быть доступен по сети из виртуальных машин с vGPU.
+* Создать ВМ с сервером лицензий NVIDIA® vGPU Software License Server в {{ yandex-cloud }}. 
+  Как установить и настроить сервер лицензий читайте в [документации NVIDIA](https://docs.nvidia.com/grid/ls/latest/grid-license-server-user-guide/index.html#installing-nvidia-grid-license-server).
+
+### Конфигурации виртуальных машин с vGPU {#config-vgpu}
+
+Доступная конфигурация ВМ с vGPU:
+
+* Платформа Intel Broadwell with NVIDIA vGPU Tesla V100 8G (`vgpu-standard-v1`):
+
+  Количество vGPU | Количество vCPU | Объем RAM, ГБ | Объем GPU RAM, ГБ
+  --- | --- | --- | ---
+  1 | 4 | 12 | 8
+
 ## Смотрите также {#see-also}
 
 * [Создайте виртуальную машину с GPU](../operations/vm-create/create-vm-with-gpu.md).
