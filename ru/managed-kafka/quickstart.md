@@ -13,7 +13,9 @@
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
-Подключаться к кластеру можно только изнутри {{ yandex-cloud }} — для этого создайте виртуальную машину в той же сети, что и кластер (на основе [Linux](../compute/quickstart/quick-create-linux.md) или [Windows](../compute/quickstart/quick-create-windows.md)).
+Подключаться к кластеру {{ KF }} можно как изнутри, так и извне {{ yandex-cloud }}:
+- Чтобы подключаться изнутри {{ yandex-cloud }}, нужно использовать виртуальную машину на основе [Linux](../compute/quickstart/quick-create-linux.md) или [Windows](../compute/quickstart/quick-create-windows.md), которая находится в той же сети, что и кластер.
+- Чтобы подключаться к кластеру из интернета, включите публичный доступ к кластеру при его [создании](operations/cluster-create.md).
 
 ## Создайте кластер {#cluster-create}
 

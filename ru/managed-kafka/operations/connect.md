@@ -1,22 +1,12 @@
 # Подключение к топикам в кластере Apache Kafka®
 
-Чтобы подключиться к кластеру {{ KF }}:
-
-1. [Создайте учетные записи](cluster-accounts.md#create-account) для клиентов (производителей и потребителей) с доступами в нужные топики.
-1. Убедитесь, что клиенты находятся в той же [виртуальной сети](../../vpc/concepts/network.md), что и кластер.
-1. Подключите клиентов к кластеру:
-   * производителей с помощью [Kafka Producer API](https://kafka.apache.org/documentation/#producerapi);
-   * потребителей с помощью [Kafka Consumer API](https://kafka.apache.org/documentation/#consumerapi).
+К хостам кластера {{ mkf-name }} можно подключиться:
+- Через интернет, если вы настроили публичный доступ для кластера [при его создании](cluster-create.md). К такому кластеру можно подключиться только используя [SSL-соединение](#get-ssl-cert).
+- С виртуальных машин {{ yandex-cloud }}, расположенных в той же [виртуальной сети](../../vpc/concepts/network.md). Если к кластеру нет публичного доступа, для подключения с таких ВМ SSL-соединение использовать необязательно.
 
 {% if audience != "internal" %}
 
 К кластеру {{ KF }} можно подключиться как с использованием шифрования (`SASL_SSL`) - порт 9091, так и без него (`SASL_PLAINTEXT`) - порт 9092.
-
-{% note warning %}
-
-До 01.09.2020 у хостов {{ KF }} дополнительно открыт 9000 порт для нешифрованных соединений (`SASL_PLAINTEXT`). После 01.09.2020 9000 порт будет закрыт. Если вы используете для подключения этот порт, заранее обновите конфигурации клиентов.
-
-{% endnote %}
 
 {% else %}
 
@@ -24,16 +14,25 @@
 
 {% endif %}
 
+Чтобы подключиться к кластеру {{ KF }}:
+
+1. [Создайте учетные записи](cluster-accounts.md#create-account) для клиентов (производителей и потребителей) с доступами в нужные топики.
+1. Подключите клиентов к кластеру:
+   * производителей с помощью [Kafka Producer API](https://kafka.apache.org/documentation/#producerapi);
+   * потребителей с помощью [Kafka Consumer API](https://kafka.apache.org/documentation/#consumerapi).
+
 Для большинства популярных языков программирования существуют готовые реализации API {{ KF }}. Примеры кода для подключения к кластеру приведены в разделе [{#T}](#connection-string).
 
 ## Получение SSL-сертификата {#get-ssl-cert}
 
-Чтобы использовать шифрованное соединение, необходимо получить SSL-сертификат:
+Чтобы использовать шифрованное SSL-соединение, необходимо получить SSL-сертификат:
 
 {% if audience != "internal" %}
 
 ```bash
-wget "https://{{ s3-storage-host }}{{ pem-path }}"
+$ sudo mkdir -p /usr/local/share/ca-certificates/Yandex
+$ sudo wget "https://{{ s3-storage-host }}{{ pem-path }}" -O /usr/local/share/ca-certificates/Yandex/YandexCA.crt
+$ sudo chmod 655 /usr/local/share/ca-certificates/Yandex/YandexCA.crt 
 ```
 
 {% else %}
@@ -76,7 +75,7 @@ wget "{{ pem-path }}"
       echo "test message" | kafkacat -P  \
             -b <FQDN брокера> \
             -t <имя топика> \
-            -X security.protocol=SASL_PLAINTEXT \
+            -X security.protocol=SASL_SSL \
             -X sasl.mechanisms=SCRAM-SHA-512 \
             -X sasl.username=<логин производителя> \
             -X sasl.password=<пароль производителя> -Z -K:

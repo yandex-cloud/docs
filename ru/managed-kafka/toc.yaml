@@ -16,6 +16,8 @@ items:
       href: operations/connect.md
     - name: Остановка и запуск кластера
       href: operations/cluster-stop.md
+    - name: Изменение настроек кластера
+      href: operations/cluster-update.md    
     - name: Работа с топиками и разделами
       href: operations/cluster-topics.md
     - name: Управление учетными записями Kafka
