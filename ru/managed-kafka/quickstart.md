@@ -66,19 +66,39 @@
 1. Установите на виртуальную машину утилиту kafkacat — приложение с открытым исходным кодом, которое может работать как универсальный производитель или потребитель данных:
 
    ```bash
-   apt-get install kafkacat
+   $ sudo apt-get install kafkacat
    ```
+
+1. Установите на виртуальную машины SSL-сертификат:
+
+   {% if audience != "internal" %}
+
+   ```
+   $ sudo mkdir -p /usr/local/share/ca-certificates/Yandex
+   $ sudo wget "https://{{ s3-storage-host }}{{ pem-path }}" -O /usr/local/share/ca-certificates/Yandex/YandexCA.crt
+   $ sudo chmod 655 /usr/local/share/ca-certificates/Yandex/YandexCA.crt
+   ```
+
+   {% else %}
+
+   ```bash
+   wget "{{ pem-path }}" -O /usr/local/share/ca-certificates/Yandex/YandexCA.crt
+   chmod 655 /usr/local/share/ca-certificates/Yandex/YandexCA.crt
+   ```
+
+   {% endif %}
 
 1. Чтобы отправить сообщение в топик, выполните команду:
 
    ```bash
-   echo "test message" | kafkacat -P  \
-         -b <FQDN брокера> \
+   $ echo "test message" | kafkacat -P  \
+         -b <FQDN брокера>:9091 \
          -t <имя топика> \
-         -X security.protocol=SASL_PLAINTEXT \
+         -X security.protocol=SASL_SSL \
          -X sasl.mechanisms=SCRAM-SHA-512 \
          -X sasl.username=<логин производителя> \
-         -X sasl.password=<пароль производителя> -Z -K:
+         -X sasl.password=<пароль производителя> \
+         -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexCA.crt  -Z -K:
    ```
    
    В команде укажите FQDN брокера, имя топика, логин и пароль учетной записи {{ KF }}, которую вы создали на предыдущем шаге.
@@ -88,13 +108,14 @@
 1. Чтобы получить сообщения из топика, выполните команду:
 
    ```bash
-   kafkacat -C \
-         -b <FQDN брокера> \
+   $ kafkacat -C \
+         -b <FQDN брокера>:9091 \
          -t <имя топика> \
-         -X security.protocol=SASL_PLAINTEXT \
+         -X security.protocol=SASL_SSL \
          -X sasl.mechanisms=SCRAM-SHA-512 \
          -X sasl.username=<логин потребителя> \
-         -X sasl.password=<пароль потребителя>
+         -X sasl.password=<пароль потребителя> \
+         -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexCA.crt -Z -K:
    ```
    
    В команде укажите FQDN брокера, имя топика, логин и пароль учетной записи {{ KF }}, которую вы создали на предыдущем шаге.
