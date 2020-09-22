@@ -1,0 +1,77 @@
+title: "Yandex Managed Service for SQL Server™"
+href: index.yaml
+items:
+  - name: Начало работы
+    href: quickstart.md
+  - name: Пошаговые инструкции
+    items:
+    - name: Все инструкции
+      href: operations/index.md
+    - name: Информация об имеющихся кластерах
+      href: operations/cluster-list.md
+    - name: Создание кластера
+      href: operations/cluster-create.md
+    - name: Подключение к базе данных
+      href: operations/connect.md
+    - name: Остановка и запуск кластера
+      href: operations/cluster-stop.md
+    - name: Изменение настроек кластера и базы данных
+      href: operations/update.md
+    - name: Управление хостами SQL Server
+      href: operations/hosts.md
+    - name: Управление базами данных
+      href: operations/databases.md
+    - name: Управление пользователями
+      href: operations/cluster-users.md
+    - name: Назначение прав и ролей
+      href: operations/grant.md
+    - name: Управление резервными копиями
+      href: operations/cluster-backups.md
+    - name: Просмотр логов
+      href: operations/cluster-logs.md
+    - name: Удаление кластера
+      href: operations/cluster-delete.md
+  - name: Концепции
+    items:
+    - name: Взаимосвязь ресурсов сервиса
+      href: concepts/index.md
+    - name: Классы хостов
+      href: concepts/instance-types.md
+    - name: Сеть в Managed Service for SQL Server
+      href: concepts/network.md
+    - name: Квоты и лимиты
+      href: concepts/limits.md
+    - name: Типы хранилища
+      href: concepts/storage.md
+    - name: Резервные копии
+      href: concepts/backup.md
+    - name: Репликация
+      href: concepts/replication.md
+    - name: Поддерживаемые клиенты
+      href: concepts/supported-clients.md
+  - name: Управление доступом
+    href: security/index.md
+  - name: Правила тарификации
+    href: pricing.md
+  - name: Справочник API
+    items:
+      - name: Аутентификация в API
+        href: api-ref/authentication.md
+      - name: gRPC
+        items:
+        include:
+          repo: docs
+          path: en/_api-ref-grpc/managed-sqlserver/api-ref/toc.yaml
+      - name: REST
+        items:
+        include:
+          repo: docs
+          path: en/_api-ref/mdb/sqlserver/toc.yaml
+  - name: Вопросы и ответы
+    items:
+    - name: Общие вопросы
+      href: qa/general.md
+    - name: Вопросы о SQL Server
+      href: qa/sqlserver.md
+    - name: Все вопросы на одной странице
+      href: qa/all.md
