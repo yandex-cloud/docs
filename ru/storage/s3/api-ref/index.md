@@ -11,6 +11,7 @@
 [CORS](cors.md) | Управляет конфигурациями CORS для бакетов.
 [Lifecycles](lifecycles.md) | Управляет конфигурациям жизненных циклов для объектов в бакетах.
 [ACL](acl.md) | Управляет списками управления доступом.
+[Bucket Policy](policy.md) | Управляет политиками доступа бакета.
 
 ## Поддерживаемые методы {#operations-list}
 
@@ -84,6 +85,13 @@
 [bucketGetAcl](acl/bucketget.md) | Возвращает список управления доступом для бакета.
 [bucketPutAcl](acl/bucketput.md) | Загружает список управления доступом для бакета.
 
+### Сервис Bucket Policy {#bucket-policy}
+
+Метод | Описание
+----- | -----
+[GetBucketPolicy](policy/get.md) | Возвращает политику доступа для заданного бакета.
+[PutBucketPolicy](policy/put.md) | Применяет политику доступа к заданному бакету.
+[DeleteBucketPolicy](policy/delete.md) | Удаляет политику доступа заданного бакета.
 
 ## См. также {#see-also}
 - [{#T}](../../s3/index.md)

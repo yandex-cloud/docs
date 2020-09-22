@@ -71,6 +71,8 @@ items:
         href: concepts/multipart.md
       - name: Список управления доступом (ACL)
         href: concepts/acl.md
+      - name: Политика доступа (Bucket Policy)
+        href: concepts/policy.md
       - name: Загрузка файла через HTML форму
         href: concepts/presigned-post-forms.md
       - name: Класс хранилища
@@ -223,6 +225,22 @@ items:
                 href: s3/api-ref/acl/bucketget.md
               - name: bucketPutAcl
                 href: s3/api-ref/acl/bucketput.md
+          - name: Bucket Policy
+            items:
+              - name: Все методы
+                href: s3/api-ref/policy.md
+              - name: GetBucketPolicy
+                href: s3/api-ref/policy/get.md
+              - name: PutBucketPolicy
+                href: s3/api-ref/policy/put.md
+              - name: DeleteBucketPolicy
+                href: s3/api-ref/policy/delete.md
+              - name: Схема данных
+                href: s3/api-ref/policy/scheme.md
+              - name: Действия
+                href: s3/api-ref/policy/actions.md
+              - name: Условия
+                href: s3/api-ref/policy/conditions.md
           - name: Общие заголовки запросов
             href: s3/api-ref/common-request-headers.md
           - name: Общие заголовки ответов
