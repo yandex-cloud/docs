@@ -39,7 +39,7 @@ items:
       - name: Интерфейсы и порты компонентов
         href: concepts/interfaces.md
       - name: Автоматическое масштабирование
-        href: concepts/autoscalig.md
+        href: concepts/autoscaling.md
       - name: Декомиссия подкластеров и хостов
         href: concepts/decommission.md
       - name: Сеть в Data Proc
