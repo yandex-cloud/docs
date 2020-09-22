@@ -28,9 +28,9 @@ POST https://serverless-apigateway.api.cloud.yandex.net/apigateways/v1/apigatewa
 Field | Description
 --- | ---
 folderId | **string**<br><p>Required. ID of the folder to create an API gateway in.</p> <p>To get a folder ID make a <a href="/docs/resource-manager/api-ref/Folder/list">list</a> request.</p> 
-name | **string**<br><p>Name of the API gateway. The name must be unique within the folder.</p> <p>Value must match the regular expression <code>\|[a-z]([-a-z0-9]{0,61}[a-z0-9])?</code>.</p> 
+name | **string**<br><p>Name of the API gateway. The name must be unique within the folder.</p> <p>Value must match the regular expression <code>\|[a-z][-a-z0-9]{1,61}[a-z0-9]</code>.</p> 
 description | **string**<br><p>Description of the API gateway.</p> <p>The maximum string length in characters is 256.</p> 
-labels | **object**<br><p>Resource labels as <code>key:value</code> pairs.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression <code>[a-z][-_./\@0-9a-z]*</code>. The maximum string length in characters for each value is 63. Each value must match the regular expression <code>[-_./\@0-9a-z]*</code>.</p> 
+labels | **object**<br><p>Resource labels as <code>key:value</code> pairs.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression <code>[a-z][-_0-9a-z]*</code>. The maximum string length in characters for each value is 63. Each value must match the regular expression <code>[-_0-9a-z]*</code>.</p> 
 openapiSpec | **string**<br><p>The text of specification, JSON or YAML.</p> 
  
 ## Response {#responses}

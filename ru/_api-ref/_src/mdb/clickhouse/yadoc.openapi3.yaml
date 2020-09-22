@@ -93,7 +93,8 @@ paths:
         in: path
         description: |-
           Обязательное поле.
-          Идентификатор возвращаемого ресурса Cluster для ClickHouse. Чтобы получить идентификатор кластера, используйте запрос [list](/docs/managed-clickhouse/api-ref/Cluster/list).
+          Идентификатор возвращаемого ресурса Cluster для ClickHouse. Чтобы получить идентификатор
+          кластера, используйте запрос [list](/docs/managed-clickhouse/api-ref/Cluster/list).
 
           Максимальная длина строки в символах — 50.
         required: true
@@ -117,7 +118,8 @@ paths:
         in: path
         description: |-
           Обязательное поле.
-          Идентификатор кластера ClickHouse, который нужно удалить. Чтобы получить идентификатор кластера ClickHouse, используйте запрос [list](/docs/managed-clickhouse/api-ref/Cluster/list).
+          Идентификатор кластера ClickHouse, который нужно удалить. Чтобы получить идентификатор
+          кластера ClickHouse, используйте запрос [list](/docs/managed-clickhouse/api-ref/Cluster/list).
 
           Максимальная длина строки в символах — 50.
         required: true
@@ -144,8 +146,8 @@ paths:
         in: path
         description: |-
           Обязательное поле.
-          Идентификатор ресурса Cluster для ClickHouse, который следует обновить. Чтобы получить идентификатор кластера ClickHouse, используйте запрос
-          [list](/docs/managed-clickhouse/api-ref/Cluster/list).
+          Идентификатор ресурса Cluster для ClickHouse, который следует обновить. Чтобы получить
+          идентификатор кластера ClickHouse, используйте запрос [list](/docs/managed-clickhouse/api-ref/Cluster/list).
 
           Максимальная длина строки в символах — 50.
         required: true
@@ -179,8 +181,8 @@ paths:
         in: query
         description: |-
           Обязательное поле.
-          Идентификатор каталога для вывода списка кластеров ClickHouse. Чтобы получить идентификатор каталога, используйте запрос
-          [list](/docs/resource-manager/api-ref/Folder/list).
+          Идентификатор каталога для вывода списка кластеров ClickHouse. Чтобы получить
+          идентификатор каталога, используйте запрос [list](/docs/resource-manager/api-ref/Folder/list).
 
           Максимальная длина строки в символах — 50.
         schema:
@@ -188,8 +190,9 @@ paths:
       - name: pageSize
         in: query
         description: |-
-          Максимальное количество результатов на одной странице в ответе. Если количество результатов больше чем [pageSize](/docs/managed-clickhouse/api-ref/Cluster/list#query_params), сервис вернет значение
-          [nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/list#responses), которое можно использовать для получения следующей страницы.
+          Максимальное количество результатов на странице ответа на запрос. Если количество
+          результатов больше чем [pageSize](/docs/managed-clickhouse/api-ref/Cluster/list#query_params), сервис вернет значение [nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/list#responses), которое
+          можно использовать для получения следующей страницы.
 
           Максимальное значение — 1000.
         schema:
@@ -198,8 +201,9 @@ paths:
       - name: pageToken
         in: query
         description: |-
-          Токен страницы. Установите значение [pageToken](/docs/managed-clickhouse/api-ref/Cluster/list#query_params) равным значению поля [nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/list#responses) предыдущего запроса, чтобы получить следующую
-          страницу результатов.
+          Токен страницы. Установите значение [pageToken](/docs/managed-clickhouse/api-ref/Cluster/list#query_params) равным значению поля
+          [nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/list#responses) предыдущего запроса, чтобы получить следующую страницу
+          результатов.
 
           Максимальная длина строки в символах — 100.
         schema:
@@ -207,10 +211,10 @@ paths:
       - name: filter
         in: query
         description: |-
-          Выражение, позволяющее отфильтровать информацию о ресурсах в ответе, оставив только нужную. В этом выражении должны быть указаны:
-          1. Имя поля. В настоящее время фильтрацию можно использовать только по полю [Cluster.name](/docs/managed-clickhouse/api-ref/Cluster#representation).
-          2. Условный оператор. Поддерживаются операторы `=` и `!=` для одиночных значений, `IN` и `NOT IN` для списков значений.
-          3. Значение. Должно содержать от 1 до 63 символов и соответствовать регулярному выражению `^[a-zA-Z0-9_-]+$`.
+          Параметры фильтрации ресурсов в ответе. В параметрах фильтрации указываются:
+          1. Имя поля. В настоящее время фильтрацию можно использовать только с полем [Cluster.name](/docs/managed-clickhouse/api-ref/Cluster#representation).
+          2. Оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений.
+          3. Значение. Должен содержать от 1 до 63 символов и соответствовать регулярному выражению `^[a-zA-Z0-9_-]+$`.
 
           Максимальная длина строки в символах — 1000.
         schema:
@@ -380,8 +384,8 @@ paths:
         in: path
         description: |-
           Обязательное поле.
-          Идентификатор кластера ClickHouse, для которого следует создать резервную копию. Чтобы получить идентификатор кластера ClickHouse, используйте запрос
-          [list](/docs/managed-clickhouse/api-ref/Cluster/list).
+          Идентификатор кластера ClickHouse, для которого следует создать резервную копию. Чтобы
+          получить идентификатор кластера ClickHouse, используйте запрос [list](/docs/managed-clickhouse/api-ref/Cluster/list).
 
           Максимальная длина строки в символах — 50.
         required: true
@@ -433,8 +437,8 @@ paths:
         in: path
         description: |-
           Обязательное поле.
-          Идентификатор кластера ClickHouse, для которого следует запросить логи. Чтобы получить идентификатор кластера ClickHouse, используйте запрос
-          [list](/docs/managed-clickhouse/api-ref/Cluster/list).
+          Идентификатор кластера ClickHouse, для которого следует запросить логи. Чтобы получить
+          идентификатор кластера ClickHouse, используйте запрос [list](/docs/managed-clickhouse/api-ref/Cluster/list).
 
           Максимальная длина строки в символах — 50.
         required: true
@@ -442,8 +446,9 @@ paths:
           type: string
       - name: columnFilter
         in: query
-        description: Столбцы из таблицы логов, которые нужно запросить. Если столбцы
-          не указаны, записи логов возвращаются целиком.
+        description: |-
+          Столбцы из таблицы логов, которые нужно запросить. Если столбцы не указаны, записи
+          логов возвращаются целиком.
         schema:
           type: array
           items:
@@ -456,7 +461,8 @@ paths:
       - name: fromTime
         in: query
         description: |-
-          Начало периода, для которого следует запросить логи, в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+          Начало периода, для которого следует запросить логи, в формате
+          [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
 
           Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
         schema:
@@ -465,7 +471,8 @@ paths:
       - name: toTime
         in: query
         description: |-
-          Конец периода, для которого следует запросить логи, в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+          Конец периода, для которого следует запросить логи, в формате
+          [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
 
           Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
         schema:
@@ -474,8 +481,9 @@ paths:
       - name: pageSize
         in: query
         description: |-
-          Максимальное количество результатов на одной странице в ответе. Если количество результатов больше чем [pageSize](/docs/managed-clickhouse/api-ref/Cluster/listLogs#query_params), сервис вернет значение
-          [nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/listLogs#responses), которое можно использовать для получения следующей страницы.
+          Максимальное количество результатов на странице ответа на запрос. Если количество
+          результатов больше чем [pageSize](/docs/managed-clickhouse/api-ref/Cluster/listLogs#query_params), сервис вернет значение [nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/listLogs#responses),
+          которое можно использовать для получения следующей страницы.
 
           Максимальное значение — 1000.
         schema:
@@ -484,8 +492,9 @@ paths:
       - name: pageToken
         in: query
         description: |-
-          Токен страницы. Установите значение [pageToken](/docs/managed-clickhouse/api-ref/Cluster/listLogs#query_params) равным значению поля [nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/listLogs#responses) предыдущего запроса, чтобы получить
-          следующую страницу результатов.
+          Токен страницы. Установите значение [pageToken](/docs/managed-clickhouse/api-ref/Cluster/listLogs#query_params) равным значению поля
+          [nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/listLogs#responses) предыдущего запроса, чтобы получить следующую страницу
+          результатов.
 
           Максимальная длина строки в символах — 100.
         schema:
@@ -498,72 +507,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListClusterLogsResponse'
       x-y-navtitle: listLogs
-  /managed-clickhouse/v1/clusters/{clusterId}:stream_logs:
-    get:
-      tags:
-      - Cluster
-      summary: |-
-        То же самое, что ListLogs, с той разницей, что со стороны сервера передается поток логов. Допускается использовать семантику 'tail-f' при работе с потоком
-        логов.
-      operationId: ClusterStreamLogs
-      parameters:
-      - name: clusterId
-        in: path
-        description: |-
-          Обязательное поле.
-          Обязательное поле. Идентификатор кластера ClickHouse.
-
-          Максимальная длина строки в символах — 50.
-        required: true
-        schema:
-          type: string
-      - name: columnFilter
-        in: query
-        description: Столбцы, которые нужно запросить из лога.
-        schema:
-          type: array
-          items:
-            type: string
-      - name: serviceType
-        in: query
-        schema:
-          $ref: '#/components/schemas/StreamClusterLogsRequestServiceType'
-      - name: fromTime
-        in: query
-        description: |-
-          Временная метка, начиная с которой следует запросить логи.
-
-          Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-        schema:
-          type: string
-          format: date-time
-      - name: toTime
-        in: query
-        description: |-
-          Временная метка, до которой следует запросить логи. Если значение этого поля не задано, то будут отправлены все существующие записи в логе, а затем и новые
-          по мере их появления. В сущности, это эквивалентно семантике `tail -f`.
-
-          Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-        schema:
-          type: string
-          format: date-time
-      - name: recordToken
-        in: query
-        description: |-
-          Токен записи. Задайте значение [recordToken](/docs/managed-clickhouse/api-ref/Cluster/streamLogs#query_params) равным значению `nextRecordToken`, возвращенному предыдущим запросом StreamLogs, чтобы
-          продолжить стриминг со следующей записи в логе.
-
-          Максимальная длина строки в символах — 100.
-        schema:
-          type: string
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/StreamLogRecord'
-      x-y-navtitle: streamLogs
   /managed-clickhouse/v1/clusters/{clusterId}/operations:
     get:
       tags:
@@ -584,8 +527,9 @@ paths:
       - name: pageSize
         in: query
         description: |-
-          Максимальное количество результатов на одной странице в ответе. Если количество результатов больше чем [pageSize](/docs/managed-clickhouse/api-ref/Cluster/listOperations#query_params), сервис вернет значение
-          [nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/listOperations#responses), которое можно использовать для получения следующей страницы.
+          Максимальное количество результатов на странице ответа на запрос. Если количество
+          результатов больше чем [pageSize](/docs/managed-clickhouse/api-ref/Cluster/listOperations#query_params), сервис вернет значение [nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/listOperations#responses),
+          которое можно использовать для получения следующей страницы.
 
           Максимальное значение — 1000.
         schema:
@@ -594,8 +538,9 @@ paths:
       - name: pageToken
         in: query
         description: |-
-          Токен страницы. Установите значение [pageToken](/docs/managed-clickhouse/api-ref/Cluster/listOperations#query_params) равным значению поля [nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/listOperations#responses) предыдущего запроса, чтобы получить
-          следующую страницу результатов.
+          Токен страницы. Установите значение [pageToken](/docs/managed-clickhouse/api-ref/Cluster/listOperations#query_params) равным значению поля
+          [nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/listOperations#responses) предыдущего запроса, чтобы получить следующую страницу
+          результатов.
 
           Максимальная длина строки в символах — 100.
         schema:
@@ -619,7 +564,8 @@ paths:
         in: path
         description: |-
           Обязательное поле.
-          Идентификатор кластера ClickHouse. Чтобы получить идентификатор кластера ClickHouse, используйте запрос [list](/docs/managed-clickhouse/api-ref/Cluster/list).
+          Идентификатор кластера ClickHouse. Чтобы получить идентификатор кластера ClickHouse,
+          используйте запрос [list](/docs/managed-clickhouse/api-ref/Cluster/list).
 
           Максимальная длина строки в символах — 50.
         required: true
@@ -628,8 +574,9 @@ paths:
       - name: pageSize
         in: query
         description: |-
-          Максимальное количество результатов на одной странице в ответе. Если количество результатов больше чем [pageSize](/docs/managed-clickhouse/api-ref/Cluster/listBackups#query_params), сервис вернет значение
-          [nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/listBackups#responses), которое можно использовать для получения следующей страницы.
+          Максимальное количество результатов на странице ответа на запрос. Если количество
+          результатов больше чем [pageSize](/docs/managed-clickhouse/api-ref/Cluster/listBackups#query_params), сервис вернет значение [nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/listBackups#responses),
+          которое можно использовать для получения следующей страницы.
 
           Максимальное значение — 1000.
         schema:
@@ -638,8 +585,9 @@ paths:
       - name: pageToken
         in: query
         description: |-
-          Токен страницы. Установите значение [pageToken](/docs/managed-clickhouse/api-ref/Cluster/listBackups#query_params) равным значению поля [nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/listBackups#responses) предыдущего запроса, чтобы получить
-          следующую страницу результатов.
+          Токен страницы. Установите значение [pageToken](/docs/managed-clickhouse/api-ref/Cluster/listBackups#query_params) равным значению поля
+          [nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/listBackups#responses) предыдущего запроса, чтобы получить следующую страницу
+          результатов.
 
           Максимальная длина строки в символах — 100.
         schema:
@@ -663,7 +611,8 @@ paths:
         in: path
         description: |-
           Обязательное поле.
-          Идентификатор кластера ClickHouse. Чтобы получить идентификатор кластера ClickHouse, используйте запрос [list](/docs/managed-clickhouse/api-ref/Cluster/list).
+          Идентификатор кластера ClickHouse. Чтобы получить идентификатор кластера ClickHouse,
+          используйте запрос [list](/docs/managed-clickhouse/api-ref/Cluster/list).
 
           Максимальная длина строки в символах — 50.
         required: true
@@ -672,8 +621,9 @@ paths:
       - name: pageSize
         in: query
         description: |-
-          Максимальное количество результатов на одной странице в ответе. Если количество результатов больше чем [pageSize](/docs/managed-clickhouse/api-ref/Cluster/listHosts#query_params), сервис вернет значение
-          [nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/listHosts#responses), которое можно использовать для получения следующей страницы.
+          Максимальное количество результатов на странице ответа на запрос. Если количество
+          результатов больше чем [pageSize](/docs/managed-clickhouse/api-ref/Cluster/listHosts#query_params), сервис вернет значение [nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/listHosts#responses),
+          которое можно использовать для получения следующей страницы.
 
           Максимальное значение — 1000.
         schema:
@@ -682,8 +632,9 @@ paths:
       - name: pageToken
         in: query
         description: |-
-          Токен страницы. Установите значение [pageToken](/docs/managed-clickhouse/api-ref/Cluster/listHosts#query_params) равным значению поля [nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/listHosts#responses) предыдущего запроса, чтобы получить
-          следующую страницу результатов.
+          Токен страницы. Установите значение [pageToken](/docs/managed-clickhouse/api-ref/Cluster/listHosts#query_params) равным значению поля
+          [nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/listHosts#responses) предыдущего запроса, чтобы получить следующую страницу
+          результатов.
 
           Максимальная длина строки в символах — 100.
         schema:
@@ -707,8 +658,8 @@ paths:
         in: path
         description: |-
           Обязательное поле.
-          Идентификатор кластера ClickHouse, для которого следует добавить хосты. Чтобы получить идентификатор кластера ClickHouse, используйте запрос
-          [list](/docs/managed-clickhouse/api-ref/Cluster/list).
+          Идентификатор кластера ClickHouse, для которого следует добавить хосты. Чтобы получить
+          идентификатор кластера ClickHouse, используйте запрос [list](/docs/managed-clickhouse/api-ref/Cluster/list).
 
           Максимальная длина строки в символах — 50.
         required: true
@@ -742,8 +693,8 @@ paths:
         in: path
         description: |-
           Обязательное поле.
-          Идентификатор кластера ClickHouse из которого следует удалить хосты. Чтобы получить идентификатор кластера ClickHouse, используйте запрос
-          [list](/docs/managed-clickhouse/api-ref/Cluster/list).
+          Идентификатор кластера ClickHouse из которого следует удалить хосты. Чтобы получить
+          идентификатор кластера ClickHouse, используйте запрос [list](/docs/managed-clickhouse/api-ref/Cluster/list).
 
           Максимальная длина строки в символах — 50.
         required: true
@@ -777,8 +728,9 @@ paths:
         in: path
         description: |-
           Обязательное поле.
-          Идентификатор кластера, к которому принадлежит шард. Чтобы получить идентификатор кластера, используйте запрос [list](/docs/managed-clickhouse/api-ref/Cluster/list). Чтобы получить имя
-          базы данных, используйте запрос [list](/docs/managed-clickhouse/api-ref/Cluster/list).
+          Идентификатор кластера, к которому принадлежит шард. Чтобы получить идентификатор
+          кластера, используйте запрос [list](/docs/managed-clickhouse/api-ref/Cluster/list). Чтобы получить имя базы данных, используйте запрос
+          [list](/docs/managed-clickhouse/api-ref/Cluster/list).
 
           Максимальная длина строки в символах — 50.
         required: true
@@ -788,7 +740,8 @@ paths:
         in: path
         description: |-
           Обязательное поле.
-          Имя шарда, информацию о котором нужно запросить. Чтобы получить имя шарда, используйте запрос [listShards](/docs/managed-clickhouse/api-ref/Cluster/listShards).
+          Имя шарда, информацию о котором нужно запросить. Чтобы получить имя шарда,
+          используйте запрос [listShards](/docs/managed-clickhouse/api-ref/Cluster/listShards).
 
           Максимальная длина строки в символах — 63.
           Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_-]* ``.
@@ -813,7 +766,8 @@ paths:
         in: path
         description: |-
           Обязательное поле.
-          Идентификатор кластера ClickHouse, которому принадлежит шард. Чтобы получить идентификатор кластера, используйте запрос [list](/docs/managed-clickhouse/api-ref/Cluster/list).
+          Идентификатор кластера ClickHouse, которому принадлежит шард. Чтобы получить
+          идентификатор кластера, используйте запрос [list](/docs/managed-clickhouse/api-ref/Cluster/list).
 
           Максимальная длина строки в символах — 50.
         required: true
@@ -851,7 +805,8 @@ paths:
         in: path
         description: |-
           Обязательное поле.
-          Идентификатор кластера ClickHouse, которому принадлежит шард. Чтобы получить идентификатор кластера, используйте запрос [list](/docs/managed-clickhouse/api-ref/Cluster/list).
+          Идентификатор кластера ClickHouse, которому принадлежит шард. Чтобы получить
+          идентификатор кластера, используйте запрос [list](/docs/managed-clickhouse/api-ref/Cluster/list).
 
           Максимальная длина строки в символах — 50.
         required: true
@@ -861,7 +816,8 @@ paths:
         in: path
         description: |-
           Обязательное поле.
-          Имя шарда, который следует изменить. Чтобы получить имя шарда, используйте запрос [listShards](/docs/managed-clickhouse/api-ref/Cluster/listShards).
+          Имя шарда, который следует изменить. Чтобы получить имя шарда, используйте запрос
+          [listShards](/docs/managed-clickhouse/api-ref/Cluster/listShards).
 
           Максимальная длина строки в символах — 63.
           Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_-]* ``.
@@ -896,8 +852,8 @@ paths:
         in: path
         description: |-
           Обязательное поле.
-          Идентификатор кластера ClickHouse, для которого нужно вывести список шардов. Чтобы получить идентификатор кластера, используйте запрос
-          [list](/docs/managed-clickhouse/api-ref/Cluster/list).
+          Идентификатор кластера ClickHouse, для которого нужно вывести список шардов. Чтобы
+          получить идентификатор кластера, используйте запрос [list](/docs/managed-clickhouse/api-ref/Cluster/list).
 
           Максимальная длина строки в символах — 50.
         required: true
@@ -906,8 +862,9 @@ paths:
       - name: pageSize
         in: query
         description: |-
-          Максимальное количество результатов на одной странице в ответе. Если количество результатов больше чем [pageSize](/docs/managed-clickhouse/api-ref/Cluster/listShards#query_params), сервис вернет значение
-          [nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/listShards#responses), которое можно использовать для получения следующей страницы.
+          Максимальное количество результатов на странице ответа на запрос. Если количество
+          результатов больше чем [pageSize](/docs/managed-clickhouse/api-ref/Cluster/listShards#query_params) , сервис вернет значение [nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/listShards#responses),
+          которое можно использовать для получения следующей страницы.
 
           Допустимые значения — от 0 до 1000 включительно.
         schema:
@@ -916,8 +873,8 @@ paths:
       - name: pageToken
         in: query
         description: |-
-          Номер страницы. Чтобы получить следующую страницу результатов, установите значение [pageToken](/docs/managed-clickhouse/api-ref/Cluster/listShards#query_params) равным значению поля
-          [nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/listShards#responses) прошлого запроса.
+          Номер страницы. Чтобы получить следующую страницу результатов, установите значение
+          [pageToken](/docs/managed-clickhouse/api-ref/Cluster/listShards#query_params) равным значению поля [nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/listShards#responses) прошлого запроса.
 
           Максимальная длина строки в символах — 100.
         schema:
@@ -940,8 +897,8 @@ paths:
         in: path
         description: |-
           Обязательное поле.
-          Идентификатор кластера ClickHouse, к которому нужно добавить шард. Чтобы получить идентификатор кластера ClickHouse, используйте запрос
-          [list](/docs/managed-clickhouse/api-ref/Cluster/list).
+          Идентификатор кластера ClickHouse, к которому нужно добавить шард. Чтобы получить
+          идентификатор кластера ClickHouse, используйте запрос [list](/docs/managed-clickhouse/api-ref/Cluster/list).
 
           Максимальная длина строки в символах — 50.
         required: true
@@ -968,14 +925,14 @@ paths:
     get:
       tags:
       - Cluster
-      summary: Возвращает указанную группу шардов.
+      summary: Возвращает группу шардов по имени.
       operationId: ClusterGetShardGroup
       parameters:
       - name: clusterId
         in: path
         description: |-
           Обязательное поле.
-          Идентификатор кластера, к которому принадлежит группа шардов.
+          Идентификатор кластера.
 
           Максимальная длина строки в символах — 50.
         required: true
@@ -985,7 +942,8 @@ paths:
         in: path
         description: |-
           Обязательное поле.
-          Имя группы шардов, информацию о которой нужно запросить. Чтобы получить имя группы шардов, используйте запрос [listShardGroups](/docs/managed-clickhouse/api-ref/Cluster/listShardGroups).
+          Имя группы шардов.
+          Чтобы получить имя группы шардов, используйте запрос [listShardGroups](/docs/managed-clickhouse/api-ref/Cluster/listShardGroups).
 
           Максимальная длина строки в символах — 63.
           Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_-]* ``.
@@ -1003,14 +961,14 @@ paths:
     delete:
       tags:
       - Cluster
-      summary: Удаляет указанную группу шардов.
+      summary: Удаляет группу шардов.
       operationId: ClusterDeleteShardGroup
       parameters:
       - name: clusterId
         in: path
         description: |-
           Обязательное поле.
-          Идентификатор кластера ClickHouse, которому принадлежит группа шардов.
+          Идентификатор кластера.
 
           Максимальная длина строки в символах — 50.
         required: true
@@ -1020,7 +978,7 @@ paths:
         in: path
         description: |-
           Обязательное поле.
-          Имя группы шардов, которую следует удалить.
+          Им удаляемой группы шардов.
 
           Максимальная длина строки в символах — 63.
           Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_-]* ``.
@@ -1048,7 +1006,7 @@ paths:
         in: path
         description: |-
           Обязательное поле.
-          Идентификатор кластера, содержащего обновляемую группу шардов.
+          Идентификатор кластера.
 
           Максимальная длина строки в символах — 50.
         required: true
@@ -1058,7 +1016,7 @@ paths:
         in: path
         description: |-
           Обязательное поле.
-          Имя группы шардов, которую следует изменить.
+          Имя изменяемой группы шардов.
 
           Максимальная длина строки в символах — 63.
           Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_-]* ``.
@@ -1086,14 +1044,14 @@ paths:
     get:
       tags:
       - Cluster
-      summary: Получает список групп шардов, принадлежащих указанному кластеру.
+      summary: Возвращает список групп шардов в указанном кластере.
       operationId: ClusterListShardGroups
       parameters:
       - name: clusterId
         in: path
         description: |-
           Обязательное поле.
-          Идентификатор кластера, к которому принадлежит группа шардов.
+          Идентификатор кластера.
 
           Максимальная длина строки в символах — 50.
         required: true
@@ -1102,8 +1060,9 @@ paths:
       - name: pageSize
         in: query
         description: |-
-          Максимальное количество результатов на одной странице в ответе. Если количество результатов больше чем [pageSize](/docs/managed-clickhouse/api-ref/Cluster/listShardGroups#query_params), сервис вернет значение
-          [nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/listShardGroups#responses), которое можно использовать для получения следующей страницы.
+          Максимальное количество результатов на странице ответа на запрос. Если количество
+          результатов больше чем [pageSize](/docs/managed-clickhouse/api-ref/Cluster/listShardGroups#query_params) , сервис вернет значение [nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/listShards#responses),
+          которое можно использовать для получения следующей страницы.
 
           Допустимые значения — от 0 до 1000 включительно.
         schema:
@@ -1112,8 +1071,8 @@ paths:
       - name: pageToken
         in: query
         description: |-
-          Токен страницы. Установите значение [pageToken](/docs/managed-clickhouse/api-ref/Cluster/listShardGroups#query_params) равным значению поля [nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/listShardGroups#responses) предыдущего запроса, чтобы получить
-          следующую страницу результатов.
+          Номер страницы. Чтобы получить следующую страницу результатов, установите значение
+          [pageToken](/docs/managed-clickhouse/api-ref/Cluster/listShardGroups#query_params) равным значению поля [nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/listShards#responses) прошлого запроса.
 
           Максимальная длина строки в символах — 100.
         schema:
@@ -1129,15 +1088,14 @@ paths:
     post:
       tags:
       - Cluster
-      summary: Создает новую группу шардов в указанном кластере.
+      summary: Создает новую группу шардов.
       operationId: ClusterCreateShardGroup
       parameters:
       - name: clusterId
         in: path
         description: |-
           Обязательное поле.
-          Идентификатор кластера ClickHouse, в который нужно добавить группу шардов. Чтобы получить идентификатор кластера ClickHouse, используйте запрос
-          [list](/docs/managed-clickhouse/api-ref/Cluster/list).
+          Идентификатор кластера.
 
           Максимальная длина строки в символах — 50.
         required: true
@@ -1171,8 +1129,8 @@ paths:
         in: path
         description: |-
           Обязательное поле.
-          Идентификатор кластера ClickHouse, для которого следует создать внешний словарь. Чтобы получить идентификатор кластера, используйте запрос
-          [list](/docs/managed-clickhouse/api-ref/Cluster/list).
+          Идентификатор кластера ClickHouse, для которого следует создать внешний словарь. Чтобы
+          получить идентификатор кластера, используйте запрос [list](/docs/managed-clickhouse/api-ref/Cluster/list).
 
           Максимальная длина строки в символах — 50.
         required: true
@@ -1206,8 +1164,8 @@ paths:
         in: path
         description: |-
           Обязательное поле.
-          Идентификатор кластера ClickHouse, для которого следует удалить внешний словарь. Чтобы получить идентификатор кластера, используйте запрос
-          [list](/docs/managed-clickhouse/api-ref/Cluster/list).
+          Идентификатор кластера ClickHouse, для которого следует удалить внешний словарь. Чтобы
+          получить идентификатор кластера, используйте запрос [list](/docs/managed-clickhouse/api-ref/Cluster/list).
 
           Максимальная длина строки в символах — 50.
         required: true
@@ -1963,25 +1921,19 @@ components:
       type: object
       properties:
         dataLens:
-          description: Разрешить экспорт данных из кластера в Yandex DataLens.
+          description: Разрешить доступ для DataLens
           type: boolean
           format: boolean
         webSql:
-          description: |-
-            Разрешить SQL-запросы к базам данных кластера из консоли управления облаком.
-
-            Подробнее см. в [SQL-запросы в консоли управления](/docs/managed-clickhouse/operations/web-sql-query).
+          description: Разрешить доступ для Web SQL
           type: boolean
           format: boolean
         metrika:
-          description: |-
-            Разрешить импорт данных из Яндекс.Метрики и AppMetrica в кластер.
-
-            Подробнее см. в [Экспорт данных в Яндекс.Облако](https://appmetrica.yandex.ru/docs/cloud/index.html).
+          description: Разрешить доступ для Metrika
           type: boolean
           format: boolean
         serverless:
-          description: Разрешить доступ к кластеру для Serverless.
+          description: Разрешить доступ для Serverless
           type: boolean
           format: boolean
     AddClusterHostsMetadata:
@@ -2681,13 +2633,12 @@ components:
         defaultConfig:
           $ref: '#/components/schemas/ClickhouseConfig_in_ClickhouseConfigSet_defaultConfig'
     Cluster:
-      description: Ресурс Cluster для ClickHouse. Подробнее см. раздел [Cluster](/docs/managed-clickhouse/concepts)
-        в руководстве разработчика.
+      description: Ресурс Cluster для ClickHouse. Подробнее см. [документацию](/docs/managed-clickhouse/concepts).
       type: object
       properties:
         id:
           description: Идентификатор кластера ClickHouse. Этот идентификатор генерирует
-            MDB при создании кластера.
+            MDB при создании.
           type: string
         folderId:
           description: Идентификатор каталога, которому принадлежит кластер ClickHouse.
@@ -2708,7 +2659,7 @@ components:
             0 до 256 символов.
           type: string
         labels:
-          description: Пользовательские метки для кластера ClickHouse в виде пар `key:value`.
+          description: Пользовательские метки для кластера ClickHouse в виде пар ``key:value``.
             Максимум 64 на ресурс.
           type: object
           additionalProperties:
@@ -2730,10 +2681,6 @@ components:
           $ref: '#/components/schemas/ClusterHealth_in_Cluster_health'
         status:
           $ref: '#/components/schemas/ClusterStatus_in_Cluster_status'
-        serviceAccountId:
-          description: Идентификатор сервисного аккаунта, используемого для доступа
-            к Yandex Object Storage.
-          type: string
     ClusterConfig:
       type: object
       properties:
@@ -2746,8 +2693,6 @@ components:
           $ref: '#/components/schemas/ClusterConfigZookeeper_in_ClusterConfig_zookeeper'
         backupWindowStart:
           $ref: '#/components/schemas/TimeOfDay_in_ClusterConfig_backupWindowStart'
-        access:
-          $ref: '#/components/schemas/Access_in_ClusterConfig_access'
     ClusterConfigClickhouse:
       type: object
       properties:
@@ -2764,8 +2709,10 @@ components:
       description: |-
         Среда развертывания.
 
-         - PRODUCTION: Стабильная среда с осторожной политикой обновления: во время регулярного обслуживания применяются только срочные исправления.
-         - PRESTABLE: Среда с более агрессивной политикой обновления: новые версии развертываются независимо от обратной совместимости.
+         - PRODUCTION: Стабильная среда с осторожной политикой обновления: во время регулярного
+        обслуживания применяются только срочные исправления.
+         - PRESTABLE: Среда с более агрессивной политикой обновления: новые версии развертываются
+        независимо от обратной совместимости.
       type: string
       enum:
       - PRODUCTION
@@ -2774,8 +2721,9 @@ components:
       description: |2-
          - HEALTH_UNKNOWN: Состояние кластера неизвестно (`health` для каждого хоста в кластере — UNKNOWN).
          - ALIVE: Кластер работает нормально (`health` для каждого хоста в кластере — ALIVE).
-         - DEAD: Кластер не работает (`health` для каждого хоста в кластере — DEAD).
-         - DEGRADED: Кластер работает неоптимально (`health` по крайней мере для одного хоста в кластере не ALIVE).
+         - DEAD: Кластер не работает (`health` для каждого узла в кластере — DEAD).
+         - DEGRADED: Кластер работает неоптимально (`health` по крайней мере для одного узла в кластере
+        не ALIVE).
       type: string
       enum:
       - HEALTH_UNKNOWN
@@ -2788,7 +2736,7 @@ components:
          - STATUS_UNKNOWN: Состояние кластера неизвестно.
          - CREATING: Кластер создается.
          - RUNNING: Кластер работает нормально.
-         - ERROR: В кластере произошла ошибка, блокирующая работу.
+         - ERROR: На кластере произошла ошибка, блокирующая работу.
          - UPDATING: Кластер изменяется.
          - STOPPING: Кластер останавливается.
          - STOPPED: Кластер остановлен.
@@ -2860,7 +2808,7 @@ components:
         name:
           description: |-
             Обязательное поле.
-            Имя кластера ClickHouse. Имя должно быть уникальным в рамках каталога.
+            Имя кластера ClickHouse. Имя должно быть уникальным в каталоге.
 
             Максимальная длина строки в символах — 63.
             Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_-]* ``.
@@ -2873,7 +2821,8 @@ components:
           type: string
         labels:
           description: |-
-            Пользовательские метки для кластера ClickHouse в виде пар `key:value`. Максимум 64 на ресурс. Например, "project": "mvp" или "source": "dictionary".
+            Пользовательские метки для кластера ClickHouse как пары `key:value`. Максимум 64 на ресурс.
+            Например, "project": "mvp" или "source": "dictionary".
 
             Не более 64 на ресурс.
             Максимальная длина строки в символах для каждого ключа — 63.
@@ -2928,19 +2877,14 @@ components:
             Максимальная длина строки в символах — 63.
             Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_-]* ``.
           type: string
-        serviceAccountId:
-          description: Идентификатор сервисного аккаунта, используемого для доступа
-            к Yandex Object Storage.
-          type: string
     CreateClusterShardGroupMetadata:
       type: object
       properties:
         clusterId:
-          description: Идентификатор кластера ClickHouse, в который нужно добавить
-            группу шардов.
+          description: Идентификатор кластера.
           type: string
         shardGroupName:
-          description: Имя для новой группы шардов.
+          description: Имя создаваемой группы шардов.
           type: string
     CreateClusterShardGroupRequest:
       type: object
@@ -2948,17 +2892,17 @@ components:
         shardGroupName:
           description: |-
             Обязательное поле.
-            Имя для новой группы шардов.
+            Имя создаваемой группы шардов.
 
             Максимальная длина строки в символах — 63.
             Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_-]* ``.
           type: string
         description:
-          description: Описание группы шардов кластера ClickHouse. Длина описания
-            должна быть от 0 до 256 символов.
+          description: Описание группы шардов. Длина описания должна быть от 0 до
+            256 символов.
           type: string
         shardNames:
-          description: Список имен шардов, принадлежащих к новой группе.
+          description: Список шардов, взодящих в группу.
           type: array
           items:
             type: string
@@ -3088,11 +3032,10 @@ components:
       type: object
       properties:
         clusterId:
-          description: Идентификатор кластера ClickHouse, которому принадлежит группа
-            шардов.
+          description: Идентификатор кластера.
           type: string
         shardGroupName:
-          description: Имя группы шардов, которую следует удалить.
+          description: Имя удаляемой группы шардов.
           type: string
     DeleteClusterShardMetadata:
       type: object
@@ -3165,9 +3108,11 @@ components:
       properties:
         name:
           description: |-
-            Имя хоста ClickHouse. Имя хоста назначается MDB во время создания и не может быть изменено. Длина 1-63 символов.
+            Имя хоста ClickHouse. Имя хоста назначается MDB во время создания и не может быть изменено.
+            Длина 1-63 символов.
 
-            Имя уникально для всех существующих хостов MDB в Яндекс.Облаке, так как оно определяет полное доменное имя (FQDN) хоста.
+            Имя уникально для всех существующих хостов MDB в Яндекс.Облаке, так как оно определяет
+            полное доменное имя (FQDN) хоста.
           type: string
         clusterId:
           description: Идентификатор хоста ClickHouse. Этот идентификатор генерирует
@@ -3199,7 +3144,7 @@ components:
     HostHealth:
       description: |2-
          - UNKNOWN: Состояние хоста неизвестно.
-         - ALIVE: Хост работает и выполняет все свои функции.
+         - ALIVE: Хозяин выполняет все свои функции нормально.
          - DEAD: Хост не работает и не может выполнять свои основные функции.
          - DEGRADED: Хост деградировал, и может выполнять только некоторые из своих основных функций.
       type: string
@@ -3214,8 +3159,8 @@ components:
       properties:
         zoneId:
           description: |-
-            Идентификатор зоны доступности, в которой находится хост. Чтобы получить список доступных зон, используйте запрос
-            [list](/docs/compute/api-ref/Zone/list).
+            Идентификатор зоны доступности, в которой находится хост. Чтобы получить список
+            доступных зон, используйте запрос [list](/docs/compute/api-ref/Zone/list).
 
             Максимальная длина строки в символах — 50.
           type: string
@@ -3223,8 +3168,9 @@ components:
           $ref: '#/components/schemas/HostType_in_HostSpec_type'
         subnetId:
           description: |-
-            Идентификатор подсети, к которой должен принадлежать хост. Эта подсеть должна быть частью сети, к которой принадлежит кластер. Идентификатор сети задается
-            в поле [Cluster.networkId](/docs/managed-clickhouse/api-ref/Cluster#representation).
+            Идентификатор подсети, к которой должен принадлежать хост. Эта подсеть должна быть
+            частью сети, к которой принадлежит кластер. Идентификатор сети задается в поле
+            [Cluster.networkId](/docs/managed-clickhouse/api-ref/Cluster#representation).
 
             Максимальная длина строки в символах — 50.
           type: string
@@ -3232,8 +3178,9 @@ components:
           description: |-
             Должен ли хост получить публичный IP-адрес при создании.
 
-            После создания узла этот параметр изменить нельзя. Чтобы удалить назначенный публичный IP-адрес или назначить публичный IP уже созданному хосту,
-            пересоздайте хост с нужным значением поля `assignPublicIp`.
+            После создания узла этот параметр изменить нельзя. Чтобы удалить назначенный
+            публичный IP-адрес или назначить публичный IP уже созданному хосту, пересоздайте хост
+            с нужным значением поля `assignPublicIp`.
 
             Возможные значения:
             * false — не назначать хосту публичный IP-адрес.
@@ -3280,9 +3227,11 @@ components:
             $ref: '#/components/schemas/Backup'
         nextPageToken:
           description: |-
-            Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [pageSize](/docs/managed-clickhouse/api-ref/Cluster/listBackups#query_params), используйте
-            [nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/listBackups#responses) в качестве значения параметра [pageToken](/docs/managed-clickhouse/api-ref/Cluster/listBackups#query_params) в следующем запросе списка ресурсов. Все последующие запросы будут
-            получать свои значения [nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/listBackups#responses) для перебора страниц результатов.
+            Токен для получения следующей страницы результатов в ответе. Если количество
+            результатов больше чем [pageSize](/docs/managed-clickhouse/api-ref/Cluster/listBackups#query_params), используйте [nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/listBackups#responses) в качестве
+            значения параметра [pageToken](/docs/managed-clickhouse/api-ref/Cluster/listBackups#query_params) в следующем запросе списка ресурсов. Все
+            последующие запросы будут получать свои значения [nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/listBackups#responses) для перебора страниц
+            результатов.
           type: string
     ListClusterHostsResponse:
       type: object
@@ -3294,9 +3243,11 @@ components:
             $ref: '#/components/schemas/Host'
         nextPageToken:
           description: |-
-            Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [pageSize](/docs/managed-clickhouse/api-ref/Cluster/listHosts#query_params), используйте
-            [nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/listHosts#responses) в качестве значения параметра [pageToken](/docs/managed-clickhouse/api-ref/Cluster/listHosts#query_params) в следующем запросе списка ресурсов. Все последующие запросы будут
-            получать свои значения [nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/listHosts#responses) для перебора страниц результатов.
+            Токен для получения следующей страницы результатов в ответе. Если количество
+            результатов больше чем [pageSize](/docs/managed-clickhouse/api-ref/Cluster/listHosts#query_params), используйте [nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/listHosts#responses) в качестве
+            значения параметра [pageToken](/docs/managed-clickhouse/api-ref/Cluster/listHosts#query_params) в следующем запросе списка ресурсов. Все
+            последующие запросы будут получать свои значения [nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/listHosts#responses) для перебора страниц
+            результатов.
           type: string
     ListClusterLogsRequestServiceType:
       description: ' - CLICKHOUSE: Логи работы ClickHouse.'
@@ -3307,16 +3258,17 @@ components:
       type: object
       properties:
         logs:
-          description: Запрошенные записи в логе.
+          description: Запрошенные записи логов.
           type: array
           items:
             $ref: '#/components/schemas/LogRecord'
         nextPageToken:
           description: |-
-            Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [pageSize](/docs/managed-clickhouse/api-ref/Cluster/listLogs#query_params), используйте
-            [nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/listLogs#responses) в качестве значения параметра [pageToken](/docs/managed-clickhouse/api-ref/Cluster/listLogs#query_params) в следующем запросе списка ресурсов. Все последующие запросы будут
-            получать свои значения [nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/listLogs#responses) для перебора страниц результатов. Это значение взаимозаменяемо с `nextRecordToken` из метода
-            StreamLogs.
+            Токен для получения следующей страницы результатов в ответе. Если количество
+            результатов больше чем [pageSize](/docs/managed-clickhouse/api-ref/Cluster/listLogs#query_params), используйте [nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/listLogs#responses) в качестве
+            значения параметра [pageToken](/docs/managed-clickhouse/api-ref/Cluster/listLogs#query_params) в следующем запросе списка ресурсов. Все
+            последующие запросы будут получать свои значения [nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/listLogs#responses) для перебора страниц
+            результатов.
           type: string
     ListClusterOperationsResponse:
       type: object
@@ -3328,23 +3280,27 @@ components:
             $ref: '#/components/schemas/Operation'
         nextPageToken:
           description: |-
-            Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [pageSize](/docs/managed-clickhouse/api-ref/Cluster/listOperations#query_params), используйте
-            [nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/listOperations#responses) в качестве значения параметра [pageToken](/docs/managed-clickhouse/api-ref/Cluster/listOperations#query_params) в следующем запросе списка ресурсов. Все последующие запросы
-            будут получать свои значения [nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/listOperations#responses) для перебора страниц результатов.
+            Токен для получения следующей страницы результатов в ответе. Если количество
+            результатов больше чем [pageSize](/docs/managed-clickhouse/api-ref/Cluster/listOperations#query_params), используйте [nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/listOperations#responses) в качестве
+            значения параметра [pageToken](/docs/managed-clickhouse/api-ref/Cluster/listOperations#query_params) в следующем запросе списка ресурсов. Все
+            последующие запросы будут получать свои значения [nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/listOperations#responses) для перебора страниц
+            результатов.
           type: string
     ListClusterShardGroupsResponse:
       type: object
       properties:
         shardGroups:
-          description: Список групп шардов кластера ClickHouse.
+          description: Список групп шардов в кластере.
           type: array
           items:
             $ref: '#/components/schemas/ShardGroup'
         nextPageToken:
           description: |-
-            Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [pageSize](/docs/managed-clickhouse/api-ref/Cluster/listShardGroups#query_params), используйте
-            [nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/listShardGroups#responses) в качестве значения параметра [pageToken](/docs/managed-clickhouse/api-ref/Cluster/listShardGroups#query_params) в следующем запросе. Все последующие запросы будут получать свои
-            значения [nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/listShardGroups#responses) для перебора страниц результатов.
+            Токен для получения следующей страницы результатов в ответе. Если количество
+            результатов больше чем [pageSize](/docs/managed-clickhouse/api-ref/Cluster/listShards#query_params), используйте [nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/listShardGroups#responses) в качестве
+            значения параметра [pageToken](/docs/managed-clickhouse/api-ref/Cluster/listShards#query_params) в следующем запросе списка ресурсов. Все
+            последующие запросы будут получать свои значения [nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/listShardGroups#responses) для перебора страниц
+            результатов.
           type: string
     ListClusterShardsResponse:
       type: object
@@ -3356,9 +3312,11 @@ components:
             $ref: '#/components/schemas/Shard'
         nextPageToken:
           description: |-
-            Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [pageSize](/docs/managed-clickhouse/api-ref/Cluster/listShards#query_params), используйте
-            [nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/listShards#responses) в качестве значения параметра [pageToken](/docs/managed-clickhouse/api-ref/Cluster/listShards#query_params) в следующем запросе. Все последующие запросы будут получать свои
-            значения [nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/listShards#responses) для перебора страниц результатов.
+            Токен для получения следующей страницы результатов в ответе. Если количество
+            результатов больше чем [pageSize](/docs/managed-clickhouse/api-ref/Cluster/listShards#query_params), используйте [nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/listShards#responses) в качестве
+            значения параметра [pageToken](/docs/managed-clickhouse/api-ref/Cluster/listShards#query_params) в следующем запросе списка ресурсов. Все
+            последующие запросы будут получать свои значения [nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/listShards#responses) для перебора страниц
+            результатов.
           type: string
     ListClustersResponse:
       type: object
@@ -3370,9 +3328,10 @@ components:
             $ref: '#/components/schemas/Cluster'
         nextPageToken:
           description: |-
-            Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [pageSize](/docs/managed-clickhouse/api-ref/Cluster/list#query_params), используйте
-            [nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/list#responses) в качестве значения параметра [pageToken](/docs/managed-clickhouse/api-ref/Cluster/list#query_params) в следующем запросе. Все последующие запросы будут получать свои значения
-            [nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/list#responses) для перебора страниц результатов.
+            Токен для получения следующей страницы результатов в ответе. Если количество
+            результатов больше чем [pageSize](/docs/managed-clickhouse/api-ref/Cluster/list#query_params), используйте [nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/list#responses) в качестве значения
+            параметра [pageToken](/docs/managed-clickhouse/api-ref/Cluster/list#query_params) в следующем запросе списка ресурсов. Все последующие
+            запросы будут получать свои значения [nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/list#responses) для перебора страниц результатов.
           type: string
     ListDatabasesResponse:
       type: object
@@ -3445,7 +3404,7 @@ components:
           type: string
           format: date-time
         message:
-          description: Содержимое записи в логе.
+          description: Содержание записи журнала.
           type: object
           additionalProperties:
             type: string
@@ -3608,8 +3567,8 @@ components:
       properties:
         resourcePresetId:
           description: |-
-            Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в
-            [документации](/docs/managed-clickhouse/concepts/instance-types).
+            Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и
+            т. д.). Все доступные наборы ресурсов перечислены в [документации](/docs/managed-clickhouse/concepts/instance-types).
           type: string
         diskSize:
           description: Объем хранилища, доступного хосту, в байтах.
@@ -3638,13 +3597,13 @@ components:
         backupId:
           description: |-
             Обязательное поле.
-            Идентификатор резервной копии, из которой следует создать кластер. Чтобы получить идентификатор резервной копии, используйте запрос
-            [listBackups](/docs/managed-clickhouse/api-ref/Cluster/listBackups).
+            Идентификатор резервной копии, из которой следует создать кластер. Чтобы получить
+            идентификатор резервной копии, используйте запрос [listBackups](/docs/managed-clickhouse/api-ref/Cluster/listBackups).
           type: string
         name:
           description: |-
             Обязательное поле.
-            Имя нового кластера ClickHouse. Имя должно быть уникальным в рамках каталога.
+            Имя нового кластера ClickHouse. Имя должно быть уникальным в каталоге.
 
             Максимальная длина строки в символах — 63.
             Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_-]* ``.
@@ -3657,7 +3616,8 @@ components:
           type: string
         labels:
           description: |-
-            Пользовательские метки для кластера ClickHouse в виде пар `key:value`. Максимум 64 на ресурс. Например, "project": "mvp" или "source": "dictionary".
+            Пользовательские метки для кластера ClickHouse `key:value` пары. Максимум 64 на ресурс.
+            Например, "project": "mvp" или "source": "dictionary".
 
             Не более 64 на ресурс.
             Максимальная длина строки в символах для каждого ключа — 63.
@@ -3674,7 +3634,8 @@ components:
         hostSpecs:
           description: |-
             Обязательное поле.
-            Конфигурации для хостов ClickHouse, которые должны быть созданы для кластера, создаваемого из резервной копии.
+            Конфигурации для хостов ClickHouse, которые должны быть созданы для кластера,
+            создаваемого из резервной копии.
 
             Должен содержать хотя бы один элемент.
           type: array
@@ -3686,16 +3647,6 @@ components:
             Идентификатор сети, в которой нужно создать кластер.
 
             Максимальная длина строки в символах — 50.
-          type: string
-        folderId:
-          description: |-
-            Идентификатор каталога, в котором нужно создать кластер ClickHouse.
-
-            Максимальная длина строки в символах — 50.
-          type: string
-        serviceAccountId:
-          description: Идентификатор сервисного аккаунта, используемого для доступа
-            к Yandex Object Storage.
           type: string
     RevokeUserPermissionMetadata:
       type: object
@@ -3768,7 +3719,6 @@ components:
         weight:
           description: |-
             Относительный вес шарда, который учитывается при записи данных в кластер.
-
             Подробнее см. в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/table_engines/distributed/).
           type: integer
           format: int64
@@ -3794,17 +3744,17 @@ components:
       type: object
       properties:
         name:
-          description: Имя группы шардов.
+          description: Имя группы шардов
           type: string
         clusterId:
           description: Идентификатор кластера, к которому принадлежит группа шардов.
           type: string
         description:
-          description: Описание группы шардов кластера ClickHouse. Длина описания
-            должна быть от 0 до 256 символов.
+          description: Описание группы шардов. Длина описания должна быть от 0 до
+            256 символов.
           type: string
         shardNames:
-          description: Список имен шардов, содержащихся в группе шардов.
+          description: Список имен шардов, которые взоядят в группу.
           type: array
           items:
             type: string
@@ -3820,58 +3770,31 @@ components:
         clusterId:
           description: Идентификатор останавливаемого кластера ClickHouse.
           type: string
-    StreamClusterLogsRequestServiceType:
-      description: ' - CLICKHOUSE: Логи работы ClickHouse.'
-      type: string
-      enum:
-      - CLICKHOUSE
-    StreamLogRecord:
-      type: object
-      properties:
-        record:
-          $ref: '#/components/schemas/LogRecord_in_StreamLogRecord_record'
-        nextRecordToken:
-          description: |-
-            Этот токен позволяет продолжить работу с потоком логов, начиная с этой записи. Чтобы продолжить работу с потоком, укажите значение `nextRecordToken` в
-            качестве значения параметра [recordToken](/docs/managed-clickhouse/api-ref/Cluster/streamLogs#query_params) в следующем запросе StreamLogs. Это значение взаимозаменяемо с
-            [nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/listLogs#responses) из метода ListLogs.
-          type: string
     TimeOfDay:
       description: |-
-        Время суток.
-        Дата и часовой пояс либо не учитываются, либо задаются в других местах.
-
-        API может разрешить использование високосной секунды.
-
-        Связанные типы: [google.type.Date](https://github.com/googleapis/googleapis/blob/master/google/type/date.proto) и [google.protobuf.Timestamp](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto).
+        Represents a time of day. The date and time zone are either not significant
+        or are specified elsewhere. An API may choose to allow leap seconds. Related
+        types are [google.type.Date](https://github.com/googleapis/googleapis/blob/master/google/type/date.proto) and [google.protobuf.Timestamp](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto).
       type: object
       properties:
         hours:
           description: |-
-            Часы.
-            Допустимые значения: от 0 до 23.
-
-            API может разрешить использовать значение в формате "24:00:00" в требующих этого сценариях (например, для указания времени закрытия учреждения).
+            Hours of day in 24 hour format. Should be from 0 to 23. An API may choose
+            to allow the value "24:00:00" for scenarios like business closing time.
           type: integer
           format: int32
         minutes:
-          description: |-
-            Минуты.
-            Допустимые значения: от 0 до 59.
+          description: Minutes of hour of day. Must be from 0 to 59.
           type: integer
           format: int32
         seconds:
           description: |-
-            Секунды.
-            Стандартные допустимые значения: от 0 до 59.
-
-            API может разрешить использовать значение 60, если также разрешено использование високосной секунды.
+            Seconds of minutes of the time. Must normally be from 0 to 59. An API may
+            allow the value 60 if it allows leap-seconds.
           type: integer
           format: int32
         nanos:
-          description: |-
-            Доли секунды (в наносекундах).
-            Допустимые значения: от 0 до 999999999.
+          description: Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.
           type: integer
           format: int32
     UpdateClusterMetadata:
@@ -3893,10 +3816,12 @@ components:
           type: string
         labels:
           description: |-
-            Пользовательские метки для кластера ClickHouse в виде пар `key:value`. Максимум 64 на ресурс. Например, "project": "mvp" или "source": "dictionary".
+            Пользовательские метки для кластера ClickHouse как пары `key:value`. Максимум 64 на ресурс.
+            Например, "project": "mvp" или "source": "dictionary".
 
-            Новый набор меток полностью заменит старый. Чтобы добавить метку, запросите текущий набор меток с помощью метода [get](/docs/managed-clickhouse/api-ref/Cluster/get), затем отправьте
-            запрос [update](/docs/managed-clickhouse/api-ref/Cluster/update), добавив новую метку в этот набор.
+            Новый набор меток полностью заменит старый. Чтобы добавить метку, запросите текущий
+            набор меток с помощью метода [get](/docs/managed-clickhouse/api-ref/Cluster/get), затем отправьте запрос [update](/docs/managed-clickhouse/api-ref/Cluster/update),
+            добавив новую метку в этот набор.
 
             Не более 64 на ресурс.
             Максимальная длина строки в символах для каждого ключа — 63.
@@ -3915,18 +3840,14 @@ components:
             Максимальная длина строки в символах — 63.
             Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_-]* ``.
           type: string
-        serviceAccountId:
-          description: Идентификатор сервисного аккаунта, используемого для доступа
-            к Yandex Object Storage.
-          type: string
     UpdateClusterShardGroupMetadata:
       type: object
       properties:
         clusterId:
-          description: Идентификатор кластера, содержащего обновляемую группу шардов.
+          description: Идентификатор кластера.
           type: string
         shardGroupName:
-          description: Имя группы шардов, которую следует изменить.
+          description: Имя изменяемой группы шардов.
           type: string
     UpdateClusterShardGroupRequest:
       type: object
@@ -3934,11 +3855,11 @@ components:
         updateMask:
           $ref: '#/components/schemas/FieldMask_in_UpdateClusterShardGroupRequest_updateMask'
         description:
-          description: Описание группы шардов кластера ClickHouse. Длина описания
-            должна быть от 0 до 256 символов.
+          description: Описание группы шардов. Длина описания должна быть от 0 до
+            256 символов.
           type: string
         shardNames:
-          description: Обновленный список имен шардов, принадлежащих к новой группе.
+          description: Список шардов, воходящих в группу.
           type: array
           items:
             type: string
@@ -4956,8 +4877,8 @@ components:
       properties:
         resourcePresetId:
           description: |-
-            Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в
-            [документации](/docs/managed-clickhouse/concepts/instance-types).
+            Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и
+            т. д.). Все доступные наборы ресурсов перечислены в [документации](/docs/managed-clickhouse/concepts/instance-types).
           type: string
         diskSize:
           description: Объем хранилища, доступного хосту, в байтах.
@@ -5407,8 +5328,10 @@ components:
 
         Среда развертывания.
 
-         - PRODUCTION: Стабильная среда с осторожной политикой обновления: во время регулярного обслуживания применяются только срочные исправления.
-         - PRESTABLE: Среда с более агрессивной политикой обновления: новые версии развертываются независимо от обратной совместимости.
+         - PRODUCTION: Стабильная среда с осторожной политикой обновления: во время регулярного
+        обслуживания применяются только срочные исправления.
+         - PRESTABLE: Среда с более агрессивной политикой обновления: новые версии развертываются
+        независимо от обратной совместимости.
       type: string
       enum:
       - PRODUCTION
@@ -5426,16 +5349,15 @@ components:
           $ref: '#/components/schemas/ClusterConfigZookeeper_in_ClusterConfig_zookeeper'
         backupWindowStart:
           $ref: '#/components/schemas/TimeOfDay_in_ClusterConfig_backupWindowStart'
-        access:
-          $ref: '#/components/schemas/Access_in_ClusterConfig_access'
     ClusterHealth_in_Cluster_health:
       description: |-
-        Здоровье кластера.
+        Агрегированная работоспособность кластера.
 
          - HEALTH_UNKNOWN: Состояние кластера неизвестно (`health` для каждого хоста в кластере — UNKNOWN).
          - ALIVE: Кластер работает нормально (`health` для каждого хоста в кластере — ALIVE).
-         - DEAD: Кластер не работает (`health` для каждого хоста в кластере — DEAD).
-         - DEGRADED: Кластер работает неоптимально (`health` по крайней мере для одного хоста в кластере не ALIVE).
+         - DEAD: Кластер не работает (`health` для каждого узла в кластере — DEAD).
+         - DEGRADED: Кластер работает неоптимально (`health` по крайней мере для одного узла в кластере
+        не ALIVE).
       type: string
       enum:
       - HEALTH_UNKNOWN
@@ -5450,7 +5372,7 @@ components:
          - STATUS_UNKNOWN: Состояние кластера неизвестно.
          - CREATING: Кластер создается.
          - RUNNING: Кластер работает нормально.
-         - ERROR: В кластере произошла ошибка, блокирующая работу.
+         - ERROR: На кластере произошла ошибка, блокирующая работу.
          - UPDATING: Кластер изменяется.
          - STOPPING: Кластер останавливается.
          - STOPPED: Кластер остановлен.
@@ -5484,68 +5406,31 @@ components:
       description: |-
         Время запуска ежедневного резервного копирования, в часовом поясе UTC.
 
-        Время суток.
-        Дата и часовой пояс либо не учитываются, либо задаются в других местах.
-
-        API может разрешить использование високосной секунды.
-
-        Связанные типы: [google.type.Date](https://github.com/googleapis/googleapis/blob/master/google/type/date.proto) и [google.protobuf.Timestamp](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto).
+        Represents a time of day. The date and time zone are either not significant
+        or are specified elsewhere. An API may choose to allow leap seconds. Related
+        types are [google.type.Date](https://github.com/googleapis/googleapis/blob/master/google/type/date.proto) and [google.protobuf.Timestamp](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto).
       type: object
       properties:
         hours:
           description: |-
-            Часы.
-            Допустимые значения: от 0 до 23.
-
-            API может разрешить использовать значение в формате "24:00:00" в требующих этого сценариях (например, для указания времени закрытия учреждения).
+            Hours of day in 24 hour format. Should be from 0 to 23. An API may choose
+            to allow the value "24:00:00" for scenarios like business closing time.
           type: integer
           format: int32
         minutes:
-          description: |-
-            Минуты.
-            Допустимые значения: от 0 до 59.
+          description: Minutes of hour of day. Must be from 0 to 59.
           type: integer
           format: int32
         seconds:
           description: |-
-            Секунды.
-            Стандартные допустимые значения: от 0 до 59.
-
-            API может разрешить использовать значение 60, если также разрешено использование високосной секунды.
+            Seconds of minutes of the time. Must normally be from 0 to 59. An API may
+            allow the value 60 if it allows leap-seconds.
           type: integer
           format: int32
         nanos:
-          description: |-
-            Доли секунды (в наносекундах).
-            Допустимые значения: от 0 до 999999999.
+          description: Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.
           type: integer
           format: int32
-    Access_in_ClusterConfig_access:
-      description: Политика доступа для внешних сервисов.
-      type: object
-      properties:
-        dataLens:
-          description: Разрешить экспорт данных из кластера в Yandex DataLens.
-          type: boolean
-          format: boolean
-        webSql:
-          description: |-
-            Разрешить SQL-запросы к базам данных кластера из консоли управления облаком.
-
-            Подробнее см. в [SQL-запросы в консоли управления](/docs/managed-clickhouse/operations/web-sql-query).
-          type: boolean
-          format: boolean
-        metrika:
-          description: |-
-            Разрешить импорт данных из Яндекс.Метрики и AppMetrica в кластер.
-
-            Подробнее см. в [Экспорт данных в Яндекс.Облако](https://appmetrica.yandex.ru/docs/cloud/index.html).
-          type: boolean
-          format: boolean
-        serverless:
-          description: Разрешить доступ к кластеру для Serverless.
-          type: boolean
-          format: boolean
     ClickhouseConfigSet_in_ClusterConfigClickhouse_config:
       description: Параметры конфигурации сервера ClickHouse.
       type: object
@@ -5562,8 +5447,8 @@ components:
       properties:
         resourcePresetId:
           description: |-
-            Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в
-            [документации](/docs/managed-clickhouse/concepts/instance-types).
+            Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и
+            т. д.). Все доступные наборы ресурсов перечислены в [документации](/docs/managed-clickhouse/concepts/instance-types).
           type: string
         diskSize:
           description: Объем хранилища, доступного хосту, в байтах.
@@ -5582,8 +5467,8 @@ components:
       properties:
         resourcePresetId:
           description: |-
-            Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в
-            [документации](/docs/managed-clickhouse/concepts/instance-types).
+            Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и
+            т. д.). Все доступные наборы ресурсов перечислены в [документации](/docs/managed-clickhouse/concepts/instance-types).
           type: string
         diskSize:
           description: Объем хранилища, доступного хосту, в байтах.
@@ -5614,69 +5499,49 @@ components:
       description: |-
         Время запуска ежедневного резервного копирования, в часовом поясе UTC.
 
-        Время суток.
-        Дата и часовой пояс либо не учитываются, либо задаются в других местах.
-
-        API может разрешить использование високосной секунды.
-
-        Связанные типы: [google.type.Date](https://github.com/googleapis/googleapis/blob/master/google/type/date.proto) и [google.protobuf.Timestamp](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto).
+        Represents a time of day. The date and time zone are either not significant
+        or are specified elsewhere. An API may choose to allow leap seconds. Related
+        types are [google.type.Date](https://github.com/googleapis/googleapis/blob/master/google/type/date.proto) and [google.protobuf.Timestamp](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto).
       type: object
       properties:
         hours:
           description: |-
-            Часы.
-            Допустимые значения: от 0 до 23.
-
-            API может разрешить использовать значение в формате "24:00:00" в требующих этого сценариях (например, для указания времени закрытия учреждения).
+            Hours of day in 24 hour format. Should be from 0 to 23. An API may choose
+            to allow the value "24:00:00" for scenarios like business closing time.
           type: integer
           format: int32
         minutes:
-          description: |-
-            Минуты.
-            Допустимые значения: от 0 до 59.
+          description: Minutes of hour of day. Must be from 0 to 59.
           type: integer
           format: int32
         seconds:
           description: |-
-            Секунды.
-            Стандартные допустимые значения: от 0 до 59.
-
-            API может разрешить использовать значение 60, если также разрешено использование високосной секунды.
+            Seconds of minutes of the time. Must normally be from 0 to 59. An API may
+            allow the value 60 if it allows leap-seconds.
           type: integer
           format: int32
         nanos:
-          description: |-
-            Доли секунды (в наносекундах).
-            Допустимые значения: от 0 до 999999999.
+          description: Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.
           type: integer
           format: int32
     Access_in_ConfigSpec_access:
-      description: |-
-        Политика доступа для внешних сервисов.
-
-        Если вы хотите, чтобы определенный сервис получил доступ к кластеру ClickHouse — задайте необходимые значения в этой политике.
+      description: Политика доступа к БД
       type: object
       properties:
         dataLens:
-          description: Разрешить экспорт данных из кластера в Yandex DataLens.
+          description: Разрешить доступ для DataLens
           type: boolean
           format: boolean
         webSql:
-          description: |-
-            Разрешить SQL-запросы к базам данных кластера из консоли управления облаком.
-
-            Подробнее см. в [SQL-запросы в консоли управления](/docs/managed-clickhouse/operations/web-sql-query).
+          description: Разрешить доступ для Web SQL
           type: boolean
           format: boolean
         metrika:
-          description: |-
-            Разрешить импорт данных из Яндекс.Метрики и AppMetrica в кластер.
-
-            Подробнее см. в [Экспорт данных в Яндекс.Облако](https://appmetrica.yandex.ru/docs/cloud/index.html).
+          description: Разрешить доступ для Metrika
           type: boolean
           format: boolean
         serverless:
-          description: Разрешить доступ к кластеру для Serverless.
+          description: Разрешить доступ для Serverless
           type: boolean
           format: boolean
     ClickhouseConfig_in_ConfigSpecClickhouse_config:
@@ -5769,8 +5634,8 @@ components:
       properties:
         resourcePresetId:
           description: |-
-            Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в
-            [документации](/docs/managed-clickhouse/concepts/instance-types).
+            Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и
+            т. д.). Все доступные наборы ресурсов перечислены в [документации](/docs/managed-clickhouse/concepts/instance-types).
           type: string
         diskSize:
           description: Объем хранилища, доступного хосту, в байтах.
@@ -5785,14 +5650,15 @@ components:
           type: string
     Resources_in_ConfigSpecZookeeper_resources:
       description: |-
-        Ресурсы, выделенные хостам ZooKeeper. Если не задано, будет использоваться минимальный доступный набор ресурсов. Все доступные наборы ресурсов можно
-        получить с помощью запроса [list](/docs/managed-clickhouse/api-ref/ResourcePreset/list).
+        Ресурсы, выделенные хостам ZooKeeper. Если не задано, будет использоваться минимальный
+        доступный набор ресурсов. Все доступные наборы ресурсов можно получить с помощью
+        запроса [list](/docs/managed-clickhouse/api-ref/ResourcePreset/list).
       type: object
       properties:
         resourcePresetId:
           description: |-
-            Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в
-            [документации](/docs/managed-clickhouse/concepts/instance-types).
+            Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и
+            т. д.). Все доступные наборы ресурсов перечислены в [документации](/docs/managed-clickhouse/concepts/instance-types).
           type: string
         diskSize:
           description: Объем хранилища, доступного хосту, в байтах.
@@ -5864,8 +5730,10 @@ components:
 
         Среда развертывания.
 
-         - PRODUCTION: Стабильная среда с осторожной политикой обновления: во время регулярного обслуживания применяются только срочные исправления.
-         - PRESTABLE: Среда с более агрессивной политикой обновления: новые версии развертываются независимо от обратной совместимости.
+         - PRODUCTION: Стабильная среда с осторожной политикой обновления: во время регулярного
+        обслуживания применяются только срочные исправления.
+         - PRESTABLE: Среда с более агрессивной политикой обновления: новые версии развертываются
+        независимо от обратной совместимости.
       type: string
       enum:
       - PRODUCTION
@@ -5966,8 +5834,8 @@ components:
       properties:
         resourcePresetId:
           description: |-
-            Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в
-            [документации](/docs/managed-clickhouse/concepts/instance-types).
+            Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и
+            т. д.). Все доступные наборы ресурсов перечислены в [документации](/docs/managed-clickhouse/concepts/instance-types).
           type: string
         diskSize:
           description: Объем хранилища, доступного хосту, в байтах.
@@ -5985,7 +5853,7 @@ components:
         Код работоспособности хоста.
 
          - UNKNOWN: Состояние хоста неизвестно.
-         - ALIVE: Хост работает и выполняет все свои функции.
+         - ALIVE: Хозяин выполняет все свои функции нормально.
          - DEAD: Хост не работает и не может выполнять свои основные функции.
          - DEGRADED: Хост деградировал, и может выполнять только некоторые из своих основных функций.
       type: string
@@ -6021,8 +5889,10 @@ components:
 
         Среда развертывания.
 
-         - PRODUCTION: Стабильная среда с осторожной политикой обновления: во время регулярного обслуживания применяются только срочные исправления.
-         - PRESTABLE: Среда с более агрессивной политикой обновления: новые версии развертываются независимо от обратной совместимости.
+         - PRODUCTION: Стабильная среда с осторожной политикой обновления: во время регулярного
+        обслуживания применяются только срочные исправления.
+         - PRESTABLE: Среда с более агрессивной политикой обновления: новые версии развертываются
+        независимо от обратной совместимости.
       type: string
       enum:
       - PRODUCTION
@@ -6084,7 +5954,6 @@ components:
         weight:
           description: |-
             Относительный вес шарда, который учитывается при записи данных в кластер.
-
             Подробнее см. в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/table_engines/distributed/).
           type: integer
           format: int64
@@ -6104,8 +5973,8 @@ components:
       properties:
         resourcePresetId:
           description: |-
-            Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в
-            [документации](/docs/managed-clickhouse/concepts/instance-types).
+            Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и
+            т. д.). Все доступные наборы ресурсов перечислены в [документации](/docs/managed-clickhouse/concepts/instance-types).
           type: string
         diskSize:
           description: Объем хранилища, доступного хосту, в байтах.
@@ -6222,8 +6091,8 @@ components:
       properties:
         resourcePresetId:
           description: |-
-            Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в
-            [документации](/docs/managed-clickhouse/concepts/instance-types).
+            Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и
+            т. д.). Все доступные наборы ресурсов перечислены в [документации](/docs/managed-clickhouse/concepts/instance-types).
           type: string
         diskSize:
           description: Объем хранилища, доступного хосту, в байтах.
@@ -6236,22 +6105,6 @@ components:
             * network-ssd — сетевой SSD-диск;
             * local-ssd — локальное SSD-хранилище.
           type: string
-    LogRecord_in_StreamLogRecord_record:
-      description: Одна из запрошенных записей в логе.
-      type: object
-      properties:
-        timestamp:
-          description: |-
-            Отметка времени для записи журнала в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) текстовом формате.
-
-            Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-          type: string
-          format: date-time
-        message:
-          description: Содержимое записи в логе.
-          type: object
-          additionalProperties:
-            type: string
     FieldMask_in_UpdateClusterRequest_updateMask:
       description: |-
         Маска, которая указывает, какие поля ресурса Cluster для ClickHouse должны быть изменены.
@@ -6282,7 +6135,7 @@ components:
           $ref: '#/components/schemas/Access_in_ConfigSpec_access'
     FieldMask_in_UpdateClusterShardGroupRequest_updateMask:
       description: |-
-        Маска, которая указывает, какие атрибуты группы шардов должны быть изменены.
+        Маска, которая указывает, какие атрибуты группы должны быть изменены.
 
         Имена всех обновляемых полей, разделенные запятыми.
         Только значения указанных полей будут изменены. Остальные останутся нетронутыми.

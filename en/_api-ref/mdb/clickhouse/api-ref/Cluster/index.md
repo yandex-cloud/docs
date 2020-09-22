@@ -172,12 +172,6 @@ A set of methods for managing ClickHouse clusters.
               ]
             }
           ],
-          "kafka": {
-            "securityProtocol": "string",
-            "saslMechanism": "string",
-            "saslUsername": "string",
-            "saslPassword": "string"
-          },
           "maxConnections": "integer",
           "maxConcurrentQueries": "integer",
           "keepAliveTimeout": "integer",
@@ -355,12 +349,6 @@ A set of methods for managing ClickHouse clusters.
               ]
             }
           ],
-          "kafka": {
-            "securityProtocol": "string",
-            "saslMechanism": "string",
-            "saslUsername": "string",
-            "saslPassword": "string"
-          },
           "maxConnections": "integer",
           "maxConcurrentQueries": "integer",
           "keepAliveTimeout": "integer",
@@ -538,12 +526,6 @@ A set of methods for managing ClickHouse clusters.
               ]
             }
           ],
-          "kafka": {
-            "securityProtocol": "string",
-            "saslMechanism": "string",
-            "saslUsername": "string",
-            "saslPassword": "string"
-          },
           "maxConnections": "integer",
           "maxConcurrentQueries": "integer",
           "keepAliveTimeout": "integer",
@@ -599,9 +581,6 @@ A set of methods for managing ClickHouse clusters.
       "webSql": true,
       "metrika": true,
       "serverless": true
-    },
-    "cloudStorage": {
-      "enabled": true
     }
   },
   "networkId": "string",
@@ -747,11 +726,6 @@ config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>graphiteRollup[].<br>pa
 config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>graphiteRollup[].<br>patterns[].<br>retention[] | **object**<br><p>Required. Age of data to use for thinning.</p> <p>Must contain at least one element.</p> 
 config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>graphiteRollup[].<br>patterns[].<br>retention[].<br>age | **string** (int64)<br><p>Minimum age of the data in seconds.</p> <p>Value must be greater than 0.</p> 
 config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>graphiteRollup[].<br>patterns[].<br>retention[].<br>precision | **string** (int64)<br><p>Precision of determining the age of the data, in seconds.</p> <p>Value must be greater than 0.</p> 
-config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>kafka | **object**<br>
-config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>kafka.<br>securityProtocol | **string**<br>
-config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>kafka.<br>saslMechanism | **string**<br>
-config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>kafka.<br>saslUsername | **string**<br>
-config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>kafka.<br>saslPassword | **string**<br>
 config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>maxConnections | **integer** (int64)<br><p>Maximum number of inbound connections.</p> <p>The minimum value is 10.</p> 
 config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>maxConcurrentQueries | **integer** (int64)<br><p>Maximum number of simultaneously processed requests.</p> <p>The minimum value is 10.</p> 
 config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>keepAliveTimeout | **integer** (int64)<br><p>Number of milliseconds that ClickHouse waits for incoming requests before closing the connection.</p> 
@@ -885,11 +859,6 @@ config.<br>clickhouse.<br>config.<br>userConfig.<br>graphiteRollup[].<br>pattern
 config.<br>clickhouse.<br>config.<br>userConfig.<br>graphiteRollup[].<br>patterns[].<br>retention[] | **object**<br><p>Required. Age of data to use for thinning.</p> <p>Must contain at least one element.</p> 
 config.<br>clickhouse.<br>config.<br>userConfig.<br>graphiteRollup[].<br>patterns[].<br>retention[].<br>age | **string** (int64)<br><p>Minimum age of the data in seconds.</p> <p>Value must be greater than 0.</p> 
 config.<br>clickhouse.<br>config.<br>userConfig.<br>graphiteRollup[].<br>patterns[].<br>retention[].<br>precision | **string** (int64)<br><p>Precision of determining the age of the data, in seconds.</p> <p>Value must be greater than 0.</p> 
-config.<br>clickhouse.<br>config.<br>userConfig.<br>kafka | **object**<br>
-config.<br>clickhouse.<br>config.<br>userConfig.<br>kafka.<br>securityProtocol | **string**<br>
-config.<br>clickhouse.<br>config.<br>userConfig.<br>kafka.<br>saslMechanism | **string**<br>
-config.<br>clickhouse.<br>config.<br>userConfig.<br>kafka.<br>saslUsername | **string**<br>
-config.<br>clickhouse.<br>config.<br>userConfig.<br>kafka.<br>saslPassword | **string**<br>
 config.<br>clickhouse.<br>config.<br>userConfig.<br>maxConnections | **integer** (int64)<br><p>Maximum number of inbound connections.</p> <p>The minimum value is 10.</p> 
 config.<br>clickhouse.<br>config.<br>userConfig.<br>maxConcurrentQueries | **integer** (int64)<br><p>Maximum number of simultaneously processed requests.</p> <p>The minimum value is 10.</p> 
 config.<br>clickhouse.<br>config.<br>userConfig.<br>keepAliveTimeout | **integer** (int64)<br><p>Number of milliseconds that ClickHouse waits for incoming requests before closing the connection.</p> 
@@ -1023,11 +992,6 @@ config.<br>clickhouse.<br>config.<br>defaultConfig.<br>graphiteRollup[].<br>patt
 config.<br>clickhouse.<br>config.<br>defaultConfig.<br>graphiteRollup[].<br>patterns[].<br>retention[] | **object**<br><p>Required. Age of data to use for thinning.</p> <p>Must contain at least one element.</p> 
 config.<br>clickhouse.<br>config.<br>defaultConfig.<br>graphiteRollup[].<br>patterns[].<br>retention[].<br>age | **string** (int64)<br><p>Minimum age of the data in seconds.</p> <p>Value must be greater than 0.</p> 
 config.<br>clickhouse.<br>config.<br>defaultConfig.<br>graphiteRollup[].<br>patterns[].<br>retention[].<br>precision | **string** (int64)<br><p>Precision of determining the age of the data, in seconds.</p> <p>Value must be greater than 0.</p> 
-config.<br>clickhouse.<br>config.<br>defaultConfig.<br>kafka | **object**<br>
-config.<br>clickhouse.<br>config.<br>defaultConfig.<br>kafka.<br>securityProtocol | **string**<br>
-config.<br>clickhouse.<br>config.<br>defaultConfig.<br>kafka.<br>saslMechanism | **string**<br>
-config.<br>clickhouse.<br>config.<br>defaultConfig.<br>kafka.<br>saslUsername | **string**<br>
-config.<br>clickhouse.<br>config.<br>defaultConfig.<br>kafka.<br>saslPassword | **string**<br>
 config.<br>clickhouse.<br>config.<br>defaultConfig.<br>maxConnections | **integer** (int64)<br><p>Maximum number of inbound connections.</p> <p>The minimum value is 10.</p> 
 config.<br>clickhouse.<br>config.<br>defaultConfig.<br>maxConcurrentQueries | **integer** (int64)<br><p>Maximum number of simultaneously processed requests.</p> <p>The minimum value is 10.</p> 
 config.<br>clickhouse.<br>config.<br>defaultConfig.<br>keepAliveTimeout | **integer** (int64)<br><p>Number of milliseconds that ClickHouse waits for incoming requests before closing the connection.</p> 
@@ -1076,8 +1040,6 @@ config.<br>access.<br>dataLens | **boolean** (boolean)<br><p>Allow to export dat
 config.<br>access.<br>webSql | **boolean** (boolean)<br><p>Allow SQL queries to the cluster databases from the Yandex.Cloud management console.</p> <p>See <a href="/docs/managed-clickhouse/operations/web-sql-query">SQL queries in the management console</a> for more details.</p> 
 config.<br>access.<br>metrika | **boolean** (boolean)<br><p>Allow to import data from Yandex.Metrica and AppMetrica to the cluster.</p> <p>See <a href="https://appmetrica.yandex.com/docs/cloud/index.html">Export data to Yandex.Cloud</a> for more details.</p> 
 config.<br>access.<br>serverless | **boolean** (boolean)<br><p>Allow access to cluster for Serverless.</p> 
-config.<br>cloudStorage | **object**<br>
-config.<br>cloudStorage.<br>enabled | **boolean** (boolean)<br><p>Whether to use Yandex Object Storage for storing ClickHouse data.</p> 
 networkId | **string**<br><p>ID of the network that the cluster belongs to.</p> 
 health | **string**<br><p>Aggregated cluster health.</p> <ul> <li>HEALTH_UNKNOWN: State of the cluster is unknown (<code>health</code> for every host in the cluster is UNKNOWN).</li> <li>ALIVE: Cluster is alive and well (<code>health</code> for every host in the cluster is ALIVE).</li> <li>DEAD: Cluster is inoperable (<code>health</code> for every host in the cluster is DEAD).</li> <li>DEGRADED: Cluster is working below capacity (<code>health</code> for at least one host in the cluster is not ALIVE).</li> </ul> 
 status | **string**<br><p>Current state of the cluster.</p> <ul> <li>STATUS_UNKNOWN: Cluster state is unknown.</li> <li>CREATING: Cluster is being created.</li> <li>RUNNING: Cluster is running normally.</li> <li>ERROR: Cluster encountered a problem and cannot operate.</li> <li>UPDATING: Cluster is being updated.</li> <li>STOPPING: Cluster is stopping.</li> <li>STOPPED: Cluster stopped.</li> <li>STARTING: Cluster is starting.</li> </ul> 
@@ -1121,7 +1083,7 @@ Method | Description
 [restore](restore.md) | Creates a new ClickHouse cluster using the specified backup.
 [start](start.md) | Starts the specified ClickHouse cluster.
 [stop](stop.md) | Stops the specified ClickHouse cluster.
-[streamLogs](streamLogs.md) | Same as ListLogs but using server-side streaming. Also allows for `tail -f` semantics.
+[streamLogs](streamLogs.md) | Same as ListLogs but using server-side streaming. Also allows for 'tail -f' semantics.
 [update](update.md) | Updates the specified ClickHouse cluster.
 [updateShard](updateShard.md) | Modifies the specified shard.
 [updateShardGroup](updateShardGroup.md) | Modifies the specified shard group.

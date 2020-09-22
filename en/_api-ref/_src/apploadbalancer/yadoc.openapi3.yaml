@@ -571,52 +571,6 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/CreateLoadBalancerMetadata'
       x-y-operation-response: '[LoadBalancer](/docs/apploadbalancer/api-ref/LoadBalancer#representation)'
-  /apploadbalancer/v1/loadBalancers/{loadBalancerId}:start:
-    post:
-      tags:
-      - LoadBalancer
-      operationId: LoadBalancerStart
-      parameters:
-      - name: loadBalancerId
-        in: path
-        description: Required.
-        required: true
-        schema:
-          type: string
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Operation'
-      x-y-navtitle: start
-      x-y-operation-metadata:
-        $ref: '#/components/schemas/StartLoadBalancerMetadata'
-      x-y-operation-response: '[LoadBalancer](/docs/apploadbalancer/api-ref/LoadBalancer#representation)'
-  /apploadbalancer/v1/loadBalancers/{loadBalancerId}:stop:
-    post:
-      tags:
-      - LoadBalancer
-      operationId: LoadBalancerStop
-      parameters:
-      - name: loadBalancerId
-        in: path
-        description: Required.
-        required: true
-        schema:
-          type: string
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Operation'
-      x-y-navtitle: stop
-      x-y-operation-metadata:
-        $ref: '#/components/schemas/StopLoadBalancerMetadata'
-      x-y-operation-response: '[LoadBalancer](/docs/apploadbalancer/api-ref/LoadBalancer#representation)'
   /apploadbalancer/v1/loadBalancers/{loadBalancerId}:addListener:
     post:
       tags:
@@ -1308,32 +1262,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Target'
-    Address:
-      type: object
-      allOf:
-      - title: address
-        type: object
-        maxProperties: 1
-        properties:
-          externalIpv4Address:
-            $ref: '#/components/schemas/ExternalIpv4Address'
-          internalIpv4Address:
-            $ref: '#/components/schemas/InternalIpv4Address'
-          externalIpv6Address:
-            $ref: '#/components/schemas/ExternalIpv6Address'
-    AddressSpec:
-      type: object
-      allOf:
-      - title: address_spec
-        type: object
-        maxProperties: 1
-        properties:
-          externalIpv4AddressSpec:
-            $ref: '#/components/schemas/ExternalIpv4AddressSpec'
-          internalIpv4AddressSpec:
-            $ref: '#/components/schemas/InternalIpv4AddressSpec'
-          externalIpv6AddressSpec:
-            $ref: '#/components/schemas/ExternalIpv6AddressSpec'
     AllocationPolicy:
       type: object
       properties:
@@ -1501,18 +1429,15 @@ components:
           type: object
           additionalProperties:
             type: string
-        regionId:
-          description: Required.
-          type: string
-        networkId:
-          description: Required.
-          type: string
         listenerSpecs:
           type: array
           items:
             $ref: '#/components/schemas/ListenerSpec'
         allocationPolicy:
           $ref: '#/components/schemas/AllocationPolicy_in_CreateLoadBalancerRequest_allocationPolicy'
+        networkId:
+          description: Required.
+          type: string
     CreateTargetGroupMetadata:
       type: object
       properties:
@@ -1637,67 +1562,13 @@ components:
       description: Empty JSON object `` {} ``.
       type: object
       maxProperties: 0
-    Endpoint:
-      type: object
-      properties:
-        addresses:
-          description: |-
-            Required.
-            Must contain at least one element.
-          type: array
-          items:
-            $ref: '#/components/schemas/Address'
-        ports:
-          description: |-
-            Required.
-            Must contain at least one element.
-            Acceptable values are 1 to 65535, inclusive.
-          type: array
-          items:
-            type: string
-            format: int64
-    EndpointSpec:
-      type: object
-      properties:
-        addressSpecs:
-          description: |-
-            Required.
-            Must contain at least one element.
-          type: array
-          items:
-            $ref: '#/components/schemas/AddressSpec'
-        ports:
-          description: |-
-            Required.
-            Must contain at least one element.
-            Acceptable values are 1 to 65535, inclusive.
-          type: array
-          items:
-            type: string
-            format: int64
-    ExternalIpv4Address:
+    ExternalAddressSpec:
       type: object
       properties:
         address:
           type: string
-    ExternalIpv4AddressSpec:
-      type: object
-      properties:
-        address:
-          type: string
-    ExternalIpv6Address:
-      type: object
-      properties:
-        address:
-          type: string
-    ExternalIpv6AddressSpec:
-      type: object
-      properties:
-        address:
-          type: string
-        yandexOnly:
-          type: boolean
-          format: boolean
+        ipVersion:
+          $ref: '#/components/schemas/ListenerIpVersion_in_ExternalAddressSpec_ipVersion'
     FieldMask:
       description: |-
         A comma-separated names off ALL fields to be updated.
@@ -1754,9 +1625,9 @@ components:
         type: object
         maxProperties: 1
         properties:
-          targetGroups:
-            $ref: '#/components/schemas/TargetGroupsBackend'
-            description: References target groups for the backend.
+          targetGroup:
+            $ref: '#/components/schemas/TargetGroupBackend'
+            description: References target group for the backend.
     GrpcBackendGroup:
       type: object
       properties:
@@ -1985,9 +1856,9 @@ components:
         type: object
         maxProperties: 1
         properties:
-          targetGroups:
-            $ref: '#/components/schemas/TargetGroupsBackend'
-            description: References target groups for the backend.
+          targetGroup:
+            $ref: '#/components/schemas/TargetGroupBackend'
+            description: References target group for the backend.
     HttpBackendGroup:
       type: object
       properties:
@@ -2001,6 +1872,7 @@ components:
       - type: object
         properties:
           httpRouterId:
+            description: Required.
             type: string
       - title: protocol_settings
         type: object
@@ -2099,20 +1971,15 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/VirtualHost'
-    InternalIpv4Address:
+    InternalAddressSpec:
       type: object
       properties:
         address:
           type: string
         subnetId:
           type: string
-    InternalIpv4AddressSpec:
-      type: object
-      properties:
-        address:
-          type: string
-        subnetId:
-          type: string
+        ipVersion:
+          $ref: '#/components/schemas/ListenerIpVersion_in_InternalAddressSpec_ipVersion'
     ListBackendGroupOperationsResponse:
       type: object
       properties:
@@ -2230,11 +2097,23 @@ components:
               Required.
               Name of the listener. The name must be unique for each listener on a single load balancer. 3-63 characters long.
             type: string
-          endpoints:
-            description: Network endpoints (addressees and ports) of the listener.
-            type: array
-            items:
-              $ref: '#/components/schemas/Endpoint'
+          port:
+            description: |-
+              Port.
+
+              Acceptable values are 1 to 65535, inclusive.
+            type: string
+            format: int64
+          address:
+            description: IP address for the listener.
+            type: string
+          subnetId:
+            description: ID of the subnet.
+            type: string
+          ipVersion:
+            $ref: '#/components/schemas/ListenerIpVersion'
+          type:
+            $ref: '#/components/schemas/ListenerType'
       - title: listener
         type: object
         maxProperties: 1
@@ -2243,21 +2122,63 @@ components:
             $ref: '#/components/schemas/HttpListener'
           tls:
             $ref: '#/components/schemas/TlsListener'
+    ListenerIpVersion:
+      type: string
+      enum:
+      - IPV4
+      - IPV6
     ListenerSpec:
       type: object
+      allOf:
+      - type: object
+        properties:
+          name:
+            description: |-
+              Required.
+              Value must match the regular expression `` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
+            type: string
+          port:
+            description: Acceptable values are 1 to 65535, inclusive.
+            type: string
+            format: int64
+      - title: address
+        type: object
+        maxProperties: 1
+        properties:
+          externalAddressSpec:
+            $ref: '#/components/schemas/ExternalAddressSpec'
+          internalAddressSpec:
+            $ref: '#/components/schemas/InternalAddressSpec'
+      - title: listener
+        type: object
+        maxProperties: 1
+        properties:
+          http:
+            $ref: '#/components/schemas/HttpListener'
+          tls:
+            $ref: '#/components/schemas/TlsListener'
+    ListenerTls:
+      type: object
       properties:
-        name:
+        certificateIds:
           description: |-
             Required.
-            Value must match the regular expression `` [a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
-          type: string
-        endpointSpecs:
-          description: |-
-            Required.
+            Certificate IDs in the Certificate Manager.
+            Multiple TLS certificates can be associated with the same context to allow
+            both RSA and ECDSA certificates.
+            Only the first certificate of each type will be used.
+
             Must contain at least one element.
           type: array
           items:
-            $ref: '#/components/schemas/EndpointSpec'
+            type: string
+        tlsOptions:
+          $ref: '#/components/schemas/TlsOptions_in_ListenerTls_tlsOptions'
+    ListenerType:
+      type: string
+      enum:
+      - EXTERNAL
+      - INTERNAL
     LoadBalancer:
       description: A LoadBalancer resource.
       type: object
@@ -2279,14 +2200,6 @@ components:
           type: object
           additionalProperties:
             type: string
-        status:
-          $ref: '#/components/schemas/LoadBalancerStatus_in_LoadBalancer_status'
-        regionId:
-          description: ID of the region that the load balancer located at.
-          type: string
-        networkId:
-          description: ID of the network that the load balancer located at.
-          type: string
         listeners:
           description: List of listeners for the application load balancer.
           type: array
@@ -2296,22 +2209,8 @@ components:
           $ref: '#/components/schemas/AllocationPolicy_in_LoadBalancer_allocationPolicy'
         logGroupId:
           type: string
-    LoadBalancerStatus:
-      description: |2-
-         - CREATING: Application load balancer is being created.
-         - STARTING: Application load balancer is being started.
-         - ACTIVE: Application load balancer is active and sends traffic to the targets.
-         - STOPPING: Application load balancer is being stopped.
-         - STOPPED: Application load balancer is stopped and doesn't send traffic to the targets.
-         - DELETING: Application load balancer is being deleted.
-      type: string
-      enum:
-      - CREATING
-      - STARTING
-      - ACTIVE
-      - STOPPING
-      - STOPPED
-      - DELETING
+        regionId:
+          type: string
     LoadBalancingConfig:
       type: object
       properties:
@@ -2529,15 +2428,11 @@ components:
             type: string
         handler:
           $ref: '#/components/schemas/TlsHandler_in_SniMatch_handler'
-    StartLoadBalancerMetadata:
+    StreamHandler:
       type: object
       properties:
-        loadBalancerId:
-          type: string
-    StopLoadBalancerMetadata:
-      type: object
-      properties:
-        loadBalancerId:
+        backendGroupId:
+          description: Required.
           type: string
     StringMatch:
       type: object
@@ -2597,16 +2492,12 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Target'
-    TargetGroupsBackend:
+    TargetGroupBackend:
       type: object
       properties:
-        targetGroupIds:
-          description: |-
-            Required.
-            Must contain at least one element.
-          type: array
-          items:
-            type: string
+        targetGroupId:
+          description: Required.
+          type: string
     TargetState:
       type: object
       properties:
@@ -2647,24 +2538,15 @@ components:
       allOf:
       - type: object
         properties:
-          certificateIds:
-            description: |-
-              Required.
-              Certificate IDs in the Certificate Manager.
-              Multiple TLS certificates can be associated with the same context to allow
-              both RSA and ECDSA certificates.
-              Only the first certificate of each type will be used.
-
-              Must contain at least one element.
-            type: array
-            items:
-              type: string
-          tlsOptions:
-            $ref: '#/components/schemas/TlsOptions'
+          tls:
+            $ref: '#/components/schemas/ListenerTls'
+            description: Required.
       - title: handler
         type: object
         maxProperties: 1
         properties:
+          streamHandler:
+            $ref: '#/components/schemas/StreamHandler'
           httpHandler:
             $ref: '#/components/schemas/HttpHandler'
     TlsListener:
@@ -3019,19 +2901,34 @@ components:
     ListenerSpec_in_AddListenerRequest_listenerSpec:
       description: Required.
       type: object
-      properties:
-        name:
-          description: |-
-            Required.
-            Value must match the regular expression `` [a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
-          type: string
-        endpointSpecs:
-          description: |-
-            Required.
-            Must contain at least one element.
-          type: array
-          items:
-            $ref: '#/components/schemas/EndpointSpec'
+      allOf:
+      - type: object
+        properties:
+          name:
+            description: |-
+              Required.
+              Value must match the regular expression `` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
+            type: string
+          port:
+            description: Acceptable values are 1 to 65535, inclusive.
+            type: string
+            format: int64
+      - title: address
+        type: object
+        maxProperties: 1
+        properties:
+          externalAddressSpec:
+            $ref: '#/components/schemas/ExternalAddressSpec'
+          internalAddressSpec:
+            $ref: '#/components/schemas/InternalAddressSpec'
+      - title: listener
+        type: object
+        maxProperties: 1
+        properties:
+          http:
+            $ref: '#/components/schemas/HttpListener'
+          tls:
+            $ref: '#/components/schemas/TlsListener'
     TlsOptions_in_BackendTls_tlsOptions:
       description: Common TLS options used for backend TLS connections.
       type: object
@@ -3093,6 +2990,12 @@ components:
 
               The string length in characters must be greater than 0.
             type: string
+    ListenerIpVersion_in_ExternalAddressSpec_ipVersion:
+      description: Required.
+      type: string
+      enum:
+      - IPV4
+      - IPV6
     StringMatch_in_GrpcRouteMatch_fqmn:
       description: If not set, all services/methods are assumed.
       type: object
@@ -3148,11 +3051,13 @@ components:
               The string length in characters must be greater than 0.
             type: string
     HttpHandler_in_HttpListener_handler:
+      description: Required.
       type: object
       allOf:
       - type: object
         properties:
           httpRouterId:
+            description: Required.
             type: string
       - title: protocol_settings
         type: object
@@ -3175,24 +3080,34 @@ components:
             type: string
           prefixMatch:
             type: string
-    LoadBalancerStatus_in_LoadBalancer_status:
-      description: |-
-        Status of the application load balancer.
-
-         - CREATING: Application load balancer is being created.
-         - STARTING: Application load balancer is being started.
-         - ACTIVE: Application load balancer is active and sends traffic to the targets.
-         - STOPPING: Application load balancer is being stopped.
-         - STOPPED: Application load balancer is stopped and doesn't send traffic to the targets.
-         - DELETING: Application load balancer is being deleted.
+    ListenerIpVersion_in_InternalAddressSpec_ipVersion:
+      description: Required.
       type: string
       enum:
-      - CREATING
-      - STARTING
-      - ACTIVE
-      - STOPPING
-      - STOPPED
-      - DELETING
+      - IPV4
+      - IPV6
+    TlsOptions_in_ListenerTls_tlsOptions:
+      type: object
+      properties:
+        tlsMinVersion:
+          $ref: '#/components/schemas/TlsVersion_in_TlsOptions_tlsMinVersion'
+        tlsMaxVersion:
+          $ref: '#/components/schemas/TlsVersion_in_TlsOptions_tlsMaxVersion'
+        cipherSuites:
+          description: |-
+            If specified, the TLS listener will only support the specified cipher list
+            when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not
+            specified, the default list will be used.
+          type: array
+          items:
+            $ref: '#/components/schemas/CipherSuite'
+        ecdhCurves:
+          description: |-
+            If specified, the TLS connection will only support the specified ECDH
+            curves. If not specified, the default curves will be used.
+          type: array
+          items:
+            $ref: '#/components/schemas/EcdhCurve'
     AllocationPolicy_in_LoadBalancer_allocationPolicy:
       description: Allocation sites for application load balancer instances.
       type: object
@@ -3227,24 +3142,15 @@ components:
       allOf:
       - type: object
         properties:
-          certificateIds:
-            description: |-
-              Required.
-              Certificate IDs in the Certificate Manager.
-              Multiple TLS certificates can be associated with the same context to allow
-              both RSA and ECDSA certificates.
-              Only the first certificate of each type will be used.
-
-              Must contain at least one element.
-            type: array
-            items:
-              type: string
-          tlsOptions:
-            $ref: '#/components/schemas/TlsOptions'
+          tls:
+            $ref: '#/components/schemas/ListenerTls'
+            description: Required.
       - title: handler
         type: object
         maxProperties: 1
         properties:
+          streamHandler:
+            $ref: '#/components/schemas/StreamHandler'
           httpHandler:
             $ref: '#/components/schemas/HttpHandler'
     TargetStateHealthcheckStatus_in_TargetState_status:
@@ -3292,24 +3198,15 @@ components:
       allOf:
       - type: object
         properties:
-          certificateIds:
-            description: |-
-              Required.
-              Certificate IDs in the Certificate Manager.
-              Multiple TLS certificates can be associated with the same context to allow
-              both RSA and ECDSA certificates.
-              Only the first certificate of each type will be used.
-
-              Must contain at least one element.
-            type: array
-            items:
-              type: string
-          tlsOptions:
-            $ref: '#/components/schemas/TlsOptions'
+          tls:
+            $ref: '#/components/schemas/ListenerTls'
+            description: Required.
       - title: handler
         type: object
         maxProperties: 1
         properties:
+          streamHandler:
+            $ref: '#/components/schemas/StreamHandler'
           httpHandler:
             $ref: '#/components/schemas/HttpHandler'
     TlsVersion_in_TlsOptions_tlsMinVersion:
@@ -3357,19 +3254,34 @@ components:
     ListenerSpec_in_UpdateListenerRequest_listenerSpec:
       description: Required.
       type: object
-      properties:
-        name:
-          description: |-
-            Required.
-            Value must match the regular expression `` [a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
-          type: string
-        endpointSpecs:
-          description: |-
-            Required.
-            Must contain at least one element.
-          type: array
-          items:
-            $ref: '#/components/schemas/EndpointSpec'
+      allOf:
+      - type: object
+        properties:
+          name:
+            description: |-
+              Required.
+              Value must match the regular expression `` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
+            type: string
+          port:
+            description: Acceptable values are 1 to 65535, inclusive.
+            type: string
+            format: int64
+      - title: address
+        type: object
+        maxProperties: 1
+        properties:
+          externalAddressSpec:
+            $ref: '#/components/schemas/ExternalAddressSpec'
+          internalAddressSpec:
+            $ref: '#/components/schemas/InternalAddressSpec'
+      - title: listener
+        type: object
+        maxProperties: 1
+        properties:
+          http:
+            $ref: '#/components/schemas/HttpListener'
+          tls:
+            $ref: '#/components/schemas/TlsListener'
     FieldMask_in_UpdateLoadBalancerRequest_updateMask:
       description: |-
         A comma-separated names off ALL fields to be updated.

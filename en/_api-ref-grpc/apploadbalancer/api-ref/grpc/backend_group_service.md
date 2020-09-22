@@ -62,8 +62,8 @@ name | **string**<br>Required. Name. false
 backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If not set, backend will be disabled. 
 load_balancing_config | **[LoadBalancingConfig](../backend_group.proto#LoadBalancingConfig)**<br> 
 port | **int64**<br>Port for all targets from target group. Acceptable values are 0 to 65535, inclusive.
-backend_type | **oneof:** `target_groups`<br>
-&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](../backend_group.proto#TargetGroupsBackend)**<br>References target groups for the backend. 
+backend_type | **oneof:** `target_group`<br>
+&nbsp;&nbsp;target_group | **[TargetGroupBackend](../backend_group.proto#TargetGroupBackend)**<br>References target group for the backend. 
 healthchecks[] | **[HealthCheck](../backend_group.proto#HealthCheck)**<br>No health checks means no active health checking will be performed. 
 tls | **[BackendTls](../backend_group.proto#BackendTls)**<br>TLS settings for the upstream. 
 use_http2 | **bool**<br>Enables HTTP2 for upstream requests. If not set, HTTP 1.1 will be used by default. 
@@ -77,11 +77,11 @@ panic_threshold | **int64**<br>If percentage of healthy hosts in the backend is 
 locality_aware_routing_percent | **int64**<br>Percent of traffic to be sent to the same availability zone. The rest will be equally divided between other zones. Acceptable values are 0 to 100, inclusive.
 
 
-### TargetGroupsBackend {#TargetGroupsBackend}
+### TargetGroupBackend {#TargetGroupBackend}
 
 Field | Description
 --- | ---
-target_group_ids[] | **string**<br> The number of elements must be greater than 0.
+target_group_id | **string**<br>Required.  false
 
 
 ### HealthCheck {#HealthCheck}
@@ -167,8 +167,8 @@ name | **string**<br>Required. Name. false
 backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If not set, backend will be disabled. 
 load_balancing_config | **[LoadBalancingConfig](../backend_group.proto#LoadBalancingConfig1)**<br> 
 port | **int64**<br>Port for all targets from target group. Acceptable values are 0 to 65535, inclusive.
-backend_type | **oneof:** `target_groups`<br>
-&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](../backend_group.proto#TargetGroupsBackend1)**<br>References target groups for the backend. 
+backend_type | **oneof:** `target_group`<br>
+&nbsp;&nbsp;target_group | **[TargetGroupBackend](../backend_group.proto#TargetGroupBackend1)**<br>References target group for the backend. 
 healthchecks[] | **[HealthCheck](../backend_group.proto#HealthCheck1)**<br>No health checks means no active health checking will be performed. 
 tls | **[BackendTls](../backend_group.proto#BackendTls1)**<br>TLS settings for the upstream. 
 
@@ -181,11 +181,11 @@ panic_threshold | **int64**<br>If percentage of healthy hosts in the backend is 
 locality_aware_routing_percent | **int64**<br>Percent of traffic to be sent to the same availability zone. The rest will be equally divided between other zones. Acceptable values are 0 to 100, inclusive.
 
 
-### TargetGroupsBackend {#TargetGroupsBackend}
+### TargetGroupBackend {#TargetGroupBackend}
 
 Field | Description
 --- | ---
-target_group_ids[] | **string**<br> The number of elements must be greater than 0.
+target_group_id | **string**<br>Required.  false
 
 
 ### HealthCheck {#HealthCheck}
@@ -309,8 +309,8 @@ name | **string**<br>Required. Name. false
 backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If not set, backend will be disabled. 
 load_balancing_config | **[LoadBalancingConfig](../backend_group.proto#LoadBalancingConfig2)**<br> 
 port | **int64**<br>Port for all targets from target group. Acceptable values are 0 to 65535, inclusive.
-backend_type | **oneof:** `target_groups`<br>
-&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](../backend_group.proto#TargetGroupsBackend2)**<br>References target groups for the backend. 
+backend_type | **oneof:** `target_group`<br>
+&nbsp;&nbsp;target_group | **[TargetGroupBackend](../backend_group.proto#TargetGroupBackend2)**<br>References target group for the backend. 
 healthchecks[] | **[HealthCheck](../backend_group.proto#HealthCheck2)**<br>No health checks means no active health checking will be performed. 
 tls | **[BackendTls](../backend_group.proto#BackendTls2)**<br>TLS settings for the upstream. 
 use_http2 | **bool**<br>Enables HTTP2 for upstream requests. If not set, HTTP 1.1 will be used by default. 
@@ -324,11 +324,11 @@ panic_threshold | **int64**<br>If percentage of healthy hosts in the backend is 
 locality_aware_routing_percent | **int64**<br>Percent of traffic to be sent to the same availability zone. The rest will be equally divided between other zones. Acceptable values are 0 to 100, inclusive.
 
 
-### TargetGroupsBackend {#TargetGroupsBackend}
+### TargetGroupBackend {#TargetGroupBackend}
 
 Field | Description
 --- | ---
-target_group_ids[] | **string**<br> The number of elements must be greater than 0.
+target_group_id | **string**<br>Required.  false
 
 
 ### HealthCheck {#HealthCheck}
@@ -414,8 +414,8 @@ name | **string**<br>Required. Name. false
 backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If not set, backend will be disabled. 
 load_balancing_config | **[LoadBalancingConfig](../backend_group.proto#LoadBalancingConfig3)**<br> 
 port | **int64**<br>Port for all targets from target group. Acceptable values are 0 to 65535, inclusive.
-backend_type | **oneof:** `target_groups`<br>
-&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](../backend_group.proto#TargetGroupsBackend3)**<br>References target groups for the backend. 
+backend_type | **oneof:** `target_group`<br>
+&nbsp;&nbsp;target_group | **[TargetGroupBackend](../backend_group.proto#TargetGroupBackend3)**<br>References target group for the backend. 
 healthchecks[] | **[HealthCheck](../backend_group.proto#HealthCheck3)**<br>No health checks means no active health checking will be performed. 
 tls | **[BackendTls](../backend_group.proto#BackendTls3)**<br>TLS settings for the upstream. 
 
@@ -428,11 +428,11 @@ panic_threshold | **int64**<br>If percentage of healthy hosts in the backend is 
 locality_aware_routing_percent | **int64**<br>Percent of traffic to be sent to the same availability zone. The rest will be equally divided between other zones. Acceptable values are 0 to 100, inclusive.
 
 
-### TargetGroupsBackend {#TargetGroupsBackend}
+### TargetGroupBackend {#TargetGroupBackend}
 
 Field | Description
 --- | ---
-target_group_ids[] | **string**<br> The number of elements must be greater than 0.
+target_group_id | **string**<br>Required.  false
 
 
 ### HealthCheck {#HealthCheck}
@@ -541,8 +541,8 @@ name | **string**<br>Required. Name. false
 backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If not set, backend will be disabled. 
 load_balancing_config | **[LoadBalancingConfig](../backend_group.proto#LoadBalancingConfig4)**<br> 
 port | **int64**<br>Port for all targets from target group. Acceptable values are 0 to 65535, inclusive.
-backend_type | **oneof:** `target_groups`<br>
-&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](../backend_group.proto#TargetGroupsBackend4)**<br>References target groups for the backend. 
+backend_type | **oneof:** `target_group`<br>
+&nbsp;&nbsp;target_group | **[TargetGroupBackend](../backend_group.proto#TargetGroupBackend4)**<br>References target group for the backend. 
 healthchecks[] | **[HealthCheck](../backend_group.proto#HealthCheck4)**<br>No health checks means no active health checking will be performed. 
 tls | **[BackendTls](../backend_group.proto#BackendTls4)**<br>TLS settings for the upstream. 
 use_http2 | **bool**<br>Enables HTTP2 for upstream requests. If not set, HTTP 1.1 will be used by default. 
@@ -556,11 +556,11 @@ panic_threshold | **int64**<br>If percentage of healthy hosts in the backend is 
 locality_aware_routing_percent | **int64**<br>Percent of traffic to be sent to the same availability zone. The rest will be equally divided between other zones. Acceptable values are 0 to 100, inclusive.
 
 
-### TargetGroupsBackend {#TargetGroupsBackend}
+### TargetGroupBackend {#TargetGroupBackend}
 
 Field | Description
 --- | ---
-target_group_ids[] | **string**<br> The number of elements must be greater than 0.
+target_group_id | **string**<br>Required.  false
 
 
 ### HealthCheck {#HealthCheck}
@@ -646,8 +646,8 @@ name | **string**<br>Required. Name. false
 backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If not set, backend will be disabled. 
 load_balancing_config | **[LoadBalancingConfig](../backend_group.proto#LoadBalancingConfig5)**<br> 
 port | **int64**<br>Port for all targets from target group. Acceptable values are 0 to 65535, inclusive.
-backend_type | **oneof:** `target_groups`<br>
-&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](../backend_group.proto#TargetGroupsBackend5)**<br>References target groups for the backend. 
+backend_type | **oneof:** `target_group`<br>
+&nbsp;&nbsp;target_group | **[TargetGroupBackend](../backend_group.proto#TargetGroupBackend5)**<br>References target group for the backend. 
 healthchecks[] | **[HealthCheck](../backend_group.proto#HealthCheck5)**<br>No health checks means no active health checking will be performed. 
 tls | **[BackendTls](../backend_group.proto#BackendTls5)**<br>TLS settings for the upstream. 
 
@@ -660,11 +660,11 @@ panic_threshold | **int64**<br>If percentage of healthy hosts in the backend is 
 locality_aware_routing_percent | **int64**<br>Percent of traffic to be sent to the same availability zone. The rest will be equally divided between other zones. Acceptable values are 0 to 100, inclusive.
 
 
-### TargetGroupsBackend {#TargetGroupsBackend}
+### TargetGroupBackend {#TargetGroupBackend}
 
 Field | Description
 --- | ---
-target_group_ids[] | **string**<br> The number of elements must be greater than 0.
+target_group_id | **string**<br>Required.  false
 
 
 ### HealthCheck {#HealthCheck}
@@ -811,8 +811,8 @@ name | **string**<br>Required. Name. false
 backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If not set, backend will be disabled. 
 load_balancing_config | **[LoadBalancingConfig](../backend_group.proto#LoadBalancingConfig6)**<br> 
 port | **int64**<br>Port for all targets from target group. Acceptable values are 0 to 65535, inclusive.
-backend_type | **oneof:** `target_groups`<br>
-&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](../backend_group.proto#TargetGroupsBackend6)**<br>References target groups for the backend. 
+backend_type | **oneof:** `target_group`<br>
+&nbsp;&nbsp;target_group | **[TargetGroupBackend](../backend_group.proto#TargetGroupBackend6)**<br>References target group for the backend. 
 healthchecks[] | **[HealthCheck](../backend_group.proto#HealthCheck6)**<br>No health checks means no active health checking will be performed. 
 tls | **[BackendTls](../backend_group.proto#BackendTls6)**<br>TLS settings for the upstream. 
 use_http2 | **bool**<br>Enables HTTP2 for upstream requests. If not set, HTTP 1.1 will be used by default. 
@@ -826,11 +826,11 @@ panic_threshold | **int64**<br>If percentage of healthy hosts in the backend is 
 locality_aware_routing_percent | **int64**<br>Percent of traffic to be sent to the same availability zone. The rest will be equally divided between other zones. Acceptable values are 0 to 100, inclusive.
 
 
-### TargetGroupsBackend {#TargetGroupsBackend}
+### TargetGroupBackend {#TargetGroupBackend}
 
 Field | Description
 --- | ---
-target_group_ids[] | **string**<br> The number of elements must be greater than 0.
+target_group_id | **string**<br>Required.  false
 
 
 ### HealthCheck {#HealthCheck}
@@ -916,8 +916,8 @@ name | **string**<br>Required. Name. false
 backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If not set, backend will be disabled. 
 load_balancing_config | **[LoadBalancingConfig](../backend_group.proto#LoadBalancingConfig7)**<br> 
 port | **int64**<br>Port for all targets from target group. Acceptable values are 0 to 65535, inclusive.
-backend_type | **oneof:** `target_groups`<br>
-&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](../backend_group.proto#TargetGroupsBackend7)**<br>References target groups for the backend. 
+backend_type | **oneof:** `target_group`<br>
+&nbsp;&nbsp;target_group | **[TargetGroupBackend](../backend_group.proto#TargetGroupBackend7)**<br>References target group for the backend. 
 healthchecks[] | **[HealthCheck](../backend_group.proto#HealthCheck7)**<br>No health checks means no active health checking will be performed. 
 tls | **[BackendTls](../backend_group.proto#BackendTls7)**<br>TLS settings for the upstream. 
 
@@ -930,11 +930,11 @@ panic_threshold | **int64**<br>If percentage of healthy hosts in the backend is 
 locality_aware_routing_percent | **int64**<br>Percent of traffic to be sent to the same availability zone. The rest will be equally divided between other zones. Acceptable values are 0 to 100, inclusive.
 
 
-### TargetGroupsBackend {#TargetGroupsBackend}
+### TargetGroupBackend {#TargetGroupBackend}
 
 Field | Description
 --- | ---
-target_group_ids[] | **string**<br> The number of elements must be greater than 0.
+target_group_id | **string**<br>Required.  false
 
 
 ### HealthCheck {#HealthCheck}
@@ -1110,8 +1110,8 @@ name | **string**<br>Required. Name. false
 backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If not set, backend will be disabled. 
 load_balancing_config | **[LoadBalancingConfig](../backend_group.proto#LoadBalancingConfig8)**<br> 
 port | **int64**<br>Port for all targets from target group. Acceptable values are 0 to 65535, inclusive.
-backend_type | **oneof:** `target_groups`<br>
-&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](../backend_group.proto#TargetGroupsBackend8)**<br>References target groups for the backend. 
+backend_type | **oneof:** `target_group`<br>
+&nbsp;&nbsp;target_group | **[TargetGroupBackend](../backend_group.proto#TargetGroupBackend8)**<br>References target group for the backend. 
 healthchecks[] | **[HealthCheck](../backend_group.proto#HealthCheck8)**<br>No health checks means no active health checking will be performed. 
 tls | **[BackendTls](../backend_group.proto#BackendTls8)**<br>TLS settings for the upstream. 
 use_http2 | **bool**<br>Enables HTTP2 for upstream requests. If not set, HTTP 1.1 will be used by default. 
@@ -1125,11 +1125,11 @@ panic_threshold | **int64**<br>If percentage of healthy hosts in the backend is 
 locality_aware_routing_percent | **int64**<br>Percent of traffic to be sent to the same availability zone. The rest will be equally divided between other zones. Acceptable values are 0 to 100, inclusive.
 
 
-### TargetGroupsBackend {#TargetGroupsBackend}
+### TargetGroupBackend {#TargetGroupBackend}
 
 Field | Description
 --- | ---
-target_group_ids[] | **string**<br> The number of elements must be greater than 0.
+target_group_id | **string**<br>Required.  false
 
 
 ### HealthCheck {#HealthCheck}
@@ -1208,8 +1208,8 @@ name | **string**<br>Required. Name. false
 backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If not set, backend will be disabled. 
 load_balancing_config | **[LoadBalancingConfig](../backend_group.proto#LoadBalancingConfig9)**<br> 
 port | **int64**<br>Port for all targets from target group. Acceptable values are 0 to 65535, inclusive.
-backend_type | **oneof:** `target_groups`<br>
-&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](../backend_group.proto#TargetGroupsBackend9)**<br>References target groups for the backend. 
+backend_type | **oneof:** `target_group`<br>
+&nbsp;&nbsp;target_group | **[TargetGroupBackend](../backend_group.proto#TargetGroupBackend9)**<br>References target group for the backend. 
 healthchecks[] | **[HealthCheck](../backend_group.proto#HealthCheck9)**<br>No health checks means no active health checking will be performed. 
 tls | **[BackendTls](../backend_group.proto#BackendTls9)**<br>TLS settings for the upstream. 
 
@@ -1222,11 +1222,11 @@ panic_threshold | **int64**<br>If percentage of healthy hosts in the backend is 
 locality_aware_routing_percent | **int64**<br>Percent of traffic to be sent to the same availability zone. The rest will be equally divided between other zones. Acceptable values are 0 to 100, inclusive.
 
 
-### TargetGroupsBackend {#TargetGroupsBackend}
+### TargetGroupBackend {#TargetGroupBackend}
 
 Field | Description
 --- | ---
-target_group_ids[] | **string**<br> The number of elements must be greater than 0.
+target_group_id | **string**<br>Required.  false
 
 
 ### HealthCheck {#HealthCheck}
@@ -1420,8 +1420,8 @@ name | **string**<br>Required. Name. false
 backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If not set, backend will be disabled. 
 load_balancing_config | **[LoadBalancingConfig](../backend_group.proto#LoadBalancingConfig10)**<br> 
 port | **int64**<br>Port for all targets from target group. Acceptable values are 0 to 65535, inclusive.
-backend_type | **oneof:** `target_groups`<br>
-&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](../backend_group.proto#TargetGroupsBackend10)**<br>References target groups for the backend. 
+backend_type | **oneof:** `target_group`<br>
+&nbsp;&nbsp;target_group | **[TargetGroupBackend](../backend_group.proto#TargetGroupBackend10)**<br>References target group for the backend. 
 healthchecks[] | **[HealthCheck](../backend_group.proto#HealthCheck10)**<br>No health checks means no active health checking will be performed. 
 tls | **[BackendTls](../backend_group.proto#BackendTls10)**<br>TLS settings for the upstream. 
 use_http2 | **bool**<br>Enables HTTP2 for upstream requests. If not set, HTTP 1.1 will be used by default. 
@@ -1435,11 +1435,11 @@ panic_threshold | **int64**<br>If percentage of healthy hosts in the backend is 
 locality_aware_routing_percent | **int64**<br>Percent of traffic to be sent to the same availability zone. The rest will be equally divided between other zones. Acceptable values are 0 to 100, inclusive.
 
 
-### TargetGroupsBackend {#TargetGroupsBackend}
+### TargetGroupBackend {#TargetGroupBackend}
 
 Field | Description
 --- | ---
-target_group_ids[] | **string**<br> The number of elements must be greater than 0.
+target_group_id | **string**<br>Required.  false
 
 
 ### HealthCheck {#HealthCheck}
@@ -1518,8 +1518,8 @@ name | **string**<br>Required. Name. false
 backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If not set, backend will be disabled. 
 load_balancing_config | **[LoadBalancingConfig](../backend_group.proto#LoadBalancingConfig11)**<br> 
 port | **int64**<br>Port for all targets from target group. Acceptable values are 0 to 65535, inclusive.
-backend_type | **oneof:** `target_groups`<br>
-&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](../backend_group.proto#TargetGroupsBackend11)**<br>References target groups for the backend. 
+backend_type | **oneof:** `target_group`<br>
+&nbsp;&nbsp;target_group | **[TargetGroupBackend](../backend_group.proto#TargetGroupBackend11)**<br>References target group for the backend. 
 healthchecks[] | **[HealthCheck](../backend_group.proto#HealthCheck11)**<br>No health checks means no active health checking will be performed. 
 tls | **[BackendTls](../backend_group.proto#BackendTls11)**<br>TLS settings for the upstream. 
 
@@ -1532,11 +1532,11 @@ panic_threshold | **int64**<br>If percentage of healthy hosts in the backend is 
 locality_aware_routing_percent | **int64**<br>Percent of traffic to be sent to the same availability zone. The rest will be equally divided between other zones. Acceptable values are 0 to 100, inclusive.
 
 
-### TargetGroupsBackend {#TargetGroupsBackend}
+### TargetGroupBackend {#TargetGroupBackend}
 
 Field | Description
 --- | ---
-target_group_ids[] | **string**<br> The number of elements must be greater than 0.
+target_group_id | **string**<br>Required.  false
 
 
 ### HealthCheck {#HealthCheck}

@@ -2271,8 +2271,6 @@ components:
       type: string
       enum:
       - MONGOD
-      - MONGOS
-      - MONGOCFG
     ListClusterLogsResponse:
       type: object
       properties:
@@ -3932,8 +3930,6 @@ components:
       type: string
       enum:
       - MONGOD
-      - MONGOS
-      - MONGOCFG
     StreamLogRecord:
       type: object
       properties:

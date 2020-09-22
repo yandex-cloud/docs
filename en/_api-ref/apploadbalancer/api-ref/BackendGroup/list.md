@@ -97,10 +97,8 @@ filter | The maximum string length in characters is 1000.
               }
             },
             "useHttp2": true,
-            "targetGroups": {
-              "targetGroupIds": [
-                "string"
-              ]
+            "targetGroup": {
+              "targetGroupId": "string"
             }
           }
         ]
@@ -166,10 +164,8 @@ filter | The maximum string length in characters is 1000.
 
               }
             },
-            "targetGroups": {
-              "targetGroupIds": [
-                "string"
-              ]
+            "targetGroup": {
+              "targetGroupId": "string"
             }
           }
         ]
@@ -228,8 +224,8 @@ backendGroups[].<br>http.<br>backends[].<br>tls.<br>validationContext | **object
 backendGroups[].<br>http.<br>backends[].<br>tls.<br>validationContext.<br>trustedCaId | **string** <br>`backendGroups[].http.backends[].tls.validationContext` includes only one of the fields `trustedCaId`, `trustedCaBytes`<br><br><p>Trusted CA certificate ID in the Certificate Manager.</p> 
 backendGroups[].<br>http.<br>backends[].<br>tls.<br>validationContext.<br>trustedCaBytes | **string** <br>`backendGroups[].http.backends[].tls.validationContext` includes only one of the fields `trustedCaId`, `trustedCaBytes`<br><br><p>Trusted CA blob.</p> 
 backendGroups[].<br>http.<br>backends[].<br>useHttp2 | **boolean** (boolean)<br><p>Enables HTTP2 for upstream requests. If not set, HTTP 1.1 will be used by default.</p> 
-backendGroups[].<br>http.<br>backends[].<br>targetGroups | **object**<br>References target groups for the backend.<br>
-backendGroups[].<br>http.<br>backends[].<br>targetGroups.<br>targetGroupIds[] | **string**<br><p>Required. Must contain at least one element.</p> 
+backendGroups[].<br>http.<br>backends[].<br>targetGroup | **object**<br>References target group for the backend.<br>
+backendGroups[].<br>http.<br>backends[].<br>targetGroup.<br>targetGroupId | **string**<br><p>Required.</p> 
 backendGroups[].<br>grpc | **object** <br>`backendGroups[]` includes only one of the fields `http`, `grpc`<br><br>
 backendGroups[].<br>grpc.<br>backends[] | **object**<br>
 backendGroups[].<br>grpc.<br>backends[].<br>name | **string**<br><p>Required. Name.</p> 
@@ -266,6 +262,6 @@ backendGroups[].<br>grpc.<br>backends[].<br>tls.<br>tlsOptions.<br>ecdhCurves[] 
 backendGroups[].<br>grpc.<br>backends[].<br>tls.<br>validationContext | **object**<br><p>Validation context for backend TLS connections.</p> 
 backendGroups[].<br>grpc.<br>backends[].<br>tls.<br>validationContext.<br>trustedCaId | **string** <br>`backendGroups[].grpc.backends[].tls.validationContext` includes only one of the fields `trustedCaId`, `trustedCaBytes`<br><br><p>Trusted CA certificate ID in the Certificate Manager.</p> 
 backendGroups[].<br>grpc.<br>backends[].<br>tls.<br>validationContext.<br>trustedCaBytes | **string** <br>`backendGroups[].grpc.backends[].tls.validationContext` includes only one of the fields `trustedCaId`, `trustedCaBytes`<br><br><p>Trusted CA blob.</p> 
-backendGroups[].<br>grpc.<br>backends[].<br>targetGroups | **object**<br>References target groups for the backend.<br>
-backendGroups[].<br>grpc.<br>backends[].<br>targetGroups.<br>targetGroupIds[] | **string**<br><p>Required. Must contain at least one element.</p> 
+backendGroups[].<br>grpc.<br>backends[].<br>targetGroup | **object**<br>References target group for the backend.<br>
+backendGroups[].<br>grpc.<br>backends[].<br>targetGroup.<br>targetGroupId | **string**<br><p>Required.</p> 
 nextPageToken | **string**<br>

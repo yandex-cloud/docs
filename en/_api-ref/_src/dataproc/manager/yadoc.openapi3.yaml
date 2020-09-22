@@ -186,8 +186,6 @@ components:
             for synchronization purposes
           type: string
           format: int64
-        livy:
-          $ref: '#/components/schemas/LivyInfo_in_Info_livy'
     Job:
       description: Data Proc job.
       type: object
@@ -268,12 +266,6 @@ components:
             the `page_token` parameter in the next ListClusters request. Subsequent ListClusters
             requests will have their own `next_page_token` to continue paging through the results.
           type: string
-    LivyInfo:
-      type: object
-      properties:
-        alive:
-          type: boolean
-          format: boolean
     MapreduceJob:
       type: object
       allOf:
@@ -578,12 +570,6 @@ components:
           items:
             $ref: '#/components/schemas/HbaseNodeInfo'
     OozieInfo_in_Info_oozie:
-      type: object
-      properties:
-        alive:
-          type: boolean
-          format: boolean
-    LivyInfo_in_Info_livy:
       type: object
       properties:
         alive:

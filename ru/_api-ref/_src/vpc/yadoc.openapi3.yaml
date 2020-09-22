@@ -1029,9 +1029,6 @@ components:
           type: object
           additionalProperties:
             type: string
-        defaultSecurityGroupId:
-          description: Идентификатор группы безопасности по умолчанию.
-          type: string
     Operation:
       description: |-
         Ресурс Operation. Дополнительные сведения см. в разделе

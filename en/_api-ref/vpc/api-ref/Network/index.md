@@ -12,8 +12,7 @@ A set of methods for managing Network resources.
   "createdAt": "string",
   "name": "string",
   "description": "string",
-  "labels": "object",
-  "defaultSecurityGroupId": "string"
+  "labels": "object"
 }
 ```
  
@@ -25,7 +24,6 @@ createdAt | **string** (date-time)<br><p>Creation timestamp in <a href="https://
 name | **string**<br><p>Name of the network. The name is unique within the folder. 3-63 characters long.</p> 
 description | **string**<br><p>Optional description of the network. 0-256 characters long.</p> 
 labels | **object**<br><p>Resource labels as <code>key:value</code> pairs. Мaximum of 64 per resource.</p> 
-defaultSecurityGroupId | **string**<br><p>ID of default security group for network.</p> 
 
 ## Methods {#methods}
 Method | Description

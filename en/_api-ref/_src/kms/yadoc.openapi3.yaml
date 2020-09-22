@@ -541,8 +541,6 @@ paths:
 
           To get the resource ID, use a corresponding List request.
           For example, use the [list](/docs/resource-manager/api-ref/Cloud/list) request to get the Cloud resource ID.
-
-          The maximum string length in characters is 50.
         required: true
         schema:
           type: string
@@ -591,8 +589,6 @@ paths:
           ID of the resource for which access bindings are being set.
 
           To get the resource ID, use a corresponding List request.
-
-          The maximum string length in characters is 50.
         required: true
         schema:
           type: string
@@ -625,8 +621,6 @@ paths:
         description: |-
           Required.
           ID of the resource for which access bindings are being updated.
-
-          The maximum string length in characters is 50.
         required: true
         schema:
           type: string
@@ -654,7 +648,6 @@ components:
       properties:
         roleId:
           description: |-
-            Required.
             ID of the [Role](/docs/iam/api-ref/Role#representation) that is assigned to the `subject`.
 
             The maximum string length in characters is 50.
@@ -1016,7 +1009,6 @@ components:
       properties:
         id:
           description: |-
-            Required.
             ID of the subject.
 
             It can contain one of the following values:
@@ -1031,7 +1023,6 @@ components:
           type: string
         type:
           description: |-
-            Required.
             Type of the subject.
 
             It can contain one of the following values:
@@ -1041,8 +1032,6 @@ components:
             * `system`: System group. This type represents several accounts with a common system identifier.
 
             For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject).
-
-            The maximum string length in characters is 100.
           type: string
     SymmetricAlgorithm:
       description: |-
@@ -1317,8 +1306,6 @@ components:
           description: |-
             Required.
             Updates to access bindings.
-
-            Must contain at least one element.
           type: array
           items:
             $ref: '#/components/schemas/AccessBindingDelta'
@@ -1389,7 +1376,6 @@ components:
       properties:
         id:
           description: |-
-            Required.
             ID of the subject.
 
             It can contain one of the following values:
@@ -1404,7 +1390,6 @@ components:
           type: string
         type:
           description: |-
-            Required.
             Type of the subject.
 
             It can contain one of the following values:
@@ -1414,8 +1399,6 @@ components:
             * `system`: System group. This type represents several accounts with a common system identifier.
 
             For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject).
-
-            The maximum string length in characters is 100.
           type: string
     AccessBindingAction_in_AccessBindingDelta_action:
       description: |-
@@ -1436,7 +1419,6 @@ components:
       properties:
         roleId:
           description: |-
-            Required.
             ID of the [Role](/docs/iam/api-ref/Role#representation) that is assigned to the `subject`.
 
             The maximum string length in characters is 50.

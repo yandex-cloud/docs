@@ -84,10 +84,8 @@ backendGroupId | Required.
       }
     },
     "useHttp2": true,
-    "targetGroups": {
-      "targetGroupIds": [
-        "string"
-      ]
+    "targetGroup": {
+      "targetGroupId": "string"
     }
   },
   "grpc": {
@@ -149,10 +147,8 @@ backendGroupId | Required.
 
       }
     },
-    "targetGroups": {
-      "targetGroupIds": [
-        "string"
-      ]
+    "targetGroup": {
+      "targetGroupId": "string"
     }
   },
   // end of the list of possible fields
@@ -199,8 +195,8 @@ http.<br>tls.<br>validationContext | **object**<br><p>Validation context for bac
 http.<br>tls.<br>validationContext.<br>trustedCaId | **string** <br>`http.tls.validationContext` includes only one of the fields `trustedCaId`, `trustedCaBytes`<br><br><p>Trusted CA certificate ID in the Certificate Manager.</p> 
 http.<br>tls.<br>validationContext.<br>trustedCaBytes | **string** <br>`http.tls.validationContext` includes only one of the fields `trustedCaId`, `trustedCaBytes`<br><br><p>Trusted CA blob.</p> 
 http.<br>useHttp2 | **boolean** (boolean)<br><p>Enables HTTP2 for upstream requests. If not set, HTTP 1.1 will be used by default.</p> 
-http.<br>targetGroups | **object**<br>References target groups for the backend.<br>
-http.<br>targetGroups.<br>targetGroupIds[] | **string**<br><p>Required. Must contain at least one element.</p> 
+http.<br>targetGroup | **object**<br>References target group for the backend.<br>
+http.<br>targetGroup.<br>targetGroupId | **string**<br><p>Required.</p> 
 grpc | **object** <br> includes only one of the fields `http`, `grpc`<br><br>
 grpc.<br>name | **string**<br><p>Required. Name.</p> 
 grpc.<br>backendWeight | **integer** (int64)<br><p>Traffic will be split between backends of the same BackendGroup according to their weights. If not set, backend will be disabled.</p> 
@@ -236,8 +232,8 @@ grpc.<br>tls.<br>tlsOptions.<br>ecdhCurves[] | **string**<br><p>If specified, th
 grpc.<br>tls.<br>validationContext | **object**<br><p>Validation context for backend TLS connections.</p> 
 grpc.<br>tls.<br>validationContext.<br>trustedCaId | **string** <br>`grpc.tls.validationContext` includes only one of the fields `trustedCaId`, `trustedCaBytes`<br><br><p>Trusted CA certificate ID in the Certificate Manager.</p> 
 grpc.<br>tls.<br>validationContext.<br>trustedCaBytes | **string** <br>`grpc.tls.validationContext` includes only one of the fields `trustedCaId`, `trustedCaBytes`<br><br><p>Trusted CA blob.</p> 
-grpc.<br>targetGroups | **object**<br>References target groups for the backend.<br>
-grpc.<br>targetGroups.<br>targetGroupIds[] | **string**<br><p>Required. Must contain at least one element.</p> 
+grpc.<br>targetGroup | **object**<br>References target group for the backend.<br>
+grpc.<br>targetGroup.<br>targetGroupId | **string**<br><p>Required.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

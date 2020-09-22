@@ -62,7 +62,7 @@ Field | Description
 folder_id | **string**<br>Required. ID of the folder to list API gateways in. <br>To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. false
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `pageSize`, the service returns a [ListApiGatewayResponse.next_page_token](#ListApiGatewayResponse) that can be used to get the next page of results in subsequent list requests. <br>Default value: 100. 
 page_token | **string**<br>Page token. To get the next page of results, set `pageToken` to the [ListApiGatewayResponse.next_page_token](#ListApiGatewayResponse) returned by a previous list request. 
-filter | **string**<br><ol><li>The field name. Currently filtering can only be applied to the [ApiGateway.name](../apigateway.proto#ApiGateway1) field. </li><li>A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` </li><li>The value. Must be 1-63 characters long and match the regular expression `^[a-z]([-a-z0-9]{0,61}[a-z0-9])?$`. </li></ol> 
+filter | **string**<br><ol><li>The field name. Currently filtering can only be applied to the [ApiGateway.name](../apigateway.proto#ApiGateway1) field. </li><li>A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. </li></ol> 
 
 
 ### ListApiGatewayResponse {#ListApiGatewayResponse}
@@ -103,9 +103,9 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 folder_id | **string**<br>Required. ID of the folder to create an API gateway in. <br>To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. false
-name | **string**<br>Name of the API gateway. The name must be unique within the folder. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
+name | **string**<br>Name of the API gateway. The name must be unique within the folder. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>Description of the API gateway. The maximum string length in characters is 256.
-labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 spec | **oneof:** `openapi_spec`<br>OpenAPI specification of API gateway.
 &nbsp;&nbsp;openapi_spec | **string**<br>The text of specification, JSON or YAML. 
 
@@ -164,9 +164,9 @@ Field | Description
 --- | ---
 api_gateway_id | **string**<br>Required. ID of the API gateway to update. <br>To get a API gateway ID make a [ApiGatewayService.List](#List) request. false
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which attributes of the API gateway should be updated. 
-name | **string**<br>New name for the API gateway. The name must be unique within the folder. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
+name | **string**<br>New name for the API gateway. The name must be unique within the folder. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>New description for the API gateway. The maximum string length in characters is 256.
-labels | **map<string,string>**<br>API gateway labels as `key:value` pairs. <br>Existing set of labels is completely replaced by the provided set, so if you just want to add or remove a label, request the current set of labels with a [ApiGatewayService.Get](#Get) request. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
+labels | **map<string,string>**<br>API gateway labels as `key:value` pairs. <br>Existing set of labels is completely replaced by the provided set, so if you just want to add or remove a label, request the current set of labels with a [ApiGatewayService.Get](#Get) request. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 spec | **oneof:** `openapi_spec`<br>New OpenAPI specification of API gateway.
 &nbsp;&nbsp;openapi_spec | **string**<br>The text of specification, JSON or YAML. 
 

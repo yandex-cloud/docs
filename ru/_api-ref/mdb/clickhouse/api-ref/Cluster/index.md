@@ -518,24 +518,17 @@ editable: false
       "minutes": "integer",
       "seconds": "integer",
       "nanos": "integer"
-    },
-    "access": {
-      "dataLens": true,
-      "webSql": true,
-      "metrika": true,
-      "serverless": true
     }
   },
   "networkId": "string",
   "health": "string",
-  "status": "string",
-  "serviceAccountId": "string"
+  "status": "string"
 }
 ```
  
 Поле | Описание
 --- | ---
-id | **string**<br><p>Идентификатор кластера ClickHouse. Этот идентификатор генерирует MDB при создании кластера.</p> 
+id | **string**<br><p>Идентификатор кластера ClickHouse. Этот идентификатор генерирует MDB при создании.</p> 
 folderId | **string**<br><p>Идентификатор каталога, которому принадлежит кластер ClickHouse.</p> 
 createdAt | **string** (date-time)<br><p>Время создания в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> .</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
 name | **string**<br><p>Имя кластера ClickHouse. Имя уникально в рамках каталога. Длина 1-63 символов.</p> 
@@ -901,20 +894,14 @@ config.<br>zookeeper.<br>resources | **object**<br><p>Ресурсы, выдел
 config.<br>zookeeper.<br>resources.<br>resourcePresetId | **string**<br><p>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в <a href="/docs/managed-clickhouse/concepts/instance-types">документации</a>.</p> 
 config.<br>zookeeper.<br>resources.<br>diskSize | **string** (int64)<br><p>Объем хранилища, доступного хосту, в байтах.</p> 
 config.<br>zookeeper.<br>resources.<br>diskTypeId | **string**<br><p>Тип хранилища для хоста. Возможные значения:</p> <ul> <li>network-hdd — сетевой HDD-диск;</li> <li>network-ssd — сетевой SSD-диск;</li> <li>local-ssd — локальное SSD-хранилище.</li> </ul> 
-config.<br>backupWindowStart | **object**<br><p>Время запуска ежедневного резервного копирования, в часовом поясе UTC.</p> <p>Время суток. Дата и часовой пояс либо не учитываются, либо задаются в других местах.</p> <p>API может разрешить использование високосной секунды.</p> <p>Связанные типы: <a href="https://github.com/googleapis/googleapis/blob/master/google/type/date.proto">google.type.Date</a> и <a href="https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto">google.protobuf.Timestamp</a>.</p> 
-config.<br>backupWindowStart.<br>hours | **integer** (int32)<br><p>Часы. Допустимые значения: от 0 до 23.</p> <p>API может разрешить использовать значение в формате &quot;24:00:00&quot; в требующих этого сценариях (например, для указания времени закрытия учреждения).</p> 
-config.<br>backupWindowStart.<br>minutes | **integer** (int32)<br><p>Минуты. Допустимые значения: от 0 до 59.</p> 
-config.<br>backupWindowStart.<br>seconds | **integer** (int32)<br><p>Секунды. Стандартные допустимые значения: от 0 до 59.</p> <p>API может разрешить использовать значение 60, если также разрешено использование високосной секунды.</p> 
-config.<br>backupWindowStart.<br>nanos | **integer** (int32)<br><p>Доли секунды (в наносекундах). Допустимые значения: от 0 до 999999999.</p> 
-config.<br>access | **object**<br><p>Политика доступа для внешних сервисов.</p> 
-config.<br>access.<br>dataLens | **boolean** (boolean)<br><p>Разрешить экспорт данных из кластера в Yandex DataLens.</p> 
-config.<br>access.<br>webSql | **boolean** (boolean)<br><p>Разрешить SQL-запросы к базам данных кластера из консоли управления облаком.</p> <p>Подробнее см. в <a href="/docs/managed-clickhouse/operations/web-sql-query">SQL-запросы в консоли управления</a>.</p> 
-config.<br>access.<br>metrika | **boolean** (boolean)<br><p>Разрешить импорт данных из Яндекс.Метрики и AppMetrica в кластер.</p> <p>Подробнее см. в <a href="https://appmetrica.yandex.ru/docs/cloud/index.html">Экспорт данных в Яндекс.Облако</a>.</p> 
-config.<br>access.<br>serverless | **boolean** (boolean)<br><p>Разрешить доступ к кластеру для Serverless.</p> 
+config.<br>backupWindowStart | **object**<br><p>Время запуска ежедневного резервного копирования, в часовом поясе UTC.</p> <p>Represents a time of day. The date and time zone are either not significant or are specified elsewhere. An API may choose to allow leap seconds. Related types are <a href="https://github.com/googleapis/googleapis/blob/master/google/type/date.proto">google.type.Date</a> and <a href="https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto">google.protobuf.Timestamp</a>.</p> 
+config.<br>backupWindowStart.<br>hours | **integer** (int32)<br><p>Hours of day in 24 hour format. Should be from 0 to 23. An API may choose to allow the value &quot;24:00:00&quot; for scenarios like business closing time.</p> 
+config.<br>backupWindowStart.<br>minutes | **integer** (int32)<br><p>Minutes of hour of day. Must be from 0 to 59.</p> 
+config.<br>backupWindowStart.<br>seconds | **integer** (int32)<br><p>Seconds of minutes of the time. Must normally be from 0 to 59. An API may allow the value 60 if it allows leap-seconds.</p> 
+config.<br>backupWindowStart.<br>nanos | **integer** (int32)<br><p>Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.</p> 
 networkId | **string**<br><p>Идентификатор сети, к которой принадлежит кластер.</p> 
-health | **string**<br><p>Здоровье кластера.</p> <ul> <li>HEALTH_UNKNOWN: Состояние кластера неизвестно (<code>health</code> для каждого хоста в кластере — UNKNOWN).</li> <li>ALIVE: Кластер работает нормально (<code>health</code> для каждого хоста в кластере — ALIVE).</li> <li>DEAD: Кластер не работает (<code>health</code> для каждого хоста в кластере — DEAD).</li> <li>DEGRADED: Кластер работает неоптимально (<code>health</code> по крайней мере для одного хоста в кластере не ALIVE).</li> </ul> 
-status | **string**<br><p>Текущее состояние кластера.</p> <ul> <li>STATUS_UNKNOWN: Состояние кластера неизвестно.</li> <li>CREATING: Кластер создается.</li> <li>RUNNING: Кластер работает нормально.</li> <li>ERROR: В кластере произошла ошибка, блокирующая работу.</li> <li>UPDATING: Кластер изменяется.</li> <li>STOPPING: Кластер останавливается.</li> <li>STOPPED: Кластер остановлен.</li> <li>STARTING: Кластер запускается.</li> </ul> 
-serviceAccountId | **string**<br><p>Идентификатор сервисного аккаунта, используемого для доступа к Yandex Object Storage.</p> 
+health | **string**<br><p>Агрегированная работоспособность кластера.</p> <ul> <li>HEALTH_UNKNOWN: Состояние кластера неизвестно (<code>health</code> для каждого хоста в кластере — UNKNOWN).</li> <li>ALIVE: Кластер работает нормально (<code>health</code> для каждого хоста в кластере — ALIVE).</li> <li>DEAD: Кластер не работает (<code>health</code> для каждого узла в кластере — DEAD).</li> <li>DEGRADED: Кластер работает неоптимально (<code>health</code> по крайней мере для одного узла в кластере не ALIVE).</li> </ul> 
+status | **string**<br><p>Текущее состояние кластера.</p> <ul> <li>STATUS_UNKNOWN: Состояние кластера неизвестно.</li> <li>CREATING: Кластер создается.</li> <li>RUNNING: Кластер работает нормально.</li> <li>ERROR: На кластере произошла ошибка, блокирующая работу.</li> <li>UPDATING: Кластер изменяется.</li> <li>STOPPING: Кластер останавливается.</li> <li>STOPPED: Кластер остановлен.</li> <li>STARTING: Кластер запускается.</li> </ul> 
 
 ## Методы {#methods}
 Метод | Описание
@@ -925,27 +912,26 @@ serviceAccountId | **string**<br><p>Идентификатор сервисно�
 [backup](backup.md) | Создает резервную копию для указанного кластера ClickHouse.
 [create](create.md) | Создает кластер ClickHouse в указанном каталоге.
 [createExternalDictionary](createExternalDictionary.md) | Создает внешний словарь для указанного кластера ClickHouse.
-[createShardGroup](createShardGroup.md) | Создает новую группу шардов в указанном кластере.
+[createShardGroup](createShardGroup.md) | Создает новую группу шардов.
 [delete](delete.md) | Удаляет указанный кластер ClickHouse.
 [deleteExternalDictionary](deleteExternalDictionary.md) | Удаляет указанный внешний словарь.
 [deleteHosts](deleteHosts.md) | Удаляет указанные хосты кластера.
 [deleteShard](deleteShard.md) | Удаляет указанный шард.
-[deleteShardGroup](deleteShardGroup.md) | Удаляет указанную группу шардов.
+[deleteShardGroup](deleteShardGroup.md) | Удаляет группу шардов.
 [get](get.md) | Возвращает указанный ClickHouse-кластер.
 [getShard](getShard.md) | Возвращает указанный шард.
-[getShardGroup](getShardGroup.md) | Возвращает указанную группу шардов.
+[getShardGroup](getShardGroup.md) | Возвращает группу шардов по имени.
 [list](list.md) | Получает список ClickHouse-кластеров, принадлежащих указанному каталогу.
 [listBackups](listBackups.md) | Получает список доступных резервных копий для указанного кластера ClickHouse.
 [listHosts](listHosts.md) | Получает список хостов для указанного кластера.
 [listLogs](listLogs.md) | Получает логи для указанного кластера ClickHouse.
 [listOperations](listOperations.md) | Получает список ресурсов Operation для указанного кластера.
-[listShardGroups](listShardGroups.md) | Получает список групп шардов, принадлежащих указанному кластеру.
+[listShardGroups](listShardGroups.md) | Возвращает список групп шардов в указанном кластере.
 [listShards](listShards.md) | Получает список шардов, принадлежащих указанному кластеру.
 [move](move.md) | Перемещает кластер ClickHouse в указанный каталог.
 [restore](restore.md) | Создает новый кластер ClickHouse с использованием указанной резервной копии.
 [start](start.md) | Запускает указанный кластер ClickHouse.
 [stop](stop.md) | Останавливает указанный кластер ClickHouse.
-[streamLogs](streamLogs.md) | То же самое, что ListLogs, с той разницей, что со стороны сервера передается поток логов. Допускается использовать семантику 'tail-f' при работе с потоком логов.
 [update](update.md) | Изменяет указанный кластер ClickHouse.
 [updateShard](updateShard.md) | Изменяет указанный шард.
 [updateShardGroup](updateShardGroup.md) | Изменяет указанную группу шардов.
