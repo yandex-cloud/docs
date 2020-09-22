@@ -39,8 +39,6 @@ items:
       href: concepts/limits.md
     - name: Резервные копии
       href: concepts/backup.md
-    - name: Репликация
-      href: concepts/replication.md
     - name: Поддерживаемые клиенты
       href: concepts/supported-clients.md
   - name: Управление доступом
