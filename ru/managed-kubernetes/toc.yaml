@@ -13,6 +13,8 @@ items:
         href: operations/create-static-conf.md
       - name: Обеспечение доступа к приложению, запущенному в кластере Kubernetes
         href: operations/create-load-balancer.md
+      - name: Шифрование секретов
+        href: operations/encrypting-secrets.md
       - name: Работа с постоянными томами
         items:
           - name: Динамическая подготовка тома
