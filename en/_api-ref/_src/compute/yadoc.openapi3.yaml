@@ -8,6 +8,266 @@ info:
   x-y-docUri: api-ref
   x-y-baseUrl: https://compute.api.cloud.yandex.net
 paths:
+  /compute/v1/diskPlacementGroups/{diskPlacementGroupId}:
+    get:
+      tags:
+      - DiskPlacementGroup
+      summary: Returns the specified placement group.
+      operationId: DiskPlacementGroupGet
+      parameters:
+      - name: diskPlacementGroupId
+        in: path
+        description: |-
+          Required.
+          ID of the placement group to return.
+          To get the placement group ID, use [list](/docs/compute/api-ref/DiskPlacementGroup/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DiskPlacementGroup'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - DiskPlacementGroup
+      summary: Deletes the specified placement group.
+      operationId: DiskPlacementGroupDelete
+      parameters:
+      - name: diskPlacementGroupId
+        in: path
+        description: |-
+          Required.
+          ID of the placement group to delete.
+          To get the placement group ID, use [list](/docs/compute/api-ref/DiskPlacementGroup/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteDiskPlacementGroupMetadata'
+      x-y-operation-response: Empty
+    patch:
+      tags:
+      - DiskPlacementGroup
+      summary: Updates the specified placement group.
+      operationId: DiskPlacementGroupUpdate
+      parameters:
+      - name: diskPlacementGroupId
+        in: path
+        description: |-
+          Required.
+          ID of the placement group to update.
+          To get the placement group ID, use an [list](/docs/compute/api-ref/DiskPlacementGroup/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateDiskPlacementGroupRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateDiskPlacementGroupMetadata'
+      x-y-operation-response: '[DiskPlacementGroup](/docs/compute/api-ref/DiskPlacementGroup#representation)'
+  /compute/v1/diskPlacementGroups:
+    get:
+      tags:
+      - DiskPlacementGroup
+      summary: Retrieves the list of placement groups in the specified folder.
+      operationId: DiskPlacementGroupList
+      parameters:
+      - name: folderId
+        in: query
+        description: |-
+          Required.
+          ID of the folder to list placement groups in.
+          To get the folder ID, use [list](/docs/resource-manager/api-ref/Folder/list) request.
+
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/compute/api-ref/DiskPlacementGroup/list#query_params),
+          the service returns a [nextPageToken](/docs/compute/api-ref/DiskPlacementGroup/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results,
+          set [pageToken](/docs/compute/api-ref/DiskPlacementGroup/list#query_params) to the [nextPageToken](/docs/compute/api-ref/DiskPlacementGroup/list#responses)
+          returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          A filter expression that filters resources listed in the response.
+          Currently you can use filtering only on the [DiskPlacementGroup.name](/docs/compute/api-ref/DiskPlacementGroup#representation) field.
+
+          The maximum string length in characters is 1000.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListDiskPlacementGroupsResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - DiskPlacementGroup
+      summary: Creates a placement group in the specified folder.
+      operationId: DiskPlacementGroupCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateDiskPlacementGroupRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateDiskPlacementGroupMetadata'
+      x-y-operation-response: '[DiskPlacementGroup](/docs/compute/api-ref/DiskPlacementGroup#representation)'
+  /compute/v1/diskPlacementGroups/{diskPlacementGroupId}/disks:
+    get:
+      tags:
+      - DiskPlacementGroup
+      summary: Lists disks for the specified placement group.
+      operationId: DiskPlacementGroupListDisks
+      parameters:
+      - name: diskPlacementGroupId
+        in: path
+        description: |-
+          Required.
+          ID of the placement group to list disks for.
+          To get the placement group ID, use [list](/docs/compute/api-ref/DiskPlacementGroup/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/compute/api-ref/DiskPlacementGroup/listDisks#query_params),
+          the service returns a [nextPageToken](/docs/compute/api-ref/DiskPlacementGroup/listDisks#responses)
+          that can be used to get the next page of results in subsequent list requests.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results,
+          set [pageToken](/docs/compute/api-ref/DiskPlacementGroup/listDisks#query_params) to the [nextPageToken](/docs/compute/api-ref/DiskPlacementGroup/listDisks#responses)
+          returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListDiskPlacementGroupDisksResponse'
+      x-y-navtitle: listDisks
+  /compute/v1/diskPlacementGroups/{diskPlacementGroupId}/operations:
+    get:
+      tags:
+      - DiskPlacementGroup
+      summary: Lists operations for the specified placement group.
+      operationId: DiskPlacementGroupListOperations
+      parameters:
+      - name: diskPlacementGroupId
+        in: path
+        description: |-
+          Required.
+          ID of the placement group to list operations for.
+          To get the placement group ID, use [list](/docs/compute/api-ref/DiskPlacementGroup/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/compute/api-ref/DiskPlacementGroup/listOperations#query_params), the service returns a [nextPageToken](/docs/compute/api-ref/DiskPlacementGroup/listOperations#responses)
+          that can be used to get the next page of results in subsequent list requests.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/compute/api-ref/DiskPlacementGroup/listOperations#query_params) to the
+          [nextPageToken](/docs/compute/api-ref/DiskPlacementGroup/listOperations#responses) returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListDiskPlacementGroupOperationsResponse'
+      x-y-navtitle: listOperations
   /compute/v1/disks/{diskId}:
     get:
       tags:
@@ -297,7 +557,7 @@ paths:
     get:
       tags:
       - HostGroup
-      summary: Returns the specified host group
+      summary: Returns the specified host group.
       operationId: HostGroupGet
       parameters:
       - name: hostGroupId
@@ -385,7 +645,7 @@ paths:
     get:
       tags:
       - HostGroup
-      summary: Retrieves the list of host groups in the specified folder
+      summary: Retrieves the list of host groups in the specified folder.
       operationId: HostGroupList
       parameters:
       - name: folderId
@@ -463,7 +723,7 @@ paths:
     get:
       tags:
       - HostGroup
-      summary: Lists operations for the specified host group
+      summary: Lists operations for the specified host group.
       operationId: HostGroupListOperations
       parameters:
       - name: hostGroupId
@@ -509,7 +769,7 @@ paths:
     get:
       tags:
       - HostGroup
-      summary: Lists instances that belongs to the specified host group
+      summary: Lists instances that belongs to the specified host group.
       operationId: HostGroupListInstances
       parameters:
       - name: hostGroupId
@@ -567,7 +827,7 @@ paths:
     get:
       tags:
       - HostGroup
-      summary: Lists hosts that belongs to the specified host group
+      summary: Lists hosts that belongs to the specified host group.
       operationId: HostGroupListHosts
       parameters:
       - name: hostGroupId
@@ -615,7 +875,7 @@ paths:
     get:
       tags:
       - HostType
-      summary: Returns information about specified host type
+      summary: Returns information about specified host type.
       operationId: HostTypeGet
       parameters:
       - name: hostTypeId
@@ -642,7 +902,7 @@ paths:
     get:
       tags:
       - HostType
-      summary: List avaliable host types
+      summary: List avaliable host types.
       operationId: HostTypeList
       parameters:
       - name: pageSize
@@ -2101,6 +2361,9 @@ components:
               Acceptable values are 4194304 to 4398046511104, inclusive.
             type: string
             format: int64
+          diskPlacementPolicy:
+            $ref: '#/components/schemas/DiskPlacementPolicy'
+            description: Placement policy configuration.
       - title: source
         type: object
         maxProperties: 1
@@ -2131,6 +2394,64 @@ components:
         diskId:
           description: ID of the disk that is being created.
           type: string
+    CreateDiskPlacementGroupMetadata:
+      type: object
+      properties:
+        diskPlacementGroupId:
+          description: ID of the placement group that is being created.
+          type: string
+    CreateDiskPlacementGroupRequest:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          folderId:
+            description: |-
+              Required.
+              ID of the folder to create a placement group in.
+              To get the folder ID, use a [list](/docs/resource-manager/api-ref/Folder/list) request.
+
+              The maximum string length in characters is 50.
+            type: string
+          name:
+            description: |-
+              Name of the placement group.
+
+              Value must match the regular expression `` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
+            type: string
+          description:
+            description: |-
+              Description of the placement group.
+
+              The maximum string length in characters is 256.
+            type: string
+          labels:
+            description: |-
+              Resource labels as `key:value` pairs.
+
+              No more than 64 per resource.
+              The string length in characters for each key must be 1-63.
+              Each key must match the regular expression `` [a-z][-_./\@0-9a-z]* ``.
+              The maximum string length in characters for each value is 63.
+              Each value must match the regular expression `` [-_./\@0-9a-z]* ``.
+            type: object
+            additionalProperties:
+              type: string
+          zoneId:
+            description: |-
+              Required.
+              ID of the availability zone where the placement group resides.
+              To get a list of available zones use the [list](/docs/compute/api-ref/Zone/list) request.
+
+              The maximum string length in characters is 50.
+            type: string
+      - title: placement_strategy
+        type: object
+        maxProperties: 1
+        properties:
+          spreadPlacementStrategy:
+            $ref: '#/components/schemas/DiskSpreadPlacementStrategy'
+            description: Distribute disks over distinct failure domains.
     CreateDiskRequest:
       type: object
       allOf:
@@ -2198,6 +2519,9 @@ components:
               is 4096.
             type: string
             format: int64
+          diskPlacementPolicy:
+            $ref: '#/components/schemas/DiskPlacementPolicy'
+            description: Placement policy configuration.
       - title: source
         type: object
         maxProperties: 1
@@ -2258,14 +2582,14 @@ components:
         zoneId:
           description: |-
             Required.
-            Availability zone where all dedicated hosts will be allocated
+            Availability zone where all dedicated hosts will be allocated.
 
             The maximum string length in characters is 50.
           type: string
         typeId:
           description: |-
             Required.
-            ID of host type. Resources provided by each host of the group
+            ID of host type. Resources provided by each host of the group.
 
             The maximum string length in characters is 50.
           type: string
@@ -2594,6 +2918,12 @@ components:
         diskId:
           description: ID of the disk that is being deleted.
           type: string
+    DeleteDiskPlacementGroupMetadata:
+      type: object
+      properties:
+        diskPlacementGroupId:
+          description: ID of the placement group that is being deleted.
+          type: string
     DeleteHostGroupMetadata:
       type: object
       properties:
@@ -2716,6 +3046,9 @@ components:
             type: array
             items:
               type: string
+          diskPlacementPolicy:
+            $ref: '#/components/schemas/DiskPlacementPolicy'
+            description: Placement policy configuration.
       - title: source
         type: object
         maxProperties: 1
@@ -2726,6 +3059,65 @@ components:
           sourceSnapshotId:
             description: ID of the snapshot that was used for disk creation.
             type: string
+    DiskPlacementGroup:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          id:
+            description: ID of the placement group.
+            type: string
+          folderId:
+            description: ID of the folder that the placement group belongs to.
+            type: string
+          createdAt:
+            description: |-
+              Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          name:
+            description: |-
+              Name of the placement group.
+              The name is unique within the folder.
+            type: string
+          description:
+            description: Description of the placement group.
+            type: string
+          labels:
+            description: Resource labels as `key:value` pairs.
+            type: object
+            additionalProperties:
+              type: string
+          zoneId:
+            description: ID of the availability zone where the placement group resides.
+            type: string
+          status:
+            $ref: '#/components/schemas/DiskPlacementGroupStatus'
+            description: Current status of the placement group
+      - title: placement_strategy
+        type: object
+        maxProperties: 1
+        properties:
+          spreadPlacementStrategy:
+            $ref: '#/components/schemas/DiskSpreadPlacementStrategy'
+            description: Distribute instances over distinct failure domains.
+    DiskPlacementGroupStatus:
+      type: string
+      enum:
+      - CREATING
+      - READY
+      - DELETING
+    DiskPlacementPolicy:
+      type: object
+      properties:
+        placementGroupId:
+          description: Placement group ID.
+          type: string
+    DiskSpreadPlacementStrategy:
+      type: object
+      properties: {}
     DiskStatus:
       description: |2-
          - CREATING: Disk is being created.
@@ -2792,7 +3184,7 @@ components:
       type: object
       properties:
         id:
-          description: ID of the group
+          description: ID of the group.
           type: string
         folderId:
           description: ID of the folder that the group belongs to.
@@ -2816,12 +3208,12 @@ components:
           additionalProperties:
             type: string
         zoneId:
-          description: Availability zone where all dedicated hosts are allocated
+          description: Availability zone where all dedicated hosts are allocated.
           type: string
         status:
           $ref: '#/components/schemas/HostGroupStatus_in_HostGroup_status'
         typeId:
-          description: ID  of host type. Resources provided by each host of the group
+          description: ID of host type. Resources provided by each host of the group.
           type: string
         maintenancePolicy:
           $ref: '#/components/schemas/MaintenancePolicy_in_HostGroup_maintenancePolicy'
@@ -2841,20 +3233,20 @@ components:
       - DOWN
     HostType:
       description: |-
-        Represents host resources
-        Note: Platform can use hosts with different number of memory and cores
+        Represents host resources.
+        Note: Platform can use hosts with different number of memory and cores.
         TODO: Do we need sockets here?
       type: object
       properties:
         id:
-          description: Unique type identifier
+          description: Unique type identifier.
           type: string
         cores:
-          description: Total number of cores available for instances
+          description: Total number of cores available for instances.
           type: string
           format: int64
         memory:
-          description: Ammount of memory available for instances
+          description: Ammount of memory available for instances.
           type: string
           format: int64
     Image:
@@ -3057,6 +3449,55 @@ components:
             is larger than [pageSize](/docs/compute/api-ref/Disk/listOperations#query_params), use the [nextPageToken](/docs/compute/api-ref/Disk/listOperations#responses) as the value
             for the [pageToken](/docs/compute/api-ref/Disk/listOperations#query_params) query parameter in the next list request.
             Each subsequent list request will have its own [nextPageToken](/docs/compute/api-ref/Disk/listOperations#responses) to continue paging through the results.
+          type: string
+    ListDiskPlacementGroupDisksResponse:
+      type: object
+      properties:
+        disks:
+          description: Lists disks for the specified placement group.
+          type: array
+          items:
+            $ref: '#/components/schemas/Disk'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is more than [ListDiskPlacementGroupInstancesRequest.page_size], use
+            [nextPageToken](/docs/compute/api-ref/DiskPlacementGroup/listDisks#responses) as the value
+            for the [ListDiskPlacementGroupInstancesRequest.page_token] query parameter
+            in the next list request. Each subsequent list request will have its own
+            [nextPageToken](/docs/compute/api-ref/DiskPlacementGroup/listDisks#responses) to continue paging through the results.
+          type: string
+    ListDiskPlacementGroupOperationsResponse:
+      type: object
+      properties:
+        operations:
+          description: List of operations for the specified placement group.
+          type: array
+          items:
+            $ref: '#/components/schemas/Operation'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/compute/api-ref/DiskPlacementGroup/listOperations#query_params), use the [nextPageToken](/docs/compute/api-ref/DiskPlacementGroup/listOperations#responses) as the value
+            for the [pageToken](/docs/compute/api-ref/DiskPlacementGroup/listOperations#query_params) query parameter in the next list request.
+            Each subsequent list request will have its own [nextPageToken](/docs/compute/api-ref/DiskPlacementGroup/listOperations#responses) to continue paging through the results.
+          type: string
+    ListDiskPlacementGroupsResponse:
+      type: object
+      properties:
+        diskPlacementGroups:
+          description: Lists placement groups for the specified folder.
+          type: array
+          items:
+            $ref: '#/components/schemas/DiskPlacementGroup'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/compute/api-ref/DiskPlacementGroup/list#query_params), use
+            [nextPageToken](/docs/compute/api-ref/DiskPlacementGroup/list#responses) as the value
+            for the [pageToken](/docs/compute/api-ref/DiskPlacementGroup/list#query_params) query parameter
+            in the next list request. Each subsequent list request will have its own
+            [nextPageToken](/docs/compute/api-ref/DiskPlacementGroup/list#responses) to continue paging through the results.
           type: string
     ListDiskTypesResponse:
       type: object
@@ -3337,8 +3778,8 @@ components:
           type: string
     MaintenancePolicy:
       description: |2-
-         - RESTART: Restart instances on the same host after maintenance event
-         - MIGRATE: Migrate instances to another host before maintenance event
+         - RESTART: Restart instances on the same host after maintenance event.
+         - MIGRATE: Migrate instances to another host before maintenance event.
       type: string
       enum:
       - RESTART
@@ -3764,6 +4205,43 @@ components:
         diskId:
           description: ID of the Disk resource that is being updated.
           type: string
+    UpdateDiskPlacementGroupMetadata:
+      type: object
+      properties:
+        diskPlacementGroupId:
+          description: ID of the placement group that is being updated.
+          type: string
+    UpdateDiskPlacementGroupRequest:
+      type: object
+      properties:
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateDiskPlacementGroupRequest_updateMask'
+        name:
+          description: |-
+            Name of the placement group.
+
+            Value must match the regular expression `` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
+          type: string
+        description:
+          description: |-
+            Description of the placement group.
+
+            The maximum string length in characters is 256.
+          type: string
+        labels:
+          description: |-
+            Resource labels as `key:value` pairs.
+
+            The existing set of `labels` is completely replaced by the provided set.
+
+            No more than 64 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_./\@0-9a-z]* ``.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `` [-_./\@0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
     UpdateDiskRequest:
       type: object
       properties:
@@ -3802,6 +4280,8 @@ components:
             Acceptable values are 4194304 to 4398046511104, inclusive.
           type: string
           format: int64
+        diskPlacementPolicy:
+          $ref: '#/components/schemas/DiskPlacementPolicy_in_UpdateDiskRequest_diskPlacementPolicy'
     UpdateHostGroupMetadata:
       type: object
       properties:
@@ -4161,10 +4641,10 @@ components:
       - READ_WRITE
     MaintenancePolicy_in_CreateHostGroupRequest_maintenancePolicy:
       description: |-
-        Behaviour on maintenance events
+        Behaviour on maintenance events.
 
-         - RESTART: Restart instances on the same host after maintenance event
-         - MIGRATE: Migrate instances to another host before maintenance event
+         - RESTART: Restart instances on the same host after maintenance event.
+         - MIGRATE: Migrate instances to another host before maintenance event.
       type: string
       enum:
       - RESTART
@@ -4296,7 +4776,7 @@ components:
       - UP
       - DOWN
     HostGroupStatus_in_HostGroup_status:
-      description: Status of the group
+      description: Status of the group.
       type: string
       enum:
       - CREATING
@@ -4305,10 +4785,10 @@ components:
       - DELETING
     MaintenancePolicy_in_HostGroup_maintenancePolicy:
       description: |-
-        Behaviour on maintenance events
+        Behaviour on maintenance events.
 
-         - RESTART: Restart instances on the same host after maintenance event
-         - MIGRATE: Migrate instances to another host before maintenance event
+         - RESTART: Restart instances on the same host after maintenance event.
+         - MIGRATE: Migrate instances to another host before maintenance event.
       type: string
       enum:
       - RESTART
@@ -4573,6 +5053,19 @@ components:
       - READY
       - ERROR
       - DELETING
+    FieldMask_in_UpdateDiskPlacementGroupRequest_updateMask:
+      description: |-
+        Field mask that specifies which fields of the DiskPlacementGroup resource are going to be updated.
+
+        A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
     FieldMask_in_UpdateDiskRequest_updateMask:
       description: |-
         Field mask that specifies which fields of the Disk resource are going to be updated.
@@ -4586,6 +5079,13 @@ components:
         Fields specified in the request will be updated to provided values.
         The rest of the fields will be reset to the default.
       type: string
+    DiskPlacementPolicy_in_UpdateDiskRequest_diskPlacementPolicy:
+      description: Placement policy configuration.
+      type: object
+      properties:
+        placementGroupId:
+          description: Placement group ID.
+          type: string
     FieldMask_in_UpdateHostGroupRequest_updateMask:
       description: |-
         Field mask that specifies which fields of the HostGroup resource are going to be updated.
@@ -4603,8 +5103,8 @@ components:
       description: |-
         Behaviour on maintenance events
 
-         - RESTART: Restart instances on the same host after maintenance event
-         - MIGRATE: Migrate instances to another host before maintenance event
+         - RESTART: Restart instances on the same host after maintenance event.
+         - MIGRATE: Migrate instances to another host before maintenance event.
       type: string
       enum:
       - RESTART
@@ -4773,14 +5273,16 @@ components:
       - UP
       - DOWN
 tags:
+- name: DiskPlacementGroup
+  description: A set of methods for managing DiskPlacementGroup resources.
 - name: Disk
   description: A set of methods for managing Disk resources.
 - name: DiskType
   description: A set of methods to retrieve information about disk types.
 - name: HostGroup
-  description: A set of methods for managing groups of dedicated hosts
+  description: A set of methods for managing groups of dedicated hosts.
 - name: HostType
-  description: Set of methods to view possible host configurations
+  description: Set of methods to view possible host configurations.
 - name: Image
   description: A set of methods for managing Image resources.
 - name: Instance

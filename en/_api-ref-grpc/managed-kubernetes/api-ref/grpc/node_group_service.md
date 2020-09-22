@@ -448,9 +448,9 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 cluster_id | **string**<br>Required. ID of the Kubernetes cluster to create a node group in. To get the Kubernetes cluster ID, use a [ClusterService.List](./cluster_service#List) request. false
-name | **string**<br>Name of the node group. The name must be unique within the folder. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+name | **string**<br>Name of the node group. The name must be unique within the folder. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>Description of the node group. The maximum string length in characters is 256.
-labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 node_template | **[NodeTemplate](../node.proto#NodeTemplate2)**<br>Required. Node template for creating the node group. false
 scale_policy | **[ScalePolicy](../node_group.proto#ScalePolicy2)**<br>Required. Scale policy of the node group. false
 allocation_policy | **[NodeGroupAllocationPolicy](../node_group.proto#NodeGroupAllocationPolicy2)**<br>Allocation policy of the node group by the zones and regions. 
@@ -680,9 +680,9 @@ Field | Description
 --- | ---
 node_group_id | **string**<br>Required. ID of the node group to update. To get the node group ID use a [NodeGroupService.List](#List) request. false
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the node group are going to be updated. 
-name | **string**<br>Name of the node group. The name must be unique within the folder. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+name | **string**<br>Name of the node group. The name must be unique within the folder. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>Description of the node group. The maximum string length in characters is 256.
-labels | **map<string,string>**<br>Resource labels as `key:value` pairs. <br>Existing set of `labels` is completely replaced by the provided set. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. <br>Existing set of `labels` is completely replaced by the provided set. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 node_template | **[NodeTemplate](../node.proto#NodeTemplate3)**<br>Node template for the node group. Change may trigger nodes rolling reboot or recreate. 
 scale_policy | **[ScalePolicy](../node_group.proto#ScalePolicy3)**<br>Scale policy of the node group. 
 allocation_policy | **[NodeGroupAllocationPolicy](../node_group.proto#NodeGroupAllocationPolicy3)**<br>Allocation policy of the node group by the zones and regions. 

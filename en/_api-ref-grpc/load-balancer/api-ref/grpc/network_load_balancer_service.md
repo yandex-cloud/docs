@@ -213,7 +213,7 @@ folder_id | **string**<br>Required. ID of the folder to create a network load ba
 name | **string**<br>Name of the network load balancer. The name must be unique within the folder. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>Description of the network load balancer. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
-region_id | **string**<br>Required. ID of the region where the network load balancer resides. false The maximum string length in characters is 50.
+region_id | **string**<br>ID of the region where the network load balancer resides. The maximum string length in characters is 50.
 type | **[NetworkLoadBalancer.Type](../network_load_balancer.proto#NetworkLoadBalancer2)**<br>Required. Type of the network load balancer. Only external network load balancers are currently available. false
 listener_specs[] | **[ListenerSpec](#ListenerSpec)**<br>List of listeners and their specs for the network load balancer. The maximum number of elements is 1000.
 attached_target_groups[] | **[AttachedTargetGroup](../network_load_balancer.proto#AttachedTargetGroup2)**<br>List of attached target groups for the network load balancer. The maximum number of elements is 5.

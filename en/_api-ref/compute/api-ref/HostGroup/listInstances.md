@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method listInstances
-Lists instances that belongs to the specified host group
+Lists instances that belongs to the specified host group.
  
 
  

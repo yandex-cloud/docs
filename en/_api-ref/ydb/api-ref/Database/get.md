@@ -51,6 +51,7 @@ databaseId | Required. Required. ID of the YDB cluster.  The maximum string leng
   "assignPublicIps": true,
   "locationId": "string",
   "labels": "object",
+  "documentApiEndpoint": "string",
 
   //  includes only one of the fields `zonalDatabase`, `regionalDatabase`, `dedicatedDatabase`, `serverlessDatabase`
   "zonalDatabase": {
@@ -109,6 +110,7 @@ subnetIds[] | **string**<br>
 assignPublicIps | **boolean** (boolean)<br>
 locationId | **string**<br>
 labels | **object**<br>
+documentApiEndpoint | **string**<br>
 zonalDatabase | **object**<br>deprecated field <br> includes only one of the fields `zonalDatabase`, `regionalDatabase`, `dedicatedDatabase`, `serverlessDatabase`<br><br>
 zonalDatabase.<br>zoneId | **string**<br><p>Required.</p> 
 regionalDatabase | **object**<br>deprecated field <br> includes only one of the fields `zonalDatabase`, `regionalDatabase`, `dedicatedDatabase`, `serverlessDatabase`<br><br>

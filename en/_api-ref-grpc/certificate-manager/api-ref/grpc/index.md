@@ -5,5 +5,6 @@ See the interface definitions of Yandex.Cloud API on [GitHub](https://github.com
 
 Service | Description
 --- | ---
+[CertificateContentService](./certificate_content_service.md) | 
 [CertificateService](./certificate_service.md) | 
 [OperationService](./operation_service.md) | A set of methods for managing operations for asynchronous API requests.

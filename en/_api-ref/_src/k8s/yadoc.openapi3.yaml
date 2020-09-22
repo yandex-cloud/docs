@@ -170,6 +170,72 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/CreateClusterMetadata'
       x-y-operation-response: '[Cluster](/docs/managed-kubernetes/api-ref/Cluster#representation)'
+  /managed-kubernetes/v1/clusters/{clusterId}:stop:
+    post:
+      tags:
+      - Cluster
+      summary: Stops the specified Kubernetes cluster.
+      operationId: ClusterStop
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the Kubernetes cluster to stop.
+          To get Kubernetes cluster ID use a [list](/docs/managed-kubernetes/api-ref/Cluster/list) request.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StopClusterRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: stop
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/StopClusterMetadata'
+      x-y-operation-response: '[Cluster](/docs/managed-kubernetes/api-ref/Cluster#representation)'
+  /managed-kubernetes/v1/clusters/{clusterId}:start:
+    post:
+      tags:
+      - Cluster
+      summary: Starts the specified Kubernetes cluster.
+      operationId: ClusterStart
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the Kubernetes cluster to start.
+          To get Kubernetes cluster ID use a [list](/docs/managed-kubernetes/api-ref/Cluster/list) request.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StartClusterRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: start
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/StartClusterMetadata'
+      x-y-operation-response: '[Cluster](/docs/managed-kubernetes/api-ref/Cluster#representation)'
   /managed-kubernetes/v1/clusters/{clusterId}/nodeGroups:
     get:
       tags:
@@ -774,7 +840,7 @@ components:
               Name of the Kubernetes cluster.
               The name must be unique within the folder.
 
-              Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+              Value must match the regular expression `` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
             type: string
           description:
             description: |-
@@ -788,9 +854,9 @@ components:
 
               No more than 64 per resource.
               The string length in characters for each key must be 1-63.
-              Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+              Each key must match the regular expression `` [a-z][-_./\@0-9a-z]* ``.
               The maximum string length in characters for each value is 63.
-              Each value must match the regular expression `` [-_0-9a-z]* ``.
+              Each value must match the regular expression `` [-_./\@0-9a-z]* ``.
             type: object
             additionalProperties:
               type: string
@@ -854,7 +920,7 @@ components:
             Name of the node group.
             The name must be unique within the folder.
 
-            Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+            Value must match the regular expression `` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
           type: string
         description:
           description: |-
@@ -868,9 +934,9 @@ components:
 
             No more than 64 per resource.
             The string length in characters for each key must be 1-63.
-            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            Each key must match the regular expression `` [a-z][-_./\@0-9a-z]* ``.
             The maximum string length in characters for each value is 63.
-            Each value must match the regular expression `` [-_0-9a-z]* ``.
+            Each value must match the regular expression `` [-_./\@0-9a-z]* ``.
           type: object
           additionalProperties:
             type: string
@@ -1756,12 +1822,18 @@ components:
         clusterId:
           description: ID of the Kubernetes cluster that is being started.
           type: string
+    StartClusterRequest:
+      type: object
+      properties: {}
     StopClusterMetadata:
       type: object
       properties:
         clusterId:
           description: ID of the Kubernetes cluster that is being stopped.
           type: string
+    StopClusterRequest:
+      type: object
+      properties: {}
     Taint:
       type: object
       properties:
@@ -1832,7 +1904,7 @@ components:
               Name of the Kubernetes cluster.
               The name must be unique within the folder.
 
-              Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+              Value must match the regular expression `` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
             type: string
           description:
             description: |-
@@ -1848,9 +1920,9 @@ components:
 
               No more than 64 per resource.
               The string length in characters for each key must be 1-63.
-              Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+              Each key must match the regular expression `` [a-z][-_./\@0-9a-z]* ``.
               The maximum string length in characters for each value is 63.
-              Each value must match the regular expression `` [-_0-9a-z]* ``.
+              Each value must match the regular expression `` [-_./\@0-9a-z]* ``.
             type: object
             additionalProperties:
               type: string
@@ -1898,7 +1970,7 @@ components:
             Name of the node group.
             The name must be unique within the folder.
 
-            Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+            Value must match the regular expression `` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
           type: string
         description:
           description: |-
@@ -1914,9 +1986,9 @@ components:
 
             No more than 64 per resource.
             The string length in characters for each key must be 1-63.
-            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            Each key must match the regular expression `` [a-z][-_./\@0-9a-z]* ``.
             The maximum string length in characters for each value is 63.
-            Each value must match the regular expression `` [-_0-9a-z]* ``.
+            Each value must match the regular expression `` [-_./\@0-9a-z]* ``.
           type: object
           additionalProperties:
             type: string

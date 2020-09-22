@@ -8,6 +8,171 @@ info:
   x-y-docUri: api-ref
   x-y-baseUrl: https://vpc.api.cloud.yandex.net
 paths:
+  /vpc/v1/addresses/{addressId}:
+    get:
+      tags:
+      - Address
+      operationId: AddressGet
+      parameters:
+      - name: addressId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Address'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - Address
+      operationId: AddressDelete
+      parameters:
+      - name: addressId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteAddressMetadata'
+      x-y-operation-response: Empty
+    patch:
+      tags:
+      - Address
+      operationId: AddressUpdate
+      parameters:
+      - name: addressId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateAddressRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateAddressMetadata'
+      x-y-operation-response: '[Address](/docs/vpc/api-ref/Address#representation)'
+  /vpc/v1/addresses:byValue:
+    get:
+      tags:
+      - Address
+      operationId: AddressGetByValue
+      parameters:
+      - name: externalIpv4Address
+        in: query
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Address'
+      x-y-navtitle: getByValue
+  /vpc/v1/addresses:
+    get:
+      tags:
+      - Address
+      operationId: AddressList
+      parameters:
+      - name: folderId
+        in: query
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        schema:
+          type: string
+      - name: filter
+        in: query
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListAddressesResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - Address
+      operationId: AddressCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateAddressRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateAddressMetadata'
+      x-y-operation-response: '[Address](/docs/vpc/api-ref/Address#representation)'
+  /vpc/v1/addresses/{addressId}/operations:
+    get:
+      tags:
+      - Address
+      operationId: AddressListOperations
+      parameters:
+      - name: addressId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListAddressOperationsResponse'
+      x-y-navtitle: listOperations
   /vpc/v1/networks/{networkId}:
     get:
       tags:
@@ -871,6 +1036,27 @@ components:
       properties:
         addressId:
           type: string
+    CreateAddressRequest:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          folderId:
+            type: string
+          name:
+            type: string
+          description:
+            type: string
+          labels:
+            type: object
+            additionalProperties:
+              type: string
+      - title: address_spec
+        type: object
+        maxProperties: 1
+        properties:
+          externalIpv4AddressSpec:
+            $ref: '#/components/schemas/ExternalIpv4AddressSpec'
     CreateNetworkMetadata:
       type: object
       properties:
@@ -1707,6 +1893,22 @@ components:
       properties:
         addressId:
           type: string
+    UpdateAddressRequest:
+      type: object
+      properties:
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateAddressRequest_updateMask'
+        name:
+          type: string
+        description:
+          type: string
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+        reserved:
+          type: boolean
+          format: boolean
     UpdateNetworkMetadata:
       type: object
       properties:
@@ -1934,6 +2136,17 @@ components:
           type: array
           items:
             type: string
+    FieldMask_in_UpdateAddressRequest_updateMask:
+      description: |-
+        A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
     FieldMask_in_UpdateNetworkRequest_updateMask:
       description: |-
         Field mask that specifies which fields of the Network resource are going to be updated.

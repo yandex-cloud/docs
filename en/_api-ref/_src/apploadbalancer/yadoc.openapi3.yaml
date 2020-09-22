@@ -1387,7 +1387,7 @@ components:
     CipherSuite:
       type: string
       enum:
-      - ECDHEECDSA_AES128_GCM_SHA256
+      - ECDHE_ECDSA_AES128_GCM_SHA256
       - ECDHE_RSA_AES128_GCM_SHA256
       - ECDHE_ECDSA_AES128_SHA
       - ECDHE_RSA_AES128_SHA
@@ -1399,7 +1399,7 @@ components:
       - ECDHE_RSA_AES256_SHA
       - AES256_GCM_SHA384
       - AES256_SHA
-      default: ECDHEECDSA_AES128_GCM_SHA256
+      default: ECDHE_ECDSA_AES128_GCM_SHA256
     CreateBackendGroupMetadata:
       type: object
       properties:

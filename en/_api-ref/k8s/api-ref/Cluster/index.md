@@ -173,4 +173,6 @@ Method | Description
 [listNodeGroups](listNodeGroups.md) | Lists nodegroup for the specified Kubernetes cluster.
 [listNodes](listNodes.md) | Lists cluster's nodes.
 [listOperations](listOperations.md) | Lists operations for the specified Kubernetes cluster.
+[start](start.md) | Starts the specified Kubernetes cluster.
+[stop](stop.md) | Stops the specified Kubernetes cluster.
 [update](update.md) | Updates the specified Kubernetes cluster.

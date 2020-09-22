@@ -25,6 +25,9 @@ POST https://compute.api.cloud.yandex.net/compute/v1/disks
   "zoneId": "string",
   "size": "string",
   "blockSize": "string",
+  "diskPlacementPolicy": {
+    "placementGroupId": "string"
+  },
 
   //  includes only one of the fields `imageId`, `snapshotId`
   "imageId": "string",
@@ -45,6 +48,8 @@ typeId | **string**<br><p>ID of the disk type. To get a list of available disk t
 zoneId | **string**<br><p>Required. ID of the availability zone where the disk resides. To get a list of available zones use the <a href="/docs/compute/api-ref/Zone/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
 size | **string** (int64)<br><p>Required. Size of the disk, specified in bytes. If the disk was created from a image, this value should be more than the <a href="/docs/compute/api-ref/Image#representation">Image.minDiskSize</a> value.</p> <p>Acceptable values are 4194304 to 28587302322176, inclusive.</p> 
 blockSize | **string** (int64)<br><p>Block size used for disk, specified in bytes. The default is 4096.</p> 
+diskPlacementPolicy | **object**<br>Placement policy configuration.<br>
+diskPlacementPolicy.<br>placementGroupId | **string**<br><p>Placement group ID.</p> 
 imageId | **string** <br> includes only one of the fields `imageId`, `snapshotId`<br><br><p>ID of the image to create the disk from.</p> <p>The maximum string length in characters is 50.</p> 
 snapshotId | **string** <br> includes only one of the fields `imageId`, `snapshotId`<br><br><p>ID of the snapshot to restore the disk from.</p> <p>The maximum string length in characters is 50.</p> 
  

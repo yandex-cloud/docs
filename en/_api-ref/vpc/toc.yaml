@@ -5,6 +5,20 @@ items:
     items:
       - name: Overview
         href: api-ref/Address/index.md
+      - name: create
+        href: api-ref/Address/create.md
+      - name: delete
+        href: api-ref/Address/delete.md
+      - name: get
+        href: api-ref/Address/get.md
+      - name: getByValue
+        href: api-ref/Address/getByValue.md
+      - name: list
+        href: api-ref/Address/list.md
+      - name: listOperations
+        href: api-ref/Address/listOperations.md
+      - name: update
+        href: api-ref/Address/update.md
   - name: Network
     items:
       - name: Overview

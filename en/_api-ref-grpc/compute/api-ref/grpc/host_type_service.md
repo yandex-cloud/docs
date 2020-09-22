@@ -4,18 +4,18 @@ editable: false
 
 # HostTypeService
 
-Set of methods to view possible host configurations
+Set of methods to view possible host configurations.
 
 | Call | Description |
 | --- | --- |
-| [Get](#Get) | Returns information about specified host type |
-| [List](#List) | List avaliable host types |
+| [Get](#Get) | Returns information about specified host type. |
+| [List](#List) | List avaliable host types. |
 
 ## Calls HostTypeService {#calls}
 
 ## Get {#Get}
 
-Returns information about specified host type
+Returns information about specified host type.
 
 **rpc Get ([GetHostTypeRequest](#GetHostTypeRequest)) returns ([HostType](../host_type.proto#HostType))**
 
@@ -30,14 +30,14 @@ host_type_id | **string**<br>Required. ID of the host type to return. <br>To get
 
 Field | Description
 --- | ---
-id | **string**<br>Unique type identifier 
-cores | **int64**<br>Total number of cores available for instances 
-memory | **int64**<br>Ammount of memory available for instances 
+id | **string**<br>Unique type identifier. 
+cores | **int64**<br>Total number of cores available for instances. 
+memory | **int64**<br>Ammount of memory available for instances. 
 
 
 ## List {#List}
 
-List avaliable host types
+List avaliable host types.
 
 **rpc List ([ListHostTypesRequest](#ListHostTypesRequest)) returns ([ListHostTypesResponse](#ListHostTypesResponse))**
 
@@ -61,8 +61,8 @@ next_page_token | **string**<br>Token for getting the next page of the list. If 
 
 Field | Description
 --- | ---
-id | **string**<br>Unique type identifier 
-cores | **int64**<br>Total number of cores available for instances 
-memory | **int64**<br>Ammount of memory available for instances 
+id | **string**<br>Unique type identifier. 
+cores | **int64**<br>Total number of cores available for instances. 
+memory | **int64**<br>Ammount of memory available for instances. 
 
 

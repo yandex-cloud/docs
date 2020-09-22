@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method addHosts
-Creates new hosts.
+Adds new hosts to the specified Elasticsearch cluster.
  
 
  
@@ -16,7 +16,7 @@ POST https://mdb.api.cloud.yandex.net/managed-elasticsearch/v1/clusters/{cluster
  
 Parameter | Description
 --- | ---
-clusterId | Required. Required. ID of the ElasticSearch cluster.  The maximum string length in characters is 50.
+clusterId | Required. ID of the Elasticsearch cluster.  To get the Elasticsearch cluster ID, make a [list](/docs/managed-elasticsearch/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
  
 ## Body parameters {#body_params}
  
@@ -37,12 +37,12 @@ clusterId | Required. Required. ID of the ElasticSearch cluster.  The maximum st
  
 Field | Description
 --- | ---
-hostSpecs[] | **object**<br><p>Required. Required.</p> <p>Must contain at least one element.</p> 
-hostSpecs[].<br>zoneId | **string**<br><p>ID of the availability zone.</p> <p>The maximum string length in characters is 50.</p> 
-hostSpecs[].<br>subnetId | **string**<br><p>The maximum string length in characters is 50.</p> 
-hostSpecs[].<br>assignPublicIp | **boolean** (boolean)<br>
-hostSpecs[].<br>type | **string**<br><p>Required.</p> 
-hostSpecs[].<br>shardName | **string**<br><p>The maximum string length in characters is 63. Value must match the regular expression <code>[a-zA-Z0-9_-]*</code>.</p> 
+hostSpecs[] | **object**<br><p>Required. One or more configurations of hosts to be added to the Elasticsearch cluster.</p> <p>Must contain at least one element.</p> 
+hostSpecs[].<br>zoneId | **string**<br><p>ID of the availability zone where the host resides.</p> <p>The maximum string length in characters is 50.</p> 
+hostSpecs[].<br>subnetId | **string**<br><p>ID of the subnet the host resides in.</p> <p>The maximum string length in characters is 50.</p> 
+hostSpecs[].<br>assignPublicIp | **boolean** (boolean)<br><p>The flag that defines whether a public IP address is assigned to the host.</p> <p>If the value is <code>true</code>, then this host is available on the Internet via it's public IP address.</p> 
+hostSpecs[].<br>type | **string**<br><p>Required. Host type.</p> <ul> <li>DATA_NODE: the host is an Elasticsearch data node.</li> <li>MASTER_NODE: the host is an Elasticsearch master node.</li> </ul> 
+hostSpecs[].<br>shardName | **string**<br><p>The shard name to create on the host.</p> <p>The maximum string length in characters is 63. Value must match the regular expression <code>[a-zA-Z0-9_-]*</code>.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

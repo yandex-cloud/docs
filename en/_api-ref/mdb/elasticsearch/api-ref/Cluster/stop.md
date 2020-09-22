@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method stop
-Stop the specified ElasticSearch cluster.
+Stops the specified Elasticsearch cluster.
  
 
  
@@ -16,7 +16,7 @@ POST https://mdb.api.cloud.yandex.net/managed-elasticsearch/v1/clusters/{cluster
  
 Parameter | Description
 --- | ---
-clusterId | Required. Required. ID of the ElasticSearch cluster to stop.  The maximum string length in characters is 50.
+clusterId | Required. ID of the Elasticsearch cluster to stop.  To get the Elasticsearch cluster ID, make a [list](/docs/managed-elasticsearch/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

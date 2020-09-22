@@ -17,6 +17,24 @@ items:
         href: api-ref/Disk/listOperations.md
       - name: update
         href: api-ref/Disk/update.md
+  - name: DiskPlacementGroup
+    items:
+      - name: Overview
+        href: api-ref/DiskPlacementGroup/index.md
+      - name: create
+        href: api-ref/DiskPlacementGroup/create.md
+      - name: delete
+        href: api-ref/DiskPlacementGroup/delete.md
+      - name: get
+        href: api-ref/DiskPlacementGroup/get.md
+      - name: list
+        href: api-ref/DiskPlacementGroup/list.md
+      - name: listDisks
+        href: api-ref/DiskPlacementGroup/listDisks.md
+      - name: listOperations
+        href: api-ref/DiskPlacementGroup/listOperations.md
+      - name: update
+        href: api-ref/DiskPlacementGroup/update.md
   - name: DiskType
     items:
       - name: Overview

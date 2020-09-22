@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method update
-Updates the specified ElasticSearch cluster.
+Updates the specified Elasticsearch cluster.
  
 
  
@@ -16,7 +16,7 @@ PATCH https://mdb.api.cloud.yandex.net/managed-elasticsearch/v1/clusters/{cluste
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the ElasticSearch Cluster resource to update. To get the ElasticSearch cluster ID, use a [list](/docs/managed-elasticsearch/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
+clusterId | Required. ID of the Elasticsearch cluster to update.  To get the Elasticsearch cluster ID, make a [list](/docs/managed-elasticsearch/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
  
 ## Body parameters {#body_params}
  
@@ -55,26 +55,26 @@ clusterId | Required. ID of the ElasticSearch Cluster resource to update. To get
  
 Field | Description
 --- | ---
-updateMask | **string**<br><p>Field mask that specifies which fields of the ElasticSearch cluster should be updated.</p> <p>A comma-separated names off ALL fields to be updated. Оnly the specified fields will be changed. The others will be left untouched. If the field is specified in <code>updateMask</code> and no value for that field was sent in the request, the field's value will be reset to the default. The default value for most fields is null or 0.</p> <p>If <code>updateMask</code> is not sent in the request, all fields' values will be updated. Fields specified in the request will be updated to provided values. The rest of the fields will be reset to the default.</p> 
-description | **string**<br><p>New description of the ElasticSearch cluster.</p> <p>The maximum string length in characters is 256.</p> 
-labels | **object**<br><p>Custom labels for the ElasticSearch cluster as <code>key:value</code> pairs. Maximum 64 per resource. For example, &quot;project&quot;: &quot;mvp&quot; or &quot;source&quot;: &quot;dictionary&quot;.</p> <p>The new set of labels will completely replace the old ones. To add a label, request the current set with the <a href="/docs/managed-elasticsearch/api-ref/Cluster/get">get</a> method, then send an <a href="/docs/managed-elasticsearch/api-ref/Cluster/update">update</a> request with the new label added to the set.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression <code>[a-z][-_0-9a-z]*</code>. The maximum string length in characters for each value is 63. Each value must match the regular expression <code>[-_0-9a-z]*</code>.</p> 
-configSpec | **object**<br><p>New configuration and resources for hosts in the cluster.</p> 
-configSpec.<br>version | **string**<br><p>ElasticSearch version.</p> 
-configSpec.<br>elasticsearchSpec | **object**<br>
-configSpec.<br>elasticsearchSpec.<br>dataNode | **object**<br>
-configSpec.<br>elasticsearchSpec.<br>dataNode.<br>resources | **object**<br>Resources allocated to data node hosts.<br>
-configSpec.<br>elasticsearchSpec.<br>dataNode.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.).</p> 
+updateMask | **string**<br><p>A comma-separated names off ALL fields to be updated. Оnly the specified fields will be changed. The others will be left untouched. If the field is specified in <code>updateMask</code> and no value for that field was sent in the request, the field's value will be reset to the default. The default value for most fields is null or 0.</p> <p>If <code>updateMask</code> is not sent in the request, all fields' values will be updated. Fields specified in the request will be updated to provided values. The rest of the fields will be reset to the default.</p> 
+description | **string**<br><p>New description of the Elasticsearch cluster.</p> <p>The maximum string length in characters is 256.</p> 
+labels | **object**<br><p>Custom labels for the Elasticsearch cluster as <code>key:value</code> pairs.</p> <p>For example, &quot;project&quot;: &quot;mvp&quot; or &quot;source&quot;: &quot;dictionary&quot;.</p> <p>The new set of labels will completely replace the old ones. To add a label, request the current set with the <a href="/docs/managed-elasticsearch/api-ref/Cluster/get">get</a> method, then send an <a href="/docs/managed-elasticsearch/api-ref/Cluster/update">update</a> request with the new label added to the set.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression <code>[a-z][-_0-9a-z]*</code>. The maximum string length in characters for each value is 63. Each value must match the regular expression <code>[-_0-9a-z]*</code>.</p> 
+configSpec | **object**<br><p>New configuration and resources for hosts in the Elasticsearch cluster.</p> <p>Use <a href="/docs/managed-elasticsearch/api-ref/Cluster/update#body_params">updateMask</a> to prevent reverting all cluster settings that are not listed in <code>config_spec</code> to their default values.</p> 
+configSpec.<br>version | **string**<br><p>Elasticsearch version.</p> 
+configSpec.<br>elasticsearchSpec | **object**<br><p>Configuration and resource allocation for Elasticsearch nodes.</p> 
+configSpec.<br>elasticsearchSpec.<br>dataNode | **object**<br><p>Configuration and resource allocation for Elasticsearch data nodes.</p> 
+configSpec.<br>elasticsearchSpec.<br>dataNode.<br>resources | **object**<br>Resources allocated to Elasticsearch data nodes.<br><p>Computational resources.</p> 
+configSpec.<br>elasticsearchSpec.<br>dataNode.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-elasticsearch/concepts/instance-types">documentation</a>.</p> 
 configSpec.<br>elasticsearchSpec.<br>dataNode.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
-configSpec.<br>elasticsearchSpec.<br>dataNode.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host.</p> 
-configSpec.<br>elasticsearchSpec.<br>dataNode.<br>elasticsearchConfig_7_6 | **object**<br>
-configSpec.<br>elasticsearchSpec.<br>dataNode.<br>elasticsearchConfig_7_6.<br>fielddataCacheSize | **integer** (int64)<br><p>the percentage of heap space that is allocated to fielddata</p> 
-configSpec.<br>elasticsearchSpec.<br>dataNode.<br>elasticsearchConfig_7_6.<br>maxClauseCount | **integer** (int64)<br><p>the maximum number of allowed boolean clauses in a query</p> 
-configSpec.<br>elasticsearchSpec.<br>masterNode | **object**<br>
-configSpec.<br>elasticsearchSpec.<br>masterNode.<br>resources | **object**<br><p>Resources allocated to master node hosts.</p> 
-configSpec.<br>elasticsearchSpec.<br>masterNode.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.).</p> 
+configSpec.<br>elasticsearchSpec.<br>dataNode.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. All available types are listed in the <a href="/docs/managed-elasticsearch/concepts/storage">documentation</a>.</p> 
+configSpec.<br>elasticsearchSpec.<br>dataNode.<br>elasticsearchConfig_7_6 | **object**<br><p>Elasticsearch 7.6 supported configuration options are listed here.</p> <p>Detailed description for each set of options is available in <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">Elasticsearch documentation</a>.</p> <p>Any options that are not listed here are not supported.</p> 
+configSpec.<br>elasticsearchSpec.<br>dataNode.<br>elasticsearchConfig_7_6.<br>fielddataCacheSize | **integer** (int64)<br><p>The maximum percentage of heap space that is allocated to field data cache.</p> <p>All the field values that are placed in this cache, get loaded to memory in order to provide fast document based access to those values. Building the field data cache for a field can be an expensive operations, so its recommended to have enough memory for this cache, and to keep it loaded.</p> <p>Default value: unbounded.</p> <p>See in-depth description in <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-fielddata.html">Elasticsearch documentation</a>.</p> 
+configSpec.<br>elasticsearchSpec.<br>dataNode.<br>elasticsearchConfig_7_6.<br>maxClauseCount | **integer** (int64)<br><p>The maximum number of clauses a boolean query can contain.</p> <p>The limit is in place to prevent searches from becoming too large and taking up too much CPU and memory. It affects not only Elasticsearch's <code>bool</code> query, but many other quieries that are implicitly converted to <code>bool</code> query by Elastcsearch.</p> <p>Default value: <code>1024</code>.</p> <p>See in-depth description in <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/search-settings.html">Elasticsearch documentation</a>.</p> 
+configSpec.<br>elasticsearchSpec.<br>masterNode | **object**<br><p>Configuration and resource allocation for Elasticsearch master nodes.</p> 
+configSpec.<br>elasticsearchSpec.<br>masterNode.<br>resources | **object**<br><p>Resources allocated to Elasticsearch master nodes.</p> <p>Computational resources.</p> 
+configSpec.<br>elasticsearchSpec.<br>masterNode.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-elasticsearch/concepts/instance-types">documentation</a>.</p> 
 configSpec.<br>elasticsearchSpec.<br>masterNode.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
-configSpec.<br>elasticsearchSpec.<br>masterNode.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host.</p> 
-name | **string**<br><p>The maximum string length in characters is 63. Value must match the regular expression <code>[a-zA-Z0-9_-]*</code>.</p> 
+configSpec.<br>elasticsearchSpec.<br>masterNode.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. All available types are listed in the <a href="/docs/managed-elasticsearch/concepts/storage">documentation</a>.</p> 
+name | **string**<br><p>New name for the Elasticsearch cluster.</p> <p>The maximum string length in characters is 63. Value must match the regular expression <code>[a-zA-Z0-9_-]*</code>.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

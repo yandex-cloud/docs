@@ -83,13 +83,15 @@ link | **string**<br>Link to the monitoring system charts for the MongoDB cluste
 
 Field | Description
 --- | ---
-version | **string**<br>Version of MongoDB server software. Possible values: `3.6`, `4.0`, `4.2`. 
-feature_compatibility_version | **string**<br><ul><li>`3.6` — persist data compatibility for version 3.6. After setting this option the data will not be compatible with 3.4 or lower. </li><li>`4.0` — persist data compatibility for version 4.0. After setting this option the data will not be compatible with 3.6 or lower. </li><li>`4.2` — persist data compatibility for version 4.2. After setting this option the data will not be compatible with 4.0 or lower.</li></ul> 
-mongodb | **oneof:** `mongodb_3_6`, `mongodb_4_0` or `mongodb_4_2`<br>Configuration for MongoDB servers in the cluster.
+version | **string**<br>Version of MongoDB server software. Possible values: `3.6`, `4.0`, `4.2`, `4.4`. 
+feature_compatibility_version | **string**<br><ul><li>`3.6` — persist data compatibility for version 3.6. After setting this option the data will not be compatible with 3.4 or lower. </li><li>`4.0` — persist data compatibility for version 4.0. After setting this option the data will not be compatible with 3.6 or lower. </li><li>`4.2` — persist data compatibility for version 4.2. After setting this option the data will not be compatible with 4.0 or lower. </li><li>`4.4` — persist data compatibility for version 4.4. After setting this option the data will not be compatible with 4.2 or lower.</li></ul> 
+mongodb | **oneof:** `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2` or `mongodb_4_4`<br>Configuration for MongoDB servers in the cluster.
 &nbsp;&nbsp;mongodb_3_6 | **[Mongodb3_6](../cluster.proto#Mongodb3_6)**<br>Configuration and resource allocation for a MongoDB 3.6 cluster. 
 &nbsp;&nbsp;mongodb_4_0 | **[Mongodb4_0](../cluster.proto#Mongodb4_0)**<br>Configuration and resource allocation for a MongoDB 4.0 cluster. 
 &nbsp;&nbsp;mongodb_4_2 | **[Mongodb4_2](../cluster.proto#Mongodb4_2)**<br>Configuration and resource allocation for a MongoDB 4.2 cluster. 
+&nbsp;&nbsp;mongodb_4_4 | **[Mongodb4_4](../cluster.proto#Mongodb4_4)**<br>Configuration and resource allocation for a MongoDB 4.4 cluster. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
+backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retain period of automatically created backup in days 
 access | **[Access](../cluster.proto#Access)**<br>Access policy to DB 
 
 
@@ -222,6 +224,49 @@ config_mongocfg | **[config.MongoCfgConfigSet4_2](#MongoCfgConfigSet4_2)**<br>
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
+### Mongodb4_4 {#Mongodb4_4}
+
+Field | Description
+--- | ---
+mongod | **[Mongod](../cluster.proto#Mongod3)**<br>Configuration and resource allocation for mongod in a MongoDB 4.4 cluster. 
+mongocfg | **[MongoCfg](../cluster.proto#MongoCfg3)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.4 cluster. 
+mongos | **[Mongos](../cluster.proto#Mongos3)**<br>Configuration and resource allocation for mongos in a MongoDB 4.4 cluster. 
+mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra3)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.4 cluster. 
+
+
+### Mongod {#Mongod}
+
+Field | Description
+--- | ---
+config | **`config.MongodConfigSet4_4`**<br>Configuration for mongod 4.4 hosts. 
+resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongod hosts. 
+
+
+### MongoCfg {#MongoCfg}
+
+Field | Description
+--- | ---
+config | **`config.MongoCfgConfigSet4_4`**<br>Configuration for mongocfg 4.4 hosts. 
+resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongocfg hosts. 
+
+
+### Mongos {#Mongos}
+
+Field | Description
+--- | ---
+config | **`config.MongosConfigSet4_4`**<br>Configuration for mongos 4.4 hosts. 
+resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongos hosts. 
+
+
+### MongoInfra {#MongoInfra}
+
+Field | Description
+--- | ---
+config_mongos | **[config.MongosConfigSet4_4](#MongosConfigSet4_4)**<br> 
+config_mongocfg | **[config.MongoCfgConfigSet4_4](#MongoCfgConfigSet4_4)**<br> 
+resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+
+
 ### Access {#Access}
 
 Field | Description
@@ -316,13 +361,15 @@ link | **string**<br>Link to the monitoring system charts for the MongoDB cluste
 
 Field | Description
 --- | ---
-version | **string**<br>Version of MongoDB server software. Possible values: `3.6`, `4.0`, `4.2`. 
-feature_compatibility_version | **string**<br><ul><li>`3.6` — persist data compatibility for version 3.6. After setting this option the data will not be compatible with 3.4 or lower. </li><li>`4.0` — persist data compatibility for version 4.0. After setting this option the data will not be compatible with 3.6 or lower. </li><li>`4.2` — persist data compatibility for version 4.2. After setting this option the data will not be compatible with 4.0 or lower.</li></ul> 
-mongodb | **oneof:** `mongodb_3_6`, `mongodb_4_0` or `mongodb_4_2`<br>Configuration for MongoDB servers in the cluster.
+version | **string**<br>Version of MongoDB server software. Possible values: `3.6`, `4.0`, `4.2`, `4.4`. 
+feature_compatibility_version | **string**<br><ul><li>`3.6` — persist data compatibility for version 3.6. After setting this option the data will not be compatible with 3.4 or lower. </li><li>`4.0` — persist data compatibility for version 4.0. After setting this option the data will not be compatible with 3.6 or lower. </li><li>`4.2` — persist data compatibility for version 4.2. After setting this option the data will not be compatible with 4.0 or lower. </li><li>`4.4` — persist data compatibility for version 4.4. After setting this option the data will not be compatible with 4.2 or lower.</li></ul> 
+mongodb | **oneof:** `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2` or `mongodb_4_4`<br>Configuration for MongoDB servers in the cluster.
 &nbsp;&nbsp;mongodb_3_6 | **[Mongodb3_6](../cluster.proto#Mongodb3_61)**<br>Configuration and resource allocation for a MongoDB 3.6 cluster. 
 &nbsp;&nbsp;mongodb_4_0 | **[Mongodb4_0](../cluster.proto#Mongodb4_01)**<br>Configuration and resource allocation for a MongoDB 4.0 cluster. 
 &nbsp;&nbsp;mongodb_4_2 | **[Mongodb4_2](../cluster.proto#Mongodb4_21)**<br>Configuration and resource allocation for a MongoDB 4.2 cluster. 
+&nbsp;&nbsp;mongodb_4_4 | **[Mongodb4_4](../cluster.proto#Mongodb4_41)**<br>Configuration and resource allocation for a MongoDB 4.4 cluster. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
+backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retain period of automatically created backup in days 
 access | **[Access](../cluster.proto#Access1)**<br>Access policy to DB 
 
 
@@ -330,10 +377,10 @@ access | **[Access](../cluster.proto#Access1)**<br>Access policy to DB
 
 Field | Description
 --- | ---
-mongod | **[Mongod](../cluster.proto#Mongod3)**<br>Configuration and resource allocation for mongod in a MongoDB 3.6 cluster. 
-mongocfg | **[MongoCfg](../cluster.proto#MongoCfg3)**<br>Configuration and resource allocation for mongocfg in a MongoDB 3.6 cluster. 
-mongos | **[Mongos](../cluster.proto#Mongos3)**<br>Configuration and resource allocation for mongos in a MongoDB 3.6 cluster. 
-mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra3)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 3.6 cluster. 
+mongod | **[Mongod](../cluster.proto#Mongod4)**<br>Configuration and resource allocation for mongod in a MongoDB 3.6 cluster. 
+mongocfg | **[MongoCfg](../cluster.proto#MongoCfg4)**<br>Configuration and resource allocation for mongocfg in a MongoDB 3.6 cluster. 
+mongos | **[Mongos](../cluster.proto#Mongos4)**<br>Configuration and resource allocation for mongos in a MongoDB 3.6 cluster. 
+mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra4)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 3.6 cluster. 
 
 
 ### Mongod {#Mongod}
@@ -373,10 +420,10 @@ resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated t
 
 Field | Description
 --- | ---
-mongod | **[Mongod](../cluster.proto#Mongod4)**<br>Configuration and resource allocation for mongod in a MongoDB 4.0 cluster. 
-mongocfg | **[MongoCfg](../cluster.proto#MongoCfg4)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.0 cluster. 
-mongos | **[Mongos](../cluster.proto#Mongos4)**<br>Configuration and resource allocation for mongos in a MongoDB 4.0 cluster. 
-mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra4)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.0 cluster. 
+mongod | **[Mongod](../cluster.proto#Mongod5)**<br>Configuration and resource allocation for mongod in a MongoDB 4.0 cluster. 
+mongocfg | **[MongoCfg](../cluster.proto#MongoCfg5)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.0 cluster. 
+mongos | **[Mongos](../cluster.proto#Mongos5)**<br>Configuration and resource allocation for mongos in a MongoDB 4.0 cluster. 
+mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra5)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.0 cluster. 
 
 
 ### Mongod {#Mongod}
@@ -416,10 +463,10 @@ resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated t
 
 Field | Description
 --- | ---
-mongod | **[Mongod](../cluster.proto#Mongod5)**<br>Configuration and resource allocation for mongod in a MongoDB 4.2 cluster. 
-mongocfg | **[MongoCfg](../cluster.proto#MongoCfg5)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.2 cluster. 
-mongos | **[Mongos](../cluster.proto#Mongos5)**<br>Configuration and resource allocation for mongos in a MongoDB 4.2 cluster. 
-mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra5)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.2 cluster. 
+mongod | **[Mongod](../cluster.proto#Mongod6)**<br>Configuration and resource allocation for mongod in a MongoDB 4.2 cluster. 
+mongocfg | **[MongoCfg](../cluster.proto#MongoCfg6)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.2 cluster. 
+mongos | **[Mongos](../cluster.proto#Mongos6)**<br>Configuration and resource allocation for mongos in a MongoDB 4.2 cluster. 
+mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra6)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.2 cluster. 
 
 
 ### Mongod {#Mongod}
@@ -452,6 +499,49 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet4_2](#MongosConfigSet4_2)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet4_2](#MongoCfgConfigSet4_2)**<br> 
+resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+
+
+### Mongodb4_4 {#Mongodb4_4}
+
+Field | Description
+--- | ---
+mongod | **[Mongod](../cluster.proto#Mongod7)**<br>Configuration and resource allocation for mongod in a MongoDB 4.4 cluster. 
+mongocfg | **[MongoCfg](../cluster.proto#MongoCfg7)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.4 cluster. 
+mongos | **[Mongos](../cluster.proto#Mongos7)**<br>Configuration and resource allocation for mongos in a MongoDB 4.4 cluster. 
+mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra7)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.4 cluster. 
+
+
+### Mongod {#Mongod}
+
+Field | Description
+--- | ---
+config | **`config.MongodConfigSet4_4`**<br>Configuration for mongod 4.4 hosts. 
+resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongod hosts. 
+
+
+### MongoCfg {#MongoCfg}
+
+Field | Description
+--- | ---
+config | **`config.MongoCfgConfigSet4_4`**<br>Configuration for mongocfg 4.4 hosts. 
+resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongocfg hosts. 
+
+
+### Mongos {#Mongos}
+
+Field | Description
+--- | ---
+config | **`config.MongosConfigSet4_4`**<br>Configuration for mongos 4.4 hosts. 
+resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongos hosts. 
+
+
+### MongoInfra {#MongoInfra}
+
+Field | Description
+--- | ---
+config_mongos | **[config.MongosConfigSet4_4](#MongosConfigSet4_4)**<br> 
+config_mongocfg | **[config.MongoCfgConfigSet4_4](#MongoCfgConfigSet4_4)**<br> 
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
@@ -521,13 +611,15 @@ network_id | **string**<br>Required. ID of the network to create the cluster in.
 
 Field | Description
 --- | ---
-version | **string**<br>Version of MongoDB used in the cluster. Possible values: `3.6`, `4.0`, `4.2`. 
-feature_compatibility_version | **string**<br><ul><li>`3.6` — persist data compatibility for version 3.6. After setting this option the data will not be compatible with 3.4 or older. </li><li>`4.0` — persist data compatibility for version 4.0. After setting this option the data will not be compatible with 3.6 or older. </li><li>`4.2` — persist data compatibility for version 4.2. After setting this option the data will not be compatible with 4.0 or older.</li></ul> 
-mongodb_spec | **oneof:** `mongodb_spec_3_6`, `mongodb_spec_4_0` or `mongodb_spec_4_2`<br>
+version | **string**<br>Version of MongoDB used in the cluster. Possible values: `3.6`, `4.0`, `4.2`, `4.4`. 
+feature_compatibility_version | **string**<br><ul><li>`3.6` — persist data compatibility for version 3.6. After setting this option the data will not be compatible with 3.4 or older. </li><li>`4.0` — persist data compatibility for version 4.0. After setting this option the data will not be compatible with 3.6 or older. </li><li>`4.2` — persist data compatibility for version 4.2. After setting this option the data will not be compatible with 4.0 or older. </li><li>`4.4` — persist data compatibility for version 4.4. After setting this option the data will not be compatible with 4.2 or older.</li></ul> 
+mongodb_spec | **oneof:** `mongodb_spec_3_6`, `mongodb_spec_4_0`, `mongodb_spec_4_2` or `mongodb_spec_4_4`<br>
 &nbsp;&nbsp;mongodb_spec_3_6 | **[MongodbSpec3_6](#MongodbSpec3_6)**<br>Configuration and resource allocation for a MongoDB 3.6 cluster. false
 &nbsp;&nbsp;mongodb_spec_4_0 | **[MongodbSpec4_0](#MongodbSpec4_0)**<br>Configuration and resource allocation for a MongoDB 4.0 cluster. false
 &nbsp;&nbsp;mongodb_spec_4_2 | **[MongodbSpec4_2](#MongodbSpec4_2)**<br>Configuration and resource allocation for a MongoDB 4.2 cluster. false
+&nbsp;&nbsp;mongodb_spec_4_4 | **[MongodbSpec4_4](#MongodbSpec4_4)**<br>Configuration and resource allocation for a MongoDB 4.4 cluster. false
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
+backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retain period of automatically created backup in days Acceptable values are 7 to 35, inclusive.
 access | **[Access](../cluster.proto#Access2)**<br>Access policy to DB 
 
 
@@ -535,10 +627,10 @@ access | **[Access](../cluster.proto#Access2)**<br>Access policy to DB
 
 Field | Description
 --- | ---
-mongod | **[Mongod](../cluster.proto#Mongod6)**<br>Configuration and resource allocation for mongod 3.6 hosts. 
-mongocfg | **[MongoCfg](../cluster.proto#MongoCfg6)**<br>Configuration and resource allocation for mongocfg 3.6 hosts. 
-mongos | **[Mongos](../cluster.proto#Mongos6)**<br>Configuration and resource allocation for mongos 3.6 hosts. 
-mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra6)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 3.6 hosts. 
+mongod | **[Mongod](../cluster.proto#Mongod8)**<br>Configuration and resource allocation for mongod 3.6 hosts. 
+mongocfg | **[MongoCfg](../cluster.proto#MongoCfg8)**<br>Configuration and resource allocation for mongocfg 3.6 hosts. 
+mongos | **[Mongos](../cluster.proto#Mongos8)**<br>Configuration and resource allocation for mongos 3.6 hosts. 
+mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra8)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 3.6 hosts. 
 
 
 ### Mongod {#Mongod}
@@ -578,10 +670,10 @@ resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated t
 
 Field | Description
 --- | ---
-mongod | **[Mongod](../cluster.proto#Mongod7)**<br>Configuration and resource allocation for mongod 4.0 hosts. 
-mongocfg | **[MongoCfg](../cluster.proto#MongoCfg7)**<br>Configuration and resource allocation for mongocfg 4.0 hosts. 
-mongos | **[Mongos](../cluster.proto#Mongos7)**<br>Configuration and resource allocation for mongos 4.0 hosts. 
-mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra7)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.0 hosts. 
+mongod | **[Mongod](../cluster.proto#Mongod9)**<br>Configuration and resource allocation for mongod 4.0 hosts. 
+mongocfg | **[MongoCfg](../cluster.proto#MongoCfg9)**<br>Configuration and resource allocation for mongocfg 4.0 hosts. 
+mongos | **[Mongos](../cluster.proto#Mongos9)**<br>Configuration and resource allocation for mongos 4.0 hosts. 
+mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra9)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.0 hosts. 
 
 
 ### Mongod {#Mongod}
@@ -621,10 +713,10 @@ resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated t
 
 Field | Description
 --- | ---
-mongod | **[Mongod](../cluster.proto#Mongod8)**<br>Configuration and resource allocation for mongod 4.2 hosts. 
-mongocfg | **[MongoCfg](../cluster.proto#MongoCfg8)**<br>Configuration and resource allocation for mongocfg 4.2 hosts. 
-mongos | **[Mongos](../cluster.proto#Mongos8)**<br>Configuration and resource allocation for mongos 4.2 hosts. 
-mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra8)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.2 hosts. 
+mongod | **[Mongod](../cluster.proto#Mongod10)**<br>Configuration and resource allocation for mongod 4.2 hosts. 
+mongocfg | **[MongoCfg](../cluster.proto#MongoCfg10)**<br>Configuration and resource allocation for mongocfg 4.2 hosts. 
+mongos | **[Mongos](../cluster.proto#Mongos10)**<br>Configuration and resource allocation for mongos 4.2 hosts. 
+mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra10)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.2 hosts. 
 
 
 ### Mongod {#Mongod}
@@ -657,6 +749,49 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfig4_2](#MongosConfig4_2)**<br>Configuration for mongoinfra 4.2 hosts. 
 config_mongocfg | **[config.MongoCfgConfig4_2](#MongoCfgConfig4_2)**<br> 
+resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
+
+
+### MongodbSpec4_4 {#MongodbSpec4_4}
+
+Field | Description
+--- | ---
+mongod | **[Mongod](../cluster.proto#Mongod11)**<br>Configuration and resource allocation for mongod 4.4 hosts. 
+mongocfg | **[MongoCfg](../cluster.proto#MongoCfg11)**<br>Configuration and resource allocation for mongocfg 4.4 hosts. 
+mongos | **[Mongos](../cluster.proto#Mongos11)**<br>Configuration and resource allocation for mongos 4.4 hosts. 
+mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra11)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.4 hosts. 
+
+
+### Mongod {#Mongod}
+
+Field | Description
+--- | ---
+config | **`config.MongodConfig4_4`**<br>Configuration for mongod 4.4 hosts. 
+resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongod host. 
+
+
+### MongoCfg {#MongoCfg}
+
+Field | Description
+--- | ---
+config | **`config.MongoCfgConfig4_4`**<br>Configuration for mongocfg 4.4 hosts. 
+resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongocfg host. 
+
+
+### Mongos {#Mongos}
+
+Field | Description
+--- | ---
+config | **`config.MongosConfig4_4`**<br>Configuration for mongos 4.4 hosts. 
+resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongos host. 
+
+
+### MongoInfra {#MongoInfra}
+
+Field | Description
+--- | ---
+config_mongos | **[config.MongosConfig4_4](#MongosConfig4_4)**<br>Configuration for mongoinfra 4.4 hosts. 
+config_mongocfg | **[config.MongoCfgConfig4_4](#MongoCfgConfig4_4)**<br> 
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
 
 
@@ -773,13 +908,15 @@ maintenance_window | **[MaintenanceWindow](../maintenance.proto#MaintenanceWindo
 
 Field | Description
 --- | ---
-version | **string**<br>Version of MongoDB used in the cluster. Possible values: `3.6`, `4.0`, `4.2`. 
-feature_compatibility_version | **string**<br><ul><li>`3.6` — persist data compatibility for version 3.6. After setting this option the data will not be compatible with 3.4 or older. </li><li>`4.0` — persist data compatibility for version 4.0. After setting this option the data will not be compatible with 3.6 or older. </li><li>`4.2` — persist data compatibility for version 4.2. After setting this option the data will not be compatible with 4.0 or older.</li></ul> 
-mongodb_spec | **oneof:** `mongodb_spec_3_6`, `mongodb_spec_4_0` or `mongodb_spec_4_2`<br>
+version | **string**<br>Version of MongoDB used in the cluster. Possible values: `3.6`, `4.0`, `4.2`, `4.4`. 
+feature_compatibility_version | **string**<br><ul><li>`3.6` — persist data compatibility for version 3.6. After setting this option the data will not be compatible with 3.4 or older. </li><li>`4.0` — persist data compatibility for version 4.0. After setting this option the data will not be compatible with 3.6 or older. </li><li>`4.2` — persist data compatibility for version 4.2. After setting this option the data will not be compatible with 4.0 or older. </li><li>`4.4` — persist data compatibility for version 4.4. After setting this option the data will not be compatible with 4.2 or older.</li></ul> 
+mongodb_spec | **oneof:** `mongodb_spec_3_6`, `mongodb_spec_4_0`, `mongodb_spec_4_2` or `mongodb_spec_4_4`<br>
 &nbsp;&nbsp;mongodb_spec_3_6 | **[MongodbSpec3_6](#MongodbSpec3_61)**<br>Configuration and resource allocation for a MongoDB 3.6 cluster. false
 &nbsp;&nbsp;mongodb_spec_4_0 | **[MongodbSpec4_0](#MongodbSpec4_01)**<br>Configuration and resource allocation for a MongoDB 4.0 cluster. false
 &nbsp;&nbsp;mongodb_spec_4_2 | **[MongodbSpec4_2](#MongodbSpec4_21)**<br>Configuration and resource allocation for a MongoDB 4.2 cluster. false
+&nbsp;&nbsp;mongodb_spec_4_4 | **[MongodbSpec4_4](#MongodbSpec4_41)**<br>Configuration and resource allocation for a MongoDB 4.4 cluster. false
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
+backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retain period of automatically created backup in days Acceptable values are 7 to 35, inclusive.
 access | **[Access](../cluster.proto#Access3)**<br>Access policy to DB 
 
 
@@ -787,10 +924,10 @@ access | **[Access](../cluster.proto#Access3)**<br>Access policy to DB
 
 Field | Description
 --- | ---
-mongod | **[Mongod](../cluster.proto#Mongod9)**<br>Configuration and resource allocation for mongod 3.6 hosts. 
-mongocfg | **[MongoCfg](../cluster.proto#MongoCfg9)**<br>Configuration and resource allocation for mongocfg 3.6 hosts. 
-mongos | **[Mongos](../cluster.proto#Mongos9)**<br>Configuration and resource allocation for mongos 3.6 hosts. 
-mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra9)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 3.6 hosts. 
+mongod | **[Mongod](../cluster.proto#Mongod12)**<br>Configuration and resource allocation for mongod 3.6 hosts. 
+mongocfg | **[MongoCfg](../cluster.proto#MongoCfg12)**<br>Configuration and resource allocation for mongocfg 3.6 hosts. 
+mongos | **[Mongos](../cluster.proto#Mongos12)**<br>Configuration and resource allocation for mongos 3.6 hosts. 
+mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra12)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 3.6 hosts. 
 
 
 ### Mongod {#Mongod}
@@ -830,10 +967,10 @@ resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated t
 
 Field | Description
 --- | ---
-mongod | **[Mongod](../cluster.proto#Mongod10)**<br>Configuration and resource allocation for mongod 4.0 hosts. 
-mongocfg | **[MongoCfg](../cluster.proto#MongoCfg10)**<br>Configuration and resource allocation for mongocfg 4.0 hosts. 
-mongos | **[Mongos](../cluster.proto#Mongos10)**<br>Configuration and resource allocation for mongos 4.0 hosts. 
-mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra10)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.0 hosts. 
+mongod | **[Mongod](../cluster.proto#Mongod13)**<br>Configuration and resource allocation for mongod 4.0 hosts. 
+mongocfg | **[MongoCfg](../cluster.proto#MongoCfg13)**<br>Configuration and resource allocation for mongocfg 4.0 hosts. 
+mongos | **[Mongos](../cluster.proto#Mongos13)**<br>Configuration and resource allocation for mongos 4.0 hosts. 
+mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra13)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.0 hosts. 
 
 
 ### Mongod {#Mongod}
@@ -873,10 +1010,10 @@ resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated t
 
 Field | Description
 --- | ---
-mongod | **[Mongod](../cluster.proto#Mongod11)**<br>Configuration and resource allocation for mongod 4.2 hosts. 
-mongocfg | **[MongoCfg](../cluster.proto#MongoCfg11)**<br>Configuration and resource allocation for mongocfg 4.2 hosts. 
-mongos | **[Mongos](../cluster.proto#Mongos11)**<br>Configuration and resource allocation for mongos 4.2 hosts. 
-mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra11)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.2 hosts. 
+mongod | **[Mongod](../cluster.proto#Mongod14)**<br>Configuration and resource allocation for mongod 4.2 hosts. 
+mongocfg | **[MongoCfg](../cluster.proto#MongoCfg14)**<br>Configuration and resource allocation for mongocfg 4.2 hosts. 
+mongos | **[Mongos](../cluster.proto#Mongos14)**<br>Configuration and resource allocation for mongos 4.2 hosts. 
+mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra14)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.2 hosts. 
 
 
 ### Mongod {#Mongod}
@@ -909,6 +1046,49 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfig4_2](#MongosConfig4_2)**<br>Configuration for mongoinfra 4.2 hosts. 
 config_mongocfg | **[config.MongoCfgConfig4_2](#MongoCfgConfig4_2)**<br> 
+resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
+
+
+### MongodbSpec4_4 {#MongodbSpec4_4}
+
+Field | Description
+--- | ---
+mongod | **[Mongod](../cluster.proto#Mongod15)**<br>Configuration and resource allocation for mongod 4.4 hosts. 
+mongocfg | **[MongoCfg](../cluster.proto#MongoCfg15)**<br>Configuration and resource allocation for mongocfg 4.4 hosts. 
+mongos | **[Mongos](../cluster.proto#Mongos15)**<br>Configuration and resource allocation for mongos 4.4 hosts. 
+mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra15)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.4 hosts. 
+
+
+### Mongod {#Mongod}
+
+Field | Description
+--- | ---
+config | **`config.MongodConfig4_4`**<br>Configuration for mongod 4.4 hosts. 
+resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongod host. 
+
+
+### MongoCfg {#MongoCfg}
+
+Field | Description
+--- | ---
+config | **`config.MongoCfgConfig4_4`**<br>Configuration for mongocfg 4.4 hosts. 
+resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongocfg host. 
+
+
+### Mongos {#Mongos}
+
+Field | Description
+--- | ---
+config | **`config.MongosConfig4_4`**<br>Configuration for mongos 4.4 hosts. 
+resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongos host. 
+
+
+### MongoInfra {#MongoInfra}
+
+Field | Description
+--- | ---
+config_mongos | **[config.MongosConfig4_4](#MongosConfig4_4)**<br>Configuration for mongoinfra 4.4 hosts. 
+config_mongocfg | **[config.MongoCfgConfig4_4](#MongoCfgConfig4_4)**<br> 
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
 
 
@@ -1308,13 +1488,15 @@ timestamp | **int64**<br>Timestamp of the recovery target Value must be greater 
 
 Field | Description
 --- | ---
-version | **string**<br>Version of MongoDB used in the cluster. Possible values: `3.6`, `4.0`, `4.2`. 
-feature_compatibility_version | **string**<br><ul><li>`3.6` — persist data compatibility for version 3.6. After setting this option the data will not be compatible with 3.4 or older. </li><li>`4.0` — persist data compatibility for version 4.0. After setting this option the data will not be compatible with 3.6 or older. </li><li>`4.2` — persist data compatibility for version 4.2. After setting this option the data will not be compatible with 4.0 or older.</li></ul> 
-mongodb_spec | **oneof:** `mongodb_spec_3_6`, `mongodb_spec_4_0` or `mongodb_spec_4_2`<br>
+version | **string**<br>Version of MongoDB used in the cluster. Possible values: `3.6`, `4.0`, `4.2`, `4.4`. 
+feature_compatibility_version | **string**<br><ul><li>`3.6` — persist data compatibility for version 3.6. After setting this option the data will not be compatible with 3.4 or older. </li><li>`4.0` — persist data compatibility for version 4.0. After setting this option the data will not be compatible with 3.6 or older. </li><li>`4.2` — persist data compatibility for version 4.2. After setting this option the data will not be compatible with 4.0 or older. </li><li>`4.4` — persist data compatibility for version 4.4. After setting this option the data will not be compatible with 4.2 or older.</li></ul> 
+mongodb_spec | **oneof:** `mongodb_spec_3_6`, `mongodb_spec_4_0`, `mongodb_spec_4_2` or `mongodb_spec_4_4`<br>
 &nbsp;&nbsp;mongodb_spec_3_6 | **[MongodbSpec3_6](#MongodbSpec3_62)**<br>Configuration and resource allocation for a MongoDB 3.6 cluster. false
 &nbsp;&nbsp;mongodb_spec_4_0 | **[MongodbSpec4_0](#MongodbSpec4_02)**<br>Configuration and resource allocation for a MongoDB 4.0 cluster. false
 &nbsp;&nbsp;mongodb_spec_4_2 | **[MongodbSpec4_2](#MongodbSpec4_22)**<br>Configuration and resource allocation for a MongoDB 4.2 cluster. false
+&nbsp;&nbsp;mongodb_spec_4_4 | **[MongodbSpec4_4](#MongodbSpec4_42)**<br>Configuration and resource allocation for a MongoDB 4.4 cluster. false
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
+backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retain period of automatically created backup in days Acceptable values are 7 to 35, inclusive.
 access | **[Access](../cluster.proto#Access4)**<br>Access policy to DB 
 
 
@@ -1322,10 +1504,10 @@ access | **[Access](../cluster.proto#Access4)**<br>Access policy to DB
 
 Field | Description
 --- | ---
-mongod | **[Mongod](../cluster.proto#Mongod12)**<br>Configuration and resource allocation for mongod 3.6 hosts. 
-mongocfg | **[MongoCfg](../cluster.proto#MongoCfg12)**<br>Configuration and resource allocation for mongocfg 3.6 hosts. 
-mongos | **[Mongos](../cluster.proto#Mongos12)**<br>Configuration and resource allocation for mongos 3.6 hosts. 
-mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra12)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 3.6 hosts. 
+mongod | **[Mongod](../cluster.proto#Mongod16)**<br>Configuration and resource allocation for mongod 3.6 hosts. 
+mongocfg | **[MongoCfg](../cluster.proto#MongoCfg16)**<br>Configuration and resource allocation for mongocfg 3.6 hosts. 
+mongos | **[Mongos](../cluster.proto#Mongos16)**<br>Configuration and resource allocation for mongos 3.6 hosts. 
+mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra16)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 3.6 hosts. 
 
 
 ### Mongod {#Mongod}
@@ -1365,10 +1547,10 @@ resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated t
 
 Field | Description
 --- | ---
-mongod | **[Mongod](../cluster.proto#Mongod13)**<br>Configuration and resource allocation for mongod 4.0 hosts. 
-mongocfg | **[MongoCfg](../cluster.proto#MongoCfg13)**<br>Configuration and resource allocation for mongocfg 4.0 hosts. 
-mongos | **[Mongos](../cluster.proto#Mongos13)**<br>Configuration and resource allocation for mongos 4.0 hosts. 
-mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra13)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.0 hosts. 
+mongod | **[Mongod](../cluster.proto#Mongod17)**<br>Configuration and resource allocation for mongod 4.0 hosts. 
+mongocfg | **[MongoCfg](../cluster.proto#MongoCfg17)**<br>Configuration and resource allocation for mongocfg 4.0 hosts. 
+mongos | **[Mongos](../cluster.proto#Mongos17)**<br>Configuration and resource allocation for mongos 4.0 hosts. 
+mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra17)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.0 hosts. 
 
 
 ### Mongod {#Mongod}
@@ -1408,10 +1590,10 @@ resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated t
 
 Field | Description
 --- | ---
-mongod | **[Mongod](../cluster.proto#Mongod14)**<br>Configuration and resource allocation for mongod 4.2 hosts. 
-mongocfg | **[MongoCfg](../cluster.proto#MongoCfg14)**<br>Configuration and resource allocation for mongocfg 4.2 hosts. 
-mongos | **[Mongos](../cluster.proto#Mongos14)**<br>Configuration and resource allocation for mongos 4.2 hosts. 
-mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra14)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.2 hosts. 
+mongod | **[Mongod](../cluster.proto#Mongod18)**<br>Configuration and resource allocation for mongod 4.2 hosts. 
+mongocfg | **[MongoCfg](../cluster.proto#MongoCfg18)**<br>Configuration and resource allocation for mongocfg 4.2 hosts. 
+mongos | **[Mongos](../cluster.proto#Mongos18)**<br>Configuration and resource allocation for mongos 4.2 hosts. 
+mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra18)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.2 hosts. 
 
 
 ### Mongod {#Mongod}
@@ -1444,6 +1626,49 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfig4_2](#MongosConfig4_2)**<br>Configuration for mongoinfra 4.2 hosts. 
 config_mongocfg | **[config.MongoCfgConfig4_2](#MongoCfgConfig4_2)**<br> 
+resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
+
+
+### MongodbSpec4_4 {#MongodbSpec4_4}
+
+Field | Description
+--- | ---
+mongod | **[Mongod](../cluster.proto#Mongod19)**<br>Configuration and resource allocation for mongod 4.4 hosts. 
+mongocfg | **[MongoCfg](../cluster.proto#MongoCfg19)**<br>Configuration and resource allocation for mongocfg 4.4 hosts. 
+mongos | **[Mongos](../cluster.proto#Mongos19)**<br>Configuration and resource allocation for mongos 4.4 hosts. 
+mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra19)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.4 hosts. 
+
+
+### Mongod {#Mongod}
+
+Field | Description
+--- | ---
+config | **`config.MongodConfig4_4`**<br>Configuration for mongod 4.4 hosts. 
+resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongod host. 
+
+
+### MongoCfg {#MongoCfg}
+
+Field | Description
+--- | ---
+config | **`config.MongoCfgConfig4_4`**<br>Configuration for mongocfg 4.4 hosts. 
+resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongocfg host. 
+
+
+### Mongos {#Mongos}
+
+Field | Description
+--- | ---
+config | **`config.MongosConfig4_4`**<br>Configuration for mongos 4.4 hosts. 
+resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongos host. 
+
+
+### MongoInfra {#MongoInfra}
+
+Field | Description
+--- | ---
+config_mongos | **[config.MongosConfig4_4](#MongosConfig4_4)**<br>Configuration for mongoinfra 4.4 hosts. 
+config_mongocfg | **[config.MongoCfgConfig4_4](#MongoCfgConfig4_4)**<br> 
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
 
 
@@ -1625,6 +1850,7 @@ service_type | enum **ServiceType**<br> <ul><li>`MONGOD`: Logs of MongoDB activi
 from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Start timestamp for the logs request. 
 to_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>End timestamp for the logs request. If this field is not set, all existing logs will be sent and then the new ones as they appear. In essence it has 'tail -f' semantics. 
 record_token | **string**<br>Record token. Set `record_token` to the `next_record_token` returned by a previous StreamLogs request to start streaming from next log record. The maximum string length in characters is 100.
+filter | **string**<br><ol><li>The field name. Currently filtering can be applied to the [LogRecord.logs.message.hostname](#LogRecord1), [LogRecord.logs.message.severity](#LogRecord1) fields. </li><li>A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 1-63 characters long and match the regular expression `^[a-z0-9.-]{1,61}$`. </li></ol> The maximum string length in characters is 1000.
 
 
 ### StreamLogRecord {#StreamLogRecord}
@@ -1715,6 +1941,8 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 source_cluster_id | **string**<br>ID of the MongoDB cluster that the backup was created for. 
 started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the backup operation was started. 
 source_shard_names[] | **string**<br>Shard names used as a source for backup. 
+size | **int64**<br>Size of backup in bytes 
+type | enum **BackupType**<br>How this backup was created (manual/automatic/etc...) <ul><li>`AUTOMATED`: Backup created by automated daily schedule</li><li>`MANUAL`: Backup created by user request</li><ul/>
 
 
 ## ListHosts {#ListHosts}
@@ -1884,10 +2112,10 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 cluster_id | **string**<br>Required. ID of the MongoDB cluster to enable sharding for. false The maximum string length in characters is 50.
-mongocfg | **[MongoCfg](../cluster.proto#MongoCfg15)**<br>mongocfg specification for sharding. 
-mongos | **[Mongos](../cluster.proto#Mongos15)**<br>mongos specification for sharding. 
+mongocfg | **[MongoCfg](../cluster.proto#MongoCfg20)**<br>mongocfg specification for sharding. 
+mongos | **[Mongos](../cluster.proto#Mongos20)**<br>mongos specification for sharding. 
 host_specs[] | **[HostSpec](#HostSpec3)**<br>Configurations for mongos and mongocfg hosts. The number of elements must be greater than 0.
-mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra15)**<br>mongos specification for sharding. 
+mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra20)**<br>mongos specification for sharding. 
 
 
 ### MongoCfg {#MongoCfg}

@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method get
-Returns information about specified host type
+Returns information about specified host type.
  
 
  
@@ -28,12 +28,12 @@ hostTypeId | Required. ID of the host type to return.  To get a host type ID mak
   "memory": "string"
 }
 ```
-Represents host resources
-Note: Platform can use hosts with different number of memory and cores
+Represents host resources.
+Note: Platform can use hosts with different number of memory and cores.
 TODO: Do we need sockets here?
  
 Field | Description
 --- | ---
-id | **string**<br><p>Unique type identifier</p> 
-cores | **string** (int64)<br><p>Total number of cores available for instances</p> 
-memory | **string** (int64)<br><p>Ammount of memory available for instances</p> 
+id | **string**<br><p>Unique type identifier.</p> 
+cores | **string** (int64)<br><p>Total number of cores available for instances.</p> 
+memory | **string** (int64)<br><p>Ammount of memory available for instances.</p> 

@@ -9,5 +9,7 @@ items:
     href: grpc/registry_service.md
   - name: RepositoryService
     href: grpc/repository_service.md
+  - name: ScannerService
+    href: grpc/scanner_service.md
   - name: OperationService
     href: grpc/operation_service.md

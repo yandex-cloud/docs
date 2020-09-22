@@ -4,30 +4,30 @@ editable: false
 
 # ClusterService
 
-A set of methods for managing ElasticSearch clusters.
+A set of methods for managing Elasticsearch clusters.
 
 | Call | Description |
 | --- | --- |
-| [Get](#Get) | Returns the specified ElasticSearch Cluster resource. |
-| [List](#List) | Retrieves the list of ElasticSearch clusters. |
-| [Create](#Create) | Creates an ElasticSearch cluster. |
-| [Update](#Update) | Updates the specified ElasticSearch cluster. |
-| [Delete](#Delete) | Deletes the specified ElasticSearch cluster. |
-| [Move](#Move) | Moves the specified ElasticSearch cluster to the specified folder. |
-| [Start](#Start) | Start the specified ElasticSearch cluster. |
-| [Stop](#Stop) | Stop the specified ElasticSearch cluster. |
-| [ListLogs](#ListLogs) | Retrieves logs for the specified ElasticSearch cluster. |
-| [StreamLogs](#StreamLogs) | Same as ListLogs but using server-side streaming. |
-| [ListOperations](#ListOperations) | Retrieves the list of Operation resources for the specified cluster. |
-| [ListHosts](#ListHosts) | Retrieves a list of hosts for the specified cluster. |
-| [AddHosts](#AddHosts) | Creates new hosts. |
-| [DeleteHosts](#DeleteHosts) | Deletes specified hosts. |
+| [Get](#Get) | Returns the specified Elasticsearch cluster. |
+| [List](#List) | Retrieves the list of Elasticsearch clusters that belong to the specified folder. |
+| [Create](#Create) | Creates a new Elasticsearch cluster in the specified folder. |
+| [Update](#Update) | Updates the specified Elasticsearch cluster. |
+| [Delete](#Delete) | Deletes the specified Elasticsearch cluster. |
+| [Move](#Move) | Moves the specified Elasticsearch cluster to the specified folder. |
+| [Start](#Start) | Starts the specified Elasticsearch cluster. |
+| [Stop](#Stop) | Stops the specified Elasticsearch cluster. |
+| [ListLogs](#ListLogs) | Retrieves logs for the specified Elasticsearch cluster. |
+| [StreamLogs](#StreamLogs) | Same as [ListLogs](#ListLogs) but using server-side streaming. |
+| [ListOperations](#ListOperations) | Retrieves the list of operations for the specified Elasticsearch cluster. |
+| [ListHosts](#ListHosts) | Retrieves a list of hosts for the specified Elasticsearch cluster. |
+| [AddHosts](#AddHosts) | Adds new hosts to the specified Elasticsearch cluster. |
+| [DeleteHosts](#DeleteHosts) | Deletes specified hosts from the specified Elasticsearch cluster. |
 
 ## Calls ClusterService {#calls}
 
 ## Get {#Get}
 
-Returns the specified ElasticSearch Cluster resource.
+Returns the specified Elasticsearch cluster. <br>To get the list of available Elasticsearch clusters, make a [List](#List) request.
 
 **rpc Get ([GetClusterRequest](#GetClusterRequest)) returns ([Cluster](../cluster.proto#Cluster))**
 
@@ -35,25 +35,25 @@ Returns the specified ElasticSearch Cluster resource.
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the ElasticSearch cluster to return. To get the cluster ID use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the Elasticsearch cluster to return. <br>To get the cluster ID, make a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
 
 
 ### Cluster {#Cluster}
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the ElasticSearch cluster. This ID is assigned by MDB at creation time. 
-folder_id | **string**<br>ID of the folder that the ElasticSearch cluster belongs to. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
-name | **string**<br>Name of the ElasticSearch cluster. The name is unique within the folder. 1-63 characters long. 
-description | **string**<br>Description of the ElasticSearch cluster. 0-256 characters long. 
-labels | **map<string,string>**<br>Custom labels for the ElasticSearch cluster as `` key:value `` pairs. Maximum 64 per resource. 
-environment | enum **Environment**<br>Deployment environment of the ElasticSearch cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
-monitoring[] | **[Monitoring](../cluster.proto#Monitoring)**<br>Description of monitoring systems relevant to the ElasticSearch cluster. 
-config | **[ClusterConfig](../cluster.proto#ClusterConfig)**<br>Configuration of the ElasticSearch cluster. 
+id | **string**<br>ID of the Elasticsearch cluster. This ID is assigned at creation time. 
+folder_id | **string**<br>ID of the folder that the Elasticsearch cluster belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+name | **string**<br>Name of the Elasticsearch cluster. The name must be unique within the folder. 1-63 characters long. 
+description | **string**<br>Description of the Elasticsearch cluster. 0-256 characters long. 
+labels | **map<string,string>**<br>Custom labels for the Elasticsearch cluster as `key:value` pairs. A maximum of 64 labels per resource is allowed. 
+environment | enum **Environment**<br>Deployment environment of the Elasticsearch cluster. <ul><li>`PRODUCTION`: stable environment with a conservative update policy when only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: environment with a more aggressive update policy when new versions are rolled out irrespective of backward compatibility.</li><ul/>
+monitoring[] | **[Monitoring](../cluster.proto#Monitoring)**<br>Description of monitoring systems relevant to the Elasticsearch cluster. 
+config | **[ClusterConfig](../cluster.proto#ClusterConfig)**<br>Configuration of the Elasticsearch cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](../cluster.proto#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](../cluster.proto#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](../cluster.proto#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](../cluster.proto#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
-status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: state of the cluster is unknown ([Host.health](../cluster.proto#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: cluster is alive and well ([Host.health](../cluster.proto#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: cluster is inoperable ([Host.health](../cluster.proto#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: cluster is in degraded state ([Host.health](../cluster.proto#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li><ul/>
+status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: cluster state is unknown.</li><li>`CREATING`: cluster is being created.</li><li>`RUNNING`: cluster is running normally.</li><li>`ERROR`: cluster encountered a problem and cannot operate.</li><li>`UPDATING`: cluster is being updated.</li><li>`STOPPING`: cluster is stopping.</li><li>`STOPPED`: cluster stopped.</li><li>`STARTING`: cluster is starting.</li><ul/>
 
 
 ### Monitoring {#Monitoring}
@@ -62,23 +62,23 @@ Field | Description
 --- | ---
 name | **string**<br>Name of the monitoring system. 
 description | **string**<br>Description of the monitoring system. 
-link | **string**<br>Link to the monitoring system charts. 
+link | **string**<br>Link to the monitoring system charts for the Elasticsearch cluster. 
 
 
 ### ClusterConfig {#ClusterConfig}
 
 Field | Description
 --- | ---
-version | **string**<br>ElasticSearch version. 
-elasticsearch | **[Elasticsearch](../cluster.proto#Elasticsearch)**<br>ElasticSearch configuration. 
+version | **string**<br>Elasticsearch version. 
+elasticsearch | **[Elasticsearch](../cluster.proto#Elasticsearch)**<br>Configuration and resource allocation for Elasticsearch nodes. 
 
 
 ### Elasticsearch {#Elasticsearch}
 
 Field | Description
 --- | ---
-data_node | **[DataNode](../cluster.proto#DataNode)**<br> 
-master_node | **[MasterNode](../cluster.proto#MasterNode)**<br> 
+data_node | **[DataNode](../cluster.proto#DataNode)**<br>Configuration and resource allocation for Elasticsearch data nodes. 
+master_node | **[MasterNode](../cluster.proto#MasterNode)**<br>Configuration and resource allocation for Elasticsearch master nodes. 
 
 
 ### DataNode {#DataNode}
@@ -86,20 +86,20 @@ master_node | **[MasterNode](../cluster.proto#MasterNode)**<br>
 Field | Description
 --- | ---
 config | **oneof:** `elasticsearch_config_set_7_6`<br>
-&nbsp;&nbsp;elasticsearch_config_set_7_6 | **[config.ElasticsearchConfigSet7_6](#ElasticsearchConfigSet7_6)**<br> 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to data node hosts. 
+&nbsp;&nbsp;elasticsearch_config_set_7_6 | **[config.ElasticsearchConfigSet7_6](#ElasticsearchConfigSet7_6)**<br>Elasticsearch 7.6 data node configuration. 
+resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to Elasticsearch data nodes. 
 
 
 ### MasterNode {#MasterNode}
 
 Field | Description
 --- | ---
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to master node hosts. 
+resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to Elasticsearch master nodes. 
 
 
 ## List {#List}
 
-Retrieves the list of ElasticSearch clusters.
+Retrieves the list of Elasticsearch clusters that belong to the specified folder.
 
 **rpc List ([ListClustersRequest](#ListClustersRequest)) returns ([ListClustersResponse](#ListClustersResponse))**
 
@@ -107,36 +107,36 @@ Retrieves the list of ElasticSearch clusters.
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder to list ElasticSearch clusters in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. false The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the folder to list Elasticsearch clusters in. <br>To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. false The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClustersResponse.next_page_token](#ListClustersResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListClustersResponse.next_page_token](#ListClustersResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently you can only use filtering with the [Cluster.name](../cluster.proto#Cluster1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Мust be 1-63 characters long and match the regular expression `^[a-zA-Z0-9_-]+$`.</li></ol> The maximum string length in characters is 1000.
+filter | **string**<br><ol><li>The field name to filter by. Currently you can only use filtering with the [Cluster.name](../cluster.proto#Cluster1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Мust be 1-63 characters long and match the regular expression `^[a-zA-Z0-9_-]+$`. </li></ol> The maximum string length in characters is 1000.
 
 
 ### ListClustersResponse {#ListClustersResponse}
 
 Field | Description
 --- | ---
-clusters[] | **[Cluster](../cluster.proto#Cluster1)**<br>List of ElasticSearch clusters. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClustersRequest.page_size](#ListClustersRequest1), use the `next_page_token` as the value for the [ListClustersRequest.page_token](#ListClustersRequest1) parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+clusters[] | **[Cluster](../cluster.proto#Cluster1)**<br>List of Elasticsearch clusters. 
+next_page_token | **string**<br>Token that allows you to get the next page of results for list requests. <br>If the number of results is larger than [ListClustersRequest.page_size](#ListClustersRequest1), use `next_page_token` as the value for the [ListClustersRequest.page_token](#ListClustersRequest1) parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
 ### Cluster {#Cluster}
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the ElasticSearch cluster. This ID is assigned by MDB at creation time. 
-folder_id | **string**<br>ID of the folder that the ElasticSearch cluster belongs to. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
-name | **string**<br>Name of the ElasticSearch cluster. The name is unique within the folder. 1-63 characters long. 
-description | **string**<br>Description of the ElasticSearch cluster. 0-256 characters long. 
-labels | **map<string,string>**<br>Custom labels for the ElasticSearch cluster as `` key:value `` pairs. Maximum 64 per resource. 
-environment | enum **Environment**<br>Deployment environment of the ElasticSearch cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
-monitoring[] | **[Monitoring](../cluster.proto#Monitoring1)**<br>Description of monitoring systems relevant to the ElasticSearch cluster. 
-config | **[ClusterConfig](../cluster.proto#ClusterConfig1)**<br>Configuration of the ElasticSearch cluster. 
+id | **string**<br>ID of the Elasticsearch cluster. This ID is assigned at creation time. 
+folder_id | **string**<br>ID of the folder that the Elasticsearch cluster belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+name | **string**<br>Name of the Elasticsearch cluster. The name must be unique within the folder. 1-63 characters long. 
+description | **string**<br>Description of the Elasticsearch cluster. 0-256 characters long. 
+labels | **map<string,string>**<br>Custom labels for the Elasticsearch cluster as `key:value` pairs. A maximum of 64 labels per resource is allowed. 
+environment | enum **Environment**<br>Deployment environment of the Elasticsearch cluster. <ul><li>`PRODUCTION`: stable environment with a conservative update policy when only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: environment with a more aggressive update policy when new versions are rolled out irrespective of backward compatibility.</li><ul/>
+monitoring[] | **[Monitoring](../cluster.proto#Monitoring1)**<br>Description of monitoring systems relevant to the Elasticsearch cluster. 
+config | **[ClusterConfig](../cluster.proto#ClusterConfig1)**<br>Configuration of the Elasticsearch cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](../cluster.proto#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](../cluster.proto#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](../cluster.proto#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](../cluster.proto#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
-status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: state of the cluster is unknown ([Host.health](../cluster.proto#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: cluster is alive and well ([Host.health](../cluster.proto#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: cluster is inoperable ([Host.health](../cluster.proto#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: cluster is in degraded state ([Host.health](../cluster.proto#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li><ul/>
+status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: cluster state is unknown.</li><li>`CREATING`: cluster is being created.</li><li>`RUNNING`: cluster is running normally.</li><li>`ERROR`: cluster encountered a problem and cannot operate.</li><li>`UPDATING`: cluster is being updated.</li><li>`STOPPING`: cluster is stopping.</li><li>`STOPPED`: cluster stopped.</li><li>`STARTING`: cluster is starting.</li><ul/>
 
 
 ### Monitoring {#Monitoring}
@@ -145,23 +145,23 @@ Field | Description
 --- | ---
 name | **string**<br>Name of the monitoring system. 
 description | **string**<br>Description of the monitoring system. 
-link | **string**<br>Link to the monitoring system charts. 
+link | **string**<br>Link to the monitoring system charts for the Elasticsearch cluster. 
 
 
 ### ClusterConfig {#ClusterConfig}
 
 Field | Description
 --- | ---
-version | **string**<br>ElasticSearch version. 
-elasticsearch | **[Elasticsearch](../cluster.proto#Elasticsearch1)**<br>ElasticSearch configuration. 
+version | **string**<br>Elasticsearch version. 
+elasticsearch | **[Elasticsearch](../cluster.proto#Elasticsearch1)**<br>Configuration and resource allocation for Elasticsearch nodes. 
 
 
 ### Elasticsearch {#Elasticsearch}
 
 Field | Description
 --- | ---
-data_node | **[DataNode](../cluster.proto#DataNode1)**<br> 
-master_node | **[MasterNode](../cluster.proto#MasterNode1)**<br> 
+data_node | **[DataNode](../cluster.proto#DataNode1)**<br>Configuration and resource allocation for Elasticsearch data nodes. 
+master_node | **[MasterNode](../cluster.proto#MasterNode1)**<br>Configuration and resource allocation for Elasticsearch master nodes. 
 
 
 ### DataNode {#DataNode}
@@ -169,20 +169,20 @@ master_node | **[MasterNode](../cluster.proto#MasterNode1)**<br>
 Field | Description
 --- | ---
 config | **oneof:** `elasticsearch_config_set_7_6`<br>
-&nbsp;&nbsp;elasticsearch_config_set_7_6 | **[config.ElasticsearchConfigSet7_6](#ElasticsearchConfigSet7_6)**<br> 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to data node hosts. 
+&nbsp;&nbsp;elasticsearch_config_set_7_6 | **[config.ElasticsearchConfigSet7_6](#ElasticsearchConfigSet7_6)**<br>Elasticsearch 7.6 data node configuration. 
+resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to Elasticsearch data nodes. 
 
 
 ### MasterNode {#MasterNode}
 
 Field | Description
 --- | ---
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to master node hosts. 
+resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to Elasticsearch master nodes. 
 
 
 ## Create {#Create}
 
-Creates an ElasticSearch cluster.
+Creates a new Elasticsearch cluster in the specified folder.
 
 **rpc Create ([CreateClusterRequest](#CreateClusterRequest)) returns ([operation.Operation](#Operation))**
 
@@ -194,57 +194,66 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder to create the ElasticSearch cluster in. false The maximum string length in characters is 50.
-name | **string**<br>Required. Name of the ElasticSearch cluster. The name must be unique within the folder. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
-description | **string**<br>Description of the ElasticSearch cluster. The maximum string length in characters is 256.
-labels | **map<string,string>**<br>Custom labels for the ElasticSearch cluster as `` key:value `` pairs. Maximum 64 per resource. For example, "project": "mvp" or "source": "dictionary". No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
-environment | **[Cluster.Environment](../cluster.proto#Cluster2)**<br>Deployment environment of the ElasticSearch cluster. 
-config_spec | **[ConfigSpec](#ConfigSpec)**<br>Required. Configuration and resources for hosts that should be created for the ElasticSearch cluster. false
-host_specs[] | **[HostSpec](#HostSpec)**<br>Required. Configuration of ElasticSearch hosts. The number of elements must be greater than 0.
-network_id | **string**<br>Required. ID of the network to create the cluster in. false The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the folder to create the Elasticsearch cluster in. false The maximum string length in characters is 50.
+name | **string**<br>Required. Name of the Elasticsearch cluster. The name must be unique within the folder. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+description | **string**<br>Description of the Elasticsearch cluster. The maximum string length in characters is 256.
+labels | **map<string,string>**<br>Custom labels for the Elasticsearch cluster as `key:value` pairs. <br>For example, "project": "mvp" or "source": "dictionary". No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+environment | **[Cluster.Environment](../cluster.proto#Cluster2)**<br>Deployment environment of the Elasticsearch cluster. 
+config_spec | **[ConfigSpec](#ConfigSpec)**<br>Required. Elasticsearch and hosts configuration for the cluster. false
+user_specs[] | **[UserSpec](../user.proto#UserSpec)**<br>One or more descriptions of users to be created in Elasticsearch cluster. The number of elements must be greater than 0.
+host_specs[] | **[HostSpec](#HostSpec)**<br>One or more configurations of hosts to be created in the Elasticsearch cluster. The number of elements must be greater than 0.
+network_id | **string**<br>Required. ID of the network to create the Elasticsearch cluster in. false The maximum string length in characters is 50.
 
 
 ### ConfigSpec {#ConfigSpec}
 
 Field | Description
 --- | ---
-version | **string**<br>ElasticSearch version. 
-elasticsearch_spec | **[ElasticsearchSpec](#ElasticsearchSpec)**<br> 
+version | **string**<br>Elasticsearch version. 
+elasticsearch_spec | **[ElasticsearchSpec](#ElasticsearchSpec)**<br>Configuration and resource allocation for Elasticsearch nodes. 
 
 
 ### ElasticsearchSpec {#ElasticsearchSpec}
 
 Field | Description
 --- | ---
-data_node | **[DataNode](../cluster.proto#DataNode2)**<br> 
-master_node | **[MasterNode](../cluster.proto#MasterNode2)**<br> 
+data_node | **[DataNode](../cluster.proto#DataNode2)**<br>Configuration and resource allocation for Elasticsearch data nodes. 
+master_node | **[MasterNode](../cluster.proto#MasterNode2)**<br>Configuration and resource allocation for Elasticsearch master nodes. 
 
 
 ### DataNode {#DataNode}
 
 Field | Description
 --- | ---
-config | **oneof:** `elasticsearch_config_7_6`<br>
-&nbsp;&nbsp;elasticsearch_config_7_6 | **[config.ElasticsearchConfig7_6](#ElasticsearchConfig7_6)**<br> 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to data node hosts. 
+config | **oneof:** `elasticsearch_config_7_6`<br>Elasticsearch data node configuration.
+&nbsp;&nbsp;elasticsearch_config_7_6 | **[config.ElasticsearchConfig7_6](#ElasticsearchConfig7_6)**<br>Elasticsearch data node configuration. 
+resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to Elasticsearch data nodes. 
 
 
 ### MasterNode {#MasterNode}
 
 Field | Description
 --- | ---
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to master node hosts. 
+resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to Elasticsearch master nodes. 
+
+
+### UserSpec {#UserSpec}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the Elasticsearch user. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+password | **string**<br>Required. Password of the Elasticsearch user. false The string length in characters must be 8-128.
 
 
 ### HostSpec {#HostSpec}
 
 Field | Description
 --- | ---
-zone_id | **string**<br>ID of the availability zone. The maximum string length in characters is 50.
-subnet_id | **string**<br> The maximum string length in characters is 50.
-assign_public_ip | **bool**<br> 
-type | **[Host.Type](../cluster.proto#Host)**<br>Required.  false
-shard_name | **string**<br> The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+zone_id | **string**<br>ID of the availability zone where the host resides. The maximum string length in characters is 50.
+subnet_id | **string**<br>ID of the subnet the host resides in. The maximum string length in characters is 50.
+assign_public_ip | **bool**<br>The flag that defines whether a public IP address is assigned to the host. <br>If the value is `true`, then this host is available on the Internet via it's public IP address. 
+type | **[Host.Type](../cluster.proto#Host)**<br>Required. Host type. false
+shard_name | **string**<br>The shard name to create on the host. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
 ### Operation {#Operation}
@@ -267,30 +276,30 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>ID of the ElasticSearch cluster that is being created. 
+cluster_id | **string**<br>ID of the Elasticsearch cluster that is being created. 
 
 
 ### Cluster {#Cluster}
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the ElasticSearch cluster. This ID is assigned by MDB at creation time. 
-folder_id | **string**<br>ID of the folder that the ElasticSearch cluster belongs to. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
-name | **string**<br>Name of the ElasticSearch cluster. The name is unique within the folder. 1-63 characters long. 
-description | **string**<br>Description of the ElasticSearch cluster. 0-256 characters long. 
-labels | **map<string,string>**<br>Custom labels for the ElasticSearch cluster as `` key:value `` pairs. Maximum 64 per resource. 
-environment | enum **Environment**<br>Deployment environment of the ElasticSearch cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
-monitoring[] | **[Monitoring](../cluster.proto#Monitoring2)**<br>Description of monitoring systems relevant to the ElasticSearch cluster. 
-config | **[ClusterConfig](../cluster.proto#ClusterConfig2)**<br>Configuration of the ElasticSearch cluster. 
+id | **string**<br>ID of the Elasticsearch cluster. This ID is assigned at creation time. 
+folder_id | **string**<br>ID of the folder that the Elasticsearch cluster belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+name | **string**<br>Name of the Elasticsearch cluster. The name must be unique within the folder. 1-63 characters long. 
+description | **string**<br>Description of the Elasticsearch cluster. 0-256 characters long. 
+labels | **map<string,string>**<br>Custom labels for the Elasticsearch cluster as `key:value` pairs. A maximum of 64 labels per resource is allowed. 
+environment | enum **Environment**<br>Deployment environment of the Elasticsearch cluster. <ul><li>`PRODUCTION`: stable environment with a conservative update policy when only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: environment with a more aggressive update policy when new versions are rolled out irrespective of backward compatibility.</li><ul/>
+monitoring[] | **[Monitoring](../cluster.proto#Monitoring2)**<br>Description of monitoring systems relevant to the Elasticsearch cluster. 
+config | **[ClusterConfig](../cluster.proto#ClusterConfig2)**<br>Configuration of the Elasticsearch cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](../cluster.proto#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](../cluster.proto#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](../cluster.proto#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](../cluster.proto#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
-status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: state of the cluster is unknown ([Host.health](../cluster.proto#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: cluster is alive and well ([Host.health](../cluster.proto#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: cluster is inoperable ([Host.health](../cluster.proto#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: cluster is in degraded state ([Host.health](../cluster.proto#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li><ul/>
+status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: cluster state is unknown.</li><li>`CREATING`: cluster is being created.</li><li>`RUNNING`: cluster is running normally.</li><li>`ERROR`: cluster encountered a problem and cannot operate.</li><li>`UPDATING`: cluster is being updated.</li><li>`STOPPING`: cluster is stopping.</li><li>`STOPPED`: cluster stopped.</li><li>`STARTING`: cluster is starting.</li><ul/>
 
 
 ## Update {#Update}
 
-Updates the specified ElasticSearch cluster.
+Updates the specified Elasticsearch cluster.
 
 **rpc Update ([UpdateClusterRequest](#UpdateClusterRequest)) returns ([operation.Operation](#Operation1))**
 
@@ -302,44 +311,44 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the ElasticSearch Cluster resource to update. To get the ElasticSearch cluster ID, use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
-update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the ElasticSearch cluster should be updated. 
-description | **string**<br>New description of the ElasticSearch cluster. The maximum string length in characters is 256.
-labels | **map<string,string>**<br>Custom labels for the ElasticSearch cluster as `` key:value `` pairs. Maximum 64 per resource. For example, "project": "mvp" or "source": "dictionary". <br>The new set of labels will completely replace the old ones. To add a label, request the current set with the [ClusterService.Get](#Get) method, then send an [ClusterService.Update](#Update) request with the new label added to the set. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
-config_spec | **[ConfigSpec](#ConfigSpec1)**<br>New configuration and resources for hosts in the cluster. 
-name | **string**<br> The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+cluster_id | **string**<br>Required. ID of the Elasticsearch cluster to update. <br>To get the Elasticsearch cluster ID, make a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
+update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br> 
+description | **string**<br>New description of the Elasticsearch cluster. The maximum string length in characters is 256.
+labels | **map<string,string>**<br>Custom labels for the Elasticsearch cluster as `key:value` pairs. <br>For example, "project": "mvp" or "source": "dictionary". <br>The new set of labels will completely replace the old ones. To add a label, request the current set with the [ClusterService.Get](#Get) method, then send an [ClusterService.Update](#Update) request with the new label added to the set. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+config_spec | **[ConfigSpec](#ConfigSpec1)**<br>New configuration and resources for hosts in the Elasticsearch cluster. <br>Use `update_mask` to prevent reverting all cluster settings that are not listed in `config_spec` to their default values. 
+name | **string**<br>New name for the Elasticsearch cluster. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
 ### ConfigSpec {#ConfigSpec}
 
 Field | Description
 --- | ---
-version | **string**<br>ElasticSearch version. 
-elasticsearch_spec | **[ElasticsearchSpec](#ElasticsearchSpec1)**<br> 
+version | **string**<br>Elasticsearch version. 
+elasticsearch_spec | **[ElasticsearchSpec](#ElasticsearchSpec1)**<br>Configuration and resource allocation for Elasticsearch nodes. 
 
 
 ### ElasticsearchSpec {#ElasticsearchSpec}
 
 Field | Description
 --- | ---
-data_node | **[DataNode](../cluster.proto#DataNode3)**<br> 
-master_node | **[MasterNode](../cluster.proto#MasterNode3)**<br> 
+data_node | **[DataNode](../cluster.proto#DataNode3)**<br>Configuration and resource allocation for Elasticsearch data nodes. 
+master_node | **[MasterNode](../cluster.proto#MasterNode3)**<br>Configuration and resource allocation for Elasticsearch master nodes. 
 
 
 ### DataNode {#DataNode}
 
 Field | Description
 --- | ---
-config | **oneof:** `elasticsearch_config_7_6`<br>
-&nbsp;&nbsp;elasticsearch_config_7_6 | **[config.ElasticsearchConfig7_6](#ElasticsearchConfig7_6)**<br> 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to data node hosts. 
+config | **oneof:** `elasticsearch_config_7_6`<br>Elasticsearch data node configuration.
+&nbsp;&nbsp;elasticsearch_config_7_6 | **[config.ElasticsearchConfig7_6](#ElasticsearchConfig7_6)**<br>Elasticsearch data node configuration. 
+resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to Elasticsearch data nodes. 
 
 
 ### MasterNode {#MasterNode}
 
 Field | Description
 --- | ---
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to master node hosts. 
+resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to Elasticsearch master nodes. 
 
 
 ### Operation {#Operation}
@@ -362,30 +371,30 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>ID of the ElasticSearch cluster resource that is being updated. 
+cluster_id | **string**<br>ID of the Elasticsearch cluster that is being updated. 
 
 
 ### Cluster {#Cluster}
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the ElasticSearch cluster. This ID is assigned by MDB at creation time. 
-folder_id | **string**<br>ID of the folder that the ElasticSearch cluster belongs to. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
-name | **string**<br>Name of the ElasticSearch cluster. The name is unique within the folder. 1-63 characters long. 
-description | **string**<br>Description of the ElasticSearch cluster. 0-256 characters long. 
-labels | **map<string,string>**<br>Custom labels for the ElasticSearch cluster as `` key:value `` pairs. Maximum 64 per resource. 
-environment | enum **Environment**<br>Deployment environment of the ElasticSearch cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
-monitoring[] | **[Monitoring](../cluster.proto#Monitoring2)**<br>Description of monitoring systems relevant to the ElasticSearch cluster. 
-config | **[ClusterConfig](../cluster.proto#ClusterConfig2)**<br>Configuration of the ElasticSearch cluster. 
+id | **string**<br>ID of the Elasticsearch cluster. This ID is assigned at creation time. 
+folder_id | **string**<br>ID of the folder that the Elasticsearch cluster belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+name | **string**<br>Name of the Elasticsearch cluster. The name must be unique within the folder. 1-63 characters long. 
+description | **string**<br>Description of the Elasticsearch cluster. 0-256 characters long. 
+labels | **map<string,string>**<br>Custom labels for the Elasticsearch cluster as `key:value` pairs. A maximum of 64 labels per resource is allowed. 
+environment | enum **Environment**<br>Deployment environment of the Elasticsearch cluster. <ul><li>`PRODUCTION`: stable environment with a conservative update policy when only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: environment with a more aggressive update policy when new versions are rolled out irrespective of backward compatibility.</li><ul/>
+monitoring[] | **[Monitoring](../cluster.proto#Monitoring2)**<br>Description of monitoring systems relevant to the Elasticsearch cluster. 
+config | **[ClusterConfig](../cluster.proto#ClusterConfig2)**<br>Configuration of the Elasticsearch cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](../cluster.proto#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](../cluster.proto#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](../cluster.proto#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](../cluster.proto#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
-status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: state of the cluster is unknown ([Host.health](../cluster.proto#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: cluster is alive and well ([Host.health](../cluster.proto#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: cluster is inoperable ([Host.health](../cluster.proto#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: cluster is in degraded state ([Host.health](../cluster.proto#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li><ul/>
+status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: cluster state is unknown.</li><li>`CREATING`: cluster is being created.</li><li>`RUNNING`: cluster is running normally.</li><li>`ERROR`: cluster encountered a problem and cannot operate.</li><li>`UPDATING`: cluster is being updated.</li><li>`STOPPING`: cluster is stopping.</li><li>`STOPPED`: cluster stopped.</li><li>`STARTING`: cluster is starting.</li><ul/>
 
 
 ## Delete {#Delete}
 
-Deletes the specified ElasticSearch cluster.
+Deletes the specified Elasticsearch cluster.
 
 **rpc Delete ([DeleteClusterRequest](#DeleteClusterRequest)) returns ([operation.Operation](#Operation2))**
 
@@ -397,7 +406,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the ElasticSearch cluster to delete. To get the ElasticSearch cluster ID, use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the Elasticsearch cluster to delete. <br>To get the Elasticsearch cluster ID, make a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
 
 
 ### Operation {#Operation}
@@ -420,12 +429,12 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>ID of the ElasticSearch cluster that is being deleted. 
+cluster_id | **string**<br>ID of the Elasticsearch cluster that is being deleted. 
 
 
 ## Move {#Move}
 
-Moves the specified ElasticSearch cluster to the specified folder.
+Moves the specified Elasticsearch cluster to the specified folder.
 
 **rpc Move ([MoveClusterRequest](#MoveClusterRequest)) returns ([operation.Operation](#Operation3))**
 
@@ -437,7 +446,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the ElasticSearch cluster to move. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the Elasticsearch cluster to move. <br>To get the Elasticsearch cluster ID, make a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
 destination_folder_id | **string**<br>Required. ID of the destination folder. false The maximum string length in characters is 50.
 
 
@@ -461,32 +470,32 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>ID of the ElasticSearch cluster being moved. 
+cluster_id | **string**<br>ID of the Elasticsearch cluster being moved. 
 source_folder_id | **string**<br>ID of the source folder. 
-destination_folder_id | **string**<br>ID of the destnation folder. 
+destination_folder_id | **string**<br>ID of the destination folder. 
 
 
 ### Cluster {#Cluster}
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the ElasticSearch cluster. This ID is assigned by MDB at creation time. 
-folder_id | **string**<br>ID of the folder that the ElasticSearch cluster belongs to. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
-name | **string**<br>Name of the ElasticSearch cluster. The name is unique within the folder. 1-63 characters long. 
-description | **string**<br>Description of the ElasticSearch cluster. 0-256 characters long. 
-labels | **map<string,string>**<br>Custom labels for the ElasticSearch cluster as `` key:value `` pairs. Maximum 64 per resource. 
-environment | enum **Environment**<br>Deployment environment of the ElasticSearch cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
-monitoring[] | **[Monitoring](../cluster.proto#Monitoring2)**<br>Description of monitoring systems relevant to the ElasticSearch cluster. 
-config | **[ClusterConfig](../cluster.proto#ClusterConfig2)**<br>Configuration of the ElasticSearch cluster. 
+id | **string**<br>ID of the Elasticsearch cluster. This ID is assigned at creation time. 
+folder_id | **string**<br>ID of the folder that the Elasticsearch cluster belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+name | **string**<br>Name of the Elasticsearch cluster. The name must be unique within the folder. 1-63 characters long. 
+description | **string**<br>Description of the Elasticsearch cluster. 0-256 characters long. 
+labels | **map<string,string>**<br>Custom labels for the Elasticsearch cluster as `key:value` pairs. A maximum of 64 labels per resource is allowed. 
+environment | enum **Environment**<br>Deployment environment of the Elasticsearch cluster. <ul><li>`PRODUCTION`: stable environment with a conservative update policy when only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: environment with a more aggressive update policy when new versions are rolled out irrespective of backward compatibility.</li><ul/>
+monitoring[] | **[Monitoring](../cluster.proto#Monitoring2)**<br>Description of monitoring systems relevant to the Elasticsearch cluster. 
+config | **[ClusterConfig](../cluster.proto#ClusterConfig2)**<br>Configuration of the Elasticsearch cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](../cluster.proto#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](../cluster.proto#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](../cluster.proto#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](../cluster.proto#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
-status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: state of the cluster is unknown ([Host.health](../cluster.proto#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: cluster is alive and well ([Host.health](../cluster.proto#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: cluster is inoperable ([Host.health](../cluster.proto#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: cluster is in degraded state ([Host.health](../cluster.proto#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li><ul/>
+status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: cluster state is unknown.</li><li>`CREATING`: cluster is being created.</li><li>`RUNNING`: cluster is running normally.</li><li>`ERROR`: cluster encountered a problem and cannot operate.</li><li>`UPDATING`: cluster is being updated.</li><li>`STOPPING`: cluster is stopping.</li><li>`STOPPED`: cluster stopped.</li><li>`STARTING`: cluster is starting.</li><ul/>
 
 
 ## Start {#Start}
 
-Start the specified ElasticSearch cluster.
+Starts the specified Elasticsearch cluster.
 
 **rpc Start ([StartClusterRequest](#StartClusterRequest)) returns ([operation.Operation](#Operation4))**
 
@@ -498,7 +507,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. Required. ID of the ElasticSearch cluster to start. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the Elasticsearch cluster to start. <br>To get the Elasticsearch cluster ID, make a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
 
 
 ### Operation {#Operation}
@@ -521,30 +530,30 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the ElasticSearch cluster. 
+cluster_id | **string**<br>ID of the Elasticsearch cluster. 
 
 
 ### Cluster {#Cluster}
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the ElasticSearch cluster. This ID is assigned by MDB at creation time. 
-folder_id | **string**<br>ID of the folder that the ElasticSearch cluster belongs to. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
-name | **string**<br>Name of the ElasticSearch cluster. The name is unique within the folder. 1-63 characters long. 
-description | **string**<br>Description of the ElasticSearch cluster. 0-256 characters long. 
-labels | **map<string,string>**<br>Custom labels for the ElasticSearch cluster as `` key:value `` pairs. Maximum 64 per resource. 
-environment | enum **Environment**<br>Deployment environment of the ElasticSearch cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
-monitoring[] | **[Monitoring](../cluster.proto#Monitoring2)**<br>Description of monitoring systems relevant to the ElasticSearch cluster. 
-config | **[ClusterConfig](../cluster.proto#ClusterConfig2)**<br>Configuration of the ElasticSearch cluster. 
+id | **string**<br>ID of the Elasticsearch cluster. This ID is assigned at creation time. 
+folder_id | **string**<br>ID of the folder that the Elasticsearch cluster belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+name | **string**<br>Name of the Elasticsearch cluster. The name must be unique within the folder. 1-63 characters long. 
+description | **string**<br>Description of the Elasticsearch cluster. 0-256 characters long. 
+labels | **map<string,string>**<br>Custom labels for the Elasticsearch cluster as `key:value` pairs. A maximum of 64 labels per resource is allowed. 
+environment | enum **Environment**<br>Deployment environment of the Elasticsearch cluster. <ul><li>`PRODUCTION`: stable environment with a conservative update policy when only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: environment with a more aggressive update policy when new versions are rolled out irrespective of backward compatibility.</li><ul/>
+monitoring[] | **[Monitoring](../cluster.proto#Monitoring2)**<br>Description of monitoring systems relevant to the Elasticsearch cluster. 
+config | **[ClusterConfig](../cluster.proto#ClusterConfig2)**<br>Configuration of the Elasticsearch cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](../cluster.proto#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](../cluster.proto#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](../cluster.proto#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](../cluster.proto#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
-status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: state of the cluster is unknown ([Host.health](../cluster.proto#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: cluster is alive and well ([Host.health](../cluster.proto#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: cluster is inoperable ([Host.health](../cluster.proto#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: cluster is in degraded state ([Host.health](../cluster.proto#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li><ul/>
+status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: cluster state is unknown.</li><li>`CREATING`: cluster is being created.</li><li>`RUNNING`: cluster is running normally.</li><li>`ERROR`: cluster encountered a problem and cannot operate.</li><li>`UPDATING`: cluster is being updated.</li><li>`STOPPING`: cluster is stopping.</li><li>`STOPPED`: cluster stopped.</li><li>`STARTING`: cluster is starting.</li><ul/>
 
 
 ## Stop {#Stop}
 
-Stop the specified ElasticSearch cluster.
+Stops the specified Elasticsearch cluster.
 
 **rpc Stop ([StopClusterRequest](#StopClusterRequest)) returns ([operation.Operation](#Operation5))**
 
@@ -556,7 +565,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. Required. ID of the ElasticSearch cluster to stop. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the Elasticsearch cluster to stop. <br>To get the Elasticsearch cluster ID, make a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
 
 
 ### Operation {#Operation}
@@ -579,30 +588,30 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the ElasticSearch cluster. 
+cluster_id | **string**<br>ID of the Elasticsearch cluster. 
 
 
 ### Cluster {#Cluster}
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the ElasticSearch cluster. This ID is assigned by MDB at creation time. 
-folder_id | **string**<br>ID of the folder that the ElasticSearch cluster belongs to. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
-name | **string**<br>Name of the ElasticSearch cluster. The name is unique within the folder. 1-63 characters long. 
-description | **string**<br>Description of the ElasticSearch cluster. 0-256 characters long. 
-labels | **map<string,string>**<br>Custom labels for the ElasticSearch cluster as `` key:value `` pairs. Maximum 64 per resource. 
-environment | enum **Environment**<br>Deployment environment of the ElasticSearch cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
-monitoring[] | **[Monitoring](../cluster.proto#Monitoring2)**<br>Description of monitoring systems relevant to the ElasticSearch cluster. 
-config | **[ClusterConfig](../cluster.proto#ClusterConfig2)**<br>Configuration of the ElasticSearch cluster. 
+id | **string**<br>ID of the Elasticsearch cluster. This ID is assigned at creation time. 
+folder_id | **string**<br>ID of the folder that the Elasticsearch cluster belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+name | **string**<br>Name of the Elasticsearch cluster. The name must be unique within the folder. 1-63 characters long. 
+description | **string**<br>Description of the Elasticsearch cluster. 0-256 characters long. 
+labels | **map<string,string>**<br>Custom labels for the Elasticsearch cluster as `key:value` pairs. A maximum of 64 labels per resource is allowed. 
+environment | enum **Environment**<br>Deployment environment of the Elasticsearch cluster. <ul><li>`PRODUCTION`: stable environment with a conservative update policy when only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: environment with a more aggressive update policy when new versions are rolled out irrespective of backward compatibility.</li><ul/>
+monitoring[] | **[Monitoring](../cluster.proto#Monitoring2)**<br>Description of monitoring systems relevant to the Elasticsearch cluster. 
+config | **[ClusterConfig](../cluster.proto#ClusterConfig2)**<br>Configuration of the Elasticsearch cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](../cluster.proto#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](../cluster.proto#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](../cluster.proto#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](../cluster.proto#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
-status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: state of the cluster is unknown ([Host.health](../cluster.proto#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: cluster is alive and well ([Host.health](../cluster.proto#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: cluster is inoperable ([Host.health](../cluster.proto#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: cluster is in degraded state ([Host.health](../cluster.proto#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li><ul/>
+status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: cluster state is unknown.</li><li>`CREATING`: cluster is being created.</li><li>`RUNNING`: cluster is running normally.</li><li>`ERROR`: cluster encountered a problem and cannot operate.</li><li>`UPDATING`: cluster is being updated.</li><li>`STOPPING`: cluster is stopping.</li><li>`STOPPED`: cluster stopped.</li><li>`STARTING`: cluster is starting.</li><ul/>
 
 
 ## ListLogs {#ListLogs}
 
-Retrieves logs for the specified ElasticSearch cluster. See the [Logs](/yandex-mdb-guide/concepts/logs.html) section in the developers guide for detailed logs description.
+Retrieves logs for the specified Elasticsearch cluster. <br>For more information about logs, see the [Logs](/docs/managed-elasticsearch/operations/cluster-logs) section in the documentation.
 
 **rpc ListLogs ([ListClusterLogsRequest](#ListClusterLogsRequest)) returns ([ListClusterLogsResponse](#ListClusterLogsResponse))**
 
@@ -610,14 +619,14 @@ Retrieves logs for the specified ElasticSearch cluster. See the [Logs](/yandex-m
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the ElasticSearch cluster to request logs for. To get the ElasticSearch cluster ID use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
-column_filter[] | **string**<br>Columns from the logs table to request. If no columns are specified, entire log records are returned. 
-from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Start timestamp for the logs request, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
-to_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>End timestamp for the logs request, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
-page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClusterLogsResponse.next_page_token](#ListClusterLogsResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
-page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListClusterLogsResponse.next_page_token](#ListClusterLogsResponse) returned by a previous list request. The maximum string length in characters is 100.
-always_next_page_token | **bool**<br>Always return `next_page_token`, even if current page is empty. 
-filter | **string**<br><ol><li>The field name. Currently filtering can be applied to the [LogRecord.logs.message.hostname](#LogRecord) field. </li><li>A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 1-63 characters long and match the regular expression `^[a-z0-9.-]{1,61}$`. </li></ol> The maximum string length in characters is 1000.
+cluster_id | **string**<br>Required. ID of the Elasticsearch cluster to request logs for. <br>To get the Elasticsearch cluster ID, make a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
+column_filter[] | **string**<br>Columns from the logs table to request. <br>If no columns are specified, full log records are returned. 
+from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Start timestamp for the logs request. 
+to_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>End timestamp for the logs request. 
+page_size | **int64**<br>The maximum number of results per page to return. <br>If the number of available results is larger than `page_size`, the service returns a [ListClusterLogsResponse.next_page_token](#ListClusterLogsResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
+page_token | **string**<br>Page token. <br>To get the next page of results, set `page_token` to the [ListClusterLogsResponse.next_page_token](#ListClusterLogsResponse) returned by a previous list request. The maximum string length in characters is 100.
+always_next_page_token | **bool**<br>The flag that defines behavior of providing the next page token. <br>If this flag is set to `true`, this API method will always return [ListClusterLogsResponse.next_page_token](#ListClusterLogsResponse), even if current page is empty. 
+filter | **string**<br><ol><li>The field name to filter by. Currently filtering can be applied to the `hostname` field. </li><li>A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 1-63 characters long and match the regular expression `^[a-z0-9.-]{1,61}$`. </li></ol> The maximum string length in characters is 1000.
 
 
 ### ListClusterLogsResponse {#ListClusterLogsResponse}
@@ -625,20 +634,20 @@ filter | **string**<br><ol><li>The field name. Currently filtering can be applie
 Field | Description
 --- | ---
 logs[] | **[LogRecord](#LogRecord)**<br>Requested log records. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterLogsRequest.page_size](#ListClusterLogsRequest1), use the `next_page_token` as the value for the [ListClusterLogsRequest.page_token](#ListClusterLogsRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. This value is interchangeable with `next_record_token` from StreamLogs method. 
+next_page_token | **string**<br>Token that allows you to get the next page of results for list requests. <br>If the number of results is larger than [ListClusterLogsRequest.page_size](#ListClusterLogsRequest1), use `next_page_token` as the value for the [ListClusterLogsRequest.page_token](#ListClusterLogsRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. <br>This value is interchangeable with [StreamLogRecord.next_record_token](#StreamLogRecord) from StreamLogs method. 
 
 
 ### LogRecord {#LogRecord}
 
 Field | Description
 --- | ---
-timestamp | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Log record timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+timestamp | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Log record timestamp. 
 message | **map<string,string>**<br>Contents of the log record. 
 
 
 ## StreamLogs {#StreamLogs}
 
-Same as ListLogs but using server-side streaming. Also allows for 'tail -f' semantics.
+Same as [ListLogs](#ListLogs) but using server-side streaming. Also supports `tail -f` semantics.
 
 **rpc StreamLogs ([StreamClusterLogsRequest](#StreamClusterLogsRequest)) returns (stream [StreamLogRecord](#StreamLogRecord))**
 
@@ -646,12 +655,12 @@ Same as ListLogs but using server-side streaming. Also allows for 'tail -f' sema
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. Required. ID of the ElasticSearch cluster. false The maximum string length in characters is 50.
-column_filter[] | **string**<br>Columns from logs table to get in the response. 
+cluster_id | **string**<br>Required. ID of the Elasticsearch cluster. <br>To get the Elasticsearch cluster ID, make a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
+column_filter[] | **string**<br>Columns from logs table to get in the response. <br>If no columns are specified, full log records are returned. 
 from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Start timestamp for the logs request. 
-to_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>End timestamp for the logs request. If this field is not set, all existing logs will be sent and then the new ones as they appear. In essence it has 'tail -f' semantics. 
-record_token | **string**<br>Record token. Set `record_token` to the `next_record_token` returned by a previous StreamLogs request to start streaming from next log record. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently filtering can be applied to the [LogRecord.logs.hostname](#LogRecord1) field. </li><li>A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. </li></ol> The maximum string length in characters is 1000.
+to_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>End timestamp for the logs request. <br>If this field is not set, all existing logs will be sent and then the new ones asthey appear. In essence it has `tail -f` semantics. 
+record_token | **string**<br>Record token. <br>Set `record_token` to the [StreamLogRecord.next_record_token](#StreamLogRecord) returned by a previous [ClusterService.StreamLogs](#StreamLogs) request to start streaming from next log record. The maximum string length in characters is 100.
+filter | **string**<br><ol><li>The field name to filter by. Currently filtering can be applied to the `hostname` field. </li><li>A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. </li></ol> The maximum string length in characters is 1000.
 
 
 ### StreamLogRecord {#StreamLogRecord}
@@ -659,20 +668,20 @@ filter | **string**<br><ol><li>The field name. Currently filtering can be applie
 Field | Description
 --- | ---
 record | **[LogRecord](#LogRecord1)**<br>One of the requested log records. 
-next_record_token | **string**<br>This token allows you to continue streaming logs starting from the exact same record. To continue streaming, specify value of `next_record_token` as value for `record_token` parameter in the next StreamLogs request. This value is interchangeable with `next_page_token` from ListLogs method. 
+next_record_token | **string**<br>This token allows you to continue streaming logs starting from the exact same record. <br>To continue streaming, specify value of `next_record_token` as value for [StreamClusterLogsRequest.record_token](#StreamClusterLogsRequest1) parameter in the next StreamLogs request. <br>This value is interchangeable with [ListClusterLogsResponse.next_page_token](#ListClusterLogsResponse1) from ListLogs method. 
 
 
 ### LogRecord {#LogRecord}
 
 Field | Description
 --- | ---
-timestamp | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Log record timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+timestamp | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Log record timestamp. 
 message | **map<string,string>**<br>Contents of the log record. 
 
 
 ## ListOperations {#ListOperations}
 
-Retrieves the list of Operation resources for the specified cluster.
+Retrieves the list of operations for the specified Elasticsearch cluster.
 
 **rpc ListOperations ([ListClusterOperationsRequest](#ListClusterOperationsRequest)) returns ([ListClusterOperationsResponse](#ListClusterOperationsResponse))**
 
@@ -680,17 +689,17 @@ Retrieves the list of Operation resources for the specified cluster.
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the ElasticSearch cluster resource to list operations for. false The maximum string length in characters is 50.
-page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClusterOperationsResponse.next_page_token](#ListClusterOperationsResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
-page_token | **string**<br>Page token.  To get the next page of results, set `page_token` to the [ListClusterOperationsResponse.next_page_token](#ListClusterOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
+cluster_id | **string**<br>Required. ID of the Elasticsearch cluster to list operations for. <br>To get the Elasticsearch cluster ID, make a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
+page_size | **int64**<br>The maximum number of results per page to return. <br>If the number of available results is larger than `page_size`, the service returns a [ListClusterOperationsResponse.next_page_token](#ListClusterOperationsResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
+page_token | **string**<br>Page token. <br>To get the next page of results, set `page_token` to the [ListClusterOperationsResponse.next_page_token](#ListClusterOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
 
 ### ListClusterOperationsResponse {#ListClusterOperationsResponse}
 
 Field | Description
 --- | ---
-operations[] | **[operation.Operation](#Operation6)**<br>List of Operation resources for the specified ElasticSearch cluster. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterOperationsRequest.page_size](#ListClusterOperationsRequest1), use the `next_page_token` as the value for the [ListClusterOperationsRequest.page_token](#ListClusterOperationsRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+operations[] | **[operation.Operation](#Operation6)**<br>List of operations for the specified Elasticsearch cluster. 
+next_page_token | **string**<br>Token that allows you to get the next page of results for list requests. <br>If the number of results is larger than [ListClusterOperationsRequest.page_size](#ListClusterOperationsRequest1), use the `next_page_token` as the value for the [ListClusterOperationsRequest.page_token](#ListClusterOperationsRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
 ### Operation {#Operation}
@@ -711,7 +720,7 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 ## ListHosts {#ListHosts}
 
-Retrieves a list of hosts for the specified cluster.
+Retrieves a list of hosts for the specified Elasticsearch cluster.
 
 **rpc ListHosts ([ListClusterHostsRequest](#ListClusterHostsRequest)) returns ([ListClusterHostsResponse](#ListClusterHostsResponse))**
 
@@ -719,54 +728,54 @@ Retrieves a list of hosts for the specified cluster.
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the ElasticSearch cluster. To get the ElasticSearch cluster ID use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
-page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClusterHostsResponse.next_page_token](#ListClusterHostsResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
-page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListClusterHostsResponse.next_page_token](#ListClusterHostsResponse) returned by a previous list request. The maximum string length in characters is 100.
+cluster_id | **string**<br>Required. ID of the Elasticsearch cluster. <br>To get the Elasticsearch cluster ID, make a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
+page_size | **int64**<br>The maximum number of results per page to return. <br>If the number of available results is larger than `page_size`, the service returns a [ListClusterHostsResponse.next_page_token](#ListClusterHostsResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
+page_token | **string**<br>Page token. <br>To get the next page of results, set `page_token` to the [ListClusterHostsResponse.next_page_token](#ListClusterHostsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
 
 ### ListClusterHostsResponse {#ListClusterHostsResponse}
 
 Field | Description
 --- | ---
-hosts[] | **[Host](../cluster.proto#Host)**<br>List of Host resources. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterHostsRequest.page_size](#ListClusterHostsRequest1), use the `next_page_token` as the value for the [ListClusterHostsRequest.page_token](#ListClusterHostsRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+hosts[] | **[Host](../cluster.proto#Host)**<br>List of hosts. 
+next_page_token | **string**<br>Token that allows you to get the next page of results for list requests. <br>If the number of results is larger than [ListClusterHostsRequest.page_size](#ListClusterHostsRequest1), use the `next_page_token` as the value for the [ListClusterHostsRequest.page_token](#ListClusterHostsRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
 ### Host {#Host}
 
 Field | Description
 --- | ---
-name | **string**<br>Required. Name of the host. 
-cluster_id | **string**<br>Required. ID of the ElasticSearch cluster. 
-zone_id | **string**<br>ID of the availability zone. 
-type | enum **Type**<br>Host type. <ul><ul/>
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to the host. 
-health | enum **Health**<br>Aggregated host health <ul><ul/>
+name | **string**<br>Name of the host. 
+cluster_id | **string**<br>ID of the Elasticsearch cluster. 
+zone_id | **string**<br>ID of the availability zone where the host resides. 
+type | enum **Type**<br>Host type. <ul><li>`DATA_NODE`: the host is an Elasticsearch data node.</li><li>`MASTER_NODE`: the host is an Elasticsearch master node.</li><ul/>
+resources | **[Resources](../cluster.proto#Resources)**<br> 
+health | enum **Health**<br>Aggregated host health data. <ul><li>`UNKNOWN`: health of the host is unknown.</li><li>`ALIVE`: the host is performing all its functions normally.</li><li>`DEAD`: the host is inoperable and cannot perform any of its essential functions.</li><li>`DEGRADED`: the host is degraded and can perform only some of its essential functions.</li><ul/>
 services[] | **[Service](../cluster.proto#Service)**<br>Services provided by the host. 
-subnet_id | **string**<br> 
-assign_public_ip | **bool**<br> 
+subnet_id | **string**<br>ID of the subnet the host resides in. 
+assign_public_ip | **bool**<br>The flag that defines whether a public IP address is assigned to the host. <br>If the value is `true`, then this host is available on the Internet via it's public IP address. 
 
 
 ### Resources {#Resources}
 
 Field | Description
 --- | ---
-resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). 
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-elasticsearch/concepts/instance-types). 
 disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
-disk_type_id | **string**<br>Type of the storage environment for the host. 
+disk_type_id | **string**<br>Type of the storage environment for the host. All available types are listed in the [documentation](/docs/managed-elasticsearch/concepts/storage). 
 
 
 ### Service {#Service}
 
 Field | Description
 --- | ---
-type | enum **Type**<br>Type of the service provided by the host. <ul><ul/>
-health | enum **Health**<br>Status code of server availability. <ul><li>`UNKNOWN`: Health of the server is unknown.</li><li>`ALIVE`: The server is working normally.</li><li>`DEAD`: The server is dead or unresponsive.</li><ul/>
+type | enum **Type**<br>Type of the service provided by the host. <ul><li>`ELASTICSEARCH`: the Elasticsearch service.</li><ul/>
+health | enum **Health**<br>Service health data. <ul><li>`UNKNOWN`: health of the service is unknown.</li><li>`ALIVE`: the service is working normally.</li><li>`DEAD`: the service is dead or unresponsive.</li><ul/>
 
 
 ## AddHosts {#AddHosts}
 
-Creates new hosts.
+Adds new hosts to the specified Elasticsearch cluster.
 
 **rpc AddHosts ([AddClusterHostsRequest](#AddClusterHostsRequest)) returns ([operation.Operation](#Operation7))**
 
@@ -778,19 +787,19 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. Required. ID of the ElasticSearch cluster. false The maximum string length in characters is 50.
-host_specs[] | **[HostSpec](#HostSpec1)**<br>Required. The number of elements must be greater than 0.
+cluster_id | **string**<br>Required. ID of the Elasticsearch cluster. <br>To get the Elasticsearch cluster ID, make a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
+host_specs[] | **[HostSpec](#HostSpec1)**<br>One or more configurations of hosts to be added to the Elasticsearch cluster. The number of elements must be greater than 0.
 
 
 ### HostSpec {#HostSpec}
 
 Field | Description
 --- | ---
-zone_id | **string**<br>ID of the availability zone. The maximum string length in characters is 50.
-subnet_id | **string**<br> The maximum string length in characters is 50.
-assign_public_ip | **bool**<br> 
-type | **[Host.Type](../cluster.proto#Host1)**<br>Required.  false
-shard_name | **string**<br> The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+zone_id | **string**<br>ID of the availability zone where the host resides. The maximum string length in characters is 50.
+subnet_id | **string**<br>ID of the subnet the host resides in. The maximum string length in characters is 50.
+assign_public_ip | **bool**<br>The flag that defines whether a public IP address is assigned to the host. <br>If the value is `true`, then this host is available on the Internet via it's public IP address. 
+type | **[Host.Type](../cluster.proto#Host1)**<br>Required. Host type. false
+shard_name | **string**<br>The shard name to create on the host. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
 ### Operation {#Operation}
@@ -813,13 +822,13 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the ElasticSearch cluster. 
-host_names[] | **string**<br>Required. The name of adding host. 
+cluster_id | **string**<br>ID of the Elasticsearch cluster. 
+host_names[] | **string**<br>Names of the host that are being added. 
 
 
 ## DeleteHosts {#DeleteHosts}
 
-Deletes specified hosts.
+Deletes specified hosts from the specified Elasticsearch cluster.
 
 **rpc DeleteHosts ([DeleteClusterHostsRequest](#DeleteClusterHostsRequest)) returns ([operation.Operation](#Operation8))**
 
@@ -831,8 +840,8 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. Required. ID of the ElasticSearch cluster. false The maximum string length in characters is 50.
-host_names[] | **string**<br>Required. Name of the host to delete. The number of elements must be greater than 0. The maximum string length in characters for each value is 253.
+cluster_id | **string**<br>Required. ID of the Elasticsearch cluster. <br>To get the Elasticsearch cluster ID, make a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
+host_names[] | **string**<br>Names of the hosts to delete. The number of elements must be greater than 0. The maximum string length in characters for each value is 253.
 
 
 ### Operation {#Operation}
@@ -855,7 +864,7 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the ElasticSearch cluster. 
-host_names[] | **string**<br>Required. The name of deleting host. 
+cluster_id | **string**<br>ID of the Elasticsearch cluster. 
+host_names[] | **string**<br>Names of the hosts that are being deleted. 
 
 

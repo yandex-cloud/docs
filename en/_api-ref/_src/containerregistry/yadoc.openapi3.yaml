@@ -1001,6 +1001,40 @@ components:
             in the next list request. Each subsequent list request will have its own
             [nextPageToken](/docs/container-registry/api-ref/Repository/list#responses) to continue paging through the results.
           type: string
+    ListScanResultsResponse:
+      type: object
+      properties:
+        scanResults:
+          description: List of ScanResult resources.
+          type: array
+          items:
+            $ref: '#/components/schemas/ScanResult'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/container-registry/api-ref/Image/list#query_params), use
+            the [nextPageToken](/docs/container-registry/api-ref/Scanner/list#responses) as the value
+            for the [pageToken](/docs/container-registry/api-ref/Image/list#query_params) query parameter
+            in the next list request. Each subsequent list request will have its own
+            [nextPageToken](/docs/container-registry/api-ref/Scanner/list#responses) to continue paging through the results.
+          type: string
+    ListVulnerabilitiesResponse:
+      type: object
+      properties:
+        vulnerabilities:
+          description: List of Vulnerability resources.
+          type: array
+          items:
+            $ref: '#/components/schemas/Vulnerability'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/container-registry/api-ref/Image/list#query_params), use
+            the [nextPageToken](/docs/container-registry/api-ref/Scanner/listVulnerabilities#responses) as the value
+            for the [pageToken](/docs/container-registry/api-ref/Image/list#query_params) query parameter
+            in the next list request. Each subsequent list request will have its own
+            [nextPageToken](/docs/container-registry/api-ref/Scanner/listVulnerabilities#responses) to continue paging through the results.
+          type: string
     Operation:
       description: An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
       type: object
@@ -1058,6 +1092,28 @@ components:
               the response should be the target resource of the operation.
               Any method that returns a long-running operation should document the response type, if any.
             type: object
+    PackageVulnerability:
+      description: A PackageVulnerability resource.
+      type: object
+      properties:
+        name:
+          description: Name of vulnerability in CVE database.
+          type: string
+        link:
+          description: URL to the page with description of vulnerability.
+          type: string
+        package:
+          description: The package name where vulnerability has been found.
+          type: string
+        source:
+          description: 'The package manager name. Ex.: yum, rpm, dpkg.'
+          type: string
+        version:
+          description: The version of the package where vulnerability has been found.
+          type: string
+        fixedBy:
+          description: The version of the package where vulnerability has been fixed.
+          type: string
     Registry:
       description: A Registry resource. For more information, see [Registry](/docs/cloud/containerregistry/registry).
       type: object
@@ -1107,6 +1163,43 @@ components:
         id:
           description: Output only. ID of the repository.
           type: string
+    ScanMetadata:
+      type: object
+      properties:
+        scanResultId:
+          description: ID of the ScanResult that is being created.
+          type: string
+    ScanResult:
+      description: A ScanResult resource.
+      type: object
+      properties:
+        id:
+          description: Output only. ID of the ScanResult.
+          type: string
+        imageId:
+          description: Output only. ID of the Image that the ScanResult belongs to.
+          type: string
+        scannedAt:
+          description: |-
+            Output only. The timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format when the scan been finished.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        status:
+          $ref: '#/components/schemas/ScanResultStatus_in_ScanResult_status'
+        vulnerabilities:
+          $ref: '#/components/schemas/VulnerabilityStats_in_ScanResult_vulnerabilities'
+    ScanResultStatus:
+      description: |2-
+         - RUNNING: Image scan is in progress.
+         - READY: Image has been scanned and result is ready.
+         - ERROR: Image scan is failed.
+      type: string
+      enum:
+      - RUNNING
+      - READY
+      - ERROR
     SetAccessBindingsMetadata:
       type: object
       properties:
@@ -1212,6 +1305,74 @@ components:
           type: object
           additionalProperties:
             type: string
+    Vulnerability:
+      description: A Vulnerability resource.
+      type: object
+      allOf:
+      - type: object
+        properties:
+          severity:
+            $ref: '#/components/schemas/VulnerabilitySeverity'
+            description: Output only. Severity of the Vulnerability.
+      - title: vulnerability
+        type: object
+        maxProperties: 1
+        properties:
+          package:
+            $ref: '#/components/schemas/PackageVulnerability'
+    VulnerabilitySeverity:
+      description: |2-
+         - CRITICAL: Critical severity is a world-burning problem, exploitable for nearly all users.
+        Includes remote root privilege escalations, or massive data loss.
+         - HIGH: High severity is a real problem, exploitable for many users in a default installation.
+        Includes serious remote denial of services, local root privilege escalations, or data loss.
+         - MEDIUM: Medium severity is a real security problem, and is exploitable for many users.
+        Includes network daemon denial of service attacks, cross-site scripting, and gaining user privileges.
+        Updates should be made soon for this priority of issue.
+         - LOW: Low severity is a security problem, but is hard to exploit due to environment, requires a user-assisted attack,
+        a small install base, or does very little damage. These tend to be included in security updates only when
+        higher priority issues require an update, or if many low priority issues have built up.
+         - NEGLIGIBLE: Negligible severity is technically a security problem, but is only theoretical in nature, requires a very special situation,
+        has almost no install base, or does no real damage. These tend not to get backport from upstream,
+        and will likely not be included in security updates unless there is an easy fix and some other issue causes an update.
+         - UNDEFINED: Unknown severity is either a security problem that has not been assigned to a priority yet or
+        a priority that our system did not recognize.
+      type: string
+      enum:
+      - CRITICAL
+      - HIGH
+      - MEDIUM
+      - LOW
+      - NEGLIGIBLE
+      - UNDEFINED
+    VulnerabilityStats:
+      description: A VulnerabilityStats resource.
+      type: object
+      properties:
+        critical:
+          description: Count of CRITICAL vulnerabilities.
+          type: string
+          format: int64
+        high:
+          description: Count of HIGH vulnerabilities.
+          type: string
+          format: int64
+        medium:
+          description: Count of MEDIUM vulnerabilities.
+          type: string
+          format: int64
+        low:
+          description: Count of LOW vulnerabilities.
+          type: string
+          format: int64
+        negligible:
+          description: Count of NEGLIGIBLE vulnerabilities.
+          type: string
+          format: int64
+        undefined:
+          description: Count of other vulnerabilities.
+          type: string
+          format: int64
     rpcStatus:
       description: The error result of the operation in case of failure or cancellation.
       type: object
@@ -1329,6 +1490,49 @@ components:
       - CREATING
       - ACTIVE
       - DELETING
+    ScanResultStatus_in_ScanResult_status:
+      description: |-
+        Output only. The status of the ScanResult.
+
+         - RUNNING: Image scan is in progress.
+         - READY: Image has been scanned and result is ready.
+         - ERROR: Image scan is failed.
+      type: string
+      enum:
+      - RUNNING
+      - READY
+      - ERROR
+    VulnerabilityStats_in_ScanResult_vulnerabilities:
+      description: |-
+        Output only. Summary information about vulnerabilities found.
+
+        A VulnerabilityStats resource.
+      type: object
+      properties:
+        critical:
+          description: Count of CRITICAL vulnerabilities.
+          type: string
+          format: int64
+        high:
+          description: Count of HIGH vulnerabilities.
+          type: string
+          format: int64
+        medium:
+          description: Count of MEDIUM vulnerabilities.
+          type: string
+          format: int64
+        low:
+          description: Count of LOW vulnerabilities.
+          type: string
+          format: int64
+        negligible:
+          description: Count of NEGLIGIBLE vulnerabilities.
+          type: string
+          format: int64
+        undefined:
+          description: Count of other vulnerabilities.
+          type: string
+          format: int64
     FieldMask_in_UpdateRegistryRequest_updateMask:
       description: |-
         Field mask that specifies which fields of the Registry resource are going to be updated.
@@ -1350,3 +1554,5 @@ tags:
   description: A set of methods for managing Registry resources.
 - name: Repository
   description: A set of methods for managing Repository resources.
+- name: Scanner
+  description: A set of methods for scanning Docker images.

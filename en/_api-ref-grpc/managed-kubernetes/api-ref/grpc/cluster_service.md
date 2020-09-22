@@ -373,9 +373,9 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 folder_id | **string**<br>Required. ID of the folder to create a Kubernetes cluster in. To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. false
-name | **string**<br>Name of the Kubernetes cluster. The name must be unique within the folder. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+name | **string**<br>Name of the Kubernetes cluster. The name must be unique within the folder. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>Description of the Kubernetes cluster. The maximum string length in characters is 256.
-labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 network_id | **string**<br>Required. ID of the network. false
 master_spec | **[MasterSpec](#MasterSpec)**<br>Required. IP allocation policy of the Kubernetes cluster. false
 ip_allocation_policy | **[IPAllocationPolicy](../cluster.proto#IPAllocationPolicy2)**<br>IP allocation policy of the Kubernetes cluster. 
@@ -579,9 +579,9 @@ Field | Description
 --- | ---
 cluster_id | **string**<br>Required. ID of the Kubernetes cluster to update. To get the Kubernetes cluster ID use a [ClusterService.List](#List) request. false
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br> 
-name | **string**<br>Name of the Kubernetes cluster. The name must be unique within the folder. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+name | **string**<br>Name of the Kubernetes cluster. The name must be unique within the folder. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>Description of the Kubernetes cluster. The maximum string length in characters is 256.
-labels | **map<string,string>**<br>Resource labels as `key:value` pairs. <br>Existing set of `labels` is completely replaced by the provided set. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. <br>Existing set of `labels` is completely replaced by the provided set. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 internet_gateway | **oneof:** `gateway_ipv4_address`<br>
 &nbsp;&nbsp;gateway_ipv4_address | **string**<br>Gateway IPv4 address. The maximum string length in characters is 15.
 master_spec | **[MasterUpdateSpec](#MasterUpdateSpec)**<br>Specification of the master update. 
@@ -762,7 +762,6 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 cluster_id | **string**<br>Required. ID of the Kubernetes cluster to stop. To get Kubernetes cluster ID use a [ClusterService.List](#List) request. false
-service_account_id | **string**<br>ID of the service account which has permission to stop the Kubernetes cluster. 
 
 
 ### Operation {#Operation}

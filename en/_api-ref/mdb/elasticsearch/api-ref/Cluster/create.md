@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method create
-Creates an ElasticSearch cluster.
+Creates a new Elasticsearch cluster in the specified folder.
  
 
  
@@ -44,6 +44,12 @@ POST https://mdb.api.cloud.yandex.net/managed-elasticsearch/v1/clusters
       }
     }
   },
+  "userSpecs": [
+    {
+      "name": "string",
+      "password": "string"
+    }
+  ],
   "hostSpecs": [
     {
       "zoneId": "string",
@@ -60,34 +66,37 @@ POST https://mdb.api.cloud.yandex.net/managed-elasticsearch/v1/clusters
  
 Field | Description
 --- | ---
-folderId | **string**<br><p>Required. ID of the folder to create the ElasticSearch cluster in.</p> <p>The maximum string length in characters is 50.</p> 
-name | **string**<br><p>Required. Name of the ElasticSearch cluster. The name must be unique within the folder.</p> <p>The maximum string length in characters is 63. Value must match the regular expression <code>[a-zA-Z0-9_-]*</code>.</p> 
-description | **string**<br><p>Description of the ElasticSearch cluster.</p> <p>The maximum string length in characters is 256.</p> 
-labels | **object**<br><p>Custom labels for the ElasticSearch cluster as <code>key:value</code> pairs. Maximum 64 per resource. For example, &quot;project&quot;: &quot;mvp&quot; or &quot;source&quot;: &quot;dictionary&quot;.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression <code>[a-z][-_0-9a-z]*</code>. The maximum string length in characters for each value is 63. Each value must match the regular expression <code>[-_0-9a-z]*</code>.</p> 
-environment | **string**<br><p>Deployment environment of the ElasticSearch cluster.</p> <ul> <li>PRODUCTION: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li> <li>PRESTABLE: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li> </ul> 
-configSpec | **object**<br><p>Required. Configuration and resources for hosts that should be created for the ElasticSearch cluster.</p> 
-configSpec.<br>version | **string**<br><p>ElasticSearch version.</p> 
-configSpec.<br>elasticsearchSpec | **object**<br>
-configSpec.<br>elasticsearchSpec.<br>dataNode | **object**<br>
-configSpec.<br>elasticsearchSpec.<br>dataNode.<br>resources | **object**<br>Resources allocated to data node hosts.<br>
-configSpec.<br>elasticsearchSpec.<br>dataNode.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.).</p> 
+folderId | **string**<br><p>Required. ID of the folder to create the Elasticsearch cluster in.</p> <p>The maximum string length in characters is 50.</p> 
+name | **string**<br><p>Required. Name of the Elasticsearch cluster. The name must be unique within the folder.</p> <p>The maximum string length in characters is 63. Value must match the regular expression <code>[a-zA-Z0-9_-]*</code>.</p> 
+description | **string**<br><p>Description of the Elasticsearch cluster.</p> <p>The maximum string length in characters is 256.</p> 
+labels | **object**<br><p>Custom labels for the Elasticsearch cluster as <code>key:value</code> pairs.</p> <p>For example, &quot;project&quot;: &quot;mvp&quot; or &quot;source&quot;: &quot;dictionary&quot;.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression <code>[a-z][-_0-9a-z]*</code>. The maximum string length in characters for each value is 63. Each value must match the regular expression <code>[-_0-9a-z]*</code>.</p> 
+environment | **string**<br><p>Deployment environment of the Elasticsearch cluster.</p> <ul> <li>PRODUCTION: stable environment with a conservative update policy when only hotfixes are applied during regular maintenance.</li> <li>PRESTABLE: environment with a more aggressive update policy when new versions are rolled out irrespective of backward compatibility.</li> </ul> 
+configSpec | **object**<br><p>Required. Elasticsearch and hosts configuration for the cluster.</p> 
+configSpec.<br>version | **string**<br><p>Elasticsearch version.</p> 
+configSpec.<br>elasticsearchSpec | **object**<br><p>Configuration and resource allocation for Elasticsearch nodes.</p> 
+configSpec.<br>elasticsearchSpec.<br>dataNode | **object**<br><p>Configuration and resource allocation for Elasticsearch data nodes.</p> 
+configSpec.<br>elasticsearchSpec.<br>dataNode.<br>resources | **object**<br>Resources allocated to Elasticsearch data nodes.<br><p>Computational resources.</p> 
+configSpec.<br>elasticsearchSpec.<br>dataNode.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-elasticsearch/concepts/instance-types">documentation</a>.</p> 
 configSpec.<br>elasticsearchSpec.<br>dataNode.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
-configSpec.<br>elasticsearchSpec.<br>dataNode.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host.</p> 
-configSpec.<br>elasticsearchSpec.<br>dataNode.<br>elasticsearchConfig_7_6 | **object**<br>
-configSpec.<br>elasticsearchSpec.<br>dataNode.<br>elasticsearchConfig_7_6.<br>fielddataCacheSize | **integer** (int64)<br><p>the percentage of heap space that is allocated to fielddata</p> 
-configSpec.<br>elasticsearchSpec.<br>dataNode.<br>elasticsearchConfig_7_6.<br>maxClauseCount | **integer** (int64)<br><p>the maximum number of allowed boolean clauses in a query</p> 
-configSpec.<br>elasticsearchSpec.<br>masterNode | **object**<br>
-configSpec.<br>elasticsearchSpec.<br>masterNode.<br>resources | **object**<br><p>Resources allocated to master node hosts.</p> 
-configSpec.<br>elasticsearchSpec.<br>masterNode.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.).</p> 
+configSpec.<br>elasticsearchSpec.<br>dataNode.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. All available types are listed in the <a href="/docs/managed-elasticsearch/concepts/storage">documentation</a>.</p> 
+configSpec.<br>elasticsearchSpec.<br>dataNode.<br>elasticsearchConfig_7_6 | **object**<br><p>Elasticsearch 7.6 supported configuration options are listed here.</p> <p>Detailed description for each set of options is available in <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">Elasticsearch documentation</a>.</p> <p>Any options that are not listed here are not supported.</p> 
+configSpec.<br>elasticsearchSpec.<br>dataNode.<br>elasticsearchConfig_7_6.<br>fielddataCacheSize | **integer** (int64)<br><p>The maximum percentage of heap space that is allocated to field data cache.</p> <p>All the field values that are placed in this cache, get loaded to memory in order to provide fast document based access to those values. Building the field data cache for a field can be an expensive operations, so its recommended to have enough memory for this cache, and to keep it loaded.</p> <p>Default value: unbounded.</p> <p>See in-depth description in <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-fielddata.html">Elasticsearch documentation</a>.</p> 
+configSpec.<br>elasticsearchSpec.<br>dataNode.<br>elasticsearchConfig_7_6.<br>maxClauseCount | **integer** (int64)<br><p>The maximum number of clauses a boolean query can contain.</p> <p>The limit is in place to prevent searches from becoming too large and taking up too much CPU and memory. It affects not only Elasticsearch's <code>bool</code> query, but many other quieries that are implicitly converted to <code>bool</code> query by Elastcsearch.</p> <p>Default value: <code>1024</code>.</p> <p>See in-depth description in <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/search-settings.html">Elasticsearch documentation</a>.</p> 
+configSpec.<br>elasticsearchSpec.<br>masterNode | **object**<br><p>Configuration and resource allocation for Elasticsearch master nodes.</p> 
+configSpec.<br>elasticsearchSpec.<br>masterNode.<br>resources | **object**<br><p>Resources allocated to Elasticsearch master nodes.</p> <p>Computational resources.</p> 
+configSpec.<br>elasticsearchSpec.<br>masterNode.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-elasticsearch/concepts/instance-types">documentation</a>.</p> 
 configSpec.<br>elasticsearchSpec.<br>masterNode.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
-configSpec.<br>elasticsearchSpec.<br>masterNode.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host.</p> 
-hostSpecs[] | **object**<br><p>Required. Required. Configuration of ElasticSearch hosts.</p> <p>Must contain at least one element.</p> 
-hostSpecs[].<br>zoneId | **string**<br><p>ID of the availability zone.</p> <p>The maximum string length in characters is 50.</p> 
-hostSpecs[].<br>subnetId | **string**<br><p>The maximum string length in characters is 50.</p> 
-hostSpecs[].<br>assignPublicIp | **boolean** (boolean)<br>
-hostSpecs[].<br>type | **string**<br><p>Required.</p> 
-hostSpecs[].<br>shardName | **string**<br><p>The maximum string length in characters is 63. Value must match the regular expression <code>[a-zA-Z0-9_-]*</code>.</p> 
-networkId | **string**<br><p>Required. ID of the network to create the cluster in.</p> <p>The maximum string length in characters is 50.</p> 
+configSpec.<br>elasticsearchSpec.<br>masterNode.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. All available types are listed in the <a href="/docs/managed-elasticsearch/concepts/storage">documentation</a>.</p> 
+userSpecs[] | **object**<br><p>Required. One or more descriptions of users to be created in Elasticsearch cluster.</p> <p>Must contain at least one element.</p> 
+userSpecs[].<br>name | **string**<br><p>Required. Name of the Elasticsearch user.</p> <p>The maximum string length in characters is 63. Value must match the regular expression <code>[a-zA-Z0-9_]*</code>.</p> 
+userSpecs[].<br>password | **string**<br><p>Required. Password of the Elasticsearch user.</p> <p>The string length in characters must be 8-128.</p> 
+hostSpecs[] | **object**<br><p>Required. One or more configurations of hosts to be created in the Elasticsearch cluster.</p> <p>Must contain at least one element.</p> 
+hostSpecs[].<br>zoneId | **string**<br><p>ID of the availability zone where the host resides.</p> <p>The maximum string length in characters is 50.</p> 
+hostSpecs[].<br>subnetId | **string**<br><p>ID of the subnet the host resides in.</p> <p>The maximum string length in characters is 50.</p> 
+hostSpecs[].<br>assignPublicIp | **boolean** (boolean)<br><p>The flag that defines whether a public IP address is assigned to the host.</p> <p>If the value is <code>true</code>, then this host is available on the Internet via it's public IP address.</p> 
+hostSpecs[].<br>type | **string**<br><p>Required. Host type.</p> <ul> <li>DATA_NODE: the host is an Elasticsearch data node.</li> <li>MASTER_NODE: the host is an Elasticsearch master node.</li> </ul> 
+hostSpecs[].<br>shardName | **string**<br><p>The shard name to create on the host.</p> <p>The maximum string length in characters is 63. Value must match the regular expression <code>[a-zA-Z0-9_-]*</code>.</p> 
+networkId | **string**<br><p>Required. ID of the network to create the Elasticsearch cluster in.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

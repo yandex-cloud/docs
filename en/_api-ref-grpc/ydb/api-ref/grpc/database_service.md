@@ -53,6 +53,7 @@ database_type | **oneof:** `zonal_database`, `regional_database`, `dedicated_dat
 assign_public_ips | **bool**<br> 
 location_id | **string**<br> 
 labels | **map<string,string>**<br> 
+document_api_endpoint | **string**<br> 
 
 
 ### StorageConfig {#StorageConfig}
@@ -192,6 +193,7 @@ database_type | **oneof:** `zonal_database`, `regional_database`, `dedicated_dat
 assign_public_ips | **bool**<br> 
 location_id | **string**<br> 
 labels | **map<string,string>**<br> 
+document_api_endpoint | **string**<br> 
 
 
 ### StorageConfig {#StorageConfig}
@@ -454,6 +456,7 @@ database_type | **oneof:** `zonal_database`, `regional_database`, `dedicated_dat
 assign_public_ips | **bool**<br> 
 location_id | **string**<br> 
 labels | **map<string,string>**<br> 
+document_api_endpoint | **string**<br> 
 
 
 ## Update {#Update}
@@ -628,6 +631,7 @@ database_type | **oneof:** `zonal_database`, `regional_database`, `dedicated_dat
 assign_public_ips | **bool**<br> 
 location_id | **string**<br> 
 labels | **map<string,string>**<br> 
+document_api_endpoint | **string**<br> 
 
 
 ## Delete {#Delete}

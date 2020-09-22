@@ -454,12 +454,14 @@ components:
          - ACTIVE: API gateway is ready for use.
          - DELETING: API gateway is being deleted.
          - ERROR: API gateway failed. The only allowed action is delete.
+         - UPDATING: API gateway is being updated.
       type: string
       enum:
       - CREATING
       - ACTIVE
       - DELETING
       - ERROR
+      - UPDATING
     CreateApiGatewayMetadata:
       type: object
       properties:
@@ -855,12 +857,14 @@ components:
          - ACTIVE: API gateway is ready for use.
          - DELETING: API gateway is being deleted.
          - ERROR: API gateway failed. The only allowed action is delete.
+         - UPDATING: API gateway is being updated.
       type: string
       enum:
       - CREATING
       - ACTIVE
       - DELETING
       - ERROR
+      - UPDATING
 tags:
 - name: ApiGateway
   description: A set of methods for managing API gateways.

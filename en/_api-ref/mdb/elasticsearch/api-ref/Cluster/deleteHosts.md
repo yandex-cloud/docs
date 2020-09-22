@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method deleteHosts
-Deletes specified hosts.
+Deletes specified hosts from the specified Elasticsearch cluster.
  
 
  
@@ -16,7 +16,7 @@ POST https://mdb.api.cloud.yandex.net/managed-elasticsearch/v1/clusters/{cluster
  
 Parameter | Description
 --- | ---
-clusterId | Required. Required. ID of the ElasticSearch cluster.  The maximum string length in characters is 50.
+clusterId | Required. ID of the Elasticsearch cluster.  To get the Elasticsearch cluster ID, make a [list](/docs/managed-elasticsearch/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
  
 ## Body parameters {#body_params}
  
@@ -31,7 +31,7 @@ clusterId | Required. Required. ID of the ElasticSearch cluster.  The maximum st
  
 Field | Description
 --- | ---
-hostNames[] | **string**<br><p>Required. Required. Name of the host to delete.</p> <p>Must contain at least one element. The maximum string length in characters for each value is 253.</p> 
+hostNames[] | **string**<br><p>Required. Names of the hosts to delete.</p> <p>Must contain at least one element. The maximum string length in characters for each value is 253.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

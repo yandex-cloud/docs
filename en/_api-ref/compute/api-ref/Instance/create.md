@@ -41,6 +41,9 @@ POST https://compute.api.cloud.yandex.net/compute/v1/instances
       "description": "string",
       "typeId": "string",
       "size": "string",
+      "diskPlacementPolicy": {
+        "placementGroupId": "string"
+      },
 
       // `bootDiskSpec.diskSpec` includes only one of the fields `imageId`, `snapshotId`
       "imageId": "string",
@@ -64,6 +67,9 @@ POST https://compute.api.cloud.yandex.net/compute/v1/instances
         "description": "string",
         "typeId": "string",
         "size": "string",
+        "diskPlacementPolicy": {
+          "placementGroupId": "string"
+        },
 
         // `secondaryDiskSpecs[].diskSpec` includes only one of the fields `imageId`, `snapshotId`
         "imageId": "string",
@@ -145,6 +151,8 @@ bootDiskSpec.<br>diskSpec.<br>name | **string**<br><p>Name of the disk.</p> <p>V
 bootDiskSpec.<br>diskSpec.<br>description | **string**<br><p>Description of the disk.</p> <p>The maximum string length in characters is 256.</p> 
 bootDiskSpec.<br>diskSpec.<br>typeId | **string**<br><p>ID of the disk type. To get a list of available disk types, use the <a href="/docs/compute/api-ref/DiskType/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
 bootDiskSpec.<br>diskSpec.<br>size | **string** (int64)<br><p>Required. Size of the disk, specified in bytes.</p> <p>Acceptable values are 4194304 to 4398046511104, inclusive.</p> 
+bootDiskSpec.<br>diskSpec.<br>diskPlacementPolicy | **object**<br>Placement policy configuration.<br>
+bootDiskSpec.<br>diskSpec.<br>diskPlacementPolicy.<br>placementGroupId | **string**<br><p>Placement group ID.</p> 
 bootDiskSpec.<br>diskSpec.<br>imageId | **string** <br>`bootDiskSpec.diskSpec` includes only one of the fields `imageId`, `snapshotId`<br><br><p>ID of the image to create the disk from.</p> <p>The maximum string length in characters is 50.</p> 
 bootDiskSpec.<br>diskSpec.<br>snapshotId | **string** <br>`bootDiskSpec.diskSpec` includes only one of the fields `imageId`, `snapshotId`<br><br><p>ID of the snapshot to restore the disk from.</p> <p>The maximum string length in characters is 50.</p> 
 bootDiskSpec.<br>diskId | **string** <br>`bootDiskSpec` includes only one of the fields `diskSpec`, `diskId`<br><br><p>ID of the disk that should be attached.</p> <p>The maximum string length in characters is 50.</p> 
@@ -157,6 +165,8 @@ secondaryDiskSpecs[].<br>diskSpec.<br>name | **string**<br><p>Name of the disk.<
 secondaryDiskSpecs[].<br>diskSpec.<br>description | **string**<br><p>Description of the disk.</p> <p>The maximum string length in characters is 256.</p> 
 secondaryDiskSpecs[].<br>diskSpec.<br>typeId | **string**<br><p>ID of the disk type. To get a list of available disk types, use the <a href="/docs/compute/api-ref/DiskType/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
 secondaryDiskSpecs[].<br>diskSpec.<br>size | **string** (int64)<br><p>Required. Size of the disk, specified in bytes.</p> <p>Acceptable values are 4194304 to 4398046511104, inclusive.</p> 
+secondaryDiskSpecs[].<br>diskSpec.<br>diskPlacementPolicy | **object**<br>Placement policy configuration.<br>
+secondaryDiskSpecs[].<br>diskSpec.<br>diskPlacementPolicy.<br>placementGroupId | **string**<br><p>Placement group ID.</p> 
 secondaryDiskSpecs[].<br>diskSpec.<br>imageId | **string** <br>`secondaryDiskSpecs[].diskSpec` includes only one of the fields `imageId`, `snapshotId`<br><br><p>ID of the image to create the disk from.</p> <p>The maximum string length in characters is 50.</p> 
 secondaryDiskSpecs[].<br>diskSpec.<br>snapshotId | **string** <br>`secondaryDiskSpecs[].diskSpec` includes only one of the fields `imageId`, `snapshotId`<br><br><p>ID of the snapshot to restore the disk from.</p> <p>The maximum string length in characters is 50.</p> 
 secondaryDiskSpecs[].<br>diskId | **string** <br>`secondaryDiskSpecs[]` includes only one of the fields `diskSpec`, `diskId`<br><br><p>ID of the disk that should be attached.</p> <p>The maximum string length in characters is 50.</p> 

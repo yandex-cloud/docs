@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method move
-Moves the specified ElasticSearch cluster to the specified folder.
+Moves the specified Elasticsearch cluster to the specified folder.
  
 
  
@@ -16,7 +16,7 @@ POST https://mdb.api.cloud.yandex.net/managed-elasticsearch/v1/clusters/{cluster
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the ElasticSearch cluster to move.  The maximum string length in characters is 50.
+clusterId | Required. ID of the Elasticsearch cluster to move.  To get the Elasticsearch cluster ID, make a [list](/docs/managed-elasticsearch/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
  
 ## Body parameters {#body_params}
  

@@ -49,3 +49,7 @@ items:
         href: api-ref/Repository/setAccessBindings.md
       - name: updateAccessBindings
         href: api-ref/Repository/updateAccessBindings.md
+  - name: Scanner
+    items:
+      - name: Overview
+        href: api-ref/Scanner/index.md

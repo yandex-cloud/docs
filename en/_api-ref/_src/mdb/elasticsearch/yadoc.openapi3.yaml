@@ -1,6 +1,6 @@
 openapi: "3.0"
 info:
-  title: Yandex Managed Service for ElasticSearch API
+  title: Yandex Managed Service for Elasticsearch API
   description: This API reference is organized by resource. Actions are performed
     by sending HTTP requests to resource URLs or making RPC calls. For more information
     about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
@@ -12,15 +12,18 @@ paths:
     get:
       tags:
       - Cluster
-      summary: Returns the specified ElasticSearch Cluster resource.
+      summary: Returns the specified Elasticsearch cluster.
+      description: To get the list of available Elasticsearch clusters, make a [list](/docs/managed-elasticsearch/api-ref/Cluster/list)
+        request.
       operationId: ClusterGet
       parameters:
       - name: clusterId
         in: path
         description: |-
           Required.
-          ID of the ElasticSearch cluster to return.
-          To get the cluster ID use a [list](/docs/managed-elasticsearch/api-ref/Cluster/list) request.
+          ID of the Elasticsearch cluster to return.
+
+          To get the cluster ID, make a [list](/docs/managed-elasticsearch/api-ref/Cluster/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -37,15 +40,16 @@ paths:
     delete:
       tags:
       - Cluster
-      summary: Deletes the specified ElasticSearch cluster.
+      summary: Deletes the specified Elasticsearch cluster.
       operationId: ClusterDelete
       parameters:
       - name: clusterId
         in: path
         description: |-
           Required.
-          ID of the ElasticSearch cluster to delete.
-          To get the ElasticSearch cluster ID, use a [list](/docs/managed-elasticsearch/api-ref/Cluster/list) request.
+          ID of the Elasticsearch cluster to delete.
+
+          To get the Elasticsearch cluster ID, make a [list](/docs/managed-elasticsearch/api-ref/Cluster/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -65,15 +69,16 @@ paths:
     patch:
       tags:
       - Cluster
-      summary: Updates the specified ElasticSearch cluster.
+      summary: Updates the specified Elasticsearch cluster.
       operationId: ClusterUpdate
       parameters:
       - name: clusterId
         in: path
         description: |-
           Required.
-          ID of the ElasticSearch Cluster resource to update.
-          To get the ElasticSearch cluster ID, use a [list](/docs/managed-elasticsearch/api-ref/Cluster/list) request.
+          ID of the Elasticsearch cluster to update.
+
+          To get the Elasticsearch cluster ID, make a [list](/docs/managed-elasticsearch/api-ref/Cluster/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -100,15 +105,17 @@ paths:
     get:
       tags:
       - Cluster
-      summary: Retrieves the list of ElasticSearch clusters.
+      summary: Retrieves the list of Elasticsearch clusters that belong to the specified
+        folder.
       operationId: ClusterList
       parameters:
       - name: folderId
         in: query
         description: |-
           Required.
-          ID of the folder to list ElasticSearch clusters in.
-          To get the folder ID, use a [list](/docs/resource-manager/api-ref/Folder/list) request.
+          ID of the folder to list Elasticsearch clusters in.
+
+          To get the folder ID, make a [list](/docs/resource-manager/api-ref/Folder/list) request.
 
           The maximum string length in characters is 50.
         schema:
@@ -116,9 +123,8 @@ paths:
       - name: pageSize
         in: query
         description: |-
-          The maximum number of results per page to return. If the number of available
-          results is larger than [pageSize](/docs/managed-elasticsearch/api-ref/Cluster/list#query_params), the service returns a [nextPageToken](/docs/managed-elasticsearch/api-ref/Cluster/list#responses)
-          that can be used to get the next page of results in subsequent list requests.
+          The maximum number of results per page to return.
+          If the number of available results is larger than `page_size`, the service returns a [nextPageToken](/docs/managed-elasticsearch/api-ref/Cluster/list#responses) that can be used to get the next page of results in subsequent list requests.
 
           The maximum value is 1000.
         schema:
@@ -127,8 +133,8 @@ paths:
       - name: pageToken
         in: query
         description: |-
-          Page token. To get the next page of results, set [pageToken](/docs/managed-elasticsearch/api-ref/Cluster/list#query_params) to the [nextPageToken](/docs/managed-elasticsearch/api-ref/Cluster/list#responses)
-          returned by a previous list request.
+          Page token.
+          To get the next page of results, set `page_token` to the [nextPageToken](/docs/managed-elasticsearch/api-ref/Cluster/list#responses) returned by a previous list request.
 
           The maximum string length in characters is 100.
         schema:
@@ -137,10 +143,13 @@ paths:
         in: query
         description: |-
           A filter expression that filters resources listed in the response.
+
           The expression must specify:
-          1. The field name. Currently you can only use filtering with the [Cluster.name](/docs/managed-elasticsearch/api-ref/Cluster#representation) field.
+          1. The field name to filter by. Currently you can only use filtering with the [Cluster.name](/docs/managed-elasticsearch/api-ref/Cluster#representation) field.
           2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
           3. The value. Мust be 1-63 characters long and match the regular expression `^[a-zA-Z0-9_-]+$`.
+
+          Example of a filter: `name NOT IN 'test,beta'`.
 
           The maximum string length in characters is 1000.
         schema:
@@ -156,7 +165,7 @@ paths:
     post:
       tags:
       - Cluster
-      summary: Creates an ElasticSearch cluster.
+      summary: Creates a new Elasticsearch cluster in the specified folder.
       operationId: ClusterCreate
       requestBody:
         content:
@@ -179,14 +188,16 @@ paths:
     post:
       tags:
       - Cluster
-      summary: Moves the specified ElasticSearch cluster to the specified folder.
+      summary: Moves the specified Elasticsearch cluster to the specified folder.
       operationId: ClusterMove
       parameters:
       - name: clusterId
         in: path
         description: |-
           Required.
-          ID of the ElasticSearch cluster to move.
+          ID of the Elasticsearch cluster to move.
+
+          To get the Elasticsearch cluster ID, make a [list](/docs/managed-elasticsearch/api-ref/Cluster/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -213,14 +224,16 @@ paths:
     post:
       tags:
       - Cluster
-      summary: Start the specified ElasticSearch cluster.
+      summary: Starts the specified Elasticsearch cluster.
       operationId: ClusterStart
       parameters:
       - name: clusterId
         in: path
         description: |-
           Required.
-          Required. ID of the ElasticSearch cluster to start.
+          ID of the Elasticsearch cluster to start.
+
+          To get the Elasticsearch cluster ID, make a [list](/docs/managed-elasticsearch/api-ref/Cluster/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -241,14 +254,16 @@ paths:
     post:
       tags:
       - Cluster
-      summary: Stop the specified ElasticSearch cluster.
+      summary: Stops the specified Elasticsearch cluster.
       operationId: ClusterStop
       parameters:
       - name: clusterId
         in: path
         description: |-
           Required.
-          Required. ID of the ElasticSearch cluster to stop.
+          ID of the Elasticsearch cluster to stop.
+
+          To get the Elasticsearch cluster ID, make a [list](/docs/managed-elasticsearch/api-ref/Cluster/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -269,17 +284,18 @@ paths:
     get:
       tags:
       - Cluster
-      summary: |-
-        Retrieves logs for the specified ElasticSearch cluster.
-        See the [Logs](/yandex-mdb-guide/concepts/logs.html) section in the developers guide for detailed logs description.
+      summary: Retrieves logs for the specified Elasticsearch cluster.
+      description: For more information about logs, see the [Logs](/docs/managed-elasticsearch/operations/cluster-logs)
+        section in the documentation.
       operationId: ClusterListLogs
       parameters:
       - name: clusterId
         in: path
         description: |-
           Required.
-          ID of the ElasticSearch cluster to request logs for.
-          To get the ElasticSearch cluster ID use a [list](/docs/managed-elasticsearch/api-ref/Cluster/list) request.
+          ID of the Elasticsearch cluster to request logs for.
+
+          To get the Elasticsearch cluster ID, make a [list](/docs/managed-elasticsearch/api-ref/Cluster/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -289,97 +305,8 @@ paths:
         in: query
         description: |-
           Columns from the logs table to request.
-          If no columns are specified, entire log records are returned.
-        schema:
-          type: array
-          items:
-            type: string
-      - name: fromTime
-        in: query
-        description: |-
-          Start timestamp for the logs request, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
 
-          String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
-        schema:
-          type: string
-          format: date-time
-      - name: toTime
-        in: query
-        description: |-
-          End timestamp for the logs request, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
-
-          String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
-        schema:
-          type: string
-          format: date-time
-      - name: pageSize
-        in: query
-        description: |-
-          The maximum number of results per page to return. If the number of available
-          results is larger than [pageSize](/docs/managed-elasticsearch/api-ref/Cluster/listLogs#query_params), the service returns a [nextPageToken](/docs/managed-elasticsearch/api-ref/Cluster/listLogs#responses)
-          that can be used to get the next page of results in subsequent list requests.
-
-          The maximum value is 1000.
-        schema:
-          type: string
-          format: int64
-      - name: pageToken
-        in: query
-        description: |-
-          Page token. To get the next page of results, set [pageToken](/docs/managed-elasticsearch/api-ref/Cluster/listLogs#query_params) to the
-          [nextPageToken](/docs/managed-elasticsearch/api-ref/Cluster/listLogs#responses) returned by a previous list request.
-
-          The maximum string length in characters is 100.
-        schema:
-          type: string
-      - name: alwaysNextPageToken
-        in: query
-        description: Always return `next_page_token`, even if current page is empty.
-        schema:
-          type: boolean
-          format: boolean
-      - name: filter
-        in: query
-        description: |-
-          A filter expression that filters resources listed in the response.
-          The expression must specify:
-          1. The field name. Currently filtering can be applied to the [LogRecord.logs.message.hostname] field.
-          2. A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
-          3. The value. Must be 1-63 characters long and match the regular expression `^[a-z0-9.-]{1,61}$`.
-          Examples of a filter: `message.hostname='node1.db.cloud.yandex.net'`
-
-          The maximum string length in characters is 1000.
-        schema:
-          type: string
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ListClusterLogsResponse'
-      x-y-navtitle: listLogs
-  /managed-elasticsearch/v1/clusters/{clusterId}:stream_logs:
-    get:
-      tags:
-      - Cluster
-      summary: Same as ListLogs but using server-side streaming. Also allows for 'tail
-        -f' semantics.
-      operationId: ClusterStreamLogs
-      parameters:
-      - name: clusterId
-        in: path
-        description: |-
-          Required.
-          Required. ID of the ElasticSearch cluster.
-
-          The maximum string length in characters is 50.
-        required: true
-        schema:
-          type: string
-      - name: columnFilter
-        in: query
-        description: Columns from logs table to get in the response.
+          If no columns are specified, full log records are returned.
         schema:
           type: array
           items:
@@ -397,8 +324,110 @@ paths:
         in: query
         description: |-
           End timestamp for the logs request.
-          If this field is not set, all existing logs will be sent and then the new ones as
-          they appear. In essence it has 'tail -f' semantics.
+
+          String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+        schema:
+          type: string
+          format: date-time
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return.
+
+          If the number of available results is larger than `page_size`, the service returns a [nextPageToken](/docs/managed-elasticsearch/api-ref/Cluster/listLogs#responses) that can be used to get the next page of results in subsequent list requests.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token.
+
+          To get the next page of results, set `page_token` to the [nextPageToken](/docs/managed-elasticsearch/api-ref/Cluster/listLogs#responses) returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: alwaysNextPageToken
+        in: query
+        description: |-
+          The flag that defines behavior of providing the next page token.
+
+          If this flag is set to `true`, this API method will always return [nextPageToken](/docs/managed-elasticsearch/api-ref/Cluster/listLogs#responses), even if current page is empty.
+        schema:
+          type: boolean
+          format: boolean
+      - name: filter
+        in: query
+        description: |-
+          A filter expression that filters resources listed in the response.
+
+          The expression must specify:
+          1. The field name to filter by. Currently filtering can be applied to the `hostname` field.
+          2. A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
+          3. The value. Must be 1-63 characters long and match the regular expression `^[a-z0-9.-]{1,61}$`.
+
+          Example of a filter: `message.hostname='node1.db.cloud.yandex.net'`
+
+          The maximum string length in characters is 1000.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListClusterLogsResponse'
+      x-y-navtitle: listLogs
+  /managed-elasticsearch/v1/clusters/{clusterId}:stream_logs:
+    get:
+      tags:
+      - Cluster
+      summary: Same as [listLogs](/docs/managed-elasticsearch/api-ref/Cluster/listLogs)
+        but using server-side streaming. Also supports `tail -f` semantics.
+      operationId: ClusterStreamLogs
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the Elasticsearch cluster.
+
+          To get the Elasticsearch cluster ID, make a [list](/docs/managed-elasticsearch/api-ref/Cluster/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: columnFilter
+        in: query
+        description: |-
+          Columns from logs table to get in the response.
+
+          If no columns are specified, full log records are returned.
+        schema:
+          type: array
+          items:
+            type: string
+      - name: fromTime
+        in: query
+        description: |-
+          Start timestamp for the logs request.
+
+          String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+        schema:
+          type: string
+          format: date-time
+      - name: toTime
+        in: query
+        description: |-
+          End timestamp for the logs request.
+
+          If this field is not set, all existing logs will be sent and then the new ones asthey appear.
+          In essence it has `tail -f` semantics.
 
           String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
         schema:
@@ -407,8 +436,9 @@ paths:
       - name: recordToken
         in: query
         description: |-
-          Record token. Set `record_token` to the `next_record_token` returned by a previous StreamLogs
-          request to start streaming from next log record.
+          Record token.
+
+          Set `record_token` to the `nextRecordToken` returned by a previous [streamLogs](/docs/managed-elasticsearch/api-ref/Cluster/streamLogs) request to start streaming from next log record.
 
           The maximum string length in characters is 100.
         schema:
@@ -417,11 +447,13 @@ paths:
         in: query
         description: |-
           A filter expression that filters resources listed in the response.
+
           The expression must specify:
-          1. The field name. Currently filtering can be applied to the [LogRecord.logs.hostname] field.
+          1. The field name to filter by. Currently filtering can be applied to the `hostname` field.
           2. A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
           3. The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.
-          Examples of a filter: `hostname='node1.db.cloud.yandex.net'`
+
+          Example of a filter: `message.hostname='node1.db.cloud.yandex.net'`
 
           The maximum string length in characters is 1000.
         schema:
@@ -438,14 +470,16 @@ paths:
     get:
       tags:
       - Cluster
-      summary: Retrieves the list of Operation resources for the specified cluster.
+      summary: Retrieves the list of operations for the specified Elasticsearch cluster.
       operationId: ClusterListOperations
       parameters:
       - name: clusterId
         in: path
         description: |-
           Required.
-          ID of the ElasticSearch cluster resource to list operations for.
+          ID of the Elasticsearch cluster to list operations for.
+
+          To get the Elasticsearch cluster ID, make a [list](/docs/managed-elasticsearch/api-ref/Cluster/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -454,9 +488,9 @@ paths:
       - name: pageSize
         in: query
         description: |-
-          The maximum number of results per page to return. If the number of available
-          results is larger than [pageSize](/docs/managed-elasticsearch/api-ref/Cluster/listOperations#query_params), the service returns a [nextPageToken](/docs/managed-elasticsearch/api-ref/Cluster/listOperations#responses)
-          that can be used to get the next page of results in subsequent list requests.
+          The maximum number of results per page to return.
+
+          If the number of available results is larger than `page_size`, the service returns a [nextPageToken](/docs/managed-elasticsearch/api-ref/Cluster/listOperations#responses) that can be used to get the next page of results in subsequent list requests.
 
           The maximum value is 1000.
         schema:
@@ -465,8 +499,9 @@ paths:
       - name: pageToken
         in: query
         description: |-
-          Page token.  To get the next page of results, set [pageToken](/docs/managed-elasticsearch/api-ref/Cluster/listOperations#query_params) to the [nextPageToken](/docs/managed-elasticsearch/api-ref/Cluster/listOperations#responses)
-          returned by a previous list request.
+          Page token.
+
+          To get the next page of results, set `page_token` to the [nextPageToken](/docs/managed-elasticsearch/api-ref/Cluster/listOperations#responses) returned by a previous list request.
 
           The maximum string length in characters is 100.
         schema:
@@ -483,15 +518,16 @@ paths:
     get:
       tags:
       - Cluster
-      summary: Retrieves a list of hosts for the specified cluster.
+      summary: Retrieves a list of hosts for the specified Elasticsearch cluster.
       operationId: ClusterListHosts
       parameters:
       - name: clusterId
         in: path
         description: |-
           Required.
-          ID of the ElasticSearch cluster.
-          To get the ElasticSearch cluster ID use a [list](/docs/managed-elasticsearch/api-ref/Cluster/list) request.
+          ID of the Elasticsearch cluster.
+
+          To get the Elasticsearch cluster ID, make a [list](/docs/managed-elasticsearch/api-ref/Cluster/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -500,9 +536,9 @@ paths:
       - name: pageSize
         in: query
         description: |-
-          The maximum number of results per page to return. If the number of available
-          results is larger than [pageSize](/docs/managed-elasticsearch/api-ref/Cluster/listHosts#query_params), the service returns a [nextPageToken](/docs/managed-elasticsearch/api-ref/Cluster/listHosts#responses)
-          that can be used to get the next page of results in subsequent list requests.
+          The maximum number of results per page to return.
+
+          If the number of available results is larger than `page_size`, the service returns a [nextPageToken](/docs/managed-elasticsearch/api-ref/Cluster/listHosts#responses) that can be used to get the next page of results in subsequent list requests.
 
           The maximum value is 1000.
         schema:
@@ -511,8 +547,9 @@ paths:
       - name: pageToken
         in: query
         description: |-
-          Page token. To get the next page of results, set [pageToken](/docs/managed-elasticsearch/api-ref/Cluster/listHosts#query_params) to the [nextPageToken](/docs/managed-elasticsearch/api-ref/Cluster/listHosts#responses)
-          returned by a previous list request.
+          Page token.
+
+          To get the next page of results, set `page_token` to the [nextPageToken](/docs/managed-elasticsearch/api-ref/Cluster/listHosts#responses) returned by a previous list request.
 
           The maximum string length in characters is 100.
         schema:
@@ -529,14 +566,16 @@ paths:
     post:
       tags:
       - Cluster
-      summary: Creates new hosts.
+      summary: Adds new hosts to the specified Elasticsearch cluster.
       operationId: ClusterAddHosts
       parameters:
       - name: clusterId
         in: path
         description: |-
           Required.
-          Required. ID of the ElasticSearch cluster.
+          ID of the Elasticsearch cluster.
+
+          To get the Elasticsearch cluster ID, make a [list](/docs/managed-elasticsearch/api-ref/Cluster/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -563,14 +602,16 @@ paths:
     post:
       tags:
       - Cluster
-      summary: Deletes specified hosts.
+      summary: Deletes specified hosts from the specified Elasticsearch cluster.
       operationId: ClusterDeleteHosts
       parameters:
       - name: clusterId
         in: path
         description: |-
           Required.
-          Required. ID of the ElasticSearch cluster.
+          ID of the Elasticsearch cluster.
+
+          To get the Elasticsearch cluster ID, make a [list](/docs/managed-elasticsearch/api-ref/Cluster/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -604,7 +645,7 @@ paths:
         in: path
         description: |-
           Required.
-          Required. ID of the operation to return.
+          ID of the operation to return.
 
           The maximum string length in characters is 50.
         required: true
@@ -622,8 +663,8 @@ paths:
     get:
       tags:
       - ResourcePreset
-      summary: Returns the specified ResourcePreset resource.
-      description: To get the list of available ResourcePreset resources, make a [list](/docs/managed-elasticsearch/api-ref/ResourcePreset/list)
+      summary: Returns the specified resource preset.
+      description: To get the list of available resource presets, make a [list](/docs/managed-elasticsearch/api-ref/ResourcePreset/list)
         request.
       operationId: ResourcePresetGet
       parameters:
@@ -631,7 +672,8 @@ paths:
         in: path
         description: |-
           Required.
-          Required. ID of the resource preset to return.
+          ID of the resource preset to return.
+
           To get the resource preset ID, use a [list](/docs/managed-elasticsearch/api-ref/ResourcePreset/list) request.
         required: true
         schema:
@@ -648,15 +690,15 @@ paths:
     get:
       tags:
       - ResourcePreset
-      summary: Retrieves the list of available ResourcePreset resources.
+      summary: Retrieves the list of available resource presets.
       operationId: ResourcePresetList
       parameters:
       - name: pageSize
         in: query
         description: |-
-          The maximum number of results per page to return. If the number of available
-          results is larger than [pageSize](/docs/managed-elasticsearch/api-ref/ResourcePreset/list#query_params), the service returns a [nextPageToken](/docs/managed-elasticsearch/api-ref/ResourcePreset/list#responses)
-          that can be used to get the next page of results in subsequent list requests.
+          The maximum number of results per page to return.
+
+          If the number of available results is larger than `page_size`, the service returns a [nextPageToken](/docs/managed-elasticsearch/api-ref/ResourcePreset/list#responses) that can be used to get the next page of results in subsequent list requests.
 
           The maximum value is 1000.
         schema:
@@ -665,8 +707,9 @@ paths:
       - name: pageToken
         in: query
         description: |-
-          Page token. To get the next page of results, set [pageToken](/docs/managed-elasticsearch/api-ref/ResourcePreset/list#query_params) to the [nextPageToken](/docs/managed-elasticsearch/api-ref/ResourcePreset/list#responses)
-          returned by a previous list request.
+          Page token.
+
+          To get the next page of results, set `page_token` to the [nextPageToken](/docs/managed-elasticsearch/api-ref/ResourcePreset/list#responses) returned by a previous list request.
 
           The maximum string length in characters is 100.
         schema:
@@ -679,16 +722,106 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListResourcePresetsResponse'
       x-y-navtitle: list
+  /managed-elasticsearch/v1/clusters/{clusterId}/users/{userName}:
+    get:
+      tags:
+      - User
+      summary: Returns the specified Elasticsearch user.
+      description: To get the list of available Elasticsearch users, make a [list](/docs/managed-elasticsearch/api-ref/User/list)
+        request.
+      operationId: UserGet
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the Elasticsearch cluster the user belongs to.
+
+          To get the cluster ID, make a [list](/docs/managed-elasticsearch/api-ref/Cluster/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: userName
+        in: path
+        description: |-
+          Required.
+          Name of the Elasticsearch user to return.
+
+          To get the name of the user, make a [list](/docs/managed-elasticsearch/api-ref/User/list) request.
+
+          The maximum string length in characters is 63.
+          Value must match the regular expression `` [a-zA-Z0-9_]* ``.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+      x-y-navtitle: get
+  /managed-elasticsearch/v1/clusters/{clusterId}/users:
+    get:
+      tags:
+      - User
+      summary: Retrieves the list of Elasticsearch users in the specified cluster.
+      operationId: UserList
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the Elasticsearch cluster to list Elasticsearch users in.
+
+          To get the cluster ID, use a [list](/docs/managed-elasticsearch/api-ref/Cluster/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return.
+
+          If the number of available results is larger than `page_size`, the service returns a [nextPageToken](/docs/managed-elasticsearch/api-ref/User/list#responses) that can be used to get the next page of results in subsequent list requests.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token.
+
+          To get the next page of results, set `page_token` to the [nextPageToken](/docs/managed-elasticsearch/api-ref/User/list#responses) returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListUsersResponse'
+      x-y-navtitle: list
 components:
   schemas:
     AddClusterHostsMetadata:
       type: object
       properties:
         clusterId:
-          description: Required. ID of the ElasticSearch cluster.
+          description: ID of the Elasticsearch cluster.
           type: string
         hostNames:
-          description: Required. The name of adding host.
+          description: Names of the host that are being added.
           type: array
           items:
             type: string
@@ -698,51 +831,53 @@ components:
         hostSpecs:
           description: |-
             Required.
-            Required.
+            One or more configurations of hosts to be added to the Elasticsearch cluster.
 
             Must contain at least one element.
           type: array
           items:
             $ref: '#/components/schemas/HostSpec'
     Cluster:
-      description: Elasticsearch cluster resource
+      description: |-
+        An Elasticsearch cluster resource.
+        For more information, see the [Concepts](/docs/managed-elasticsearch/concepts) section of the documentation.
       type: object
       properties:
         id:
           description: |-
-            ID of the ElasticSearch cluster.
-            This ID is assigned by MDB at creation time.
+            ID of the Elasticsearch cluster.
+            This ID is assigned at creation time.
           type: string
         folderId:
-          description: ID of the folder that the ElasticSearch cluster belongs to.
+          description: ID of the folder that the Elasticsearch cluster belongs to.
           type: string
         createdAt:
           description: |-
-            Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            Creation timestamp.
 
             String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
         name:
           description: |-
-            Name of the ElasticSearch cluster.
-            The name is unique within the folder. 1-63 characters long.
+            Name of the Elasticsearch cluster.
+            The name must be unique within the folder. 1-63 characters long.
           type: string
         description:
-          description: Description of the ElasticSearch cluster. 0-256 characters
+          description: Description of the Elasticsearch cluster. 0-256 characters
             long.
           type: string
         labels:
           description: |-
-            Custom labels for the ElasticSearch cluster as `` key:value `` pairs.
-            Maximum 64 per resource.
+            Custom labels for the Elasticsearch cluster as `key:value` pairs.
+            A maximum of 64 labels per resource is allowed.
           type: object
           additionalProperties:
             type: string
         environment:
           $ref: '#/components/schemas/ClusterEnvironment_in_Cluster_environment'
         monitoring:
-          description: Description of monitoring systems relevant to the ElasticSearch
+          description: Description of monitoring systems relevant to the Elasticsearch
             cluster.
           type: array
           items:
@@ -760,26 +895,24 @@ components:
       type: object
       properties:
         version:
-          description: ElasticSearch version.
+          description: Elasticsearch version.
           type: string
         elasticsearch:
           $ref: '#/components/schemas/Elasticsearch_in_ClusterConfig_elasticsearch'
     ClusterEnvironment:
       description: |2-
-         - PRODUCTION: Stable environment with a conservative update policy:
-        only hotfixes are applied during regular maintenance.
-         - PRESTABLE: Environment with more aggressive update policy: new versions
-        are rolled out irrespective of backward compatibility.
+         - PRODUCTION: stable environment with a conservative update policy when only hotfixes are applied during regular maintenance.
+         - PRESTABLE: environment with a more aggressive update policy when new versions are rolled out irrespective of backward compatibility.
       type: string
       enum:
       - PRODUCTION
       - PRESTABLE
     ClusterHealth:
       description: |2-
-         - HEALTH_UNKNOWN: State of the cluster is unknown (`health` for every host in the cluster is UNKNOWN).
-         - ALIVE: Cluster is alive and well (`health` for every host in the cluster is ALIVE).
-         - DEAD: Cluster is inoperable (`health` for every host in the cluster is DEAD).
-         - DEGRADED: Cluster is working below capacity (`health` for at least one host in the cluster is not ALIVE).
+         - HEALTH_UNKNOWN: state of the cluster is unknown (`health` of all hosts in the cluster is `UNKNOWN`).
+         - ALIVE: cluster is alive and well (`health` of all hosts in the cluster is `ALIVE`).
+         - DEAD: cluster is inoperable (`health` of all hosts in the cluster is `DEAD`).
+         - DEGRADED: cluster is in degraded state (`health` of at least one of the hosts in the cluster is not `ALIVE`).
       type: string
       enum:
       - HEALTH_UNKNOWN
@@ -789,14 +922,14 @@ components:
       default: HEALTH_UNKNOWN
     ClusterStatus:
       description: |2-
-         - STATUS_UNKNOWN: Cluster state is unknown.
-         - CREATING: Cluster is being created.
-         - RUNNING: Cluster is running normally.
-         - ERROR: Cluster encountered a problem and cannot operate.
-         - UPDATING: Cluster is being updated.
-         - STOPPING: Cluster is stopping.
-         - STOPPED: Cluster stopped.
-         - STARTING: Cluster is starting.
+         - STATUS_UNKNOWN: cluster state is unknown.
+         - CREATING: cluster is being created.
+         - RUNNING: cluster is running normally.
+         - ERROR: cluster encountered a problem and cannot operate.
+         - UPDATING: cluster is being updated.
+         - STOPPING: cluster is stopping.
+         - STOPPED: cluster stopped.
+         - STARTING: cluster is starting.
       type: string
       enum:
       - STATUS_UNKNOWN
@@ -812,7 +945,7 @@ components:
       type: object
       properties:
         version:
-          description: ElasticSearch version.
+          description: Elasticsearch version.
           type: string
         elasticsearchSpec:
           $ref: '#/components/schemas/ElasticsearchSpec_in_ConfigSpec_elasticsearchSpec'
@@ -820,7 +953,7 @@ components:
       type: object
       properties:
         clusterId:
-          description: ID of the ElasticSearch cluster that is being created.
+          description: ID of the Elasticsearch cluster that is being created.
           type: string
     CreateClusterRequest:
       type: object
@@ -828,27 +961,28 @@ components:
         folderId:
           description: |-
             Required.
-            ID of the folder to create the ElasticSearch cluster in.
+            ID of the folder to create the Elasticsearch cluster in.
 
             The maximum string length in characters is 50.
           type: string
         name:
           description: |-
             Required.
-            Name of the ElasticSearch cluster. The name must be unique within the folder.
+            Name of the Elasticsearch cluster. The name must be unique within the folder.
 
             The maximum string length in characters is 63.
             Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
           type: string
         description:
           description: |-
-            Description of the ElasticSearch cluster.
+            Description of the Elasticsearch cluster.
 
             The maximum string length in characters is 256.
           type: string
         labels:
           description: |-
-            Custom labels for the ElasticSearch cluster as `` key:value `` pairs. Maximum 64 per resource.
+            Custom labels for the Elasticsearch cluster as `key:value` pairs.
+
             For example, "project": "mvp" or "source": "dictionary".
 
             No more than 64 per resource.
@@ -863,10 +997,19 @@ components:
           $ref: '#/components/schemas/ClusterEnvironment_in_CreateClusterRequest_environment'
         configSpec:
           $ref: '#/components/schemas/ConfigSpec_in_CreateClusterRequest_configSpec'
+        userSpecs:
+          description: |-
+            Required.
+            One or more descriptions of users to be created in Elasticsearch cluster.
+
+            Must contain at least one element.
+          type: array
+          items:
+            $ref: '#/components/schemas/UserSpec'
         hostSpecs:
           description: |-
             Required.
-            Required. Configuration of ElasticSearch hosts.
+            One or more configurations of hosts to be created in the Elasticsearch cluster.
 
             Must contain at least one element.
           type: array
@@ -875,7 +1018,7 @@ components:
         networkId:
           description: |-
             Required.
-            ID of the network to create the cluster in.
+            ID of the network to create the Elasticsearch cluster in.
 
             The maximum string length in characters is 50.
           type: string
@@ -883,10 +1026,10 @@ components:
       type: object
       properties:
         clusterId:
-          description: Required. ID of the ElasticSearch cluster.
+          description: ID of the Elasticsearch cluster.
           type: string
         hostNames:
-          description: Required. The name of deleting host.
+          description: Names of the hosts that are being deleted.
           type: array
           items:
             type: string
@@ -896,7 +1039,7 @@ components:
         hostNames:
           description: |-
             Required.
-            Required. Name of the host to delete.
+            Names of the hosts to delete.
 
             Must contain at least one element.
             The maximum string length in characters for each value is 253.
@@ -907,7 +1050,7 @@ components:
       type: object
       properties:
         clusterId:
-          description: ID of the ElasticSearch cluster that is being deleted.
+          description: ID of the Elasticsearch cluster that is being deleted.
           type: string
     Elasticsearch:
       type: object
@@ -917,17 +1060,40 @@ components:
         masterNode:
           $ref: '#/components/schemas/ElasticsearchMasterNode_in_Elasticsearch_masterNode'
     ElasticsearchConfig7_6:
+      description: |-
+        Elasticsearch 7.6 supported configuration options are listed here.
+
+        Detailed description for each set of options is available in [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html).
+
+        Any options that are not listed here are not supported.
       type: object
       properties:
         fielddataCacheSize:
-          description: the percentage of heap space that is allocated to fielddata
+          description: |-
+            The maximum percentage of heap space that is allocated to field data cache.
+
+            All the field values that are placed in this cache, get loaded to memory in order to provide fast document based access to those values.
+            Building the field data cache for a field can be an expensive operations, so its recommended to have enough memory for this cache, and to keep it loaded.
+
+            Default value: unbounded.
+
+            See in-depth description in [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-fielddata.html).
           type: integer
           format: int64
         maxClauseCount:
-          description: the maximum number of allowed boolean clauses in a query
+          description: |-
+            The maximum number of clauses a boolean query can contain.
+
+            The limit is in place to prevent searches from becoming too large and taking up too much CPU and memory.
+            It affects not only Elasticsearch's `bool` query, but many other quieries that are implicitly converted to `bool` query by Elastcsearch.
+
+            Default value: `1024`.
+
+            See in-depth description in [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-settings.html).
           type: integer
           format: int64
     ElasticsearchConfigSet7_6:
+      description: Elasticsearch 7.6 data node configuration.
       type: object
       properties:
         effectiveConfig:
@@ -943,13 +1109,14 @@ components:
         properties:
           resources:
             $ref: '#/components/schemas/Resources'
-            description: Resources allocated to data node hosts.
+            description: Resources allocated to Elasticsearch data nodes.
       - title: config
         type: object
         maxProperties: 1
         properties:
           elasticsearchConfigSet_7_6:
             $ref: '#/components/schemas/ElasticsearchConfigSet7_6'
+            description: Elasticsearch 7.6 data node configuration.
     ElasticsearchMasterNode:
       type: object
       properties:
@@ -969,7 +1136,7 @@ components:
         properties:
           resources:
             $ref: '#/components/schemas/Resources'
-            description: Resources allocated to data node hosts.
+            description: Resources allocated to Elasticsearch data nodes.
       - title: config
         type: object
         maxProperties: 1
@@ -997,16 +1164,17 @@ components:
         The rest of the fields will be reset to the default.
       type: string
     Host:
+      description: Cluster host metadata.
       type: object
       properties:
         name:
-          description: Required. Name of the host.
+          description: Name of the host.
           type: string
         clusterId:
-          description: Required. ID of the ElasticSearch cluster.
+          description: ID of the Elasticsearch cluster.
           type: string
         zoneId:
-          description: ID of the availability zone.
+          description: ID of the availability zone where the host resides.
           type: string
         type:
           $ref: '#/components/schemas/HostType_in_Host_type'
@@ -1020,11 +1188,21 @@ components:
           items:
             $ref: '#/components/schemas/Service'
         subnetId:
+          description: ID of the subnet the host resides in.
           type: string
         assignPublicIp:
+          description: |-
+            The flag that defines whether a public IP address is assigned to the host.
+
+            If the value is `true`, then this host is available on the Internet via it's public IP address.
           type: boolean
           format: boolean
     HostHealth:
+      description: |2-
+         - UNKNOWN: health of the host is unknown.
+         - ALIVE: the host is performing all its functions normally.
+         - DEAD: the host is inoperable and cannot perform any of its essential functions.
+         - DEGRADED: the host is degraded and can perform only some of its essential functions.
       type: string
       enum:
       - UNKNOWN
@@ -1037,24 +1215,36 @@ components:
       properties:
         zoneId:
           description: |-
-            ID of the availability zone.
+            ID of the availability zone where the host resides.
 
             The maximum string length in characters is 50.
           type: string
         subnetId:
-          description: The maximum string length in characters is 50.
+          description: |-
+            ID of the subnet the host resides in.
+
+            The maximum string length in characters is 50.
           type: string
         assignPublicIp:
+          description: |-
+            The flag that defines whether a public IP address is assigned to the host.
+
+            If the value is `true`, then this host is available on the Internet via it's public IP address.
           type: boolean
           format: boolean
         type:
           $ref: '#/components/schemas/HostType_in_HostSpec_type'
         shardName:
           description: |-
+            The shard name to create on the host.
+
             The maximum string length in characters is 63.
             Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
           type: string
     HostType:
+      description: |2-
+         - DATA_NODE: the host is an Elasticsearch data node.
+         - MASTER_NODE: the host is an Elasticsearch master node.
       type: string
       enum:
       - DATA_NODE
@@ -1063,16 +1253,16 @@ components:
       type: object
       properties:
         hosts:
-          description: List of Host resources.
+          description: List of hosts.
           type: array
           items:
             $ref: '#/components/schemas/Host'
         nextPageToken:
           description: |-
-            This token allows you to get the next page of results for list requests. If the number of results
-            is larger than [pageSize](/docs/managed-elasticsearch/api-ref/Cluster/listHosts#query_params), use the [nextPageToken](/docs/managed-elasticsearch/api-ref/Cluster/listHosts#responses) as the value
-            for the [pageToken](/docs/managed-elasticsearch/api-ref/Cluster/listHosts#query_params) query parameter in the next list request.
-            Each subsequent list request will have its own [nextPageToken](/docs/managed-elasticsearch/api-ref/Cluster/listHosts#responses) to continue paging through the results.
+            Token that allows you to get the next page of results for list requests.
+
+            If the number of results is larger than [pageSize](/docs/managed-elasticsearch/api-ref/Cluster/listHosts#query_params), use the `next_page_token` as the value for the [pageToken](/docs/managed-elasticsearch/api-ref/Cluster/listHosts#query_params) query parameter in the next list request.
+            Each subsequent list request will have its own `next_page_token` to continue paging through the results.
           type: string
     ListClusterLogsResponse:
       type: object
@@ -1084,66 +1274,83 @@ components:
             $ref: '#/components/schemas/LogRecord'
         nextPageToken:
           description: |-
-            This token allows you to get the next page of results for list requests. If the number of results
-            is larger than [pageSize](/docs/managed-elasticsearch/api-ref/Cluster/listLogs#query_params), use the [nextPageToken](/docs/managed-elasticsearch/api-ref/Cluster/listLogs#responses) as the value
-            for the [pageToken](/docs/managed-elasticsearch/api-ref/Cluster/listLogs#query_params) query parameter in the next list request.
-            Each subsequent list request will have its own [nextPageToken](/docs/managed-elasticsearch/api-ref/Cluster/listLogs#responses) to continue paging through the results.
-            This value is interchangeable with `next_record_token` from StreamLogs method.
+            Token that allows you to get the next page of results for list requests.
+
+            If the number of results is larger than [pageSize](/docs/managed-elasticsearch/api-ref/Cluster/listLogs#query_params), use `next_page_token` as the value for the [pageToken](/docs/managed-elasticsearch/api-ref/Cluster/listLogs#query_params) query parameter in the next list request.
+            Each subsequent list request will have its own `next_page_token` to continue paging through the results.
+
+            This value is interchangeable with `nextRecordToken` from StreamLogs method.
           type: string
     ListClusterOperationsResponse:
       type: object
       properties:
         operations:
-          description: List of Operation resources for the specified ElasticSearch
-            cluster.
+          description: List of operations for the specified Elasticsearch cluster.
           type: array
           items:
             $ref: '#/components/schemas/Operation'
         nextPageToken:
           description: |-
-            This token allows you to get the next page of results for list requests. If the number of results
-            is larger than [pageSize](/docs/managed-elasticsearch/api-ref/Cluster/listOperations#query_params), use the [nextPageToken](/docs/managed-elasticsearch/api-ref/Cluster/listOperations#responses) as the value
-            for the [pageToken](/docs/managed-elasticsearch/api-ref/Cluster/listOperations#query_params) query parameter in the next list request.
-            Each subsequent list request will have its own [nextPageToken](/docs/managed-elasticsearch/api-ref/Cluster/listOperations#responses) to continue paging through the results.
+            Token that allows you to get the next page of results for list requests.
+
+            If the number of results is larger than [pageSize](/docs/managed-elasticsearch/api-ref/Cluster/listOperations#query_params), use the `next_page_token` as the value for the [pageToken](/docs/managed-elasticsearch/api-ref/Cluster/listOperations#query_params) query parameter in the next list request.
+            Each subsequent list request will have its own `next_page_token` to continue paging through the results.
           type: string
     ListClustersResponse:
       type: object
       properties:
         clusters:
-          description: List of ElasticSearch clusters.
+          description: List of Elasticsearch clusters.
           type: array
           items:
             $ref: '#/components/schemas/Cluster'
         nextPageToken:
           description: |-
-            This token allows you to get the next page of results for list requests. If the number of results
-            is larger than [pageSize](/docs/managed-elasticsearch/api-ref/Cluster/list#query_params), use the [nextPageToken](/docs/managed-elasticsearch/api-ref/Cluster/list#responses) as the value
-            for the [pageToken](/docs/managed-elasticsearch/api-ref/Cluster/list#query_params) parameter in the next list request. Each subsequent
-            list request will have its own [nextPageToken](/docs/managed-elasticsearch/api-ref/Cluster/list#responses) to continue paging through the results.
+            Token that allows you to get the next page of results for list requests.
+
+            If the number of results is larger than [pageSize](/docs/managed-elasticsearch/api-ref/Cluster/list#query_params), use `next_page_token` as the value
+            for the [pageToken](/docs/managed-elasticsearch/api-ref/Cluster/list#query_params) parameter in the next list request.
+            Each subsequent list request will have its own `next_page_token` to continue paging through the results.
           type: string
     ListResourcePresetsResponse:
       type: object
       properties:
         resourcePresets:
-          description: List of ResourcePreset resources.
+          description: List of resource presets.
           type: array
           items:
             $ref: '#/components/schemas/ResourcePreset'
         nextPageToken:
           description: |-
-            This token allows you to get the next page of results for list requests. If the number of results
-            is larger than [pageSize](/docs/managed-elasticsearch/api-ref/ResourcePreset/list#query_params), use the [nextPageToken](/docs/managed-elasticsearch/api-ref/ResourcePreset/list#responses) as the value
-            for the [pageToken](/docs/managed-elasticsearch/api-ref/ResourcePreset/list#query_params) parameter in the next list request. Each subsequent
-            list request will have its own [nextPageToken](/docs/managed-elasticsearch/api-ref/ResourcePreset/list#responses) to continue paging through the results.
+            This token allows you to get the next page of results for list requests.
+
+            If the number of results is larger than [pageSize](/docs/managed-elasticsearch/api-ref/ResourcePreset/list#query_params), use the `next_page_token` as the value for the [pageToken](/docs/managed-elasticsearch/api-ref/ResourcePreset/list#query_params) parameter in the next list request.
+            Each subsequent list request will have its own `next_page_token` to continue paging through the results.
 
             The maximum string length in characters is 100.
           type: string
+    ListUsersResponse:
+      type: object
+      properties:
+        users:
+          description: List of Elasticsearch users.
+          type: array
+          items:
+            $ref: '#/components/schemas/User'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests.
+
+            If the number of results is larger than [pageSize](/docs/managed-elasticsearch/api-ref/User/list#query_params), use the `next_page_token` as the value for the [pageToken](/docs/managed-elasticsearch/api-ref/User/list#query_params) parameter in the next list request.
+            Each subsequent list request will have its own `next_page_token` to continue paging through the results.
+          type: string
     LogRecord:
+      description: A single log record.
       type: object
       properties:
         timestamp:
           description: |-
-            Log record timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            Log record timestamp.
 
             String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
@@ -1154,7 +1361,7 @@ components:
           additionalProperties:
             type: string
     Monitoring:
-      description: Monitoring system.
+      description: Metadata of monitoring system.
       type: object
       properties:
         name:
@@ -1164,19 +1371,20 @@ components:
           description: Description of the monitoring system.
           type: string
         link:
-          description: Link to the monitoring system charts.
+          description: Link to the monitoring system charts for the Elasticsearch
+            cluster.
           type: string
     MoveClusterMetadata:
       type: object
       properties:
         clusterId:
-          description: ID of the ElasticSearch cluster being moved.
+          description: ID of the Elasticsearch cluster being moved.
           type: string
         sourceFolderId:
           description: ID of the source folder.
           type: string
         destinationFolderId:
-          description: ID of the destnation folder.
+          description: ID of the destination folder.
           type: string
     MoveClusterRequest:
       type: object
@@ -1251,7 +1459,7 @@ components:
       type: object
       properties:
         id:
-          description: ID of the ResourcePreset resource.
+          description: ID of the resource preset.
           type: string
         zoneIds:
           description: IDs of availability zones where the resource preset is available.
@@ -1259,28 +1467,35 @@ components:
           items:
             type: string
         cores:
-          description: Number of CPU cores for a host created with the preset.
+          description: Number of CPU cores for an Elasticsearch node created with
+            the preset.
           type: string
           format: int64
         memory:
-          description: RAM volume for a host created with the preset, in bytes.
+          description: RAM volume for an Elasticsearch node created with the preset,
+            in bytes.
           type: string
           format: int64
     Resources:
+      description: Computational resources.
       type: object
       properties:
         resourcePresetId:
-          description: ID of the preset for computational resources available to a
-            host (CPU, memory etc.).
+          description: |-
+            ID of the preset for computational resources available to a host (CPU, memory etc.).
+            All available presets are listed in the [documentation](/docs/managed-elasticsearch/concepts/instance-types).
           type: string
         diskSize:
           description: Volume of the storage available to a host, in bytes.
           type: string
           format: int64
         diskTypeId:
-          description: Type of the storage environment for the host.
+          description: |-
+            Type of the storage environment for the host.
+            All available types are listed in the [documentation](/docs/managed-elasticsearch/concepts/storage).
           type: string
     Service:
+      description: Cluster service metadata.
       type: object
       properties:
         type:
@@ -1289,9 +1504,9 @@ components:
           $ref: '#/components/schemas/ServiceHealth_in_Service_health'
     ServiceHealth:
       description: |2-
-         - UNKNOWN: Health of the server is unknown.
-         - ALIVE: The server is working normally.
-         - DEAD: The server is dead or unresponsive.
+         - UNKNOWN: health of the service is unknown.
+         - ALIVE: the service is working normally.
+         - DEAD: the service is dead or unresponsive.
       type: string
       enum:
       - UNKNOWN
@@ -1299,6 +1514,7 @@ components:
       - DEAD
       default: UNKNOWN
     ServiceType:
+      description: ' - ELASTICSEARCH: the Elasticsearch service.'
       type: string
       enum:
       - ELASTICSEARCH
@@ -1306,13 +1522,13 @@ components:
       type: object
       properties:
         clusterId:
-          description: Required. ID of the ElasticSearch cluster.
+          description: ID of the Elasticsearch cluster.
           type: string
     StopClusterMetadata:
       type: object
       properties:
         clusterId:
-          description: Required. ID of the ElasticSearch cluster.
+          description: ID of the Elasticsearch cluster.
           type: string
     StreamLogRecord:
       type: object
@@ -1321,16 +1537,17 @@ components:
           $ref: '#/components/schemas/LogRecord_in_StreamLogRecord_record'
         nextRecordToken:
           description: |-
-            This token allows you to continue streaming logs starting from the exact
-            same record. To continue streaming, specify value of `next_record_token`
-            as value for `record_token` parameter in the next StreamLogs request.
-            This value is interchangeable with `next_page_token` from ListLogs method.
+            This token allows you to continue streaming logs starting from the exact same record.
+
+            To continue streaming, specify value of `next_record_token` as value for [recordToken](/docs/managed-elasticsearch/api-ref/Cluster/streamLogs#query_params) parameter in the next StreamLogs request.
+
+            This value is interchangeable with [nextPageToken](/docs/managed-elasticsearch/api-ref/Cluster/listLogs#responses) from ListLogs method.
           type: string
     UpdateClusterMetadata:
       type: object
       properties:
         clusterId:
-          description: ID of the ElasticSearch cluster resource that is being updated.
+          description: ID of the Elasticsearch cluster that is being updated.
           type: string
     UpdateClusterRequest:
       type: object
@@ -1339,17 +1556,18 @@ components:
           $ref: '#/components/schemas/FieldMask_in_UpdateClusterRequest_updateMask'
         description:
           description: |-
-            New description of the ElasticSearch cluster.
+            New description of the Elasticsearch cluster.
 
             The maximum string length in characters is 256.
           type: string
         labels:
           description: |-
-            Custom labels for the ElasticSearch cluster as `` key:value `` pairs. Maximum 64 per resource.
+            Custom labels for the Elasticsearch cluster as `key:value` pairs.
+
             For example, "project": "mvp" or "source": "dictionary".
 
-            The new set of labels will completely replace the old ones. To add a label, request the current
-            set with the [get](/docs/managed-elasticsearch/api-ref/Cluster/get) method, then send an [update](/docs/managed-elasticsearch/api-ref/Cluster/update) request with the new label added to the set.
+            The new set of labels will completely replace the old ones.
+            To add a label, request the current set with the [get](/docs/managed-elasticsearch/api-ref/Cluster/get) method, then send an [update](/docs/managed-elasticsearch/api-ref/Cluster/update) request with the new label added to the set.
 
             No more than 64 per resource.
             The string length in characters for each key must be 1-63.
@@ -1363,8 +1581,38 @@ components:
           $ref: '#/components/schemas/ConfigSpec_in_UpdateClusterRequest_configSpec'
         name:
           description: |-
+            New name for the Elasticsearch cluster.
+
             The maximum string length in characters is 63.
             Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+          type: string
+    User:
+      description: An Elasticsearch user.
+      type: object
+      properties:
+        name:
+          description: Name of the Elasticsearch user.
+          type: string
+        clusterId:
+          description: ID of the Elasticsearch cluster the user belongs to.
+          type: string
+    UserSpec:
+      type: object
+      properties:
+        name:
+          description: |-
+            Required.
+            Name of the Elasticsearch user.
+
+            The maximum string length in characters is 63.
+            Value must match the regular expression `` [a-zA-Z0-9_]* ``.
+          type: string
+        password:
+          description: |-
+            Required.
+            Password of the Elasticsearch user.
+
+            The string length in characters must be 8-128.
           type: string
     rpcStatus:
       description: The error result of the operation in case of failure or cancellation.
@@ -1384,22 +1632,20 @@ components:
             type: object
     ClusterEnvironment_in_Cluster_environment:
       description: |-
-        Deployment environment of the ElasticSearch cluster.
+        Deployment environment of the Elasticsearch cluster.
 
-         - PRODUCTION: Stable environment with a conservative update policy:
-        only hotfixes are applied during regular maintenance.
-         - PRESTABLE: Environment with more aggressive update policy: new versions
-        are rolled out irrespective of backward compatibility.
+         - PRODUCTION: stable environment with a conservative update policy when only hotfixes are applied during regular maintenance.
+         - PRESTABLE: environment with a more aggressive update policy when new versions are rolled out irrespective of backward compatibility.
       type: string
       enum:
       - PRODUCTION
       - PRESTABLE
     ClusterConfig_in_Cluster_config:
-      description: Configuration of the ElasticSearch cluster.
+      description: Configuration of the Elasticsearch cluster.
       type: object
       properties:
         version:
-          description: ElasticSearch version.
+          description: Elasticsearch version.
           type: string
         elasticsearch:
           $ref: '#/components/schemas/Elasticsearch_in_ClusterConfig_elasticsearch'
@@ -1407,10 +1653,10 @@ components:
       description: |-
         Aggregated cluster health.
 
-         - HEALTH_UNKNOWN: State of the cluster is unknown (`health` for every host in the cluster is UNKNOWN).
-         - ALIVE: Cluster is alive and well (`health` for every host in the cluster is ALIVE).
-         - DEAD: Cluster is inoperable (`health` for every host in the cluster is DEAD).
-         - DEGRADED: Cluster is working below capacity (`health` for at least one host in the cluster is not ALIVE).
+         - HEALTH_UNKNOWN: state of the cluster is unknown (`health` of all hosts in the cluster is `UNKNOWN`).
+         - ALIVE: cluster is alive and well (`health` of all hosts in the cluster is `ALIVE`).
+         - DEAD: cluster is inoperable (`health` of all hosts in the cluster is `DEAD`).
+         - DEGRADED: cluster is in degraded state (`health` of at least one of the hosts in the cluster is not `ALIVE`).
       type: string
       enum:
       - HEALTH_UNKNOWN
@@ -1422,14 +1668,14 @@ components:
       description: |-
         Current state of the cluster.
 
-         - STATUS_UNKNOWN: Cluster state is unknown.
-         - CREATING: Cluster is being created.
-         - RUNNING: Cluster is running normally.
-         - ERROR: Cluster encountered a problem and cannot operate.
-         - UPDATING: Cluster is being updated.
-         - STOPPING: Cluster is stopping.
-         - STOPPED: Cluster stopped.
-         - STARTING: Cluster is starting.
+         - STATUS_UNKNOWN: cluster state is unknown.
+         - CREATING: cluster is being created.
+         - RUNNING: cluster is running normally.
+         - ERROR: cluster encountered a problem and cannot operate.
+         - UPDATING: cluster is being updated.
+         - STOPPING: cluster is stopping.
+         - STOPPED: cluster stopped.
+         - STARTING: cluster is starting.
       type: string
       enum:
       - STATUS_UNKNOWN
@@ -1442,7 +1688,7 @@ components:
       - STARTING
       default: STATUS_UNKNOWN
     Elasticsearch_in_ClusterConfig_elasticsearch:
-      description: ElasticSearch configuration.
+      description: Configuration and resource allocation for Elasticsearch nodes.
       type: object
       properties:
         dataNode:
@@ -1450,6 +1696,7 @@ components:
         masterNode:
           $ref: '#/components/schemas/ElasticsearchMasterNode_in_Elasticsearch_masterNode'
     ElasticsearchSpec_in_ConfigSpec_elasticsearchSpec:
+      description: Configuration and resource allocation for Elasticsearch nodes.
       type: object
       properties:
         dataNode:
@@ -1458,12 +1705,10 @@ components:
           $ref: '#/components/schemas/ElasticsearchSpecMasterNode_in_ElasticsearchSpec_masterNode'
     ClusterEnvironment_in_CreateClusterRequest_environment:
       description: |-
-        Deployment environment of the ElasticSearch cluster.
+        Deployment environment of the Elasticsearch cluster.
 
-         - PRODUCTION: Stable environment with a conservative update policy:
-        only hotfixes are applied during regular maintenance.
-         - PRESTABLE: Environment with more aggressive update policy: new versions
-        are rolled out irrespective of backward compatibility.
+         - PRODUCTION: stable environment with a conservative update policy when only hotfixes are applied during regular maintenance.
+         - PRESTABLE: environment with a more aggressive update policy when new versions are rolled out irrespective of backward compatibility.
       type: string
       enum:
       - PRODUCTION
@@ -1471,90 +1716,173 @@ components:
     ConfigSpec_in_CreateClusterRequest_configSpec:
       description: |-
         Required.
-        Configuration and resources for hosts that should be created for the ElasticSearch cluster.
+        Elasticsearch and hosts configuration for the cluster.
       type: object
       properties:
         version:
-          description: ElasticSearch version.
+          description: Elasticsearch version.
           type: string
         elasticsearchSpec:
           $ref: '#/components/schemas/ElasticsearchSpec_in_ConfigSpec_elasticsearchSpec'
     ElasticsearchDataNode_in_Elasticsearch_dataNode:
+      description: Configuration and resource allocation for Elasticsearch data nodes.
       type: object
       allOf:
       - type: object
         properties:
           resources:
             $ref: '#/components/schemas/Resources'
-            description: Resources allocated to data node hosts.
+            description: Resources allocated to Elasticsearch data nodes.
       - title: config
         type: object
         maxProperties: 1
         properties:
           elasticsearchConfigSet_7_6:
             $ref: '#/components/schemas/ElasticsearchConfigSet7_6'
+            description: Elasticsearch 7.6 data node configuration.
     ElasticsearchMasterNode_in_Elasticsearch_masterNode:
+      description: Configuration and resource allocation for Elasticsearch master
+        nodes.
       type: object
       properties:
         resources:
           $ref: '#/components/schemas/Resources_in_ElasticsearchMasterNode_resources'
     ElasticsearchConfig7_6_in_ElasticsearchConfigSet7_6_effectiveConfig:
-      description: Required.
+      description: |-
+        Required.
+        Effective settings for an Elasticsearch cluster (a combination of settings defined in `userConfig` and `defaultConfig`).
+
+        Elasticsearch 7.6 supported configuration options are listed here.
+
+        Detailed description for each set of options is available in [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html).
+
+        Any options that are not listed here are not supported.
       type: object
       properties:
         fielddataCacheSize:
-          description: the percentage of heap space that is allocated to fielddata
+          description: |-
+            The maximum percentage of heap space that is allocated to field data cache.
+
+            All the field values that are placed in this cache, get loaded to memory in order to provide fast document based access to those values.
+            Building the field data cache for a field can be an expensive operations, so its recommended to have enough memory for this cache, and to keep it loaded.
+
+            Default value: unbounded.
+
+            See in-depth description in [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-fielddata.html).
           type: integer
           format: int64
         maxClauseCount:
-          description: the maximum number of allowed boolean clauses in a query
+          description: |-
+            The maximum number of clauses a boolean query can contain.
+
+            The limit is in place to prevent searches from becoming too large and taking up too much CPU and memory.
+            It affects not only Elasticsearch's `bool` query, but many other quieries that are implicitly converted to `bool` query by Elastcsearch.
+
+            Default value: `1024`.
+
+            See in-depth description in [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-settings.html).
           type: integer
           format: int64
     ElasticsearchConfig7_6_in_ElasticsearchConfigSet7_6_userConfig:
+      description: |-
+        User-defined settings for an Elasticsearch cluster.
+
+        Elasticsearch 7.6 supported configuration options are listed here.
+
+        Detailed description for each set of options is available in [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html).
+
+        Any options that are not listed here are not supported.
       type: object
       properties:
         fielddataCacheSize:
-          description: the percentage of heap space that is allocated to fielddata
+          description: |-
+            The maximum percentage of heap space that is allocated to field data cache.
+
+            All the field values that are placed in this cache, get loaded to memory in order to provide fast document based access to those values.
+            Building the field data cache for a field can be an expensive operations, so its recommended to have enough memory for this cache, and to keep it loaded.
+
+            Default value: unbounded.
+
+            See in-depth description in [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-fielddata.html).
           type: integer
           format: int64
         maxClauseCount:
-          description: the maximum number of allowed boolean clauses in a query
+          description: |-
+            The maximum number of clauses a boolean query can contain.
+
+            The limit is in place to prevent searches from becoming too large and taking up too much CPU and memory.
+            It affects not only Elasticsearch's `bool` query, but many other quieries that are implicitly converted to `bool` query by Elastcsearch.
+
+            Default value: `1024`.
+
+            See in-depth description in [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-settings.html).
           type: integer
           format: int64
     ElasticsearchConfig7_6_in_ElasticsearchConfigSet7_6_defaultConfig:
+      description: |-
+        Default settings for an Elasticsearch cluster.
+
+        Elasticsearch 7.6 supported configuration options are listed here.
+
+        Detailed description for each set of options is available in [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html).
+
+        Any options that are not listed here are not supported.
       type: object
       properties:
         fielddataCacheSize:
-          description: the percentage of heap space that is allocated to fielddata
+          description: |-
+            The maximum percentage of heap space that is allocated to field data cache.
+
+            All the field values that are placed in this cache, get loaded to memory in order to provide fast document based access to those values.
+            Building the field data cache for a field can be an expensive operations, so its recommended to have enough memory for this cache, and to keep it loaded.
+
+            Default value: unbounded.
+
+            See in-depth description in [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-fielddata.html).
           type: integer
           format: int64
         maxClauseCount:
-          description: the maximum number of allowed boolean clauses in a query
+          description: |-
+            The maximum number of clauses a boolean query can contain.
+
+            The limit is in place to prevent searches from becoming too large and taking up too much CPU and memory.
+            It affects not only Elasticsearch's `bool` query, but many other quieries that are implicitly converted to `bool` query by Elastcsearch.
+
+            Default value: `1024`.
+
+            See in-depth description in [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-settings.html).
           type: integer
           format: int64
     Resources_in_ElasticsearchMasterNode_resources:
-      description: Resources allocated to master node hosts.
+      description: |-
+        Resources allocated to Elasticsearch master nodes.
+
+        Computational resources.
       type: object
       properties:
         resourcePresetId:
-          description: ID of the preset for computational resources available to a
-            host (CPU, memory etc.).
+          description: |-
+            ID of the preset for computational resources available to a host (CPU, memory etc.).
+            All available presets are listed in the [documentation](/docs/managed-elasticsearch/concepts/instance-types).
           type: string
         diskSize:
           description: Volume of the storage available to a host, in bytes.
           type: string
           format: int64
         diskTypeId:
-          description: Type of the storage environment for the host.
+          description: |-
+            Type of the storage environment for the host.
+            All available types are listed in the [documentation](/docs/managed-elasticsearch/concepts/storage).
           type: string
     ElasticsearchSpecDataNode_in_ElasticsearchSpec_dataNode:
+      description: Configuration and resource allocation for Elasticsearch data nodes.
       type: object
       allOf:
       - type: object
         properties:
           resources:
             $ref: '#/components/schemas/Resources'
-            description: Resources allocated to data node hosts.
+            description: Resources allocated to Elasticsearch data nodes.
       - title: config
         type: object
         maxProperties: 1
@@ -1562,48 +1890,69 @@ components:
           elasticsearchConfig_7_6:
             $ref: '#/components/schemas/ElasticsearchConfig7_6'
     ElasticsearchSpecMasterNode_in_ElasticsearchSpec_masterNode:
+      description: Configuration and resource allocation for Elasticsearch master
+        nodes.
       type: object
       properties:
         resources:
           $ref: '#/components/schemas/Resources_in_ElasticsearchSpecMasterNode_resources'
     Resources_in_ElasticsearchSpecMasterNode_resources:
-      description: Resources allocated to master node hosts.
+      description: |-
+        Resources allocated to Elasticsearch master nodes.
+
+        Computational resources.
       type: object
       properties:
         resourcePresetId:
-          description: ID of the preset for computational resources available to a
-            host (CPU, memory etc.).
+          description: |-
+            ID of the preset for computational resources available to a host (CPU, memory etc.).
+            All available presets are listed in the [documentation](/docs/managed-elasticsearch/concepts/instance-types).
           type: string
         diskSize:
           description: Volume of the storage available to a host, in bytes.
           type: string
           format: int64
         diskTypeId:
-          description: Type of the storage environment for the host.
+          description: |-
+            Type of the storage environment for the host.
+            All available types are listed in the [documentation](/docs/managed-elasticsearch/concepts/storage).
           type: string
     HostType_in_Host_type:
-      description: Host type.
+      description: |-
+        Host type.
+
+         - DATA_NODE: the host is an Elasticsearch data node.
+         - MASTER_NODE: the host is an Elasticsearch master node.
       type: string
       enum:
       - DATA_NODE
       - MASTER_NODE
     Resources_in_Host_resources:
-      description: Resources allocated to the host.
+      description: Computational resources.
       type: object
       properties:
         resourcePresetId:
-          description: ID of the preset for computational resources available to a
-            host (CPU, memory etc.).
+          description: |-
+            ID of the preset for computational resources available to a host (CPU, memory etc.).
+            All available presets are listed in the [documentation](/docs/managed-elasticsearch/concepts/instance-types).
           type: string
         diskSize:
           description: Volume of the storage available to a host, in bytes.
           type: string
           format: int64
         diskTypeId:
-          description: Type of the storage environment for the host.
+          description: |-
+            Type of the storage environment for the host.
+            All available types are listed in the [documentation](/docs/managed-elasticsearch/concepts/storage).
           type: string
     HostHealth_in_Host_health:
-      description: Aggregated host health
+      description: |-
+        Aggregated host health data.
+
+         - UNKNOWN: health of the host is unknown.
+         - ALIVE: the host is performing all its functions normally.
+         - DEAD: the host is inoperable and cannot perform any of its essential functions.
+         - DEGRADED: the host is degraded and can perform only some of its essential functions.
       type: string
       enum:
       - UNKNOWN
@@ -1612,23 +1961,31 @@ components:
       - DEGRADED
       default: UNKNOWN
     HostType_in_HostSpec_type:
-      description: Required.
+      description: |-
+        Required.
+        Host type.
+
+         - DATA_NODE: the host is an Elasticsearch data node.
+         - MASTER_NODE: the host is an Elasticsearch master node.
       type: string
       enum:
       - DATA_NODE
       - MASTER_NODE
     ServiceType_in_Service_type:
-      description: Type of the service provided by the host.
+      description: |-
+        Type of the service provided by the host.
+
+         - ELASTICSEARCH: the Elasticsearch service.
       type: string
       enum:
       - ELASTICSEARCH
     ServiceHealth_in_Service_health:
       description: |-
-        Status code of server availability.
+        Service health data.
 
-         - UNKNOWN: Health of the server is unknown.
-         - ALIVE: The server is working normally.
-         - DEAD: The server is dead or unresponsive.
+         - UNKNOWN: health of the service is unknown.
+         - ALIVE: the service is working normally.
+         - DEAD: the service is dead or unresponsive.
       type: string
       enum:
       - UNKNOWN
@@ -1636,12 +1993,15 @@ components:
       - DEAD
       default: UNKNOWN
     LogRecord_in_StreamLogRecord_record:
-      description: One of the requested log records.
+      description: |-
+        One of the requested log records.
+
+        A single log record.
       type: object
       properties:
         timestamp:
           description: |-
-            Log record timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            Log record timestamp.
 
             String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
@@ -1653,8 +2013,6 @@ components:
             type: string
     FieldMask_in_UpdateClusterRequest_updateMask:
       description: |-
-        Field mask that specifies which fields of the ElasticSearch cluster should be updated.
-
         A comma-separated names off ALL fields to be updated.
         Оnly the specified fields will be changed. The others will be left untouched.
         If the field is specified in `` updateMask `` and no value for that field was sent in the request,
@@ -1665,19 +2023,24 @@ components:
         The rest of the fields will be reset to the default.
       type: string
     ConfigSpec_in_UpdateClusterRequest_configSpec:
-      description: New configuration and resources for hosts in the cluster.
+      description: |-
+        New configuration and resources for hosts in the Elasticsearch cluster.
+
+        Use [updateMask](/docs/managed-elasticsearch/api-ref/Cluster/update#body_params) to prevent reverting all cluster settings that are not listed in `config_spec` to their default values.
       type: object
       properties:
         version:
-          description: ElasticSearch version.
+          description: Elasticsearch version.
           type: string
         elasticsearchSpec:
           $ref: '#/components/schemas/ElasticsearchSpec_in_ConfigSpec_elasticsearchSpec'
 tags:
 - name: Cluster
-  description: A set of methods for managing ElasticSearch clusters.
+  description: A set of methods for managing Elasticsearch clusters.
 - name: Operation
   description: A set of methods for managing operations that are asynchronous API
     requests.
 - name: ResourcePreset
-  description: A set of methods for managing ResourcePreset resources.
+  description: A set of methods for managing Elasticsearch resource presets.
+- name: User
+  description: A set of methods for managing Elasticsearch users.

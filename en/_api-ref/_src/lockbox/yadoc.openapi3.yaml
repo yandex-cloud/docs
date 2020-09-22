@@ -1,0 +1,1331 @@
+openapi: "3.0"
+info:
+  title: Yandex Lockbox API
+  description: This API reference is organized by resource. Actions are performed
+    by sending HTTP requests to resource URLs or making RPC calls. For more information
+    about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
+  version: v1
+  x-y-docUri: api-ref
+  x-y-baseUrl: https://lockbox.api.cloud.yandex.net
+paths:
+  /lockbox/v1/secrets/{secretId}/payload:
+    get:
+      tags:
+      - Payload
+      summary: Returns payload of the given secret
+      operationId: PayloadGet
+      parameters:
+      - name: secretId
+        in: path
+        description: |-
+          Required.
+          ID of the secret.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: versionId
+        in: query
+        description: |-
+          Optional ID of the version. Defaults to the current version if not specified
+
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Payload'
+      x-y-navtitle: get
+  /lockbox/v1/secrets/{secretId}:
+    get:
+      tags:
+      - Secret
+      summary: |-
+        Returns the specified secret.
+        Use [get](/docs/lockbox/api-ref/Payload/get) to get the payload (confidential data themselves) of the secret
+      operationId: SecretGet
+      parameters:
+      - name: secretId
+        in: path
+        description: |-
+          Required.
+          ID of the secret to return.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Secret'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - Secret
+      summary: Deletes the specified secret.
+      operationId: SecretDelete
+      parameters:
+      - name: secretId
+        in: path
+        description: |-
+          Required.
+          ID of the secret to be deleted.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteSecretMetadata'
+      x-y-operation-response: '[Secret](/docs/lockbox/api-ref/Secret#representation)'
+    patch:
+      tags:
+      - Secret
+      summary: Updates the specified secret.
+      operationId: SecretUpdate
+      parameters:
+      - name: secretId
+        in: path
+        description: |-
+          Required.
+          ID of the secret to update.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateSecretRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateSecretMetadata'
+      x-y-operation-response: '[Secret](/docs/lockbox/api-ref/Secret#representation)'
+  /lockbox/v1/secrets:
+    get:
+      tags:
+      - Secret
+      summary: Returns the list of secrets in the specified folder.
+      operationId: SecretList
+      parameters:
+      - name: folderId
+        in: query
+        description: |-
+          Required.
+          ID of the folder to list secrets in.
+
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/lockbox/api-ref/Secret/list#query_params), the service returns a [ListSecretsRequest.next_page_token]
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/lockbox/api-ref/Secret/list#query_params) to the
+          [ListSecretsRequest.next_page_token] returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListSecretsResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - Secret
+      summary: Creates a secret in the specified folder.
+      operationId: SecretCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateSecretRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateSecretMetadata'
+      x-y-operation-response: '[Secret](/docs/lockbox/api-ref/Secret#representation)'
+  /lockbox/v1/secrets/{secretId}:activate:
+    post:
+      tags:
+      - Secret
+      summary: Activates the specified secret.
+      operationId: SecretActivate
+      parameters:
+      - name: secretId
+        in: path
+        description: |-
+          Required.
+          ID of the secret to be activated.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: activate
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/ActivateSecretMetadata'
+      x-y-operation-response: '[Secret](/docs/lockbox/api-ref/Secret#representation)'
+  /lockbox/v1/secrets/{secretId}:deactivate:
+    post:
+      tags:
+      - Secret
+      summary: Deactivates the specified secret.
+      operationId: SecretDeactivate
+      parameters:
+      - name: secretId
+        in: path
+        description: |-
+          Required.
+          ID of the secret to be deactivated.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: deactivate
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeactivateSecretMetadata'
+      x-y-operation-response: '[Secret](/docs/lockbox/api-ref/Secret#representation)'
+  /lockbox/v1/secrets/{secretId}/versions:
+    get:
+      tags:
+      - Secret
+      summary: Returns the list of versions of the specified secret.
+      operationId: SecretListVersions
+      parameters:
+      - name: secretId
+        in: path
+        description: |-
+          Required.
+          ID of the secret to list versions for.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/lockbox/api-ref/Secret/listVersions#query_params), the service returns a [ListVersionsRequest.next_page_token]
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/lockbox/api-ref/Secret/listVersions#query_params) to the
+          [ListVersionsRequest.next_page_token] returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListVersionsResponse'
+      x-y-navtitle: listVersions
+  /lockbox/v1/secrets/{secretId}:addVersion:
+    post:
+      tags:
+      - Secret
+      summary: Adds new version based on a previous one.
+      operationId: SecretAddVersion
+      parameters:
+      - name: secretId
+        in: path
+        description: |-
+          Required.
+          ID of the secret.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddVersionRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: addVersion
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/AddVersionMetadata'
+      x-y-operation-response: '`Version`'
+  /lockbox/v1/secrets/{secretId}:scheduleVersionDestruction:
+    post:
+      tags:
+      - Secret
+      summary: Schedules the specified version for destruction.
+      description: Scheduled destruction can be cancelled with the [cancelVersionDestruction](/docs/lockbox/api-ref/Secret/cancelVersionDestruction)
+        method.
+      operationId: SecretScheduleVersionDestruction
+      parameters:
+      - name: secretId
+        in: path
+        description: |-
+          Required.
+          ID of the secret whose version should be scheduled for destruction.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ScheduleVersionDestructionRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: scheduleVersionDestruction
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/ScheduleVersionDestructionMetadata'
+      x-y-operation-response: '`Version`'
+  /lockbox/v1/secrets/{secretId}:cancelVersionDestruction:
+    post:
+      tags:
+      - Secret
+      summary: Cancels previously scheduled version destruction, if the version hasn't
+        been destroyed yet.
+      operationId: SecretCancelVersionDestruction
+      parameters:
+      - name: secretId
+        in: path
+        description: |-
+          Required.
+          ID of the secret to cancel a version's destruction for.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CancelVersionDestructionRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: cancelVersionDestruction
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CancelVersionDestructionMetadata'
+      x-y-operation-response: '`Version`'
+  /lockbox/v1/secrets/{secretId}/operations:
+    get:
+      tags:
+      - Secret
+      summary: Lists operations for the specified secret.
+      operationId: SecretListOperations
+      parameters:
+      - name: secretId
+        in: path
+        description: |-
+          Required.
+          ID of the secret to get operations for.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page that should be returned. If the number of available
+          results is larger than [pageSize](/docs/lockbox/api-ref/Secret/listOperations#query_params), the service returns a [ListSecretOperationsRequest.next_page_token]
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/lockbox/api-ref/Secret/listOperations#query_params) to the
+          [ListSecretOperationsRequest.next_page_token] returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListSecretOperationsResponse'
+      x-y-navtitle: listOperations
+  /lockbox/v1/secrets/{resourceId}:listAccessBindings:
+    get:
+      tags:
+      - Secret
+      summary: Lists existing access bindings for the specified secret.
+      operationId: SecretListAccessBindings
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Required.
+          ID of the resource to list access bindings for.
+
+          To get the resource ID, use a corresponding List request.
+          For example, use the [list](/docs/resource-manager/api-ref/Cloud/list) request to get the Cloud resource ID.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page that should be returned. If the number of available
+          results is larger than pageSize,
+          the service returns a nextPageToken
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. Set pageToken
+          to the nextPageToken
+          returned by a previous list request to get the next page of results.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListAccessBindingsResponse'
+      x-y-navtitle: listAccessBindings
+  /lockbox/v1/secrets/{resourceId}:setAccessBindings:
+    post:
+      tags:
+      - Secret
+      summary: Sets access bindings for the secret.
+      operationId: SecretSetAccessBindings
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Required.
+          ID of the resource for which access bindings are being set.
+
+          To get the resource ID, use a corresponding List request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SetAccessBindingsRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: setAccessBindings
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/SetAccessBindingsMetadata'
+      x-y-operation-response: Empty
+  /lockbox/v1/secrets/{resourceId}:updateAccessBindings:
+    post:
+      tags:
+      - Secret
+      summary: Updates access bindings for the secret.
+      operationId: SecretUpdateAccessBindings
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Required.
+          ID of the resource for which access bindings are being updated.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateAccessBindingsRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: updateAccessBindings
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateAccessBindingsMetadata'
+      x-y-operation-response: Empty
+components:
+  schemas:
+    AccessBinding:
+      type: object
+      properties:
+        roleId:
+          description: |-
+            Required.
+            ID of the [Role](/docs/iam/api-ref/Role#representation) that is assigned to the `subject`.
+
+            The maximum string length in characters is 50.
+          type: string
+        subject:
+          $ref: '#/components/schemas/Subject_in_AccessBinding_subject'
+    AccessBindingAction:
+      description: |2-
+         - ADD: Addition of an access binding.
+         - REMOVE: Removal of an access binding.
+      type: string
+      enum:
+      - ADD
+      - REMOVE
+    AccessBindingDelta:
+      type: object
+      properties:
+        action:
+          $ref: '#/components/schemas/AccessBindingAction_in_AccessBindingDelta_action'
+        accessBinding:
+          $ref: '#/components/schemas/AccessBinding_in_AccessBindingDelta_accessBinding'
+    ActivateSecretMetadata:
+      type: object
+      properties:
+        secretId:
+          description: ID of the secret being activated.
+          type: string
+    AddVersionMetadata:
+      type: object
+      properties:
+        secretId:
+          description: ID of the secret.
+          type: string
+        versionId:
+          description: ID of the added version.
+          type: string
+    AddVersionRequest:
+      type: object
+      properties:
+        description:
+          description: |-
+            Description of the version.
+
+            The maximum string length in characters is 1024.
+          type: string
+        payloadEntries:
+          description: |-
+            Describe how payload entries of the base version change in the added version.
+
+            The maximum number of elements is 32.
+          type: array
+          items:
+            $ref: '#/components/schemas/PayloadEntryChange'
+        baseVersionId:
+          description: |-
+            Optional base version id. Defaults to the current version if not specified
+
+            The maximum string length in characters is 50.
+          type: string
+    CancelVersionDestructionMetadata:
+      type: object
+      properties:
+        secretId:
+          description: ID of the secret whose version's destruction is being cancelled.
+          type: string
+        versionId:
+          description: ID of the version whose scheduled destruction is being cancelled.
+          type: string
+    CancelVersionDestructionRequest:
+      type: object
+      properties:
+        versionId:
+          description: |-
+            Required.
+            ID of the secret whose scheduled destruction should be cancelled.
+
+            The maximum string length in characters is 50.
+          type: string
+    CreateSecretMetadata:
+      type: object
+      properties:
+        secretId:
+          description: ID of the secret being created.
+          type: string
+        versionId:
+          description: ID of the current version of the secret being created.
+          type: string
+    CreateSecretRequest:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            Required.
+            ID of the folder to create a secret in.
+
+            The maximum string length in characters is 50.
+          type: string
+        name:
+          description: |-
+            Name of the secret.
+
+            The maximum string length in characters is 100.
+          type: string
+        description:
+          description: |-
+            Description of the secret.
+
+            The maximum string length in characters is 1024.
+          type: string
+        labels:
+          description: |-
+            Custom labels for the secret as `key:value` pairs. Maximum 64 per key.
+            For example, `"project": "mvp"` or `"source": "dictionary"`.
+
+            No more than 64 per resource.
+            The maximum string length in characters for each key is 63.
+            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+        kmsKeyId:
+          description: |-
+            Optional ID of the KMS key will be used to encrypt and decrypt the secret.
+
+            The maximum string length in characters is 50.
+          type: string
+        versionDescription:
+          description: |-
+            Description of the first version.
+
+            The maximum string length in characters is 256.
+          type: string
+        versionPayloadEntries:
+          description: |-
+            Payload entries added to the first version.
+
+            The maximum number of elements is 32.
+          type: array
+          items:
+            $ref: '#/components/schemas/PayloadEntryChange'
+        deletionProtection:
+          description: Flag that inhibits deletion of the secret.
+          type: boolean
+          format: boolean
+    DeactivateSecretMetadata:
+      type: object
+      properties:
+        secretId:
+          description: ID of the secret being deactivated.
+          type: string
+    DeleteSecretMetadata:
+      type: object
+      properties:
+        secretId:
+          description: ID of the secret being deleted.
+          type: string
+    Empty:
+      description: Empty JSON object `` {} ``.
+      type: object
+      maxProperties: 0
+    FieldMask:
+      description: |-
+        A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
+    ListAccessBindingsResponse:
+      type: object
+      properties:
+        accessBindings:
+          description: List of access bindings for the specified resource.
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessBinding'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than pageSize, use
+            the nextPageToken as the value
+            for the pageToken query parameter
+            in the next list request. Each subsequent list request will have its own
+            nextPageToken to continue paging through the results.
+          type: string
+    ListSecretOperationsResponse:
+      type: object
+      properties:
+        operations:
+          description: List of operations for the specified secret.
+          type: array
+          items:
+            $ref: '#/components/schemas/Operation'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [ListSecretOperationsResponse.page_size], use the [nextPageToken](/docs/lockbox/api-ref/Secret/listOperations#responses) as the value
+            for the [ListSecretOperationsResponse.page_token] query parameter in the next list request.
+            Each subsequent list request will have its own [nextPageToken](/docs/lockbox/api-ref/Secret/listOperations#responses) to continue paging through the results.
+          type: string
+    ListSecretsResponse:
+      type: object
+      properties:
+        secrets:
+          description: List of secrets in the specified folder.
+          type: array
+          items:
+            $ref: '#/components/schemas/Secret'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number
+            of results is greater than the specified [pageSize](/docs/lockbox/api-ref/Secret/list#query_params), use
+            the [nextPageToken](/docs/lockbox/api-ref/Secret/list#responses) as the value for the [pageToken](/docs/lockbox/api-ref/Secret/list#query_params) query parameter
+            in the next list request. Each subsequent list request will have its own
+            [nextPageToken](/docs/lockbox/api-ref/Secret/list#responses) to continue paging through the results.
+          type: string
+    ListVersionsResponse:
+      type: object
+      properties:
+        versions:
+          description: List of versions for the specified secret.
+          type: array
+          items:
+            $ref: '#/components/schemas/Version'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number
+            of results is greater than the specified [pageSize](/docs/lockbox/api-ref/Secret/listVersions#query_params), use
+            the [nextPageToken](/docs/lockbox/api-ref/Secret/listVersions#responses) as the value for the [pageToken](/docs/lockbox/api-ref/Secret/listVersions#query_params) query parameter
+            in the next list request. Each subsequent list request will have its own
+            [nextPageToken](/docs/lockbox/api-ref/Secret/listVersions#responses) to continue paging through the results.
+          type: string
+    Operation:
+      description: An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
+      type: object
+      allOf:
+      - type: object
+        properties:
+          id:
+            description: ID of the operation.
+            type: string
+          description:
+            description: Description of the operation. 0-256 characters long.
+            type: string
+          createdAt:
+            description: |-
+              Creation timestamp.
+
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          createdBy:
+            description: ID of the user or service account who initiated the operation.
+            type: string
+          modifiedAt:
+            description: |-
+              The time when the Operation resource was last modified.
+
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          done:
+            description: |-
+              If the value is `false`, it means the operation is still in progress.
+              If `true`, the operation is completed, and either `error` or `response` is available.
+            type: boolean
+            format: boolean
+          metadata:
+            description: |-
+              Service-specific metadata associated with the operation.
+              It typically contains the ID of the target resource that the operation is performed on.
+              Any method that returns a long-running operation should document the metadata type, if any.
+            type: object
+      - title: result
+        type: object
+        maxProperties: 1
+        properties:
+          error:
+            $ref: '#/components/schemas/rpcStatus'
+            description: The error result of the operation in case of failure or cancellation.
+          response:
+            description: |-
+              The normal response of the operation in case of success.
+              If the original method returns no data on success, such as Delete,
+              the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty).
+              If the original method is the standard Create/Update,
+              the response should be the target resource of the operation.
+              Any method that returns a long-running operation should document the response type, if any.
+            type: object
+    Payload:
+      type: object
+      properties:
+        versionId:
+          description: ID of the version that the payload belongs to.
+          type: string
+        entries:
+          description: Payload entries.
+          type: array
+          items:
+            $ref: '#/components/schemas/PayloadEntry'
+    PayloadEntry:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          key:
+            description: Non-confidential key of the entry.
+            type: string
+      - title: value
+        type: object
+        maxProperties: 1
+        properties:
+          textValue:
+            description: Text value.
+            type: string
+          binaryValue:
+            description: Binary value.
+            type: string
+            format: byte
+    PayloadEntryChange:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          key:
+            description: |-
+              Required.
+              Non-confidential key of the entry.
+
+              The maximum string length in characters is 256.
+              Value must match the regular expression `` [.-_0-9a-zA-Z]+ ``.
+            type: string
+      - title: value
+        type: object
+        maxProperties: 1
+        properties:
+          textValue:
+            description: |-
+              Use the field to set a text value.
+
+              The maximum string length in characters is 65536.
+            type: string
+          binaryValue:
+            description: |-
+              Use the field to set a binary value.
+
+              The maximum string length in characters is 65536.
+            type: string
+            format: byte
+    ScheduleVersionDestructionMetadata:
+      type: object
+      properties:
+        secretId:
+          description: ID of the secret whose version is being scheduled for destruction.
+          type: string
+        versionId:
+          description: ID of the version that is being scheduled for destruction.
+          type: string
+        destroyAt:
+          description: |-
+            Time when the version is scheduled to be destroyed.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+    ScheduleVersionDestructionRequest:
+      type: object
+      properties:
+        versionId:
+          description: |-
+            Required.
+            ID of the version to be destroyed.
+
+            The maximum string length in characters is 50.
+          type: string
+        pendingPeriod:
+          description: |-
+            Time interval between the version destruction request and actual destruction.
+            Default value: 7 days.
+          type: string
+    Secret:
+      description: A secret that may contain several versions of the payload.
+      type: object
+      properties:
+        id:
+          description: ID of the secret.
+          type: string
+        folderId:
+          description: ID of the folder that the secret belongs to.
+          type: string
+        createdAt:
+          description: |-
+            Time when the secret was created.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        name:
+          description: Name of the secret.
+          type: string
+        description:
+          description: Description of the secret.
+          type: string
+        labels:
+          description: Custom labels for the secret as `key:value` pairs. Maximum
+            64 per key.
+          type: object
+          additionalProperties:
+            type: string
+        kmsKeyId:
+          description: Optional ID of the KMS key will be used to encrypt and decrypt
+            the secret.
+          type: string
+        status:
+          $ref: '#/components/schemas/SecretStatus_in_Secret_status'
+        currentVersion:
+          $ref: '#/components/schemas/Version_in_Secret_currentVersion'
+        deletionProtection:
+          description: Flag that inhibits deletion of the secret.
+          type: boolean
+          format: boolean
+    SecretStatus:
+      description: |2-
+         - CREATING: The secret is being created.
+         - ACTIVE: The secret is active and the secret payload can be accessed.
+        Can be set to INACTIVE using the [deactivate](/docs/lockbox/api-ref/Secret/deactivate) method.
+         - INACTIVE: The secret is inactive and unusable.
+        Can be set to ACTIVE using the [deactivate](/docs/lockbox/api-ref/Secret/deactivate) method.
+      type: string
+      enum:
+      - CREATING
+      - ACTIVE
+      - INACTIVE
+    SetAccessBindingsMetadata:
+      type: object
+      properties:
+        resourceId:
+          description: ID of the resource for which access bindings are being set.
+          type: string
+    SetAccessBindingsRequest:
+      type: object
+      properties:
+        accessBindings:
+          description: |-
+            Required.
+            Access bindings to be set. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings).
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessBinding'
+    Subject:
+      type: object
+      properties:
+        id:
+          description: |-
+            Required.
+            ID of the subject.
+
+            It can contain one of the following values:
+            * `allAuthenticatedUsers`: A special system identifier that represents anyone
+               who is authenticated. It can be used only if the `type` is `system`.
+            * `allUsers`: A special system identifier that represents anyone. No authentication is required.
+               For example, you don't need to specify the IAM token in an API query.
+            * `<cloud generated id>`: An identifier that represents a user account.
+               It can be used only if the `type` is `userAccount` or `serviceAccount`.
+
+            The maximum string length in characters is 50.
+          type: string
+        type:
+          description: |-
+            Required.
+            Type of the subject.
+
+            It can contain one of the following values:
+            * `userAccount`: An account on Yandex or [Yandex.Connect](https://connect.yandex.com), added to Yandex.Cloud.
+            * `serviceAccount`: A service account. This type represents the [ServiceAccount](/docs/iam/api-ref/ServiceAccount#representation) resource.
+            * `federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory.
+            * `system`: System group. This type represents several accounts with a common system identifier.
+
+            For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject).
+
+            The maximum string length in characters is 100.
+          type: string
+    UpdateAccessBindingsMetadata:
+      type: object
+      properties:
+        resourceId:
+          description: ID of the resource for which access bindings are being updated.
+          type: string
+    UpdateAccessBindingsRequest:
+      type: object
+      properties:
+        accessBindingDeltas:
+          description: |-
+            Required.
+            Updates to access bindings.
+
+            Must contain at least one element.
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessBindingDelta'
+    UpdateSecretMetadata:
+      type: object
+      properties:
+        secretId:
+          description: |-
+            Required.
+            ID of the secret being updated.
+
+            The maximum string length in characters is 50.
+          type: string
+    UpdateSecretRequest:
+      type: object
+      properties:
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateSecretRequest_updateMask'
+        name:
+          description: |-
+            New name of the secret.
+
+            The maximum string length in characters is 100.
+          type: string
+        description:
+          description: |-
+            New description of the secret.
+
+            The maximum string length in characters is 1024.
+          type: string
+        labels:
+          description: |-
+            Custom labels for the secret as `key:value` pairs. Maximum 64 per key.
+
+            No more than 64 per resource.
+            The maximum string length in characters for each key is 63.
+            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+        deletionProtection:
+          description: Flag that inhibits deletion of the secret.
+          type: boolean
+          format: boolean
+    Version:
+      type: object
+      properties:
+        id:
+          description: ID of the version.
+          type: string
+        secretId:
+          description: ID of the secret that the version belongs to.
+          type: string
+        createdAt:
+          description: |-
+            Time when the version was created.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        destroyAt:
+          description: |-
+            Time when the version is going to be destroyed. Empty unless the status
+            is `SCHEDULED_FOR_DESTRUCTION`.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        description:
+          description: Description of the version.
+          type: string
+        status:
+          $ref: '#/components/schemas/VersionStatus_in_Version_status'
+        payloadEntryKeys:
+          description: Keys of the entries contained in the version payload.
+          type: array
+          items:
+            type: string
+    VersionStatus:
+      description: |2-
+         - ACTIVE: The version is active and the secret payload can be accessed.
+         - SCHEDULED_FOR_DESTRUCTION: The version is scheduled for destruction, the time when it will be destroyed
+        is specified in the `destroyAt` field.
+         - DESTROYED: The version is destroyed and cannot be recovered.
+      type: string
+      enum:
+      - ACTIVE
+      - SCHEDULED_FOR_DESTRUCTION
+      - DESTROYED
+    rpcStatus:
+      description: The error result of the operation in case of failure or cancellation.
+      type: object
+      properties:
+        code:
+          description: Error code. An enum value of [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
+          type: integer
+          format: int32
+        message:
+          description: An error message.
+          type: string
+        details:
+          description: A list of messages that carry the error details.
+          type: array
+          items:
+            type: object
+    Subject_in_AccessBinding_subject:
+      description: |-
+        Required.
+        Identity for which access binding is being created.
+        It can represent an account with a unique ID or several accounts with a system identifier.
+      type: object
+      properties:
+        id:
+          description: |-
+            Required.
+            ID of the subject.
+
+            It can contain one of the following values:
+            * `allAuthenticatedUsers`: A special system identifier that represents anyone
+               who is authenticated. It can be used only if the `type` is `system`.
+            * `allUsers`: A special system identifier that represents anyone. No authentication is required.
+               For example, you don't need to specify the IAM token in an API query.
+            * `<cloud generated id>`: An identifier that represents a user account.
+               It can be used only if the `type` is `userAccount` or `serviceAccount`.
+
+            The maximum string length in characters is 50.
+          type: string
+        type:
+          description: |-
+            Required.
+            Type of the subject.
+
+            It can contain one of the following values:
+            * `userAccount`: An account on Yandex or [Yandex.Connect](https://connect.yandex.com), added to Yandex.Cloud.
+            * `serviceAccount`: A service account. This type represents the [ServiceAccount](/docs/iam/api-ref/ServiceAccount#representation) resource.
+            * `federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory.
+            * `system`: System group. This type represents several accounts with a common system identifier.
+
+            For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject).
+
+            The maximum string length in characters is 100.
+          type: string
+    AccessBindingAction_in_AccessBindingDelta_action:
+      description: |-
+        Required.
+        The action that is being performed on an access binding.
+
+         - ADD: Addition of an access binding.
+         - REMOVE: Removal of an access binding.
+      type: string
+      enum:
+      - ADD
+      - REMOVE
+    AccessBinding_in_AccessBindingDelta_accessBinding:
+      description: |-
+        Required.
+        Access binding. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings).
+      type: object
+      properties:
+        roleId:
+          description: |-
+            Required.
+            ID of the [Role](/docs/iam/api-ref/Role#representation) that is assigned to the `subject`.
+
+            The maximum string length in characters is 50.
+          type: string
+        subject:
+          $ref: '#/components/schemas/Subject_in_AccessBinding_subject'
+    SecretStatus_in_Secret_status:
+      description: |-
+        Status of the secret.
+
+         - CREATING: The secret is being created.
+         - ACTIVE: The secret is active and the secret payload can be accessed.
+        Can be set to INACTIVE using the [deactivate](/docs/lockbox/api-ref/Secret/deactivate) method.
+         - INACTIVE: The secret is inactive and unusable.
+        Can be set to ACTIVE using the [deactivate](/docs/lockbox/api-ref/Secret/deactivate) method.
+      type: string
+      enum:
+      - CREATING
+      - ACTIVE
+      - INACTIVE
+    Version_in_Secret_currentVersion:
+      description: Current (i.e. the latest) version of the secret.
+      type: object
+      properties:
+        id:
+          description: ID of the version.
+          type: string
+        secretId:
+          description: ID of the secret that the version belongs to.
+          type: string
+        createdAt:
+          description: |-
+            Time when the version was created.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        destroyAt:
+          description: |-
+            Time when the version is going to be destroyed. Empty unless the status
+            is `SCHEDULED_FOR_DESTRUCTION`.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        description:
+          description: Description of the version.
+          type: string
+        status:
+          $ref: '#/components/schemas/VersionStatus_in_Version_status'
+        payloadEntryKeys:
+          description: Keys of the entries contained in the version payload.
+          type: array
+          items:
+            type: string
+    FieldMask_in_UpdateSecretRequest_updateMask:
+      description: |-
+        Required.
+        Field mask that specifies which attributes of the secret are going to be updated.
+
+        A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
+    VersionStatus_in_Version_status:
+      description: |-
+        Status of the secret.
+
+         - ACTIVE: The version is active and the secret payload can be accessed.
+         - SCHEDULED_FOR_DESTRUCTION: The version is scheduled for destruction, the time when it will be destroyed
+        is specified in the `destroyAt` field.
+         - DESTROYED: The version is destroyed and cannot be recovered.
+      type: string
+      enum:
+      - ACTIVE
+      - SCHEDULED_FOR_DESTRUCTION
+      - DESTROYED
+tags:
+- name: Payload
+  description: Set of methods to access payload of secrets.
+- name: Secret

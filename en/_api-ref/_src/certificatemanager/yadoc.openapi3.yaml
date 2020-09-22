@@ -8,6 +8,27 @@ info:
   x-y-docUri: api-ref
   x-y-baseUrl: https://certificate-manager.api.cloud.yandex.net
 paths:
+  /certificate-manager/v1/certificates/{certificateId}:getContent:
+    get:
+      tags:
+      - CertificateContent
+      summary: Returns chain and private key of the specified certificate
+      operationId: CertificateContentGet
+      parameters:
+      - name: certificateId
+        in: path
+        description: ID of the certificate to download content.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetCertificateContentResponse'
+      x-y-navtitle: get
   /certificate-manager/v1/certificates/{certificateId}:
     get:
       tags:
@@ -669,6 +690,20 @@ components:
         Fields specified in the request will be updated to provided values.
         The rest of the fields will be reset to the default.
       type: string
+    GetCertificateContentResponse:
+      type: object
+      properties:
+        certificateId:
+          description: ID of the certificate
+          type: string
+        certificateChain:
+          description: PEM-encoded certificate chain content of the certificate.
+          type: array
+          items:
+            type: string
+        privateKey:
+          description: PEM-encoded private key content of the certificate.
+          type: string
     ListAccessBindingsResponse:
       type: object
       properties:
@@ -1076,4 +1111,5 @@ components:
         The rest of the fields will be reset to the default.
       type: string
 tags:
+- name: CertificateContent
 - name: Certificate

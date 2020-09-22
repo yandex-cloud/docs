@@ -4,24 +4,24 @@ editable: false
 
 # HostGroupService
 
-A set of methods for managing groups of dedicated hosts
+A set of methods for managing groups of dedicated hosts.
 
 | Call | Description |
 | --- | --- |
-| [Get](#Get) | Returns the specified host group |
-| [List](#List) | Retrieves the list of host groups in the specified folder |
+| [Get](#Get) | Returns the specified host group. |
+| [List](#List) | Retrieves the list of host groups in the specified folder. |
 | [Create](#Create) | Creates a host group in the specified folder. |
 | [Update](#Update) | Updates the specified host group. |
 | [Delete](#Delete) | Deletes the specified host group. |
-| [ListOperations](#ListOperations) | Lists operations for the specified host group |
-| [ListInstances](#ListInstances) | Lists instances that belongs to the specified host group |
-| [ListHosts](#ListHosts) | Lists hosts that belongs to the specified host group |
+| [ListOperations](#ListOperations) | Lists operations for the specified host group. |
+| [ListInstances](#ListInstances) | Lists instances that belongs to the specified host group. |
+| [ListHosts](#ListHosts) | Lists hosts that belongs to the specified host group. |
 
 ## Calls HostGroupService {#calls}
 
 ## Get {#Get}
 
-Returns the specified host group
+Returns the specified host group.
 
 **rpc Get ([GetHostGroupRequest](#GetHostGroupRequest)) returns ([HostGroup](../host_group.proto#HostGroup))**
 
@@ -36,16 +36,16 @@ host_group_id | **string**<br>Required. ID of the host group to return. To get t
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the group 
+id | **string**<br>ID of the group. 
 folder_id | **string**<br>ID of the folder that the group belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
 name | **string**<br>Name of the group. The name is unique within the folder. 
 description | **string**<br>Description of the group. 
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
-zone_id | **string**<br>Availability zone where all dedicated hosts are allocated 
-status | enum **Status**<br>Status of the group <ul><ul/>
-type_id | **string**<br>ID  of host type. Resources provided by each host of the group 
-maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events <ul><li>`RESTART`: Restart instances on the same host after maintenance event</li><li>`MIGRATE`: Migrate instances to another host before maintenance event</li><ul/>
+zone_id | **string**<br>Availability zone where all dedicated hosts are allocated. 
+status | enum **Status**<br>Status of the group. <ul><ul/>
+type_id | **string**<br>ID of host type. Resources provided by each host of the group. 
+maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events. <ul><li>`RESTART`: Restart instances on the same host after maintenance event.</li><li>`MIGRATE`: Migrate instances to another host before maintenance event.</li><ul/>
 scale_policy | **[ScalePolicy](../host_group.proto#ScalePolicy)**<br>Scale policy. Only fixed number of hosts are supported at this moment. 
 
 
@@ -66,7 +66,7 @@ size | **int64**<br>
 
 ## List {#List}
 
-Retrieves the list of host groups in the specified folder
+Retrieves the list of host groups in the specified folder.
 
 **rpc List ([ListHostGroupsRequest](#ListHostGroupsRequest)) returns ([ListHostGroupsResponse](#ListHostGroupsResponse))**
 
@@ -92,16 +92,16 @@ next_page_token | **string**<br>This token allows you to get the next page of re
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the group 
+id | **string**<br>ID of the group. 
 folder_id | **string**<br>ID of the folder that the group belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
 name | **string**<br>Name of the group. The name is unique within the folder. 
 description | **string**<br>Description of the group. 
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
-zone_id | **string**<br>Availability zone where all dedicated hosts are allocated 
-status | enum **Status**<br>Status of the group <ul><ul/>
-type_id | **string**<br>ID  of host type. Resources provided by each host of the group 
-maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events <ul><li>`RESTART`: Restart instances on the same host after maintenance event</li><li>`MIGRATE`: Migrate instances to another host before maintenance event</li><ul/>
+zone_id | **string**<br>Availability zone where all dedicated hosts are allocated. 
+status | enum **Status**<br>Status of the group. <ul><ul/>
+type_id | **string**<br>ID of host type. Resources provided by each host of the group. 
+maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events. <ul><li>`RESTART`: Restart instances on the same host after maintenance event.</li><li>`MIGRATE`: Migrate instances to another host before maintenance event.</li><ul/>
 scale_policy | **[ScalePolicy](../host_group.proto#ScalePolicy1)**<br>Scale policy. Only fixed number of hosts are supported at this moment. 
 
 
@@ -138,9 +138,9 @@ folder_id | **string**<br>Required. ID of the folder to create a host group in. 
 name | **string**<br>Name of the group. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>Description of the group. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
-zone_id | **string**<br>Required. Availability zone where all dedicated hosts will be allocated false The maximum string length in characters is 50.
-type_id | **string**<br>Required. ID of host type. Resources provided by each host of the group false The maximum string length in characters is 50.
-maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events <ul><li>`RESTART`: Restart instances on the same host after maintenance event</li><li>`MIGRATE`: Migrate instances to another host before maintenance event</li><ul/>
+zone_id | **string**<br>Required. Availability zone where all dedicated hosts will be allocated. false The maximum string length in characters is 50.
+type_id | **string**<br>Required. ID of host type. Resources provided by each host of the group. false The maximum string length in characters is 50.
+maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events. <ul><li>`RESTART`: Restart instances on the same host after maintenance event.</li><li>`MIGRATE`: Migrate instances to another host before maintenance event.</li><ul/>
 scale_policy | **[ScalePolicy](../host_group.proto#ScalePolicy2)**<br>Scale policy. Only fixed number of hosts are supported at this moment. 
 
 
@@ -186,16 +186,16 @@ host_group_id | **string**<br>ID of the host group that is being created.
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the group 
+id | **string**<br>ID of the group. 
 folder_id | **string**<br>ID of the folder that the group belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
 name | **string**<br>Name of the group. The name is unique within the folder. 
 description | **string**<br>Description of the group. 
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
-zone_id | **string**<br>Availability zone where all dedicated hosts are allocated 
-status | enum **Status**<br>Status of the group <ul><ul/>
-type_id | **string**<br>ID  of host type. Resources provided by each host of the group 
-maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events <ul><li>`RESTART`: Restart instances on the same host after maintenance event</li><li>`MIGRATE`: Migrate instances to another host before maintenance event</li><ul/>
+zone_id | **string**<br>Availability zone where all dedicated hosts are allocated. 
+status | enum **Status**<br>Status of the group. <ul><ul/>
+type_id | **string**<br>ID of host type. Resources provided by each host of the group. 
+maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events. <ul><li>`RESTART`: Restart instances on the same host after maintenance event.</li><li>`MIGRATE`: Migrate instances to another host before maintenance event.</li><ul/>
 scale_policy | **[ScalePolicy](../host_group.proto#ScalePolicy3)**<br>Scale policy. Only fixed number of hosts are supported at this moment. 
 
 
@@ -218,7 +218,7 @@ update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protoc
 name | **string**<br>Name of the group. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>Description of the group. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. <br>The existing set of `labels` is completely replaced by the provided set. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
-maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events <ul><li>`RESTART`: Restart instances on the same host after maintenance event</li><li>`MIGRATE`: Migrate instances to another host before maintenance event</li><ul/>
+maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events <ul><li>`RESTART`: Restart instances on the same host after maintenance event.</li><li>`MIGRATE`: Migrate instances to another host before maintenance event.</li><ul/>
 scale_policy | **[ScalePolicy](../host_group.proto#ScalePolicy3)**<br>Scale policy. Only fixed number of hosts are supported at this moment. 
 
 
@@ -264,16 +264,16 @@ host_group_id | **string**<br>ID of the host group that is being updated.
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the group 
+id | **string**<br>ID of the group. 
 folder_id | **string**<br>ID of the folder that the group belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
 name | **string**<br>Name of the group. The name is unique within the folder. 
 description | **string**<br>Description of the group. 
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
-zone_id | **string**<br>Availability zone where all dedicated hosts are allocated 
-status | enum **Status**<br>Status of the group <ul><ul/>
-type_id | **string**<br>ID  of host type. Resources provided by each host of the group 
-maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events <ul><li>`RESTART`: Restart instances on the same host after maintenance event</li><li>`MIGRATE`: Migrate instances to another host before maintenance event</li><ul/>
+zone_id | **string**<br>Availability zone where all dedicated hosts are allocated. 
+status | enum **Status**<br>Status of the group. <ul><ul/>
+type_id | **string**<br>ID of host type. Resources provided by each host of the group. 
+maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events. <ul><li>`RESTART`: Restart instances on the same host after maintenance event.</li><li>`MIGRATE`: Migrate instances to another host before maintenance event.</li><ul/>
 scale_policy | **[ScalePolicy](../host_group.proto#ScalePolicy4)**<br>Scale policy. Only fixed number of hosts are supported at this moment. 
 
 
@@ -319,7 +319,7 @@ host_group_id | **string**<br>ID of the host group that is being deleted.
 
 ## ListOperations {#ListOperations}
 
-Lists operations for the specified host group
+Lists operations for the specified host group.
 
 **rpc ListOperations ([ListHostGroupOperationsRequest](#ListHostGroupOperationsRequest)) returns ([ListHostGroupOperationsResponse](#ListHostGroupOperationsResponse))**
 
@@ -358,7 +358,7 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 ## ListInstances {#ListInstances}
 
-Lists instances that belongs to the specified host group
+Lists instances that belongs to the specified host group.
 
 **rpc ListInstances ([ListHostGroupInstancesRequest](#ListHostGroupInstancesRequest)) returns ([ListHostGroupInstancesResponse](#ListHostGroupInstancesResponse))**
 
@@ -486,7 +486,7 @@ values[] | **string**<br>Affinity value or host ID or host group ID
 
 ## ListHosts {#ListHosts}
 
-Lists hosts that belongs to the specified host group
+Lists hosts that belongs to the specified host group.
 
 **rpc ListHosts ([ListHostGroupHostsRequest](#ListHostGroupHostsRequest)) returns ([ListHostGroupHostsResponse](#ListHostGroupHostsResponse))**
 

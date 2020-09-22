@@ -423,6 +423,8 @@ components:
             type: object
             additionalProperties:
               type: string
+          documentApiEndpoint:
+            type: string
       - title: database_type
         type: object
         maxProperties: 1

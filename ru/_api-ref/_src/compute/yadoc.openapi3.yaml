@@ -295,6 +295,388 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListDiskTypesResponse'
       x-y-navtitle: list
+  /compute/v1/hostGroups/{hostGroupId}:
+    get:
+      tags:
+      - HostGroup
+      summary: Возвращает информацию об указанной группе выделенных хостов.
+      operationId: HostGroupGet
+      parameters:
+      - name: hostGroupId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор группы выделенных хостов.
+          Чтобы получить идентификатор группы выделенных хостов, используйте запрос [list](/docs/compute/api-ref/HostGroup/list).
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HostGroup'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - HostGroup
+      summary: Удаляет указанную группу выделенных хостов.
+      operationId: HostGroupDelete
+      parameters:
+      - name: hostGroupId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор группы выделенных хостов, которую следует удалить.
+          Чтобы получить идентификатор группы выделенных хостов, используйте запрос [list](/docs/compute/api-ref/HostGroup/list).
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteHostGroupMetadata'
+      x-y-operation-response: Empty
+    patch:
+      tags:
+      - HostGroup
+      summary: Обновляет параметры указанной группы выделенных хостов.
+      operationId: HostGroupUpdate
+      parameters:
+      - name: hostGroupId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор обновляемой группы выделенных хостов.
+          Для получения идентификатора группы выделенных хостов используйте запрос [list](/docs/compute/api-ref/HostGroup/list).
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateHostGroupRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateHostGroupMetadata'
+      x-y-operation-response: '[HostGroup](/docs/compute/api-ref/HostGroup#representation)'
+  /compute/v1/hostGroups:
+    get:
+      tags:
+      - HostGroup
+      summary: Возвращает список доступных групп выделенных хостов в указанном каталоге.
+      operationId: HostGroupList
+      parameters:
+      - name: folderId
+        in: query
+        description: |-
+          Обязательное поле.
+          Идентификатор каталога, в котором созданы группы выделенных хостов.
+          Чтобы получить идентификатор каталога, используйте запрос [list](/docs/resource-manager/api-ref/Folder/list).
+
+          Максимальная длина строки в символах — 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на запрос. Если количество результатов
+          больше чем [pageSize](/docs/compute/api-ref/HostGroup/list#query_params),
+          сервис вернет значение [nextPageToken](/docs/compute/api-ref/HostGroup/list#responses),
+          которое можно использовать для получения следующей страницы.
+
+          Максимальное значение — 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение
+          [pageToken](/docs/compute/api-ref/HostGroup/list#query_params) равным значению поля [nextPageToken](/docs/compute/api-ref/HostGroup/list#responses)
+          предыдущего запроса, чтобы получить следующую страницу результатов.
+
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          Параметры фильтрации ресурса в ответе.
+          В настоящее время фильтрация осуществляется только по полю [HostGroup.name](/docs/compute/api-ref/HostGroup#representation).
+
+          Максимальная длина строки в символах — 1000.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListHostGroupsResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - HostGroup
+      summary: Создает группу выделенных хостов в указанном каталоге.
+      operationId: HostGroupCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateHostGroupRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateHostGroupMetadata'
+      x-y-operation-response: '[HostGroup](/docs/compute/api-ref/HostGroup#representation)'
+  /compute/v1/hostGroups/{hostGroupId}/operations:
+    get:
+      tags:
+      - HostGroup
+      summary: Возвращает список операций указанной группы выделенных хостов.
+      operationId: HostGroupListOperations
+      parameters:
+      - name: hostGroupId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор группы выделенных хостов для которой запрашивается список операций.
+          Чтобы получить идентификатор группы выделенных хостов, используйте запрос [list](/docs/compute/api-ref/HostGroup/list).
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на запрос. Если количество результатов
+          больше чем [pageSize](/docs/compute/api-ref/HostGroup/listOperations#query_params), сервис вернет значение [nextPageToken](/docs/compute/api-ref/HostGroup/listOperations#responses),
+          которое можно использовать для получения следующей страницы.
+
+          Максимальное значение — 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение [pageToken](/docs/compute/api-ref/HostGroup/listOperations#query_params) равным значению поля
+          [nextPageToken](/docs/compute/api-ref/HostGroup/listOperations#responses) предыдущего запроса, чтобы получить следующую страницу результатов.
+
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListHostGroupOperationsResponse'
+      x-y-navtitle: listOperations
+  /compute/v1/hostGroups/{hostGroupId}/instances:
+    get:
+      tags:
+      - HostGroup
+      summary: Список ВМ, привязанных к указанной группе выделенных хостов.
+      operationId: HostGroupListInstances
+      parameters:
+      - name: hostGroupId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор группы выделенных хостов, для которой запрашивается список ВМ.
+          Чтобы получить идентификатор группы выделенных хостов, используйте запрос [list](/docs/compute/api-ref/HostGroup/list).
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на запрос. Если количество результатов
+          больше чем [pageSize](/docs/compute/api-ref/HostGroup/listInstances#query_params),
+          сервис вернет значение [nextPageToken](/docs/compute/api-ref/HostGroup/listInstances#responses),
+          которое можно использовать для получения следующей страницы.
+
+          Максимальное значение — 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение
+          [pageToken](/docs/compute/api-ref/HostGroup/listInstances#query_params) равным значению поля [nextPageToken](/docs/compute/api-ref/HostGroup/listInstances#responses)
+          предыдущего запроса, чтобы получить следующую страницу результатов.
+
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          Параметры фильтрации ресурсов в ответе.
+          В настоящее время фильтрация осуществляется только по полю `id`.
+          Чтобы получить идентификатор выделенного хоста, используйте запрос [listHosts](/docs/compute/api-ref/HostGroup/listHosts).
+
+          Максимальная длина строки в символах — 1000.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListHostGroupInstancesResponse'
+      x-y-navtitle: listInstances
+  /compute/v1/hostGroups/{hostGroupId}/hosts:
+    get:
+      tags:
+      - HostGroup
+      summary: Список выделенных хостов, привязанных к указанной группе хостов.
+      operationId: HostGroupListHosts
+      parameters:
+      - name: hostGroupId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор группы выделенных хостов, для которой запрашивается список хостов.
+          Чтобы получить идентификатор группы выделенных хостов, используйте запрос [list](/docs/compute/api-ref/HostGroup/list).
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на запрос. Если количество результатов
+          больше чем [pageSize](/docs/compute/api-ref/HostGroup/listHosts#query_params),
+          сервис вернет значение [nextPageToken](/docs/compute/api-ref/HostGroup/listHosts#responses),
+          которое можно использовать для получения следующей страницы.
+
+          Максимальное значение — 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение
+          [pageToken](/docs/compute/api-ref/HostGroup/listHosts#query_params) равным значению поля [nextPageToken](/docs/compute/api-ref/HostGroup/listHosts#responses)
+          предыдущего запроса, чтобы получить следующую страницу результатов.
+
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListHostGroupHostsResponse'
+      x-y-navtitle: listHosts
+  /compute/v1/hostTypes/{hostTypeId}:
+    get:
+      tags:
+      - HostType
+      summary: Возвращает информацию об указанном типе выделенного хоста.
+      operationId: HostTypeGet
+      parameters:
+      - name: hostTypeId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор возвращаемого типа выделенного хоста.
+
+          Чтобы получить идентификатор типа выделенного хоста, используйте запрос [list](/docs/compute/api-ref/HostType/list).
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HostType'
+      x-y-navtitle: get
+  /compute/v1/hostTypes:
+    get:
+      tags:
+      - HostType
+      summary: Список доступных типов выделенных хостов.
+      operationId: HostTypeList
+      parameters:
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на запрос. Если количество результатов
+          больше чем [pageSize](/docs/compute/api-ref/HostType/list#query_params),
+          сервис вернет значение [nextPageToken](/docs/compute/api-ref/HostType/list#responses),
+          которое можно использовать для получения следующей страницы.
+
+          Максимальное значение — 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение
+          [pageToken](/docs/compute/api-ref/HostType/list#query_params) равным значению поля [nextPageToken](/docs/compute/api-ref/HostType/list#responses)
+          предыдущего запроса, чтобы получить следующую страницу результатов.
+
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListHostTypesResponse'
+      x-y-navtitle: list
   /compute/v1/images/{imageId}:
     get:
       tags:
@@ -1726,6 +2108,65 @@ components:
 
               Максимальная длина строки в символах — 50.
             type: string
+    CreateHostGroupMetadata:
+      type: object
+      properties:
+        hostGroupId:
+          description: Идентификатор создаваемой группы выделенных хостов.
+          type: string
+    CreateHostGroupRequest:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            Обязательное поле.
+            Идентификатор каталога, в котором будет создана группа выделенных хостов.
+            Чтобы получить идентификатор каталога, используйте запрос [list](/docs/resource-manager/api-ref/Folder/list).
+
+            Максимальная длина строки в символах — 50.
+          type: string
+        name:
+          description: |-
+            Имя группы выделенных хостов.
+
+            Значение должно соответствовать регулярному выражению `` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
+          type: string
+        description:
+          description: |-
+            Описание группы выделенных хостов.
+
+            Максимальная длина строки в символах — 256.
+          type: string
+        labels:
+          description: |-
+            Метки ресурса в формате `ключ:значение`.
+
+            Не более 64 на ресурс.
+            Длина строки в символах для каждого ключа должна быть от 1 до 63.
+            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_./\@0-9a-z]* ``.
+            Максимальная длина строки в символах для каждого значения — 63.
+            Каждое значение должно соответствовать регулярному выражению `` [-_./\@0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+        zoneId:
+          description: |-
+            Обязательное поле.
+            Зона доступности, в которой размещены все выделенные хосты.
+
+            Максимальная длина строки в символах — 50.
+          type: string
+        typeId:
+          description: |-
+            Обязательное поле.
+            Идентификатор типа выделенного хоста. Ресурсы, предоставляемые каждым выделенным хостом группы.
+
+            Максимальная длина строки в символах — 50.
+          type: string
+        maintenancePolicy:
+          $ref: '#/components/schemas/MaintenancePolicy_in_CreateHostGroupRequest_maintenancePolicy'
+        scalePolicy:
+          $ref: '#/components/schemas/ScalePolicy_in_CreateHostGroupRequest_scalePolicy'
     CreateImageMetadata:
       type: object
       properties:
@@ -2054,6 +2495,12 @@ components:
         diskId:
           description: Идентификатор удаляемого диска.
           type: string
+    DeleteHostGroupMetadata:
+      type: object
+      properties:
+        hostGroupId:
+          description: Идентификатор удаляемой группы выделенных хостов.
+          type: string
     DeleteImageMetadata:
       type: object
       properties:
@@ -2228,6 +2675,91 @@ components:
             Содержимое вывода последовательного порта, начиная с момента начала загрузки
             виртуальной машины.
           type: string
+    Host:
+      description: Описывает выделенный хост.
+      type: object
+      properties:
+        id:
+          description: Идентификатор выделенного хоста.
+          type: string
+        status:
+          $ref: '#/components/schemas/HostStatus_in_Host_status'
+        serverId:
+          description: Идентификатор физического сервера, которому принадлежит выделенный
+            хост.
+          type: string
+    HostGroup:
+      description: Описывает группу выделенных хостов.
+      type: object
+      properties:
+        id:
+          description: Идентификатор группы выделенных хостов.
+          type: string
+        folderId:
+          description: Идентификатор каталога, к которому принадлежит группа выделенных
+            хостов.
+          type: string
+        createdAt:
+          description: |-
+            Время создания группы выделенных хостов в текстовом формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+
+            Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+          type: string
+          format: date-time
+        name:
+          description: Имя группы выделенных хостов. Имя должно быть уникальным в
+            каталоге.
+          type: string
+        description:
+          description: Описание группы выделенных хостов.
+          type: string
+        labels:
+          description: Метки ресурса в формате `ключ:значение`.
+          type: object
+          additionalProperties:
+            type: string
+        zoneId:
+          description: Зона доступности, в которой размещены все выделенные хосты.
+          type: string
+        status:
+          $ref: '#/components/schemas/HostGroupStatus_in_HostGroup_status'
+        typeId:
+          description: Идентификатор типа выделенного хоста. Ресурсы, предоставляемые
+            каждым выделенным хостом группы.
+          type: string
+        maintenancePolicy:
+          $ref: '#/components/schemas/MaintenancePolicy_in_HostGroup_maintenancePolicy'
+        scalePolicy:
+          $ref: '#/components/schemas/ScalePolicy_in_HostGroup_scalePolicy'
+    HostGroupStatus:
+      type: string
+      enum:
+      - CREATING
+      - READY
+      - UPDATING
+      - DELETING
+    HostStatus:
+      type: string
+      enum:
+      - UP
+      - DOWN
+    HostType:
+      description: |-
+        Описывает ресурсы выделенного хоста.
+        Примечание. Платформа может использовать выделенные хосты с разным количеством памяти и ядер.
+      type: object
+      properties:
+        id:
+          description: Уникальный идентификатор типа выделенного хоста.
+          type: string
+        cores:
+          description: Общее количество ядер, доступных для ВМ выделенного хоста.
+          type: string
+          format: int64
+        memory:
+          description: Объем памяти, доступный для ВМ выделенного хоста.
+          type: string
+          format: int64
     Image:
       description: Ресурс Image.
       type: object
@@ -2462,6 +2994,88 @@ components:
             параметра [pageToken](/docs/compute/api-ref/Disk/list#query_params) в следующем запросе списка ресурсов. Все последующие
             запросы будут получать свои значения [nextPageToken](/docs/compute/api-ref/Disk/list#responses) для перебора страниц результатов.
           type: string
+    ListHostGroupHostsResponse:
+      type: object
+      properties:
+        hosts:
+          description: Список выделенных хостов для указанной группы хостов.
+          type: array
+          items:
+            $ref: '#/components/schemas/Host'
+        nextPageToken:
+          description: |-
+            Этот токен позволяет получить следующую страницу результатов для списка запросов. Если количество результатов
+            больше чем [pageSize](/docs/compute/api-ref/HostGroup/listHosts#query_params), используйте
+            [nextPageToken](/docs/compute/api-ref/HostGroup/listHosts#responses) в качестве значения
+            параметра [pageToken](/docs/compute/api-ref/HostGroup/listHosts#query_params) в следующем запросе списка ресурсов.
+            Каждая следующая страница будет иметь свой
+            [nextPageToken](/docs/compute/api-ref/HostGroup/listHosts#responses) для продолжения перебора страниц результатов.
+          type: string
+    ListHostGroupInstancesResponse:
+      type: object
+      properties:
+        instances:
+          description: Список ВМ для указанной группы выделенных хостов.
+          type: array
+          items:
+            $ref: '#/components/schemas/Instance'
+        nextPageToken:
+          description: |-
+            Этот токен позволяет получить следующую страницу результатов для списка запросов. Если количество результатов
+            больше чем [pageSize](/docs/compute/api-ref/HostGroup/listInstances#query_params), используйте
+            [nextPageToken](/docs/compute/api-ref/HostGroup/listInstances#responses) в качестве значения
+            параметра [pageToken](/docs/compute/api-ref/HostGroup/listInstances#query_params) в следующем запросе списка ресурсов.
+            Каждая следующая страница будет иметь свой
+            [nextPageToken](/docs/compute/api-ref/HostGroup/listInstances#responses) для продолжения перебора страниц результатов.
+          type: string
+    ListHostGroupOperationsResponse:
+      type: object
+      properties:
+        operations:
+          description: Список операций для указанной группы выделенных хостов.
+          type: array
+          items:
+            $ref: '#/components/schemas/Operation'
+        nextPageToken:
+          description: |-
+            Этот токен позволяет получить следующую страницу результатов для списка запросов. Если количество результатов
+            больше чем [pageSize](/docs/compute/api-ref/HostGroup/listOperations#query_params), используйте [nextPageToken](/docs/compute/api-ref/HostGroup/listOperations#responses) в качестве значения
+            параметра [pageToken](/docs/compute/api-ref/HostGroup/listOperations#query_params) в следующем запросе списка ресурсов.
+            Каждая следующая страница будет иметь свой [nextPageToken](/docs/compute/api-ref/HostGroup/listOperations#responses) для продолжения перебора страниц результатов.
+          type: string
+    ListHostGroupsResponse:
+      type: object
+      properties:
+        hostGroups:
+          description: Возвращает список групп выделенных хостов указанного каталога.
+          type: array
+          items:
+            $ref: '#/components/schemas/HostGroup'
+        nextPageToken:
+          description: |-
+            Этот токен позволяет получить следующую страницу результатов для списка запросов. Если количество результатов
+            больше чем [pageSize](/docs/compute/api-ref/HostGroup/list#query_params), используйте
+            [nextPageToken](/docs/compute/api-ref/HostGroup/list#responses) в качестве значения
+            параметра [pageToken](/docs/compute/api-ref/HostGroup/list#query_params) в следующем запросе
+            списка ресурсов. Каждая следующая страница будет иметь свой
+            [nextPageToken](/docs/compute/api-ref/HostGroup/list#responses) для продолжения перебора страниц результатов.
+          type: string
+    ListHostTypesResponse:
+      type: object
+      properties:
+        hostTypes:
+          description: Список типов выделенных хостов.
+          type: array
+          items:
+            $ref: '#/components/schemas/HostType'
+        nextPageToken:
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество результатов
+            больше чем [pageSize](/docs/compute/api-ref/HostType/list#query_params), используйте `next_page_token` в качестве значения
+            параметра [pageToken](/docs/compute/api-ref/HostType/list#query_params) в следующем запросе списка ресурсов.
+
+            Каждая следующая страница будет иметь свой `next_page_token` для продолжения перебора страниц результатов.
+          type: string
     ListImageOperationsResponse:
       type: object
       properties:
@@ -2620,6 +3234,14 @@ components:
             последующие запросы будут получать свои значения [pageToken](/docs/compute/api-ref/Zone/list#query_params) для перебора
             страниц результатов.
           type: string
+    MaintenancePolicy:
+      description: |2-
+         - RESTART: После обслуживания перезапустить ВМ на том же выделенном хосте.
+         - MIGRATE: Перенести ВМ на другой выделенный хост перед обслуживанием.
+      type: string
+      enum:
+      - RESTART
+      - MIGRATE
     NetworkInterface:
       type: object
       properties:
@@ -2886,6 +3508,21 @@ components:
         instanceId:
           description: Идентификатор виртуальной машины.
           type: string
+    ScalePolicy:
+      type: object
+      allOf:
+      - title: scale_type
+        type: object
+        maxProperties: 1
+        properties:
+          fixedScale:
+            $ref: '#/components/schemas/ScalePolicyFixedScale'
+    ScalePolicyFixedScale:
+      type: object
+      properties:
+        size:
+          type: string
+          format: int64
     SchedulingPolicy:
       type: object
       properties:
@@ -3023,6 +3660,47 @@ components:
             Допустимые значения — от 4194304 до 4398046511104 включительно.
           type: string
           format: int64
+    UpdateHostGroupMetadata:
+      type: object
+      properties:
+        hostGroupId:
+          description: Идентификатор обновлеяемой группы выделенных хостов.
+          type: string
+    UpdateHostGroupRequest:
+      type: object
+      properties:
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateHostGroupRequest_updateMask'
+        name:
+          description: |-
+            Имя группы выделенных хостов.
+
+            Значение должно соответствовать регулярному выражению `` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
+          type: string
+        description:
+          description: |-
+            Описание группы выделенных хостов.
+
+            Максимальная длина строки в символах — 256.
+          type: string
+        labels:
+          description: |-
+            Метки ресурса в формате `ключ:значение`.
+
+            Существующий набор меток полностью заменяется предоставленным набором.
+
+            Не более 64 на ресурс.
+            Длина строки в символах для каждого ключа должна быть от 1 до 63.
+            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_./\@0-9a-z]* ``.
+            Максимальная длина строки в символах для каждого значения — 63.
+            Каждое значение должно соответствовать регулярному выражению `` [-_./\@0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+        maintenancePolicy:
+          $ref: '#/components/schemas/MaintenancePolicy_in_UpdateHostGroupRequest_maintenancePolicy'
+        scalePolicy:
+          $ref: '#/components/schemas/ScalePolicy_in_UpdateHostGroupRequest_scalePolicy'
     UpdateImageMetadata:
       type: object
       properties:
@@ -3310,6 +3988,27 @@ components:
       enum:
       - READ_ONLY
       - READ_WRITE
+    MaintenancePolicy_in_CreateHostGroupRequest_maintenancePolicy:
+      description: |-
+        Политика обслуживания.
+
+         - RESTART: После обслуживания перезапустить ВМ на том же выделенном хосте.
+         - MIGRATE: Перенести ВМ на другой выделенный хост перед обслуживанием.
+      type: string
+      enum:
+      - RESTART
+      - MIGRATE
+    ScalePolicy_in_CreateHostGroupRequest_scalePolicy:
+      description: Политика масштабирования. На данный момент поддерживается только
+        фиксированное количество выделенных хостов.
+      type: object
+      allOf:
+      - title: scale_type
+        type: object
+        maxProperties: 1
+        properties:
+          fixedScale:
+            $ref: '#/components/schemas/ScalePolicyFixedScale'
     ResourcesSpec_in_CreateInstanceRequest_resourcesSpec:
       description: |-
         Обязательное поле.
@@ -3408,6 +4107,42 @@ components:
       properties:
         type:
           $ref: '#/components/schemas/NetworkSettingsType_in_NetworkSettings_type'
+    HostStatus_in_Host_status:
+      description: Текущий статус выделенного хоста. Новые ВМ не могут запускаться
+        на выделенном хосте в статусе DOWN.
+      type: string
+      enum:
+      - UP
+      - DOWN
+    HostGroupStatus_in_HostGroup_status:
+      description: Статус группы выделенных хостов.
+      type: string
+      enum:
+      - CREATING
+      - READY
+      - UPDATING
+      - DELETING
+    MaintenancePolicy_in_HostGroup_maintenancePolicy:
+      description: |-
+        Политика обслуживания.
+
+         - RESTART: После обслуживания перезапустить ВМ на том же выделенном хосте.
+         - MIGRATE: Перенести ВМ на другой выделенный хост перед обслуживанием.
+      type: string
+      enum:
+      - RESTART
+      - MIGRATE
+    ScalePolicy_in_HostGroup_scalePolicy:
+      description: Политика масштабирования. На данный момент поддерживается только
+        фиксированное количество выделенных хостов.
+      type: object
+      allOf:
+      - title: scale_type
+        type: object
+        maxProperties: 1
+        properties:
+          fixedScale:
+            $ref: '#/components/schemas/ScalePolicyFixedScale'
     ImageStatus_in_Image_status:
       description: |-
         Текущий статус образа диска.
@@ -3656,6 +4391,40 @@ components:
         Для полей, указанных в запросе, будут использованы переданные значения.
         Значения остальных полей будут сброшены на значения по умолчанию.
       type: string
+    FieldMask_in_UpdateHostGroupRequest_updateMask:
+      description: |-
+        Маска, определяющая, какие поля ресурса HostGroup будут обновлены.
+
+        Имена всех обновляемых полей, разделенные запятыми.
+        Только значения указанных полей будут изменены. Остальные останутся нетронутыми.
+        Если поле указано в параметре `` updateMask `` и в запросе не было отправлено значение для этого поля,
+        значение поля будет сброшено на значение по умолчанию. Значение по умолчанию для большинства полей — null или 0.
+
+        Если в запросе не передается `` updateMask ``, значения всех полей будут обновлены.
+        Для полей, указанных в запросе, будут использованы переданные значения.
+        Значения остальных полей будут сброшены на значения по умолчанию.
+      type: string
+    MaintenancePolicy_in_UpdateHostGroupRequest_maintenancePolicy:
+      description: |-
+        Политика обслуживания.
+
+         - RESTART: После обслуживания перезапустить ВМ на том же выделенном хосте.
+         - MIGRATE: Перенести ВМ на другой выделенный хост перед обслуживанием.
+      type: string
+      enum:
+      - RESTART
+      - MIGRATE
+    ScalePolicy_in_UpdateHostGroupRequest_scalePolicy:
+      description: Политика масштабирования. На данный момент поддерживается только
+        фиксированное количество выделенных хостов.
+      type: object
+      allOf:
+      - title: scale_type
+        type: object
+        maxProperties: 1
+        properties:
+          fixedScale:
+            $ref: '#/components/schemas/ScalePolicyFixedScale'
     FieldMask_in_UpdateImageRequest_updateMask:
       description: |-
         Маска, определяющая, какие поля ресурса Image будут обновлены.
@@ -3770,6 +4539,10 @@ tags:
   description: Набор методов для управления ресурсами Disk.
 - name: DiskType
   description: Набор методов для получения информации о типах дисков.
+- name: HostGroup
+  description: Набор методов для управления группами выделенных хостов.
+- name: HostType
+  description: Набор методов для просмотра возможных конфигураций выделенного хоста.
 - name: Image
   description: Набор методов для управления ресурсами Image.
 - name: Instance

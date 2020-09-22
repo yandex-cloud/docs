@@ -118,7 +118,7 @@ folder_id | **string**<br>Required. ID of the folder to list target groups in. T
 name | **string**<br>Name of the target group. The name must be unique within the folder. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>Description of the target group. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
-region_id | **string**<br>Required. ID of the availability zone where the target group resides. false The maximum string length in characters is 50.
+region_id | **string**<br>ID of the availability zone where the target group resides. The maximum string length in characters is 50.
 targets[] | **[Target](../target_group.proto#Target2)**<br>List of targets within the target group. 
 
 

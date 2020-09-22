@@ -19,6 +19,10 @@ items:
         href: api-ref/Cluster/listNodes.md
       - name: listOperations
         href: api-ref/Cluster/listOperations.md
+      - name: start
+        href: api-ref/Cluster/start.md
+      - name: stop
+        href: api-ref/Cluster/stop.md
       - name: update
         href: api-ref/Cluster/update.md
   - name: NodeGroup

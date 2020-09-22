@@ -914,6 +914,13 @@ components:
             Acceptable values are 10 to 100, inclusive.
           type: number
           format: double
+        decommissionTimeout:
+          description: |-
+            Timeout to gracefully decommission nodes during downscaling. In seconds. Default value: 120
+
+            Acceptable values are 0 to 86400, inclusive.
+          type: string
+          format: int64
     Cluster:
       description: A Data Proc cluster. For details about the concept, see [documentation](/docs/data-proc/concepts/).
       type: object
@@ -2267,6 +2274,13 @@ components:
             Acceptable values are 10 to 100, inclusive.
           type: number
           format: double
+        decommissionTimeout:
+          description: |-
+            Timeout to gracefully decommission nodes during downscaling. In seconds. Default value: 120
+
+            Acceptable values are 0 to 86400, inclusive.
+          type: string
+          format: int64
     Role_in_CreateSubclusterRequest_role:
       description: |-
         Required.
@@ -2369,6 +2383,13 @@ components:
             Acceptable values are 10 to 100, inclusive.
           type: number
           format: double
+        decommissionTimeout:
+          description: |-
+            Timeout to gracefully decommission nodes during downscaling. In seconds. Default value: 120
+
+            Acceptable values are 0 to 86400, inclusive.
+          type: string
+          format: int64
     Health_in_Host_health:
       description: |-
         Host status code.
@@ -2514,6 +2535,13 @@ components:
             Acceptable values are 10 to 100, inclusive.
           type: number
           format: double
+        decommissionTimeout:
+          description: |-
+            Timeout to gracefully decommission nodes during downscaling. In seconds. Default value: 120
+
+            Acceptable values are 0 to 86400, inclusive.
+          type: string
+          format: int64
     FieldMask_in_UpdateClusterRequest_updateMask:
       description: |-
         Field mask that specifies which attributes of the cluster should be updated.
@@ -2605,6 +2633,13 @@ components:
             Acceptable values are 10 to 100, inclusive.
           type: number
           format: double
+        decommissionTimeout:
+          description: |-
+            Timeout to gracefully decommission nodes during downscaling. In seconds. Default value: 120
+
+            Acceptable values are 0 to 86400, inclusive.
+          type: string
+          format: int64
     FieldMask_in_UpdateSubclusterRequest_updateMask:
       description: |-
         Field mask that specifies which attributes of the subcluster should be updated.
@@ -2687,6 +2722,13 @@ components:
             Acceptable values are 10 to 100, inclusive.
           type: number
           format: double
+        decommissionTimeout:
+          description: |-
+            Timeout to gracefully decommission nodes during downscaling. In seconds. Default value: 120
+
+            Acceptable values are 0 to 86400, inclusive.
+          type: string
+          format: int64
 tags:
 - name: Cluster
   description: A set of methods for managing Data Proc clusters.

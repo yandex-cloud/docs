@@ -50,6 +50,14 @@ source | **oneof:** `source_image_id` or `source_snapshot_id`<br>
 &nbsp;&nbsp;source_image_id | **string**<br>ID of the image that was used for disk creation. 
 &nbsp;&nbsp;source_snapshot_id | **string**<br>ID of the snapshot that was used for disk creation. 
 instance_ids[] | **string**<br>Array of instances to which the disk is attached. 
+disk_placement_policy | **[DiskPlacementPolicy](../disk.proto#DiskPlacementPolicy)**<br>Placement policy configuration. 
+
+
+### DiskPlacementPolicy {#DiskPlacementPolicy}
+
+Field | Description
+--- | ---
+placement_group_id | **string**<br>Placement group ID. 
 
 
 ## List {#List}
@@ -96,6 +104,14 @@ source | **oneof:** `source_image_id` or `source_snapshot_id`<br>
 &nbsp;&nbsp;source_image_id | **string**<br>ID of the image that was used for disk creation. 
 &nbsp;&nbsp;source_snapshot_id | **string**<br>ID of the snapshot that was used for disk creation. 
 instance_ids[] | **string**<br>Array of instances to which the disk is attached. 
+disk_placement_policy | **[DiskPlacementPolicy](../disk.proto#DiskPlacementPolicy1)**<br>Placement policy configuration. 
+
+
+### DiskPlacementPolicy {#DiskPlacementPolicy}
+
+Field | Description
+--- | ---
+placement_group_id | **string**<br>Placement group ID. 
 
 
 ## Create {#Create}
@@ -123,6 +139,14 @@ source | **oneof:** `image_id` or `snapshot_id`<br>
 &nbsp;&nbsp;image_id | **string**<br>ID of the image to create the disk from. The maximum string length in characters is 50.
 &nbsp;&nbsp;snapshot_id | **string**<br>ID of the snapshot to restore the disk from. The maximum string length in characters is 50.
 block_size | **int64**<br>Block size used for disk, specified in bytes. The default is 4096. 
+disk_placement_policy | **[DiskPlacementPolicy](../disk.proto#DiskPlacementPolicy2)**<br>Placement policy configuration. 
+
+
+### DiskPlacementPolicy {#DiskPlacementPolicy}
+
+Field | Description
+--- | ---
+placement_group_id | **string**<br>Placement group ID. 
 
 
 ### Operation {#Operation}
@@ -168,6 +192,7 @@ source | **oneof:** `source_image_id` or `source_snapshot_id`<br>
 &nbsp;&nbsp;source_image_id | **string**<br>ID of the image that was used for disk creation. 
 &nbsp;&nbsp;source_snapshot_id | **string**<br>ID of the snapshot that was used for disk creation. 
 instance_ids[] | **string**<br>Array of instances to which the disk is attached. 
+disk_placement_policy | **[DiskPlacementPolicy](../disk.proto#DiskPlacementPolicy3)**<br>Placement policy configuration. 
 
 
 ## Update {#Update}
@@ -190,6 +215,14 @@ name | **string**<br>Name of the disk. Value must match the regular expression `
 description | **string**<br>Description of the disk. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. <br>Existing set of `labels` is completely replaced by the provided set. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 size | **int64**<br>Size of the disk, specified in bytes. Acceptable values are 4194304 to 4398046511104, inclusive.
+disk_placement_policy | **[DiskPlacementPolicy](../disk.proto#DiskPlacementPolicy3)**<br>Placement policy configuration. 
+
+
+### DiskPlacementPolicy {#DiskPlacementPolicy}
+
+Field | Description
+--- | ---
+placement_group_id | **string**<br>Placement group ID. 
 
 
 ### Operation {#Operation}
@@ -235,6 +268,7 @@ source | **oneof:** `source_image_id` or `source_snapshot_id`<br>
 &nbsp;&nbsp;source_image_id | **string**<br>ID of the image that was used for disk creation. 
 &nbsp;&nbsp;source_snapshot_id | **string**<br>ID of the snapshot that was used for disk creation. 
 instance_ids[] | **string**<br>Array of instances to which the disk is attached. 
+disk_placement_policy | **[DiskPlacementPolicy](../disk.proto#DiskPlacementPolicy4)**<br>Placement policy configuration. 
 
 
 ## Delete {#Delete}

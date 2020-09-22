@@ -3,9 +3,9 @@ editable: false
 ---
 
 # Method get
-Returns the specified ElasticSearch Cluster resource.
+Returns the specified Elasticsearch cluster.
  
-
+To get the list of available Elasticsearch clusters, make a [list](/docs/managed-elasticsearch/api-ref/Cluster/list) request.
  
 ## HTTP request {#https-request}
 ```
@@ -16,7 +16,7 @@ GET https://mdb.api.cloud.yandex.net/managed-elasticsearch/v1/clusters/{clusterI
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the ElasticSearch cluster to return. To get the cluster ID use a [list](/docs/managed-elasticsearch/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
+clusterId | Required. ID of the Elasticsearch cluster to return.  To get the cluster ID, make a [list](/docs/managed-elasticsearch/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -75,44 +75,45 @@ clusterId | Required. ID of the ElasticSearch cluster to return. To get the clus
   "status": "string"
 }
 ```
-Elasticsearch cluster resource
+An Elasticsearch cluster resource.
+For more information, see the [Concepts](/docs/managed-elasticsearch/concepts) section of the documentation.
  
 Field | Description
 --- | ---
-id | **string**<br><p>ID of the ElasticSearch cluster. This ID is assigned by MDB at creation time.</p> 
-folderId | **string**<br><p>ID of the folder that the ElasticSearch cluster belongs to.</p> 
-createdAt | **string** (date-time)<br><p>Creation timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
-name | **string**<br><p>Name of the ElasticSearch cluster. The name is unique within the folder. 1-63 characters long.</p> 
-description | **string**<br><p>Description of the ElasticSearch cluster. 0-256 characters long.</p> 
-labels | **object**<br><p>Custom labels for the ElasticSearch cluster as <code>key:value</code> pairs. Maximum 64 per resource.</p> 
-environment | **string**<br><p>Deployment environment of the ElasticSearch cluster.</p> <ul> <li>PRODUCTION: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li> <li>PRESTABLE: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li> </ul> 
-monitoring[] | **object**<br><p>Monitoring system.</p> 
+id | **string**<br><p>ID of the Elasticsearch cluster. This ID is assigned at creation time.</p> 
+folderId | **string**<br><p>ID of the folder that the Elasticsearch cluster belongs to.</p> 
+createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+name | **string**<br><p>Name of the Elasticsearch cluster. The name must be unique within the folder. 1-63 characters long.</p> 
+description | **string**<br><p>Description of the Elasticsearch cluster. 0-256 characters long.</p> 
+labels | **object**<br><p>Custom labels for the Elasticsearch cluster as <code>key:value</code> pairs. A maximum of 64 labels per resource is allowed.</p> 
+environment | **string**<br><p>Deployment environment of the Elasticsearch cluster.</p> <ul> <li>PRODUCTION: stable environment with a conservative update policy when only hotfixes are applied during regular maintenance.</li> <li>PRESTABLE: environment with a more aggressive update policy when new versions are rolled out irrespective of backward compatibility.</li> </ul> 
+monitoring[] | **object**<br><p>Metadata of monitoring system.</p> 
 monitoring[].<br>name | **string**<br><p>Name of the monitoring system.</p> 
 monitoring[].<br>description | **string**<br><p>Description of the monitoring system.</p> 
-monitoring[].<br>link | **string**<br><p>Link to the monitoring system charts.</p> 
-config | **object**<br><p>Configuration of the ElasticSearch cluster.</p> 
-config.<br>version | **string**<br><p>ElasticSearch version.</p> 
-config.<br>elasticsearch | **object**<br><p>ElasticSearch configuration.</p> 
-config.<br>elasticsearch.<br>dataNode | **object**<br>
-config.<br>elasticsearch.<br>dataNode.<br>resources | **object**<br>Resources allocated to data node hosts.<br>
-config.<br>elasticsearch.<br>dataNode.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.).</p> 
+monitoring[].<br>link | **string**<br><p>Link to the monitoring system charts for the Elasticsearch cluster.</p> 
+config | **object**<br><p>Configuration of the Elasticsearch cluster.</p> 
+config.<br>version | **string**<br><p>Elasticsearch version.</p> 
+config.<br>elasticsearch | **object**<br><p>Configuration and resource allocation for Elasticsearch nodes.</p> 
+config.<br>elasticsearch.<br>dataNode | **object**<br><p>Configuration and resource allocation for Elasticsearch data nodes.</p> 
+config.<br>elasticsearch.<br>dataNode.<br>resources | **object**<br>Resources allocated to Elasticsearch data nodes.<br><p>Computational resources.</p> 
+config.<br>elasticsearch.<br>dataNode.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-elasticsearch/concepts/instance-types">documentation</a>.</p> 
 config.<br>elasticsearch.<br>dataNode.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
-config.<br>elasticsearch.<br>dataNode.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host.</p> 
-config.<br>elasticsearch.<br>dataNode.<br>elasticsearchConfigSet_7_6 | **object**<br>
-config.<br>elasticsearch.<br>dataNode.<br>elasticsearchConfigSet_7_6.<br>effectiveConfig | **object**<br><p>Required.</p> 
-config.<br>elasticsearch.<br>dataNode.<br>elasticsearchConfigSet_7_6.<br>effectiveConfig.<br>fielddataCacheSize | **integer** (int64)<br><p>the percentage of heap space that is allocated to fielddata</p> 
-config.<br>elasticsearch.<br>dataNode.<br>elasticsearchConfigSet_7_6.<br>effectiveConfig.<br>maxClauseCount | **integer** (int64)<br><p>the maximum number of allowed boolean clauses in a query</p> 
-config.<br>elasticsearch.<br>dataNode.<br>elasticsearchConfigSet_7_6.<br>userConfig | **object**<br>
-config.<br>elasticsearch.<br>dataNode.<br>elasticsearchConfigSet_7_6.<br>userConfig.<br>fielddataCacheSize | **integer** (int64)<br><p>the percentage of heap space that is allocated to fielddata</p> 
-config.<br>elasticsearch.<br>dataNode.<br>elasticsearchConfigSet_7_6.<br>userConfig.<br>maxClauseCount | **integer** (int64)<br><p>the maximum number of allowed boolean clauses in a query</p> 
-config.<br>elasticsearch.<br>dataNode.<br>elasticsearchConfigSet_7_6.<br>defaultConfig | **object**<br>
-config.<br>elasticsearch.<br>dataNode.<br>elasticsearchConfigSet_7_6.<br>defaultConfig.<br>fielddataCacheSize | **integer** (int64)<br><p>the percentage of heap space that is allocated to fielddata</p> 
-config.<br>elasticsearch.<br>dataNode.<br>elasticsearchConfigSet_7_6.<br>defaultConfig.<br>maxClauseCount | **integer** (int64)<br><p>the maximum number of allowed boolean clauses in a query</p> 
-config.<br>elasticsearch.<br>masterNode | **object**<br>
-config.<br>elasticsearch.<br>masterNode.<br>resources | **object**<br><p>Resources allocated to master node hosts.</p> 
-config.<br>elasticsearch.<br>masterNode.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.).</p> 
+config.<br>elasticsearch.<br>dataNode.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. All available types are listed in the <a href="/docs/managed-elasticsearch/concepts/storage">documentation</a>.</p> 
+config.<br>elasticsearch.<br>dataNode.<br>elasticsearchConfigSet_7_6 | **object**<br>Elasticsearch 7.6 data node configuration.<br><p>Elasticsearch 7.6 data node configuration.</p> 
+config.<br>elasticsearch.<br>dataNode.<br>elasticsearchConfigSet_7_6.<br>effectiveConfig | **object**<br><p>Required. Effective settings for an Elasticsearch cluster (a combination of settings defined in <code>userConfig</code> and <code>defaultConfig</code>).</p> <p>Elasticsearch 7.6 supported configuration options are listed here.</p> <p>Detailed description for each set of options is available in <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">Elasticsearch documentation</a>.</p> <p>Any options that are not listed here are not supported.</p> 
+config.<br>elasticsearch.<br>dataNode.<br>elasticsearchConfigSet_7_6.<br>effectiveConfig.<br>fielddataCacheSize | **integer** (int64)<br><p>The maximum percentage of heap space that is allocated to field data cache.</p> <p>All the field values that are placed in this cache, get loaded to memory in order to provide fast document based access to those values. Building the field data cache for a field can be an expensive operations, so its recommended to have enough memory for this cache, and to keep it loaded.</p> <p>Default value: unbounded.</p> <p>See in-depth description in <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-fielddata.html">Elasticsearch documentation</a>.</p> 
+config.<br>elasticsearch.<br>dataNode.<br>elasticsearchConfigSet_7_6.<br>effectiveConfig.<br>maxClauseCount | **integer** (int64)<br><p>The maximum number of clauses a boolean query can contain.</p> <p>The limit is in place to prevent searches from becoming too large and taking up too much CPU and memory. It affects not only Elasticsearch's <code>bool</code> query, but many other quieries that are implicitly converted to <code>bool</code> query by Elastcsearch.</p> <p>Default value: <code>1024</code>.</p> <p>See in-depth description in <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/search-settings.html">Elasticsearch documentation</a>.</p> 
+config.<br>elasticsearch.<br>dataNode.<br>elasticsearchConfigSet_7_6.<br>userConfig | **object**<br><p>User-defined settings for an Elasticsearch cluster.</p> <p>Elasticsearch 7.6 supported configuration options are listed here.</p> <p>Detailed description for each set of options is available in <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">Elasticsearch documentation</a>.</p> <p>Any options that are not listed here are not supported.</p> 
+config.<br>elasticsearch.<br>dataNode.<br>elasticsearchConfigSet_7_6.<br>userConfig.<br>fielddataCacheSize | **integer** (int64)<br><p>The maximum percentage of heap space that is allocated to field data cache.</p> <p>All the field values that are placed in this cache, get loaded to memory in order to provide fast document based access to those values. Building the field data cache for a field can be an expensive operations, so its recommended to have enough memory for this cache, and to keep it loaded.</p> <p>Default value: unbounded.</p> <p>See in-depth description in <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-fielddata.html">Elasticsearch documentation</a>.</p> 
+config.<br>elasticsearch.<br>dataNode.<br>elasticsearchConfigSet_7_6.<br>userConfig.<br>maxClauseCount | **integer** (int64)<br><p>The maximum number of clauses a boolean query can contain.</p> <p>The limit is in place to prevent searches from becoming too large and taking up too much CPU and memory. It affects not only Elasticsearch's <code>bool</code> query, but many other quieries that are implicitly converted to <code>bool</code> query by Elastcsearch.</p> <p>Default value: <code>1024</code>.</p> <p>See in-depth description in <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/search-settings.html">Elasticsearch documentation</a>.</p> 
+config.<br>elasticsearch.<br>dataNode.<br>elasticsearchConfigSet_7_6.<br>defaultConfig | **object**<br><p>Default settings for an Elasticsearch cluster.</p> <p>Elasticsearch 7.6 supported configuration options are listed here.</p> <p>Detailed description for each set of options is available in <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">Elasticsearch documentation</a>.</p> <p>Any options that are not listed here are not supported.</p> 
+config.<br>elasticsearch.<br>dataNode.<br>elasticsearchConfigSet_7_6.<br>defaultConfig.<br>fielddataCacheSize | **integer** (int64)<br><p>The maximum percentage of heap space that is allocated to field data cache.</p> <p>All the field values that are placed in this cache, get loaded to memory in order to provide fast document based access to those values. Building the field data cache for a field can be an expensive operations, so its recommended to have enough memory for this cache, and to keep it loaded.</p> <p>Default value: unbounded.</p> <p>See in-depth description in <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-fielddata.html">Elasticsearch documentation</a>.</p> 
+config.<br>elasticsearch.<br>dataNode.<br>elasticsearchConfigSet_7_6.<br>defaultConfig.<br>maxClauseCount | **integer** (int64)<br><p>The maximum number of clauses a boolean query can contain.</p> <p>The limit is in place to prevent searches from becoming too large and taking up too much CPU and memory. It affects not only Elasticsearch's <code>bool</code> query, but many other quieries that are implicitly converted to <code>bool</code> query by Elastcsearch.</p> <p>Default value: <code>1024</code>.</p> <p>See in-depth description in <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/search-settings.html">Elasticsearch documentation</a>.</p> 
+config.<br>elasticsearch.<br>masterNode | **object**<br><p>Configuration and resource allocation for Elasticsearch master nodes.</p> 
+config.<br>elasticsearch.<br>masterNode.<br>resources | **object**<br><p>Resources allocated to Elasticsearch master nodes.</p> <p>Computational resources.</p> 
+config.<br>elasticsearch.<br>masterNode.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-elasticsearch/concepts/instance-types">documentation</a>.</p> 
 config.<br>elasticsearch.<br>masterNode.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
-config.<br>elasticsearch.<br>masterNode.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host.</p> 
+config.<br>elasticsearch.<br>masterNode.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. All available types are listed in the <a href="/docs/managed-elasticsearch/concepts/storage">documentation</a>.</p> 
 networkId | **string**<br><p>ID of the network that the cluster belongs to.</p> 
-health | **string**<br><p>Aggregated cluster health.</p> <ul> <li>HEALTH_UNKNOWN: State of the cluster is unknown (<code>health</code> for every host in the cluster is UNKNOWN).</li> <li>ALIVE: Cluster is alive and well (<code>health</code> for every host in the cluster is ALIVE).</li> <li>DEAD: Cluster is inoperable (<code>health</code> for every host in the cluster is DEAD).</li> <li>DEGRADED: Cluster is working below capacity (<code>health</code> for at least one host in the cluster is not ALIVE).</li> </ul> 
-status | **string**<br><p>Current state of the cluster.</p> <ul> <li>STATUS_UNKNOWN: Cluster state is unknown.</li> <li>CREATING: Cluster is being created.</li> <li>RUNNING: Cluster is running normally.</li> <li>ERROR: Cluster encountered a problem and cannot operate.</li> <li>UPDATING: Cluster is being updated.</li> <li>STOPPING: Cluster is stopping.</li> <li>STOPPED: Cluster stopped.</li> <li>STARTING: Cluster is starting.</li> </ul> 
+health | **string**<br><p>Aggregated cluster health.</p> <ul> <li>HEALTH_UNKNOWN: state of the cluster is unknown (<code>health</code> of all hosts in the cluster is <code>UNKNOWN</code>).</li> <li>ALIVE: cluster is alive and well (<code>health</code> of all hosts in the cluster is <code>ALIVE</code>).</li> <li>DEAD: cluster is inoperable (<code>health</code> of all hosts in the cluster is <code>DEAD</code>).</li> <li>DEGRADED: cluster is in degraded state (<code>health</code> of at least one of the hosts in the cluster is not <code>ALIVE</code>).</li> </ul> 
+status | **string**<br><p>Current state of the cluster.</p> <ul> <li>STATUS_UNKNOWN: cluster state is unknown.</li> <li>CREATING: cluster is being created.</li> <li>RUNNING: cluster is running normally.</li> <li>ERROR: cluster encountered a problem and cannot operate.</li> <li>UPDATING: cluster is being updated.</li> <li>STOPPING: cluster is stopping.</li> <li>STOPPED: cluster stopped.</li> <li>STARTING: cluster is starting.</li> </ul> 

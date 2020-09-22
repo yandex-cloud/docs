@@ -74,12 +74,14 @@ link | **string**<br>Ссылка на графики системы монит�
 Поле | Описание
 --- | ---
 version | **string**<br>Версия серверного программного обеспечения PostgreSQL. 
-postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11` или `postgresql_config_12`<br>Конфигурация для серверов PostgreSQL в кластере.
+postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12` или `postgresql_config_12_1c`<br>Конфигурация для серверов PostgreSQL в кластере.
 &nbsp;&nbsp;postgresql_config_9_6 | **[PostgresqlConfigSet9_6](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql9_6.proto)**<br>Конфигурация сервера PostgreSQL 9.6. 
 &nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlConfigSet10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10_1c.proto)**<br>Конфигурация сервера PostgreSQL 10 1С. 
 &nbsp;&nbsp;postgresql_config_10 | **[PostgresqlConfigSet10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10.proto)**<br>Конфигурация сервера PostgreSQL 10. 
 &nbsp;&nbsp;postgresql_config_11 | **[PostgresqlConfigSet11](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql11.proto)**<br>Конфигурация сервера PostgreSQL 11. 
+&nbsp;&nbsp;postgresql_config_11_1c | **[config.PostgresqlConfigSet11_1C](./config/host10#PostgresqlConfigSet11_1C)**<br>Конфигурация сервера PostgreSQL 11 1C. 
 &nbsp;&nbsp;postgresql_config_12 | **[PostgresqlConfigSet12](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql12.proto)**<br>Конфигурация сервера PostgreSQL 12. 
+&nbsp;&nbsp;postgresql_config_12_1c | **[config.PostgresqlConfigSet12_1C](./config/host10#PostgresqlConfigSet12_1C)**<br>Конфигурация сервера PostgreSQL 12 1C. 
 pooler_config | **[ConnectionPoolerConfig](../cluster.proto#ConnectionPoolerConfig)**<br>Конфигурация менеджера соединений. 
 resources | **[Resources](../cluster.proto#Resources)**<br>Ресурсы, выделенные хостам PostgreSQL. 
 autofailover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Параметр конфигурации, который включает / отключает автоматическое переключение мастера в кластере. 
@@ -167,12 +169,14 @@ link | **string**<br>Ссылка на графики системы монит�
 Поле | Описание
 --- | ---
 version | **string**<br>Версия серверного программного обеспечения PostgreSQL. 
-postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11` или `postgresql_config_12`<br>Конфигурация для серверов PostgreSQL в кластере.
+postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12` или `postgresql_config_12_1c`<br>Конфигурация для серверов PostgreSQL в кластере.
 &nbsp;&nbsp;postgresql_config_9_6 | **[PostgresqlConfigSet9_6](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql9_6.proto)**<br>Конфигурация сервера PostgreSQL 9.6. 
 &nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlConfigSet10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10_1c.proto)**<br>Конфигурация сервера PostgreSQL 10 1С. 
 &nbsp;&nbsp;postgresql_config_10 | **[PostgresqlConfigSet10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10.proto)**<br>Конфигурация сервера PostgreSQL 10. 
 &nbsp;&nbsp;postgresql_config_11 | **[PostgresqlConfigSet11](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql11.proto)**<br>Конфигурация сервера PostgreSQL 11. 
+&nbsp;&nbsp;postgresql_config_11_1c | **[config.PostgresqlConfigSet11_1C](./config/host10#PostgresqlConfigSet11_1C)**<br>Конфигурация сервера PostgreSQL 11 1C. 
 &nbsp;&nbsp;postgresql_config_12 | **[PostgresqlConfigSet12](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql12.proto)**<br>Конфигурация сервера PostgreSQL 12. 
+&nbsp;&nbsp;postgresql_config_12_1c | **[config.PostgresqlConfigSet12_1C](./config/host10#PostgresqlConfigSet12_1C)**<br>Конфигурация сервера PostgreSQL 12 1C. 
 pooler_config | **[ConnectionPoolerConfig](../cluster.proto#ConnectionPoolerConfig1)**<br>Конфигурация менеджера соединений. 
 resources | **[Resources](../cluster.proto#Resources1)**<br>Ресурсы, выделенные хостам PostgreSQL. 
 autofailover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Параметр конфигурации, который включает / отключает автоматическое переключение мастера в кластере. 
@@ -235,12 +239,14 @@ network_id | **string**<br>Обязательное поле. Идентифик
 Поле | Описание
 --- | ---
 version | **string**<br>Версия PostgreSQL, используемая в кластере. Возможные значения `9.6`, `10`, `10_1c`, `11`, `12`. 
-postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11` или `postgresql_config_12`<br>Конфигурация кластера PostgreSQL.
+postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12` или `postgresql_config_12_1c`<br>Конфигурация кластера PostgreSQL.
 &nbsp;&nbsp;postgresql_config_9_6 | **[PostgresqlConfig9_6](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql9_6.proto)**<br>Конфигурация для кластера PostgreSQL 9.6. 
 &nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlConfig10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10_1c.proto)**<br>Конфигурация для кластера PostgreSQL 10. 
 &nbsp;&nbsp;postgresql_config_10 | **[PostgresqlConfig10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10.proto)**<br>Конфигурация для кластера PostgreSQL 10. 
 &nbsp;&nbsp;postgresql_config_11 | **[PostgresqlConfig11](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql11.proto)**<br>Конфигурация для кластера PostgreSQL 11. 
+&nbsp;&nbsp;postgresql_config_11_1c | **[config.PostgresqlConfig11_1C](./config/host10#PostgresqlConfig11_1C)**<br>Конфигурация для кластера PostgreSQL 11 1C. 
 &nbsp;&nbsp;postgresql_config_12 | **[PostgresqlConfig12](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql12.proto)**<br>Конфигурация для кластера PostgreSQL 12. 
+&nbsp;&nbsp;postgresql_config_12_1c | **[config.PostgresqlConfig12_1C](./config/host10#PostgresqlConfig12_1C)**<br>Конфигурация для кластера PostgreSQL 12 1C. 
 pooler_config | **[ConnectionPoolerConfig](../cluster.proto#ConnectionPoolerConfig2)**<br>Конфигурация менеджера соединений. 
 resources | **[Resources](../cluster.proto#Resources2)**<br>Ресурсы, выделенные хостам PostgreSQL. 
 autofailover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Параметр конфигурации, который включает / отключает автоматическое переключение мастера в кластере. 
@@ -339,12 +345,14 @@ config_spec | **[ConfigHostSpec](#ConfigHostSpec)**<br>Конфигурация 
 
 Поле | Описание
 --- | ---
-postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11` или `postgresql_config_12`<br>
+postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12` или `postgresql_config_12_1c`<br>
 &nbsp;&nbsp;postgresql_config_9_6 | **[PostgresqlHostConfig9_6](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host9_6.proto)**<br>Конфигурация для хоста, на котором развернут сервером PostgreSQL 9.6. 
 &nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlHostConfig10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host10_1c.proto)**<br>Конфигурация для хоста, на котором развернут сервер PostgreSQL 10 1С. 
 &nbsp;&nbsp;postgresql_config_10 | **[PostgresqlHostConfig10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host10.proto)**<br>Конфигурация для хоста, на котором развернут сервер PostgreSQL 10. 
 &nbsp;&nbsp;postgresql_config_11 | **[PostgresqlHostConfig11](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host11.proto)**<br>Конфигурация для хоста, на котором развернут сервер PostgreSQL 11. 
+&nbsp;&nbsp;postgresql_config_11_1c | **[config.PostgresqlHostConfig11_1C](./config/host10#PostgresqlHostConfig11_1C)**<br>Конфигурация для хоста, на котором развернут сервер PostgreSQL 11 1C. 
 &nbsp;&nbsp;postgresql_config_12 | **[PostgresqlHostConfig12](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host12.proto)**<br>Конфигурация для хоста, на котором развернут сервер PostgreSQL 12. 
+&nbsp;&nbsp;postgresql_config_12_1c | **[config.PostgresqlHostConfig12_1C](./config/host10#PostgresqlHostConfig12_1C)**<br>Конфигурация для хоста, на котором развернут сервер PostgreSQL 12 1C. 
 
 
 ### Operation {#Operation}
@@ -415,12 +423,14 @@ name | **string**<br>Новое имя кластера. Максимальна�
 Поле | Описание
 --- | ---
 version | **string**<br>Версия PostgreSQL, используемая в кластере. Возможные значения `9.6`, `10`, `10_1c`, `11`, `12`. 
-postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11` или `postgresql_config_12`<br>Конфигурация кластера PostgreSQL.
+postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12` или `postgresql_config_12_1c`<br>Конфигурация кластера PostgreSQL.
 &nbsp;&nbsp;postgresql_config_9_6 | **[PostgresqlConfig9_6](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql9_6.proto)**<br>Конфигурация для кластера PostgreSQL 9.6. 
 &nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlConfig10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10_1c.proto)**<br>Конфигурация для кластера PostgreSQL 10. 
 &nbsp;&nbsp;postgresql_config_10 | **[PostgresqlConfig10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10.proto)**<br>Конфигурация для кластера PostgreSQL 10. 
 &nbsp;&nbsp;postgresql_config_11 | **[PostgresqlConfig11](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql11.proto)**<br>Конфигурация для кластера PostgreSQL 11. 
+&nbsp;&nbsp;postgresql_config_11_1c | **[config.PostgresqlConfig11_1C](./config/host10#PostgresqlConfig11_1C)**<br>Конфигурация для кластера PostgreSQL 11 1C. 
 &nbsp;&nbsp;postgresql_config_12 | **[PostgresqlConfig12](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql12.proto)**<br>Конфигурация для кластера PostgreSQL 12. 
+&nbsp;&nbsp;postgresql_config_12_1c | **[config.PostgresqlConfig12_1C](./config/host10#PostgresqlConfig12_1C)**<br>Конфигурация для кластера PostgreSQL 12 1C. 
 pooler_config | **[ConnectionPoolerConfig](../cluster.proto#ConnectionPoolerConfig3)**<br>Конфигурация менеджера соединений. 
 resources | **[Resources](../cluster.proto#Resources3)**<br>Ресурсы, выделенные хостам PostgreSQL. 
 autofailover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Параметр конфигурации, который включает / отключает автоматическое переключение мастера в кластере. 
@@ -800,12 +810,14 @@ folder_id | **string**<br>Идентификатор каталога, в кот
 Поле | Описание
 --- | ---
 version | **string**<br>Версия PostgreSQL, используемая в кластере. Возможные значения `9.6`, `10`, `10_1c`, `11`, `12`. 
-postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11` или `postgresql_config_12`<br>Конфигурация кластера PostgreSQL.
+postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12` или `postgresql_config_12_1c`<br>Конфигурация кластера PostgreSQL.
 &nbsp;&nbsp;postgresql_config_9_6 | **[PostgresqlConfig9_6](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql9_6.proto)**<br>Конфигурация для кластера PostgreSQL 9.6. 
 &nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlConfig10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10_1c.proto)**<br>Конфигурация для кластера PostgreSQL 10. 
 &nbsp;&nbsp;postgresql_config_10 | **[PostgresqlConfig10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10.proto)**<br>Конфигурация для кластера PostgreSQL 10. 
 &nbsp;&nbsp;postgresql_config_11 | **[PostgresqlConfig11](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql11.proto)**<br>Конфигурация для кластера PostgreSQL 11. 
+&nbsp;&nbsp;postgresql_config_11_1c | **[config.PostgresqlConfig11_1C](./config/host10#PostgresqlConfig11_1C)**<br>Конфигурация для кластера PostgreSQL 11 1C. 
 &nbsp;&nbsp;postgresql_config_12 | **[PostgresqlConfig12](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql12.proto)**<br>Конфигурация для кластера PostgreSQL 12. 
+&nbsp;&nbsp;postgresql_config_12_1c | **[config.PostgresqlConfig12_1C](./config/host10#PostgresqlConfig12_1C)**<br>Конфигурация для кластера PostgreSQL 12 1C. 
 pooler_config | **[ConnectionPoolerConfig](../cluster.proto#ConnectionPoolerConfig4)**<br>Конфигурация менеджера соединений. 
 resources | **[Resources](../cluster.proto#Resources4)**<br>Ресурсы, выделенные хостам PostgreSQL. 
 autofailover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Параметр конфигурации, который включает / отключает автоматическое переключение мастера в кластере. 
@@ -853,12 +865,14 @@ config_spec | **[ConfigHostSpec](#ConfigHostSpec1)**<br>Конфигурация
 
 Поле | Описание
 --- | ---
-postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11` или `postgresql_config_12`<br>
+postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12` или `postgresql_config_12_1c`<br>
 &nbsp;&nbsp;postgresql_config_9_6 | **[PostgresqlHostConfig9_6](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host9_6.proto)**<br>Конфигурация для хоста, на котором развернут сервером PostgreSQL 9.6. 
 &nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlHostConfig10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host10_1c.proto)**<br>Конфигурация для хоста, на котором развернут сервер PostgreSQL 10 1С. 
 &nbsp;&nbsp;postgresql_config_10 | **[PostgresqlHostConfig10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host10.proto)**<br>Конфигурация для хоста, на котором развернут сервер PostgreSQL 10. 
 &nbsp;&nbsp;postgresql_config_11 | **[PostgresqlHostConfig11](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host11.proto)**<br>Конфигурация для хоста, на котором развернут сервер PostgreSQL 11. 
+&nbsp;&nbsp;postgresql_config_11_1c | **[config.PostgresqlHostConfig11_1C](./config/host10#PostgresqlHostConfig11_1C)**<br>Конфигурация для хоста, на котором развернут сервер PostgreSQL 11 1C. 
 &nbsp;&nbsp;postgresql_config_12 | **[PostgresqlHostConfig12](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host12.proto)**<br>Конфигурация для хоста, на котором развернут сервер PostgreSQL 12. 
+&nbsp;&nbsp;postgresql_config_12_1c | **[config.PostgresqlHostConfig12_1C](./config/host10#PostgresqlHostConfig12_1C)**<br>Конфигурация для хоста, на котором развернут сервер PostgreSQL 12 1C. 
 
 
 ### Operation {#Operation}
@@ -1134,12 +1148,14 @@ health | enum **Health**<br>Код состояния доступности с�
 
 Поле | Описание
 --- | ---
-postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11` или `postgresql_config_12`<br>Конфигурация сервера PostgreSQL для хоста.
+postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12` или `postgresql_config_12_1c`<br>Конфигурация сервера PostgreSQL для хоста.
 &nbsp;&nbsp;postgresql_config_9_6 | **[PostgresqlHostConfig9_6](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host9_6.proto)**<br>Конфигурация для хоста, на котором развернут сервером PostgreSQL 9.6. 
 &nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlHostConfig10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host10_1c.proto)**<br>Конфигурация для хоста, на котором развернут сервер PostgreSQL 10 1С. 
 &nbsp;&nbsp;postgresql_config_10 | **[PostgresqlHostConfig10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host10.proto)**<br>Конфигурация для хоста, на котором развернут сервер PostgreSQL 10. 
 &nbsp;&nbsp;postgresql_config_11 | **[PostgresqlHostConfig11](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host11.proto)**<br>Конфигурация для хоста, на котором развернут сервер PostgreSQL 11. 
+&nbsp;&nbsp;postgresql_config_11_1c | **[config.PostgresqlHostConfig11_1C](./config/host10#PostgresqlHostConfig11_1C)**<br>Конфигурация для хоста, на котором развернут сервер PostgreSQL 11 1C. 
 &nbsp;&nbsp;postgresql_config_12 | **[PostgresqlHostConfig12](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host12.proto)**<br>Конфигурация для хоста, на котором развернут сервер PostgreSQL 12. 
+&nbsp;&nbsp;postgresql_config_12_1c | **[config.PostgresqlHostConfig12_1C](./config/host10#PostgresqlHostConfig12_1C)**<br>Конфигурация для хоста, на котором развернут сервер PostgreSQL 12 1C. 
 
 
 ## AddHosts {#AddHosts}
@@ -1176,12 +1192,14 @@ config_spec | **[ConfigHostSpec](#ConfigHostSpec2)**<br>Конфигурация
 
 Поле | Описание
 --- | ---
-postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11` или `postgresql_config_12`<br>
+postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12` или `postgresql_config_12_1c`<br>
 &nbsp;&nbsp;postgresql_config_9_6 | **[PostgresqlHostConfig9_6](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host9_6.proto)**<br>Конфигурация для хоста, на котором развернут сервером PostgreSQL 9.6. 
 &nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlHostConfig10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host10_1c.proto)**<br>Конфигурация для хоста, на котором развернут сервер PostgreSQL 10 1С. 
 &nbsp;&nbsp;postgresql_config_10 | **[PostgresqlHostConfig10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host10.proto)**<br>Конфигурация для хоста, на котором развернут сервер PostgreSQL 10. 
 &nbsp;&nbsp;postgresql_config_11 | **[PostgresqlHostConfig11](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host11.proto)**<br>Конфигурация для хоста, на котором развернут сервер PostgreSQL 11. 
+&nbsp;&nbsp;postgresql_config_11_1c | **[config.PostgresqlHostConfig11_1C](./config/host10#PostgresqlHostConfig11_1C)**<br>Конфигурация для хоста, на котором развернут сервер PostgreSQL 11 1C. 
 &nbsp;&nbsp;postgresql_config_12 | **[PostgresqlHostConfig12](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host12.proto)**<br>Конфигурация для хоста, на котором развернут сервер PostgreSQL 12. 
+&nbsp;&nbsp;postgresql_config_12_1c | **[config.PostgresqlHostConfig12_1C](./config/host10#PostgresqlHostConfig12_1C)**<br>Конфигурация для хоста, на котором развернут сервер PostgreSQL 12 1C. 
 
 
 ### Operation {#Operation}
@@ -1282,12 +1300,14 @@ config_spec | **[ConfigHostSpec](#ConfigHostSpec3)**<br>Конфигурация
 
 Поле | Описание
 --- | ---
-postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11` или `postgresql_config_12`<br>
+postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12` или `postgresql_config_12_1c`<br>
 &nbsp;&nbsp;postgresql_config_9_6 | **[PostgresqlHostConfig9_6](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host9_6.proto)**<br>Конфигурация для хоста, на котором развернут сервером PostgreSQL 9.6. 
 &nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlHostConfig10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host10_1c.proto)**<br>Конфигурация для хоста, на котором развернут сервер PostgreSQL 10 1С. 
 &nbsp;&nbsp;postgresql_config_10 | **[PostgresqlHostConfig10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host10.proto)**<br>Конфигурация для хоста, на котором развернут сервер PostgreSQL 10. 
 &nbsp;&nbsp;postgresql_config_11 | **[PostgresqlHostConfig11](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host11.proto)**<br>Конфигурация для хоста, на котором развернут сервер PostgreSQL 11. 
+&nbsp;&nbsp;postgresql_config_11_1c | **[config.PostgresqlHostConfig11_1C](./config/host10#PostgresqlHostConfig11_1C)**<br>Конфигурация для хоста, на котором развернут сервер PostgreSQL 11 1C. 
 &nbsp;&nbsp;postgresql_config_12 | **[PostgresqlHostConfig12](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host12.proto)**<br>Конфигурация для хоста, на котором развернут сервер PostgreSQL 12. 
+&nbsp;&nbsp;postgresql_config_12_1c | **[config.PostgresqlHostConfig12_1C](./config/host10#PostgresqlHostConfig12_1C)**<br>Конфигурация для хоста, на котором развернут сервер PostgreSQL 12 1C. 
 
 
 ### Operation {#Operation}

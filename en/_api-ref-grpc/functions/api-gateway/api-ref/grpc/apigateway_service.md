@@ -44,7 +44,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the API gateway. The name is unique within the folder. 
 description | **string**<br>Description of the API gateway. 
 labels | **map<string,string>**<br>API gateway labels as `key:value` pairs. 
-status | enum **Status**<br>Status of the API gateway. <ul><li>`CREATING`: API gateway is being created.</li><li>`ACTIVE`: API gateway is ready for use.</li><li>`DELETING`: API gateway is being deleted.</li><li>`ERROR`: API gateway failed. The only allowed action is delete.</li><ul/>
+status | enum **Status**<br>Status of the API gateway. <ul><li>`CREATING`: API gateway is being created.</li><li>`ACTIVE`: API gateway is ready for use.</li><li>`DELETING`: API gateway is being deleted.</li><li>`ERROR`: API gateway failed. The only allowed action is delete.</li><li>`UPDATING`: API gateway is being updated.</li><ul/>
 domain | **string**<br>Default domain for the API gateway. Generated at creation time. 
 log_group_id | **string**<br>ID of the log group for the API gateway. 
 
@@ -83,7 +83,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the API gateway. The name is unique within the folder. 
 description | **string**<br>Description of the API gateway. 
 labels | **map<string,string>**<br>API gateway labels as `key:value` pairs. 
-status | enum **Status**<br>Status of the API gateway. <ul><li>`CREATING`: API gateway is being created.</li><li>`ACTIVE`: API gateway is ready for use.</li><li>`DELETING`: API gateway is being deleted.</li><li>`ERROR`: API gateway failed. The only allowed action is delete.</li><ul/>
+status | enum **Status**<br>Status of the API gateway. <ul><li>`CREATING`: API gateway is being created.</li><li>`ACTIVE`: API gateway is ready for use.</li><li>`DELETING`: API gateway is being deleted.</li><li>`ERROR`: API gateway failed. The only allowed action is delete.</li><li>`UPDATING`: API gateway is being updated.</li><ul/>
 domain | **string**<br>Default domain for the API gateway. Generated at creation time. 
 log_group_id | **string**<br>ID of the log group for the API gateway. 
 
@@ -143,7 +143,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the API gateway. The name is unique within the folder. 
 description | **string**<br>Description of the API gateway. 
 labels | **map<string,string>**<br>API gateway labels as `key:value` pairs. 
-status | enum **Status**<br>Status of the API gateway. <ul><li>`CREATING`: API gateway is being created.</li><li>`ACTIVE`: API gateway is ready for use.</li><li>`DELETING`: API gateway is being deleted.</li><li>`ERROR`: API gateway failed. The only allowed action is delete.</li><ul/>
+status | enum **Status**<br>Status of the API gateway. <ul><li>`CREATING`: API gateway is being created.</li><li>`ACTIVE`: API gateway is ready for use.</li><li>`DELETING`: API gateway is being deleted.</li><li>`ERROR`: API gateway failed. The only allowed action is delete.</li><li>`UPDATING`: API gateway is being updated.</li><ul/>
 domain | **string**<br>Default domain for the API gateway. Generated at creation time. 
 log_group_id | **string**<br>ID of the log group for the API gateway. 
 
@@ -204,7 +204,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the API gateway. The name is unique within the folder. 
 description | **string**<br>Description of the API gateway. 
 labels | **map<string,string>**<br>API gateway labels as `key:value` pairs. 
-status | enum **Status**<br>Status of the API gateway. <ul><li>`CREATING`: API gateway is being created.</li><li>`ACTIVE`: API gateway is ready for use.</li><li>`DELETING`: API gateway is being deleted.</li><li>`ERROR`: API gateway failed. The only allowed action is delete.</li><ul/>
+status | enum **Status**<br>Status of the API gateway. <ul><li>`CREATING`: API gateway is being created.</li><li>`ACTIVE`: API gateway is ready for use.</li><li>`DELETING`: API gateway is being deleted.</li><li>`ERROR`: API gateway failed. The only allowed action is delete.</li><li>`UPDATING`: API gateway is being updated.</li><ul/>
 domain | **string**<br>Default domain for the API gateway. Generated at creation time. 
 log_group_id | **string**<br>ID of the log group for the API gateway. 
 

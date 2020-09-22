@@ -371,7 +371,7 @@ paths:
           2. A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
           3. The value. Must be 1-63 characters long and match the regular expression `^[a-z0-9.-]{1,61}$`.
 
-          Example of a filter: `hostname='node1.db.cloud.yandex.net'`
+          Example of a filter: `message.hostname='node1.db.cloud.yandex.net'`
 
           The maximum string length in characters is 1000.
         schema:
@@ -455,7 +455,7 @@ paths:
           2. A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
           3. The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.
 
-          Example of a filter: `hostname='node1.db.cloud.yandex.net'`
+          Example of a filter: `message.hostname='node1.db.cloud.yandex.net'`
 
           The maximum string length in characters is 1000.
         schema:
