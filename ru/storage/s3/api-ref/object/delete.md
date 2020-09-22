@@ -16,6 +16,11 @@ DELETE /{bucket}/{key} HTTP/1.1
 `bucket` | Имя бакета.
 `key` | Ключ объекта.
 
+### Query параметры {#request-params}
+
+Параметр | Описание
+----- | -----
+`version-id` | Ссылка на конкретную версию объекта.
 
 ### Заголовки {#request-headers}
 

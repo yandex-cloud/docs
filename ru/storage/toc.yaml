@@ -131,6 +131,12 @@ items:
                 href: s3/api-ref/bucket/list.md
               - name: deleteBucket
                 href: s3/api-ref/bucket/delete.md
+              - name: PutBucketVersioning
+                href: s3/api-ref/bucket/PutBucketVersioning.md
+              - name: GetBucketVersioning
+                href: s3/api-ref/bucket/GetBucketVersioning.md
+              - name: ListObjectVersions
+                href: s3/api-ref/bucket/ListObjectVersions.md
           - name: Object
             items:
               - name: Все методы
