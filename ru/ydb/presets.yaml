@@ -1,9 +1,17 @@
 default:
   ydb-full-name: Yandex Database
   ydb-short-name: YDB
-internal:
-  audience: internal
-external:
-  audience: external
+  ydb-name: Yandex Database
+  ydb-cli: ydb
+  deploy: yfm
 tech:
   audience: tech
+  ydb-cli: ya ydb
+  deploy: arc
+internal:
+  audience: internal
+  ydb-cli: ya ydb
+  deploy: arc
+external:
+  audience: external
+  deploy: arc

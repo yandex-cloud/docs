@@ -6,11 +6,15 @@
 
 {% endnote %}
 
-{% include [datatypes](../../../_includes/datatypes.md) %}
+{% include [datatypes](../../../_includes/datatypes_primitive_number.md) %}
+
+{% include [datatypes](../../../_includes/datatypes_primitive_string.md) %}
+
+{% include [datatypes](../../../_includes/datatypes_primitive_datetime.md) %}
 
 ## Приведение примитивных типов данных {%cast} {#converting-primitive-data-types-cast}
 
-### Явное приведение {%explicit_cast} {explicit-cast}
+### Явное приведение {%explicit_cast} {#explicit-cast}
 
 Явное приведение при помощи [CAST](../syntax/expressions.md#cast):
 

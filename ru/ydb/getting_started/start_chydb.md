@@ -29,32 +29,32 @@
 * доступны стандартные порты **9000** (CH native protocol) и **8123** (HTTP);
 * для использование через [YQL UI](https://yql.yandex-team.ru/) нужно создать запрос в синтаксисе ClickHouse и в запросе добавить ```use ydb_ch_pre;```.
 
-### Кластеры в Яндекс.Облаке
-Доступ к данным в Яндекс.Облаке ограничен и возможен только через [бастион](https://wiki.yandex-team.ru/cloud/security/services/bastion/).
+### Кластеры в {{ yandex-cloud }}
+Доступ к данным в {{ yandex-cloud }} ограничен и возможен только через [бастион](https://wiki.yandex-team.ru/cloud/security/services/bastion/).
 Кластеры в облаке разделены, поэтому данные из препрод облака доступны только через препрод кластер ClickHouse Over YDB, данные из прод облака - только через прод кластер.
 
-{% note info "Бастион Яндекс.Облака" %}
+{% note info "Бастион {{ yandex-cloud }}" %}
 
 [Бастион](https://wiki.yandex-team.ru/cloud/security/services/bastion/) – это сервис для аудирования и контроля доступа к данным.
 Для пользователя это прозрачный HTTPS прокси.
-Бастион не позволяет использовать порт **9000** (CH native protocol). Для работы с ClickHouse over YDB в Яндекс.Облаке необходимо передавать в заголовках запроса [OAuth-токен](https://ydb.yandex-team.ru/docs/getting_started/start_auth#get_oauth_token). 
+Бастион не позволяет использовать порт **9000** (CH native protocol). Для работы с ClickHouse over YDB в {{ yandex-cloud }} необходимо передавать в заголовках запроса [OAuth-токен](https://ydb.yandex-team.ru/docs/getting_started/start_auth#get_oauth_token). 
 
 {% endnote %} 
 
-Пример запроса к кластеру clickhouse over ydb в препроде Яндекс.Облака, возвращающий список YDB кластеров
+Пример запроса к кластеру clickhouse over ydb в препроде {{ yandex-cloud }}, возвращающий список YDB кластеров
 ```bash
-$ TOKEN="$(cat ~/.yql/token)";
-$ curl -H "Authorization: OAuth $TOKEN" \
+TOKEN="$(cat ~/.yql/token)";
+curl -H "Authorization: OAuth $TOKEN" \
  https://kikhouse.svc.kikhouse.bastion.cloud-preprod.yandex-team.ru/ \
- -d "SELECT * FROM system.ydb_clusters format Pretty""
+ -d "SELECT * FROM system.ydb_clusters format Pretty"
 ```
 
 #### kikhouse.svc.cloud.yandex.net
-* ClickHouse Over YDB для прода Облака;
+* ClickHouse Over YDB для прода {{ yandex-cloud }};
 * доступ осуществляется через L7 bastion — **kikhouse.svc.kikhouse.bastion.cloud.yandex-team.ru:443** (HTTPS);
 
 #### kikhouse.svc.cloud-preprod.yandex.net
-* ClickHouse Over YDB для препрода Облака;
+* ClickHouse Over YDB для препрода {{ yandex-cloud }};
 * доступ осуществляется через L7 bastion — **kikhouse.svc.kikhouse-preprod.bastion.cloud.yandex-team.ru:443** (HTTPS);
 
 ### Обращение к таблицам YDB
@@ -101,7 +101,7 @@ $ curl -H "Authorization: Basic $(printf 'default:%s' "$TOKEN" | base64)" \
 
 ### HTTPS L7 bastion
 
-Пример запроса в Яндекс.Облаке через L7 bastion:
+Пример запроса в {{ yandex-cloud }} через L7 bastion:
 ```bash
 $ TOKEN="$(cat ~/.yql/token)";
 $ curl -H "Authorization: OAuth $TOKEN" \

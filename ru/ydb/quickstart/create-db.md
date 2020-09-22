@@ -4,13 +4,9 @@
 
 ## Перед началом работы {#before-you-begin}
 
-Доступ к сервису предоставляется по заявке. Чтобы оформить заявку:
 1. Войдите в [консоль управления](https://console.cloud.yandex.ru). Если вы еще не зарегистрированы, перейдите в консоль управления и следуйте инструкциям.
-1. [На странице биллинга](https://console.cloud.yandex.ru/billing) убедитесь, что у вас подключен [платежный аккаунт](../../billing/concepts/billing-account.md), и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md#create_billing_account).
-1. Если у вас еще нет каталога, [создайте его](../../resource-manager/operations/folder/create.md).
-1. Перейдите на [страницу сервиса {{ ydb-short-name }}](https://cloud.yandex.ru/services/ydb) и нажмите кнопку **Запросить доступ**.
-1. Выберите облако, в котором планируете работать с сервисом, и нажмите кнопку **Отправить**. Как только заявка будет одобрена, на вашу электронную почту придет письмо с подтверждением.
-1. Откройте письмо и нажмите кнопку **Начать тестирование**. Вы будете перенаправлены в [консоль {{ yandex-cloud }}](https://console.cloud.yandex.ru/) и сможете начать работу с сервисом.
+1. [На странице биллинга](https://console.cloud.yandex.ru/billing) убедитесь, что у вас подключен {% if deploy != "arc" %}[платежный аккаунт](../../billing/concepts/billing-account.md){% else %}платежный аккаунт{% endif %}, и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, {% if deploy != "arc" %}[создайте его](../../billing/quickstart/index.md#create_billing_account){% else %}создайте его{% endif %}.
+1. Если у вас еще нет каталога, {% if deploy != "arc" %}[создайте его](../../resource-manager/operations/folder/create.md){% else %}создайте его{% endif %}.
 
 ## Создайте базу данных {#control-plane}
 

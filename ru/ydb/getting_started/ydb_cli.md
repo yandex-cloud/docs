@@ -24,7 +24,7 @@
 ### Проверка корректности аутентификации {#whoami}
 Часто бывает полезно узнать, как вы представляетесь базе данных.
 ```bash
-$ ya ydb -e ydb-ru.yandex.net:2135 -d /ru/tutorial/home/testdb --token-file ~/my_token discovery whoami -g
+$ {{ ydb-cli }} -e ydb-ru.yandex.net:2135 -d /ru/tutorial/home/testdb --token-file ~/my_token discovery whoami -g
 User SID: pnv1@staff
 
 Group SIDs:
@@ -37,20 +37,20 @@ allstaff@staff
 
 ### Получение списка ендпоинтов для базы данных {#discovery_list}
 ```bash
-arcadia$ ya ydb -e ydb-ru.yandex.net:2135 -d /ru/tutorial/home/testdb discovery list
+$ {{ ydb-cli }} -e ydb-ru.yandex.net:2135 -d /ru/tutorial/home/testdb discovery list
 grpc://ydb-ru-myt-1076.search.yandex.net:31061 [MYT]
 ```
 
 ### Листинг объектов по указанному пути
 ```bash
-$ ya ydb -e ydb-ru.yandex.net:2135 -d /ru/tutorial/home/testdb scheme ls /ru/tutorial/home/testdb/cli_demo
+$ {{ ydb-cli }} -e ydb-ru.yandex.net:2135 -d /ru/tutorial/home/testdb scheme ls /ru/tutorial/home/testdb/cli_demo
 episodes  seasons  series  some_directory
 ```
 
 Посмотреть подробную информацию можно, добавив флаг `-l`:
 
 ```bash
-$ ya ydb -e ydb-ru.yandex.net:2135 -d /ru/tutorial/home/testdb scheme ls cli_demo -l
+$ {{ ydb-cli }} -e ydb-ru.yandex.net:2135 -d /ru/tutorial/home/testdb scheme ls cli_demo -l
 ┌───────┬────────────┬──────────┬───────────────────────────────┬───────────────────────────────┬────────────────┐
 | Type  | Owner      | Size     | Created                       | Modified                      | Name           |
 ├───────┼────────────┼──────────┼───────────────────────────────┼───────────────────────────────┼────────────────┤
@@ -65,7 +65,7 @@ $ ya ydb -e ydb-ru.yandex.net:2135 -d /ru/tutorial/home/testdb scheme ls cli_dem
 Также, можно использовать опцию `-R` для рекурсивного листинга всех поддиректорий и объектов в них по указанному пути:
 
 ```bash
-$ ya ydb -e ydb-ru.yandex.net:2135 -d /ru/tutorial/home/testdb scheme ls cli_demo -lR
+$ {{ ydb-cli }} -e ydb-ru.yandex.net:2135 -d /ru/tutorial/home/testdb scheme ls cli_demo -lR
 ┌───────┬────────────┬──────────┬───────────────────────────────┬───────────────────────────────┬───────────────────────────────┐
 | Type  | Owner      | Size     | Created                       | Modified                      | Name                          |
 ├───────┼────────────┼──────────┼───────────────────────────────┼───────────────────────────────┼───────────────────────────────┤
@@ -82,7 +82,7 @@ $ ya ydb -e ydb-ru.yandex.net:2135 -d /ru/tutorial/home/testdb scheme ls cli_dem
 На примере таблицы
 
 ```bash
-$ ya ydb -e ydb-ru.yandex.net:2135 -d /ru/tutorial/home/testdb scheme describe cli_demo/episodes --stats
+$ {{ ydb-cli }} -e ydb-ru.yandex.net:2135 -d /ru/tutorial/home/testdb scheme describe cli_demo/episodes --stats
 ┌────────────┬─────────┬────────┬─────┐
 | Name       | Type    | Family | Key |
 ├────────────┼─────────┼────────┼─────┤
@@ -103,7 +103,7 @@ Created: Mon, 19 Jan 1970 10:05:24 MSK
 
 ### Выполнение запроса к базе
 ```bash
-$ ya ydb -e ydb-ru.yandex.net:2135 -d /ru/tutorial/home/testdb table query execute -q "SELECT season_id, episode_id, title FROM [/ru/tutorial/home/testdb/cli_demo/episodes] WHERE series_id = 1 AND season_id > 1 ORDER BY season_id, episode_id LIMIT 3"
+$ {{ ydb-cli }} -e ydb-ru.yandex.net:2135 -d /ru/tutorial/home/testdb table query execute -q "SELECT season_id, episode_id, title FROM [/ru/tutorial/home/testdb/cli_demo/episodes] WHERE series_id = 1 AND season_id > 1 ORDER BY season_id, episode_id LIMIT 3"
 ┌───────────┬────────────┬────────────────────────────────┐
 | season_id | episode_id | title                          |
 ├───────────┼────────────┼────────────────────────────────┤
@@ -117,7 +117,7 @@ $ ya ydb -e ydb-ru.yandex.net:2135 -d /ru/tutorial/home/testdb table query execu
 
 ### Потоковое чтение таблицы
 ```bash
-$ ya ydb -e ydb-ru.yandex.net:2135 -d /ru/tutorial/home/testdb table readtable cli_demo/episodes --ordered --limit 5 --columns series_id,season_id,episode_id,title
+$ {{ ydb-cli }} -e ydb-ru.yandex.net:2135 -d /ru/tutorial/home/testdb table readtable cli_demo/episodes --ordered --limit 5 --columns series_id,season_id,episode_id,title
 ┌───────────┬───────────┬────────────┬─────────────────────────────────┐
 | series_id | season_id | episode_id | title                           |
 ├───────────┼───────────┼────────────┼─────────────────────────────────┤
@@ -140,13 +140,13 @@ $ ya ydb -e ydb-ru.yandex.net:2135 -d /ru/tutorial/home/testdb table readtable c
 Если нужно получить только количество прочитанных записей, следует использовать параметр `--count-only`:
 
 ```bash
-$ ya ydb -e ydb-ru.yandex.net:2135 -d /ru/tutorial/home/testdb table readtable cli_demo/episodes --columns series_id --count-only
+$ {{ ydb-cli }} -e ydb-ru.yandex.net:2135 -d /ru/tutorial/home/testdb table readtable cli_demo/episodes --columns series_id --count-only
 70
 ```
 
 ### Получение плана запроса и AST {#explain_plan}
 ```bash
-$ ya ydb -e ydb-ru.yandex.net:2135 -d /ru/tutorial/home/testdb table query explain -q "SELECT season_id, episode_id, title FROM [/ru/tutorial/home/testdb/cli_demo/episodes] WHERE series_id = 1 AND season_id > 1 ORDER BY season_id, episode_id LIMIT 3" --ast
+$ {{ ydb-cli }} -e ydb-ru.yandex.net:2135 -d /ru/tutorial/home/testdb table query explain -q "SELECT season_id, episode_id, title FROM [/ru/tutorial/home/testdb/cli_demo/episodes] WHERE series_id = 1 AND season_id > 1 ORDER BY season_id, episode_id LIMIT 3" --ast
 Query plan:
 {
     meta : {
@@ -216,7 +216,7 @@ Query AST:
 Расмотрим еще один пример. Допустим, необходимо получить только первые сезоны всех сериалов.
 
 ```bash
-$ ya ydb -e ydb-ru.yandex.net:2135 -d /ru/tutorial/home/testdb table query explain -q "SELECT sa.title AS season_title, sr.title AS series_title, sr.series_id, sa.season_id FROM [/ru/tutorial/home/testdb/cli_demo/seasons] AS sa INNER JOIN [/ru/tutorial/home/testdb/cli_demo/series] AS sr ON sa.series_id = sr.series_id WHERE sa.season_id = 1"
+$ {{ ydb-cli }} -e ydb-ru.yandex.net:2135 -d /ru/tutorial/home/testdb table query explain -q "SELECT sa.title AS season_title, sr.title AS series_title, sr.series_id, sa.season_id FROM [/ru/tutorial/home/testdb/cli_demo/seasons] AS sa INNER JOIN [/ru/tutorial/home/testdb/cli_demo/series] AS sr ON sa.series_id = sr.series_id WHERE sa.season_id = 1"
 Query plan:
 {
     meta : {
@@ -262,10 +262,71 @@ Query plan:
 
 Из данного плана запроса следует, что для таблицы `seasons` будет выполнен `FullScan`, а для таблицы `series` - множественные чтения (тип обращения `MultiLookup`) по ключу `series_id` (lookup_by). А тип чтения `MultiLookup` и раздел `lookup_by` говорят о том, что для таблицы `series` будут выполнены множественные чтения по ключу `series_id`.
 
+##### Запуск операции добавления вторичного индекса
+
+В YDB имеется механизм операций для процессов которые занимают долгое время, не требуют для своей работы учатия пользователя, но должны переживать разрыв связанности с клиентом.
+
+```bash
+$ {{ ydb-cli }} -e ydb-ru.yandex.net:2135 -d /ru/tutorial/home/testdb table index add global --index-name owner_index --columns Owner cli_demo
+┌───────────────────────────────────────┬───────┐
+| id                                    | ready |
+├───────────────────────────────────────┼───────┤
+| ydb://buildindex/7?id=562949992705115 | false |
+└───────────────────────────────────────┴───────┘
+```
+
+Команда вернула идентификатор операции построения индекса. Для того что бы получить информацию о ходе операции ее необходимо периодически опрашивать, в ходе чего мы получим прогресс и статус.
+Прогресс (поле progress) считается как процент шардов исходной таблицы завершивших трансфер данных.
+Статус (поле status) отображается когда операция уже завершена и говорит о результате выполнения всей операции построения.
+
+Команда опроса операции выглядит так:
+
+```bash
+$ {{ ydb-cli }} -e ydb-ru.yandex.net:2135 -d /ru/tutorial/home/testdb operation get ydb://buildindex/7?id=562949992705115
+┌───────────────────────────────────────┬───────┬────────┬──────────────┬──────────┬───────────────────────────────────────┬────────────┐
+| id                                    | ready | status | state        | progress | table                                 | index      |
+├───────────────────────────────────────┼───────┼────────┼──────────────┼──────────┼───────────────────────────────────────┼────────────┤
+| ydb://buildindex/7?id=562949992705115 | false |        | transferdata | 23.43    | /ru/tutorial/home/testdb/cli_demo     | owner_index|
+└───────────────────────────────────────┴───────┴────────┴──────────────┴──────────┴───────────────────────────────────────┴────────────┘
+```
+
+Просмотреть все операции построения индекса для базы:
+
+```bash
+$ {{ ydb-cli }} -e ydb-ru.yandex.net:2135 -d /ru/tutorial/home/testdb operation list buildindex
+┌───────────────────────────────────────┬───────┬────────┬──────────────┬──────────┬───────────────────────────────────────┬────────────┐
+| id                                    | ready | status | state        | progress | table                                 | index      |
+├───────────────────────────────────────┼───────┼────────┼──────────────┼──────────┼───────────────────────────────────────┼────────────┤
+| ydb://buildindex/7?id=562949992705115 | false |        | transferdata | 23.43    | /ru/tutorial/home/testdb/cli_demo     | owner_index|
+└───────────────────────────────────────┴───────┴────────┴──────────────┴──────────┴───────────────────────────────────────┴────────────┘
+
+Next page token: 0
+
+```
+
+Операцию построения можно отменить:
+```bash
+$ {{ ydb-cli }} -e ydb-ru.yandex.net:2135 -d /ru/tutorial/home/testdb operation cancel ydb://buildindex/7?id=562949996325696
+```
+
+После того как операция завершена или отменена, ее следует удалить из базы:
+```bash
+$ {{ ydb-cli }} -e ydb-ru.yandex.net:2135 -d /ru/tutorial/home/testdb operation forget ydb://buildindex/7?id=562949996325696
+```
+
+
+#### Удаление индекса
+
+Если индекс не нужен, то его можно удалить. Удаление индекса - обычный синхронный запрос. Результат возвращается сразу по исполнению запроса.
+
+```bash
+$ {{ ydb-cli }} -e ydb-ru.yandex.net:2135 -d /ru/tutorial/home/testdb table index drop --index-name owner_index cli_demo
+```
+
 ## Структура команд YDB CLI
 Список всех доступных команд YDB CLI с кратким описанием каждой из них всегда можно увидеть, выполнив команду:
 ```bash
-$ ya ydb --help
+$ {{ ydb-cli }} --help
 YDB client
 
 Usage: /home/pnv1/.ydb/bin/ydb [options...] <subcommand>
@@ -328,7 +389,7 @@ Free args: min: 1, max: unlimited (listed described args only)
 Также, для любой из подкоманд можно получить более подробное описание со списком доступных параметров:
 
 ```bash
-$ ya ydb discovery whoami --help
+$ {{ ydb-cli }} discovery whoami --help
 Usage: ydb [global options...] discovery whoami [options...]
 
 Description: Who am I?

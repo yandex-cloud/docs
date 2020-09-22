@@ -1,4 +1,4 @@
-# Удаление устаревших данных (TTL)
+# Удаление устаревших данных с помощью вспомогательных таблиц
 
 {% if audience == "internal" %}
 
@@ -14,8 +14,9 @@
 
 Временные метки строк из основной таблицы и их идентификаторы следует записывать во вспомогательные таблицы. В приложении TTL используются вспомогательные таблицы с названиями ```expiration_queue_%``` (```expiration_queue_0```, ```expiration_queue_1```, ```expiration_queue_2```, ```expiration_queue_3```).
 
-Фрагмент кода приложения TTL демонстрирует создание вспомогательных таблиц ```expiration_queue_%```:
- 
+Фрагмент кода приложения TTL, представленный в листинге 1, демонстрирует создание вспомогательных таблиц ```expiration_queue_%```.
+
+<small>Листинг 1</small>
 ```c++
     // Multiple ExpirationQueue tables allow to scale the load.
     // Each ExpirationQueue table can be handled by a dedicated worker.
@@ -35,10 +36,11 @@
 
 ### Равномерное распределение нагрузки на вспомогательные таблицы {#load-balance}
 
-Рекомендуется равномерно распределять строки по вспомогательным таблицам ```expiration_queue_%```. Например, случайным образом выбирая вспомогательную таблицу для каждой строки.  Фрагмент кода приложения TTL демонстрирует запись данных в основную таблицу ```documents```, и, в одну из вспомогательных таблиц ```expiration_queue_%```, выбранную случайным образом:
+Рекомендуется равномерно распределять строки по вспомогательным таблицам ```expiration_queue_%```. Например, случайным образом выбирая вспомогательную таблицу для каждой строки.  Фрагмент кода приложения TTL, представленный в листинге 2, демонстрирует запись данных в основную таблицу ```documents```, и, в одну из вспомогательных таблиц ```expiration_queue_%```, выбранную случайным образом.
 
+<small>Листинг 2</small>
 ```c++
-//! Inserts or replaces a document.
+//! Insert or replaces a document.
 static TStatus AddDocumentTransaction(TSession session, const TString& path,
     const TString& url, const TString& html, ui64 timestamp)
 {
@@ -80,8 +82,9 @@ static TStatus AddDocumentTransaction(TSession session, const TString& path,
 
 ## Чтение данных из основной таблицы {#read-from-table}
 
-Фрагмент кода приложения TTL демонстрирует чтение по первичному ключу из основной таблицы:
+Фрагмент кода приложения TTL, представленный в листинге 3, демонстрирует чтение по первичному ключу из основной таблицы.
 
+<small>Листинг 3</small>
 ```c++
 //! Reads document contents.
 static TStatus ReadDocumentTransaction(TSession session, const TString& path,
@@ -118,8 +121,9 @@ static TStatus ReadDocumentTransaction(TSession session, const TString& path,
 
 ## Удаление устаревших строк {#delete-deprecated-strings}
 
-Рекомендуется выбирать подмножество строк из вспомогательной таблицы для последующего удаления. Фрагмент кода приложения TTL демонстрирует выборку подмножества строк из вспомогательной таблицы:
+Рекомендуется выбирать подмножество строк из вспомогательной таблицы для последующего удаления. Фрагмент кода приложения TTL, представленный в листинге 4, демонстрирует выборку подмножества строк из вспомогательной таблицы.
 
+<small>Листинг 4</small>
 ```c++
 //! Reads a batch of entries from expiration queue
 static TStatus ReadExpiredBatchTransaction(TSession session, const TString& path, const ui32 queue,
@@ -180,8 +184,9 @@ static TStatus ReadExpiredBatchTransaction(TSession session, const TString& path
 
 ### Удаление данных из основной и вспомогательных таблиц {#delete-data}
 
-Фрагмент кода приложения TTL демонстрирует вызов метода ```DeleteDocumentWithTimestamp``` для удаления устаревших строк на основании данных, полученных из вспомогательных таблиц в предыдущем примере:
- 
+Фрагмент кода приложения TTL, представленный в листинге 5, демонстрирует вызов метода ```DeleteDocumentWithTimestamp``` для удаления устаревших строк на основании данных, полученных из вспомогательных таблиц в листинге 4.
+
+<small>Листинг 5</small>
 ```c++
 void DeleteExpired(TTableClient client, const TString& path, const ui32 queue, const ui64 timestamp) {
     Cout << "> DeleteExpired from queue #" << queue << ":" << Endl;
@@ -211,8 +216,9 @@ void DeleteExpired(TTableClient client, const TString& path, const ui32 queue, c
 }
 ```
 
-Фрагмент кода проиложения TTL демонстрирует метод ```DeleteDocumentWithTimestamp```, в котором реализовано удаление строк из основной таблицы ```documents``` и из вспомогательных таблиц ```expiration_queue_%```. 
+Фрагмент кода проиложения TTL, представленный в листинге 6, демонстрирует метод ```DeleteDocumentWithTimestamp```, в котором реализовано удаление строк из основной таблицы ```documents``` и из вспомогательных таблиц ```expiration_queue_%```.
 
+<small>Листинг 6</small>
 ```c++
 //! Deletes an expired document
 static TStatus DeleteDocumentWithTimestamp(TSession session, const TString& path, const ui32 queue,

@@ -162,6 +162,7 @@ default:
   yc-compute-ig: yc compute instance-group
   yc-compute: yc compute
   yc-compute-instance: yc compute instance
+  yc-ydb: yc ydb
 
   # Compute specific
   max-gpus: 4

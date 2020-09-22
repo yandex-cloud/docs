@@ -1,288 +1,187 @@
-# Как начать работать с {{ ydb-short-name }}
+# Как попробовать
 
-*Сервис {{ ydb-short-name }} находится на [стадии Preview](../overview/concepts/launch-stages.md), доступ к сервису предоставляется по заявке.*
+Работать с базой YDB можно как при помощи [веб-интерфейса](https://ydb.yandex-team.ru), так и используя [консольный клиент YDB](getting_started/ydb_cli.md).
 
-Создайте базу данных {{ ydb-short-name }} в консоли управления {{ yandex-cloud }} и ознакомьтесь с правилами написания YQL-запросов. Также вы можете запустить тестовое приложение для знакомства с работой {{ ydb-short-name }} SDK для [Python](https://github.com/yandex-cloud/ydb-python-sdk), [Go](https://github.com/yandex-cloud/ydb-go-sdk) или [Java](https://github.com/yandex-cloud/ydb-java-sdk).
+В этом разделе описаны базовые действия в YDB при помощи [веб-интерфейса](https://ydb.yandex-team.ru).
 
-## Перед началом работы {#before-you-begin}
+Для того, чтобы посмотреть на YDB в действии, следует:
 
-Доступ к сервису предоставляется по заявке. Чтобы оформить заявку:
-1. Войдите в [консоль управления](https://console.cloud.yandex.ru). Если вы еще не зарегистрированы, перейдите в консоль управления и следуйте инструкциям.
-1. [На странице биллинга](https://console.cloud.yandex.ru/billing) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md), и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
-1. Если у вас еще нет каталога, [создайте его](../resource-manager/operations/folder/create.md).
-1. Перейдите на [страницу сервиса {{ ydb-short-name }}](https://cloud.yandex.ru/services/ydb) и нажмите кнопку **Запросить доступ**.
-1. Выберите облако, в котором планируете работать с сервисом, и нажмите кнопку **Отправить**. Как только заявка будет одобрена, на вашу электронную почту придет письмо с подтверждением.
-1. Откройте письмо и нажмите кнопку **Начать тестирование**. Вы будете перенаправлены в [консоль {{ yandex-cloud }}](https://console.cloud.yandex.ru/) и сможете начать работу с сервисом.
+* зайти в [веб-интерфейс YDB](https://ydb.yandex-team.ru);
+* создать базу данных;
+* создать таблицу;
+* записать и изменить данные в таблице;
+* прочитать данные.
 
-## Создайте базу данных {#control-plane}
+## Как создать свою БД
 
-{% if audience == "internal" %}
+Для создания базы данных нужно выполнить следующие действия:
 
-1. Чтобы создать базу данных, перейдите в [консоль управления](https://ydb.yandex-team.ru).
+Зайдите в [веб-интерфейс YDB](https://ydb.yandex-team.ru)
 
-    {% include [iam](../../_includesdes/iam/owner-warning.md) %}
+Нажмите кнопку "Create database".
 
-1. Нажмите кнопку **Create database**.
+![Create database](_assets/db_ui_create_database_button.png)
 
-    ![Create database](_assets/db_ui_create_database_button.png)
+В диалоге создания БД выберите кластер ydb-ru.
 
-1. В поле **Cluster** выберите кластер *ydb-ru*.
+Все остальные поля будут заполнены автоматически, в том числе будет автоматически выбран аккаунт "home", создана директория с вашим именем пользователя и база данных с именем "mydb".
 
-    Остальные поля будут заполнены автоматически, в том числе будет автоматически выбран аккаунт *home*, создана директория с вашим именем пользователя и база данных с именем *mydb*.
+На картинке ниже можно увидеть пример формы создания новой базы данных.
 
-    Пример создания новой базы данных:
+![Create new database](_assets/db_ui_create_home_database.png)
 
-    ![Create new database](_assets/db_ui_create_home_database.png)
+Нажмите кнопку "Create".
 
-1. Нажмите кнопку **Create**.
+Появится страница с сообщением об успешном создании базы данных.
 
-    Появится страница с сообщением об успешном создании базы данных.
+![New database entrance](_assets/db_ui_entrance_home_database.png)
 
-    ![New database entrance](_assets/db_ui_entrance_home_database.png)
+Для того, чтобы перейти в режим просмотра содержимого БД нажмите на кнопку "Browse database", или перейдите по ссылке с именем базы данных.
 
-{% else if audience == "external" %}
+Чтобы задать первый запрос к БД, нажмите на кнопку "YQL Kit" и откроется окно веб-консоли, позволяющей задавать запросы к базе.
 
-{% include [create-db-via-console](_includes/create-db-via-console.md) %}
+![Open YQL Kit](_assets/db_ui_open_yql_kit.png)
 
-{% endif %}
 
-## Создайте таблицу {#create-table}
+## Как создать таблицу в своей БД
 
-Чтобы начать работать с базой, создайте новую таблицу с помощью оператора [CREATE TABLE](yql/reference/syntax/create_table.md).
+Для создания таблицы в панели YQL Kit нажмите кнопку "New"
 
-{% include [create-schema-via-console](_includes/create-schema-via-console.md) %}
+![New yql query](_assets/db_ui_yql_kit_panel.png)
 
-## Запишите данные в таблицу {#replace-data}
+и добавьте команду создания таблицы:
 
-Запишите новые данные в таблицу с помощью оператора [REPLACE](yql/reference/syntax/replace_into.md).
 
-{% include [replace-data-via-console](_includes/replace-data-via-console.md) %}
+```
+CREATE TABLE series
+(
+    series_id Uint64,
+    title Utf8,
+    series_info Utf8,
+    release_date Uint64,
+    PRIMARY KEY (series_id)
+);
+```
 
-{% if audience == "internal" %}
+{% note warning "USE" %}
+
+В каждый запрос в YQL Kit автоматически подставляется команда ```USE [/ru/home/your_account/database_name];```.<br>Она необходима для того, чтобы не использовать указание БД в каждом запросе в именах таблиц.
+Не удаляйте эту строчку.
+
+{% endnote %}
+
+
+Нажмите кнопку "Run"
+
+![Run_сreate table](_assets/db_ui_run_create_table.png)
+
+После успешного выполнения запроса будет создана таблица series.
+
+Для просмотра информации о таблице можно нажать кнопку <svg viewBox="0 0 24 24" width="18" height="18" fill="#26a"><path id="icon.info" d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"></path></svg>, в открывшейся панели на вкладке "Schema" представлена информация о схеме таблицы.
+
+![Table details](_assets/db_ui_table_details_kit.png)
+
+## Как записать данные в таблицу
+
+Для записи данных в таблицу series можно использовать оператор REPLACE.
+
+Для того, чтобы выполнить новый запрос, нажмите кнопку "New" на панели YQL Kit. Добавьте в окно следующий запрос:
+
+```
+REPLACE INTO series (series_id, title, release_date, series_info)
+VALUES
+    (
+        1,
+        "IT Crowd",
+        CAST(Date("2006-02-03") AS Uint64),
+        "The IT Crowd is a British sitcom."),
+    (
+        2,
+        "Silicon Valley",
+        CAST(Date("2014-04-06") AS Uint64),
+        "Silicon Valley is an American comedy television series."
+    ),
+    (
+        3,
+        "Fake series",
+        CAST(Date("2018-09-11") AS Uint64),
+        "Fake series for testing purposes."
+    )
+    ;
+```
+и нажмите кнопку Run.
+
+
+При нажатии на название таблицы в левой панели, вы попадете в режим превью данных таблицы. В превью вы увидите строки, вставленные после успешного выполнения предыдущего запроса.
 
 ![Table preview](_assets/db_ui_table_preview.png)
 
-{% endif %}
+## Как заменить строки в таблице
 
-## Замените строки в таблице {#update-data}
+Теперь запишем изменения с помощью оператора UPDATE.
+Для выполнения нового запроса, нажмите кнопку "New" на панели YQL Kit. Добавьте в окно следующий запрос:
 
-Обновите существующие данные в таблице с помощью оператора [UPDATE](yql/reference/syntax/update.md).
+```
+UPDATE series
+SET series_info="Fake series updated"
+WHERE
+    series_id = 3
+;
+```
+и нажмите кнопку Run.
 
-{% include [update-data-via-console](_includes/update-data-via-console.md) %}
-
-{% if audience == "internal" %}
-
+В превью панели слева автоматически будут отображаться изменения, вызванные выполнением предыдущего запроса.
 ![Update preview](_assets/db_ui_run_update.png)
 
-{% endif %}
+## Как удалить строки в таблице
 
-## Удалите строки из таблицы {#delete-data}
+Удалим строку с фейковым сериалом.
+Для выполнения нового запроса, нажмите кнопку "New" на панели YQL Kit. Добавьте в окно следующий запрос:
 
-Удалите данные из таблицы с помощью оператора [DELETE](yql/reference/syntax/delete.md).
+```
+DELETE
+FROM series
+WHERE
+    series_id = 3
+;
+```
+и нажмите кнопку Run.
 
-{% include [delete-data-via-console](_includes/delete-data-via-console.md) %}
+В превью панели слева автоматически будут отображаться изменения, вызванные выполнением предыдущего запроса.
+![Update preview](_assets/db_ui_run_delete.png)
 
-{% if audience == "internal" %}
 
-![Delete preview](_assets/db_ui_run_delete.png)
+## Как прочитать данные из таблицы
 
-{% endif %}
+Для чтения данных из таблицы series используем оператор SELECT.
+Для выполнения нового запроса, нажмите кнопку "New" на панели YQL Kit. Добавьте в окно следующий запрос:
 
-## Прочитайте данные {#select-data}
+```
+SELECT
+    series_id,
+    title AS series_title,
+    DateTime::ToDate(DateTime::FromDays(release_date)) AS release_date
+FROM series;
+```
+и нажмите кнопку Run.
 
-Прочитайте данные из таблицы с помощью оператора [SELECT](yql/reference/syntax/select.md).
-
-{% include [select-data-via-console](_includes/select-data-via-console.md) %}
-
-{% if audience == "internal" %}
+На панели должны отобразиться результаты, показанные на рисунке ниже:
 
 ![Select from table](_assets/db_ui_run_select.png)
 
-{% endif %}
+## Как удалить таблицу
 
-## Удалите таблицу {#drop-table}
+Тестовую таблицу можно удалить с помощью оператора DROP TABLE.
+Для выполнения нового запроса, нажмите кнопку "New" на панели YQL Kit. Добавьте в окно следующий запрос:
 
-Удалите таблицу с помощью оператора [DROP TABLE](yql/reference/syntax/drop_table.md).
+```
+DROP TABLE series;
+```
 
-{% include [drop-table-via-console](_includes/drop-table-via-console.md) %}
+и нажмите кнопку Run.
 
-## Запустите тестовое приложение {#sdk}
+{% note info "Tutorial" %}
 
-Подключитесь к базе данных и запустите тестовые приложения для знакомства с работой {{ ydb-short-name }} SDK для [Python](https://github.com/yandex-cloud/ydb-python-sdk), [Go](https://github.com/yandex-cloud/ydb-go-sdk) или [Java](https://github.com/yandex-cloud/ydb-java-sdk).
+Tutorial по работе с данными YDB при помощи [YQL](https://yql.yandex-team.ru/docs/ydb/) можно пройти в веб-интерфейсе [https://yql.yandex-team.ru/Tutorial/](https://yql.yandex-team.ru/Tutorial/ydb_01_Create_demo_tables).
 
-Подробный разбор кода тестовых приложений читайте в разделе [{#T}](sdk/index.md).
-
-### Подключитесь к базе данных {#connect-to-db}
-
-Чтобы подключиться к базе данных:
-
-1. [Создайте виртуальную машину](../compute/operations/vm-create/create-linux-vm) в {{ yandex-cloud }}.
-
-1. Сохраните публичный IP-адрес виртуальной машины. Для этого перейдите в свойства виртуальной машины или [воспользуйтесь интерфейсом командной строки](../compute/operations/vm-info/get-info#outside-instance).
-
-1. Для аутентификации в базе данных [создайте сервисный аккаунт](../iam/operations/sa/create) и назначьте ему роли `viewer` и `editor`.
-
-1. Перейдите в раздел **Сервисные аккаунты** своего каталога и выберите необходимый сервисный аккаунт в списке. Сохраните идентификатор сервисного аккаунта.
-
-1. [Создайте авторизованные ключи доступа](../iam/operations/iam-token/create-for-sa#keys-create) к сервисному аккаунту и сохраните их.
-
-1. Перейдите в свойства базы данных и сохраните значения эндпоинта и идентификатора базы, приведенные в поле **Эндпоинт**.
-
-### Запустите тестовое приложение {#run-test}
-
-Чтобы запустить приложение:
-
-{% list tabs %}
-
-- Python
-  
-  1. Установите [Yandex.Cloud Python SDK](https://github.com/yandex-cloud/python-sdk):
-  
-      ```bash
-      git clone https://github.com/yandex-cloud/python-sdk.git
-      sudo pip3 install -e python-sdk/
-      ```
-  
-  1. Установите [YDB Python SDK](https://github.com/yandex-cloud/ydb-python-sdk):
-  
-      ```bash
-      git clone https://github.com/yandex-cloud/ydb-python-sdk.git
-      sudo pip3 install -e ydb-python-sdk/
-      ```
-  
-  1. Для аутентификации потребуются идентификатор сервисного аккаунта и открытый авторизованный ключ, созданные [ранее](#connect-to-db).
-  
-  1. Установите переменные окружения, необходимые для аутентификации приложения:
-  
-      ```bash
-      export SA_ENDPOINT=iam.api.cloud.yandex.net:443
-      export SA_PRIVATE_KEY_FILE=/home/path/to/private.key
-      export SA_ID=YOUR_SA_ID
-      export SA_ACCESS_KEY_ID=YOUR_ACCESS_KEY_ID
-      ```
-  
-      * SA_ENDPOINT — эндпоинт IAM, установите значение `iam.api.cloud.yandex.net:443`
-      * SA_PRIVATE_KEY_FILE — путь к файлу с закрытым ключом
-      * SA_ID — идентификатор сервисного аккаунта
-      * SA_ACCESS_KEY_ID — идентификатор открытого авторизованного ключа
-  
-  1. Запустите тестовое приложение `basic_example_v1` из репозитория `ydb-python-sdk`, указав в качестве параметров запуска значения эндпоинта и идентификатора базы, полученные [ранее](#connect-to-db):
-  
-      ```bash
-      cd ./ydb-python-sdk/kikimr/public/sdk/python/examples/basic_example_v1
-      python3 __main__.py -e endpoint -d database
-      ```
-  
-  Результат выполнения приложения:
-  
-  ```bash
-  > describe table: series
-  column, name: series_id , Uint64
-  column, name: title , Utf8
-  column, name: series_info , Utf8
-  column, name: release_date , Uint64
-  column, name: comment , Utf8
-  
-  > select_simple_transaction:
-  series, id:  1 , title:  IT Crowd , release date:  b'2006-02-03'
-  
-  > select_prepared_transaction:
-  episode title: To Build a Better Beta , air date: b'2016-06-05'
-  
-  > select_prepared_transaction:
-  episode title: Bachman's Earnings Over-Ride , air date: b'2016-06-12'
-  
-  > explicit TCL call
-  
-  > select_prepared_transaction:
-  episode title: TBD , air date: b'2019-05-10'
-  ```
-  
-- Go
-  
-  1. Установите [YDB Go SDK](https://github.com/yandex-cloud/python-sdk):
-  
-      ```bash
-      export GOPATH=$HOME/go
-      mkdir -p $GOPATH/src/github.com/yandex-cloud/ydb-go-sdk
-      cd $GOPATH/src/github.com/yandex-cloud/ydb-go-sdk
-      git clone https://github.com/yandex-cloud/ydb-go-sdk.git
-      cd $GOPATH
-      go get github.com/dgrijalva/jwt-go
-      ```
-  
-  1. Для аутентификации приложения потребуются идентификатор сервисного аккаунта и открытый авторизованный ключ доступа, полученные [ранее](#connect-to-db).
-  
-  1. Установите переменные окружения, необходимые для аутентификации приложения:
-  
-      ```bash
-      export SA_ENDPOINT=iam.api.cloud.yandex.net:443
-      export SA_PRIVATE_KEY_FILE=/home/path/to/private.key
-      export SA_ID=YOUR_SA_ID
-      export SA_ACCESS_KEY_ID=YOUR_ACCESS_KEY_ID
-      ```
-  
-      * SA_ENDPOINT — эндпоинт IAM, установите значение `iam.api.cloud.yandex.net:443`
-      * SA_PRIVATE_KEY_FILE — локальный путь к файлу с закрытым авторизованным ключом
-      * SA_ID — идентификатор сервисного аккаунта
-      * SA_ACCESS_KEY_ID — идентификатор открытого авторизованного ключа
-  
-  1. Скомпилируйте тестовое приложение `basic_example_v1`:
-  
-      ```bash
-      cd $GOPATH
-      go build github.com/yandex-cloud/ydb-go-sdk/example/basic_example_v1/
-      ```
-  
-  1. Запустите тестовое приложение `basic_example_v1`, указав в качестве параметров запуска значения эндпоинта и идентификатора базы, полученные [ранее](#connect-to-db):
-  
-      ```bash
-      ./basic_example_v1 -endpoint endpoint -database database
-      ```
-  
-  Результат выполнения приложения:
-  
-  ```bash
-  inspecting Database
-  
-  > describe_table_options:
-  
-  > describe table: /global/path/todatabase/series
-  column, name: Optional<Uint64>, series_id
-  column, name: Optional<Utf8>, title
-  column, name: Optional<Utf8>, series_info
-  column, name: Optional<Uint64>, release_date
-  column, name: Optional<Utf8>, comment
-  
-  > select_simple_transaction: 1 IT Crowd 2006-02-03
-  ```
-  
-- Java
-
-  1. Установите [JDK 11](https://www.oracle.com/technetwork/java/javase/downloads/5066655), например:
-  
-      ```bash
-      sudo apt-get update
-      sudo apt-get install openjdk-11-jdk
-      ```
-  
-  1. Скомпилируйте тестовое приложение, например, `ydb-test-app`:
-  
-       ```bash
-       cd ydb-test-app
-       ./mvnw package
-       ```
-       
-  1. Запустите тестовое приложение `ydb-test-app`, указав параметры запуска, полученные [ранее](#connect-to-db):
-  
-      ```bash
-      ./mvnw -q exec:java -Dexec.args="<accountId> <keyId> <private_key_file_path> <endpoint> <database>"
-      ```
-      
-      * `accountId` — идентификатор сервисного аккаунта
-      * `keyId` — идентификатор открытого авторизованного ключа
-      * `private_key_file_path` — локальный путь к файлу с закрытым авторизованным ключом
-      * `endpoint` — эндпоинт базы данных
-      * `database` — имя базы данных
-  
-{% endlist %}
+{% endnote %}

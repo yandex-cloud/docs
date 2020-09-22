@@ -49,23 +49,29 @@
 
 Чтобы разрешить доступ к ресурсам сервиса {{ ydb-short-name }} (базы данных и их пользователи), назначьте пользователю нужные роли из приведенного ниже списка. На данный момент роль может быть назначена только на родительский ресурс (каталог или облако), роли которого наследуются вложенными ресурсами.
 
+{% if deploy != "arc" %}
 {% note info %}
 
 Подробнее о наследовании ролей читайте в разделе [{#T}](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) документации сервиса {{ resmgr-full-name }}.
 
 {% endnote %}
+{% endif %}
 
 ## Назначение ролей {#grant-roles}
 
 Чтобы назначить пользователю роль:
 
+{% if deploy != "arc" %}
 {% include [grant-role-console](../../_includes/grant-role-console.md) %}
+{% endif %}
 
 ## Роли {#roles}
 
 Ниже перечислены все роли, которые учитываются при проверке прав доступа в сервисе {{ ydb-short-name }}.
 
+{% if deploy != "arc" %}
 {% include [cloud-roles](../../_includes/cloud-roles.md) %}
+{% endif %}
 
 ### {{ roles-viewer }}
 

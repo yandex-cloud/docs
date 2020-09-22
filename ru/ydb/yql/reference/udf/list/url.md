@@ -34,14 +34,10 @@ SELECT Url::Normalize("http://ya.ru#foo");      -- "http://ya.ru/"
 
 * ```Url::NormalizeWithDefaultHttpScheme(String?) -> String?```
 
-{% if audience == "internal" %}
-
+{% if audience != "external" %}
 Выполняет нормализацию с помощью метода [NUrlNorm::NormalizeUrl](https://a.yandex-team.ru/arc/trunk/arcadia/kernel/urlnorm/normalize.cpp?rev=2910843#L46). В отличие от `Url::Normalize`, подставляет схему ```http://``` в случае, если схемы нет.
-
-{% else if audience == "external" %}
-
+{% else %}
 Выполняет нормализацию с помощью метода ```NUrlNorm::NormalizeUrl```. В отличие от `Url::Normalize`, подставляет схему ```http://``` в случае, если схемы нет.
-
 {% endif %}
 
 Возвращаемое значение:
@@ -172,7 +168,7 @@ SELECT Url::CutWWW("www.yandex.ru");           -- "yandex.ru"
 * ```Url::ForcePunycodeToHostName(String{Flag:AutoMap}) -> String```
 * ```Url::CanBePunycodeHostName(String{Flag:AutoMap}) -> Bool```
 
-{% if audience == "internal" %}
+{% if audience != "external" %}
 
 Подробнее см. [комментарии в используемой библиотеке](https://a.yandex-team.ru/arc/trunk/arcadia/library/unicode/punycode/punycode.h).
 
