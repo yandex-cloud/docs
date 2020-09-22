@@ -57,6 +57,8 @@ items:
         href: concepts/bucket.md
       - name: Объект
         href: concepts/object.md
+      - name: Версионирование бакета
+        href: concepts/versioning.md
       - name: Жизненные циклы объектов
         href: concepts/lifecycles.md
       - name: CORS
