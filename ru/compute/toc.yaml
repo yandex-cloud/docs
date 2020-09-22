@@ -209,6 +209,8 @@ items:
             href: concepts/instance-groups/access.md
           - name: Шаблон виртуальной машины
             href: concepts/instance-groups/instance-template.md
+          - name: Переменные в шаблоне виртуальной машины
+            href: concepts/instance-groups/variables-in-the-template.md
           - name: Политики
             items:
               - name: Обзор
