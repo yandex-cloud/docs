@@ -281,6 +281,8 @@ default:
   link-passport-login: https://passport.yandex.ru/auth
   link-cloud-oauth: https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb
   link-cloud-partners: https://partners.cloud.yandex.ru/
+  link-app-android: https://play.google.com/store/apps/details?id=ru.yandex.cloud
+  link-app-ios: https://apps.apple.com/ru/app/yandex-cloud/id1515465314
 
   # Cloud specific 
   yandex-cloud: Yandex.Cloud 
