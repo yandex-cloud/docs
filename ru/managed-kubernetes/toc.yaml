@@ -27,6 +27,10 @@ items:
             href: operations/volumes/static-create-pv.md
           - name: Управление классами хранилищ
             href: operations/volumes/manage-storage-class.md
+          - name: Увеличение размера тома
+            href: operations/volumes/volume-expansion.md
+          - name: Подключение тома в блочном режиме
+            href: operations/volumes/mode-block.md
       - name: Управление кластером Kubernetes
         items:
           - name: Добавление учетных данных кластера Kubernetes в конфигурационный файл kubectl
