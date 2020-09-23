@@ -91,6 +91,8 @@ items:
         href: windows/rds.md
       - name: Развертывание группы доступности Always On 
         href: windows/mssql-alwayson.md
+      - name: Развертывание группы доступности Always On с внутренним балансировщиком 
+        href: windows/mssql-alwayson-lb.md
   - name: Сетевая маршрутизация
     items:
       - name: Все сценарии
