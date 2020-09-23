@@ -38,6 +38,8 @@ items:
         href: concepts/environment.md
       - name: Интерфейсы и порты компонентов
         href: concepts/interfaces.md
+      - name: Веб-интерфейсы компонентов
+        href: concepts/ui-proxy.md
       - name: Автоматическое масштабирование
         href: concepts/autoscaling.md
       - name: Декомиссия подкластеров и хостов
