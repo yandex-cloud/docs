@@ -2,11 +2,15 @@
 
 Для возможности внутренней интроспекции состояния базы данных пользователю предоставляется возможность осуществлять запросы в специальные служебные таблицы (system views). Эти таблицы доступны из корня дерева базы данных и используют системный префикс пути `.sys`.
 
-{% if audience != "external" %}
+{% if audience == "external" %}
+
+В настоящее время доступ к системным таблицам возможен через веб-интерфейс.
+
+{% else %}
 
 Доступ к системным таблицам возможен через [ClickHouse over YDB](../getting_started/start_chydb.md) и через [аналитические запросы](../data_interfaces/scan_queries.md).
 
-Для обращения к системным таблицам через ClickHouse over YDB следует использовать табличную функцию `ydbTable`, например: `ydbTable('/path/to/database', '.sys/system_view_name')`.
+Для обращения к системным таблицам через ClickHouse over YDB следует использовать функцию `ydbTable`, например: `ydbTable('cluster', '/cluster/path/to/database', '.sys/system_view_name')`.
 
 {% endif %}
 
@@ -102,7 +106,7 @@ GROUP BY Path
       Path,
       PartIdx,
       CPUCores
-  FROM `/path/to/database/.sys/partition_stats`
+  FROM `/cluster/path/to/database/.sys/partition_stats`
   ORDER BY CPUCores DESC
   LIMIT 5
   ```
@@ -116,7 +120,7 @@ GROUP BY Path
       SUM(RowCount) as Rows,
       SUM(DataSize) as Size,
       SUM(CPUCores) as CPU
-  FROM `/path/to/database/.sys/partition_stats`
+  FROM `/cluster/path/to/database/.sys/partition_stats`
   GROUP BY Path
   ```
 
@@ -128,7 +132,7 @@ GROUP BY Path
       Path,
       PartIdx,
       CPUCores
-  FROM ydbTable('/path/to/database', '.sys/partition_stats')
+  FROM ydbTable('cluster', '/cluster/path/to/database', '.sys/partition_stats')
   ORDER BY CPUCores DESC
   LIMIT 5
   ```
@@ -141,7 +145,7 @@ GROUP BY Path
       SUM(RowCount) as Rows,
       SUM(DataSize) as Size,
       SUM(CPUCores) as CPU
-  FROM ydbTable('/path/to/database', '.sys/partition_stats')
+  FROM ydbTable('cluster', '/cluster/path/to/database', '.sys/partition_stats')
   GROUP BY Path
   ```
 
@@ -211,17 +215,18 @@ GROUP BY Path
 Топ запросов по времени выполнения за последнюю минуту, когда случались запросы
 
 ```sql
+$last = (
+    SELECT
+        MAX(IntervalEnd)
+    FROM `/path/to/database/.sys/top_queries_by_duration_one_minute`
+);
 SELECT
     IntervalEnd,
     Rank,
     QueryText,
     Duration
 FROM `/path/to/database/.sys/top_queries_by_duration_one_minute`
-WHERE IntervalEnd = (
-    SELECT
-        MAX(IntervalEnd)
-    FROM `/path/to/database/.sys/top_queries_by_duration_one_minute`
-)
+WHERE IntervalEnd IN $last
 ```
 
 Запросы, прочитавшие больше всего байт, в разбивке по минутам
@@ -247,17 +252,18 @@ WHERE Rank = 1
 
   ```sql
   --!syntax_v1
+  $last = (
+      SELECT
+          MAX(IntervalEnd)
+      FROM `/cluster/path/to/database/.sys/top_queries_by_duration_one_minute`
+  );
   SELECT
       IntervalEnd,
       Rank,
       QueryText,
       Duration
-  FROM `/path/to/database/.sys/top_queries_by_duration_one_minute`
-  WHERE IntervalEnd = (
-      SELECT
-          MAX(IntervalEnd)
-      FROM `/path/to/database/.sys/top_queries_by_duration_one_minute`
-  )
+  FROM `/cluster/path/to/database/.sys/top_queries_by_duration_one_minute`
+  WHERE IntervalEnd IN $last
   ```
 
   Запросы, прочитавшие больше всего байт, в разбивке по минутам
@@ -270,7 +276,7 @@ WHERE Rank = 1
       ReadBytes,
       ReadRows,
       Partitions
-  FROM `/path/to/database/.sys/top_queries_by_read_bytes_one_minute`
+  FROM `/cluster/path/to/database/.sys/top_queries_by_read_bytes_one_minute`
   WHERE Rank = 1
   ```
 
@@ -284,11 +290,11 @@ WHERE Rank = 1
       Rank,
       QueryText,
       Duration
-  FROM ydbTable('/path/to/database', '.sys/top_queries_by_duration_one_minute')
+  FROM ydbTable('cluster', '/cluster/path/to/database', '.sys/top_queries_by_duration_one_minute')
   WHERE IntervalEnd = (
       SELECT
           MAX(IntervalEnd)
-      FROM ydbTable('/path/to/database', '.sys/top_queries_by_duration_one_minute')
+      FROM ydbTable('cluster', '/cluster/path/to/database', '.sys/top_queries_by_duration_one_minute')
   )
   ```
 
@@ -301,7 +307,7 @@ WHERE Rank = 1
       ReadBytes,
       ReadRows,
       Partitions
-  FROM ydbTable('/path/to/database', '.sys/top_queries_by_read_bytes_one_minute')
+  FROM ydbTable('cluster', '/cluster/path/to/database', '.sys/top_queries_by_read_bytes_one_minute')
   WHERE Rank = 1
   ```
 
@@ -401,7 +407,7 @@ LIMIT 100
       Count,
       QueryText,
       IntervalEnd
-  FROM `/path/to/database/.sys/query_metrics_one_minute`
+  FROM `/cluster/path/to/database/.sys/query_metrics_one_minute`
   ORDER BY SumUpdateRows DESC LIMIT 10
   ```
 
@@ -416,7 +422,7 @@ LIMIT 100
       SumReadBytes / Count as AvgReadBytes,
       MaxReadBytes,
       QueryText
-  FROM `/path/to/database/.sys/query_metrics_one_minute`
+  FROM `/cluster/path/to/database/.sys/query_metrics_one_minute`
   WHERE SumReadBytes > 0
   ORDER BY IntervalEnd DESC, SumReadBytes DESC
   LIMIT 100
@@ -432,7 +438,7 @@ LIMIT 100
       Count,
       QueryText,
       IntervalEnd
-  FROM ydbTable('/path/to/database', '.sys/query_metrics_one_minute')
+  FROM ydbTable('cluster', '/cluster/path/to/database', '.sys/query_metrics_one_minute')
   ORDER BY SumUpdateRows DESC LIMIT 10
   ```
 
@@ -446,7 +452,7 @@ LIMIT 100
       SumReadBytes / Count AS AvgReadBytes,
       MaxReadBytes,
       QueryText
-  FROM ydbTable('/path/to/database', '.sys/query_metrics_one_minute')
+  FROM ydbTable('cluster', '/cluster/path/to/database', '.sys/query_metrics_one_minute')
   WHERE SumReadBytes > 0
   ORDER BY IntervalEnd DESC, SumReadBytes DESC
   LIMIT 100

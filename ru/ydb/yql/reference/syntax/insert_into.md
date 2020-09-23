@@ -4,12 +4,12 @@
 
 `INSERT INTO` позволяет выполнять следующие операции:
 
-* Добавление константных значений с помощью `VALUES`. Дописывает строки в конец таблицы.
+* Добавление константных значений с помощью `VALUES`. Добавляет строки в таблицу.
 
   **Пример**
 
   ```sql
-  INSERT INTO my_table (Key1, Key2, Value1, Value2) 
+  INSERT INTO my_table (Key1, Key2, Value1, Value2)
   VALUES (345987,'ydb', 'Яблочный край', 1414);
   COMMIT;
   ```
@@ -25,3 +25,9 @@
 
   COMMIT;
   ```
+
+{% note warning %}
+
+При попытке вставить в таблицу строку с уже существуюшим значением первичного ключа операция завершится ошибкой с кодом `PRECONDITION_FAILED` и текстом `Operation aborted due to constraint violation: insert_pk`.
+
+{% endnote %}

@@ -4,12 +4,6 @@
 
 - Python
 
-  1. {% if deploy != "arc" %}[Подключитесь](../../compute/operations/vm-connect/ssh.md){% else %}Подключитесь{% endif %} к виртуальной машине по SSH:
-
-      ```bash
-      ssh <имя_пользователя>@<публичный_IP-адрес_виртуальной машины>
-      ```
-
   1. Установите `pip3`:
 
       ```bash
@@ -82,12 +76,6 @@
 
 - Go
 
-  1. {% if deploy != "arc" %}[Подключитесь](../../compute/operations/vm-connect/ssh.md){% else %}Подключитесь{% endif %} к виртуальной машине по SSH:
-
-      ```bash
-      ssh <имя_пользователя>@<публичный_IP-адрес_виртуальной машины>
-      ```
-
   1. Установите [YDB Go SDK](https://github.com/yandex-cloud/ydb-go-sdk):
 
       ```bash
@@ -139,12 +127,6 @@
       ```
 
 - Node.js
-
-  1. {% if deploy != "arc" %}[Подключитесь](../../compute/operations/vm-connect/ssh.md){% else %}Подключитесь{% endif %} к виртуальной машине по SSH:
-
-      ```bash
-      ssh <имя_пользователя>@<публичный_IP-адрес_виртуальной машины>
-      ```
 
   1. Установите [YDB Node.js SDK](https://github.com/yandex-cloud/ydb-nodejs-sdk):
 

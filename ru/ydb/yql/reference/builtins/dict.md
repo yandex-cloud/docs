@@ -9,11 +9,11 @@
 **Примеры**
 
 ```sql
-SELECT DictCreate("String", "Tuple<String,Double?>");
+SELECT DictCreate(String, Tuple<String,Double?>);
 ```
 
 ```sql
-SELECT DictCreate("Tuple<Int32?,String>", OptionalType(DataType("String")));
+SELECT DictCreate(Tuple<Int32?,String>, OptionalType(DataType("String")));
 ```
 
 ## DictItems {#dictitems}
@@ -23,8 +23,8 @@ SELECT DictCreate("Tuple<Int32?,String>", OptionalType(DataType("String")));
 **Примеры**
 
 ```sql
-SELECT DictItems(dict_column)
-FROM my_table;
+SELECT DictItems(AsDict(AsTuple(1, AsList("foo", "bar"))));
+-- [ ( 1, [ "foo", "bar" ] ) ]
 ```
 
 ## DictKeys {#dictkeys}
@@ -34,8 +34,8 @@ FROM my_table;
 **Примеры**
 
 ```sql
-SELECT DictKeys(dict_column)
-FROM my_table;
+SELECT DictKeys(AsDict(AsTuple(1, AsList("foo", "bar"))));
+-- [ 1 ]
 ```
 
 ## DictPayloads {#dictpayloads}
@@ -45,8 +45,8 @@ FROM my_table;
 **Примеры**
 
 ```sql
-SELECT DictPayloads(dict_column)
-FROM my_table;
+SELECT DictPayloads(AsDict(AsTuple(1, AsList("foo", "bar"))));
+-- [ [ "foo", "bar" ] ]
 ```
 
 ## DictLookup {#dictlookup}
@@ -56,8 +56,11 @@ FROM my_table;
 **Примеры**
 
 ```sql
-SELECT DictLookup(dict_column, "foo")
-FROM my_table;
+SELECT DictLookup(AsDict(
+    AsTuple(1, AsList("foo", "bar")),
+    AsTuple(2, AsList("bar", "baz"))
+), 1);
+-- [ "foo", "bar" ]
 ```
 
 ## DictContains {#dictcontains}
@@ -67,8 +70,11 @@ FROM my_table;
 **Примеры**
 
 ```sql
-SELECT DictContains(dict_column, "foo")
-FROM my_table;
+SELECT DictContains(AsDict(
+    AsTuple(1, AsList("foo", "bar")),
+    AsTuple(2, AsList("bar", "baz"))
+), 42);
+-- false
 ```
 
 ## DictAggregate {#dictaggregate}

@@ -2,7 +2,7 @@
 
 ```sql
 SELECT *
-    FROM TableName view IndexName
+    FROM TableName VIEW IndexName
     WHERE …
 ```
 
@@ -12,7 +12,7 @@ SELECT *
 
   ```sql
   SELECT series_id, title, info, release_date, views, uploaded_user_id
-      FROM series view views_index
+      FROM series VIEW views_index
       WHERE views >= someValue
   ```
 
@@ -20,8 +20,8 @@ SELECT *
 
   ```sql
   SELECT t1.series_id, t1.title
-      FROM series view users_index AS t1
-      INNER JOIN users view name_index AS t2
+      FROM series VIEW users_index AS t1
+      INNER JOIN users VIEW name_index AS t2
       ON t1.uploaded_user_id == t2.user_id
       WHERE t2.name == userName;
   ```

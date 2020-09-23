@@ -37,9 +37,6 @@
 			<th align="center"><strong>Datetime</strong></th>
 			<th align="center"><strong>Timestamp</strong></th>
 			<th align="center"><strong>Interval</strong></th>
-			<th align="center"><strong>TzDate</strong></th>
-			<th align="center"><strong>TzDatetime</strong></th>
-			<th align="center"><strong>TzTimestamp</strong></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -52,9 +49,6 @@
 			<td align="center" class="yes-cell">Да<sup>1</sup></td>
 			<td align="center" class="no-cell">Нет</td>
 			<td align="center" class="yes-cell">Да</td>
-			<td align="center" class="no-cell">Нет</td>
-			<td align="center" class="no-cell">Нет</td>
-			<td align="center" class="no-cell">Нет</td>
 			<td align="center" class="no-cell">Нет</td>
 			<td align="center" class="no-cell">Нет</td>
 			<td align="center" class="no-cell">Нет</td>
@@ -81,9 +75,6 @@
 			<td align="center" class="yes-cell">Да</td>
 			<td align="center" class="yes-cell">Да</td>
 			<td align="center" class="yes-cell">Да</td>
-			<td align="center" class="no-cell">Нет</td>
-			<td align="center" class="no-cell">Нет</td>
-			<td align="center" class="no-cell">Нет</td>
 		</tr>
 		<tr>
 			<td><strong>Uint</strong></td>
@@ -102,9 +93,6 @@
 			<td align="center" class="yes-cell">Да</td>
 			<td align="center" class="yes-cell">Да</td>
 			<td align="center" class="yes-cell">Да</td>
-			<td align="center" class="no-cell">Нет</td>
-			<td align="center" class="no-cell">Нет</td>
-			<td align="center" class="no-cell">Нет</td>
 		</tr>
 		<tr>
 			<td><strong>Float</strong></td>
@@ -115,9 +103,6 @@
 			<td align="center" class="yes-cell">Да</td>
 			<td align="center" class="no-cell">Нет</td>
 			<td align="center" class="yes-cell">Да</td>
-			<td align="center" class="no-cell">Нет</td>
-			<td align="center" class="no-cell">Нет</td>
-			<td align="center" class="no-cell">Нет</td>
 			<td align="center" class="no-cell">Нет</td>
 			<td align="center" class="no-cell">Нет</td>
 			<td align="center" class="no-cell">Нет</td>
@@ -144,9 +129,6 @@
 			<td align="center" class="no-cell">Нет</td>
 			<td align="center" class="no-cell">Нет</td>
 			<td align="center" class="no-cell">Нет</td>
-			<td align="center" class="no-cell">Нет</td>
-			<td align="center" class="no-cell">Нет</td>
-			<td align="center" class="no-cell">Нет</td>
 		</tr>
 		<tr>
 			<td><strong>Decimal</strong></td>
@@ -157,9 +139,6 @@
 			<td align="center" class="yes-cell">Да</td>
 			<td align="center" class="dis-cell"></td>
 			<td align="center" class="yes-cell">Да</td>
-			<td align="center" class="no-cell">Нет</td>
-			<td align="center" class="no-cell">Нет</td>
-			<td align="center" class="no-cell">Нет</td>
 			<td align="center" class="no-cell">Нет</td>
 			<td align="center" class="no-cell">Нет</td>
 			<td align="center" class="no-cell">Нет</td>
@@ -186,9 +165,6 @@
 			<td align="center" class="yes-cell">Да</td>
 			<td align="center" class="yes-cell">Да</td>
 			<td align="center" class="yes-cell">Да</td>
-			<td align="center" class="yes-cell">Да</td>
-			<td align="center" class="yes-cell">Да</td>
-			<td align="center" class="yes-cell">Да</td>
 		</tr>
 		<tr>
 			<td><strong>Utf8</strong></td>
@@ -207,9 +183,6 @@
 			<td align="center" class="yes-cell">Да</td>
 			<td align="center" class="yes-cell">Да</td>
 			<td align="center" class="yes-cell">Да</td>
-			<td align="center" class="yes-cell">Да</td>
-			<td align="center" class="yes-cell">Да</td>
-			<td align="center" class="yes-cell">Да</td>
 		</tr>
 		<tr>
 			<td><strong>Json</strong></td>
@@ -222,9 +195,6 @@
 			<td align="center" class="yes-cell">Да</td>
 			<td align="center" class="yes-cell">Да</td>
 			<td align="center" class="dis-cell"></td>
-			<td align="center" class="no-cell">Нет</td>
-			<td align="center" class="no-cell">Нет</td>
-			<td align="center" class="no-cell">Нет</td>
 			<td align="center" class="no-cell">Нет</td>
 			<td align="center" class="no-cell">Нет</td>
 			<td align="center" class="no-cell">Нет</td>
@@ -249,9 +219,6 @@
 			<td align="center" class="no-cell">Нет</td>
 			<td align="center" class="no-cell">Нет</td>
 			<td align="center" class="no-cell">Нет</td>
-			<td align="center" class="no-cell">Нет</td>
-			<td align="center" class="no-cell">Нет</td>
-			<td align="center" class="no-cell">Нет</td>
 		</tr>
 		<tr>
 			<td><strong>Date</strong></td>
@@ -270,9 +237,6 @@
 			<td align="center" class="yes-cell">Да</td>
 			<td align="center" class="yes-cell">Да</td>
 			<td align="center" class="no-cell">Нет</td>
-			<td align="center" class="yes-cell">Да</td>
-			<td align="center" class="yes-cell">Да</td>
-			<td align="center" class="yes-cell">Да</td>
 		</tr>
 		<tr>
 			<td><strong>Datetime</strong></td>
@@ -291,9 +255,6 @@
 			<td align="center" class="dis-cell"></td>
 			<td align="center" class="yes-cell">Да</td>
 			<td align="center" class="no-cell">Нет</td>
-			<td align="center" class="yes-cell">Да</td>
-			<td align="center" class="yes-cell">Да</td>
-			<td align="center" class="yes-cell">Да</td>
 		</tr>
 		<tr>
 			<td><strong>Timestamp</strong></td>
@@ -312,9 +273,6 @@
 			<td align="center" class="yes-cell">Да</td>
 			<td align="center" class="dis-cell"></td>
 			<td align="center" class="no-cell">Нет</td>
-			<td align="center" class="yes-cell">Да</td>
-			<td align="center" class="yes-cell">Да</td>
-			<td align="center" class="yes-cell">Да</td>
 		</tr>
 		<tr>
 			<td><strong>Interval</strong></td>
@@ -332,72 +290,6 @@
 			<td align="center" class="no-cell">Нет</td>
 			<td align="center" class="no-cell">Нет</td>
 			<td align="center" class="no-cell">Нет</td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="no-cell">Нет</td>
-			<td align="center" class="no-cell">Нет</td>
-			<td align="center" class="no-cell">Нет</td>
-		</tr>
-		<tr>
-			<td><strong>TzDate</strong></td>
-			<td align="center" class="no-cell">Нет</td>
-			<td align="center" class="no-cell">Нет</td>
-			<td align="center" class="no-cell">Нет</td>
-			<td align="center" class="no-cell">Нет</td>
-			<td align="center" class="no-cell">Нет</td>
-			<td align="center" class="no-cell">Нет</td>
-			<td align="center" class="yes-cell">Да</td>
-			<td align="center" class="no-cell">Нет</td>
-			<td align="center" class="no-cell">Нет</td>
-			<td align="center" class="no-cell">Нет</td>
-			<td align="center" class="no-cell">Нет</td>
-			<td align="center" class="no-cell">Нет</td>
-			<td align="center" class="no-cell">Нет</td>
-			<td align="center" class="no-cell">Нет</td>
-			<td align="center" class="no-cell">Нет</td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="yes-cell">Да</td>
-			<td align="center" class="yes-cell">Да</td>
-		</tr>
-		<tr>
-			<td><strong>TzDatetime</strong></td>
-			<td align="center" class="no-cell">Нет</td>
-			<td align="center" class="no-cell">Нет</td>
-			<td align="center" class="no-cell">Нет</td>
-			<td align="center" class="no-cell">Нет</td>
-			<td align="center" class="no-cell">Нет</td>
-			<td align="center" class="no-cell">Нет</td>
-			<td align="center" class="yes-cell">Да</td>
-			<td align="center" class="no-cell">Нет</td>
-			<td align="center" class="no-cell">Нет</td>
-			<td align="center" class="no-cell">Нет</td>
-			<td align="center" class="no-cell">Нет</td>
-			<td align="center" class="no-cell">Нет</td>
-			<td align="center" class="no-cell">Нет</td>
-			<td align="center" class="no-cell">Нет</td>
-			<td align="center" class="no-cell">Нет</td>
-			<td align="center" class="yes-cell">Да</td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="yes-cell">Да</td>
-		</tr>
-		<tr>
-			<td><strong>TzTimestamp</strong></td>
-			<td align="center" class="no-cell">Нет</td>
-			<td align="center" class="no-cell">Нет</td>
-			<td align="center" class="no-cell">Нет</td>
-			<td align="center" class="no-cell">Нет</td>
-			<td align="center" class="no-cell">Нет</td>
-			<td align="center" class="no-cell">Нет</td>
-			<td align="center" class="yes-cell">Да</td>
-			<td align="center" class="no-cell">Нет</td>
-			<td align="center" class="no-cell">Нет</td>
-			<td align="center" class="no-cell">Нет</td>
-			<td align="center" class="no-cell">Нет</td>
-			<td align="center" class="no-cell">Нет</td>
-			<td align="center" class="no-cell">Нет</td>
-			<td align="center" class="no-cell">Нет</td>
-			<td align="center" class="no-cell">Нет</td>
-			<td align="center" class="yes-cell">Да</td>
-			<td align="center" class="yes-cell">Да</td>
 			<td align="center" class="dis-cell"></td>
 		</tr>
 	</tbody>
@@ -432,17 +324,11 @@
 			<th align="center"><strong>Datetime</strong></th>
 			<th align="center"><strong>Timestamp</strong></th>
 			<th align="center"><strong>Interval</strong></th>
-			<th align="center"><strong>TzDate</strong></th>
-			<th align="center"><strong>TzDatetime</strong></th>
-			<th align="center"><strong>TzTimestamp</strong></th>
 		</tr>
 	</thead>
 	<tbody>
 		<tr>
 			<td><strong>Bool</strong></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
 			<td align="center" class="dis-cell"></td>
 			<td align="center" class="dis-cell"></td>
 			<td align="center" class="dis-cell"></td>
@@ -476,9 +362,6 @@
 			<td align="center" class="dis-cell"></td>
 			<td align="center" class="dis-cell"></td>
 			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
 		</tr>
 		<tr>
 			<td><strong>Uint</strong></td>
@@ -487,9 +370,6 @@
 			<td align="center" class="yes-cell">Uint</td>
 			<td align="center" class="yes-cell">Float</td>
 			<td align="center" class="yes-cell">Double</td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
 			<td align="center" class="dis-cell"></td>
 			<td align="center" class="dis-cell"></td>
 			<td align="center" class="dis-cell"></td>
@@ -518,9 +398,6 @@
 			<td align="center" class="dis-cell"></td>
 			<td align="center" class="dis-cell"></td>
 			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
 		</tr>
 		<tr>
 			<td><strong>Double</strong></td>
@@ -529,9 +406,6 @@
 			<td align="center" class="yes-cell">Double</td>
 			<td align="center" class="yes-cell">Double</td>
 			<td align="center" class="yes-cell">Double</td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
 			<td align="center" class="dis-cell"></td>
 			<td align="center" class="dis-cell"></td>
 			<td align="center" class="dis-cell"></td>
@@ -560,15 +434,9 @@
 			<td align="center" class="dis-cell"></td>
 			<td align="center" class="dis-cell"></td>
 			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
 		</tr>
 		<tr>
 			<td><strong>String</strong></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
 			<td align="center" class="dis-cell"></td>
 			<td align="center" class="dis-cell"></td>
 			<td align="center" class="dis-cell"></td>
@@ -602,15 +470,9 @@
 			<td align="center" class="dis-cell"></td>
 			<td align="center" class="dis-cell"></td>
 			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
 		</tr>
 		<tr>
 			<td><strong>Json</strong></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
 			<td align="center" class="dis-cell"></td>
 			<td align="center" class="dis-cell"></td>
 			<td align="center" class="dis-cell"></td>
@@ -644,9 +506,6 @@
 			<td align="center" class="dis-cell"></td>
 			<td align="center" class="dis-cell"></td>
 			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
 		</tr>
 		<tr>
 			<td><strong>Date</strong></td>
@@ -665,9 +524,6 @@
 			<td align="center" class="dis-cell"></td>
 			<td align="center" class="dis-cell"></td>
 			<td align="center" class="yes-cell">Date</td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
 		</tr>
 		<tr>
 			<td><strong>Datetime</strong></td>
@@ -686,9 +542,6 @@
 			<td align="center" class="dis-cell"></td>
 			<td align="center" class="dis-cell"></td>
 			<td align="center" class="yes-cell">Datetime</td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
 		</tr>
 		<tr>
 			<td><strong>Timestamp</strong></td>
@@ -707,9 +560,6 @@
 			<td align="center" class="dis-cell"></td>
 			<td align="center" class="dis-cell"></td>
 			<td align="center" class="yes-cell">Timestamp</td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
 		</tr>
 		<tr>
 			<td><strong>Interval</strong></td>
@@ -728,72 +578,6 @@
 			<td align="center" class="yes-cell">Datetime</td>
 			<td align="center" class="yes-cell">Timestamp</td>
 			<td align="center" class="yes-cell">Interval</td>
-			<td align="center" class="yes-cell">TzDate</td>
-			<td align="center" class="yes-cell">TzDatetime</td>
-			<td align="center" class="yes-cell">TzTimestamp</td>
-		</tr>
-		<tr>
-			<td><strong>TzDate</strong></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="yes-cell">TzDate</td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-		</tr>
-		<tr>
-			<td><strong>TzDatetime</strong></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="yes-cell">TzDatetime</td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-		</tr>
-		<tr>
-			<td><strong>TzTimestamp</strong></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="yes-cell">TzTimestamp</td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
 		</tr>
 	</tbody>
 </table>

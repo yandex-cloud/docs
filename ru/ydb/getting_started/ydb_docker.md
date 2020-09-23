@@ -22,19 +22,19 @@ API для работы с данными разворачивается на п
 выполните команду:
 
 ```bash
-$ sudo docker pull registry.yandex.net/yandex-docker-local-ydb:stable
+sudo docker pull registry.yandex.net/yandex-docker-local-ydb:stable
 ```
 
 После чего можно поднять новый контейнер:
 
 ```bash
-$ sudo docker run --hostname localhost -dp 2135:2135 registry.yandex.net/yandex-docker-local-ydb:stable
+sudo docker run --hostname localhost -e YDB_LOCAL_SURVIVE_RESTART=true -dp 2135:2135 registry.yandex.net/yandex-docker-local-ydb:stable
 ```
 
 Внутри образа доступна предсобранная версия [YDB CLI](../getting_started/ydb_cli.md), с помощью которой можно выполнять различные команды, например:
 
 ```bash
-$ sudo docker exec <CONTAINER-ID> /ydb -e localhost:2135 -d /local table query execute -q 'select 1;'
+sudo docker exec <CONTAINER-ID> /ydb -e localhost:2135 -d /local table query execute -q 'select 1;'
 ┌─────────┐
 | column0 |
 ├─────────┤
@@ -45,10 +45,18 @@ $ sudo docker exec <CONTAINER-ID> /ydb -e localhost:2135 -d /local table query e
 Аналогичным образом можно использовать ``ya ydb`` для доступа к данным в контейнере, например:
 
 ```bash
-$ ya ydb -e localhost:2135 -d /local  table query execute -q 'select 1;'
+ya ydb -e localhost:2135 -d /local  table query execute -q 'select 1;'
 ┌─────────┐
 | column0 |
 ├─────────┤
 | 1       |
 └─────────┘
 ```
+
+
+## Дополнительные опции
+
+Docker контейнер YDB поддерживает несколько дополнительных опций, которые можно задать через переменные окружения:
+1. ``YDB_LOCAL_SURVIVE_RESTART=true`` - позволяет выполнить рестарт контейнера без потери данных
+2. ``YDB_USE_IN_MEMORY_PDISKS=true`` - включает возможность хранения данных целиком в памяти. В случае если данная опция включена, рестарт контейнера с локальным YDB приведет к полной потери данных.
+3. ``YDB_DEFAULT_LOG_LEVEL=<уровень>`` - позволяет настроить уровень логирования по умолчанию. Доступные значения уровней: ``CRIT``, ``ERROR``, ``WARN``, ``NOTICE``, ``INFO``.

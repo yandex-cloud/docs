@@ -4,7 +4,7 @@
 
 ## COALESCE {#coalesce}
 
-Перебирает аргументы слева направо и возвращает первый найденный непустой аргумент. Чтобы результат получился гарантированно непустым (не [optional типа](../types/optional.md)), самый правый аргумент должен быть такого типа (зачастую используют литерал). При одном аргументе его и возвращает без изменений.
+Перебирает аргументы слева направо и возвращает первый найденный непустой аргумент. Чтобы результат получился гарантированно непустым (не [optional типа](../types/optional.md)), самый правый аргумент должен быть такого типа (зачастую используют литерал). При одном аргументе возвращает его без изменений.
 
 Позволяет передавать потенциально пустые значения в функции, которые не умеют обрабатывать их самостоятельно.
 
@@ -34,7 +34,7 @@ SELECT NVL(
 
 ## LENGTH {#length}
 
-Длина строки в байтах. Также эта функция доступна под именем `LEN`.
+Возвращает длину строки в байтах. Также эта функция доступна под именем `LEN`.
 
 **Примеры**
 
@@ -86,7 +86,7 @@ SELECT SUBSTRING("abcdefg", 3); -- defg
 Аргумент `else_expression` можно не указывать. В этом случае, если условие ложно (`condition_expression` вернул `false`), будет возвращено пустое значение с типом, соответствующим `then_expression` и допускающим значение `NULL`. Таким образом, у результата получится [optional тип данных](../types/optional.md).
 
 **Примеры**
-```  yql
+```sql
 SELECT
   IF(foo > 0, bar, baz) AS bar_or_baz,
   IF(foo > 0, foo) AS only_positive_foo
@@ -132,7 +132,7 @@ FROM my_table;
 * `SELECT RANDOM(1), RANDOM(2) FROM table;` — по два случайных числа на каждую строку таблицы, все числа в каждой из колонок одинаковые;
 * `SELECT RANDOM(some_column) FROM table;` — разные случайные числа на каждую строку таблицы;
 * `SELECT RANDOM(some_column), RANDOM(some_column) FROM table;` — разные случайные числа на каждую строку таблицы, но в рамках одной строки — два одинаковых числа;
-* `SELECT RANDOM(some_column), RANDOM(some_column + 1) FROM table;` или `SELECT RANDOM(some_column), RANDOM(other_column) FROM table;` — две колонки, и все с разными числами.
+* `SELECT RANDOM(some_column), RANDOM(other_column) FROM table;` — две колонки и все с разными числами.
 
 **Примеры**
 ```sql
@@ -176,50 +176,16 @@ SELECT CurrentUtcDate();
 SELECT CurrentUtcTimestamp(TableRow()) FROM my_table;
 ```
 
-## AddTimezone {#addtz}
-
-Добавление информации о временной зоне к дате/времени, заданных в UTC. При выводе в результате `SELECT` или после `CAST` в `String` будут применены правила временной зоны по вычислению смещения времени.
-
-Аргументы:
-
-1. Дата — тип `Date`/`Datetime`/`Timestamp`;
-2. [IANA имя временной зоны](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
-
-Тип результата — `TzDate`/`TzDatetime`/`TzTimestamp`, в зависимости от типа данных входа.
-
-**Примеры**
-```  yql
-SELECT AddTimezone(Datetime("2018-02-01T12:00:00Z"), "Europe/Moscow");
-```
-
-## RemoveTimezone {#removetz}
-
-Удаляет информацию о временной зоне и переводит в дату/время, заданные в UTC.
-
-Аргументы:
-
-Дата — тип `TzDate`/`TzDatetime`/`TzTimestamp`.
-
-Тип результата:
-
-`Date`/`Datetime`/`Timestamp`, в зависимости от типа данных входа.
-
-**Примеры**
-
-```sql
-SELECT RemoveTimezone(TzDatetime("2018-02-01T12:00:00,Europe/Moscow"));
-```
-
 ## MAX_OF, MIN_OF, GREATEST и LEAST {#max-min}
 
-Возвращают минимальный или максимальный среди N аргументов. Эти функции позволяют не использовать стандартную для SQL конструкцию `CASE WHEN a < b THEN a ELSE b END`, которая была бы особенно громоздкой для N больше двух.
+Возвращает минимальный или максимальный среди N аргументов. Эти функции позволяют не использовать стандартную для SQL конструкцию `CASE WHEN a < b THEN a ELSE b END`, которая была бы особенно громоздкой для N больше двух.
 
 Типы аргументов должны быть приводимы друг к другу и могут допускать значение `NULL`.
 
 `GREATEST` является синонимом к `MAX_OF`, а `LEAST` — к `MIN_OF`.
 
 **Примеры**
-```  yql
+```sql
 SELECT MIN_OF(1, 2, 3);
 ```
 
@@ -243,18 +209,18 @@ SELECT MIN_OF(1, 2, 3);
 
 ```sql
 SELECT
-  AsTuple(1, 2, "3") AS tuple,
+  AsTuple(1, 2, "3") AS tuplevar,
   AsStruct(
     1 AS a,
     2 AS b,
     "3" AS c
-  ) AS struct,
-  AsList(1, 2, 3) AS list,
+  ) AS structvar,
+  AsList(1, 2, 3) AS listvar,
   AsDict(
     AsTuple("a", 1),
     AsTuple("b", 2),
     AsTuple("c", 3)
-  ) AS dict;
+  ) AS dictvar;
 ```
 
 ## AsTagged и Untag {#as-tagged}
@@ -295,7 +261,7 @@ SELECT
 * video/mp4
 * video/webm
 
-Также им поддерживаются кликабельные ссылки и показ медиа плеера для контента по ссылке, для отображения которых нужно указывать следующие метки:
+Также им поддерживаются кликабельные ссылки и показ медиа-плеера для контента по ссылке, для отображения которых нужно указывать следующие метки:
 
 * url
 * imageurl
@@ -583,8 +549,6 @@ LIMIT $limit;
 * единицы измерения больше суток не доступны;
 * не поддерживаются варианты с началом/концом интервала, а также повторами.
 
-Для типов данных `TzDate`, `TzDatetime`, `TzTimestamp` литералы также задаются в формате, соответствующем [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601), но вместо опционального суффикса Z через запятую указывается [IANA имя временной зоны](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones), например, GMT или Europe/Moscow.
-
 {% include notitle [Десятичные типы](../../../_includes/decimal_args.md) %}
 
 **Примеры**
@@ -599,7 +563,7 @@ LIMIT $limit;
   Uint64("4"),
   Float("-5"),
   Double("6"),
-  Decimal("1.23", 5, 2); -- до 5 десятичных знаков, из которых 2 после запятой
+  Decimal("1.23", 5, 2), -- до 5 десятичных знаков, из которых 2 после запятой
   String("foo"),
   Utf8("привет"),
   Yson("<a=1>[3;%false]"),
@@ -608,9 +572,6 @@ LIMIT $limit;
   Datetime("2017-11-27T13:24:00Z"),
   Timestamp("2017-11-27T13:24:00.123456Z"),
   Interval("P1DT2H3M4.567890S"),
-  TzDate("2017-11-27,Europe/Moscow"),
-  TzDatetime("2017-11-27T13:24:00,America/Los_Angeles"),
-  TzTimestamp("2017-11-27T13:24:00.123456,GMT"),
   Uuid("f9d5cc3f-f1dc-4d9c-b97e-766e57ca4ccb");
 ```
 
@@ -643,10 +604,10 @@ SELECT
 
 ```sql
 SELECT
-    ToBytes(123), -- "\u0001\u0000\u0000\u0000"
+    ToBytes(7), -- "\u0007\u0000\u0000\u0000"
     FromBytes(
         "\xd2\x02\x96\x49\x00\x00\x00\x00",
-        "Uint64"
+        Uint64
     ); -- 1234567890ul
 ```
 
@@ -663,9 +624,9 @@ SELECT
 
 ```sql
 SELECT
-    ByteAt("foo", 0) -- 102
-    ByteAt("foo", 1) -- 111
-    ByteAt("foo", 9) -- NULL
+    ByteAt("foo", 0), -- 102
+    ByteAt("foo", 1), -- 111
+    ByteAt("foo", 9); -- NULL
 ```
 
 ## TestBit, ClearBit, SetBit и FlipBit {#testbit}
@@ -755,7 +716,7 @@ SELECT
 
 **Примеры**
 
-```  yql
+```sql
 $factory = AGGREGATION_FACTORY("MIN");
 SELECT
     AGGREGATE_BY(value, $factory) AS min_value -- применить MIN агрегацию к колонке value
@@ -780,7 +741,7 @@ FROM my_table;
 
 **Примеры**
 
-```  yql
+```sql
 SELECT
   YQL::Concat("a", "b"); -- в реальности так писать не рекомендуется,
                          -- так как это аналог SELECT "a" || "b";
