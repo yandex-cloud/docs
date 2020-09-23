@@ -31,6 +31,8 @@
 | Python 2.7 | `python27` |
 |**Go** | |
 | Go 1.14 | `golang114` |
+| **Java** | |
+| Java 11 | `java11-preview` |
 |**Прочее** | |
 | Bash | `bash` |
 

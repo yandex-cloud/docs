@@ -179,6 +179,34 @@ items:
         href: lang/bash/errors.md
       - name: Использование SDK
         href: lang/bash/sdk.md
+  - name: Разработка на Java
+    items:
+      - name: Обзор
+        href: lang/java/index.md
+      - name: Модель программирования
+        items:
+          - name: Обзор
+            href: lang/java/model/index.md
+          - name: Интерфейс Function
+            href: lang/java/model/jdk-function.md
+          - name: Интерфейс YcFunction
+            href: lang/java/model/yc-function.md
+          - name: Класс HttpServlet
+            href: lang/java/model/servlet-api.md
+          - name: Spring Boot
+            href: lang/java/model/spring-boot.md
+      - name: Управление зависимостями
+        href: lang/java/dependencies.md
+      - name: Обработчик запросов
+        href: lang/java/handler.md
+      - name: Контекст вызова
+        href: lang/java/context.md
+      - name: Журналирование
+        href: lang/java/logging.md
+      - name: Обработка ошибок
+        href: lang/java/errors.md
+      - name: Использование SDK
+        href: lang/java/sdk.md
   - name: Сценарии использования
     items:
       - name: Создание навыка Алисы
