@@ -52,7 +52,7 @@
    Бессерверный режим подходит для небольших проектов, когда отдельный сервер не нужен, или для задач с неравномерной и плохо прогнозируемой нагрузкой. В таком режиме вы платите за фактические операции с базой и за хранение данных и резервных копий. Подробнее об оплате читайте в [правилах тарификации](../pricing/serverless.md).
 
 
-{{ ydb-short-name }} предоставляет SDK для [Java](https://github.com/yandex-cloud/ydb-java-sdk), [Python](https://github.com/yandex-cloud/ydb-python-sdk) и [Go](https://github.com/yandex-cloud/ydb-go-sdk).
+{{ ydb-short-name }} предоставляет SDK для [Java](https://github.com/yandex-cloud/ydb-java-sdk), [Python](https://github.com/yandex-cloud/ydb-python-sdk), [node.js](https://github.com/yandex-cloud/ydb-nodejs-sdk) и [Go](https://github.com/yandex-cloud/ydb-go-sdk).
 
 {{ ydb-short-name }} поддерживает реляционную [модель данных](datamodel.md) и оперирует таблицами с предопределённой схемой. Для удобства организации таблиц поддерживается создание директорий по аналогии с файловой системой.
 

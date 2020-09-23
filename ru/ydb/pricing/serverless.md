@@ -251,8 +251,6 @@ editable: false
 
 {% include notitle [pricing-egress-traffic](../_includes/pricing/pricing-egress-traffic.md) %}
 
-{% include [traffic_metering](../_includes/pricing/traffic_metering.md) %}
-
 {% if audience != "external" %}
 
 ## Примеры расчёта стоимости {#simple-example}
