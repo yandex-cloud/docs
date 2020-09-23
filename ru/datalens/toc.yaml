@@ -71,16 +71,12 @@ items:
             href: operations/chart/create-bar-chart.md
           - name: Создание линейчатой диаграммы
             href: operations/chart/create-horizontal-bar-chart.md
+          - name: Создание карты
+            href: operations/chart/create-map-chart.md
           - name: Создание таблицы
             href: operations/chart/create-table.md
           - name: Создание сводной таблицы
             href: operations/chart/create-pivot-table.md
-          - name: Создание точечной карты
-            href: operations/chart/create-point-map-chart.md
-          - name: Создание фоновой карты
-            href: operations/chart/create-choropleth-map-chart.md
-          - name: Создание тепловой карты
-            href: operations/chart/create-heat-map-chart.md
           - name: Публикация чарта
             href: operations/chart/publish.md
           - name: Управление доступом к чарту

@@ -105,7 +105,7 @@ items:
         href: routing/mikrotik.md
       - name: Создание VPN-соединения с помощью OpenVPN
         href: routing/openvpn.md
-  - name: DataLens
+  - name: Визуализация и анализ данных
     items:
       - name: Все сценарии
         href: datalens/index.md
