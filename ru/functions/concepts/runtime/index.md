@@ -33,6 +33,8 @@
 | Go 1.14 | `golang114` |
 | **Java** | |
 | Java 11 | `java11-preview` |
+|**R** | |
+| R 4.0.2 | `r402-preview` |
 |**Прочее** | |
 | Bash | `bash` |
 

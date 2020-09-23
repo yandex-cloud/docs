@@ -207,6 +207,22 @@ items:
         href: lang/java/errors.md
       - name: Использование SDK
         href: lang/java/sdk.md
+  - name: Разработка на R
+    items:
+      - name: Обзор
+        href: lang/r/index.md
+      - name: Модель программирования
+        href: lang/r/model/index.md
+      - name: Управление зависимостями
+        href: lang/r/dependencies.md
+      - name: Обработчик запросов
+        href: lang/r/handler.md
+      - name: Контекст вызова
+        href: lang/r/context.md
+      - name: Журналирование
+        href: lang/r/logging.md
+      - name: Обработка ошибок
+        href: lang/r/errors.md
   - name: Сценарии использования
     items:
       - name: Создание навыка Алисы
