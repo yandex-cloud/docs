@@ -1,7 +1,7 @@
 title: Yandex Data Transfer
 description:
   - "<em>Yandex Data Transfer is currently at the <a href=\"/docs/overview/concepts/launch-stages\">Preview</a> stage.</em>"
-  - "Yandex Data Transfer is designed for migrating and transferring data between storages. It helps you quickly and safely migrate your databases from other cloud platforms or local databases to Yandex.Cloud managed database services."
+  - "Yandex Data Transfer is designed for logically transferring data between storages. The service helps you quickly and safely perform logical migrations of your databases between other cloud platforms or local databases and Yandex.Cloud managed database services."
   - "It supports several data transfer scenarios, with every scenario run at the logical level. This allows you to keep your source database running and minimize the downtime of applications that use it."
 meta:
   title: "Yandex Data Transfer"
