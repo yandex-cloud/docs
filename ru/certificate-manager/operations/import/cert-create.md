@@ -70,6 +70,10 @@
         not_before: "2020-09-15T06:48:26Z"
         ```
 
+- API
+  
+    Чтобы создать сертификат, воспользуйтесь методом [create](../../api-ref/Certificate/create.md) для ресурса [Certificate](../../api-ref/Certificate/).
+
 {% endlist %}
 
 В списке сертификатов появится новый сертификат со статусом `Issued`.

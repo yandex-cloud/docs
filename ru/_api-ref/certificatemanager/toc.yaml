@@ -1,0 +1,33 @@
+items:
+  - name: Обзор
+    href: api-ref/index.md
+  - name: Certificate
+    items:
+      - name: Обзор
+        href: api-ref/Certificate/index.md
+      - name: create
+        href: api-ref/Certificate/create.md
+      - name: delete
+        href: api-ref/Certificate/delete.md
+      - name: get
+        href: api-ref/Certificate/get.md
+      - name: list
+        href: api-ref/Certificate/list.md
+      - name: listAccessBindings
+        href: api-ref/Certificate/listAccessBindings.md
+      - name: listOperations
+        href: api-ref/Certificate/listOperations.md
+      - name: requestNew
+        href: api-ref/Certificate/requestNew.md
+      - name: setAccessBindings
+        href: api-ref/Certificate/setAccessBindings.md
+      - name: update
+        href: api-ref/Certificate/update.md
+      - name: updateAccessBindings
+        href: api-ref/Certificate/updateAccessBindings.md
+  - name: CertificateContent
+    items:
+      - name: Обзор
+        href: api-ref/CertificateContent/index.md
+      - name: get
+        href: api-ref/CertificateContent/get.md

@@ -3202,6 +3202,14 @@ components:
           $ref: '#/components/schemas/Access_in_ClusterConfig_access'
         cloudStorage:
           $ref: '#/components/schemas/CloudStorage_in_ClusterConfig_cloudStorage'
+        sqlDatabaseManagement:
+          description: Whether database management through SQL commands is enabled.
+          type: boolean
+          format: boolean
+        sqlUserManagement:
+          description: Whether user management through SQL commands is enabled.
+          type: boolean
+          format: boolean
     ClusterConfigClickhouse:
       type: object
       properties:
@@ -3276,6 +3284,17 @@ components:
           $ref: '#/components/schemas/Access_in_ConfigSpec_access'
         cloudStorage:
           $ref: '#/components/schemas/CloudStorage_in_ConfigSpec_cloudStorage'
+        sqlDatabaseManagement:
+          description: Whether database management through SQL commands is enabled.
+          type: boolean
+          format: boolean
+        sqlUserManagement:
+          description: Whether user management through SQL commands is enabled.
+          type: boolean
+          format: boolean
+        adminPassword:
+          description: Password for user 'admin' that has SQL user management access.
+          type: string
     ConfigSpecClickhouse:
       type: object
       properties:
@@ -6503,6 +6522,14 @@ components:
           $ref: '#/components/schemas/Access_in_ClusterConfig_access'
         cloudStorage:
           $ref: '#/components/schemas/CloudStorage_in_ClusterConfig_cloudStorage'
+        sqlDatabaseManagement:
+          description: Whether database management through SQL commands is enabled.
+          type: boolean
+          format: boolean
+        sqlUserManagement:
+          description: Whether user management through SQL commands is enabled.
+          type: boolean
+          format: boolean
     ClusterHealth_in_Cluster_health:
       description: |-
         Aggregated cluster health.
@@ -7094,6 +7121,17 @@ components:
           $ref: '#/components/schemas/Access_in_ConfigSpec_access'
         cloudStorage:
           $ref: '#/components/schemas/CloudStorage_in_ConfigSpec_cloudStorage'
+        sqlDatabaseManagement:
+          description: Whether database management through SQL commands is enabled.
+          type: boolean
+          format: boolean
+        sqlUserManagement:
+          description: Whether user management through SQL commands is enabled.
+          type: boolean
+          format: boolean
+        adminPassword:
+          description: Password for user 'admin' that has SQL user management access.
+          type: string
     DatabaseSpec_in_CreateDatabaseRequest_databaseSpec:
       description: |-
         Required.
@@ -7276,6 +7314,17 @@ components:
           $ref: '#/components/schemas/Access_in_ConfigSpec_access'
         cloudStorage:
           $ref: '#/components/schemas/CloudStorage_in_ConfigSpec_cloudStorage'
+        sqlDatabaseManagement:
+          description: Whether database management through SQL commands is enabled.
+          type: boolean
+          format: boolean
+        sqlUserManagement:
+          description: Whether user management through SQL commands is enabled.
+          type: boolean
+          format: boolean
+        adminPassword:
+          description: Password for user 'admin' that has SQL user management access.
+          type: string
     ServiceType_in_Service_type:
       description: |-
         Type of the service provided by the host.
@@ -7619,6 +7668,17 @@ components:
           $ref: '#/components/schemas/Access_in_ConfigSpec_access'
         cloudStorage:
           $ref: '#/components/schemas/CloudStorage_in_ConfigSpec_cloudStorage'
+        sqlDatabaseManagement:
+          description: Whether database management through SQL commands is enabled.
+          type: boolean
+          format: boolean
+        sqlUserManagement:
+          description: Whether user management through SQL commands is enabled.
+          type: boolean
+          format: boolean
+        adminPassword:
+          description: Password for user 'admin' that has SQL user management access.
+          type: string
     MaintenanceWindow_in_UpdateClusterRequest_maintenanceWindow:
       description: Window of maintenance operations.
       type: object
@@ -10386,12 +10446,16 @@ tags:
 - name: Cluster
   description: A set of methods for managing ClickHouse clusters.
 - name: Database
-  description: A set of methods for managing ClickHouse Database resources.
+  description: |-
+    A set of methods for managing ClickHouse Database resources.
+    NOTE: these methods are available only if database management through SQL is disabled.
 - name: FormatSchema
 - name: MlModel
   description: A set of methods for managing machine learning models.
 - name: ResourcePreset
   description: A set of methods for managing ResourcePreset resources.
 - name: User
-  description: A set of methods for managing ClickHouse User resources.
+  description: |-
+    A set of methods for managing ClickHouse User resources.
+    NOTE: these methods are available only if user management through SQL is disabled.
 - name: Versions

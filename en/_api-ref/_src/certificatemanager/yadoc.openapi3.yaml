@@ -12,7 +12,7 @@ paths:
     get:
       tags:
       - CertificateContent
-      summary: Returns chain and private key of the specified certificate
+      summary: Returns chain and private key of the specified certificate.
       operationId: CertificateContentGet
       parameters:
       - name: certificateId
@@ -43,6 +43,7 @@ paths:
         description: |-
           Required.
           ID of the certificate to return.
+
           To get the ID of a certificate use a [list](/docs/certificate-manager/api-ref/Certificate/list) request.
 
           The maximum string length in characters is 50.
@@ -51,6 +52,7 @@ paths:
           type: string
       - name: view
         in: query
+        description: The output type of the certificate.
         schema:
           $ref: '#/components/schemas/CertificateView'
       responses:
@@ -142,7 +144,7 @@ paths:
         in: query
         description: |-
           The maximum number of results per page to return. If the number of available
-          results is larger than [pageSize](/docs/certificate-manager/api-ref/Certificate/list#query_params), the service returns a [nextPageToken](/docs/certificate-manager/api-ref/Certificate/list#responses)
+          results is larger than `page_size`, the service returns a [nextPageToken](/docs/certificate-manager/api-ref/Certificate/list#responses)
           that can be used to get the next page of results in subsequent list requests.
           Default value: 100.
 
@@ -153,7 +155,7 @@ paths:
       - name: pageToken
         in: query
         description: |-
-          Page token. To get the next page of results, set [pageToken](/docs/certificate-manager/api-ref/Certificate/list#query_params) to the
+          Page token. To get the next page of results, set `page_token` to the
           [nextPageToken](/docs/certificate-manager/api-ref/Certificate/list#responses) returned by a previous list request.
 
           The maximum string length in characters is 100.
@@ -161,6 +163,7 @@ paths:
           type: string
       - name: view
         in: query
+        description: The output type of the certificate.
         schema:
           $ref: '#/components/schemas/CertificateView'
       responses:
@@ -227,7 +230,7 @@ paths:
         in: path
         description: |-
           Required.
-          ID of the certificate to get operations for.
+          ID of the certificate to list operations for.
 
           To get the certificate ID, use a [list](/docs/certificate-manager/api-ref/Certificate/list) request.
 
@@ -239,7 +242,7 @@ paths:
         in: query
         description: |-
           The maximum number of results per page that should be returned. If the number of available
-          results is larger than [pageSize](/docs/certificate-manager/api-ref/Certificate/listOperations#query_params), the service returns a [nextPageToken](/docs/certificate-manager/api-ref/Certificate/listOperations#responses)
+          results is larger than `page_size`, the service returns a [nextPageToken](/docs/certificate-manager/api-ref/Certificate/listOperations#responses)
           that can be used to get the next page of results in subsequent list requests.
           Default value: 100.
 
@@ -250,7 +253,7 @@ paths:
       - name: pageToken
         in: query
         description: |-
-          Page token. To get the next page of results, set [pageToken](/docs/certificate-manager/api-ref/Certificate/listOperations#query_params) to the
+          Page token. To get the next page of results, set `page_token` to the
           [nextPageToken](/docs/certificate-manager/api-ref/Certificate/listOperations#responses) returned by a previous list request.
 
           The maximum string length in characters is 100.
@@ -415,30 +418,32 @@ components:
         accessBinding:
           $ref: '#/components/schemas/AccessBinding_in_AccessBindingDelta_accessBinding'
     Certificate:
-      description: A certificate.
+      description: A certificate. For details about the concept, see [documentation](docs/certificate-manager/concepts/).
       type: object
       properties:
         id:
-          description: ID of the certificate.
+          description: ID of the certificate. Generated at creation time.
           type: string
         folderId:
           description: ID of the folder that the certificate belongs to.
           type: string
         createdAt:
           description: |-
-            Time when the certificate was created.
+            Creation timestamp.
 
             String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
         name:
-          description: Name of the certificate.
+          description: |-
+            Name of the certificate.
+            The name is unique within the folder.
           type: string
         description:
           description: Description of the certificate.
           type: string
         labels:
-          description: Certificate labels as `key:value` pairs. Maximum 64 per certificate.
+          description: Certificate labels as `key:value` pairs.
           type: object
           additionalProperties:
             type: string
@@ -452,25 +457,27 @@ components:
         status:
           $ref: '#/components/schemas/CertificateStatus_in_Certificate_status'
         issuer:
-          description: Name of the certificate authority that issued the certificate.
+          description: '[Distinguished Name](https://tools.ietf.org/html/rfc1779)
+            of the certificate authority that issued the certificate.'
           type: string
         subject:
-          description: Name of the entity that is associated with the public key contained
-            in the certificate.
+          description: '[Distinguished Name](https://tools.ietf.org/html/rfc1779)
+            of the entity that is associated with the public key contained in the
+            certificate.'
           type: string
         serial:
-          description: Serial number of the certificate
+          description: Serial number of the certificate.
           type: string
         updatedAt:
           description: |-
-            Time when the certificate was updated
+            Time when the certificate is updated.
 
             String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
         issuedAt:
           description: |-
-            Time when the certificate was issued
+            Time when the certificate is issued.
 
             String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
@@ -491,18 +498,18 @@ components:
           format: date-time
         challenges:
           description: Domains validation challenges of the certificate. Used only
-            for MANAGED certificates.
+            for managed certificates.
           type: array
           items:
             $ref: '#/components/schemas/Challenge'
     CertificateStatus:
       description: |2-
-         - VALIDATING: The certificate domains validation are required. Used only for MANAGED certificates.
-         - INVALID: The certificate issuance was failed. Used only for MANAGED certificates.
-         - ISSUED: The certificate was issued.
-         - REVOKED: The certificate was revoked.
-         - RENEWING: The certificate renewal was started. Used only for MANAGED certificates.
-         - RENEWAL_FAILED: The certificate renewal was failed. Used only for MANAGED certificates.
+         - VALIDATING: The certificate domains validation are required. Used only for managed certificates.
+         - INVALID: The certificate issuance is failed. Used only for managed certificates.
+         - ISSUED: The certificate is issued.
+         - REVOKED: The certificate is revoked.
+         - RENEWING: The certificate renewal is started. Used only for managed certificates.
+         - RENEWAL_FAILED: The certificate renewal is failed. Used only for managed certificates.
       type: string
       enum:
       - VALIDATING
@@ -515,13 +522,16 @@ components:
       description: |-
         Supported certificate types.
 
-         - IMPORTED: The certificate was imported by user
-         - MANAGED: The certificate was created by service
+         - IMPORTED: The certificate is imported by user.
+         - MANAGED: The certificate is created by service.
       type: string
       enum:
       - IMPORTED
       - MANAGED
     CertificateView:
+      description: |2-
+         - BASIC: Output basic information about the certificate.
+         - FULL: Output full information about the certificate including domain challenges.
       type: string
       enum:
       - BASIC
@@ -541,14 +551,14 @@ components:
             description: Type of the challenge.
           createdAt:
             description: |-
-              Time when the challenge was created.
+              Time when the challenge is created.
 
               String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
             type: string
             format: date-time
           updatedAt:
             description: |-
-              Time when the challenge was updated.
+              Time when the challenge is updated.
 
               String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
             type: string
@@ -568,10 +578,10 @@ components:
         properties:
           dnsChallenge:
             $ref: '#/components/schemas/ChallengeDnsRecord'
-            description: DNS record.
+            description: DNS-record.
           httpChallenge:
             $ref: '#/components/schemas/ChallengeHttpFile'
-            description: HTTP file.
+            description: HTTP-file.
     ChallengeDnsRecord:
       type: object
       properties:
@@ -579,10 +589,10 @@ components:
           description: Name of the DNS record.
           type: string
         type:
-          description: Type of the DNS record.
+          description: Type of the DNS-record.
           type: string
         value:
-          description: Value of the DNS record.
+          description: Value of the DNS-record.
           type: string
     ChallengeHttpFile:
       type: object
@@ -594,6 +604,11 @@ components:
           description: Content of the HTTP file.
           type: string
     ChallengeStatus:
+      description: |2-
+         - PENDING: The challenge is waiting to be completed.
+         - PROCESSING: The challenge is awaiting approval from Let's Encrypt.
+         - VALID: The challenge is complete.
+         - INVALID: The rights check for a specific domain failed or the one-week period allocated for the check expired.
       type: string
       enum:
       - PENDING
@@ -629,6 +644,7 @@ components:
         name:
           description: |-
             Name of the certificate.
+            The name must be unique within the folder.
 
             Value must match the regular expression `` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
           type: string
@@ -640,7 +656,7 @@ components:
           type: string
         labels:
           description: |-
-            Labels for the certificate as `key:value` pairs. Maximum 64 per certificate.
+            Labels for the certificate as `key:value` pairs.
 
             No more than 64 per resource.
             The maximum string length in characters for each key is 63.
@@ -694,7 +710,7 @@ components:
       type: object
       properties:
         certificateId:
-          description: ID of the certificate
+          description: ID of the certificate.
           type: string
         certificateChain:
           description: PEM-encoded certificate chain content of the certificate.
@@ -732,7 +748,7 @@ components:
         nextPageToken:
           description: |-
             This token allows you to get the next page of results for list requests. If the number of results
-            is larger than [pageSize](/docs/certificate-manager/api-ref/Certificate/listOperations#query_params), use the [nextPageToken](/docs/certificate-manager/api-ref/Certificate/listOperations#responses) as the value
+            is larger than [pageSize](/docs/certificate-manager/api-ref/Certificate/listOperations#query_params), use the `next_page_token` as the value
             for the [pageToken](/docs/certificate-manager/api-ref/Certificate/listOperations#query_params) query parameter in the next list request.
             Each subsequent list request will have its own [nextPageToken](/docs/certificate-manager/api-ref/Certificate/listOperations#responses) to continue paging through the results.
           type: string
@@ -748,7 +764,7 @@ components:
           description: |-
             This token allows you to get the next page of results for list requests. If the number
             of results is greater than the specified [pageSize](/docs/certificate-manager/api-ref/Certificate/list#query_params), use
-            the [nextPageToken](/docs/certificate-manager/api-ref/Certificate/list#responses) as the value for the [pageToken](/docs/certificate-manager/api-ref/Certificate/list#query_params) query parameter
+            the `next_page_token` as the value for the [pageToken](/docs/certificate-manager/api-ref/Certificate/list#query_params) query parameter
             in the next list request. Each subsequent list request will have its own
             [nextPageToken](/docs/certificate-manager/api-ref/Certificate/list#responses) to continue paging through the results.
           type: string
@@ -813,7 +829,7 @@ components:
       type: object
       properties:
         certificateId:
-          description: ID of the certificate being requested.
+          description: ID of the certificate that is being requested.
           type: string
     RequestNewCertificateRequest:
       type: object
@@ -839,7 +855,7 @@ components:
           type: string
         labels:
           description: |-
-            Labels for the certificate as `key:value` pairs. Maximum 64 per certificate.
+            Labels for the certificate as `key:value` pairs.
 
             No more than 64 per resource.
             The maximum string length in characters for each key is 63.
@@ -948,7 +964,7 @@ components:
           type: string
         labels:
           description: |-
-            New labels for the certificate as `key:value` pairs. Maximum 64 per certificate.
+            New labels for the certificate as `key:value` pairs.
 
             No more than 64 per resource.
             The maximum string length in characters for each key is 63.
@@ -960,19 +976,19 @@ components:
             type: string
         certificate:
           description: |-
-            New PEM-encoded certificate content for the certificate. Used only for IMPORTED certificates.
+            New PEM-encoded certificate content for the certificate. Used only for imported certificates.
 
             The maximum string length in characters is 32768.
           type: string
         chain:
           description: |-
-            New PEM-encoded certificate chain content for the certificate. Used only for IMPORTED certificates.
+            New PEM-encoded certificate chain content for the certificate. Used only for imported certificates.
 
             The maximum string length in characters is 2097152.
           type: string
         privateKey:
           description: |-
-            New PEM-encoded private key content for the certificate. Used only for IMPORTED certificates.
+            New PEM-encoded private key content for the certificate. Used only for imported certificates.
 
             The maximum string length in characters is 524288.
           type: string
@@ -1061,8 +1077,8 @@ components:
 
         Supported certificate types.
 
-         - IMPORTED: The certificate was imported by user
-         - MANAGED: The certificate was created by service
+         - IMPORTED: The certificate is imported by user.
+         - MANAGED: The certificate is created by service.
       type: string
       enum:
       - IMPORTED
@@ -1071,12 +1087,12 @@ components:
       description: |-
         Status of the certificate.
 
-         - VALIDATING: The certificate domains validation are required. Used only for MANAGED certificates.
-         - INVALID: The certificate issuance was failed. Used only for MANAGED certificates.
-         - ISSUED: The certificate was issued.
-         - REVOKED: The certificate was revoked.
-         - RENEWING: The certificate renewal was started. Used only for MANAGED certificates.
-         - RENEWAL_FAILED: The certificate renewal was failed. Used only for MANAGED certificates.
+         - VALIDATING: The certificate domains validation are required. Used only for managed certificates.
+         - INVALID: The certificate issuance is failed. Used only for managed certificates.
+         - ISSUED: The certificate is issued.
+         - REVOKED: The certificate is revoked.
+         - RENEWING: The certificate renewal is started. Used only for managed certificates.
+         - RENEWAL_FAILED: The certificate renewal is failed. Used only for managed certificates.
       type: string
       enum:
       - VALIDATING
@@ -1112,4 +1128,6 @@ components:
       type: string
 tags:
 - name: CertificateContent
+  description: A set of methods for managing certificate content.
 - name: Certificate
+  description: A set of methods for managing certificates.

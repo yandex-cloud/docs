@@ -4,17 +4,17 @@ editable: false
 
 # CertificateContentService
 
-
+A set of methods for managing certificate content.
 
 | Call | Description |
 | --- | --- |
-| [Get](#Get) | Returns chain and private key of the specified certificate |
+| [Get](#Get) | Returns chain and private key of the specified certificate. |
 
 ## Calls CertificateContentService {#calls}
 
 ## Get {#Get}
 
-Returns chain and private key of the specified certificate
+Returns chain and private key of the specified certificate.
 
 **rpc Get ([GetCertificateContentRequest](#GetCertificateContentRequest)) returns ([GetCertificateContentResponse](#GetCertificateContentResponse))**
 
@@ -29,7 +29,7 @@ certificate_id | **string**<br>ID of the certificate to download content.
 
 Field | Description
 --- | ---
-certificate_id | **string**<br>ID of the certificate 
+certificate_id | **string**<br>ID of the certificate. 
 certificate_chain[] | **string**<br>PEM-encoded certificate chain content of the certificate. 
 private_key | **string**<br>PEM-encoded private key content of the certificate. 
 

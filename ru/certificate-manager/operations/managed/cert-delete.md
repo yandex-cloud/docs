@@ -61,5 +61,9 @@
         status: VALIDATING
         updated_at: "2020-09-15T09:10:06.981Z"
         ```
+       
+- API
+  
+    Чтобы удалить сертификат, воспользуйтесь методом [delete](../../api-ref/Certificate/delete.md) для ресурса [Certificate](../../api-ref/Certificate/).
 
 {% endlist %}

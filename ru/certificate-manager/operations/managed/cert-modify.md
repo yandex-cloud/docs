@@ -65,5 +65,9 @@
         status: VALIDATING
         updated_at: "2020-09-15T09:10:06.981875Z"
         ```
-
+       
+- API
+  
+    Чтобы обновить сертификат, воспользуйтесь методом [update](../../api-ref/Certificate/update.md) для ресурса [Certificate](../../api-ref/Certificate/).
+    
 {% endlist %}

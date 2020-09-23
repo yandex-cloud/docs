@@ -33,7 +33,7 @@ Field | Description
 folderId | **string**<br><p>Required. ID of the folder to create a certificate in.</p> <p>The maximum string length in characters is 50.</p> 
 name | **string**<br><p>Name of the certificate.</p> <p>Value must match the regular expression <code>\|[a-z]([-a-z0-9]{0,61}[a-z0-9])?</code>.</p> 
 description | **string**<br><p>Description of the certificate.</p> <p>The maximum string length in characters is 1024.</p> 
-labels | **object**<br><p>Labels for the certificate as <code>key:value</code> pairs. Maximum 64 per certificate.</p> <p>No more than 64 per resource. The maximum string length in characters for each key is 63. Each key must match the regular expression <code>[a-z][-_0-9a-z]*</code>. The maximum string length in characters for each value is 63. Each value must match the regular expression <code>[-_0-9a-z]*</code>.</p> 
+labels | **object**<br><p>Labels for the certificate as <code>key:value</code> pairs.</p> <p>No more than 64 per resource. The maximum string length in characters for each key is 63. Each key must match the regular expression <code>[a-z][-_0-9a-z]*</code>. The maximum string length in characters for each value is 63. Each value must match the regular expression <code>[-_0-9a-z]*</code>.</p> 
 domains[] | **string**<br><p>Fully qualified domain names of the certificate.</p> 
 challengeType | **string**<br><p>Type of the domain validation challenge.</p> <p>Supported domain validation types.</p> <ul> <li>DNS: Domain validation type that using DNS-records.</li> <li>HTTP: Domain validation type that using HTTP-files.</li> </ul> 
  

@@ -22,6 +22,10 @@
       --key private_key.pem
     ```
 
+- API
+  
+  Чтобы получить содержимое сертификата, воспользуйтесь методом [getContent](../../certificate-manager/api-ref/CertificateContent/get.md) для ресурса [Certificate](../../api-ref/Certificate/).
+  
 {% endlist %}
 
 {% note info %}

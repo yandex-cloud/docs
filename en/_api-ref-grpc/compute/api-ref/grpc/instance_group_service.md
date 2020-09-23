@@ -90,7 +90,7 @@ hostname | **string**<br>Host name for the instance. This field is used to gener
 Field | Description
 --- | ---
 memory | **int64**<br>The amount of memory available to the instance, specified in bytes. The maximum value is 824633720832.
-cores | **int64**<br>The number of cores available to the instance. Value must be equal to 1,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,40,44,48,52,56,60,64.
+cores | **int64**<br>The number of cores available to the instance. Value must be equal to 1,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,40,44,48,52,56,60,64,68,72,76,80.
 core_fraction | **int64**<br>Baseline level of CPU performance with the ability to burst performance above that baseline level. This field sets baseline performance for each core. Value must be equal to 0,5,20,50,100.
 gpus | **int64**<br>The number of GPUs available to the instance. Value must be equal to 0,1,2,4.
 
@@ -398,7 +398,7 @@ hostname | **string**<br>Host name for the instance. This field is used to gener
 Field | Description
 --- | ---
 memory | **int64**<br>The amount of memory available to the instance, specified in bytes. The maximum value is 824633720832.
-cores | **int64**<br>The number of cores available to the instance. Value must be equal to 1,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,40,44,48,52,56,60,64.
+cores | **int64**<br>The number of cores available to the instance. Value must be equal to 1,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,40,44,48,52,56,60,64,68,72,76,80.
 core_fraction | **int64**<br>Baseline level of CPU performance with the ability to burst performance above that baseline level. This field sets baseline performance for each core. Value must be equal to 0,5,20,50,100.
 gpus | **int64**<br>The number of GPUs available to the instance. Value must be equal to 0,1,2,4.
 
@@ -686,7 +686,7 @@ hostname | **string**<br>Host name for the instance. This field is used to gener
 Field | Description
 --- | ---
 memory | **int64**<br>The amount of memory available to the instance, specified in bytes. The maximum value is 824633720832.
-cores | **int64**<br>The number of cores available to the instance. Value must be equal to 1,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,40,44,48,52,56,60,64.
+cores | **int64**<br>The number of cores available to the instance. Value must be equal to 1,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,40,44,48,52,56,60,64,68,72,76,80.
 core_fraction | **int64**<br>Baseline level of CPU performance with the ability to burst performance above that baseline level. This field sets baseline performance for each core. Value must be equal to 0,5,20,50,100.
 gpus | **int64**<br>The number of GPUs available to the instance. Value must be equal to 0,1,2,4.
 
@@ -1053,7 +1053,7 @@ hostname | **string**<br>Host name for the instance. This field is used to gener
 Field | Description
 --- | ---
 memory | **int64**<br>The amount of memory available to the instance, specified in bytes. The maximum value is 824633720832.
-cores | **int64**<br>The number of cores available to the instance. Value must be equal to 1,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,40,44,48,52,56,60,64.
+cores | **int64**<br>The number of cores available to the instance. Value must be equal to 1,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,40,44,48,52,56,60,64,68,72,76,80.
 core_fraction | **int64**<br>Baseline level of CPU performance with the ability to burst performance above that baseline level. This field sets baseline performance for each core. Value must be equal to 0,5,20,50,100.
 gpus | **int64**<br>The number of GPUs available to the instance. Value must be equal to 0,1,2,4.
 

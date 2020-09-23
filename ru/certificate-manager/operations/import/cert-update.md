@@ -81,4 +81,8 @@
         not_before: "2020-09-15T08:12:57Z"
         ```
 
+- API
+  
+    Чтобы обновить сертификат, воспользуйтесь методом [update](../../api-ref/Certificate/update.md) для ресурса [Certificate](../../api-ref/Certificate/).
+
 {% endlist %}

@@ -68,4 +68,8 @@
         not_before: "2020-09-15T08:12:57Z"
         ```
 
+- API
+  
+    Чтобы удалить сертификат, воспользуйтесь методом [delete](../../api-ref/Certificate/delete.md) для ресурса [Certificate](../../api-ref/Certificate/).
+
 {% endlist %}

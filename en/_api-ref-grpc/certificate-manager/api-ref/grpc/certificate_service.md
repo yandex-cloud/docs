@@ -4,7 +4,7 @@ editable: false
 
 # CertificateService
 
-
+A set of methods for managing certificates.
 
 | Call | Description |
 | --- | --- |
@@ -23,7 +23,7 @@ editable: false
 
 ## Get {#Get}
 
-Returns the specified certificate. <br>To get the list of available certificates, make a [CertificateService.List](#List) request.
+Returns the specified certificate. <br>To get the list of available certificates, make a [List](#List) request.
 
 **rpc Get ([GetCertificateRequest](#GetCertificateRequest)) returns ([Certificate](../certificate.proto#Certificate))**
 
@@ -31,31 +31,31 @@ Returns the specified certificate. <br>To get the list of available certificates
 
 Field | Description
 --- | ---
-certificate_id | **string**<br>Required. ID of the certificate to return. To get the ID of a certificate use a [CertificateService.List](#List) request. The maximum string length in characters is 50.
-view | enum **CertificateView**<br> <ul><ul/>
+certificate_id | **string**<br>Required. ID of the certificate to return. <br>To get the ID of a certificate use a [CertificateService.List](#List) request. The maximum string length in characters is 50.
+view | enum **CertificateView**<br>The output type of the certificate. <ul><li>`BASIC`: Output basic information about the certificate.</li><li>`FULL`: Output full information about the certificate including domain challenges.</li><ul/>
 
 
 ### Certificate {#Certificate}
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the certificate. 
+id | **string**<br>ID of the certificate. Generated at creation time. 
 folder_id | **string**<br>ID of the folder that the certificate belongs to. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the certificate was created. 
-name | **string**<br>Name of the certificate. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+name | **string**<br>Name of the certificate. The name is unique within the folder. 
 description | **string**<br>Description of the certificate. 
-labels | **map<string,string>**<br>Certificate labels as `key:value` pairs. Maximum 64 per certificate. 
-type | enum **CertificateType**<br>Type of the certificate. <ul><li>`IMPORTED`: The certificate was imported by user</li><li>`MANAGED`: The certificate was created by service</li><ul/>
+labels | **map<string,string>**<br>Certificate labels as `key:value` pairs. 
+type | enum **CertificateType**<br>Type of the certificate. <ul><li>`IMPORTED`: The certificate is imported by user.</li><li>`MANAGED`: The certificate is created by service.</li><ul/>
 domains[] | **string**<br>Fully qualified domain names of the certificate. 
-status | enum **Status**<br>Status of the certificate. <ul><li>`VALIDATING`: The certificate domains validation are required. Used only for MANAGED certificates.</li><li>`INVALID`: The certificate issuance was failed. Used only for MANAGED certificates.</li><li>`ISSUED`: The certificate was issued.</li><li>`REVOKED`: The certificate was revoked.</li><li>`RENEWING`: The certificate renewal was started. Used only for MANAGED certificates.</li><li>`RENEWAL_FAILED`: The certificate renewal was failed. Used only for MANAGED certificates.</li><ul/>
-issuer | **string**<br>Name of the certificate authority that issued the certificate. 
-subject | **string**<br>Name of the entity that is associated with the public key contained in the certificate. 
-serial | **string**<br>Serial number of the certificate 
-updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the certificate was updated 
-issued_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the certificate was issued 
+status | enum **Status**<br>Status of the certificate. <ul><li>`VALIDATING`: The certificate domains validation are required. Used only for managed certificates.</li><li>`INVALID`: The certificate issuance is failed. Used only for managed certificates.</li><li>`ISSUED`: The certificate is issued.</li><li>`REVOKED`: The certificate is revoked.</li><li>`RENEWING`: The certificate renewal is started. Used only for managed certificates.</li><li>`RENEWAL_FAILED`: The certificate renewal is failed. Used only for managed certificates.</li><ul/>
+issuer | **string**<br>[Distinguished Name](https://tools.ietf.org/html/rfc1779) of the certificate authority that issued the certificate. 
+subject | **string**<br>[Distinguished Name](https://tools.ietf.org/html/rfc1779) of the entity that is associated with the public key contained in the certificate. 
+serial | **string**<br>Serial number of the certificate. 
+updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the certificate is updated. 
+issued_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the certificate is issued. 
 not_after | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time after which the certificate is not valid. 
 not_before | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time before which the certificate is not valid. 
-challenges[] | **[Challenge](../certificate.proto#Challenge)**<br>Domains validation challenges of the certificate. Used only for MANAGED certificates. 
+challenges[] | **[Challenge](../certificate.proto#Challenge)**<br>Domains validation challenges of the certificate. Used only for managed certificates. 
 
 
 ### Challenge {#Challenge}
@@ -64,14 +64,14 @@ Field | Description
 --- | ---
 domain | **string**<br>Domain of the challenge. 
 type | enum **ChallengeType**<br>Type of the challenge. <ul><li>`DNS`: Domain validation type that using DNS-records.</li><li>`HTTP`: Domain validation type that using HTTP-files.</li><ul/>
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the challenge was created. 
-updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the challenge was updated. 
-status | enum **Status**<br>Status of the challenge. <ul><ul/>
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the challenge is created. 
+updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the challenge is updated. 
+status | enum **Status**<br>Status of the challenge. <ul><li>`PENDING`: The challenge is waiting to be completed.</li><li>`PROCESSING`: The challenge is awaiting approval from Let's Encrypt.</li><li>`VALID`: The challenge is complete.</li><li>`INVALID`: The rights check for a specific domain failed or the one-week period allocated for the check expired.</li><ul/>
 message | **string**<br>Description of the challenge. 
 error | **string**<br>Error of the challenge. 
 challenge | **oneof:** `dns_challenge` or `http_challenge`<br>Data of the challenge.
-&nbsp;&nbsp;dns_challenge | **[DnsRecord](../certificate.proto#DnsRecord)**<br>DNS record. 
-&nbsp;&nbsp;http_challenge | **[HttpFile](../certificate.proto#HttpFile)**<br>HTTP file. 
+&nbsp;&nbsp;dns_challenge | **[DnsRecord](../certificate.proto#DnsRecord)**<br>DNS-record. 
+&nbsp;&nbsp;http_challenge | **[HttpFile](../certificate.proto#HttpFile)**<br>HTTP-file. 
 
 
 ### DnsRecord {#DnsRecord}
@@ -79,8 +79,8 @@ challenge | **oneof:** `dns_challenge` or `http_challenge`<br>Data of the challe
 Field | Description
 --- | ---
 name | **string**<br>Name of the DNS record. 
-type | **string**<br>Type of the DNS record. 
-value | **string**<br>Value of the DNS record. 
+type | **string**<br>Type of the DNS-record. 
+value | **string**<br>Value of the DNS-record. 
 
 
 ### HttpFile {#HttpFile}
@@ -104,7 +104,7 @@ Field | Description
 folder_id | **string**<br>Required. ID of the folder to list certificate in. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListCertificatesResponse.next_page_token](#ListCertificatesResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListCertificatesResponse.next_page_token](#ListCertificatesResponse) returned by a previous list request. The maximum string length in characters is 100.
-view | enum **CertificateView**<br> <ul><ul/>
+view | enum **CertificateView**<br>The output type of the certificate. <ul><li>`BASIC`: Output basic information about the certificate.</li><li>`FULL`: Output full information about the certificate including domain challenges.</li><ul/>
 
 
 ### ListCertificatesResponse {#ListCertificatesResponse}
@@ -119,23 +119,23 @@ next_page_token | **string**<br>This token allows you to get the next page of re
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the certificate. 
+id | **string**<br>ID of the certificate. Generated at creation time. 
 folder_id | **string**<br>ID of the folder that the certificate belongs to. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the certificate was created. 
-name | **string**<br>Name of the certificate. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+name | **string**<br>Name of the certificate. The name is unique within the folder. 
 description | **string**<br>Description of the certificate. 
-labels | **map<string,string>**<br>Certificate labels as `key:value` pairs. Maximum 64 per certificate. 
-type | enum **CertificateType**<br>Type of the certificate. <ul><li>`IMPORTED`: The certificate was imported by user</li><li>`MANAGED`: The certificate was created by service</li><ul/>
+labels | **map<string,string>**<br>Certificate labels as `key:value` pairs. 
+type | enum **CertificateType**<br>Type of the certificate. <ul><li>`IMPORTED`: The certificate is imported by user.</li><li>`MANAGED`: The certificate is created by service.</li><ul/>
 domains[] | **string**<br>Fully qualified domain names of the certificate. 
-status | enum **Status**<br>Status of the certificate. <ul><li>`VALIDATING`: The certificate domains validation are required. Used only for MANAGED certificates.</li><li>`INVALID`: The certificate issuance was failed. Used only for MANAGED certificates.</li><li>`ISSUED`: The certificate was issued.</li><li>`REVOKED`: The certificate was revoked.</li><li>`RENEWING`: The certificate renewal was started. Used only for MANAGED certificates.</li><li>`RENEWAL_FAILED`: The certificate renewal was failed. Used only for MANAGED certificates.</li><ul/>
-issuer | **string**<br>Name of the certificate authority that issued the certificate. 
-subject | **string**<br>Name of the entity that is associated with the public key contained in the certificate. 
-serial | **string**<br>Serial number of the certificate 
-updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the certificate was updated 
-issued_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the certificate was issued 
+status | enum **Status**<br>Status of the certificate. <ul><li>`VALIDATING`: The certificate domains validation are required. Used only for managed certificates.</li><li>`INVALID`: The certificate issuance is failed. Used only for managed certificates.</li><li>`ISSUED`: The certificate is issued.</li><li>`REVOKED`: The certificate is revoked.</li><li>`RENEWING`: The certificate renewal is started. Used only for managed certificates.</li><li>`RENEWAL_FAILED`: The certificate renewal is failed. Used only for managed certificates.</li><ul/>
+issuer | **string**<br>[Distinguished Name](https://tools.ietf.org/html/rfc1779) of the certificate authority that issued the certificate. 
+subject | **string**<br>[Distinguished Name](https://tools.ietf.org/html/rfc1779) of the entity that is associated with the public key contained in the certificate. 
+serial | **string**<br>Serial number of the certificate. 
+updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the certificate is updated. 
+issued_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the certificate is issued. 
 not_after | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time after which the certificate is not valid. 
 not_before | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time before which the certificate is not valid. 
-challenges[] | **[Challenge](../certificate.proto#Challenge1)**<br>Domains validation challenges of the certificate. Used only for MANAGED certificates. 
+challenges[] | **[Challenge](../certificate.proto#Challenge1)**<br>Domains validation challenges of the certificate. Used only for managed certificates. 
 
 
 ### Challenge {#Challenge1}
@@ -144,14 +144,14 @@ Field | Description
 --- | ---
 domain | **string**<br>Domain of the challenge. 
 type | enum **ChallengeType**<br>Type of the challenge. <ul><li>`DNS`: Domain validation type that using DNS-records.</li><li>`HTTP`: Domain validation type that using HTTP-files.</li><ul/>
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the challenge was created. 
-updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the challenge was updated. 
-status | enum **Status**<br>Status of the challenge. <ul><ul/>
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the challenge is created. 
+updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the challenge is updated. 
+status | enum **Status**<br>Status of the challenge. <ul><li>`PENDING`: The challenge is waiting to be completed.</li><li>`PROCESSING`: The challenge is awaiting approval from Let's Encrypt.</li><li>`VALID`: The challenge is complete.</li><li>`INVALID`: The rights check for a specific domain failed or the one-week period allocated for the check expired.</li><ul/>
 message | **string**<br>Description of the challenge. 
 error | **string**<br>Error of the challenge. 
 challenge | **oneof:** `dns_challenge` or `http_challenge`<br>Data of the challenge.
-&nbsp;&nbsp;dns_challenge | **[DnsRecord](../certificate.proto#DnsRecord1)**<br>DNS record. 
-&nbsp;&nbsp;http_challenge | **[HttpFile](../certificate.proto#HttpFile1)**<br>HTTP file. 
+&nbsp;&nbsp;dns_challenge | **[DnsRecord](../certificate.proto#DnsRecord1)**<br>DNS-record. 
+&nbsp;&nbsp;http_challenge | **[HttpFile](../certificate.proto#HttpFile1)**<br>HTTP-file. 
 
 
 ### DnsRecord {#DnsRecord1}
@@ -159,8 +159,8 @@ challenge | **oneof:** `dns_challenge` or `http_challenge`<br>Data of the challe
 Field | Description
 --- | ---
 name | **string**<br>Name of the DNS record. 
-type | **string**<br>Type of the DNS record. 
-value | **string**<br>Value of the DNS record. 
+type | **string**<br>Type of the DNS-record. 
+value | **string**<br>Value of the DNS-record. 
 
 
 ### HttpFile {#HttpFile1}
@@ -186,9 +186,9 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 folder_id | **string**<br>Required. ID of the folder to create a certificate in. The maximum string length in characters is 50.
-name | **string**<br>Name of the certificate. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
+name | **string**<br>Name of the certificate. The name must be unique within the folder. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>Description of the certificate. The maximum string length in characters is 1024.
-labels | **map<string,string>**<br>Labels for the certificate as `key:value` pairs. Maximum 64 per certificate. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+labels | **map<string,string>**<br>Labels for the certificate as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 certificate | **string**<br>PEM-encoded certificate content of the certificate. The maximum string length in characters is 32768.
 chain | **string**<br>PEM-encoded certificate chain content of the certificate. The maximum string length in characters is 2097152.
 private_key | **string**<br>Required. PEM-encoded private key content of the certificate. The string length in characters must be 1-524288.
@@ -221,23 +221,23 @@ certificate_id | **string**<br>ID of the certificate being created.
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the certificate. 
+id | **string**<br>ID of the certificate. Generated at creation time. 
 folder_id | **string**<br>ID of the folder that the certificate belongs to. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the certificate was created. 
-name | **string**<br>Name of the certificate. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+name | **string**<br>Name of the certificate. The name is unique within the folder. 
 description | **string**<br>Description of the certificate. 
-labels | **map<string,string>**<br>Certificate labels as `key:value` pairs. Maximum 64 per certificate. 
-type | enum **CertificateType**<br>Type of the certificate. <ul><li>`IMPORTED`: The certificate was imported by user</li><li>`MANAGED`: The certificate was created by service</li><ul/>
+labels | **map<string,string>**<br>Certificate labels as `key:value` pairs. 
+type | enum **CertificateType**<br>Type of the certificate. <ul><li>`IMPORTED`: The certificate is imported by user.</li><li>`MANAGED`: The certificate is created by service.</li><ul/>
 domains[] | **string**<br>Fully qualified domain names of the certificate. 
-status | enum **Status**<br>Status of the certificate. <ul><li>`VALIDATING`: The certificate domains validation are required. Used only for MANAGED certificates.</li><li>`INVALID`: The certificate issuance was failed. Used only for MANAGED certificates.</li><li>`ISSUED`: The certificate was issued.</li><li>`REVOKED`: The certificate was revoked.</li><li>`RENEWING`: The certificate renewal was started. Used only for MANAGED certificates.</li><li>`RENEWAL_FAILED`: The certificate renewal was failed. Used only for MANAGED certificates.</li><ul/>
-issuer | **string**<br>Name of the certificate authority that issued the certificate. 
-subject | **string**<br>Name of the entity that is associated with the public key contained in the certificate. 
-serial | **string**<br>Serial number of the certificate 
-updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the certificate was updated 
-issued_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the certificate was issued 
+status | enum **Status**<br>Status of the certificate. <ul><li>`VALIDATING`: The certificate domains validation are required. Used only for managed certificates.</li><li>`INVALID`: The certificate issuance is failed. Used only for managed certificates.</li><li>`ISSUED`: The certificate is issued.</li><li>`REVOKED`: The certificate is revoked.</li><li>`RENEWING`: The certificate renewal is started. Used only for managed certificates.</li><li>`RENEWAL_FAILED`: The certificate renewal is failed. Used only for managed certificates.</li><ul/>
+issuer | **string**<br>[Distinguished Name](https://tools.ietf.org/html/rfc1779) of the certificate authority that issued the certificate. 
+subject | **string**<br>[Distinguished Name](https://tools.ietf.org/html/rfc1779) of the entity that is associated with the public key contained in the certificate. 
+serial | **string**<br>Serial number of the certificate. 
+updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the certificate is updated. 
+issued_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the certificate is issued. 
 not_after | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time after which the certificate is not valid. 
 not_before | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time before which the certificate is not valid. 
-challenges[] | **[Challenge](../certificate.proto#Challenge2)**<br>Domains validation challenges of the certificate. Used only for MANAGED certificates. 
+challenges[] | **[Challenge](../certificate.proto#Challenge2)**<br>Domains validation challenges of the certificate. Used only for managed certificates. 
 
 
 ## Update {#Update}
@@ -258,10 +258,10 @@ certificate_id | **string**<br>Required. ID of the certificate to update. To get
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which attributes of the certificate are going to be updated. 
 name | **string**<br>New name for the certificate. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>New description for the certificate. The maximum string length in characters is 1024.
-labels | **map<string,string>**<br>New labels for the certificate as `key:value` pairs. Maximum 64 per certificate. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
-certificate | **string**<br>New PEM-encoded certificate content for the certificate. Used only for IMPORTED certificates. The maximum string length in characters is 32768.
-chain | **string**<br>New PEM-encoded certificate chain content for the certificate. Used only for IMPORTED certificates. The maximum string length in characters is 2097152.
-private_key | **string**<br>New PEM-encoded private key content for the certificate. Used only for IMPORTED certificates. The maximum string length in characters is 524288.
+labels | **map<string,string>**<br>New labels for the certificate as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+certificate | **string**<br>New PEM-encoded certificate content for the certificate. Used only for imported certificates. The maximum string length in characters is 32768.
+chain | **string**<br>New PEM-encoded certificate chain content for the certificate. Used only for imported certificates. The maximum string length in characters is 2097152.
+private_key | **string**<br>New PEM-encoded private key content for the certificate. Used only for imported certificates. The maximum string length in characters is 524288.
 
 
 ### Operation {#Operation1}
@@ -291,23 +291,23 @@ certificate_id | **string**<br>ID of the certificate being updated.
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the certificate. 
+id | **string**<br>ID of the certificate. Generated at creation time. 
 folder_id | **string**<br>ID of the folder that the certificate belongs to. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the certificate was created. 
-name | **string**<br>Name of the certificate. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+name | **string**<br>Name of the certificate. The name is unique within the folder. 
 description | **string**<br>Description of the certificate. 
-labels | **map<string,string>**<br>Certificate labels as `key:value` pairs. Maximum 64 per certificate. 
-type | enum **CertificateType**<br>Type of the certificate. <ul><li>`IMPORTED`: The certificate was imported by user</li><li>`MANAGED`: The certificate was created by service</li><ul/>
+labels | **map<string,string>**<br>Certificate labels as `key:value` pairs. 
+type | enum **CertificateType**<br>Type of the certificate. <ul><li>`IMPORTED`: The certificate is imported by user.</li><li>`MANAGED`: The certificate is created by service.</li><ul/>
 domains[] | **string**<br>Fully qualified domain names of the certificate. 
-status | enum **Status**<br>Status of the certificate. <ul><li>`VALIDATING`: The certificate domains validation are required. Used only for MANAGED certificates.</li><li>`INVALID`: The certificate issuance was failed. Used only for MANAGED certificates.</li><li>`ISSUED`: The certificate was issued.</li><li>`REVOKED`: The certificate was revoked.</li><li>`RENEWING`: The certificate renewal was started. Used only for MANAGED certificates.</li><li>`RENEWAL_FAILED`: The certificate renewal was failed. Used only for MANAGED certificates.</li><ul/>
-issuer | **string**<br>Name of the certificate authority that issued the certificate. 
-subject | **string**<br>Name of the entity that is associated with the public key contained in the certificate. 
-serial | **string**<br>Serial number of the certificate 
-updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the certificate was updated 
-issued_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the certificate was issued 
+status | enum **Status**<br>Status of the certificate. <ul><li>`VALIDATING`: The certificate domains validation are required. Used only for managed certificates.</li><li>`INVALID`: The certificate issuance is failed. Used only for managed certificates.</li><li>`ISSUED`: The certificate is issued.</li><li>`REVOKED`: The certificate is revoked.</li><li>`RENEWING`: The certificate renewal is started. Used only for managed certificates.</li><li>`RENEWAL_FAILED`: The certificate renewal is failed. Used only for managed certificates.</li><ul/>
+issuer | **string**<br>[Distinguished Name](https://tools.ietf.org/html/rfc1779) of the certificate authority that issued the certificate. 
+subject | **string**<br>[Distinguished Name](https://tools.ietf.org/html/rfc1779) of the entity that is associated with the public key contained in the certificate. 
+serial | **string**<br>Serial number of the certificate. 
+updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the certificate is updated. 
+issued_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the certificate is issued. 
 not_after | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time after which the certificate is not valid. 
 not_before | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time before which the certificate is not valid. 
-challenges[] | **[Challenge](../certificate.proto#Challenge2)**<br>Domains validation challenges of the certificate. Used only for MANAGED certificates. 
+challenges[] | **[Challenge](../certificate.proto#Challenge2)**<br>Domains validation challenges of the certificate. Used only for managed certificates. 
 
 
 ## Delete {#Delete}
@@ -354,23 +354,23 @@ certificate_id | **string**<br>ID of the certificate being deleted.
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the certificate. 
+id | **string**<br>ID of the certificate. Generated at creation time. 
 folder_id | **string**<br>ID of the folder that the certificate belongs to. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the certificate was created. 
-name | **string**<br>Name of the certificate. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+name | **string**<br>Name of the certificate. The name is unique within the folder. 
 description | **string**<br>Description of the certificate. 
-labels | **map<string,string>**<br>Certificate labels as `key:value` pairs. Maximum 64 per certificate. 
-type | enum **CertificateType**<br>Type of the certificate. <ul><li>`IMPORTED`: The certificate was imported by user</li><li>`MANAGED`: The certificate was created by service</li><ul/>
+labels | **map<string,string>**<br>Certificate labels as `key:value` pairs. 
+type | enum **CertificateType**<br>Type of the certificate. <ul><li>`IMPORTED`: The certificate is imported by user.</li><li>`MANAGED`: The certificate is created by service.</li><ul/>
 domains[] | **string**<br>Fully qualified domain names of the certificate. 
-status | enum **Status**<br>Status of the certificate. <ul><li>`VALIDATING`: The certificate domains validation are required. Used only for MANAGED certificates.</li><li>`INVALID`: The certificate issuance was failed. Used only for MANAGED certificates.</li><li>`ISSUED`: The certificate was issued.</li><li>`REVOKED`: The certificate was revoked.</li><li>`RENEWING`: The certificate renewal was started. Used only for MANAGED certificates.</li><li>`RENEWAL_FAILED`: The certificate renewal was failed. Used only for MANAGED certificates.</li><ul/>
-issuer | **string**<br>Name of the certificate authority that issued the certificate. 
-subject | **string**<br>Name of the entity that is associated with the public key contained in the certificate. 
-serial | **string**<br>Serial number of the certificate 
-updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the certificate was updated 
-issued_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the certificate was issued 
+status | enum **Status**<br>Status of the certificate. <ul><li>`VALIDATING`: The certificate domains validation are required. Used only for managed certificates.</li><li>`INVALID`: The certificate issuance is failed. Used only for managed certificates.</li><li>`ISSUED`: The certificate is issued.</li><li>`REVOKED`: The certificate is revoked.</li><li>`RENEWING`: The certificate renewal is started. Used only for managed certificates.</li><li>`RENEWAL_FAILED`: The certificate renewal is failed. Used only for managed certificates.</li><ul/>
+issuer | **string**<br>[Distinguished Name](https://tools.ietf.org/html/rfc1779) of the certificate authority that issued the certificate. 
+subject | **string**<br>[Distinguished Name](https://tools.ietf.org/html/rfc1779) of the entity that is associated with the public key contained in the certificate. 
+serial | **string**<br>Serial number of the certificate. 
+updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the certificate is updated. 
+issued_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the certificate is issued. 
 not_after | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time after which the certificate is not valid. 
 not_before | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time before which the certificate is not valid. 
-challenges[] | **[Challenge](../certificate.proto#Challenge2)**<br>Domains validation challenges of the certificate. Used only for MANAGED certificates. 
+challenges[] | **[Challenge](../certificate.proto#Challenge2)**<br>Domains validation challenges of the certificate. Used only for managed certificates. 
 
 
 ## RequestNew {#RequestNew}
@@ -390,7 +390,7 @@ Field | Description
 folder_id | **string**<br>Required. ID of the folder to create a certificate in. The maximum string length in characters is 50.
 name | **string**<br>Name of the certificate. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>Description of the certificate. The maximum string length in characters is 1024.
-labels | **map<string,string>**<br>Labels for the certificate as `key:value` pairs. Maximum 64 per certificate. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+labels | **map<string,string>**<br>Labels for the certificate as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 domains[] | **string**<br>Fully qualified domain names of the certificate. 
 challenge_type | enum **ChallengeType**<br>Type of the domain validation challenge. <ul><li>`DNS`: Domain validation type that using DNS-records.</li><li>`HTTP`: Domain validation type that using HTTP-files.</li><ul/>
 
@@ -415,30 +415,30 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-certificate_id | **string**<br>ID of the certificate being requested. 
+certificate_id | **string**<br>ID of the certificate that is being requested. 
 
 
 ### Certificate {#Certificate5}
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the certificate. 
+id | **string**<br>ID of the certificate. Generated at creation time. 
 folder_id | **string**<br>ID of the folder that the certificate belongs to. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the certificate was created. 
-name | **string**<br>Name of the certificate. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+name | **string**<br>Name of the certificate. The name is unique within the folder. 
 description | **string**<br>Description of the certificate. 
-labels | **map<string,string>**<br>Certificate labels as `key:value` pairs. Maximum 64 per certificate. 
-type | enum **CertificateType**<br>Type of the certificate. <ul><li>`IMPORTED`: The certificate was imported by user</li><li>`MANAGED`: The certificate was created by service</li><ul/>
+labels | **map<string,string>**<br>Certificate labels as `key:value` pairs. 
+type | enum **CertificateType**<br>Type of the certificate. <ul><li>`IMPORTED`: The certificate is imported by user.</li><li>`MANAGED`: The certificate is created by service.</li><ul/>
 domains[] | **string**<br>Fully qualified domain names of the certificate. 
-status | enum **Status**<br>Status of the certificate. <ul><li>`VALIDATING`: The certificate domains validation are required. Used only for MANAGED certificates.</li><li>`INVALID`: The certificate issuance was failed. Used only for MANAGED certificates.</li><li>`ISSUED`: The certificate was issued.</li><li>`REVOKED`: The certificate was revoked.</li><li>`RENEWING`: The certificate renewal was started. Used only for MANAGED certificates.</li><li>`RENEWAL_FAILED`: The certificate renewal was failed. Used only for MANAGED certificates.</li><ul/>
-issuer | **string**<br>Name of the certificate authority that issued the certificate. 
-subject | **string**<br>Name of the entity that is associated with the public key contained in the certificate. 
-serial | **string**<br>Serial number of the certificate 
-updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the certificate was updated 
-issued_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the certificate was issued 
+status | enum **Status**<br>Status of the certificate. <ul><li>`VALIDATING`: The certificate domains validation are required. Used only for managed certificates.</li><li>`INVALID`: The certificate issuance is failed. Used only for managed certificates.</li><li>`ISSUED`: The certificate is issued.</li><li>`REVOKED`: The certificate is revoked.</li><li>`RENEWING`: The certificate renewal is started. Used only for managed certificates.</li><li>`RENEWAL_FAILED`: The certificate renewal is failed. Used only for managed certificates.</li><ul/>
+issuer | **string**<br>[Distinguished Name](https://tools.ietf.org/html/rfc1779) of the certificate authority that issued the certificate. 
+subject | **string**<br>[Distinguished Name](https://tools.ietf.org/html/rfc1779) of the entity that is associated with the public key contained in the certificate. 
+serial | **string**<br>Serial number of the certificate. 
+updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the certificate is updated. 
+issued_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the certificate is issued. 
 not_after | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time after which the certificate is not valid. 
 not_before | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time before which the certificate is not valid. 
-challenges[] | **[Challenge](../certificate.proto#Challenge2)**<br>Domains validation challenges of the certificate. Used only for MANAGED certificates. 
+challenges[] | **[Challenge](../certificate.proto#Challenge2)**<br>Domains validation challenges of the certificate. Used only for managed certificates. 
 
 
 ## ListOperations {#ListOperations}
@@ -451,7 +451,7 @@ Lists operations for the specified certificate.
 
 Field | Description
 --- | ---
-certificate_id | **string**<br>Required. ID of the certificate to get operations for. <br>To get the certificate ID, use a [CertificateService.List](#List) request. The maximum string length in characters is 50.
+certificate_id | **string**<br>Required. ID of the certificate to list operations for. <br>To get the certificate ID, use a [CertificateService.List](#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page that should be returned. If the number of available results is larger than `page_size`, the service returns a [ListCertificateOperationsResponse.next_page_token](#ListCertificateOperationsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListCertificateOperationsResponse.next_page_token](#ListCertificateOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
 

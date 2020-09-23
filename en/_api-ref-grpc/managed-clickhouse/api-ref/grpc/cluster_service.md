@@ -95,6 +95,8 @@ zookeeper | **[Zookeeper](../cluster.proto#Zookeeper)**<br>Configuration and res
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](../cluster.proto#Access)**<br>Access policy for external services. 
 cloud_storage | **[CloudStorage](../cluster.proto#CloudStorage)**<br> 
+sql_database_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether database management through SQL commands is enabled. 
+sql_user_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether user management through SQL commands is enabled. 
 
 
 ### Clickhouse {#Clickhouse}
@@ -222,6 +224,8 @@ zookeeper | **[Zookeeper](../cluster.proto#Zookeeper1)**<br>Configuration and re
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](../cluster.proto#Access1)**<br>Access policy for external services. 
 cloud_storage | **[CloudStorage](../cluster.proto#CloudStorage1)**<br> 
+sql_database_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether database management through SQL commands is enabled. 
+sql_user_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether user management through SQL commands is enabled. 
 
 
 ### Clickhouse {#Clickhouse1}
@@ -323,6 +327,9 @@ zookeeper | **[Zookeeper](../cluster.proto#Zookeeper2)**<br>Configuration and re
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](../cluster.proto#Access2)**<br>Access policy for external services. <br>If you want a specific service to access the ClickHouse cluster, then set the necessary values in this policy. 
 cloud_storage | **[CloudStorage](../cluster.proto#CloudStorage2)**<br> 
+sql_database_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether database management through SQL commands is enabled. 
+sql_user_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether user management through SQL commands is enabled. 
+admin_password | **string**<br>Password for user 'admin' that has SQL user management access. 
 
 
 ### Clickhouse {#Clickhouse2}
@@ -579,6 +586,9 @@ zookeeper | **[Zookeeper](../cluster.proto#Zookeeper3)**<br>Configuration and re
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](../cluster.proto#Access3)**<br>Access policy for external services. <br>If you want a specific service to access the ClickHouse cluster, then set the necessary values in this policy. 
 cloud_storage | **[CloudStorage](../cluster.proto#CloudStorage3)**<br> 
+sql_database_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether database management through SQL commands is enabled. 
+sql_user_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether user management through SQL commands is enabled. 
+admin_password | **string**<br>Password for user 'admin' that has SQL user management access. 
 
 
 ### Clickhouse {#Clickhouse3}
@@ -1084,6 +1094,9 @@ zookeeper | **[Zookeeper](../cluster.proto#Zookeeper4)**<br>Configuration and re
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](../cluster.proto#Access4)**<br>Access policy for external services. <br>If you want a specific service to access the ClickHouse cluster, then set the necessary values in this policy. 
 cloud_storage | **[CloudStorage](../cluster.proto#CloudStorage4)**<br> 
+sql_database_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether database management through SQL commands is enabled. 
+sql_user_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether user management through SQL commands is enabled. 
+admin_password | **string**<br>Password for user 'admin' that has SQL user management access. 
 
 
 ### Clickhouse {#Clickhouse4}

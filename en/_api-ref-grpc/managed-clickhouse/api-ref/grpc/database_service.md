@@ -4,7 +4,8 @@ editable: false
 
 # DatabaseService
 
-A set of methods for managing ClickHouse Database resources.
+A set of methods for managing ClickHouse Database resources. 
+NOTE: these methods are available only if database management through SQL is disabled.
 
 | Call | Description |
 | --- | --- |

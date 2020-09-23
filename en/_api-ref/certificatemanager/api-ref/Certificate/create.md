@@ -30,9 +30,9 @@ POST https://certificate-manager.api.cloud.yandex.net/certificate-manager/v1/cer
 Field | Description
 --- | ---
 folderId | **string**<br><p>Required. ID of the folder to create a certificate in.</p> <p>The maximum string length in characters is 50.</p> 
-name | **string**<br><p>Name of the certificate.</p> <p>Value must match the regular expression <code>\|[a-z]([-a-z0-9]{0,61}[a-z0-9])?</code>.</p> 
+name | **string**<br><p>Name of the certificate. The name must be unique within the folder.</p> <p>Value must match the regular expression <code>\|[a-z]([-a-z0-9]{0,61}[a-z0-9])?</code>.</p> 
 description | **string**<br><p>Description of the certificate.</p> <p>The maximum string length in characters is 1024.</p> 
-labels | **object**<br><p>Labels for the certificate as <code>key:value</code> pairs. Maximum 64 per certificate.</p> <p>No more than 64 per resource. The maximum string length in characters for each key is 63. Each key must match the regular expression <code>[a-z][-_0-9a-z]*</code>. The maximum string length in characters for each value is 63. Each value must match the regular expression <code>[-_0-9a-z]*</code>.</p> 
+labels | **object**<br><p>Labels for the certificate as <code>key:value</code> pairs.</p> <p>No more than 64 per resource. The maximum string length in characters for each key is 63. Each key must match the regular expression <code>[a-z][-_0-9a-z]*</code>. The maximum string length in characters for each value is 63. Each value must match the regular expression <code>[-_0-9a-z]*</code>.</p> 
 certificate | **string**<br><p>PEM-encoded certificate content of the certificate.</p> <p>The maximum string length in characters is 32768.</p> 
 chain | **string**<br><p>PEM-encoded certificate chain content of the certificate.</p> <p>The maximum string length in characters is 2097152.</p> 
 privateKey | **string**<br><p>Required. PEM-encoded private key content of the certificate.</p> <p>The string length in characters must be 1-524288.</p> 

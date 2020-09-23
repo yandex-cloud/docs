@@ -85,5 +85,9 @@
         status: ISSUED
         ...
         ```
-
+       
+- API
+  
+    Для получения информации, необходимой для прохождения процедуры проверки прав на домены, воспользуйтесь методом [get](../../api-ref/Certificate/get.md) для ресурса [Certificate](../../api-ref/Certificate/) c флагом `view=FULL`.
+    
 {% endlist %}

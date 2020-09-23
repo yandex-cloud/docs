@@ -3,13 +3,13 @@ editable: false
 ---
 
 # Method get
-Returns chain and private key of the specified certificate
+Returns chain and private key of the specified certificate.
  
 
  
 ## HTTP request {#https-request}
 ```
-GET https://certificate-manager.api.cloud.yandex.net/certificate-manager/v1/certificates/{certificateId}:getContent
+GET https://data.certificate-manager.api.cloud.yandex.net/certificate-manager/v1/certificates/{certificateId}:getContent
 ```
  
 ## Path parameters {#path_params}
@@ -34,6 +34,6 @@ certificateId | ID of the certificate to download content.
  
 Field | Description
 --- | ---
-certificateId | **string**<br><p>ID of the certificate</p> 
+certificateId | **string**<br><p>ID of the certificate.</p> 
 certificateChain[] | **string**<br><p>PEM-encoded certificate chain content of the certificate.</p> 
 privateKey | **string**<br><p>PEM-encoded private key content of the certificate.</p> 

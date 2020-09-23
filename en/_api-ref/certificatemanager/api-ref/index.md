@@ -7,5 +7,5 @@ This API reference is organized by resource. Actions are performed by sending HT
 
 Resource | Description
 --- | ---
-[Certificate](Certificate/index.md) | 
-[CertificateContent](CertificateContent/index.md) | 
+[Certificate](Certificate/index.md) | A set of methods for managing certificates.
+[CertificateContent](CertificateContent/index.md) | A set of methods for managing certificate content.
