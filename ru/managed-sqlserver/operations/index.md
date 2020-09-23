@@ -10,5 +10,4 @@
 - [{#T}](databases.md)
 - [{#T}](cluster-users.md)
 - [{#T}](grant.md)
-- [{#T}](cluster-logs.md)
 - [{#T}](cluster-delete.md)
