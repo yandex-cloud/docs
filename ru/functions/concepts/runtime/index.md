@@ -35,6 +35,8 @@
 | Java 11 | `java11-preview` |
 |**R** | |
 | R 4.0.2 | `r402-preview` |
+|**C#** | |
+| C# 8.0 | `dotnetcore31-preview` |
 |**Прочее** | |
 | Bash | `bash` |
 

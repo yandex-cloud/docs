@@ -223,6 +223,30 @@ items:
         href: lang/r/logging.md
       - name: Обработка ошибок
         href: lang/r/errors.md
+  - name: Разработка на C#
+    items:
+      - name: Обзор
+        href: lang/csharp/index.md
+      - name: Модель программирования
+        items:
+          - name: Обзор
+            href: lang/csharp/model/index.md
+          - name: Интерфейс Function
+            href: lang/csharp/model/independent-function.md
+          - name: Интерфейс YcFunction
+            href: lang/csharp/model/yc-function.md
+      - name: Управление зависимостями
+        href: lang/csharp/dependencies.md
+      - name: Обработчик запросов
+        href: lang/csharp/handler.md
+      - name: Контекст вызова
+        href: lang/csharp/context.md
+      - name: Журналирование
+        href: lang/csharp/logging.md
+      - name: Обработка ошибок
+        href: lang/csharp/errors.md
+      - name: Использование SDK
+        href: lang/csharp/sdk.md
   - name: Сценарии использования
     items:
       - name: Создание навыка Алисы
