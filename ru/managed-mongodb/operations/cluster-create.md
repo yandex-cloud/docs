@@ -97,6 +97,12 @@
 
 - Terraform
 
+  {% note info %}
+  
+  С помощью Terraform можно создать кластер с {{ MG }} версии 3.6, 4.0 или 4.2.
+  
+  {% endnote %}  
+
   {% include [terraform-definition](../../solutions/_solutions_includes/terraform-definition.md) %}
 
   Если у вас ещё нет Terraform, [установите его и настройте провайдер](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).

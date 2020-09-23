@@ -42,7 +42,7 @@ $ chmod 0600 ~/.mongodb/CA.pem
 
 {% list tabs %}
 
-- SSL для mongo 4.2
+- SSL для mongo версий 4.2 и выше
 
   {% include [public-connect-ssl](../../_includes/mdb/public-connect-ssl.md) %}
     
