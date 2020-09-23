@@ -54,6 +54,8 @@ items:
       href: concepts/bonus-account.md
     - name: Резервируемое потребление (CVoS)
       href: concepts/cvos.md
+    - name: Free tier экосистемы бессерверных вычислений
+      href: concepts/serverless-free-tier.md
     - name: Договор
       href: concepts/contract.md
     - name: Глоссарий

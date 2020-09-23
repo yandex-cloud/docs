@@ -42,6 +42,7 @@ Prices are given for a 30-day month. For shorter months, the price is higher. Fo
 
 | Service | Cost of 1 GB per month, with VAT |
 | ----- | ----- |
+| The first 1 GB in standart storage per month | Not charged |
 | Standard storage | 1.2610 ₽ |
 | Cold storage | 0.6712 ₽ |
 
@@ -56,6 +57,8 @@ Storage_cost = Cost_per_GB_per_month * 15 * 12 / 24 / 30
 | Service | Cost, rubles with VAT |
 | ----- | ----- |
 | **Standard storage** |
+| The first 10 000 PUT or POST operations per month | Not charged |
+| The first 100 000 GET or HEAD operations per month | Not charged |
 | 1000 PUT or POST operations | 0.3051 ₽ |
 | 10,000 GET or HEAD operations | 0.2441 ₽ |
 | **Cold storage** |
@@ -81,7 +84,7 @@ The minimum billable unit is 1 MB.
 
 | Resource category | Cost of 1 GB with VAT |
 | ----- | ----- |
-| Outgoing traffic, up to 10 GB | Free |
+| Outgoing traffic, up to 10 GB per month | Free |
 | Outgoing traffic over 10 GB and up to 1 TB | 0.96 ₽ |
 | Outgoing traffic over 1 TB and up to 50 TB | 0.80 ₽ |
 | Outgoing traffic over 50 TB and up to 100 TB | 0.75 ₽ |
