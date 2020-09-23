@@ -1,6 +1,5 @@
 title: "Yandex API Gateway"
 description:
-  - "<em>Cервис API Gateway находится на <a href=\"/docs/overview/concepts/launch-stages\">стадии Preview</a></em>."
   - "Yandex API Gateway — сервис для управления API-шлюзами, поддерживающий <a href=\"https://github.com/OAI/OpenAPI-Specification\">спецификацию OpenAPI 3.0</a> и набор расширений для взаимодействия с другими облачными сервисами."
 meta:
   title: "Yandex API Gateway"

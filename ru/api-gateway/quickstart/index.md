@@ -130,7 +130,7 @@
     1. В открывшемся меню нажмите кнопку **Редактировать**.
     1. В блок **Спецификация** добавьте расширенную версию спецификации
         
-        Добавлен метод `/numbers`, который с помощью расширения `x-yc-apigateway-integration` типа `cloud-functions` вызывает функцию по идентификатору. 
+        Добавлен метод `/numbers`, который с помощью расширения `x-yc-apigateway-integration` типа `cloud_functions` вызывает функцию по идентификатору. 
         
         Чтобы API-шлюз корректно отработал, в параметре `function_id` укажите идентификатор функции, которую хотите вызывать. 
         
@@ -180,7 +180,7 @@
                          items:
                            type: "integer"
               x-yc-apigateway-integration:
-                type: cloud-functions
+                type: cloud_functions
                 function_id: <ID функции>
         ```
    

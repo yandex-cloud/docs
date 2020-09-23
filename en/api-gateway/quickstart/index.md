@@ -153,7 +153,7 @@ Add function information to the API gateway specification.
 
     1. Under **Specification**, add an extended version of the specification
 
-        Added the `/numbers` method which uses the `x-yc-apigateway-integration` extension like `cloud-functions` to invoke a function by ID.
+        Added the `/numbers` method which uses the `x-yc-apigateway-integration` extension like `cloud_functions` to invoke a function by ID.
 
         To ensure that the API gateway works properly, in the `function_id` parameter, specify the ID of the function to invoke.
 
@@ -203,7 +203,7 @@ Add function information to the API gateway specification.
                          items:
                            type: "integer"
               x-yc-apigateway-integration:
-                type: cloud-functions
+                type: cloud_functions
                 function_id: <function ID>
         ```
 
