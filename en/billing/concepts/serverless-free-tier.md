@@ -14,7 +14,7 @@ Free tier applies to the following services:
 
 ## {{ api-gw-full-name }}{#api-gw}
 
-The first 100,000 requests to API gateways are provided free of charge. Then they are charged the applicable [rate](../../api-gateway/pricing.md).
+The first 100,000 requests to API gateways are provided free of charge every month. Then they are charged the applicable [rate](../../api-gateway/pricing.md).
 
 If you don't spend the free amount of services before the end of the month, the balance is reset.
 
