@@ -9,3 +9,4 @@
 * [{#T}](1c-mssql-windows.md)
 * [{#T}](hystax-migration.md)
 * [{#T}](hystax-disaster-recovery.md)
+* [{#T}](fault-tolerance.md)

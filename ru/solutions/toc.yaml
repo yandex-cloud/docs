@@ -79,6 +79,8 @@ items:
         href: infrastructure-management/hystax-migration.md
       - name: Аварийное восстановление в Yandex.Cloud с помощью Hystax Acura
         href: infrastructure-management/hystax-disaster-recovery.md
+      - name: Настройка отказоустойчивой архитектуры в Yandex.Cloud
+        href: infrastructure-management/fault-tolerance.md
   - name: Windows в Yandex.Cloud
     items:
       - name: Все сценарии
@@ -91,7 +93,7 @@ items:
         href: windows/rds.md
       - name: Развертывание группы доступности Always On 
         href: windows/mssql-alwayson.md
-      - name: Развертывание группы доступности Always On с внутренним балансировщиком 
+      - name: Развертывание группы доступности Always On с внутренним балансировщиком
         href: windows/mssql-alwayson-lb.md
   - name: Сетевая маршрутизация
     items:
