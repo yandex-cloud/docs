@@ -4,6 +4,7 @@ editable: false
 
 # Правила тарификации для {{ ydb-full-name }}
 
-На [стадии Preview](../../../docs/overview/concepts/launch-stages) использование сервиса {{ ydb-full-name }} не тарифицируется.
+Тарификация {{ ydb-full-name }} отличается в зависимости от режимов использования:
 
-{% include [traffic_metering](_includes/traffic_metering.md) %}
+* [{#T}](pricing/serverless.md)
+* [{#T}](pricing/dedicated.md)

@@ -151,6 +151,8 @@ items:
   - name: Правила тарификации
     when: audience == "external"
     items:
+      - name: Обзор
+        href: pricing.md
       - name: Бессерверный режим
         href: pricing/serverless.md
       - name: Режим с выделенными инстансами
