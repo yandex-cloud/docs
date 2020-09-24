@@ -30,16 +30,18 @@
 - Python
 
   ```bash
-  ./basic_example -endpoint endpoint -database database
+  $ ./basic_example -endpoint endpoint -database database
 
   > describe table: series
-  ('column, name:', 'series_id', ',', 'type_id: UINT64')
-  ('column, name:', 'title', ',', 'type_id: UTF8')
-  ('column, name:', 'series_info', ',', 'type_id: UTF8')
-  ('column, name:', 'release_date', ',', 'type_id: UINT64')
+  ('column, name:', 'series_id', ',', 'Uint64')
+  ('column, name:', 'title', ',', 'Utf8')
+  ('column, name:', 'series_info', ',', 'Utf8')
+  ('column, name:', 'release_date', ',', 'Uint64')
 
   > select_simple_transaction:
   ('series, id: ', 1L, ', title: ', u'IT Crowd', ', release date: ', '2006-02-03')
+
+  > bulk upsert: episodes
 
   > select_prepared_transaction:
   ('episode title:', u'To Build a Better Beta', ', air date:', '2016-06-05')
@@ -50,18 +52,19 @@
   > explicit TCL call
 
   > select_prepared_transaction:
-  ('episode title:', u'TBD', ', air date:', '2018-09-11')
+  ('episode title:', u'TBD', ', air date:', '2020-09-23')
   ```
 
 - Go
 
   ```bash
-  ./basic_example_v1 -endpoint endpoint -database database
+  $ ./basic_example_v1 -endpoint endpoint -database database
+
   inspecting Database
 
   > describe_table_options:
 
-  > describe table: /global/path/todatabase/series
+  > describe table: /path/to/database/series
   column, name: Optional<Uint64>, series_id
   column, name: Optional<Utf8>, title
   column, name: Optional<Utf8>, series_info
@@ -74,9 +77,52 @@
 - Java
 
   ```bash
-  ./mvnw -q exec:java -Dexec.args="<accountId> <keyId> <private_key_file_path> <endpoint> <database>"
+  ...
 
-  result: 42
+  --[ SelectSimple ]--
+  +-----------+------------------+--------------------+
+  | series_id |            title |       release_date |
+  +-----------+------------------+--------------------+
+  |   Some[1] | Some["IT Crowd"] | Some["2006-02-03"] |
+  +-----------+------------------+--------------------+
+
+  --[ SelectWithParams ]--
+  +------------------+------------------------+
+  |     season_title |           series_title |
+  +------------------+------------------------+
+  | Some["Season 3"] | Some["Silicon Valley"] |
+  +------------------+------------------------+
+  Finished preparing query: PreparedSelectTransaction
+
+  --[ PreparedSelect ]--
+  +-------------+------------+-----------+-----------+--------------------------------+
+  |    air_date | episode_id | season_id | series_id |                          title |
+  +-------------+------------+-----------+-----------+--------------------------------+
+  | Some[16957] |    Some[7] |   Some[3] |   Some[2] | Some["To Build a Better Beta"] |
+  +-------------+------------+-----------+-----------+--------------------------------+
+
+  --[ PreparedSelect ]--
+  +-------------+------------+-----------+-----------+--------------------------------------+
+  |    air_date | episode_id | season_id | series_id |                                title |
+  +-------------+------------+-----------+-----------+--------------------------------------+
+  | Some[16964] |    Some[8] |   Some[3] |   Some[2] | Some["Bachman's Earnings Over-Ride"] |
+  +-------------+------------+-----------+-----------+--------------------------------------+
+
+  --[ MultiStep ]--
+  +-----------+------------+---------------------------------+-------------+
+  | season_id | episode_id |                           title |    air_date |
+  +-----------+------------+---------------------------------+-------------+
+  |   Some[5] |    Some[1] |   Some["Grow Fast or Die Slow"] | Some[17615] |
+  |   Some[5] |    Some[2] |           Some["Reorientation"] | Some[17622] |
+  |   Some[5] |    Some[3] | Some["Chief Operating Officer"] | Some[17629] |
+  +-----------+------------+---------------------------------+-------------+
+
+  --[ PreparedSelect ]--
+  +-------------+------------+-----------+-----------+-------------+
+  |    air_date | episode_id | season_id | series_id |       title |
+  +-------------+------------+-----------+-----------+-------------+
+  | Some[18528] |    Some[1] |   Some[6] |   Some[2] | Some["TBD"] |
+  +-------------+------------+-----------+-----------+-------------+
   ```
 
 {% endlist %}
@@ -178,7 +224,6 @@
 
   ```python
   def create_tables(session, path):
-      # Создание таблицы series.
       session.create_table(
           os.path.join(path, 'series'),
           ydb.TableDescription()
@@ -327,9 +372,10 @@ SELECT * FROM episodes;
           """
           PRAGMA TablePathPrefix("{}");
           $format = DateTime::Format("%Y-%m-%d");
-          SELECT series_id,
-                 title,
-                 $format(DateTime::FromSeconds(CAST(DateTime::ToSeconds(DateTime::IntervalFromDays(CAST(release_date AS Int16))) AS Uint32))) AS release_date
+          SELECT
+              series_id,
+              title,
+              $format(DateTime::FromSeconds(CAST(DateTime::ToSeconds(DateTime::IntervalFromDays(CAST(release_date AS Int16))) AS Uint32))) AS release_date
           FROM series
           WHERE series_id = 1;
           """.format(path),
@@ -555,8 +601,9 @@ SELECT * FROM episodes;
       DECLARE $seasonId AS Uint64;
       DECLARE $episodeId AS Uint64;
       $format = DateTime::Format("%Y-%m-%d");
-      SELECT title,
-             $format(DateTime::FromSeconds(CAST(DateTime::ToSeconds(DateTime::IntervalFromDays(CAST(air_date AS Int16))) AS Uint32))) AS air_date
+      SELECT
+          title,
+          $format(DateTime::FromSeconds(CAST(DateTime::ToSeconds(DateTime::IntervalFromDays(CAST(air_date AS Int16))) AS Uint32))) AS air_date
       FROM episodes
       WHERE series_id = $seriesId AND season_id = $seasonId AND episode_id = $episodeId;
       """.format(path)
@@ -610,7 +657,8 @@ SELECT * FROM episodes;
           .put("$seasonId", uint64(seasonId))
           .put("$episodeId", uint64(episodeId));
 
-      DataQueryResult result = query.execute(TxControl.serializableRw().setCommitTx(true), params)
+      TxControl txControl = TxControl.serializableRw().setCommitTx(true);
+      DataQueryResult result = query.execute(txControl, params)
           .join()
           .expect("prepared query failed");
 
@@ -680,7 +728,8 @@ SELECT * FROM episodes;
 
       Params params = Params.of("$airDate", uint64(Duration.between(Instant.EPOCH, Instant.now()).toDays()));
 
-      Result<DataQueryResult> updateResult = session.executeDataQuery(query, TxControl.id(transaction), params)
+      TxControl txControl = TxControl.id(transaction).setCommitTx(false);
+      Result<DataQueryResult> updateResult = session.executeDataQuery(query, txControl, params)
           .join();
       if (!updateResult.isSuccess()) {
           return updateResult.toStatus();

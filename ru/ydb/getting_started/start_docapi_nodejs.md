@@ -13,11 +13,11 @@
 ### Создание таблицы
 
 ```javascript
-const { DocapiService } = require('yandex-cloud')
+const { DocAPIService } = require('yandex-cloud')
 
 // change for your Document API endpoint
 const endpoint = 'https://docapi.serverless.yandexcloud.net/ru-central1/b1g11111111111111111/etn22222222222222222';
-const docapi = new DocapiService(endpoint)
+const docapi = new DocAPIService(endpoint)
 
 var params =
 {
@@ -50,11 +50,11 @@ docapi.createTable(params).then(res => { console.log(res); }).catch(err => conso
 
 ### Сохранение записи
 ```javascript
-const { DocapiService } = require('yandex-cloud')
+const { DocAPIService } = require('yandex-cloud')
 
 // change for your Document API endpoint
 const endpoint = 'https://docapi.serverless.yandexcloud.net/ru-central1/b1g11111111111111111/etn22222222222222222';
-const docapi = new DocapiService(endpoint)
+const docapi = new DocAPIService(endpoint)
 
 var params =
 {
@@ -72,11 +72,11 @@ docapi.putItem(params).then(res => { console.log(res); }).catch(err => console.l
 
 ### Чтение записи
 ```javascript
-const { DocapiService } = require('yandex-cloud')
+const { DocAPIService } = require('yandex-cloud')
 
 // change for your Document API endpoint
 const endpoint = 'https://docapi.serverless.yandexcloud.net/ru-central1/b1g11111111111111111/etn22222222222222222';
-const docapi = new DocapiService(endpoint)
+const docapi = new DocAPIService(endpoint)
 
 var params =
 {
