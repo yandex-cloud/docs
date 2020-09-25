@@ -391,11 +391,11 @@ items:
     - name: Удаление таблицы
       href: yql/tutorial/delete_table.md
   - name: Обслуживание
-    when: audience != "external"
     items:
       - name: Резервное копирование
         href: maintenance/backup_and_recovery.md
       - name: Мониторинг
+        when: audience != "external"
         href: maintenance/monitoring.md
   - name: Безопасность
     when: audience == "tech"

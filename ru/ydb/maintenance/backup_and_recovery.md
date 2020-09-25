@@ -1,21 +1,41 @@
 # Резервное копирование
 
-В этом разделе описаны поддерживаемые способы создания резервных копий баз данных YDB и восстановления из созданных ранее резервных копий. YDB предоставления возможность создания резервной копии на локальной файловой системе, в YT и в AWS S3-совместимых объектных хранилищах.
+В этом разделе описаны поддерживаемые способы создания резервных копий баз данных YDB и восстановления из созданных ранее резервных копий. {{ ydb-short-name }} позволяет использовать следущие места назначения для создания резервных копий:
+* [csv-файлы на файловой системе](#filesystem_backup);
+{% if audience == "internal" %}
+* YT;
+{% endif %}
+* [AWS S3-совместимые хранилища](#s3_backup), например {{ objstorage-name }}.
 
 {% note warning "Влияние резервного копирования на производительность" %}
 
-Операция резервного копирования может отрицательно сказываться на показателях взаимодействия с базой. Может вырасти время выполнения запросов. До того, как выполнять резервное копирование под нагрузкой на продакшн базах протестируйте, пожалуйста, процесс в  тестовом контуре.
+В процессе выполнения резервного копирования может возрасти время выполнения запросов к базе. Протестируйте процесс на тестовых базах, прежде чем выполнять резервное копирование под реальной нагрузкой на продакшен базах.
 
 {% endnote %}
 
 ## Предварительные требования
 
-Для любого описанного ниже рецепта создания резервной копии понадобится:
+{% if audience == "external" %}
 
+1. Установите [консольный клиент YDB](../quickstart/examples-ydb-cli.md).
+1. В свойствах базы на вкладке "Обзор" найдите и скопируйте значения полей **Эндпоинт** и **База данных**.
+1. Сохраните значения полей **Эндпоинт** и **База данных** в переменных окружения `$YDB_ENDPOINT` и `$YDB_DB_PATH`.
+
+{% endif %}
+
+{% if audience != "external" %}
+
+Для любого описанного ниже рецепта создания резервной копии понадобится:
 * [консольный клиент YDB](../getting_started/ydb_cli.md);
 * endpoint базы данных (информация об endpoint доступна на странице [Info](https://ydb.yandex-team.ru/db/ydb-ru/tutorial/home/testdb/info) вашей БД);
 * пользователь, авторизованный для чтения и записи данных из таблиц, для которых будет создана резервная копия;
 * [токен для аутентификации](../getting_started/start_auth.md) пользователя, от имени которого будет выполняться операция.
+
+В примерах ниже предполагается, что эндпоинт и полный путь базы данных сохранены в переменных окружения `$YDB_ENDPOINT` и `$YDB_DB_PATH` соответственно.
+
+{% endif %}
+
+{% if audience != "external" %}
 
 {% note info "Аутентификация" %}
 
@@ -23,71 +43,141 @@
 
 {% endnote %}
 
+{% endif %}
+
 ## Ограничения {#limitations}
 
 В текущей реализации в YDB допустимо создание резервной копии не более чем 1000 таблиц одновременно.
 
 ## Резервное копирование на файловую систему {#filesystem_backup}
 
-Сохранение структуры директории `backup` в базе `/ru/tutorial/home/testdb` в директорию `my_backup_of_basic_example` на файловой системе.
-```
-ya ydb -e ydb-ru.yandex.net:2135 -d /ru/tutorial/home/testdb tools dump -p /ru/tutorial/home/testdb/backup -o my_backup_of_basic_example/
-```
-Для каждой директории в базе будет создана директория на файловой системе. Для каждой таблицы так же будет создана директория на файловой системе, в которую будет помещён файл с описанием структуры. Данные таблиц будут сохранены в одном или нескольких файлах в формате `csv`, по одной строке в файле для строки таблицы. Строковые данные перед сохранением преобразуются в urlencoded представление с помощью функции [CGIEscape](https://a.yandex-team.ru/arc/trunk/arcadia/util/string/quote.h?rev=5058568#L6-25).
+### Сохранить базу данных целиком
 
-### Пример листинга содержимого директории с резервной копией
+Чтобы сохранить на файловую систему базу данных целиком или ее определенной директории, выполните команду:
 
 ```
-tree my_backup_of_basic_example/
-my_backup_of_basic_example/
-├── episodes
-│   ├── data_00.csv
-│   └── scheme.pb
-├── seasons
-│   ├── data_00.csv
-│   └── scheme.pb
-└── series
-    ├── data_00.csv
-    └── scheme.pb
-
-3 directories, 6 files
+{{ ydb-cli }} -e $YDB_ENDPOINT -d $YDB_DB_PATH tools dump -p $YDB_DB_PATH/<имя директории> \
+    -o <путь для сохранения на файловой системе>
 ```
 
-Структура каждой таблицы сохранена в файле с именем  `scheme.pb`, например в `episodes/scheme.pb` сохранена схема таблицы `episodes`. Данные каждой таблицы сохранены в одном или нескольких файлах с именами вида `data_хх.csv`, где хх – порядковый номер файла. Имя первого файла – `data_00.csv`. Ограничение на размер одного файла – 100 Мб.
+В результате выполнения команды:
+
+* Для каждой директории в базе будет создан каталог на файловой системе.
+* Для каждой таблицы будет создан каталог, в который будут помещены файлы:
+   * `scheme.pb` — файл с описанием структуры таблицы
+   * `data_хх.csv` —  файлы с данными таблицы. Каждая файла соответствует строка таблицы. Ограничение на размер одного файла – 100 Мб.
+   Здесь хх – порядковый номер файла. Имя первого файла – `data_00.csv`.
+
+{% if audience != "external" %}
+
+Строковые данные перед сохранением преобразуются в urlencoded представление с помощью функции [CGIEscape](https://a.yandex-team.ru/arc/trunk/arcadia/util/string/quote.h?rev=5058568#L6-25).
+
+{% endif %}
+
+>**Пример**
+>
+>Сохранение структуры и данных директории `backup` в базе `$YDB_DB_PATH` в директорию `my_backup_of_basic_example` на файловой системе.
+>
+>```
+>{{ ydb-cli }} -e $YDB_ENDPOINT -d $YDB_DB_PATH tools dump -p $YDB_DB_PATH/backup -o my_backup_of_basic_example/
+>```
+>
+>В результате выполнения команды на файловой системе будут созданы каталоги со структурой вида:
+>
+>
+>```
+>tree my_backup_of_basic_example/
+>my_backup_of_basic_example/
+>├── episodes
+>│   ├── data_00.csv
+>│   └── scheme.pb
+>├── seasons
+>│   ├── data_00.csv
+>│   └── scheme.pb
+>└── series
+>    ├── data_00.csv
+>    └── scheme.pb
+>
+>3 directories, 6 files
+>```
+
 
 ### Сохранение схемы таблиц
 
-Утилита `ydb`, запущенная с опцией `--scheme-only`, сохранит только схемы таблиц. Команда, приведённая ниже, сохранит все директории и файлы со структурой таблиц из директории `examples` в базе `/eu/cloud/ydb/example` в папку `my_backup_of_basic_example`. Файлы с данными таблиц созданы не будут.
+Чтобы сохранить только схему таблиц базы данных, выполните команду:
+
 ```
-ya ydb -e ydb-ru.yandex.net:2135 -d /ru/tutorial/home/testdb tools dump -p /ru/tutorial/home/testdb/backup -o my_backup_of_basic_example/ --scheme-only
+{{ ydb-cli }} -e $YDB_ENDPOINT -d $YDB_DB_PATH tools dump -p $YDB_DB_PATH/<имя директории> \ 
+    -o <путь для сохранения на файловой системе> \
+    --scheme-only
 ```
 
+Такая команда сохранит только структуру таблицы, файлы с данными сохранены не будут.
+
+> **Пример**
+>
+>Сохранение структуры директории `examples` в базе `$YDB_DB_PATH` в директорию `my_backup_of_basic_example` на файловой системе. 
+>
+>```
+>{{ ydb-cli }} -e $YDB_ENDPOINT -d $YDB_DB_PATH tools dump -p $YDB_DB_PATH/examples -o my_backup_of_basic_example/ --scheme-only
+>```
 
 ## Восстановление из резервной копии на файловой системе {#filesystem_restore}
 
-Команда, приведённая ниже, создаст директории и таблицы из резервной копии, сохранённой в директории `my_backup_of_basic_example` и загрузит в них данные.
+Выполните команду:
+
 ```
-ya ydb -e ydb-ru.yandex.net:2135 -d /ru/tutorial/home/testdb tools restore  -p /ru/tutorial/home/testdb/backup/restored -i my_backup_of_basic_example/
+{{ ydb-cli }} -e $YDB_ENDPOINT -d $YDB_DB_PATH tools restore  -p $YDB_DB_PATH/backup/restored \
+    -i <путь до каталога с резервной копией>/
 ```
 
+> **Пример**
+>
+>Команда, приведённая ниже, создаст директории и таблицы из резервной копии, сохранённой в директории `my_backup_of_basic_example` и загрузит в них данные.
+>
+>```
+>{{ ydb-cli }} -e $YDB_ENDPOINT -d $YDB_DB_PATH tools restore  -p $YDB_DB_PATH/backup/restored -i my_backup_of_basic_example/
+>```
 
 ### Проверка резервной копии
 
-Утилита `ydb`, запущенная с опцией `--dry-run`, позволяет проверить, что все таблицы в базе содержатся в резервной копии и что структуры таблиц одинаковы.
+Команда `{{ ydb-cli }} tools restore`, запущенная с опцией `--dry-run`, позволяет проверить, что все таблицы в базе содержатся в резервной копии и что структуры таблиц одинаковы.
 
-Команда, приведённая ниже, проверит, что все таблицы, сохранённые в `my_backup_of_basic_example`, существуют в базе  `/eu/cloud/ydb/example` и их структура (состав и порядок столбцов, типы данных столбцов, состав первичного ключа) одинаковы.
+Чтобы проверить, что все таблицы в базе или её директории содержатся в резервной копии и что структуры таблиц одинаковы, выполните команду:
 
 ```
-ya ydb -e ydb-ru.yandex.net:2135 -d /ru/tutorial/home/testdb tools restore  -p /ru/tutorial/home/testdb/restored_basic_example -i my_backup_of_basic_example/ --dry-run
+{{ ydb-cli }} -e $YDB_ENDPOINT -d $YDB_DB_PATH tools restore  -p $YDB_DB_PATH/<имя директории> \
+    -i <путь до каталога с резервной копией> \
+    --dry-run
 ```
+
+>**Пример**
+>
+>Команда, приведённая ниже, проверит, что все таблицы, сохранённые в `my_backup_of_basic_example`, существуют в базе  `$YDB_DB_PATH` и их структура (состав и порядок столбцов, типы данных столбцов, состав первичного ключа) одинаковы.
+>
+>```
+>{{ ydb-cli }} -e $YDB_ENDPOINT -d $YDB_DB_PATH tools restore  -p $YDB_DB_PATH/restored_basic_example -i my_backup_of_basic_example/ --dry-run
+>```
 
 ## Резервное копирование в S3-совместимые хранилища {#s3_backup}
 
 YDB позволяет сохранять резервные копии баз данных в хранилища, поддерживающие [Amazon Simple Storage Service (AWS S3) API](https://docs.aws.amazon.com/AmazonS3/latest/dev/Introduction.html).
 
+{% if audience != "external" %}
+
 В этом разделе в качестве системы назначения используется [MDS](https://wiki.yandex-team.ru/mds/) – система хранения данных, доступная в Яндексе и предоставляющая возможность доступа по интерфейсу, совместимому с Amazon S3. Более подробно MDS S3 API [описан в документации](https://wiki.yandex-team.ru/mds/s3-api/).
 
+{% endif %}
+
+{% if audience == "external" %}
+
+В этом разделе в качестве системы назначения используется [{{ objstorage-full-name }}](https://cloud.yandex.ru/services/storage).
+
+{% endif %}
+
 ### Предварительные требования {#s3_prerequisites}
+
+{% if audience != "external" %}
 
 Для сохранения резервной копии базы данных YDB в MDS вам понадобится:
 
@@ -95,16 +185,36 @@ YDB позволяет сохранять резервные копии баз �
 * [предварительно созданный](https://wiki.yandex-team.ru/mds/s3-api/s3-clients/#primery) бакет в MDS;
 * [пользователь](https://wiki.yandex-team.ru/mds/s3-api/authorization/#vydachapravrobotuilisotrudniku), обладающий правом на запись в бакет.
 
+{% endif %}
+
+{% if audience == "external" %}
+
+[Создайте бакет](../../storage/operations/buckets/create.md) в {{ objstorage-name }}, чтобы сохранить с него данные.
+
+
+{% endif %}
 
 ### Создание ключей доступа {#s3_create_access_keys}
 
-Для аутентификации и авторизации в S3-совместимых хранилищах используются ключи доступа. В [документации к MDS S3 API описана](https://wiki.yandex-team.ru/mds/s3-api/authorization/#sozdanieaccesskey) процедура создания и получения ключей доступа.
+Для аутентификации и авторизации в S3-совместимых хранилищах используются ключи доступа.
+
+{% if audience != "external" %}
+
+В [документации к MDS S3 API описана](https://wiki.yandex-team.ru/mds/s3-api/authorization/#sozdanieaccesskey) процедура создания и получения ключей доступа.
 
 [Консольный клиент YDB](../getting_started/ydb_cli.md) предоставляет три варианта передачи ключей доступа:
 
+{% endif %}
+
+{% if audience == "external" %}
+
+[Консольный клиент YDB](../quickstart/examples-ydb-cli.md) предоставляет три варианта передачи ключей доступа:
+
+{% endif %}
+
 * через опции командной строки `--access-key` и `--secret-key`;
 * через переменные окружения `AWS_ACCESS_KEY_ID` и `AWS_SECRET_ACCESS_KEY`;
-* через файл `~/.aws/credentials`, создаваемый и используемый [aws cli](https://wiki.yandex-team.ru/mds/s3-api/s3-clients/).
+* через файл `~/.aws/credentials`, создаваемый и используемый [aws cli](https://aws.amazon.com/ru/cli/).
 
 Настройки применяются в порядке, описанном выше. Например, если одновременно использовать все три варианта передачи значения access_key или secret_key, то будут использованы значения, переданные через опции командной строки.
 
@@ -113,15 +223,17 @@ YDB позволяет сохранять резервные копии баз �
 
 Команды в примерах ниже составлены из расчёта, что данные ключей доступа сохранены в файл `~/.aws/credentials`.
 
-Запуск операции операции экспорта данных на кластере `ydb-ru` из таблиц `/ru/tutorial/home/testdb/backup/episodes`, `/ru/tutorial/home/testdb/backup/seasons`, `/ru/tutorial/home/testdb/backup/series` в YDB в базе `/ru/tutorial/home/testdb` в файлы с префиксом `20200601/` в бакете `testdbbackups` в MDS.
+Запуск операции операции экспорта данных из таблиц `$YDB_DB_PATH/backup/episodes`, `$YDB_DB_PATH/backup/seasons`, `$YDB_DB_PATH/backup/series` в YDB в базе `$YDB_DB_PATH` в файлы с префиксом `20200601/` в бакете `testdbbackups` в {{ objstorage-name }}.
 ```
-ya ydb -e ydb-ru.yandex.net:2135 -d /ru/tutorial/home/testdb export s3 --s3-endpoint s3.mds.yandex.net --bucket testdbbackups\
---item source=/ru/tutorial/home/testdb/backup/episodes,destination=20200601/episodes\
---item source=/ru/tutorial/home/testdb/backup/seasons,destination=20200601/seasons\
---item source=/ru/tutorial/home/testdb/backup/series,destination=20200601/series
+{{ ydb-cli }} -e $YDB_ENDPOINT -d $YDB_DB_PATH export s3 --s3-endpoint {{ s3-storage-host }}  --bucket testdbbackups\
+--item source=$YDB_DB_PATH/backup/episodes,destination=20200601/episodes\
+--item source=$YDB_DB_PATH/backup/seasons,destination=20200601/seasons\
+--item source=$YDB_DB_PATH/backup/series,destination=20200601/series
 ```
 
-В результате выполнения команды ydb cli выведет информацию о статусе запущенной операции.
+В результате выполнения команды консольный клиент выведет информацию о статусе запущенной операции.
+
+{% if audience != "external" %}
 
 ```
 ┌───────────────────────────────────────────┬───────┬─────────┬───────────┬───────────────────┬───────────────┐
@@ -140,6 +252,29 @@ ya ydb -e ydb-ru.yandex.net:2135 -d /ru/tutorial/home/testdb export s3 --s3-endp
 | Number of retries: 10                                                                                       |
 └─────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
+{% endif %}
+
+{% if audience == "external" %}
+
+```
+┌───────────────────────────────────────────┬───────┬─────────┬───────────┬─────────────────────────┬────────────────────┐
+| id                                        | ready | status  | progress  | endpoint                | bucket             |
+├───────────────────────────────────────────┼───────┼─────────┼───────────┼─────────────────────────┼────────────────────┤
+| ydb://export/6?id=562950168911361&kind=s3 | false | SUCCESS | Preparing | storage.yandexcloud.net | testdbbackups      |
+├╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴┴╴╴╴╴╴╴╴┴╴╴╴╴╴╴╴╴╴┴╴╴╴╴╴╴╴╴╴╴╴┴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴┴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴┤
+| Items:                                                                                                                 |
+|   - source_path: /ru-central1/b1g8skpblkos03malf3s/etn03umjgudn9q4l0vkk/backup/episodes                                |
+|     destination_prefix: 20200601/episodes                                                                              |
+|   - source_path: /ru-central1/b1g8skpblkos03malf3s/etn03umjgudn9q4l0vkk/backup/seasons                                 |
+|     destination_prefix: 20200601/seasons                                                                               |
+|   - source_path: /ru-central1/b1g8skpblkos03malf3s/etn03umjgudn9q4l0vkk/backup/series                                  |
+|     destination_prefix: 20200601/series                                                                                |
+| Description:                                                                                                           |
+| Number of retries: 10                                                                                                  |
+└────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+```
+{% endif %}
+
 
 После успешного завершения операции экспорта в бакете `testdbbackups` будут сохранены файлы в формате `csv` с данными и схемой таблиц c префиксами, перечисленными ниже.
 ```
@@ -153,7 +288,7 @@ ya ydb -e ydb-ru.yandex.net:2135 -d /ru/tutorial/home/testdb export s3 --s3-endp
 В результате выполнения с помощью aws cli приведённой ниже команды на экран будет выведен список префиксов, созданных в результате бекапа в бакете `testdbbackup`.
 
 ```
-aws --endpoint-url=http://s3.mds.yandex.net s3 ls testdbbackups/20200601/
+aws --endpoint-url=https://{{ s3-storage-host }} s3 ls testdbbackups/20200601/
                            PRE episodes/
                            PRE seasons/
                            PRE series/
@@ -164,21 +299,23 @@ aws --endpoint-url=http://s3.mds.yandex.net s3 ls testdbbackups/20200601/
 Чтобы сделать резервную копию всех таблиц в директории YDB, следует указать путь до директории в качестве источника.
 
 ```
-ya ydb -e ydb-ru.yandex.net:2135 -d /ru/tutorial/home/testdb export s3 \
---s3-endpoint mds.yandex.ru \
+{{ ydb-cli }} -e $YDB_ENDPOINT -d $YDB_DB_PATH export s3 \
+--s3-endpoint {{ s3-storage-host }} \
 --bucket testdbbackups \
---item source=/ru/tutorial/home/testdb/backup,destination=20200601/
+--item source=$YDB_DB_PATH/backup,destination=20200601/
 ```
 
 {% endnote %}
 
+{% if audience != "external" %}
+
 вывести на экран текущее состояние запущенной ранее операции экспорта можно приведённой ниже командой.
 ```
-ya ydb -e ydb-ru.yandex.net:2135 -d /ru/tutorial/home/testdb operation get 'ydb://export/6?id=846776181822113&kind=s3'
+{{ ydb-cli }} -e $YDB_ENDPOINT -d $YDB_DB_PATH operation get 'ydb://export/6?id=846776181822113&kind=s3'
 ┌───────────────────────────────────────────┬───────┬─────────┬───────────────┬───────────────────┬───────────────┐
 | id                                        | ready | status  | progress      | endpoint          | bucket        |
 ├───────────────────────────────────────────┼───────┼─────────┼───────────────┼───────────────────┼───────────────┤
-| ydb://export/6?id=846776181822113&kind=s3 | false | SUCCESS | TransferDatat | s3.mds.yandex.net | testdbbackups |
+| ydb://export/6?id=846776181822113&kind=s3 | false | SUCCESS | TransferData  | s3.mds.yandex.net | testdbbackups |
 ├╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴┴╴╴╴╴╴╴╴┴╴╴╴╴╴╴╴╴╴┴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴┴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴┴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴┤
 | Items:                                                                                                          |
 |   - source_path: /ru/tutorial/home/testdb/backup/episodes                                                       |
@@ -210,9 +347,62 @@ ya ydb -e ydb-ru.yandex.net:2135 -d /ru/tutorial/home/testdb operation get 'ydb:
 └────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
+{% endif %}
+
+{% if audience == "external" %}
+
+вывести на экран текущее состояние запущенной ранее операции экспорта можно приведённой ниже командой.
+```
+{{ ydb-cli }} -e $YDB_ENDPOINT -d $YDB_DB_PATH operation get 'ydb://export/6?id=562950168911361&kind=s3'
+┌───────────────────────────────────────────┬───────┬─────────┬───────────────┬─────────────────────────┬───────────────┐
+| id                                        | ready | status  | progress      | endpoint                | bucket        |
+├───────────────────────────────────────────┼───────┼─────────┼───────────────┼─────────────────────────┼───────────────┤
+| ydb://export/6?id=562950168911361&kind=s3 | false | SUCCESS | TransferData  | storage.yandexcloud.net | testdbbackups |
+├╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴┴╴╴╴╴╴╴╴┴╴╴╴╴╴╴╴╴╴┴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴┴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴┴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴┤
+| Items:                                                                                                                |
+|   - source_path: /ru-central1/b1g8skpblkos03malf3s/etn03umjgudn9q4l0vkk/backup/episodes                               |
+|     destination_prefix: 20200601/episodes                                                                             |
+|   - source_path: /ru-central1/b1g8skpblkos03malf3s/etn03umjgudn9q4l0vkk/backup/seasons                                |
+|     destination_prefix: 20200601/seasons                                                                              |
+|   - source_path: /ru-central1/b1g8skpblkos03malf3s/etn03umjgudn9q4l0vkk/backup/series                                 |
+|     destination_prefix: 20200601/series                                                                               |
+| Description:                                                                                                          |
+| Number of retries: 10                                                                                                 |
+└───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+```
+В случае успешного завершения операции экспорта в столбце progress будет отображено значение `Done`, в столбце status – `Success`, в столбце ready – `true`.
+```
+┌───────────────────────────────────────────┬───────┬─────────┬───────────────┬─────────────────────────┬───────────────┐
+| id                                        | ready | status  | progress      | endpoint                | bucket        |
+├───────────────────────────────────────────┼───────┼─────────┼───────────────┼─────────────────────────┼───────────────┤
+| ydb://export/6?id=562950168911361&kind=s3 | true  | SUCCESS | Done          | storage.yandexcloud.net | testdbbackups |
+├╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴┴╴╴╴╴╴╴╴┴╴╴╴╴╴╴╴╴╴┴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴┴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴┴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴┤
+| Items:                                                                                                                |
+|   - source_path: /ru-central1/b1g8skpblkos03malf3s/etn03umjgudn9q4l0vkk/backup/episodes                               |
+|     destination_prefix: 20200601/episodes                                                                             |
+|   - source_path: /ru-central1/b1g8skpblkos03malf3s/etn03umjgudn9q4l0vkk/backup/seasons                                |
+|     destination_prefix: 20200601/seasons                                                                              |
+|   - source_path: /ru-central1/b1g8skpblkos03malf3s/etn03umjgudn9q4l0vkk/backup/series                                 |
+|     destination_prefix: 20200601/series                                                                               |
+| Description:                                                                                                          |
+| Number of retries: 10                                                                                                 |
+└───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+```
+
+{% endif %}
+
+
+
+
 ### Восстановление из S3-совместимых хранилищ {#s3_restore}
 
-Предварительно нужно подключить бакет, содержащий файлы с резервной копией базы YDB в s3-совместимом хранилище, чтобы она была доступна через операции с файловой системой. Для подключения бакета можно воспользоваться одним из [клиентов](https://wiki.yandex-team.ru/mds/s3-api/s3-clients/), например s3fs. После успешного подключения следует загрузить данные из копии в YDB по инструкции, описанной в разделе [Восстановление из резервной копии на файловой системе](backup_and_recovery.md#filesystem_restore).
+Предварительно нужно подключить бакет, содержащий файлы с резервной копией базы YDB в s3-совместимом хранилище, чтобы она была доступна через операции с файловой системой.
+{% if audience != "external" %}
+
+Для подключения бакета можно воспользоваться одним из [клиентов](https://wiki.yandex-team.ru/mds/s3-api/s3-clients/), например s3fs.
+{% endif %}
+
+После успешного подключения следует загрузить данные из копии в YDB по инструкции, описанной в разделе [Восстановление из резервной копии на файловой системе](backup_and_recovery.md#filesystem_restore).
 
 ### Завершение операции резервного копирования {#s3_forget}
 
@@ -221,8 +411,10 @@ ya ydb -e ydb-ru.yandex.net:2135 -d /ru/tutorial/home/testdb operation get 'ydb:
 Чтобы удалить созданные копии таблиц из базы и завершённую операцию из списка операций, нужно выполнить команду
 
 ```
-ya ydb -e ydb-ru.yandex.net:2135 -d /ru/tutorial/home/testdb operation forget 'ydb://export/6?id=283824558378666&kind=s3'
+{{ ydb-cli }} -e $YDB_ENDPOINT -d $YDB_DB_PATH operation forget 'ydb://export/6?id=283824558378666&kind=s3'
 ```
+
+{% if audience != "external" %}
 
 ## Резервное копирование в YT {#yt_backup}
 
@@ -327,7 +519,6 @@ ya ydb -e ydb-ru.yandex.net:2135 -d /ru/tutorial/home/testdb operation get ydb:/
 
 `ya ydb -e ydb-ru.yandex.net:2135 -d /ru/tutorial/home/testdb operation forget ydb://export/6?id=845646488977644`
 
-
 ### Распространённые ошибки {#common_errors}
 
 #### Использование неподходящего токена для доступа к YT
@@ -349,3 +540,5 @@ Issues:
 ### Восстановление из копии в YT {#yt_restore}
 
 Для восстановления данных из резервной копии, сохранённой в YT, следует воспользоваться [рецептом](../best_practices/import_from_yt.md) загруки данных из YT в YDB.
+
+{% endif %}

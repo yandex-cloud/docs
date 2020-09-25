@@ -11,24 +11,21 @@
       sudo pip3 install iso8601 ydb yandexcloud
       ```
 
-  1. Получите IAM-токен для необходимого сервисного аккаунта {% if deploy != "arc" %}[с помощью CLI](../../iam/operations/iam-token/create-for-sa#via-cli){% else %}с помощью CLI{% endif %}:
+  1. Создайте авторизованный ключ для вашего сервисного аккаунта, запишите его файл {% if deploy != "arc" %}[с помощью CLI](../../iam/operations/iam-token/create-for-sa#via-cli){% else %}с помощью CLI{% endif %} и установите переменную окружения `SA_KEY_FILE`:
 
       ```bash
       yc iam key create --service-account-name sa-name -o  ~/.ydb/sa_name.json
-      ```
-
-  1. Установите переменные окружения, необходимые для аутентификации приложения:
-
-      ```bash
-      export YDB_SSL_ROOT_CERTIFICATES_FILE=~/.ydb/CA.pem
       export SA_KEY_FILE=~/.ydb/sa_name.json
       ```
 
-      * `YDB_SSL_ROOT_CERTIFICATES_FILE` — путь до файла с SSL-сертификатом.
-      * `SA_KEY_FILE` — локальный путь к файлу с IAM токеном.
-
      {% note info %}
-     Для подключения к YDB Serverless переменную окружения `YDB_SSL_ROOT_CERTIFICATES_FILE` указывать не нужно.
+
+     Для подключения к YDB Dedicated базе установите переменную окружения с сертификатом:
+
+      ```bash
+      export YDB_SSL_ROOT_CERTIFICATES_FILE=~/.ydb/CA.pem
+      ```
+
      {% endnote %}
 
   1. Запустите тестовое приложение `basic_example_v1` из репозитория `ydb-python-sdk`, указав в качестве параметров запуска значения, полученные ранее:
