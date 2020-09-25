@@ -4,32 +4,17 @@
 
 - Python
 
-  1. Установите `pip3`:
-
-      ```bash
-      sudo apt update
-      sudo apt install python3-pip
-      ```
-
-  1. Установите [Yandex.Cloud Python SDK](https://github.com/yandex-cloud/python-sdk):
-
-      ```bash
-      git clone https://github.com/yandex-cloud/python-sdk.git
-      sudo pip3 install -e python-sdk/
-      ```
-
-  1. Установите [YDB Python SDK](https://github.com/yandex-cloud/ydb-python-sdk) и библиотеку `iso8601`:
+  1. Склонируйте репозиторий [YDB Python SDK](https://github.com/yandex-cloud/ydb-python-sdk) и установите библиотеки `ydb`, `iso8601`, `yandexcloud`:
 
       ```bash
       git clone https://github.com/yandex-cloud/ydb-python-sdk.git
-      sudo pip3 install -e ydb-python-sdk/
-      sudo pip3 install iso8601
+      sudo pip3 install iso8601 ydb yandexcloud
       ```
 
   1. Получите IAM-токен для необходимого сервисного аккаунта {% if deploy != "arc" %}[с помощью CLI](../../iam/operations/iam-token/create-for-sa#via-cli){% else %}с помощью CLI{% endif %}:
 
       ```bash
-      yc iam key create --service-account-name sa_name -o  ~/.ydb/sa_name.json
+      yc iam key create --service-account-name sa-name -o  ~/.ydb/sa_name.json
       ```
 
   1. Установите переменные окружения, необходимые для аутентификации приложения:
@@ -42,10 +27,14 @@
       * `YDB_SSL_ROOT_CERTIFICATES_FILE` — путь до файла с SSL-сертификатом.
       * `SA_KEY_FILE` — локальный путь к файлу с IAM токеном.
 
+     {% note info %}
+     Для подключения к YDB Serverless переменную окружения `YDB_SSL_ROOT_CERTIFICATES_FILE` указывать не нужно.
+     {% endnote %}
+
   1. Запустите тестовое приложение `basic_example_v1` из репозитория `ydb-python-sdk`, указав в качестве параметров запуска значения, полученные ранее:
 
       ```bash
-      cd ./ydb-python-sdk/kikimr/public/sdk/python/examples/basic_example_v1
+      cd ./ydb-python-sdk/examples/basic_example_v1
       python3 __main__.py -e protocol://endpoint -d database
       ```
 

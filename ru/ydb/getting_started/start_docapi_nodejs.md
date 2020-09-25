@@ -1,22 +1,18 @@
-#Разработка на NodeJS с использованием Document API
+# Разработка на NodeJS с использованием Document API
 
-. [Создайте serverless базу данных](../quickstart/create-db.md) в {{ yandex-cloud }}.
+## Перед началом работы
 
+1. [Создайте serverless базу данных](../quickstart/create-db.md) в {{ yandex-cloud }}.
+1. В свойствах созданной базы на вкладке "Обзор" найдите и скопируйте значение `Document API эндпоинт`.
+1. Установите инструменты разработчика командой `npm install yandex-cloud`.
 
-1. Для аутентификации в базе данных {% if deploy != "arc" %} [создайте сервисный аккаунт](../../iam/operations/sa/create) {% else %} создайте сервисный аккаунт {% endif %} и {% if deploy != "arc" %} [назначьте](../../iam/operations/sa/assign-role-for-sa.md) {% else %} назначьте {% endif %} ему роли `viewer` и `editor`.
-1. {% if deploy != "arc" %} [Создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm) {% else %} Создайте виртуальную машину {% endif %} в {{ yandex-cloud }}. При создании в разделе "Доступ" выберите созданный сервисный аккаунт.
-
-1. Сохраните публичный IP-адрес виртуальной машины. Для этого перейдите в свойства виртуальной машины или {% if deploy != "arc" %} [воспользуйтесь интерфейсом командной строки](../../compute/operations/vm-info/get-info#outside-instance) {% else %} воспользуйтесь интерфейсом командной строки {% endif %} .
-1. Подключитесь к виртуальной машине по ssh
-1. Выполните npm install yandex-cloud
-
-### Создание таблицы
+## Создание таблицы
 
 ```javascript
 const { DocAPIService } = require('yandex-cloud')
 
 // change for your Document API endpoint
-const endpoint = 'https://docapi.serverless.yandexcloud.net/ru-central1/b1g11111111111111111/etn22222222222222222';
+const endpoint = '<your Document API endpoint here>';
 const docapi = new DocAPIService(endpoint)
 
 var params =
@@ -45,15 +41,16 @@ var params =
     }
   ]
 };
-docapi.createTable(params).then(res => { console.log(res); }).catch(err => console.log(err));
+docapi.createTable(params).then(res => { console.log(res); }).catch(err => { console.log(err); });
 ```
 
-### Сохранение записи
+## Сохранение записи
+
 ```javascript
 const { DocAPIService } = require('yandex-cloud')
 
 // change for your Document API endpoint
-const endpoint = 'https://docapi.serverless.yandexcloud.net/ru-central1/b1g11111111111111111/etn22222222222222222';
+const endpoint = '<your Document API endpoint here>';
 const docapi = new DocAPIService(endpoint)
 
 var params =
@@ -67,15 +64,16 @@ var params =
     "price": "10.5"
   }
 };
-docapi.putItem(params).then(res => { console.log(res); }).catch(err => console.log(err));
+docapi.putItem(params).then(res => { console.log(res); }).catch(err => { console.log(err); });
 ```
 
-### Чтение записи
+## Чтение записи
+
 ```javascript
 const { DocAPIService } = require('yandex-cloud')
 
 // change for your Document API endpoint
-const endpoint = 'https://docapi.serverless.yandexcloud.net/ru-central1/b1g11111111111111111/etn22222222222222222';
+const endpoint = '<your Document API endpoint here>';
 const docapi = new DocAPIService(endpoint)
 
 var params =

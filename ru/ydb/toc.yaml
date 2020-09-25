@@ -107,6 +107,12 @@ items:
     - name: REST API
       href: getting_started/start_rest.md
       when: audience == "tech"
+    - name: Document API
+      href: getting_started/start_docapi_rest.md
+      when: audience == "external"
+    - name: Разработка на NodeJS с Document API
+      href: getting_started/start_docapi_nodejs.md
+      when: audience == "external"
   - name: Пошаговые инструкции
     when: audience == "external"
     items:
