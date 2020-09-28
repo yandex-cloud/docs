@@ -292,7 +292,7 @@ Proceed to creating the first [chart](https://cloud.yandex.com/docs/datalens/con
 
       ![image](../../_assets/datalens/solution-07/31-drag-attributes-2.png)
 
-      This time, Chechnya is far ahead in the number of deaths, followed by Kabardino-Balkaria and Ingushetia.
+      This time, Ingushetia is far ahead in the number of deaths, followed by Tyva and Kalmykia.
 
    1. Save the chart by clicking **Save as**
 
