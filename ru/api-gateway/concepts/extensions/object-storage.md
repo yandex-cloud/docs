@@ -31,7 +31,7 @@
       x-yc-apigateway-integration:
         type: object_storage
         bucket: my-example-bucket
-        object: 'my-object'
+        object: '{file}'
         presigned_redirect: true
         service_account_id: ajehfe41hhliq4n93q1g
 ```
