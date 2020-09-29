@@ -39,7 +39,7 @@ The following types of charts are available in {{ datalens-full-name }}:
    - [Pivot table](#pivot-table)
 * **Geographical maps**:
    - [Point map](#point-map-chart)
-   - [Choropleth map](#vchoropleth-map-chart)
+   - [Choropleth map](#choropleth-map-chart)
    - [Heat map](#heat-map-chart)
 
 ### Line chart {#line-chart}
