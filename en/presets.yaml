@@ -31,11 +31,11 @@ default:
   ydb-full-name: Yandex Database
   kms-full-name: Yandex Key Management Service
   interconnect-full-name: Yandex Cloud Interconnect
-  cos-full-name: Yandex Container Optimized Solutions
+  cos-full-name: Yandex Container Solution
   ml-platform-full-name: Yandex DataSphere
   certificate-manager-full-name: Yandex Certificate Manager
-  api-gw-full-name: Yandex API Gateway
   data-transfer-full-name: Yandex Data Transfer
+  api-gw-full-name: Yandex API Gateway
 
   # Полные имена сервисов без Yandex
   iam-name: Identity and Access Management
@@ -47,8 +47,8 @@ default:
   mch-name: Managed Service for ClickHouse
   mmg-name: Managed Service for MongoDB
   mmy-name: Managed Service for MySQL
-  mkf-name: Managed Service for Apache Kafka<sup>®</sup>
   mrd-name: Managed Service for Redis
+  mkf-name: Managed Service for Apache Kafka<sup>®</sup>
   monitoring-name: Yandex Monitoring
   vpc-name: Virtual Private Cloud
   ddos-protection-name: DDoS Protection
@@ -68,12 +68,12 @@ default:
   ydb-name: Yandex Database
   kms-name: Key Management Service
   interconnect-name: Cloud Interconnect
-  cos-name: Container Optimized Solutions
+  cos-name: Container Solution
   ml-platform-name: DataSphere
   certificate-manager-name: Certificate Manager
   marketplace-name: Cloud Marketplace
-  api-gw-name: API Gateway
   data-transfer-name: Data Transfer
+  api-gw-name: API Gateway
 
   # Короткие имена
   iam-short-name: IAM
@@ -107,6 +107,7 @@ default:
   cos-short-name: COS
   ml-platform-short-name: DataSphere
   certificate-manager-short-name: Certificate Manager
+  data-transfer-short-name: Data Transfer
   api-gw-short-name: API Gateway
 
   # Тарифы
@@ -119,6 +120,15 @@ default:
   roles-datalens-instances-admin: datalens.instances.admin
   roles-functions-ivoker: serverless.functions.invoker
   roles-image-user: compute.images.user
+  roles-vpc-viewer: vpc.viewer
+  roles-vpc-user: vpc.user
+  roles-vpc-private-admin: vpc.privateAdmin
+  roles-vpc-public-admin: vpc.publicAdmin
+  roles-vpc-sg-admin: vpc.securityGroups.admin
+  roles-vpc-admin: vpc.admin
+  roles-lb-viewer: load-balancer.viewer
+  roles-lb-private-admin: load-balancer.privateAdmin
+  roles-lb-admin: load-balancer.admin
   roles-cloud-owner: resource-manager.clouds.owner
   roles-cloud-member: resource-manager.clouds.member
   roles-admin: admin
@@ -259,7 +269,9 @@ default:
   link-yandex-connect: https://connect.yandex.com
   link-passport-login: https://passport.yandex.com/auth
   link-cloud-oauth: https://oauth.yandex.com/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb
-# Cloud specific
+  link-cloud-partners: https://partners.cloud.yandex.ru/
+
+  # Cloud specific
   yandex-cloud: Yandex.Cloud
 
 internal:
@@ -295,6 +307,7 @@ internal:
   link-yandex-connect: https://connect.yandex.com
   link-passport-login: https://passport.yandex.com/auth
   link-cloud-oauth: https://oauth.yandex.com/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb
+  link-cloud-partners: https://partners.cloud.yandex.ru/
 external:
   audience: external
   console-link: console.cloud.yandex.com
@@ -312,3 +325,4 @@ external:
   link-yandex-connect: https://connect.yandex.com
   link-passport-login: https://passport.yandex.com/auth
   link-cloud-oauth: https://oauth.yandex.com/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb
+  link-cloud-partners: https://partners.cloud.yandex.ru/
