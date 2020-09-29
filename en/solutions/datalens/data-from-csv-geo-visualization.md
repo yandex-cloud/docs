@@ -17,7 +17,7 @@ To visualize and analyze the data, [make sure you have a ready-to-use cloud](dat
 1. [Create line charts](data-from-csv-geo-visualization.md#step5).
 1. [Create a dashboard](data-from-csv-geo-visualization.md#step6).
 1. [Add charts to the dashboard](data-from-csv-geo-visualization.md#step7).
-1. [Add selectors to the dashboard](data-from-csv-geo-visualization.md#step8).
+1. [Add selectors and create a dashboard](data-from-csv-geo-visualization.md#step8).
 1. [Connect an additional source with region geolayers](data-from-csv-geo-visualization.md#step9).
 1. [Add new fields to the dataset](data-from-csv-geo-visualization.md#step10).
 1. [Create a chart using the new fields](data-from-csv-geo-visualization.md#step11).
@@ -26,11 +26,11 @@ To visualize and analyze the data, [make sure you have a ready-to-use cloud](dat
 
 ## Before you start {#before-you-begin}
 
-To use {{ datalens-short-name }}, you have to sign up for Yandex.Cloud and create a billing account (without a billing account, {{ datalens-short-name }} is only available in demo mode):
+To use {{ datalens-short-name }}, you have to sign up for {{ yandex-cloud }} and create a billing account (without a billing account, {{ datalens-short-name }} is only available in demo mode):
 
-1. Go to the [management console]({{ link-console-main }}). Then log in to Yandex.Cloud or sign up if you don't have an account.
+1. Go to the [management console]({{ link-console-main }}). Then log in to {{ yandex-cloud }} or sign up if you don't have an account yet.
 
-1. [On the billing page]({{ link-console-billing }}), make sure you activated a [billing account](https://cloud.yandex.com/docs/billing/concepts/billing-account) and its status is `ACTIVE` or `TRIAL_ACTIVE`. If you don't have a billing account, [create one](https://cloud.yandex.com/docs/billing/quickstart/#create_billing_account).
+1. [On the billing page]({{ link-console-billing }}) make sure that a [billing account](https://cloud.yandex.com/docs/billing/concepts/billing-account) is linked and that its status is `ACTIVE` or `TRIAL_ACTIVE`. If you don't have a billing account, [create one](https://cloud.yandex.com/docs/billing/quickstart/#create_billing_account).
 
 When you activate your billing account, you automatically switch to the **Free** {{ datalens-short-name }} plan. By default, you can create a {{ datalens-short-name }} instance for no more than 1 folder. If you haven't done this yet:
 
@@ -48,7 +48,7 @@ An instance of the service is created in the selected folder and you can go dire
 
    ![image](../../_assets/datalens/solution-07/01-files.png)
 
-1. Open the [{{ datalens-short-name }}](https://datalens.yandex.com) homepage and click **Create connection**.
+1. Open the [{{ datalens-short-name }}](https://datalens.yandex.com/) homepage and click **Create connection**.
 
    ![image](../../_assets/datalens/solution-07/02-create-connection.png)
 
@@ -129,18 +129,6 @@ The dataset will consist of a single source: the CSV file.
    The preview section now correctly displays the accident date and time as a value of the `Date and time` type. The new **Date and time** field is at the top of the table. Click ![image](../../_assets/datalens/formula-dataset.svg) to edit the field formula.
 
    ![image](../../_assets/datalens/solution-07/14-date-and-time.png)
-
-   {% note alert %}
-
-   As a workaround to the problem with time zones as of February 24, 2020, use the formula:
-
-   ```
-   DATEADD(datetime_parse(str([crash_date])+
-   '-'+
-   str([crash_time])), 'hour', -3)
-   ```
-
-   {% endnote %}
 
 1. Continue renaming the fields in the following order:
    - Cause of accident
@@ -251,7 +239,7 @@ Proceed to creating the first [chart](https://cloud.yandex.com/docs/datalens/con
 
    ![image](../../_assets/datalens/solution-07/25-save-heatmap.png)
 
-1. In the dialog box, name the chart **Accidents — Heat map** and click **Save**.
+1. In the dialog box, name the chart **Heat map** and click **Save**.
 
    ![image](../../_assets/datalens/solution-07/26-name-heatmap.png)
 
@@ -282,7 +270,7 @@ Proceed to creating the first [chart](https://cloud.yandex.com/docs/datalens/con
 
       ![image](../../_assets/datalens/solution-07/29-save-chart-as.png)
 
-      Name the chart **Accidents — Regions, number** and save it.
+      Name the chart **Number of accidents by region** and save it.
 
       ![image](../../_assets/datalens/solution-07/30-save-linely-diagram.png)
 
@@ -298,7 +286,7 @@ Proceed to creating the first [chart](https://cloud.yandex.com/docs/datalens/con
 
       ![image](../../_assets/datalens/solution-07/29-save-chart-as.png)
 
-      and name it **Accidents — Death rate by region**.
+      and name it **Death rate by region**.
 
       ![image](../../_assets/datalens/solution-07/32-save-linely-diagram-2.png)
 
@@ -336,7 +324,7 @@ Let's see how the number of accidents and related deaths are distributed by week
 
       ![image](../../_assets/datalens/solution-07/29-save-chart-as.png)
 
-      and name it **Accidents — Accidents and death rate by week**.
+      and name it **Number of accidents and death rate by week**.
 
       ![image](../../_assets/datalens/solution-07/38-save-line-diagram-week.png)
 
@@ -354,7 +342,7 @@ Let's see how the number of accidents and related deaths are distributed by week
 
       ![image](../../_assets/datalens/solution-07/29-save-chart-as.png)
 
-      and name it **Accidents — Accidents and death rate by day of week**.
+      and name it **Number of accidents and death rate by day of week**.
 
       ![image](../../_assets/datalens/solution-07/41-save-line-diagram-day.png)
 
@@ -372,7 +360,7 @@ Let's see how the number of accidents and related deaths are distributed by week
 
       ![image](../../_assets/datalens/solution-07/29-save-chart-as.png)
 
-      and name it **Accidents — Accidents and death rate by hour of day**.
+      and name it **Number of accidents and death rate by hour of day**.
 
       ![image](../../_assets/datalens/solution-07/44-save-line-diagram-hour.png)
 
@@ -408,7 +396,7 @@ If this is the first dashboard you create in the folder, it opens as soon as it'
 
       ![image](../../_assets/datalens/solution-07/49-add-chart.png)
 
-   1. In the **Chart** field, select the previously created **Accidents — Heat Map** chart from the list of charts.
+   1. In the **Chart** field, select the previously created **Heat Map** from the list of charts.
 
       ![image](../../_assets/datalens/solution-07/50-choose-chart-to-dashbord.png)
 
@@ -418,9 +406,27 @@ If this is the first dashboard you create in the folder, it opens as soon as it'
 
       The chart is displayed on the dashboard.
 
-1. Repeat the previous three steps for all the charts you created to add them to the dashboard.
+1. Repeat the previous three steps for the **Number of accidents by region**, **Number of accidents and death rate by week**, **Number of accidents and death rate by day of week**, and **Number of accidents and death rate by hour of day** charts by adding them to the dashboard.
 
-## Step 8. Add selectors to the dashboard {#step8}
+1. Create a switch for the **Number of accidents by region** and **Death rate by region** charts on the dashboard.
+
+   1. Click the **Number of accidents by region** chart settings icon to open them.
+
+      ![image](../../_assets/datalens/solution-07/52-1-tune-chart.png)
+
+   1. Click **Add** to the left of the screen.
+
+      ![image](../../_assets/datalens/solution-07/52-2-add.png)
+
+   1. In the **Chart** field, click **Select** and choose the **Death rate by region** chart.
+
+      ![image](../../_assets/datalens/solution-07/52-3-choose-chart.png)
+
+   1. Click **Save**.
+
+      ![image](../../_assets/datalens/solution-07/52-4-save-tab.png)
+
+## Step 8. Add selectors and create a dashboard {#step8}
 
 [Selectors](https://cloud.yandex.com/docs/datalens/concepts/dashboard#selector) let you filter data by value.
 
@@ -452,6 +458,10 @@ If this is the first dashboard you create in the folder, it opens as soon as it'
 
 If you choose any values in the selectors, the charts will display data for these values.
 
+You can switch the **Number of accidents by region** chart to **Death rate by region**.
+
+![image](../../_assets/datalens/solution-07/56-1-switch-chart.png)
+
 ## Step 9. Connect an additional source with region geolayers {#step9}
 
 Heat maps aren't always the most informative. Upload the polygon reference and add a chart with a color fill for Russian regions.
@@ -472,7 +482,7 @@ Heat maps aren't always the most informative. Upload the polygon reference and a
 
    ![image](../../_assets/datalens/solution-07/03-choose-csv.png)
 
-   Download the [**Регионы.csv**](https://yadi.sk/d/ZTgPWnjdnTo43w) file. Then, in the create connection window, upload it by clicking **Select CSV file**.
+   Download the [**Regions.csv**](https://yadi.sk/d/ZTgPWnjdnTo43w) file. Then, in the create connection window, upload it by clicking **Select CSV file**.
 
 1. Take a look at a preview of the file data. For the **Table header** parameter, set the **Available** value. At the top right, click **Create**.
 
@@ -490,7 +500,7 @@ You need to add new fields to the previously created **Accidents** dataset.
 
    ![image](../../_assets/datalens/solution-07/60-choose-dataset-dtp.png)
 
-1. Go to the **Data** tab.
+1. Go to the **Sources** tab.
 
    ![image](../../_assets/datalens/solution-07/61-choose-data.png)
 
@@ -520,7 +530,7 @@ You need to add new fields to the previously created **Accidents** dataset.
 
    ![image](../../_assets/datalens/solution-07/67-preview.png)
 
-1. Go to the **Dataset** tab.
+1. Go to the **Fields** tab.
 
    ![image](../../_assets/datalens/solution-07/68-go-to-dataset.png)
 

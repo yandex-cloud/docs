@@ -45,8 +45,6 @@ items:
       href: archive/object-storage-duplicati.md
     - name: Backup to Object Storage via Bacula
       href: archive/backup-with-bacula.md
-    - name: Configuring an SFTP server on Centos 7
-      href: archive/backup-and-archive-to-sftp.md
     - name: Digitizing archives in Yandex Vision
       href: archive/archive-from-vision-to-object-storage.md
   - name: Test environment
