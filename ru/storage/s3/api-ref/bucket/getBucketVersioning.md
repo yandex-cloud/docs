@@ -1,11 +1,11 @@
-# Метод GetBucketVersioning
+# Метод getBucketVersioning
 
 Возвращает состояние опции версионирования бакета.
 
 ## Запрос {#request}
 
 ```
-GET /?versioning HTTP/1.1
+GET /{bucket}?versioning HTTP/1.1
 ```
 
 ### Path параметры {#path-parameters}
@@ -46,4 +46,4 @@ GET /?versioning HTTP/1.1
 Элемент | Описание
 ----- | -----
 `VersioningConfiguration` | Корневой элемент.
-`Status` | Состояние опции версионирования бакета.<br/><br/>**Путь**:`/VersioningConfiguration/Status`<br/>**Тип**: Строка<br/>**Возможные значения**: `Enabled | Suspended`
+`Status` | Состояние опции версионирования бакета.<br/><br/>Путь:`/VersioningConfiguration/Status`<br/>Тип: Строка<br/>Возможные значения: `Enabled | Suspended`
