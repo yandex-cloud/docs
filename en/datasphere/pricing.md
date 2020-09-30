@@ -25,7 +25,9 @@ A billing measure is a one billing unit. The number of billing units spent on ca
 
 The cost of one billing unit is the cost of using 1 CPU core for 1 second. The number of units depends on [computing resource configuration](concepts/configurations.md).
 * S-configuration — 4 units per second.
+* M-configuration — 8 units per second.
 * L-configuration — 72 units per second.
+* XL-configuration — 288 units per second.
 
 ### Example of cost calculation {#price-example}
 
@@ -89,9 +91,15 @@ If you need to store large amounts of data that exceed the specified limits, use
     S (4 vCPU, 0 GPU) | 4 | 1 second | $0.000038
     S (4 vCPU, 0 GPU) | 4 | 1 minute | $0.002307 
     S (4 vCPU, 0 GPU) | 4 | 1 hour | $0.138461 
+    M (8 vCPU, 0 GPU) | 8 | 1 second | $0.000076
+    M (8 vCPU, 0 GPU) | 8 | 1 minute | $0.004614
+    M (8 vCPU, 0 GPU) | 8 | 1 hour | $0.276922
     L (8 vCPU, 1 GPU) | 72 | 1 second | $0.000692
     L (8 vCPU, 1 GPU) | 72 | 1 minute| $0.041538
     L (8 vCPU, 1 GPU) | 72 | 1 hour | $2.492307
+    XL (32 vCPU, 4 GPU) | 288 | 1 second | $0.002768
+    XL (32 vCPU, 4 GPU) | 288 | 1 minute | $0.166152
+    XL (32 vCPU, 4 GPU) | 288 | 1 hour | $9.969228
   
 - Prices in roubles
   
@@ -100,9 +108,15 @@ If you need to store large amounts of data that exceed the specified limits, use
     S (4 vCPU, 0 GPU) | 4 | 1 second | ₽0.003
     S (4 vCPU, 0 GPU) | 4 | 1 minute | ₽0.18
     S (4 vCPU, 0 GPU) | 4 | 1 hour | ₽10.8
+    M (8 vCPU, 0 GPU) | 8 | 1 second | ₽0.006
+    M (8 vCPU, 0 GPU) | 8 | 1 minute | ₽0.36
+    M (8 vCPU, 0 GPU) | 8 | 1 hour | ₽21.6
     L (8 vCPU, 1 GPU) | 72 | 1 second | ₽0.054
-    L (8 vCPU, 1 GPU) | 72 | 1 minute| ₽3.24
+    L (8 vCPU, 1 GPU) | 72 | 1 minute | ₽3.24
     L (8 vCPU, 1 GPU) | 72 | 1 hour | ₽194.4 
+    XL (32 vCPU, 4 GPU) | 288 | 1 second | ₽0.216
+    XL (32 vCPU, 4 GPU) | 288 | 1 minute | ₽12.96
+    XL (32 vCPU, 4 GPU) | 288 | 1 hour | ₽777.6 
   
 {% endlist %}
 

@@ -8,7 +8,10 @@ You can [change the configuration](../operations/projects/control-compute-resour
 | First name | Number of vCPUs on the<br>[Intel Broadwell platform](../../compute/concepts/performance-levels.md) | Number of GPUs on the<br>[NVIDIA Tesla V100 platform](../../compute/concepts/gpus.md). |
 | ---- | ---- | ---- |
 | **S** (default) | 4 | 0 |
-| **L** | 8 | 1 |
+| **M** | 8 | 0 
+| **L** | 8 | 1
+| **XL** | 32 | 4  
+
 
 #### See also
 
