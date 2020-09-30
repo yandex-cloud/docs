@@ -53,8 +53,8 @@ public class Handler<T> {
 
 ```C#
 public class Request {
-  public String message;
-  public int number;
+  public String message { get; set; }
+  public int number { get; set; }
 }
 ```
 
@@ -98,8 +98,8 @@ Message is Hello, number is 24
 
 ```C#
 public class Request {
-  public String httpMethod;
-  public String body;
+  public String httpMethod { get; set; }
+  public String body { get; set; }
 }
 ```
 
@@ -107,8 +107,8 @@ public class Request {
 
 ```C#
 public class Response {
-  public int statusCode;
-  public String body;
+  public int statusCode { get; set; }
+  public String body { get; set; }
 
   public Response(int statusCode, String body) {
     this.statusCode = statusCode;
