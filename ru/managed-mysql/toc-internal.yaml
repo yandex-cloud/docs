@@ -25,6 +25,8 @@ items:
         href: operations/db-settings.md
       - name: Управление пользователями БД
         href: operations/cluster-users.md
+      - name: Назначение ролей
+        href: operations/grant.md
       - name: Управление резервными копиями
         href: operations/cluster-backups.md
       - name: Удаление кластера
