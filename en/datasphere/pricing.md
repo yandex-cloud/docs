@@ -3,12 +3,6 @@ editable: false
 ---
 # Pricing for {{ ml-platform-name }}
 
-{% note alert %}
-
-During the Preview stage, the service can be used free of charge. The following pricing policy will be starting October 1, 2020, when the service becomes [general availability](../overview/concepts/launch-stages.md).
-
-{% endnote %}
-
 ## What goes into the cost of using {{ ml-platform-name }} {#rules}
 
 When using the {{ ml-platform-name}} service, you pay for the actual use of computing resources: the calculation time is charged per second.
