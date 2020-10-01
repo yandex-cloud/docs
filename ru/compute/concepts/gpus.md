@@ -46,8 +46,8 @@
 Чтобы воспользоваться технологией vGPU, необходимы:
 
 * ВМ на [платформе](#vm-platforms.md) `vgpu-standard-v1` с одним из образов:
-  * [Ubuntu 18.04 lts vGPU](https://cloud.yandex.ru/marketplace/products/f2ecbu7femm9edja45i8);
-  * [Windows Server 2019 Datacenter vGPU](https://cloud.yandex.ru/marketplace/products/f2eb3j87v4k61b2n0vqp).
+  * [Ubuntu 18.04 lts vGPU](https://cloud.yandex.ru/marketplace/products/f2e8k6h1vu1rc360rr0h);
+  * [Windows Server 2019 Datacenter vGPU](https://cloud.yandex.ru/marketplace/products/f2ent6cnb49sf5n9s1u2).
 * Лицензия для использования технологии [NVIDIA® vGPU](https://www.nvidia.com/content/dam/en-zz/Solutions/design-visualization/solutions/resources/documents1/Virtual-GPU-Packaging-and-Licensing-Guide.pdf).
 * Сервер лицензий [NVIDIA® vGPU Software License Server](https://docs.nvidia.com/grid/ls/latest/grid-license-server-user-guide/index.html).
 
