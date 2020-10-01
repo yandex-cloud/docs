@@ -1,43 +1,43 @@
 # Управление доступом
 
-Для использования сервиса необходимо авторизоваться в консоли управления с [аккаунтом на Яндексе](../../iam/concepts/index.md#passport) или с [федеративным аккаунтом](../../iam/concepts/index.md#saml-federation).
+Список операций, доступных пользователю {{ yandex-cloud }}, определяется его ролью. Роль пользователя назначается на уровне каталога или облака, а вложенные ресурсы наследуют эту роль.
 
-В этом разделе вы узнаете:
-* [какие роли необходимы](#choosing-roles) для того или иного действия.
-* [на какие ресурсы можно назначить роль](#resources);
-* [какие роли действуют в сервисе](#roles-list);
+Чтобы разрешить доступ к ресурсам сервиса {{ ml-platform-short-name }}, назначьте пользователю нужные роли из приведенного ниже списка.
 
-{% include [about-access-management](../../_includes/iam/about-access-management.md) %}
+{% note info %}
 
-## Какие роли необходимы {#required-roles}
+Подробнее о наследовании ролей читайте в разделе [{#T}](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) документации сервиса {{ resmgr-full-name }}.
 
-Чтобы пользоваться сервисом, необходима [роль](../../iam/concepts/access-control/roles.md) `editor` или выше на каталог, в котором создаются проекты. Роль `viewer` позволит только просматривать список проектов и содержимое файлов, которые были загружены.
+{% endnote %}
 
-Вы всегда можете назначить роль, которая дает более широкие разрешения, нежели указанная. Например, назначить `admin` вместо `editor`.
+## Назначение ролей {#grant-role}
 
-## На какие ресурсы можно назначить роль {#resources}
+Чтобы назначить пользователю роль:
 
-Роль можно назначить на [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud) или [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder). Роли на облако, действуют и на вложенные каталоги.
+{% include [grant-role-console](../../_includes/grant-role-console.md) %}
 
-## Какие роли действуют в сервисе {#roles-list}
+## Роли для управления облаком и каталогом {#rm-roles}
 
-На диаграмме показано, какие роли есть в сервисе и как они наследуют разрешения друг друга. Например, в `editor` входят все разрешения `viewer`. После диаграммы дано описание каждой роли.
+{% include [cloud-roles](../../_includes/cloud-roles.md) %}
 
-![image](service-roles-hierarchy.svg)
+## Сервисные роли {#services}
 
-Роли, действующие в сервисе:
+{% include [datasphere.user](../../_includes/roles-datasphere-user.md) %}
 
-* Сервисные роли:
-    * {% include [resource-manager.clouds.owner](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.owner.md) %}
-    * {% include [resource-manager.clouds.member](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.member.md) %}
-* Примитивные роли:
-    * {% include [viewer](../../_includes/iam/roles/short-descriptions/viewer.md) %}
-    * {% include [editor](../../_includes/iam/roles/short-descriptions/editor.md) %}
-    * {% include [admin](../../_includes/iam/roles/short-descriptions/admin.md) %}
+{% include [datasphere.admin](../../_includes/roles-datasphere-admin.md) %}
 
-#### Что дальше
+## Примитивные роли {#primitive}
 
-* [Как назначить роль](../../iam/operations/roles/grant.md).
-* [Как отозвать роль](../../iam/operations/roles/revoke.md).
-* [Подробнее об управлении доступом в {{ yandex-cloud }}](../../iam/concepts/access-control/index.md).
-* [Подробнее о наследовании ролей](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
+### {{ roles-viewer }} {#viewer}
+
+Роль `{{ roles-viewer }}` включает в себя все разрешения роли `{{ roles-datasphere-user }}`. Пользователь может просматривать список проектов, а также работать с уже существующими проектами. Пользователь не может создавать или удалять проекты.
+
+### {{ roles-editor }} {#editor}
+
+Роль `{{ roles-editor }}` включает в себя все разрешения роли `{{ roles-viewer }}`. С точки зрения доступа к ресурсам сервиса {{ ml-platform-short-name }} эти роли совпадают.
+
+### {{ roles-admin }} {#admin}
+
+Пользователь с ролью `{{ roles-admin }}` может управлять правами доступа к ресурсам, например, разрешить другим пользователям работать с каталогами или просматривать информацию о проектах и правах пользователей.
+
+Помимо этого роль `{{ roles-admin }}` включает в себя все разрешения роли `{{ roles-editor }}`.
