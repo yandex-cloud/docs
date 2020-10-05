@@ -12,6 +12,8 @@ default:
   mmy-full-name: Yandex Managed Service for MySQL
   mrd-full-name: Yandex Managed Service for Redis
   mkf-full-name: Yandex Managed Service for Apache Kafka<sup>®</sup>
+  mes-full-name: Yandex Managed Service for Elasticsearch
+  mms-full-name: Yandex Managed Service for SQL Server
   vpc-full-name: Yandex Virtual Private Cloud
   ddos-protection-full-name: Yandex DDoS Protection
   monitoring-full-name: Yandex Monitoring
@@ -49,6 +51,8 @@ default:
   mmy-name: Managed Service for MySQL
   mrd-name: Managed Service for Redis
   mkf-name: Managed Service for Apache Kafka<sup>®</sup>
+  mes-name: Managed Service for Elasticsearch
+  mms-name: Managed Service for SQL Server
   monitoring-name: Yandex Monitoring
   vpc-name: Virtual Private Cloud
   ddos-protection-name: DDoS Protection
@@ -86,6 +90,8 @@ default:
   mrd-short-name: Managed Service for Redis
   mmy-short-name: Managed Service for MySQL
   mkf-short-name: Managed Service for Apache Kafka<sup>®</sup>
+  mms-short-name: Managed Service for SQL Server
+  mes-short-name: Managed Service for Elasticsearch
   monitoring-short-name: Monitoring
   vpc-short-name: VPC
   ddos-protection-short-name: DDoS Protection
@@ -151,9 +157,12 @@ default:
   yc-mdb-rd: yc managed-redis
   yc-mdb-my: yc managed-mysql
   yc-mdb-kf: yc managed-kafka
+  yc-mdb-ms: yc managed-sqlserver
+  yc-mdb-es: yc managed-elasticsearch
   yc-compute-ig: yc compute instance-group
   yc-compute: yc compute
   yc-compute-instance: yc compute instance
+  yc-ydb: yc ydb
 
   # Compute specific
   max-gpus: 4
@@ -173,7 +182,9 @@ default:
   MY: MySQL
   RD: Redis
   KF: Apache Kafka<sup>®</sup>
+  ES: Elasticsearch
   ZK: ZooKeeper
+  MS: SQL Server
   zone-id: ru-central1-c
   host-class: s2.micro
 
@@ -270,8 +281,10 @@ default:
   link-passport-login: https://passport.yandex.com/auth
   link-cloud-oauth: https://oauth.yandex.com/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb
   link-cloud-partners: https://partners.cloud.yandex.ru/
+  link-app-android: https://play.google.com/store/apps/details?id=ru.yandex.cloud
+  link-app-ios: https://apps.apple.com/ru/app/yandex-cloud/id1515465314
 
-  # Cloud specific
+  # Cloud specific 
   yandex-cloud: Yandex.Cloud
 
 internal:
@@ -290,7 +303,9 @@ internal:
   MY: MySQL
   RD: Redis
   KF: Apache Kafka<sup>®</sup>
+  ES: Elasticsearch
   ZK: ZooKeeper
+  MS: Microsoft SQL Server
   zone-id: vla
   host-class: db1.micro
 
