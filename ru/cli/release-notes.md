@@ -1,8 +1,24 @@
 # Релизы YC CLI
 
-## Версия 0.66.0 (29.09.20) {#latest-release}
+## Версия 0.67.0 (05.10.20) {#latest-release}
 
-### Изменения в сервисах Облака {#services}
+### Изменения в сервисах {{ yandex-cloud }} 
+
+#### {{ compute-name }} {#compute}
+
+**Исправлено**
+
+- Исправлена ошибка, при которой не получалось добавить виртуальную машину в существующую группу размещения.
+
+#### {{ container-registry-name }} {#container-registry}
+
+- Добавлены команды `yc container image scan`, `yc container image list-vulnerabilities` для сканирования Docker-образов.
+
+## Предыдущие релизы {#previous-releases}
+
+## Версия 0.66.0 (28.09.20) {#version0.66.0}
+
+### Изменения в сервисах {{ yandex-cloud }} {#services}
 
 #### {{ compute-name }} {#compute}
 
@@ -18,13 +34,11 @@
     
     Добавлен пример использования флага `--recovery-target-timestamp`.
 
-## Предыдущие релизы {#previous-releases}
-
 ### Версия 0.65.0 (22.09.20) {#version0.65.0}
 
-#### Изменения в сервисах Облака {#services}
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
 
-##### {{ dataproc-name }} {#dataproc}
+#### {{ dataproc-name }} {#dataproc}
 
 Добавлена поддержка функциональности UI Proxy:
 * Добавлена команда `yc dataproc cluster list-ui-links`, позволяющая получить список ссылок для доступа к интерфейсам кластера {{ dataproc-name }}.
@@ -38,13 +52,13 @@
 
     В ответ добавлено поле `instance group id` с идентификаторами групп ВМ автомасштабируемых подкластеров. 
 
-##### {{ certificate-manager-name }} {#certificate-manager}
+#### {{ certificate-manager-name }} {#certificate-manager}
 
 - Добавлена команда `yc certificate-manager certificate content` для получения содержимого сертификата.
 
     С ее помощью можно загрузить цепочку сертификатов и закрытый ключ для самостоятельного использования в конфигурации веб-сервера на виртуальной машине. 
 
-##### Сервисы управляемых баз данных {#managed-db}
+#### Сервисы управляемых баз данных {#managed-db}
 
 **{{ mmg-name }}**
 
@@ -64,7 +78,7 @@
 
 ### Версия 0.64.0 (08.09.20) {#version0.64.0}
 
-#### Изменения в сервисах Облака {#services}
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
 
 #### {{ compute-name }} {#compute}
 
@@ -98,7 +112,7 @@
 Появилась поддержка сервиса для управления TLS-сертификатами: {{ certificate-manager-full-name }}.
 
 С помощью {{ certificate-manager-full-name }} вы можете получать и обновлять TLS-сертификаты от Let’s Encrypt®, а также импортировать собственные сертификаты.
-Сертификаты можно использовать в сервисах Яндекс.Облака для обеспечения безопасности соединений.
+Сертификаты можно использовать в сервисах {{ yandex-cloud }} для обеспечения безопасности соединений.
 
 Сервис {{ certificate-manager-full-name }} находится на стадии Preview. Подробнее про сервис читайте в [документации](../certificate-manager/).
 
@@ -118,7 +132,7 @@
 
 ### Версия 0.62.0 (20.08.20) {#version0.62.0}
 
-#### Изменения в сервисах Облака {#services}
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
 
 #### {{ sf-name }} {#serverless-functions}
 
