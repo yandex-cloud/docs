@@ -1,12 +1,13 @@
 # Создание подключения к PostgreSQL
 
+{% include [connection-note](../../../_includes/datalens/datalens-connection-note.md) %}
+
+## Подключение к PostgreSQL {#postgresql-connection}
+
 Чтобы создать подключение к PostgreSQL:
 1. Перейдите на [страницу подключений](https://datalens.yandex.ru/connections).
 1. Нажмите кнопку **Создать подключение**.
 1. Выберите коннектор **PostgreSQL**.
-
-   {% include [connection-note](../../../_includes/datalens/datalens-connection-note.md) %}
-
 1. Укажите параметры подключения:
     - **Имя подключения**. Задайте имя подключения. Имя может быть произвольным.
     - **Имя хоста или IP**. Укажите путь до хоста PostgreSQL.

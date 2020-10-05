@@ -6,7 +6,6 @@ The list of commands available in the notebook is made up of standard commands w
 
 Standard commands that aren't available in the notebook:
 
-* `%%bash`
 * `%%perl`
 * `%%python`
 * `%%python2`

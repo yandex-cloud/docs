@@ -26,7 +26,7 @@ GET /{bucket} HTTP/1.1
 ----- | -----
 `delimiter` | Символ-разделитель.<br/><br/>Если параметр указан, то {{ objstorage-name }} рассматривает ключ как путь к файлу, где каталоги разделяются символом `delimiter`. В ответе на запрос пользователь увидит перечень <q>файлов</q> и <q>каталогов</q> в бакете. <q>Файлы</q> будут выведены в элементах `Contents`, а <q>каталоги</q> в элементах `CommonPrefixes`.<br/><br/>Если в запросе указан еще и параметр `prefix`, то {{ objstorage-name }} вернет перечень <q>файлов</q> и <q>каталогов</q> в <q>каталоге</q> `prefix`.
 `marker` | Ключ, с которого начнется выдача.<br/><br/>В результирующей выдаче {{ objstorage-name }} оставит ключи, начиная со следующего за `marker`.
-`max-keys` | Максимальное количество элементов в ответе.<br/><br/>По умолчанию {{ objstorage-name }} выдает не более 1000 элементов `Contents` и `CommonPrefixes`. Параметр следует использовать, если вам нужно получать менее 1000 элементов в одном ответе.<br/><br/>Если под критерии отбора попадает больше ключей, чем поместилось в выдаче, то ответ содержит `<IsTruncated>true</IsTruncated>`.<br/><br/>Чтобы получить все элементы выдачи, если их больше `max-keys`, необходимо выполнить несколько последовательных запросов к {{ objstorage-name }} с параметром `marker`, где для каждого запроса `marker` равен значению элемента `MaxKeys` из предыдущего ответа.
+`max-keys` | Максимальное количество элементов в ответе.<br/><br/>По умолчанию {{ objstorage-name }} выдает не более 1000 элементов `Contents` и `CommonPrefixes`. Параметр следует использовать, если вам нужно получать менее 1000 элементов в одном ответе.<br/><br/>Если под критерии отбора попадает больше ключей, чем поместилось в выдаче, то ответ содержит `<IsTruncated>true</IsTruncated>`.<br/><br/>Чтобы получить все элементы выдачи, если их больше `max-keys`, необходимо выполнить несколько последовательных запросов к {{ objstorage-name }} с параметром `marker`, где для каждого запроса `marker` равен значению элемента `NextMarker` из предыдущего ответа.
 `prefix` | Строка, с которой должен начинаться ключ.<br/><br/>{{ objstorage-name }} выберет только те ключи, которые начинаются с `prefix`.<br/><br/>Может использоваться одновременно с параметром `delimiter`. В этом случает логика выдачи становится той, что указана в описании параметра `delimiter`.
 
 
@@ -47,7 +47,7 @@ GET /{bucket} HTTP/1.1
 
 ### Схема данных {#structure}
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <ListBucketResult>
     <Name>bucket</Name>
@@ -68,18 +68,16 @@ GET /{bucket} HTTP/1.1
 Элемент | Описание
 ----- | -----
 `Contents` | Описание объекта.<br/><br/>Ответ будет содержать столько элементов `Contents`, сколько ключей попало под условия запроса.<br/><br/>Путь: `/ListBucketResult/Contents`.
-`CommonPrefixes` | Часть имени ключа, которая определяется при обработке path параметров `delimiter` и `prefix`.<br/><br/>Путь: `/ListBucketResult/CommonPrefixes`.
-`Delimiter` | Значение path параметра `delimiter`.<br/><br/>Путь: `/ListBucketResult/Delimiter`.
+`CommonPrefixes` | Часть имени ключа, которая определяется при обработке query-параметров `delimiter` и `prefix`.<br/><br/>Путь: `/ListBucketResult/CommonPrefixes`.
+`Delimiter` | Значение query-параметра `delimiter`.<br/><br/>Путь: `/ListBucketResult/Delimiter`.
 `ETag` | MD5-хэш объекта. Метаданные в расчете хэша не участвуют.<br/><br/>Путь: `/ListBucketResult/Contents/ETag`.
 `IsTruncated` | Флаг, показывающий все ли результаты возвращены в этом ответе.<br/><br/>`True` — все. `False` — не все.<br/><br/>Путь: `/ListBucketResult/IsTruncated`.
 `Key` | Ключ объекта.<br/><br/>Путь: `/ListBucketResult/Contents/Key`.
 `LastModified` | Дата и время последнего изменения объекта.<br/><br/>Путь: `/ListBucketResult/Contents/LastModified`.
-`Marker` | Значение path параметра `marker`.<br/><br/>Путь: `/ListBucketResult/Marker`.
-`MaxKeys` | Значение path параметра `max-keys`.<br/><br/>Путь: `/ListBucketResult/MaxKeys`.
+`Marker` | Значение query-параметра `marker`.<br/><br/>Путь: `/ListBucketResult/Marker`.
+`MaxKeys` | Значение query-параметра `max-keys`.<br/><br/>Путь: `/ListBucketResult/MaxKeys`.
 `Name` | Имя бакета.<br/><br/>Путь: `/ListBucketResult/Name`.
-`NextMarker` | Значение, которое надо подставить в path параметр `marker` для получения следующей части списка, если весь список не поместился в текущий ответ.<br/><br/>Путь: `/ListBucketResult/NextMarker`.
-`Prefix` | Значение path параметра `prefix`.<br/><br/>Путь: `/ListBucketResult/Prefix`.
+`NextMarker` | Значение, которое надо подставить в query-параметр `marker` для получения следующей части списка, если весь список не поместился в текущий ответ.<br/><br/>Путь: `/ListBucketResult/NextMarker`.
+`Prefix` | Значение query-параметра `prefix`.<br/><br/>Путь: `/ListBucketResult/Prefix`.
 `Size` | Размер объекта в байтах.<br/><br/>Путь: `/ListBucketResult/Contents/Size`.
 `StorageClass` | Класс хранения объекта: `STANDARD` или `COLD`.<br/><br/>Путь: `/ListBucketResult/Contents/StorageClass`.
-
-

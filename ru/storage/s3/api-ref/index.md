@@ -27,9 +27,9 @@
 [deleteBucket](bucket/delete.md) | Удаляет бакет.
 [deleteBucketEncryption](bucket/deletebucketencryption.md) | Убирает шифрование бакета.
 [putBucketEncryption](bucket/putbucketencryption.md) | Добавляет шифрование бакету.
-[PutBucketVersioning](bucket/PutBucketVersioning.md) | Устанавливает опцию версионирования бакета.
-[GetBucketVersioning](bucket/GetBucketVersioning.md) | Возвращает состояние опции версионирования.
-[ListObjectVersions](bucket/ListObjectVersions.md) | Возвращает метаданные обо всех версиях объектов в бакете.
+[putBucketVersioning](bucket/putBucketVersioning.md) | Включает или приостанавливает версионирование бакета.
+[getBucketVersioning](bucket/getBucketVersioning.md) | Возвращает состояние опции версионирования.
+[listObjectVersions](bucket/listObjectVersions.md) | Возвращает метаданные обо всех версиях объектов в бакете.
 
 ### Сервис Object {#object-service}
 

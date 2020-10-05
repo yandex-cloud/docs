@@ -8,13 +8,14 @@
 
 {% endnote %}
 
+{% include [connection-note](../../../_includes/datalens/datalens-connection-note.md) %}
+
+## Подключение к ClickHouse {#clickhouse-connection}
+
 Чтобы создать подключение к ClickHouse:
 1. Перейдите на [страницу подключений](https://datalens.yandex.ru/connections).
 1. Нажмите кнопку **Создать подключение**.
 1. Выберите коннектор **ClickHouse**.
-
-   {% include [connection-note](../../../_includes/datalens/datalens-connection-note.md) %}
-
 1. Укажите параметры подключения:
     - **Имя подключения**. Задайте имя подключения. Имя может быть произвольным.
     - **Имя хоста или IP**. Укажите путь до хоста ClickHouse.

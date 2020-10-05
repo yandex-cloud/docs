@@ -12,8 +12,6 @@ To reduce the configuration, remove the prefix or change it to `#!S`.
 Increase a cell's computing resources in the interface:
 
 1. Click the button with the name of the configuration in the menu on the notebook tab.
-1. Select the configuration:
-    * S (4 cores) (default).
-    * L (8 cores, gpu: 1xV100).
-1. Wait until the **S/L instance is ready** status appears on the notebook panel.
+1. Select the configuration.
+1. Wait until the **<Configuration prefix> instance is ready** status appears on the notebook panel.
 

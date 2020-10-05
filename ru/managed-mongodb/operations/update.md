@@ -6,8 +6,9 @@
 
 * [Увеличить размер хранилища](#change-disk-size) (доступно только для сетевого хранилища, `network-hdd` и `network-ssd`).
 
-* [Настраивать серверы](#change-mongod-config) {{ MG }} согласно [документации {{ MG }}](https://docs.mongodb.com/v3.6/reference/configuration-options/).
+* [Настроить серверы](#change-mongod-config) {{ MG }} согласно [документации {{ MG }}](https://docs.mongodb.com/v3.6/reference/configuration-options/).
 
+* [Изменить дополнительные настройки кластера](#change-additional-settings).
 
 ## Изменить класс хостов {#change-resource-preset}
 
@@ -169,5 +170,19 @@
 - API
 
   Изменить настройки СУБД для кластера можно с помощью метода API [update](../api-ref/Cluster/update.md): передайте в запросе нужные значения в параметре `configSpec.mongodbSpec_3_6.mongod.config.resourcePresetId`.
+
+{% endlist %}
+
+## Изменить дополнительные настройки кластера {#change-additional-settings}
+
+{% list tabs %}
+
+- Консоль управления
+
+  1. Перейдите на страницу каталога и выберите сервис **{{ mmg-name }}**.
+  1. Выберите кластер и нажмите кнопку **Изменить кластер** на панели сверху.
+  1. Измените дополнительные настройки кластера: 
+     
+     {% include [mmg-extra-settings](../../_includes/mdb/mmg-extra-settings-web-console.md) %}
 
 {% endlist %}

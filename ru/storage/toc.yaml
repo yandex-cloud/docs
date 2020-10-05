@@ -141,12 +141,12 @@ items:
                 href: s3/api-ref/bucket/deletebucketencryption.md
               - name: putBucketEncryption
                 href: s3/api-ref/bucket/putbucketencryption.md
-              - name: PutBucketVersioning
-                href: s3/api-ref/bucket/PutBucketVersioning.md
-              - name: GetBucketVersioning
-                href: s3/api-ref/bucket/GetBucketVersioning.md
-              - name: ListObjectVersions
-                href: s3/api-ref/bucket/ListObjectVersions.md
+              - name: putBucketVersioning
+                href: s3/api-ref/bucket/putBucketVersioning.md
+              - name: getBucketVersioning
+                href: s3/api-ref/bucket/getBucketVersioning.md
+              - name: listObjectVersions
+                href: s3/api-ref/bucket/listObjectVersions.md
           - name: Object
             items:
               - name: Все методы
