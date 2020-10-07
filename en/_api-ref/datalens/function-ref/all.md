@@ -797,7 +797,7 @@ Returns the string `string` without spaces at the beginning of the string.
 
 ## [MAVG](MAVG.md)
 
-**Syntax:**`MAVG( value, rows_1 [ , rows_2 ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] )`
+**Syntax:**`MAVG( value, rows_1 [ , rows_2 ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] [ ORDER BY ... ] )`
 
 Returns the moving average of values in a fixed-size window defined by the sort order and arguments:
 
@@ -830,7 +830,7 @@ If `value`:
 
 ## [MCOUNT](MCOUNT.md)
 
-**Syntax:**`MCOUNT( value, rows_1 [ , rows_2 ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] )`
+**Syntax:**`MCOUNT( value, rows_1 [ , rows_2 ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] [ ORDER BY ... ] )`
 
 Returns the moving count of (non-`NULL`) values in a fixed-size window defined by the sort order and arguments:
 
@@ -879,7 +879,7 @@ Returns the number of the minute in the hour of the specified date `datetime`. W
 
 ## [MMAX](MMAX.md)
 
-**Syntax:**`MMAX( value, rows_1 [ , rows_2 ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] )`
+**Syntax:**`MMAX( value, rows_1 [ , rows_2 ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] [ ORDER BY ... ] )`
 
 Returns the moving maximum of values in a fixed-size window defined by the sort order and arguments:
 
@@ -898,7 +898,7 @@ See also [MAX](MAX.md), [RMAX](RMAX.md).
 
 ## [MMIN](MMIN.md)
 
-**Syntax:**`MMIN( value, rows_1 [ , rows_2 ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] )`
+**Syntax:**`MMIN( value, rows_1 [ , rows_2 ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] [ ORDER BY ... ] )`
 
 Returns the moving minimum of values in a fixed-size window defined by the sort order and arguments:
 
@@ -925,7 +925,7 @@ Returns the number of the month in the year of the specified date `datetime`.
 
 ## [MSUM](MSUM.md)
 
-**Syntax:**`MSUM( value, rows_1 [ , rows_2 ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] )`
+**Syntax:**`MSUM( value, rows_1 [ , rows_2 ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] [ ORDER BY ... ] )`
 
 Returns the moving sum of values in a fixed-size window defined by the sort order and arguments:
 
@@ -1067,7 +1067,7 @@ See also [RANK](RANK.md), [RANK_DENSE](RANK_DENSE.md), [RANK_PERCENTILE](RANK_PE
 
 ## [RAVG](RAVG.md)
 
-**Syntax:**`RAVG( value [ , direction ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] )`
+**Syntax:**`RAVG( value [ , direction ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] [ ORDER BY ... ] )`
 
 Returns the average of all values in a growing (or shrinking) window defined by the sort order and the value of `direction`:
 
@@ -1087,7 +1087,7 @@ See also [AVG](AVG.md), [MAVG](MAVG.md).
 
 ## [RCOUNT](RCOUNT.md)
 
-**Syntax:**`RCOUNT( value [ , direction ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] )`
+**Syntax:**`RCOUNT( value [ , direction ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] [ ORDER BY ... ] )`
 
 Returns the count of all values in a growing (or shrinking) window defined by the sort order and the value of `direction`:
 
@@ -1159,7 +1159,7 @@ Returns a string that contains the number of characters specified in `number` fr
 
 ## [RMAX](RMAX.md)
 
-**Syntax:**`RMAX( value [ , direction ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] )`
+**Syntax:**`RMAX( value [ , direction ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] [ ORDER BY ... ] )`
 
 Returns the maximum of all values in a growing (or shrinking) window defined by the sort order and the value of `direction`:
 
@@ -1179,7 +1179,7 @@ See also [MAX](MAX.md), [MMAX](MMAX.md).
 
 ## [RMIN](RMIN.md)
 
-**Syntax:**`RMIN( value [ , direction ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] )`
+**Syntax:**`RMIN( value [ , direction ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] [ ORDER BY ... ] )`
 
 Returns the minimum of all values in a growing (or shrinking) window defined by the sort order and the value of `direction`:
 
@@ -1208,7 +1208,7 @@ If the number `precision` is omitted, `number` is rounded to the nearest integer
 
 ## [RSUM](RSUM.md)
 
-**Syntax:**`RSUM( value [ , direction ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] )`
+**Syntax:**`RSUM( value [ , direction ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] [ ORDER BY ... ] )`
 
 Returns the sum of all values in a growing (or shrinking) window defined by the sort order and the value of `direction`:
 
