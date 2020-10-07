@@ -95,7 +95,7 @@ challenges[].<br>httpChallenge.<br>content | **string**<br><p>Содержимо
 [list](list.md) | Возвращает список сертификатов в указанном каталоге.
 [listAccessBindings](listAccessBindings.md) | Возвращает список привязок прав доступа для указанного сертификата.
 [listOperations](listOperations.md) | Перечисляет операции для указанного сертификата.
-[requestNew](requestNew.md) | Создает сертификат от Let's Encrypt®.
+[requestNew](requestNew.md) | Создает сертификат от Let's Encrypt.
 [setAccessBindings](setAccessBindings.md) | Устанавливает привязки прав доступа для сертификата.
 [update](update.md) | Обновляет указанный сертификат.
 [updateAccessBindings](updateAccessBindings.md) | Обновляет привязки прав доступа для указанного сертификата.

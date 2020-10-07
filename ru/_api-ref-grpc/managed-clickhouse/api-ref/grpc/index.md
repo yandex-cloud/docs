@@ -11,4 +11,5 @@
 [MlModelService](./ml_model_service.md) | Набор методов управления моделями машинного обучения.
 [ResourcePresetService](./resource_preset_service.md) | Набор методов для управления ресурсами ResourcePreset.
 [UserService](./user_service.md) | Набор методов для управления ресурсами User для ClickHouse.
+[VersionsService](./versions_service.md) | Набор методов для управления версиями ClickHouse.
 [OperationService](./operation_service.md) | Набор методов для управления операциями в асинхронных запросах API. Ссылки указаны относительно домена `operation.api.cloud.yandex.net`.

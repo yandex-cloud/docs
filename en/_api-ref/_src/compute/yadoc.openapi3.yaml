@@ -2361,6 +2361,11 @@ components:
               Acceptable values are 4194304 to 4398046511104, inclusive.
             type: string
             format: int64
+          blockSize:
+            description: Block size of the disk, specified in bytes. The default is
+              4096.
+            type: string
+            format: int64
           diskPlacementPolicy:
             $ref: '#/components/schemas/DiskPlacementPolicy'
             description: Placement policy configuration.

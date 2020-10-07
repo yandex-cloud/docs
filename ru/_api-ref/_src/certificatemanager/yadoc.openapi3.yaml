@@ -198,7 +198,7 @@ paths:
     post:
       tags:
       - Certificate
-      summary: Создает сертификат от Let's Encrypt®.
+      summary: Создает сертификат от Let's Encrypt.
       operationId: CertificateRequestNew
       requestBody:
         content:

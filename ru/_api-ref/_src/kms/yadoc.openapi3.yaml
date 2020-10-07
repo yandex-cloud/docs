@@ -760,6 +760,10 @@ components:
             Интервал между автоматическими ротациями. Чтобы отключить автоматическую ротацию,
             не включайте это поле в запрос на создание.
           type: string
+        deletionProtection:
+          description: Флаг, запрещающий удаление симметричного ключа
+          type: boolean
+          format: boolean
     DeleteSymmetricKeyMetadata:
       type: object
       properties:
@@ -1209,6 +1213,10 @@ components:
         rotationPeriod:
           description: Период времени между автоматическими ротациями ключа.
           type: string
+        deletionProtection:
+          description: Флаг, запрещающий удаление ключа
+          type: boolean
+          format: boolean
     SymmetricKeyStatus:
       description: |2-
          - CREATING: Ключ создается.
@@ -1395,6 +1403,10 @@ components:
           description: Период времени между автоматическими ротациями симметричного
             ключа KMS.
           type: string
+        deletionProtection:
+          description: Флаг, запрещающий удаление симметричного ключа KMS
+          type: boolean
+          format: boolean
     rpcStatus:
       description: Описание ошибки в случае сбоя или отмены операции.
       type: object

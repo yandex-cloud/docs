@@ -45,6 +45,7 @@ description | **string**<br>Description of the key. The maximum string length in
 labels | **map<string,string>**<br>Custom labels for the symmetric KMS key as `key:value` pairs. Maximum 64 per key. For example, `"project": "mvp"` or `"source": "dictionary"`. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 default_algorithm | enum **SymmetricAlgorithm**<br>Encryption algorithm to be used with a new key version, generated with the next rotation. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><ul/>
 rotation_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Interval between automatic rotations. To disable automatic rotation, don't include this field in the creation request. 
+deletion_protection | **bool**<br>Flag that inhibits deletion of the symmetric KMS key 
 
 
 ### Operation {#Operation}
@@ -86,6 +87,7 @@ primary_version | **[SymmetricKeyVersion](../symmetric_key.proto#SymmetricKeyVer
 default_algorithm | enum **SymmetricAlgorithm**<br>Default encryption algorithm to be used with new versions of the key. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><ul/>
 rotated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time of the last key rotation (time when the last version was created). Empty if the key does not have versions yet. 
 rotation_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time period between automatic key rotations. 
+deletion_protection | **bool**<br>Flag that inhibits deletion of the key 
 
 
 ## Get {#Get}
@@ -116,6 +118,7 @@ primary_version | **[SymmetricKeyVersion](../symmetric_key.proto#SymmetricKeyVer
 default_algorithm | enum **SymmetricAlgorithm**<br>Default encryption algorithm to be used with new versions of the key. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><ul/>
 rotated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time of the last key rotation (time when the last version was created). Empty if the key does not have versions yet. 
 rotation_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time period between automatic key rotations. 
+deletion_protection | **bool**<br>Flag that inhibits deletion of the key 
 
 
 ### SymmetricKeyVersion {#SymmetricKeyVersion}
@@ -169,6 +172,7 @@ primary_version | **[SymmetricKeyVersion](../symmetric_key.proto#SymmetricKeyVer
 default_algorithm | enum **SymmetricAlgorithm**<br>Default encryption algorithm to be used with new versions of the key. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><ul/>
 rotated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time of the last key rotation (time when the last version was created). Empty if the key does not have versions yet. 
 rotation_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time period between automatic key rotations. 
+deletion_protection | **bool**<br>Flag that inhibits deletion of the key 
 
 
 ### SymmetricKeyVersion {#SymmetricKeyVersion1}
@@ -242,6 +246,7 @@ status | **[SymmetricKey.Status](../symmetric_key.proto#SymmetricKey3)**<br>New 
 labels | **map<string,string>**<br>Custom labels for the symmetric KMS key as `key:value` pairs. Maximum 64 per key. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 default_algorithm | enum **SymmetricAlgorithm**<br>Default encryption algorithm to be used with new versions of the symmetric KMS key. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><ul/>
 rotation_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time period between automatic symmetric KMS key rotations. 
+deletion_protection | **bool**<br>Flag that inhibits deletion of the symmetric KMS key 
 
 
 ### Operation {#Operation1}
@@ -282,6 +287,7 @@ primary_version | **[SymmetricKeyVersion](../symmetric_key.proto#SymmetricKeyVer
 default_algorithm | enum **SymmetricAlgorithm**<br>Default encryption algorithm to be used with new versions of the key. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><ul/>
 rotated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time of the last key rotation (time when the last version was created). Empty if the key does not have versions yet. 
 rotation_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time period between automatic key rotations. 
+deletion_protection | **bool**<br>Flag that inhibits deletion of the key 
 
 
 ## Delete {#Delete}
@@ -339,6 +345,7 @@ primary_version | **[SymmetricKeyVersion](../symmetric_key.proto#SymmetricKeyVer
 default_algorithm | enum **SymmetricAlgorithm**<br>Default encryption algorithm to be used with new versions of the key. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><ul/>
 rotated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time of the last key rotation (time when the last version was created). Empty if the key does not have versions yet. 
 rotation_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time period between automatic key rotations. 
+deletion_protection | **bool**<br>Flag that inhibits deletion of the key 
 
 
 ## SetPrimaryVersion {#SetPrimaryVersion}
@@ -398,6 +405,7 @@ primary_version | **[SymmetricKeyVersion](../symmetric_key.proto#SymmetricKeyVer
 default_algorithm | enum **SymmetricAlgorithm**<br>Default encryption algorithm to be used with new versions of the key. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><ul/>
 rotated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time of the last key rotation (time when the last version was created). Empty if the key does not have versions yet. 
 rotation_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time period between automatic key rotations. 
+deletion_protection | **bool**<br>Flag that inhibits deletion of the key 
 
 
 ## ScheduleVersionDestruction {#ScheduleVersionDestruction}
@@ -568,6 +576,7 @@ primary_version | **[SymmetricKeyVersion](../symmetric_key.proto#SymmetricKeyVer
 default_algorithm | enum **SymmetricAlgorithm**<br>Default encryption algorithm to be used with new versions of the key. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><ul/>
 rotated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time of the last key rotation (time when the last version was created). Empty if the key does not have versions yet. 
 rotation_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time period between automatic key rotations. 
+deletion_protection | **bool**<br>Flag that inhibits deletion of the key 
 
 
 ## ListOperations {#ListOperations}

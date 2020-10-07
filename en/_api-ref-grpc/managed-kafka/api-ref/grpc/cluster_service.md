@@ -193,6 +193,7 @@ config_spec | **[ConfigSpec](../cluster.proto#ConfigSpec2)**<br>Kafka and hosts 
 topic_specs[] | **[TopicSpec](../topic.proto#TopicSpec)**<br>One or more configurations of topics to be created in the Apache Kafka® cluster. 
 user_specs[] | **[UserSpec](../user.proto#UserSpec)**<br>Configurations of accounts to be created in the Apache Kafka® cluster. 
 network_id | **string**<br>ID of the network to create the Apache Kafka® cluster in. The maximum string length in characters is 50.
+subnet_id[] | **string**<br>IDs of subnets to create brokers in. 
 
 
 ### ConfigSpec {#ConfigSpec2}

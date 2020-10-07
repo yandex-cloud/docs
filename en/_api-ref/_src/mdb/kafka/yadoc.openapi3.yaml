@@ -1402,6 +1402,11 @@ components:
 
             The maximum string length in characters is 50.
           type: string
+        subnetId:
+          description: IDs of subnets to create brokers in.
+          type: array
+          items:
+            type: string
     CreateTopicMetadata:
       type: object
       properties:

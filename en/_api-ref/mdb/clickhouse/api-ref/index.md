@@ -14,4 +14,4 @@ Resource | Description
 [MlModel](MlModel/index.md) | A set of methods for managing machine learning models.
 [ResourcePreset](ResourcePreset/index.md) | A set of methods for managing ResourcePreset resources.
 [User](User/index.md) | A set of methods for managing ClickHouse User resources. NOTE: these methods are available only if user management through SQL is disabled.
-[Versions](Versions/index.md) | 
+[Versions](Versions/index.md) | A set of methods for managing ClickHouse versions.

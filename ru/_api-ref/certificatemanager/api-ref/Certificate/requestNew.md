@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Метод requestNew
-Создает сертификат от Let's Encrypt®.
+Создает сертификат от Let's Encrypt.
  
 
  

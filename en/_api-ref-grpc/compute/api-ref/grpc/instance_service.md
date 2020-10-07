@@ -335,6 +335,7 @@ name | **string**<br>Name of the disk. Value must match the regular expression `
 description | **string**<br>Description of the disk. The maximum string length in characters is 256.
 type_id | **string**<br>ID of the disk type. To get a list of available disk types, use the [yandex.cloud.compute.v1.DiskTypeService.List](/docs/compute/grpc/disk_type_service#List) request. The maximum string length in characters is 50.
 size | **int64**<br>Required. Size of the disk, specified in bytes. Acceptable values are 4194304 to 4398046511104, inclusive.
+block_size | **int64**<br>Block size of the disk, specified in bytes. The default is 4096. 
 disk_placement_policy | **[DiskPlacementPolicy](../disk.proto#DiskPlacementPolicy)**<br>Placement policy configuration. 
 source | **oneof:** `image_id` or `snapshot_id`<br>
 &nbsp;&nbsp;image_id | **string**<br>ID of the image to create the disk from. The maximum string length in characters is 50.
@@ -866,6 +867,7 @@ name | **string**<br>Name of the disk. Value must match the regular expression `
 description | **string**<br>Description of the disk. The maximum string length in characters is 256.
 type_id | **string**<br>ID of the disk type. To get a list of available disk types, use the [yandex.cloud.compute.v1.DiskTypeService.List](/docs/compute/grpc/disk_type_service#List) request. The maximum string length in characters is 50.
 size | **int64**<br>Required. Size of the disk, specified in bytes. Acceptable values are 4194304 to 4398046511104, inclusive.
+block_size | **int64**<br>Block size of the disk, specified in bytes. The default is 4096. 
 disk_placement_policy | **[DiskPlacementPolicy](../disk.proto#DiskPlacementPolicy)**<br>Placement policy configuration. 
 source | **oneof:** `image_id` or `snapshot_id`<br>
 &nbsp;&nbsp;image_id | **string**<br>ID of the image to create the disk from. The maximum string length in characters is 50.

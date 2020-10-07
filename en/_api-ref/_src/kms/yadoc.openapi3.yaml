@@ -746,6 +746,10 @@ components:
             Interval between automatic rotations. To disable automatic rotation, don't include
             this field in the creation request.
           type: string
+        deletionProtection:
+          description: Flag that inhibits deletion of the symmetric KMS key
+          type: boolean
+          format: boolean
     DeleteSymmetricKeyMetadata:
       type: object
       properties:
@@ -1183,6 +1187,10 @@ components:
         rotationPeriod:
           description: Time period between automatic key rotations.
           type: string
+        deletionProtection:
+          description: Flag that inhibits deletion of the key
+          type: boolean
+          format: boolean
     SymmetricKeyStatus:
       description: |2-
          - CREATING: The key is being created.
@@ -1364,6 +1372,10 @@ components:
         rotationPeriod:
           description: Time period between automatic symmetric KMS key rotations.
           type: string
+        deletionProtection:
+          description: Flag that inhibits deletion of the symmetric KMS key
+          type: boolean
+          format: boolean
     rpcStatus:
       description: The error result of the operation in case of failure or cancellation.
       type: object

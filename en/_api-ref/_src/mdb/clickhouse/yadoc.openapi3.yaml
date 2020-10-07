@@ -2209,9 +2209,9 @@ paths:
         in: query
         description: |-
           The maximum number of results per page that should be returned. If the number of available
-          results is larger than `page_size`, the service returns a `next_page_token` that can be used
+          results is larger than [pageSize](/docs/managed-clickhouse/api-ref/Versions/list#query_params), the service returns a [nextPageToken](/docs/managed-clickhouse/api-ref/Versions/list#responses) that can be used
           to get the next page of results in subsequent ListVersions requests.
-          Acceptable values are 0 to 1000, inclusive. Default value: 100.
+          Default value: 100.
 
           Acceptable values are 0 to 1000, inclusive.
         schema:
@@ -2220,7 +2220,7 @@ paths:
       - name: pageToken
         in: query
         description: |-
-          Page token. Set `page_token` to the `next_page_token` returned by a previous ListVersions
+          Page token. Set [pageToken](/docs/managed-clickhouse/api-ref/Versions/list#query_params) to the [nextPageToken](/docs/managed-clickhouse/api-ref/Versions/list#responses) returned by a previous ListVersions
           request to get the next page of results.
 
           The maximum string length in characters is 100.
@@ -3981,10 +3981,10 @@ components:
         nextPageToken:
           description: |-
             This token allows you to get the next page of results for ListVersions requests,
-            if the number of results is larger than `page_size` specified in the request.
-            To get the next page, specify the value of `next_page_token` as a value for
-            the `page_token` parameter in the next ListVerions request. Subsequent ListVersions
-            requests will have their own `next_page_token` to continue paging through the results.
+            if the number of results is larger than [pageSize](/docs/managed-clickhouse/api-ref/Versions/list#query_params) specified in the request.
+            To get the next page, specify the value of [nextPageToken](/docs/managed-clickhouse/api-ref/Versions/list#responses) as a value for
+            the [pageToken](/docs/managed-clickhouse/api-ref/Versions/list#query_params) parameter in the next ListVerions request. Subsequent ListVersions
+            requests will have their own [nextPageToken](/docs/managed-clickhouse/api-ref/Versions/list#responses) to continue paging through the results.
           type: string
     LogRecord:
       type: object
@@ -5606,17 +5606,17 @@ components:
       type: object
       properties:
         id:
-          description: Version ID
+          description: ID of the version.
           type: string
         name:
-          description: Version name
+          description: Name of the version.
           type: string
         deprecated:
-          description: Is version deprecated
+          description: Whether version is deprecated.
           type: boolean
           format: boolean
         updatableTo:
-          description: List of versions that can be updated from current
+          description: List of versions that can be updated from current.
           type: array
           items:
             type: string
@@ -10459,3 +10459,4 @@ tags:
     A set of methods for managing ClickHouse User resources.
     NOTE: these methods are available only if user management through SQL is disabled.
 - name: Versions
+  description: A set of methods for managing ClickHouse versions.

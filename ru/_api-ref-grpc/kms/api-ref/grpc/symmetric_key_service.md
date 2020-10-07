@@ -45,6 +45,7 @@ description | **string**<br>Описание симметричного ключ
 labels | **map<string,string>**<br>Пользовательские метки для ключа в виде пар `key:value`. Максимум 64 на ключ. Например, @b "" project": "mvp"` или @b "" source": "dictionary"`. Не более 64 на ресурс. Максимальная длина строки в символах для каждого значения — 63. Каждое значение должно соответствовать регулярному выражению ` [-_0-9a-z]* `. Максимальная длина строки в символах для каждого ключа — 63. Каждый ключ должен соответствовать регулярному выражению ` [a-z][-_0-9a-z]* `.
 default_algorithm | enum **SymmetricAlgorithm**<br>Алгоритм шифрования, который будет использоваться с версией ключа, которая будет сгенерирована при следующей ротации. <ul><li>`AES_128`: Алгоритм AES со 128-битными ключами.</li><li>`AES_192`: Алгоритм AES с 192-битными ключами.</li><li>`AES_256`: Алгоритм AES с 256-битными ключами.</li><ul/>
 rotation_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Интервал между автоматическими ротациями. Чтобы отключить автоматическую ротацию, не включайте это поле в запрос на создание. 
+deletion_protection | **bool**<br>Флаг, запрещающий удаление симметричного ключа 
 
 
 ### Operation {#Operation}
@@ -86,6 +87,7 @@ primary_version | **[SymmetricKeyVersion](../symmetric_key.proto#SymmetricKeyVer
 default_algorithm | enum **SymmetricAlgorithm**<br>Алгоритм шифрования по умолчанию, который следует использовать с новыми версиями ключа. <ul><li>`AES_128`: Алгоритм AES со 128-битными ключами.</li><li>`AES_192`: Алгоритм AES с 192-битными ключами.</li><li>`AES_256`: Алгоритм AES с 256-битными ключами.</li><ul/>
 rotated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время последней ротации ключа (время, когда была создана последняя версия). Пустое, если у ключа еще нет версий. 
 rotation_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Период времени между автоматическими ротациями ключа. 
+deletion_protection | **bool**<br>Флаг, запрещающий удаление ключа 
 
 
 ## Get {#Get}
@@ -116,6 +118,7 @@ primary_version | **[SymmetricKeyVersion](../symmetric_key.proto#SymmetricKeyVer
 default_algorithm | enum **SymmetricAlgorithm**<br>Алгоритм шифрования по умолчанию, который следует использовать с новыми версиями ключа. <ul><li>`AES_128`: Алгоритм AES со 128-битными ключами.</li><li>`AES_192`: Алгоритм AES с 192-битными ключами.</li><li>`AES_256`: Алгоритм AES с 256-битными ключами.</li><ul/>
 rotated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время последней ротации ключа (время, когда была создана последняя версия). Пустое, если у ключа еще нет версий. 
 rotation_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Период времени между автоматическими ротациями ключа. 
+deletion_protection | **bool**<br>Флаг, запрещающий удаление ключа 
 
 
 ### SymmetricKeyVersion {#SymmetricKeyVersion}
@@ -169,6 +172,7 @@ primary_version | **[SymmetricKeyVersion](../symmetric_key.proto#SymmetricKeyVer
 default_algorithm | enum **SymmetricAlgorithm**<br>Алгоритм шифрования по умолчанию, который следует использовать с новыми версиями ключа. <ul><li>`AES_128`: Алгоритм AES со 128-битными ключами.</li><li>`AES_192`: Алгоритм AES с 192-битными ключами.</li><li>`AES_256`: Алгоритм AES с 256-битными ключами.</li><ul/>
 rotated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время последней ротации ключа (время, когда была создана последняя версия). Пустое, если у ключа еще нет версий. 
 rotation_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Период времени между автоматическими ротациями ключа. 
+deletion_protection | **bool**<br>Флаг, запрещающий удаление ключа 
 
 
 ### SymmetricKeyVersion {#SymmetricKeyVersion1}
@@ -242,6 +246,7 @@ status | **[SymmetricKey.Status](../symmetric_key.proto#SymmetricKey3)**<br>Но
 labels | **map<string,string>**<br>Пользовательские метки для ключа в виде пар `key:value`. Максимум 64 на ключ. Не более 64 на ресурс. Максимальная длина строки в символах для каждого значения — 63. Каждое значение должно соответствовать регулярному выражению ` [-_0-9a-z]* `. Максимальная длина строки в символах для каждого ключа — 63. Каждый ключ должен соответствовать регулярному выражению ` [a-z][-_0-9a-z]* `.
 default_algorithm | enum **SymmetricAlgorithm**<br>Алгоритм шифрования по умолчанию, который следует использовать с новыми версиями симметричного ключа KMS. <ul><li>`AES_128`: Алгоритм AES со 128-битными ключами.</li><li>`AES_192`: Алгоритм AES с 192-битными ключами.</li><li>`AES_256`: Алгоритм AES с 256-битными ключами.</li><ul/>
 rotation_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Период времени между автоматическими ротациями симметричного ключа KMS. 
+deletion_protection | **bool**<br>Флаг, запрещающий удаление симметричного ключа KMS 
 
 
 ### Operation {#Operation1}
@@ -282,6 +287,7 @@ primary_version | **[SymmetricKeyVersion](../symmetric_key.proto#SymmetricKeyVer
 default_algorithm | enum **SymmetricAlgorithm**<br>Алгоритм шифрования по умолчанию, который следует использовать с новыми версиями ключа. <ul><li>`AES_128`: Алгоритм AES со 128-битными ключами.</li><li>`AES_192`: Алгоритм AES с 192-битными ключами.</li><li>`AES_256`: Алгоритм AES с 256-битными ключами.</li><ul/>
 rotated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время последней ротации ключа (время, когда была создана последняя версия). Пустое, если у ключа еще нет версий. 
 rotation_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Период времени между автоматическими ротациями ключа. 
+deletion_protection | **bool**<br>Флаг, запрещающий удаление ключа 
 
 
 ## Delete {#Delete}
@@ -339,6 +345,7 @@ primary_version | **[SymmetricKeyVersion](../symmetric_key.proto#SymmetricKeyVer
 default_algorithm | enum **SymmetricAlgorithm**<br>Алгоритм шифрования по умолчанию, который следует использовать с новыми версиями ключа. <ul><li>`AES_128`: Алгоритм AES со 128-битными ключами.</li><li>`AES_192`: Алгоритм AES с 192-битными ключами.</li><li>`AES_256`: Алгоритм AES с 256-битными ключами.</li><ul/>
 rotated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время последней ротации ключа (время, когда была создана последняя версия). Пустое, если у ключа еще нет версий. 
 rotation_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Период времени между автоматическими ротациями ключа. 
+deletion_protection | **bool**<br>Флаг, запрещающий удаление ключа 
 
 
 ## SetPrimaryVersion {#SetPrimaryVersion}
@@ -398,6 +405,7 @@ primary_version | **[SymmetricKeyVersion](../symmetric_key.proto#SymmetricKeyVer
 default_algorithm | enum **SymmetricAlgorithm**<br>Алгоритм шифрования по умолчанию, который следует использовать с новыми версиями ключа. <ul><li>`AES_128`: Алгоритм AES со 128-битными ключами.</li><li>`AES_192`: Алгоритм AES с 192-битными ключами.</li><li>`AES_256`: Алгоритм AES с 256-битными ключами.</li><ul/>
 rotated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время последней ротации ключа (время, когда была создана последняя версия). Пустое, если у ключа еще нет версий. 
 rotation_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Период времени между автоматическими ротациями ключа. 
+deletion_protection | **bool**<br>Флаг, запрещающий удаление ключа 
 
 
 ## ScheduleVersionDestruction {#ScheduleVersionDestruction}
@@ -568,6 +576,7 @@ primary_version | **[SymmetricKeyVersion](../symmetric_key.proto#SymmetricKeyVer
 default_algorithm | enum **SymmetricAlgorithm**<br>Алгоритм шифрования по умолчанию, который следует использовать с новыми версиями ключа. <ul><li>`AES_128`: Алгоритм AES со 128-битными ключами.</li><li>`AES_192`: Алгоритм AES с 192-битными ключами.</li><li>`AES_256`: Алгоритм AES с 256-битными ключами.</li><ul/>
 rotated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время последней ротации ключа (время, когда была создана последняя версия). Пустое, если у ключа еще нет версий. 
 rotation_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Период времени между автоматическими ротациями ключа. 
+deletion_protection | **bool**<br>Флаг, запрещающий удаление ключа 
 
 
 ## ListOperations {#ListOperations}

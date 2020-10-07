@@ -28,7 +28,8 @@ keyId | Required. ID of the symmetric KMS key to update. To get the ID of a symm
   "status": "string",
   "labels": "object",
   "defaultAlgorithm": "string",
-  "rotationPeriod": "string"
+  "rotationPeriod": "string",
+  "deletionProtection": true
 }
 ```
 
@@ -42,6 +43,7 @@ status | **string**<br><p>New status for the symmetric KMS key. Using the <a hre
 labels | **object**<br><p>Custom labels for the symmetric KMS key as <code>key:value</code> pairs. Maximum 64 per key.</p> <p>No more than 64 per resource. The maximum string length in characters for each key is 63. Each key must match the regular expression <code>[a-z][-_0-9a-z]*</code>. The maximum string length in characters for each value is 63. Each value must match the regular expression <code>[-_0-9a-z]*</code>.</p> 
 defaultAlgorithm | **string**<br><p>Default encryption algorithm to be used with new versions of the symmetric KMS key.</p> <p>Supported symmetric encryption algorithms.</p> <ul> <li>AES_128: AES algorithm with 128-bit keys.</li> <li>AES_192: AES algorithm with 192-bit keys.</li> <li>AES_256: AES algorithm with 256-bit keys.</li> </ul> 
 rotationPeriod | **string**<br><p>Time period between automatic symmetric KMS key rotations.</p> 
+deletionProtection | **boolean** (boolean)<br><p>Flag that inhibits deletion of the symmetric KMS key</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

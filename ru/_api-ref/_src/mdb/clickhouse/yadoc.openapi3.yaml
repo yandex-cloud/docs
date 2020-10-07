@@ -1957,6 +1957,40 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/RevokeUserPermissionMetadata'
       x-y-operation-response: '[User](/docs/managed-clickhouse/api-ref/User#representation)'
+  /managed-clickhouse/v1/versions:
+    get:
+      tags:
+      - Versions
+      summary: Возвращает список доступных версий ClickHouse.
+      operationId: VersionsList
+      parameters:
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем [pageSize](/docs/managed-clickhouse/api-ref/Versions/list#query_params), сервис вернет значение
+          [nextPageToken](/docs/managed-clickhouse/api-ref/Versions/list#responses), которое можно использовать для получения следующей страницы. Значение по умолчанию: 100.
+
+          Допустимые значения — от 0 до 1000 включительно.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение [pageToken](/docs/managed-clickhouse/api-ref/Versions/list#query_params) равным значению поля [nextPageToken](/docs/managed-clickhouse/api-ref/Versions/list#responses) предыдущего запроса, чтобы получить следующую
+          страницу результатов.
+
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListVersionsResponse'
+      x-y-navtitle: list
 components:
   schemas:
     Access:
@@ -3433,6 +3467,20 @@ components:
             результатов больше чем [pageSize](/docs/managed-clickhouse/api-ref/User/list#query_params), используйте [nextPageToken](/docs/managed-clickhouse/api-ref/User/list#responses) в качестве значения
             параметра [pageToken](/docs/managed-clickhouse/api-ref/User/list#query_params) в следующем запросе списка ресурсов. Все последующие
             запросы будут получать свои значения [nextPageToken](/docs/managed-clickhouse/api-ref/User/list#responses) для перебора страниц результатов.
+          type: string
+    ListVersionsResponse:
+      type: object
+      properties:
+        version:
+          description: Список доступных версий.
+          type: array
+          items:
+            $ref: '#/components/schemas/Version'
+        nextPageToken:
+          description: |-
+            Токен для получения следующей страницы результатов в ответе, если количество результатов больше, чем [pageSize](/docs/managed-clickhouse/api-ref/Versions/list#query_params). Чтобы получить
+            следующую страницу, укажите [nextPageToken](/docs/managed-clickhouse/api-ref/Versions/list#responses) в качестве значения для [pageToken](/docs/managed-clickhouse/api-ref/Versions/list#query_params) в следующем запросе. Все последующие запросы будут
+            получать свои значения [nextPageToken](/docs/managed-clickhouse/api-ref/Versions/list#responses) для перебора страниц результатов.
           type: string
     LogRecord:
       type: object
@@ -4928,6 +4976,24 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/UserQuota'
+    Version:
+      type: object
+      properties:
+        id:
+          description: Идентификатор версии.
+          type: string
+        name:
+          description: Название версии.
+          type: string
+        deprecated:
+          description: Является ли версия устаревшей.
+          type: boolean
+          format: boolean
+        updatableTo:
+          description: Список версий, до которых можно обновить текущую.
+          type: array
+          items:
+            type: string
     rpcStatus:
       description: Описание ошибки в случае сбоя или отмены операции.
       type: object
@@ -8850,3 +8916,5 @@ tags:
   description: Набор методов для управления ресурсами ResourcePreset.
 - name: User
   description: Набор методов для управления ресурсами User для ClickHouse.
+- name: Versions
+  description: Набор методов для управления версиями ClickHouse.

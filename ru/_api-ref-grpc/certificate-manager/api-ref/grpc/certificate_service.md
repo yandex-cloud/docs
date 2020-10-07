@@ -13,7 +13,7 @@ editable: false
 | [Create](#Create) | Создает пользовательский сертификат в указанном каталоге. |
 | [Update](#Update) | Обновляет указанный сертификат. |
 | [Delete](#Delete) | Удаляет указанный сертификат. |
-| [RequestNew](#RequestNew) | Создает сертификат от Let's Encrypt®. |
+| [RequestNew](#RequestNew) | Создает сертификат от Let's Encrypt. |
 | [ListOperations](#ListOperations) | Перечисляет операции для указанного сертификата. |
 | [ListAccessBindings](#ListAccessBindings) | Возвращает список привязок прав доступа для указанного сертификата. |
 | [SetAccessBindings](#SetAccessBindings) | Устанавливает привязки прав доступа для сертификата. |
@@ -375,7 +375,7 @@ challenges[] | **[Challenge](../certificate.proto#Challenge2)**<br>Данные,
 
 ## RequestNew {#RequestNew}
 
-Создает сертификат от Let's Encrypt®.
+Создает сертификат от Let's Encrypt.
 
 **rpc RequestNew ([RequestNewCertificateRequest](#RequestNewCertificateRequest)) returns ([operation.Operation](#Operation3))**
 
