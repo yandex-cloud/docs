@@ -47,6 +47,8 @@ items:
     items:
       - name: Integration with Container Registry
         href: solutions/container-registry.md
+      - name: Running workloads with GPUs
+        href: solutions/running-pod-gpu.md
   - name: Concepts
     items:
       - name: Relationship between service resources
@@ -67,6 +69,8 @@ items:
             href: concepts/node-group/node-drain.md
           - name: Dynamic resource allocation for a node
             href: concepts/node-group/allocatable-resources.md
+          - name: Node groups with GPUs
+            href: concepts/node-group/node-group-gpu.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Access management

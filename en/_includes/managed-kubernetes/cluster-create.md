@@ -1,6 +1,4 @@
-To create a {{ k8s }} cluster:
-
-1. In the [management console]({{ link-console-main }}), select the folder where you want to create your {{ k8s }} cluster.
+1. In [management console]({{ link-console-main }}), select the folder where you want to create your {{ k8s }} cluster.
 1. In the list of services, select **{{ managed-k8s-name }}**.
 1. Click **Create cluster**.
 1. Enter a name and description for the {{ k8s }} cluster.
@@ -11,7 +9,7 @@ To create a {{ k8s }} cluster:
     - In the **{{ k8s }} version** field, select the {{ k8s }} version to be installed on the master.
 
     - In the **Public IP** field, choose a method for assigning an IP address:
-        - **Auto**: Assign a random IP address from the Yandex.Cloud IP pool.
+        - **Auto**: Assign a random IP address from the {{ yandex-cloud }} IP pool.
         - **No address**: Don't assign a public IP address.
 
     - In the **Master type** field, select the type of master:
@@ -37,7 +35,7 @@ To create a {{ k8s }} cluster:
         - **Disabled**: Automatic updates are disabled.
         - **Anytime**: Maintenance is allowed at any time.
         - **Daily**: Maintenance is performed in the time interval specified in the **Time (UTC) and duration** field.
-        - **On selected days**: Maintenance is performed in the time interval specified in the **Time (UTC) and duration** field.
+        - **On selected days**: Maintenance is performed in the time interval specified in the **Weekly schedule** field.
 1. Under **Cluster network settings**:
     - Specify the **cluster CIDR**, which is a range of IP addresses for allocating pod addresses.
     - Specify the **service CIDR**, which is a range of IP addresses for allocating service addresses.
