@@ -1,6 +1,6 @@
-# Using 1C:Enterprise with {{ mpg-name }}
+# Creating a cluster of 1C:Enterprise Linux servers with {{ mpg-name }}
 
-Yandex.Cloud lets you create PostgreSQL clusters optimized for 1C:Enterprise. To configure the use of 1C:Enterprise, you need to create a working server, a license server, and a {{ mpg-name }} cluster. For 1C servers to run correctly, you should disable security services on them. Therefore the cluster will be accessed via an encrypted OpenVPN server connection, while the 1C servers will have no access to the internet. The 1C servers will be running CentOS 8. The 1C cluster will be configured using the Windows administration console.
+{{ yandex-cloud }} lets you create PostgreSQL clusters optimized for 1C:Enterprise. To configure the use of 1C:Enterprise, you need to create a working server, a license server, and a {{ mpg-name }} cluster. For 1C servers to run correctly, you should disable security services on them. Therefore the cluster will be accessed via an encrypted OpenVPN server connection, while the 1C servers will have no access to the internet. The 1C servers will be running CentOS 8. The 1C cluster will be configured using the Windows administration console.
 
 {% note info %}
 
@@ -14,20 +14,20 @@ To configure 1C:Enterprise servers:
 1. [Prepare the infrastructure](#prepare).
 1. [Create a VM for the 1C:Enterprise server](#create-1c-vm).
 1. [Create a VM for the license server](#create-1c-license-vm).
-1. [Create a cluster {{ mpg-name }}](#create-pg-cluster).
+1. [Create a {{ mpg-name }} cluster](#create-pg-cluster).
 1. [Set up a Samba server](#set-up-samba).
-1. [Install the 1C:Enterprise server](#setup-1c-server)
+1. [Install the 1C:Enterprise server](#setup-1c-server).
 1. [Set up a Samba server for the license server](#set-up-samba-for-license-server).
-1. [Install the 1C:Enterprise server for the license server](#setup-1c-license-server)
+1. [Install the 1C:Enterprise server for the license server](#setup-1c-license-server).
 1. [Set up a server cluster](#setup-cluster).
-1. [Set up the infobase](#setup-infobase).
+1. [Set up an infobase](#setup-infobase).
 1. [Connect to the infobase](#connect-to-infobase).
 
 If you no longer need the created resources, [delete them](#clear-out).
 
 ## Before you start {#before-you-begin}
 
-Before deploying the server, you need to sign up for Yandex.Cloud and create a billing account:
+Before deploying the server, you need to sign up for {{ yandex-cloud }} and create a billing account:
 
 {% include [prepare-register-billing](../_solutions_includes/prepare-register-billing.md) %}
 
@@ -37,10 +37,10 @@ If you have an active billing account, you can create or select a folder to run 
 
 ### Required paid resources {#paid-resources}
 
-The infrastructure support cost for 1C-Enterprise in Yandex.Cloud includes:
+The infrastructure support cost for 1C-Enterprise in {{ yandex-cloud }} includes:
 
 * A fee for the disks and continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* A fee for the continuously running {{ mpg-name }} cluster (see [pricing for {{ compute-full-name }}](../../compute/pricing.md))
+* A fee for the continuously running {{ mpg-name }} cluster (see [pricing for {{ mpg-full-name }}](../../managed-postgresql/pricing.md)).
 * A fee for using a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 ## Prepare the infrastructure {#prepare}
@@ -83,7 +83,7 @@ To create a VM:
 
     - In the **SSH key** field, paste the contents of the public key file.
 
-      You need to create a key pair for the SSH connection yourself. Learn [how to connect to VMs via SSH](../../compute/operations/vm-connect/ssh.md).
+      You need to create a key pair for the SSH connection yourself. [Learn how to connect to VMs via SSH](../../compute/operations/vm-connect/ssh.md).
 
 9. Click **Create VM**.
 
@@ -124,7 +124,7 @@ Creating the VM may take several minutes.
 
 ## Create a cluster {{ mpg-name }} {#create-pg-cluster}
 
-Yandex.Cloud lets you create {{ mpg-name }} clusters optimized for 1C:Enterprise. Cluster settings may vary depending on your project requirements.
+{{ yandex-cloud }} lets you create {{ mpg-name }} clusters optimized for 1C:Enterprise. Cluster settings may vary depending on your project requirements.
 
 To create a {{ mpg-name }} cluster optimized for 1C:
 
@@ -248,27 +248,27 @@ Install the 1C:Enterprise server on the VM:
 1. Upload the distribution archive to your VM's `1c-files` directory.
 1. Unpack the distribution and run the installation:
 
-```
-$ sudo tar –xvf  /1c-files/<archive name>
-$ sudo yum localinstall /1c-files/*.rpm 
-```
+   ```
+   $ sudo tar –xvf  /1c-files/<archive name>
+   $ sudo yum localinstall /1c-files/*.rpm 
+   ```
 
 1. Start the 1C server:
 
-```
-$ sudo systemctl start srv1cv83
-```
+   ```
+   $ sudo systemctl start srv1cv83
+   ```
 
 1. Make sure the 1C:Enterprise server service is running:
 
-```
-$ systemctl status srv1cv83
-● srv1cv83.service - SYSV: Starts and stops the 1C:Enterprise daemons
-   Loaded: loaded (/etc/rc.d/init.d/srv1cv83; bad; vendor preset: disabled)
-   Active: active (exited) since Tue 2020-02-04 14:40:43 UTC; 4 days ago
-     Docs: man:systemd-sysv-generator(8)
-  Process: 27364 ExecStart=/etc/rc.d/init.d/srv1cv83 start (code=exited, status=0/SUCCESS)
-```
+   ```
+   $ systemctl status srv1cv83
+   ● srv1cv83.service - SYSV: Starts and stops the 1C:Enterprise daemons
+      Loaded: loaded (/etc/rc.d/init.d/srv1cv83; bad; vendor preset: disabled)
+      Active: active (exited) since Tue 2020-02-04 14:40:43 UTC; 4 days ago
+      Docs: man:systemd-sysv-generator(8)
+   Process: 27364 ExecStart=/etc/rc.d/init.d/srv1cv83 start (code=exited, status=0/SUCCESS)
+   ```
 
 ## Set up a Samba server for the license server {#set-up-samba-for-license-server}
 
@@ -366,27 +366,27 @@ Install the 1C:Enterprise server on the VM:
 1. Upload the distribution archive to your VM's `1c-files` directory.
 1. Unpack the distribution and run the installation:
 
-```
-$ sudo tar –xvf  /1c-files/<archive name>
-$ sudo yum localinstall /1c-files/*.rpm 
-```
+   ```
+   $ sudo tar –xvf  /1c-files/<archive name>
+   $ sudo yum localinstall /1c-files/*.rpm 
+   ```
 
 1. Start the 1C server:
 
-```
-$ sudo systemctl start srv1cv83
-```
+   ```
+   $ sudo systemctl start srv1cv83
+   ```
 
 1. Make sure the 1C:Enterprise server service is running:
 
-```
-$ systemctl status srv1cv83
-● srv1cv83.service - SYSV: Starts and stops the 1C:Enterprise daemons
-   Loaded: loaded (/etc/rc.d/init.d/srv1cv83; bad; vendor preset: disabled)
-   Active: active (exited) since Tue 2020-02-04 14:40:43 UTC; 4 days ago
-     Docs: man:systemd-sysv-generator(8)
-  Process: 27364 ExecStart=/etc/rc.d/init.d/srv1cv83 start (code=exited, status=0/SUCCESS)
-```
+   ```
+   $ systemctl status srv1cv83
+   ● srv1cv83.service - SYSV: Starts and stops the 1C:Enterprise daemons
+      Loaded: loaded (/etc/rc.d/init.d/srv1cv83; bad; vendor preset: disabled)
+      Active: active (exited) since Tue 2020-02-04 14:40:43 UTC; 4 days ago
+      Docs: man:systemd-sysv-generator(8)
+   Process: 27364 ExecStart=/etc/rc.d/init.d/srv1cv83 start (code=exited, status=0/SUCCESS)
+   ```
 
 ## Set up a server cluster {#setup-cluster}
 
@@ -395,17 +395,17 @@ Before getting started, configure the server roles and add the infobase to the c
 1. Run the 1C administration console on your computer.
 1. Add the 1C:Enterprise central server Open the context menu of the server list, select **New** and **1C:Enterprise central server 8.3**.
 1. In the **Name** field, enter `server-1c` and click **OK**. You'll see the local cluster in the tree on the left.
-1. Add the working server to the cluster. Open the **Working servers** context menu, choose **New** and **Working server**. In the Computer field of the window that opens, enter `licensing-server-1c`. This server will be used to issue licenses to other servers.
+1. Add the working server to the cluster. Open the **Working servers** context menu, choose **New** and **Working server**. In the **Computer** field of the window that opens, enter `licensing-server-1c`. This server will be used to issue licenses to other servers.
 1. In the **Requirements of functionality purpose** section of the `licensing-server-1c`, open the context menu and select **New** and **Requirement of functionality purpose**.
    - In the **Requirement object** list, select **Any requirement object**.
    - In the **Requirement type** list, select **Do not assign**.
    - Leave the other parameters as they are and click **OK**.
-1. Apply requirements for assigning functionality to the cluster: open the cluster's context menu and select **Apply requirements of functionality purpose (full).**.
+1. Apply requirements for assigning functionality to the cluster: open the cluster's context menu and select **Apply requirements of functionality purpose (full)**.
 1. Add another requirement for assigning functionality to the `licensing-server-1c` with the following parameters:
    - In the **Requirement object** list, select **Licensing service**.
    - In the **Requirement type** list, select **Assign**.
    - Leave the other parameters as they are and click **OK**.
-1. Apply requirements for assigning functionality to the cluster: open the cluster's context menu and select **Apply requirements of functionality purpose (full).**.
+1. Apply requirements for assigning functionality to the cluster: open the cluster's context menu and select **Apply requirements of functionality purpose (full)**.
 1. Add a requirement for assigning functionality to the `server-1c` with the following parameters:
    - In the **Requirement object** list, select **Client connection**.
    - In the **Requirement type** list, select **Assign**.
@@ -414,7 +414,7 @@ Before getting started, configure the server roles and add the infobase to the c
    - In the **Requirement object** list, select **Licensing service**.
    - In the **Requirement type** list, select **Do not assign**.
    - Leave the other parameters as they are and click **OK**.
-1. Apply requirements for assigning functionality to the cluster: open the cluster's context menu and select **Apply requirements of functionality purpose (full).**.
+1. Apply requirements for assigning functionality to the cluster: open the cluster's context menu and select **Apply requirements of functionality purpose (full)**.
 
 ## Set up the infobase {#setup-infobase}
 
@@ -429,7 +429,7 @@ Before getting started, configure the server roles and add the infobase to the c
    - **Database server user**: `user1`.
    - **Database user password**: The user password that you set when creating the cluster.
    - **Allow license issuing by 1C:Enterprise server**: **Yes**.
-   - **Language (Country)**: **Russian (Russia)**.
+   - **Language (Country)**: **English (United States)**.
    - **Create database if none present**: Disabled.
    - **Lock execution of scheduled jobs**: Disabled.
 
@@ -460,3 +460,4 @@ The infobase should appear on the list of infobases. You can now start configuri
 To stop paying for the deployed infrastructure, [delete](../../compute/operations/vm-control/vm-delete.md) the `server-1c` and `licensing-server-1c` VMs and the `1c-pg` cluster.
 
 If you reserved a public static IP address, [delete it](../../vpc/operations/address-delete.md).
+
