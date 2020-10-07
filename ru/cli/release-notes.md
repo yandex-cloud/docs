@@ -18,7 +18,7 @@
 
 ## Версия 0.66.0 (28.09.20) {#version0.66.0}
 
-### Изменения в сервисах {{ yandex-cloud }} {#services}
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
 
 #### {{ compute-name }} {#compute}
 
