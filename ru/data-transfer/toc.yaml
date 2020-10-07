@@ -46,6 +46,8 @@ items:
             href: concepts/specific-mysql.md
           - name: Особенности работы с PostgreSQL
             href: concepts/specific-postgresql.md
+      - name: Мониторинг трансферов
+        href: concepts/monitoring.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Управление доступом
