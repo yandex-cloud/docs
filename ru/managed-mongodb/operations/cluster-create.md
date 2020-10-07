@@ -69,13 +69,13 @@
 
       ```
       $ {{ yc-mdb-mg }} cluster create \
-         --cluster-name <имя кластера> \
+         --name <имя кластера> \
          --environment=<окружение, prestable или production> \
          --network-name <имя сети> \
          --host zone-id=<зона доступности>,subnet-id=<идентификатор подсети> \
          --mongod-resource-preset <класс хоста> \
          --user name=<имя пользователя>,password=<пароль пользователя> \
-         --database name=<имя базы данных>,owner=<имя владельца БД> \
+         --database name=<имя базы данных> \
          --mongod-disk-type <network-hdd | network-ssd | local-ssd> \
          --mongod-disk-size <размер хранилища в гигабайтах>
       ```
@@ -86,13 +86,13 @@
 
       ```
       $ {{ yc-mdb-mg }} cluster create \
-         --cluster-name <имя кластера> \
+         --name <имя кластера> \
          --environment=<окружение, prestable или production> \
          --network-id {{ network-name }} \
          --host zone-id=<зона доступности> \
          --mongod-resource-preset <класс хоста> \
          --user name=<имя пользователя>,password=<пароль пользователя> \
-         --database name=<имя базы данных>,owner=<имя владельца БД> \
+         --database name=<имя базы данных> \
          --mongod-disk-type local-ssd \
          --mongod-disk-size <размер хранилища в гигабайтах>
       ```
@@ -215,7 +215,7 @@
 
   ```
   $ {{ yc-mdb-mg }} cluster create \
-       --cluster-name mymg \
+       --name mymg \
        --environment production \
        --network-name {{ network-name }} \
        --mongod-resource-preset {{ host-class }} \
@@ -230,7 +230,7 @@
 
   ```
   $ {{ yc-mdb-mg }} cluster create \
-       --cluster-name mymg \
+       --name mymg \
        --environment production \
        --network-id {{ network-name }} \
        --mongod-resource-preset {{ host-class }} \

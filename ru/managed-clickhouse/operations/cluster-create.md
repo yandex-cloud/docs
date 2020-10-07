@@ -106,7 +106,7 @@
         --environment <окружение, prestable или production> \
         --network-name <имя сети> \
         --host type=<clickhouse или zookeeper>,zone-id=<зона доступности>,subnet-id=<идентификатор подсети> \
-        --resource-preset <класс хоста> \
+        --clickhouse-resource-preset <класс хоста> \
         --clickhouse-disk-type <network-hdd | network-ssd | local-ssd> \
         --clickhouse-disk-size <размер хранилища в гигабайтах> \
         --user name=<имя пользователя>,password=<пароль пользователя> \
@@ -123,7 +123,7 @@
         --environment <окружение, prestable или production> \
         --network-id ' ' \
         --host type=<clickhouse или zookeeper>,zone-id=<зона доступности> \
-        --resource-preset <класс хоста> \
+        --clickhouse-resource-preset <класс хоста> \
         --clickhouse-disk-type local-ssd \
         --clickhouse-disk-size <размер хранилища в гигабайтах> \
         --user name=<имя пользователя>,password=<пароль пользователя> \
