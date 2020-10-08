@@ -181,6 +181,9 @@ default:
   PG: PostgreSQL
   CH: ClickHouse
   MG: MongoDB
+  mmg-backup-retention: 7
+  mmg-backup-retention-min: 7
+  mmg-backup-retention-max: 35
   MY: MySQL
   RD: Redis
   KF: Apache Kafka<sup>®</sup>
@@ -302,6 +305,9 @@ internal:
   PG: PostgreSQL
   CH: ClickHouse
   MG: MongoDB
+  mmg-backup-retention: 7
+  mmg-backup-retention-min: 7
+  mmg-backup-retention-max: 35
   MY: MySQL
   RD: Redis
   KF: Apache Kafka<sup>®</sup>
