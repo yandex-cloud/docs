@@ -24,7 +24,7 @@
 
 - API
   
-  Чтобы получить содержимое сертификата, воспользуйтесь методом [getContent](../../certificate-manager/api-ref/CertificateContent/get.md) для ресурса [Certificate](../../api-ref/Certificate/).
+  Чтобы получить содержимое сертификата, воспользуйтесь методом [getContent](../../certificate-manager/api-ref/CertificateContent/get.md) для ресурса [Certificate](../../certificate-manager/api-ref/Certificate/).
   
 {% endlist %}
 

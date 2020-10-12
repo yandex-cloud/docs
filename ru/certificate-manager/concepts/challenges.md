@@ -57,7 +57,7 @@
 1. Разместите у своего DNS-провайдера или на собственном DNS-сервере `CNAME`-запись для делегирования прав управления на DNS-зону, используемую для проверки:
 
     ```
-      _acme-challenge.example.com. CNAME <Идентификатор сертификата>.cm.yandexcloud.net.
+      _acme-challenge.example.com CNAME <Идентификатор сертификата>.cm.yandexcloud.net.
     ```
 
 ### Добавление TXT-записи {#txt}
@@ -84,7 +84,7 @@
 * Для каждого домена сертификата настроена DNS-запись:
 
     ```    
-    _acme-challenge.example.com. CNAME <Идентификатор сертификата>.cm.yandexcloud.net.
+    _acme-challenge.example.com CNAME <Идентификатор сертификата>.cm.yandexcloud.net.
     ```
 
 ### Перенаправление статического сайта {{ objstorage-name }} {#auto-s3}
