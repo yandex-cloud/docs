@@ -41,6 +41,8 @@ items:
       href: operations/cluster-backups.md
     - name: Управление шардами
       href: operations/shards.md
+    - name: Управление группами шардов
+      href: operations/shard-groups.md
     - name: Удаление кластера
       href: operations/cluster-delete.md
   - name: Сценарии использования
