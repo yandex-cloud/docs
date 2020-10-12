@@ -35,7 +35,7 @@ items:
         items:
           - name: Обзор
             href: operations/dsvm/index.md
-          - name: Создание и поключение к ВМ
+          - name: Создание и подключение к ВМ
             href: operations/dsvm/quickstart.md
       - name: Группы размещения
         items:
