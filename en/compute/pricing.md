@@ -95,6 +95,16 @@ The {{ ig-name }} component can be used free of charge. You can create instance 
 
 All other Yandex.Cloud services, such as VMs and external IP addresses, are [charged as usual](../billing/pricing.md). Outgoing traffic is [charged](#prices-traffic) the same as other services.
 
+### Using a dedicated host {#dedicated-hosts}
+
+The cost of a dedicated host depends on its type (processor model, number of cores, and RAM) and doesn't depend on the number of VMs running on it.
+
+vCPUs and RAM of VMs running on a dedicated host are not charged.
+
+Using additional resources, such as images from {{ marketplace-name }} or disks, are charged as usual.
+
+Prices are shown for 1 hour of use. Billing occurs per second.
+
 ## Pricing {#prices}
 
 ### VM computing resources {#prices-instance-resources}
@@ -330,4 +340,3 @@ For the following products, funds are debited once for the calendar month in adv
 ### Outgoing traffic {#prices-traffic}
 
 {% include notitle [pricing-egress-traffic](../_includes/pricing/pricing-egress-traffic.md) %}
-

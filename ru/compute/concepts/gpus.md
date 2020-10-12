@@ -62,7 +62,7 @@
 
 Доступная конфигурация ВМ с vGPU:
 
-* Платформа Intel Broadwell with NVIDIA vGPU Tesla V100 8G (`vgpu-standard-v1`):
+* Платформа Intel Broadwell with NVIDIA® vGPU Tesla® V100 8G (`vgpu-standard-v1`):
 
   Количество vGPU | Количество vCPU | Объем RAM, ГБ | Объем GPU RAM, ГБ
   --- | --- | --- | ---
