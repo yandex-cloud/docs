@@ -1,6 +1,6 @@
 # Granting permissions
 
-Only a user with `Admin` permission can grant permissions to an object or directory.
+Only a user with `Admin` permission can grant permissions to an object or directory. By default, objects inherit the access rights of the parent folder.
 
 To grant permissions to directories or objects:
 
@@ -15,4 +15,3 @@ To grant permissions to directories or objects:
 1. Enter a username, select the permissions, and click **Add**.
 
     {% include [multi-access-note](../../../_includes/datalens/datalens-multi-access-note.md) %}
-
