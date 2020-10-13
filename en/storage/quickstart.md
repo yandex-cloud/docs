@@ -14,7 +14,7 @@ In this section, you'll learn how to:
 
 ## Before you start {#before-you-begin}
 
-1. Go to the [management console]({{ link-console-main }}). Then log in to Yandex.Cloud or sign up if you don't have an account.
+1. Go to the [management console]({{ link-console-main }}). Then log in to {{ yandex-cloud }} or sign up if you don't have an account yet.
 1. On the [Billing]({{ link-console-billing }}), make sure that a [billing account](../billing/concepts/billing-account.md) is linked and that its status is `ACTIVE` or `TRIAL_ACTIVE`. If you don't have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
 1. On the [Access management]({{ link-console-access-management }}) page, make sure you have the `editor` role or higher. The role must be assigned for the folder where you'll work or the cloud that the folder belongs to.
 
@@ -32,9 +32,9 @@ To create your first bucket in {{ objstorage-name }}:
 
 1. If necessary, limit the maximum bucket size.
 
-1. To make sure that uploaded files are always available from outside Yandex.Cloud, select the public [access type](concepts/bucket.md#bucket-access). Otherwise, you'll need to create a temporary link to provide access to such files.
+1. To make sure that uploaded files are always available from outside {{ yandex-cloud }}, select the public [access type](concepts/bucket.md#bucket-access). Otherwise, you'll need to create a temporary link to provide access to such files.
 
-1. Select the default [storage class](concepts/storage-class.md) to be used when uploading objects:
+1. Choose the default [storage class](concepts/storage-class.md) to be used when uploading objects:
     * _Standard storage_ is designed for storing frequently used objects.
     * _Cold storage_ is designed for long-term storage of objects that are rarely read.
 
@@ -57,5 +57,5 @@ To get a link to an uploaded object:
 
 You can share the received link or use it in your service to access the file.
 
-To perform operations with buckets and objects, you can use [other tools](tools/index.md) in addition to the Yandex.Cloud management console.
+To perform operations with buckets and objects, you can use [other tools](tools/index.md) in addition to the {{ yandex-cloud }} management console.
 

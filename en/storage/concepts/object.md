@@ -20,11 +20,11 @@ You can configure [lifecycles](lifecycles.md) for bucket objects.
 
 {{ objstorage-name }} restricts the size of objects and their metadata. For more information, see [{#T}](limits.md)).
 
-## Keys {#key}
+## Key {#key}
 
 The key is the ID of an object in a bucket.
 
-Objects are stored in a flat structure, but GUI-based [tools](../tools/index.md) let you use {{ objstorage-name }} as a hierarchical file system. Hierarchical view is possible because keys can be written as paths in a file system (for example, `top_level_prefix/subprefix/text_data.txt`). In the Yandex.Cloud management console, prefixes are called directories.
+Objects are stored in a flat structure, but GUI-based [tools](../tools/index.md) let you use {{ objstorage-name }} as a hierarchical file system. Hierarchical view is possible because keys can be written as paths in a file system (for example, `top_level_prefix/subprefix/text_data.txt`). In the {{ yandex-cloud }} management console, prefixes are called folders.
 
 A key must:
 
@@ -36,7 +36,7 @@ The following characters are safe to use in a key: `[a-zA-Z0-9]`, `-`, `_`, `/`,
 
 ### Directory {#folder}
 
-There are no directories in {{ objstorage-name }}, but GUI-based file management clients like [CyberDuck](../tools/cyberduck.md) and the {{ objstorage-name }} interface in the Yandex.Cloud management console emulate them. A zero-size object serves as a directory. Its key is included as a prefix in the keys of other objects. For example, an object with the `x` key and zero size is a directory in the management console, while an object with the `x/y.txt` key is the `y.txt` object located in the `x` directory.
+There are no directories in {{ objstorage-name }}, but GUI-based file management clients like [CyberDuck](../tools/cyberduck.md) and the {{ objstorage-name }} interface in the {{ yandex-cloud }} management console emulate them. A zero-size object serves as a directory. Its key is included as a prefix in the keys of other objects. For example, an object with the `x` key and zero size is a directory in the management console, while an object with the `x/y.txt` key is the `y.txt` object located in the `x` directory.
 
 Each [tool](../tools/index.md) manages objects and directories according to their own logic, which is described in their respective documentation.
 
@@ -77,7 +77,7 @@ Metadata can be system or user-defined.
 
 System metadata is defined by {{ objstorage-name }}.
 
-| First name | Description |
+| Name | Description |
 | ----- | ----- |
 | `Date` | Date and time a request is sent to upload an object to {{ objstorage-name }}. |
 | `Content-Length` | Object size in bytes. |
