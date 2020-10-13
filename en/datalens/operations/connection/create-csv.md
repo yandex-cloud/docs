@@ -9,10 +9,11 @@ To create a connection to a CSV file:
 1. Select the **CSV** connector.
 
 1. Click **Select CSV file** and specify the CSV file or drag it to the screen. Information about the added file is displayed in the lower part of the dialog box.
-{% note info %}
+   
+    {% note info %}
 
-    The CSV file size may not exceed 200 MB.
-
+     The CSV file size may not exceed 200 MB.
+   
     {% endnote %}
 
 1. Click **Upload**.
