@@ -14,10 +14,17 @@
 
 - [{#T}](get-static-ip.md)
 - [{#T}](set-static-ip.md)
-- [{#T}](set-dynamic-ip.md)
 - [{#T}](address-delete.md)
+- [{#T}](set-dynamic-ip.md)
 
-## Static routes {#static-route}
+## Routing {#static-route}
 
 - [{#T}](static-route-create.md)
 - [{#T}](enable-nat.md)
+
+## Security groups {#security-groups}
+
+- [{#T}](security-group-create.md)
+- [{#T}](security-group-update.md)
+- [{#T}](security-group-delete.md)
+

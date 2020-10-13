@@ -8,6 +8,7 @@
 | Number of static public IP addresses per cloud | 2 |
 | Number of routing tables per cloud | 8 |
 | Number of static routes per cloud | 256 |
+| Number of security groups | 10 |
 
 #### Limits {#limits}
 

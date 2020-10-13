@@ -284,7 +284,7 @@ default:
   link-app-android: https://play.google.com/store/apps/details?id=ru.yandex.cloud
   link-app-ios: https://apps.apple.com/ru/app/yandex-cloud/id1515465314
 
-  # Cloud specific 
+  # Cloud specific
   yandex-cloud: Yandex.Cloud
 
 internal:
