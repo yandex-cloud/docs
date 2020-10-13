@@ -27,7 +27,7 @@ Create a [connection](../concepts/connection.md) to the ClickHouse database wher
 
 Create a [dataset](../concepts/dataset.md) based on the [connection](../concepts/connection.md) **Sample ClickHouse** created from a ClickHouse database.
 
-1. Go to [{{ datalens-short-name }}](https://datalens.yandex.ru).
+1. Go to [{{ datalens-short-name }}](https://datalens.yandex.com).
 
 1. Click **Create dataset**.
 
@@ -176,7 +176,7 @@ To visualize sales by brand and product categories, create a [column chart](../c
 
     1. In the window that opens, enter the name **Sales by year and product** for the new chart and click **Save**.
 
-1. For the visualization type, choose **Bar chart**.
+1. For the visualization type, choose **Column chart**.
 
     ![image](../../_assets/datalens/solution-02/24-choose-barchart.png)
 
@@ -247,13 +247,15 @@ To visualize the density of orders on the Moscow map, create a [heat map](../con
     1. In the window that opens, enter the name **Sales heat map** for the new chart.
     1. Click **Ready**.
 
-1. Choose the **Heat map** visualization type.
+1. Select the **Map** visualization type.
 
     ![image](../../_assets/datalens/solution-02/33-choose-heatmap.png)
 
 1. Delete the **Sales** field from the **Colors** section.
 
-1. Add the delivery point coordinates to the map. To do this, drag the **DeliveryAdressCoord** field from the **Dimensions** section to the **Geopoint** section.
+1. Select the **Points (heat map)** layer type.
+
+1. Add the delivery point coordinates to the map. To do this, drag the **DeliveryAddressCoord** field from the **Dimensions** section to the **Points (heat map)** section.
 
     ![image](../../_assets/datalens/solution-02/34-heatmap.png)
 

@@ -78,7 +78,7 @@ The dataset will consist of a single source: the CSV file.
 
    ![image](../../_assets/datalens/solution-07/07-create-dataset.png)
 
-1. Go to the **Dataset** tab.
+1. Go to the **Fields** tab.
 
    ![image](../../_assets/datalens/solution-07/08-dataset.png)
 
@@ -86,7 +86,7 @@ The dataset will consist of a single source: the CSV file.
 
    ![image](../../_assets/datalens/solution-07/09-rename.png)
 
-1. Change the field names in the following order:
+1. Change the field names to Russian ones in the following order:
    - Region code
    - Region name
    - Road code
@@ -225,9 +225,13 @@ Proceed to creating the first [chart](https://cloud.yandex.com/docs/datalens/con
 
    ![image](../../_assets/datalens/solution-07/22-create-chart.png)
 
-1. In the wizard window that opens, click on the field that defaults to **Bar chart** and select the **Heat map** chart type.
+1. In the wizard window that opens, click on the field that defaults to **Column chart** and select the **Map** chart type.
 
    ![image](../../_assets/datalens/solution-07/23-heatmap.png)
+
+1. Under **Points**, select the **Points (heat map)** layer type.
+
+   ![image](../../_assets/datalens/solution-07/23-1-heatmap-geopoint.png)
 
 1. Drag the **Geopoint** field to the **Geopoints** section.
 
@@ -378,13 +382,13 @@ Let's see how the number of accidents and related deaths are distributed by week
 
    ![image](../../_assets/datalens/solution-07/47-choose-dashbord.png)
 
-1. Name the dashboard **Accidents 2018** and click **Create**.
+1. Name the dashboard **Accidents in Russia** and click **Create**.
 
    ![image](../../_assets/datalens/solution-07/48-name-dashbord.png)
 
 {% note info %}
 
-If this is the first dashboard you create in the folder, it opens as soon as it's created. If the folder already contains dashboards, the list of them opens. In this case, select the **Accidents 2018** dashboard from the list.
+If this is the first dashboard you create in the folder, it opens as soon as it's created. If the folder already contains dashboards, the list of them opens. In this case, select the **Accidents in Russia** dashboard from the list.
 
 {% endnote %}
 
@@ -548,13 +552,13 @@ You need to add new fields to the previously created **Accidents** dataset.
 
    ![image](../../_assets/datalens/solution-07/22-create-chart.png)
 
-1. Select the **Choropleth map** chart type.
+1. Select the **Map** chart type.
 
    ![image](../../_assets/datalens/solution-07/72-fon-map.png)
 
-1. Drag:
-   - The **Number of accidents** field to the **Colors** section.
-   - The **Polygon** field to the **Geopolygons** section.
+1. Add polygons to the map. Drag the **Polygon** field from the **Dimensions** section to the **Polygons** section.
+
+1. Change colors of the polygons based on the number of accidents. Drag the **Number of accidents** field from the **Measures** section to the **Colors** section.
 
 1. Drag the following fields to the **Tooltips** section:
    - Region name

@@ -1,6 +1,6 @@
 # Calculated fields
 
-A calculated field is an additional [data field](dataset/data-model.md#field) with values calculated using a formula.
+A calculated field is an additional [data field](dataset/index.md#field) with values calculated using a formula.
 You can use calculated fields to create new dimensions and measures.
 The data source remains unchanged.
 
@@ -34,6 +34,12 @@ When creating a formula, you can use any dataset field, including the calculated
 If a field is created in a chart, it isn't available to dashboard selectors and other charts.
 
 Calculated fields are marked with ![image](../../_assets/datalens/formula-dataset.svg).
+
+{% note warning %}
+
+In [multi-dataset charts](chart.md#multi-dataset-charts), calculated fields are not applicable to fields from multiple datasets.
+
+{% endnote %}
 
 ## Functions {#functions}
 
@@ -72,7 +78,7 @@ To do this, click **Reference** in the add field interface.
 [City] + " " + "city"
 ```
 
-Concatenates the following three string values: the `[City]` field value, the space, and the `city` text. For concatenation, you can also use the string function [CONCAT](../function-ref/CONCAT.md).
+Concatenates the following three string values: the `[City]` field value, the space, and the `city` text. For concatenation, you can also use the [CONCAT](../function-ref/CONCAT.md) string function.
 
 Full description of the [addition operator (+)](../function-ref/OP_PLUS.md).
 
@@ -94,7 +100,7 @@ FLOAT([StringWithNumbers])
 
 Converts the `StringWithNumbers` string field to a fractional number.
 
-Full description of the conversion function [FLOAT](../function-ref/FLOAT.md).
+Full description of the [FLOAT](../function-ref/FLOAT.md) conversion function.
 
 ## How to create a calculated field {#how-to-create-calculated-field}
 
@@ -107,7 +113,7 @@ You can create calculated fields in the dataset or wizard interface.
   {% include [datalens-create-calculated-field-in-dataset](../../_includes/datalens/operations/datalens-create-calculated-field-in-dataset.md) %}
 
 - Wizard
-  1. Open the [wizard](https://datalens.yandex.ru/wizard/).
+  1. Open the [wizard](https://datalens.yandex.com/wizard/).
   1. Select the dataset to create a chart in.
   1. To the left of the screen, click **![image](../../_assets/plus-sign.svg)** above the list of dataset fields.
   1. Enter the required formula.

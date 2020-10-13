@@ -16,7 +16,7 @@ To visualize and analyze the data, [make sure you have a ready-to-use cloud](#be
 1. [Define the data source for the dataset](data-from-ch-visualization.md#step1).
 1. [Configure the dataset fields](data-from-ch-visualization.md#step2).
 1. [Create a line chart](data-from-ch-visualization.md#step3).
-1. [Create a column chart](data-from-ch-visualization.md#step4).
+1. [Create a bar chart](data-from-ch-visualization.md#step4).
 1. [Create a pivot table chart](data-from-ch-visualization.md#step5).
 1. [Create a heat map chart](data-from-ch-visualization.md#step6).
 1. [Create a dashboard](data-from-ch-visualization.md#step7).
@@ -33,7 +33,7 @@ Create a [connection](../../datalens/concepts/connection.md) to the ClickHouse d
 
 Create a [dataset](../../datalens/concepts/dataset/index.md) using the [connection](../../datalens/concepts/connection.md) **Sample ClickHouse** created from a ClickHouse database.
 
-1. Go to [{{ datalens-short-name }}](https://datalens.yandex.ru).
+1. Go to [{{ datalens-short-name }}](https://datalens.yandex.com).
 
 1. Click **Create dataset**.
 
@@ -170,9 +170,9 @@ To visualize sales dynamics by month, create a [chart](../../datalens/concepts/c
 
     1. In the window that opens, enter a name for the chart: **Sales dynamics by month and payment type**, and click **Save**.
 
-## Step 4. Create a column chart {#step4}
+## Step 4. Create a bar chart {#step4}
 
-To visualize sales by brands and product categories, create a [chart](../../datalens/concepts/chart.md): column chart.
+To visualize sales by brands and product categories, create a [chart](../../datalens/concepts/chart.md): bar chart.
 
 1. Copy the chart from the previous step.
 
@@ -255,13 +255,15 @@ To visualize the density of orders on the Moscow map, create a [chart](../../dat
     1. In the window that opens, enter the name **Sales heat map** for the new chart.
     1. Click **Ready**.
 
-1. Choose the **Heat map** visualization type.
+1. Select the **Map** visualization type.
 
     ![image](../../_assets/datalens/solution-02/33-choose-heatmap.png)
 
 1. Delete the **Sales** field from the **Colors** section.
 
-1. Add the delivery point coordinates to the map. To do this, drag the **DeliveryAdressCoord** field from the **Dimensions** section to the **Geopoints** section.
+1. Select the **Points (heat map)** layer type.
+
+1. Add the delivery point coordinates to the map. To do this, drag the **DeliveryAddressCoord** field from the **Dimensions** section to the **Geopoints** section.
 
     ![image](../../_assets/datalens/solution-02/34-heatmap.png)
 
