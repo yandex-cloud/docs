@@ -20,23 +20,19 @@
 Среды выполнения, доступные в {{ sf-name }}.
 
 | Имя | Идентификатор |
-|----|----|
-|**Node.js** | |
+| ---- | ---- |
+| **Node.js** |  |
+| Node.js 12 Preview | `nodejs12-preview` |
 | Node.js 12 | `nodejs12` |
 | Node.js 10 | `nodejs10` |
-|**PHP** | |
+| **PHP** |  |
 | PHP 7.4 | `php74` |
-|**Python** | |
+| **Python** |  |
+| Python 3.7 Preview | `python37-preview` |
 | Python 3.7 | `python37` |
 | Python 2.7 | `python27` |
-|**Go** | |
+| **Go** |  |
 | Go 1.14 | `golang114` |
-| **Java** | |
-| Java 11 | `java11-preview` |
-|**R** | |
-| R 4.0.2 | `r402-preview` |
-|**C#** | |
-| C# 8.0 | `dotnetcore31-preview` |
-|**Прочее** | |
+| **Other** |  |
 | Bash | `bash` |
 
