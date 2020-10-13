@@ -24,7 +24,7 @@ module.exports.handler = async function (event, context) {
   "name": "my-app",
   "version": "1.0.0",
   "devDependencies": {
-    "yandex-cloud": "^1.1.1"
+    "yandex-cloud": "^1.4"
   }
 }
 ```
