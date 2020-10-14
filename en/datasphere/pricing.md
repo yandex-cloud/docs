@@ -7,7 +7,7 @@ editable: false
 
 When using the {{ ml-platform-name}} service, you pay for the actual use of computing resources: the calculation time is charged per second.
 
-If you do not perform computational operations in the project, the service usage time {{ml-platform-name }} is not charged. However, if you perform calculations using {{ dataproc-name}} clusters, they are charged separately. For more information, see [using clusters {{dataproc-name }}](#data-proc}).
+If you do not perform computational operations in the project, the service usage time {{ml-platform-name }} is not charged. However, if you perform calculations using {{ dataproc-name}} clusters, they are charged separately. For more information, see [using clusters {{dataproc-name }}](#data-proc).
 
 ### Pricing unit {#unit}
 
