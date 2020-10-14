@@ -1,4 +1,4 @@
-**Yandex Database** (YDB) — это горизонтально масштабируемая распределённая отказоустойчивая СУБД с поддержкой [ACID-транзакций](https://en.wikipedia.org/wiki/ACID_(computer_science)).
+**Yandex Database** (YDB) — это горизонтально масштабируемая распределённая отказоустойчивая СУБД с поддержкой [ACID-транзакций](https://en.wikipedia.org/wiki/ACID_(computer_science)).
 
 ## Основные разделы документации
 

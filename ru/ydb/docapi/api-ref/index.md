@@ -14,7 +14,7 @@
 Метод | Описание
 ----- | -----
 [BatchGetItem](actions/batchGetItem) | Возвращает атрибуты элементов из нескольких таблиц
-[BatchWriteItem](actions/batchWriteItem) | Записывает или удалеят элементы из таблиц
+[BatchWriteItem](actions/batchWriteItem) | Записывает или удаляет элементы из таблиц
 [DeleteItem](actions/deleteItem) | Удаляет элемент в таблице
 [GetItem](actions/getItem) | Возвращает атрибуты элемента из одной таблицы
 [PutItem](actions/putItem) | Перезаписывает элементы в таблице

@@ -28,6 +28,6 @@
 
 {% note warning %}
 
-При попытке вставить в таблицу строку с уже существуюшим значением первичного ключа операция завершится ошибкой с кодом `PRECONDITION_FAILED` и текстом `Operation aborted due to constraint violation: insert_pk`.
+При попытке вставить в таблицу строку с уже существующим значением первичного ключа операция завершится ошибкой с кодом `PRECONDITION_FAILED` и текстом `Operation aborted due to constraint violation: insert_pk`.
 
 {% endnote %}

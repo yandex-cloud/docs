@@ -14,7 +14,7 @@
 
 К DML относятся конструкции UPDATE/INSERT/DELETE/SELECT и другие.
 
-Подробнее про поддерживаемые конструкции YQL можно почитать [здесь](/yql/).
+Подробнее о поддерживаемых конструкциях YQL можно почитать [здесь](/yql/).
 
 Ниже перечислены возможности и ограничения поддержки YQL в YDB, которые могут быть неочевидны на первый взгляд и на которые стоит обратить внимание.
 
@@ -33,7 +33,7 @@ SELECT ...;
 UPDATE/INSERT/DELETE ...;
 COMMIT;
 ```
-Подробнее про поддержку YQL в YDB можно прочитать в соответствующем [разделе](/yql/).
+Подробнее о поддержке YQL в YDB можно прочитать в соответствующем [разделе](/yql/).
 
 
 ## Распределенные транзакции {#distributed-transaction}
@@ -88,13 +88,13 @@ YDB транзакции могут состоять из нескольких Y
 
 | Название  | Описание  | Краткие примеры |
 |---|---|---|
-| INSERT INTO | Вставка данных в существующую таблицу.<br> При попытке вставить строку в таблицу с уже существующим значением первичного ключа, KiKiMR вернёт ошибку с сообщением  Transaction rolled back due to constraint violation: insert_pk |  ``` INSERT INTO [Root/Tmp/Table1] (Key1,Key2, Value1, Value2) ``` <br> ```VALUES (345987,'kikimr', 'Яблочный край', 1414); ``` <br> ```COMMIT; ```  |
-| INSERT OR REVERT INTO | Вставка данных в существующую таблицу. При попытке вставить строку в таблицу с уже существующим значением первичного ключа, вся операция  INSERT будет откачена, при этом транзакция останется активной и выполнение запроса будет продолжено |  `INSERT OR REVERT INTO [Root/Tmp/Table1] (Key1,Key2, Value1, Value2) `<br>`VALUES (345987,'kikimr', 'Яблочный край', 1414);`<br>`COMMIT;` |
-| UPSERT INTO | Производит добавление/обновление строки таблицы по заданному значению первичного ключа. Если в таблице не было строки с заданным первичным ключем, работает как  INSERT INTO , добавляя новую строку с заданными значениями колонок. В противном случае обновляет существующую строку новыми значениями колонок, при этом значения колонок не участвующих в операции не меняются. | `UPSERT INTO [Root/Tmp/Table1] (Key1, Key2, Value2) VALUES`<br>`(1u, "One", 101),`<br>`(2u, "Two", 102);`<br>`UPSERT INTO [Root/Tmp/Table1]`<br>`SELECT Key AS Key1, "Empty" AS Key2, Value AS Value1`<br>`FROM [Root/Tmp/Table2];`|
-| REPLACE INTO | Поведение совпадает с  UPSERT INTO в случае если в таблице не было строки с заданным первичным ключем. <br>В противном случае заменяет существующую строку на новую с заданными значениями колонок, при этом значения колонок не участвующих в операции сбрасывается в значения по умолчанию. | `REPLACE INTO [Root/Tmp/Table1] (Key1, Key2, Value2) VALUES`<br>`(1u, "One", 101),`<br>`(2u, "Two", 102);`<br>`REPLACE INTO [Root/Tmp/Table1]`<br>`SELECT Key AS Key1, "Empty" AS Key2, Value AS Value1 `<br>`FROM [Root/Tmp/Table2];`|
+| INSERT INTO | Вставка данных в существующую таблицу.<br> При попытке вставить строку в таблицу, с уже существующим значением первичного ключа, KiKiMR вернёт ошибку с сообщением  Transaction rolled back due to constraint violation: insert_pk |  ``` INSERT INTO [Root/Tmp/Table1] (Key1,Key2, Value1, Value2) ``` <br> ```VALUES (345987,'kikimr', 'Яблочный край', 1414); ``` <br> ```COMMIT; ```  |
+| INSERT OR REVERT INTO | Вставка данных в существующую таблицу. При попытке вставить строку в таблицу, с уже существующим значением первичного ключа, вся операция  INSERT будет откачена, при этом транзакция останется активной и выполнение запроса будет продолжено |  `INSERT OR REVERT INTO [Root/Tmp/Table1] (Key1,Key2, Value1, Value2) `<br>`VALUES (345987,'kikimr', 'Яблочный край', 1414);`<br>`COMMIT;` |
+| UPSERT INTO | Производит добавление/обновление строки таблицы по заданному значению первичного ключа. Если в таблице не было строки с заданным первичным ключом, работает как  INSERT INTO , добавляя новую строку с заданными значениями колонок. В противном случае обновляет существующую строку новыми значениями колонок, при этом значения колонок, не участвующих в операции, не меняются. | `UPSERT INTO [Root/Tmp/Table1] (Key1, Key2, Value2) VALUES`<br>`(1u, "One", 101),`<br>`(2u, "Two", 102);`<br>`UPSERT INTO [Root/Tmp/Table1]`<br>`SELECT Key AS Key1, "Empty" AS Key2, Value AS Value1`<br>`FROM [Root/Tmp/Table2];`|
+| REPLACE INTO | Поведение совпадает с  UPSERT INTO в случае если в таблице не было строки с заданным первичным ключом. <br>В противном случае заменяет существующую строку на новую с заданными значениями колонок, при этом значения колонок, не участвующих в операции, сбрасывается в значения по умолчанию. | `REPLACE INTO [Root/Tmp/Table1] (Key1, Key2, Value2) VALUES`<br>`(1u, "One", 101),`<br>`(2u, "Two", 102);`<br>`REPLACE INTO [Root/Tmp/Table1]`<br>`SELECT Key AS Key1, "Empty" AS Key2, Value AS Value1 `<br>`FROM [Root/Tmp/Table2];`|
 | UPDATE | Получает список строк таблицы по предикату из  WHERE (на момент начала транзакции) и применяет к ним операцию  UPSERT со значениями колонок посчитанным по выражениям из  SET . <br>Не может менять значение первичного ключа. | `UPDATE [Root/Tmp/Table1] `<br>`SET Value1 = YQL::ToString(Value2 + 1), Value2 = Value2 - 1`<br>`WHERE Key1 > 1;`|
 | DELETE | Получает список строк таблицы по предикату из  WHERE (на момент начала транзакции) и удаляет их. | `DELETE FROM [Root/Tmp/Table1] WHERE Key1 == 1 AND Key2 >= "One";` |
-| UPDATE ON <br> DELETE ON |  Невозможность видеть изменения в рамках одной транзакции, описанная выше, приводит к тому, что нельзя делать в рамках одной транзакции операции  UPDATE ,  DELETE или  INSERT над таблицами, которые уже были изменены ранее в этой транзакции. <br>Чтобы иметь возможность менять несколько строк в одной таблице, или сначала читать, потом вставлять, а удалять что-то из одной таблицы, добавлена поддержка конструкций  UPDATE ON и  DELETE ON . Принцип работы констркуций лучше всего ясен из примеров | `USE yctest;`<br>`$to_update = (`<br>`SELECT Key, SubKey, "Updated" AS Value FROM [Root/Home/spuchin/test]`<br>`WHERE Key = 1`<br>`);`<br>``<br>`$to_delete = (`<br>`SELECT Key, SubKey FROM [Root/Home/spuchin/test] WHERE Value = "ToDelete"`<br>`);`<br>``<br>`SELECT * FROM [Root/Home/spuchin/test];`<br>`UPDATE [Root/Home/spuchin/test] ON `<br>`SELECT * FROM $to_update;`<br>`DELETE FROM [Root/Home/spuchin/test] ON `<br>`SELECT * FROM $to_delete;`|
+| UPDATE ON <br> DELETE ON |  Невозможность видеть изменения в рамках одной транзакции, описанная выше, приводит к тому, что нельзя делать в рамках одной транзакции операции  UPDATE ,  DELETE или  INSERT над таблицами, которые уже были изменены ранее в этой транзакции. <br>Чтобы иметь возможность менять несколько строк в одной таблице, или сначала читать, потом вставлять, а удалять что-то из одной таблицы, добавлена поддержка конструкций  UPDATE ON и  DELETE ON . Принцип работы конструкций лучше всего ясен из примеров | `USE yctest;`<br>`$to_update = (`<br>`SELECT Key, SubKey, "Updated" AS Value FROM [Root/Home/spuchin/test]`<br>`WHERE Key = 1`<br>`);`<br>``<br>`$to_delete = (`<br>`SELECT Key, SubKey FROM [Root/Home/spuchin/test] WHERE Value = "ToDelete"`<br>`);`<br>``<br>`SELECT * FROM [Root/Home/spuchin/test];`<br>`UPDATE [Root/Home/spuchin/test] ON `<br>`SELECT * FROM $to_update;`<br>`DELETE FROM [Root/Home/spuchin/test] ON `<br>`SELECT * FROM $to_delete;`|
 
 
 

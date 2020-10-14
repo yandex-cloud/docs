@@ -14,9 +14,9 @@
     1. Выберите нужный каталог и в нём перейдите в сервис {{ ydb-full-name }}.
     1. Выберите базу данных, к которой планируете сделать запрос.
     1. В меню слева перейдите в раздел "Обзор".
-    1. Значение эндпоинта указано строке **Эндпоинт**. Пример значения параметра для Dedicated базы: `lb.etn01lrprvnlnhv8v5kj.ydb.mdb.yandexcloud.net:2135`. Пример значения параметра для Serverless базы: `ydb.serverless.yandexcloud.net:2135`. Порт для эндпоинта по умолчанию 2135, так что `:2135` указывать не обязательно.
+    1. Значение эндпоинта указано в строке **Эндпоинт**. Пример значения параметра для Dedicated базы: `lb.etn01lrprvnlnhv8v5kj.ydb.mdb.yandexcloud.net:2135`. Пример значения параметра для Serverless базы: `ydb.serverless.yandexcloud.net:2135`. Порт для эндпоинта по умолчанию 2135, так что `:2135` указывать не обязательно.
     1. Полный путь к базе указан в строке **База данных**.  Пример значения параметра: `/ru-central1/b1g4ej5ju4rf5kelpk4b/etn01lrprvnlnhv8v5kj`.
-* Возможность аутентификации одним из способов, представленных разделе ["Аутентификация в YDB CLI"](#authentication).
+* Возможность аутентификации одним из способов, представленных в разделе ["Аутентификация в YDB CLI"](#authentication).
 
 ## Установка YDB CLI {#how-to-install}
 
@@ -101,8 +101,8 @@
 Для выполнения запросов к {{ ydb-full-name }} в {{ yandex-cloud }}, консольному клиенту требуется аутентифицироваться от имени [IAM-пользователя](https://cloud.yandex.ru/docs/iam/concepts/). Консольный клиент может сам получать действующий [IAM-токен](https://cloud.yandex.ru/docs/iam/concepts/authorization/iam-token) несколькими способами, а также ему можно явно передать [IAM-токен](https://cloud.yandex.ru/docs/iam/concepts/authorization/iam-token), полученный самостоятельно. Далее представлены все 4 возможных способа аутентификации в YDB CLI:
 
 * Через опцию `--yc-token-file` можно указать путь к файлу, в котором лежит [OAuth-токен пользователя](https://cloud.yandex.ru/docs/iam/concepts/authorization/oauth-token). Это самый простой способ. Чтобы не указывать эту опцию каждый раз при вызовах команд `{{ ydb-cli }}`, вместо этого **значение** OAuth-токена можно сохранить в переменную окружения `YC_TOKEN`.
-* Через опцию `--iam-token-file` можно указать путь к файлу, в котором лежит [IAM-токен](https://cloud.yandex.ru/docs/iam/concepts/authorization/iam-token), полученный самостоятельно. Также, вместо указания опции, **значение** [IAM-токена](https://cloud.yandex.ru/docs/iam/concepts/authorization/iam-token) можно сохранить в переменную окружения `IAM_TOKEN`.
-* При указании опции `--use-metadata-credentials` (без значения), YDB CLI попытается получить [IAM-токен](https://cloud.yandex.ru/docs/iam/concepts/authorization/iam-token) с помощью [сервиса метаданных](https://cloud.yandex.ru/docs/compute/operations/vm-connect/auth-inside-vm#auth-inside-vm) при работе из виртуальной машины в {{ yandex-cloud }}. Также, вместо указания опции можно установить значение в переменную окружения `USE_METADATA_CREDENTIALS=1`.
+* Через опцию `--iam-token-file` можно указать путь к файлу, в котором лежит [IAM-токен](https://cloud.yandex.ru/docs/iam/concepts/authorization/iam-token), полученный самостоятельно. Также вместо указания опции, **значение** [IAM-токена](https://cloud.yandex.ru/docs/iam/concepts/authorization/iam-token) можно сохранить в переменную окружения `IAM_TOKEN`.
+* При указании опции `--use-metadata-credentials` (без значения), YDB CLI попытается получить [IAM-токен](https://cloud.yandex.ru/docs/iam/concepts/authorization/iam-token) с помощью [сервиса метаданных](https://cloud.yandex.ru/docs/compute/operations/vm-connect/auth-inside-vm#auth-inside-vm) при работе из виртуальной машины в {{ yandex-cloud }}. Также вместо указания опции можно установить значение в переменную окружения `USE_METADATA_CREDENTIALS=1`.
 * Через опцию `--sa-key-file` можно указать путь к файлу с [авторизованными ключами доступа](https://cloud.yandex.ru/docs/iam/operations/authorized-key/create) сервисного аккаунта. Как альтернатива, можно сохранить этот **путь к файлу** в переменную окружения `SA_KEY_FILE`.
 
 ## Примеры использования
@@ -538,7 +538,7 @@ Options:
                             2. "SA_KEY_FILE" environment variable
 ```
 
-Также, для любой из подкоманд можно получить более подробное описание со списком доступных параметров:
+Также для любой из подкоманд можно получить более подробное описание со списком доступных параметров:
 
 ```bash
 $ {{ ydb-cli }} discovery whoami --help
@@ -584,5 +584,5 @@ Options:
 
 Передаваемые параметры делятся на два типа:
 
-* глобальные - указываются в "корне", т.е. после `{{ ydb-cli }}`;
+* глобальные — указываются в "корне", т.е. после `{{ ydb-cli }}`;
 * опции самой подкоманды - указываются в конце.
