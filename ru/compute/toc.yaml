@@ -161,6 +161,12 @@ items:
             href: operations/instance-groups/start.md
           - name: Удалить группу
             href: operations/instance-groups/delete.md
+      - name: Выделенные хосты
+        items:
+          - name: Создание ВМ в группе выделенных хостов
+            href: operations/dedicated-host/running-host-group-vms.md
+          - name: Создание ВМ на выделенном хосте
+            href: operations/dedicated-host/running-host-vms.md
   - name: Yandex Container Solution
     href: ../cos/
   - name: Сценарии использования
