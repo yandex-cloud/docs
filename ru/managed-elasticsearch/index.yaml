@@ -3,8 +3,8 @@ title: "Yandex Managed Service for Elasticsearch"
 stage: preview
 description:
   - "<em>Сервис Managed Service for Elasticsearch находится на <a href=\"/docs/overview/concepts/launch-stages\">стадии Preview</a> и не тарифицируется</em>."
-  - "Сервис Managed Service for Elasticsearch помогает разворачивать и поддерживать кластеры серверов Elasticsearch в инфраструктуре Яндекс.Облака."
-  - "Инфраструктура Яндекс.Облака <a href=\"https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf\">защищена</a> в соответствии с ФЗ-152."
+  - "Сервис Managed Service for Elasticsearch помогает разворачивать и поддерживать кластеры серверов Elasticsearch в инфраструктуре Yandex.Cloud"
+  - "Инфраструктура Yandex.Cloud <a href=\"https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf\">защищена</a> в соответствии с ФЗ-152."
 # Мета-информация title, description, keywords и т.п.
 meta:
   title: "Yandex Managed Service for Elasticsearch"
