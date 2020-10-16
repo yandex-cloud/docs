@@ -34,7 +34,7 @@ Returns the specified registry. <br>To get the list of available registries, mak
 
 Field | Description
 --- | ---
-registry_id | **string**<br>Required. ID of the registry to return. <br>To get a registry ID make a [RegistryService.List](#List) request. false The maximum string length in characters is 50.
+registry_id | **string**<br>Required. ID of the registry to return. <br>To get a registry ID make a [RegistryService.List](#List) request. The maximum string length in characters is 50.
 
 
 ### Registry {#Registry}
@@ -61,7 +61,7 @@ Retrieves the list of registries in the specified folder.
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder to list registries in. <br>To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. false The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the folder to list registries in. <br>To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page that should be returned. If the number of available results is larger than `page_size`, the service returns a [ListRegistriesResponse.next_page_token](#ListRegistriesResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListRegistriesResponse.next_page_token](#ListRegistriesResponse) returned by a previous list request. The maximum string length in characters is 100.
 
@@ -71,10 +71,10 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 Field | Description
 --- | ---
 registries[] | **[Registry](../registry.proto#Registry1)**<br>List of registries. 
-next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListRegistriesRequest.page_size](#ListRegistriesRequest1), use `next_page_token` as the value for the [ListRegistriesRequest.page_token](#ListRegistriesRequest1) parameter in the next list request. <br>Each subsequent page will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListRegistriesRequest.page_size](#ListRegistriesRequest), use `next_page_token` as the value for the [ListRegistriesRequest.page_token](#ListRegistriesRequest) parameter in the next list request. <br>Each subsequent page will have its own `next_page_token` to continue paging through the results. 
 
 
-### Registry {#Registry}
+### Registry {#Registry1}
 
 Field | Description
 --- | ---
@@ -102,8 +102,8 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder to create a registry in. <br>To get a folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. false The maximum string length in characters is 50.
-name | **string**<br>Required. Name of the registry. The name must be unique within the folder. false The maximum string length in characters is 50. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+folder_id | **string**<br>Required. ID of the folder to create a registry in. <br>To get a folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. The maximum string length in characters is 50.
+name | **string**<br>Required. Name of the registry. The name must be unique within the folder. The maximum string length in characters is 50. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 description | **string**<br>Description of the registry. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 certificates[] | **[Certificate](../device_service.proto#Certificate)**<br>Registry certificates. 
@@ -140,7 +140,7 @@ Field | Description
 registry_id | **string**<br>ID of the registry that is being created. 
 
 
-### Registry {#Registry}
+### Registry {#Registry2}
 
 Field | Description
 --- | ---
@@ -168,14 +168,14 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-registry_id | **string**<br>Required. ID of the registry to update. <br>To get a registry ID make a [RegistryService.List](#List) request. false The maximum string length in characters is 50.
+registry_id | **string**<br>Required. ID of the registry to update. <br>To get a registry ID make a [RegistryService.List](#List) request. The maximum string length in characters is 50.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the registry are going to be updated. 
 name | **string**<br>Name of the registry. The name must be unique within the folder. The maximum string length in characters is 50. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 description | **string**<br>Description of the registry. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. <br>Existing set of `labels` is completely replaced by the provided set. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 
 
-### Operation {#Operation}
+### Operation {#Operation1}
 
 Field | Description
 --- | ---
@@ -198,7 +198,7 @@ Field | Description
 registry_id | **string**<br>ID of the registry that is being updated. 
 
 
-### Registry {#Registry}
+### Registry {#Registry3}
 
 Field | Description
 --- | ---
@@ -226,10 +226,10 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-registry_id | **string**<br>Required. ID of the registry to delete. <br>To get a registry ID make a [RegistryService.List](#List) request. false The maximum string length in characters is 50.
+registry_id | **string**<br>Required. ID of the registry to delete. <br>To get a registry ID make a [RegistryService.List](#List) request. The maximum string length in characters is 50.
 
 
-### Operation {#Operation}
+### Operation {#Operation2}
 
 Field | Description
 --- | ---
@@ -262,7 +262,7 @@ Retrieves the list of registry certificates for the specified registry.
 
 Field | Description
 --- | ---
-registry_id | **string**<br>Required. ID of the registry to list certificates for. false The maximum string length in characters is 50.
+registry_id | **string**<br>Required. ID of the registry to list certificates for. The maximum string length in characters is 50.
 
 
 ### ListRegistryCertificatesResponse {#ListRegistryCertificatesResponse}
@@ -296,11 +296,11 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-registry_id | **string**<br>Required. ID of the registry for which the certificate is being added. <br>To get a registry ID make a [RegistryService.List](#List) request. false The maximum string length in characters is 50.
+registry_id | **string**<br>Required. ID of the registry for which the certificate is being added. <br>To get a registry ID make a [RegistryService.List](#List) request. The maximum string length in characters is 50.
 certificate_data | **string**<br>Public part of the certificate that is being added. 
 
 
-### Operation {#Operation}
+### Operation {#Operation3}
 
 Field | Description
 --- | ---
@@ -324,7 +324,7 @@ registry_id | **string**<br>ID of the registry certificate that is being added.
 fingerprint | **string**<br>Fingerprint of the certificate that is being added. 
 
 
-### RegistryCertificate {#RegistryCertificate}
+### RegistryCertificate {#RegistryCertificate1}
 
 Field | Description
 --- | ---
@@ -348,11 +348,11 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-registry_id | **string**<br>Required. ID of the registry to delete a certificate for. <br>To get a registry ID make a [RegistryService.List](#List) request. false The maximum string length in characters is 50.
-fingerprint | **string**<br>Required. Fingerprint of the certificate that is being deleted. false The maximum string length in characters is 50.
+registry_id | **string**<br>Required. ID of the registry to delete a certificate for. <br>To get a registry ID make a [RegistryService.List](#List) request. The maximum string length in characters is 50.
+fingerprint | **string**<br>Required. Fingerprint of the certificate that is being deleted. The maximum string length in characters is 50.
 
 
-### Operation {#Operation}
+### Operation {#Operation4}
 
 Field | Description
 --- | ---
@@ -372,8 +372,8 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-registry_id | **string**<br>Required. ID of a registry for which the certificate is being delete. false The maximum string length in characters is 50.
-fingerprint | **string**<br>Required. Fingerprint of the certificate to deleted. false The maximum string length in characters is 50.
+registry_id | **string**<br>Required. ID of a registry for which the certificate is being delete. The maximum string length in characters is 50.
+fingerprint | **string**<br>Required. Fingerprint of the certificate to deleted. The maximum string length in characters is 50.
 
 
 ## ListPasswords {#ListPasswords}
@@ -386,7 +386,7 @@ Retrieves the list of passwords for the specified registry.
 
 Field | Description
 --- | ---
-registry_id | **string**<br>Required. ID of the registry to list passwords in. <br>To get a registry ID make a [RegistryService.List](#List) request. false The maximum string length in characters is 50.
+registry_id | **string**<br>Required. ID of the registry to list passwords in. <br>To get a registry ID make a [RegistryService.List](#List) request. The maximum string length in characters is 50.
 
 
 ### ListRegistryPasswordsResponse {#ListRegistryPasswordsResponse}
@@ -419,11 +419,11 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-registry_id | **string**<br>Required. ID of the registry to add a password for. <br>To get a registry ID make a [RegistryService.List](#List) request. false The maximum string length in characters is 50.
+registry_id | **string**<br>Required. ID of the registry to add a password for. <br>To get a registry ID make a [RegistryService.List](#List) request. The maximum string length in characters is 50.
 password | **string**<br>Passwords for the registry. <br>The password must contain at least three character categories among the following: upper case latin, lower case latin, numbers and special symbols. The minimum string length in characters is 14.
 
 
-### Operation {#Operation}
+### Operation {#Operation5}
 
 Field | Description
 --- | ---
@@ -447,7 +447,7 @@ registry_id | **string**<br>ID of the registry for which the password is being a
 password_id | **string**<br>ID of a password that is being added. 
 
 
-### RegistryPassword {#RegistryPassword}
+### RegistryPassword {#RegistryPassword1}
 
 Field | Description
 --- | ---
@@ -470,11 +470,11 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-registry_id | **string**<br>Required. ID of the registry to delete a password for. <br>To get a registry ID make a [DeviceService.List](./device_service#List) request. false The maximum string length in characters is 50.
-password_id | **string**<br>Required. ID of the password to delete. <br>To get a password ID make a [RegistryService.ListPasswords](#ListPasswords) request. false The maximum string length in characters is 50.
+registry_id | **string**<br>Required. ID of the registry to delete a password for. <br>To get a registry ID make a [DeviceService.List](./device_service#List) request. The maximum string length in characters is 50.
+password_id | **string**<br>Required. ID of the password to delete. <br>To get a password ID make a [RegistryService.ListPasswords](#ListPasswords) request. The maximum string length in characters is 50.
 
 
-### Operation {#Operation}
+### Operation {#Operation6}
 
 Field | Description
 --- | ---
@@ -494,8 +494,8 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-registry_id | **string**<br>Required. ID of a registry for which the password is being delete. false The maximum string length in characters is 50.
-password_id | **string**<br>Required. ID of the password to delete. <br>To get a password ID make a [RegistryService.ListPasswords](#ListPasswords) request. false The maximum string length in characters is 50.
+registry_id | **string**<br>Required. ID of a registry for which the password is being delete. The maximum string length in characters is 50.
+password_id | **string**<br>Required. ID of the password to delete. <br>To get a password ID make a [RegistryService.ListPasswords](#ListPasswords) request. The maximum string length in characters is 50.
 
 
 ## ListDeviceTopicAliases {#ListDeviceTopicAliases}
@@ -508,7 +508,7 @@ Retrieves the list of device topic aliases for the specified registry.
 
 Field | Description
 --- | ---
-registry_id | **string**<br>Required. ID of the registry to list aliases for device topic. <br>To get a registry ID make a [RegistryService.List](#List) request. false The maximum string length in characters is 50.
+registry_id | **string**<br>Required. ID of the registry to list aliases for device topic. <br>To get a registry ID make a [RegistryService.List](#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page that should be returned. If the number of available results is larger than `page_size`, the service returns a [ListDeviceTopicAliasesResponse.next_page_token](#ListDeviceTopicAliasesResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListDeviceTopicAliasesResponse.next_page_token](#ListDeviceTopicAliasesResponse) returned by a previous list request. The maximum string length in characters is 100.
 
@@ -518,7 +518,7 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 Field | Description
 --- | ---
 aliases[] | **[DeviceAlias](../registry.proto#DeviceAlias)**<br>List of device aliases for the specified registry. 
-next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListDeviceTopicAliasesRequest.page_size](#ListDeviceTopicAliasesRequest1), use `next_page_token` as the value for the [ListDeviceTopicAliasesRequest.page_token](#ListDeviceTopicAliasesRequest1) parameter in the next list request. <br>Each subsequent page will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListDeviceTopicAliasesRequest.page_size](#ListDeviceTopicAliasesRequest), use `next_page_token` as the value for the [ListDeviceTopicAliasesRequest.page_token](#ListDeviceTopicAliasesRequest) parameter in the next list request. <br>Each subsequent page will have its own `next_page_token` to continue paging through the results. 
 
 
 ### DeviceAlias {#DeviceAlias}
@@ -540,7 +540,7 @@ Lists operations for the specified registry.
 
 Field | Description
 --- | ---
-registry_id | **string**<br>Required. ID of the registry to list operations for. false
+registry_id | **string**<br>Required. ID of the registry to list operations for. 
 page_size | **int64**<br>The maximum number of results per page that should be returned. If the number of available results is larger than `page_size`, the service returns a [ListRegistryOperationsResponse.next_page_token](#ListRegistryOperationsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListRegistryOperationsResponse.next_page_token](#ListRegistryOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
 filter | **string**<br>A filter expression that filters resources listed in the response. Currently you can use filtering only on [Registry.name](../registry.proto#Registry4) field. The maximum string length in characters is 1000.
@@ -551,10 +551,10 @@ filter | **string**<br>A filter expression that filters resources listed in the 
 Field | Description
 --- | ---
 operations[] | **[operation.Operation](#Operation7)**<br>List of operations for the specified registry. 
-next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListRegistryOperationsRequest.page_size](#ListRegistryOperationsRequest1), use `next_page_token` as the value for the [ListRegistryOperationsRequest.page_token](#ListRegistryOperationsRequest1) parameter in the next list request. <br>Each subsequent page will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListRegistryOperationsRequest.page_size](#ListRegistryOperationsRequest), use `next_page_token` as the value for the [ListRegistryOperationsRequest.page_token](#ListRegistryOperationsRequest) parameter in the next list request. <br>Each subsequent page will have its own `next_page_token` to continue paging through the results. 
 
 
-### Operation {#Operation}
+### Operation {#Operation7}
 
 Field | Description
 --- | ---

@@ -17,7 +17,7 @@ ISTARTSWITH( string, substring )
 Регистронезависимый вариант [STARTSWITH](STARTSWITH.md). Возвращает `TRUE`, если строка `string` начинается на подстроку `substring`.
 
 **Типы аргументов:**
-- `string` — `Строка`
+- `string` — `Логический | Дата | Дата и время | Геоточка | Геополигон | Число | Строка | UUID`
 - `substring` — `Строка`
 
 

@@ -18,7 +18,8 @@
     Вариант огрубления MD5, известный как yabs_md5.
 * ```Digest::Argon2(String{Flags:AutoMap},String{Flags:AutoMap}) -> String```
 
-    Вторым аргументом salt.
+    В качестве первого аргумента функция принимает хешируемый массив данных.
+    В качестве второго аргумента функция принимает соль (модификатор входа хеш-функции).
 * ```Digest::Blake2B(String{Flags:AutoMap}) -> String```
 * ```Digest::SipHash(Uint64,Uint64,String{Flags:AutoMap}) -> Uint64```
 * ```Digest::HighwayHash(Uint64,Uint64,Uint64,Uint64,String{Flags:AutoMap}) -> Uint64```

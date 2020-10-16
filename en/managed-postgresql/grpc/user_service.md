@@ -28,8 +28,8 @@ Returns the specified PostgreSQL User resource. <br>To get the list of available
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the PostgreSQL cluster the user belongs to. To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request. false The maximum string length in characters is 50.
-user_name | **string**<br>Required. Name of the PostgreSQL User resource to return. To get the name of the user, use a [UserService.List](#List) request. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+cluster_id | **string**<br>Required. ID of the PostgreSQL cluster the user belongs to. To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
+user_name | **string**<br>Required. Name of the PostgreSQL User resource to return. To get the name of the user, use a [UserService.List](#List) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
 
 
 ### User {#User}
@@ -74,7 +74,7 @@ Retrieves the list of PostgreSQL User resources in the specified cluster.
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the cluster to list PostgreSQL users in. To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the cluster to list PostgreSQL users in. To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListUsersResponse.next_page_token](#ListUsersResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListUsersResponse.next_page_token](#ListUsersResponse) returned by a previous list request. The maximum string length in characters is 100.
 
@@ -84,10 +84,10 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 Field | Description
 --- | ---
 users[] | **[User](../user.proto#User1)**<br>List of PostgreSQL User resources. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListUsersRequest.page_size](#ListUsersRequest1), use the `next_page_token` as the value for the [ListUsersRequest.page_token](#ListUsersRequest1) parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListUsersRequest.page_size](#ListUsersRequest), use the `next_page_token` as the value for the [ListUsersRequest.page_token](#ListUsersRequest) parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
-### User {#User}
+### User {#User1}
 
 Field | Description
 --- | ---
@@ -100,14 +100,14 @@ login | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buf
 grants[] | **string**<br>Roles and privileges that are granted to the user (`GRANT <role> TO <user>`). <br>For more information, see [the documentation](/docs/managed-postgresql/operations/grant). The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-zA-Z0-9_]* `.
 
 
-### Permission {#Permission}
+### Permission {#Permission1}
 
 Field | Description
 --- | ---
 database_name | **string**<br>Name of the database that the permission grants access to. 
 
 
-### UserSettings {#UserSettings}
+### UserSettings {#UserSettings1}
 
 Field | Description
 --- | ---
@@ -133,16 +133,16 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the PostgreSQL cluster to create a user in. To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request. false The maximum string length in characters is 50.
-user_spec | **[UserSpec](../user.proto#UserSpec)**<br>Required. Properties of the user to be created. false
+cluster_id | **string**<br>Required. ID of the PostgreSQL cluster to create a user in. To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
+user_spec | **[UserSpec](../user.proto#UserSpec)**<br>Required. Properties of the user to be created. 
 
 
 ### UserSpec {#UserSpec}
 
 Field | Description
 --- | ---
-name | **string**<br>Required. Name of the PostgreSQL user. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
-password | **string**<br>Required. Password of the PostgreSQL user. false The string length in characters must be 8-128.
+name | **string**<br>Required. Name of the PostgreSQL user. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+password | **string**<br>Required. Password of the PostgreSQL user. The string length in characters must be 8-128.
 permissions[] | **[Permission](../user.proto#Permission2)**<br>Set of permissions to grant to the user to access specific databases. 
 conn_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of database connections that should be available to the user. <br>When used in session pooling, this setting limits the number of connections to every single host in PostgreSQL cluster. In this case, the setting's value must be greater than the total number of connections that backend services can open to access the PostgreSQL cluster. The setting's value should not exceed the value of the [Cluster.config.postgresql_config_12.effective_config.max_connections](../cluster.proto#Cluster) setting. <br>When used in transaction pooling, this setting limits the number of user's active transactions; therefore, in this mode user can open thousands of connections, but only `N` concurrent connections will be opened, where `N` is the value of the setting. <br>Minimum value: `10` (default: `50`), when used in session pooling. The minimum value is 10.
 settings | **[UserSettings](../user.proto#UserSettings2)**<br>PostgreSQL settings for the user. 
@@ -150,14 +150,14 @@ login | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buf
 grants[] | **string**<br>Roles and privileges that are granted to the user (`GRANT <role> TO <user>`). <br>For more information, see [the documentation](/docs/managed-postgresql/operations/grant). The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-zA-Z0-9_]* `.
 
 
-### Permission {#Permission}
+### Permission {#Permission2}
 
 Field | Description
 --- | ---
 database_name | **string**<br>Name of the database that the permission grants access to. 
 
 
-### UserSettings {#UserSettings}
+### UserSettings {#UserSettings2}
 
 Field | Description
 --- | ---
@@ -193,7 +193,7 @@ cluster_id | **string**<br>ID of the PostgreSQL cluster the user is being create
 user_name | **string**<br>Name of the user that is being created. 
 
 
-### User {#User}
+### User {#User2}
 
 Field | Description
 --- | ---
@@ -220,8 +220,8 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the PostgreSQL cluster the user belongs to. To get the cluster ID use a [ClusterService.List](./cluster_service#List) request. false The maximum string length in characters is 50.
-user_name | **string**<br>Required. Name of the user to be updated. To get the name of the user use a [UserService.List](#List) request. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+cluster_id | **string**<br>Required. ID of the PostgreSQL cluster the user belongs to. To get the cluster ID use a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
+user_name | **string**<br>Required. Name of the user to be updated. To get the name of the user use a [UserService.List](#List) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the PostgreSQL User resource should be updated. 
 password | **string**<br>New password for the user. The string length in characters must be 8-128.
 permissions[] | **[Permission](../user.proto#Permission3)**<br>Set of permissions granted to the user to access specific databases. 
@@ -231,14 +231,14 @@ login | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buf
 grants[] | **string**<br>Roles and privileges that are granted to the user (`GRANT <role> TO <user>`). <br>For more information, see [the documentation](/docs/managed-postgresql/operations/grant). The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-zA-Z0-9_]* `.
 
 
-### Permission {#Permission}
+### Permission {#Permission3}
 
 Field | Description
 --- | ---
 database_name | **string**<br>Name of the database that the permission grants access to. 
 
 
-### UserSettings {#UserSettings}
+### UserSettings {#UserSettings3}
 
 Field | Description
 --- | ---
@@ -250,7 +250,7 @@ temp_file_limit | **[google.protobuf.Int64Value](https://developers.google.com/p
 log_statement | enum **LogStatement**<br>This setting specifies which SQL statements should be logged (on the user level). <br>See in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-logging.html). <ul><li>`LOG_STATEMENT_NONE`: (default) logs none of SQL statements.</li><li>`LOG_STATEMENT_DDL`: logs all data definition statements (such as `CREATE`, `ALTER`, `DROP` and others).</li><li>`LOG_STATEMENT_MOD`: logs all statements that fall in the `LOG_STATEMENT_DDL` category plus data-modifying statements (such as `INSERT`, `UPDATE` and others).</li><li>`LOG_STATEMENT_ALL`: logs all SQL statements.</li><ul/>
 
 
-### Operation {#Operation}
+### Operation {#Operation1}
 
 Field | Description
 --- | ---
@@ -274,7 +274,7 @@ cluster_id | **string**<br>ID of the PostgreSQL cluster the user belongs to.
 user_name | **string**<br>Name of the user that is being updated. 
 
 
-### User {#User}
+### User {#User3}
 
 Field | Description
 --- | ---
@@ -301,11 +301,11 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the PostgreSQL cluster the user belongs to. To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request. false The maximum string length in characters is 50.
-user_name | **string**<br>Required. Name of the user to delete. To get the name of the user, use a [UserService.List](#List) request. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+cluster_id | **string**<br>Required. ID of the PostgreSQL cluster the user belongs to. To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
+user_name | **string**<br>Required. Name of the user to delete. To get the name of the user, use a [UserService.List](#List) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
 
 
-### Operation {#Operation}
+### Operation {#Operation2}
 
 Field | Description
 --- | ---
@@ -343,19 +343,19 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the PostgreSQL cluster the user belongs to. To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request. false The maximum string length in characters is 50.
-user_name | **string**<br>Required. Name of the user to grant the permission to. To get the name of the user, use a [UserService.List](#List) request. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
-permission | **[Permission](../user.proto#Permission4)**<br>Required. Permission that should be granted to the specified user. false
+cluster_id | **string**<br>Required. ID of the PostgreSQL cluster the user belongs to. To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
+user_name | **string**<br>Required. Name of the user to grant the permission to. To get the name of the user, use a [UserService.List](#List) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+permission | **[Permission](../user.proto#Permission4)**<br>Required. Permission that should be granted to the specified user. 
 
 
-### Permission {#Permission}
+### Permission {#Permission4}
 
 Field | Description
 --- | ---
 database_name | **string**<br>Name of the database that the permission grants access to. 
 
 
-### Operation {#Operation}
+### Operation {#Operation3}
 
 Field | Description
 --- | ---
@@ -379,7 +379,7 @@ cluster_id | **string**<br>ID of the PostgreSQL cluster the user belongs to. To 
 user_name | **string**<br>Name of the user that is being granted a permission. 
 
 
-### User {#User}
+### User {#User4}
 
 Field | Description
 --- | ---
@@ -406,12 +406,12 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the PostgreSQL cluster the user belongs to. To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request. false The maximum string length in characters is 50.
-user_name | **string**<br>Required. Name of the user to revoke a permission from. To get the name of the user, use a [UserService.List](#List) request. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
-database_name | **string**<br>Required. Name of the database that the user should lose access to. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+cluster_id | **string**<br>Required. ID of the PostgreSQL cluster the user belongs to. To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
+user_name | **string**<br>Required. Name of the user to revoke a permission from. To get the name of the user, use a [UserService.List](#List) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+database_name | **string**<br>Required. Name of the database that the user should lose access to. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
-### Operation {#Operation}
+### Operation {#Operation4}
 
 Field | Description
 --- | ---
@@ -435,7 +435,7 @@ cluster_id | **string**<br>ID of the PostgreSQL cluster the user belongs to.
 user_name | **string**<br>Name of the user whose permission is being revoked. 
 
 
-### User {#User}
+### User {#User5}
 
 Field | Description
 --- | ---

@@ -53,7 +53,7 @@
         Где:
         - `--name` — имя виртуальной машины.
         - `--zone` — зона доступности.
-        - `--ssh-key` — содержимое файла [открытого ключа](../../compute/quickstart/quick-create-linux.md#create-ssh).
+        - `--ssh-key` — содержимое файла [открытого ключа](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
         - `--network-interface` — сетевые настройки виртуальной машины.
         - `--service-account-name` — имя сервисного аккаунта. 
         - `--docker-compose-file` — YAML-файл со спецификацией контенеров.

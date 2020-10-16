@@ -20,5 +20,25 @@ To delete a message queue:
               --endpoint https://message-queue.api.cloud.yandex.net/      
   ```
 
+- Terraform
+
+  If you created a message queue using Terraform, you can delete it:
+
+   1. In the command line, go to the directory with the Terraform configuration file.
+
+   2. Delete resources using the command:
+
+      ```
+      $ terraform destroy
+      ```
+
+      {% note alert %}
+
+      Terraform deletes all the resources that you created in the current configuration, such as clusters, networks, subnets, and VMs.
+
+      {% endnote %}
+
+    3. Confirm the deletion of resources.
+
 {% endlist %}
 

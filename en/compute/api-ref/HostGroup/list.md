@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method list
-Retrieves the list of host groups in the specified folder
+Retrieves the list of host groups in the specified folder.
  
 
  
@@ -53,16 +53,16 @@ filter | A filter expression that filters resources listed in the response. Curr
 Field | Description
 --- | ---
 hostGroups[] | **object**<br><p>Represents group of dedicated hosts</p> 
-hostGroups[].<br>id | **string**<br><p>ID of the group</p> 
+hostGroups[].<br>id | **string**<br><p>ID of the group.</p> 
 hostGroups[].<br>folderId | **string**<br><p>ID of the folder that the group belongs to.</p> 
 hostGroups[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 hostGroups[].<br>name | **string**<br><p>Name of the group. The name is unique within the folder.</p> 
 hostGroups[].<br>description | **string**<br><p>Description of the group.</p> 
 hostGroups[].<br>labels | **object**<br><p>Resource labels as <code>key:value</code> pairs.</p> 
-hostGroups[].<br>zoneId | **string**<br><p>Availability zone where all dedicated hosts are allocated</p> 
-hostGroups[].<br>status | **string**<br><p>Status of the group</p> 
-hostGroups[].<br>typeId | **string**<br><p>ID  of host type. Resources provided by each host of the group</p> 
-hostGroups[].<br>maintenancePolicy | **string**<br><p>Behaviour on maintenance events</p> <ul> <li>RESTART: Restart instances on the same host after maintenance event</li> <li>MIGRATE: Migrate instances to another host before maintenance event</li> </ul> 
+hostGroups[].<br>zoneId | **string**<br><p>Availability zone where all dedicated hosts are allocated.</p> 
+hostGroups[].<br>status | **string**<br><p>Status of the group.</p> 
+hostGroups[].<br>typeId | **string**<br><p>ID of host type. Resources provided by each host of the group.</p> 
+hostGroups[].<br>maintenancePolicy | **string**<br><p>Behaviour on maintenance events.</p> <ul> <li>RESTART: Restart instances on the same host after maintenance event.</li> <li>MIGRATE: Migrate instances to another host before maintenance event.</li> </ul> 
 hostGroups[].<br>scalePolicy | **object**<br><p>Scale policy. Only fixed number of hosts are supported at this moment.</p> 
 hostGroups[].<br>scalePolicy.<br>fixedScale | **object**<br>
 hostGroups[].<br>scalePolicy.<br>fixedScale.<br>size | **string** (int64)<br>

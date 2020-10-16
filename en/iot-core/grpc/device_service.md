@@ -33,7 +33,7 @@ Returns the specified device. <br>To get the list of available devices, make a [
 
 Field | Description
 --- | ---
-device_id | **string**<br>Required. ID of the device to return. <br>To get a device ID make a [DeviceService.List](#List) request. false The maximum string length in characters is 50.
+device_id | **string**<br>Required. ID of the device to return. <br>To get a device ID make a [DeviceService.List](#List) request. The maximum string length in characters is 50.
 device_view | enum **DeviceView**<br>Specifies which parts of the device resource should be returned in the response. <ul><li>`BASIC`: Server responses without monitoring data. The default value.</li><li>`FULL`: Server responses with monitoring data.</li><ul/>
 
 
@@ -85,10 +85,10 @@ device_view | enum **DeviceView**<br>Specifies which parts of the device resourc
 Field | Description
 --- | ---
 devices[] | **[Device](../device.proto#Device1)**<br>List of devices. 
-next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListDevicesRequest.page_size](#ListDevicesRequest1), use `next_page_token` as the value for the [ListDevicesRequest.page_token](#ListDevicesRequest1) parameter in the next list request. <br>Each subsequent page will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListDevicesRequest.page_size](#ListDevicesRequest), use `next_page_token` as the value for the [ListDevicesRequest.page_token](#ListDevicesRequest) parameter in the next list request. <br>Each subsequent page will have its own `next_page_token` to continue paging through the results. 
 
 
-### Device {#Device}
+### Device {#Device1}
 
 Field | Description
 --- | ---
@@ -102,7 +102,7 @@ status | enum **Status**<br>Status of the device. <ul><li>`CREATING`: Device is 
 monitoring_data | **[DeviceMonitoringData](../device.proto#DeviceMonitoringData1)**<br>Device monitoring data, returns if FULL view specified. 
 
 
-### DeviceMonitoringData {#DeviceMonitoringData}
+### DeviceMonitoringData {#DeviceMonitoringData1}
 
 Field | Description
 --- | ---
@@ -127,8 +127,8 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-registry_id | **string**<br>Required. ID of the registry to create a device in. <br>To get a registry ID, make a [yandex.cloud.iot.devices.v1.RegistryService.List](/docs/iot-core/grpc/registry_service#List) request. false The maximum string length in characters is 50.
-name | **string**<br>Required. Name of the device. The name must be unique within the registry. false The maximum string length in characters is 50. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+registry_id | **string**<br>Required. ID of the registry to create a device in. <br>To get a registry ID, make a [yandex.cloud.iot.devices.v1.RegistryService.List](/docs/iot-core/grpc/registry_service#List) request. The maximum string length in characters is 50.
+name | **string**<br>Required. Name of the device. The name must be unique within the registry. The maximum string length in characters is 50. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 description | **string**<br>Description of the device. The maximum string length in characters is 256.
 certificates[] | **[Certificate](../registry_service.proto#Certificate)**<br>Device certificate. 
 topic_aliases | **map<string,string>**<br>Alias of a device topic. <br>Alias is an alternate name of a device topic assigned by the user. Map alias to canonical topic name prefix, e.g. `my/custom/alias` match to `$device/{id}/events`. 
@@ -165,7 +165,7 @@ Field | Description
 device_id | **string**<br>ID of the device that is being created. 
 
 
-### Device {#Device}
+### Device {#Device2}
 
 Field | Description
 --- | ---
@@ -193,14 +193,14 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-device_id | **string**<br>Required. ID of the device to update. <br>To get a device ID make a [DeviceService.List](#List) request. false The maximum string length in characters is 50.
+device_id | **string**<br>Required. ID of the device to update. <br>To get a device ID make a [DeviceService.List](#List) request. The maximum string length in characters is 50.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the device are going to be updated. 
 name | **string**<br>Name of the device. The name must be unique within the registry. The maximum string length in characters is 50. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 description | **string**<br>Description of the device. The maximum string length in characters is 256.
 topic_aliases | **map<string,string>**<br>Alias of a device topic. <br>Alias is an alternate name of a device topic assigned by the user. Map alias to canonical topic name prefix, e.g. `my/custom/alias` match to `$device/{id}/events`. 
 
 
-### Operation {#Operation}
+### Operation {#Operation1}
 
 Field | Description
 --- | ---
@@ -223,7 +223,7 @@ Field | Description
 device_id | **string**<br>ID of the device that is being updated. 
 
 
-### Device {#Device}
+### Device {#Device3}
 
 Field | Description
 --- | ---
@@ -251,10 +251,10 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-device_id | **string**<br>Required. ID of the device to delete. <br>To get a device ID make a [DeviceService.List](#List) request. false The maximum string length in characters is 50.
+device_id | **string**<br>Required. ID of the device to delete. <br>To get a device ID make a [DeviceService.List](#List) request. The maximum string length in characters is 50.
 
 
-### Operation {#Operation}
+### Operation {#Operation2}
 
 Field | Description
 --- | ---
@@ -287,7 +287,7 @@ Retrieves the list of device certificates for the specified device.
 
 Field | Description
 --- | ---
-device_id | **string**<br>Required. ID of the device to list certificates for. false The maximum string length in characters is 50.
+device_id | **string**<br>Required. ID of the device to list certificates for. The maximum string length in characters is 50.
 
 
 ### ListDeviceCertificatesResponse {#ListDeviceCertificatesResponse}
@@ -321,11 +321,11 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-device_id | **string**<br>Required. ID of the device for which the certificate is being added. <br>To get a device ID make a [DeviceService.List](#List) request. false The maximum string length in characters is 50.
+device_id | **string**<br>Required. ID of the device for which the certificate is being added. <br>To get a device ID make a [DeviceService.List](#List) request. The maximum string length in characters is 50.
 certificate_data | **string**<br>Public part of the certificate. 
 
 
-### Operation {#Operation}
+### Operation {#Operation3}
 
 Field | Description
 --- | ---
@@ -349,7 +349,7 @@ device_id | **string**<br>ID of the device certificate that is being added.
 fingerprint | **string**<br>Fingerprint of the certificate that is being added. 
 
 
-### DeviceCertificate {#DeviceCertificate}
+### DeviceCertificate {#DeviceCertificate1}
 
 Field | Description
 --- | ---
@@ -373,11 +373,11 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-device_id | **string**<br>Required. ID of the device to delete a certificate for. <br>To get a device ID make a [DeviceService.List](#List) request. false The maximum string length in characters is 50.
-fingerprint | **string**<br>Required. Fingerprint of the certificate to delete. false The maximum string length in characters is 50.
+device_id | **string**<br>Required. ID of the device to delete a certificate for. <br>To get a device ID make a [DeviceService.List](#List) request. The maximum string length in characters is 50.
+fingerprint | **string**<br>Required. Fingerprint of the certificate to delete. The maximum string length in characters is 50.
 
 
-### Operation {#Operation}
+### Operation {#Operation4}
 
 Field | Description
 --- | ---
@@ -397,8 +397,8 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-device_id | **string**<br>Required. ID of the device certificate that is being deleted. false The maximum string length in characters is 50.
-fingerprint | **string**<br>Required. Fingerprint of the certificate that is being deleted. false The maximum string length in characters is 50.
+device_id | **string**<br>Required. ID of the device certificate that is being deleted. The maximum string length in characters is 50.
+fingerprint | **string**<br>Required. Fingerprint of the certificate that is being deleted. The maximum string length in characters is 50.
 
 
 ## ListPasswords {#ListPasswords}
@@ -411,7 +411,7 @@ Retrieves the list of passwords for the specified device.
 
 Field | Description
 --- | ---
-device_id | **string**<br>Required. ID of the registry to list passwords in. <br>To get a registry ID make a [RegistryService.List](./registry_service#List) request. false The maximum string length in characters is 50.
+device_id | **string**<br>Required. ID of the registry to list passwords in. <br>To get a registry ID make a [RegistryService.List](./registry_service#List) request. The maximum string length in characters is 50.
 
 
 ### ListDevicePasswordsResponse {#ListDevicePasswordsResponse}
@@ -444,11 +444,11 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-device_id | **string**<br>Required. ID of the device to add a password for. <br>To get a device ID make a [DeviceService.List](#List) request. false The maximum string length in characters is 50.
+device_id | **string**<br>Required. ID of the device to add a password for. <br>To get a device ID make a [DeviceService.List](#List) request. The maximum string length in characters is 50.
 password | **string**<br>Passwords for the device. <br>The password must contain at least three character categories among the following: upper case latin, lower case latin, numbers and special symbols. The minimum string length in characters is 14.
 
 
-### Operation {#Operation}
+### Operation {#Operation5}
 
 Field | Description
 --- | ---
@@ -472,7 +472,7 @@ device_id | **string**<br>ID of the device for which the password is being added
 password_id | **string**<br>ID of the password that is being added. 
 
 
-### DevicePassword {#DevicePassword}
+### DevicePassword {#DevicePassword1}
 
 Field | Description
 --- | ---
@@ -495,11 +495,11 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-device_id | **string**<br>Required. ID of the device to delete a password for. <br>To get a device ID make a [DeviceService.List](#List) request. false The maximum string length in characters is 50.
-password_id | **string**<br>Required. ID of the password to delete. <br>To get a password ID make a [DeviceService.ListPasswords](#ListPasswords) request. false The maximum string length in characters is 50.
+device_id | **string**<br>Required. ID of the device to delete a password for. <br>To get a device ID make a [DeviceService.List](#List) request. The maximum string length in characters is 50.
+password_id | **string**<br>Required. ID of the password to delete. <br>To get a password ID make a [DeviceService.ListPasswords](#ListPasswords) request. The maximum string length in characters is 50.
 
 
-### Operation {#Operation}
+### Operation {#Operation6}
 
 Field | Description
 --- | ---
@@ -519,8 +519,8 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-device_id | **string**<br>Required. ID of the device for which the password is being deleted. false The maximum string length in characters is 50.
-password_id | **string**<br>Required. ID of the password that is being deleted. false The maximum string length in characters is 50.
+device_id | **string**<br>Required. ID of the device for which the password is being deleted. The maximum string length in characters is 50.
+password_id | **string**<br>Required. ID of the password that is being deleted. The maximum string length in characters is 50.
 
 
 ## ListOperations {#ListOperations}
@@ -533,7 +533,7 @@ Lists operations for the specified device.
 
 Field | Description
 --- | ---
-device_id | **string**<br>Required. ID of the device to list operations for. <br>To get a device ID make a [DeviceService.List](#List) request. false
+device_id | **string**<br>Required. ID of the device to list operations for. <br>To get a device ID make a [DeviceService.List](#List) request. 
 page_size | **int64**<br>The maximum number of results per page that should be returned. If the number of available results is larger than `page_size`, the service returns a [ListDeviceOperationsResponse.next_page_token](#ListDeviceOperationsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListDeviceOperationsResponse.next_page_token](#ListDeviceOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
 filter | **string**<br>A filter expression that filters resources listed in the response. Currently you can use filtering only on [Device.name](../device.proto#Device4) field. The maximum string length in characters is 1000.
@@ -544,10 +544,10 @@ filter | **string**<br>A filter expression that filters resources listed in the 
 Field | Description
 --- | ---
 operations[] | **[operation.Operation](#Operation7)**<br>List of operations for the specified device certificate. 
-next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListDeviceOperationsRequest.page_size](#ListDeviceOperationsRequest1), use `next_page_token` as the value for the [ListDeviceOperationsRequest.page_token](#ListDeviceOperationsRequest1) parameter in the next list request. <br>Each subsequent page will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListDeviceOperationsRequest.page_size](#ListDeviceOperationsRequest), use `next_page_token` as the value for the [ListDeviceOperationsRequest.page_token](#ListDeviceOperationsRequest) parameter in the next list request. <br>Each subsequent page will have its own `next_page_token` to continue paging through the results. 
 
 
-### Operation {#Operation}
+### Operation {#Operation7}
 
 Field | Description
 --- | ---

@@ -38,9 +38,9 @@ folderId | **string**<br><p>Required. ID of the folder to create a host group in
 name | **string**<br><p>Name of the group.</p> <p>Value must match the regular expression <code>\|[a-z]([-a-z0-9]{0,61}[a-z0-9])?</code>.</p> 
 description | **string**<br><p>Description of the group.</p> <p>The maximum string length in characters is 256.</p> 
 labels | **object**<br><p>Resource labels as <code>key:value</code> pairs.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression <code>[a-z][-_./\@0-9a-z]*</code>. The maximum string length in characters for each value is 63. Each value must match the regular expression <code>[-_./\@0-9a-z]*</code>.</p> 
-zoneId | **string**<br><p>Required. Availability zone where all dedicated hosts will be allocated</p> <p>The maximum string length in characters is 50.</p> 
-typeId | **string**<br><p>Required. ID of host type. Resources provided by each host of the group</p> <p>The maximum string length in characters is 50.</p> 
-maintenancePolicy | **string**<br><p>Behaviour on maintenance events</p> <ul> <li>RESTART: Restart instances on the same host after maintenance event</li> <li>MIGRATE: Migrate instances to another host before maintenance event</li> </ul> 
+zoneId | **string**<br><p>Required. Availability zone where all dedicated hosts will be allocated.</p> <p>The maximum string length in characters is 50.</p> 
+typeId | **string**<br><p>Required. ID of host type. Resources provided by each host of the group.</p> <p>The maximum string length in characters is 50.</p> 
+maintenancePolicy | **string**<br><p>Behaviour on maintenance events.</p> <ul> <li>RESTART: Restart instances on the same host after maintenance event.</li> <li>MIGRATE: Migrate instances to another host before maintenance event.</li> </ul> 
 scalePolicy | **object**<br><p>Scale policy. Only fixed number of hosts are supported at this moment.</p> 
 scalePolicy.<br>fixedScale | **object**<br>
 scalePolicy.<br>fixedScale.<br>size | **string** (int64)<br>

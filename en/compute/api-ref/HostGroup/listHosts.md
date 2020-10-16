@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method listHosts
-Lists hosts that belongs to the specified host group
+Lists hosts that belongs to the specified host group.
  
 
  

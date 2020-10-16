@@ -26,8 +26,8 @@ Returns the specified machine learning model. <br>To get the list of all availab
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the cluster that the model belongs to. false The maximum string length in characters is 50.
-ml_model_name | **string**<br>Required. Name of the model to return. <br>To get a model name make a [MlModelService.List](#List) request. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+cluster_id | **string**<br>Required. ID of the cluster that the model belongs to. The maximum string length in characters is 50.
+ml_model_name | **string**<br>Required. Name of the model to return. <br>To get a model name make a [MlModelService.List](#List) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
 ### MlModel {#MlModel}
@@ -50,7 +50,7 @@ Retrieves the list of machine learning models in the specified cluster.
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the cluster that models belongs to. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the cluster that models belongs to. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListMlModelsResponse.next_page_token](#ListMlModelsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListMlModelsResponse.next_page_token](#ListMlModelsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
@@ -60,10 +60,10 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 Field | Description
 --- | ---
 ml_models[] | **[MlModel](../ml_model.proto#MlModel1)**<br>List of models in the specified cluster. 
-next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListMlModelsRequest.page_size](#ListMlModelsRequest1), use `next_page_token` as the value for the [ListMlModelsRequest.page_token](#ListMlModelsRequest1) parameter in the next list request. <br>Each subsequent page will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListMlModelsRequest.page_size](#ListMlModelsRequest), use `next_page_token` as the value for the [ListMlModelsRequest.page_token](#ListMlModelsRequest) parameter in the next list request. <br>Each subsequent page will have its own `next_page_token` to continue paging through the results. 
 
 
-### MlModel {#MlModel}
+### MlModel {#MlModel1}
 
 Field | Description
 --- | ---
@@ -87,10 +87,10 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the cluster to create a model in. <br>To get a cluster ID make a [ClusterService.List](./cluster_service#List) request. false The maximum string length in characters is 50.
-ml_model_name | **string**<br>Required. Model name. The model name is one of the arguments of the modelEvaluate() function, which is used to call the model in ClickHouse. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
-type | enum **MlModelType**<br>Required. Type of the model. false<ul><li>`ML_MODEL_TYPE_CATBOOST`: CatBoost model.</li><ul/>
-uri | **string**<br>Required. Model file URL. You can only use models stored in Yandex Object Storage. false
+cluster_id | **string**<br>Required. ID of the cluster to create a model in. <br>To get a cluster ID make a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
+ml_model_name | **string**<br>Required. Model name. The model name is one of the arguments of the modelEvaluate() function, which is used to call the model in ClickHouse. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+type | enum **MlModelType**<br>Required. Type of the model. <ul><li>`ML_MODEL_TYPE_CATBOOST`: CatBoost model.</li><ul/>
+uri | **string**<br>Required. Model file URL. You can only use models stored in Yandex Object Storage. 
 
 
 ### Operation {#Operation}
@@ -117,7 +117,7 @@ cluster_id | **string**<br>ID of the cluster that a model is being added to.
 ml_model_name | **string**<br>Name of the the model that is being created. 
 
 
-### MlModel {#MlModel}
+### MlModel {#MlModel2}
 
 Field | Description
 --- | ---
@@ -141,13 +141,13 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the cluster to update the model in. <br>To get a cluster ID make a [ClusterService.List](./cluster_service#List) request. false The maximum string length in characters is 50.
-ml_model_name | **string**<br>Required. Name of the the model to update. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+cluster_id | **string**<br>Required. ID of the cluster to update the model in. <br>To get a cluster ID make a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
+ml_model_name | **string**<br>Required. Name of the the model to update. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br> 
 uri | **string**<br>The new model file URL. You can only use models stored in Yandex Object Storage. 
 
 
-### Operation {#Operation}
+### Operation {#Operation1}
 
 Field | Description
 --- | ---
@@ -171,7 +171,7 @@ cluster_id | **string**<br>ID of the cluster that contains the model being updat
 ml_model_name | **string**<br>Name of the the model that is being updated. 
 
 
-### MlModel {#MlModel}
+### MlModel {#MlModel3}
 
 Field | Description
 --- | ---
@@ -195,11 +195,11 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the cluster to delete the model in. <br>To get a cluster ID make a [ClusterService.List](./cluster_service#List) request. false The maximum string length in characters is 50.
-ml_model_name | **string**<br>Required. Name of the the model to delete. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+cluster_id | **string**<br>Required. ID of the cluster to delete the model in. <br>To get a cluster ID make a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
+ml_model_name | **string**<br>Required. Name of the the model to delete. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
-### Operation {#Operation}
+### Operation {#Operation2}
 
 Field | Description
 --- | ---

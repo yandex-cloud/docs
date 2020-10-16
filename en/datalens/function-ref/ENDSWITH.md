@@ -17,7 +17,7 @@ ENDSWITH( string, substring )
 Returns `TRUE` if `string` ends in `substring`. For case-insensitive searches, see [IENDSWITH](IENDSWITH.md).
 
 **Argument types:**
-- `string` — `String`
+- `string` — `Boolean | Date | Datetime | Geopoint | Geopolygon | Number | String | UUID`
 - `substring` — `String`
 
 

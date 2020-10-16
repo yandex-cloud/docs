@@ -26,8 +26,8 @@ editable: false
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required.  false The maximum string length in characters is 50.
-format_schema_name | **string**<br>Required.  false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+cluster_id | **string**<br>Required.  The maximum string length in characters is 50.
+format_schema_name | **string**<br>Required.  The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
 ### FormatSchema {#FormatSchema}
@@ -50,7 +50,7 @@ uri | **string**<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required.  false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required.  The maximum string length in characters is 50.
 page_size | **int64**<br> The maximum value is 1000.
 page_token | **string**<br> The maximum string length in characters is 100.
 
@@ -63,7 +63,7 @@ format_schemas[] | **[FormatSchema](../format_schema.proto#FormatSchema1)**<br>
 next_page_token | **string**<br> 
 
 
-### FormatSchema {#FormatSchema}
+### FormatSchema {#FormatSchema1}
 
 Field | Description
 --- | ---
@@ -87,10 +87,10 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required.  false The maximum string length in characters is 50.
-format_schema_name | **string**<br>Required.  false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
-type | enum **FormatSchemaType**<br>Required.  false<ul><ul/>
-uri | **string**<br>Required.  false
+cluster_id | **string**<br>Required.  The maximum string length in characters is 50.
+format_schema_name | **string**<br>Required.  The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+type | enum **FormatSchemaType**<br>Required.  <ul><ul/>
+uri | **string**<br>Required.  
 
 
 ### Operation {#Operation}
@@ -117,7 +117,7 @@ cluster_id | **string**<br>
 format_schema_name | **string**<br> 
 
 
-### FormatSchema {#FormatSchema}
+### FormatSchema {#FormatSchema2}
 
 Field | Description
 --- | ---
@@ -141,13 +141,13 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required.  false The maximum string length in characters is 50.
-format_schema_name | **string**<br>Required.  false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+cluster_id | **string**<br>Required.  The maximum string length in characters is 50.
+format_schema_name | **string**<br>Required.  The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br> 
 uri | **string**<br> 
 
 
-### Operation {#Operation}
+### Operation {#Operation1}
 
 Field | Description
 --- | ---
@@ -171,7 +171,7 @@ cluster_id | **string**<br>
 format_schema_name | **string**<br> 
 
 
-### FormatSchema {#FormatSchema}
+### FormatSchema {#FormatSchema3}
 
 Field | Description
 --- | ---
@@ -195,11 +195,11 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required.  false The maximum string length in characters is 50.
-format_schema_name | **string**<br>Required.  false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+cluster_id | **string**<br>Required.  The maximum string length in characters is 50.
+format_schema_name | **string**<br>Required.  The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
-### Operation {#Operation}
+### Operation {#Operation2}
 
 Field | Description
 --- | ---

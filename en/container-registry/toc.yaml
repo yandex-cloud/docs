@@ -75,6 +75,8 @@ items:
             href: grpc/registry_service.md
           - name: RepositoryService
             href: grpc/repository_service.md
+          - name: ScannerService
+            href: grpc/scanner_service.md
           - name: OperationService
             href: grpc/operation_service.md
       - name: REST
@@ -129,6 +131,10 @@ items:
                 href: api-ref/Repository/setAccessBindings.md
               - name: updateAccessBindings
                 href: api-ref/Repository/updateAccessBindings.md
+          - name: Scanner
+            items:
+              - name: Overview
+                href: api-ref/Scanner/index.md
   - name: Troubleshooting
     href: error/index.md
   - name: Questions and answers

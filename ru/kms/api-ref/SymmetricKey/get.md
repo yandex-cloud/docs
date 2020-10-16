@@ -42,7 +42,8 @@ keyId | Обязательное поле. Идентификатор возвр
   },
   "defaultAlgorithm": "string",
   "rotatedAt": "string",
-  "rotationPeriod": "string"
+  "rotationPeriod": "string",
+  "deletionProtection": true
 }
 ```
 Симметричный ключ KMS, который может содержать несколько версий криптографического
@@ -68,3 +69,4 @@ primaryVersion.<br>destroyAt | **string** (date-time)<br><p>Время, когд
 defaultAlgorithm | **string**<br><p>Алгоритм шифрования по умолчанию, который следует использовать с новыми версиями ключа.</p> <p>Поддерживаемые алгоритмы симметричного шифрования.</p> <ul> <li>AES_128: Алгоритм AES со 128-битными ключами.</li> <li>AES_192: Алгоритм AES с 192-битными ключами.</li> <li>AES_256: Алгоритм AES с 256-битными ключами.</li> </ul> 
 rotatedAt | **string** (date-time)<br><p>Время последней ротации ключа (время, когда была создана последняя версия). Пустое, если у ключа еще нет версий.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
 rotationPeriod | **string**<br><p>Период времени между автоматическими ротациями ключа.</p> 
+deletionProtection | **boolean** (boolean)<br><p>Флаг, запрещающий удаление ключа</p> 

@@ -5,12 +5,12 @@
 **Синтаксис**
 
 ```sql
-DECLARE $named-node AS "data_type";
+DECLARE $named-node AS data_type;
 ```
 1. Ключевое слово `DECLARE`.
 1. `$named-node` — именованное выражение, по которому можно будет обращаться к переданному значению.
 1. Ключевое слово `AS`.
-1. `"data_type"` — тип данных [в виде строки в принятом формате](../misc/type_string.md). Для [примитивных типов данных](../types/primitive.md) допустимо использовать имя без кавычек.
+1. `data_type` — тип данных [в виде строки в принятом формате](../misc/type_string.md).
 
 Принимает на вход только сериализуемые типы данных:
 
@@ -23,8 +23,8 @@ DECLARE $named-node AS "data_type";
 
 ```sql
 DECLARE $x AS String;
-DECLARE $y AS "String?";
-DECLARE $z AS "List<String>";
+DECLARE $y AS String?;
+DECLARE $z AS List<String>;
 
 SELECT $x, $y, $z;
 ```

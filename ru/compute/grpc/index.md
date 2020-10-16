@@ -7,6 +7,8 @@
 --- | ---
 [DiskService](./disk_service.md) | Набор методов для управления ресурсами Disk.
 [DiskTypeService](./disk_type_service.md) | Набор методов для получения информации о типах дисков.
+[HostGroupService](./host_group_service.md) | Набор методов для управления группами выделенных хостов.
+[HostTypeService](./host_type_service.md) | Набор методов для просмотра возможных конфигураций выделенного хоста.
 [ImageService](./image_service.md) | Набор методов для управления ресурсами Image.
 [InstanceService](./instance_service.md) | Набор методов для управления ресурсами Instance.
 [PlacementGroupService](./placement_group_service.md) | Набор методов для управления группами размещения.

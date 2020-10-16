@@ -22,8 +22,8 @@ Publishes message on behalf of specified registry
 
 Field | Description
 --- | ---
-registry_id | **string**<br>Required. ID of registry publishing message false The maximum string length in characters is 50.
-topic | **string**<br>Required. Topic where message should be published false The maximum string length in characters is 1024.
+registry_id | **string**<br>Required. ID of registry publishing message The maximum string length in characters is 50.
+topic | **string**<br>Required. Topic where message should be published The maximum string length in characters is 1024.
 data | **bytes**<br>Content of the message The maximum string length in characters is 262144.
 
 

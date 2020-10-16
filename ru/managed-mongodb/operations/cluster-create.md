@@ -30,6 +30,10 @@
       - Имя пользователя.
       - Пароль пользователя. Минимум 8 символов.
   1. В блоке **Хосты** выберите параметры хостов БД, создаваемых вместе с кластером (помните, что используя SSD-диски при создании {{ MG }}-кластера можно задать не меньше 3 хостов). Открыв блок **Расширенные настройки**, вы можете выбрать конкретные подсети для каждого хоста — по умолчанию каждый хост создается в отдельной подсети.
+  1. При необходимости задайте дополнительные настройки кластера:
+     
+     {% include [mmg-extra-settings](../../_includes/mdb/mmg-extra-settings-web-console.md) %}
+     
   1. Нажмите кнопку **Создать кластер**.
 
 - CLI
@@ -61,13 +65,13 @@
       
       ```
       $ yc managed-mongodb cluster create \
-         --cluster-name <имя кластера> \
+         --name <имя кластера> \
          --environment=<окружение, prestable или production> \
          --network-name <имя сети> \
          --host zone-id=<зона доступности>,subnet-id=<идентификатор подсети> \
          --mongod-resource-preset <класс хоста> \
          --user name=<имя пользователя>,password=<пароль пользователя> \
-         --database name=<имя базы данных>,owner=<имя владельца БД> \
+         --database name=<имя базы данных> \
          --mongod-disk-type <network-hdd | network-ssd | local-ssd> \
          --mongod-disk-size <размер хранилища в гигабайтах>
       ```
@@ -77,6 +81,12 @@
      
 
 - Terraform
+
+  {% note info %}
+  
+  С помощью Terraform можно создать кластер с {{ MG }} версии 3.6, 4.0 или 4.2.
+  
+  {% endnote %}  
 
   {% include [terraform-definition](../../solutions/_solutions_includes/terraform-definition.md) %}
 
@@ -175,7 +185,7 @@
   
   ```
   $ yc managed-mongodb cluster create \
-       --cluster-name mymg \
+       --name mymg \
        --environment production \
        --network-name default \
        --mongod-resource-preset s2.micro \

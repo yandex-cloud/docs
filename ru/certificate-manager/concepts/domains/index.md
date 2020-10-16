@@ -1,5 +1,7 @@
 # Домен
 
+{% include [preview-stage](../../../_includes/certificate-manager/preview-stage.md) %}
+
 Домен — уникальное доменное имя, которое можно использовать в [различных сервисах {{ yandex-cloud }}](services.md), которым требуется подтверждение прав пользователя на домен. 
 
 ## Подтверждение прав на домен {#confirmation}

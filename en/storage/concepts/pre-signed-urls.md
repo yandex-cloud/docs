@@ -36,7 +36,7 @@ Pre-signed URL parameters:
 | `X-Amz-Expires` | Link validity time in seconds. The starting point is the time specified in `X-Amz-Date`. The maximum value is 604800 seconds (7 days). |
 | `X-Amz-SignedHeaders` | Headers of the request you want to sign.<br/><br/>Make sure to sign the `host` header and all the `x-amz-*` headers used in the request. You don't have to sign other headers, but the more headers you sign, the safer your request is. |
 | `X-Amz-Signature` | Request signature. |
-| `X-Amz-Date` | Time in [ISO8601](https://ru.wikipedia.org/wiki/ISO_8601) format, for example: `20180719T000000Z`. The date specified must match the date in the `X-Amz-Credential` parameter (by the value rather than format). |
+| `X-Amz-Date` | Time in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format, for example: `20180719T000000Z`. The date specified must match the date in the `X-Amz-Credential` parameter (by the value rather than format). |
 | `X-Amz-Credential` | Signature ID.<br/><br/>A string in `<access-key-id>/<YYYYMMDD>/ru-central1/s3/aws4_request` format, where `<YYYYMMDD>` must match the date set in the `X-Amz-Date` header. |
 
 ## Creating pre-signed URLs {#creating-presigned-url}
@@ -178,7 +178,7 @@ Create a signed URL to download the `object-for-share.txt` object from `example-
     sign(sign(sign(sign("AWS4" + "ExamP1eSecReTKeykdokKK38800","20190801"),"ru-central1"),"s3"),"aws4_request")
     ```
 
-    The `sign` function was introduced to indicate the method of key calculation that uses the [HMAC](https://ru.wikipedia.org/wiki/HMAC) algorithm with the [SHA256](https://ru.wikipedia.org/wiki/SHA-2) hash function.
+    The `sign` function was introduced to indicate the method of key calculation that uses the [HMAC](https://en.wikipedia.org/wiki/HMAC) algorithm with the [SHA256](https://en.wikipedia.org/wiki/SHA-2) hash function.
 
 - Signature:
 

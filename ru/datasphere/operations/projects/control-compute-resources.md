@@ -10,10 +10,12 @@
 
 1. {% include [include](../../../_includes/datasphere/first-step.md) %}
 1. Перейдите во вкладку **Проекты**.
-1. Выберите проект, который хотите удалить и нажмите значок ![image](../../../_assets/datalens/horizontal-ellipsis.svg).
+1. Выберите проект, который хотите открыть и нажмите значок ![image](../../../_assets/datalens/horizontal-ellipsis.svg).
 1. Выберите **Открыть** и дождитесь открытия проекта.
 
-## Смените конфигурацию {#config}
+## Измените конфигурацию {#config}
+
+Префикс конфигурации соответствует [имени конфигурации вычислительных ресурсов](../../concepts/configurations.md). Конфигурация по умолчанию — S (4 vCPU, 0 GPU).
 
 {% include [include](../../../_includes/datasphere/control-compute-resources-steps.md) %}
 

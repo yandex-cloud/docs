@@ -147,7 +147,7 @@ If `value`:
 
 **Syntax:**`QUANTILE( value, quant )`
 
-Returns the precise `value`-level quantile (`value` should be in range from 0 to 1).
+Returns the precise `quant`-level quantile (`quant` should be in range from 0 to 1).
 
 
 
@@ -155,7 +155,7 @@ Returns the precise `value`-level quantile (`value` should be in range from 0 to
 
 **Syntax:**`QUANTILE_APPROX( value, quant )`
 
-Returns the approximate `value`-level quantile (`value` should be in range from 0 to 1).
+Returns the approximate `quant`-level quantile (`quant` should be in range from 0 to 1).
 
 
 

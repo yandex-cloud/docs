@@ -26,7 +26,10 @@ diskId | Required. ID of the Disk resource to update. To get the disk ID use a [
   "name": "string",
   "description": "string",
   "labels": "object",
-  "size": "string"
+  "size": "string",
+  "diskPlacementPolicy": {
+    "placementGroupId": "string"
+  }
 }
 ```
 
@@ -38,6 +41,8 @@ name | **string**<br><p>Name of the disk.</p> <p>Value must match the regular ex
 description | **string**<br><p>Description of the disk.</p> <p>The maximum string length in characters is 256.</p> 
 labels | **object**<br><p>Resource labels as <code>key:value</code> pairs.</p> <p>Existing set of <code>labels</code> is completely replaced by the provided set.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression <code>[a-z][-_./\@0-9a-z]*</code>. The maximum string length in characters for each value is 63. Each value must match the regular expression <code>[-_./\@0-9a-z]*</code>.</p> 
 size | **string** (int64)<br><p>Size of the disk, specified in bytes.</p> <p>Acceptable values are 4194304 to 4398046511104, inclusive.</p> 
+diskPlacementPolicy | **object**<br><p>Placement policy configuration.</p> 
+diskPlacementPolicy.<br>placementGroupId | **string**<br><p>Placement group ID.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

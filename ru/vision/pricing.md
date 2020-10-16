@@ -18,6 +18,12 @@ editable: false
 
 Возможности [обнаружение лиц](concepts/face-detection/index.md) и [классификация изображений](concepts/classification/index.md) сейчас находятся на [стадии Preview](../overview/concepts/launch-stages), поэтому их использование не тарифицируется.
 
+{% note warning %}
+
+[Распознавание шаблонов](concepts/ocr/template-recognition.md) также находится на [стадии Preview](../overview/concepts/launch-stages) и не тарифицируется дополнительно, но его использование тарифицируется [по правилам для распознавания текста](#prices).
+
+{% endnote %}
+
 ## Цены {#prices}
 
 Услуга | Цена за единицу тарификации,<br> вкл. НДС

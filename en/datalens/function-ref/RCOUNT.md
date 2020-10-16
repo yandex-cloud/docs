@@ -10,7 +10,7 @@ _Window functions_
 
 
 ```
-RCOUNT( value [ , direction ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] )
+RCOUNT( value [ , direction ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] [ ORDER BY ... ] )
 ```
 
 #### Description {#description}
@@ -43,9 +43,8 @@ Only constant values are accepted for arguments (`direction`).
 
 {% note warning %}
 
-Function depends on how data is ordered in the chart. It will work correctly only if:
-- data ordering is explicitly specified in the chart;
-- result is ordered by __all__ fields that don't use window functions.
+The sorting order is based on the fields listed in the chart's sorting section and in the function's `ORDER BY` clause. First, `ORDER BY` fields are used, and then they are complemented by the fields from the chart.
+
 
 {% endnote %}
 

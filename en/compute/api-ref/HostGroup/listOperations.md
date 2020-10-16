@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method listOperations
-Lists operations for the specified host group
+Lists operations for the specified host group.
  
 
  

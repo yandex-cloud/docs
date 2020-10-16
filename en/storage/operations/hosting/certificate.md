@@ -1,6 +1,6 @@
 # Configuring HTTPS
 
-If a bucket is used for [hosting a static website](../../concepts/hosting.md), to access the website via [HTTPS](https://ru.wikipedia.org/wiki/HTTPS), you should upload your own security certificate and the applicable secret key.
+If a bucket is used for [hosting a static website](../../concepts/hosting.md), to access the website via [HTTPS](https://en.wikipedia.org/wiki/HTTPS), you should upload your own security certificate and the applicable secret key.
 
 {{ objstorage-name }} only supports [PEM](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail)-encoded certificates.
 

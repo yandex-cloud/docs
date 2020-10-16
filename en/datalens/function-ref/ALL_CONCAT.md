@@ -17,7 +17,7 @@ ALL_CONCAT( expression [ , separator ] )
 Returns a string that contains all grouped values of `expression` delimited by `separator` (if `separator` is not specified, a comma is used).
 
 **Argument types:**
-- `expression` — `Any`
+- `expression` — `Boolean | Date | Datetime | Geopoint | Geopolygon | Number | String | UUID`
 - `separator` — `String`
 
 

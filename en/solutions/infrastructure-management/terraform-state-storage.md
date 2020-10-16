@@ -129,7 +129,7 @@ The VMs have a different number of cores and amount of RAM: 1 core and 2 GB of R
      name = "terraform1"
 
      resources {
-       cores  = 1
+       cores  = 2
        memory = 2
      }
 
@@ -256,7 +256,7 @@ Create another configuration and use the saved state to create another VM in one
      name = "terraform3"
 
      resources {
-       cores  = 1
+       cores  = 2
        memory = 2
      }
 

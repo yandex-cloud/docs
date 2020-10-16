@@ -20,17 +20,8 @@
   {% include [cli-install](../../../_includes/cli-install.md) %}
   
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
-  
-  Получите список [реестров](../../concepts/index.md#registry) в каталоге по умолчанию:
-  
-  ```
-  $ yc iot registry list
-  +----------------------+-------------+
-  |          ID          |    NAME     |
-  +----------------------+-------------+
-  | b91ki3851hab9m0l68je | my-registry |
-  +----------------------+-------------+
-  ```
+
+  {% include [registry-list](../../../_includes/iot-core/registry-list.md) %}
   
 {% endlist %}
 

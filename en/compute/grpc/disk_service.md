@@ -27,7 +27,7 @@ Returns the specified Disk resource. <br>To get the list of available Disk resou
 
 Field | Description
 --- | ---
-disk_id | **string**<br>Required. ID of the Disk resource to return. To get the disk ID use a [DiskService.List](#List) request. false The maximum string length in characters is 50.
+disk_id | **string**<br>Required. ID of the Disk resource to return. To get the disk ID use a [DiskService.List](#List) request. The maximum string length in characters is 50.
 
 
 ### Disk {#Disk}
@@ -50,6 +50,14 @@ source | **oneof:** `source_image_id` or `source_snapshot_id`<br>
 &nbsp;&nbsp;source_image_id | **string**<br>ID of the image that was used for disk creation. 
 &nbsp;&nbsp;source_snapshot_id | **string**<br>ID of the snapshot that was used for disk creation. 
 instance_ids[] | **string**<br>Array of instances to which the disk is attached. 
+disk_placement_policy | **[DiskPlacementPolicy](../disk.proto#DiskPlacementPolicy)**<br>Placement policy configuration. 
+
+
+### DiskPlacementPolicy {#DiskPlacementPolicy}
+
+Field | Description
+--- | ---
+placement_group_id | **string**<br>Placement group ID. 
 
 
 ## List {#List}
@@ -62,7 +70,7 @@ Retrieves the list of Disk resources in the specified folder.
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder to list disks in. To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. false The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the folder to list disks in. To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListDisksResponse.next_page_token](#ListDisksResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListDisksResponse.next_page_token](#ListDisksResponse) returned by a previous list request. The maximum string length in characters is 100.
 filter | **string**<br><ol><li>The field name. Currently you can use filtering only on the [Disk.name](../disk.proto#Disk1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z]([-a-z0-9]{,61}[a-z0-9])?$`.</li></ol> The maximum string length in characters is 1000.
@@ -73,10 +81,10 @@ filter | **string**<br><ol><li>The field name. Currently you can use filtering o
 Field | Description
 --- | ---
 disks[] | **[Disk](../disk.proto#Disk1)**<br>List of Disk resources. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListDisksRequest.page_size](#ListDisksRequest1), use the `next_page_token` as the value for the [ListDisksRequest.page_token](#ListDisksRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListDisksRequest.page_size](#ListDisksRequest), use the `next_page_token` as the value for the [ListDisksRequest.page_token](#ListDisksRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
-### Disk {#Disk}
+### Disk {#Disk1}
 
 Field | Description
 --- | ---
@@ -96,6 +104,14 @@ source | **oneof:** `source_image_id` or `source_snapshot_id`<br>
 &nbsp;&nbsp;source_image_id | **string**<br>ID of the image that was used for disk creation. 
 &nbsp;&nbsp;source_snapshot_id | **string**<br>ID of the snapshot that was used for disk creation. 
 instance_ids[] | **string**<br>Array of instances to which the disk is attached. 
+disk_placement_policy | **[DiskPlacementPolicy](../disk.proto#DiskPlacementPolicy1)**<br>Placement policy configuration. 
+
+
+### DiskPlacementPolicy {#DiskPlacementPolicy1}
+
+Field | Description
+--- | ---
+placement_group_id | **string**<br>Placement group ID. 
 
 
 ## Create {#Create}
@@ -112,17 +128,25 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder to create a disk in. To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. false The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the folder to create a disk in. To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. The maximum string length in characters is 50.
 name | **string**<br>Name of the disk. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>Description of the disk. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 type_id | **string**<br>ID of the disk type. To get a list of available disk types use the [yandex.cloud.compute.v1.DiskTypeService.List](/docs/compute/grpc/disk_type_service#List) request. The maximum string length in characters is 50.
-zone_id | **string**<br>Required. ID of the availability zone where the disk resides. To get a list of available zones use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/grpc/zone_service#List) request. false The maximum string length in characters is 50.
-size | **int64**<br>Required. Size of the disk, specified in bytes. If the disk was created from a image, this value should be more than the `yandex.cloud.compute.v1.Image.min_disk_size` value. false Acceptable values are 4194304 to 28587302322176, inclusive.
+zone_id | **string**<br>Required. ID of the availability zone where the disk resides. To get a list of available zones use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/grpc/zone_service#List) request. The maximum string length in characters is 50.
+size | **int64**<br>Required. Size of the disk, specified in bytes. If the disk was created from a image, this value should be more than the `yandex.cloud.compute.v1.Image.min_disk_size` value. Acceptable values are 4194304 to 28587302322176, inclusive.
 source | **oneof:** `image_id` or `snapshot_id`<br>
 &nbsp;&nbsp;image_id | **string**<br>ID of the image to create the disk from. The maximum string length in characters is 50.
 &nbsp;&nbsp;snapshot_id | **string**<br>ID of the snapshot to restore the disk from. The maximum string length in characters is 50.
 block_size | **int64**<br>Block size used for disk, specified in bytes. The default is 4096. 
+disk_placement_policy | **[DiskPlacementPolicy](../disk.proto#DiskPlacementPolicy2)**<br>Placement policy configuration. 
+
+
+### DiskPlacementPolicy {#DiskPlacementPolicy2}
+
+Field | Description
+--- | ---
+placement_group_id | **string**<br>Placement group ID. 
 
 
 ### Operation {#Operation}
@@ -148,7 +172,7 @@ Field | Description
 disk_id | **string**<br>ID of the disk that is being created. 
 
 
-### Disk {#Disk}
+### Disk {#Disk2}
 
 Field | Description
 --- | ---
@@ -168,6 +192,7 @@ source | **oneof:** `source_image_id` or `source_snapshot_id`<br>
 &nbsp;&nbsp;source_image_id | **string**<br>ID of the image that was used for disk creation. 
 &nbsp;&nbsp;source_snapshot_id | **string**<br>ID of the snapshot that was used for disk creation. 
 instance_ids[] | **string**<br>Array of instances to which the disk is attached. 
+disk_placement_policy | **[DiskPlacementPolicy](../disk.proto#DiskPlacementPolicy3)**<br>Placement policy configuration. 
 
 
 ## Update {#Update}
@@ -184,15 +209,23 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-disk_id | **string**<br>Required. ID of the Disk resource to update. To get the disk ID use a [DiskService.List](#List) request. false The maximum string length in characters is 50.
+disk_id | **string**<br>Required. ID of the Disk resource to update. To get the disk ID use a [DiskService.List](#List) request. The maximum string length in characters is 50.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the Disk resource are going to be updated. 
 name | **string**<br>Name of the disk. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>Description of the disk. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. <br>Existing set of `labels` is completely replaced by the provided set. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 size | **int64**<br>Size of the disk, specified in bytes. Acceptable values are 4194304 to 4398046511104, inclusive.
+disk_placement_policy | **[DiskPlacementPolicy](../disk.proto#DiskPlacementPolicy3)**<br>Placement policy configuration. 
 
 
-### Operation {#Operation}
+### DiskPlacementPolicy {#DiskPlacementPolicy3}
+
+Field | Description
+--- | ---
+placement_group_id | **string**<br>Placement group ID. 
+
+
+### Operation {#Operation1}
 
 Field | Description
 --- | ---
@@ -215,7 +248,7 @@ Field | Description
 disk_id | **string**<br>ID of the Disk resource that is being updated. 
 
 
-### Disk {#Disk}
+### Disk {#Disk3}
 
 Field | Description
 --- | ---
@@ -235,6 +268,7 @@ source | **oneof:** `source_image_id` or `source_snapshot_id`<br>
 &nbsp;&nbsp;source_image_id | **string**<br>ID of the image that was used for disk creation. 
 &nbsp;&nbsp;source_snapshot_id | **string**<br>ID of the snapshot that was used for disk creation. 
 instance_ids[] | **string**<br>Array of instances to which the disk is attached. 
+disk_placement_policy | **[DiskPlacementPolicy](../disk.proto#DiskPlacementPolicy4)**<br>Placement policy configuration. 
 
 
 ## Delete {#Delete}
@@ -251,10 +285,10 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-disk_id | **string**<br>Required. ID of the disk to delete. To get the disk ID use a [DiskService.List](#List) request. false The maximum string length in characters is 50.
+disk_id | **string**<br>Required. ID of the disk to delete. To get the disk ID use a [DiskService.List](#List) request. The maximum string length in characters is 50.
 
 
-### Operation {#Operation}
+### Operation {#Operation2}
 
 Field | Description
 --- | ---
@@ -287,7 +321,7 @@ Lists operations for the specified disk.
 
 Field | Description
 --- | ---
-disk_id | **string**<br>Required. ID of the Disk resource to list operations for. false The maximum string length in characters is 50.
+disk_id | **string**<br>Required. ID of the Disk resource to list operations for. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListDiskOperationsResponse.next_page_token](#ListDiskOperationsResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListDiskOperationsResponse.next_page_token](#ListDiskOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
@@ -297,10 +331,10 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 Field | Description
 --- | ---
 operations[] | **[operation.Operation](#Operation3)**<br>List of operations for the specified disk. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListDiskOperationsRequest.page_size](#ListDiskOperationsRequest1), use the `next_page_token` as the value for the [ListDiskOperationsRequest.page_token](#ListDiskOperationsRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListDiskOperationsRequest.page_size](#ListDiskOperationsRequest), use the `next_page_token` as the value for the [ListDiskOperationsRequest.page_token](#ListDiskOperationsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
-### Operation {#Operation}
+### Operation {#Operation3}
 
 Field | Description
 --- | ---

@@ -52,6 +52,10 @@ items:
         items:
           - name: Включить защиту от DDoS-атак
             href: operations/enable-ddos-protection.md
+  - name: Сценарии использования
+    items:
+      - name: Архитектура и защита базового интернет-сервиса
+        href: solutions/web-service.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

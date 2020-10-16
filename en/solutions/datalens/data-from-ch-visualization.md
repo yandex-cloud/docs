@@ -11,7 +11,8 @@ In this example, {{ datalens-short-name }} is used to visualize:
 
 A demo **Sample ClickHouse** connection is used.
 
-1. [Before you start](#before-you-begin).
+To visualize and analyze the data, [make sure you have a ready-to-use cloud](#before-you-begin) and follow these steps:
+
 1. [Define the data source for the dataset](data-from-ch-visualization.md#step1).
 1. [Configure the dataset fields](data-from-ch-visualization.md#step2).
 1. [Create a line chart](data-from-ch-visualization.md#step3).
@@ -32,7 +33,7 @@ Create a [connection](../../datalens/concepts/connection.md) to the ClickHouse d
 
 Create a [dataset](../../datalens/concepts/dataset/index.md) using the [connection](../../datalens/concepts/connection.md) **Sample ClickHouse** created from a ClickHouse database.
 
-1. Go to [{{ datalens-short-name }}](https://datalens.yandex.ru).
+1. Go to [{{ datalens-short-name }}](https://datalens.yandex.com).
 
 1. Click **Create dataset**.
 
@@ -68,7 +69,7 @@ Create a [dataset](../../datalens/concepts/dataset/index.md) using the [connecti
 
 ## Step 2. Set up the dataset fields {#step2}
 
-1. Go to the **Dataset** tab.
+1. Go to the **Fields** tab.
 
     ![image](../../_assets/datalens/solution-02/08-dataset-tab.png)
 
@@ -187,13 +188,13 @@ To visualize sales by brands and product categories, create a [chart](../../data
 
     ![image](../../_assets/datalens/solution-02/24-choose-barchart.png)
 
-1. The **OrderDate**, **Sales**, and **PaymentType** fields are automatically copied to the **X**, **Y**, and **Colors** sections, respectively.
+1. The **OrderDate**, **Sales**, and **PaymentType** fields are copied automatically to the **X**, **Y**, and **Colors** sections, respectively.
 
 1. Replace the months with brands on the X-axis. From the **Dimensions** section, drag the **ProductBrand** field to the **X** section and hold it over the **OrderDate** field until it turns red.
 
     ![image](../../_assets/datalens/solution-02/25-replace-field1.png)
 
-1. Replace payment types for product categories in Colors. Drag **ProductCategory** from the **Dimensions** section to the **Colors** section and hold it over the **PaymentType** field until it turns red.
+1. Replace payment types for product categories in Colors. Drag **ProductCategory** from the **Dimensions** section to the **X** section and hold it over the **PaymentType** field until it turns red.
 
     ![image](../../_assets/datalens/solution-02/26-replace-field2.png)
 
@@ -210,8 +211,8 @@ To visualize sales in terms of products and time, create a [chart](../../datalen
 1. Copy the chart from the previous step.
     1. Click the down arrow next to the **Save** button in the upper-right corner.
     1. Click **Save as**.
-    1. In the window that opens, enter the name **Sales by year and category** for the new chart.
-    1. Click **Save**.
+    1. In the window that opens, enter the name **Sales by year and product** for the new chart.
+    1. Click **Ready**.
 
 1. Choose the **Pivot table** visualization type.
 
@@ -252,15 +253,17 @@ To visualize the density of orders on the Moscow map, create a [chart](../../dat
 1. Copy the chart from the previous step.
     1. Click the icon next to the **Save** button in the upper-right corner and select **Save as**.
     1. In the window that opens, enter the name **Sales heat map** for the new chart.
-    1. Click **Save**.
+    1. Click **Ready**.
 
-1. Choose the **Heat map** visualization type.
+1. Select the **Map** visualization type.
 
     ![image](../../_assets/datalens/solution-02/33-choose-heatmap.png)
 
 1. Delete the **Sales** field from the **Colors** section.
 
-1. Add the delivery point coordinates to the map. To do this, drag the **DeliveryAdressCoord** field from the **Dimensions** section to the **Geopoints** section.
+1. Select the **Points (heat map)** layer type.
+
+1. Add the delivery point coordinates to the map. To do this, drag the **DeliveryAddressCoord** field from the **Dimensions** section to the **Geopoints** section.
 
     ![image](../../_assets/datalens/solution-02/34-heatmap.png)
 

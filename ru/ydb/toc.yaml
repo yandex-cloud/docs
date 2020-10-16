@@ -1,6 +1,5 @@
 title: Yandex Database
 href: index.yaml
-stage: preview
 items:
   - name: Начало работы
     items:
@@ -10,14 +9,20 @@ items:
         href: quickstart/create-db.md
       - name: Примеры YQL-запросов
         href: quickstart/examples-yql.md
+      - name: Примеры работы с YDB CLI
+        href: quickstart/examples-ydb-cli.md
       - name: Запуск тестового приложения
         href: quickstart/launch-test-app.md
+      - name: Document API
+        href: getting_started/start_docapi_rest.md
+      - name: Разработка на NodeJS с Document API
+        href: getting_started/start_docapi_nodejs.md
   - name: Пошаговые инструкции
     items:
       - name: Управление базами данных
         href: operations/create_manage_database.md
       - name: Подключение к базе данных
-        href: operations/connect-to-a-database.md
+        href: operations/connect_to_a_database.md
       - name: Управление таблицами
         href: operations/schema.md
       - name: Чтение и запись данных
@@ -32,36 +37,88 @@ items:
         href: concepts/index.md
       - name: Модель данных и схема
         href: concepts/datamodel.md
+      - name: Режимы работы Serverless и Dedicated
+        href: concepts/serverless_and_dedicated.md
       - name: Типы данных
         href: concepts/datatypes.md
       - name: Транзакции
         href: concepts/transactions.md
       - name: Вторичные индексы
         href: concepts/secondary_indexes.md
+      - name: Time to Live (TTL)
+        href: concepts/ttl.md
       - name: Термины и определения
         href: concepts/databases.md
+      - name: Квоты и лимиты
+        href: concepts/limits.md
   - name: Управление доступом
     href: operations/start_auth.md
   - name: Правила тарификации
-    href: pricing.md
+    items:
+      - name: Обзор
+        href: pricing.md
+      - name: Бессерверный режим
+        href: pricing/serverless.md
+      - name: Режим с выделенными инстансами
+        href: pricing/dedicated.md
   - name: Рекомендации
     items:
       - name: Проектирование схемы
         href: best_practices/schema_design.md
+      - name: Партицирование таблиц
+        href: best_practices/table_sharding.md
       - name: Вторичные индексы
         href: best_practices/secondary_indexes.md
       - name: Постраничный вывод
         href: best_practices/paging.md
       - name: Загрузка больших объемов данных
         href: best_practices/batch_upload.md
-      - name: Удаление устаревших данных (TTL)
-        href: best_practices/ttl.md
-  - name: Справочник API
+      - name: Использование таймаутов
+        href: best_practices/timeouts.md
+  - name: YDB API и справочник
     items:
       - name: Ограничения базы данных
         href: api/limits.md
       - name: Обработка ошибок в API
         href: api/error_handling.md
+  - name: 'HTTP API, совместимый с Amazon DynamoDB'
+    items:
+      - name: Справочник API
+        items:
+          - name: Все методы
+            href: docapi/api-ref/index.md
+          - name: Actions
+            items:
+              - name: BatchGetItem
+                href: docapi/api-ref/actions/batchGetItem.md
+              - name: BatchWriteItem
+                href: docapi/api-ref/actions/batchWriteItem.md
+              - name: CreateTable
+                href: docapi/api-ref/actions/createTable.md
+              - name: DeleteItem
+                href: docapi/api-ref/actions/deleteItem.md
+              - name: DeleteTable
+                href: docapi/api-ref/actions/deleteTable.md
+              - name: DescribeTable
+                href: docapi/api-ref/actions/describeTable.md
+              - name: GetItem
+                href: docapi/api-ref/actions/getItem.md
+              - name: ListTables
+                href: docapi/api-ref/actions/listTables.md
+              - name: PutItem
+                href: docapi/api-ref/actions/putItem.md
+              - name: Query
+                href: docapi/api-ref/actions/query.md
+              - name: Scan
+                href: docapi/api-ref/actions/scan.md
+              - name: TransactGetItems
+                href: docapi/api-ref/actions/transactGetItems.md
+              - name: TransactWriteItems
+                href: docapi/api-ref/actions/transactWriteItems.md
+              - name: UpdateItem
+                href: docapi/api-ref/actions/updateItem.md
+          - name: Общие ошибки
+            href: docapi/api-ref/common-errors.md
   - name: Справочник YQL
     items:
       - name: Обзор
@@ -128,6 +185,8 @@ items:
             href: yql/reference/builtins/list.md
           - name: Для работы со словарями
             href: yql/reference/builtins/dict.md
+          - name: Для работы с JSON
+            href: yql/reference/builtins/json.md
           - name: Для работы со структурами
             href: yql/reference/builtins/struct.md
           - name: Для работы с типами
@@ -194,6 +253,14 @@ items:
         href: yql/tutorial/alter_table.md
       - name: Удаление таблицы
         href: yql/tutorial/delete_table.md
+  - name: Обслуживание
+    items:
+      - name: Резервное копирование
+        href: maintenance/backup_and_recovery.md
+  - name: Диагностика
+    items:
+      - name: Системные таблицы
+        href: troubleshooting/system_views.md
   - name: Вопросы и ответы
     items:
       - name: Общие вопросы

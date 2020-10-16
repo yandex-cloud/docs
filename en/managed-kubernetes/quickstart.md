@@ -6,7 +6,7 @@ Create a [cluster {{ k8s }}](concepts/index.md#kubernetes-cluster) and [node gro
 
 To start working with {{ managed-k8s-short-name }}:
 
-1. Go to the [management console]({{ link-console-main }}). Then log in to Yandex.Cloud or sign up if don't already have an account.
+1. Go to the [management console]({{ link-console-main }}). Then log in to {{ yandex-cloud }} or sign up if you don't have an account yet.
 
 1. [On the billing page]({{ link-console-billing }}), make sure that a [billing account](../billing/concepts/billing-account.md) is linked and that its status is `ACTIVE` or `TRIAL_ACTIVE`. If you don't have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
 
@@ -36,27 +36,28 @@ To start working with {{ managed-k8s-short-name }}:
 
 - CLI
 
-    {% include [cli-install](../_includes/cli-install.md) %}
+  {% include [cli-install](../_includes/cli-install.md) %}
 
-    {% include [default-catalogue](../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../_includes/default-catalogue.md) %}
 
-    To add {{ k8s }} cluster credentials to the kubectl configuration file:
-    1. Run the command:
+  To add {{ k8s }} cluster credentials to the kubectl configuration file:
 
-      ```
-      $ yc managed-kubernetes cluster get-credentials test-k8s-cluster --external
-      ```
-      
-      - By default, credentials are added to the `$HOME/.kube/config` directory.
-      - If you need to change the configuration location, use the `--kubeconfig <file path>` flag.
-    1. Check the kubectl configuration after adding the credentials:
+  1. Run the command:
+  
+     ```
+     $ yc managed-kubernetes cluster get-credentials test-k8s-cluster --external
+     ```
+     - By default, credentials are added to the `$HOME/.kube/config` directory.
+     - If you need to change the configuration location, use the `--kubeconfig <file path>` flag.
+
+   1. Check the kubectl configuration after adding the credentials:
 
       ```
       $ kubectl config view
       apiVersion: v1
       clusters:
       - cluster:
-          certificate-authority-data: DATA+OMITTED
+      certificate-authority-data: DATA+OMITTED
       ...
       ```
 

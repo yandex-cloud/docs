@@ -136,6 +136,19 @@ services:
     container_name: redis
     image: "redis"
     restart: always
+  volumes:
+      - /mnt/logs:/logs
+      - /mnt/data:/data
+
+x-yc-disks:
+  - device_name: compute-disk-data
+    fs_type: ext4
+    host_path: /mnt/data
+    partition: 1
+  - device_name: compute-disk-data
+    fs_type: ext4
+    host_path: /mnt/logs
+    partition: 2
 ```
 
 Ключи спецификации описаны в таблице:
@@ -147,4 +160,10 @@ services:
 `container_name` | Имя запускаемого Docker-контейнера.
 `image` | Имя Docker-образа, на основе которого будет создан и запущен Docker-контейнер.
 `ports` | Используется для перенаправления портов сервиса. Указывается в виде: `<порт компьютера>:<порт контейнера>`.
-`restart` | Настройка политики перезапуска контейнера. 
+`restart` | Настройка политики перезапуска Docker-контейнера. 
+`volumes` | Описание томов, используемых в Docker-контейнере.
+`x-yc-disks` | Раздел, в котором описываются подключаемые [диски](../../compute/concepts/disk.md). Представляет собой [расширение спецификации Docker Compose](https://docs.docker.com/compose/compose-file/#extension-fields). Используется при подготовке к запуску Docker-контейнеров, перед запуском Docker Compose. Docker Compose пропускает этот раздел.
+`device_name` | Имя устройства.
+`fs_type` | Тип файловой системы. Поддерживается только файловая система ext4.
+`host_path` | Директория, в которую монтируется диск.
+`partition` | Используемый раздел диска.

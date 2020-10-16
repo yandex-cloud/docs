@@ -13,6 +13,8 @@ items:
         href: operations/create-static-conf.md
       - name: Granting access to an app running in a Kubernetes cluster
         href: operations/create-load-balancer.md
+      - name: Encrypting secrets
+        href: operations/encrypting-secrets.md
       - name: Working with persistent volumes
         items:
           - name: Dynamic volume provisioning
@@ -21,6 +23,10 @@ items:
             href: operations/volumes/static-create-pv.md
           - name: Managing storage classes
             href: operations/volumes/manage-storage-class.md
+          - name: Expanding a volume
+            href: operations/volumes/volume-expansion.md
+          - name: Mounting a volume in Block mode
+            href: operations/volumes/mode-block.md
       - name: Managing a Kubernetes cluster
         items:
           - name: >-
@@ -49,6 +55,8 @@ items:
     items:
       - name: Integration with Container Registry
         href: solutions/container-registry.md
+      - name: Running workloads with GPUs
+        href: solutions/running-pod-gpu.md
   - name: Concepts
     items:
       - name: Relationship between service resources
@@ -69,6 +77,8 @@ items:
             href: concepts/node-group/node-drain.md
           - name: Dynamic resource allocation for a node
             href: concepts/node-group/allocatable-resources.md
+          - name: Node groups with GPUs
+            href: concepts/node-group/node-group-gpu.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Access management
@@ -113,6 +123,10 @@ items:
                 href: api-ref/Cluster/listNodes.md
               - name: listOperations
                 href: api-ref/Cluster/listOperations.md
+              - name: start
+                href: api-ref/Cluster/start.md
+              - name: stop
+                href: api-ref/Cluster/stop.md
               - name: update
                 href: api-ref/Cluster/update.md
           - name: NodeGroup

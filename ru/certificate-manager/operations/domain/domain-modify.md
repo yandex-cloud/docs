@@ -1,5 +1,7 @@
 # Изменение описания домена
 
+{% include [preview-stage](../../../_includes/certificate-manager/preview-stage.md) %}
+
 После создания домена вы можете изменить его описание. Чтобы изменить описание домена:
 
 {% list tabs %}

@@ -35,7 +35,7 @@ order_by | **string**<br> Максимальная длина строки в с
 Поле | Описание
 --- | ---
 repositories[] | **[Repository](./#Repository)**<br>Список ресурсов Repository. 
-next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListRepositoriesRequest.page_size](#ListRepositoriesRequest1), используйте `next_page_token` в качестве значения параметра [ListRepositoriesRequest.page_token](#ListRepositoriesRequest1) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
+next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListRepositoriesRequest.page_size](#ListRepositoriesRequest), используйте `next_page_token` в качестве значения параметра [ListRepositoriesRequest.page_token](#ListRepositoriesRequest) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
 
 
 ### Repository {#Repository}

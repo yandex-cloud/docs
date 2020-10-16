@@ -21,7 +21,8 @@ POST https://kms.api.cloud.yandex.net/kms/v1/keys
   "description": "string",
   "labels": "object",
   "defaultAlgorithm": "string",
-  "rotationPeriod": "string"
+  "rotationPeriod": "string",
+  "deletionProtection": true
 }
 ```
 
@@ -34,6 +35,7 @@ description | **string**<br><p>Description of the key.</p> <p>The maximum string
 labels | **object**<br><p>Custom labels for the symmetric KMS key as <code>key:value</code> pairs. Maximum 64 per key. For example, <code>&quot;project&quot;: &quot;mvp&quot;</code> or <code>&quot;source&quot;: &quot;dictionary&quot;</code>.</p> <p>No more than 64 per resource. The maximum string length in characters for each key is 63. Each key must match the regular expression <code>[a-z][-_0-9a-z]*</code>. The maximum string length in characters for each value is 63. Each value must match the regular expression <code>[-_0-9a-z]*</code>.</p> 
 defaultAlgorithm | **string**<br><p>Encryption algorithm to be used with a new key version, generated with the next rotation.</p> <p>Supported symmetric encryption algorithms.</p> <ul> <li>AES_128: AES algorithm with 128-bit keys.</li> <li>AES_192: AES algorithm with 192-bit keys.</li> <li>AES_256: AES algorithm with 256-bit keys.</li> </ul> 
 rotationPeriod | **string**<br><p>Interval between automatic rotations. To disable automatic rotation, don't include this field in the creation request.</p> 
+deletionProtection | **boolean** (boolean)<br><p>Flag that inhibits deletion of the symmetric KMS key</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

@@ -5,7 +5,8 @@ VALUES
         1,
         "IT Crowd",
         CAST(Date("2006-02-03") AS Uint64),
-        "The IT Crowd is a British sitcom."),
+        "The IT Crowd is a British sitcom."
+    ),
     (
         2,
         "Silicon Valley",

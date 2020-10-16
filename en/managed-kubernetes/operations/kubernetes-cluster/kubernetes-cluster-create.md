@@ -8,7 +8,7 @@ To create a {{ k8s }} cluster:
 
 1. Log in to [management console]({{ link-console-main }}). If you aren't registered, go to the management console and follow the instructions.
 
-1. [On the billing page]({{ link-console-billing }}) make sure that you enabled a [billing account](../../../billing/concepts/billing-account.md), and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you don't have a billing account, [create one](../../../billing/quickstart/index.md#create_billing_account).
+1. [On the billing page]({{ link-console-billing }}) make sure that you enabled a [billing account](../../../billing/concepts/billing-account.md) and that it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you don't have a billing account, [create one](../../../billing/quickstart/index.md#create_billing_account).
 
 1. If you don't have a folder, [create one](../../../resource-manager/operations/folder/create.md).
 
@@ -99,21 +99,21 @@ To create a {{ k8s }} cluster:
 
     Where:
     - `--name`: The {{ k8s }} cluster name.
-    - `--network-name`: The name of the network.
+    - `--network-name`: Name of the network.
     - `--zone`: Availability zone.
-    - `--subnet-name`: The name of the subnet.
-    - `--public-ip`: The flag that is specified if the {{ k8s }} cluster needs a public IP address.
-    - `--release-channel`: The [release channel](../../concepts/release-channels-and-updates.md#release-channels).
-    - `--version`: The {{ k8s }} version.
-    - `--cluster-ipv4-range`: The range of IP addresses for allocating pod addresses.
-    - `--service-ipv4-range`: The range of IP addresses for allocating service addresses.
+    - `--subnet-name`: Name of the subnet.
+    - `--public-ip`: Flag that is specified if the {{ k8s }} cluster needs a public IP address.
+    - `--release-channel`: [Release channel](../../concepts/release-channels-and-updates.md#release-channels).
+    - `--version`: {{ k8s }} version.
+    - `--cluster-ipv4-range`: Range of IP addresses for allocating pod addresses.
+    - `--service-ipv4-range`: Range of IP addresses for allocating service addresses.
     - `--service-account-id`: The unique ID of the service account for the resources. The resources that the {{ k8s }} cluster needs will be created on behalf of this account.
     - `--node-service-account-id`: The unique ID of the service account for the nodes. Nodes will download the Docker images they require from the registry on behalf of this account.
-    - `--daily-maintenance-window`: The maintenance window settings.
+    - `--daily-maintenance-window`: Maintenance window settings.
 
 - API
 
-    To create a {{ k8s }} cluster, use the [create](../../api-ref/Cluster/create.md/) method for the [Cluster](../../api-ref/Cluster/) resource.
+    To create a {{ k8s }} cluster, use the [create](../../api-ref/Cluster/create.md) method for the [Cluster](../../api-ref/Cluster) resource.
 
 {% endlist %}
 

@@ -14,21 +14,14 @@ QUANTILE( value, quant )
 ```
 
 #### Description {#description}
-Returns the precise `value`-level quantile (`value` should be in range from 0 to 1).
+Returns the precise `quant`-level quantile (`quant` should be in range from 0 to 1).
 
 **Argument types:**
 - `value` — `Number`
 - `quant` — `Number`
 
 
-**Return type**: Same type as (`value`, `quant`)
-
-{% note info %}
-
-Arguments (`value`, `quant`) must be of the same type.
-
-{% endnote %}
-
+**Return type**: Same type as (`value`)
 
 #### Data source support {#data-source-support}
 

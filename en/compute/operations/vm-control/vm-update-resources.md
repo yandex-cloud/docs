@@ -17,7 +17,7 @@ This section provides guidelines for changing the number and performance of vCPU
   1. Click **Stop** in the upper-right corner of the page.
   1. Wait until the VM status changes to `STOPPED`, then click **Update VM** in the upper-right corner of the page.
   1. Change the [configuration](../../concepts/performance-levels.md) of the VM and do the following in the **Computing resources** section:
-      - Choose the [platform](../../concepts/vm-platforms.md).
+      - Choose a [platform](../../concepts/vm-platforms.md).
       - Specify the necessary number of vCPUs and amount of RAM.
   1. Click **Save changes**.
   1. Click **Run** in the upper-right corner of the page.
@@ -38,7 +38,7 @@ This section provides guidelines for changing the number and performance of vCPU
 
       {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
 
-  1. Select the `ID` or `NAME` of the VM (for example, `first-instance`).
+  1. Select the VM `ID` or `NAME` (for example, `first-instance`).
 
   1. Stop the VM:
 
@@ -93,7 +93,7 @@ To add a [GPU](../../concepts/gpus.md) to an existing VM, change the platform an
   1. Click **Stop** in the upper-right corner of the page.
   1. Wait until the VM status changes to `STOPPED`, then click **Update VM** in the upper-right corner of the page.
   1. Change the [configuration](../../concepts/performance-levels.md) of the VM and do the following in the **Computing resources** section:
-      - Choose the [platform](../../concepts/vm-platforms.md) Intel Broadwell with NVIDIA Tesla V100.
+      - Choose a [platform](../../concepts/vm-platforms.md) Intel Broadwell with NVIDIA® Tesla® V100.
       - Specify the required number of GPUs.
   1. Click **Save changes**.
   1. Click **Run** in the upper-right corner of the page.
@@ -114,7 +114,7 @@ To add a [GPU](../../concepts/gpus.md) to an existing VM, change the platform an
 
       {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
 
-  1. Select the `ID` or `NAME` of the VM (for example, `first-instance`).
+  1. Select the VM `ID` or `NAME` (for example, `first-instance`).
 
   1. Stop the VM:
 
@@ -139,7 +139,7 @@ To add a [GPU](../../concepts/gpus.md) to an existing VM, change the platform an
       ```
 
       This command changes the following VM characteristics:
-      * **Platform** to Intel Broadwell with NVIDIA Tesla V100.
+      * **Platform** to Intel Broadwell with NVIDIA® Tesla® V100.
       * **Number of vCPUs** to 8.
       * **RAM** to 96 GB.
       * **GPU** to 1.
@@ -188,7 +188,7 @@ To add a [GPU](../../concepts/gpus.md) to an existing VM, change the platform an
 
       {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
 
-  1. Select the `ID` or `NAME` of the VM (for example, `first-instance`).
+  1. Select the VM `ID` or `NAME` (for example, `first-instance`).
 
   1. Stop the VM:
 
@@ -224,4 +224,3 @@ To add a [GPU](../../concepts/gpus.md) to an existing VM, change the platform an
   To change the number of GPUs, use the [Update](../../api-ref/Instance/update.md) method for the `Instance` resource.
 
 {% endlist %}
-

@@ -9,6 +9,8 @@ editable: false
 --- | ---
 [Disk](Disk/index.md) | Набор методов для управления ресурсами Disk.
 [DiskType](DiskType/index.md) | Набор методов для получения информации о типах дисков.
+[HostGroup](HostGroup/index.md) | Набор методов для управления группами выделенных хостов.
+[HostType](HostType/index.md) | Набор методов для просмотра возможных конфигураций выделенного хоста.
 [Image](Image/index.md) | Набор методов для управления ресурсами Image.
 [Instance](Instance/index.md) | Набор методов для управления ресурсами Instance.
 [PlacementGroup](PlacementGroup/index.md) | Набор методов для управления группами размещения.

@@ -1,7 +1,7 @@
 # Yandex Container Solution
 title: "Yandex Container Solution"
 description:
-  - "Yandex Container Solution — это сценарии использования на базе виртуальных машин с образом Container Optimized Image, оптимизированных для запуска Docker-контейнеров. Образ Container Optimized Image также доступен в <a href=\"https://cloud.yandex.ru/marketplace/products/f2er6dljk4mbatsurr5t\">маркетплейсе</a>."
+  - "Yandex Container Solution — это сценарии использования на базе виртуальных машин с образом Container Optimized Image, оптимизированных для запуска Docker-контейнеров. Образ Container Optimized Image также доступен в <a href=\"https://cloud.yandex.ru/marketplace/products/f2ea2mtumfqb17k9eso7\">маркетплейсе</a>."
 # Мета-информация title, description, keywords и т. п. (title вкладки и разные SEO-теги)
 meta:
   title: "Yandex Container Solution"

@@ -1,6 +1,6 @@
-# Using 1C:Enterprise with MS SQL Server
+# Creating a cluster of 1C:Enterprise Windows servers with MS SQL Server
 
-To configure the use of 1C:Enterprise in Yandex.Cloud, you need to create a working server, a license server, and a database server. 1C servers will be running Windows Server Datacenter 2019 and the DB server will be running MS SQL Server 2016.
+To configure the use of 1C:Enterprise in {{ yandex-cloud }}, you need to create a working server, a license server, and a database server. 1C servers will be running Windows Server Datacenter 2019 and the DB server will be running MS SQL Server 2016.
 
 {% note info %}
 
@@ -25,7 +25,7 @@ If you no longer need the created resources, [delete them](#clear-out).
 
 ## Before you start {#before-you-begin}
 
-Before deploying the server, you need to sign up for Yandex.Cloud and create a billing account:
+Before deploying the server, you need to sign up for {{ yandex-cloud }} and create a billing account:
 
 {% include [prepare-register-billing](../_solutions_includes/prepare-register-billing.md) %}
 
@@ -35,10 +35,10 @@ If you have an active billing account, you can create or select a folder to run 
 
 ### Required paid resources {#paid-resources}
 
-The infrastructure support cost for 1C-Enterprise in Yandex.Cloud includes:
+The infrastructure support cost for 1C-Enterprise in {{ yandex-cloud }} includes:
 
 * A fee for the disks and continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* A fee for the continuously running {{ mpg-name }} cluster (see [pricing for {{ compute-full-name }}](../../compute/pricing.md))
+* A fee for MS SQL Server licenses (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * A fee for using a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 ## Prepare the infrastructure {#prepare}
@@ -125,7 +125,7 @@ To create an infobase VM:
    - In the **Requirement object** list, select **Licensing service**.
    - In the **Requirement type** list, select **Do not assign**.
    - Leave the other parameters as they are and click **OK**.
-1. Apply requirements for assigning functionality to the cluster: open the cluster's context menu and select **Apply requirements of functionality purpose (full).**.
+1. Apply requirements for assigning functionality to the cluster: open the cluster's context menu and select **Apply requirements of functionality purpose (full)**.
 
 ## Set up the license server {#setup-license-server}
 
@@ -138,12 +138,12 @@ To create an infobase VM:
    - In the **Requirement object** list, select **Any requirement object**.
    - In the **Requirement type** list, select **Do not assign**.
    - Leave the other parameters as they are and click **OK**.
-1. Apply requirements for assigning functionality to the cluster: open the cluster's context menu and select **Apply requirements of functionality purpose (full).**.
+1. Apply requirements for assigning functionality to the cluster: open the cluster's context menu and select **Apply requirements of functionality purpose (full)**.
 1. Add another requirement for assigning functionality to the `licensing-server-1c` with the following parameters:
    - In the **Requirement object** list, select **Licensing service**.
    - In the **Requirement type** list, select **Assign**.
    - Leave the other parameters as they are and click **OK**.
-1. Apply requirements for assigning functionality to the cluster: open the cluster's context menu and select **Apply requirements of functionality purpose (full).**.
+1. Apply requirements for assigning functionality to the cluster: open the cluster's context menu and select **Apply requirements of functionality purpose (full)**.
 
 ## Set up the SQL Server {#setup-sql-server}
 
@@ -181,7 +181,7 @@ To create an infobase VM:
    - **Database server user**: `1c-user`.
    - **Database user password**: The user password that you set when creating the DB server user.
    - **Allow license issuing by 1C:Enterprise server**: **Yes**.
-   - **Language (Country)**: **Russian (Russia)**.
+   - **Language (Country)**: **English (United States)**.
    - **Create database if none present**: Disabled.
    - **Lock execution of scheduled jobs**: Disabled.
 

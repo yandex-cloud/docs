@@ -4,7 +4,7 @@ Access to {{ datalens-full-name }} is managed from the {{ yandex-cloud }} consol
 To grant a user access, assign them a {{ datalens-short-name }} role.
 
 Permission differentiation in the service is implemented at the object and directory level.
-You can grant users permission to each object and directory. They determine what operations are allowed.
+You can grant users permission to each object and directory. They determine what operations are allowed. By default, objects inherit the access rights of the parent folder.
 
 You can grant users access to a directory or any service object:
 
@@ -143,4 +143,3 @@ The `{{ permission-admin }}` permission includes everything under the `{{ permis
 - [{#T}](../operations/permission/revoke.md)
 - [{#T}](../operations/permission/request.md)
 - [{#T}](../operations/dataset/manage-row-level-security.md)
-

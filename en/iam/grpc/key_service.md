@@ -27,7 +27,7 @@ Returns the specified Key resource. <br>To get the list of available Key resourc
 
 Field | Description
 --- | ---
-key_id | **string**<br>Required. ID of the Key resource to return. To get the ID use a [KeyService.List](#List) request. false The maximum string length in characters is 50.
+key_id | **string**<br>Required. ID of the Key resource to return. To get the ID use a [KeyService.List](#List) request. The maximum string length in characters is 50.
 format | enum **KeyFormat**<br>Output format of the key. <ul><li>`PEM_FILE`: Privacy-Enhanced Mail (PEM) format. Default value.</li><ul/>
 
 
@@ -66,10 +66,10 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 Field | Description
 --- | ---
 keys[] | **[Key](../key.proto#Key1)**<br>List of Key resources. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListKeysRequest.page_size](#ListKeysRequest1), use the `next_page_token` as the value for the [ListKeysRequest.page_token](#ListKeysRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListKeysRequest.page_size](#ListKeysRequest), use the `next_page_token` as the value for the [ListKeysRequest.page_token](#ListKeysRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
-### Key {#Key}
+### Key {#Key1}
 
 Field | Description
 --- | ---
@@ -107,7 +107,7 @@ key | **[Key](../key.proto#Key2)**<br>Key resource.
 private_key | **string**<br>A private key of the Key resource. This key must be stored securely. 
 
 
-### Key {#Key}
+### Key {#Key2}
 
 Field | Description
 --- | ---
@@ -135,7 +135,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-key_id | **string**<br>Required. ID of the Key resource to update. To get key pair ID, use a [KeyService.List](#List) request. false The maximum string length in characters is 50.
+key_id | **string**<br>Required. ID of the Key resource to update. To get key pair ID, use a [KeyService.List](#List) request. The maximum string length in characters is 50.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the Key resource are going to be updated. 
 description | **string**<br>Description of the key pair. The maximum string length in characters is 256.
 
@@ -163,7 +163,7 @@ Field | Description
 key_id | **string**<br>ID of the Key resource that is being updated. 
 
 
-### Key {#Key}
+### Key {#Key3}
 
 Field | Description
 --- | ---
@@ -191,10 +191,10 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-key_id | **string**<br>Required. ID of the key to delete. To get key ID use a [KeyService.List](#List) request. false The maximum string length in characters is 50.
+key_id | **string**<br>Required. ID of the key to delete. To get key ID use a [KeyService.List](#List) request. The maximum string length in characters is 50.
 
 
-### Operation {#Operation}
+### Operation {#Operation1}
 
 Field | Description
 --- | ---
@@ -227,7 +227,7 @@ Lists operations for the specified key.
 
 Field | Description
 --- | ---
-key_id | **string**<br>Required. ID of the key to list operations for. false The maximum string length in characters is 50.
+key_id | **string**<br>Required. ID of the key to list operations for. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListKeyOperationsResponse.next_page_token](#ListKeyOperationsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListKeyOperationsResponse.next_page_token](#ListKeyOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
@@ -237,10 +237,10 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 Field | Description
 --- | ---
 operations[] | **[operation.Operation](#Operation2)**<br>List of operations for the specified key. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListKeyOperationsRequest.page_size](#ListKeyOperationsRequest1), use the `next_page_token` as the value for the [ListKeyOperationsRequest.page_token](#ListKeyOperationsRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListKeyOperationsRequest.page_size](#ListKeyOperationsRequest), use the `next_page_token` as the value for the [ListKeyOperationsRequest.page_token](#ListKeyOperationsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
-### Operation {#Operation}
+### Operation {#Operation2}
 
 Field | Description
 --- | ---

@@ -1,8 +1,8 @@
-# Detecting language
+# Detect the language
 
 To detect the language of a text, use the [detectLanguage](../api-ref/Translation/detectLanguage) method.
 
-## Before getting started {#before-you-begin}
+## Before you start {#before-you-begin}
 
 {% include [ai-before-beginning](../../_includes/ai-before-beginning.md) %}
 

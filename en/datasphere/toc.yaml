@@ -18,11 +18,17 @@ items:
       - name: Clearing the interpreter state
         href: operations/projects/clear-kernel-state.md
       - name: Sharing a notebook
-        href: operations/projects/share.md
+        items:
+          - name: Publishing a notebook
+            href: operations/projects/publication.md
+          - name: Exporting a project
+            href: operations/projects/export.md
       - name: Changing a name or description
         href: operations/projects/update.md
       - name: Deleting a project
         href: operations/projects/delete.md
+      - name: Working with Git
+        href: operations/projects/work-with-git.md
   - name: Concepts
     items:
       - name: Overview
@@ -35,6 +41,8 @@ items:
         href: concepts/magic.md
       - name: Computing resource configurations
         href: concepts/configurations.md
+      - name: Integration with version and data control systems
+        href: concepts/dvc-and-git.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Access management

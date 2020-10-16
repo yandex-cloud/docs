@@ -203,6 +203,8 @@ items:
             href: concepts/instance-groups/access.md
           - name: Instance template
             href: concepts/instance-groups/instance-template.md
+          - name: Variables in an instance template
+            href: concepts/instance-groups/variables-in-the-template.md
           - name: Policies
             href: concepts/instance-groups/policies.md
           - name: Scaling types
@@ -239,6 +241,8 @@ items:
         items:
           - name: Overview
             href: grpc/index.md
+          - name: DiskPlacementGroupService
+            href: grpc/disk_placement_group_service.md
           - name: DiskService
             href: grpc/disk_service.md
           - name: DiskTypeService
@@ -281,6 +285,24 @@ items:
                 href: api-ref/Disk/listOperations.md
               - name: update
                 href: api-ref/Disk/update.md
+          - name: DiskPlacementGroup
+            items:
+              - name: Overview
+                href: api-ref/DiskPlacementGroup/index.md
+              - name: create
+                href: api-ref/DiskPlacementGroup/create.md
+              - name: delete
+                href: api-ref/DiskPlacementGroup/delete.md
+              - name: get
+                href: api-ref/DiskPlacementGroup/get.md
+              - name: list
+                href: api-ref/DiskPlacementGroup/list.md
+              - name: listDisks
+                href: api-ref/DiskPlacementGroup/listDisks.md
+              - name: listOperations
+                href: api-ref/DiskPlacementGroup/listOperations.md
+              - name: update
+                href: api-ref/DiskPlacementGroup/update.md
           - name: DiskType
             items:
               - name: Overview

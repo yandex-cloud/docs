@@ -24,7 +24,7 @@ While the audio fragments are sent, the service simultaneously returns [recogniz
 
 To enable the app to access the service, you need to generate the client interface code for the programming language you use. Generate this code from the [stt_service.proto](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/ai/stt/v2/stt_service.proto) file hosted in the [Yandex.Cloud API](https://github.com/yandex-cloud/cloudapi) repository.
 
-See [examples](#examples) of client apps below. In addition, see the [gRPC documentation](https://grpc.io/docs/tutorials/) for detailed instructions on how to generate interfaces and deploy client apps for various programming languages.
+See [examples](#examples) of client apps below. See also the [gRPC documentation](https://grpc.io/docs/tutorials/) for detailed instructions on how to generate interfaces and implement client apps in various programming languages.
 
 ### Authorization in the service {#auth}
 
@@ -62,14 +62,14 @@ The service is located at: `stt.api.cloud.yandex.net:443`
 | ----- | ----- |
 | config | **object**<br>Field with the recognition settings and folder ID. |
 | config<br>.specification | **object**<br>Recognition settings. |
-| config<br>.specification<br>.languageCode | **string**<br>The language to use for recognition.<br/>Acceptable values:<ul><li>`ru-ru` (case-insensitive, by default) — Russian.</li><li>`en-us` (case-insensitive) — English.</li><li>`tr-tr` (case-insensitive) — Turkish.</li></ul> |
+| config<br>.specification<br>.languageCode | **string**<br>The language to use for recognition.<br/>Acceptable values:<ul><li>`ru-ru` (case-insensitive, used by default): Russian.</li><li>`en-us` (case-insensitive): English.</li><li>`tr-tr` (case-insensitive): Turkish.</li></ul> |
 | config<br>.specification<br>.model | **string**<br>The language model to be used for recognition.<br/>The closer the model is matched, the better the recognition result. You can only specify one model per request.<br/>[Acceptable values](models.md) depend on the selected language. Default value: `general`. |
-| config<br>.specification<br>.profanityFilter | **boolean**<br>The profanity filter.<br/>Acceptable values:<ul><li>`true` — Exclude profanity from recognition results.</li><li>`false` (by default) — Do not exclude profanity from recognition results.</li></ul> |
-| config<br>.specification<br>.partialResults | **boolean**<br>The intermediate results filter.<br/>Acceptable values:<ul><li>`true` — Return intermediate results (part of the recognized utterance). For intermediate results, `final` is set to `false`.</li><li>`false` (default) — Return only the final results (the entire recognized utterance). |
-| config<br>.specification<br>.singleUtterance | **boolean**<br>Flag that disables recognition after the first utterance.<br/>Acceptable values:<ul><li>`true` — Recognize only the first utterance, stop recognition, and wait for the user to disconnect.</li><li>`false` (default) — Continue recognition until the end of the session.</li></ul> |
-| config<br>.specification<br>.audioEncoding | **string**<br>[The format](formats.md) of the submitted audio.<br/>Acceptable values:<ul><li>`LINEAR16_PCM` — [LPCM with no WAV header](formats.md#lpcm).</li><li>`OGG_OPUS` (default) — [OggOpus](formats.md#oggopus) format.</li></ul> |
-| config<br>.specification<br>.sampleRateHertz | **integer** (int64)<br>The sampling frequency of the submitted audio.<br/>Required if `format` is set to `LINEAR16_PCM`. Acceptable values:<ul><li>`48000` (default) — Sampling rate of 48 kHz.</li><li>`16000` — Sampling rate of 16 kHz.</li><li>`8000` — Sampling rate of 8 kHz.</li></ul> |
-| config.<br>specification.<br>rawResults | **boolean** <br>Flag that indicates how to write numbers. `true` — In words. `false` (default) — In figures. |
+| config<br>.specification<br>.profanityFilter | **boolean**<br>The profanity filter.<br/>Acceptable values:<ul><li>`true`: Exclude profanity from recognition results.</li><li>`false` (default): Do not exclude profanity from recognition results.</li></ul> |
+| config<br>.specification<br>.partialResults | **boolean**<br>The intermediate results filter.<br/>Acceptable values:<ul><li>`true`: Return intermediate results (part of the recognized utterance). For intermediate results, `final` is set to `false`.</li><li>`false` (default): Return only the final results (the entire recognized utterance). |
+| config<br>.specification<br>.singleUtterance | **boolean**<br>Flag that disables recognition after the first utterance.<br/>Acceptable values:<ul><li>`true`: Recognize only the first utterance, stop recognition, and wait for the user to disconnect.</li><li>`false` (default): Continue recognition until the end of the session.</li></ul> |
+| config<br>.specification<br>.audioEncoding | **string**<br>[The format](formats.md) of the submitted audio.<br/>Acceptable values:<ul><li>`LINEAR16_PCM`: [LPCM with no WAV header](formats.md#lpcm).</li><li>`OGG_OPUS` (default): [OggOpus](formats.md#oggopus) format.</li></ul> |
+| config<br>.specification<br>.sampleRateHertz | **integer** (int64)<br>The sampling frequency of the submitted audio.<br/>Required if `format` is set to `LINEAR16_PCM`. Acceptable values:<ul><li>`48000` (default): Sampling rate of 48 kHz.</li><li>`16000`: Sampling rate of 16 kHz.</li><li>`8000`: Sampling rate of 8 kHz.</li></ul> |
+| config.<br>specification.<br>rawResults | **boolean** <br>Flag that indicates how to write numbers. `true`: In words. `false` (default): In figures. |
 | folderId | **string**<br><p>ID of the folder that you have access to. Required for authorization with a user account (see the <a href="/docs/iam/api-ref/UserAccount#representation">UserAccount</a> resource). Don't specify this field if you make a request on behalf of a service account.</p> <p>Maximum string length: 50 characters.</p> |
 
 ### Experimental additional recognition settings {#additional-settings}
@@ -78,8 +78,8 @@ For streaming recognition models starting from the_Marcus Aurelius_ version and 
 
 | Parameter | Description |
 | ----- | ----- |
-| `x-sensitivity-reduction-flag` | **boolean**<br>A flag that reduces the sensitivity of background noise recognition.<br>Acceptable values:<ul><li>`true` — Sensitivity is reduced.</li><li>`false` (default) — Sensitivity isn't reduced. |
-| `x-normalize-partials` | **boolean**<br>A flag that lets you get intermediate recognition results (parts of a recognized utterance) in normalized form: numbers are passed as digits, the profanity filter is enabled, and so on.<br>Acceptable values:<ul><li>`true` — Return a normalized result.</li><li>`false` (default) — Return an unnormalized result. |
+| `x-sensitivity-reduction-flag` | **boolean**<br>A flag that reduces the sensitivity of background noise recognition.<br>Acceptable values:<ul><li>`true`: Sensitivity is reduced.</li><li>`false` (default): Sensitivity isn't reduced. |
+| `x-normalize-partials` | **boolean**<br>A flag that lets you get intermediate recognition results (parts of a recognized utterance) in normalized form: numbers are passed as digits, the profanity filter is enabled, and so on.<br>Acceptable values:<ul><li>`true`: Return a normalized result.</li><li>`false` (default): Return an unnormalized result. |
 
 ### Audio message {#audio-msg}
 
@@ -92,12 +92,12 @@ For streaming recognition models starting from the_Marcus Aurelius_ version and 
 If speech fragment recognition is successful, you will receive a message containing a list of recognition results (`chunks[]`). Each result contains the following fields:
 
 * `alternatives[]`: List of recognized text alternatives. Each alternative contains the following fields:
-    * `text` — Recognized text.
+    * `text`: Recognized text.
     * `confidence`: This field currently isn't supported. Don't use it.
 
-* `final` — Flag that indicates that this recognition result is final and will not change anymore. If the value is `false`, it means that the recognition result is intermediate and may change as the following speech fragments are recognized.
+* `final`: Flag that indicates that this recognition result is final and will not change anymore. If the value is `false`, it means that the recognition result is intermediate and may change as the following speech fragments are recognized.
 
-* `endOfUtterance` — Flag that indicates that this result contains the end of the utterance. If the value is `true`, the new utterance will start with the next result obtained.
+* `endOfUtterance`: Flag that indicates that this result contains the end of the utterance. If the value is `true`, the new utterance will start with the next result obtained.
 
    {% note info %}
 
@@ -114,7 +114,7 @@ List of possible gRPC errors returned by the service:
 | Code | Status | Description |
 | ----- | ----- | ----- |
 | 3 | `INVALID_ARGUMENT` | Incorrect request parameters specified. Details are provided in the `details` field. |
-| 16 | `UNAUTHENTICATED` | The operation requires authentication. Check the IAM token and the ID of the folder that you passed. |
+| 16 | `UNAUTHENTICATED` | The operation requires authentication. Check the IAM token and the folder ID that you passed. |
 | 13 | `INTERNAL` | Internal server error. This error means that the operation cannot be performed due to a server-side technical problem. For example, due to insufficient computing resources. |
 
 ## Examples {#examples}
@@ -127,7 +127,7 @@ To try the examples in this section:
     git clone https://github.com/yandex-cloud/cloudapi
     ```
 1. [Get the ID of the folder](../../resource-manager/operations/folder/get-id.md) your account has been granted access to.
-1. In the examples, an [IAM token](../../iam/concepts/authorization/iam-token) is used for authentication ([other authentication methods](../concepts/auth.md)). Get an IAM token:
+1. For authentication, the examples use an [IAM token](../../iam/concepts/authorization/iam-token) ([see other authentication methods](../concepts/auth.md)). Get an IAM token:
     * [Instructions](../../iam/operations/iam-token/create.md) for a Yandex account.
     * [Instructions](../../iam/operations/iam-token/create-for-sa.md) for a service account.
 1. Download a [sample](https://storage.yandexcloud.net/speechkit/speech.pcm) audio file for recognition. The audio file is in [LPCM](https://en.wikipedia.org/wiki/Pulse-code_modulation) format with a sampling rate of 8000.
@@ -353,4 +353,3 @@ Then proceed to creating a client app.
       ```
 
 {% endlist %}
-

@@ -2,6 +2,33 @@
 
 {% list tabs %}
 
+- Management console
+
+   To create a device:
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your device.
+   1. Select **{{ iot-name }}**.
+   1. Select the desired registry from the list.
+   1. In the left part of the window, select **Devices**.
+   1. Click **Add device**.
+   1. Specify **basic parameters** for the device:
+      - Enter a device **Name**. For example, `my-device`.
+      - (optional) Add a **Description** with additional information about the device.
+      - Set a **Password** that you'll use to access the device.<br/>To do this, you can use the [password generator](https://passwordsgenerator.net/).<br/>Don't forget to save your password, you'll need it.
+   1. (optional) Add [aliases](../../concepts/topic.md#aliases):
+      1. Click **Add alias**.
+      1. Fill in the fields: enter an alias (for example, `events`) and the topic type after `$devices/<deviceID>` (for example, `events`).<br/>You can use the `events` alias instead of the `$devices/<deviceID>/events` topic.
+   1. (optional) Add [certificates](../../operations/certificates/create-certificates.md):
+      - To add a file:
+         1. Choose the **File** method.
+         1. Click **Select file**.
+         1. Specify the certificate file on your computer and click **Open**.
+         1. Click **Add**.
+      - To add text:
+         1. Choose the **Text** method.
+         1. Insert the certificate body in the **Contents** field.
+         1. Click **Add**.
+   1. Click **Add**.
+
 - CLI
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
@@ -36,7 +63,7 @@
 
    {% include [terraform-definition](../../../solutions/_solutions_includes/terraform-definition.md) %}
 
-   If you don't have Terraform, [install it and configure the Yandex.Cloud provider](../../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you don't have Terraform yet, [install it and configure the {{ yandex-cloud }} provider](../../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    {% note info %}
 

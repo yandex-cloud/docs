@@ -23,7 +23,7 @@ Returns the specified ResourcePreset resource. <br>To get the list of available 
 
 Field | Description
 --- | ---
-resource_preset_id | **string**<br>Required. Required. ID of the resource preset to return. To get the resource preset ID, use a [ResourcePresetService.List](#List) request. false
+resource_preset_id | **string**<br>Required. Required. ID of the resource preset to return. To get the resource preset ID, use a [ResourcePresetService.List](#List) request. 
 
 
 ### ResourcePreset {#ResourcePreset}
@@ -55,10 +55,10 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 Field | Description
 --- | ---
 resource_presets[] | **[ResourcePreset](../resource_preset.proto#ResourcePreset1)**<br>List of ResourcePreset resources. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListResourcePresetsRequest.page_size](#ListResourcePresetsRequest1), use the `next_page_token` as the value for the [ListResourcePresetsRequest.page_token](#ListResourcePresetsRequest1) parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. The maximum string length in characters is 100.
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListResourcePresetsRequest.page_size](#ListResourcePresetsRequest), use the `next_page_token` as the value for the [ListResourcePresetsRequest.page_token](#ListResourcePresetsRequest) parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. The maximum string length in characters is 100.
 
 
-### ResourcePreset {#ResourcePreset}
+### ResourcePreset {#ResourcePreset1}
 
 Field | Description
 --- | ---

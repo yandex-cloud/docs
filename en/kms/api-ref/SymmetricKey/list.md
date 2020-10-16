@@ -45,7 +45,8 @@ pageToken | Page token. To get the next page of results, set [pageToken](/docs/k
       },
       "defaultAlgorithm": "string",
       "rotatedAt": "string",
-      "rotationPeriod": "string"
+      "rotationPeriod": "string",
+      "deletionProtection": true
     }
   ],
   "nextPageToken": "string"
@@ -74,4 +75,5 @@ keys[].<br>primaryVersion.<br>destroyAt | **string** (date-time)<br><p>Time when
 keys[].<br>defaultAlgorithm | **string**<br><p>Default encryption algorithm to be used with new versions of the key.</p> <p>Supported symmetric encryption algorithms.</p> <ul> <li>AES_128: AES algorithm with 128-bit keys.</li> <li>AES_192: AES algorithm with 192-bit keys.</li> <li>AES_256: AES algorithm with 256-bit keys.</li> </ul> 
 keys[].<br>rotatedAt | **string** (date-time)<br><p>Time of the last key rotation (time when the last version was created). Empty if the key does not have versions yet.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 keys[].<br>rotationPeriod | **string**<br><p>Time period between automatic key rotations.</p> 
+keys[].<br>deletionProtection | **boolean** (boolean)<br><p>Flag that inhibits deletion of the key</p> 
 nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is greater than the specified <a href="/docs/kms/api-ref/SymmetricKey/list#query_params">pageSize</a>, use the <a href="/docs/kms/api-ref/SymmetricKey/list#responses">nextPageToken</a> as the value for the <a href="/docs/kms/api-ref/SymmetricKey/list#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own <a href="/docs/kms/api-ref/SymmetricKey/list#responses">nextPageToken</a> to continue paging through the results.</p> 

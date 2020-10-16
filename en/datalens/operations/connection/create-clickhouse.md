@@ -9,18 +9,16 @@
 
 {% endnote %}
 
+{% include [connection-note](../../../_includes/datalens/datalens-connection-note.md) %}
+
+## Connecting to ClickHouse {#clickhouse-connection}
+
 To create a ClickHouse connection:
 
 1. Go to the [connections page](https://datalens.yandex.com/connections).
-
 1. Click **Create connection**.
-
 1. Select the **ClickHouse** connector.
-
-   {% include [connection-note](../../../_includes/datalens/datalens-connection-note.md) %}
-
 1. Specify the connection parameters:
-
     - **Connection name**. Specify a name for the connection. You can set any name.
 
     - **Hostname or IP**. Specify the path to the ClickHouse host.
@@ -34,8 +32,6 @@ To create a ClickHouse connection:
         - `2` — Queries to read data and edit settings are allowed.
 
     - **Password**. Enter the password for the user.
-
 1. Click **Connect**. The connection appears in the list.
 
 You can check the host connection before creating it. To do this, click **Check connection**.
-

@@ -30,7 +30,7 @@ editable: false
 
 Поле | Описание
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор возвращаемого кластера Kubernetes. false
+cluster_id | **string**<br>Обязательное поле. Идентификатор возвращаемого кластера Kubernetes. 
 
 
 ### Cluster {#Cluster}
@@ -139,7 +139,7 @@ policy | **oneof:** `anytime`, `daily_maintenance_window` или `weekly_mainten
 
 Поле | Описание
 --- | ---
-start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Обязательное поле. Время начала окна обновлений, указывается в часовом поясе UTC. false
+start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Обязательное поле. Время начала окна обновлений, указывается в часовом поясе UTC. 
 duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Длительность окна обновлений. Допустимые значения — от 1h до 24h включительно.
 
 
@@ -155,7 +155,7 @@ days_of_week[] | **[DaysOfWeekMaintenanceWindow](../maintenance.proto#DaysOfWeek
 Поле | Описание
 --- | ---
 days[] | **google.type.DayOfWeek**<br>Дни недели, когда разрешены автоматические обновления. Количество элементов должно находиться в диапазоне от 1 до 7.
-start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Обязательное поле. Время начала окна обновлений, указывается в часовом поясе UTC. false
+start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Обязательное поле. Время начала окна обновлений, указывается в часовом поясе UTC. 
 duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Длительность окна обновлений. Допустимые значения — от 1h до 24h включительно.
 
 
@@ -184,7 +184,7 @@ provider | enum **Provider**<br> <ul><ul/>
 
 Поле | Описание
 --- | ---
-folder_id | **string**<br>Обязательное поле. Идентификатор каталога для получения списка кластеров Kubernetes. Чтобы получить идентификатор каталога, используйте запрос [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List). false
+folder_id | **string**<br>Обязательное поле. Идентификатор каталога для получения списка кластеров Kubernetes. Чтобы получить идентификатор каталога, используйте запрос [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List). 
 page_size | **int64**<br>Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `page_size`, сервис вернет значение [ListClustersResponse.next_page_token](#ListClustersResponse), которое можно использовать для получения следующей страницы. Значение по умолчанию: 100. Допустимые значения — от 0 до 1000 включительно.
 page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListClustersResponse.next_page_token](#ListClustersResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
 filter | **string**<br><ol><li>Имя поля. В настоящее время фильтрация осуществляется только по полю [Cluster.name](../cluster.proto#Cluster1). </li><li>Оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений. </li><li>Значение. Значение длиной от 1 до 61 символов, совпадающее с регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.</li></ol> Максимальная длина строки в символах — 1000.
@@ -195,10 +195,10 @@ filter | **string**<br><ol><li>Имя поля. В настоящее время
 Поле | Описание
 --- | ---
 clusters[] | **[Cluster](../cluster.proto#Cluster1)**<br>Список кластеров Kubernetes. 
-next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListClustersRequest.page_size](#ListClustersRequest1), используйте `next_page_token` в качестве значения параметра [ListClustersRequest.page_token](#ListClustersRequest1) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
+next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListClustersRequest.page_size](#ListClustersRequest), используйте `next_page_token` в качестве значения параметра [ListClustersRequest.page_token](#ListClustersRequest) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
 
 
-### Cluster {#Cluster}
+### Cluster {#Cluster1}
 
 Поле | Описание
 --- | ---
@@ -221,7 +221,7 @@ release_channel | enum **ReleaseChannel**<br>При создании класт�
 network_policy | **[NetworkPolicy](../cluster.proto#NetworkPolicy1)**<br> 
 
 
-### Master {#Master}
+### Master {#Master1}
 
 Поле | Описание
 --- | ---
@@ -235,7 +235,7 @@ version_info | **[VersionInfo](../version.proto#VersionInfo1)**<br>Подроб�
 maintenance_policy | **[MasterMaintenancePolicy](../cluster.proto#MasterMaintenancePolicy1)**<br>Политика обновления мастера. 
 
 
-### ZonalMaster {#ZonalMaster}
+### ZonalMaster {#ZonalMaster1}
 
 Поле | Описание
 --- | ---
@@ -244,7 +244,7 @@ internal_v4_address | **string**<br>Внутренний IPv4-адрес, наз
 external_v4_address | **string**<br>Внешний IPv4-адрес, назначенный мастеру. 
 
 
-### RegionalMaster {#RegionalMaster}
+### RegionalMaster {#RegionalMaster1}
 
 Поле | Описание
 --- | ---
@@ -253,7 +253,7 @@ internal_v4_address | **string**<br>Внутренний IPv4-адрес, наз
 external_v4_address | **string**<br>Внешний IPv4-адрес, назначенный мастеру. 
 
 
-### MasterEndpoints {#MasterEndpoints}
+### MasterEndpoints {#MasterEndpoints1}
 
 Поле | Описание
 --- | ---
@@ -261,14 +261,14 @@ internal_v4_endpoint | **string**<br>Внутренний эндпойнт, ко
 external_v4_endpoint | **string**<br>Внешний эндпойнт, который может использоваться для доступа к API кластера Kubernetes из интернета (вне Облака). 
 
 
-### MasterAuth {#MasterAuth}
+### MasterAuth {#MasterAuth1}
 
 Поле | Описание
 --- | ---
 cluster_ca_certificate | **string**<br>Публичный PEM-закодированный сертификат, подтверждающий подлинность кластера Kubernetes. 
 
 
-### VersionInfo {#VersionInfo}
+### VersionInfo {#VersionInfo1}
 
 Поле | Описание
 --- | ---
@@ -278,7 +278,7 @@ new_revision_summary | **string**<br>Описание изменений, кот
 version_deprecated | **bool**<br>Текущая версия устарела, компонент кластера Kubernetes (мастер или группа узлов) должен быть обновлен. 
 
 
-### MasterMaintenancePolicy {#MasterMaintenancePolicy}
+### MasterMaintenancePolicy {#MasterMaintenancePolicy1}
 
 Поле | Описание
 --- | ---
@@ -286,7 +286,7 @@ auto_upgrade | **bool**<br>Если установлено значение `tru
 maintenance_window | **[MaintenanceWindow](../maintenance.proto#MaintenanceWindow1)**<br>Настройки окна обновления. Обновление начнется в указанное время и продлится не более указанного времени. Время устанавливается в формате UTC. 
 
 
-### MaintenanceWindow {#MaintenanceWindow}
+### MaintenanceWindow {#MaintenanceWindow1}
 
 Поле | Описание
 --- | ---
@@ -296,35 +296,35 @@ policy | **oneof:** `anytime`, `daily_maintenance_window` или `weekly_mainten
 &nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](../maintenance.proto#WeeklyMaintenanceWindow1)**<br>Обновление мастера в выбранные дни в течение указанного временного окна. 
 
 
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow}
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow1}
 
 
 
-### DailyMaintenanceWindow {#DailyMaintenanceWindow}
+### DailyMaintenanceWindow {#DailyMaintenanceWindow1}
 
 Поле | Описание
 --- | ---
-start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Обязательное поле. Время начала окна обновлений, указывается в часовом поясе UTC. false
+start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Обязательное поле. Время начала окна обновлений, указывается в часовом поясе UTC. 
 duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Длительность окна обновлений. Допустимые значения — от 1h до 24h включительно.
 
 
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow}
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow1}
 
 Поле | Описание
 --- | ---
 days_of_week[] | **[DaysOfWeekMaintenanceWindow](../maintenance.proto#DaysOfWeekMaintenanceWindow1)**<br>Дни недели и окно обновлений для этих дней, когда разрешены автоматические обновления. Количество элементов должно находиться в диапазоне от 1 до 7.
 
 
-### DaysOfWeekMaintenanceWindow {#DaysOfWeekMaintenanceWindow}
+### DaysOfWeekMaintenanceWindow {#DaysOfWeekMaintenanceWindow1}
 
 Поле | Описание
 --- | ---
 days[] | **google.type.DayOfWeek**<br>Дни недели, когда разрешены автоматические обновления. Количество элементов должно находиться в диапазоне от 1 до 7.
-start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Обязательное поле. Время начала окна обновлений, указывается в часовом поясе UTC. false
+start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Обязательное поле. Время начала окна обновлений, указывается в часовом поясе UTC. 
 duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Длительность окна обновлений. Допустимые значения — от 1h до 24h включительно.
 
 
-### IPAllocationPolicy {#IPAllocationPolicy}
+### IPAllocationPolicy {#IPAllocationPolicy1}
 
 Поле | Описание
 --- | ---
@@ -332,7 +332,7 @@ cluster_ipv4_cidr_block | **string**<br>CIDR. Диапазон IP-адресов
 service_ipv4_cidr_block | **string**<br>CIDR. Диапазон IP-адресов для сервисов. <br>Диапазон не должен пересекаться ни с одной подсетью в облачной сети, в которой находится кластер Kubernetes. 
 
 
-### NetworkPolicy {#NetworkPolicy}
+### NetworkPolicy {#NetworkPolicy1}
 
 Поле | Описание
 --- | ---
@@ -353,17 +353,17 @@ provider | enum **Provider**<br> <ul><ul/>
 
 Поле | Описание
 --- | ---
-folder_id | **string**<br>Обязательное поле. Идентификатор каталога, в котором нужно создать кластер Kubernetes. Чтобы получить идентификатор каталога, используйте запрос [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List). false
+folder_id | **string**<br>Обязательное поле. Идентификатор каталога, в котором нужно создать кластер Kubernetes. Чтобы получить идентификатор каталога, используйте запрос [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List). 
 name | **string**<br>Имя кластера Kubernetes. Имя должно быть уникальным в каталоге. Значение должно соответствовать регулярному выражению ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>Описание кластера Kubernetes. Максимальная длина строки в символах — 256.
 labels | **map<string,string>**<br>Метки ресурса в формате `key:value`. Не более 64 на ресурс. Максимальная длина строки в символах для каждого значения — 63. Каждое значение должно соответствовать регулярному выражению ` [-_0-9a-z]* `. Длина строки в символах для каждого ключа должна быть от 1 до 63. Каждый ключ должен соответствовать регулярному выражению ` [a-z][-_0-9a-z]* `.
-network_id | **string**<br>Обязательное поле. Идентификатор облачной сети. false
-master_spec | **[MasterSpec](#MasterSpec)**<br>Обязательное поле. Политика распределения кластера Kubernetes. false
+network_id | **string**<br>Обязательное поле. Идентификатор облачной сети. 
+master_spec | **[MasterSpec](#MasterSpec)**<br>Обязательное поле. Политика распределения кластера Kubernetes. 
 ip_allocation_policy | **[IPAllocationPolicy](../cluster.proto#IPAllocationPolicy2)**<br>Политика распределения кластера Kubernetes. 
 internet_gateway | **oneof:** `gateway_ipv4_address`<br>
 &nbsp;&nbsp;gateway_ipv4_address | **string**<br>Адрес шлюза IPv4. 
-service_account_id | **string**<br>Обязательное поле. Сервисный аккаунт, используемый для выделения Compute Cloud и VPC ресурсов для кластера Kubernetes. Выбранный сервисный аккаунт должна иметь `edit` роль в каталоге, в котором будет расположен кластер Kubernetes, и в каталоге, в котором находится выбранная сеть. false
-node_service_account_id | **string**<br>Обязательное поле. Сервисный аккаунт, используемый узлами кластера Kubernetes для доступа к Container Registry или для загрузки логов и метрик узла. false
+service_account_id | **string**<br>Обязательное поле. Сервисный аккаунт, используемый для выделения Compute Cloud и VPC ресурсов для кластера Kubernetes. Выбранный сервисный аккаунт должна иметь `edit` роль в каталоге, в котором будет расположен кластер Kubernetes, и в каталоге, в котором находится выбранная сеть. 
+node_service_account_id | **string**<br>Обязательное поле. Сервисный аккаунт, используемый узлами кластера Kubernetes для доступа к Container Registry или для загрузки логов и метрик узла. 
 release_channel | enum **ReleaseChannel**<br>Релизный канал для мастера. <ul><li>`RAPID`: На канале часто появляются минорные обновления, содержащие новую функциональность и улучшения. Вы не можете отключить автоматическое обновление на этом канале, но вы можете указать период времени для автоматического обновления.</li><li>`REGULAR`: Новая функциональность и улучшения порциями попадают на канал через некоторое время после того, как были предоставлены на канале `RAPID`.</li><li>`STABLE`: На канале происходят только обновления, касающиеся исправление ошибок или улучшения безопасности.</li><ul/>
 network_policy | **[NetworkPolicy](../cluster.proto#NetworkPolicy2)**<br> 
 
@@ -383,7 +383,7 @@ maintenance_policy | **[MasterMaintenancePolicy](../cluster.proto#MasterMaintena
 
 Поле | Описание
 --- | ---
-zone_id | **string**<br>Обязательное поле. Идентификатор зоны доступности. false
+zone_id | **string**<br>Обязательное поле. Идентификатор зоны доступности. 
 internal_v4_address_spec | **[InternalAddressSpec](#InternalAddressSpec)**<br>Спецификация параметров для внутренней IPv4 сети. 
 external_v4_address_spec | **[ExternalAddressSpec](#ExternalAddressSpec)**<br>Спецификация параметров для внешней IPv4 сети. 
 
@@ -403,31 +403,31 @@ subnet_id | **string**<br>Идентификатор подсети. Если и
 
 Поле | Описание
 --- | ---
-region_id | **string**<br>Обязательное поле. Идентификатор зоны доступности, в которой находится мастер. false
+region_id | **string**<br>Обязательное поле. Идентификатор зоны доступности, в которой находится мастер. 
 locations[] | **[MasterLocation](#MasterLocation)**<br>Список местоположений (зон доступности и подсетей), в которых будут выделены ресурсы для мастера. 
-external_v4_address_spec | **[ExternalAddressSpec](#ExternalAddressSpec1)**<br>Указывается для выделения статического публичного IP-адреса для мастера. 
+external_v4_address_spec | **[ExternalAddressSpec](#ExternalAddressSpec)**<br>Указывается для выделения статического публичного IP-адреса для мастера. 
 
 
 ### MasterLocation {#MasterLocation}
 
 Поле | Описание
 --- | ---
-zone_id | **string**<br>Обязательное поле. Идентификатор зоны доступности. false
-internal_v4_address_spec | **[InternalAddressSpec](#InternalAddressSpec1)**<br>Если параметр не указан и в указанной зоне доступности только одна подсеть, то адрес будет выделен в этой подсети. 
+zone_id | **string**<br>Обязательное поле. Идентификатор зоны доступности. 
+internal_v4_address_spec | **[InternalAddressSpec](#InternalAddressSpec)**<br>Если параметр не указан и в указанной зоне доступности только одна подсеть, то адрес будет выделен в этой подсети. 
 
 
-### InternalAddressSpec {#InternalAddressSpec}
+### InternalAddressSpec {#InternalAddressSpec1}
 
 Поле | Описание
 --- | ---
 subnet_id | **string**<br>Идентификатор подсети. Если идентификатор не указан, а в указанной зоне имеется только одна подсеть, адрес будет выделен в этой подсети. 
 
 
-### ExternalAddressSpec {#ExternalAddressSpec}
+### ExternalAddressSpec {#ExternalAddressSpec1}
 
 
 
-### MasterMaintenancePolicy {#MasterMaintenancePolicy}
+### MasterMaintenancePolicy {#MasterMaintenancePolicy2}
 
 Поле | Описание
 --- | ---
@@ -435,7 +435,7 @@ auto_upgrade | **bool**<br>Если установлено значение `tru
 maintenance_window | **[MaintenanceWindow](../maintenance.proto#MaintenanceWindow2)**<br>Настройки окна обновления. Обновление начнется в указанное время и продлится не более указанного времени. Время устанавливается в формате UTC. 
 
 
-### MaintenanceWindow {#MaintenanceWindow}
+### MaintenanceWindow {#MaintenanceWindow2}
 
 Поле | Описание
 --- | ---
@@ -445,35 +445,35 @@ policy | **oneof:** `anytime`, `daily_maintenance_window` или `weekly_mainten
 &nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](../maintenance.proto#WeeklyMaintenanceWindow2)**<br>Обновление мастера в выбранные дни в течение указанного временного окна. 
 
 
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow}
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow2}
 
 
 
-### DailyMaintenanceWindow {#DailyMaintenanceWindow}
+### DailyMaintenanceWindow {#DailyMaintenanceWindow2}
 
 Поле | Описание
 --- | ---
-start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Обязательное поле. Время начала окна обновлений, указывается в часовом поясе UTC. false
+start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Обязательное поле. Время начала окна обновлений, указывается в часовом поясе UTC. 
 duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Длительность окна обновлений. Допустимые значения — от 1h до 24h включительно.
 
 
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow}
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow2}
 
 Поле | Описание
 --- | ---
 days_of_week[] | **[DaysOfWeekMaintenanceWindow](../maintenance.proto#DaysOfWeekMaintenanceWindow2)**<br>Дни недели и окно обновлений для этих дней, когда разрешены автоматические обновления. Количество элементов должно находиться в диапазоне от 1 до 7.
 
 
-### DaysOfWeekMaintenanceWindow {#DaysOfWeekMaintenanceWindow}
+### DaysOfWeekMaintenanceWindow {#DaysOfWeekMaintenanceWindow2}
 
 Поле | Описание
 --- | ---
 days[] | **google.type.DayOfWeek**<br>Дни недели, когда разрешены автоматические обновления. Количество элементов должно находиться в диапазоне от 1 до 7.
-start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Обязательное поле. Время начала окна обновлений, указывается в часовом поясе UTC. false
+start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Обязательное поле. Время начала окна обновлений, указывается в часовом поясе UTC. 
 duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Длительность окна обновлений. Допустимые значения — от 1h до 24h включительно.
 
 
-### IPAllocationPolicy {#IPAllocationPolicy}
+### IPAllocationPolicy {#IPAllocationPolicy2}
 
 Поле | Описание
 --- | ---
@@ -481,7 +481,7 @@ cluster_ipv4_cidr_block | **string**<br>CIDR. Диапазон IP-адресов
 service_ipv4_cidr_block | **string**<br>CIDR. Диапазон IP-адресов для сервисов. <br>Диапазон не должен пересекаться ни с одной подсетью в облачной сети, в которой находится кластер Kubernetes. 
 
 
-### NetworkPolicy {#NetworkPolicy}
+### NetworkPolicy {#NetworkPolicy2}
 
 Поле | Описание
 --- | ---
@@ -511,7 +511,7 @@ result | **oneof:** `error` или `response`<br>Результат операц
 cluster_id | **string**<br>Идентификатор создаваемого кластера Kubernetes. 
 
 
-### Cluster {#Cluster}
+### Cluster {#Cluster2}
 
 Поле | Описание
 --- | ---
@@ -548,7 +548,7 @@ network_policy | **[NetworkPolicy](../cluster.proto#NetworkPolicy3)**<br>
 
 Поле | Описание
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор обновляемого кластера Kubernetes. Чтобы получить идентификатор кластера Kubernetes, используйте [ClusterService.List](#List) запрос. false
+cluster_id | **string**<br>Обязательное поле. Идентификатор обновляемого кластера Kubernetes. Чтобы получить идентификатор кластера Kubernetes, используйте [ClusterService.List](#List) запрос. 
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br> 
 name | **string**<br>Имя кластера Kubernetes. Имя должно быть уникальным в каталоге. Значение должно соответствовать регулярному выражению ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>Описание кластера Kubernetes. Максимальная длина строки в символах — 256.
@@ -578,7 +578,7 @@ specifier | **oneof:** `version` или `latest_revision`<br>
 &nbsp;&nbsp;latest_revision | **bool**<br>Запрос минорного обновления, содержащего новую функциональность и улучшения, для текущей версии Kubernetes. 
 
 
-### MasterMaintenancePolicy {#MasterMaintenancePolicy}
+### MasterMaintenancePolicy {#MasterMaintenancePolicy3}
 
 Поле | Описание
 --- | ---
@@ -586,7 +586,7 @@ auto_upgrade | **bool**<br>Если установлено значение `tru
 maintenance_window | **[MaintenanceWindow](../maintenance.proto#MaintenanceWindow3)**<br>Настройки окна обновления. Обновление начнется в указанное время и продлится не более указанного времени. Время устанавливается в формате UTC. 
 
 
-### MaintenanceWindow {#MaintenanceWindow}
+### MaintenanceWindow {#MaintenanceWindow3}
 
 Поле | Описание
 --- | ---
@@ -596,42 +596,42 @@ policy | **oneof:** `anytime`, `daily_maintenance_window` или `weekly_mainten
 &nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](../maintenance.proto#WeeklyMaintenanceWindow3)**<br>Обновление мастера в выбранные дни в течение указанного временного окна. 
 
 
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow}
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow3}
 
 
 
-### DailyMaintenanceWindow {#DailyMaintenanceWindow}
+### DailyMaintenanceWindow {#DailyMaintenanceWindow3}
 
 Поле | Описание
 --- | ---
-start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Обязательное поле. Время начала окна обновлений, указывается в часовом поясе UTC. false
+start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Обязательное поле. Время начала окна обновлений, указывается в часовом поясе UTC. 
 duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Длительность окна обновлений. Допустимые значения — от 1h до 24h включительно.
 
 
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow}
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow3}
 
 Поле | Описание
 --- | ---
 days_of_week[] | **[DaysOfWeekMaintenanceWindow](../maintenance.proto#DaysOfWeekMaintenanceWindow3)**<br>Дни недели и окно обновлений для этих дней, когда разрешены автоматические обновления. Количество элементов должно находиться в диапазоне от 1 до 7.
 
 
-### DaysOfWeekMaintenanceWindow {#DaysOfWeekMaintenanceWindow}
+### DaysOfWeekMaintenanceWindow {#DaysOfWeekMaintenanceWindow3}
 
 Поле | Описание
 --- | ---
 days[] | **google.type.DayOfWeek**<br>Дни недели, когда разрешены автоматические обновления. Количество элементов должно находиться в диапазоне от 1 до 7.
-start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Обязательное поле. Время начала окна обновлений, указывается в часовом поясе UTC. false
+start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Обязательное поле. Время начала окна обновлений, указывается в часовом поясе UTC. 
 duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Длительность окна обновлений. Допустимые значения — от 1h до 24h включительно.
 
 
-### NetworkPolicy {#NetworkPolicy}
+### NetworkPolicy {#NetworkPolicy3}
 
 Поле | Описание
 --- | ---
 provider | enum **Provider**<br> <ul><ul/>
 
 
-### Operation {#Operation}
+### Operation {#Operation1}
 
 Поле | Описание
 --- | ---
@@ -654,7 +654,7 @@ result | **oneof:** `error` или `response`<br>Результат операц
 cluster_id | **string**<br>Идентификатор кластера Kubernetes, который обновляется. 
 
 
-### Cluster {#Cluster}
+### Cluster {#Cluster3}
 
 Поле | Описание
 --- | ---
@@ -691,10 +691,10 @@ network_policy | **[NetworkPolicy](../cluster.proto#NetworkPolicy4)**<br>
 
 Поле | Описание
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор удаляемого кластера Kubernetes. Чтобы получить идентификатор кластера Kubernetes, используйте запрос [ClusterService.List](#List). false
+cluster_id | **string**<br>Обязательное поле. Идентификатор удаляемого кластера Kubernetes. Чтобы получить идентификатор кластера Kubernetes, используйте запрос [ClusterService.List](#List). 
 
 
-### Operation {#Operation}
+### Operation {#Operation2}
 
 Поле | Описание
 --- | ---
@@ -731,11 +731,11 @@ cluster_id | **string**<br>Идентификатор кластера Kubernete
 
 Поле | Описание
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера Kubernetes, который следует остановить. Чтобы получить идентификатор кластера Kubernetes, используйте запрос [ClusterService.List](#List). false
+cluster_id | **string**<br>Обязательное поле. Идентификатор кластера Kubernetes, который следует остановить. Чтобы получить идентификатор кластера Kubernetes, используйте запрос [ClusterService.List](#List). 
 service_account_id | **string**<br>Идентификатор сервисного аккаунта с ролью на остановку кластера Kubernetes. 
 
 
-### Operation {#Operation}
+### Operation {#Operation3}
 
 Поле | Описание
 --- | ---
@@ -758,7 +758,7 @@ result | **oneof:** `error` или `response`<br>Результат операц
 cluster_id | **string**<br>Идентификатор кластера Kubernetes, который останавливается. 
 
 
-### Cluster {#Cluster}
+### Cluster {#Cluster4}
 
 Поле | Описание
 --- | ---
@@ -795,10 +795,10 @@ network_policy | **[NetworkPolicy](../cluster.proto#NetworkPolicy4)**<br>
 
 Поле | Описание
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера Kubernetes, который следует запустить. Чтобы получить идентификатор кластера Kubernetes, используйте запрос [ClusterService.List](#List). false
+cluster_id | **string**<br>Обязательное поле. Идентификатор кластера Kubernetes, который следует запустить. Чтобы получить идентификатор кластера Kubernetes, используйте запрос [ClusterService.List](#List). 
 
 
-### Operation {#Operation}
+### Operation {#Operation4}
 
 Поле | Описание
 --- | ---
@@ -821,7 +821,7 @@ result | **oneof:** `error` или `response`<br>Результат операц
 cluster_id | **string**<br>Идентификатор кластера Kubernetes, который запускается. 
 
 
-### Cluster {#Cluster}
+### Cluster {#Cluster5}
 
 Поле | Описание
 --- | ---
@@ -854,7 +854,7 @@ network_policy | **[NetworkPolicy](../cluster.proto#NetworkPolicy4)**<br>
 
 Поле | Описание
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера Kubernetes, для которого запрашивается список групп узлов. Чтобы получить идентификатор кластера Kubernetes, используйте[ClusterService.List](#List) запрос. false
+cluster_id | **string**<br>Обязательное поле. Идентификатор кластера Kubernetes, для которого запрашивается список групп узлов. Чтобы получить идентификатор кластера Kubernetes, используйте[ClusterService.List](#List) запрос. 
 page_size | **int64**<br>Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `page_size`, сервис вернет значение [ListClusterNodeGroupsResponse.next_page_token](#ListClusterNodeGroupsResponse), которое можно использовать для получения следующей страницы. Значение по умолчанию: 100. Допустимые значения — от 0 до 1000 включительно.
 page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListClusterNodeGroupsResponse.next_page_token](#ListClusterNodeGroupsResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
 filter | **string**<br>Параметры фильтрации ресурсов в ответе. В настоящее время фильтрация осуществляется только по полю [Cluster.name](../cluster.proto#Cluster6). Максимальная длина строки в символах — 1000.
@@ -865,7 +865,7 @@ filter | **string**<br>Параметры фильтрации ресурсов 
 Поле | Описание
 --- | ---
 node_groups[] | **[NodeGroup](../node_group.proto#NodeGroup)**<br>Список групп узлов для указанного кластера Kubernetes. 
-next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListClusterNodeGroupsRequest.page_size](#ListClusterNodeGroupsRequest1), используйте `next_page_token` в качестве значения параметра [ListClusterNodeGroupsRequest.page_token](#ListClusterNodeGroupsRequest1) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
+next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListClusterNodeGroupsRequest.page_size](#ListClusterNodeGroupsRequest), используйте `next_page_token` в качестве значения параметра [ListClusterNodeGroupsRequest.page_token](#ListClusterNodeGroupsRequest) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
 
 
 ### NodeGroup {#NodeGroup}
@@ -975,11 +975,11 @@ locations[] | **[NodeGroupLocation](../node_group.proto#NodeGroupLocation)**<br>
 
 Поле | Описание
 --- | ---
-zone_id | **string**<br>Обязательное поле. Идентификатор зоны доступности, в которой могут находиться узлы. false
+zone_id | **string**<br>Обязательное поле. Идентификатор зоны доступности, в которой могут находиться узлы. 
 subnet_id | **string**<br>Идентификатор подсети. Если сеть, выбранная для кластера Kubernetes, имеет только одну подсеть в указанной зоне, идентификатор подсети может быть опущен. 
 
 
-### VersionInfo {#VersionInfo}
+### VersionInfo {#VersionInfo2}
 
 Поле | Описание
 --- | ---
@@ -998,7 +998,7 @@ auto_repair | **bool**<br>Если установлено значение `true
 maintenance_window | **[MaintenanceWindow](../maintenance.proto#MaintenanceWindow4)**<br>Настройки окна обновления. Обновление начнется в указанное время и продлится не более указанного времени. Время устанавливается в формате UTC. 
 
 
-### MaintenanceWindow {#MaintenanceWindow}
+### MaintenanceWindow {#MaintenanceWindow4}
 
 Поле | Описание
 --- | ---
@@ -1008,31 +1008,31 @@ policy | **oneof:** `anytime`, `daily_maintenance_window` или `weekly_mainten
 &nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](../maintenance.proto#WeeklyMaintenanceWindow4)**<br>Обновление мастера в выбранные дни в течение указанного временного окна. 
 
 
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow}
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow4}
 
 
 
-### DailyMaintenanceWindow {#DailyMaintenanceWindow}
+### DailyMaintenanceWindow {#DailyMaintenanceWindow4}
 
 Поле | Описание
 --- | ---
-start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Обязательное поле. Время начала окна обновлений, указывается в часовом поясе UTC. false
+start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Обязательное поле. Время начала окна обновлений, указывается в часовом поясе UTC. 
 duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Длительность окна обновлений. Допустимые значения — от 1h до 24h включительно.
 
 
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow}
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow4}
 
 Поле | Описание
 --- | ---
 days_of_week[] | **[DaysOfWeekMaintenanceWindow](../maintenance.proto#DaysOfWeekMaintenanceWindow4)**<br>Дни недели и окно обновлений для этих дней, когда разрешены автоматические обновления. Количество элементов должно находиться в диапазоне от 1 до 7.
 
 
-### DaysOfWeekMaintenanceWindow {#DaysOfWeekMaintenanceWindow}
+### DaysOfWeekMaintenanceWindow {#DaysOfWeekMaintenanceWindow4}
 
 Поле | Описание
 --- | ---
 days[] | **google.type.DayOfWeek**<br>Дни недели, когда разрешены автоматические обновления. Количество элементов должно находиться в диапазоне от 1 до 7.
-start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Обязательное поле. Время начала окна обновлений, указывается в часовом поясе UTC. false
+start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Обязательное поле. Время начала окна обновлений, указывается в часовом поясе UTC. 
 duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Длительность окна обновлений. Допустимые значения — от 1h до 24h включительно.
 
 
@@ -1046,7 +1046,7 @@ duration | **[google.protobuf.Duration](https://developers.google.com/protocol-b
 
 Поле | Описание
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера Kubernetes, для которого запрашивается список операций. false
+cluster_id | **string**<br>Обязательное поле. Идентификатор кластера Kubernetes, для которого запрашивается список операций. 
 page_size | **int64**<br>Максимальное число возвращаемых результатов на странице. Если количество результатов больше чем `page_size`, сервис вернет значение [ListClusterOperationsResponse.next_page_token](#ListClusterOperationsResponse), которое можно использовать для получения следующей страницы. Значение по умолчанию: 100. Допустимые значения — от 0 до 1000 включительно.
 page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListClusterOperationsResponse.next_page_token](#ListClusterOperationsResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
 filter | **string**<br>Параметры фильтрации ресурсов в ответе. В настоящее время фильтрация осуществляется только по полю [Cluster.name](../cluster.proto#Cluster6). Максимальная длина строки в символах — 1000.
@@ -1057,10 +1057,10 @@ filter | **string**<br>Параметры фильтрации ресурсов 
 Поле | Описание
 --- | ---
 operations[] | **[operation.Operation](#Operation5)**<br>Список операций для указанного кластера Kubernetes. 
-next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListClusterOperationsRequest.page_size](#ListClusterOperationsRequest1), используйте `next_page_token` в качестве значения параметра [ListClusterOperationsRequest.page_token](#ListClusterOperationsRequest1) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
+next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListClusterOperationsRequest.page_size](#ListClusterOperationsRequest), используйте `next_page_token` в качестве значения параметра [ListClusterOperationsRequest.page_token](#ListClusterOperationsRequest) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
 
 
-### Operation {#Operation}
+### Operation {#Operation5}
 
 Поле | Описание
 --- | ---

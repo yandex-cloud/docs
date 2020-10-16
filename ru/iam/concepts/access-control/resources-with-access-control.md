@@ -9,6 +9,9 @@
 **{{ iam-name }}:**
 * [Сервисный аккаунт](../users/service-accounts.md)
 
+**{{ certificate-manager-name }}:**
+* [Сертификат](../../../certificate-manager/concepts/index.md)
+
 **{{ container-registry-name }}:**
 * [Реестр](../../../container-registry/concepts/registry.md)
 * [Репозиторий](../../../container-registry/concepts/repository.md)

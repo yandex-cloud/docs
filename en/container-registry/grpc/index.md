@@ -9,4 +9,5 @@ Service | Description
 [LifecyclePolicyService](./lifecycle_policy_service.md) | 
 [RegistryService](./registry_service.md) | A set of methods for managing Registry resources.
 [RepositoryService](./repository_service.md) | A set of methods for managing Repository resources.
+[ScannerService](./scanner_service.md) | A set of methods for scanning Docker images.
 [OperationService](./operation_service.md) | A set of methods for managing operations for asynchronous API requests.

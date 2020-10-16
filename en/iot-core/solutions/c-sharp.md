@@ -4,7 +4,7 @@ In this scenario, you'll learn how to connect to {{ iot-full-name }} using the [
 
 {% note info %}
 
-The source code used in this scenario is available on [GitHub](https://github.com/yandex-cloud/examples/tree/master/iot/Samples/c%23/). Interactions with {{ iot-full-name }} are encapsulated in the [YaClient](https://github.com/yandex-cloud/examples/blob/master/iot/Samples/c%23/YaClient.cs) class that you can use in your projects.
+The source code used in this scenario is available on [GitHub](https://github.com/yandex-cloud/examples/tree/master/iot/Samples/c%23/). Interactions with {{ iot-full-name }} are encapsulated in the [YaClient](https://github.com/yandex-cloud/examples/blob/master/iot/c%23/YaClient.cs) class that you can use in your projects.
 
 {% endnote %}
 
@@ -30,7 +30,7 @@ To connect to {{ iot-full-name }} and start messaging:
 
 ## Before you start {#before-you-begin}
 
-1. If you don't have the Yandex.Cloud command line interface yet, [install and initialize it](../../cli/quickstart.md#install).
+1. If you don't have the {{ yandex-cloud }} command line interface yet, [install and initialize it](../../cli/quickstart.md#install).
 1. Download and install a development environment for .Net. For example, [Microsoft Visual Studio](https://visualstudio.microsoft.com/vs/).
 
 ## Create the necessary resources {{ iot-full-name }} {#resources}

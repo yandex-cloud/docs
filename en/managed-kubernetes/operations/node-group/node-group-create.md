@@ -75,20 +75,20 @@ To create a node group, [create a {{ k8s }} cluster](../kubernetes-cluster/kuber
     ```
 
     Where:
-    - `--name`: The name of the node group.
-    - `--cluster-name`: The name of the {{ k8s }} cluster where the node group is created.
+    - `--name`: Name of the node group.
+    - `--cluster-name`: Name of the {{ k8s }} cluster where the node group is created.
     - `--platform-id`: The [platform](../../../compute/concepts/vm-platforms.md) to host the nodes.
-    - `--public-ip`: The flag that is specified if the node group needs a public IP address.
-    - `--memory`: The amount of memory allocated for the nodes.
-    - `--cores`: The number of vCPUs for the nodes.
-    - `--core-fraction`: [The guaranteed vCPU share](../../../compute/concepts/performance-levels.md) for the nodes.
-    - `--preemptible`: The flag specified if the VM instances should be [preemptible](../../../compute/concepts/preemptible-vm.md).
-    - `--disk-type`: The type of the disk on the node.
-    - `--disk-size`: The size of the disk on the node.
-    - `--fixed-size`: The number of nodes in the node group.
-    - `--location`: The availability zone, network, and subnet to host the nodes. You can specify several options.
-    - `--version`: The {{ k8s }} version on the nodes.
-    - `--daily-maintenance-window`: The maintenance window settings.
+    - `--public-ip`: Flag specified if the node group needs a public IP address.
+    - `--memory`: Amount of memory allocated for the nodes.
+    - `--cores`: Number of vCPUs for the nodes.
+    - `--core-fraction`: [Guaranteed vCPU share](../../../compute/concepts/performance-levels.md) for the nodes.
+    - `--preemptible`: Flag specified if the VM instances should be [preemptible](../../../compute/concepts/preemptible-vm.md).
+    - `--disk-type`: Type of the disk on the node.
+    - `--disk-size`: Size of the disk on the node.
+    - `--fixed-size`: Number of nodes in the node group.
+    - `--location`: Availability zone, network, and subnet to host the nodes on. You can specify several options.
+    - `--version`: {{ k8s }} version on the nodes.
+    - `--daily-maintenance-window`: Maintenance window settings.
 
 - API
 

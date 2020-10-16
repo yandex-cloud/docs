@@ -65,18 +65,17 @@ In this case, only 4 GB of filtered traffic are billed: 2 GB that DDoS Protectio
 
 ### Cloud Interconnect {#prices-interconnect}
 
-The service is provided when technically possible. Yandex Cloud Interconnect prices are provided upon request and are subject to the technical characteristics of the connection to Yandex.Cloud.
+The service is provided when technically possible. Yandex Cloud Interconnect prices are provided upon request and are subject to the technical characteristics of the connection to {{ yandex-cloud }}.
 
 ### Using security groups {#prices-security-groups}
 
-The security groups function is currently at the [Preview](../overview/concepts/launch-stages.md) stage and is not charged.
-
+The [security group](concepts/security-groups.md) functionality is at the [Preview](../overview/concepts/launch-stages.md) stage and can be used free of charge.
 
 ### Outgoing traffic {#prices-traffic}
 
-Outgoing traffic from Yandex.Cloud resources is billed for the relevant service. Prices for outgoing traffic are the same for every service.
+Outgoing traffic from {{ yandex-cloud }} resources is charged within the relevant services. The cost of outgoing traffic is the same for all services.
 
-The minimum charging unit is 1 MB.
+The minimum billable unit is 1 MB.
 
 {% list tabs %}
 

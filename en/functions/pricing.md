@@ -54,13 +54,15 @@ Where:
 
     | Service | Cost of 1 million invokes, <br>without VAT |
     | ----- | ----- |
-    | Invoking a function | $0.128205 |
+    | Invoking a function, <1 000 000 invocations per month | Not charged |
+    | Invoking a function, >1 000 000 invocations per month | $0.128205 |
 
 - Prices in roubles
 
     | Service | Cost of 1 million invocations, <br>with VAT |
     | ----- | ----- |
-    | Invoking a function | ₽10  |
+    | Invoking a function, <1 000 000 invocations per month | Not charged |
+    | Invoking a function, >1 000 000 invocations per month | ₽10  |
 
 {% endlist %}
 
@@ -74,13 +76,15 @@ You are charged for an actual number of invokes. E.g., the cost of 1000 invokes 
 
     | Service | Price per 1 GB×hour, <br>without VAT |
     | ----- | ----- |
-    | Function execution | $0.043846 |
+    | Functions execution, <1 GB×hour per month | Not charged |
+    | Functions execution, >1 GB×hour per month | $0.043846 |
     
 - Prices in roubles
 
     | Service | Price per 1 GB×hour, <br>with VAT |
     | ----- | ----- |
-    | Function execution | ₽3.42  |
+    | Functions execution, <1 GB×hour per month | Not charged |
+    | Functions execution, >1 GB×hour per month | ₽3.42  |
 
 {% endlist %} 
 

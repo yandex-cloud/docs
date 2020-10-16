@@ -1,5 +1,7 @@
 # Привязать сертификат к домену
 
+{% include [preview-stage](../../../_includes/certificate-manager/preview-stage.md) %}
+
 Для подтверждения прав на домен к нему необходимо привязать [сертификат от Let's Encrypt](../../concepts/managed-certificate.md).
 
 Привязанный к домену сертификат будет использован для обеспечения TLS-соединения в [интегрированных облачных сервисах](../../concepts/domains/services.md).

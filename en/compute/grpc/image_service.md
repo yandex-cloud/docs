@@ -28,7 +28,7 @@ Returns the specified Image resource. <br>To get the list of available Image res
 
 Field | Description
 --- | ---
-image_id | **string**<br>Required. ID of the Image resource to return. To get the image ID, use a [ImageService.List](#List) request. false The maximum string length in characters is 50.
+image_id | **string**<br>Required. ID of the Image resource to return. To get the image ID, use a [ImageService.List](#List) request. The maximum string length in characters is 50.
 
 
 ### Image {#Image}
@@ -66,11 +66,11 @@ Returns the latest image that is part of an image family.
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder to get the image from. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. false The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the folder to get the image from. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. The maximum string length in characters is 50.
 family | **string**<br>Name of the image family to search for. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 
 
-### Image {#Image}
+### Image {#Image1}
 
 Field | Description
 --- | ---
@@ -88,7 +88,7 @@ status | enum **Status**<br>Current status of the image. <ul><li>`CREATING`: Ima
 os | **[Os](../image.proto#Os1)**<br>Operating system that is contained in the image. 
 
 
-### Os {#Os}
+### Os {#Os1}
 
 Field | Description
 --- | ---
@@ -105,7 +105,7 @@ Retrieves the list of Image resources in the specified folder.
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder to list images in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. false The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the folder to list images in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListImagesResponse.next_page_token](#ListImagesResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListImagesResponse.next_page_token](#ListImagesResponse) returned by a previous list request. The maximum string length in characters is 100.
 filter | **string**<br><ol><li>The field name. Currently you can use filtering only on the [Image.name](../image.proto#Image2) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z]([-a-z0-9]{,61}[a-z0-9])?$`.</li></ol> The maximum string length in characters is 1000.
@@ -119,7 +119,7 @@ images[] | **[Image](../image.proto#Image2)**<br>List of images.
 next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListSnapshotsRequest.page_size](../snapshot_service.proto#ListSnapshotsRequest), use the `next_page_token` as the value for the [ListSnapshotsRequest.page_token](../snapshot_service.proto#ListSnapshotsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
-### Image {#Image}
+### Image {#Image2}
 
 Field | Description
 --- | ---
@@ -137,7 +137,7 @@ status | enum **Status**<br>Current status of the image. <ul><li>`CREATING`: Ima
 os | **[Os](../image.proto#Os2)**<br>Operating system that is contained in the image. 
 
 
-### Os {#Os}
+### Os {#Os2}
 
 Field | Description
 --- | ---
@@ -158,7 +158,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder to create an image in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. false The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the folder to create an image in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. The maximum string length in characters is 50.
 name | **string**<br>Name of the image. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>Description of the image. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
@@ -173,7 +173,7 @@ source | **oneof:** `image_id`, `disk_id`, `snapshot_id` or `uri`<br>
 os | **[Os](../image.proto#Os3)**<br>Operating system that is contained in the image. <br>If not specified and you used the `image_id` or `disk_id` field to set the source, then the value can be inherited from the source resource. 
 
 
-### Os {#Os}
+### Os {#Os3}
 
 Field | Description
 --- | ---
@@ -203,7 +203,7 @@ Field | Description
 image_id | **string**<br>ID of the image that is being created. 
 
 
-### Image {#Image}
+### Image {#Image3}
 
 Field | Description
 --- | ---
@@ -235,7 +235,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-image_id | **string**<br>Required. ID of the Image resource to update. To get the image ID, use a [ImageService.List](#List) request. false The maximum string length in characters is 50.
+image_id | **string**<br>Required. ID of the Image resource to update. To get the image ID, use a [ImageService.List](#List) request. The maximum string length in characters is 50.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the Image resource are going to be updated. 
 name | **string**<br>Name of the image. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>Description of the image. The maximum string length in characters is 256.
@@ -243,7 +243,7 @@ min_disk_size | **int64**<br>Minimum size of the disk that can be created from t
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. <br>Existing set of `labels` is completely replaced by the provided set. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 
 
-### Operation {#Operation}
+### Operation {#Operation1}
 
 Field | Description
 --- | ---
@@ -266,7 +266,7 @@ Field | Description
 image_id | **string**<br>ID of the Image resource that is being updated. 
 
 
-### Image {#Image}
+### Image {#Image4}
 
 Field | Description
 --- | ---
@@ -298,10 +298,10 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-image_id | **string**<br>Required. ID of the image to delete. To get the image ID, use a [ImageService.List](#List) request. false The maximum string length in characters is 50.
+image_id | **string**<br>Required. ID of the image to delete. To get the image ID, use a [ImageService.List](#List) request. The maximum string length in characters is 50.
 
 
-### Operation {#Operation}
+### Operation {#Operation2}
 
 Field | Description
 --- | ---
@@ -334,7 +334,7 @@ Lists operations for the specified image.
 
 Field | Description
 --- | ---
-image_id | **string**<br>Required. ID of the Image resource to list operations for. false The maximum string length in characters is 50.
+image_id | **string**<br>Required. ID of the Image resource to list operations for. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListImageOperationsResponse.next_page_token](#ListImageOperationsResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListImageOperationsResponse.next_page_token](#ListImageOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
@@ -344,10 +344,10 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 Field | Description
 --- | ---
 operations[] | **[operation.Operation](#Operation3)**<br>List of operations for the specified image. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListImageOperationsRequest.page_size](#ListImageOperationsRequest1), use the `next_page_token` as the value for the [ListImageOperationsRequest.page_token](#ListImageOperationsRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListImageOperationsRequest.page_size](#ListImageOperationsRequest), use the `next_page_token` as the value for the [ListImageOperationsRequest.page_token](#ListImageOperationsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
-### Operation {#Operation}
+### Operation {#Operation3}
 
 Field | Description
 --- | ---

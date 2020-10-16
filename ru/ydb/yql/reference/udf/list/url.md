@@ -27,9 +27,7 @@ SELECT Url::Normalize("http://ya.ru#foo");      -- "http://ya.ru/"
 
 * ```Url::NormalizeWithDefaultHttpScheme(String?) -> String?```
 
-
 Выполняет нормализацию с помощью метода ```NUrlNorm::NormalizeUrl```. В отличие от `Url::Normalize`, подставляет схему ```http://``` в случае, если схемы нет.
-
 
 Возвращаемое значение:
 

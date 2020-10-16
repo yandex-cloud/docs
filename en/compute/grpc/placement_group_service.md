@@ -70,10 +70,10 @@ filter | **string**<br>A filter expression that filters resources listed in the 
 Field | Description
 --- | ---
 placement_groups[] | **[PlacementGroup](../placement_group.proto#PlacementGroup1)**<br>Lists placement groups in the specified folder. 
-next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListPlacementGroupsRequest.page_size](#ListPlacementGroupsRequest1), use `next_page_token` as the value for the [ListPlacementGroupsRequest.page_token](#ListPlacementGroupsRequest1) parameter in the next list request. <br>Each subsequent page will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListPlacementGroupsRequest.page_size](#ListPlacementGroupsRequest), use `next_page_token` as the value for the [ListPlacementGroupsRequest.page_token](#ListPlacementGroupsRequest) parameter in the next list request. <br>Each subsequent page will have its own `next_page_token` to continue paging through the results. 
 
 
-### PlacementGroup {#PlacementGroup}
+### PlacementGroup {#PlacementGroup1}
 
 Field | Description
 --- | ---
@@ -87,7 +87,7 @@ placement_strategy | **oneof:** `spread_placement_strategy`<br>Placement strateg
 &nbsp;&nbsp;spread_placement_strategy | **[SpreadPlacementStrategy](../placement_group.proto#SpreadPlacementStrategy1)**<br>Anti-affinity placement strategy (`spread`). Instances are distributed over distinct failure domains. 
 
 
-### SpreadPlacementStrategy {#SpreadPlacementStrategy}
+### SpreadPlacementStrategy {#SpreadPlacementStrategy1}
 
 
 
@@ -113,7 +113,7 @@ placement_strategy | **oneof:** `spread_placement_strategy`<br>Placement strateg
 &nbsp;&nbsp;spread_placement_strategy | **[SpreadPlacementStrategy](../placement_group.proto#SpreadPlacementStrategy2)**<br>Anti-affinity placement strategy (`spread`). Instances are distributed over distinct failure domains. 
 
 
-### SpreadPlacementStrategy {#SpreadPlacementStrategy}
+### SpreadPlacementStrategy {#SpreadPlacementStrategy2}
 
 
 
@@ -140,7 +140,7 @@ Field | Description
 placement_group_id | **string**<br>ID of the placement group that is being created. 
 
 
-### PlacementGroup {#PlacementGroup}
+### PlacementGroup {#PlacementGroup2}
 
 Field | Description
 --- | ---
@@ -175,7 +175,7 @@ description | **string**<br>Description of the placement group.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. <br>The existing set of `labels` is completely replaced by the provided set. 
 
 
-### Operation {#Operation}
+### Operation {#Operation1}
 
 Field | Description
 --- | ---
@@ -198,7 +198,7 @@ Field | Description
 placement_group_id | **string**<br>ID of the placement group that is being updated. 
 
 
-### PlacementGroup {#PlacementGroup}
+### PlacementGroup {#PlacementGroup3}
 
 Field | Description
 --- | ---
@@ -229,7 +229,7 @@ Field | Description
 placement_group_id | **string**<br>ID of the placement group to delete. <br>To get the placement group ID, use [PlacementGroupService.List](#List) request. 
 
 
-### Operation {#Operation}
+### Operation {#Operation2}
 
 Field | Description
 --- | ---
@@ -272,7 +272,7 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 Field | Description
 --- | ---
 instances[] | **[Instance](../instance.proto#Instance)**<br>Lists instances for the specified placement group. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is more than [ListPlacementGroupInstancesRequest.page_size](#ListPlacementGroupInstancesRequest1), use `next_page_token` as the value for the [ListPlacementGroupInstancesRequest.page_token](#ListPlacementGroupInstancesRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is more than [ListPlacementGroupInstancesRequest.page_size](#ListPlacementGroupInstancesRequest), use `next_page_token` as the value for the [ListPlacementGroupInstancesRequest.page_token](#ListPlacementGroupInstancesRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
 ### Instance {#Instance}
@@ -399,10 +399,10 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 Field | Description
 --- | ---
 operations[] | **[operation.Operation](#Operation3)**<br>List of operations for the specified placement group. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListPlacementGroupOperationsRequest.page_size](#ListPlacementGroupOperationsRequest1), use the `next_page_token` as the value for the [ListPlacementGroupOperationsRequest.page_token](#ListPlacementGroupOperationsRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListPlacementGroupOperationsRequest.page_size](#ListPlacementGroupOperationsRequest), use the `next_page_token` as the value for the [ListPlacementGroupOperationsRequest.page_token](#ListPlacementGroupOperationsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
-### Operation {#Operation}
+### Operation {#Operation3}
 
 Field | Description
 --- | ---

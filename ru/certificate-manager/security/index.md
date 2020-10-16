@@ -15,10 +15,12 @@
 
 На диаграмме показано, какие роли есть в сервисе и как они наследуют разрешения друг друга. Например, в `editor` входят все разрешения `viewer`. После диаграммы дано описание каждой роли.
 
-![image](../../_assets/certificate-manager/service-roles-hierarchy.svg)
+![image](../../_assets/certificate-manager/service-roles-hierarchy-with-admin.svg)
 
 Роли, действующие в сервисе:
 * Сервисные роли:
+    * {% include [certificate-manager.admin](../../_includes/iam/roles/short-descriptions/certificate-manager.admin.md) %}
+    * {% include [certificate-manager.certificates.downloader](../../_includes/iam/roles/short-descriptions/certificate-manager.certificates.downloader.md) %}
     * {% include [resource-manager.clouds.owner](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.owner.md) %}
     * {% include [resource-manager.clouds.member](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.member.md) %}
 * Примитивные роли:
@@ -39,11 +41,12 @@
 [Изменение](../operations/managed/cert-modify.md), [удаление](../operations/managed/cert-delete.md) сертификата от Let's Encrypt | `update`, `delete` | `editor` на сертификат или каталог
 [Создание](../operations/import/cert-create.md) пользовательского сертификата | `create` | `editor` на каталог
 [Обновление](../operations/import/cert-update.md), [изменение](../operations/import/cert-modify.md), [удаление](../operations/import/cert-delete.md) пользовательского сертификата | `update`, `delete` | `editor` на сертификат или каталог
+Получение содержимого сертификата: [пользовательского](../operations/import/cert-get-content.md) или [сертификата от Let's Encrypt](../operations/managed/cert-get-content.md) | `get-content` | `certificate-manager.certificates.downloader` на сертификат или каталог
 [Создание домена](../operations/domain/domain-create.md) | `create` | `editor` на каталог
 [Изменение домена](../operations/domain/domain-modify.md) и [удаление домена](../operations/domain/domain-delete.md) | `update`, `delete` | `editor` на домен или каталог
 [Обновление сертификата у домена](../operations/domain/domain-link-cert.md) | `setPrimaryCertificate` | `editor` на домен или каталог
 **IAM** | |
-[Назначение роли](../../iam/operations/roles/grant.md), [отзыв роли](../../iam/operations/roles/revoke.md) и просмотр назначенных ролей на каталог или облако | `setAccessBinding`, `updateAccessBindings`, `listAccessBindings` | `admin` на сертификат, домен или каталог 
+[Назначение роли](../../iam/operations/roles/grant.md), [отзыв роли](../../iam/operations/roles/revoke.md) и просмотр назначенных ролей на каталог или облако | `setAccessBinding`, `updateAccessBindings`, `listAccessBindings` | `admin` или `certificate-manager.admin` на сертификат, домен или каталог 
 
 #### Что дальше {what-is-next}
 

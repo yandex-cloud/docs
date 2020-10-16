@@ -17,7 +17,7 @@ STARTSWITH( string, substring )
 Returns `TRUE` if `string` starts with `substring`. For case-insensitive searches, see [ISTARTSWITH](ISTARTSWITH.md).
 
 **Argument types:**
-- `string` — `String`
+- `string` — `Boolean | Date | Datetime | Geopoint | Geopolygon | Number | String | UUID`
 - `substring` — `String`
 
 

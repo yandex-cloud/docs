@@ -76,7 +76,7 @@
 
      ```
      $ yc managed-mysql cluster create \
-        --cluster-name=<имя кластера> \
+        --name=<имя кластера> \
         --environment <окружение, prestable или production> \
         --network-name <имя сети> \
         --host zone-id=<зона доступности>,subnet-id=<идентификатор подсети> \

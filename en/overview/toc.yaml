@@ -3,6 +3,14 @@ href: index.yaml
 items:
   - name: Yandex.Cloud services
     href: concepts/services.md
+  - name: Mobile app
+    items:
+      - name: Overview
+        href: mobile-app/index.md
+      - name: For Android
+        href: mobile-app/android.md
+      - name: For iOS
+        href: mobile-app/ios.md
   - name: Equivalent services on other platforms
     items:
       - name: Overview

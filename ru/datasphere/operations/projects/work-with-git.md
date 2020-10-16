@@ -73,7 +73,7 @@
 Чтобы оправить в удаленный репозиторий сохраненные изменения:
 
 1. Перейдите в блок ![git](../../../_assets/datasphere/jupyterlab/git.svg) **Git**.
-1. Нажмите кнопку ![git](../../../_assets/datasphere/jupyterlab/push.svg) **Push commited changes**.
+1. Нажмите кнопку ![git](../../../_assets/datasphere/jupyterlab/push.svg) **Push committed changes**.
 1. В открывшемся окне введите имя и пароль пользователя с правом записи в удаленный репозиторий.
 1. Нажмите кнопку **Ok**.
 1. Дождитесь появления надписи **Git Push completed successfully**.

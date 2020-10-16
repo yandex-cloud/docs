@@ -78,7 +78,7 @@ address | **oneof:** `external_ipv4_address`<br>
 &nbsp;&nbsp;external_ipv4_address | **string**<br> 
 
 
-### Address {#Address}
+### Address {#Address1}
 
 Field | Description
 --- | ---
@@ -94,7 +94,7 @@ reserved | **bool**<br>
 used | **bool**<br> 
 
 
-### ExternalIpv4Address {#ExternalIpv4Address}
+### ExternalIpv4Address {#ExternalIpv4Address1}
 
 Field | Description
 --- | ---
@@ -103,7 +103,7 @@ zone_id | **string**<br>
 requirements | **[AddressRequirements](../address.proto#AddressRequirements1)**<br> 
 
 
-### AddressRequirements {#AddressRequirements}
+### AddressRequirements {#AddressRequirements1}
 
 Field | Description
 --- | ---
@@ -135,7 +135,7 @@ addresses[] | **[Address](../address.proto#Address2)**<br>
 next_page_token | **string**<br> 
 
 
-### Address {#Address}
+### Address {#Address2}
 
 Field | Description
 --- | ---
@@ -151,7 +151,7 @@ reserved | **bool**<br>
 used | **bool**<br> 
 
 
-### ExternalIpv4Address {#ExternalIpv4Address}
+### ExternalIpv4Address {#ExternalIpv4Address2}
 
 Field | Description
 --- | ---
@@ -160,7 +160,7 @@ zone_id | **string**<br>
 requirements | **[AddressRequirements](../address.proto#AddressRequirements2)**<br> 
 
 
-### AddressRequirements {#AddressRequirements}
+### AddressRequirements {#AddressRequirements2}
 
 Field | Description
 --- | ---
@@ -199,7 +199,7 @@ zone_id | **string**<br>
 requirements | **[AddressRequirements](../address.proto#AddressRequirements3)**<br> 
 
 
-### AddressRequirements {#AddressRequirements}
+### AddressRequirements {#AddressRequirements3}
 
 Field | Description
 --- | ---
@@ -230,7 +230,7 @@ Field | Description
 address_id | **string**<br> 
 
 
-### Address {#Address}
+### Address {#Address3}
 
 Field | Description
 --- | ---
@@ -268,7 +268,7 @@ labels | **map<string,string>**<br>
 reserved | **bool**<br> 
 
 
-### Operation {#Operation}
+### Operation {#Operation1}
 
 Field | Description
 --- | ---
@@ -291,7 +291,7 @@ Field | Description
 address_id | **string**<br> 
 
 
-### Address {#Address}
+### Address {#Address4}
 
 Field | Description
 --- | ---
@@ -324,7 +324,7 @@ Field | Description
 address_id | **string**<br> 
 
 
-### Operation {#Operation}
+### Operation {#Operation2}
 
 Field | Description
 --- | ---
@@ -370,7 +370,7 @@ operations[] | **[operation.Operation](#Operation3)**<br>
 next_page_token | **string**<br> 
 
 
-### Operation {#Operation}
+### Operation {#Operation3}
 
 Field | Description
 --- | ---

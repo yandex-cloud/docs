@@ -46,3 +46,10 @@ externalIpv4Address.<br>requirements.<br>outgoingSmtpCapability | **string**<br>
 ## Methods {#methods}
 Method | Description
 --- | ---
+[create](create.md) | 
+[delete](delete.md) | 
+[get](get.md) | 
+[getByValue](getByValue.md) | 
+[list](list.md) | 
+[listOperations](listOperations.md) | 
+[update](update.md) | 

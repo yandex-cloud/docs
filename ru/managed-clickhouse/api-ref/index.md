@@ -13,3 +13,4 @@ editable: false
 [MlModel](MlModel/index.md) | Набор методов управления моделями машинного обучения.
 [ResourcePreset](ResourcePreset/index.md) | Набор методов для управления ресурсами ResourcePreset.
 [User](User/index.md) | Набор методов для управления ресурсами User для ClickHouse.
+[Versions](Versions/index.md) | Набор методов для управления версиями ClickHouse.

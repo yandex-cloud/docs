@@ -1,4 +1,4 @@
-# Solutions
+# Use cases
 
 Below are tutorials for using {{ datalens-full-name }}:
 

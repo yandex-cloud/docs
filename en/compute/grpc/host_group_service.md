@@ -4,24 +4,24 @@ editable: false
 
 # HostGroupService
 
-A set of methods for managing groups of dedicated hosts
+A set of methods for managing groups of dedicated hosts.
 
 | Call | Description |
 | --- | --- |
-| [Get](#Get) | Returns the specified host group |
-| [List](#List) | Retrieves the list of host groups in the specified folder |
+| [Get](#Get) | Returns the specified host group. |
+| [List](#List) | Retrieves the list of host groups in the specified folder. |
 | [Create](#Create) | Creates a host group in the specified folder. |
 | [Update](#Update) | Updates the specified host group. |
 | [Delete](#Delete) | Deletes the specified host group. |
-| [ListOperations](#ListOperations) | Lists operations for the specified host group |
-| [ListInstances](#ListInstances) | Lists instances that belongs to the specified host group |
-| [ListHosts](#ListHosts) | Lists hosts that belongs to the specified host group |
+| [ListOperations](#ListOperations) | Lists operations for the specified host group. |
+| [ListInstances](#ListInstances) | Lists instances that belongs to the specified host group. |
+| [ListHosts](#ListHosts) | Lists hosts that belongs to the specified host group. |
 
 ## Calls HostGroupService {#calls}
 
 ## Get {#Get}
 
-Returns the specified host group
+Returns the specified host group.
 
 **rpc Get ([GetHostGroupRequest](#GetHostGroupRequest)) returns ([HostGroup](../host_group.proto#HostGroup))**
 
@@ -29,23 +29,23 @@ Returns the specified host group
 
 Field | Description
 --- | ---
-host_group_id | **string**<br>Required. ID of the host group to return. To get the host group ID, use [HostGroupService.List](#List) request. false The maximum string length in characters is 50.
+host_group_id | **string**<br>Required. ID of the host group to return. To get the host group ID, use [HostGroupService.List](#List) request. The maximum string length in characters is 50.
 
 
 ### HostGroup {#HostGroup}
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the group 
+id | **string**<br>ID of the group. 
 folder_id | **string**<br>ID of the folder that the group belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
 name | **string**<br>Name of the group. The name is unique within the folder. 
 description | **string**<br>Description of the group. 
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
-zone_id | **string**<br>Availability zone where all dedicated hosts are allocated 
-status | enum **Status**<br>Status of the group <ul><ul/>
-type_id | **string**<br>ID  of host type. Resources provided by each host of the group 
-maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events <ul><li>`RESTART`: Restart instances on the same host after maintenance event</li><li>`MIGRATE`: Migrate instances to another host before maintenance event</li><ul/>
+zone_id | **string**<br>Availability zone where all dedicated hosts are allocated. 
+status | enum **Status**<br>Status of the group. <ul><ul/>
+type_id | **string**<br>ID of host type. Resources provided by each host of the group. 
+maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events. <ul><li>`RESTART`: Restart instances on the same host after maintenance event.</li><li>`MIGRATE`: Migrate instances to another host before maintenance event.</li><ul/>
 scale_policy | **[ScalePolicy](../host_group.proto#ScalePolicy)**<br>Scale policy. Only fixed number of hosts are supported at this moment. 
 
 
@@ -66,7 +66,7 @@ size | **int64**<br>
 
 ## List {#List}
 
-Retrieves the list of host groups in the specified folder
+Retrieves the list of host groups in the specified folder.
 
 **rpc List ([ListHostGroupsRequest](#ListHostGroupsRequest)) returns ([ListHostGroupsResponse](#ListHostGroupsResponse))**
 
@@ -74,7 +74,7 @@ Retrieves the list of host groups in the specified folder
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder to list host groups in. To get the folder ID, use [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. false The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the folder to list host groups in. To get the folder ID, use [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListHostGroupsResponse.next_page_token](#ListHostGroupsResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListHostGroupsResponse.next_page_token](#ListHostGroupsResponse) returned by a previous list request. The maximum string length in characters is 100.
 filter | **string**<br>A filter expression that filters resources listed in the response. Currently you can use filtering only on the [HostGroup.name](../host_group.proto#HostGroup1) field. The maximum string length in characters is 1000.
@@ -85,27 +85,27 @@ filter | **string**<br>A filter expression that filters resources listed in the 
 Field | Description
 --- | ---
 host_groups[] | **[HostGroup](../host_group.proto#HostGroup1)**<br>Lists host groups for the specified folder. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListHostGroupsRequest.page_size](#ListHostGroupsRequest1), use `next_page_token` as the value for the [ListHostGroupsRequest.page_token](#ListHostGroupsRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListHostGroupsRequest.page_size](#ListHostGroupsRequest), use `next_page_token` as the value for the [ListHostGroupsRequest.page_token](#ListHostGroupsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
-### HostGroup {#HostGroup}
+### HostGroup {#HostGroup1}
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the group 
+id | **string**<br>ID of the group. 
 folder_id | **string**<br>ID of the folder that the group belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
 name | **string**<br>Name of the group. The name is unique within the folder. 
 description | **string**<br>Description of the group. 
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
-zone_id | **string**<br>Availability zone where all dedicated hosts are allocated 
-status | enum **Status**<br>Status of the group <ul><ul/>
-type_id | **string**<br>ID  of host type. Resources provided by each host of the group 
-maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events <ul><li>`RESTART`: Restart instances on the same host after maintenance event</li><li>`MIGRATE`: Migrate instances to another host before maintenance event</li><ul/>
+zone_id | **string**<br>Availability zone where all dedicated hosts are allocated. 
+status | enum **Status**<br>Status of the group. <ul><ul/>
+type_id | **string**<br>ID of host type. Resources provided by each host of the group. 
+maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events. <ul><li>`RESTART`: Restart instances on the same host after maintenance event.</li><li>`MIGRATE`: Migrate instances to another host before maintenance event.</li><ul/>
 scale_policy | **[ScalePolicy](../host_group.proto#ScalePolicy1)**<br>Scale policy. Only fixed number of hosts are supported at this moment. 
 
 
-### ScalePolicy {#ScalePolicy}
+### ScalePolicy {#ScalePolicy1}
 
 Field | Description
 --- | ---
@@ -113,7 +113,7 @@ scale_type | **oneof:** `fixed_scale`<br>
 &nbsp;&nbsp;fixed_scale | **[FixedScale](../host_group.proto#FixedScale1)**<br> 
 
 
-### FixedScale {#FixedScale}
+### FixedScale {#FixedScale1}
 
 Field | Description
 --- | ---
@@ -134,17 +134,17 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder to create a host group in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. false The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the folder to create a host group in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. The maximum string length in characters is 50.
 name | **string**<br>Name of the group. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>Description of the group. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
-zone_id | **string**<br>Required. Availability zone where all dedicated hosts will be allocated false The maximum string length in characters is 50.
-type_id | **string**<br>Required. ID of host type. Resources provided by each host of the group false The maximum string length in characters is 50.
-maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events <ul><li>`RESTART`: Restart instances on the same host after maintenance event</li><li>`MIGRATE`: Migrate instances to another host before maintenance event</li><ul/>
+zone_id | **string**<br>Required. Availability zone where all dedicated hosts will be allocated. The maximum string length in characters is 50.
+type_id | **string**<br>Required. ID of host type. Resources provided by each host of the group. The maximum string length in characters is 50.
+maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events. <ul><li>`RESTART`: Restart instances on the same host after maintenance event.</li><li>`MIGRATE`: Migrate instances to another host before maintenance event.</li><ul/>
 scale_policy | **[ScalePolicy](../host_group.proto#ScalePolicy2)**<br>Scale policy. Only fixed number of hosts are supported at this moment. 
 
 
-### ScalePolicy {#ScalePolicy}
+### ScalePolicy {#ScalePolicy2}
 
 Field | Description
 --- | ---
@@ -152,7 +152,7 @@ scale_type | **oneof:** `fixed_scale`<br>
 &nbsp;&nbsp;fixed_scale | **[FixedScale](../host_group.proto#FixedScale2)**<br> 
 
 
-### FixedScale {#FixedScale}
+### FixedScale {#FixedScale2}
 
 Field | Description
 --- | ---
@@ -182,20 +182,20 @@ Field | Description
 host_group_id | **string**<br>ID of the host group that is being created. 
 
 
-### HostGroup {#HostGroup}
+### HostGroup {#HostGroup2}
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the group 
+id | **string**<br>ID of the group. 
 folder_id | **string**<br>ID of the folder that the group belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
 name | **string**<br>Name of the group. The name is unique within the folder. 
 description | **string**<br>Description of the group. 
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
-zone_id | **string**<br>Availability zone where all dedicated hosts are allocated 
-status | enum **Status**<br>Status of the group <ul><ul/>
-type_id | **string**<br>ID  of host type. Resources provided by each host of the group 
-maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events <ul><li>`RESTART`: Restart instances on the same host after maintenance event</li><li>`MIGRATE`: Migrate instances to another host before maintenance event</li><ul/>
+zone_id | **string**<br>Availability zone where all dedicated hosts are allocated. 
+status | enum **Status**<br>Status of the group. <ul><ul/>
+type_id | **string**<br>ID of host type. Resources provided by each host of the group. 
+maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events. <ul><li>`RESTART`: Restart instances on the same host after maintenance event.</li><li>`MIGRATE`: Migrate instances to another host before maintenance event.</li><ul/>
 scale_policy | **[ScalePolicy](../host_group.proto#ScalePolicy3)**<br>Scale policy. Only fixed number of hosts are supported at this moment. 
 
 
@@ -213,16 +213,16 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-host_group_id | **string**<br>Required. ID of the host group to update. To get the host group ID, use an [HostGroupService.List](#List) request. false The maximum string length in characters is 50.
+host_group_id | **string**<br>Required. ID of the host group to update. To get the host group ID, use an [HostGroupService.List](#List) request. The maximum string length in characters is 50.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the HostGroup resource are going to be updated. 
 name | **string**<br>Name of the group. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>Description of the group. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. <br>The existing set of `labels` is completely replaced by the provided set. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
-maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events <ul><li>`RESTART`: Restart instances on the same host after maintenance event</li><li>`MIGRATE`: Migrate instances to another host before maintenance event</li><ul/>
+maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events <ul><li>`RESTART`: Restart instances on the same host after maintenance event.</li><li>`MIGRATE`: Migrate instances to another host before maintenance event.</li><ul/>
 scale_policy | **[ScalePolicy](../host_group.proto#ScalePolicy3)**<br>Scale policy. Only fixed number of hosts are supported at this moment. 
 
 
-### ScalePolicy {#ScalePolicy}
+### ScalePolicy {#ScalePolicy3}
 
 Field | Description
 --- | ---
@@ -230,14 +230,14 @@ scale_type | **oneof:** `fixed_scale`<br>
 &nbsp;&nbsp;fixed_scale | **[FixedScale](../host_group.proto#FixedScale3)**<br> 
 
 
-### FixedScale {#FixedScale}
+### FixedScale {#FixedScale3}
 
 Field | Description
 --- | ---
 size | **int64**<br> 
 
 
-### Operation {#Operation}
+### Operation {#Operation1}
 
 Field | Description
 --- | ---
@@ -260,20 +260,20 @@ Field | Description
 host_group_id | **string**<br>ID of the host group that is being updated. 
 
 
-### HostGroup {#HostGroup}
+### HostGroup {#HostGroup3}
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the group 
+id | **string**<br>ID of the group. 
 folder_id | **string**<br>ID of the folder that the group belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
 name | **string**<br>Name of the group. The name is unique within the folder. 
 description | **string**<br>Description of the group. 
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
-zone_id | **string**<br>Availability zone where all dedicated hosts are allocated 
-status | enum **Status**<br>Status of the group <ul><ul/>
-type_id | **string**<br>ID  of host type. Resources provided by each host of the group 
-maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events <ul><li>`RESTART`: Restart instances on the same host after maintenance event</li><li>`MIGRATE`: Migrate instances to another host before maintenance event</li><ul/>
+zone_id | **string**<br>Availability zone where all dedicated hosts are allocated. 
+status | enum **Status**<br>Status of the group. <ul><ul/>
+type_id | **string**<br>ID of host type. Resources provided by each host of the group. 
+maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events. <ul><li>`RESTART`: Restart instances on the same host after maintenance event.</li><li>`MIGRATE`: Migrate instances to another host before maintenance event.</li><ul/>
 scale_policy | **[ScalePolicy](../host_group.proto#ScalePolicy4)**<br>Scale policy. Only fixed number of hosts are supported at this moment. 
 
 
@@ -291,10 +291,10 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-host_group_id | **string**<br>Required. ID of the host group to delete. To get the host group ID, use [HostGroupService.List](#List) request. false The maximum string length in characters is 50.
+host_group_id | **string**<br>Required. ID of the host group to delete. To get the host group ID, use [HostGroupService.List](#List) request. The maximum string length in characters is 50.
 
 
-### Operation {#Operation}
+### Operation {#Operation2}
 
 Field | Description
 --- | ---
@@ -319,7 +319,7 @@ host_group_id | **string**<br>ID of the host group that is being deleted.
 
 ## ListOperations {#ListOperations}
 
-Lists operations for the specified host group
+Lists operations for the specified host group.
 
 **rpc ListOperations ([ListHostGroupOperationsRequest](#ListHostGroupOperationsRequest)) returns ([ListHostGroupOperationsResponse](#ListHostGroupOperationsResponse))**
 
@@ -327,7 +327,7 @@ Lists operations for the specified host group
 
 Field | Description
 --- | ---
-host_group_id | **string**<br>Required. ID of the host group to list operations for. To get the host group ID, use [HostGroupService.List](#List) request. false The maximum string length in characters is 50.
+host_group_id | **string**<br>Required. ID of the host group to list operations for. To get the host group ID, use [HostGroupService.List](#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListHostGroupOperationsResponse.next_page_token](#ListHostGroupOperationsResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListHostGroupOperationsResponse.next_page_token](#ListHostGroupOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
@@ -337,10 +337,10 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 Field | Description
 --- | ---
 operations[] | **[operation.Operation](#Operation3)**<br>List of operations for the specified host group. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListHostGroupOperationsRequest.page_size](#ListHostGroupOperationsRequest1), use the `next_page_token` as the value for the [ListHostGroupOperationsRequest.page_token](#ListHostGroupOperationsRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListHostGroupOperationsRequest.page_size](#ListHostGroupOperationsRequest), use the `next_page_token` as the value for the [ListHostGroupOperationsRequest.page_token](#ListHostGroupOperationsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
-### Operation {#Operation}
+### Operation {#Operation3}
 
 Field | Description
 --- | ---
@@ -358,7 +358,7 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 ## ListInstances {#ListInstances}
 
-Lists instances that belongs to the specified host group
+Lists instances that belongs to the specified host group.
 
 **rpc ListInstances ([ListHostGroupInstancesRequest](#ListHostGroupInstancesRequest)) returns ([ListHostGroupInstancesResponse](#ListHostGroupInstancesResponse))**
 
@@ -366,7 +366,7 @@ Lists instances that belongs to the specified host group
 
 Field | Description
 --- | ---
-host_group_id | **string**<br>Required. ID of the host group to list instances for. To get the host group ID, use [HostGroupService.List](#List) request. false The maximum string length in characters is 50.
+host_group_id | **string**<br>Required. ID of the host group to list instances for. To get the host group ID, use [HostGroupService.List](#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListHostGroupInstancesResponse.next_page_token](#ListHostGroupInstancesResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListHostGroupInstancesResponse.next_page_token](#ListHostGroupInstancesResponse) returned by a previous list request. The maximum string length in characters is 100.
 filter | **string**<br>A filter expression that filters resources listed in the response. Currently you can use filtering only on the [Host.id](../host_group.proto#Host) field. To get the host ID, use [HostGroupService.ListHosts](#ListHosts) request. The maximum string length in characters is 1000.
@@ -377,7 +377,7 @@ filter | **string**<br>A filter expression that filters resources listed in the 
 Field | Description
 --- | ---
 instances[] | **[Instance](../instance.proto#Instance)**<br>Lists instances for the specified host group. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is more than [ListHostGroupInstancesRequest.page_size](#ListHostGroupInstancesRequest1), use `next_page_token` as the value for the [ListHostGroupInstancesRequest.page_token](#ListHostGroupInstancesRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is more than [ListHostGroupInstancesRequest.page_size](#ListHostGroupInstancesRequest), use `next_page_token` as the value for the [ListHostGroupInstancesRequest.page_token](#ListHostGroupInstancesRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
 ### Instance {#Instance}
@@ -486,7 +486,7 @@ values[] | **string**<br>Affinity value or host ID or host group ID
 
 ## ListHosts {#ListHosts}
 
-Lists hosts that belongs to the specified host group
+Lists hosts that belongs to the specified host group.
 
 **rpc ListHosts ([ListHostGroupHostsRequest](#ListHostGroupHostsRequest)) returns ([ListHostGroupHostsResponse](#ListHostGroupHostsResponse))**
 
@@ -494,7 +494,7 @@ Lists hosts that belongs to the specified host group
 
 Field | Description
 --- | ---
-host_group_id | **string**<br>Required. ID of the host group to list hosts for. To get the host group ID, use [HostGroupService.List](#List) request. false The maximum string length in characters is 50.
+host_group_id | **string**<br>Required. ID of the host group to list hosts for. To get the host group ID, use [HostGroupService.List](#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListHostGroupHostsResponse.next_page_token](#ListHostGroupHostsResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListHostGroupHostsResponse.next_page_token](#ListHostGroupHostsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
@@ -504,7 +504,7 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 Field | Description
 --- | ---
 hosts[] | **[Host](../host_group.proto#Host)**<br>Lists hosts for the specified host group. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is more than [ListHostGroupHostsRequest.page_size](#ListHostGroupHostsRequest1), use `next_page_token` as the value for the [ListHostGroupHostsRequest.page_token](#ListHostGroupHostsRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is more than [ListHostGroupHostsRequest.page_size](#ListHostGroupHostsRequest), use `next_page_token` as the value for the [ListHostGroupHostsRequest.page_token](#ListHostGroupHostsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
 ### Host {#Host}

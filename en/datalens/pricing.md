@@ -123,11 +123,11 @@ You can switch from the **Free** to the **Standard** plan at any time. When you 
 
 So if you go from the **Standard** plan to the **Free** plan, the new plan and period would come into effect when the paid period under the **Standard** plan ends. In this case, the start date of the new period becomes the date the **Standard** plan ends.
 
-### Automatic session count renewal {#autoprolongation}
+### Automatic payment for additional sessions {#autoprolongation}
 
-Under the **Standard** plan, you can set up automatic session count renewal. To do this, you should specify your planned budget in the billing account.
+Under the **Standard** plan, you can set up automatic payment for additional sessions. To do this, you should specify your planned budget in the billing account.
 
-Automatic session count renewal isn't available in the **Free** plan. If you reach the session limit or the DB size limit for this plan, you can switch to the **Standard** plan.
+Automatic payment isn't available in the **Free** plan. If you reach the session limit or the DB size limit for this plan, you can switch to the **Standard** plan.
 
 ## Blocks {#locks}
 

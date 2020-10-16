@@ -34,6 +34,24 @@ You can work with {{ k8s }} persistent volumes by using the `PersistentVolume` a
 
 Users often need `PersistentVolumes` with different properties. {{ k8s }} cluster administrators can provide various `PersistentVolumes` by using [storage classes](../operations/volumes/manage-storage-class.md).
 
+## Modes for mounting persistent volumes {#volume-mode}
+
+{{ k8s }} supports two `volumeModes` for mounting `PersistentVolumes`: `Filesystem` (with a filesystem) and `Block` (without a filesystem).
+
+If the `volumeMode` parameter is omitted, `Filesystem` is the default mode used.
+
+### A volume with a filesystem {#filesystem}
+
+If you specify `volumeMode: Filesystem` in a `PersistentVolumeClaim`, {{ k8s }} creates a filesystem on a block device before mounting it to a pod for the first time.
+
+To learn how to provision a volume pod in `volumeMode: Filesystem`, see [{#T}](../operations/volumes/dynamic-create-pv.md).
+
+### A volume without a filesystem {#block}
+
+You can set `volumeMode: Block` to mount a volume as block storage without creating a filesystem on it. The application running in the pod with this volume must know how to handle a storage device without a file system.
+
+To learn how to provision a volume pod in `volumeMode: Block`, see [{#T}](../operations/volumes/mode-block.md).
+
 ## Provisioning volumes {#provisioning-volumes}
 
 In {{ managed-k8s-short-name }}, you can use `PersistentVolumes` built on [disks](../../compute/concepts/disk.md) in {{ compute-name }}. You can set the disk type and other parameters using applicable [storage classes](../operations/volumes/manage-storage-class.md).
@@ -53,19 +71,31 @@ In most cases, you don't need to create `PersistentVolumes` or {{ compute-name }
 To learn how to dynamically provision a volume, see [{#T}](../operations/volumes/dynamic-create-pv.md).
 
 ### Static volume provisioning {#static-provisioning}
- {#static-provisioning}
 
-In addition to creating new disks for provisioning `PersistentVolumes`, you can use existing Yandex.Cloud disks.
+In addition to creating new disks for provisioning `PersistentVolumes`, you can use existing {{ yandex-cloud }} disks.
 
 To learn more about static volume provisioning using cloud disks, see [{#T}](../operations/volumes/static-create-pv.md).
+
+## Expanding volumes {#volume-expansion}
+
+You can expand a {{ k8s }} volume after creating it. You can only resize a volume when the pod with this volume is no longer running.
+
+To expand a volume:
+
+1. Make sure the `StorageClass` description contains `allowVolumeExpansion: true`.
+1. Delete the pod with the volume to be resized.
+1. Edit the `PersistentVolumeClaim` to request more space.
+1. Wait for the volume to expand.
+1. Create a pod to mount the volume to.
+
+For information about how to expand a volume, see [{#T}](../operations/volumes/volume-expansion.md).
 
 ## Deleting volumes {#deleting-volumes}
 
 Depending on the `PersistentVolume` and `PersistentVolumeClaim` settings, volumes and disks can be deleted automatically or manually.
 
-- For dynamically provisioned volumes: after removing a `PersistentVolumeClaim` built on the `yc-network-hdd` or `yc-network-nvme` storage classes, the applicable `PersistentVolume` and Compute Cloud disk **are deleted**.
+- For dynamically provisioned volumes: after removing a `PersistentVolumeClaim` built on the `yc-network-hdd` or `yc-network-ssd` storage classes, the applicable `PersistentVolume` and Compute Cloud disk **are deleted**.
 
 - For statically provisioned volumes: you can specify whether to delete the {{ compute-name }} disk when deleting the `PersistentVolumeClaim`. To do this, use the `persistentVolumeReclaimPolicy` parameter in the [PersistentVolumeSpec](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.15/#persistentvolumespec-v1-core). By default, the `Retain` value is used for statically provisioned pods and the {{ compute-name }} disk is **not deleted**.
 
-Learn more about volumes in the {{ k8s }} [documentation](https://kubernetes.io/docs/concepts/storage/volumes/).
-
+Learn more about volumes in the [{{ k8s }} documentation](https://kubernetes.io/docs/concepts/storage/persistent-volumes/).

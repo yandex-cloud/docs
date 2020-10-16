@@ -1,8 +1,8 @@
 # Auto-healing
 
-{{ ig-name }} regularly runs health checks for the instances in your instance group. If an instance has stopped or an app is taking too long to respond, {{ ig-name }} will try to recover the instance: either it will restart it or create a new one, depending on the [deployment policy](policies.md#deploy-policy).
+{{ ig-name }} regularly runs health checks for the instances in your instance group. If an instance stopped or an app is taking too long to respond, {{ ig-name }} tries to recover the instance: it either restarts it or creates a new one, depending on the [deployment policy](policies.md#deploy-policy).
 
-## Types of health checks {#healthcheck-types}
+## Types of health checks {#setting-up-health-checks}
 
 For automatic recovery, {{ ig-name }} performs two types of health checks:
 
@@ -33,21 +33,21 @@ If you [created a group with a load balancer](../../operations/instance-groups/c
 
 For the purpose of instance recovery, {{ ig-name }} can restart  and create new instances, depending on the deployment policy settings:
 
-* For {{ ig-name }} to create new instances to replace those that failed the health check, set `max_expansion` — the maximum number of instances you can add to the target size of the instance group.
+* For {{ ig-name }} to create new instances to replace those that failed the health check, set `max_expansion` — the maximum number of instances you can add to the target size of the instance group. Acceptable values: 0 to 100.
 
     {{ ig-name }} will first create a new instance, wait until it passes all the checks, and then delete the instance that failed the check.
 
-* For {{ ig-name }} to restart the instances that failed the check, set `max_unavailable` — the maximum number of instances that you can make unavailable at the same time. {{ ig-name }} will aim not to exceed this at automatic recovery.
+* For {{ ig-name }} to restart the instances that failed the check, set `max_unavailable` — the maximum number of instances that you can make unavailable at the same time. {{ ig-name }} will aim not to exceed this at automatic recovery. Acceptable values: 0 to 100.
 
     This restriction does not apply to the instances in the [statuses](../vm-statuses.md) `STOPPED`, `ERROR`, and `CRASHED`, because they imply that the instance is already unavailable and must be restarted immediately.
 
 * For {{ ig-name }} to employ all the recovery methods in parallel, set both `max_expansion` and `max_unavailable`.
 
-    > Let's say you specified `max_unavailable = 1` and `max_expansion = 1`. When one instance fails the check, Instance Groups will begin restarting this instance and creating a new one in parallel. The instance that passes all the checks successfully will continue running and the other one will be deleted.
+    > Let's say you specified `max_expansion = 1` and `max_unavailable = 1`. When one instance fails the check, Instance Groups will begin restarting this instance and creating a new one in parallel. The instance that passes all the checks successfully will continue running and the other one will be deleted.
 
 * To limit the speed of recovery and deployment you can also use the following parameters:
-    * `max_creating` — Limits the number of instances that are deployed at the same time, meaning the created and started instances in the statuses `CREATING` and `STARTING`.
-    * `max_deleting` — Limits the number of instances undeployed at the same time, meaning instances in the `STOPPING` status. When deleting an instance, {{ ig-name }} always stops it first, hence this status is used to limit the workload.
+    * `max_creating` — Limits the number of instances that are deployed at the same time. These are created and started instances with the `CREATING` and `STARTING` statuses.<br>Acceptable values: 0 to 100. The value 0 is any number of instances within the allowed values.
+    * `max_deleting` — Limits the number of instances undeployed at the same time, meaning instances in the `STOPPING` status. When deleting an instance, {{ ig-name }} always stops it first, hence this status is used to limit the workload.<br>Acceptable values: 0 to 100. The value 0 is any number of instances within the allowed values.
 
 ### Change the instance status at recovery {#healtcheck-and-vm-state}
 
@@ -78,6 +78,8 @@ If you increase the target size of the instance group, new instances will be cre
 ### Auto-healing preemptible instances {#healthcheck-preemptible-vm}
 
 [Preemptible](../preemptible-vm.md) instances can only be auto-healed if the computing resources in the availability zone allow for this. If the resources are insufficient, {{ ig-name }} will resume auto-healing as soon as the resources become available, but this may take a long time.
+
+Preemptible VMs must be terminated within 24 hours of their launch. In this case, there is a risk that the entire instance group will restart at the same time and stop handling the load of running applications. To avoid this, {{ ig-name }} stops preemptible instances in the group not exactly after 24 hours, but after a random interval from 22 to 24 hours.
 
 #### See also {#see-also}
 

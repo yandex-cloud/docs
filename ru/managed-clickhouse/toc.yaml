@@ -41,6 +41,8 @@ items:
         href: operations/cluster-backups.md
       - name: Управление шардами
         href: operations/shards.md
+      - name: Управление группами шардов
+        href: operations/shard-groups.md
       - name: Удаление кластера
         href: operations/cluster-delete.md
   - name: Сценарии использования
@@ -107,6 +109,8 @@ items:
             href: grpc/resource_preset_service.md
           - name: UserService
             href: grpc/user_service.md
+          - name: VersionsService
+            href: grpc/versions_service.md
           - name: OperationService
             href: grpc/operation_service.md
       - name: REST
@@ -237,6 +241,12 @@ items:
                 href: api-ref/User/revokePermission.md
               - name: update
                 href: api-ref/User/update.md
+          - name: Versions
+            items:
+              - name: Обзор
+                href: api-ref/Versions/index.md
+              - name: list
+                href: api-ref/Versions/list.md
           - name: Operation
             items:
               - name: Обзор

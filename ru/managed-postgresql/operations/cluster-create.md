@@ -90,7 +90,7 @@
       
       ```bash
       $ yc managed-postgresql cluster create \
-         --cluster-name <имя кластера> \
+         --name <имя кластера> \
          --environment <окружение, prestable или production> \
          --network-name <имя сети> \
          --host zone-id=<зона доступности>,subnet-id=<идентификатор подсети> \
@@ -203,7 +203,7 @@
   
   ```
   $ yc managed-postgresql cluster create \
-       --cluster-name mypg \
+       --name mypg \
        --environment production \
        --network-name default \
        --resource-preset s2.micro \

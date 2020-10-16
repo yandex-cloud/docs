@@ -15,6 +15,7 @@ editable: false
 
   | Service | Rate for 1 million requests, without VAT |
   | ----- | ----- |
+  | The first 100 000 requests per month | Not charged |
   | Requests to standard queues | $0.390769 |
   | Requests to FIFO queues | $0.490000 |
 
@@ -22,6 +23,7 @@ editable: false
 
   Service | Rate for 1 million requests, with VAT
   ----- | -----
+  The first 100 000 requests per month | Not charged 
   Requests to standard queues | ₽30.48
   Requests to FIFO queues | ₽38.22
 

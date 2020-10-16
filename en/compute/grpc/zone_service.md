@@ -23,7 +23,7 @@ Returns the information about the specified availability zone. <br>To get the li
 
 Field | Description
 --- | ---
-zone_id | **string**<br>Required. ID of the availability zone to return information about. false The maximum string length in characters is 50.
+zone_id | **string**<br>Required. ID of the availability zone to return information about. The maximum string length in characters is 50.
 
 
 ### Zone {#Zone}
@@ -54,10 +54,10 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 Field | Description
 --- | ---
 zones[] | **[Zone](../instance_group.proto#Zone1)**<br>List of availability zones. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListZonesRequest.page_size](#ListZonesRequest1), use the [ListZonesRequest.page_token](#ListZonesRequest1)(#ListZonesRequest1)(#ListZonesRequest1) as the value for the [ListZonesRequest.page_token] query parameter in the next list request. Subsequent list requests will have their own [ListZonesRequest.page_token] to continue paging through the results. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListZonesRequest.page_size](#ListZonesRequest), use the [ListZonesRequest.page_token](#ListZonesRequest)(#ListZonesRequest)(#ListZonesRequest) as the value for the [ListZonesRequest.page_token] query parameter in the next list request. Subsequent list requests will have their own [ListZonesRequest.page_token] to continue paging through the results. 
 
 
-### Zone {#Zone}
+### Zone {#Zone1}
 
 Field | Description
 --- | ---

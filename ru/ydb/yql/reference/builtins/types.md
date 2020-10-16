@@ -198,7 +198,7 @@ SELECT FormatType(DictKeyType(
 
 ```sql
 SELECT FormatType(TupleElementType(
-  ParseType("Tuple<Int32,Double>"), 1
+  ParseType("Tuple<Int32,Double>"), "1"
 )); -- Double
 ```
 

@@ -1,3 +1,6 @@
 default:
   ydb-full-name: Yandex Database
   ydb-short-name: YDB
+  ydb-name: Yandex Database
+  ydb-cli: ydb
+  deploy: yfm

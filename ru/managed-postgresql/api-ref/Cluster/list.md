@@ -64,7 +64,7 @@ filter | Параметры фильтрации ресурсов в ответ�
           "dataLens": true
         },
 
-        // `clusters[].config` включает только одно из полей `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_12`
+        // `clusters[].config` включает только одно из полей `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`
         "postgresqlConfig_9_6": {
           "effectiveConfig": {
             "maxConnections": "integer",
@@ -1228,7 +1228,665 @@ filter | Параметры фильтрации ресурсов в ответ�
             "maxParallelWorkersPerGather": "integer"
           }
         },
+        "postgresqlConfig_11_1C": {
+          "effectiveConfig": {
+            "maxConnections": "integer",
+            "sharedBuffers": "integer",
+            "tempBuffers": "integer",
+            "maxPreparedTransactions": "integer",
+            "workMem": "integer",
+            "maintenanceWorkMem": "integer",
+            "autovacuumWorkMem": "integer",
+            "tempFileLimit": "integer",
+            "vacuumCostDelay": "integer",
+            "vacuumCostPageHit": "integer",
+            "vacuumCostPageMiss": "integer",
+            "vacuumCostPageDirty": "integer",
+            "vacuumCostLimit": "integer",
+            "bgwriterDelay": "integer",
+            "bgwriterLruMaxpages": "integer",
+            "bgwriterLruMultiplier": "number",
+            "bgwriterFlushAfter": "integer",
+            "backendFlushAfter": "integer",
+            "oldSnapshotThreshold": "integer",
+            "walLevel": "string",
+            "synchronousCommit": "string",
+            "checkpointTimeout": "integer",
+            "checkpointCompletionTarget": "number",
+            "checkpointFlushAfter": "integer",
+            "maxWalSize": "integer",
+            "minWalSize": "integer",
+            "maxStandbyStreamingDelay": "integer",
+            "defaultStatisticsTarget": "integer",
+            "constraintExclusion": "string",
+            "cursorTupleFraction": "number",
+            "fromCollapseLimit": "integer",
+            "joinCollapseLimit": "integer",
+            "forceParallelMode": "string",
+            "clientMinMessages": "string",
+            "logMinMessages": "string",
+            "logMinErrorStatement": "string",
+            "logMinDurationStatement": "integer",
+            "logCheckpoints": true,
+            "logConnections": true,
+            "logDisconnections": true,
+            "logDuration": true,
+            "logErrorVerbosity": "string",
+            "logLockWaits": true,
+            "logStatement": "string",
+            "logTempFiles": "integer",
+            "searchPath": "string",
+            "rowSecurity": true,
+            "defaultTransactionIsolation": "string",
+            "statementTimeout": "integer",
+            "lockTimeout": "integer",
+            "idleInTransactionSessionTimeout": "integer",
+            "byteaOutput": "string",
+            "xmlbinary": "string",
+            "xmloption": "string",
+            "ginPendingListLimit": "integer",
+            "deadlockTimeout": "integer",
+            "maxLocksPerTransaction": "integer",
+            "maxPredLocksPerTransaction": "integer",
+            "arrayNulls": true,
+            "backslashQuote": "string",
+            "defaultWithOids": true,
+            "escapeStringWarning": true,
+            "loCompatPrivileges": true,
+            "operatorPrecedenceWarning": true,
+            "quoteAllIdentifiers": true,
+            "standardConformingStrings": true,
+            "synchronizeSeqscans": true,
+            "transformNullEquals": true,
+            "exitOnError": true,
+            "seqPageCost": "number",
+            "randomPageCost": "number",
+            "autovacuumMaxWorkers": "integer",
+            "autovacuumVacuumCostDelay": "integer",
+            "autovacuumVacuumCostLimit": "integer",
+            "autovacuumNaptime": "integer",
+            "archiveTimeout": "integer",
+            "trackActivityQuerySize": "integer",
+            "enableBitmapscan": true,
+            "enableHashagg": true,
+            "enableHashjoin": true,
+            "enableIndexscan": true,
+            "enableIndexonlyscan": true,
+            "enableMaterial": true,
+            "enableMergejoin": true,
+            "enableNestloop": true,
+            "enableSeqscan": true,
+            "enableSort": true,
+            "enableTidscan": true,
+            "maxWorkerProcesses": "integer",
+            "maxParallelWorkers": "integer",
+            "maxParallelWorkersPerGather": "integer"
+          },
+          "userConfig": {
+            "maxConnections": "integer",
+            "sharedBuffers": "integer",
+            "tempBuffers": "integer",
+            "maxPreparedTransactions": "integer",
+            "workMem": "integer",
+            "maintenanceWorkMem": "integer",
+            "autovacuumWorkMem": "integer",
+            "tempFileLimit": "integer",
+            "vacuumCostDelay": "integer",
+            "vacuumCostPageHit": "integer",
+            "vacuumCostPageMiss": "integer",
+            "vacuumCostPageDirty": "integer",
+            "vacuumCostLimit": "integer",
+            "bgwriterDelay": "integer",
+            "bgwriterLruMaxpages": "integer",
+            "bgwriterLruMultiplier": "number",
+            "bgwriterFlushAfter": "integer",
+            "backendFlushAfter": "integer",
+            "oldSnapshotThreshold": "integer",
+            "walLevel": "string",
+            "synchronousCommit": "string",
+            "checkpointTimeout": "integer",
+            "checkpointCompletionTarget": "number",
+            "checkpointFlushAfter": "integer",
+            "maxWalSize": "integer",
+            "minWalSize": "integer",
+            "maxStandbyStreamingDelay": "integer",
+            "defaultStatisticsTarget": "integer",
+            "constraintExclusion": "string",
+            "cursorTupleFraction": "number",
+            "fromCollapseLimit": "integer",
+            "joinCollapseLimit": "integer",
+            "forceParallelMode": "string",
+            "clientMinMessages": "string",
+            "logMinMessages": "string",
+            "logMinErrorStatement": "string",
+            "logMinDurationStatement": "integer",
+            "logCheckpoints": true,
+            "logConnections": true,
+            "logDisconnections": true,
+            "logDuration": true,
+            "logErrorVerbosity": "string",
+            "logLockWaits": true,
+            "logStatement": "string",
+            "logTempFiles": "integer",
+            "searchPath": "string",
+            "rowSecurity": true,
+            "defaultTransactionIsolation": "string",
+            "statementTimeout": "integer",
+            "lockTimeout": "integer",
+            "idleInTransactionSessionTimeout": "integer",
+            "byteaOutput": "string",
+            "xmlbinary": "string",
+            "xmloption": "string",
+            "ginPendingListLimit": "integer",
+            "deadlockTimeout": "integer",
+            "maxLocksPerTransaction": "integer",
+            "maxPredLocksPerTransaction": "integer",
+            "arrayNulls": true,
+            "backslashQuote": "string",
+            "defaultWithOids": true,
+            "escapeStringWarning": true,
+            "loCompatPrivileges": true,
+            "operatorPrecedenceWarning": true,
+            "quoteAllIdentifiers": true,
+            "standardConformingStrings": true,
+            "synchronizeSeqscans": true,
+            "transformNullEquals": true,
+            "exitOnError": true,
+            "seqPageCost": "number",
+            "randomPageCost": "number",
+            "autovacuumMaxWorkers": "integer",
+            "autovacuumVacuumCostDelay": "integer",
+            "autovacuumVacuumCostLimit": "integer",
+            "autovacuumNaptime": "integer",
+            "archiveTimeout": "integer",
+            "trackActivityQuerySize": "integer",
+            "enableBitmapscan": true,
+            "enableHashagg": true,
+            "enableHashjoin": true,
+            "enableIndexscan": true,
+            "enableIndexonlyscan": true,
+            "enableMaterial": true,
+            "enableMergejoin": true,
+            "enableNestloop": true,
+            "enableSeqscan": true,
+            "enableSort": true,
+            "enableTidscan": true,
+            "maxWorkerProcesses": "integer",
+            "maxParallelWorkers": "integer",
+            "maxParallelWorkersPerGather": "integer"
+          },
+          "defaultConfig": {
+            "maxConnections": "integer",
+            "sharedBuffers": "integer",
+            "tempBuffers": "integer",
+            "maxPreparedTransactions": "integer",
+            "workMem": "integer",
+            "maintenanceWorkMem": "integer",
+            "autovacuumWorkMem": "integer",
+            "tempFileLimit": "integer",
+            "vacuumCostDelay": "integer",
+            "vacuumCostPageHit": "integer",
+            "vacuumCostPageMiss": "integer",
+            "vacuumCostPageDirty": "integer",
+            "vacuumCostLimit": "integer",
+            "bgwriterDelay": "integer",
+            "bgwriterLruMaxpages": "integer",
+            "bgwriterLruMultiplier": "number",
+            "bgwriterFlushAfter": "integer",
+            "backendFlushAfter": "integer",
+            "oldSnapshotThreshold": "integer",
+            "walLevel": "string",
+            "synchronousCommit": "string",
+            "checkpointTimeout": "integer",
+            "checkpointCompletionTarget": "number",
+            "checkpointFlushAfter": "integer",
+            "maxWalSize": "integer",
+            "minWalSize": "integer",
+            "maxStandbyStreamingDelay": "integer",
+            "defaultStatisticsTarget": "integer",
+            "constraintExclusion": "string",
+            "cursorTupleFraction": "number",
+            "fromCollapseLimit": "integer",
+            "joinCollapseLimit": "integer",
+            "forceParallelMode": "string",
+            "clientMinMessages": "string",
+            "logMinMessages": "string",
+            "logMinErrorStatement": "string",
+            "logMinDurationStatement": "integer",
+            "logCheckpoints": true,
+            "logConnections": true,
+            "logDisconnections": true,
+            "logDuration": true,
+            "logErrorVerbosity": "string",
+            "logLockWaits": true,
+            "logStatement": "string",
+            "logTempFiles": "integer",
+            "searchPath": "string",
+            "rowSecurity": true,
+            "defaultTransactionIsolation": "string",
+            "statementTimeout": "integer",
+            "lockTimeout": "integer",
+            "idleInTransactionSessionTimeout": "integer",
+            "byteaOutput": "string",
+            "xmlbinary": "string",
+            "xmloption": "string",
+            "ginPendingListLimit": "integer",
+            "deadlockTimeout": "integer",
+            "maxLocksPerTransaction": "integer",
+            "maxPredLocksPerTransaction": "integer",
+            "arrayNulls": true,
+            "backslashQuote": "string",
+            "defaultWithOids": true,
+            "escapeStringWarning": true,
+            "loCompatPrivileges": true,
+            "operatorPrecedenceWarning": true,
+            "quoteAllIdentifiers": true,
+            "standardConformingStrings": true,
+            "synchronizeSeqscans": true,
+            "transformNullEquals": true,
+            "exitOnError": true,
+            "seqPageCost": "number",
+            "randomPageCost": "number",
+            "autovacuumMaxWorkers": "integer",
+            "autovacuumVacuumCostDelay": "integer",
+            "autovacuumVacuumCostLimit": "integer",
+            "autovacuumNaptime": "integer",
+            "archiveTimeout": "integer",
+            "trackActivityQuerySize": "integer",
+            "enableBitmapscan": true,
+            "enableHashagg": true,
+            "enableHashjoin": true,
+            "enableIndexscan": true,
+            "enableIndexonlyscan": true,
+            "enableMaterial": true,
+            "enableMergejoin": true,
+            "enableNestloop": true,
+            "enableSeqscan": true,
+            "enableSort": true,
+            "enableTidscan": true,
+            "maxWorkerProcesses": "integer",
+            "maxParallelWorkers": "integer",
+            "maxParallelWorkersPerGather": "integer"
+          }
+        },
         "postgresqlConfig_12": {
+          "effectiveConfig": {
+            "maxConnections": "integer",
+            "sharedBuffers": "integer",
+            "tempBuffers": "integer",
+            "maxPreparedTransactions": "integer",
+            "workMem": "integer",
+            "maintenanceWorkMem": "integer",
+            "autovacuumWorkMem": "integer",
+            "tempFileLimit": "integer",
+            "vacuumCostDelay": "integer",
+            "vacuumCostPageHit": "integer",
+            "vacuumCostPageMiss": "integer",
+            "vacuumCostPageDirty": "integer",
+            "vacuumCostLimit": "integer",
+            "bgwriterDelay": "integer",
+            "bgwriterLruMaxpages": "integer",
+            "bgwriterLruMultiplier": "number",
+            "bgwriterFlushAfter": "integer",
+            "backendFlushAfter": "integer",
+            "oldSnapshotThreshold": "integer",
+            "walLevel": "string",
+            "synchronousCommit": "string",
+            "checkpointTimeout": "integer",
+            "checkpointCompletionTarget": "number",
+            "checkpointFlushAfter": "integer",
+            "maxWalSize": "integer",
+            "minWalSize": "integer",
+            "maxStandbyStreamingDelay": "integer",
+            "defaultStatisticsTarget": "integer",
+            "constraintExclusion": "string",
+            "cursorTupleFraction": "number",
+            "fromCollapseLimit": "integer",
+            "joinCollapseLimit": "integer",
+            "forceParallelMode": "string",
+            "clientMinMessages": "string",
+            "logMinMessages": "string",
+            "logMinErrorStatement": "string",
+            "logMinDurationStatement": "integer",
+            "logCheckpoints": true,
+            "logConnections": true,
+            "logDisconnections": true,
+            "logDuration": true,
+            "logErrorVerbosity": "string",
+            "logLockWaits": true,
+            "logStatement": "string",
+            "logTempFiles": "integer",
+            "searchPath": "string",
+            "rowSecurity": true,
+            "defaultTransactionIsolation": "string",
+            "statementTimeout": "integer",
+            "lockTimeout": "integer",
+            "idleInTransactionSessionTimeout": "integer",
+            "byteaOutput": "string",
+            "xmlbinary": "string",
+            "xmloption": "string",
+            "ginPendingListLimit": "integer",
+            "deadlockTimeout": "integer",
+            "maxLocksPerTransaction": "integer",
+            "maxPredLocksPerTransaction": "integer",
+            "arrayNulls": true,
+            "backslashQuote": "string",
+            "defaultWithOids": true,
+            "escapeStringWarning": true,
+            "loCompatPrivileges": true,
+            "operatorPrecedenceWarning": true,
+            "quoteAllIdentifiers": true,
+            "standardConformingStrings": true,
+            "synchronizeSeqscans": true,
+            "transformNullEquals": true,
+            "exitOnError": true,
+            "seqPageCost": "number",
+            "randomPageCost": "number",
+            "autovacuumMaxWorkers": "integer",
+            "autovacuumVacuumCostDelay": "integer",
+            "autovacuumVacuumCostLimit": "integer",
+            "autovacuumNaptime": "integer",
+            "archiveTimeout": "integer",
+            "trackActivityQuerySize": "integer",
+            "enableBitmapscan": true,
+            "enableHashagg": true,
+            "enableHashjoin": true,
+            "enableIndexscan": true,
+            "enableIndexonlyscan": true,
+            "enableMaterial": true,
+            "enableMergejoin": true,
+            "enableNestloop": true,
+            "enableSeqscan": true,
+            "enableSort": true,
+            "enableTidscan": true,
+            "maxWorkerProcesses": "integer",
+            "maxParallelWorkers": "integer",
+            "maxParallelWorkersPerGather": "integer",
+            "autovacuumVacuumScaleFactor": "number",
+            "autovacuumAnalyzeScaleFactor": "number",
+            "defaultTransactionReadOnly": true,
+            "timezone": "string",
+            "enableParallelAppend": true,
+            "enableParallelHash": true,
+            "enablePartitionPruning": true,
+            "enablePartitionwiseAggregate": true,
+            "enablePartitionwiseJoin": true,
+            "jit": true,
+            "maxParallelMaintenanceWorkers": "integer",
+            "parallelLeaderParticipation": true,
+            "vacuumCleanupIndexScaleFactor": "number",
+            "logTransactionSampleRate": "number",
+            "planCacheMode": "string",
+            "effectiveIoConcurrency": "integer",
+            "effectiveCacheSize": "integer",
+            "sharedPreloadLibraries": [
+              "string"
+            ],
+            "autoExplainLogMinDuration": "integer",
+            "autoExplainLogAnalyze": true,
+            "autoExplainLogBuffers": true,
+            "autoExplainLogTiming": true,
+            "autoExplainLogTriggers": true,
+            "autoExplainLogVerbose": true,
+            "autoExplainLogNestedStatements": true,
+            "autoExplainSampleRate": "number",
+            "pgHintPlanEnableHint": true,
+            "pgHintPlanEnableHintTable": true,
+            "pgHintPlanDebugPrint": "string",
+            "pgHintPlanMessageLevel": "string"
+          },
+          "userConfig": {
+            "maxConnections": "integer",
+            "sharedBuffers": "integer",
+            "tempBuffers": "integer",
+            "maxPreparedTransactions": "integer",
+            "workMem": "integer",
+            "maintenanceWorkMem": "integer",
+            "autovacuumWorkMem": "integer",
+            "tempFileLimit": "integer",
+            "vacuumCostDelay": "integer",
+            "vacuumCostPageHit": "integer",
+            "vacuumCostPageMiss": "integer",
+            "vacuumCostPageDirty": "integer",
+            "vacuumCostLimit": "integer",
+            "bgwriterDelay": "integer",
+            "bgwriterLruMaxpages": "integer",
+            "bgwriterLruMultiplier": "number",
+            "bgwriterFlushAfter": "integer",
+            "backendFlushAfter": "integer",
+            "oldSnapshotThreshold": "integer",
+            "walLevel": "string",
+            "synchronousCommit": "string",
+            "checkpointTimeout": "integer",
+            "checkpointCompletionTarget": "number",
+            "checkpointFlushAfter": "integer",
+            "maxWalSize": "integer",
+            "minWalSize": "integer",
+            "maxStandbyStreamingDelay": "integer",
+            "defaultStatisticsTarget": "integer",
+            "constraintExclusion": "string",
+            "cursorTupleFraction": "number",
+            "fromCollapseLimit": "integer",
+            "joinCollapseLimit": "integer",
+            "forceParallelMode": "string",
+            "clientMinMessages": "string",
+            "logMinMessages": "string",
+            "logMinErrorStatement": "string",
+            "logMinDurationStatement": "integer",
+            "logCheckpoints": true,
+            "logConnections": true,
+            "logDisconnections": true,
+            "logDuration": true,
+            "logErrorVerbosity": "string",
+            "logLockWaits": true,
+            "logStatement": "string",
+            "logTempFiles": "integer",
+            "searchPath": "string",
+            "rowSecurity": true,
+            "defaultTransactionIsolation": "string",
+            "statementTimeout": "integer",
+            "lockTimeout": "integer",
+            "idleInTransactionSessionTimeout": "integer",
+            "byteaOutput": "string",
+            "xmlbinary": "string",
+            "xmloption": "string",
+            "ginPendingListLimit": "integer",
+            "deadlockTimeout": "integer",
+            "maxLocksPerTransaction": "integer",
+            "maxPredLocksPerTransaction": "integer",
+            "arrayNulls": true,
+            "backslashQuote": "string",
+            "defaultWithOids": true,
+            "escapeStringWarning": true,
+            "loCompatPrivileges": true,
+            "operatorPrecedenceWarning": true,
+            "quoteAllIdentifiers": true,
+            "standardConformingStrings": true,
+            "synchronizeSeqscans": true,
+            "transformNullEquals": true,
+            "exitOnError": true,
+            "seqPageCost": "number",
+            "randomPageCost": "number",
+            "autovacuumMaxWorkers": "integer",
+            "autovacuumVacuumCostDelay": "integer",
+            "autovacuumVacuumCostLimit": "integer",
+            "autovacuumNaptime": "integer",
+            "archiveTimeout": "integer",
+            "trackActivityQuerySize": "integer",
+            "enableBitmapscan": true,
+            "enableHashagg": true,
+            "enableHashjoin": true,
+            "enableIndexscan": true,
+            "enableIndexonlyscan": true,
+            "enableMaterial": true,
+            "enableMergejoin": true,
+            "enableNestloop": true,
+            "enableSeqscan": true,
+            "enableSort": true,
+            "enableTidscan": true,
+            "maxWorkerProcesses": "integer",
+            "maxParallelWorkers": "integer",
+            "maxParallelWorkersPerGather": "integer",
+            "autovacuumVacuumScaleFactor": "number",
+            "autovacuumAnalyzeScaleFactor": "number",
+            "defaultTransactionReadOnly": true,
+            "timezone": "string",
+            "enableParallelAppend": true,
+            "enableParallelHash": true,
+            "enablePartitionPruning": true,
+            "enablePartitionwiseAggregate": true,
+            "enablePartitionwiseJoin": true,
+            "jit": true,
+            "maxParallelMaintenanceWorkers": "integer",
+            "parallelLeaderParticipation": true,
+            "vacuumCleanupIndexScaleFactor": "number",
+            "logTransactionSampleRate": "number",
+            "planCacheMode": "string",
+            "effectiveIoConcurrency": "integer",
+            "effectiveCacheSize": "integer",
+            "sharedPreloadLibraries": [
+              "string"
+            ],
+            "autoExplainLogMinDuration": "integer",
+            "autoExplainLogAnalyze": true,
+            "autoExplainLogBuffers": true,
+            "autoExplainLogTiming": true,
+            "autoExplainLogTriggers": true,
+            "autoExplainLogVerbose": true,
+            "autoExplainLogNestedStatements": true,
+            "autoExplainSampleRate": "number",
+            "pgHintPlanEnableHint": true,
+            "pgHintPlanEnableHintTable": true,
+            "pgHintPlanDebugPrint": "string",
+            "pgHintPlanMessageLevel": "string"
+          },
+          "defaultConfig": {
+            "maxConnections": "integer",
+            "sharedBuffers": "integer",
+            "tempBuffers": "integer",
+            "maxPreparedTransactions": "integer",
+            "workMem": "integer",
+            "maintenanceWorkMem": "integer",
+            "autovacuumWorkMem": "integer",
+            "tempFileLimit": "integer",
+            "vacuumCostDelay": "integer",
+            "vacuumCostPageHit": "integer",
+            "vacuumCostPageMiss": "integer",
+            "vacuumCostPageDirty": "integer",
+            "vacuumCostLimit": "integer",
+            "bgwriterDelay": "integer",
+            "bgwriterLruMaxpages": "integer",
+            "bgwriterLruMultiplier": "number",
+            "bgwriterFlushAfter": "integer",
+            "backendFlushAfter": "integer",
+            "oldSnapshotThreshold": "integer",
+            "walLevel": "string",
+            "synchronousCommit": "string",
+            "checkpointTimeout": "integer",
+            "checkpointCompletionTarget": "number",
+            "checkpointFlushAfter": "integer",
+            "maxWalSize": "integer",
+            "minWalSize": "integer",
+            "maxStandbyStreamingDelay": "integer",
+            "defaultStatisticsTarget": "integer",
+            "constraintExclusion": "string",
+            "cursorTupleFraction": "number",
+            "fromCollapseLimit": "integer",
+            "joinCollapseLimit": "integer",
+            "forceParallelMode": "string",
+            "clientMinMessages": "string",
+            "logMinMessages": "string",
+            "logMinErrorStatement": "string",
+            "logMinDurationStatement": "integer",
+            "logCheckpoints": true,
+            "logConnections": true,
+            "logDisconnections": true,
+            "logDuration": true,
+            "logErrorVerbosity": "string",
+            "logLockWaits": true,
+            "logStatement": "string",
+            "logTempFiles": "integer",
+            "searchPath": "string",
+            "rowSecurity": true,
+            "defaultTransactionIsolation": "string",
+            "statementTimeout": "integer",
+            "lockTimeout": "integer",
+            "idleInTransactionSessionTimeout": "integer",
+            "byteaOutput": "string",
+            "xmlbinary": "string",
+            "xmloption": "string",
+            "ginPendingListLimit": "integer",
+            "deadlockTimeout": "integer",
+            "maxLocksPerTransaction": "integer",
+            "maxPredLocksPerTransaction": "integer",
+            "arrayNulls": true,
+            "backslashQuote": "string",
+            "defaultWithOids": true,
+            "escapeStringWarning": true,
+            "loCompatPrivileges": true,
+            "operatorPrecedenceWarning": true,
+            "quoteAllIdentifiers": true,
+            "standardConformingStrings": true,
+            "synchronizeSeqscans": true,
+            "transformNullEquals": true,
+            "exitOnError": true,
+            "seqPageCost": "number",
+            "randomPageCost": "number",
+            "autovacuumMaxWorkers": "integer",
+            "autovacuumVacuumCostDelay": "integer",
+            "autovacuumVacuumCostLimit": "integer",
+            "autovacuumNaptime": "integer",
+            "archiveTimeout": "integer",
+            "trackActivityQuerySize": "integer",
+            "enableBitmapscan": true,
+            "enableHashagg": true,
+            "enableHashjoin": true,
+            "enableIndexscan": true,
+            "enableIndexonlyscan": true,
+            "enableMaterial": true,
+            "enableMergejoin": true,
+            "enableNestloop": true,
+            "enableSeqscan": true,
+            "enableSort": true,
+            "enableTidscan": true,
+            "maxWorkerProcesses": "integer",
+            "maxParallelWorkers": "integer",
+            "maxParallelWorkersPerGather": "integer",
+            "autovacuumVacuumScaleFactor": "number",
+            "autovacuumAnalyzeScaleFactor": "number",
+            "defaultTransactionReadOnly": true,
+            "timezone": "string",
+            "enableParallelAppend": true,
+            "enableParallelHash": true,
+            "enablePartitionPruning": true,
+            "enablePartitionwiseAggregate": true,
+            "enablePartitionwiseJoin": true,
+            "jit": true,
+            "maxParallelMaintenanceWorkers": "integer",
+            "parallelLeaderParticipation": true,
+            "vacuumCleanupIndexScaleFactor": "number",
+            "logTransactionSampleRate": "number",
+            "planCacheMode": "string",
+            "effectiveIoConcurrency": "integer",
+            "effectiveCacheSize": "integer",
+            "sharedPreloadLibraries": [
+              "string"
+            ],
+            "autoExplainLogMinDuration": "integer",
+            "autoExplainLogAnalyze": true,
+            "autoExplainLogBuffers": true,
+            "autoExplainLogTiming": true,
+            "autoExplainLogTriggers": true,
+            "autoExplainLogVerbose": true,
+            "autoExplainLogNestedStatements": true,
+            "autoExplainSampleRate": "number",
+            "pgHintPlanEnableHint": true,
+            "pgHintPlanEnableHintTable": true,
+            "pgHintPlanDebugPrint": "string",
+            "pgHintPlanMessageLevel": "string"
+          }
+        },
+        "postgresqlConfig_12_1C": {
           "effectiveConfig": {
             "maxConnections": "integer",
             "sharedBuffers": "integer",
@@ -1649,7 +2307,7 @@ clusters[].<br>config.<br>backupWindowStart.<br>seconds | **integer** (int32)<br
 clusters[].<br>config.<br>backupWindowStart.<br>nanos | **integer** (int32)<br><p>Доли секунды (в наносекундах). Допустимые значения: от 0 до 999999999.</p> 
 clusters[].<br>config.<br>access | **object**<br>Политика доступа к БД<br>
 clusters[].<br>config.<br>access.<br>dataLens | **boolean** (boolean)<br><p>Разрешить доступ для DataLens</p> 
-clusters[].<br>config.<br>postgresqlConfig_9_6 | **object**<br>Конфигурация сервера PostgreSQL 9.6. <br>`clusters[].config` включает только одно из полей `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_12`<br><br>
+clusters[].<br>config.<br>postgresqlConfig_9_6 | **object**<br>Конфигурация сервера PostgreSQL 9.6. <br>`clusters[].config` включает только одно из полей `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`<br><br>
 clusters[].<br>config.<br>postgresqlConfig_9_6.<br>effectiveConfig | **object**<br><p>Обязательное поле. Действующие настройки для кластера PostgreSQL 9.6 (сочетание настроек, определенных в <code>userConfig</code> и <code>defaultConfig</code>).</p> <p>Поля и структура <code>PostgresqlConfig</code> отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/9.6/static/runtime-config">документации PostgreSQL</a>.</p> 
 clusters[].<br>config.<br>postgresqlConfig_9_6.<br>effectiveConfig.<br>maxConnections | **integer** (int64)<br>
 clusters[].<br>config.<br>postgresqlConfig_9_6.<br>effectiveConfig.<br>sharedBuffers | **integer** (int64)<br>
@@ -1890,7 +2548,7 @@ clusters[].<br>config.<br>postgresqlConfig_9_6.<br>defaultConfig.<br>autovacuumV
 clusters[].<br>config.<br>postgresqlConfig_9_6.<br>defaultConfig.<br>autovacuumNaptime | **integer** (int64)<br><p>Допустимые значения — от 1000 до 86400000 включительно.</p> 
 clusters[].<br>config.<br>postgresqlConfig_9_6.<br>defaultConfig.<br>archiveTimeout | **integer** (int64)<br><p>Допустимые значения — от 10000 до 600000 включительно.</p> 
 clusters[].<br>config.<br>postgresqlConfig_9_6.<br>defaultConfig.<br>trackActivityQuerySize | **integer** (int64)<br><p>Допустимые значения — от 100 до 102400 включительно.</p> 
-clusters[].<br>config.<br>postgresqlConfig_10_1C | **object**<br>Конфигурация сервера PostgreSQL 10 1С. <br>`clusters[].config` включает только одно из полей `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_12`<br><br>
+clusters[].<br>config.<br>postgresqlConfig_10_1C | **object**<br>Конфигурация сервера PostgreSQL 10 1С. <br>`clusters[].config` включает только одно из полей `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`<br><br>
 clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>effectiveConfig | **object**<br><p>Обязательное поле. Действующие настройки для кластера PostgreSQL 10 1С (сочетание настроек, определенных в <code>userConfig</code> и <code>defaultConfig</code>).</p> <p>Поля и структура <code>PostgresqlConfig</code> отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/10/runtime-config.html">документации PostgreSQL</a>.</p> 
 clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>effectiveConfig.<br>maxConnections | **integer** (int64)<br>
 clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>effectiveConfig.<br>sharedBuffers | **integer** (int64)<br>
@@ -2233,7 +2891,7 @@ clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>defaultConfig.<br>pgHintPla
 clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>defaultConfig.<br>pgHintPlanMessageLevel | **string**<br>
 clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>defaultConfig.<br>onlineAnalyzeEnable | **boolean** (boolean)<br>
 clusters[].<br>config.<br>postgresqlConfig_10_1C.<br>defaultConfig.<br>plantunerFixEmptyTable | **boolean** (boolean)<br>
-clusters[].<br>config.<br>postgresqlConfig_10 | **object**<br>Конфигурация сервера PostgreSQL 10. <br>`clusters[].config` включает только одно из полей `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_12`<br><br>
+clusters[].<br>config.<br>postgresqlConfig_10 | **object**<br>Конфигурация сервера PostgreSQL 10. <br>`clusters[].config` включает только одно из полей `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`<br><br>
 clusters[].<br>config.<br>postgresqlConfig_10.<br>effectiveConfig | **object**<br><p>Обязательное поле. Действующие настройки для кластера PostgreSQL 10 (сочетание настроек, определенных в <code>userConfig</code> и <code>defaultConfig</code>).</p> <p>Поля и структура <code>PostgresqlConfig</code> отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/10/runtime-config.html">документации PostgreSQL</a>.</p> 
 clusters[].<br>config.<br>postgresqlConfig_10.<br>effectiveConfig.<br>maxConnections | **integer** (int64)<br>
 clusters[].<br>config.<br>postgresqlConfig_10.<br>effectiveConfig.<br>sharedBuffers | **integer** (int64)<br>
@@ -2513,7 +3171,7 @@ clusters[].<br>config.<br>postgresqlConfig_10.<br>defaultConfig.<br>enableTidsca
 clusters[].<br>config.<br>postgresqlConfig_10.<br>defaultConfig.<br>maxWorkerProcesses | **integer** (int64)<br><p>Допустимые значения — от 0 до 1024 включительно.</p> 
 clusters[].<br>config.<br>postgresqlConfig_10.<br>defaultConfig.<br>maxParallelWorkers | **integer** (int64)<br><p>Допустимые значения — от 0 до 1024 включительно.</p> 
 clusters[].<br>config.<br>postgresqlConfig_10.<br>defaultConfig.<br>maxParallelWorkersPerGather | **integer** (int64)<br><p>Допустимые значения — от 0 до 1024 включительно.</p> 
-clusters[].<br>config.<br>postgresqlConfig_11 | **object**<br>Конфигурация сервера PostgreSQL 11. <br>`clusters[].config` включает только одно из полей `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_12`<br><br>
+clusters[].<br>config.<br>postgresqlConfig_11 | **object**<br>Конфигурация сервера PostgreSQL 11. <br>`clusters[].config` включает только одно из полей `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`<br><br>
 clusters[].<br>config.<br>postgresqlConfig_11.<br>effectiveConfig | **object**<br><p>Действующие настройки для кластера PostgreSQL 11 (сочетание настроек, определенных в <code>userConfig</code> и <code>defaultConfig</code>).</p> <p>Поля и структура <code>PostgresqlConfig</code> отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/11/runtime-config.html">документации PostgreSQL</a>.</p> 
 clusters[].<br>config.<br>postgresqlConfig_11.<br>effectiveConfig.<br>maxConnections | **integer** (int64)<br>
 clusters[].<br>config.<br>postgresqlConfig_11.<br>effectiveConfig.<br>sharedBuffers | **integer** (int64)<br>
@@ -2790,7 +3448,284 @@ clusters[].<br>config.<br>postgresqlConfig_11.<br>defaultConfig.<br>enableTidsca
 clusters[].<br>config.<br>postgresqlConfig_11.<br>defaultConfig.<br>maxWorkerProcesses | **integer** (int64)<br><p>Допустимые значения — от 0 до 1024 включительно.</p> 
 clusters[].<br>config.<br>postgresqlConfig_11.<br>defaultConfig.<br>maxParallelWorkers | **integer** (int64)<br><p>Допустимые значения — от 0 до 1024 включительно.</p> 
 clusters[].<br>config.<br>postgresqlConfig_11.<br>defaultConfig.<br>maxParallelWorkersPerGather | **integer** (int64)<br><p>Допустимые значения — от 0 до 1024 включительно.</p> 
-clusters[].<br>config.<br>postgresqlConfig_12 | **object**<br>Конфигурация сервера PostgreSQL 12. <br>`clusters[].config` включает только одно из полей `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_12`<br><br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C | **object**<br>Конфигурация сервера PostgreSQL 11 1C. <br>`clusters[].config` включает только одно из полей `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`<br><br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig | **object**<br><p>Действующие настройки для кластера PostgreSQL 11 1C (сочетание настроек, определенных в <code>userConfig</code> и <code>defaultConfig</code>).</p> <p>Поля и структура <code>PostgresqlConfig</code> отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/11/runtime-config.html">документации PostgreSQL</a>.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>maxConnections | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>sharedBuffers | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>tempBuffers | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>maxPreparedTransactions | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>workMem | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>maintenanceWorkMem | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>autovacuumWorkMem | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>tempFileLimit | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>vacuumCostDelay | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>vacuumCostPageHit | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>vacuumCostPageMiss | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>vacuumCostPageDirty | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>vacuumCostLimit | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>bgwriterDelay | **integer** (int64)<br><p>Допустимые значения — от 10 до 10000 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>bgwriterLruMaxpages | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>bgwriterLruMultiplier | **number** (double)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>bgwriterFlushAfter | **integer** (int64)<br><p>Допустимые значения — от 0 до 2048 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>backendFlushAfter | **integer** (int64)<br><p>Допустимые значения — от 0 до 2048 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>oldSnapshotThreshold | **integer** (int64)<br><p>Допустимые значения — от -1 до 86400000 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>walLevel | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>synchronousCommit | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>checkpointTimeout | **integer** (int64)<br><p>Допустимые значения — от 30000 до 86400000 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>checkpointCompletionTarget | **number** (double)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>checkpointFlushAfter | **integer** (int64)<br><p>Допустимые значения — от 0 до 2048 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>maxWalSize | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>minWalSize | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>maxStandbyStreamingDelay | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>defaultStatisticsTarget | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>constraintExclusion | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>cursorTupleFraction | **number** (double)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>fromCollapseLimit | **integer** (int64)<br><p>Допустимые значения — от 1 до 2147483647 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>joinCollapseLimit | **integer** (int64)<br><p>Допустимые значения — от 1 до 2147483647 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>forceParallelMode | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>clientMinMessages | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>logMinMessages | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>logMinErrorStatement | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>logMinDurationStatement | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>logCheckpoints | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>logConnections | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>logDisconnections | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>logDuration | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>logErrorVerbosity | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>logLockWaits | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>logStatement | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>logTempFiles | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>searchPath | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>rowSecurity | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>defaultTransactionIsolation | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>statementTimeout | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>lockTimeout | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>byteaOutput | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>xmlbinary | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>xmloption | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>ginPendingListLimit | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>deadlockTimeout | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>maxLocksPerTransaction | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>maxPredLocksPerTransaction | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>arrayNulls | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>backslashQuote | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>defaultWithOids | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>escapeStringWarning | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>loCompatPrivileges | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>operatorPrecedenceWarning | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>quoteAllIdentifiers | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>standardConformingStrings | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>synchronizeSeqscans | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>transformNullEquals | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>exitOnError | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>seqPageCost | **number** (double)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>randomPageCost | **number** (double)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>autovacuumMaxWorkers | **integer** (int64)<br><p>Допустимые значения — от 1 до 32 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>autovacuumVacuumCostDelay | **integer** (int64)<br><p>Допустимые значения — от -1 до 100 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>autovacuumVacuumCostLimit | **integer** (int64)<br><p>Допустимые значения — от -1 до 10000 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>autovacuumNaptime | **integer** (int64)<br><p>Допустимые значения — от 1000 до 86400000 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>archiveTimeout | **integer** (int64)<br><p>Допустимые значения — от 10000 до 600000 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>trackActivityQuerySize | **integer** (int64)<br><p>Допустимые значения — от 100 до 102400 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>enableBitmapscan | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>enableHashagg | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>enableHashjoin | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>enableIndexscan | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>enableIndexonlyscan | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>enableMaterial | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>enableMergejoin | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>enableNestloop | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>enableSeqscan | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>enableSort | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>enableTidscan | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>maxWorkerProcesses | **integer** (int64)<br><p>Допустимые значения — от 0 до 1024 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>maxParallelWorkers | **integer** (int64)<br><p>Допустимые значения — от 0 до 1024 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>maxParallelWorkersPerGather | **integer** (int64)<br><p>Допустимые значения — от 0 до 1024 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig | **object**<br><p>Пользовательские настройки для кластера PostgreSQL 11 1C.</p> <p>Поля и структура <code>PostgresqlConfig</code> отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/11/runtime-config.html">документации PostgreSQL</a>.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>maxConnections | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>sharedBuffers | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>tempBuffers | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>maxPreparedTransactions | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>workMem | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>maintenanceWorkMem | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>autovacuumWorkMem | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>tempFileLimit | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>vacuumCostDelay | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>vacuumCostPageHit | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>vacuumCostPageMiss | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>vacuumCostPageDirty | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>vacuumCostLimit | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>bgwriterDelay | **integer** (int64)<br><p>Допустимые значения — от 10 до 10000 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>bgwriterLruMaxpages | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>bgwriterLruMultiplier | **number** (double)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>bgwriterFlushAfter | **integer** (int64)<br><p>Допустимые значения — от 0 до 2048 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>backendFlushAfter | **integer** (int64)<br><p>Допустимые значения — от 0 до 2048 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>oldSnapshotThreshold | **integer** (int64)<br><p>Допустимые значения — от -1 до 86400000 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>walLevel | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>synchronousCommit | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>checkpointTimeout | **integer** (int64)<br><p>Допустимые значения — от 30000 до 86400000 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>checkpointCompletionTarget | **number** (double)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>checkpointFlushAfter | **integer** (int64)<br><p>Допустимые значения — от 0 до 2048 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>maxWalSize | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>minWalSize | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>maxStandbyStreamingDelay | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>defaultStatisticsTarget | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>constraintExclusion | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>cursorTupleFraction | **number** (double)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>fromCollapseLimit | **integer** (int64)<br><p>Допустимые значения — от 1 до 2147483647 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>joinCollapseLimit | **integer** (int64)<br><p>Допустимые значения — от 1 до 2147483647 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>forceParallelMode | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>clientMinMessages | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>logMinMessages | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>logMinErrorStatement | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>logMinDurationStatement | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>logCheckpoints | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>logConnections | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>logDisconnections | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>logDuration | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>logErrorVerbosity | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>logLockWaits | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>logStatement | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>logTempFiles | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>searchPath | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>rowSecurity | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>defaultTransactionIsolation | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>statementTimeout | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>lockTimeout | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>byteaOutput | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>xmlbinary | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>xmloption | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>ginPendingListLimit | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>deadlockTimeout | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>maxLocksPerTransaction | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>maxPredLocksPerTransaction | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>arrayNulls | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>backslashQuote | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>defaultWithOids | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>escapeStringWarning | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>loCompatPrivileges | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>operatorPrecedenceWarning | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>quoteAllIdentifiers | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>standardConformingStrings | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>synchronizeSeqscans | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>transformNullEquals | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>exitOnError | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>seqPageCost | **number** (double)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>randomPageCost | **number** (double)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>autovacuumMaxWorkers | **integer** (int64)<br><p>Допустимые значения — от 1 до 32 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>autovacuumVacuumCostDelay | **integer** (int64)<br><p>Допустимые значения — от -1 до 100 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>autovacuumVacuumCostLimit | **integer** (int64)<br><p>Допустимые значения — от -1 до 10000 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>autovacuumNaptime | **integer** (int64)<br><p>Допустимые значения — от 1000 до 86400000 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>archiveTimeout | **integer** (int64)<br><p>Допустимые значения — от 10000 до 600000 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>trackActivityQuerySize | **integer** (int64)<br><p>Допустимые значения — от 100 до 102400 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>enableBitmapscan | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>enableHashagg | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>enableHashjoin | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>enableIndexscan | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>enableIndexonlyscan | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>enableMaterial | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>enableMergejoin | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>enableNestloop | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>enableSeqscan | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>enableSort | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>enableTidscan | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>maxWorkerProcesses | **integer** (int64)<br><p>Допустимые значения — от 0 до 1024 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>maxParallelWorkers | **integer** (int64)<br><p>Допустимые значения — от 0 до 1024 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>maxParallelWorkersPerGather | **integer** (int64)<br><p>Допустимые значения — от 0 до 1024 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig | **object**<br><p>Конфигурация по умолчанию для кластера PostgreSQL 11 1C.</p> <p>Поля и структура <code>PostgresqlConfig</code> отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/11/runtime-config.html">документации PostgreSQL</a>.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>maxConnections | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>sharedBuffers | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>tempBuffers | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>maxPreparedTransactions | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>workMem | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>maintenanceWorkMem | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>autovacuumWorkMem | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>tempFileLimit | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>vacuumCostDelay | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>vacuumCostPageHit | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>vacuumCostPageMiss | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>vacuumCostPageDirty | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>vacuumCostLimit | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>bgwriterDelay | **integer** (int64)<br><p>Допустимые значения — от 10 до 10000 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>bgwriterLruMaxpages | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>bgwriterLruMultiplier | **number** (double)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>bgwriterFlushAfter | **integer** (int64)<br><p>Допустимые значения — от 0 до 2048 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>backendFlushAfter | **integer** (int64)<br><p>Допустимые значения — от 0 до 2048 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>oldSnapshotThreshold | **integer** (int64)<br><p>Допустимые значения — от -1 до 86400000 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>walLevel | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>synchronousCommit | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>checkpointTimeout | **integer** (int64)<br><p>Допустимые значения — от 30000 до 86400000 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>checkpointCompletionTarget | **number** (double)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>checkpointFlushAfter | **integer** (int64)<br><p>Допустимые значения — от 0 до 2048 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>maxWalSize | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>minWalSize | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>maxStandbyStreamingDelay | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>defaultStatisticsTarget | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>constraintExclusion | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>cursorTupleFraction | **number** (double)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>fromCollapseLimit | **integer** (int64)<br><p>Допустимые значения — от 1 до 2147483647 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>joinCollapseLimit | **integer** (int64)<br><p>Допустимые значения — от 1 до 2147483647 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>forceParallelMode | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>clientMinMessages | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>logMinMessages | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>logMinErrorStatement | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>logMinDurationStatement | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>logCheckpoints | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>logConnections | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>logDisconnections | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>logDuration | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>logErrorVerbosity | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>logLockWaits | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>logStatement | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>logTempFiles | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>searchPath | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>rowSecurity | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>defaultTransactionIsolation | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>statementTimeout | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>lockTimeout | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>byteaOutput | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>xmlbinary | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>xmloption | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>ginPendingListLimit | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>deadlockTimeout | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>maxLocksPerTransaction | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>maxPredLocksPerTransaction | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>arrayNulls | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>backslashQuote | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>defaultWithOids | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>escapeStringWarning | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>loCompatPrivileges | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>operatorPrecedenceWarning | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>quoteAllIdentifiers | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>standardConformingStrings | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>synchronizeSeqscans | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>transformNullEquals | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>exitOnError | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>seqPageCost | **number** (double)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>randomPageCost | **number** (double)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>autovacuumMaxWorkers | **integer** (int64)<br><p>Допустимые значения — от 1 до 32 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>autovacuumVacuumCostDelay | **integer** (int64)<br><p>Допустимые значения — от -1 до 100 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>autovacuumVacuumCostLimit | **integer** (int64)<br><p>Допустимые значения — от -1 до 10000 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>autovacuumNaptime | **integer** (int64)<br><p>Допустимые значения — от 1000 до 86400000 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>archiveTimeout | **integer** (int64)<br><p>Допустимые значения — от 10000 до 600000 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>trackActivityQuerySize | **integer** (int64)<br><p>Допустимые значения — от 100 до 102400 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>enableBitmapscan | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>enableHashagg | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>enableHashjoin | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>enableIndexscan | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>enableIndexonlyscan | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>enableMaterial | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>enableMergejoin | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>enableNestloop | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>enableSeqscan | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>enableSort | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>enableTidscan | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>maxWorkerProcesses | **integer** (int64)<br><p>Допустимые значения — от 0 до 1024 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>maxParallelWorkers | **integer** (int64)<br><p>Допустимые значения — от 0 до 1024 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>maxParallelWorkersPerGather | **integer** (int64)<br><p>Допустимые значения — от 0 до 1024 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12 | **object**<br>Конфигурация сервера PostgreSQL 12. <br>`clusters[].config` включает только одно из полей `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`<br><br>
 clusters[].<br>config.<br>postgresqlConfig_12.<br>effectiveConfig | **object**<br><p>Действующие настройки для кластера PostgreSQL 12 (сочетание настроек, определенных в <code>userConfig</code> и <code>defaultConfig</code>).</p> <p>Поля и структура <code>PostgresqlConfig</code> отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/11/runtime-config.html">документации PostgreSQL</a>.</p> 
 clusters[].<br>config.<br>postgresqlConfig_12.<br>effectiveConfig.<br>maxConnections | **integer** (int64)<br>
 clusters[].<br>config.<br>postgresqlConfig_12.<br>effectiveConfig.<br>sharedBuffers | **integer** (int64)<br>
@@ -3157,6 +4092,373 @@ clusters[].<br>config.<br>postgresqlConfig_12.<br>defaultConfig.<br>pgHintPlanEn
 clusters[].<br>config.<br>postgresqlConfig_12.<br>defaultConfig.<br>pgHintPlanEnableHintTable | **boolean** (boolean)<br>
 clusters[].<br>config.<br>postgresqlConfig_12.<br>defaultConfig.<br>pgHintPlanDebugPrint | **string**<br>
 clusters[].<br>config.<br>postgresqlConfig_12.<br>defaultConfig.<br>pgHintPlanMessageLevel | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C | **object**<br>Конфигурация сервера PostgreSQL 12 1C. <br>`clusters[].config` включает только одно из полей `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`<br><br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig | **object**<br><p>Действующие настройки для кластера PostgreSQL 12 1C (сочетание настроек, определенных в <code>userConfig</code> и <code>defaultConfig</code>).</p> <p>Поля и структура <code>PostgresqlConfig</code> отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/11/runtime-config.html">документации PostgreSQL</a>.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>maxConnections | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>sharedBuffers | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>tempBuffers | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>maxPreparedTransactions | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>workMem | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>maintenanceWorkMem | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>autovacuumWorkMem | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>tempFileLimit | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>vacuumCostDelay | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>vacuumCostPageHit | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>vacuumCostPageMiss | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>vacuumCostPageDirty | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>vacuumCostLimit | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>bgwriterDelay | **integer** (int64)<br><p>Допустимые значения — от 10 до 10000 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>bgwriterLruMaxpages | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>bgwriterLruMultiplier | **number** (double)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>bgwriterFlushAfter | **integer** (int64)<br><p>Допустимые значения — от 0 до 2048 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>backendFlushAfter | **integer** (int64)<br><p>Допустимые значения — от 0 до 2048 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>oldSnapshotThreshold | **integer** (int64)<br><p>Допустимые значения — от -1 до 86400000 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>walLevel | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>synchronousCommit | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>checkpointTimeout | **integer** (int64)<br><p>Допустимые значения — от 30000 до 86400000 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>checkpointCompletionTarget | **number** (double)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>checkpointFlushAfter | **integer** (int64)<br><p>Допустимые значения — от 0 до 2048 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>maxWalSize | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>minWalSize | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>maxStandbyStreamingDelay | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>defaultStatisticsTarget | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>constraintExclusion | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>cursorTupleFraction | **number** (double)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>fromCollapseLimit | **integer** (int64)<br><p>Допустимые значения — от 1 до 2147483647 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>joinCollapseLimit | **integer** (int64)<br><p>Допустимые значения — от 1 до 2147483647 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>forceParallelMode | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>clientMinMessages | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>logMinMessages | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>logMinErrorStatement | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>logMinDurationStatement | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>logCheckpoints | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>logConnections | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>logDisconnections | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>logDuration | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>logErrorVerbosity | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>logLockWaits | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>logStatement | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>logTempFiles | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>searchPath | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>rowSecurity | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>defaultTransactionIsolation | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>statementTimeout | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>lockTimeout | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>byteaOutput | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>xmlbinary | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>xmloption | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>ginPendingListLimit | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>deadlockTimeout | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>maxLocksPerTransaction | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>maxPredLocksPerTransaction | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>arrayNulls | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>backslashQuote | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>defaultWithOids | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>escapeStringWarning | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>loCompatPrivileges | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>operatorPrecedenceWarning | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>quoteAllIdentifiers | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>standardConformingStrings | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>synchronizeSeqscans | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>transformNullEquals | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>exitOnError | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>seqPageCost | **number** (double)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>randomPageCost | **number** (double)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>autovacuumMaxWorkers | **integer** (int64)<br><p>Допустимые значения — от 1 до 32 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>autovacuumVacuumCostDelay | **integer** (int64)<br><p>Допустимые значения — от -1 до 100 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>autovacuumVacuumCostLimit | **integer** (int64)<br><p>Допустимые значения — от -1 до 10000 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>autovacuumNaptime | **integer** (int64)<br><p>Допустимые значения — от 1000 до 86400000 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>archiveTimeout | **integer** (int64)<br><p>Допустимые значения — от 10000 до 600000 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>trackActivityQuerySize | **integer** (int64)<br><p>Допустимые значения — от 100 до 102400 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>enableBitmapscan | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>enableHashagg | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>enableHashjoin | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>enableIndexscan | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>enableIndexonlyscan | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>enableMaterial | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>enableMergejoin | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>enableNestloop | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>enableSeqscan | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>enableSort | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>enableTidscan | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>maxWorkerProcesses | **integer** (int64)<br><p>Допустимые значения — от 0 до 1024 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>maxParallelWorkers | **integer** (int64)<br><p>Допустимые значения — от 0 до 1024 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>maxParallelWorkersPerGather | **integer** (int64)<br><p>Допустимые значения — от 0 до 1024 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>autovacuumVacuumScaleFactor | **number** (double)<br><p>Допустимые значения — от 0 до 1 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>autovacuumAnalyzeScaleFactor | **number** (double)<br><p>Допустимые значения — от 0 до 1 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>defaultTransactionReadOnly | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>timezone | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>enableParallelAppend | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>enableParallelHash | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>enablePartitionPruning | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>enablePartitionwiseAggregate | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>enablePartitionwiseJoin | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>jit | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>maxParallelMaintenanceWorkers | **integer** (int64)<br><p>Минимальное значение — 0.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>parallelLeaderParticipation | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>vacuumCleanupIndexScaleFactor | **number** (double)<br><p>Допустимые значения — от 0 до 10000000000 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>logTransactionSampleRate | **number** (double)<br><p>Допустимые значения — от 0 до 1 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>planCacheMode | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>effectiveIoConcurrency | **integer** (int64)<br><p>Допустимые значения — от 0 до 1000 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>effectiveCacheSize | **integer** (int64)<br><p>Допустимые значения — от 0 до 549755813888 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>sharedPreloadLibraries[] | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>autoExplainLogMinDuration | **integer** (int64)<br><p>Допустимые значения — от -1 до 2147483647 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>autoExplainLogAnalyze | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>autoExplainLogBuffers | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>autoExplainLogTiming | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>autoExplainLogTriggers | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>autoExplainLogVerbose | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>autoExplainLogNestedStatements | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>autoExplainSampleRate | **number** (double)<br><p>Допустимые значения — от 0 до 1 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>pgHintPlanEnableHint | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>pgHintPlanEnableHintTable | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>pgHintPlanDebugPrint | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>pgHintPlanMessageLevel | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig | **object**<br><p>Пользовательские настройки для кластера PostgreSQL 12 1C</p> <p>Поля и структура <code>PostgresqlConfig</code> отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/11/runtime-config.html">документации PostgreSQL</a>.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>maxConnections | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>sharedBuffers | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>tempBuffers | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>maxPreparedTransactions | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>workMem | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>maintenanceWorkMem | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>autovacuumWorkMem | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>tempFileLimit | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>vacuumCostDelay | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>vacuumCostPageHit | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>vacuumCostPageMiss | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>vacuumCostPageDirty | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>vacuumCostLimit | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>bgwriterDelay | **integer** (int64)<br><p>Допустимые значения — от 10 до 10000 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>bgwriterLruMaxpages | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>bgwriterLruMultiplier | **number** (double)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>bgwriterFlushAfter | **integer** (int64)<br><p>Допустимые значения — от 0 до 2048 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>backendFlushAfter | **integer** (int64)<br><p>Допустимые значения — от 0 до 2048 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>oldSnapshotThreshold | **integer** (int64)<br><p>Допустимые значения — от -1 до 86400000 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>walLevel | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>synchronousCommit | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>checkpointTimeout | **integer** (int64)<br><p>Допустимые значения — от 30000 до 86400000 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>checkpointCompletionTarget | **number** (double)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>checkpointFlushAfter | **integer** (int64)<br><p>Допустимые значения — от 0 до 2048 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>maxWalSize | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>minWalSize | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>maxStandbyStreamingDelay | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>defaultStatisticsTarget | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>constraintExclusion | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>cursorTupleFraction | **number** (double)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>fromCollapseLimit | **integer** (int64)<br><p>Допустимые значения — от 1 до 2147483647 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>joinCollapseLimit | **integer** (int64)<br><p>Допустимые значения — от 1 до 2147483647 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>forceParallelMode | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>clientMinMessages | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>logMinMessages | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>logMinErrorStatement | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>logMinDurationStatement | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>logCheckpoints | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>logConnections | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>logDisconnections | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>logDuration | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>logErrorVerbosity | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>logLockWaits | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>logStatement | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>logTempFiles | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>searchPath | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>rowSecurity | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>defaultTransactionIsolation | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>statementTimeout | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>lockTimeout | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>byteaOutput | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>xmlbinary | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>xmloption | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>ginPendingListLimit | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>deadlockTimeout | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>maxLocksPerTransaction | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>maxPredLocksPerTransaction | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>arrayNulls | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>backslashQuote | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>defaultWithOids | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>escapeStringWarning | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>loCompatPrivileges | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>operatorPrecedenceWarning | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>quoteAllIdentifiers | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>standardConformingStrings | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>synchronizeSeqscans | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>transformNullEquals | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>exitOnError | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>seqPageCost | **number** (double)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>randomPageCost | **number** (double)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>autovacuumMaxWorkers | **integer** (int64)<br><p>Допустимые значения — от 1 до 32 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>autovacuumVacuumCostDelay | **integer** (int64)<br><p>Допустимые значения — от -1 до 100 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>autovacuumVacuumCostLimit | **integer** (int64)<br><p>Допустимые значения — от -1 до 10000 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>autovacuumNaptime | **integer** (int64)<br><p>Допустимые значения — от 1000 до 86400000 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>archiveTimeout | **integer** (int64)<br><p>Допустимые значения — от 10000 до 600000 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>trackActivityQuerySize | **integer** (int64)<br><p>Допустимые значения — от 100 до 102400 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>enableBitmapscan | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>enableHashagg | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>enableHashjoin | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>enableIndexscan | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>enableIndexonlyscan | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>enableMaterial | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>enableMergejoin | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>enableNestloop | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>enableSeqscan | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>enableSort | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>enableTidscan | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>maxWorkerProcesses | **integer** (int64)<br><p>Допустимые значения — от 0 до 1024 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>maxParallelWorkers | **integer** (int64)<br><p>Допустимые значения — от 0 до 1024 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>maxParallelWorkersPerGather | **integer** (int64)<br><p>Допустимые значения — от 0 до 1024 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>autovacuumVacuumScaleFactor | **number** (double)<br><p>Допустимые значения — от 0 до 1 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>autovacuumAnalyzeScaleFactor | **number** (double)<br><p>Допустимые значения — от 0 до 1 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>defaultTransactionReadOnly | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>timezone | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>enableParallelAppend | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>enableParallelHash | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>enablePartitionPruning | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>enablePartitionwiseAggregate | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>enablePartitionwiseJoin | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>jit | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>maxParallelMaintenanceWorkers | **integer** (int64)<br><p>Минимальное значение — 0.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>parallelLeaderParticipation | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>vacuumCleanupIndexScaleFactor | **number** (double)<br><p>Допустимые значения — от 0 до 10000000000 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>logTransactionSampleRate | **number** (double)<br><p>Допустимые значения — от 0 до 1 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>planCacheMode | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>effectiveIoConcurrency | **integer** (int64)<br><p>Допустимые значения — от 0 до 1000 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>effectiveCacheSize | **integer** (int64)<br><p>Допустимые значения — от 0 до 549755813888 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>sharedPreloadLibraries[] | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>autoExplainLogMinDuration | **integer** (int64)<br><p>Допустимые значения — от -1 до 2147483647 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>autoExplainLogAnalyze | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>autoExplainLogBuffers | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>autoExplainLogTiming | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>autoExplainLogTriggers | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>autoExplainLogVerbose | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>autoExplainLogNestedStatements | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>autoExplainSampleRate | **number** (double)<br><p>Допустимые значения — от 0 до 1 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>pgHintPlanEnableHint | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>pgHintPlanEnableHintTable | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>pgHintPlanDebugPrint | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>pgHintPlanMessageLevel | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig | **object**<br><p>Конфигурация по умолчанию для кластера PostgreSQL 12 1C.</p> <p>Поля и структура <code>PostgresqlConfig</code> отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/11/runtime-config.html">документации PostgreSQL</a>.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>maxConnections | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>sharedBuffers | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>tempBuffers | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>maxPreparedTransactions | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>workMem | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>maintenanceWorkMem | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>autovacuumWorkMem | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>tempFileLimit | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>vacuumCostDelay | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>vacuumCostPageHit | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>vacuumCostPageMiss | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>vacuumCostPageDirty | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>vacuumCostLimit | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>bgwriterDelay | **integer** (int64)<br><p>Допустимые значения — от 10 до 10000 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>bgwriterLruMaxpages | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>bgwriterLruMultiplier | **number** (double)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>bgwriterFlushAfter | **integer** (int64)<br><p>Допустимые значения — от 0 до 2048 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>backendFlushAfter | **integer** (int64)<br><p>Допустимые значения — от 0 до 2048 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>oldSnapshotThreshold | **integer** (int64)<br><p>Допустимые значения — от -1 до 86400000 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>walLevel | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>synchronousCommit | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>checkpointTimeout | **integer** (int64)<br><p>Допустимые значения — от 30000 до 86400000 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>checkpointCompletionTarget | **number** (double)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>checkpointFlushAfter | **integer** (int64)<br><p>Допустимые значения — от 0 до 2048 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>maxWalSize | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>minWalSize | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>maxStandbyStreamingDelay | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>defaultStatisticsTarget | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>constraintExclusion | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>cursorTupleFraction | **number** (double)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>fromCollapseLimit | **integer** (int64)<br><p>Допустимые значения — от 1 до 2147483647 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>joinCollapseLimit | **integer** (int64)<br><p>Допустимые значения — от 1 до 2147483647 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>forceParallelMode | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>clientMinMessages | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>logMinMessages | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>logMinErrorStatement | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>logMinDurationStatement | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>logCheckpoints | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>logConnections | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>logDisconnections | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>logDuration | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>logErrorVerbosity | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>logLockWaits | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>logStatement | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>logTempFiles | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>searchPath | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>rowSecurity | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>defaultTransactionIsolation | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>statementTimeout | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>lockTimeout | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>idleInTransactionSessionTimeout | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>byteaOutput | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>xmlbinary | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>xmloption | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>ginPendingListLimit | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>deadlockTimeout | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>maxLocksPerTransaction | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>maxPredLocksPerTransaction | **integer** (int64)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>arrayNulls | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>backslashQuote | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>defaultWithOids | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>escapeStringWarning | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>loCompatPrivileges | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>operatorPrecedenceWarning | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>quoteAllIdentifiers | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>standardConformingStrings | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>synchronizeSeqscans | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>transformNullEquals | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>exitOnError | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>seqPageCost | **number** (double)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>randomPageCost | **number** (double)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>autovacuumMaxWorkers | **integer** (int64)<br><p>Допустимые значения — от 1 до 32 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>autovacuumVacuumCostDelay | **integer** (int64)<br><p>Допустимые значения — от -1 до 100 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>autovacuumVacuumCostLimit | **integer** (int64)<br><p>Допустимые значения — от -1 до 10000 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>autovacuumNaptime | **integer** (int64)<br><p>Допустимые значения — от 1000 до 86400000 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>archiveTimeout | **integer** (int64)<br><p>Допустимые значения — от 10000 до 600000 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>trackActivityQuerySize | **integer** (int64)<br><p>Допустимые значения — от 100 до 102400 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>enableBitmapscan | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>enableHashagg | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>enableHashjoin | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>enableIndexscan | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>enableIndexonlyscan | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>enableMaterial | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>enableMergejoin | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>enableNestloop | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>enableSeqscan | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>enableSort | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>enableTidscan | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>maxWorkerProcesses | **integer** (int64)<br><p>Допустимые значения — от 0 до 1024 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>maxParallelWorkers | **integer** (int64)<br><p>Допустимые значения — от 0 до 1024 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>maxParallelWorkersPerGather | **integer** (int64)<br><p>Допустимые значения — от 0 до 1024 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>autovacuumVacuumScaleFactor | **number** (double)<br><p>Допустимые значения — от 0 до 1 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>autovacuumAnalyzeScaleFactor | **number** (double)<br><p>Допустимые значения — от 0 до 1 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>defaultTransactionReadOnly | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>timezone | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>enableParallelAppend | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>enableParallelHash | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>enablePartitionPruning | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>enablePartitionwiseAggregate | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>enablePartitionwiseJoin | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>jit | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>maxParallelMaintenanceWorkers | **integer** (int64)<br><p>Минимальное значение — 0.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>parallelLeaderParticipation | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>vacuumCleanupIndexScaleFactor | **number** (double)<br><p>Допустимые значения — от 0 до 10000000000 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>logTransactionSampleRate | **number** (double)<br><p>Допустимые значения — от 0 до 1 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>planCacheMode | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>effectiveIoConcurrency | **integer** (int64)<br><p>Допустимые значения — от 0 до 1000 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>effectiveCacheSize | **integer** (int64)<br><p>Допустимые значения — от 0 до 549755813888 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>sharedPreloadLibraries[] | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>autoExplainLogMinDuration | **integer** (int64)<br><p>Допустимые значения — от -1 до 2147483647 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>autoExplainLogAnalyze | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>autoExplainLogBuffers | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>autoExplainLogTiming | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>autoExplainLogTriggers | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>autoExplainLogVerbose | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>autoExplainLogNestedStatements | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>autoExplainSampleRate | **number** (double)<br><p>Допустимые значения — от 0 до 1 включительно.</p> 
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>pgHintPlanEnableHint | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>pgHintPlanEnableHintTable | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>pgHintPlanDebugPrint | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>pgHintPlanMessageLevel | **string**<br>
 clusters[].<br>networkId | **string**<br><p>Идентификатор сети, к которой принадлежит кластер.</p> 
 clusters[].<br>health | **string**<br><p>Агрегированная работоспособность кластера.</p> <ul> <li>HEALTH_UNKNOWN: Состояние кластера неизвестно (<code>health</code> для каждого хоста в кластере — UNKNOWN).</li> <li>ALIVE: Кластер работает нормально (<code>health</code> для каждого хоста в кластере — ALIVE).</li> <li>DEAD: Кластер не работает (<code>health</code> для каждого узла в кластере — DEAD).</li> <li>DEGRADED: Кластер работает неоптимально (<code>health</code> по крайней мере для одного узла в кластере не ALIVE).</li> </ul> 
 clusters[].<br>status | **string**<br><p>Текущее состояние кластера.</p> <ul> <li>STATUS_UNKNOWN: Состояние кластера неизвестно.</li> <li>CREATING: Кластер создается.</li> <li>RUNNING: Кластер работает нормально.</li> <li>ERROR: На кластере произошла ошибка, блокирующая работу.</li> <li>UPDATING: Кластер изменяется.</li> <li>STOPPING: Кластер останавливается.</li> <li>STOPPED: Кластер остановлен.</li> <li>STARTING: Кластер запускается.</li> </ul> 
