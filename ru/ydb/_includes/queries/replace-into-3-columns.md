@@ -5,7 +5,8 @@ VALUES
         1,
         "IT Crowd",
         CAST(Date("2006-02-03") AS Uint64),
-        "The IT Crowd is a British sitcom produced by Channel 4, written by Graham Linehan, produced by Ash Atalla and starring Chris O'Dowd, Richard Ayoade, Katherine Parkinson, and Matt Berry."),
+        "The IT Crowd is a British sitcom produced by Channel 4, written by Graham Linehan, produced by Ash Atalla and starring Chris O'Dowd, Richard Ayoade, Katherine Parkinson, and Matt Berry."
+    ),
     (
         2,
         "Silicon Valley",

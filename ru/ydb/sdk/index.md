@@ -18,16 +18,18 @@
 - Python
 
   ```bash
-  ./basic_example -endpoint endpoint -database database
+  $ ./basic_example -endpoint endpoint -database database
 
   > describe table: series
-  ('column, name:', 'series_id', ',', 'type_id: UINT64')
-  ('column, name:', 'title', ',', 'type_id: UTF8')
-  ('column, name:', 'series_info', ',', 'type_id: UTF8')
-  ('column, name:', 'release_date', ',', 'type_id: UINT64')
+  ('column, name:', 'series_id', ',', 'Uint64')
+  ('column, name:', 'title', ',', 'Utf8')
+  ('column, name:', 'series_info', ',', 'Utf8')
+  ('column, name:', 'release_date', ',', 'Uint64')
 
   > select_simple_transaction:
   ('series, id: ', 1L, ', title: ', u'IT Crowd', ', release date: ', '2006-02-03')
+
+  > bulk upsert: episodes
 
   > select_prepared_transaction:
   ('episode title:', u'To Build a Better Beta', ', air date:', '2016-06-05')
@@ -38,18 +40,19 @@
   > explicit TCL call
 
   > select_prepared_transaction:
-  ('episode title:', u'TBD', ', air date:', '2018-09-11')
+  ('episode title:', u'TBD', ', air date:', '2020-09-23')
   ```
 
 - Go
 
   ```bash
-  ./basic_example_v1 -endpoint endpoint -database database
+  $ ./basic_example_v1 -endpoint endpoint -database database
+
   inspecting Database
 
   > describe_table_options:
 
-  > describe table: /global/path/todatabase/series
+  > describe table: /path/to/database/series
   column, name: Optional<Uint64>, series_id
   column, name: Optional<Utf8>, title
   column, name: Optional<Utf8>, series_info
@@ -58,13 +61,56 @@
 
   > select_simple_transaction: 1 IT Crowd 2006-02-03
   ```
-  
+
 - Java
 
   ```bash
-  ./mvnw -q exec:java -Dexec.args="<accountId> <keyId> <private_key_file_path> <endpoint> <database>"
-  
-  result: 42
+  ...
+
+  --[ SelectSimple ]--
+  +-----------+------------------+--------------------+
+  | series_id |            title |       release_date |
+  +-----------+------------------+--------------------+
+  |   Some[1] | Some["IT Crowd"] | Some["2006-02-03"] |
+  +-----------+------------------+--------------------+
+
+  --[ SelectWithParams ]--
+  +------------------+------------------------+
+  |     season_title |           series_title |
+  +------------------+------------------------+
+  | Some["Season 3"] | Some["Silicon Valley"] |
+  +------------------+------------------------+
+  Finished preparing query: PreparedSelectTransaction
+
+  --[ PreparedSelect ]--
+  +-------------+------------+-----------+-----------+--------------------------------+
+  |    air_date | episode_id | season_id | series_id |                          title |
+  +-------------+------------+-----------+-----------+--------------------------------+
+  | Some[16957] |    Some[7] |   Some[3] |   Some[2] | Some["To Build a Better Beta"] |
+  +-------------+------------+-----------+-----------+--------------------------------+
+
+  --[ PreparedSelect ]--
+  +-------------+------------+-----------+-----------+--------------------------------------+
+  |    air_date | episode_id | season_id | series_id |                                title |
+  +-------------+------------+-----------+-----------+--------------------------------------+
+  | Some[16964] |    Some[8] |   Some[3] |   Some[2] | Some["Bachman's Earnings Over-Ride"] |
+  +-------------+------------+-----------+-----------+--------------------------------------+
+
+  --[ MultiStep ]--
+  +-----------+------------+---------------------------------+-------------+
+  | season_id | episode_id |                           title |    air_date |
+  +-----------+------------+---------------------------------+-------------+
+  |   Some[5] |    Some[1] |   Some["Grow Fast or Die Slow"] | Some[17615] |
+  |   Some[5] |    Some[2] |           Some["Reorientation"] | Some[17622] |
+  |   Some[5] |    Some[3] | Some["Chief Operating Officer"] | Some[17629] |
+  +-----------+------------+---------------------------------+-------------+
+
+  --[ PreparedSelect ]--
+  +-------------+------------+-----------+-----------+-------------+
+  |    air_date | episode_id | season_id | series_id |       title |
+  +-------------+------------+-----------+-----------+-------------+
+  | Some[18528] |    Some[1] |   Some[6] |   Some[2] | Some["TBD"] |
+  +-------------+------------+-----------+-----------+-------------+
   ```
 
 {% endlist %}
@@ -87,48 +133,34 @@
 
   ```python
   def run(endpoint, database, path):
-      ydb_ssl_root_certificates = None
-      ydb_ssl_root_certificates_file = os.getenv('YDB_SSL_ROOT_CERTIFICATES_FILE',  None)
-      if ydb_ssl_root_certificates_file is not None:
-          ydb_ssl_root_certificates = read_bytes(ydb_ssl_root_certificates_file)
-  
       driver_config = ydb.DriverConfig(
-          endpoint, database=database,
-          root_certificates=ydb_ssl_root_certificates,
-          credentials=credentials_from_environ()
+          endpoint, database, credentials=ydb.construct_credentials_from_environ(),
+          root_certificates=ydb.load_ydb_root_certificate(),
       )
-  
-      driver = ydb.Driver(driver_config)
-  
-      try:
-          driver.wait(timeout=5)
-      except TimeoutError:
-          print("Connect failed to YDB")
-          print("Last reported errors by discovery:")
-          print(driver.discovery_debug_details())
-          exit(1)
+      with ydb.Driver(driver_config) as driver:
+          try:
+              driver.wait(timeout=5)
+          except TimeoutError:
+              print("Connect failed to YDB")
+              print("Last reported errors by discovery:")
+              print(driver.discovery_debug_details())
+              exit(1)
   ```
 
 - Go
 
   ```go
   func (cmd *Command) Run(ctx context.Context, params cli.Parameters) error {
-  	driver, err := (&ydb.Dialer{
+  	dialer := &ydb.Dialer{
   		DriverConfig: cmd.config(params),
-  	}).Dial(ctx, params.Endpoint)
+  		TLSConfig:    cmd.tls(),
+  		Timeout:      time.Second,
+  	}
+  	driver, err := dialer.Dial(ctx, params.Endpoint)
   	if err != nil {
   		return fmt.Errorf("dial error: %v", err)
   	}
-  
-  	tableClient := table.Client{
-  		Driver: driver,
-  	}
-  	sp := table.SessionPool{
-  		IdleThreshold: time.Second,
-  		Builder:       &tableClient,
-  	}
-  	defer sp.Close(ctx)
-  ...
+  	defer driver.Close()
   ```
 
 {% endlist %}
@@ -149,23 +181,37 @@
 
   ```go
   tableClient := table.Client{
-  		Driver: driver,
+  	Driver: driver,
   }
+  sp := table.SessionPool{
+  	IdleThreshold: time.Second,
+  	Builder:       &tableClient,
+  }
+  defer sp.Close(ctx)
+  ```
+
+- Java
+
+  ```java
+  this.tableClient = TableClient.newClient(GrpcTableRpc.useTransport(transport))
+      .build();
+  this.session = tableClient.createSession()
+      .join()
+      .expect("cannot create session");
   ```
 
 {% endlist %}
 
-## Создание таблиц с помощью CreateTable API {#create-table-api}
+## Создание таблиц {#create-table-api}
 
 {% list tabs %}
 
 - Python
 
-  Для создания таблиц используется метод `create_table`:
+  Для создания таблиц используется метод `session.create_table()`:
 
   ```python
   def create_tables(session, path):
-      # Создание таблицы series.
       session.create_table(
           os.path.join(path, 'series'),
           ydb.TableDescription()
@@ -177,7 +223,7 @@
       )
   ```
 
-  С помощью метода `describe_table` можно вывести информацию о структуре таблицы и убедиться, что она успешно создалась. Фрагмент кода `basic_example_v1` демонстрирует вывод информации о структуре таблицы, полученной с помощью метода `describe_table`:
+  С помощью метода `session.describe_table()` можно вывести информацию о структуре таблицы и убедиться, что она успешно создалась:
 
   ```python
   def describe_table(session, path, name):
@@ -189,7 +235,7 @@
 
 - Go
 
-  Для создания таблиц используется метод `createTables`:
+  Для создания таблиц используется метод `Session.CreateTable()`:
 
   ```go
   func createTables(ctx context.Context, sp *table.SessionPool, prefix string) (err error) {
@@ -205,9 +251,8 @@
   			)
   		}),
   	)
-  ...
   ```
-  С помощью метода `describeTable` можно вывести информацию о структуре таблицы и убедиться, что она успешно создалась:
+  С помощью метода `Session.DescribeTable()` можно вывести информацию о структуре таблицы и убедиться, что она успешно создалась:
 
   ```go
   func describeTable(ctx context.Context, sp *table.SessionPool, path string) (err error) {
@@ -224,12 +269,11 @@
   			return nil
   		}),
   	)
-  ...
   ```
-  
+
 - Java
 
-Для создания таблиц используется метод `createTables`:
+  Для создания таблиц используется метод `Session.createTable()`:
 
   ```java
   private void createTables() {
@@ -266,8 +310,8 @@
       execute(session -> session.createTable(database + "/episodes", episodesTable).join());
   }
   ```
-  
-  С помощью метода `describeTables` можно вывести информацию о структуре таблицы и убедиться, что она успешно создалась:
+
+  С помощью метода `Session.describeTable()` можно вывести информацию о структуре таблицы и убедиться, что она успешно создалась:
 
   ```java
   private void describeTables() {
@@ -290,24 +334,14 @@
 
 {% endlist %}
 
-Фрагмент кода `basic_example_v1`, который при запуске выводит текст в консоль:
-
-```bash
-> describe table: series
-('column, name:', 'series_id', ',', 'type_id: UINT64')
-('column, name:', 'title', ',', 'type_id: UTF8')
-('column, name:', 'series_info', ',', 'type_id: UTF8')
-('column, name:', 'release_date', ',', 'type_id: UINT64')
-```
-
 `PRAGMA TablePathPrefix` добавляет указанный префикс к путям таблиц внутри БД. Работает по принципу объединения путей в файловой системе — поддерживает ссылки на родительский каталог и не требует добавления слеша справа. Например:
 
 ```
-PRAGMA TablePathPrefix = "/ru/tutorial/home/testdb";
-SELECT * FROM Episodes;
+PRAGMA TablePathPrefix = "/cluster/database";
+SELECT * FROM episodes;
 ```
 
-Подробнее про PRAGMA YQL написано в [документации YQL](../yql/reference/overview.md).
+Подробнее о PRAGMA YQL можно прочитать в [документации YQL](../yql/reference/overview.md).
 
 ## Обработка запросов и транзакций {#query-processing}
 
@@ -326,9 +360,10 @@ SELECT * FROM Episodes;
           """
           PRAGMA TablePathPrefix("{}");
           $format = DateTime::Format("%Y-%m-%d");
-          SELECT series_id,
-                 title,
-                 $format(DateTime::FromSeconds(CAST(DateTime::ToSeconds(DateTime::IntervalFromDays(CAST(release_date AS Int16))) AS Uint32))) AS release_date
+          SELECT
+              series_id,
+              title,
+              $format(DateTime::FromSeconds(CAST(DateTime::ToSeconds(DateTime::IntervalFromDays(CAST(release_date AS Int16))) AS Uint32))) AS release_date
           FROM series
           WHERE series_id = 1;
           """.format(path),
@@ -337,13 +372,13 @@ SELECT * FROM Episodes;
       print("\n> select_simple_transaction:")
       for row in result_sets[0].rows:
           print("series, id: ", row.series_id, ", title: ", row.title, ", release date: ", row.release_date)
-  
+
       return result_sets[0]
   ```
 
 - Go
 
-  Для выполнения YQL-запросов используется метод `Session.selectSimple()`.
+  Для выполнения YQL-запросов используется метод `Session.Execute()`.
   SDK позволяет в явном виде контролировать выполнение транзакций и настраивать необходимый режим выполнения транзакций с помощью класса ```TxControl```.
 
   ```go
@@ -387,12 +422,36 @@ SELECT * FROM Episodes;
   			return
   		}),
   	)
-  ...
+  	if err != nil {
+  		return err
+  	}
+  	for res.NextSet() {
+  		for res.NextRow() {
+  			res.SeekItem("series_id")
+  			id := res.OUint64()
+
+  			res.NextItem()
+  			title := res.OUTF8()
+
+  			res.NextItem()
+  			date := res.OString()
+
+  			log.Printf(
+  				"\n> select_simple_transaction: %d %s %s",
+  				id, title, date,
+  			)
+  		}
+  	}
+  	if err := res.Err(); err != nil {
+  		return err
+  	}
+  	return nil
+  }
   ```
-  
+
 - Java
 
-  Для выполнения YQL-запросов используется метод `selectSimple()`.
+  Для выполнения YQL-запросов используется метод `Session.executeDataQuery()`.
   SDK позволяет в явном виде контролировать выполнение транзакций и настраивать необходимый режим выполнения транзакций с помощью класса `TxControl`.
 
   ```java
@@ -409,14 +468,11 @@ SELECT * FROM Episodes;
           "WHERE series_id = 1;",
           database);
 
-      // Begin new transaction with SerializableRW mode
       TxControl txControl = TxControl.serializableRw().setCommitTx(true);
 
-      // Executes data query with specified transaction control settings.
       DataQueryResult result = executeWithResult(session -> session.executeDataQuery(query, txControl).join());
 
       System.out.println("\n--[ SelectSimple ]--");
-      // Index of result set corresponds to its order in YQL query
       new TablePrinter(result.getResultSet(0)).print();
   }
   ```
@@ -432,43 +488,40 @@ SELECT * FROM Episodes;
   Результат выполнения запроса:
 
   ```python
+  print("\n> select_simple_transaction:")
   for row in result_sets[0].rows:
       print("series, id: ", row.series_id, ", title: ", row.title, ", release date: ", row.release_date)
   ```
-  
+
 - Go
 
   Результат выполнения запроса:
 
   ```go
-  	var res *table.Result
-  	...
-  	for res.NextSet() {
-  		for res.NextRow() {
-  			res.SeekItem("series_id")
-  			id := res.OUint64()
-  
-  			res.NextItem()
-  			title := res.OUTF8()
-  
-  			res.NextItem()
-  			date := res.OString()
-  
-  			log.Printf(
-  				"\n> select_simple_transaction: %d %s %s",
-  				id, title, date,
-  			)
-  		}
+  for res.NextSet() {
+  	for res.NextRow() {
+  		res.SeekItem("series_id")
+  		id := res.OUint64()
+
+  		res.NextItem()
+  		title := res.OUTF8()
+
+  		res.NextItem()
+  		date := res.OString()
+
+  		log.Printf(
+  			"\n> select_simple_transaction: %d %s %s",
+  			id, title, date,
+  		)
   	}
+  }
   ```
-  
+
 - Java
 
   Результат выполнения запроса:
 
-  ```go
-  DataQueryResult result = executeWithResult(session -> session.executeDataQuery(query, txControl).join());
-    
+  ```java
   System.out.println("\n--[ SelectSimple ]--");
   new TablePrinter(result.getResultSet(0)).print();
   ```
@@ -494,7 +547,7 @@ SELECT * FROM Episodes;
           commit_tx=True,
       )
   ```
-  
+
 - Java
 
   Фрагмент кода `basic_example_v1`, демонстрирующий выполнение запроса на запись/изменение данных:
@@ -508,10 +561,8 @@ SELECT * FROM Episodes;
           "(2, 6, 1, \"TBD\");",
           database);
 
-      // Begin new transaction with SerializableRW mode
       TxControl txControl = TxControl.serializableRw().setCommitTx(true);
 
-      // Executes data query with specified transaction control settings.
       execute(session -> session.executeDataQuery(query, txControl)
           .join()
           .toStatus());
@@ -522,7 +573,7 @@ SELECT * FROM Episodes;
 
 ## Параметризованные подготовленные запросы {#param-prepared-queries}
 
-Параметризованные подготовленные запросы (prepared queries) записываются в форме шаблона, в котором определенного вида имена заменяются конкретными параметрами при каждом выполнении запроса. Использование параметризованных запросов может улучшить производительность, за счет сокращения частоты выполнения компиляции и перекомпиляции запросов, отличающихся только значениями параметров.
+Параметризованные подготовленные запросы (prepared queries) записываются в форме шаблона, в котором определенного вида имена заменяются конкретными параметрами при каждом выполнении запроса. Использование параметризованных запросов может улучшить производительность за счет сокращения частоты выполнения компиляции и перекомпиляции запросов, отличающихся только значениями параметров.
 
 {% list tabs %}
 
@@ -538,12 +589,13 @@ SELECT * FROM Episodes;
       DECLARE $seasonId AS Uint64;
       DECLARE $episodeId AS Uint64;
       $format = DateTime::Format("%Y-%m-%d");
-      SELECT title,
-             $format(DateTime::FromSeconds(CAST(DateTime::ToSeconds(DateTime::IntervalFromDays(CAST(air_date AS Int16))) AS Uint32))) AS air_date
+      SELECT
+          title,
+          $format(DateTime::FromSeconds(CAST(DateTime::ToSeconds(DateTime::IntervalFromDays(CAST(air_date AS Int16))) AS Uint32))) AS air_date
       FROM episodes
       WHERE series_id = $seriesId AND season_id = $seasonId AND episode_id = $episodeId;
       """.format(path)
-  
+
       prepared_query = session.prepare(query)
       result_sets = session.transaction(ydb.SerializableReadWrite()).execute(
           prepared_query, {
@@ -556,17 +608,10 @@ SELECT * FROM Episodes;
       print("\n> select_prepared_transaction:")
       for row in result_sets[0].rows:
           print("episode title:", row.title, ", air date:", row.air_date)
-  
+
       return result_sets[0]
   ```
 
-  Проверка:
-
-  ```bash
-  > select_prepared_transaction:
-  ('episode title:', u'To Build a Better Beta', ', air date:', '2016-06-05')
-  ```
-  
 - Java
 
   Фрагмент кода `basic_example_v1`, демонстрирующий возможность использования параметризованных подготовленных запросов. Подготовленный запрос хранится в контексте сессии.
@@ -594,8 +639,22 @@ SELECT * FROM Episodes;
 
           preparedQueries.put(queryId, query);
       }
+
+      Params params = query.newParams()
+          .put("$seriesId", uint64(seriesId))
+          .put("$seasonId", uint64(seasonId))
+          .put("$episodeId", uint64(episodeId));
+
+      TxControl txControl = TxControl.serializableRw().setCommitTx(true);
+      DataQueryResult result = query.execute(txControl, params)
+          .join()
+          .expect("prepared query failed");
+
+      System.out.println("\n--[ PreparedSelect ]--");
+      new TablePrinter(result.getResultSet(0)).print();
+  }
   ```
-  
+
 {% endlist %}
 
 ## Явное использование вызовов TCL Begin/Commit {#tcl-usage}
@@ -604,23 +663,25 @@ SELECT * FROM Episodes;
 
 - Python
 
-  В большинстве случаев вместо явного использования [TCL](../concepts/transactions.md) вызовов Begin и Commit лучше использовать параметры контроля транзакций в вызовах execute. Это позволит избежать лишних обращений к {{ ydb-short-name }} и эффективней выполнять запросы. Фрагмент кода `basic_example_v1` демонстрирующий явное использование вызовов `transaction().begin()` и `tx.Commit()`:
+  В большинстве случаев вместо явного использования [TCL](../concepts/transactions.md) вызовов Begin и Commit лучше использовать параметры контроля транзакций в вызовах execute. Это позволит избежать лишних обращений к {{ ydb-short-name }} и эффективней выполнять запросы. Фрагмент кода `basic_example_v1`, демонстрирующий явное использование вызовов `transaction().begin()` и `tx.Commit()`:
 
   ```python
   def explicit_tcl(session, path, series_id, season_id, episode_id):
       query = """
       PRAGMA TablePathPrefix("{}");
+
       DECLARE $seriesId AS Uint64;
       DECLARE $seasonId AS Uint64;
       DECLARE $episodeId AS Uint64;
+
       UPDATE episodes
       SET air_date = CAST(CurrentUtcDate() AS Uint64)
       WHERE series_id = $seriesId AND season_id = $seasonId AND episode_id = $episodeId;
       """.format(path)
       prepared_query = session.prepare(query)
-  
+
       tx = session.transaction(ydb.SerializableReadWrite()).begin()
-  
+
       tx.execute(
           prepared_query, {
               '$seriesId': series_id,
@@ -628,13 +689,15 @@ SELECT * FROM Episodes;
               '$episodeId': episode_id
           }
       )
-  
+
       print("\n> explicit TCL call")
+
+      tx.commit()
   ```
-  
+
 - Java
 
-  В большинстве случаев вместо явного использования [TCL](../concepts/transactions.md) вызовов Begin и Commit лучше использовать параметры контроля транзакций в вызовах `execute`. Это позволит избежать лишних обращений к {{ ydb-short-name }} и эффективней выполнять запросы. Фрагмент кода `basic_example_v1` демонстрирующий явное использование вызовов `beginTransaction()` и `transaction.Commit()`:
+  В большинстве случаев вместо явного использования [TCL](../concepts/transactions.md) вызовов Begin и Commit лучше использовать параметры контроля транзакций в вызовах `execute`. Это позволит избежать лишних обращений к {{ ydb-short-name }} и эффективней выполнять запросы. Фрагмент кода `basic_example_v1`, демонстрирующий явное использование вызовов `beginTransaction()` и `transaction.Commit()`:
 
   ```java
   private Status explicitTcl(Session session) {
@@ -653,7 +716,8 @@ SELECT * FROM Episodes;
 
       Params params = Params.of("$airDate", uint64(Duration.between(Instant.EPOCH, Instant.now()).toDays()));
 
-      Result<DataQueryResult> updateResult = session.executeDataQuery(query, TxControl.id(transaction), params)
+      TxControl txControl = TxControl.id(transaction).setCommitTx(false);
+      Result<DataQueryResult> updateResult = session.executeDataQuery(query, txControl, params)
           .join();
       if (!updateResult.isSuccess()) {
           return updateResult.toStatus();
@@ -661,9 +725,8 @@ SELECT * FROM Episodes;
 
       return transaction.commit().join();
   }
-
   ```
-  
+
 {% endlist %}
 
 ## Обработка ошибок {#error-handling}

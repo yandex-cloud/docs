@@ -8,7 +8,9 @@
 
 * [Увеличить размер дисков хостов {{ RD }}](#change-disk-size).
 
-* [Настраивать серверы](#change-redis-config) {{ RD }} согласно [документации {{ RD }}](https://redis.io/documentation). Список поддерживаемых настроек приведен [в справочнике API](../api-ref/Cluster/update.md).
+* [Настроить серверы](#change-redis-config) {{ RD }} согласно [документации {{ RD }}](https://redis.io/documentation). Список поддерживаемых настроек приведен [в справочнике API](../api-ref/Cluster/update.md).
+
+* [Изменить дополнительные настройки кластера](#change-additional-settings).
 
 ## Изменить имя и описание кластера {#change-name-and-description}
 
@@ -189,4 +191,18 @@
   
   Изменить настройки СУБД для кластера можно с помощью метода API [update](../api-ref/Cluster/update.md): передайте в запросе нужные значения в параметре `configSpec.redisConfig_5_0`.
   
+{% endlist %}
+
+## Изменить дополнительные настройки кластера {#change-additional-settings}
+
+{% list tabs %}
+
+- Консоль управления
+
+  1. Перейдите на страницу каталога и выберите сервис **{{ mrd-name }}**.
+  1. Выберите кластер и нажмите кнопку **Изменить кластер** на панели сверху.
+  1. Измените дополнительные настройки кластера: 
+     
+     {% include [mrd-extra-settings](../../_includes/mdb/mrd-extra-settings-web-console.md) %}
+
 {% endlist %}

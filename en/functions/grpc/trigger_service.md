@@ -29,7 +29,7 @@ Returns the specified trigger. <br>To get the list of all available triggers, ma
 
 Field | Description
 --- | ---
-trigger_id | **string**<br>Required. ID of the trigger to return. <br>To get a trigger ID make a [TriggerService.List](#List) request. false
+trigger_id | **string**<br>Required. ID of the trigger to return. <br>To get a trigger ID make a [TriggerService.List](#List) request. 
 
 
 ### Trigger {#Trigger}
@@ -37,12 +37,12 @@ trigger_id | **string**<br>Required. ID of the trigger to return. <br>To get a t
 Field | Description
 --- | ---
 id | **string**<br>ID of the trigger. Generated at creation time. 
-folder_id | **string**<br>Required. ID of the folder that the trigger belongs to. false The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the folder that the trigger belongs to. The maximum string length in characters is 50.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp for the trigger. 
 name | **string**<br>Name of the trigger. The string length in characters must be 3-63.
 description | **string**<br>Description of the trigger. The string length in characters must be 0-256.
 labels | **map<string,string>**<br>Trigger labels as `key:value` pairs. 
-rule | **[Rule](../trigger.proto#Rule)**<br>Required. Rule for trigger activation (always consistent with the trigger type). false
+rule | **[Rule](../trigger.proto#Rule)**<br>Required. Rule for trigger activation (always consistent with the trigger type). 
 status | enum **Status**<br>Trigger status <ul><ul/>
 
 
@@ -63,7 +63,7 @@ rule | **oneof:** `timer`, `message_queue`, `iot_message`, `object_storage`, `co
 
 Field | Description
 --- | ---
-cron_expression | **string**<br>Required. Description of a schedule as a [cron expression](/docs/functions/concepts/trigger/timer). false The maximum string length in characters is 100.
+cron_expression | **string**<br>Required. Description of a schedule as a [cron expression](/docs/functions/concepts/trigger/timer). The maximum string length in characters is 100.
 action | **oneof:** `invoke_function` or `invoke_function_with_retry`<br>Action to be executed when the current time matches the `cron_expression`.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](../trigger.proto#InvokeFunctionOnce)**<br>Instructions for invoking a function once. 
 &nbsp;&nbsp;invoke_function_with_retry | **[InvokeFunctionWithRetry](../trigger.proto#InvokeFunctionWithRetry)**<br>Action to be executed when the current time matches the `cron_expression`. 
@@ -73,9 +73,9 @@ action | **oneof:** `invoke_function` or `invoke_function_with_retry`<br>Action 
 
 Field | Description
 --- | ---
-queue_id | **string**<br>Required. ID of the message queue in Yandex Message Queue. false
-service_account_id | **string**<br>Required. ID of the service account which has read access to the message queue. false The maximum string length in characters is 50.
-batch_settings | **[BatchSettings](../trigger.proto#BatchSettings)**<br>Required. Batch settings for processing messages in the queue. false
+queue_id | **string**<br>Required. ID of the message queue in Yandex Message Queue. 
+service_account_id | **string**<br>Required. ID of the service account which has read access to the message queue. The maximum string length in characters is 50.
+batch_settings | **[BatchSettings](../trigger.proto#BatchSettings)**<br>Required. Batch settings for processing messages in the queue. 
 visibility_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Queue visibility timeout override. The maximum value is 12h.
 action | **oneof:** `invoke_function`<br>Action to be executed when the there's a new message in the queue.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](../trigger.proto#InvokeFunctionOnce)**<br>Instructions for invoking a function once. 
@@ -85,7 +85,7 @@ action | **oneof:** `invoke_function`<br>Action to be executed when the there's 
 
 Field | Description
 --- | ---
-registry_id | **string**<br>Required. ID of the Yandex IoT Core registry. false
+registry_id | **string**<br>Required. ID of the Yandex IoT Core registry. 
 device_id | **string**<br>ID of the Yandex IoT Core device in the registry. 
 mqtt_topic | **string**<br>MQTT topic whose messages activate the trigger. 
 action | **oneof:** `invoke_function`<br>Action to be executed when the there's a new message in the MQTT topic.
@@ -121,7 +121,7 @@ action | **oneof:** `invoke_function`<br>
 Field | Description
 --- | ---
 log_group_id[] | **string**<br>Log group identifiers, at least one value is required. 
-batch_settings | **[CloudLogsBatchSettings](../trigger.proto#CloudLogsBatchSettings)**<br>Required. Batch settings for processing log events. false
+batch_settings | **[CloudLogsBatchSettings](../trigger.proto#CloudLogsBatchSettings)**<br>Required. Batch settings for processing log events. 
 action | **oneof:** `invoke_function`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](../trigger.proto#InvokeFunctionWithRetry)**<br> 
 
@@ -136,7 +136,7 @@ Retrieves the list of triggers in the specified folder.
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder to list triggers in. <br>To get a folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. false
+folder_id | **string**<br>Required. ID of the folder to list triggers in. <br>To get a folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. 
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `pageSize`, the service returns a [ListTriggersResponse.next_page_token](#ListTriggersResponse) that can be used to get the next page of results in subsequent list requests. <br>Default value: 100. 
 page_token | **string**<br>Page token. To get the next page of results, set `pageToken` to the [ListTriggersResponse.next_page_token](#ListTriggersResponse) returned by a previous list request. 
 filter | **string**<br><ol><li>The field name. Currently filtering can only be applied to the [Trigger.name](../trigger.proto#Trigger1) field. </li><li>A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. </li></ol> 
@@ -147,24 +147,24 @@ filter | **string**<br><ol><li>The field name. Currently filtering can only be a
 Field | Description
 --- | ---
 triggers[] | **[Trigger](../trigger.proto#Trigger1)**<br>List of triggers in the specified folder. 
-next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListTriggersRequest.page_size](#ListTriggersRequest1), use `nextPageToken` as the value for the [ListTriggersRequest.page_token](#ListTriggersRequest1) parameter in the next list request. <br>Each subsequent page will have its own `nextPageToken` to continue paging through the results. 
+next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListTriggersRequest.page_size](#ListTriggersRequest), use `nextPageToken` as the value for the [ListTriggersRequest.page_token](#ListTriggersRequest) parameter in the next list request. <br>Each subsequent page will have its own `nextPageToken` to continue paging through the results. 
 
 
-### Trigger {#Trigger}
+### Trigger {#Trigger1}
 
 Field | Description
 --- | ---
 id | **string**<br>ID of the trigger. Generated at creation time. 
-folder_id | **string**<br>Required. ID of the folder that the trigger belongs to. false The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the folder that the trigger belongs to. The maximum string length in characters is 50.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp for the trigger. 
 name | **string**<br>Name of the trigger. The string length in characters must be 3-63.
 description | **string**<br>Description of the trigger. The string length in characters must be 0-256.
 labels | **map<string,string>**<br>Trigger labels as `key:value` pairs. 
-rule | **[Rule](../trigger.proto#Rule1)**<br>Required. Rule for trigger activation (always consistent with the trigger type). false
+rule | **[Rule](../trigger.proto#Rule1)**<br>Required. Rule for trigger activation (always consistent with the trigger type). 
 status | enum **Status**<br>Trigger status <ul><ul/>
 
 
-### Rule {#Rule}
+### Rule {#Rule1}
 
 Field | Description
 --- | ---
@@ -177,40 +177,40 @@ rule | **oneof:** `timer`, `message_queue`, `iot_message`, `object_storage`, `co
 &nbsp;&nbsp;cloud_logs | **[CloudLogs](../trigger.proto#CloudLogs1)**<br> 
 
 
-### Timer {#Timer}
+### Timer {#Timer1}
 
 Field | Description
 --- | ---
-cron_expression | **string**<br>Required. Description of a schedule as a [cron expression](/docs/functions/concepts/trigger/timer). false The maximum string length in characters is 100.
+cron_expression | **string**<br>Required. Description of a schedule as a [cron expression](/docs/functions/concepts/trigger/timer). The maximum string length in characters is 100.
 action | **oneof:** `invoke_function` or `invoke_function_with_retry`<br>Action to be executed when the current time matches the `cron_expression`.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](../trigger.proto#InvokeFunctionOnce)**<br>Instructions for invoking a function once. 
 &nbsp;&nbsp;invoke_function_with_retry | **[InvokeFunctionWithRetry](../trigger.proto#InvokeFunctionWithRetry)**<br>Action to be executed when the current time matches the `cron_expression`. 
 
 
-### MessageQueue {#MessageQueue}
+### MessageQueue {#MessageQueue1}
 
 Field | Description
 --- | ---
-queue_id | **string**<br>Required. ID of the message queue in Yandex Message Queue. false
-service_account_id | **string**<br>Required. ID of the service account which has read access to the message queue. false The maximum string length in characters is 50.
-batch_settings | **[BatchSettings](../trigger.proto#BatchSettings)**<br>Required. Batch settings for processing messages in the queue. false
+queue_id | **string**<br>Required. ID of the message queue in Yandex Message Queue. 
+service_account_id | **string**<br>Required. ID of the service account which has read access to the message queue. The maximum string length in characters is 50.
+batch_settings | **[BatchSettings](../trigger.proto#BatchSettings)**<br>Required. Batch settings for processing messages in the queue. 
 visibility_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Queue visibility timeout override. The maximum value is 12h.
 action | **oneof:** `invoke_function`<br>Action to be executed when the there's a new message in the queue.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](../trigger.proto#InvokeFunctionOnce)**<br>Instructions for invoking a function once. 
 
 
-### IoTMessage {#IoTMessage}
+### IoTMessage {#IoTMessage1}
 
 Field | Description
 --- | ---
-registry_id | **string**<br>Required. ID of the Yandex IoT Core registry. false
+registry_id | **string**<br>Required. ID of the Yandex IoT Core registry. 
 device_id | **string**<br>ID of the Yandex IoT Core device in the registry. 
 mqtt_topic | **string**<br>MQTT topic whose messages activate the trigger. 
 action | **oneof:** `invoke_function`<br>Action to be executed when the there's a new message in the MQTT topic.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](../trigger.proto#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
 
 
-### ObjectStorage {#ObjectStorage}
+### ObjectStorage {#ObjectStorage1}
 
 Field | Description
 --- | ---
@@ -222,7 +222,7 @@ action | **oneof:** `invoke_function`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](../trigger.proto#InvokeFunctionWithRetry)**<br> 
 
 
-### ContainerRegistry {#ContainerRegistry}
+### ContainerRegistry {#ContainerRegistry1}
 
 Field | Description
 --- | ---
@@ -234,12 +234,12 @@ action | **oneof:** `invoke_function`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](../trigger.proto#InvokeFunctionWithRetry)**<br> 
 
 
-### CloudLogs {#CloudLogs}
+### CloudLogs {#CloudLogs1}
 
 Field | Description
 --- | ---
 log_group_id[] | **string**<br>Log group identifiers, at least one value is required. 
-batch_settings | **[CloudLogsBatchSettings](../trigger.proto#CloudLogsBatchSettings)**<br>Required. Batch settings for processing log events. false
+batch_settings | **[CloudLogsBatchSettings](../trigger.proto#CloudLogsBatchSettings)**<br>Required. Batch settings for processing log events. 
 action | **oneof:** `invoke_function`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](../trigger.proto#InvokeFunctionWithRetry)**<br> 
 
@@ -258,11 +258,11 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder to create a trigger in. <br>To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. false
+folder_id | **string**<br>Required. ID of the folder to create a trigger in. <br>To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. 
 name | **string**<br>Name of the trigger. The name must be unique within the folder. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>Description of the trigger. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
-rule | **[Trigger.Rule](../trigger.proto#Trigger2)**<br>Required. Trigger type. false
+rule | **[Trigger.Rule](../trigger.proto#Trigger2)**<br>Required. Trigger type. 
 
 
 ### Operation {#Operation}
@@ -288,21 +288,21 @@ Field | Description
 trigger_id | **string**<br>ID of the trigger that is being created. 
 
 
-### Trigger {#Trigger}
+### Trigger {#Trigger2}
 
 Field | Description
 --- | ---
 id | **string**<br>ID of the trigger. Generated at creation time. 
-folder_id | **string**<br>Required. ID of the folder that the trigger belongs to. false The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the folder that the trigger belongs to. The maximum string length in characters is 50.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp for the trigger. 
 name | **string**<br>Name of the trigger. The string length in characters must be 3-63.
 description | **string**<br>Description of the trigger. The string length in characters must be 0-256.
 labels | **map<string,string>**<br>Trigger labels as `key:value` pairs. 
-rule | **[Rule](../trigger.proto#Rule2)**<br>Required. Rule for trigger activation (always consistent with the trigger type). false
+rule | **[Rule](../trigger.proto#Rule2)**<br>Required. Rule for trigger activation (always consistent with the trigger type). 
 status | enum **Status**<br>Trigger status <ul><ul/>
 
 
-### Rule {#Rule}
+### Rule {#Rule2}
 
 Field | Description
 --- | ---
@@ -315,40 +315,40 @@ rule | **oneof:** `timer`, `message_queue`, `iot_message`, `object_storage`, `co
 &nbsp;&nbsp;cloud_logs | **[CloudLogs](../trigger.proto#CloudLogs2)**<br> 
 
 
-### Timer {#Timer}
+### Timer {#Timer2}
 
 Field | Description
 --- | ---
-cron_expression | **string**<br>Required. Description of a schedule as a [cron expression](/docs/functions/concepts/trigger/timer). false The maximum string length in characters is 100.
+cron_expression | **string**<br>Required. Description of a schedule as a [cron expression](/docs/functions/concepts/trigger/timer). The maximum string length in characters is 100.
 action | **oneof:** `invoke_function` or `invoke_function_with_retry`<br>Action to be executed when the current time matches the `cron_expression`.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](../trigger.proto#InvokeFunctionOnce)**<br>Instructions for invoking a function once. 
 &nbsp;&nbsp;invoke_function_with_retry | **[InvokeFunctionWithRetry](../trigger.proto#InvokeFunctionWithRetry)**<br>Action to be executed when the current time matches the `cron_expression`. 
 
 
-### MessageQueue {#MessageQueue}
+### MessageQueue {#MessageQueue2}
 
 Field | Description
 --- | ---
-queue_id | **string**<br>Required. ID of the message queue in Yandex Message Queue. false
-service_account_id | **string**<br>Required. ID of the service account which has read access to the message queue. false The maximum string length in characters is 50.
-batch_settings | **[BatchSettings](../trigger.proto#BatchSettings)**<br>Required. Batch settings for processing messages in the queue. false
+queue_id | **string**<br>Required. ID of the message queue in Yandex Message Queue. 
+service_account_id | **string**<br>Required. ID of the service account which has read access to the message queue. The maximum string length in characters is 50.
+batch_settings | **[BatchSettings](../trigger.proto#BatchSettings)**<br>Required. Batch settings for processing messages in the queue. 
 visibility_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Queue visibility timeout override. The maximum value is 12h.
 action | **oneof:** `invoke_function`<br>Action to be executed when the there's a new message in the queue.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](../trigger.proto#InvokeFunctionOnce)**<br>Instructions for invoking a function once. 
 
 
-### IoTMessage {#IoTMessage}
+### IoTMessage {#IoTMessage2}
 
 Field | Description
 --- | ---
-registry_id | **string**<br>Required. ID of the Yandex IoT Core registry. false
+registry_id | **string**<br>Required. ID of the Yandex IoT Core registry. 
 device_id | **string**<br>ID of the Yandex IoT Core device in the registry. 
 mqtt_topic | **string**<br>MQTT topic whose messages activate the trigger. 
 action | **oneof:** `invoke_function`<br>Action to be executed when the there's a new message in the MQTT topic.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](../trigger.proto#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
 
 
-### ObjectStorage {#ObjectStorage}
+### ObjectStorage {#ObjectStorage2}
 
 Field | Description
 --- | ---
@@ -360,7 +360,7 @@ action | **oneof:** `invoke_function`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](../trigger.proto#InvokeFunctionWithRetry)**<br> 
 
 
-### ContainerRegistry {#ContainerRegistry}
+### ContainerRegistry {#ContainerRegistry2}
 
 Field | Description
 --- | ---
@@ -372,12 +372,12 @@ action | **oneof:** `invoke_function`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](../trigger.proto#InvokeFunctionWithRetry)**<br> 
 
 
-### CloudLogs {#CloudLogs}
+### CloudLogs {#CloudLogs2}
 
 Field | Description
 --- | ---
 log_group_id[] | **string**<br>Log group identifiers, at least one value is required. 
-batch_settings | **[CloudLogsBatchSettings](../trigger.proto#CloudLogsBatchSettings)**<br>Required. Batch settings for processing log events. false
+batch_settings | **[CloudLogsBatchSettings](../trigger.proto#CloudLogsBatchSettings)**<br>Required. Batch settings for processing log events. 
 action | **oneof:** `invoke_function`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](../trigger.proto#InvokeFunctionWithRetry)**<br> 
 
@@ -396,14 +396,14 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-trigger_id | **string**<br>Required. ID of the trigger to update. <br>To get a trigger ID make a [TriggerService.List](#List) request. false
+trigger_id | **string**<br>Required. ID of the trigger to update. <br>To get a trigger ID make a [TriggerService.List](#List) request. 
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which attributes of the trigger should be updated. 
 name | **string**<br>New name for the trigger. The name must be unique within the folder. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>New description of the trigger. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Trigger labels as `key:value` pairs. <br>Existing set of labels is completely replaced by the provided set, so if you just want to add or remove a label, request the current set of labels with a [TriggerService.Get](#Get) request. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 
 
-### Operation {#Operation}
+### Operation {#Operation1}
 
 Field | Description
 --- | ---
@@ -423,24 +423,24 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-trigger_id | **string**<br>Required. ID of the trigger that is being updated. false
+trigger_id | **string**<br>Required. ID of the trigger that is being updated. 
 
 
-### Trigger {#Trigger}
+### Trigger {#Trigger3}
 
 Field | Description
 --- | ---
 id | **string**<br>ID of the trigger. Generated at creation time. 
-folder_id | **string**<br>Required. ID of the folder that the trigger belongs to. false The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the folder that the trigger belongs to. The maximum string length in characters is 50.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp for the trigger. 
 name | **string**<br>Name of the trigger. The string length in characters must be 3-63.
 description | **string**<br>Description of the trigger. The string length in characters must be 0-256.
 labels | **map<string,string>**<br>Trigger labels as `key:value` pairs. 
-rule | **[Rule](../trigger.proto#Rule3)**<br>Required. Rule for trigger activation (always consistent with the trigger type). false
+rule | **[Rule](../trigger.proto#Rule3)**<br>Required. Rule for trigger activation (always consistent with the trigger type). 
 status | enum **Status**<br>Trigger status <ul><ul/>
 
 
-### Rule {#Rule}
+### Rule {#Rule3}
 
 Field | Description
 --- | ---
@@ -453,40 +453,40 @@ rule | **oneof:** `timer`, `message_queue`, `iot_message`, `object_storage`, `co
 &nbsp;&nbsp;cloud_logs | **[CloudLogs](../trigger.proto#CloudLogs3)**<br> 
 
 
-### Timer {#Timer}
+### Timer {#Timer3}
 
 Field | Description
 --- | ---
-cron_expression | **string**<br>Required. Description of a schedule as a [cron expression](/docs/functions/concepts/trigger/timer). false The maximum string length in characters is 100.
+cron_expression | **string**<br>Required. Description of a schedule as a [cron expression](/docs/functions/concepts/trigger/timer). The maximum string length in characters is 100.
 action | **oneof:** `invoke_function` or `invoke_function_with_retry`<br>Action to be executed when the current time matches the `cron_expression`.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](../trigger.proto#InvokeFunctionOnce)**<br>Instructions for invoking a function once. 
 &nbsp;&nbsp;invoke_function_with_retry | **[InvokeFunctionWithRetry](../trigger.proto#InvokeFunctionWithRetry)**<br>Action to be executed when the current time matches the `cron_expression`. 
 
 
-### MessageQueue {#MessageQueue}
+### MessageQueue {#MessageQueue3}
 
 Field | Description
 --- | ---
-queue_id | **string**<br>Required. ID of the message queue in Yandex Message Queue. false
-service_account_id | **string**<br>Required. ID of the service account which has read access to the message queue. false The maximum string length in characters is 50.
-batch_settings | **[BatchSettings](../trigger.proto#BatchSettings)**<br>Required. Batch settings for processing messages in the queue. false
+queue_id | **string**<br>Required. ID of the message queue in Yandex Message Queue. 
+service_account_id | **string**<br>Required. ID of the service account which has read access to the message queue. The maximum string length in characters is 50.
+batch_settings | **[BatchSettings](../trigger.proto#BatchSettings)**<br>Required. Batch settings for processing messages in the queue. 
 visibility_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Queue visibility timeout override. The maximum value is 12h.
 action | **oneof:** `invoke_function`<br>Action to be executed when the there's a new message in the queue.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](../trigger.proto#InvokeFunctionOnce)**<br>Instructions for invoking a function once. 
 
 
-### IoTMessage {#IoTMessage}
+### IoTMessage {#IoTMessage3}
 
 Field | Description
 --- | ---
-registry_id | **string**<br>Required. ID of the Yandex IoT Core registry. false
+registry_id | **string**<br>Required. ID of the Yandex IoT Core registry. 
 device_id | **string**<br>ID of the Yandex IoT Core device in the registry. 
 mqtt_topic | **string**<br>MQTT topic whose messages activate the trigger. 
 action | **oneof:** `invoke_function`<br>Action to be executed when the there's a new message in the MQTT topic.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](../trigger.proto#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
 
 
-### ObjectStorage {#ObjectStorage}
+### ObjectStorage {#ObjectStorage3}
 
 Field | Description
 --- | ---
@@ -498,7 +498,7 @@ action | **oneof:** `invoke_function`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](../trigger.proto#InvokeFunctionWithRetry)**<br> 
 
 
-### ContainerRegistry {#ContainerRegistry}
+### ContainerRegistry {#ContainerRegistry3}
 
 Field | Description
 --- | ---
@@ -510,12 +510,12 @@ action | **oneof:** `invoke_function`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](../trigger.proto#InvokeFunctionWithRetry)**<br> 
 
 
-### CloudLogs {#CloudLogs}
+### CloudLogs {#CloudLogs3}
 
 Field | Description
 --- | ---
 log_group_id[] | **string**<br>Log group identifiers, at least one value is required. 
-batch_settings | **[CloudLogsBatchSettings](../trigger.proto#CloudLogsBatchSettings)**<br>Required. Batch settings for processing log events. false
+batch_settings | **[CloudLogsBatchSettings](../trigger.proto#CloudLogsBatchSettings)**<br>Required. Batch settings for processing log events. 
 action | **oneof:** `invoke_function`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](../trigger.proto#InvokeFunctionWithRetry)**<br> 
 
@@ -534,10 +534,10 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-trigger_id | **string**<br>Required. ID of the trigger to delete. <br>To get a trigger ID make a [TriggerService.List](#List) request. false
+trigger_id | **string**<br>Required. ID of the trigger to delete. <br>To get a trigger ID make a [TriggerService.List](#List) request. 
 
 
-### Operation {#Operation}
+### Operation {#Operation2}
 
 Field | Description
 --- | ---
@@ -557,7 +557,7 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-trigger_id | **string**<br>Required. ID of the trigger that is being deleted. false
+trigger_id | **string**<br>Required. ID of the trigger that is being deleted. 
 
 
 ## Pause {#Pause}
@@ -574,10 +574,10 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-trigger_id | **string**<br>Required. ID of the trigger to pause <br>To get a trigger ID make a [TriggerService.List](#List) request. false
+trigger_id | **string**<br>Required. ID of the trigger to pause <br>To get a trigger ID make a [TriggerService.List](#List) request. 
 
 
-### Operation {#Operation}
+### Operation {#Operation3}
 
 Field | Description
 --- | ---
@@ -597,24 +597,24 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-trigger_id | **string**<br>Required. ID of the trigger that is being paused. false
+trigger_id | **string**<br>Required. ID of the trigger that is being paused. 
 
 
-### Trigger {#Trigger}
+### Trigger {#Trigger4}
 
 Field | Description
 --- | ---
 id | **string**<br>ID of the trigger. Generated at creation time. 
-folder_id | **string**<br>Required. ID of the folder that the trigger belongs to. false The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the folder that the trigger belongs to. The maximum string length in characters is 50.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp for the trigger. 
 name | **string**<br>Name of the trigger. The string length in characters must be 3-63.
 description | **string**<br>Description of the trigger. The string length in characters must be 0-256.
 labels | **map<string,string>**<br>Trigger labels as `key:value` pairs. 
-rule | **[Rule](../trigger.proto#Rule4)**<br>Required. Rule for trigger activation (always consistent with the trigger type). false
+rule | **[Rule](../trigger.proto#Rule4)**<br>Required. Rule for trigger activation (always consistent with the trigger type). 
 status | enum **Status**<br>Trigger status <ul><ul/>
 
 
-### Rule {#Rule}
+### Rule {#Rule4}
 
 Field | Description
 --- | ---
@@ -627,40 +627,40 @@ rule | **oneof:** `timer`, `message_queue`, `iot_message`, `object_storage`, `co
 &nbsp;&nbsp;cloud_logs | **[CloudLogs](../trigger.proto#CloudLogs4)**<br> 
 
 
-### Timer {#Timer}
+### Timer {#Timer4}
 
 Field | Description
 --- | ---
-cron_expression | **string**<br>Required. Description of a schedule as a [cron expression](/docs/functions/concepts/trigger/timer). false The maximum string length in characters is 100.
+cron_expression | **string**<br>Required. Description of a schedule as a [cron expression](/docs/functions/concepts/trigger/timer). The maximum string length in characters is 100.
 action | **oneof:** `invoke_function` or `invoke_function_with_retry`<br>Action to be executed when the current time matches the `cron_expression`.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](../trigger.proto#InvokeFunctionOnce)**<br>Instructions for invoking a function once. 
 &nbsp;&nbsp;invoke_function_with_retry | **[InvokeFunctionWithRetry](../trigger.proto#InvokeFunctionWithRetry)**<br>Action to be executed when the current time matches the `cron_expression`. 
 
 
-### MessageQueue {#MessageQueue}
+### MessageQueue {#MessageQueue4}
 
 Field | Description
 --- | ---
-queue_id | **string**<br>Required. ID of the message queue in Yandex Message Queue. false
-service_account_id | **string**<br>Required. ID of the service account which has read access to the message queue. false The maximum string length in characters is 50.
-batch_settings | **[BatchSettings](../trigger.proto#BatchSettings)**<br>Required. Batch settings for processing messages in the queue. false
+queue_id | **string**<br>Required. ID of the message queue in Yandex Message Queue. 
+service_account_id | **string**<br>Required. ID of the service account which has read access to the message queue. The maximum string length in characters is 50.
+batch_settings | **[BatchSettings](../trigger.proto#BatchSettings)**<br>Required. Batch settings for processing messages in the queue. 
 visibility_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Queue visibility timeout override. The maximum value is 12h.
 action | **oneof:** `invoke_function`<br>Action to be executed when the there's a new message in the queue.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](../trigger.proto#InvokeFunctionOnce)**<br>Instructions for invoking a function once. 
 
 
-### IoTMessage {#IoTMessage}
+### IoTMessage {#IoTMessage4}
 
 Field | Description
 --- | ---
-registry_id | **string**<br>Required. ID of the Yandex IoT Core registry. false
+registry_id | **string**<br>Required. ID of the Yandex IoT Core registry. 
 device_id | **string**<br>ID of the Yandex IoT Core device in the registry. 
 mqtt_topic | **string**<br>MQTT topic whose messages activate the trigger. 
 action | **oneof:** `invoke_function`<br>Action to be executed when the there's a new message in the MQTT topic.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](../trigger.proto#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
 
 
-### ObjectStorage {#ObjectStorage}
+### ObjectStorage {#ObjectStorage4}
 
 Field | Description
 --- | ---
@@ -672,7 +672,7 @@ action | **oneof:** `invoke_function`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](../trigger.proto#InvokeFunctionWithRetry)**<br> 
 
 
-### ContainerRegistry {#ContainerRegistry}
+### ContainerRegistry {#ContainerRegistry4}
 
 Field | Description
 --- | ---
@@ -684,12 +684,12 @@ action | **oneof:** `invoke_function`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](../trigger.proto#InvokeFunctionWithRetry)**<br> 
 
 
-### CloudLogs {#CloudLogs}
+### CloudLogs {#CloudLogs4}
 
 Field | Description
 --- | ---
 log_group_id[] | **string**<br>Log group identifiers, at least one value is required. 
-batch_settings | **[CloudLogsBatchSettings](../trigger.proto#CloudLogsBatchSettings)**<br>Required. Batch settings for processing log events. false
+batch_settings | **[CloudLogsBatchSettings](../trigger.proto#CloudLogsBatchSettings)**<br>Required. Batch settings for processing log events. 
 action | **oneof:** `invoke_function`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](../trigger.proto#InvokeFunctionWithRetry)**<br> 
 
@@ -708,10 +708,10 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-trigger_id | **string**<br>Required. ID of the trigger to pause <br>To get a trigger ID make a [TriggerService.List](#List) request. false
+trigger_id | **string**<br>Required. ID of the trigger to pause <br>To get a trigger ID make a [TriggerService.List](#List) request. 
 
 
-### Operation {#Operation}
+### Operation {#Operation4}
 
 Field | Description
 --- | ---
@@ -731,24 +731,24 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-trigger_id | **string**<br>Required. ID of the trigger that is being paused. false
+trigger_id | **string**<br>Required. ID of the trigger that is being paused. 
 
 
-### Trigger {#Trigger}
+### Trigger {#Trigger5}
 
 Field | Description
 --- | ---
 id | **string**<br>ID of the trigger. Generated at creation time. 
-folder_id | **string**<br>Required. ID of the folder that the trigger belongs to. false The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the folder that the trigger belongs to. The maximum string length in characters is 50.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp for the trigger. 
 name | **string**<br>Name of the trigger. The string length in characters must be 3-63.
 description | **string**<br>Description of the trigger. The string length in characters must be 0-256.
 labels | **map<string,string>**<br>Trigger labels as `key:value` pairs. 
-rule | **[Rule](../trigger.proto#Rule5)**<br>Required. Rule for trigger activation (always consistent with the trigger type). false
+rule | **[Rule](../trigger.proto#Rule5)**<br>Required. Rule for trigger activation (always consistent with the trigger type). 
 status | enum **Status**<br>Trigger status <ul><ul/>
 
 
-### Rule {#Rule}
+### Rule {#Rule5}
 
 Field | Description
 --- | ---
@@ -761,40 +761,40 @@ rule | **oneof:** `timer`, `message_queue`, `iot_message`, `object_storage`, `co
 &nbsp;&nbsp;cloud_logs | **[CloudLogs](../trigger.proto#CloudLogs5)**<br> 
 
 
-### Timer {#Timer}
+### Timer {#Timer5}
 
 Field | Description
 --- | ---
-cron_expression | **string**<br>Required. Description of a schedule as a [cron expression](/docs/functions/concepts/trigger/timer). false The maximum string length in characters is 100.
+cron_expression | **string**<br>Required. Description of a schedule as a [cron expression](/docs/functions/concepts/trigger/timer). The maximum string length in characters is 100.
 action | **oneof:** `invoke_function` or `invoke_function_with_retry`<br>Action to be executed when the current time matches the `cron_expression`.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](../trigger.proto#InvokeFunctionOnce)**<br>Instructions for invoking a function once. 
 &nbsp;&nbsp;invoke_function_with_retry | **[InvokeFunctionWithRetry](../trigger.proto#InvokeFunctionWithRetry)**<br>Action to be executed when the current time matches the `cron_expression`. 
 
 
-### MessageQueue {#MessageQueue}
+### MessageQueue {#MessageQueue5}
 
 Field | Description
 --- | ---
-queue_id | **string**<br>Required. ID of the message queue in Yandex Message Queue. false
-service_account_id | **string**<br>Required. ID of the service account which has read access to the message queue. false The maximum string length in characters is 50.
-batch_settings | **[BatchSettings](../trigger.proto#BatchSettings)**<br>Required. Batch settings for processing messages in the queue. false
+queue_id | **string**<br>Required. ID of the message queue in Yandex Message Queue. 
+service_account_id | **string**<br>Required. ID of the service account which has read access to the message queue. The maximum string length in characters is 50.
+batch_settings | **[BatchSettings](../trigger.proto#BatchSettings)**<br>Required. Batch settings for processing messages in the queue. 
 visibility_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Queue visibility timeout override. The maximum value is 12h.
 action | **oneof:** `invoke_function`<br>Action to be executed when the there's a new message in the queue.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](../trigger.proto#InvokeFunctionOnce)**<br>Instructions for invoking a function once. 
 
 
-### IoTMessage {#IoTMessage}
+### IoTMessage {#IoTMessage5}
 
 Field | Description
 --- | ---
-registry_id | **string**<br>Required. ID of the Yandex IoT Core registry. false
+registry_id | **string**<br>Required. ID of the Yandex IoT Core registry. 
 device_id | **string**<br>ID of the Yandex IoT Core device in the registry. 
 mqtt_topic | **string**<br>MQTT topic whose messages activate the trigger. 
 action | **oneof:** `invoke_function`<br>Action to be executed when the there's a new message in the MQTT topic.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](../trigger.proto#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
 
 
-### ObjectStorage {#ObjectStorage}
+### ObjectStorage {#ObjectStorage5}
 
 Field | Description
 --- | ---
@@ -806,7 +806,7 @@ action | **oneof:** `invoke_function`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](../trigger.proto#InvokeFunctionWithRetry)**<br> 
 
 
-### ContainerRegistry {#ContainerRegistry}
+### ContainerRegistry {#ContainerRegistry5}
 
 Field | Description
 --- | ---
@@ -818,12 +818,12 @@ action | **oneof:** `invoke_function`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](../trigger.proto#InvokeFunctionWithRetry)**<br> 
 
 
-### CloudLogs {#CloudLogs}
+### CloudLogs {#CloudLogs5}
 
 Field | Description
 --- | ---
 log_group_id[] | **string**<br>Log group identifiers, at least one value is required. 
-batch_settings | **[CloudLogsBatchSettings](../trigger.proto#CloudLogsBatchSettings)**<br>Required. Batch settings for processing log events. false
+batch_settings | **[CloudLogsBatchSettings](../trigger.proto#CloudLogsBatchSettings)**<br>Required. Batch settings for processing log events. 
 action | **oneof:** `invoke_function`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](../trigger.proto#InvokeFunctionWithRetry)**<br> 
 
@@ -838,7 +838,7 @@ Lists operations for the specified trigger.
 
 Field | Description
 --- | ---
-trigger_id | **string**<br>Required. ID of the trigger to list operations for. false
+trigger_id | **string**<br>Required. ID of the trigger to list operations for. 
 page_size | **int64**<br>The maximum number of results per page that should be returned. If the number of available results is larger than `pageSize`, the service returns a [ListTriggerOperationsResponse.next_page_token](#ListTriggerOperationsResponse) that can be used to get the next page of results in subsequent list requests. <br>Default value: 100. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `pageToken` to the [ListTriggerOperationsResponse.next_page_token](#ListTriggerOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
 filter | **string**<br><ol><li>The field name. Currently filtering can only be applied to the [Trigger.name](../trigger.proto#Trigger6) field. </li><li>A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. </li></ol> The maximum string length in characters is 1000.
@@ -849,10 +849,10 @@ filter | **string**<br><ol><li>The field name. Currently filtering can only be a
 Field | Description
 --- | ---
 operations[] | **[operation.Operation](#Operation5)**<br>List of operations for the specified trigger. 
-next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListTriggerOperationsRequest.page_size](#ListTriggerOperationsRequest1), use `nextPageToken` as the value for the [ListTriggerOperationsRequest.page_token](#ListTriggerOperationsRequest1) parameter in the next list request. <br>Each subsequent page will have its own `nextPageToken` to continue paging through the results. 
+next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListTriggerOperationsRequest.page_size](#ListTriggerOperationsRequest), use `nextPageToken` as the value for the [ListTriggerOperationsRequest.page_token](#ListTriggerOperationsRequest) parameter in the next list request. <br>Each subsequent page will have its own `nextPageToken` to continue paging through the results. 
 
 
-### Operation {#Operation}
+### Operation {#Operation5}
 
 Field | Description
 --- | ---

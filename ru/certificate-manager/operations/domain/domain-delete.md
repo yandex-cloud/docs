@@ -1,5 +1,7 @@
 # Удаление домена
 
+{% include [preview-stage](../../../_includes/certificate-manager/preview-stage.md) %}
+
 Чтобы удалить домен:
 
 {% list tabs %}

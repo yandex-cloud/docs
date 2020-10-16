@@ -29,7 +29,7 @@ Returns the specified Subnet resource. <br>To get the list of available Subnet r
 
 Field | Description
 --- | ---
-subnet_id | **string**<br>Required. ID of the Subnet resource to return. To get the subnet ID use a [SubnetService.List](#List) request. false The maximum string length in characters is 50.
+subnet_id | **string**<br>Required. ID of the Subnet resource to return. To get the subnet ID use a [SubnetService.List](#List) request. The maximum string length in characters is 50.
 
 
 ### Subnet {#Subnet}
@@ -69,7 +69,7 @@ Retrieves the list of Subnet resources in the specified folder.
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder to list subnets in. To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. false The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the folder to list subnets in. To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListSubnetsResponse.next_page_token](#ListSubnetsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListSubnetsResponse.next_page_token](#ListSubnetsResponse) returned by a previous list request. The maximum string length in characters is 100.
 filter | **string**<br><ol><li>The field name. Currently you can use filtering only on [Subnet.name](../subnet.proto#Subnet1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.</li></ol> The maximum string length in characters is 1000.
@@ -80,10 +80,10 @@ filter | **string**<br><ol><li>The field name. Currently you can use filtering o
 Field | Description
 --- | ---
 subnets[] | **[Subnet](../subnet.proto#Subnet1)**<br>List of Subnet resources. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListSubnetsRequest.page_size](#ListSubnetsRequest1), use the `next_page_token` as the value for the [ListSubnetsRequest.page_token](#ListSubnetsRequest1) query parameter in the next list request. Subsequent list requests will have their own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListSubnetsRequest.page_size](#ListSubnetsRequest), use the `next_page_token` as the value for the [ListSubnetsRequest.page_token](#ListSubnetsRequest) query parameter in the next list request. Subsequent list requests will have their own `next_page_token` to continue paging through the results. 
 
 
-### Subnet {#Subnet}
+### Subnet {#Subnet1}
 
 Field | Description
 --- | ---
@@ -101,7 +101,7 @@ route_table_id | **string**<br>ID of route table the subnet is linked to.
 dhcp_options | **[DhcpOptions](../subnet.proto#DhcpOptions1)**<br> 
 
 
-### DhcpOptions {#DhcpOptions}
+### DhcpOptions {#DhcpOptions1}
 
 Field | Description
 --- | ---
@@ -124,18 +124,18 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder to create a subnet in. To get folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. false The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the folder to create a subnet in. To get folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. The maximum string length in characters is 50.
 name | **string**<br>Name of the subnet. The name must be unique within the folder. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>Description of the subnet. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels, `` key:value `` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
-network_id | **string**<br>Required. ID of the network to create subnet in. false The maximum string length in characters is 50.
-zone_id | **string**<br>Required. ID of the availability zone where the subnet resides. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/grpc/zone_service#List) request. false The maximum string length in characters is 50.
-v4_cidr_blocks[] | **string**<br>Required. <ol><li></li></ol> false
+network_id | **string**<br>Required. ID of the network to create subnet in. The maximum string length in characters is 50.
+zone_id | **string**<br>Required. ID of the availability zone where the subnet resides. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/grpc/zone_service#List) request. The maximum string length in characters is 50.
+v4_cidr_blocks[] | **string**<br>Required. <ol><li></li></ol> 
 route_table_id | **string**<br>IPv6 not available yet. repeated string v6_cidr_blocks = 8; ID of route table the subnet is linked to. The maximum string length in characters is 50.
 dhcp_options | **[DhcpOptions](../subnet.proto#DhcpOptions2)**<br> 
 
 
-### DhcpOptions {#DhcpOptions}
+### DhcpOptions {#DhcpOptions2}
 
 Field | Description
 --- | ---
@@ -167,7 +167,7 @@ Field | Description
 subnet_id | **string**<br>ID of the subnet that is being created. 
 
 
-### Subnet {#Subnet}
+### Subnet {#Subnet2}
 
 Field | Description
 --- | ---
@@ -199,7 +199,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-subnet_id | **string**<br>Required. ID of the Subnet resource to update. false The maximum string length in characters is 50.
+subnet_id | **string**<br>Required. ID of the Subnet resource to update. The maximum string length in characters is 50.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the Subnet resource are going to be updated. 
 name | **string**<br>Name of the subnet. The name must be unique within the folder. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>Description of the subnet. The maximum string length in characters is 256.
@@ -208,7 +208,7 @@ route_table_id | **string**<br>ID of route table the subnet is linked to. The ma
 dhcp_options | **[DhcpOptions](../subnet.proto#DhcpOptions3)**<br> 
 
 
-### DhcpOptions {#DhcpOptions}
+### DhcpOptions {#DhcpOptions3}
 
 Field | Description
 --- | ---
@@ -217,7 +217,7 @@ domain_name | **string**<br>
 ntp_servers[] | **string**<br> 
 
 
-### Operation {#Operation}
+### Operation {#Operation1}
 
 Field | Description
 --- | ---
@@ -240,7 +240,7 @@ Field | Description
 subnet_id | **string**<br>ID of the Subnet resource that is being updated. 
 
 
-### Subnet {#Subnet}
+### Subnet {#Subnet3}
 
 Field | Description
 --- | ---
@@ -272,10 +272,10 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-subnet_id | **string**<br>Required. ID of the subnet to delete. To get the subnet ID use a [SubnetService.List](#List) request. false The maximum string length in characters is 50.
+subnet_id | **string**<br>Required. ID of the subnet to delete. To get the subnet ID use a [SubnetService.List](#List) request. The maximum string length in characters is 50.
 
 
-### Operation {#Operation}
+### Operation {#Operation2}
 
 Field | Description
 --- | ---
@@ -308,7 +308,7 @@ List operations for the specified subnet.
 
 Field | Description
 --- | ---
-subnet_id | **string**<br>Required. ID of the Subnet resource to list operations for. false The maximum string length in characters is 50.
+subnet_id | **string**<br>Required. ID of the Subnet resource to list operations for. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page that should be returned. If the number of available results is larger than `page_size`, the service returns a [ListSubnetOperationsResponse.next_page_token](#ListSubnetOperationsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListSubnetOperationsResponse.next_page_token](#ListSubnetOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
@@ -318,10 +318,10 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 Field | Description
 --- | ---
 operations[] | **[operation.Operation](#Operation3)**<br>List of operations for the specified Subnet resource. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListSubnetOperationsRequest.page_size](#ListSubnetOperationsRequest1), use the `next_page_token` as the value for the [ListSubnetOperationsRequest.page_token](#ListSubnetOperationsRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListSubnetOperationsRequest.page_size](#ListSubnetOperationsRequest), use the `next_page_token` as the value for the [ListSubnetOperationsRequest.page_token](#ListSubnetOperationsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
-### Operation {#Operation}
+### Operation {#Operation3}
 
 Field | Description
 --- | ---
@@ -351,11 +351,11 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-subnet_id | **string**<br>Required. ID of the Subnet resource to move. false The maximum string length in characters is 50.
-destination_folder_id | **string**<br>Required. ID of the destination folder. false The maximum string length in characters is 50.
+subnet_id | **string**<br>Required. ID of the Subnet resource to move. The maximum string length in characters is 50.
+destination_folder_id | **string**<br>Required. ID of the destination folder. The maximum string length in characters is 50.
 
 
-### Operation {#Operation}
+### Operation {#Operation4}
 
 Field | Description
 --- | ---
@@ -378,7 +378,7 @@ Field | Description
 subnet_id | **string**<br>ID of the Subnet resource that is being moved. 
 
 
-### Subnet {#Subnet}
+### Subnet {#Subnet4}
 
 Field | Description
 --- | ---
@@ -406,7 +406,7 @@ List used addresses in specified subnet.
 
 Field | Description
 --- | ---
-subnet_id | **string**<br>Required.  false
+subnet_id | **string**<br>Required.  
 page_size | **int64**<br> 
 page_token | **string**<br> 
 filter | **string**<br> 

@@ -38,7 +38,7 @@ By default, the cloud now has a zero quota for creating virtual machines with GP
 
       - [Availability zone](../../../overview/concepts/geo-scope.md).
 
-      - ID of the [platform](../../concepts/vm-platforms.md), `gpu-standard-v1` for Intel Broadwell with NVIDIA Tesla V100.
+      - ID of the [platform](../../concepts/vm-platforms.md), `gpu-standard-v1` for Intel Broadwell with NVIDIA® Tesla® V100.
 
       - [Number of vCPUs](../../concepts/gpus.md).
 
@@ -88,6 +88,101 @@ By default, the cloud now has a zero quota for creating virtual machines with GP
 
   To create a VM, use the [Create](../../api-ref/Instance/create.md) method for the `Instance` resource.
 
+- Terraform
+
+  If you don't have Terraform yet, [install it and configure the {{ yandex-cloud }} provider](../../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  1. In the configuration file, describe the parameters of resources that you want to create:
+
+       {% note info %}
+
+       If you already have suitable resources, such as a cloud network and subnet, you don't need to describe them again. Use their names and IDs in the appropriate parameters.
+
+       {% endnote %}
+     * `yandex_compute_instance`: Description of the [VM](../../concepts/vm.md):
+       * `name`: VM name.
+
+       * `platform_id`: ID of the [platform](../../concepts/vm-platforms.md), `gpu-standard-v1` for Intel Broadwell with NVIDIA® Tesla® V100.
+
+       * `resources`: The number of vCPU cores and the amount of RAM available to the VM. The values must match the selected [platform](../../concepts/vm-platforms.md).
+
+       * `boot_disk`: Boot disk settings. Specify the ID of the selected image. You can get the image ID from the [list of public images](../images-with-pre-installed-software/get-list.md).
+
+         {% include [gpu-os](../../../_includes/compute/gpu-os.md) %}
+
+       * `network_interface`: Network settings. Specify the ID of the selected subnet. To automatically assign a public IP address to the VM, set `nat = true`.
+
+       * `metadata`: In the metadata, pass the public key for accessing the VM via SSH. For more information, see [{#T}](../../concepts/vm-metadata.md).
+     * `yandex_vpc_network`: Description of the [cloud network](../../../vpc/concepts/network.md#network).
+     * `yandex_vpc_subnet`: Description of the [subnet](../../../vpc/concepts/network.md#network) that the VM will be connected to.
+
+     Example configuration file structure:
+
+     ```
+     resource "yandex_compute_instance" "vm-1" {
+     
+       name        = "vm-with-gpu"
+       platform_id = "gpu-standard-v1"
+     
+       resources {
+         cores  = <number of vCPU cores>
+         memory = <RAM in GB>
+         gpus   = <number of GPUs>
+       }
+     
+       boot_disk {
+         initialize_params {
+           image_id = "fdv4f5kv5cvf3ohu4flt"
+         }
+       }
+     
+       network_interface {
+         subnet_id = "${yandex_vpc_subnet.subnet-1.id}"
+         nat       = true
+       }
+     
+       metadata = {
+         ssh-keys = "<user name>:<SSH key contents>"
+       }
+     }
+     
+     resource "yandex_vpc_network" "network-1" {
+       name = "network1"
+     }
+     
+     resource "yandex_vpc_subnet" "subnet-1" {
+       name       = "subnet1"
+       zone       = "<availability zone>"
+       network_id = "${yandex_vpc_network.network-1.id}"
+     }
+     ```
+
+     For more information about the resources you can create using Terraform, see the [provider documentation](https://www.terraform.io/docs/providers/yandex/index.html).
+
+  2. Make sure that the configuration files are correct.
+
+     1. In the command line, go to the directory where you created the configuration file.
+
+     2. Run the check using the command:
+
+        ```
+        $ terraform plan
+        ```
+
+     If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
+
+  3. Deploy the cloud resources.
+
+     1. If the configuration doesn't contain any errors, run the command:
+
+        ```
+        $ terraform apply
+        ```
+
+     2. Confirm that you want to create the resources.
+
+     Afterwards, all the necessary resources are created in the specified folder. You can check resource availability and their settings in [management console]({{ link-console-main }}).
+
 {% endlist %}
 
 {% include [ip-fqdn-connection](../../../_includes/ip-fqdn-connection.md) %}
@@ -95,4 +190,3 @@ By default, the cloud now has a zero quota for creating virtual machines with GP
 #### See also {#see-also}
 
 - Learn how to [change the VM configuration](../vm-control/vm-update-resources.md).
-

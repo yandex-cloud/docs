@@ -35,7 +35,7 @@ items:
         items:
           - name: Обзор
             href: operations/dsvm/index.md
-          - name: Создание и поключение к ВМ
+          - name: Создание и подключение к ВМ
             href: operations/dsvm/quickstart.md
       - name: Группы размещения
         items:
@@ -161,9 +161,15 @@ items:
             href: operations/instance-groups/start.md
           - name: Удалить группу
             href: operations/instance-groups/delete.md
+      - name: Выделенные хосты
+        items:
+          - name: Создание ВМ в группе выделенных хостов
+            href: operations/dedicated-host/running-host-group-vms.md
+          - name: Создание ВМ на выделенном хосте
+            href: operations/dedicated-host/running-host-vms.md
   - name: Yandex Container Solution
     href: ../cos/
-  - name: Сценарии
+  - name: Сценарии использования
     items:
       - name: Настройка синхронизации времени NTP
         href: solutions/ntp.md
@@ -209,6 +215,8 @@ items:
             href: concepts/instance-groups/access.md
           - name: Шаблон виртуальной машины
             href: concepts/instance-groups/instance-template.md
+          - name: Переменные в шаблоне виртуальной машины
+            href: concepts/instance-groups/variables-in-the-template.md
           - name: Политики
             items:
               - name: Обзор
@@ -235,6 +243,8 @@ items:
                 href: concepts/instance-groups/deploy/instance.md
           - name: Статусы
             href: concepts/instance-groups/statuses.md
+      - name: Выделенный хост
+        href: concepts/dedicated-host.md
       - name: Резервное копирование
         href: concepts/backups.md
       - name: Квоты и лимиты
@@ -265,6 +275,10 @@ items:
             href: grpc/disk_service.md
           - name: DiskTypeService
             href: grpc/disk_type_service.md
+          - name: HostGroupService
+            href: grpc/host_group_service.md
+          - name: HostTypeService
+            href: grpc/host_type_service.md
           - name: ImageService
             href: grpc/image_service.md
           - name: InstanceService
@@ -307,6 +321,34 @@ items:
                 href: api-ref/DiskType/get.md
               - name: list
                 href: api-ref/DiskType/list.md
+          - name: HostGroup
+            items:
+              - name: Обзор
+                href: api-ref/HostGroup/index.md
+              - name: create
+                href: api-ref/HostGroup/create.md
+              - name: delete
+                href: api-ref/HostGroup/delete.md
+              - name: get
+                href: api-ref/HostGroup/get.md
+              - name: list
+                href: api-ref/HostGroup/list.md
+              - name: listHosts
+                href: api-ref/HostGroup/listHosts.md
+              - name: listInstances
+                href: api-ref/HostGroup/listInstances.md
+              - name: listOperations
+                href: api-ref/HostGroup/listOperations.md
+              - name: update
+                href: api-ref/HostGroup/update.md
+          - name: HostType
+            items:
+              - name: Обзор
+                href: api-ref/HostType/index.md
+              - name: get
+                href: api-ref/HostType/get.md
+              - name: list
+                href: api-ref/HostType/list.md
           - name: Image
             items:
               - name: Обзор

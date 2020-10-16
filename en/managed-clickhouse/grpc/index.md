@@ -7,10 +7,10 @@ Service | Description
 --- | ---
 [BackupService](./backup_service.md) | A set of methods for managing ClickHouse Backup resources.
 [ClusterService](./cluster_service.md) | A set of methods for managing ClickHouse clusters.
-[DatabaseService](./database_service.md) | A set of methods for managing ClickHouse Database resources.
+[DatabaseService](./database_service.md) | A set of methods for managing ClickHouse Database resources. NOTE: these methods are available only if database management through SQL is disabled.
 [FormatSchemaService](./format_schema_service.md) | 
 [MlModelService](./ml_model_service.md) | A set of methods for managing machine learning models.
 [ResourcePresetService](./resource_preset_service.md) | A set of methods for managing ResourcePreset resources.
-[UserService](./user_service.md) | A set of methods for managing ClickHouse User resources.
-[VersionsService](./versions_service.md) | 
+[UserService](./user_service.md) | A set of methods for managing ClickHouse User resources. NOTE: these methods are available only if user management through SQL is disabled.
+[VersionsService](./versions_service.md) | A set of methods for managing ClickHouse versions.
 [OperationService](./operation_service.md) | A set of methods for managing operations for asynchronous API requests.

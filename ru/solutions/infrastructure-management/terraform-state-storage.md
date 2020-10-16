@@ -129,7 +129,7 @@ terraform {
      name = "terraform1"
 
      resources {
-       cores  = 1
+       cores  = 2
        memory = 2
      }
 
@@ -254,7 +254,7 @@ terraform {
      name = "terraform3"
 
      resources {
-       cores  = 1
+       cores  = 2
        memory = 2
      }
 

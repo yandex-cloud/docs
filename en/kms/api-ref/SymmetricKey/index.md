@@ -25,7 +25,8 @@ Set of methods for managing symmetric KMS keys.
   },
   "defaultAlgorithm": "string",
   "rotatedAt": "string",
-  "rotationPeriod": "string"
+  "rotationPeriod": "string",
+  "deletionProtection": true
 }
 ```
  
@@ -49,6 +50,7 @@ primaryVersion.<br>destroyAt | **string** (date-time)<br><p>Time when the key ve
 defaultAlgorithm | **string**<br><p>Default encryption algorithm to be used with new versions of the key.</p> <p>Supported symmetric encryption algorithms.</p> <ul> <li>AES_128: AES algorithm with 128-bit keys.</li> <li>AES_192: AES algorithm with 192-bit keys.</li> <li>AES_256: AES algorithm with 256-bit keys.</li> </ul> 
 rotatedAt | **string** (date-time)<br><p>Time of the last key rotation (time when the last version was created). Empty if the key does not have versions yet.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 rotationPeriod | **string**<br><p>Time period between automatic key rotations.</p> 
+deletionProtection | **boolean** (boolean)<br><p>Flag that inhibits deletion of the key</p> 
 
 ## Methods {#methods}
 Method | Description

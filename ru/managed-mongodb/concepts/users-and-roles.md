@@ -8,15 +8,25 @@
 
 ### read {#read}
 
-Пользователи ролью `read` имеют доступ на чтение ко всем несистемным коллекциям базы данных, а так же к коллекции [system.js](https://docs.mongodb.com/manual/reference/system-collections/index.html#%3Cdatabase%3E.system.js). Подробнее о роли читайте в [документации {{ MG }}](https://docs.mongodb.com/manual/reference/built-in-roles/#read).
+Пользователи с ролью `read` имеют доступ на чтение ко всем несистемным коллекциям базы данных, а также к коллекции [system.js](https://docs.mongodb.com/manual/reference/system-collections/index.html#%3Cdatabase%3E.system.js). Подробнее о роли читайте в [документации {{ MG }}](https://docs.mongodb.com/manual/reference/built-in-roles/#read).
 
 ### readWrite {#readWrite}
 
-Пользователи ролью `readWrite` имеют доступ на чтение и запись ко всем несистемным коллекциям базы данных, а так же к коллекции [system.js](https://docs.mongodb.com/manual/reference/system-collections/index.html#%3Cdatabase%3E.system.js). Подробнее о роли читайте в [документации {{ MG }}](https://docs.mongodb.com/manual/reference/built-in-roles/#readWrite).
+Пользователи с ролью `readWrite` имеют доступ на чтение и запись ко всем несистемным коллекциям базы данных, а также к коллекции [system.js](https://docs.mongodb.com/manual/reference/system-collections/index.html#%3Cdatabase%3E.system.js). Подробнее о роли читайте в [документации {{ MG }}](https://docs.mongodb.com/manual/reference/built-in-roles/#readWrite).
+
+### mdbDbAdmin {#mdbDbAdmin}
+
+Роль администратора базы данных. Предоставляет все права роли [readWrite](#readWrite), а также права, необходимые для администрирования базы данных:
+
+  * [collMod](https://docs.mongodb.com/v4.0/reference/privilege-actions/#collMod)
+  * [planCacheWrite](https://docs.mongodb.com/v4.0/reference/privilege-actions/#planCacheWrite)
+  * [planCacheRead](https://docs.mongodb.com/v4.0/reference/privilege-actions/#planCacheRead)
+  * planCacheIndexFilter — позволяет использовать команды [planCacheListFilters](https://docs.mongodb.com/manual/reference/command/planCacheListFilters/index.html), [planCacheClearFilters](https://docs.mongodb.com/manual/reference/command/planCacheClearFilters/index.html) и [planCacheSetFilter](https://docs.mongodb.com/manual/reference/command/planCacheSetFilter/index.html).
+  * [bypassDocumentValidation](https://docs.mongodb.com/v4.0/reference/privilege-actions/#bypassDocumentValidation)
 
 ## Роли администраторов кластера {#cluster-admin-roles}
 
-Роли, необходимые мониторинга и администрирования кластера. Назначаются для служебной базы данных [admin](https://docs.mongodb.com/manual/reference/glossary/#term-admin-database).
+Роли, необходимые для мониторинга и администрирования кластера. Назначаются для служебной базы данных [admin](https://docs.mongodb.com/manual/reference/glossary/#term-admin-database).
 
 ### mdbMonitor {#mdbMonitor}
 

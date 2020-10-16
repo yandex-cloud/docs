@@ -4,18 +4,18 @@ editable: false
 
 # HostTypeService
 
-Set of methods to view possible host configurations
+Set of methods to view possible host configurations.
 
 | Call | Description |
 | --- | --- |
-| [Get](#Get) | Returns information about specified host type |
-| [List](#List) | List avaliable host types |
+| [Get](#Get) | Returns information about specified host type. |
+| [List](#List) | List avaliable host types. |
 
 ## Calls HostTypeService {#calls}
 
 ## Get {#Get}
 
-Returns information about specified host type
+Returns information about specified host type.
 
 **rpc Get ([GetHostTypeRequest](#GetHostTypeRequest)) returns ([HostType](../host_type.proto#HostType))**
 
@@ -23,21 +23,21 @@ Returns information about specified host type
 
 Field | Description
 --- | ---
-host_type_id | **string**<br>Required. ID of the host type to return. <br>To get a host type ID make a [HostTypeService.List](#List) request. false The maximum string length in characters is 50.
+host_type_id | **string**<br>Required. ID of the host type to return. <br>To get a host type ID make a [HostTypeService.List](#List) request. The maximum string length in characters is 50.
 
 
 ### HostType {#HostType}
 
 Field | Description
 --- | ---
-id | **string**<br>Unique type identifier 
-cores | **int64**<br>Total number of cores available for instances 
-memory | **int64**<br>Ammount of memory available for instances 
+id | **string**<br>Unique type identifier. 
+cores | **int64**<br>Total number of cores available for instances. 
+memory | **int64**<br>Ammount of memory available for instances. 
 
 
 ## List {#List}
 
-List avaliable host types
+List avaliable host types.
 
 **rpc List ([ListHostTypesRequest](#ListHostTypesRequest)) returns ([ListHostTypesResponse](#ListHostTypesResponse))**
 
@@ -54,15 +54,15 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 Field | Description
 --- | ---
 host_types[] | **[HostType](../host_type.proto#HostType1)**<br>Lists host types. 
-next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListHostTypesRequest.page_size](#ListHostTypesRequest1), use `next_page_token` as the value for the [ListHostTypesRequest.page_token](#ListHostTypesRequest1) parameter in the next list request. <br>Each subsequent page will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListHostTypesRequest.page_size](#ListHostTypesRequest), use `next_page_token` as the value for the [ListHostTypesRequest.page_token](#ListHostTypesRequest) parameter in the next list request. <br>Each subsequent page will have its own `next_page_token` to continue paging through the results. 
 
 
-### HostType {#HostType}
+### HostType {#HostType1}
 
 Field | Description
 --- | ---
-id | **string**<br>Unique type identifier 
-cores | **int64**<br>Total number of cores available for instances 
-memory | **int64**<br>Ammount of memory available for instances 
+id | **string**<br>Unique type identifier. 
+cores | **int64**<br>Total number of cores available for instances. 
+memory | **int64**<br>Ammount of memory available for instances. 
 
 

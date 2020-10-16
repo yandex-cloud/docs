@@ -30,7 +30,7 @@ editable: false
 
 Field | Description
 --- | ---
-lifecycle_policy_id | **string**<br>Required.  false The maximum string length in characters is 50.
+lifecycle_policy_id | **string**<br>Required.  The maximum string length in characters is 50.
 
 
 ### LifecyclePolicy {#LifecyclePolicy}
@@ -84,7 +84,7 @@ lifecycle_policies[] | **[LifecyclePolicy](../lifecycle_policy.proto#LifecyclePo
 next_page_token | **string**<br> 
 
 
-### LifecyclePolicy {#LifecyclePolicy}
+### LifecyclePolicy {#LifecyclePolicy1}
 
 Field | Description
 --- | ---
@@ -97,7 +97,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 rules[] | **[LifecycleRule](../lifecycle_policy.proto#LifecycleRule1)**<br> 
 
 
-### LifecycleRule {#LifecycleRule}
+### LifecycleRule {#LifecycleRule1}
 
 Field | Description
 --- | ---
@@ -122,14 +122,14 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-repository_id | **string**<br>Required.  false The maximum string length in characters is 50.
+repository_id | **string**<br>Required.  The maximum string length in characters is 50.
 name | **string**<br> Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br> The maximum string length in characters is 256.
-status | **[LifecyclePolicy.Status](../lifecycle_policy.proto#LifecyclePolicy2)**<br>Required.  false
+status | **[LifecyclePolicy.Status](../lifecycle_policy.proto#LifecyclePolicy2)**<br>Required.  
 rules[] | **[LifecycleRule](../lifecycle_policy.proto#LifecycleRule2)**<br> 
 
 
-### LifecycleRule {#LifecycleRule}
+### LifecycleRule {#LifecycleRule2}
 
 Field | Description
 --- | ---
@@ -163,7 +163,7 @@ Field | Description
 lifecycle_policy_id | **string**<br> 
 
 
-### LifecyclePolicy {#LifecyclePolicy}
+### LifecyclePolicy {#LifecyclePolicy2}
 
 Field | Description
 --- | ---
@@ -190,15 +190,15 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-lifecycle_policy_id | **string**<br>Required.  false The maximum string length in characters is 50.
+lifecycle_policy_id | **string**<br>Required.  The maximum string length in characters is 50.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br> 
 name | **string**<br> Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br> The maximum string length in characters is 256.
-status | **[LifecyclePolicy.Status](../lifecycle_policy.proto#LifecyclePolicy3)**<br>Required.  false
+status | **[LifecyclePolicy.Status](../lifecycle_policy.proto#LifecyclePolicy3)**<br>Required.  
 rules[] | **[LifecycleRule](../lifecycle_policy.proto#LifecycleRule3)**<br> 
 
 
-### LifecycleRule {#LifecycleRule}
+### LifecycleRule {#LifecycleRule3}
 
 Field | Description
 --- | ---
@@ -209,7 +209,7 @@ untagged | **bool**<br>
 retained_top | **int64**<br> The minimum value is 0.
 
 
-### Operation {#Operation}
+### Operation {#Operation1}
 
 Field | Description
 --- | ---
@@ -232,7 +232,7 @@ Field | Description
 lifecycle_policy_id | **string**<br> 
 
 
-### LifecyclePolicy {#LifecyclePolicy}
+### LifecyclePolicy {#LifecyclePolicy3}
 
 Field | Description
 --- | ---
@@ -259,10 +259,10 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-lifecycle_policy_id | **string**<br>Required.  false The maximum string length in characters is 50.
+lifecycle_policy_id | **string**<br>Required.  The maximum string length in characters is 50.
 
 
-### Operation {#Operation}
+### Operation {#Operation2}
 
 Field | Description
 --- | ---
@@ -299,10 +299,10 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-lifecycle_policy_id | **string**<br>Required.  false The maximum string length in characters is 50.
+lifecycle_policy_id | **string**<br>Required.  The maximum string length in characters is 50.
 
 
-### Operation {#Operation}
+### Operation {#Operation3}
 
 Field | Description
 --- | ---
@@ -340,16 +340,16 @@ affected_images_count | **int64**<br>
 
 
 
-**rpc GetDryRunResult ([GetDryRunLifecyclePolicyResultRequest](#GetDryRunLifecyclePolicyResultRequest)) returns ([DryRunLifecyclePolicyResult](#DryRunLifecyclePolicyResult1))**
+**rpc GetDryRunResult ([GetDryRunLifecyclePolicyResultRequest](#GetDryRunLifecyclePolicyResultRequest)) returns ([DryRunLifecyclePolicyResult](#DryRunLifecyclePolicyResult))**
 
 ### GetDryRunLifecyclePolicyResultRequest {#GetDryRunLifecyclePolicyResultRequest}
 
 Field | Description
 --- | ---
-dry_run_lifecycle_policy_result_id | **string**<br>Required.  false The maximum string length in characters is 50.
+dry_run_lifecycle_policy_result_id | **string**<br>Required.  The maximum string length in characters is 50.
 
 
-### DryRunLifecyclePolicyResult {#DryRunLifecyclePolicyResult}
+### DryRunLifecyclePolicyResult {#DryRunLifecyclePolicyResult1}
 
 Field | Description
 --- | ---
@@ -369,7 +369,7 @@ affected_images_count | **int64**<br>
 
 Field | Description
 --- | ---
-lifecycle_policy_id | **string**<br>Required.  false The maximum string length in characters is 50.
+lifecycle_policy_id | **string**<br>Required.  The maximum string length in characters is 50.
 page_size | **int64**<br> Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br> The maximum string length in characters is 100.
 filter | **string**<br> The maximum string length in characters is 1000.
@@ -380,11 +380,11 @@ order_by | **string**<br> The maximum string length in characters is 100.
 
 Field | Description
 --- | ---
-dry_run_lifecycle_policy_results[] | **[DryRunLifecyclePolicyResult](#DryRunLifecyclePolicyResult2)**<br> 
+dry_run_lifecycle_policy_results[] | **[DryRunLifecyclePolicyResult](#DryRunLifecyclePolicyResult)**<br> 
 next_page_token | **string**<br> 
 
 
-### DryRunLifecyclePolicyResult {#DryRunLifecyclePolicyResult}
+### DryRunLifecyclePolicyResult {#DryRunLifecyclePolicyResult2}
 
 Field | Description
 --- | ---
@@ -404,7 +404,7 @@ affected_images_count | **int64**<br>
 
 Field | Description
 --- | ---
-dry_run_lifecycle_policy_result_id | **string**<br>Required.  false The maximum string length in characters is 50.
+dry_run_lifecycle_policy_result_id | **string**<br>Required.  The maximum string length in characters is 50.
 page_size | **int64**<br> Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br> The maximum string length in characters is 100.
 filter | **string**<br> The maximum string length in characters is 1000.

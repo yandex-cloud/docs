@@ -41,7 +41,7 @@ Returns the specified PostgreSQL Cluster resource. <br>To get the list of availa
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the PostgreSQL Cluster resource to return. To get the cluster ID use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the PostgreSQL Cluster resource to return. To get the cluster ID use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
 
 
 ### Cluster {#Cluster}
@@ -78,17 +78,20 @@ link | **string**<br>Link to the monitoring system charts for the PostgreSQL clu
 Field | Description
 --- | ---
 version | **string**<br>Version of PostgreSQL server software. 
-postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11` or `postgresql_config_12`<br>Configuration for PostgreSQL servers in the cluster.
+postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12` or `postgresql_config_12_1c`<br>Configuration for PostgreSQL servers in the cluster.
 &nbsp;&nbsp;postgresql_config_9_6 | **[PostgresqlConfigSet9_6](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql9_6.proto)**<br>Configuration of a PostgreSQL 9.6 server. 
 &nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlConfigSet10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10_1c.proto)**<br>Configuration of a PostgreSQL 10 1C server. 
 &nbsp;&nbsp;postgresql_config_10 | **[PostgresqlConfigSet10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10.proto)**<br>Configuration of a PostgreSQL 10 server. 
 &nbsp;&nbsp;postgresql_config_11 | **[PostgresqlConfigSet11](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql11.proto)**<br>Configuration of a PostgreSQL 11 server. 
+&nbsp;&nbsp;postgresql_config_11_1c | **[config.PostgresqlConfigSet11_1C](./config/host10#PostgresqlConfigSet11_1C)**<br>Configuration of a PostgreSQL 11 1C server. 
 &nbsp;&nbsp;postgresql_config_12 | **[PostgresqlConfigSet12](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql12.proto)**<br>Configuration of a PostgreSQL 12 server. 
+&nbsp;&nbsp;postgresql_config_12_1c | **[config.PostgresqlConfigSet12_1C](./config/host10#PostgresqlConfigSet12_1C)**<br>Configuration of a PostgreSQL 12 1C server. 
 pooler_config | **[ConnectionPoolerConfig](../cluster.proto#ConnectionPoolerConfig)**<br>Configuration of the connection pooler. 
 resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to PostgreSQL hosts. 
 autofailover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Configuration setting which enables/disables autofailover in cluster. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](../cluster.proto#Access)**<br>Access policy to DB 
+performance_diagnostics | **[PerformanceDiagnostics](../cluster.proto#PerformanceDiagnostics)**<br>Configuration of the performance diagnostics service. 
 
 
 ### ConnectionPoolerConfig {#ConnectionPoolerConfig}
@@ -113,6 +116,15 @@ disk_type_id | **string**<br><ul><li>network-hdd — network HDD drive, </li><li
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+
+
+### PerformanceDiagnostics {#PerformanceDiagnostics}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>Configuration setting which enables/disables performance diagnostics service in cluster. 
+sessions_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_activity sampling Acceptable values are 1 to 86400, inclusive.
+statements_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_statements sampling Acceptable values are 1 to 86400, inclusive.
 
 
 ### MaintenanceWindow {#MaintenanceWindow}
@@ -154,7 +166,7 @@ Retrieves the list of PostgreSQL Cluster resources that belong to the specified 
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder to list PostgreSQL clusters in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. false The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the folder to list PostgreSQL clusters in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClustersResponse.next_page_token](#ListClustersResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListClustersResponse.next_page_token](#ListClustersResponse) returned by a previous list request. The maximum string length in characters is 100.
 filter | **string**<br><ol><li>The field name. Currently you can only use filtering with the [Cluster.name](../cluster.proto#Cluster1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Мust be 1-63 characters long and match the regular expression `^[a-zA-Z0-9_-]+$`.</li></ol> The maximum string length in characters is 1000.
@@ -165,10 +177,10 @@ filter | **string**<br><ol><li>The field name. Currently you can only use filter
 Field | Description
 --- | ---
 clusters[] | **[Cluster](../cluster.proto#Cluster1)**<br>List of PostgreSQL Cluster resources. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClustersRequest.page_size](#ListClustersRequest1), use the `next_page_token` as the value for the [ListClustersRequest.page_token](#ListClustersRequest1) parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClustersRequest.page_size](#ListClustersRequest), use the `next_page_token` as the value for the [ListClustersRequest.page_token](#ListClustersRequest) parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
-### Cluster {#Cluster}
+### Cluster {#Cluster1}
 
 Field | Description
 --- | ---
@@ -188,7 +200,7 @@ maintenance_window | **[MaintenanceWindow](../maintenance.proto#MaintenanceWindo
 planned_operation | **[MaintenanceOperation](../maintenance.proto#MaintenanceOperation1)**<br>Maintenance operation planned at nearest maintenance_window. 
 
 
-### Monitoring {#Monitoring}
+### Monitoring {#Monitoring1}
 
 Field | Description
 --- | ---
@@ -197,25 +209,28 @@ description | **string**<br>Description of the monitoring system.
 link | **string**<br>Link to the monitoring system charts for the PostgreSQL cluster. 
 
 
-### ClusterConfig {#ClusterConfig}
+### ClusterConfig {#ClusterConfig1}
 
 Field | Description
 --- | ---
 version | **string**<br>Version of PostgreSQL server software. 
-postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11` or `postgresql_config_12`<br>Configuration for PostgreSQL servers in the cluster.
+postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12` or `postgresql_config_12_1c`<br>Configuration for PostgreSQL servers in the cluster.
 &nbsp;&nbsp;postgresql_config_9_6 | **[PostgresqlConfigSet9_6](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql9_6.proto)**<br>Configuration of a PostgreSQL 9.6 server. 
 &nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlConfigSet10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10_1c.proto)**<br>Configuration of a PostgreSQL 10 1C server. 
 &nbsp;&nbsp;postgresql_config_10 | **[PostgresqlConfigSet10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10.proto)**<br>Configuration of a PostgreSQL 10 server. 
 &nbsp;&nbsp;postgresql_config_11 | **[PostgresqlConfigSet11](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql11.proto)**<br>Configuration of a PostgreSQL 11 server. 
+&nbsp;&nbsp;postgresql_config_11_1c | **[config.PostgresqlConfigSet11_1C](./config/host10#PostgresqlConfigSet11_1C)**<br>Configuration of a PostgreSQL 11 1C server. 
 &nbsp;&nbsp;postgresql_config_12 | **[PostgresqlConfigSet12](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql12.proto)**<br>Configuration of a PostgreSQL 12 server. 
+&nbsp;&nbsp;postgresql_config_12_1c | **[config.PostgresqlConfigSet12_1C](./config/host10#PostgresqlConfigSet12_1C)**<br>Configuration of a PostgreSQL 12 1C server. 
 pooler_config | **[ConnectionPoolerConfig](../cluster.proto#ConnectionPoolerConfig1)**<br>Configuration of the connection pooler. 
 resources | **[Resources](../cluster.proto#Resources1)**<br>Resources allocated to PostgreSQL hosts. 
 autofailover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Configuration setting which enables/disables autofailover in cluster. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](../cluster.proto#Access1)**<br>Access policy to DB 
+performance_diagnostics | **[PerformanceDiagnostics](../cluster.proto#PerformanceDiagnostics1)**<br>Configuration of the performance diagnostics service. 
 
 
-### ConnectionPoolerConfig {#ConnectionPoolerConfig}
+### ConnectionPoolerConfig {#ConnectionPoolerConfig1}
 
 Field | Description
 --- | ---
@@ -223,7 +238,7 @@ pooling_mode | enum **PoolingMode**<br>Mode that the connection pooler is workin
 pool_discard | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Setting `server_reset_query_always` parameter in PgBouncer. 
 
 
-### Resources {#Resources}
+### Resources {#Resources1}
 
 Field | Description
 --- | ---
@@ -232,14 +247,23 @@ disk_size | **int64**<br>Volume of the storage available to a host, in bytes.
 disk_type_id | **string**<br><ul><li>network-hdd — network HDD drive, </li><li>network-ssd — network SSD drive, </li><li>local-ssd — local SSD storage.</li></ul> 
 
 
-### Access {#Access}
+### Access {#Access1}
 
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
 
 
-### MaintenanceWindow {#MaintenanceWindow}
+### PerformanceDiagnostics {#PerformanceDiagnostics1}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>Configuration setting which enables/disables performance diagnostics service in cluster. 
+sessions_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_activity sampling Acceptable values are 1 to 86400, inclusive.
+statements_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_statements sampling Acceptable values are 1 to 86400, inclusive.
+
+
+### MaintenanceWindow {#MaintenanceWindow1}
 
 Field | Description
 --- | ---
@@ -248,11 +272,11 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
 &nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](../maintenance.proto#WeeklyMaintenanceWindow1)**<br> 
 
 
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow}
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow1}
 
 
 
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow}
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow1}
 
 Field | Description
 --- | ---
@@ -260,7 +284,7 @@ day | enum **WeekDay**<br> <ul><ul/>
 hour | **int64**<br>Hour of the day in UTC. Acceptable values are 1 to 24, inclusive.
 
 
-### MaintenanceOperation {#MaintenanceOperation}
+### MaintenanceOperation {#MaintenanceOperation1}
 
 Field | Description
 --- | ---
@@ -282,16 +306,16 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder to create the PostgreSQL cluster in. false The maximum string length in characters is 50.
-name | **string**<br>Required. Name of the PostgreSQL cluster. The name must be unique within the folder. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+folder_id | **string**<br>Required. ID of the folder to create the PostgreSQL cluster in. The maximum string length in characters is 50.
+name | **string**<br>Required. Name of the PostgreSQL cluster. The name must be unique within the folder. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 description | **string**<br>Description of the PostgreSQL cluster. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Custom labels for the PostgreSQL cluster as `` key:value `` pairs. Maximum 64 per resource. For example, "project": "mvp" or "source": "dictionary". No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
-environment | **[Cluster.Environment](../cluster.proto#Cluster2)**<br>Required. Deployment environment of the PostgreSQL cluster. false
-config_spec | **[ConfigSpec](#ConfigSpec)**<br>Required. Configuration and resources for hosts that should be created for the PostgreSQL cluster. false
-database_specs[] | **[DatabaseSpec](../database.proto#DatabaseSpec)**<br>Required. Descriptions of databases to be created in the PostgreSQL cluster. false
-user_specs[] | **[UserSpec](../user.proto#UserSpec)**<br>Required. Descriptions of database users to be created in the PostgreSQL cluster. false
-host_specs[] | **[HostSpec](#HostSpec)**<br>Required. Individual configurations for hosts that should be created for the PostgreSQL cluster. false
-network_id | **string**<br>Required. ID of the network to create the cluster in. false The maximum string length in characters is 50.
+environment | **[Cluster.Environment](../cluster.proto#Cluster2)**<br>Required. Deployment environment of the PostgreSQL cluster. 
+config_spec | **[ConfigSpec](#ConfigSpec)**<br>Required. Configuration and resources for hosts that should be created for the PostgreSQL cluster. 
+database_specs[] | **[DatabaseSpec](../database.proto#DatabaseSpec)**<br>Required. Descriptions of databases to be created in the PostgreSQL cluster. 
+user_specs[] | **[UserSpec](../user.proto#UserSpec)**<br>Required. Descriptions of database users to be created in the PostgreSQL cluster. 
+host_specs[] | **[HostSpec](#HostSpec)**<br>Required. Individual configurations for hosts that should be created for the PostgreSQL cluster. 
+network_id | **string**<br>Required. ID of the network to create the cluster in. The maximum string length in characters is 50.
 
 
 ### ConfigSpec {#ConfigSpec}
@@ -299,20 +323,23 @@ network_id | **string**<br>Required. ID of the network to create the cluster in.
 Field | Description
 --- | ---
 version | **string**<br>Version of PostgreSQL used in the cluster. Possible values: `9.6`, `10`, `10_1c`, `11`, `12`. 
-postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11` or `postgresql_config_12`<br>Configuration of a PostgreSQL cluster.
+postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12` or `postgresql_config_12_1c`<br>Configuration of a PostgreSQL cluster.
 &nbsp;&nbsp;postgresql_config_9_6 | **[PostgresqlConfig9_6](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql9_6.proto)**<br>Configuration for a PostgreSQL 9.6 cluster. 
 &nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlConfig10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10_1c.proto)**<br>Configuration for a PostgreSQL 10 1C cluster. 
 &nbsp;&nbsp;postgresql_config_10 | **[PostgresqlConfig10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10.proto)**<br>Configuration for a PostgreSQL 10 cluster. 
 &nbsp;&nbsp;postgresql_config_11 | **[PostgresqlConfig11](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql11.proto)**<br>Configuration for a PostgreSQL 11 cluster. 
+&nbsp;&nbsp;postgresql_config_11_1c | **[config.PostgresqlConfig11_1C](./config/host10#PostgresqlConfig11_1C)**<br>Configuration for a PostgreSQL 11 1C cluster. 
 &nbsp;&nbsp;postgresql_config_12 | **[PostgresqlConfig12](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql12.proto)**<br>Configuration for a PostgreSQL 12 cluster. 
+&nbsp;&nbsp;postgresql_config_12_1c | **[config.PostgresqlConfig12_1C](./config/host10#PostgresqlConfig12_1C)**<br>Configuration for a PostgreSQL 12 1C cluster. 
 pooler_config | **[ConnectionPoolerConfig](../cluster.proto#ConnectionPoolerConfig2)**<br>Configuration of the connection pooler. 
 resources | **[Resources](../cluster.proto#Resources2)**<br>Resources allocated to PostgreSQL hosts. 
 autofailover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Configuration setting which enables/disables autofailover in cluster. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](../cluster.proto#Access2)**<br>Access policy to DB 
+performance_diagnostics | **[PerformanceDiagnostics](../cluster.proto#PerformanceDiagnostics2)**<br>Configuration of the performance diagnostics service. 
 
 
-### ConnectionPoolerConfig {#ConnectionPoolerConfig}
+### ConnectionPoolerConfig {#ConnectionPoolerConfig2}
 
 Field | Description
 --- | ---
@@ -320,7 +347,7 @@ pooling_mode | enum **PoolingMode**<br>Mode that the connection pooler is workin
 pool_discard | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Setting `server_reset_query_always` parameter in PgBouncer. 
 
 
-### Resources {#Resources}
+### Resources {#Resources2}
 
 Field | Description
 --- | ---
@@ -329,19 +356,28 @@ disk_size | **int64**<br>Volume of the storage available to a host, in bytes.
 disk_type_id | **string**<br><ul><li>network-hdd — network HDD drive, </li><li>network-ssd — network SSD drive, </li><li>local-ssd — local SSD storage.</li></ul> 
 
 
-### Access {#Access}
+### Access {#Access2}
 
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
 
 
+### PerformanceDiagnostics {#PerformanceDiagnostics2}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>Configuration setting which enables/disables performance diagnostics service in cluster. 
+sessions_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_activity sampling Acceptable values are 1 to 86400, inclusive.
+statements_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_statements sampling Acceptable values are 1 to 86400, inclusive.
+
+
 ### DatabaseSpec {#DatabaseSpec}
 
 Field | Description
 --- | ---
-name | **string**<br>Required. Name of the PostgreSQL database. 1-63 characters long. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
-owner | **string**<br>Required. Name of the user to be assigned as the owner of the database. To get the list of available PostgreSQL users, make a [UserService.List](./user_service#List) request. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+name | **string**<br>Required. Name of the PostgreSQL database. 1-63 characters long. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+owner | **string**<br>Required. Name of the user to be assigned as the owner of the database. To get the list of available PostgreSQL users, make a [UserService.List](./user_service#List) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
 lc_collate | **string**<br>POSIX locale for string sorting order. Can only be set at creation time. Value must match the regular expression ` |[a-zA-Z_]+.UTF-8|C `.
 lc_ctype | **string**<br>POSIX locale for character classification. Can only be set at creation time. Value must match the regular expression ` |[a-zA-Z_]+.UTF-8|C `.
 extensions[] | **[Extension](../database.proto#Extension)**<br>PostgreSQL extensions to be enabled for the database. 
@@ -359,8 +395,8 @@ version | **string**<br>Version of the extension.
 
 Field | Description
 --- | ---
-name | **string**<br>Required. Name of the PostgreSQL user. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
-password | **string**<br>Required. Password of the PostgreSQL user. false The string length in characters must be 8-128.
+name | **string**<br>Required. Name of the PostgreSQL user. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+password | **string**<br>Required. Password of the PostgreSQL user. The string length in characters must be 8-128.
 permissions[] | **[Permission](../user.proto#Permission)**<br>Set of permissions to grant to the user to access specific databases. 
 conn_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of database connections that should be available to the user. <br>When used in session pooling, this setting limits the number of connections to every single host in PostgreSQL cluster. In this case, the setting's value must be greater than the total number of connections that backend services can open to access the PostgreSQL cluster. The setting's value should not exceed the value of the [Cluster.config.postgresql_config_12.effective_config.max_connections](../cluster.proto#Cluster2) setting. <br>When used in transaction pooling, this setting limits the number of user's active transactions; therefore, in this mode user can open thousands of connections, but only `N` concurrent connections will be opened, where `N` is the value of the setting. <br>Minimum value: `10` (default: `50`), when used in session pooling. The minimum value is 10.
 settings | **[UserSettings](../user.proto#UserSettings)**<br>PostgreSQL settings for the user. 
@@ -403,12 +439,14 @@ config_spec | **[ConfigHostSpec](#ConfigHostSpec)**<br>Configuration of a Postgr
 
 Field | Description
 --- | ---
-postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11` or `postgresql_config_12`<br>
+postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12` or `postgresql_config_12_1c`<br>
 &nbsp;&nbsp;postgresql_config_9_6 | **[PostgresqlHostConfig9_6](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host9_6.proto)**<br>Configuration for a host with PostgreSQL 9.6 server deployed. 
 &nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlHostConfig10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host10_1c.proto)**<br>Configuration for a host with PostgreSQL 10 1C server deployed. 
 &nbsp;&nbsp;postgresql_config_10 | **[PostgresqlHostConfig10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host10.proto)**<br>Configuration for a host with PostgreSQL 10 server deployed. 
 &nbsp;&nbsp;postgresql_config_11 | **[PostgresqlHostConfig11](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host11.proto)**<br>Configuration for a host with PostgreSQL 11 server deployed. 
+&nbsp;&nbsp;postgresql_config_11_1c | **[config.PostgresqlHostConfig11_1C](./config/host10#PostgresqlHostConfig11_1C)**<br>Configuration for a host with PostgreSQL 11 1C server deployed. 
 &nbsp;&nbsp;postgresql_config_12 | **[PostgresqlHostConfig12](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host12.proto)**<br>Configuration for a host with PostgreSQL 12 server deployed. 
+&nbsp;&nbsp;postgresql_config_12_1c | **[config.PostgresqlHostConfig12_1C](./config/host10#PostgresqlHostConfig12_1C)**<br>Configuration for a host with PostgreSQL 12 1C server deployed. 
 
 
 ### Operation {#Operation}
@@ -434,7 +472,7 @@ Field | Description
 cluster_id | **string**<br>ID of the PostgreSQL cluster that is being created. 
 
 
-### Cluster {#Cluster}
+### Cluster {#Cluster2}
 
 Field | Description
 --- | ---
@@ -468,34 +506,37 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the PostgreSQL Cluster resource to update. To get the PostgreSQL cluster ID, use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the PostgreSQL Cluster resource to update. To get the PostgreSQL cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the PostgreSQL Cluster resource should be updated. 
 description | **string**<br>New description of the PostgreSQL cluster. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Custom labels for the PostgreSQL cluster as `` key:value `` pairs. Maximum 64 per resource. For example, "project": "mvp" or "source": "dictionary". <br>The new set of labels will completely replace the old ones. To add a label, request the current set with the [ClusterService.Get](#Get) method, then send an [ClusterService.Update](#Update) request with the new label added to the set. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
-config_spec | **[ConfigSpec](#ConfigSpec1)**<br>New configuration and resources for hosts in the cluster. 
+config_spec | **[ConfigSpec](#ConfigSpec)**<br>New configuration and resources for hosts in the cluster. 
 name | **string**<br>New name for the cluster. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 maintenance_window | **[MaintenanceWindow](../maintenance.proto#MaintenanceWindow2)**<br>Window of maintenance operations. 
 
 
-### ConfigSpec {#ConfigSpec}
+### ConfigSpec {#ConfigSpec1}
 
 Field | Description
 --- | ---
 version | **string**<br>Version of PostgreSQL used in the cluster. Possible values: `9.6`, `10`, `10_1c`, `11`, `12`. 
-postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11` or `postgresql_config_12`<br>Configuration of a PostgreSQL cluster.
+postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12` or `postgresql_config_12_1c`<br>Configuration of a PostgreSQL cluster.
 &nbsp;&nbsp;postgresql_config_9_6 | **[PostgresqlConfig9_6](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql9_6.proto)**<br>Configuration for a PostgreSQL 9.6 cluster. 
 &nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlConfig10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10_1c.proto)**<br>Configuration for a PostgreSQL 10 1C cluster. 
 &nbsp;&nbsp;postgresql_config_10 | **[PostgresqlConfig10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10.proto)**<br>Configuration for a PostgreSQL 10 cluster. 
 &nbsp;&nbsp;postgresql_config_11 | **[PostgresqlConfig11](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql11.proto)**<br>Configuration for a PostgreSQL 11 cluster. 
+&nbsp;&nbsp;postgresql_config_11_1c | **[config.PostgresqlConfig11_1C](./config/host10#PostgresqlConfig11_1C)**<br>Configuration for a PostgreSQL 11 1C cluster. 
 &nbsp;&nbsp;postgresql_config_12 | **[PostgresqlConfig12](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql12.proto)**<br>Configuration for a PostgreSQL 12 cluster. 
+&nbsp;&nbsp;postgresql_config_12_1c | **[config.PostgresqlConfig12_1C](./config/host10#PostgresqlConfig12_1C)**<br>Configuration for a PostgreSQL 12 1C cluster. 
 pooler_config | **[ConnectionPoolerConfig](../cluster.proto#ConnectionPoolerConfig3)**<br>Configuration of the connection pooler. 
 resources | **[Resources](../cluster.proto#Resources3)**<br>Resources allocated to PostgreSQL hosts. 
 autofailover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Configuration setting which enables/disables autofailover in cluster. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](../cluster.proto#Access3)**<br>Access policy to DB 
+performance_diagnostics | **[PerformanceDiagnostics](../cluster.proto#PerformanceDiagnostics3)**<br>Configuration of the performance diagnostics service. 
 
 
-### ConnectionPoolerConfig {#ConnectionPoolerConfig}
+### ConnectionPoolerConfig {#ConnectionPoolerConfig3}
 
 Field | Description
 --- | ---
@@ -503,7 +544,7 @@ pooling_mode | enum **PoolingMode**<br>Mode that the connection pooler is workin
 pool_discard | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Setting `server_reset_query_always` parameter in PgBouncer. 
 
 
-### Resources {#Resources}
+### Resources {#Resources3}
 
 Field | Description
 --- | ---
@@ -512,14 +553,23 @@ disk_size | **int64**<br>Volume of the storage available to a host, in bytes.
 disk_type_id | **string**<br><ul><li>network-hdd — network HDD drive, </li><li>network-ssd — network SSD drive, </li><li>local-ssd — local SSD storage.</li></ul> 
 
 
-### Access {#Access}
+### Access {#Access3}
 
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
 
 
-### MaintenanceWindow {#MaintenanceWindow}
+### PerformanceDiagnostics {#PerformanceDiagnostics3}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>Configuration setting which enables/disables performance diagnostics service in cluster. 
+sessions_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_activity sampling Acceptable values are 1 to 86400, inclusive.
+statements_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_statements sampling Acceptable values are 1 to 86400, inclusive.
+
+
+### MaintenanceWindow {#MaintenanceWindow2}
 
 Field | Description
 --- | ---
@@ -528,11 +578,11 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
 &nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](../maintenance.proto#WeeklyMaintenanceWindow2)**<br> 
 
 
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow}
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow2}
 
 
 
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow}
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow2}
 
 Field | Description
 --- | ---
@@ -540,7 +590,7 @@ day | enum **WeekDay**<br> <ul><ul/>
 hour | **int64**<br>Hour of the day in UTC. Acceptable values are 1 to 24, inclusive.
 
 
-### Operation {#Operation}
+### Operation {#Operation1}
 
 Field | Description
 --- | ---
@@ -563,7 +613,7 @@ Field | Description
 cluster_id | **string**<br>ID of the PostgreSQL Cluster resource that is being updated. 
 
 
-### Cluster {#Cluster}
+### Cluster {#Cluster3}
 
 Field | Description
 --- | ---
@@ -597,10 +647,10 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the PostgreSQL cluster to delete. To get the PostgreSQL cluster ID, use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the PostgreSQL cluster to delete. To get the PostgreSQL cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
 
 
-### Operation {#Operation}
+### Operation {#Operation2}
 
 Field | Description
 --- | ---
@@ -637,10 +687,10 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the PostgreSQL cluster to start. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the PostgreSQL cluster to start. The maximum string length in characters is 50.
 
 
-### Operation {#Operation}
+### Operation {#Operation3}
 
 Field | Description
 --- | ---
@@ -663,7 +713,7 @@ Field | Description
 cluster_id | **string**<br>ID of the PostgreSQL cluster. 
 
 
-### Cluster {#Cluster}
+### Cluster {#Cluster4}
 
 Field | Description
 --- | ---
@@ -697,10 +747,10 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the PostgreSQL cluster to stop. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the PostgreSQL cluster to stop. The maximum string length in characters is 50.
 
 
-### Operation {#Operation}
+### Operation {#Operation4}
 
 Field | Description
 --- | ---
@@ -723,7 +773,7 @@ Field | Description
 cluster_id | **string**<br>ID of the PostgreSQL cluster. 
 
 
-### Cluster {#Cluster}
+### Cluster {#Cluster5}
 
 Field | Description
 --- | ---
@@ -757,11 +807,11 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the PostgreSQL cluster to move. false The maximum string length in characters is 50.
-destination_folder_id | **string**<br>Required. ID of the destination folder. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the PostgreSQL cluster to move. The maximum string length in characters is 50.
+destination_folder_id | **string**<br>Required. ID of the destination folder. The maximum string length in characters is 50.
 
 
-### Operation {#Operation}
+### Operation {#Operation5}
 
 Field | Description
 --- | ---
@@ -786,7 +836,7 @@ source_folder_id | **string**<br>ID of the source folder.
 destination_folder_id | **string**<br>ID of the destnation folder. 
 
 
-### Cluster {#Cluster}
+### Cluster {#Cluster6}
 
 Field | Description
 --- | ---
@@ -820,10 +870,10 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the PostgreSQL cluster to back up. To get the PostgreSQL cluster ID, use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the PostgreSQL cluster to back up. To get the PostgreSQL cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
 
 
-### Operation {#Operation}
+### Operation {#Operation6}
 
 Field | Description
 --- | ---
@@ -846,7 +896,7 @@ Field | Description
 cluster_id | **string**<br>ID of the PostgreSQL cluster that is being backed up. 
 
 
-### Cluster {#Cluster}
+### Cluster {#Cluster7}
 
 Field | Description
 --- | ---
@@ -880,38 +930,41 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-backup_id | **string**<br>Required. ID of the backup to create a cluster from. To get the backup ID, use a [ClusterService.ListBackups](#ListBackups) request. false
-time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Required. Timestamp of the moment to which the PostgreSQL cluster should be restored. false
+backup_id | **string**<br>Required. ID of the backup to create a cluster from. To get the backup ID, use a [ClusterService.ListBackups](#ListBackups) request. 
+time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Required. Timestamp of the moment to which the PostgreSQL cluster should be restored. 
 time_inclusive | **bool**<br><ul><li>false (default) — the restore point refers to the first backup moment before `time`. </li><li>true — the restore point refers to the first backup point after `time`.</li></ul> 
-name | **string**<br>Required. Name of the new PostgreSQL cluster. The name must be unique within the folder. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+name | **string**<br>Required. Name of the new PostgreSQL cluster. The name must be unique within the folder. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 description | **string**<br>Description of the new PostgreSQL cluster. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Custom labels for the PostgreSQL cluster as `` key:value `` pairs. Maximum 64 per resource. For example, "project": "mvp" or "source": "dictionary". No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 environment | **[Cluster.Environment](../cluster.proto#Cluster8)**<br>Deployment environment of the new PostgreSQL cluster. 
-config_spec | **[ConfigSpec](#ConfigSpec2)**<br>Configuration for the PostgreSQL cluster to be created. 
-host_specs[] | **[HostSpec](#HostSpec1)**<br>Configurations for PostgreSQL hosts that should be created for the cluster that is being created from the backup. The number of elements must be greater than 0.
-network_id | **string**<br>Required. ID of the network to create the PostgreSQL cluster in. false The maximum string length in characters is 50.
+config_spec | **[ConfigSpec](#ConfigSpec)**<br>Configuration for the PostgreSQL cluster to be created. 
+host_specs[] | **[HostSpec](#HostSpec)**<br>Configurations for PostgreSQL hosts that should be created for the cluster that is being created from the backup. The number of elements must be greater than 0.
+network_id | **string**<br>Required. ID of the network to create the PostgreSQL cluster in. The maximum string length in characters is 50.
 folder_id | **string**<br>ID of the folder to create the PostgreSQL cluster in. The maximum string length in characters is 50.
 
 
-### ConfigSpec {#ConfigSpec}
+### ConfigSpec {#ConfigSpec2}
 
 Field | Description
 --- | ---
 version | **string**<br>Version of PostgreSQL used in the cluster. Possible values: `9.6`, `10`, `10_1c`, `11`, `12`. 
-postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11` or `postgresql_config_12`<br>Configuration of a PostgreSQL cluster.
+postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12` or `postgresql_config_12_1c`<br>Configuration of a PostgreSQL cluster.
 &nbsp;&nbsp;postgresql_config_9_6 | **[PostgresqlConfig9_6](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql9_6.proto)**<br>Configuration for a PostgreSQL 9.6 cluster. 
 &nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlConfig10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10_1c.proto)**<br>Configuration for a PostgreSQL 10 1C cluster. 
 &nbsp;&nbsp;postgresql_config_10 | **[PostgresqlConfig10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10.proto)**<br>Configuration for a PostgreSQL 10 cluster. 
 &nbsp;&nbsp;postgresql_config_11 | **[PostgresqlConfig11](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql11.proto)**<br>Configuration for a PostgreSQL 11 cluster. 
+&nbsp;&nbsp;postgresql_config_11_1c | **[config.PostgresqlConfig11_1C](./config/host10#PostgresqlConfig11_1C)**<br>Configuration for a PostgreSQL 11 1C cluster. 
 &nbsp;&nbsp;postgresql_config_12 | **[PostgresqlConfig12](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql12.proto)**<br>Configuration for a PostgreSQL 12 cluster. 
+&nbsp;&nbsp;postgresql_config_12_1c | **[config.PostgresqlConfig12_1C](./config/host10#PostgresqlConfig12_1C)**<br>Configuration for a PostgreSQL 12 1C cluster. 
 pooler_config | **[ConnectionPoolerConfig](../cluster.proto#ConnectionPoolerConfig4)**<br>Configuration of the connection pooler. 
 resources | **[Resources](../cluster.proto#Resources4)**<br>Resources allocated to PostgreSQL hosts. 
 autofailover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Configuration setting which enables/disables autofailover in cluster. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](../cluster.proto#Access4)**<br>Access policy to DB 
+performance_diagnostics | **[PerformanceDiagnostics](../cluster.proto#PerformanceDiagnostics4)**<br>Configuration of the performance diagnostics service. 
 
 
-### ConnectionPoolerConfig {#ConnectionPoolerConfig}
+### ConnectionPoolerConfig {#ConnectionPoolerConfig4}
 
 Field | Description
 --- | ---
@@ -919,7 +972,7 @@ pooling_mode | enum **PoolingMode**<br>Mode that the connection pooler is workin
 pool_discard | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Setting `server_reset_query_always` parameter in PgBouncer. 
 
 
-### Resources {#Resources}
+### Resources {#Resources4}
 
 Field | Description
 --- | ---
@@ -928,14 +981,23 @@ disk_size | **int64**<br>Volume of the storage available to a host, in bytes.
 disk_type_id | **string**<br><ul><li>network-hdd — network HDD drive, </li><li>network-ssd — network SSD drive, </li><li>local-ssd — local SSD storage.</li></ul> 
 
 
-### Access {#Access}
+### Access {#Access4}
 
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
 
 
-### HostSpec {#HostSpec}
+### PerformanceDiagnostics {#PerformanceDiagnostics4}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>Configuration setting which enables/disables performance diagnostics service in cluster. 
+sessions_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_activity sampling Acceptable values are 1 to 86400, inclusive.
+statements_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_statements sampling Acceptable values are 1 to 86400, inclusive.
+
+
+### HostSpec {#HostSpec1}
 
 Field | Description
 --- | ---
@@ -944,22 +1006,24 @@ subnet_id | **string**<br>ID of the subnet that the host should belong to. This 
 assign_public_ip | **bool**<br><ul><li>false — don't assign a public IP to the host. </li><li>true — the host should have a public IP address.</li></ul> 
 replication_source | **string**<br>[Host.name](../cluster.proto#Host) of the host to be used as the replication source (for cascading replication). 
 priority | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Priority of the host as a replica. A higher value corresponds to higher priority. <br>The host with the highest priority is the synchronous replica. All others are asynchronous. The synchronous replica replaces the master when needed. <br>When a replica becomes the master, its priority is ignored. 
-config_spec | **[ConfigHostSpec](#ConfigHostSpec1)**<br>Configuration of a PostgreSQL server for the host. 
+config_spec | **[ConfigHostSpec](#ConfigHostSpec)**<br>Configuration of a PostgreSQL server for the host. 
 
 
-### ConfigHostSpec {#ConfigHostSpec}
+### ConfigHostSpec {#ConfigHostSpec1}
 
 Field | Description
 --- | ---
-postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11` or `postgresql_config_12`<br>
+postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12` or `postgresql_config_12_1c`<br>
 &nbsp;&nbsp;postgresql_config_9_6 | **[PostgresqlHostConfig9_6](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host9_6.proto)**<br>Configuration for a host with PostgreSQL 9.6 server deployed. 
 &nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlHostConfig10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host10_1c.proto)**<br>Configuration for a host with PostgreSQL 10 1C server deployed. 
 &nbsp;&nbsp;postgresql_config_10 | **[PostgresqlHostConfig10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host10.proto)**<br>Configuration for a host with PostgreSQL 10 server deployed. 
 &nbsp;&nbsp;postgresql_config_11 | **[PostgresqlHostConfig11](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host11.proto)**<br>Configuration for a host with PostgreSQL 11 server deployed. 
+&nbsp;&nbsp;postgresql_config_11_1c | **[config.PostgresqlHostConfig11_1C](./config/host10#PostgresqlHostConfig11_1C)**<br>Configuration for a host with PostgreSQL 11 1C server deployed. 
 &nbsp;&nbsp;postgresql_config_12 | **[PostgresqlHostConfig12](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host12.proto)**<br>Configuration for a host with PostgreSQL 12 server deployed. 
+&nbsp;&nbsp;postgresql_config_12_1c | **[config.PostgresqlHostConfig12_1C](./config/host10#PostgresqlHostConfig12_1C)**<br>Configuration for a host with PostgreSQL 12 1C server deployed. 
 
 
-### Operation {#Operation}
+### Operation {#Operation7}
 
 Field | Description
 --- | ---
@@ -983,7 +1047,7 @@ cluster_id | **string**<br>ID of the new PostgreSQL cluster that is being create
 backup_id | **string**<br>ID of the backup that is being used for creating a cluster. 
 
 
-### Cluster {#Cluster}
+### Cluster {#Cluster8}
 
 Field | Description
 --- | ---
@@ -1017,12 +1081,12 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. Required. ID of the PostgreSQL cluster to maintenance reschedule. false The maximum string length in characters is 50.
-reschedule_type | enum **RescheduleType**<br>Required. Required. The type of reschedule request. false<ul><ul/>
+cluster_id | **string**<br>Required. Required. ID of the PostgreSQL cluster to maintenance reschedule. The maximum string length in characters is 50.
+reschedule_type | enum **RescheduleType**<br>Required. Required. The type of reschedule request. <ul><ul/>
 delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time for SPECIFIC_TIME reschedule. Limited by two weeks since first time scheduled. 
 
 
-### Operation {#Operation}
+### Operation {#Operation8}
 
 Field | Description
 --- | ---
@@ -1046,7 +1110,7 @@ cluster_id | **string**<br>Required. ID of the PostgreSQL cluster.
 delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Required. New time of the planned maintenance. Can be in the past for rescheduled to "IMMEDIATE". 
 
 
-### Cluster {#Cluster}
+### Cluster {#Cluster9}
 
 Field | Description
 --- | ---
@@ -1080,11 +1144,11 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of PostgreSQL cluster. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of PostgreSQL cluster. The maximum string length in characters is 50.
 host_name | **string**<br>New master host. Switch to the most up-to-date replica if not provided. The maximum string length in characters is 253.
 
 
-### Operation {#Operation}
+### Operation {#Operation9}
 
 Field | Description
 --- | ---
@@ -1107,7 +1171,7 @@ Field | Description
 cluster_id | **string**<br>ID of the PostgreSQL cluster being failovered. 
 
 
-### Cluster {#Cluster}
+### Cluster {#Cluster10}
 
 Field | Description
 --- | ---
@@ -1137,7 +1201,7 @@ Retrieves logs for the specified PostgreSQL cluster.
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the PostgreSQL cluster to request logs for. To get the PostgreSQL cluster ID use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the PostgreSQL cluster to request logs for. To get the PostgreSQL cluster ID use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
 column_filter[] | **string**<br>Columns from the logs table to request. If no columns are specified, entire log records are returned. 
 service_type | enum **ServiceType**<br>Type of the service to request logs about. <ul><li>`POSTGRESQL`: Logs of PostgreSQL activity.</li><li>`POOLER`: Logs of connection pooler activity.</li><ul/>
 from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Start timestamp for the logs request, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
@@ -1152,7 +1216,7 @@ always_next_page_token | **bool**<br>Always return `next_page_token`, even if cu
 Field | Description
 --- | ---
 logs[] | **[LogRecord](#LogRecord)**<br>Requested log records. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterLogsRequest.page_size](#ListClusterLogsRequest1), use the `next_page_token` as the value for the [ListClusterLogsRequest.page_token](#ListClusterLogsRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. This value is interchangeable with `next_record_token` from StreamLogs method. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterLogsRequest.page_size](#ListClusterLogsRequest), use the `next_page_token` as the value for the [ListClusterLogsRequest.page_token](#ListClusterLogsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. This value is interchangeable with `next_record_token` from StreamLogs method. 
 
 
 ### LogRecord {#LogRecord}
@@ -1173,23 +1237,24 @@ Same as ListLogs but using server-side streaming. Also allows for 'tail -f' sema
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. Required. ID of the PostgreSQL cluster. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. Required. ID of the PostgreSQL cluster. The maximum string length in characters is 50.
 column_filter[] | **string**<br>Columns from logs table to get in the response. 
 service_type | enum **ServiceType**<br> <ul><li>`POSTGRESQL`: Logs of PostgreSQL activity.</li><li>`POOLER`: Logs of connection pooler activity.</li><ul/>
 from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Start timestamp for the logs request. 
 to_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>End timestamp for the logs request. If this field is not set, all existing logs will be sent and then the new ones as they appear. In essence it has 'tail -f' semantics. 
 record_token | **string**<br>Record token. Set `record_token` to the `next_record_token` returned by a previous StreamLogs request to start streaming from next log record. The maximum string length in characters is 100.
+filter | **string**<br><ol><li>The field name. Currently filtering can be applied to the [LogRecord.logs.message.hostname](#LogRecord), </li><li>A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 1-63 characters long and match the regular expression `^[a-z0-9.-]{1,61}$`. </li></ol> The maximum string length in characters is 1000.
 
 
 ### StreamLogRecord {#StreamLogRecord}
 
 Field | Description
 --- | ---
-record | **[LogRecord](#LogRecord1)**<br>One of the requested log records. 
+record | **[LogRecord](#LogRecord)**<br>One of the requested log records. 
 next_record_token | **string**<br>This token allows you to continue streaming logs starting from the exact same record. To continue streaming, specify value of `next_record_token` as value for `record_token` parameter in the next StreamLogs request. This value is interchangeable with `next_page_token` from ListLogs method. 
 
 
-### LogRecord {#LogRecord}
+### LogRecord {#LogRecord1}
 
 Field | Description
 --- | ---
@@ -1207,7 +1272,7 @@ Retrieves the list of Operation resources for the specified cluster.
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the PostgreSQL Cluster resource to list operations for. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the PostgreSQL Cluster resource to list operations for. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClusterOperationsResponse.next_page_token](#ListClusterOperationsResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token.  To get the next page of results, set `page_token` to the [ListClusterOperationsResponse.next_page_token](#ListClusterOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
@@ -1217,10 +1282,10 @@ page_token | **string**<br>Page token.  To get the next page of results, set `pa
 Field | Description
 --- | ---
 operations[] | **[operation.Operation](#Operation10)**<br>List of Operation resources for the specified PostgreSQL cluster. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterOperationsRequest.page_size](#ListClusterOperationsRequest1), use the `next_page_token` as the value for the [ListClusterOperationsRequest.page_token](#ListClusterOperationsRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterOperationsRequest.page_size](#ListClusterOperationsRequest), use the `next_page_token` as the value for the [ListClusterOperationsRequest.page_token](#ListClusterOperationsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
-### Operation {#Operation}
+### Operation {#Operation10}
 
 Field | Description
 --- | ---
@@ -1246,7 +1311,7 @@ Retrieves the list of available backups for the specified PostgreSQL cluster.
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the PostgreSQL cluster. To get the PostgreSQL cluster ID use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the PostgreSQL cluster. To get the PostgreSQL cluster ID use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClusterBackupsResponse.next_page_token](#ListClusterBackupsResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token.  To get the next page of results, set `page_token` to the [ListClusterBackupsResponse.next_page_token](#ListClusterBackupsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
@@ -1256,7 +1321,7 @@ page_token | **string**<br>Page token.  To get the next page of results, set `pa
 Field | Description
 --- | ---
 backups[] | **[Backup](#Backup)**<br>List of PostgreSQL Backup resources. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterBackupsRequest.page_size](#ListClusterBackupsRequest1), use the `next_page_token` as the value for the [ListClusterBackupsRequest.page_token](#ListClusterBackupsRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterBackupsRequest.page_size](#ListClusterBackupsRequest), use the `next_page_token` as the value for the [ListClusterBackupsRequest.page_token](#ListClusterBackupsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
 ### Backup {#Backup}
@@ -1280,7 +1345,7 @@ Retrieves a list of hosts for the specified cluster.
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the PostgreSQL cluster. To get the PostgreSQL cluster ID use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the PostgreSQL cluster. To get the PostgreSQL cluster ID use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClusterHostsResponse.next_page_token](#ListClusterHostsResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token.  To get the next page of results, set `page_token` to the [ListClusterHostsResponse.next_page_token](#ListClusterHostsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
@@ -1290,7 +1355,7 @@ page_token | **string**<br>Page token.  To get the next page of results, set `pa
 Field | Description
 --- | ---
 hosts[] | **[Host](../cluster.proto#Host)**<br>List of Host resources. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterHostsRequest.page_size](#ListClusterHostsRequest1), use the `next_page_token` as the value for the [ListClusterHostsRequest.page_token](#ListClusterHostsRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterHostsRequest.page_size](#ListClusterHostsRequest), use the `next_page_token` as the value for the [ListClusterHostsRequest.page_token](#ListClusterHostsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
 ### Host {#Host}
@@ -1312,7 +1377,7 @@ assign_public_ip | **bool**<br>Flag showing public IP assignment status to this 
 replica_type | enum **ReplicaType**<br> <ul><ul/>
 
 
-### Resources {#Resources}
+### Resources {#Resources5}
 
 Field | Description
 --- | ---
@@ -1333,12 +1398,14 @@ health | enum **Health**<br>Status code of server availability. <ul><li>`HEALTH_
 
 Field | Description
 --- | ---
-postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11` or `postgresql_config_12`<br>Configuration of a PostgreSQL server for the host.
+postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12` or `postgresql_config_12_1c`<br>Configuration of a PostgreSQL server for the host.
 &nbsp;&nbsp;postgresql_config_9_6 | **[PostgresqlHostConfig9_6](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host9_6.proto)**<br>Configuration for a host with PostgreSQL 9.6 server deployed. 
 &nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlHostConfig10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host10_1c.proto)**<br>Configuration for a host with PostgreSQL 10 1C server deployed. 
 &nbsp;&nbsp;postgresql_config_10 | **[PostgresqlHostConfig10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host10.proto)**<br>Configuration for a host with PostgreSQL 10 server deployed. 
 &nbsp;&nbsp;postgresql_config_11 | **[PostgresqlHostConfig11](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host11.proto)**<br>Configuration for a host with PostgreSQL 11 server deployed. 
+&nbsp;&nbsp;postgresql_config_11_1c | **[config.PostgresqlHostConfig11_1C](./config/host10#PostgresqlHostConfig11_1C)**<br>Configuration for a host with PostgreSQL 11 1C server deployed. 
 &nbsp;&nbsp;postgresql_config_12 | **[PostgresqlHostConfig12](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host12.proto)**<br>Configuration for a host with PostgreSQL 12 server deployed. 
+&nbsp;&nbsp;postgresql_config_12_1c | **[config.PostgresqlHostConfig12_1C](./config/host10#PostgresqlHostConfig12_1C)**<br>Configuration for a host with PostgreSQL 12 1C server deployed. 
 
 
 ## AddHosts {#AddHosts}
@@ -1355,11 +1422,11 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the PostgreSQL cluster to add hosts to. To get the PostgreSQL cluster ID, use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
-host_specs[] | **[HostSpec](#HostSpec2)**<br>Configurations for PostgreSQL hosts that should be added to the cluster. The number of elements must be greater than 0.
+cluster_id | **string**<br>Required. ID of the PostgreSQL cluster to add hosts to. To get the PostgreSQL cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+host_specs[] | **[HostSpec](#HostSpec)**<br>Configurations for PostgreSQL hosts that should be added to the cluster. The number of elements must be greater than 0.
 
 
-### HostSpec {#HostSpec}
+### HostSpec {#HostSpec2}
 
 Field | Description
 --- | ---
@@ -1368,22 +1435,24 @@ subnet_id | **string**<br>ID of the subnet that the host should belong to. This 
 assign_public_ip | **bool**<br><ul><li>false — don't assign a public IP to the host. </li><li>true — the host should have a public IP address.</li></ul> 
 replication_source | **string**<br>[Host.name](../cluster.proto#Host1) of the host to be used as the replication source (for cascading replication). 
 priority | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Priority of the host as a replica. A higher value corresponds to higher priority. <br>The host with the highest priority is the synchronous replica. All others are asynchronous. The synchronous replica replaces the master when needed. <br>When a replica becomes the master, its priority is ignored. 
-config_spec | **[ConfigHostSpec](#ConfigHostSpec2)**<br>Configuration of a PostgreSQL server for the host. 
+config_spec | **[ConfigHostSpec](#ConfigHostSpec)**<br>Configuration of a PostgreSQL server for the host. 
 
 
-### ConfigHostSpec {#ConfigHostSpec}
+### ConfigHostSpec {#ConfigHostSpec2}
 
 Field | Description
 --- | ---
-postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11` or `postgresql_config_12`<br>
+postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12` or `postgresql_config_12_1c`<br>
 &nbsp;&nbsp;postgresql_config_9_6 | **[PostgresqlHostConfig9_6](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host9_6.proto)**<br>Configuration for a host with PostgreSQL 9.6 server deployed. 
 &nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlHostConfig10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host10_1c.proto)**<br>Configuration for a host with PostgreSQL 10 1C server deployed. 
 &nbsp;&nbsp;postgresql_config_10 | **[PostgresqlHostConfig10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host10.proto)**<br>Configuration for a host with PostgreSQL 10 server deployed. 
 &nbsp;&nbsp;postgresql_config_11 | **[PostgresqlHostConfig11](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host11.proto)**<br>Configuration for a host with PostgreSQL 11 server deployed. 
+&nbsp;&nbsp;postgresql_config_11_1c | **[config.PostgresqlHostConfig11_1C](./config/host10#PostgresqlHostConfig11_1C)**<br>Configuration for a host with PostgreSQL 11 1C server deployed. 
 &nbsp;&nbsp;postgresql_config_12 | **[PostgresqlHostConfig12](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host12.proto)**<br>Configuration for a host with PostgreSQL 12 server deployed. 
+&nbsp;&nbsp;postgresql_config_12_1c | **[config.PostgresqlHostConfig12_1C](./config/host10#PostgresqlHostConfig12_1C)**<br>Configuration for a host with PostgreSQL 12 1C server deployed. 
 
 
-### Operation {#Operation}
+### Operation {#Operation11}
 
 Field | Description
 --- | ---
@@ -1421,11 +1490,11 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the PostgreSQL cluster to remove hosts from. To get the PostgreSQL cluster ID, use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the PostgreSQL cluster to remove hosts from. To get the PostgreSQL cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
 host_names[] | **string**<br>Names of hosts to delete. The number of elements must be greater than 0. The maximum string length in characters for each value is 253.
 
 
-### Operation {#Operation}
+### Operation {#Operation12}
 
 Field | Description
 --- | ---
@@ -1463,7 +1532,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the PostgreSQL cluster to update hosts in. To get the PostgreSQL cluster ID, use a [ClusterService.List](#List) request. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the PostgreSQL cluster to update hosts in. To get the PostgreSQL cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
 update_host_specs[] | **[UpdateHostSpec](#UpdateHostSpec)**<br>New configurations to apply to hosts. The number of elements must be greater than 0.
 
 
@@ -1471,25 +1540,27 @@ update_host_specs[] | **[UpdateHostSpec](#UpdateHostSpec)**<br>New configuration
 
 Field | Description
 --- | ---
-host_name | **string**<br>Required. Name of the host to update. To get the PostgreSQL host name, use a [ClusterService.ListHosts](#ListHosts) request. false
+host_name | **string**<br>Required. Name of the host to update. To get the PostgreSQL host name, use a [ClusterService.ListHosts](#ListHosts) request. 
 replication_source | **string**<br>[Host.name](../cluster.proto#Host1) of the host to be used as the replication source (for cascading replication). To get the PostgreSQL host name, use a [ClusterService.ListHosts](#ListHosts) request. 
 priority | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The host with the highest priority is the synchronous replica. All others are asynchronous. The synchronous replica replaces the master when needed. <br>When a replica becomes the master, its priority is ignored. 
-config_spec | **[ConfigHostSpec](#ConfigHostSpec3)**<br>Configuration of a PostgreSQL server for the host. 
+config_spec | **[ConfigHostSpec](#ConfigHostSpec)**<br>Configuration of a PostgreSQL server for the host. 
 
 
-### ConfigHostSpec {#ConfigHostSpec}
+### ConfigHostSpec {#ConfigHostSpec3}
 
 Field | Description
 --- | ---
-postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11` or `postgresql_config_12`<br>
+postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12` or `postgresql_config_12_1c`<br>
 &nbsp;&nbsp;postgresql_config_9_6 | **[PostgresqlHostConfig9_6](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host9_6.proto)**<br>Configuration for a host with PostgreSQL 9.6 server deployed. 
 &nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlHostConfig10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host10_1c.proto)**<br>Configuration for a host with PostgreSQL 10 1C server deployed. 
 &nbsp;&nbsp;postgresql_config_10 | **[PostgresqlHostConfig10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host10.proto)**<br>Configuration for a host with PostgreSQL 10 server deployed. 
 &nbsp;&nbsp;postgresql_config_11 | **[PostgresqlHostConfig11](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host11.proto)**<br>Configuration for a host with PostgreSQL 11 server deployed. 
+&nbsp;&nbsp;postgresql_config_11_1c | **[config.PostgresqlHostConfig11_1C](./config/host10#PostgresqlHostConfig11_1C)**<br>Configuration for a host with PostgreSQL 11 1C server deployed. 
 &nbsp;&nbsp;postgresql_config_12 | **[PostgresqlHostConfig12](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host12.proto)**<br>Configuration for a host with PostgreSQL 12 server deployed. 
+&nbsp;&nbsp;postgresql_config_12_1c | **[config.PostgresqlHostConfig12_1C](./config/host10#PostgresqlHostConfig12_1C)**<br>Configuration for a host with PostgreSQL 12 1C server deployed. 
 
 
-### Operation {#Operation}
+### Operation {#Operation13}
 
 Field | Description
 --- | ---

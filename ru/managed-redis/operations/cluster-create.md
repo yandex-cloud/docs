@@ -39,6 +39,11 @@
   1. В блоке **Хосты** нажмите на кнопку **Добавить хост** и выберите зону доступности и подсеть, к которой будет подключен хост. Создайте необходимое количество хостов. Для изменения зоны доступности и добавленного хоста нажмите на значок карандаша в строке хоста.
 
      Если вы включили шардирование, укажите названия шардов.
+  
+  1. При необходимости задайте дополнительные настройки кластера:
+  
+     {% include [mrd-extra-settings](../../_includes/mdb/mrd-extra-settings-web-console.md) %}   
+  
   1. Нажмите кнопку **Создать кластер**.
   
 - CLI
@@ -73,7 +78,7 @@
   
       ```bash
       $ yc managed-redis cluster create \
-         --cluster-name <имя кластера> \
+         --name <имя кластера> \
          --environment <окружение, prestable или production> \
          --network-name <имя сети> \
          --host zone-id=<зона доступности>,subnet-id=<идентификатор подсети> \
@@ -179,7 +184,7 @@
   
   ```
   $ yc managed-redis cluster create \
-       --cluster-name myredis \
+       --name myredis \
        --environment production \
        --network-name default \
        --resource-preset hm1.nano \

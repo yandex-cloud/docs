@@ -15,11 +15,12 @@ If not, open the project:
 
 ## Change the configuration {#config}
 
+The configuration prefix corresponds to the [name of the computing resource configuration](../../concepts/configurations.md). The default configuration is S (4 vCPUs, 0 GPU).
+
 {% include [include](../../../_includes/datasphere/control-compute-resources-steps.md) %}
 
 #### What's next {#what-is-next}
 
 * [{#T}](install-dependencies.md)
 * [{#T}](clear-kernel-state.md)
-* [{#T}](share.md)
-
+* [{#T}](export.md)

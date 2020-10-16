@@ -1,6 +1,6 @@
 # CORS
 
-{{ objstorage-full-name }} supports [cross-domain requests](https://ru.wikipedia.org/wiki/Cross-origin_resource_sharing) to objects in a bucket.
+{{ objstorage-full-name }} supports [cross-domain requests](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) to objects in a bucket.
 
 To manage the CORS configuration for each bucket, you can use:
 

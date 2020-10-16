@@ -17,6 +17,8 @@ items:
             href: operations/buckets/limit-max-volume.md
           - name: Открытие публичного доступа к бакету
             href: operations/buckets/bucket-availability.md
+          - name: Шифрование бакета
+            href: operations/buckets/encrypt.md
           - name: Управление жизненными циклами объектов
             href: operations/buckets/lifecycles.md
           - name: Управление конфигурацией CORS
@@ -57,6 +59,8 @@ items:
         href: concepts/bucket.md
       - name: Объект
         href: concepts/object.md
+      - name: Версионирование бакета
+        href: concepts/versioning.md
       - name: Жизненные циклы объектов
         href: concepts/lifecycles.md
       - name: CORS
@@ -69,6 +73,8 @@ items:
         href: concepts/multipart.md
       - name: Список управления доступом (ACL)
         href: concepts/acl.md
+      - name: Политика доступа (Bucket Policy)
+        href: concepts/policy.md
       - name: Загрузка файла через HTML форму
         href: concepts/presigned-post-forms.md
       - name: Класс хранилища
@@ -121,6 +127,8 @@ items:
                 href: s3/api-ref/bucket.md
               - name: create
                 href: s3/api-ref/bucket/create.md
+              - name: getBucketEncryption
+                href: s3/api-ref/bucket/getbucketencryption.md
               - name: getMeta
                 href: s3/api-ref/bucket/getmeta.md
               - name: listObjects
@@ -129,6 +137,16 @@ items:
                 href: s3/api-ref/bucket/list.md
               - name: deleteBucket
                 href: s3/api-ref/bucket/delete.md
+              - name: deleteBucketEncryption
+                href: s3/api-ref/bucket/deletebucketencryption.md
+              - name: putBucketEncryption
+                href: s3/api-ref/bucket/putbucketencryption.md
+              - name: putBucketVersioning
+                href: s3/api-ref/bucket/putBucketVersioning.md
+              - name: getBucketVersioning
+                href: s3/api-ref/bucket/getBucketVersioning.md
+              - name: listObjectVersions
+                href: s3/api-ref/bucket/listObjectVersions.md
           - name: Object
             items:
               - name: Все методы
@@ -215,6 +233,22 @@ items:
                 href: s3/api-ref/acl/bucketget.md
               - name: bucketPutAcl
                 href: s3/api-ref/acl/bucketput.md
+          - name: Bucket Policy
+            items:
+              - name: Все методы
+                href: s3/api-ref/policy.md
+              - name: GetBucketPolicy
+                href: s3/api-ref/policy/get.md
+              - name: PutBucketPolicy
+                href: s3/api-ref/policy/put.md
+              - name: DeleteBucketPolicy
+                href: s3/api-ref/policy/delete.md
+              - name: Схема данных
+                href: s3/api-ref/policy/scheme.md
+              - name: Действия
+                href: s3/api-ref/policy/actions.md
+              - name: Условия
+                href: s3/api-ref/policy/conditions.md
           - name: Общие заголовки запросов
             href: s3/api-ref/common-request-headers.md
           - name: Общие заголовки ответов

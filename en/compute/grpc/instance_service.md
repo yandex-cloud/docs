@@ -37,7 +37,7 @@ Returns the specified Instance resource. <br>To get the list of available Instan
 
 Field | Description
 --- | ---
-instance_id | **string**<br>Required. ID of the Instance resource to return. To get the instance ID, use a [InstanceService.List](#List) request. false The maximum string length in characters is 50.
+instance_id | **string**<br>Required. ID of the Instance resource to return. To get the instance ID, use a [InstanceService.List](#List) request. The maximum string length in characters is 50.
 view | enum **InstanceView**<br>Defines which information about the Instance resource should be returned in the server response. <ul><li>`BASIC`: Doesn't include the metadata of the instance in the server response.</li><li>`FULL`: Returns the metadata of the instance in the server response.</li><ul/>
 
 
@@ -155,7 +155,7 @@ Retrieves the list of Instance resources in the specified folder.
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the Folder to list instances in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. false The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the Folder to list instances in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListInstancesResponse.next_page_token](#ListInstancesResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListInstancesResponse.next_page_token](#ListInstancesResponse) returned by a previous list request. The maximum string length in characters is 100.
 filter | **string**<br><ol><li>The field name. Currently you can use filtering only on the [Instance.name](../instance.proto#Instance1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z]([-a-z0-9]{,61}[a-z0-9])?$`.</li></ol> The maximum string length in characters is 1000.
@@ -166,10 +166,10 @@ filter | **string**<br><ol><li>The field name. Currently you can use filtering o
 Field | Description
 --- | ---
 instances[] | **[Instance](../instance.proto#Instance1)**<br>List of Instance resources. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListInstancesRequest.page_size](#ListInstancesRequest1), use the `next_page_token` as the value for the [ListInstancesRequest.page_token](#ListInstancesRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListInstancesRequest.page_size](#ListInstancesRequest), use the `next_page_token` as the value for the [ListInstancesRequest.page_token](#ListInstancesRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
-### Instance {#Instance}
+### Instance {#Instance1}
 
 Field | Description
 --- | ---
@@ -194,7 +194,7 @@ network_settings | **[NetworkSettings](../instance.proto#NetworkSettings1)**<br>
 placement_policy | **[PlacementPolicy](../instance.proto#PlacementPolicy1)**<br>Placement policy configuration. 
 
 
-### Resources {#Resources}
+### Resources {#Resources1}
 
 Field | Description
 --- | ---
@@ -204,7 +204,7 @@ core_fraction | **int64**<br>Baseline level of CPU performance with the ability 
 gpus | **int64**<br>The number of GPUs available to the instance. 
 
 
-### AttachedDisk {#AttachedDisk}
+### AttachedDisk {#AttachedDisk1}
 
 Field | Description
 --- | ---
@@ -214,7 +214,7 @@ auto_delete | **bool**<br>Specifies whether the disk will be auto-deleted when t
 disk_id | **string**<br>ID of the disk that is attached to the instance. 
 
 
-### NetworkInterface {#NetworkInterface}
+### NetworkInterface {#NetworkInterface1}
 
 Field | Description
 --- | ---
@@ -226,7 +226,7 @@ primary_v6_address | **[PrimaryAddress](../instance.proto#PrimaryAddress1)**<br>
 security_group_ids[] | **string**<br>ID's of security groups attached to the interface 
 
 
-### PrimaryAddress {#PrimaryAddress}
+### PrimaryAddress {#PrimaryAddress1}
 
 Field | Description
 --- | ---
@@ -234,7 +234,7 @@ address | **string**<br>An IPv4 internal network address that is assigned to the
 one_to_one_nat | **[OneToOneNat](../instance.proto#OneToOneNat1)**<br>One-to-one NAT configuration. If missing, NAT has not been set up. 
 
 
-### OneToOneNat {#OneToOneNat}
+### OneToOneNat {#OneToOneNat1}
 
 Field | Description
 --- | ---
@@ -242,21 +242,21 @@ address | **string**<br>An external IP address associated with this instance.
 ip_version | enum **IpVersion**<br>IP version for the external IP address. <ul><li>`IPV4`: IPv4 address, for example 192.0.2.235.</li><li>`IPV6`: IPv6 address. Not available yet.</li><ul/>
 
 
-### SchedulingPolicy {#SchedulingPolicy}
+### SchedulingPolicy {#SchedulingPolicy1}
 
 Field | Description
 --- | ---
 preemptible | **bool**<br>True for short-lived compute instances. For more information, see [Preemptible VMs](/docs/compute/concepts/preemptible-vm). 
 
 
-### NetworkSettings {#NetworkSettings}
+### NetworkSettings {#NetworkSettings1}
 
 Field | Description
 --- | ---
 type | enum **[Type](./disk_type#undefined)**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li><ul/>
 
 
-### PlacementPolicy {#PlacementPolicy}
+### PlacementPolicy {#PlacementPolicy1}
 
 Field | Description
 --- | ---
@@ -264,7 +264,7 @@ placement_group_id | **string**<br>Placement group ID.
 host_affinity_rules[] | **[HostAffinityRule](../instance.proto#HostAffinityRule1)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
 
 
-### HostAffinityRule {#HostAffinityRule}
+### HostAffinityRule {#HostAffinityRule1}
 
 Field | Description
 --- | ---
@@ -287,15 +287,15 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder to create an instance in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. false The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the folder to create an instance in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. The maximum string length in characters is 50.
 name | **string**<br>Name of the instance. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>Description of the instance. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
-zone_id | **string**<br>Required. ID of the availability zone where the instance resides. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/grpc/zone_service#List) request false The maximum string length in characters is 50.
-platform_id | **string**<br>Required. ID of the hardware platform configuration for the instance. This field affects the available values in `resources_spec` field. <br>Platforms allows you to create various types of instances: with a large amount of memory, with a large number of cores, with a burstable performance. For more information, see [Platforms](/docs/compute/concepts/vm-platforms). false
-resources_spec | **[ResourcesSpec](#ResourcesSpec)**<br>Required. Computing resources of the instance, such as the amount of memory and number of cores. To get a list of available values, see [Levels of core performance](/docs/compute/concepts/performance-levels). false
+zone_id | **string**<br>Required. ID of the availability zone where the instance resides. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/grpc/zone_service#List) request The maximum string length in characters is 50.
+platform_id | **string**<br>Required. ID of the hardware platform configuration for the instance. This field affects the available values in `resources_spec` field. <br>Platforms allows you to create various types of instances: with a large amount of memory, with a large number of cores, with a burstable performance. For more information, see [Platforms](/docs/compute/concepts/vm-platforms). 
+resources_spec | **[ResourcesSpec](#ResourcesSpec)**<br>Required. Computing resources of the instance, such as the amount of memory and number of cores. To get a list of available values, see [Levels of core performance](/docs/compute/concepts/performance-levels). 
 metadata | **map<string,string>**<br>The metadata `key:value` pairs that will be assigned to this instance. This includes custom metadata and predefined keys. The total size of all keys and values must be less than 512 KB. <br>Values are free-form strings, and only have meaning as interpreted by the programs which configure the instance. The values must be 256 KB or less. <br>For example, you may use the metadata in order to provide your public SSH key to the instance. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). 
-boot_disk_spec | **[AttachedDiskSpec](#AttachedDiskSpec)**<br>Required. Boot disk to attach to the instance. false
+boot_disk_spec | **[AttachedDiskSpec](#AttachedDiskSpec)**<br>Required. Boot disk to attach to the instance. 
 secondary_disk_specs[] | **[AttachedDiskSpec](#AttachedDiskSpec)**<br>Array of secondary disks to attach to the instance. The maximum number of elements is 3.
 network_interface_specs[] | **[NetworkInterfaceSpec](#NetworkInterfaceSpec)**<br>Network configuration for the instance. Specifies how the network interface is configured to interact with other services on the internal network and on the internet. Currently only one network interface is supported per instance. The number of elemets must be exactly 1.
 hostname | **string**<br>Host name for the instance. This field is used to generate the [yandex.cloud.compute.v1.Instance.fqdn](#Instance) value. The host name must be unique within the network and region. If not specified, the host name will be equal to [yandex.cloud.compute.v1.Instance.id](#Instance) of the instance and FQDN will be `<id>.auto.internal`. Otherwise FQDN will be `<hostname>.<region_id>.internal`. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
@@ -309,8 +309,8 @@ placement_policy | **[PlacementPolicy](../instance.proto#PlacementPolicy2)**<br>
 
 Field | Description
 --- | ---
-memory | **int64**<br>Required. The amount of memory available to the instance, specified in bytes. false The maximum value is 274877906944.
-cores | **int64**<br>Required. The number of cores available to the instance. false Value must be equal to 1,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32.
+memory | **int64**<br>Required. The amount of memory available to the instance, specified in bytes. The maximum value is 274877906944.
+cores | **int64**<br>Required. The number of cores available to the instance. Value must be equal to 1,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32.
 core_fraction | **int64**<br><ol><li></li></ol> Value must be equal to 0,5,20,50,100.
 gpus | **int64**<br>The number of GPUs available to the instance. Value must be equal to 0,1,2,4.
 
@@ -334,7 +334,9 @@ Field | Description
 name | **string**<br>Name of the disk. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>Description of the disk. The maximum string length in characters is 256.
 type_id | **string**<br>ID of the disk type. To get a list of available disk types, use the [yandex.cloud.compute.v1.DiskTypeService.List](/docs/compute/grpc/disk_type_service#List) request. The maximum string length in characters is 50.
-size | **int64**<br>Required. Size of the disk, specified in bytes. false Acceptable values are 4194304 to 4398046511104, inclusive.
+size | **int64**<br>Required. Size of the disk, specified in bytes. Acceptable values are 4194304 to 4398046511104, inclusive.
+block_size | **int64**<br>Block size of the disk, specified in bytes. The default is 4096. 
+disk_placement_policy | **[DiskPlacementPolicy](../disk.proto#DiskPlacementPolicy)**<br>Placement policy configuration. 
 source | **oneof:** `image_id` or `snapshot_id`<br>
 &nbsp;&nbsp;image_id | **string**<br>ID of the image to create the disk from. The maximum string length in characters is 50.
 &nbsp;&nbsp;snapshot_id | **string**<br>ID of the snapshot to restore the disk from. The maximum string length in characters is 50.
@@ -344,7 +346,7 @@ source | **oneof:** `image_id` or `snapshot_id`<br>
 
 Field | Description
 --- | ---
-subnet_id | **string**<br>Required. ID of the subnet. false The maximum string length in characters is 50.
+subnet_id | **string**<br>Required. ID of the subnet. The maximum string length in characters is 50.
 primary_v4_address_spec | **[PrimaryAddressSpec](#PrimaryAddressSpec)**<br>Primary IPv4 address that will be assigned to the instance for this network interface. 
 primary_v6_address_spec | **[PrimaryAddressSpec](#PrimaryAddressSpec)**<br>Primary IPv6 address that will be assigned to the instance for this network interface. IPv6 not available yet. 
 security_group_ids[] | **string**<br>ID's of security groups attached to the interface 
@@ -366,21 +368,21 @@ ip_version | enum **IpVersion**<br>External IP address version. <ul><li>`IPV4`: 
 address | **string**<br> 
 
 
-### SchedulingPolicy {#SchedulingPolicy}
+### SchedulingPolicy {#SchedulingPolicy2}
 
 Field | Description
 --- | ---
 preemptible | **bool**<br>True for short-lived compute instances. For more information, see [Preemptible VMs](/docs/compute/concepts/preemptible-vm). 
 
 
-### NetworkSettings {#NetworkSettings}
+### NetworkSettings {#NetworkSettings2}
 
 Field | Description
 --- | ---
 type | enum **[Type](./disk_type#undefined)**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li><ul/>
 
 
-### PlacementPolicy {#PlacementPolicy}
+### PlacementPolicy {#PlacementPolicy2}
 
 Field | Description
 --- | ---
@@ -388,7 +390,7 @@ placement_group_id | **string**<br>Placement group ID.
 host_affinity_rules[] | **[HostAffinityRule](../instance.proto#HostAffinityRule2)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
 
 
-### HostAffinityRule {#HostAffinityRule}
+### HostAffinityRule {#HostAffinityRule2}
 
 Field | Description
 --- | ---
@@ -420,7 +422,7 @@ Field | Description
 instance_id | **string**<br>ID of the instance that is being created. The maximum string length in characters is 50.
 
 
-### Instance {#Instance}
+### Instance {#Instance2}
 
 Field | Description
 --- | ---
@@ -459,37 +461,37 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-instance_id | **string**<br>Required. ID of the Instance resource to update. To get the instance ID, use a [InstanceService.List](#List) request. false The maximum string length in characters is 50.
+instance_id | **string**<br>Required. ID of the Instance resource to update. To get the instance ID, use a [InstanceService.List](#List) request. The maximum string length in characters is 50.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the Instance resource are going to be updated. 
 name | **string**<br>Name of the instance. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>Description of the instance. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. <br>Existing set of `labels` is completely replaced by the provided set. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 platform_id | **string**<br>ID of the hardware platform configuration for the instance. This field affects the available values in `resources_spec` field. <br>Platforms allows you to create various types of instances: with a large amount of memory, with a large number of cores, with a burstable performance. For more information, see [Platforms](/docs/compute/concepts/vm-platforms). 
-resources_spec | **[ResourcesSpec](#ResourcesSpec1)**<br>Computing resources of the instance, such as the amount of memory and number of cores. To get a list of available values, see [Levels of core performance](/docs/compute/concepts/performance-levels). 
+resources_spec | **[ResourcesSpec](#ResourcesSpec)**<br>Computing resources of the instance, such as the amount of memory and number of cores. To get a list of available values, see [Levels of core performance](/docs/compute/concepts/performance-levels). 
 metadata | **map<string,string>**<br>The metadata `key:value` pairs that will be assigned to this instance. This includes custom metadata and predefined keys. The total size of all keys and values must be less than 512 KB. <br>Existing set of `metadata` is completely replaced by the provided set. <br>Values are free-form strings, and only have meaning as interpreted by the programs which configure the instance. The values must be 256 KB or less. <br>For example, you may use the metadata in order to provide your public SSH key to the instance. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). 
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/grpc/service_account_service#List) request. 
 network_settings | **[NetworkSettings](../instance.proto#NetworkSettings3)**<br>Network settings. 
 placement_policy | **[PlacementPolicy](../instance.proto#PlacementPolicy3)**<br>Placement policy configuration. 
 
 
-### ResourcesSpec {#ResourcesSpec}
+### ResourcesSpec {#ResourcesSpec1}
 
 Field | Description
 --- | ---
-memory | **int64**<br>Required. The amount of memory available to the instance, specified in bytes. false The maximum value is 274877906944.
-cores | **int64**<br>Required. The number of cores available to the instance. false Value must be equal to 1,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32.
+memory | **int64**<br>Required. The amount of memory available to the instance, specified in bytes. The maximum value is 274877906944.
+cores | **int64**<br>Required. The number of cores available to the instance. Value must be equal to 1,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32.
 core_fraction | **int64**<br><ol><li></li></ol> Value must be equal to 0,5,20,50,100.
 gpus | **int64**<br>The number of GPUs available to the instance. Value must be equal to 0,1,2,4.
 
 
-### NetworkSettings {#NetworkSettings}
+### NetworkSettings {#NetworkSettings3}
 
 Field | Description
 --- | ---
 type | enum **[Type](./disk_type#undefined)**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li><ul/>
 
 
-### PlacementPolicy {#PlacementPolicy}
+### PlacementPolicy {#PlacementPolicy3}
 
 Field | Description
 --- | ---
@@ -497,7 +499,7 @@ placement_group_id | **string**<br>Placement group ID.
 host_affinity_rules[] | **[HostAffinityRule](../instance.proto#HostAffinityRule3)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
 
 
-### HostAffinityRule {#HostAffinityRule}
+### HostAffinityRule {#HostAffinityRule3}
 
 Field | Description
 --- | ---
@@ -506,7 +508,7 @@ op | enum **Operator**<br>Include or exclude action <ul><ul/>
 values[] | **string**<br>Affinity value or host ID or host group ID 
 
 
-### Operation {#Operation}
+### Operation {#Operation1}
 
 Field | Description
 --- | ---
@@ -529,7 +531,7 @@ Field | Description
 instance_id | **string**<br>ID of the Instance resource that is being updated. 
 
 
-### Instance {#Instance}
+### Instance {#Instance3}
 
 Field | Description
 --- | ---
@@ -568,10 +570,10 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-instance_id | **string**<br>Required. ID of the instance to delete. To get the instance ID, use a [InstanceService.List](#List) request. false The maximum string length in characters is 50.
+instance_id | **string**<br>Required. ID of the instance to delete. To get the instance ID, use a [InstanceService.List](#List) request. The maximum string length in characters is 50.
 
 
-### Operation {#Operation}
+### Operation {#Operation2}
 
 Field | Description
 --- | ---
@@ -609,11 +611,11 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 instance_id | **string**<br>ID of the instance that is being updated. 
-delete[] | **string**<br>List of keys to be deleted. false
+delete[] | **string**<br>List of keys to be deleted. 
 upsert | **map<string,string>**<br>The metadata `key:value` pairs that will be added or updated to this instance. 
 
 
-### Operation {#Operation}
+### Operation {#Operation3}
 
 Field | Description
 --- | ---
@@ -636,7 +638,7 @@ Field | Description
 instance_id | **string**<br>ID of the instance that is being updated. 
 
 
-### Instance {#Instance}
+### Instance {#Instance4}
 
 Field | Description
 --- | ---
@@ -671,7 +673,7 @@ Returns the serial port output of the specified Instance resource.
 
 Field | Description
 --- | ---
-instance_id | **string**<br>Required. ID of the instance to return the serial port output for. false The maximum string length in characters is 50.
+instance_id | **string**<br>Required. ID of the instance to return the serial port output for. The maximum string length in characters is 50.
 port | **int64**<br>Serial port to retrieve data from. The default is 1. Value must be equal to 1,2,3,4.
 
 
@@ -696,10 +698,10 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-instance_id | **string**<br>Required. ID of the instance to stop. To get the instance ID, use a [InstanceService.List](#List) request. false The maximum string length in characters is 50.
+instance_id | **string**<br>Required. ID of the instance to stop. To get the instance ID, use a [InstanceService.List](#List) request. The maximum string length in characters is 50.
 
 
-### Operation {#Operation}
+### Operation {#Operation4}
 
 Field | Description
 --- | ---
@@ -736,10 +738,10 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-instance_id | **string**<br>Required. ID of the instance to start. To get the instance ID, use a [InstanceService.List](#List) request. false The maximum string length in characters is 50.
+instance_id | **string**<br>Required. ID of the instance to start. To get the instance ID, use a [InstanceService.List](#List) request. The maximum string length in characters is 50.
 
 
-### Operation {#Operation}
+### Operation {#Operation5}
 
 Field | Description
 --- | ---
@@ -762,7 +764,7 @@ Field | Description
 instance_id | **string**<br>ID of the instance. 
 
 
-### Instance {#Instance}
+### Instance {#Instance5}
 
 Field | Description
 --- | ---
@@ -801,10 +803,10 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-instance_id | **string**<br>Required. ID of the instance to restart. To get the instance ID, use a [InstanceService.List](#List) request. false The maximum string length in characters is 50.
+instance_id | **string**<br>Required. ID of the instance to restart. To get the instance ID, use a [InstanceService.List](#List) request. The maximum string length in characters is 50.
 
 
-### Operation {#Operation}
+### Operation {#Operation6}
 
 Field | Description
 --- | ---
@@ -841,11 +843,11 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-instance_id | **string**<br>Required. ID of the instance to attach the disk to. To get the instance ID, use a [InstanceService.List](#List) request. false The maximum string length in characters is 50.
-attached_disk_spec | **[AttachedDiskSpec](#AttachedDiskSpec1)**<br>Required. Disk that should be attached. false
+instance_id | **string**<br>Required. ID of the instance to attach the disk to. To get the instance ID, use a [InstanceService.List](#List) request. The maximum string length in characters is 50.
+attached_disk_spec | **[AttachedDiskSpec](#AttachedDiskSpec)**<br>Required. Disk that should be attached. 
 
 
-### AttachedDiskSpec {#AttachedDiskSpec}
+### AttachedDiskSpec {#AttachedDiskSpec1}
 
 Field | Description
 --- | ---
@@ -857,20 +859,22 @@ disk | **oneof:** `disk_spec` or `disk_id`<br>
 &nbsp;&nbsp;disk_id | **string**<br>ID of the disk that should be attached. The maximum string length in characters is 50.
 
 
-### DiskSpec {#DiskSpec}
+### DiskSpec {#DiskSpec1}
 
 Field | Description
 --- | ---
 name | **string**<br>Name of the disk. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>Description of the disk. The maximum string length in characters is 256.
 type_id | **string**<br>ID of the disk type. To get a list of available disk types, use the [yandex.cloud.compute.v1.DiskTypeService.List](/docs/compute/grpc/disk_type_service#List) request. The maximum string length in characters is 50.
-size | **int64**<br>Required. Size of the disk, specified in bytes. false Acceptable values are 4194304 to 4398046511104, inclusive.
+size | **int64**<br>Required. Size of the disk, specified in bytes. Acceptable values are 4194304 to 4398046511104, inclusive.
+block_size | **int64**<br>Block size of the disk, specified in bytes. The default is 4096. 
+disk_placement_policy | **[DiskPlacementPolicy](../disk.proto#DiskPlacementPolicy)**<br>Placement policy configuration. 
 source | **oneof:** `image_id` or `snapshot_id`<br>
 &nbsp;&nbsp;image_id | **string**<br>ID of the image to create the disk from. The maximum string length in characters is 50.
 &nbsp;&nbsp;snapshot_id | **string**<br>ID of the snapshot to restore the disk from. The maximum string length in characters is 50.
 
 
-### Operation {#Operation}
+### Operation {#Operation7}
 
 Field | Description
 --- | ---
@@ -894,7 +898,7 @@ instance_id | **string**<br>ID of the instance.
 disk_id | **string**<br>ID of the disk. 
 
 
-### Instance {#Instance}
+### Instance {#Instance6}
 
 Field | Description
 --- | ---
@@ -933,13 +937,13 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-instance_id | **string**<br>Required. ID of the instance to detach the disk from. To get the instance ID, use a [InstanceService.List](#List) request. false The maximum string length in characters is 50.
+instance_id | **string**<br>Required. ID of the instance to detach the disk from. To get the instance ID, use a [InstanceService.List](#List) request. The maximum string length in characters is 50.
 disk | **oneof:** `disk_id` or `device_name`<br>
 &nbsp;&nbsp;disk_id | **string**<br>ID of the disk that should be detached. The maximum string length in characters is 50.
 &nbsp;&nbsp;device_name | **string**<br>Serial number of the disk that should be detached. This value is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance. Value must match the regular expression ` [a-z][a-z0-9-_]{,19} `.
 
 
-### Operation {#Operation}
+### Operation {#Operation8}
 
 Field | Description
 --- | ---
@@ -963,7 +967,7 @@ instance_id | **string**<br>ID of the instance.
 disk_id | **string**<br>ID of the disk. 
 
 
-### Instance {#Instance}
+### Instance {#Instance7}
 
 Field | Description
 --- | ---
@@ -1005,10 +1009,10 @@ Field | Description
 instance_id | **string**<br> 
 network_interface_index | **string**<br> 
 internal_address | **string**<br> 
-one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec1)**<br> 
+one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec)**<br> 
 
 
-### OneToOneNatSpec {#OneToOneNatSpec}
+### OneToOneNatSpec {#OneToOneNatSpec1}
 
 Field | Description
 --- | ---
@@ -1016,7 +1020,7 @@ ip_version | enum **IpVersion**<br>External IP address version. <ul><li>`IPV4`: 
 address | **string**<br> 
 
 
-### Operation {#Operation}
+### Operation {#Operation9}
 
 Field | Description
 --- | ---
@@ -1039,7 +1043,7 @@ Field | Description
 instance_id | **string**<br> 
 
 
-### Instance {#Instance}
+### Instance {#Instance8}
 
 Field | Description
 --- | ---
@@ -1083,7 +1087,7 @@ network_interface_index | **string**<br>
 internal_address | **string**<br> 
 
 
-### Operation {#Operation}
+### Operation {#Operation10}
 
 Field | Description
 --- | ---
@@ -1106,7 +1110,7 @@ Field | Description
 instance_id | **string**<br> 
 
 
-### Instance {#Instance}
+### Instance {#Instance9}
 
 Field | Description
 --- | ---
@@ -1145,24 +1149,24 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-instance_id | **string**<br>Required.  false
-network_interface_index | **string**<br>Required.  false
+instance_id | **string**<br>Required.  
+network_interface_index | **string**<br>Required.  
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br> 
 subnet_id | **string**<br> 
-primary_v4_address_spec | **[PrimaryAddressSpec](#PrimaryAddressSpec1)**<br> 
-primary_v6_address_spec | **[PrimaryAddressSpec](#PrimaryAddressSpec1)**<br> 
+primary_v4_address_spec | **[PrimaryAddressSpec](#PrimaryAddressSpec)**<br> 
+primary_v6_address_spec | **[PrimaryAddressSpec](#PrimaryAddressSpec)**<br> 
 security_group_ids[] | **string**<br> 
 
 
-### PrimaryAddressSpec {#PrimaryAddressSpec}
+### PrimaryAddressSpec {#PrimaryAddressSpec1}
 
 Field | Description
 --- | ---
 address | **string**<br>An IPv4 internal network address that is assigned to the instance for this network interface. If not specified by the user, an unused internal IP is assigned by the system. 
-one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec2)**<br>An external IP address configuration. If not specified, then this instance will have no external internet access. 
+one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec)**<br>An external IP address configuration. If not specified, then this instance will have no external internet access. 
 
 
-### OneToOneNatSpec {#OneToOneNatSpec}
+### OneToOneNatSpec {#OneToOneNatSpec2}
 
 Field | Description
 --- | ---
@@ -1170,7 +1174,7 @@ ip_version | enum **IpVersion**<br>External IP address version. <ul><li>`IPV4`: 
 address | **string**<br> 
 
 
-### Operation {#Operation}
+### Operation {#Operation11}
 
 Field | Description
 --- | ---
@@ -1194,7 +1198,7 @@ instance_id | **string**<br>
 network_interface_index | **string**<br> 
 
 
-### Instance {#Instance}
+### Instance {#Instance10}
 
 Field | Description
 --- | ---
@@ -1229,7 +1233,7 @@ Lists operations for the specified instance.
 
 Field | Description
 --- | ---
-instance_id | **string**<br>Required. ID of the Instance resource to list operations for. false The maximum string length in characters is 50.
+instance_id | **string**<br>Required. ID of the Instance resource to list operations for. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListInstanceOperationsResponse.next_page_token](#ListInstanceOperationsResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListInstanceOperationsResponse.next_page_token](#ListInstanceOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
@@ -1239,10 +1243,10 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 Field | Description
 --- | ---
 operations[] | **[operation.Operation](#Operation12)**<br>List of operations for the specified instance. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListInstanceOperationsRequest.page_size](#ListInstanceOperationsRequest1), use the `next_page_token` as the value for the [ListInstanceOperationsRequest.page_token](#ListInstanceOperationsRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListInstanceOperationsRequest.page_size](#ListInstanceOperationsRequest), use the `next_page_token` as the value for the [ListInstanceOperationsRequest.page_token](#ListInstanceOperationsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
-### Operation {#Operation}
+### Operation {#Operation12}
 
 Field | Description
 --- | ---

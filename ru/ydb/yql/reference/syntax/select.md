@@ -28,7 +28,7 @@ SELECT * FROM
 ```
 
 ```sql
-$table_name = "my_" || "table";
+$table_name = "my_table";
 SELECT * FROM $table_name;
 ```
 

@@ -40,6 +40,14 @@ items:
             href: operations/static-route-create.md
           - name: Enabling NAT to the internet
             href: operations/enable-nat.md
+      - name: Security groups
+        items:
+          - name: Create a security group
+            href: operations/security-group-create.md
+          - name: Update a security group and rules
+            href: operations/security-group-update.md
+          - name: Delete a security group
+            href: operations/security-group-delete.md
       - name: DDoS Protection
         items:
           - name: Enable protection from DDoS attacks
@@ -54,6 +62,8 @@ items:
         href: concepts/address.md
       - name: Static routes
         href: concepts/static-routes.md
+      - name: Security groups
+        href: concepts/security-groups.md
       - name: MTU and MSS
         href: concepts/mtu-mss.md
       - name: Quotas and limits
@@ -100,6 +110,20 @@ items:
             items:
               - name: Overview
                 href: api-ref/Address/index.md
+              - name: create
+                href: api-ref/Address/create.md
+              - name: delete
+                href: api-ref/Address/delete.md
+              - name: get
+                href: api-ref/Address/get.md
+              - name: getByValue
+                href: api-ref/Address/getByValue.md
+              - name: list
+                href: api-ref/Address/list.md
+              - name: listOperations
+                href: api-ref/Address/listOperations.md
+              - name: update
+                href: api-ref/Address/update.md
           - name: Network
             items:
               - name: Overview

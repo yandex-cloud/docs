@@ -36,7 +36,7 @@
           {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
       - [Зону доступности](../../../overview/concepts/geo-scope.md).
-      - Идентификатор [платформы](../../concepts/vm-platforms.md), `gpu-standard-v1` для платформы Intel Broadwell with NVIDIA Tesla V100.
+      - Идентификатор [платформы](../../concepts/vm-platforms.md), `gpu-standard-v1` для платформы Intel Broadwell with NVIDIA® Tesla® V100.
       - [Количество vCPU](../../concepts/gpus.md).
       - [Размер RAM](../../concepts/gpus.md).
       - [Количество GPU](../../concepts/gpus.md).
@@ -94,7 +94,7 @@
 
      * `yandex_compute_instance` — описание [виртуальной машины](../../concepts/vm.md):
        * `name` — имя виртуальной машины.
-       * `platform_id` — идентификатор [платформы](../../concepts/vm-platforms.md), `gpu-standard-v1` для платформы Intel Broadwell with NVIDIA Tesla V100.
+       * `platform_id` — идентификатор [платформы](../../concepts/vm-platforms.md), `gpu-standard-v1` для платформы Intel Broadwell with NVIDIA® Tesla® V100.
        * `resources` — количество ядер vCPU и объем RAM, доступные виртуальной машине. Значения должны соответствовать выбранной [платформе](../../concepts/vm-platforms.md).
        * `boot_disk` — настройки загрузочного диска. Укажите идентификатор выбранного образа. Вы можете получить идентификатор образа из [списка публичных образов](../images-with-pre-installed-software/get-list.md).
 

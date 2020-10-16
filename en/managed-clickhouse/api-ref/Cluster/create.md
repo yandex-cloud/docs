@@ -234,7 +234,10 @@ POST https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters
     },
     "cloudStorage": {
       "enabled": true
-    }
+    },
+    "sqlDatabaseManagement": true,
+    "sqlUserManagement": true,
+    "adminPassword": "string"
   },
   "databaseSpecs": [
     {
@@ -539,6 +542,9 @@ configSpec.<br>access.<br>metrika | **boolean** (boolean)<br><p>Allow to import 
 configSpec.<br>access.<br>serverless | **boolean** (boolean)<br><p>Allow access to cluster for Serverless.</p> 
 configSpec.<br>cloudStorage | **object**<br>
 configSpec.<br>cloudStorage.<br>enabled | **boolean** (boolean)<br><p>Whether to use Yandex Object Storage for storing ClickHouse data.</p> 
+configSpec.<br>sqlDatabaseManagement | **boolean** (boolean)<br><p>Whether database management through SQL commands is enabled.</p> 
+configSpec.<br>sqlUserManagement | **boolean** (boolean)<br><p>Whether user management through SQL commands is enabled.</p> 
+configSpec.<br>adminPassword | **string**<br><p>Password for user 'admin' that has SQL user management access.</p> 
 databaseSpecs[] | **object**<br><p>Required. Descriptions of databases to be created in the ClickHouse cluster.</p> <p>Must contain at least one element.</p> 
 databaseSpecs[].<br>name | **string**<br><p>Required. Name of the ClickHouse database. 1-63 characters long.</p> <p>The maximum string length in characters is 63. Value must match the regular expression <code>[a-zA-Z0-9_-]*</code>.</p> 
 userSpecs[] | **object**<br><p>Required. Descriptions of database users to be created in the ClickHouse cluster.</p> <p>Must contain at least one element.</p> 

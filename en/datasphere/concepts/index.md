@@ -2,11 +2,11 @@
 
 {{ ml-platform-full-name }} is a machine learning (ML) development environment that combines the familiar Jupyter® Notebook interface, serverless computing technology, and seamless use of different computing resource configurations. {{ ml-platform-full-name }} helps significantly reduce the cost of machine learning compared to computing on your own hardware or other cloud platforms.
 
-If you never used Jupyter Notebook, try it: notebooks are convenient as they help you execute code sequentially and immediately visualize the results. Notebooks are also convenient for making analytical reports and articles: you can add explanations between the code cells in [Markdown](https://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/Working%20With%20Markdown%20Cells.html).
+If you never used Jupyter Notebook, try it: notebooks are convenient as they help you execute code sequentially and immediately visualize the results. Notebooks are also helpful for making analytical reports and articles: you can add explanations between the code cells in [Markdown](https://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/Working%20With%20Markdown%20Cells.html).
 
 ## Advantages of the service {#advantages}
 
-### A ready-to-use development environment {#ready-to-use}
+### Ready-to-use development environment {#ready-to-use}
 
 You don't need to spend time creating and maintaining VMs: when you create a new [project](project.md), computing resources are automatically allocated for implementing it.
 
@@ -18,7 +18,7 @@ If you're missing a package, you can [install it](../operations/projects/install
 
 The service automatically manages resource allocation. If you don't perform any computations, no resources are allocated.
 
-### Saving the state when shutting down {#save-state}
+### Saving states at shutdown {#save-state}
 
 If you close the notebook tab, the state of the interpreter, all variables, and computation results are saved. You can continue working when you reopen your project.
 
@@ -44,9 +44,9 @@ If a variable value was assigned in the cell where the error occurred, the assig
 
 ### You can share your results {#share-results}
 
-You can [export your notebook to HTML format](../operations/projects/share.md) with all calculation results and cell explanations and share a link to the report in this format. Exporting in other formats is currently not supported.
+You can [export your notebook as HTML](../operations/projects/publication.md) with all your calculation results and cell explanations and share a link to the report in this format. Exporting in other formats is currently not supported.
 
-## Current limitations of the service {#known-restrictions}
+## Current service limitations {#known-restrictions}
 
 For more information about service limits, see [{#T}](limits.md).
 

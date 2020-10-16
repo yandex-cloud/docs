@@ -25,7 +25,7 @@ Retrieves a list of jobs for a cluster.
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the cluster to list jobs for. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the cluster to list jobs for. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListJobsResponse.next_page_token](#ListJobsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListJobsResponse.next_page_token](#ListJobsResponse) returned by a previous list request. The maximum string length in characters is 100.
 filter | **string**<br><ol><li>The field name. Currently you can use filtering only on [Job.name](../job.proto#Job) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]. </li></ol> The maximum string length in characters is 1000.
@@ -36,7 +36,7 @@ filter | **string**<br><ol><li>The field name. Currently you can use filtering o
 Field | Description
 --- | ---
 jobs[] | **[Job](../job.proto#Job)**<br>List of jobs for the specified cluster. 
-next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListJobsRequest.page_size](#ListJobsRequest1), use `next_page_token` as the value for the [ListJobsRequest.page_token](#ListJobsRequest1) parameter in the next list request. <br>Each subsequent page will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListJobsRequest.page_size](#ListJobsRequest), use `next_page_token` as the value for the [ListJobsRequest.page_token](#ListJobsRequest) parameter in the next list request. <br>Each subsequent page will have its own `next_page_token` to continue paging through the results. 
 
 
 ### Job {#Job}
@@ -132,7 +132,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the cluster to create a job for. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the cluster to create a job for. The maximum string length in characters is 50.
 name | **string**<br>Name of the job. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 job_spec | **oneof:** `mapreduce_job`, `spark_job`, `pyspark_job` or `hive_job`<br>Specification for the job.
 &nbsp;&nbsp;mapreduce_job | **[MapreduceJob](../job.proto#MapreduceJob1)**<br>Specification for a MapReduce job. 
@@ -141,7 +141,7 @@ job_spec | **oneof:** `mapreduce_job`, `spark_job`, `pyspark_job` or `hive_job`<
 &nbsp;&nbsp;hive_job | **[HiveJob](../job.proto#HiveJob1)**<br>Specification for a Hive job. 
 
 
-### MapreduceJob {#MapreduceJob}
+### MapreduceJob {#MapreduceJob1}
 
 Field | Description
 --- | ---
@@ -155,7 +155,7 @@ driver | **oneof:** `main_jar_file_uri` or `main_class`<br>
 &nbsp;&nbsp;main_class | **string**<br>The name of the driver class. 
 
 
-### SparkJob {#SparkJob}
+### SparkJob {#SparkJob1}
 
 Field | Description
 --- | ---
@@ -168,7 +168,7 @@ main_jar_file_uri | **string**<br>The HCFS URI of the JAR file containing the `m
 main_class | **string**<br>The name of the driver class. 
 
 
-### PysparkJob {#PysparkJob}
+### PysparkJob {#PysparkJob1}
 
 Field | Description
 --- | ---
@@ -181,7 +181,7 @@ main_python_file_uri | **string**<br>URI of the file with the driver code. Must 
 python_file_uris[] | **string**<br>URIs of Python files to pass to the PySpark framework. 
 
 
-### HiveJob {#HiveJob}
+### HiveJob {#HiveJob1}
 
 Field | Description
 --- | ---
@@ -194,7 +194,7 @@ query_type | **oneof:** `query_file_uri` or `query_list`<br>
 &nbsp;&nbsp;query_list | **[QueryList](../job.proto#QueryList1)**<br>List of Hive queries to be used in the job. 
 
 
-### QueryList {#QueryList}
+### QueryList {#QueryList1}
 
 Field | Description
 --- | ---
@@ -221,11 +221,11 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the cluster that the job is being created for. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the cluster that the job is being created for. The maximum string length in characters is 50.
 job_id | **string**<br>ID of the job being created. The maximum string length in characters is 50.
 
 
-### Job {#Job}
+### Job {#Job1}
 
 Field | Description
 --- | ---
@@ -254,11 +254,11 @@ Returns the specified job.
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the cluster to request a job from. false The maximum string length in characters is 50.
-job_id | **string**<br>Required. ID of the job to return. <br>To get a job ID make a [JobService.List](#List) request. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the cluster to request a job from. The maximum string length in characters is 50.
+job_id | **string**<br>Required. ID of the job to return. <br>To get a job ID make a [JobService.List](#List) request. The maximum string length in characters is 50.
 
 
-### Job {#Job}
+### Job {#Job2}
 
 Field | Description
 --- | ---
@@ -277,7 +277,7 @@ job_spec | **oneof:** `mapreduce_job`, `spark_job`, `pyspark_job` or `hive_job`<
 &nbsp;&nbsp;hive_job | **[HiveJob](../job.proto#HiveJob2)**<br>Specification for a Hive job. 
 
 
-### MapreduceJob {#MapreduceJob}
+### MapreduceJob {#MapreduceJob2}
 
 Field | Description
 --- | ---
@@ -291,7 +291,7 @@ driver | **oneof:** `main_jar_file_uri` or `main_class`<br>
 &nbsp;&nbsp;main_class | **string**<br>The name of the driver class. 
 
 
-### SparkJob {#SparkJob}
+### SparkJob {#SparkJob2}
 
 Field | Description
 --- | ---
@@ -304,7 +304,7 @@ main_jar_file_uri | **string**<br>The HCFS URI of the JAR file containing the `m
 main_class | **string**<br>The name of the driver class. 
 
 
-### PysparkJob {#PysparkJob}
+### PysparkJob {#PysparkJob2}
 
 Field | Description
 --- | ---
@@ -317,7 +317,7 @@ main_python_file_uri | **string**<br>URI of the file with the driver code. Must 
 python_file_uris[] | **string**<br>URIs of Python files to pass to the PySpark framework. 
 
 
-### HiveJob {#HiveJob}
+### HiveJob {#HiveJob2}
 
 Field | Description
 --- | ---
@@ -330,7 +330,7 @@ query_type | **oneof:** `query_file_uri` or `query_list`<br>
 &nbsp;&nbsp;query_list | **[QueryList](../job.proto#QueryList2)**<br>List of Hive queries to be used in the job. 
 
 
-### QueryList {#QueryList}
+### QueryList {#QueryList2}
 
 Field | Description
 --- | ---
@@ -347,7 +347,7 @@ Returns a log for specified job.
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the cluster that the job is being created for. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the cluster that the job is being created for. The maximum string length in characters is 50.
 job_id | **string**<br>ID of the job being created. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum bytes of job log per response to return. If the number of available bytes is larger than `page_size`, the service returns a [ListJobLogResponse.next_page_token](#ListJobLogResponse) that can be used to get the next page of output in subsequent list requests. Default value: 1048576. The maximum value is 1048576.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListJobLogResponse.next_page_token](#ListJobLogResponse) returned by a previous list request. The maximum string length in characters is 100.

@@ -6,5 +6,5 @@
 
 1. Select **Create a default network**. A [network](../vpc/concepts/network.md#network) is created with subnets in each availability zone.
 
-1. Click **Create folder**.
+1. Click **Create**.
 

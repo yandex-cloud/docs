@@ -35,16 +35,16 @@ federation_id | **string**<br>ID of the federation to return. To get the federat
 
 Field | Description
 --- | ---
-id | **string**<br>Required. ID of the federation. false The maximum string length in characters is 50.
-folder_id | **string**<br>Required. ID of the folder that the federation belongs to. false The maximum string length in characters is 50.
-name | **string**<br>Required. Name of the federation. false Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+id | **string**<br>Required. ID of the federation. The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the folder that the federation belongs to. The maximum string length in characters is 50.
+name | **string**<br>Required. Name of the federation. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>Description of the federation. The maximum string length in characters is 256.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 cookie_max_age | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Browser cookie lifetime in seconds. If the cookie is still valid, the management console authenticates the user immediately and redirects them to the home page. Acceptable values are 10m to 12h, inclusive.
 auto_create_account_on_login | **bool**<br>Add new users automatically on successful authentication. The user will get the `resource-manager.clouds.member` role automatically, but you need to grant other roles to them. <br>If the value is `false`, users who aren't added to the cloud can't log in, even if they have authenticated on your server. 
-issuer | **string**<br>Required. ID of the IdP server to be used for authentication. The IdP server also responds to IAM with this ID after the user authenticates. false The maximum string length in characters is 8000.
+issuer | **string**<br>Required. ID of the IdP server to be used for authentication. The IdP server also responds to IAM with this ID after the user authenticates. The maximum string length in characters is 8000.
 sso_binding | enum **BindingType**<br>Single sign-on endpoint binding type. Most Identity Providers support the `POST` binding type. <br>SAML Binding is a mapping of a SAML protocol message onto standard messaging formats and/or communications protocols. <ul><li>`POST`: HTTP POST binding.</li><li>`REDIRECT`: HTTP redirect binding.</li><li>`ARTIFACT`: HTTP artifact binding.</li><ul/>
-sso_url | **string**<br>Required. Single sign-on endpoint URL. Specify the link to the IdP login page here. false The maximum string length in characters is 8000.
+sso_url | **string**<br>Required. Single sign-on endpoint URL. Specify the link to the IdP login page here. The maximum string length in characters is 8000.
 security_settings | **[FederationSecuritySettings](../federation.proto#FederationSecuritySettings)**<br>Federation security settings. 
 case_insensitive_name_ids | **bool**<br>Use case insensitive Name IDs. 
 
@@ -79,28 +79,28 @@ filter | **string**<br><ol><li>The field name. Currently you can use filtering o
 Field | Description
 --- | ---
 federations[] | **[Federation](../federation.proto#Federation1)**<br>List of federations. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListFederationsRequest.page_size](#ListFederationsRequest1), use the `next_page_token` as the value for the [ListFederationsRequest.page_token](#ListFederationsRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListFederationsRequest.page_size](#ListFederationsRequest), use the `next_page_token` as the value for the [ListFederationsRequest.page_token](#ListFederationsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
-### Federation {#Federation}
+### Federation {#Federation1}
 
 Field | Description
 --- | ---
-id | **string**<br>Required. ID of the federation. false The maximum string length in characters is 50.
-folder_id | **string**<br>Required. ID of the folder that the federation belongs to. false The maximum string length in characters is 50.
-name | **string**<br>Required. Name of the federation. false Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+id | **string**<br>Required. ID of the federation. The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the folder that the federation belongs to. The maximum string length in characters is 50.
+name | **string**<br>Required. Name of the federation. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>Description of the federation. The maximum string length in characters is 256.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 cookie_max_age | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Browser cookie lifetime in seconds. If the cookie is still valid, the management console authenticates the user immediately and redirects them to the home page. Acceptable values are 10m to 12h, inclusive.
 auto_create_account_on_login | **bool**<br>Add new users automatically on successful authentication. The user will get the `resource-manager.clouds.member` role automatically, but you need to grant other roles to them. <br>If the value is `false`, users who aren't added to the cloud can't log in, even if they have authenticated on your server. 
-issuer | **string**<br>Required. ID of the IdP server to be used for authentication. The IdP server also responds to IAM with this ID after the user authenticates. false The maximum string length in characters is 8000.
+issuer | **string**<br>Required. ID of the IdP server to be used for authentication. The IdP server also responds to IAM with this ID after the user authenticates. The maximum string length in characters is 8000.
 sso_binding | enum **BindingType**<br>Single sign-on endpoint binding type. Most Identity Providers support the `POST` binding type. <br>SAML Binding is a mapping of a SAML protocol message onto standard messaging formats and/or communications protocols. <ul><li>`POST`: HTTP POST binding.</li><li>`REDIRECT`: HTTP redirect binding.</li><li>`ARTIFACT`: HTTP artifact binding.</li><ul/>
-sso_url | **string**<br>Required. Single sign-on endpoint URL. Specify the link to the IdP login page here. false The maximum string length in characters is 8000.
+sso_url | **string**<br>Required. Single sign-on endpoint URL. Specify the link to the IdP login page here. The maximum string length in characters is 8000.
 security_settings | **[FederationSecuritySettings](../federation.proto#FederationSecuritySettings1)**<br>Federation security settings. 
 case_insensitive_name_ids | **bool**<br>Use case insensitive Name IDs. 
 
 
-### FederationSecuritySettings {#FederationSecuritySettings}
+### FederationSecuritySettings {#FederationSecuritySettings1}
 
 Field | Description
 --- | ---
@@ -126,14 +126,14 @@ name | **string**<br>Name of the federation. The name must be unique within the 
 description | **string**<br>Description of the federation. The maximum string length in characters is 256.
 cookie_max_age | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Browser cookie lifetime in seconds. If the cookie is still valid, the management console authenticates the user immediately and redirects them to the home page. The default value is `8h`. Acceptable values are 10m to 12h, inclusive.
 auto_create_account_on_login | **bool**<br>Add new users automatically on successful authentication. The user will get the `resource-manager.clouds.member` role automatically, but you need to grant other roles to them. <br>If the value is `false`, users who aren't added to the cloud can't log in, even if they have authenticated on your server. 
-issuer | **string**<br>Required. ID of the IdP server to be used for authentication. The IdP server also responds to IAM with this ID after the user authenticates. false The maximum string length in characters is 8000.
+issuer | **string**<br>Required. ID of the IdP server to be used for authentication. The IdP server also responds to IAM with this ID after the user authenticates. The maximum string length in characters is 8000.
 sso_binding | enum **BindingType**<br>Single sign-on endpoint binding type. Most Identity Providers support the `POST` binding type. <br>SAML Binding is a mapping of a SAML protocol message onto standard messaging formats and/or communications protocols. <ul><li>`POST`: HTTP POST binding.</li><li>`REDIRECT`: HTTP redirect binding.</li><li>`ARTIFACT`: HTTP artifact binding.</li><ul/>
-sso_url | **string**<br>Required. Single sign-on endpoint URL. Specify the link to the IdP login page here. false The maximum string length in characters is 8000.
+sso_url | **string**<br>Required. Single sign-on endpoint URL. Specify the link to the IdP login page here. The maximum string length in characters is 8000.
 security_settings | **[FederationSecuritySettings](../federation.proto#FederationSecuritySettings2)**<br>Federation security settings. 
 case_insensitive_name_ids | **bool**<br>Use case insensitive Name IDs. 
 
 
-### FederationSecuritySettings {#FederationSecuritySettings}
+### FederationSecuritySettings {#FederationSecuritySettings2}
 
 Field | Description
 --- | ---
@@ -163,20 +163,20 @@ Field | Description
 federation_id | **string**<br>ID of the federation that is being created. 
 
 
-### Federation {#Federation}
+### Federation {#Federation2}
 
 Field | Description
 --- | ---
-id | **string**<br>Required. ID of the federation. false The maximum string length in characters is 50.
-folder_id | **string**<br>Required. ID of the folder that the federation belongs to. false The maximum string length in characters is 50.
-name | **string**<br>Required. Name of the federation. false Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+id | **string**<br>Required. ID of the federation. The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the folder that the federation belongs to. The maximum string length in characters is 50.
+name | **string**<br>Required. Name of the federation. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>Description of the federation. The maximum string length in characters is 256.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 cookie_max_age | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Browser cookie lifetime in seconds. If the cookie is still valid, the management console authenticates the user immediately and redirects them to the home page. Acceptable values are 10m to 12h, inclusive.
 auto_create_account_on_login | **bool**<br>Add new users automatically on successful authentication. The user will get the `resource-manager.clouds.member` role automatically, but you need to grant other roles to them. <br>If the value is `false`, users who aren't added to the cloud can't log in, even if they have authenticated on your server. 
-issuer | **string**<br>Required. ID of the IdP server to be used for authentication. The IdP server also responds to IAM with this ID after the user authenticates. false The maximum string length in characters is 8000.
+issuer | **string**<br>Required. ID of the IdP server to be used for authentication. The IdP server also responds to IAM with this ID after the user authenticates. The maximum string length in characters is 8000.
 sso_binding | enum **BindingType**<br>Single sign-on endpoint binding type. Most Identity Providers support the `POST` binding type. <br>SAML Binding is a mapping of a SAML protocol message onto standard messaging formats and/or communications protocols. <ul><li>`POST`: HTTP POST binding.</li><li>`REDIRECT`: HTTP redirect binding.</li><li>`ARTIFACT`: HTTP artifact binding.</li><ul/>
-sso_url | **string**<br>Required. Single sign-on endpoint URL. Specify the link to the IdP login page here. false The maximum string length in characters is 8000.
+sso_url | **string**<br>Required. Single sign-on endpoint URL. Specify the link to the IdP login page here. The maximum string length in characters is 8000.
 security_settings | **[FederationSecuritySettings](../federation.proto#FederationSecuritySettings3)**<br>Federation security settings. 
 case_insensitive_name_ids | **bool**<br>Use case insensitive Name IDs. 
 
@@ -201,21 +201,21 @@ name | **string**<br>Name of the federation. The name must be unique within the 
 description | **string**<br>Description of the federation. The maximum string length in characters is 256.
 cookie_max_age | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Browser cookie lifetime in seconds. If the cookie is still valid, the management console authenticates the user immediately and redirects them to the home page. The default value is `8h`. Acceptable values are 10m to 12h, inclusive.
 auto_create_account_on_login | **bool**<br>Add new users automatically on successful authentication. The user will get the `resource-manager.clouds.member` role automatically, but you need to grant other roles to them. <br>If the value is `false`, users who aren't added to the cloud can't log in, even if they have authenticated on your server. 
-issuer | **string**<br>Required. ID of the IdP server to be used for authentication. The IdP server also responds to IAM with this ID after the user authenticates. false The maximum string length in characters is 8000.
+issuer | **string**<br>Required. ID of the IdP server to be used for authentication. The IdP server also responds to IAM with this ID after the user authenticates. The maximum string length in characters is 8000.
 sso_binding | enum **BindingType**<br>Single sign-on endpoint binding type. Most Identity Providers support the `POST` binding type. <br>SAML Binding is a mapping of a SAML protocol message onto standard messaging formats and/or communications protocols. <ul><li>`POST`: HTTP POST binding.</li><li>`REDIRECT`: HTTP redirect binding.</li><li>`ARTIFACT`: HTTP artifact binding.</li><ul/>
-sso_url | **string**<br>Required. Single sign-on endpoint URL. Specify the link to the IdP login page here. false The maximum string length in characters is 8000.
+sso_url | **string**<br>Required. Single sign-on endpoint URL. Specify the link to the IdP login page here. The maximum string length in characters is 8000.
 security_settings | **[FederationSecuritySettings](../federation.proto#FederationSecuritySettings3)**<br>Federation security settings. 
 case_insensitive_name_ids | **bool**<br>Use case insensitive name ids. 
 
 
-### FederationSecuritySettings {#FederationSecuritySettings}
+### FederationSecuritySettings {#FederationSecuritySettings3}
 
 Field | Description
 --- | ---
 encrypted_assertions | **bool**<br>Enable encrypted assertions. 
 
 
-### Operation {#Operation}
+### Operation {#Operation1}
 
 Field | Description
 --- | ---
@@ -238,20 +238,20 @@ Field | Description
 federation_id | **string**<br>ID of the federation that is being updated. 
 
 
-### Federation {#Federation}
+### Federation {#Federation3}
 
 Field | Description
 --- | ---
-id | **string**<br>Required. ID of the federation. false The maximum string length in characters is 50.
-folder_id | **string**<br>Required. ID of the folder that the federation belongs to. false The maximum string length in characters is 50.
-name | **string**<br>Required. Name of the federation. false Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+id | **string**<br>Required. ID of the federation. The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the folder that the federation belongs to. The maximum string length in characters is 50.
+name | **string**<br>Required. Name of the federation. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>Description of the federation. The maximum string length in characters is 256.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 cookie_max_age | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Browser cookie lifetime in seconds. If the cookie is still valid, the management console authenticates the user immediately and redirects them to the home page. Acceptable values are 10m to 12h, inclusive.
 auto_create_account_on_login | **bool**<br>Add new users automatically on successful authentication. The user will get the `resource-manager.clouds.member` role automatically, but you need to grant other roles to them. <br>If the value is `false`, users who aren't added to the cloud can't log in, even if they have authenticated on your server. 
-issuer | **string**<br>Required. ID of the IdP server to be used for authentication. The IdP server also responds to IAM with this ID after the user authenticates. false The maximum string length in characters is 8000.
+issuer | **string**<br>Required. ID of the IdP server to be used for authentication. The IdP server also responds to IAM with this ID after the user authenticates. The maximum string length in characters is 8000.
 sso_binding | enum **BindingType**<br>Single sign-on endpoint binding type. Most Identity Providers support the `POST` binding type. <br>SAML Binding is a mapping of a SAML protocol message onto standard messaging formats and/or communications protocols. <ul><li>`POST`: HTTP POST binding.</li><li>`REDIRECT`: HTTP redirect binding.</li><li>`ARTIFACT`: HTTP artifact binding.</li><ul/>
-sso_url | **string**<br>Required. Single sign-on endpoint URL. Specify the link to the IdP login page here. false The maximum string length in characters is 8000.
+sso_url | **string**<br>Required. Single sign-on endpoint URL. Specify the link to the IdP login page here. The maximum string length in characters is 8000.
 security_settings | **[FederationSecuritySettings](../federation.proto#FederationSecuritySettings4)**<br>Federation security settings. 
 case_insensitive_name_ids | **bool**<br>Use case insensitive Name IDs. 
 
@@ -273,7 +273,7 @@ Field | Description
 federation_id | **string**<br>ID of the federation to delete. To get the federation ID, make a [FederationService.List](#List) request. The maximum string length in characters is 50.
 
 
-### Operation {#Operation}
+### Operation {#Operation2}
 
 Field | Description
 --- | ---
@@ -314,7 +314,7 @@ federation_id | **string**<br>ID of the federation to add users. The maximum str
 name_ids[] | **string**<br>Name IDs returned by the Identity Provider (IdP) on successful authentication. These may be UPNs or user email addresses. The maximum string length in characters for each value is 1000.
 
 
-### Operation {#Operation}
+### Operation {#Operation3}
 
 Field | Description
 --- | ---
@@ -364,10 +364,10 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 Field | Description
 --- | ---
 operations[] | **[operation.Operation](#Operation4)**<br>List of operations for the specified federation. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListFederationOperationsRequest.page_size](#ListFederationOperationsRequest1), use the `next_page_token` as the value for the [ListFederationOperationsRequest.page_token](#ListFederationOperationsRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListFederationOperationsRequest.page_size](#ListFederationOperationsRequest), use the `next_page_token` as the value for the [ListFederationOperationsRequest.page_token](#ListFederationOperationsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
-### Operation {#Operation}
+### Operation {#Operation4}
 
 Field | Description
 --- | ---

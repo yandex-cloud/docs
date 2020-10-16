@@ -48,6 +48,12 @@ _Роль_ — это набор разрешений, который опре�
 
 {% include [roles-sa-user](../../../_includes/roles-sa-user.md) %}
 
+## {{ certificate-manager-name }} {#certificate-manager-roles}
+
+{% include [roles-certificate-manager-admin](../../../_includes/roles-certificate-manager-admin.md) %}
+
+{% include [roles-certificate-manager-certificates-downloader](../../../_includes/roles-certificate-manager-certificates-downloader.md) %}
+
 ## {{ compute-name }} {#compute-roles}
 
 {% include [roles-disks-user](../../../_includes/roles-disks-user.md) %}
@@ -74,6 +80,11 @@ _Роль_ — это набор разрешений, который опре�
 
 {% include [datalens-instances-admin](../../../_includes/roles-datalens-admin.md)%}
 
+## {{ ml-platform-name }} {#datasphere-roles}
+
+{% include [datasphere-user](../../../_includes/roles-datasphere-user.md)%}
+
+{% include [datasphere-admin](../../../_includes/roles-datasphere-admin.md)%}
 ## {{ vpc-name }} {#vpc-roles}
 
 {% include [roles-vpc-viewer](../../../_includes/roles-vpc-viewer.md) %}

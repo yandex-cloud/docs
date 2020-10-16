@@ -16,8 +16,6 @@
 UPDATE my_table
 SET Value1 = YQL::ToString(Value2 + 1), Value2 = Value2 - 1
 WHERE Key1 > 1;
-
-COMMIT;
 ```
 
 ## UPDATE ON {#update-on}
@@ -36,6 +34,4 @@ SELECT * FROM my_table;
 
 UPDATE my_table ON
 SELECT * FROM $to_update;
-
-COMMIT;
 ```

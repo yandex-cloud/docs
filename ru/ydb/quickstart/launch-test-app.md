@@ -1,22 +1,28 @@
 # Запуск тестового приложения
 
-Подключитесь к базе данных и запустите тестовые приложения для [Python](https://github.com/yandex-cloud/ydb-python-sdk) и [Go](https://github.com/yandex-cloud/ydb-go-sdk) для знакомства с работой {{ ydb-short-name }} SDK.
+Для знакомства с работой {{ ydb-short-name }} SDK вы можете воспользоваться тестовыми приложениями на [Python](https://github.com/yandex-cloud/ydb-python-sdk), [Go](https://github.com/yandex-cloud/ydb-go-sdk), или [Node.js](https://github.com/yandex-cloud/ydb-nodejs-sdk). Для этого необходимо настроить подключение к базе данных, после чего установить и запустить соответствующее тестовое приложение.
+
+{% note info %}
 
 Подробный разбор кода тестовых приложений читайте в разделе [{#T}](../sdk/index.md).
 
-## Подключитесь к базе данных {#connect-to-db}
+{% endnote %}
+
+## Настройка подключения к базе данных {#connect-to-db}
 
 Чтобы подключиться к базе данных:
 
-1. [Создайте базу данных](create-db.md) в {{ yandex-cloud }}.
-
-1. [Создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm) в {{ yandex-cloud }}.
-
-1. Сохраните публичный IP-адрес виртуальной машины. Для этого перейдите в свойства виртуальной машины или [воспользуйтесь интерфейсом командной строки](../../compute/operations/vm-info/get-info#outside-instance).
+1. [Создайте базу данных](create-db.md) в {{ yandex-cloud }} и включите присвоение публичных ip-адресов узлам базы данных.
 
 1. Для аутентификации в базе данных [создайте сервисный аккаунт](../../iam/operations/sa/create) и [назначьте](../../iam/operations/sa/assign-role-for-sa.md) ему роли `viewer` и `editor`.
 
 1. Перейдите в раздел **Сервисные аккаунты** своего каталога и выберите необходимый сервисный аккаунт в списке. Сохраните идентификатор сервисного аккаунта.
+
+{% note info %}
+
+Вы можете запускать тестовое приложение с [виртуальной машины](../../compute/operations/vm-create/create-linux-vm) в {{ yandex-cloud }}.
+
+{% endnote %}
 
 1. Перейдите в свойства базы данных и сохраните значения эндпоинта и идентификатора базы, приведенные в блоке **Эндпоинт**.
 
@@ -27,6 +33,6 @@
    wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" -O ~/.ydb/CA.pem
    ```
 
-## Запустите тестовое приложение {#run-test}
+## Запуск тестового приложения {#run-test}
 
 {% include notitle [run-app](../_includes/run-app.md) %}

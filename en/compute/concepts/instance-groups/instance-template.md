@@ -4,6 +4,8 @@ When creating a group, you need to describe an _instance template_, which is the
 
 The template description and [policy](policies.md) description are passed to the CLI in a YAML file when creating or updating an instance group with the `--file` flag. This is convenient for passing values that consist of multiple strings. For more information, see [{#T}](../../operations/instance-groups/create-fixed-group.md).
 
+You can set variable values for the instance template. For more information, see [{#T}](variables-in-the-template.md).
+
 ## Computing resources {#types}
 
 When describing a template, you specify the computing resources to allocate to each instance: the number and guaranteed performance of processor cores (vCPUs) and the amount of RAM. You can choose the computing resources that are appropriate for the expected load. For more information, see [{#T}](../performance-levels.md).
@@ -26,8 +28,8 @@ When you delete a VM, its disks are deleted from the group. VMs can be deleted d
 
 When creating a group, you can:
 
-- Set the network for the group itself.
-- Set subnets for each instance in the group.
+* Set the network for the group itself.
+* Set subnets for each instance in the group.
 
 You can create a group without specifying any subnets for its instances if the availability zone selected for each instance contains exactly one subnet for the specified network.
 
@@ -93,9 +95,9 @@ Keys (the table lists keys that directly define the base instance's configuratio
 | ----- | ----- |
 | `platform_id` | ID of the instance's hardware platform. |
 | `memory` | The amount of RAM available to the instance, specified in bytes. The maximum value is 274877906944 (275 GB). |
-| `cores` | The number of cores available to the instance. The value must be equal to 1, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, or 32. |
-| `core_fraction` | Base CPU performance. The value must be 0, 5, or 100. |
-| `mode` | Disk access mode. </br> - `READ_ONLY`: read-only access. </br>- `READ_WRITE`: read/write access. |
+| `cores` | The number of cores available to the instance. The value depends on the [platform](../vm-platforms.md) type. |
+| `core_fraction` | Basic [vCPU performance level](../performance-levels.md). |
+| `mode` | Disk access mode.</br>– `READ_ONLY` — Read access.</br>– `READ_WRITE` — Read and write access. |
 | `image_id` | ID of the image that will be used for disk creation. |
 | `type_id` | ID of the disk type. To get a list of available disk types, use the request [diskTypes](../../api-ref/DiskType/list.md) request. |
 | `size` | Size of the disk, specified in bytes. Acceptable values are in the range from 4194304 (4 MB) to 4398046511104 (4 TB). |

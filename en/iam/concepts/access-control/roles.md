@@ -1,10 +1,10 @@
 # Roles
 
-_A role_ is a set of user permissions to perform operations with Yandex.Cloud resources.
+_A role_ is a set of user permissions to perform operations with {{ yandex-cloud }} resources.
 
 There are two types of roles:
 
-- _Primitive roles_ contain permissions that apply to all types of Yandex.Cloud resources. These are the `{{ roles-admin }}`, `{{ roles-editor }}` and `{{ roles-viewer }}` roles.
+- _Primitive roles_ contain permissions that apply to all types of {{ yandex-cloud }} resources. These are roles like `{{ roles-admin }}`, `{{ roles-editor }}`, and `{{ roles-viewer }}`.
 
 - _Service roles_ contain permissions only for a specific type of resource in a particular service. Service role ID is specified in `service.resources.role` format. For example, the `{{ roles-image-user }}` role lets you use images in Yandex Compute Cloud.
 
@@ -78,3 +78,26 @@ For example, the `{{ roles-admin }}` role lets you perform the following operati
 {% include [datalens-instances-user](../../../_includes/roles-datalens-user.md)%}
 
 {% include [datalens-instances-admin](../../../_includes/roles-datalens-admin.md)%}
+
+## {{ vpc-name }} {#vpc-roles}
+
+{% include [roles-vpc-viewer](../../../_includes/roles-vpc-viewer.md) %}
+
+{% include [roles-vpc-user](../../../_includes/roles-vpc-user.md) %}
+
+{% include [roles-vpc-private-admin](../../../_includes/roles-vpc-private-admin.md) %}
+
+{% include [roles-vpc-public-admin](../../../_includes/roles-vpc-public-admin.md) %}
+
+{% include [roles-vpc-sg-admin](../../../_includes/roles-vpc-sg-admin.md) %}
+
+{% include [roles-vpc-admin](../../../_includes/roles-vpc-admin.md) %}
+
+## {{ load-balancer-name }} {#load-balancer-roles}
+
+{% include [roles-lb-viewer](../../../_includes/roles-lb-viewer.md) %}
+
+{% include [roles-lb-private-admin](../../../_includes/roles-lb-private-admin.md) %}
+
+{% include [roles-lb-admin](../../../_includes/roles-lb-admin.md) %}
+

@@ -130,7 +130,7 @@ Make sure that the trigger works correctly: in {{ message-queue-name }}, you see
     Check the queue statistics to see if the number of enqueued messages is decreasing:
     1. Open the **Message Queue** section.
     1. Click ![image](../../_assets/vertical-ellipsis.svg) in the row of the queue that the trigger was created for.
-    1. Go to **Statistics**. Pay attention to the **Messages in queue** chart.
+    1. Go to **Monitoring**. Pay attention to the **Messages in queue** chart.
 
 {% endlist %}
 

@@ -95,6 +95,16 @@ The {{ ig-name }} component can be used free of charge. You can create instance 
 
 All other Yandex.Cloud services, such as VMs and external IP addresses, are [charged as usual](../billing/pricing.md). Outgoing traffic is [charged](#prices-traffic) the same as other services.
 
+### Using a dedicated host {#dedicated-hosts}
+
+The cost of a dedicated host depends on its type (processor model, number of cores, and RAM) and doesn't depend on the number of VMs running on it.
+
+vCPUs and RAM of VMs running on a dedicated host are not charged.
+
+Using additional resources, such as images from {{ marketplace-name }} or disks, are charged as usual.
+
+Prices are shown for 1 hour of use. Billing occurs per second.
+
 ## Pricing {#prices}
 
 ### VM computing resources {#prices-instance-resources}
@@ -119,6 +129,7 @@ All other Yandex.Cloud services, such as VMs and external IP addresses, are [cha
     | ----- | ----- |
     | **Intel Broadwell** |
     | 1 GPU | $1.999397 |
+    | 1 vGPU | $0.500000 |
     | RAM (for 1 GB) | $0.003129 |
     | **Intel Cascade Lake** |
     | RAM (for 1 GB) | $0.002538 |
@@ -141,6 +152,7 @@ All other Yandex.Cloud services, such as VMs and external IP addresses, are [cha
     | ----- | ----- |
     | **Intel Broadwell** |
     | 1 GPU | ₽155.9530 |
+    | 1 vGPU | ₽39.0000 |
     | RAM (for 1 GB) | ₽0.2441 |
     | **Intel Cascade Lake** |
     | RAM (for 1 GB) | ₽0.1980 |
@@ -295,7 +307,36 @@ For the following products, funds are debited once for the calendar month in adv
 
 {% endlist %}
 
+### Dedicated host computing resources {#dedicated-host}
+
+{% list tabs %}
+
+- Prices in USD
+
+    Guaranteed vCPU performance | Rate for 1 hour, without VAT
+    ----- | ----- 
+    **Intel Cascade Lake** |
+    100% | $0.695897 
+
+    Other computing resources | Rate for 1 hour, without VAT
+    ----- | -----
+    **Intel Cascade Lake** |
+    RAM (for 1 GB) | $1.267692
+
+- Prices in roubles
+
+    Guaranteed vCPU performance | Rate for 1 hour, with VAT
+    ----- | -----
+    **Intel Cascade Lake** |
+    100% | ₽54.2800
+
+    Other computing resources | Rate for 1 hour, with VAT
+    ----- | -----
+    **Intel Cascade Lake** |
+    RAM (for 1 GB) | ₽98.8800
+
+{% endlist %}
+
 ### Outgoing traffic {#prices-traffic}
 
 {% include notitle [pricing-egress-traffic](../_includes/pricing/pricing-egress-traffic.md) %}
-

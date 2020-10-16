@@ -73,7 +73,7 @@ placement_groups[] | **[PlacementGroup](../placement_group.proto#PlacementGroup1
 next_page_token | **string**<br>Токен для получения следующей страницы списка. Если количество результатов больше чем [<RequestMessage>.page_size], используйте `next_page_token` в качестве значения параметра [<RequestMessage>.page_token] в следующем запросе списка ресурсов. <br>Каждая следующая страница будет иметь свой `next_page_token` для продолжения перебора страниц результатов. 
 
 
-### PlacementGroup {#PlacementGroup}
+### PlacementGroup {#PlacementGroup1}
 
 Поле | Описание
 --- | ---
@@ -87,7 +87,7 @@ placement_strategy | **oneof:** `spread_placement_strategy`<br>Стратеги�
 &nbsp;&nbsp;spread_placement_strategy | **[SpreadPlacementStrategy](../placement_group.proto#SpreadPlacementStrategy1)**<br>Стратегия распределенного размещения (`spread`). Каждая из виртуальных машин в группе расположена на отдельной стойке. 
 
 
-### SpreadPlacementStrategy {#SpreadPlacementStrategy}
+### SpreadPlacementStrategy {#SpreadPlacementStrategy1}
 
 
 
@@ -113,7 +113,7 @@ placement_strategy | **oneof:** `spread_placement_strategy`<br>Стратеги�
 &nbsp;&nbsp;spread_placement_strategy | **[SpreadPlacementStrategy](../placement_group.proto#SpreadPlacementStrategy2)**<br>Стратегия распределенного размещения (`spread`). Каждая из виртуальных машин в группе расположена на отдельной стойке. 
 
 
-### SpreadPlacementStrategy {#SpreadPlacementStrategy}
+### SpreadPlacementStrategy {#SpreadPlacementStrategy2}
 
 
 
@@ -140,7 +140,7 @@ result | **oneof:** `error` или `response`<br>Результат операц
 placement_group_id | **string**<br>Идентификатор создаваемой группы размещения. 
 
 
-### PlacementGroup {#PlacementGroup}
+### PlacementGroup {#PlacementGroup2}
 
 Поле | Описание
 --- | ---
@@ -175,7 +175,7 @@ description | **string**<br>Описание группы размещения.
 labels | **map<string,string>**<br>Метки группы размещения в формате `key:value`. <br>Существующий набор `labels` полностью перезаписывается набором, переданным в запросе. 
 
 
-### Operation {#Operation}
+### Operation {#Operation1}
 
 Поле | Описание
 --- | ---
@@ -198,7 +198,7 @@ result | **oneof:** `error` или `response`<br>Результат операц
 placement_group_id | **string**<br>Идентификатор обновляемой группы размещения. 
 
 
-### PlacementGroup {#PlacementGroup}
+### PlacementGroup {#PlacementGroup3}
 
 Поле | Описание
 --- | ---
@@ -229,7 +229,7 @@ placement_strategy | **oneof:** `spread_placement_strategy`<br>Стратеги�
 placement_group_id | **string**<br>Идентификатор удаляемой группы размещения. <br>Чтобы получить идентификатор группы размещения, используйте запрос [PlacementGroupService.List](#List). 
 
 
-### Operation {#Operation}
+### Operation {#Operation2}
 
 Поле | Описание
 --- | ---
@@ -272,7 +272,7 @@ page_token | **string**<br>Токен страницы. Установите з�
 Поле | Описание
 --- | ---
 instances[] | **[Instance](../instance.proto#Instance)**<br>Возвращает список виртуальных машин в указанной группе размещения. 
-next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListPlacementGroupInstancesRequest.page_size](#ListPlacementGroupInstancesRequest1), используйте `next_page_token` в качестве значения параметра [ListPlacementGroupInstancesRequest.page_token](#ListPlacementGroupInstancesRequest1) в следующем запросе списка ресурсов. Каждая следующая страница будет иметь свой `next_page_token` для перебора страниц результатов. 
+next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListPlacementGroupInstancesRequest.page_size](#ListPlacementGroupInstancesRequest), используйте `next_page_token` в качестве значения параметра [ListPlacementGroupInstancesRequest.page_token](#ListPlacementGroupInstancesRequest) в следующем запросе списка ресурсов. Каждая следующая страница будет иметь свой `next_page_token` для перебора страниц результатов. 
 
 
 ### Instance {#Instance}
@@ -380,10 +380,10 @@ page_token | **string**<br>Токен страницы. Установите з�
 Поле | Описание
 --- | ---
 operations[] | **[operation.Operation](#Operation3)**<br>Список операций для указанной группы размещения. 
-next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListPlacementGroupOperationsRequest.page_size](#ListPlacementGroupOperationsRequest1), используйте `next_page_token` в качестве значения параметра [ListPlacementGroupOperationsRequest.page_token](#ListPlacementGroupOperationsRequest1) в следующем запросе списка ресурсов. Каждая следующая страница будет иметь свой `next_page_token` для продолжения перебора страниц результатов. 
+next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListPlacementGroupOperationsRequest.page_size](#ListPlacementGroupOperationsRequest), используйте `next_page_token` в качестве значения параметра [ListPlacementGroupOperationsRequest.page_token](#ListPlacementGroupOperationsRequest) в следующем запросе списка ресурсов. Каждая следующая страница будет иметь свой `next_page_token` для продолжения перебора страниц результатов. 
 
 
-### Operation {#Operation}
+### Operation {#Operation3}
 
 Поле | Описание
 --- | ---

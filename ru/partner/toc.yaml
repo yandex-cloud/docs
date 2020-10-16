@@ -1,0 +1,7 @@
+title: Партнерская программа Yandex.Cloud
+href: index.yaml
+items:
+  - name: Партнерские программы
+    items:
+      - name: Реферальная программа
+        href: program/referral.md

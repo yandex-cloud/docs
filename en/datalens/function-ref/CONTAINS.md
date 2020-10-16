@@ -17,7 +17,7 @@ CONTAINS( string, substring )
 Returns `TRUE` if `string` contains `substring`. For case-insensitive searches, see [ICONTAINS](ICONTAINS.md).
 
 **Argument types:**
-- `string` — `String`
+- `string` — `Boolean | Date | Datetime | Geopoint | Geopolygon | Number | String | UUID`
 - `substring` — `String`
 
 

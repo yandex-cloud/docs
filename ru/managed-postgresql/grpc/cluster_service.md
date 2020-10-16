@@ -39,7 +39,7 @@ editable: false
 
 Поле | Описание
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор возвращаемого ресурса Cluster для PostgreSQL. Чтобы получить идентификатор кластера, используйте запрос [ClusterService.List](#List). false Максимальная длина строки в символах — 50.
+cluster_id | **string**<br>Обязательное поле. Идентификатор возвращаемого ресурса Cluster для PostgreSQL. Чтобы получить идентификатор кластера, используйте запрос [ClusterService.List](#List). Максимальная длина строки в символах — 50.
 
 
 ### Cluster {#Cluster}
@@ -74,12 +74,14 @@ link | **string**<br>Ссылка на графики системы монит�
 Поле | Описание
 --- | ---
 version | **string**<br>Версия серверного программного обеспечения PostgreSQL. 
-postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11` или `postgresql_config_12`<br>Конфигурация для серверов PostgreSQL в кластере.
+postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12` или `postgresql_config_12_1c`<br>Конфигурация для серверов PostgreSQL в кластере.
 &nbsp;&nbsp;postgresql_config_9_6 | **[PostgresqlConfigSet9_6](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql9_6.proto)**<br>Конфигурация сервера PostgreSQL 9.6. 
 &nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlConfigSet10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10_1c.proto)**<br>Конфигурация сервера PostgreSQL 10 1С. 
 &nbsp;&nbsp;postgresql_config_10 | **[PostgresqlConfigSet10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10.proto)**<br>Конфигурация сервера PostgreSQL 10. 
 &nbsp;&nbsp;postgresql_config_11 | **[PostgresqlConfigSet11](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql11.proto)**<br>Конфигурация сервера PostgreSQL 11. 
+&nbsp;&nbsp;postgresql_config_11_1c | **[config.PostgresqlConfigSet11_1C](./config/host10#PostgresqlConfigSet11_1C)**<br>Конфигурация сервера PostgreSQL 11 1C. 
 &nbsp;&nbsp;postgresql_config_12 | **[PostgresqlConfigSet12](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql12.proto)**<br>Конфигурация сервера PostgreSQL 12. 
+&nbsp;&nbsp;postgresql_config_12_1c | **[config.PostgresqlConfigSet12_1C](./config/host10#PostgresqlConfigSet12_1C)**<br>Конфигурация сервера PostgreSQL 12 1C. 
 pooler_config | **[ConnectionPoolerConfig](../cluster.proto#ConnectionPoolerConfig)**<br>Конфигурация менеджера соединений. 
 resources | **[Resources](../cluster.proto#Resources)**<br>Ресурсы, выделенные хостам PostgreSQL. 
 autofailover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Параметр конфигурации, который включает / отключает автоматическое переключение мастера в кластере. 
@@ -121,7 +123,7 @@ data_lens | **bool**<br>Разрешить доступ для DataLens
 
 Поле | Описание
 --- | ---
-folder_id | **string**<br>Обязательное поле. Идентификатор каталога для вывода списка кластеров PostgreSQL. Чтобы получить идентификатор каталога, используйте запрос [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List). false Максимальная длина строки в символах — 50.
+folder_id | **string**<br>Обязательное поле. Идентификатор каталога для вывода списка кластеров PostgreSQL. Чтобы получить идентификатор каталога, используйте запрос [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List). Максимальная длина строки в символах — 50.
 page_size | **int64**<br>Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `page_size`, сервис вернет значение [ListClustersResponse.next_page_token](#ListClustersResponse), которое можно использовать для получения следующей страницы. Максимальное значение — 1000.
 page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListClustersResponse.next_page_token](#ListClustersResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
 filter | **string**<br><ol><li>Имя поля. В настоящее время фильтрацию можно использовать только с полем [Cluster.name](../cluster.proto#Cluster1). </li><li>Оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений. </li><li>Значение. Должен содержать от 1 до 63 символов и соответствовать регулярному выражению `^[a-zA-Z0-9_-]+$`.</li></ol> Максимальная длина строки в символах — 1000.
@@ -132,10 +134,10 @@ filter | **string**<br><ol><li>Имя поля. В настоящее время
 Поле | Описание
 --- | ---
 clusters[] | **[Cluster](../cluster.proto#Cluster1)**<br>Список ресурсов Cluster для PostgreSQL. 
-next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListClustersRequest.page_size](#ListClustersRequest1), используйте `next_page_token` в качестве значения параметра [ListClustersRequest.page_token](#ListClustersRequest1) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
+next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListClustersRequest.page_size](#ListClustersRequest), используйте `next_page_token` в качестве значения параметра [ListClustersRequest.page_token](#ListClustersRequest) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
 
 
-### Cluster {#Cluster}
+### Cluster {#Cluster1}
 
 Поле | Описание
 --- | ---
@@ -153,7 +155,7 @@ health | enum **Health**<br>Агрегированная работоспосо�
 status | enum **Status**<br>Текущее состояние кластера. <ul><li>`STATUS_UNKNOWN`: Состояние кластера неизвестно.</li><li>`CREATING`: Кластер создается.</li><li>`RUNNING`: Кластер работает нормально.</li><li>`ERROR`: На кластере произошла ошибка, блокирующая работу.</li><li>`UPDATING`: Кластер изменяется.</li><li>`STOPPING`: Кластер останавливается.</li><li>`STOPPED`: Кластер остановлен.</li><li>`STARTING`: Кластер запускается.</li><ul/>
 
 
-### Monitoring {#Monitoring}
+### Monitoring {#Monitoring1}
 
 Поле | Описание
 --- | ---
@@ -162,17 +164,19 @@ description | **string**<br>Описание системы мониторинг
 link | **string**<br>Ссылка на графики системы мониторинга для данного кластера PostgreSQL. 
 
 
-### ClusterConfig {#ClusterConfig}
+### ClusterConfig {#ClusterConfig1}
 
 Поле | Описание
 --- | ---
 version | **string**<br>Версия серверного программного обеспечения PostgreSQL. 
-postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11` или `postgresql_config_12`<br>Конфигурация для серверов PostgreSQL в кластере.
+postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12` или `postgresql_config_12_1c`<br>Конфигурация для серверов PostgreSQL в кластере.
 &nbsp;&nbsp;postgresql_config_9_6 | **[PostgresqlConfigSet9_6](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql9_6.proto)**<br>Конфигурация сервера PostgreSQL 9.6. 
 &nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlConfigSet10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10_1c.proto)**<br>Конфигурация сервера PostgreSQL 10 1С. 
 &nbsp;&nbsp;postgresql_config_10 | **[PostgresqlConfigSet10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10.proto)**<br>Конфигурация сервера PostgreSQL 10. 
 &nbsp;&nbsp;postgresql_config_11 | **[PostgresqlConfigSet11](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql11.proto)**<br>Конфигурация сервера PostgreSQL 11. 
+&nbsp;&nbsp;postgresql_config_11_1c | **[config.PostgresqlConfigSet11_1C](./config/host10#PostgresqlConfigSet11_1C)**<br>Конфигурация сервера PostgreSQL 11 1C. 
 &nbsp;&nbsp;postgresql_config_12 | **[PostgresqlConfigSet12](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql12.proto)**<br>Конфигурация сервера PostgreSQL 12. 
+&nbsp;&nbsp;postgresql_config_12_1c | **[config.PostgresqlConfigSet12_1C](./config/host10#PostgresqlConfigSet12_1C)**<br>Конфигурация сервера PostgreSQL 12 1C. 
 pooler_config | **[ConnectionPoolerConfig](../cluster.proto#ConnectionPoolerConfig1)**<br>Конфигурация менеджера соединений. 
 resources | **[Resources](../cluster.proto#Resources1)**<br>Ресурсы, выделенные хостам PostgreSQL. 
 autofailover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Параметр конфигурации, который включает / отключает автоматическое переключение мастера в кластере. 
@@ -180,7 +184,7 @@ backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/go
 access | **[Access](../cluster.proto#Access1)**<br>Политика доступа к БД 
 
 
-### ConnectionPoolerConfig {#ConnectionPoolerConfig}
+### ConnectionPoolerConfig {#ConnectionPoolerConfig1}
 
 Поле | Описание
 --- | ---
@@ -188,7 +192,7 @@ pooling_mode | enum **PoolingMode**<br>Режим, в котором работ�
 pool_discard | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Установка параметра `server_reset_query_always` в PgBouncer. 
 
 
-### Resources {#Resources}
+### Resources {#Resources1}
 
 Поле | Описание
 --- | ---
@@ -197,7 +201,7 @@ disk_size | **int64**<br>Объем хранилища, доступного х�
 disk_type_id | **string**<br><ul><li>network-hdd — сетевой HDD-диск; </li><li>network-ssd — сетевой SSD-диск; </li><li>local-ssd — локальное SSD-хранилище.</li></ul> 
 
 
-### Access {#Access}
+### Access {#Access1}
 
 Поле | Описание
 --- | ---
@@ -218,16 +222,16 @@ data_lens | **bool**<br>Разрешить доступ для DataLens
 
 Поле | Описание
 --- | ---
-folder_id | **string**<br>Обязательное поле. Идентификатор каталога, в котором нужно создать кластер PostgreSQL. false Максимальная длина строки в символах — 50.
-name | **string**<br>Обязательное поле. Имя кластера PostgreSQL. Имя должно быть уникальным в каталоге. false Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_-]* `.
+folder_id | **string**<br>Обязательное поле. Идентификатор каталога, в котором нужно создать кластер PostgreSQL. Максимальная длина строки в символах — 50.
+name | **string**<br>Обязательное поле. Имя кластера PostgreSQL. Имя должно быть уникальным в каталоге. Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_-]* `.
 description | **string**<br>Описание кластера PostgreSQL. Максимальная длина строки в символах — 256.
 labels | **map<string,string>**<br>Пользовательские метки для кластера PostgreSQL в виде пар `` key:value ``. Не больше 64 меток на ресурс. Например, "project": "mvp" или "source": "dictionary". Не более 64 на ресурс. Максимальная длина строки в символах для каждого значения — 63. Каждое значение должно соответствовать регулярному выражению ` [-_0-9a-z]* `. Максимальная длина строки в символах для каждого ключа — 63. Каждый ключ должен соответствовать регулярному выражению ` [a-z][-_0-9a-z]* `.
-environment | **[Cluster.Environment](../cluster.proto#Cluster2)**<br>Обязательное поле. Среда развертывания для кластера PostgreSQL. false
-config_spec | **[ConfigSpec](#ConfigSpec)**<br>Обязательное поле. Конфигурация и ресурсы для хостов, которые должны быть созданы для кластера PostgreSQL. false
-database_specs[] | **[DatabaseSpec](../database.proto#DatabaseSpec)**<br>Обязательное поле. Описания баз данных, которые нужно создать в кластере PostgreSQL. false
-user_specs[] | **[UserSpec](../user.proto#UserSpec)**<br>Обязательное поле. Описания пользователей базы данных, которых нужно создать в кластере PostgreSQL. false
-host_specs[] | **[HostSpec](#HostSpec)**<br>Обязательное поле. Конфигурации для отдельных хостов, которые должны быть созданы для кластера PostgreSQL. false
-network_id | **string**<br>Обязательное поле. Идентификатор сети, в которой нужно создать кластер. false Максимальная длина строки в символах — 50.
+environment | **[Cluster.Environment](../cluster.proto#Cluster2)**<br>Обязательное поле. Среда развертывания для кластера PostgreSQL. 
+config_spec | **[ConfigSpec](#ConfigSpec)**<br>Обязательное поле. Конфигурация и ресурсы для хостов, которые должны быть созданы для кластера PostgreSQL. 
+database_specs[] | **[DatabaseSpec](../database.proto#DatabaseSpec)**<br>Обязательное поле. Описания баз данных, которые нужно создать в кластере PostgreSQL. 
+user_specs[] | **[UserSpec](../user.proto#UserSpec)**<br>Обязательное поле. Описания пользователей базы данных, которых нужно создать в кластере PostgreSQL. 
+host_specs[] | **[HostSpec](#HostSpec)**<br>Обязательное поле. Конфигурации для отдельных хостов, которые должны быть созданы для кластера PostgreSQL. 
+network_id | **string**<br>Обязательное поле. Идентификатор сети, в которой нужно создать кластер. Максимальная длина строки в символах — 50.
 
 
 ### ConfigSpec {#ConfigSpec}
@@ -235,12 +239,14 @@ network_id | **string**<br>Обязательное поле. Идентифик
 Поле | Описание
 --- | ---
 version | **string**<br>Версия PostgreSQL, используемая в кластере. Возможные значения `9.6`, `10`, `10_1c`, `11`, `12`. 
-postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11` или `postgresql_config_12`<br>Конфигурация кластера PostgreSQL.
+postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12` или `postgresql_config_12_1c`<br>Конфигурация кластера PostgreSQL.
 &nbsp;&nbsp;postgresql_config_9_6 | **[PostgresqlConfig9_6](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql9_6.proto)**<br>Конфигурация для кластера PostgreSQL 9.6. 
 &nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlConfig10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10_1c.proto)**<br>Конфигурация для кластера PostgreSQL 10. 
 &nbsp;&nbsp;postgresql_config_10 | **[PostgresqlConfig10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10.proto)**<br>Конфигурация для кластера PostgreSQL 10. 
 &nbsp;&nbsp;postgresql_config_11 | **[PostgresqlConfig11](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql11.proto)**<br>Конфигурация для кластера PostgreSQL 11. 
+&nbsp;&nbsp;postgresql_config_11_1c | **[config.PostgresqlConfig11_1C](./config/host10#PostgresqlConfig11_1C)**<br>Конфигурация для кластера PostgreSQL 11 1C. 
 &nbsp;&nbsp;postgresql_config_12 | **[PostgresqlConfig12](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql12.proto)**<br>Конфигурация для кластера PostgreSQL 12. 
+&nbsp;&nbsp;postgresql_config_12_1c | **[config.PostgresqlConfig12_1C](./config/host10#PostgresqlConfig12_1C)**<br>Конфигурация для кластера PostgreSQL 12 1C. 
 pooler_config | **[ConnectionPoolerConfig](../cluster.proto#ConnectionPoolerConfig2)**<br>Конфигурация менеджера соединений. 
 resources | **[Resources](../cluster.proto#Resources2)**<br>Ресурсы, выделенные хостам PostgreSQL. 
 autofailover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Параметр конфигурации, который включает / отключает автоматическое переключение мастера в кластере. 
@@ -248,7 +254,7 @@ backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/go
 access | **[Access](../cluster.proto#Access2)**<br>Политика доступа к БД 
 
 
-### ConnectionPoolerConfig {#ConnectionPoolerConfig}
+### ConnectionPoolerConfig {#ConnectionPoolerConfig2}
 
 Поле | Описание
 --- | ---
@@ -256,7 +262,7 @@ pooling_mode | enum **PoolingMode**<br>Режим, в котором работ�
 pool_discard | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Установка параметра `server_reset_query_always` в PgBouncer. 
 
 
-### Resources {#Resources}
+### Resources {#Resources2}
 
 Поле | Описание
 --- | ---
@@ -265,7 +271,7 @@ disk_size | **int64**<br>Объем хранилища, доступного х�
 disk_type_id | **string**<br><ul><li>network-hdd — сетевой HDD-диск; </li><li>network-ssd — сетевой SSD-диск; </li><li>local-ssd — локальное SSD-хранилище.</li></ul> 
 
 
-### Access {#Access}
+### Access {#Access2}
 
 Поле | Описание
 --- | ---
@@ -276,8 +282,8 @@ data_lens | **bool**<br>Разрешить доступ для DataLens
 
 Поле | Описание
 --- | ---
-name | **string**<br>Обязательное поле. Имя базы данных PostgreSQL. Длина 1-63 символов. false Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_-]* `.
-owner | **string**<br>Обязательное поле. Имя пользователя, которого нужно назначить владельцем базы данных. Чтобы получить список доступных пользователей PostgreSQL, сделайте запрос [UserService.List](./user_service#List). false Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_]* `.
+name | **string**<br>Обязательное поле. Имя базы данных PostgreSQL. Длина 1-63 символов. Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_-]* `.
+owner | **string**<br>Обязательное поле. Имя пользователя, которого нужно назначить владельцем базы данных. Чтобы получить список доступных пользователей PostgreSQL, сделайте запрос [UserService.List](./user_service#List). Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_]* `.
 lc_collate | **string**<br>POSIX-локаль для порядка сортировки строк. Может быть установлен только во время создания. Значение должно соответствовать регулярному выражению ` |[a-zA-Z_]+.UTF-8|C `.
 lc_ctype | **string**<br>POSIX-локаль для классификации символов. Может быть установлена только во время создания. Значение должно соответствовать регулярному выражению ` |[a-zA-Z_]+.UTF-8|C `.
 extensions[] | **[Extension](../database.proto#Extension)**<br>Расширения PostgreSQL, которые следует подключить для базы данных. 
@@ -295,8 +301,8 @@ version | **string**<br>Версия расширения.
 
 Поле | Описание
 --- | ---
-name | **string**<br>Обязательное поле. Имя пользователя PostgreSQL. false Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_]* `.
-password | **string**<br>Обязательное поле. Пароль пользователя PostgreSQL. false Длина строки в символах должна быть от 8 до 128.
+name | **string**<br>Обязательное поле. Имя пользователя PostgreSQL. Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_]* `.
+password | **string**<br>Обязательное поле. Пароль пользователя PostgreSQL. Длина строки в символах должна быть от 8 до 128.
 permissions[] | **[Permission](../user.proto#Permission)**<br>Набор разрешений, предоставляемых пользователю для доступа к определенным базам данных. 
 conn_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Максимальное количество подключений к базе данных, доступное пользователю. <br>При использовании сессионного пулинга эта настройка ограничивает количество подключений к каждому отдельному хосту в кластере PostgreSQL. В этом случае значение настройки должно быть больше общего числа подключений, которые могут быть открыты сервисами бэкенда для доступа к кластеру PostgreSQL. Значение этой настройки не должно превышать значения настройки [Cluster.config.postgresql_config_12.effective_config.max_connections](../cluster.proto#Cluster2). <br>При использовании транзакционного пулинга эта настройка ограничивает количество активных транзакций пользователя, поэтому в этом режиме пользователь может открывать тысячи подключений, но одновременно будет установлено только `N` подключений, где `N` — значение настройки. <br>Минимальное значение: `10` (по умолчанию: `50`) при использовании сессионного пулинга. Минимальная значение — 10.
 settings | **[UserSettings](../user.proto#UserSettings)**<br>Настройки PostgreSQL для пользователя. 
@@ -339,12 +345,14 @@ config_spec | **[ConfigHostSpec](#ConfigHostSpec)**<br>Конфигурация 
 
 Поле | Описание
 --- | ---
-postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11` или `postgresql_config_12`<br>
+postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12` или `postgresql_config_12_1c`<br>
 &nbsp;&nbsp;postgresql_config_9_6 | **[PostgresqlHostConfig9_6](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host9_6.proto)**<br>Конфигурация для хоста, на котором развернут сервером PostgreSQL 9.6. 
 &nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlHostConfig10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host10_1c.proto)**<br>Конфигурация для хоста, на котором развернут сервер PostgreSQL 10 1С. 
 &nbsp;&nbsp;postgresql_config_10 | **[PostgresqlHostConfig10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host10.proto)**<br>Конфигурация для хоста, на котором развернут сервер PostgreSQL 10. 
 &nbsp;&nbsp;postgresql_config_11 | **[PostgresqlHostConfig11](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host11.proto)**<br>Конфигурация для хоста, на котором развернут сервер PostgreSQL 11. 
+&nbsp;&nbsp;postgresql_config_11_1c | **[config.PostgresqlHostConfig11_1C](./config/host10#PostgresqlHostConfig11_1C)**<br>Конфигурация для хоста, на котором развернут сервер PostgreSQL 11 1C. 
 &nbsp;&nbsp;postgresql_config_12 | **[PostgresqlHostConfig12](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host12.proto)**<br>Конфигурация для хоста, на котором развернут сервер PostgreSQL 12. 
+&nbsp;&nbsp;postgresql_config_12_1c | **[config.PostgresqlHostConfig12_1C](./config/host10#PostgresqlHostConfig12_1C)**<br>Конфигурация для хоста, на котором развернут сервер PostgreSQL 12 1C. 
 
 
 ### Operation {#Operation}
@@ -370,7 +378,7 @@ result | **oneof:** `error` или `response`<br>Результат операц
 cluster_id | **string**<br>Идентификатор создаваемого кластера PostgreSQL. 
 
 
-### Cluster {#Cluster}
+### Cluster {#Cluster2}
 
 Поле | Описание
 --- | ---
@@ -402,25 +410,27 @@ status | enum **Status**<br>Текущее состояние кластера. 
 
 Поле | Описание
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор изменяемого ресурса Cluster для PostgreSQL, который нужно изменить. Чтобы получить идентификатор PostgreSQL кластера, используйте запрос [ClusterService.List](#List). false Максимальная длина строки в символах — 50.
+cluster_id | **string**<br>Обязательное поле. Идентификатор изменяемого ресурса Cluster для PostgreSQL, который нужно изменить. Чтобы получить идентификатор PostgreSQL кластера, используйте запрос [ClusterService.List](#List). Максимальная длина строки в символах — 50.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Маска, которая указывает, какие поля ресурса Cluster для PostgreSQL должны быть изменены. 
 description | **string**<br>Новое описание кластера PostgreSQL. Максимальная длина строки в символах — 256.
 labels | **map<string,string>**<br>Пользовательские метки для кластера PostgreSQL в виде пар `` key:value ``. Не больше 64 меток на ресурс. Например, "project": "mvp" или "source": "dictionary". <br>Новый набор меток полностью заменит старый. Чтобы добавить метку, запросите текущий набор меток с помощью метода [ClusterService.Get](#Get), затем отправьте запрос [ClusterService.Update](#Update), добавив новую метку в этот набор. Не более 64 на ресурс. Максимальная длина строки в символах для каждого значения — 63. Каждое значение должно соответствовать регулярному выражению ` [-_0-9a-z]* `. Максимальная длина строки в символах для каждого ключа — 63. Каждый ключ должен соответствовать регулярному выражению ` [a-z][-_0-9a-z]* `.
-config_spec | **[ConfigSpec](#ConfigSpec1)**<br>Новая конфигурация и ресурсы для хостов кластера. 
+config_spec | **[ConfigSpec](#ConfigSpec)**<br>Новая конфигурация и ресурсы для хостов кластера. 
 name | **string**<br>Новое имя кластера. Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_-]* `.
 
 
-### ConfigSpec {#ConfigSpec}
+### ConfigSpec {#ConfigSpec1}
 
 Поле | Описание
 --- | ---
 version | **string**<br>Версия PostgreSQL, используемая в кластере. Возможные значения `9.6`, `10`, `10_1c`, `11`, `12`. 
-postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11` или `postgresql_config_12`<br>Конфигурация кластера PostgreSQL.
+postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12` или `postgresql_config_12_1c`<br>Конфигурация кластера PostgreSQL.
 &nbsp;&nbsp;postgresql_config_9_6 | **[PostgresqlConfig9_6](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql9_6.proto)**<br>Конфигурация для кластера PostgreSQL 9.6. 
 &nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlConfig10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10_1c.proto)**<br>Конфигурация для кластера PostgreSQL 10. 
 &nbsp;&nbsp;postgresql_config_10 | **[PostgresqlConfig10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10.proto)**<br>Конфигурация для кластера PostgreSQL 10. 
 &nbsp;&nbsp;postgresql_config_11 | **[PostgresqlConfig11](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql11.proto)**<br>Конфигурация для кластера PostgreSQL 11. 
+&nbsp;&nbsp;postgresql_config_11_1c | **[config.PostgresqlConfig11_1C](./config/host10#PostgresqlConfig11_1C)**<br>Конфигурация для кластера PostgreSQL 11 1C. 
 &nbsp;&nbsp;postgresql_config_12 | **[PostgresqlConfig12](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql12.proto)**<br>Конфигурация для кластера PostgreSQL 12. 
+&nbsp;&nbsp;postgresql_config_12_1c | **[config.PostgresqlConfig12_1C](./config/host10#PostgresqlConfig12_1C)**<br>Конфигурация для кластера PostgreSQL 12 1C. 
 pooler_config | **[ConnectionPoolerConfig](../cluster.proto#ConnectionPoolerConfig3)**<br>Конфигурация менеджера соединений. 
 resources | **[Resources](../cluster.proto#Resources3)**<br>Ресурсы, выделенные хостам PostgreSQL. 
 autofailover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Параметр конфигурации, который включает / отключает автоматическое переключение мастера в кластере. 
@@ -428,7 +438,7 @@ backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/go
 access | **[Access](../cluster.proto#Access3)**<br>Политика доступа к БД 
 
 
-### ConnectionPoolerConfig {#ConnectionPoolerConfig}
+### ConnectionPoolerConfig {#ConnectionPoolerConfig3}
 
 Поле | Описание
 --- | ---
@@ -436,7 +446,7 @@ pooling_mode | enum **PoolingMode**<br>Режим, в котором работ�
 pool_discard | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Установка параметра `server_reset_query_always` в PgBouncer. 
 
 
-### Resources {#Resources}
+### Resources {#Resources3}
 
 Поле | Описание
 --- | ---
@@ -445,14 +455,14 @@ disk_size | **int64**<br>Объем хранилища, доступного х�
 disk_type_id | **string**<br><ul><li>network-hdd — сетевой HDD-диск; </li><li>network-ssd — сетевой SSD-диск; </li><li>local-ssd — локальное SSD-хранилище.</li></ul> 
 
 
-### Access {#Access}
+### Access {#Access3}
 
 Поле | Описание
 --- | ---
 data_lens | **bool**<br>Разрешить доступ для DataLens 
 
 
-### Operation {#Operation}
+### Operation {#Operation1}
 
 Поле | Описание
 --- | ---
@@ -475,7 +485,7 @@ result | **oneof:** `error` или `response`<br>Результат операц
 cluster_id | **string**<br>Идентификатор изменяемого ресурса Cluster для PostgreSQL. 
 
 
-### Cluster {#Cluster}
+### Cluster {#Cluster3}
 
 Поле | Описание
 --- | ---
@@ -507,10 +517,10 @@ status | enum **Status**<br>Текущее состояние кластера. 
 
 Поле | Описание
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера PostgreSQL, который следует удалить. Чтобы получить идентификатор PostgreSQL кластера, используйте запрос [ClusterService.List](#List). false Максимальная длина строки в символах — 50.
+cluster_id | **string**<br>Обязательное поле. Идентификатор кластера PostgreSQL, который следует удалить. Чтобы получить идентификатор PostgreSQL кластера, используйте запрос [ClusterService.List](#List). Максимальная длина строки в символах — 50.
 
 
-### Operation {#Operation}
+### Operation {#Operation2}
 
 Поле | Описание
 --- | ---
@@ -547,10 +557,10 @@ cluster_id | **string**<br>Идентификатор удаляемого кл�
 
 Поле | Описание
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера PostgreSQL, который следует запустить. false Максимальная длина строки в символах — 50.
+cluster_id | **string**<br>Обязательное поле. Идентификатор кластера PostgreSQL, который следует запустить. Максимальная длина строки в символах — 50.
 
 
-### Operation {#Operation}
+### Operation {#Operation3}
 
 Поле | Описание
 --- | ---
@@ -573,7 +583,7 @@ result | **oneof:** `error` или `response`<br>Результат операц
 cluster_id | **string**<br>Идентификатор кластера PostgreSQL. 
 
 
-### Cluster {#Cluster}
+### Cluster {#Cluster4}
 
 Поле | Описание
 --- | ---
@@ -605,10 +615,10 @@ status | enum **Status**<br>Текущее состояние кластера. 
 
 Поле | Описание
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера PostgreSQL, который следует остановить. false Максимальная длина строки в символах — 50.
+cluster_id | **string**<br>Обязательное поле. Идентификатор кластера PostgreSQL, который следует остановить. Максимальная длина строки в символах — 50.
 
 
-### Operation {#Operation}
+### Operation {#Operation4}
 
 Поле | Описание
 --- | ---
@@ -631,7 +641,7 @@ result | **oneof:** `error` или `response`<br>Результат операц
 cluster_id | **string**<br>Идентификатор кластера PostgreSQL. 
 
 
-### Cluster {#Cluster}
+### Cluster {#Cluster5}
 
 Поле | Описание
 --- | ---
@@ -663,11 +673,11 @@ status | enum **Status**<br>Текущее состояние кластера. 
 
 Поле | Описание
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера PostgreSQL, который следует переместить. false Максимальная длина строки в символах — 50.
-destination_folder_id | **string**<br>Обязательное поле. Идентификатор каталога, в который следует переместить кластер. false Максимальная длина строки в символах — 50.
+cluster_id | **string**<br>Обязательное поле. Идентификатор кластера PostgreSQL, который следует переместить. Максимальная длина строки в символах — 50.
+destination_folder_id | **string**<br>Обязательное поле. Идентификатор каталога, в который следует переместить кластер. Максимальная длина строки в символах — 50.
 
 
-### Operation {#Operation}
+### Operation {#Operation5}
 
 Поле | Описание
 --- | ---
@@ -692,7 +702,7 @@ source_folder_id | **string**<br>Идентификатор исходного �
 destination_folder_id | **string**<br>Идентификатор каталога назначения. 
 
 
-### Cluster {#Cluster}
+### Cluster {#Cluster6}
 
 Поле | Описание
 --- | ---
@@ -724,10 +734,10 @@ status | enum **Status**<br>Текущее состояние кластера. 
 
 Поле | Описание
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера PostgreSQL, для которого следует создать резервную копию. Чтобы получить идентификатор PostgreSQL кластера, используйте запрос [ClusterService.List](#List). false Максимальная длина строки в символах — 50.
+cluster_id | **string**<br>Обязательное поле. Идентификатор кластера PostgreSQL, для которого следует создать резервную копию. Чтобы получить идентификатор PostgreSQL кластера, используйте запрос [ClusterService.List](#List). Максимальная длина строки в символах — 50.
 
 
-### Operation {#Operation}
+### Operation {#Operation6}
 
 Поле | Описание
 --- | ---
@@ -750,7 +760,7 @@ result | **oneof:** `error` или `response`<br>Результат операц
 cluster_id | **string**<br>Идентификатор кластера PostgreSQL, для которого выполняется резервное копирование. 
 
 
-### Cluster {#Cluster}
+### Cluster {#Cluster7}
 
 Поле | Описание
 --- | ---
@@ -782,30 +792,32 @@ status | enum **Status**<br>Текущее состояние кластера. 
 
 Поле | Описание
 --- | ---
-backup_id | **string**<br>Обязательное поле. Идентификатор резервной копии, из которой следует создать кластер. Чтобы получить идентификатор резервной копии, используйте запрос [ClusterService.ListBackups](#ListBackups). false
-time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Обязательное поле. Момент времени, на который должен быть восстановлен кластер PostgreSQL. false
+backup_id | **string**<br>Обязательное поле. Идентификатор резервной копии, из которой следует создать кластер. Чтобы получить идентификатор резервной копии, используйте запрос [ClusterService.ListBackups](#ListBackups). 
+time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Обязательное поле. Момент времени, на который должен быть восстановлен кластер PostgreSQL. 
 time_inclusive | **bool**<br><ul><li>false (по умолчанию) — точкой восстановления является первая точка резервного копирования перед `time`. </li><li>true — точкой восстановления является первая точка резервного копирования после `time`.</li></ul> 
-name | **string**<br>Обязательное поле. Имя нового кластера PostgreSQL. Имя должно быть уникальным в каталоге. false Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_-]* `.
+name | **string**<br>Обязательное поле. Имя нового кластера PostgreSQL. Имя должно быть уникальным в каталоге. Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ` [a-zA-Z0-9_-]* `.
 description | **string**<br>Описание нового кластера PostgreSQL. Максимальная длина строки в символах — 256.
 labels | **map<string,string>**<br>Пользовательские метки для кластера PostgreSQL в виде пар `` key:value ``. Не больше 64 меток на ресурс. Например, "project": "mvp" или "source": "dictionary". Не более 64 на ресурс. Максимальная длина строки в символах для каждого значения — 63. Каждое значение должно соответствовать регулярному выражению ` [-_0-9a-z]* `. Максимальная длина строки в символах для каждого ключа — 63. Каждый ключ должен соответствовать регулярному выражению ` [a-z][-_0-9a-z]* `.
 environment | **[Cluster.Environment](../cluster.proto#Cluster8)**<br>Среда развертывания для нового кластера PostgreSQL. 
-config_spec | **[ConfigSpec](#ConfigSpec2)**<br>Конфигурация для создаваемого кластера PostgreSQL. 
-host_specs[] | **[HostSpec](#HostSpec1)**<br>Конфигурации для хостов PostgreSQL, которые должны быть созданы для кластера, создаваемого из резервной копии. Количество элементов должно быть больше 0.
-network_id | **string**<br>Обязательное поле. Идентификатор сети, в которой нужно создать PostgreSQL кластер. false Максимальная длина строки в символах — 50.
+config_spec | **[ConfigSpec](#ConfigSpec)**<br>Конфигурация для создаваемого кластера PostgreSQL. 
+host_specs[] | **[HostSpec](#HostSpec)**<br>Конфигурации для хостов PostgreSQL, которые должны быть созданы для кластера, создаваемого из резервной копии. Количество элементов должно быть больше 0.
+network_id | **string**<br>Обязательное поле. Идентификатор сети, в которой нужно создать PostgreSQL кластер. Максимальная длина строки в символах — 50.
 folder_id | **string**<br>Идентификатор каталога, в котором нужно создать кластер PostgreSQL. Максимальная длина строки в символах — 50.
 
 
-### ConfigSpec {#ConfigSpec}
+### ConfigSpec {#ConfigSpec2}
 
 Поле | Описание
 --- | ---
 version | **string**<br>Версия PostgreSQL, используемая в кластере. Возможные значения `9.6`, `10`, `10_1c`, `11`, `12`. 
-postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11` или `postgresql_config_12`<br>Конфигурация кластера PostgreSQL.
+postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12` или `postgresql_config_12_1c`<br>Конфигурация кластера PostgreSQL.
 &nbsp;&nbsp;postgresql_config_9_6 | **[PostgresqlConfig9_6](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql9_6.proto)**<br>Конфигурация для кластера PostgreSQL 9.6. 
 &nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlConfig10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10_1c.proto)**<br>Конфигурация для кластера PostgreSQL 10. 
 &nbsp;&nbsp;postgresql_config_10 | **[PostgresqlConfig10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10.proto)**<br>Конфигурация для кластера PostgreSQL 10. 
 &nbsp;&nbsp;postgresql_config_11 | **[PostgresqlConfig11](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql11.proto)**<br>Конфигурация для кластера PostgreSQL 11. 
+&nbsp;&nbsp;postgresql_config_11_1c | **[config.PostgresqlConfig11_1C](./config/host10#PostgresqlConfig11_1C)**<br>Конфигурация для кластера PostgreSQL 11 1C. 
 &nbsp;&nbsp;postgresql_config_12 | **[PostgresqlConfig12](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql12.proto)**<br>Конфигурация для кластера PostgreSQL 12. 
+&nbsp;&nbsp;postgresql_config_12_1c | **[config.PostgresqlConfig12_1C](./config/host10#PostgresqlConfig12_1C)**<br>Конфигурация для кластера PostgreSQL 12 1C. 
 pooler_config | **[ConnectionPoolerConfig](../cluster.proto#ConnectionPoolerConfig4)**<br>Конфигурация менеджера соединений. 
 resources | **[Resources](../cluster.proto#Resources4)**<br>Ресурсы, выделенные хостам PostgreSQL. 
 autofailover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Параметр конфигурации, который включает / отключает автоматическое переключение мастера в кластере. 
@@ -813,7 +825,7 @@ backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/go
 access | **[Access](../cluster.proto#Access4)**<br>Политика доступа к БД 
 
 
-### ConnectionPoolerConfig {#ConnectionPoolerConfig}
+### ConnectionPoolerConfig {#ConnectionPoolerConfig4}
 
 Поле | Описание
 --- | ---
@@ -821,7 +833,7 @@ pooling_mode | enum **PoolingMode**<br>Режим, в котором работ�
 pool_discard | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Установка параметра `server_reset_query_always` в PgBouncer. 
 
 
-### Resources {#Resources}
+### Resources {#Resources4}
 
 Поле | Описание
 --- | ---
@@ -830,14 +842,14 @@ disk_size | **int64**<br>Объем хранилища, доступного х�
 disk_type_id | **string**<br><ul><li>network-hdd — сетевой HDD-диск; </li><li>network-ssd — сетевой SSD-диск; </li><li>local-ssd — локальное SSD-хранилище.</li></ul> 
 
 
-### Access {#Access}
+### Access {#Access4}
 
 Поле | Описание
 --- | ---
 data_lens | **bool**<br>Разрешить доступ для DataLens 
 
 
-### HostSpec {#HostSpec}
+### HostSpec {#HostSpec1}
 
 Поле | Описание
 --- | ---
@@ -846,22 +858,24 @@ subnet_id | **string**<br>Идентификатор подсети, к кото
 assign_public_ip | **bool**<br><ul><li>false — не назначать хосту публичный IP-адрес. </li><li>true — у хоста должен быть публичный IP-адрес.</li></ul> 
 replication_source | **string**<br>[Host.name](../cluster.proto#Host) of the host to be used as the replication source (for cascading replication). 
 priority | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Приоритет хоста как реплики. Большее значение соответствует более высокому приоритету. <br>Хост с наивысшим приоритетом является синхронной репликой. Все остальные асинхронны. Синхронная реплика при необходимости заменяет мастер. <br>Когда реплика становится мастером, ее приоритет игнорируется. 
-config_spec | **[ConfigHostSpec](#ConfigHostSpec1)**<br>Конфигурация сервера PostgreSQL для хоста. 
+config_spec | **[ConfigHostSpec](#ConfigHostSpec)**<br>Конфигурация сервера PostgreSQL для хоста. 
 
 
-### ConfigHostSpec {#ConfigHostSpec}
+### ConfigHostSpec {#ConfigHostSpec1}
 
 Поле | Описание
 --- | ---
-postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11` или `postgresql_config_12`<br>
+postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12` или `postgresql_config_12_1c`<br>
 &nbsp;&nbsp;postgresql_config_9_6 | **[PostgresqlHostConfig9_6](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host9_6.proto)**<br>Конфигурация для хоста, на котором развернут сервером PostgreSQL 9.6. 
 &nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlHostConfig10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host10_1c.proto)**<br>Конфигурация для хоста, на котором развернут сервер PostgreSQL 10 1С. 
 &nbsp;&nbsp;postgresql_config_10 | **[PostgresqlHostConfig10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host10.proto)**<br>Конфигурация для хоста, на котором развернут сервер PostgreSQL 10. 
 &nbsp;&nbsp;postgresql_config_11 | **[PostgresqlHostConfig11](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host11.proto)**<br>Конфигурация для хоста, на котором развернут сервер PostgreSQL 11. 
+&nbsp;&nbsp;postgresql_config_11_1c | **[config.PostgresqlHostConfig11_1C](./config/host10#PostgresqlHostConfig11_1C)**<br>Конфигурация для хоста, на котором развернут сервер PostgreSQL 11 1C. 
 &nbsp;&nbsp;postgresql_config_12 | **[PostgresqlHostConfig12](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host12.proto)**<br>Конфигурация для хоста, на котором развернут сервер PostgreSQL 12. 
+&nbsp;&nbsp;postgresql_config_12_1c | **[config.PostgresqlHostConfig12_1C](./config/host10#PostgresqlHostConfig12_1C)**<br>Конфигурация для хоста, на котором развернут сервер PostgreSQL 12 1C. 
 
 
-### Operation {#Operation}
+### Operation {#Operation7}
 
 Поле | Описание
 --- | ---
@@ -885,7 +899,7 @@ cluster_id | **string**<br>Идентификатор нового класте�
 backup_id | **string**<br>Идентификатор резервной копии, используемой для создания кластера. 
 
 
-### Cluster {#Cluster}
+### Cluster {#Cluster8}
 
 Поле | Описание
 --- | ---
@@ -917,11 +931,11 @@ status | enum **Status**<br>Текущее состояние кластера. 
 
 Поле | Описание
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера PostgreSQL. false Максимальная длина строки в символах — 50.
+cluster_id | **string**<br>Обязательное поле. Идентификатор кластера PostgreSQL. Максимальная длина строки в символах — 50.
 host_name | **string**<br>Новый хост-мастер. Если хост не указан, кластер переключается на реплику с самыми свежими данными. Максимальная длина строки в символах — 253.
 
 
-### Operation {#Operation}
+### Operation {#Operation8}
 
 Поле | Описание
 --- | ---
@@ -944,7 +958,7 @@ result | **oneof:** `error` или `response`<br>Результат операц
 cluster_id | **string**<br>Идентификатор кластера PostgreSQL, для которого переключается мастер. 
 
 
-### Cluster {#Cluster}
+### Cluster {#Cluster9}
 
 Поле | Описание
 --- | ---
@@ -972,7 +986,7 @@ status | enum **Status**<br>Текущее состояние кластера. 
 
 Поле | Описание
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера PostgreSQL, для которого следует запросить логи. Чтобы получить идентификатор PostgreSQL кластера, используйте запрос [ClusterService.List](#List). false Максимальная длина строки в символах — 50.
+cluster_id | **string**<br>Обязательное поле. Идентификатор кластера PostgreSQL, для которого следует запросить логи. Чтобы получить идентификатор PostgreSQL кластера, используйте запрос [ClusterService.List](#List). Максимальная длина строки в символах — 50.
 column_filter[] | **string**<br>Столбцы из таблицы логов для запроса. Если столбцы не указаны, записи логов возвращаются целиком. 
 service_type | enum **ServiceType**<br>Тип сервиса, для которого следует запросить логи. <ul><li>`POSTGRESQL`: Логи работы PostgreSQL.</li><li>`POOLER`: Логи работы менеджера подключений.</li><ul/>
 from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Начало периода, для которого следует запросить логи, в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
@@ -987,7 +1001,7 @@ always_next_page_token | **bool**<br>Всегда возвращает `next_pag
 Поле | Описание
 --- | ---
 logs[] | **[LogRecord](#LogRecord)**<br>Запрошенные записи логов. 
-next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListClusterLogsRequest.page_size](#ListClusterLogsRequest1), используйте `next_page_token` в качестве значения параметра [ListClusterLogsRequest.page_token](#ListClusterLogsRequest1) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
+next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListClusterLogsRequest.page_size](#ListClusterLogsRequest), используйте `next_page_token` в качестве значения параметра [ListClusterLogsRequest.page_token](#ListClusterLogsRequest) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
 
 
 ### LogRecord {#LogRecord}
@@ -1008,7 +1022,7 @@ message | **map<string,string>**<br>Содержание записи журна
 
 Поле | Описание
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор ресурса Cluster для PostgreSQL, для которого запрашивается список операций. false Максимальная длина строки в символах — 50.
+cluster_id | **string**<br>Обязательное поле. Идентификатор ресурса Cluster для PostgreSQL, для которого запрашивается список операций. Максимальная длина строки в символах — 50.
 page_size | **int64**<br>Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `page_size`, сервис вернет значение [ListClusterOperationsResponse.next_page_token](#ListClusterOperationsResponse), которое можно использовать для получения следующей страницы. Максимальное значение — 1000.
 page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListClusterOperationsResponse.next_page_token](#ListClusterOperationsResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
 
@@ -1018,10 +1032,10 @@ page_token | **string**<br>Токен страницы. Установите з�
 Поле | Описание
 --- | ---
 operations[] | **[operation.Operation](#Operation9)**<br>Список ресурсов Operation для указанного кластера PostgreSQL. 
-next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListClusterOperationsRequest.page_size](#ListClusterOperationsRequest1), используйте `next_page_token` в качестве значения параметра [ListClusterOperationsRequest.page_token](#ListClusterOperationsRequest1) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
+next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListClusterOperationsRequest.page_size](#ListClusterOperationsRequest), используйте `next_page_token` в качестве значения параметра [ListClusterOperationsRequest.page_token](#ListClusterOperationsRequest) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
 
 
-### Operation {#Operation}
+### Operation {#Operation9}
 
 Поле | Описание
 --- | ---
@@ -1047,7 +1061,7 @@ result | **oneof:** `error` или `response`<br>Результат операц
 
 Поле | Описание
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера PostgreSQL. Чтобы получить идентификатор PostgreSQL кластера, используйте запрос [ClusterService.List](#List). false Максимальная длина строки в символах — 50.
+cluster_id | **string**<br>Обязательное поле. Идентификатор кластера PostgreSQL. Чтобы получить идентификатор PostgreSQL кластера, используйте запрос [ClusterService.List](#List). Максимальная длина строки в символах — 50.
 page_size | **int64**<br>Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `page_size`, сервис вернет значение [ListClusterBackupsResponse.next_page_token](#ListClusterBackupsResponse), которое можно использовать для получения следующей страницы. Максимальное значение — 1000.
 page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListClusterBackupsResponse.next_page_token](#ListClusterBackupsResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
 
@@ -1057,7 +1071,7 @@ page_token | **string**<br>Токен страницы. Установите з�
 Поле | Описание
 --- | ---
 backups[] | **[Backup](#Backup)**<br>Список ресурсов Backup для PostgreSQL. 
-next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListClusterBackupsRequest.page_size](#ListClusterBackupsRequest1), используйте `next_page_token` в качестве значения параметра [ListClusterBackupsRequest.page_token](#ListClusterBackupsRequest1) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
+next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListClusterBackupsRequest.page_size](#ListClusterBackupsRequest), используйте `next_page_token` в качестве значения параметра [ListClusterBackupsRequest.page_token](#ListClusterBackupsRequest) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
 
 
 ### Backup {#Backup}
@@ -1081,7 +1095,7 @@ started_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 
 Поле | Описание
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера PostgreSQL. Чтобы получить идентификатор PostgreSQL кластера, используйте запрос [ClusterService.List](#List). false Максимальная длина строки в символах — 50.
+cluster_id | **string**<br>Обязательное поле. Идентификатор кластера PostgreSQL. Чтобы получить идентификатор PostgreSQL кластера, используйте запрос [ClusterService.List](#List). Максимальная длина строки в символах — 50.
 page_size | **int64**<br>Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `page_size`, сервис вернет значение [ListClusterHostsResponse.next_page_token](#ListClusterHostsResponse), которое можно использовать для получения следующей страницы. Максимальное значение — 1000.
 page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListClusterHostsResponse.next_page_token](#ListClusterHostsResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
 
@@ -1091,7 +1105,7 @@ page_token | **string**<br>Токен страницы. Установите з�
 Поле | Описание
 --- | ---
 hosts[] | **[Host](../cluster.proto#Host)**<br>Список ресурсов Host. 
-next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListClusterHostsRequest.page_size](#ListClusterHostsRequest1), используйте `next_page_token` в качестве значения параметра [ListClusterHostsRequest.page_token](#ListClusterHostsRequest1) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
+next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListClusterHostsRequest.page_size](#ListClusterHostsRequest), используйте `next_page_token` в качестве значения параметра [ListClusterHostsRequest.page_token](#ListClusterHostsRequest) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
 
 
 ### Host {#Host}
@@ -1113,7 +1127,7 @@ assign_public_ip | **bool**<br>Флаг, показывающий статус �
 replica_type | enum **ReplicaType**<br> <ul><ul/>
 
 
-### Resources {#Resources}
+### Resources {#Resources5}
 
 Поле | Описание
 --- | ---
@@ -1134,12 +1148,14 @@ health | enum **Health**<br>Код состояния доступности с�
 
 Поле | Описание
 --- | ---
-postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11` или `postgresql_config_12`<br>Конфигурация сервера PostgreSQL для хоста.
+postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12` или `postgresql_config_12_1c`<br>Конфигурация сервера PostgreSQL для хоста.
 &nbsp;&nbsp;postgresql_config_9_6 | **[PostgresqlHostConfig9_6](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host9_6.proto)**<br>Конфигурация для хоста, на котором развернут сервером PostgreSQL 9.6. 
 &nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlHostConfig10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host10_1c.proto)**<br>Конфигурация для хоста, на котором развернут сервер PostgreSQL 10 1С. 
 &nbsp;&nbsp;postgresql_config_10 | **[PostgresqlHostConfig10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host10.proto)**<br>Конфигурация для хоста, на котором развернут сервер PostgreSQL 10. 
 &nbsp;&nbsp;postgresql_config_11 | **[PostgresqlHostConfig11](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host11.proto)**<br>Конфигурация для хоста, на котором развернут сервер PostgreSQL 11. 
+&nbsp;&nbsp;postgresql_config_11_1c | **[config.PostgresqlHostConfig11_1C](./config/host10#PostgresqlHostConfig11_1C)**<br>Конфигурация для хоста, на котором развернут сервер PostgreSQL 11 1C. 
 &nbsp;&nbsp;postgresql_config_12 | **[PostgresqlHostConfig12](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host12.proto)**<br>Конфигурация для хоста, на котором развернут сервер PostgreSQL 12. 
+&nbsp;&nbsp;postgresql_config_12_1c | **[config.PostgresqlHostConfig12_1C](./config/host10#PostgresqlHostConfig12_1C)**<br>Конфигурация для хоста, на котором развернут сервер PostgreSQL 12 1C. 
 
 
 ## AddHosts {#AddHosts}
@@ -1156,11 +1172,11 @@ postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c
 
 Поле | Описание
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера PostgreSQL, для которого следует добавить хосты. Чтобы получить идентификатор PostgreSQL кластера, используйте запрос [ClusterService.List](#List). false Максимальная длина строки в символах — 50.
-host_specs[] | **[HostSpec](#HostSpec2)**<br>Конфигурации для хостов PostgreSQL, которые должны быть добавлены в кластер. Количество элементов должно быть больше 0.
+cluster_id | **string**<br>Обязательное поле. Идентификатор кластера PostgreSQL, для которого следует добавить хосты. Чтобы получить идентификатор PostgreSQL кластера, используйте запрос [ClusterService.List](#List). Максимальная длина строки в символах — 50.
+host_specs[] | **[HostSpec](#HostSpec)**<br>Конфигурации для хостов PostgreSQL, которые должны быть добавлены в кластер. Количество элементов должно быть больше 0.
 
 
-### HostSpec {#HostSpec}
+### HostSpec {#HostSpec2}
 
 Поле | Описание
 --- | ---
@@ -1169,22 +1185,24 @@ subnet_id | **string**<br>Идентификатор подсети, к кото
 assign_public_ip | **bool**<br><ul><li>false — не назначать хосту публичный IP-адрес. </li><li>true — у хоста должен быть публичный IP-адрес.</li></ul> 
 replication_source | **string**<br>[Host.name](../cluster.proto#Host1) of the host to be used as the replication source (for cascading replication). 
 priority | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Приоритет хоста как реплики. Большее значение соответствует более высокому приоритету. <br>Хост с наивысшим приоритетом является синхронной репликой. Все остальные асинхронны. Синхронная реплика при необходимости заменяет мастер. <br>Когда реплика становится мастером, ее приоритет игнорируется. 
-config_spec | **[ConfigHostSpec](#ConfigHostSpec2)**<br>Конфигурация сервера PostgreSQL для хоста. 
+config_spec | **[ConfigHostSpec](#ConfigHostSpec)**<br>Конфигурация сервера PostgreSQL для хоста. 
 
 
-### ConfigHostSpec {#ConfigHostSpec}
+### ConfigHostSpec {#ConfigHostSpec2}
 
 Поле | Описание
 --- | ---
-postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11` или `postgresql_config_12`<br>
+postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12` или `postgresql_config_12_1c`<br>
 &nbsp;&nbsp;postgresql_config_9_6 | **[PostgresqlHostConfig9_6](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host9_6.proto)**<br>Конфигурация для хоста, на котором развернут сервером PostgreSQL 9.6. 
 &nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlHostConfig10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host10_1c.proto)**<br>Конфигурация для хоста, на котором развернут сервер PostgreSQL 10 1С. 
 &nbsp;&nbsp;postgresql_config_10 | **[PostgresqlHostConfig10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host10.proto)**<br>Конфигурация для хоста, на котором развернут сервер PostgreSQL 10. 
 &nbsp;&nbsp;postgresql_config_11 | **[PostgresqlHostConfig11](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host11.proto)**<br>Конфигурация для хоста, на котором развернут сервер PostgreSQL 11. 
+&nbsp;&nbsp;postgresql_config_11_1c | **[config.PostgresqlHostConfig11_1C](./config/host10#PostgresqlHostConfig11_1C)**<br>Конфигурация для хоста, на котором развернут сервер PostgreSQL 11 1C. 
 &nbsp;&nbsp;postgresql_config_12 | **[PostgresqlHostConfig12](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host12.proto)**<br>Конфигурация для хоста, на котором развернут сервер PostgreSQL 12. 
+&nbsp;&nbsp;postgresql_config_12_1c | **[config.PostgresqlHostConfig12_1C](./config/host10#PostgresqlHostConfig12_1C)**<br>Конфигурация для хоста, на котором развернут сервер PostgreSQL 12 1C. 
 
 
-### Operation {#Operation}
+### Operation {#Operation10}
 
 Поле | Описание
 --- | ---
@@ -1222,11 +1240,11 @@ host_names[] | **string**<br>Имена хостов, добавляемых в 
 
 Поле | Описание
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера PostgreSQL из которого следует удалить хосты. Чтобы получить идентификатор PostgreSQL кластера, используйте запрос [ClusterService.List](#List). false Максимальная длина строки в символах — 50.
+cluster_id | **string**<br>Обязательное поле. Идентификатор кластера PostgreSQL из которого следует удалить хосты. Чтобы получить идентификатор PostgreSQL кластера, используйте запрос [ClusterService.List](#List). Максимальная длина строки в символах — 50.
 host_names[] | **string**<br>Имена хостов, которые следует удалить. Количество элементов должно быть больше 0. Максимальная длина строки в символах для каждого значения — 253.
 
 
-### Operation {#Operation}
+### Operation {#Operation11}
 
 Поле | Описание
 --- | ---
@@ -1264,7 +1282,7 @@ host_names[] | **string**<br>Имена удаляемых хостов.
 
 Поле | Описание
 --- | ---
-cluster_id | **string**<br>Обязательное поле. Идентификатор кластера PostgreSQL, в котором следует обновить хосты. Чтобы получить идентификатор PostgreSQL кластера, используйте запрос [ClusterService.List](#List). false Максимальная длина строки в символах — 50.
+cluster_id | **string**<br>Обязательное поле. Идентификатор кластера PostgreSQL, в котором следует обновить хосты. Чтобы получить идентификатор PostgreSQL кластера, используйте запрос [ClusterService.List](#List). Максимальная длина строки в символах — 50.
 update_host_specs[] | **[UpdateHostSpec](#UpdateHostSpec)**<br>Новые конфигурации, которые следует применить к хостам. Количество элементов должно быть больше 0.
 
 
@@ -1272,25 +1290,27 @@ update_host_specs[] | **[UpdateHostSpec](#UpdateHostSpec)**<br>Новые кон
 
 Поле | Описание
 --- | ---
-host_name | **string**<br>Обязательное поле. Имя хоста, который следует обновить. Чтобы получить имя хоста PostgreSQL, используйте запрос [ClusterService.ListHosts](#ListHosts). false
+host_name | **string**<br>Обязательное поле. Имя хоста, который следует обновить. Чтобы получить имя хоста PostgreSQL, используйте запрос [ClusterService.ListHosts](#ListHosts). 
 replication_source | **string**<br>[Host.name](../cluster.proto#Host1) хоста, который будет использоваться в качестве источника репликации (для каскадной репликации). Чтобы получить имя хоста PostgreSQL, используйте запрос [ClusterService.ListHosts](#ListHosts). 
 priority | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Хост с наивысшим приоритетом является синхронной репликой. Все остальные асинхронны. Синхронная реплика при необходимости заменяет мастер. <br>Когда реплика становится мастером, ее приоритет игнорируется. 
-config_spec | **[ConfigHostSpec](#ConfigHostSpec3)**<br>Конфигурация сервера PostgreSQL для хоста. 
+config_spec | **[ConfigHostSpec](#ConfigHostSpec)**<br>Конфигурация сервера PostgreSQL для хоста. 
 
 
-### ConfigHostSpec {#ConfigHostSpec}
+### ConfigHostSpec {#ConfigHostSpec3}
 
 Поле | Описание
 --- | ---
-postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11` или `postgresql_config_12`<br>
+postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12` или `postgresql_config_12_1c`<br>
 &nbsp;&nbsp;postgresql_config_9_6 | **[PostgresqlHostConfig9_6](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host9_6.proto)**<br>Конфигурация для хоста, на котором развернут сервером PostgreSQL 9.6. 
 &nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlHostConfig10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host10_1c.proto)**<br>Конфигурация для хоста, на котором развернут сервер PostgreSQL 10 1С. 
 &nbsp;&nbsp;postgresql_config_10 | **[PostgresqlHostConfig10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host10.proto)**<br>Конфигурация для хоста, на котором развернут сервер PostgreSQL 10. 
 &nbsp;&nbsp;postgresql_config_11 | **[PostgresqlHostConfig11](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host11.proto)**<br>Конфигурация для хоста, на котором развернут сервер PostgreSQL 11. 
+&nbsp;&nbsp;postgresql_config_11_1c | **[config.PostgresqlHostConfig11_1C](./config/host10#PostgresqlHostConfig11_1C)**<br>Конфигурация для хоста, на котором развернут сервер PostgreSQL 11 1C. 
 &nbsp;&nbsp;postgresql_config_12 | **[PostgresqlHostConfig12](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host12.proto)**<br>Конфигурация для хоста, на котором развернут сервер PostgreSQL 12. 
+&nbsp;&nbsp;postgresql_config_12_1c | **[config.PostgresqlHostConfig12_1C](./config/host10#PostgresqlHostConfig12_1C)**<br>Конфигурация для хоста, на котором развернут сервер PostgreSQL 12 1C. 
 
 
-### Operation {#Operation}
+### Operation {#Operation12}
 
 Поле | Описание
 --- | ---

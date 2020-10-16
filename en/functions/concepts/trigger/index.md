@@ -12,6 +12,9 @@ You can set up the following types of triggers at the Preview stage:
 * [{#T}](ymq-trigger.md).
 * [{#T}](os-trigger.md).
 * [{#T}](iot-core-trigger.md).
+* [{#T}](cr-trigger.md).
+* [{#T}](cloudlogs-trigger.md).
+
 
 ## Specifics of functions invoked by triggers {#invoke}
 

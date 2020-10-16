@@ -9,7 +9,7 @@ A recognition model is a model that is trained to recognize speech in a specific
 - Russian
     * `general`: The main supported model for Russian language that recognizes speech on any topic in Russian, including short and long utterances, names, addresses, dates, and numbers.
 
-    ### New version releases {#new-versions}
+    ### Tags and version availability {#new-versions}
 
     We continuously improve the quality of the model and release new versions:
     * The current main version of the model is available by the `general` tag.
@@ -24,6 +24,58 @@ A recognition model is a model that is trained to recognize speech in a specific
 
     {% endnote %}
 
+    ### Releases {#releases}
+
+    #### Release 18.08.20 {#1808}
+
+    Minor update for transcription in the *Anaximander* version:
+    * Improved handling of dense speech flows, having no detectable pauses in speech for more than 30 seconds.
+    * Timing fixed.
+    * Fixed an error with partial recognition results arriving after the final result.
+
+    The acoustic and language properties of the model have not changed.
+
+    The list of available versions of the `general` model:
+    * `general:rc`: The _Anaximander_  version (updated).
+    * `general`: The _Anaximander_ version.
+    * `general:deprecated`: The _Marcus Aurelius_ version.
+
+    These versions are available for streaming recognition, transcription, and short audio recognition.
+
+    #### Release 21.07.20 {#2107}
+
+    Following successful testing, we offer _Anaximander_ as the main operating version for streaming recognition, transcription, and short audio recognition.
+
+    The list of available versions of the `general` model:
+    * `general:rc`: The _Anaximander_ version.
+    * `general`: The _Anaximander_ version.
+    * `general:deprecated`: The _Marcus Aurelius_ version.
+
+    #### Release 27.05.20 {#2705}
+
+    New versions of the `general` model are now available in transcription and short audio recognition. For those types of recognition, the following versions are available with the tags:
+    * `general:rc`: The _Anaximander_ version.
+    * `general`: The _Marcus Aurelius_ version.
+    * `general:deprecated`: _Marcus Aurelius_.
+
+    Three versions of the model are available for streaming speech recognition:
+    * `general:rc`: The _Anaximander_ version.
+    * `general`: The _Marcus Aurelius_ version.
+    * `general:deprecated`: The _Diogenes_ version.
+
+    #### Release 15.05.20 {#1505}
+
+    For streaming speech recognition, the new version of the _Anaximander_ model is now available with the `general:rc` tag.
+
+    We invite you to join testing of the version. We'll be grateful for your feedback and comments.
+
+    The list of available versions of the `general` model:
+    * `general:rc`: The _Anaximander_ version.
+    * `general`: The _Marcus Aurelius_ version.
+    * `general:deprecated`: The _Diogenes_ version.
+
+    The versions for short and long audio recognition remain unchanged.
+
     #### Release 16.04.20 {#1604}
 
     For streaming speech recognition by the `general` tag, a new version of the _Marcus Aurelius_ model is now available.
@@ -33,9 +85,15 @@ A recognition model is a model that is trained to recognize speech in a specific
     * `general`: The _Marcus Aurelius_ version.
     * `general:deprecated`: The _Diogenes_ version.
 
-    Versions for short and long audio recognition available by the `general` tag remain unchanged.
+    The versions for short and long audio recognition available with the `general` tag remain unchanged.
 
-    **Marcus Aurelius version**
+    ### Versions {#version}
+
+    #### Anaximander version {#anaximandr}
+    * Improved recognition quality due to advances in acoustics processing and language model updates: for example, the word "coronavirus" is now recognized better.
+    * Improved model stability on "empty" records.
+
+    #### Marcus Aurelius version {#mark-avr}
     * Improved recognition quality, especially for short audio.
     * The `endOfUtterance` flag is now set more accurately for audio of any length. For audio where there is only silence, this flag isn't returned now.
     * If you activated the `partialResults` flag and use partial recognition results, you may notice that these results are more accurate and come faster now. By default, they now come in unnormalized form.
@@ -43,7 +101,7 @@ A recognition model is a model that is trained to recognize speech in a specific
         * If your audio has a lot of background noise, use the reduce sensitivity flag (see [Experimental additional recognition settings](streaming.md#additional-settings)).
         * If you activated the `partialResults` flag and it's important for you to get partial recognition results in normalized form, set the appropriate flag (see [Experimental additional recognition settings](streaming.md#additional-settings)).
 
-    **Diogenes version**
+    #### Diogenes version {#diogen}
     * Improved phone call recognition quality.
     * Reduced the number of cases where noise is recognized as words. The vocabulary of the model is still extensive: you can use this model to recognize speech on any topic, just like the previous version of the `general` model.
 
@@ -62,4 +120,3 @@ A recognition model is a model that is trained to recognize speech in a specific
       * <q>Atatürk Bulvarı'na git</q>
 
 {% endlist %}
-

@@ -25,9 +25,6 @@
 * ```DateTime::Split(Date{Flags:AutoMap}) -> Resource<TM>```
 * ```DateTime::Split(Datetime{Flags:AutoMap}) -> Resource<TM>```
 * ```DateTime::Split(Timestamp{Flags:AutoMap}) -> Resource<TM>```
-* ```DateTime::Split(TzDate{Flags:AutoMap}) -> Resource<TM>```
-* ```DateTime::Split(TzDatetime{Flags:AutoMap}) -> Resource<TM>```
-* ```DateTime::Split(TzTimestamp{Flags:AutoMap}) -> Resource<TM>```
 
 Функции, принимающие на вход `Resource<TM>`, могут быть вызваны непосредственно от примитивного типа даты/времени. В этом случае будет сделано неявное преобразование через вызов соответствующей функции `Split`.
 
@@ -40,16 +37,13 @@
 * ```DateTime::MakeDate(Resource<TM>{Flags:AutoMap}) -> Date```
 * ```DateTime::MakeDatetime(Resource<TM>{Flags:AutoMap}) -> Datetime```
 * ```DateTime::MakeTimestamp(Resource<TM>{Flags:AutoMap}) -> Timestamp```
-* ```DateTime::MakeTzDate(Resource<TM>{Flags:AutoMap}) -> TzDate```
-* ```DateTime::MakeTzDatetime(Resource<TM>{Flags:AutoMap}) -> TzDatetime```
-* ```DateTime::MakeTzTimestamp(Resource<TM>{Flags:AutoMap}) -> TzTimestamp```
 
 **Примеры**
 
 ```sql
 SELECT
-    DateTime::MakeTimestamp(DateTime::Split(TzDatetime("2019-01-01T00:00:00,Europe/Moscow"))), -- 2018-12-31T21:00:00Z (конвертация в UTC)
-    DateTime::MakeDate(TzDatetime("2019-01-01T12:00:00,GMT")); -- 2019-01-01 (Datetime -> Date с неявным Split)
+    DateTime::MakeTimestamp(DateTime::Split(Datetime("2019-01-01T15:30:00Z"))), -- 2019-01-01T15:30:00.000000Z
+    DateTime::MakeDate(Datetime("2019-01-01T15:30:00Z")); -- 2019-01-01
 ```
 
 ## Get... {#get}
@@ -71,19 +65,16 @@ SELECT
 * ```DateTime::GetSecond(Resource<TM>{Flags:AutoMap}) -> Uint8```
 * ```DateTime::GetMillisecondOfSecond(Resource<TM>{Flags:AutoMap}) -> Uint32```
 * ```DateTime::GetMicrosecondOfSecond(Resource<TM>{Flags:AutoMap}) -> Uint32```
-* ```DateTime::GetTimezoneId(Resource<TM>{Flags:AutoMap}) -> Uint16```
-* ```DateTime::GetTimezoneName(Resource<TM>{Flags:AutoMap}) -> String```
 
 **Примеры**
 
 ```sql
-$tm = DateTime::Split(TzDatetime("2019-01-09T00:00:00,Europe/Moscow"));
+$tm = DateTime::Split(Datetime("2019-01-09T00:00:00Z"));
 
 SELECT
     DateTime::GetDayOfMonth($tm) as Day, -- 9
     DateTime::GetMonthName($tm) as Month, -- "January"
     DateTime::GetYear($tm) as Year, -- 2019
-    DateTime::GetTimezoneId($tm) as TzId, -- 1
     DateTime::GetDayOfWeekName($tm) as WeekDay; -- "Wednesday"
 ```
 
@@ -93,7 +84,7 @@ SELECT
 
 **Список функций**
 
-* ```DateTime::Update(Resource<TM>{Flags:AutoMap}, [Year:Uint16?, Month:Uint8?, Day:Uint8?, Hour:Uint8?, Minute:Uint8?, Second:Uint8?, Microsecond:Uint32?, TimezoneId:Uint16?]) -> Resource<TM>?```
+* ```DateTime::Update(Resource<TM>{Flags:AutoMap}, [Year:Uint16?, Month:Uint8?, Day:Uint8?, Hour:Uint8?, Minute:Uint8?, Second:Uint8?, Microsecond:Uint32?]) -> Resource<TM>?```
 
 **Примеры**
 
@@ -106,9 +97,7 @@ SELECT
     DateTime::MakeDate(DateTime::Update($tm, NULL, 2, 30)), -- NULL (30 февраля)
     DateTime::MakeDatetime(DateTime::Update($tm, NULL, NULL, 31)), -- 2019-01-31T01:02:03Z
     DateTime::MakeDatetime(DateTime::Update($tm, 15 as Hour, 30 as Minute)), -- 2019-01-01T15:30:03Z
-    DateTime::MakeTimestamp(DateTime::Update($tm, 999999 as Microsecond)), -- 2019-01-01T01:02:03.999999Z
-    DateTime::MakeTimestamp(DateTime::Update($tm, 1 as TimezoneId)), -- 2018-12-31T22:02:03.456789Z (конвертация в UTC)
-    DateTime::MakeTzTimestamp(DateTime::Update($tm, 1 as TimezoneId)); -- 2019-01-01T01:02:03.456789,Europe/Moscow
+    DateTime::MakeTimestamp(DateTime::Update($tm, 999999 as Microsecond)); -- 2019-01-01T01:02:03.999999Z
 ```
 
 ## From... / To... / Interval... {#from-to-interva;}
@@ -125,16 +114,16 @@ SELECT
 
 **Список функций**
 
-* ```DateTime::ToSeconds(Date/DateTime/Timestamp/TzDate/TzDatetime/TzTimestamp{Flags:AutoMap}) -> Uint32```
-* ```DateTime::ToMilliseconds(Date/DateTime/Timestamp/TzDate/TzDatetime/TzTimestamp{Flags:AutoMap}) -> Uint64```
-* ```DateTime::ToMicroseconds(Date/DateTime/Timestamp/TzDate/TzDatetime/TzTimestamp{Flags:AutoMap}) -> Uint64```
+* ```DateTime::ToSeconds(Date/DateTime/Timestamp{Flags:AutoMap}) -> Uint32```
+* ```DateTime::ToMilliseconds(Date/DateTime/Timestamp{Flags:AutoMap}) -> Uint64```
+* ```DateTime::ToMicroseconds(Date/DateTime/Timestamp{Flags:AutoMap}) -> Uint64```
 
 **Примеры**
 
 ```sql
 SELECT
     DateTime::FromSeconds(1546304523), -- 2019-01-01T01:02:03.000000Z
-    DateTime::ToMicroseconds(Datetime("2019-01-01T01:02:03.456789Z")); -- 1546304523456789
+    DateTime::ToMicroseconds(Timestamp("2019-01-01T01:02:03.456789Z")); -- 1546304523456789
 ```
 
 Преобразования между ```Interval``` и различными единицами измерения времени.
@@ -190,7 +179,7 @@ SELECT
 $format = DateTime::Format("%Y-%m-%d %H:%M:%S %Z");
 
 SELECT
-    $format(DateTime::Split(TzDatetime("2019-01-01T01:02:03,Europe/Moscow"))); -- "2019-01-01 01:02:03 Europe/Moscow"
+    $format(DateTime::Split(Datetime("2019-01-01T01:02:03Z"))); -- "2019-01-01 01:02:03 GMT"
 ```
 
 ## Parse {#parse}
@@ -223,8 +212,7 @@ $parse4 = DateTime::Parse("%Z");
 SELECT
     DateTime::MakeDatetime($parse1("01:02:03")), -- 1970-01-01T01:02:03Z
     DateTime::MakeTimestamp($parse2("12.3456")), -- 1970-01-01T00:00:12.345600Z
-    DateTime::MakeTimestamp($parse3("02/30/2000")), -- NULL (Feb 30)
-    DateTime::MakeTimestamp($parse4("Canada/Central")); -- 1970-01-01T06:00:00Z (конвертация в UTC)
+    DateTime::MakeTimestamp($parse3("02/30/2000")); -- NULL (Feb 30)
 ```
 
 Для распространённых форматов есть врапперы вокруг соответствующих методов util. Можно получить только TM с компонентами в UTC таймзоне.
@@ -243,6 +231,6 @@ SELECT
     DateTime::MakeTimestamp(DateTime::ParseRfc822("Fri, 4 Mar 2005 19:34:45 EST")), -- 2005-03-05T00:34:45Z
     DateTime::MakeTimestamp(DateTime::ParseIso8601("2009-02-14T02:31:30+0300")), -- 2009-02-13T23:31:30Z
     DateTime::MakeTimestamp(DateTime::ParseHttp("Sunday, 06-Nov-94 08:49:37 GMT")), -- 1994-11-06T08:49:37Z
-    DateTime::MakeTimestamp(DateTime::ParseX509("20091014165533Z")) -- 2009-10-14T16:55:33Z
+    DateTime::MakeTimestamp(DateTime::ParseX509("20091014165533Z")); -- 2009-10-14T16:55:33Z
 ```
 

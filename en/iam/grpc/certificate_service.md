@@ -34,12 +34,12 @@ certificate_id | **string**<br>ID of the certificate to return. To get the certi
 
 Field | Description
 --- | ---
-id | **string**<br>Required. ID of the certificate. false The maximum string length in characters is 50.
-federation_id | **string**<br>Required. ID of the federation that the certificate belongs to. false The maximum string length in characters is 50.
+id | **string**<br>Required. ID of the certificate. The maximum string length in characters is 50.
+federation_id | **string**<br>Required. ID of the federation that the certificate belongs to. The maximum string length in characters is 50.
 name | **string**<br>Name of the certificate. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>Description of the certificate. The maximum string length in characters is 256.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
-data | **string**<br>Required. Certificate data in PEM format. false The maximum string length in characters is 32000.
+data | **string**<br>Required. Certificate data in PEM format. The maximum string length in characters is 32000.
 
 
 ## List {#List}
@@ -52,7 +52,7 @@ Retrieves the list of certificates in the specified federation.
 
 Field | Description
 --- | ---
-federation_id | **string**<br>Required. ID of the federation to list certificates in. To get the federation ID make a [yandex.cloud.iam.v1.saml.FederationService.List](/docs/iam/grpc/federation_service#List) request. The maximum string length in characters is 50. false
+federation_id | **string**<br>Required. ID of the federation to list certificates in. To get the federation ID make a [yandex.cloud.iam.v1.saml.FederationService.List](/docs/iam/grpc/federation_service#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListCertificatesResponse.next_page_token](#ListCertificatesResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListCertificatesResponse.next_page_token](#ListCertificatesResponse) returned by a previous list request. The maximum string length in characters is 100.
 filter | **string**<br><ol><li>The field name. Currently you can use filtering only on [Certificate.name](../certificate.proto#Certificate1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.</li></ol> The maximum string length in characters is 1000.
@@ -63,19 +63,19 @@ filter | **string**<br><ol><li>The field name. Currently you can use filtering o
 Field | Description
 --- | ---
 certificates[] | **[Certificate](../certificate.proto#Certificate1)**<br>List of certificates. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListCertificatesRequest.page_size](#ListCertificatesRequest1), use the `next_page_token` as the value for the [ListCertificatesRequest.page_token](#ListCertificatesRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListCertificatesRequest.page_size](#ListCertificatesRequest), use the `next_page_token` as the value for the [ListCertificatesRequest.page_token](#ListCertificatesRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
-### Certificate {#Certificate}
+### Certificate {#Certificate1}
 
 Field | Description
 --- | ---
-id | **string**<br>Required. ID of the certificate. false The maximum string length in characters is 50.
-federation_id | **string**<br>Required. ID of the federation that the certificate belongs to. false The maximum string length in characters is 50.
+id | **string**<br>Required. ID of the certificate. The maximum string length in characters is 50.
+federation_id | **string**<br>Required. ID of the federation that the certificate belongs to. The maximum string length in characters is 50.
 name | **string**<br>Name of the certificate. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>Description of the certificate. The maximum string length in characters is 256.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
-data | **string**<br>Required. Certificate data in PEM format. false The maximum string length in characters is 32000.
+data | **string**<br>Required. Certificate data in PEM format. The maximum string length in characters is 32000.
 
 
 ## Create {#Create}
@@ -121,16 +121,16 @@ Field | Description
 certificate_id | **string**<br>ID of the certificate that is being created. 
 
 
-### Certificate {#Certificate}
+### Certificate {#Certificate2}
 
 Field | Description
 --- | ---
-id | **string**<br>Required. ID of the certificate. false The maximum string length in characters is 50.
-federation_id | **string**<br>Required. ID of the federation that the certificate belongs to. false The maximum string length in characters is 50.
+id | **string**<br>Required. ID of the certificate. The maximum string length in characters is 50.
+federation_id | **string**<br>Required. ID of the federation that the certificate belongs to. The maximum string length in characters is 50.
 name | **string**<br>Name of the certificate. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>Description of the certificate. The maximum string length in characters is 256.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
-data | **string**<br>Required. Certificate data in PEM format. false The maximum string length in characters is 32000.
+data | **string**<br>Required. Certificate data in PEM format. The maximum string length in characters is 32000.
 
 
 ## Update {#Update}
@@ -154,7 +154,7 @@ description | **string**<br>Description of the certificate. The maximum string l
 data | **string**<br>Certificate data in PEM format. The maximum string length in characters is 32000.
 
 
-### Operation {#Operation}
+### Operation {#Operation1}
 
 Field | Description
 --- | ---
@@ -177,16 +177,16 @@ Field | Description
 certificate_id | **string**<br>ID of the certificate that is being updated. 
 
 
-### Certificate {#Certificate}
+### Certificate {#Certificate3}
 
 Field | Description
 --- | ---
-id | **string**<br>Required. ID of the certificate. false The maximum string length in characters is 50.
-federation_id | **string**<br>Required. ID of the federation that the certificate belongs to. false The maximum string length in characters is 50.
+id | **string**<br>Required. ID of the certificate. The maximum string length in characters is 50.
+federation_id | **string**<br>Required. ID of the federation that the certificate belongs to. The maximum string length in characters is 50.
 name | **string**<br>Name of the certificate. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>Description of the certificate. The maximum string length in characters is 256.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
-data | **string**<br>Required. Certificate data in PEM format. false The maximum string length in characters is 32000.
+data | **string**<br>Required. Certificate data in PEM format. The maximum string length in characters is 32000.
 
 
 ## Delete {#Delete}
@@ -206,7 +206,7 @@ Field | Description
 certificate_id | **string**<br>ID of the certificate to delete. To get the certificate ID, make a [CertificateService.List](#List) request. The maximum string length in characters is 50.
 
 
-### Operation {#Operation}
+### Operation {#Operation2}
 
 Field | Description
 --- | ---
@@ -249,10 +249,10 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 Field | Description
 --- | ---
 operations[] | **[operation.Operation](#Operation3)**<br>List of operations for the specified certificate. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListCertificateOperationsRequest.page_size](#ListCertificateOperationsRequest1), use the `next_page_token` as the value for the [ListCertificateOperationsRequest.page_token](#ListCertificateOperationsRequest1) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListCertificateOperationsRequest.page_size](#ListCertificateOperationsRequest), use the `next_page_token` as the value for the [ListCertificateOperationsRequest.page_token](#ListCertificateOperationsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
-### Operation {#Operation}
+### Operation {#Operation3}
 
 Field | Description
 --- | ---

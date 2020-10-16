@@ -11,18 +11,20 @@ items:
         href: operations/cluster-list.md
       - name: Создание кластера
         href: operations/cluster-create.md
+      - name: Миграция базы данных в Yandex.Cloud
+        href: operations/data-migration.md
       - name: Подключение к базе данных
         href: operations/connect.md
       - name: Остановка и запуск кластера
         href: operations/cluster-stop.md
-      - name: Управление хостами кластера
-        href: operations/hosts.md
       - name: Изменение настроек кластера и базы данных
         href: operations/update.md
       - name: Обновление версии MongoDB
         href: operations/cluster-version-update.md
       - name: Управление базами данных
         href: operations/databases.md
+      - name: Управление хостами кластера
+        href: operations/hosts.md
       - name: Управление пользователями БД
         href: operations/cluster-users.md
       - name: Управление резервными копиями
@@ -31,8 +33,6 @@ items:
         href: operations/shards.md
       - name: Удаление кластера
         href: operations/cluster-delete.md
-      - name: Миграция базы данных в Yandex.Cloud
-        href: operations/data-migration.md
   - name: Сценарии использования
     items:
       - name: Шардирование коллекций

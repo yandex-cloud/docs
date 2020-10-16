@@ -1,12 +1,13 @@
 # Создание подключения к MS SQL Server
 
+{% include [connection-note](../../../_includes/datalens/datalens-connection-note.md) %}
+
+## Подключение к MS SQL Server {#ms-sql-server-connection}
+
 Чтобы создать подключение к MS SQL Server:
 1. Перейдите на [страницу подключений](https://datalens.yandex.ru/connections).
 1. Нажмите кнопку **Создать подключение**.
 1. Выберите коннектор **MS SQL Server**.
-
-   {% include [connection-note](../../../_includes/datalens/datalens-connection-note.md) %}
-
 1. Укажите параметры подключения:
     - **Имя подключения**. Задайте имя подключения. Имя может быть произвольным.
     - **Имя хоста или IP**. Укажите путь до хоста MS SQL Server.

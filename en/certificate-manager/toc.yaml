@@ -48,3 +48,51 @@ items:
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
+  - name: API reference
+    items:
+      - name: Authentication in the API
+        href: api-ref/authentication.md
+      - name: gRPC
+        items:
+          - name: Overview
+            href: grpc/index.md
+          - name: CertificateContentService
+            href: grpc/certificate_content_service.md
+          - name: CertificateService
+            href: grpc/certificate_service.md
+          - name: OperationService
+            href: grpc/operation_service.md
+      - name: REST
+        items:
+          - name: Overview
+            href: api-ref/index.md
+          - name: Certificate
+            items:
+              - name: Overview
+                href: api-ref/Certificate/index.md
+              - name: create
+                href: api-ref/Certificate/create.md
+              - name: delete
+                href: api-ref/Certificate/delete.md
+              - name: get
+                href: api-ref/Certificate/get.md
+              - name: list
+                href: api-ref/Certificate/list.md
+              - name: listAccessBindings
+                href: api-ref/Certificate/listAccessBindings.md
+              - name: listOperations
+                href: api-ref/Certificate/listOperations.md
+              - name: requestNew
+                href: api-ref/Certificate/requestNew.md
+              - name: setAccessBindings
+                href: api-ref/Certificate/setAccessBindings.md
+              - name: update
+                href: api-ref/Certificate/update.md
+              - name: updateAccessBindings
+                href: api-ref/Certificate/updateAccessBindings.md
+          - name: CertificateContent
+            items:
+              - name: Overview
+                href: api-ref/CertificateContent/index.md
+              - name: get
+                href: api-ref/CertificateContent/get.md

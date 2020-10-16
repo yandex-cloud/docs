@@ -40,5 +40,9 @@ To create a new message queue:
   }
   ```
 
+- Terraform
+
+  {% include [ymq-terraform](../_includes_service/mq-terraform.md) %}
+
 {% endlist %}
 

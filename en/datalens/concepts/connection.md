@@ -8,7 +8,7 @@ You can create [_datasets_](dataset/index.md) based on connections.
 ## Connector {#connector}
 
 _A connector_ is a driver for connecting and uploading data from a DB, API, or file.
-{{ datalens-short-name }} uses connections to request data from a source.
+Uses the {{ datalens-short-name }} connection to request data from the source.
 
 The following types of connectors are available in {{ datalens-short-name }}:
 
@@ -36,4 +36,3 @@ You can configure connection permissions. For more information, see [{#T}](../se
 - [{#T}](../operations/connection/create-metrica-api.md)
 - [{#T}](../operations/connection/create-metrica-logs-api.md)
 - [{#T}](../operations/connection/create-appmetrica.md)
-

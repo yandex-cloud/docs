@@ -27,7 +27,7 @@ editable: false
 
 Поле | Описание
 --- | ---
-subnet_id | **string**<br>Обязательное поле. Идентификатор возвращаемого ресурса Subnet. <br>Чтобы получить идентификатор подсети, используйте запрос [SubnetService.List](#List). false Максимальная длина строки в символах — 50.
+subnet_id | **string**<br>Обязательное поле. Идентификатор возвращаемого ресурса Subnet. <br>Чтобы получить идентификатор подсети, используйте запрос [SubnetService.List](#List). Максимальная длина строки в символах — 50.
 
 
 ### Subnet {#Subnet}
@@ -56,7 +56,7 @@ v6_cidr_blocks[] | **string**<br>IPv6 еще не доступен.
 
 Поле | Описание
 --- | ---
-folder_id | **string**<br>Обязательное поле. Идентификатор каталога для получения списка подсетей. Чтобы получить идентификатор каталога, используйте запрос [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List). false Максимальная длина строки в символах — 50.
+folder_id | **string**<br>Обязательное поле. Идентификатор каталога для получения списка подсетей. Чтобы получить идентификатор каталога, используйте запрос [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List). Максимальная длина строки в символах — 50.
 page_size | **int64**<br>Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `page_size`, сервис вернет значение [ListSubnetsResponse.next_page_token](#ListSubnetsResponse), которое можно использовать для получения следующей страницы. Значение по умолчанию: 100. Максимальное значение — 1000.
 page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListSubnetsResponse.next_page_token](#ListSubnetsResponse) прошлого запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
 filter | **string**<br><ol><li>Имя поля. В настоящее время фильтрация осуществляется только по полю [Subnet.name](../subnet.proto#Subnet1). </li><li>Оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений. </li><li>Значение. Значение длиной от 3 до 63 символов, совпадающее с регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.</li></ol> Максимальная длина строки в символах — 1000.
@@ -67,10 +67,10 @@ filter | **string**<br><ol><li>Имя поля. В настоящее время
 Поле | Описание
 --- | ---
 subnets[] | **[Subnet](../subnet.proto#Subnet1)**<br>Список подсетей. 
-next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListSubnetsRequest.page_size](#ListSubnetsRequest1), используйте `next_page_token` в качестве значения параметра [ListSubnetsRequest.page_token](#ListSubnetsRequest1) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token`, для перебора страниц результатов. 
+next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListSubnetsRequest.page_size](#ListSubnetsRequest), используйте `next_page_token` в качестве значения параметра [ListSubnetsRequest.page_token](#ListSubnetsRequest) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token`, для перебора страниц результатов. 
 
 
-### Subnet {#Subnet}
+### Subnet {#Subnet1}
 
 Поле | Описание
 --- | ---
@@ -100,11 +100,11 @@ v6_cidr_blocks[] | **string**<br>IPv6 еще не доступен.
 
 Поле | Описание
 --- | ---
-folder_id | **string**<br>Обязательное поле. Идентификатор каталога, в котором создается подсеть. Чтобы получить идентификатор каталога, используйте запрос [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List). false Максимальная длина строки в символах — 50.
+folder_id | **string**<br>Обязательное поле. Идентификатор каталога, в котором создается подсеть. Чтобы получить идентификатор каталога, используйте запрос [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List). Максимальная длина строки в символах — 50.
 name | **string**<br>Имя подсети. Имя должно быть уникальным в каталоге. Значение должно соответствовать регулярному выражению ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>Описание подсети. Максимальная длина строки в символах — 256.
 labels | **map<string,string>**<br>Метки ресурса в формате `` ключ:значение ``. Не более 64 на ресурс. Максимальная длина строки в символах для каждого значения — 63. Каждое значение должно соответствовать регулярному выражению ` [-_0-9a-z]* `. Длина строки в символах для каждого ключа должна быть от 1 до 63. Каждый ключ должен соответствовать регулярному выражению ` [a-z][-_0-9a-z]* `.
-network_id | **string**<br>Обязательное поле. Идентификатор облачной сети, в которой создается подсеть. false Максимальная длина строки в символах — 50.
+network_id | **string**<br>Обязательное поле. Идентификатор облачной сети, в которой создается подсеть. Максимальная длина строки в символах — 50.
 zone_id | **string**<br>Идентификатор зоны доступности, где находится подсеть. Чтобы получить список доступных зон, используйте запрос [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/grpc/zone_service#List). Максимальная длина строки в символах — 50.
 v4_cidr_blocks[] | **string**<br><ol><li></li></ol> 
 v6_cidr_blocks[] | **string**<br>Диапазоны IPv6 еще не доступны. 
@@ -134,7 +134,7 @@ result | **oneof:** `error` или `response`<br>Результат операц
 subnet_id | **string**<br>Идентификатор создаваемой подсети. 
 
 
-### Subnet {#Subnet}
+### Subnet {#Subnet2}
 
 Поле | Описание
 --- | ---
@@ -164,7 +164,7 @@ v6_cidr_blocks[] | **string**<br>IPv6 еще не доступен.
 
 Поле | Описание
 --- | ---
-subnet_id | **string**<br>Обязательное поле. Идентификатор обновляемого ресурса Subnet. false Максимальная длина строки в символах — 50.
+subnet_id | **string**<br>Обязательное поле. Идентификатор обновляемого ресурса Subnet. Максимальная длина строки в символах — 50.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Маска, определяющая, какие поля ресурса Subnet будут обновлены. 
 name | **string**<br>Имя подсети. Имя должно быть уникальным в каталоге. Значение должно соответствовать регулярному выражению ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>Описание подсети. Максимальная длина строки в символах — 256.
@@ -172,7 +172,7 @@ labels | **map<string,string>**<br>Метки ресурса в формате `
 route_table_id | **string**<br>ID of route table the subnet is linked to. Максимальная длина строки в символах — 50.
 
 
-### Operation {#Operation}
+### Operation {#Operation1}
 
 Поле | Описание
 --- | ---
@@ -195,7 +195,7 @@ result | **oneof:** `error` или `response`<br>Результат операц
 subnet_id | **string**<br>Идентификатор обновляемого ресурса Subnet. 
 
 
-### Subnet {#Subnet}
+### Subnet {#Subnet3}
 
 Поле | Описание
 --- | ---
@@ -225,10 +225,10 @@ v6_cidr_blocks[] | **string**<br>IPv6 еще не доступен.
 
 Поле | Описание
 --- | ---
-subnet_id | **string**<br>Обязательное поле. Идентификатор удаляемой подсети. Чтобы получить идентификатор подсети, используйте запрос [SubnetService.List](#List). false Максимальная длина строки в символах — 50.
+subnet_id | **string**<br>Обязательное поле. Идентификатор удаляемой подсети. Чтобы получить идентификатор подсети, используйте запрос [SubnetService.List](#List). Максимальная длина строки в символах — 50.
 
 
-### Operation {#Operation}
+### Operation {#Operation2}
 
 Поле | Описание
 --- | ---
@@ -261,7 +261,7 @@ subnet_id | **string**<br>Идентификатор удаляемого рес
 
 Поле | Описание
 --- | ---
-subnet_id | **string**<br>Обязательное поле. Идентификатор ресурса Subnet, для которого запрашивается список операций. false Максимальная длина строки в символах — 50.
+subnet_id | **string**<br>Обязательное поле. Идентификатор ресурса Subnet, для которого запрашивается список операций. Максимальная длина строки в символах — 50.
 page_size | **int64**<br>Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `page_size`, сервис вернет значение [ListNetworkOperationsResponse.next_page_token](../network_service.proto#ListNetworkOperationsResponse), которое можно использовать для получения следующей страницы. Значение по умолчанию: 100. Максимальное значение — 1000.
 page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListNetworkSubnetsResponse.next_page_token](../network_service.proto#ListNetworkSubnetsResponse) прошлого запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
 
@@ -274,7 +274,7 @@ operations[] | **[operation.Operation](#Operation3)**<br>Список опера
 next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListNetworkSubnetsRequest.page_size](../network_service.proto#ListNetworkSubnetsRequest), используйте `next_page_token` в качестве значения параметра [ListNetworkSubnetsRequest.page_token](../network_service.proto#ListNetworkSubnetsRequest) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token`, для перебора страниц результатов. 
 
 
-### Operation {#Operation}
+### Operation {#Operation3}
 
 Поле | Описание
 --- | ---

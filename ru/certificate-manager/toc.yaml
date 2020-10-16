@@ -1,6 +1,5 @@
 title: Yandex Certificate Manager
 href: index.yaml
-stage: preview
 items:
   - name: Начало работы
     href: quickstart/index.md
@@ -12,6 +11,8 @@ items:
         items:
           - name: Создание сертификата
             href: operations/managed/cert-create.md
+          - name: Получение содержимого сертификата
+            href: operations/managed/cert-get-content.md
           - name: Прохождение процедуры проверки прав на домен
             href: operations/managed/cert-validate.md
           - name: Обновление сертификата
@@ -24,6 +25,8 @@ items:
         items:
           - name: Создание сертификата
             href: operations/import/cert-create.md
+          - name: Получение содержимого сертификата
+            href: operations/import/cert-get-content.md
           - name: Обновление сертификата
             href: operations/import/cert-update.md
           - name: Изменение сертификата
@@ -64,3 +67,51 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
+  - name: Справочник API
+    items:
+      - name: Аутентификация в API
+        href: api-ref/authentication.md
+      - name: gRPC
+        items:
+          - name: Обзор
+            href: grpc/index.md
+          - name: CertificateContentService
+            href: grpc/certificate_content_service.md
+          - name: CertificateService
+            href: grpc/certificate_service.md
+          - name: OperationService
+            href: grpc/operation_service.md
+      - name: REST
+        items:
+          - name: Обзор
+            href: api-ref/index.md
+          - name: Certificate
+            items:
+              - name: Обзор
+                href: api-ref/Certificate/index.md
+              - name: create
+                href: api-ref/Certificate/create.md
+              - name: delete
+                href: api-ref/Certificate/delete.md
+              - name: get
+                href: api-ref/Certificate/get.md
+              - name: list
+                href: api-ref/Certificate/list.md
+              - name: listAccessBindings
+                href: api-ref/Certificate/listAccessBindings.md
+              - name: listOperations
+                href: api-ref/Certificate/listOperations.md
+              - name: requestNew
+                href: api-ref/Certificate/requestNew.md
+              - name: setAccessBindings
+                href: api-ref/Certificate/setAccessBindings.md
+              - name: update
+                href: api-ref/Certificate/update.md
+              - name: updateAccessBindings
+                href: api-ref/Certificate/updateAccessBindings.md
+          - name: CertificateContent
+            items:
+              - name: Обзор
+                href: api-ref/CertificateContent/index.md
+              - name: get
+                href: api-ref/CertificateContent/get.md

@@ -1,6 +1,6 @@
-# Расширение x-yc-apigateway-integration:object-storage
+# Расширение x-yc-apigateway-integration:object_storage
 
-Расширение `x-yc-apigateway-integration:object-storage` передает управление обработки запроса в {{ objstorage-short-name }} с целью раздачи статических файлов. Позволяет управлять ключом для доступа к объекту и реализует возможность раздавать статические данные напрямую из {{ objstorage-short-name }}, используя перенаправление на подписанный URL.
+Расширение `x-yc-apigateway-integration:object_storage` передает управление обработки запроса в {{ objstorage-short-name }} с целью раздачи статических файлов. Позволяет управлять ключом для доступа к объекту и реализует возможность раздавать статические данные напрямую из {{ objstorage-short-name }}, используя перенаправление на подписанный URL.
 
 ## Поддерживаемые параметры {#parameters}
 
@@ -11,7 +11,7 @@
 `bucket` | `string` | Имя [бакета](../../../storage/concepts/bucket.md).
 `object` |`string` | Имя [объекта](../../../storage/concepts/object.md). Поддерживается шаблонизация параметрами из пути исходного запроса. <br>В `object` осуществляется подстановка параметров.
 `presigned_redirect` | `bool` | Если значение — `true`, генерирует [подписанный (pre-signed) URL](../../../storage/concepts/pre-signed-urls.md) и возвращает перенаправление клиенту.
-`service_account` | `string` | Идентификатор сервисного аккаунта для авторизации при обращении к {{ objstorage-short-name }}. Если параметр не указан, используется значение [верхнеуровнего](./index.md#top-level) параметра `service_account`. Если верхнеуровнего параметра тоже нет, функция вызывается без авторизации. 
+`service_account_id` | `string` | Идентификатор сервисного аккаунта для авторизации при обращении к {{ objstorage-short-name }}. Если параметр не указан, используется значение [верхнеуровнего](./index.md#top-level) параметра `service_account_id`. Если верхнеуровнего параметра тоже нет, функция вызывается без авторизации. 
 
 
 ## Спецификация расширения {#spec}
@@ -29,9 +29,9 @@
           schema:
             type: string
       x-yc-apigateway-integration:
-        type: object-storage
+        type: object_storage
         bucket: my-example-bucket
-        object: 'my-object'
+        object: '{file}'
         presigned_redirect: true
-        service_account: ajehfe41hhliq4n93q1g
+        service_account_id: ajehfe41hhliq4n93q1g
 ```

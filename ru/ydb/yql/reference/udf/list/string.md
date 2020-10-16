@@ -1,7 +1,7 @@
 # String UDF
 
 
-Функции для работы со строками Unicode на основе библиотек `util/string/` и `TString`:
+Функции для работы со строками ASCII:
 
 
 **Список функций**
@@ -25,7 +25,7 @@
    Возвращает первую найденную позицию или -1; Опциональный аргумент - отступ от начала строки.
 * ```String::ReverseFind(String{Flags:AutoMap}, String, [Uint64?]) -> Int64```
 
-   Возвращает последнюю найденную позицию или -1; Опциональный аргумент - отступ от начала строки.
+   Возвращает последнюю найденную позицию или -1; Опциональный аргумент - отступ от конца строки.
 * ```String::HasPrefix(String?, String) -> Bool```
 * ```String::HasPrefixIgnoreCase(String?, String) -> Bool```
 * ```String::StartsWith(String?, String) -> Bool```
@@ -48,19 +48,19 @@
    Аргументы: input, find, replacement.
 * ```String::ReplaceFirst(String{Flags:AutoMap}, String, String) -> String ```
 
-   Аргументы: input, find, replacement, второй аргумент — 1 символ.
+   Аргументы: input, find, replacement, второй и третий аргумент — символ.
 * ```String::ReplaceLast(String{Flags:AutoMap}, String, String) -> String ```
 
-   Аргументы: input, find, replacement, второй аргумент — 1 символ.
+   Аргументы: input, find, replacement, второй и третий аргумент — символ.
 * ```String::RemoveAll(String{Flags:AutoMap}, String) -> String```
 
    Второй аргумент интерпретируется как неупорядоченный набор символов для удаления.
 * ```String::RemoveFirst(String{Flags:AutoMap}, String) -> String```
 
-   Второй аргумент интерпретируется как неупорядоченный набор символов для удаления, второй аргумент — 1 символ.
+   Второй аргумент — символ для удаления.
 * ```String::RemoveLast(String{Flags:AutoMap}, String) -> String ```
 
-   Второй аргумент интерпретируется как неупорядоченный набор символов для удаления, второй аргумент — 1 символ.
+   Второй аргумент — символ для удаления.
 * ```String::IsAscii(String{Flags:AutoMap}) -> Bool```
 * ```String::IsAsciiSpace(String{Flags:AutoMap}) -> Bool```
 * ```String::IsAsciiUpper(String{Flags:AutoMap}) -> Bool```

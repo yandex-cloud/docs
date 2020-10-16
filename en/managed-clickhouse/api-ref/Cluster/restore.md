@@ -234,7 +234,10 @@ POST https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters:restore
     },
     "cloudStorage": {
       "enabled": true
-    }
+    },
+    "sqlDatabaseManagement": true,
+    "sqlUserManagement": true,
+    "adminPassword": "string"
   },
   "hostSpecs": [
     {
@@ -421,6 +424,9 @@ configSpec.<br>access.<br>metrika | **boolean** (boolean)<br><p>Allow to import 
 configSpec.<br>access.<br>serverless | **boolean** (boolean)<br><p>Allow access to cluster for Serverless.</p> 
 configSpec.<br>cloudStorage | **object**<br>
 configSpec.<br>cloudStorage.<br>enabled | **boolean** (boolean)<br><p>Whether to use Yandex Object Storage for storing ClickHouse data.</p> 
+configSpec.<br>sqlDatabaseManagement | **boolean** (boolean)<br><p>Whether database management through SQL commands is enabled.</p> 
+configSpec.<br>sqlUserManagement | **boolean** (boolean)<br><p>Whether user management through SQL commands is enabled.</p> 
+configSpec.<br>adminPassword | **string**<br><p>Password for user 'admin' that has SQL user management access.</p> 
 hostSpecs[] | **object**<br><p>Required. Configurations for ClickHouse hosts that should be created for the cluster that is being created from the backup.</p> <p>Must contain at least one element.</p> 
 hostSpecs[].<br>zoneId | **string**<br><p>ID of the availability zone where the host resides. To get a list of available zones, use the <a href="/docs/compute/api-ref/Zone/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
 hostSpecs[].<br>type | **string**<br><p>Required. Type of the host to be deployed.</p> <ul> <li>CLICKHOUSE: ClickHouse host.</li> <li>ZOOKEEPER: ZooKeeper host.</li> </ul> 

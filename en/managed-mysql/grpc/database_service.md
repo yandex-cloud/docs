@@ -25,8 +25,8 @@ Returns the specified MySQL database. <br>To get the list of available MySQL dat
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MySQL cluster that the database belongs to. To get the cluster ID use a [ClusterService.List](./cluster_service#List) request. false The maximum string length in characters is 50.
-database_name | **string**<br>Required. Name of the MySQL database to return. To get the name of the database use a [DatabaseService.List](#List) request. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+cluster_id | **string**<br>Required. ID of the MySQL cluster that the database belongs to. To get the cluster ID use a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
+database_name | **string**<br>Required. Name of the MySQL database to return. To get the name of the database use a [DatabaseService.List](#List) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
 ### Database {#Database}
@@ -47,7 +47,7 @@ Retrieves the list of MySQL databases in the specified cluster.
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MySQL cluster to list databases in. To get the cluster ID use a [ClusterService.List](./cluster_service#List) request. false The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the MySQL cluster to list databases in. To get the cluster ID use a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListDatabasesResponse.next_page_token](#ListDatabasesResponse) that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, Set `page_token` to the [ListDatabasesResponse.next_page_token](#ListDatabasesResponse) returned by a previous list request. The maximum string length in characters is 100.
 
@@ -57,10 +57,10 @@ page_token | **string**<br>Page token. To get the next page of results, Set `pag
 Field | Description
 --- | ---
 databases[] | **[Database](../database.proto#Database1)**<br>List of MySQL databases. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListDatabasesRequest.page_size](#ListDatabasesRequest1), use the `next_page_token` as the value for the [ListDatabasesRequest.page_token](#ListDatabasesRequest1) parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListDatabasesRequest.page_size](#ListDatabasesRequest), use the `next_page_token` as the value for the [ListDatabasesRequest.page_token](#ListDatabasesRequest) parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
-### Database {#Database}
+### Database {#Database1}
 
 Field | Description
 --- | ---
@@ -82,15 +82,15 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MySQL cluster to create a database in. To get the cluster ID use a [ClusterService.List](./cluster_service#List) request. false The maximum string length in characters is 50.
-database_spec | **[DatabaseSpec](../database.proto#DatabaseSpec)**<br>Required. Configuration of the database to create. false
+cluster_id | **string**<br>Required. ID of the MySQL cluster to create a database in. To get the cluster ID use a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
+database_spec | **[DatabaseSpec](../database.proto#DatabaseSpec)**<br>Required. Configuration of the database to create. 
 
 
 ### DatabaseSpec {#DatabaseSpec}
 
 Field | Description
 --- | ---
-name | **string**<br>Required. Name of the MySQL database. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+name | **string**<br>Required. Name of the MySQL database. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
 ### Operation {#Operation}
@@ -117,7 +117,7 @@ cluster_id | **string**<br>ID of the MySQL cluster where a database is being cre
 database_name | **string**<br>Name of the MySQL database that is being created. 
 
 
-### Database {#Database}
+### Database {#Database2}
 
 Field | Description
 --- | ---
@@ -139,11 +139,11 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MySQL cluster to delete a database in. To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request. false The maximum string length in characters is 50.
-database_name | **string**<br>Required. Name of the database to delete. To get the name of the database, use a [DatabaseService.List](#List) request. false The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+cluster_id | **string**<br>Required. ID of the MySQL cluster to delete a database in. To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
+database_name | **string**<br>Required. Name of the database to delete. To get the name of the database, use a [DatabaseService.List](#List) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
-### Operation {#Operation}
+### Operation {#Operation1}
 
 Field | Description
 --- | ---
