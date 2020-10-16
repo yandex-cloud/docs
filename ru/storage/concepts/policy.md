@@ -15,7 +15,7 @@
 
 Политика доступа состоит из базовых элементов:
 
-- Ресурс – бакет и объекты в бакете, или префикс.
+- Ресурс – бакет, объект в бакете, или префикс.
 - Действие – набор операций над ресурсом, который будет запрещен или разрешен политикой. Подробнее читайте в разделе [Действия](../s3/api-ref/policy/actions.md).
 - Результат – запрет или разрешение запрошенного действия. Сначала проверяется попадание запроса в фильтр с действием `Deny`, при совпадении запрос отклоняется и дальнейшие проверки не проводятся. При попадании в фильтр с действием `Allow` запрос разрешается. Если запрос не попал ни в один из фильтров, то запрос отклоняется.
 - Принципал – получатель запрошенного разрешения политики. Это может быть пользователь {{ iam-short-name }}, федеративный пользователь, сервисный аккаунт или анонимный пользователь.
@@ -84,30 +84,16 @@
     {
       "Sid":"User1Permissions",
       "Effect":"Allow",
-      "Principal": "*",
+      "Principal": "ajeanexampleusername",
       "Action": "*",
-      "Resource":["arn:aws:s3:::common-bucket/user1path/*"],
-      "Condition": {
-        "StringEquals": {
-          "aws:userId": [
-	    "ajeanexampleusername"
-          ]
-        }
-      }
+      "Resource":["arn:aws:s3:::common-bucket/user1path/*"]
     },
     {
       "Sid":"User2Permissions",
       "Effect":"Allow",
-      "Principal": "*",
+      "Principal": "ajesomeotherusername",
       "Action": "*",
-      "Resource":["arn:aws:s3:::common-bucket/user2path/*"],
-      "Condition": {
-        "StringEquals": {
-          "aws:userId": [
-            "ajesomeotherusername"
-          ]
-        }
-      }
+      "Resource":["arn:aws:s3:::common-bucket/user2path/*"]
     }
   ]
 }
