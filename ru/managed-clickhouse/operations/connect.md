@@ -10,76 +10,37 @@
 
 ## Получение SSL-сертификата {#get-ssl-cert}
 
-Чтобы использовать шифрованное соединение, необходимо получить SSL-сертификат:
+Чтобы использовать шифрованное соединение, необходимо подготовить SSL-сертификат, например, так:
 
 {% if audience != "internal" %}
 
 ```bash
-wget "https://{{ s3-storage-host }}{{ pem-path }}"
+sudo mkdir -p /usr/local/share/ca-certificates/Yandex && \
+sudo wget "https://{{ s3-storage-host }}{{ pem-path }}" -O /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt && \
+sudo chmod 655 /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt
 ```
 
 {% else %}
 
 ```bash
-wget "{{ pem-path }}"
+wget "{{ pem-path }}" -O /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt && \
+chmod 0655 /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt
 ```
 
 {% endif %}
 
 
-## Подключение с помощью {{ CH }} CLI {#cli}
+## Примеры строк подключения {#connection-string}
 
-Чтобы подключиться к кластеру с помощью клиента командной строки, укажите путь к SSL-сертификату в [конфигурационном файле](https://clickhouse.yandex/docs/ru/interfaces/cli/#interfaces_cli_configuration), в элементе `<caConfig>`:
+{% include [conn-strings-environment](../../_includes/mdb/mdb-conn-strings-env.md) %} 
 
-```xml
-<config>
-  <openSSL>
-    <client>
-      <loadDefaultCAFile>true</loadDefaultCAFile>
-      <caConfig>[путь к SSL-сертификату]</caConfig>
-      <cacheSessions>true</cacheSessions>
-      <disableProtocols>sslv2,sslv3</disableProtocols>
-      <preferServerCiphers>true</preferServerCiphers>
-      <invalidCertificateHandler>
-        <name>RejectCertificateHandler</name>
-      </invalidCertificateHandler>
-    </client>
-  </openSSL>
-</config>
-```
+Вы можете подключаться к кластеру {{ CH }} только с использованием SSL-сертификата. Перед подключением [подготовьте сертификат](#get-ssl-cert). 
 
-Затем запустите ClickHouse CLI со следующими параметрами:
-
-```bash
-clickhouse-client --host <FQDN хоста> \
-                  -s \
-                  --user <имя пользователя БД> \
-                  --password <пароль пользователя БД> \
-                  -q "<запрос к БД>"
-                  --port 9440
-```
+В этих примерах предполагается, что сертификат `YandexInternalRootCA.crt` расположен в директории `/usr/local/share/ca-certificates/Yandex/`.
 
 {% include [see-fqdn-in-console](../../_includes/mdb/see-fqdn-in-console.md) %}
 
-## Подключение по HTTP {#http}
+{% include [mch-connection-strings](../../_includes/mdb/mch-conn-strings.md) %}
 
-Отправьте запрос, указав путь к полученному SSL-сертификату, атрибуты базы данных и текст запроса в формате urlencoded:
-
-```bash
-curl --cacert <путь к SSL-сертификату> \
-     -H "X-ClickHouse-User: <имя пользователя БД>" \
-     -H "X-ClickHouse-Key: <пароль пользователя БД>" \
-     'https://<FQDN хоста>:8443/?database=<имя БД>&query=SELECT%20now()'
-```
-
-При подключении с помощью HTTP-метода GET возможны только операции чтения. GET-запрос операции записи всегда вызовет ошибку, как при использовании параметра соединения `readonly=1`.
-Для операций записи всегда используйте метод POST:
-
-```bash
-curl -X POST \
-     --cacert <путь к SSL-сертификату> \
-     -H "X-ClickHouse-User: <имя пользователя БД>" \
-     -H "X-ClickHouse-Key: <пароль пользователя БД>" \
-     'https://<FQDN хоста>:8443/?database=<имя БД>&query=INSERT%20INTO%20Customers%20%28CustomerName%2C%20Address%29%20VALUES%20%28%27Example%20Exampleson%27%2C%20%27Moscow%2C%20Lva%20Tolstogo%2C%2016%27%29%3B'
-```
+При успешном подключении к кластеру и выполнении тестового запроса будет выведена версия {{ CH }}.
 
