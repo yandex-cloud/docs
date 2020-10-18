@@ -12,18 +12,18 @@
 
 {% if audience == "internal" %}  
 
-```
-$ mkdir ~/.elasticsearch
-$ wget "https://crls.yandex.net/allCAs.pem" -O ~/.elasticsearch/root.crt
-$ chmod 0600 ~/.elasticsearch/root.crt
+```bash
+mkdir ~/.elasticsearch && \
+wget "https://crls.yandex.net/allCAs.pem" -O ~/.elasticsearch/root.crt && \
+chmod 0600 ~/.elasticsearch/root.crt
 ```
 
 {% else %}
 
-```
-$ mkdir ~/.elasticsearch
-$ wget  "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.elasticsearch/root.crt
-$ chmod 0600 ~/.elasticsearch/root.crt
+```bash
+mkdir ~/.elasticsearch && \
+wget  "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.elasticsearch/root.crt && \
+chmod 0600 ~/.elasticsearch/root.crt
 ```
 
 {% endif %}

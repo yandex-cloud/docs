@@ -22,20 +22,20 @@
   1. [Подключитесь](../../compute/operations/vm-connect/ssh.md) к виртуальной машине по SSH.
   1. Установите зависимости:  
 
-     ```
-     $ sudo apt install nginx ssl-cert
+     ```bash
+     sudo apt update && sudo apt install -y nginx ssl-cert
      ```
 
   1. Скопируйте загруженный SSL-сертификат в директорию `/etc/nginx/`:
 
-     ```
-     $ sudo sudo cp ~/.elasticsearch/root.crt /etc/nginx/root.crt
+     ```bash
+     sudo cp ~/.elasticsearch/root.crt /etc/nginx/root.crt
      ```
  
   1. Измените файл конфигурации по умолчанию для NGINX, например, так:
   
      `/etc/nginx/sites-available/default`
-     ```
+     ```nginx
      upstream es-datanodes {
         server <FQDN хоста 1 с ролью Data Node>:443;
         ...
@@ -61,7 +61,7 @@
      ```
    
      Также можно использовать директиву `proxy_pass` со специальным FQDN:
-     ```
+     ```nginx
      proxy_pass https://c-<идентификатор кластера {{ ES }}>.rw.mdb.yandexcloud.net;
      ```
    
@@ -73,8 +73,8 @@
 
   1. Перезапустите NGINX:
 
-     ```
-     $ sudo systemctl restart nginx
+     ```bash
+     sudo systemctl restart nginx
      ```
 
   1. Добавьте сертификат, указанный в директиве `ssl_certificate`, в хранилище доверенных корневых сертификатов браузера ([инструкция](https://wiki.mozilla.org/PSM:Changing_Trust_Settings#Trusting_an_Additional_Root_Certificate) для Mozilla Firefox).
@@ -91,8 +91,8 @@
 
   {% if audience == "internal" %}
 
-  ```
-   $ curl \
+  ```bash
+   curl \
      --user <имя пользователя>:<пароль> \
      --cacert ~/.elasticsearch/root.crt \  
      -X GET 'https://c-<идентификатор кластера {{ ES }}>.rw.db.yandex.net:9200/'
@@ -100,8 +100,8 @@
    
    {% else %}
    
-  ```
-   $ curl \
+  ```bash
+   curl \
      --user <имя пользователя>:<пароль> \
      --cacert ~/.elasticsearch/root.crt \  
      -X GET 'https://c-<идентификатор кластера {{ ES }}>.rw.mdb.yandexcloud.net:9200/'
@@ -113,15 +113,15 @@
   
   **Перед подключением установите зависимости:**
   
-  ```
-  $ sudo apt install python3 python3-pip
-  $ pip3 install elasticsearch
+  ```bash
+  sudo apt update && sudo apt install -y python3 python3-pip && \
+  pip3 install elasticsearch
   ```
 
   **Пример кода для подключения с использованием SSL-соединения:**
 
   `connect.py`
-  ```
+  ```python
   from elasticsearch import Elasticsearch
 
   ES_CA = '~/.elasticsearch/root.crt'
@@ -149,23 +149,23 @@
 
   **Подключение:**
   
-  ```
-  $ python3 connect.py
+  ```bash
+  python3 connect.py
   ```
   
 - Go
 
   **Перед подключением установите зависимости:**
   
-  ```
-  $ sudo apt install golang git
-  $ go get github.com/elastic/go-elasticsearch
+  ```bash
+  sudo apt update && sudo apt install -y golang git && \
+  go get github.com/elastic/go-elasticsearch
   ```
   
   **Пример кода для подключения с использованием SSL-соединения:**
 
   `connect.go`
-  ```
+  ```go
   package main
 
   import (
@@ -218,8 +218,8 @@
   
   **Подключение:**
   
-  ```
-  $ go run connect.go
+  ```bash
+  go run connect.go
   ```
 
 {% endlist %}
