@@ -19,3 +19,7 @@ Examples of how to use {{ iot-full-name }} on Android devices in different progr
 
 * [{#T}](java.md)
 
+## {{ mpg-name }} {#managed-pg}
+
+* [{#T}](data-recording.md)
+

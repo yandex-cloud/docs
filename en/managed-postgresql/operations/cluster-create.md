@@ -22,7 +22,7 @@ By default, {{ mpg-short-name }} limits the maximum number of connections to eac
 
 {% include [note-pg-user-connections.md](../../_includes/mdb/note-pg-user-connections.md) %}
 
-## How to create a cluster {{ PG }} {#create-cluster}
+## How to create a {{ PG }} cluster {#create-cluster}
 
 {% list tabs %}
 

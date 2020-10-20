@@ -100,7 +100,7 @@ Displays data as flat vertical bars.
 
 ### Normalized column chart {#normalized-bar-chart}
 
-Stacked bar chart that shows the ratio of measures as a percentage.
+Normalized column chart that shows the ratio of measures as a percentage.
 
 | Section<br/> in the wizard | Description |
 | ----- | ---- |
@@ -231,6 +231,7 @@ Displays geographical points on the map.
 | General filters | Dimension or measure. Used as a filter for the whole chart |
 | Colors | Dimension or measure. Affects the intensity of point fill |
 | Tooltips | Dimension or measure. A tooltip that appears when you hover over a point |
+| Signatures | Measure. Displayed as text on a point. When used, point size control is blocked |
 
 #### Choropleth map {#choropleth-map-chart}
 

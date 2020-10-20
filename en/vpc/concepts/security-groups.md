@@ -60,16 +60,25 @@ The default security group is automatically:
 
     In this case, the automatically assigned security group isn't displayed in API or CLI responses.
 
-### Default security group rules {#rules}
+### Default security group rules {#rules-default}
 
 The default security group is created with the following rules:
 
-* Outgoing traffic:
-  * Security group: `Any outgoing traffic is allowed`.
-* Incoming traffic:
-  * Security group: `Any incoming traffic is allowed`.
-  * CIDR `0.0.0.0/0` and port `22`. For SSH connections.
-  * CIDR `0.0.0.0/0` and port `3389`. For RDP connections.
+{% list tabs %}
+
+- Outgoing traffic
+
+    All outgoing traffic is allowed.
+
+- Incoming traffic
+
+    Allowed:
+    * All incoming traffic from members of the same security group.
+    * SSH connections to port `22` (`TCP`) from any address (`0.0.0.0/0`).
+    * RDP connections to port `3389` (`TCP`) from any address (`0.0.0.0/0`).
+    * All incoming traffic over `ICMP` from any address (`0.0.0.0/0`).
+
+{% endlist %}
 
 You can't delete the default security group.
 

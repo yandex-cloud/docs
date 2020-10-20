@@ -142,7 +142,7 @@ reclaimPolicy: Delete
    phase: Bound
    ```
 
-1. Дождитесь увеличение размера тома. Проверьте изменения:
+1. Дождитесь увеличения размера тома. Проверьте изменения:
 
    ```bash
    kubectl get pvc pvc-expansion -o yaml

@@ -10,6 +10,8 @@
 * [{#T}](volumes/dynamic-create-pv.md)
 * [{#T}](volumes/static-create-pv.md)
 * [{#T}](volumes/manage-storage-class.md)
+* [{#T}](volumes/volume-expansion.md)
+* [{#T}](volumes/mode-block.md)
 
 ## Управление кластером {{ k8s }} {#kubernetes-cluster}
 

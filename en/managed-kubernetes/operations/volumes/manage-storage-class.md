@@ -62,14 +62,14 @@ You can [create your own storage class](#sc-create) as well as [change the defau
 
 ### Specification format for creating a storage class {#sc-spec}
 
-Each `StorageClass` object contains the `provider`, `parameters`, and `reclaimPolicy` parameters that are used for the dynamic provisioning of `PersistentVolumes`.
+Each `StorageClass` object contains the `provisioner`, `parameters`, and `reclaimPolicy` parameters that are used for the dynamic provisioning of `PersistentVolumes`.
 
 Acceptable parameter values:
 
 - `provisioner`: `disk-csi-driver.mks.ycloud.io`.
 - `parameters`
-    - `type`: `network-hdd` or `network-nvme`.
-    - `csi.storage.k8s.io/fstype`: `ext2`, `ext3` or `ext4`.
+    - `type`: `network-hdd` or `network-ssd`.
+    - `csi.storage.k8s.io/fstype`: `ext2`, `ext3`, or `ext4`.
 - `reclaimPolicy`: `Retain` or `Delete`.
 
 YAML file structure:
@@ -133,4 +133,3 @@ reclaimPolicy: <reclaim policy>
     yc-network-hdd        disk-csi-driver.mks.ycloud.io   19m
     yc-network-ssd        disk-csi-driver.mks.ycloud.io   19m
     ```
-
