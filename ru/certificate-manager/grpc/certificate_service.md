@@ -25,7 +25,7 @@ editable: false
 
 Возвращает информацию об указанном сертификате. <br>Чтобы получить список доступных сертификатов, используйте запрос [List](#List).
 
-**rpc Get ([GetCertificateRequest](#GetCertificateRequest)) returns ([Certificate](../certificate.proto#Certificate))**
+**rpc Get ([GetCertificateRequest](#GetCertificateRequest)) returns ([Certificate](#Certificate))**
 
 ### GetCertificateRequest {#GetCertificateRequest}
 
@@ -55,7 +55,7 @@ updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 issued_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время выдачи сертификата. 
 not_after | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, по истечении которого сертификат считается недействительным. 
 not_before | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, после наступления которого сертификат считается действительным. 
-challenges[] | **[Challenge](../certificate.proto#Challenge)**<br>Данные, используемые при прохождении процедуры проверки прав на владение доменами сертификата. 
+challenges[] | **[Challenge](#Challenge)**<br>Данные, используемые при прохождении процедуры проверки прав на владение доменами сертификата. 
 
 
 ### Challenge {#Challenge}
@@ -70,8 +70,8 @@ status | enum **Status**<br>Статус процедуры проверки. <u
 message | **string**<br>Описание процедуры проверки. 
 error | **string**<br>Ошибка процедуры проверки. 
 challenge | **oneof:** `dns_challenge` или `http_challenge`<br>Данные о процедуре проверки.
-&nbsp;&nbsp;dns_challenge | **[DnsRecord](../certificate.proto#DnsRecord)**<br>DNS-запись. 
-&nbsp;&nbsp;http_challenge | **[HttpFile](../certificate.proto#HttpFile)**<br>HTTP-файл. 
+&nbsp;&nbsp;dns_challenge | **[DnsRecord](#DnsRecord)**<br>DNS-запись. 
+&nbsp;&nbsp;http_challenge | **[HttpFile](#HttpFile)**<br>HTTP-файл. 
 
 
 ### DnsRecord {#DnsRecord}
@@ -111,7 +111,7 @@ view | enum **CertificateView**<br>Тип вывода сертификата. <
 
 Поле | Описание
 --- | ---
-certificates[] | **[Certificate](../certificate.proto#Certificate1)**<br>Список сертификатов в указанном каталоге. 
+certificates[] | **[Certificate](#Certificate1)**<br>Список сертификатов в указанном каталоге. 
 next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListCertificatesRequest.page_size](#ListCertificatesRequest), используйте `next_page_token` в качестве значения параметра [ListCertificatesRequest.page_token](#ListCertificatesRequest) в следующем запросе списка ресурсов. Каждый следующий запрос списка будет иметь свой `next_page_token` для продолжения перебора страниц результатов. 
 
 
@@ -135,7 +135,7 @@ updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 issued_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время выдачи сертификата. 
 not_after | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, по истечении которого сертификат считается недействительным. 
 not_before | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, после наступления которого сертификат считается действительным. 
-challenges[] | **[Challenge](../certificate.proto#Challenge1)**<br>Данные, используемые при прохождении процедуры проверки прав на владение доменами сертификата. 
+challenges[] | **[Challenge](#Challenge1)**<br>Данные, используемые при прохождении процедуры проверки прав на владение доменами сертификата. 
 
 
 ### Challenge {#Challenge1}
@@ -150,8 +150,8 @@ status | enum **Status**<br>Статус процедуры проверки. <u
 message | **string**<br>Описание процедуры проверки. 
 error | **string**<br>Ошибка процедуры проверки. 
 challenge | **oneof:** `dns_challenge` или `http_challenge`<br>Данные о процедуре проверки.
-&nbsp;&nbsp;dns_challenge | **[DnsRecord](../certificate.proto#DnsRecord1)**<br>DNS-запись. 
-&nbsp;&nbsp;http_challenge | **[HttpFile](../certificate.proto#HttpFile1)**<br>HTTP-файл. 
+&nbsp;&nbsp;dns_challenge | **[DnsRecord](#DnsRecord1)**<br>DNS-запись. 
+&nbsp;&nbsp;http_challenge | **[HttpFile](#HttpFile1)**<br>HTTP-файл. 
 
 
 ### DnsRecord {#DnsRecord1}
@@ -179,7 +179,7 @@ content | **string**<br>Содержимое HTTP-файла.
 
 Метаданные и результат операции:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateCertificateMetadata](#CreateCertificateMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Certificate](../certificate.proto#Certificate2)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Certificate](#Certificate2)<br>
 
 ### CreateCertificateRequest {#CreateCertificateRequest}
 
@@ -207,7 +207,7 @@ done | **bool**<br>Если значение равно `false` — операц
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateCertificateMetadata](#CreateCertificateMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
 result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Certificate](../certificate.proto#Certificate2)>**<br>в случае успешного выполнения операции. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Certificate](#Certificate2)>**<br>в случае успешного выполнения операции. 
 
 
 ### CreateCertificateMetadata {#CreateCertificateMetadata}
@@ -237,7 +237,40 @@ updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 issued_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время выдачи сертификата. 
 not_after | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, по истечении которого сертификат считается недействительным. 
 not_before | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, после наступления которого сертификат считается действительным. 
-challenges[] | **[Challenge](../certificate.proto#Challenge2)**<br>Данные, используемые при прохождении процедуры проверки прав на владение доменами сертификата. 
+challenges[] | **[Challenge](#Challenge2)**<br>Данные, используемые при прохождении процедуры проверки прав на владение доменами сертификата. 
+
+
+### Challenge {#Challenge2}
+
+Поле | Описание
+--- | ---
+domain | **string**<br>Домен, права на владение которым проверяются. 
+type | enum **ChallengeType**<br>Тип процедуры проверки. <ul><li>`DNS`: Тип проверки домена, использующий DNS-записи.</li><li>`HTTP`: Тип проверки домена, использующий HTTP-файлы.</li><ul/>
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда была начата процедура проверки. 
+updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время последней проверки. 
+status | enum **Status**<br>Статус процедуры проверки. <ul><li>`PENDING`: Процедура проверки ждет, пока пользователь выполнит действия, необходимые для прохождения проверки.</li><li>`PROCESSING`: Процедура проверки ожидает одобрения от Let's Encrypt®.</li><li>`VALID`: Процедура проверки пройдена.</li><li>`INVALID`: Проверка прав для определенного домена завершилась неудачно или истек недельный период, выделенный для проверки.</li><ul/>
+message | **string**<br>Описание процедуры проверки. 
+error | **string**<br>Ошибка процедуры проверки. 
+challenge | **oneof:** `dns_challenge` или `http_challenge`<br>Данные о процедуре проверки.
+&nbsp;&nbsp;dns_challenge | **[DnsRecord](#DnsRecord2)**<br>DNS-запись. 
+&nbsp;&nbsp;http_challenge | **[HttpFile](#HttpFile2)**<br>HTTP-файл. 
+
+
+### DnsRecord {#DnsRecord2}
+
+Поле | Описание
+--- | ---
+name | **string**<br>Имя DNS-записи. 
+type | **string**<br>Тип DNS-записи. 
+value | **string**<br>Значение DNS-записи. 
+
+
+### HttpFile {#HttpFile2}
+
+Поле | Описание
+--- | ---
+url | **string**<br>Расположение HTTP-файла. 
+content | **string**<br>Содержимое HTTP-файла. 
 
 
 ## Update {#Update}
@@ -248,7 +281,7 @@ challenges[] | **[Challenge](../certificate.proto#Challenge2)**<br>Данные,
 
 Метаданные и результат операции:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateCertificateMetadata](#UpdateCertificateMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Certificate](../certificate.proto#Certificate3)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Certificate](#Certificate3)<br>
 
 ### UpdateCertificateRequest {#UpdateCertificateRequest}
 
@@ -277,7 +310,7 @@ done | **bool**<br>Если значение равно `false` — операц
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateCertificateMetadata](#UpdateCertificateMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
 result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Certificate](../certificate.proto#Certificate3)>**<br>в случае успешного выполнения операции. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Certificate](#Certificate3)>**<br>в случае успешного выполнения операции. 
 
 
 ### UpdateCertificateMetadata {#UpdateCertificateMetadata}
@@ -307,7 +340,40 @@ updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 issued_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время выдачи сертификата. 
 not_after | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, по истечении которого сертификат считается недействительным. 
 not_before | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, после наступления которого сертификат считается действительным. 
-challenges[] | **[Challenge](../certificate.proto#Challenge2)**<br>Данные, используемые при прохождении процедуры проверки прав на владение доменами сертификата. 
+challenges[] | **[Challenge](#Challenge3)**<br>Данные, используемые при прохождении процедуры проверки прав на владение доменами сертификата. 
+
+
+### Challenge {#Challenge3}
+
+Поле | Описание
+--- | ---
+domain | **string**<br>Домен, права на владение которым проверяются. 
+type | enum **ChallengeType**<br>Тип процедуры проверки. <ul><li>`DNS`: Тип проверки домена, использующий DNS-записи.</li><li>`HTTP`: Тип проверки домена, использующий HTTP-файлы.</li><ul/>
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда была начата процедура проверки. 
+updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время последней проверки. 
+status | enum **Status**<br>Статус процедуры проверки. <ul><li>`PENDING`: Процедура проверки ждет, пока пользователь выполнит действия, необходимые для прохождения проверки.</li><li>`PROCESSING`: Процедура проверки ожидает одобрения от Let's Encrypt®.</li><li>`VALID`: Процедура проверки пройдена.</li><li>`INVALID`: Проверка прав для определенного домена завершилась неудачно или истек недельный период, выделенный для проверки.</li><ul/>
+message | **string**<br>Описание процедуры проверки. 
+error | **string**<br>Ошибка процедуры проверки. 
+challenge | **oneof:** `dns_challenge` или `http_challenge`<br>Данные о процедуре проверки.
+&nbsp;&nbsp;dns_challenge | **[DnsRecord](#DnsRecord3)**<br>DNS-запись. 
+&nbsp;&nbsp;http_challenge | **[HttpFile](#HttpFile3)**<br>HTTP-файл. 
+
+
+### DnsRecord {#DnsRecord3}
+
+Поле | Описание
+--- | ---
+name | **string**<br>Имя DNS-записи. 
+type | **string**<br>Тип DNS-записи. 
+value | **string**<br>Значение DNS-записи. 
+
+
+### HttpFile {#HttpFile3}
+
+Поле | Описание
+--- | ---
+url | **string**<br>Расположение HTTP-файла. 
+content | **string**<br>Содержимое HTTP-файла. 
 
 
 ## Delete {#Delete}
@@ -318,7 +384,7 @@ challenges[] | **[Challenge](../certificate.proto#Challenge2)**<br>Данные,
 
 Метаданные и результат операции:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[DeleteCertificateMetadata](#DeleteCertificateMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Certificate](../certificate.proto#Certificate4)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Certificate](#Certificate4)<br>
 
 ### DeleteCertificateRequest {#DeleteCertificateRequest}
 
@@ -340,7 +406,7 @@ done | **bool**<br>Если значение равно `false` — операц
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteCertificateMetadata](#DeleteCertificateMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
 result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Certificate](../certificate.proto#Certificate4)>**<br>в случае успешного выполнения операции. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Certificate](#Certificate4)>**<br>в случае успешного выполнения операции. 
 
 
 ### DeleteCertificateMetadata {#DeleteCertificateMetadata}
@@ -370,7 +436,40 @@ updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 issued_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время выдачи сертификата. 
 not_after | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, по истечении которого сертификат считается недействительным. 
 not_before | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, после наступления которого сертификат считается действительным. 
-challenges[] | **[Challenge](../certificate.proto#Challenge2)**<br>Данные, используемые при прохождении процедуры проверки прав на владение доменами сертификата. 
+challenges[] | **[Challenge](#Challenge4)**<br>Данные, используемые при прохождении процедуры проверки прав на владение доменами сертификата. 
+
+
+### Challenge {#Challenge4}
+
+Поле | Описание
+--- | ---
+domain | **string**<br>Домен, права на владение которым проверяются. 
+type | enum **ChallengeType**<br>Тип процедуры проверки. <ul><li>`DNS`: Тип проверки домена, использующий DNS-записи.</li><li>`HTTP`: Тип проверки домена, использующий HTTP-файлы.</li><ul/>
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда была начата процедура проверки. 
+updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время последней проверки. 
+status | enum **Status**<br>Статус процедуры проверки. <ul><li>`PENDING`: Процедура проверки ждет, пока пользователь выполнит действия, необходимые для прохождения проверки.</li><li>`PROCESSING`: Процедура проверки ожидает одобрения от Let's Encrypt®.</li><li>`VALID`: Процедура проверки пройдена.</li><li>`INVALID`: Проверка прав для определенного домена завершилась неудачно или истек недельный период, выделенный для проверки.</li><ul/>
+message | **string**<br>Описание процедуры проверки. 
+error | **string**<br>Ошибка процедуры проверки. 
+challenge | **oneof:** `dns_challenge` или `http_challenge`<br>Данные о процедуре проверки.
+&nbsp;&nbsp;dns_challenge | **[DnsRecord](#DnsRecord4)**<br>DNS-запись. 
+&nbsp;&nbsp;http_challenge | **[HttpFile](#HttpFile4)**<br>HTTP-файл. 
+
+
+### DnsRecord {#DnsRecord4}
+
+Поле | Описание
+--- | ---
+name | **string**<br>Имя DNS-записи. 
+type | **string**<br>Тип DNS-записи. 
+value | **string**<br>Значение DNS-записи. 
+
+
+### HttpFile {#HttpFile4}
+
+Поле | Описание
+--- | ---
+url | **string**<br>Расположение HTTP-файла. 
+content | **string**<br>Содержимое HTTP-файла. 
 
 
 ## RequestNew {#RequestNew}
@@ -381,7 +480,7 @@ challenges[] | **[Challenge](../certificate.proto#Challenge2)**<br>Данные,
 
 Метаданные и результат операции:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[RequestNewCertificateMetadata](#RequestNewCertificateMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Certificate](../certificate.proto#Certificate5)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Certificate](#Certificate5)<br>
 
 ### RequestNewCertificateRequest {#RequestNewCertificateRequest}
 
@@ -408,7 +507,7 @@ done | **bool**<br>Если значение равно `false` — операц
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RequestNewCertificateMetadata](#RequestNewCertificateMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
 result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Certificate](../certificate.proto#Certificate5)>**<br>в случае успешного выполнения операции. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Certificate](#Certificate5)>**<br>в случае успешного выполнения операции. 
 
 
 ### RequestNewCertificateMetadata {#RequestNewCertificateMetadata}
@@ -438,7 +537,40 @@ updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 issued_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время выдачи сертификата. 
 not_after | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, по истечении которого сертификат считается недействительным. 
 not_before | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, после наступления которого сертификат считается действительным. 
-challenges[] | **[Challenge](../certificate.proto#Challenge2)**<br>Данные, используемые при прохождении процедуры проверки прав на владение доменами сертификата. 
+challenges[] | **[Challenge](#Challenge5)**<br>Данные, используемые при прохождении процедуры проверки прав на владение доменами сертификата. 
+
+
+### Challenge {#Challenge5}
+
+Поле | Описание
+--- | ---
+domain | **string**<br>Домен, права на владение которым проверяются. 
+type | enum **ChallengeType**<br>Тип процедуры проверки. <ul><li>`DNS`: Тип проверки домена, использующий DNS-записи.</li><li>`HTTP`: Тип проверки домена, использующий HTTP-файлы.</li><ul/>
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда была начата процедура проверки. 
+updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время последней проверки. 
+status | enum **Status**<br>Статус процедуры проверки. <ul><li>`PENDING`: Процедура проверки ждет, пока пользователь выполнит действия, необходимые для прохождения проверки.</li><li>`PROCESSING`: Процедура проверки ожидает одобрения от Let's Encrypt®.</li><li>`VALID`: Процедура проверки пройдена.</li><li>`INVALID`: Проверка прав для определенного домена завершилась неудачно или истек недельный период, выделенный для проверки.</li><ul/>
+message | **string**<br>Описание процедуры проверки. 
+error | **string**<br>Ошибка процедуры проверки. 
+challenge | **oneof:** `dns_challenge` или `http_challenge`<br>Данные о процедуре проверки.
+&nbsp;&nbsp;dns_challenge | **[DnsRecord](#DnsRecord5)**<br>DNS-запись. 
+&nbsp;&nbsp;http_challenge | **[HttpFile](#HttpFile5)**<br>HTTP-файл. 
+
+
+### DnsRecord {#DnsRecord5}
+
+Поле | Описание
+--- | ---
+name | **string**<br>Имя DNS-записи. 
+type | **string**<br>Тип DNS-записи. 
+value | **string**<br>Значение DNS-записи. 
+
+
+### HttpFile {#HttpFile5}
+
+Поле | Описание
+--- | ---
+url | **string**<br>Расположение HTTP-файла. 
+content | **string**<br>Содержимое HTTP-файла. 
 
 
 ## ListOperations {#ListOperations}

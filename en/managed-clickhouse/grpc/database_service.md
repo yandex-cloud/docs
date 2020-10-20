@@ -20,7 +20,7 @@ NOTE: these methods are available only if database management through SQL is dis
 
 Returns the specified ClickHouse Database resource. <br>To get the list of available ClickHouse Database resources, make a [List](#List) request.
 
-**rpc Get ([GetDatabaseRequest](#GetDatabaseRequest)) returns ([Database](../database.proto#Database))**
+**rpc Get ([GetDatabaseRequest](#GetDatabaseRequest)) returns ([Database](#Database))**
 
 ### GetDatabaseRequest {#GetDatabaseRequest}
 
@@ -57,7 +57,7 @@ page_token | **string**<br>Page token.  to get the next page of results, set `pa
 
 Field | Description
 --- | ---
-databases[] | **[Database](../database.proto#Database1)**<br>List of ClickHouse databases. 
+databases[] | **[Database](#Database1)**<br>List of ClickHouse databases. 
 next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListDatabasesRequest.page_size](#ListDatabasesRequest), use the `next_page_token` as the value for the [ListDatabasesRequest.page_token](#ListDatabasesRequest) parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
@@ -77,14 +77,14 @@ Creates a new ClickHouse database in the specified cluster.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateDatabaseMetadata](#CreateDatabaseMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Database](../database.proto#Database2)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Database](#Database2)<br>
 
 ### CreateDatabaseRequest {#CreateDatabaseRequest}
 
 Field | Description
 --- | ---
 cluster_id | **string**<br>Required. ID of the ClickHouse cluster to create a database in. To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
-database_spec | **[DatabaseSpec](../database.proto#DatabaseSpec)**<br>Required. Configuration of the database to create. 
+database_spec | **[DatabaseSpec](#DatabaseSpec)**<br>Required. Configuration of the database to create. 
 
 
 ### DatabaseSpec {#DatabaseSpec}
@@ -107,7 +107,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateDatabaseMetadata](#CreateDatabaseMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Database](../database.proto#Database2)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Database](#Database2)>**<br>if operation finished successfully. 
 
 
 ### CreateDatabaseMetadata {#CreateDatabaseMetadata}

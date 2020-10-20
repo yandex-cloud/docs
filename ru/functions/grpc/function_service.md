@@ -37,7 +37,7 @@ editable: false
 
 Возвращает указанную функцию. <br>Чтобы получить список доступных функций, используйте запрос [List](#List) .
 
-**rpc Get ([GetFunctionRequest](#GetFunctionRequest)) returns ([Function](../function.proto#Function))**
+**rpc Get ([GetFunctionRequest](#GetFunctionRequest)) returns ([Function](#Function))**
 
 ### GetFunctionRequest {#GetFunctionRequest}
 
@@ -74,14 +74,14 @@ status | enum **Status**<br>Состояние функции. <ul><li>`CREATING
 folder_id | **string**<br>Обязательное поле. Идентификатор каталога для получения списка функций. <br>Чтобы получить идентификатор каталога, используйте запрос [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List). 
 page_size | **int64**<br>Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `pageSize`, сервис вернет значение [ListFunctionsResponse.next_page_token](#ListFunctionsResponse), которое можно использовать для получения следующей страницы. <br>Значение по умолчанию: 100. 
 page_token | **string**<br>Токен страницы. Установите значение `pageToken` равным значению поля [ListFunctionsResponse.next_page_token](#ListFunctionsResponse) предыдущего запроса, чтобы получить следующую страницу результатов. 
-filter | **string**<br><ol><li>Имя поля. В настоящее время фильтрация осуществляется только по полю [Function.name](../function.proto#Function1). </li><li>Условный оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений. </li><li>Значение. Значение длиной от 3 до 63 символов, совпадающее с регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. Пример фильтра: `name=my-function`.</li></ol> 
+filter | **string**<br><ol><li>Имя поля. В настоящее время фильтрация осуществляется только по полю [Function.name](#Function1). </li><li>Условный оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений. </li><li>Значение. Значение длиной от 3 до 63 символов, совпадающее с регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. Пример фильтра: `name=my-function`.</li></ol> 
 
 
 ### ListFunctionsResponse {#ListFunctionsResponse}
 
 Поле | Описание
 --- | ---
-functions[] | **[Function](../function.proto#Function1)**<br>Возвращает список функций в указанном каталоге. 
+functions[] | **[Function](#Function1)**<br>Возвращает список функций в указанном каталоге. 
 next_page_token | **string**<br>Токен для получения следующей страницы списка. Если количество результатов больше чем [ListFunctionsRequest.page_size](#ListFunctionsRequest), используйте `nextPageToken` в качестве значения параметра [ListFunctionsRequest.page_token](#ListFunctionsRequest) в следующем запросе списка ресурсов. <br>Все последующие запросы будут получать свои значения `nextPageToken` для перебора страниц результатов. 
 
 
@@ -108,7 +108,7 @@ status | enum **Status**<br>Состояние функции. <ul><li>`CREATING
 
 Метаданные и результат операции:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateFunctionMetadata](#CreateFunctionMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Function](../function.proto#Function2)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Function](#Function2)<br>
 
 ### CreateFunctionRequest {#CreateFunctionRequest}
 
@@ -133,7 +133,7 @@ done | **bool**<br>Если значение равно `false` — операц
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateFunctionMetadata](#CreateFunctionMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
 result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Function](../function.proto#Function2)>**<br>в случае успешного выполнения операции. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Function](#Function2)>**<br>в случае успешного выполнения операции. 
 
 
 ### CreateFunctionMetadata {#CreateFunctionMetadata}
@@ -166,7 +166,7 @@ status | enum **Status**<br>Состояние функции. <ul><li>`CREATING
 
 Метаданные и результат операции:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateFunctionMetadata](#UpdateFunctionMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Function](../function.proto#Function3)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Function](#Function3)<br>
 
 ### UpdateFunctionRequest {#UpdateFunctionRequest}
 
@@ -192,7 +192,7 @@ done | **bool**<br>Если значение равно `false` — операц
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateFunctionMetadata](#UpdateFunctionMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
 result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Function](../function.proto#Function3)>**<br>в случае успешного выполнения операции. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Function](#Function3)>**<br>в случае успешного выполнения операции. 
 
 
 ### UpdateFunctionMetadata {#UpdateFunctionMetadata}
@@ -261,7 +261,7 @@ function_id | **string**<br>Идентификатор удаляемой фун
 
 Возвращает указанную версию функции. <br>Чтобы получить список доступных версий, используйте запрос [ListVersions](#ListVersions) .
 
-**rpc GetVersion ([GetFunctionVersionRequest](#GetFunctionVersionRequest)) returns ([Version](../function.proto#Version))**
+**rpc GetVersion ([GetFunctionVersionRequest](#GetFunctionVersionRequest)) returns ([Version](#Version))**
 
 ### GetFunctionVersionRequest {#GetFunctionVersionRequest}
 
@@ -280,7 +280,7 @@ description | **string**<br>Описание версии. Длина строк
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания версии. 
 runtime | **string**<br>Идентификатор среды выполнения для функции. <br>Поддерживаемые среды и их идентификаторы перечислены в списке [Среда выполнения](/docs/functions/concepts/runtime). 
 entrypoint | **string**<br>Точка входа для функции: имя функции, вызываемой в качестве обработчика. <br>Указывается в формате `<function file name>.<handler name>`, например, `index.myFunction`. 
-resources | **[Resources](../function.proto#Resources)**<br>Ресурсы, выделенные для версии. 
+resources | **[Resources](#Resources)**<br>Ресурсы, выделенные для версии. 
 execution_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Таймаут для выполнения версии. <br>Если время ожидания будет превышено, Cloud Functions возвращает 504 HTTP-код. 
 service_account_id | **string**<br>Идентификатор сервисного аккаунта, который связан с версией. 
 image_size | **int64**<br>Окончательный размер пакета развертывания после распаковки. 
@@ -301,7 +301,7 @@ memory | **int64**<br>Объем памяти в байтах, доступны�
 
 Устарел. Используйте [GetVersion](#GetVersion).
 
-**rpc GetFunctionVersion ([GetFunctionVersionRequest](#GetFunctionVersionRequest)) returns ([Version](../function.proto#Version1))**
+**rpc GetFunctionVersion ([GetFunctionVersionRequest](#GetFunctionVersionRequest)) returns ([Version](#Version1))**
 
 ### GetFunctionVersionRequest {#GetFunctionVersionRequest1}
 
@@ -320,7 +320,7 @@ description | **string**<br>Описание версии. Длина строк
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания версии. 
 runtime | **string**<br>Идентификатор среды выполнения для функции. <br>Поддерживаемые среды и их идентификаторы перечислены в списке [Среда выполнения](/docs/functions/concepts/runtime). 
 entrypoint | **string**<br>Точка входа для функции: имя функции, вызываемой в качестве обработчика. <br>Указывается в формате `<function file name>.<handler name>`, например, `index.myFunction`. 
-resources | **[Resources](../function.proto#Resources1)**<br>Ресурсы, выделенные для версии. 
+resources | **[Resources](#Resources1)**<br>Ресурсы, выделенные для версии. 
 execution_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Таймаут для выполнения версии. <br>Если время ожидания будет превышено, Cloud Functions возвращает 504 HTTP-код. 
 service_account_id | **string**<br>Идентификатор сервисного аккаунта, который связан с версией. 
 image_size | **int64**<br>Окончательный размер пакета развертывания после распаковки. 
@@ -341,7 +341,7 @@ memory | **int64**<br>Объем памяти в байтах, доступны�
 
 Возвращает все версии с указанным тегом. <br>Чтобы получить список доступных версий, используйте запрос [ListVersions](#ListVersions) .
 
-**rpc GetVersionByTag ([GetFunctionVersionByTagRequest](#GetFunctionVersionByTagRequest)) returns ([Version](../function.proto#Version2))**
+**rpc GetVersionByTag ([GetFunctionVersionByTagRequest](#GetFunctionVersionByTagRequest)) returns ([Version](#Version2))**
 
 ### GetFunctionVersionByTagRequest {#GetFunctionVersionByTagRequest}
 
@@ -361,7 +361,7 @@ description | **string**<br>Описание версии. Длина строк
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания версии. 
 runtime | **string**<br>Идентификатор среды выполнения для функции. <br>Поддерживаемые среды и их идентификаторы перечислены в списке [Среда выполнения](/docs/functions/concepts/runtime). 
 entrypoint | **string**<br>Точка входа для функции: имя функции, вызываемой в качестве обработчика. <br>Указывается в формате `<function file name>.<handler name>`, например, `index.myFunction`. 
-resources | **[Resources](../function.proto#Resources2)**<br>Ресурсы, выделенные для версии. 
+resources | **[Resources](#Resources2)**<br>Ресурсы, выделенные для версии. 
 execution_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Таймаут для выполнения версии. <br>Если время ожидания будет превышено, Cloud Functions возвращает 504 HTTP-код. 
 service_account_id | **string**<br>Идентификатор сервисного аккаунта, который связан с версией. 
 image_size | **int64**<br>Окончательный размер пакета развертывания после распаковки. 
@@ -382,7 +382,7 @@ memory | **int64**<br>Объем памяти в байтах, доступны�
 
 Устарел. Используйте [GetVersionByTag](#GetVersionByTag).
 
-**rpc GetFunctionVersionByTag ([GetFunctionVersionByTagRequest](#GetFunctionVersionByTagRequest)) returns ([Version](../function.proto#Version3))**
+**rpc GetFunctionVersionByTag ([GetFunctionVersionByTagRequest](#GetFunctionVersionByTagRequest)) returns ([Version](#Version3))**
 
 ### GetFunctionVersionByTagRequest {#GetFunctionVersionByTagRequest1}
 
@@ -402,7 +402,7 @@ description | **string**<br>Описание версии. Длина строк
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания версии. 
 runtime | **string**<br>Идентификатор среды выполнения для функции. <br>Поддерживаемые среды и их идентификаторы перечислены в списке [Среда выполнения](/docs/functions/concepts/runtime). 
 entrypoint | **string**<br>Точка входа для функции: имя функции, вызываемой в качестве обработчика. <br>Указывается в формате `<function file name>.<handler name>`, например, `index.myFunction`. 
-resources | **[Resources](../function.proto#Resources3)**<br>Ресурсы, выделенные для версии. 
+resources | **[Resources](#Resources3)**<br>Ресурсы, выделенные для версии. 
 execution_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Таймаут для выполнения версии. <br>Если время ожидания будет превышено, Cloud Functions возвращает 504 HTTP-код. 
 service_account_id | **string**<br>Идентификатор сервисного аккаунта, который связан с версией. 
 image_size | **int64**<br>Окончательный размер пакета развертывания после распаковки. 
@@ -434,14 +434,14 @@ id | **oneof:** `folder_id` или `function_id`<br>
 &nbsp;&nbsp;function_id | **string**<br>Идентификатор функции, для которой нужно вернуть список версий. Чтобы получить идентификатор функции, используйте запрос [FunctionService.List](#List) . 
 page_size | **int64**<br>Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `pageSize`, сервис вернет значение [ListFunctionsVersionsResponse.next_page_token](#ListFunctionsVersionsResponse), которое можно использовать для получения следующей страницы. <br>Значение по умолчанию: 100. Допустимые значения — от 0 до 1000 включительно.
 page_token | **string**<br>Токен страницы. Установите значение `pageToken` равным значению поля [ListFunctionsVersionsResponse.next_page_token](#ListFunctionsVersionsResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
-filter | **string**<br><ol><li>Имя поля. В настоящее время фильтрация осуществляется только по полю [Function.name](../function.proto#Function4). </li><li>Условный оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений. </li><li>Значение. Значение длиной от 3 до 63 символов, совпадающее с регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. Пример фильтра: `name=my-function`.</li></ol> Максимальная длина строки в символах — 1000.
+filter | **string**<br><ol><li>Имя поля. В настоящее время фильтрация осуществляется только по полю [Function.name](#Function4). </li><li>Условный оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений. </li><li>Значение. Значение длиной от 3 до 63 символов, совпадающее с регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. Пример фильтра: `name=my-function`.</li></ol> Максимальная длина строки в символах — 1000.
 
 
 ### ListFunctionsVersionsResponse {#ListFunctionsVersionsResponse}
 
 Поле | Описание
 --- | ---
-versions[] | **[Version](../function.proto#Version4)**<br>Список версий для указанного каталога или функции. 
+versions[] | **[Version](#Version4)**<br>Список версий для указанного каталога или функции. 
 next_page_token | **string**<br>Токен для получения следующей страницы списка. Если количество результатов больше чем [ListFunctionsVersionsRequest.page_size](#ListFunctionsVersionsRequest), используйте `nextPageToken` в качестве значения параметра [ListFunctionsVersionsRequest.page_token](#ListFunctionsVersionsRequest) в следующем запросе списка ресурсов. <br>Все последующие запросы будут получать свои значения `nextPageToken` для перебора страниц результатов. 
 
 
@@ -455,7 +455,7 @@ description | **string**<br>Описание версии. Длина строк
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания версии. 
 runtime | **string**<br>Идентификатор среды выполнения для функции. <br>Поддерживаемые среды и их идентификаторы перечислены в списке [Среда выполнения](/docs/functions/concepts/runtime). 
 entrypoint | **string**<br>Точка входа для функции: имя функции, вызываемой в качестве обработчика. <br>Указывается в формате `<function file name>.<handler name>`, например, `index.myFunction`. 
-resources | **[Resources](../function.proto#Resources4)**<br>Ресурсы, выделенные для версии. 
+resources | **[Resources](#Resources4)**<br>Ресурсы, выделенные для версии. 
 execution_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Таймаут для выполнения версии. <br>Если время ожидания будет превышено, Cloud Functions возвращает 504 HTTP-код. 
 service_account_id | **string**<br>Идентификатор сервисного аккаунта, который связан с версией. 
 image_size | **int64**<br>Окончательный размер пакета развертывания после распаковки. 
@@ -487,14 +487,14 @@ id | **oneof:** `folder_id` или `function_id`<br>
 &nbsp;&nbsp;function_id | **string**<br>Идентификатор функции, для которой нужно вернуть список версий. Чтобы получить идентификатор функции, используйте запрос [FunctionService.List](#List) . 
 page_size | **int64**<br>Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `pageSize`, сервис вернет значение [ListFunctionsVersionsResponse.next_page_token](#ListFunctionsVersionsResponse), которое можно использовать для получения следующей страницы. <br>Значение по умолчанию: 100. Допустимые значения — от 0 до 1000 включительно.
 page_token | **string**<br>Токен страницы. Установите значение `pageToken` равным значению поля [ListFunctionsVersionsResponse.next_page_token](#ListFunctionsVersionsResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
-filter | **string**<br><ol><li>Имя поля. В настоящее время фильтрация осуществляется только по полю [Function.name](../function.proto#Function4). </li><li>Условный оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений. </li><li>Значение. Значение длиной от 3 до 63 символов, совпадающее с регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. Пример фильтра: `name=my-function`.</li></ol> Максимальная длина строки в символах — 1000.
+filter | **string**<br><ol><li>Имя поля. В настоящее время фильтрация осуществляется только по полю [Function.name](#Function4). </li><li>Условный оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений. </li><li>Значение. Значение длиной от 3 до 63 символов, совпадающее с регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. Пример фильтра: `name=my-function`.</li></ol> Максимальная длина строки в символах — 1000.
 
 
 ### ListFunctionsVersionsResponse {#ListFunctionsVersionsResponse1}
 
 Поле | Описание
 --- | ---
-versions[] | **[Version](../function.proto#Version5)**<br>Список версий для указанного каталога или функции. 
+versions[] | **[Version](#Version5)**<br>Список версий для указанного каталога или функции. 
 next_page_token | **string**<br>Токен для получения следующей страницы списка. Если количество результатов больше чем [ListFunctionsVersionsRequest.page_size](#ListFunctionsVersionsRequest), используйте `nextPageToken` в качестве значения параметра [ListFunctionsVersionsRequest.page_token](#ListFunctionsVersionsRequest) в следующем запросе списка ресурсов. <br>Все последующие запросы будут получать свои значения `nextPageToken` для перебора страниц результатов. 
 
 
@@ -508,7 +508,7 @@ description | **string**<br>Описание версии. Длина строк
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания версии. 
 runtime | **string**<br>Идентификатор среды выполнения для функции. <br>Поддерживаемые среды и их идентификаторы перечислены в списке [Среда выполнения](/docs/functions/concepts/runtime). 
 entrypoint | **string**<br>Точка входа для функции: имя функции, вызываемой в качестве обработчика. <br>Указывается в формате `<function file name>.<handler name>`, например, `index.myFunction`. 
-resources | **[Resources](../function.proto#Resources5)**<br>Ресурсы, выделенные для версии. 
+resources | **[Resources](#Resources5)**<br>Ресурсы, выделенные для версии. 
 execution_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Таймаут для выполнения версии. <br>Если время ожидания будет превышено, Cloud Functions возвращает 504 HTTP-код. 
 service_account_id | **string**<br>Идентификатор сервисного аккаунта, который связан с версией. 
 image_size | **int64**<br>Окончательный размер пакета развертывания после распаковки. 
@@ -533,7 +533,7 @@ memory | **int64**<br>Объем памяти в байтах, доступны�
 
 Метаданные и результат операции:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[SetFunctionTagMetadata](#SetFunctionTagMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Version](../function.proto#Version6)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Version](#Version6)<br>
 
 ### SetFunctionTagRequest {#SetFunctionTagRequest}
 
@@ -556,7 +556,7 @@ done | **bool**<br>Если значение равно `false` — операц
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[SetFunctionTagMetadata](#SetFunctionTagMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
 result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Version](../function.proto#Version6)>**<br>в случае успешного выполнения операции. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Version](#Version6)>**<br>в случае успешного выполнения операции. 
 
 
 ### SetFunctionTagMetadata {#SetFunctionTagMetadata}
@@ -576,7 +576,7 @@ description | **string**<br>Описание версии. Длина строк
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания версии. 
 runtime | **string**<br>Идентификатор среды выполнения для функции. <br>Поддерживаемые среды и их идентификаторы перечислены в списке [Среда выполнения](/docs/functions/concepts/runtime). 
 entrypoint | **string**<br>Точка входа для функции: имя функции, вызываемой в качестве обработчика. <br>Указывается в формате `<function file name>.<handler name>`, например, `index.myFunction`. 
-resources | **[Resources](../function.proto#Resources6)**<br>Ресурсы, выделенные для версии. 
+resources | **[Resources](#Resources6)**<br>Ресурсы, выделенные для версии. 
 execution_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Таймаут для выполнения версии. <br>Если время ожидания будет превышено, Cloud Functions возвращает 504 HTTP-код. 
 service_account_id | **string**<br>Идентификатор сервисного аккаунта, который связан с версией. 
 image_size | **int64**<br>Окончательный размер пакета развертывания после распаковки. 
@@ -584,6 +584,13 @@ status | enum **Status**<br>Состояние версии. <ul><li>`CREATING`:
 tags[] | **string**<br>Теги версий. Подробнее см. в [Тег версии](/docs/functions/concepts/function#tag). 
 log_group_id | **string**<br>Идентификатор группы журналов выполнения для версии. 
 environment | **map<string,string>**<br>Параметры среды выполнения для версии. 
+
+
+### Resources {#Resources6}
+
+Поле | Описание
+--- | ---
+memory | **int64**<br>Объем памяти в байтах, доступный для версии. Допустимые значения — от 33554432 до 1073741824 включительно.
 
 
 ## RemoveTag {#RemoveTag}
@@ -594,7 +601,7 @@ environment | **map<string,string>**<br>Параметры среды выпол
 
 Метаданные и результат операции:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[RemoveFunctionTagMetadata](#RemoveFunctionTagMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Version](../function.proto#Version7)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Version](#Version7)<br>
 
 ### RemoveFunctionTagRequest {#RemoveFunctionTagRequest}
 
@@ -617,7 +624,7 @@ done | **bool**<br>Если значение равно `false` — операц
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RemoveFunctionTagMetadata](#RemoveFunctionTagMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
 result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Version](../function.proto#Version7)>**<br>в случае успешного выполнения операции. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Version](#Version7)>**<br>в случае успешного выполнения операции. 
 
 
 ### RemoveFunctionTagMetadata {#RemoveFunctionTagMetadata}
@@ -637,7 +644,7 @@ description | **string**<br>Описание версии. Длина строк
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания версии. 
 runtime | **string**<br>Идентификатор среды выполнения для функции. <br>Поддерживаемые среды и их идентификаторы перечислены в списке [Среда выполнения](/docs/functions/concepts/runtime). 
 entrypoint | **string**<br>Точка входа для функции: имя функции, вызываемой в качестве обработчика. <br>Указывается в формате `<function file name>.<handler name>`, например, `index.myFunction`. 
-resources | **[Resources](../function.proto#Resources6)**<br>Ресурсы, выделенные для версии. 
+resources | **[Resources](#Resources7)**<br>Ресурсы, выделенные для версии. 
 execution_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Таймаут для выполнения версии. <br>Если время ожидания будет превышено, Cloud Functions возвращает 504 HTTP-код. 
 service_account_id | **string**<br>Идентификатор сервисного аккаунта, который связан с версией. 
 image_size | **int64**<br>Окончательный размер пакета развертывания после распаковки. 
@@ -645,6 +652,13 @@ status | enum **Status**<br>Состояние версии. <ul><li>`CREATING`:
 tags[] | **string**<br>Теги версий. Подробнее см. в [Тег версии](/docs/functions/concepts/function#tag). 
 log_group_id | **string**<br>Идентификатор группы журналов выполнения для версии. 
 environment | **map<string,string>**<br>Параметры среды выполнения для версии. 
+
+
+### Resources {#Resources7}
+
+Поле | Описание
+--- | ---
+memory | **int64**<br>Объем памяти в байтах, доступный для версии. Допустимые значения — от 33554432 до 1073741824 включительно.
 
 
 ## ListTagHistory {#ListTagHistory}
@@ -661,7 +675,7 @@ function_id | **string**<br>Обязательное поле. Идентифи�
 tag | **string**<br>Конкретный тег, которым должна быть ограничена история. Значение должно соответствовать регулярному выражению ` [a-z][-_0-9a-z]*|[$]latest `.
 page_size | **int64**<br>Максимальное число возвращаемых результатов на странице. Если количество результатов больше чем `pageSize`, сервис вернет значение [ListFunctionOperationsResponse.next_page_token](#ListFunctionOperationsResponse), которое можно использовать для получения следующей страницы. Значение по умолчанию: 100. Допустимые значения — от 0 до 1000 включительно.
 page_token | **string**<br>Токен страницы. Установите значение `pageToken` равным значению поля [ListFunctionOperationsResponse.next_page_token](#ListFunctionOperationsResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
-filter | **string**<br><ol><li>Имя поля. В настоящее время фильтрация осуществляется только по полю [Function.name](../function.proto#Function4). </li><li>Условный оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений. </li><li>Значение. Значение длиной от 3 до 63 символов, совпадающее с регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. Например, `name=my-function`.</li></ol> Максимальная длина строки в символах — 1000.
+filter | **string**<br><ol><li>Имя поля. В настоящее время фильтрация осуществляется только по полю [Function.name](#Function4). </li><li>Условный оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений. </li><li>Значение. Значение длиной от 3 до 63 символов, совпадающее с регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. Например, `name=my-function`.</li></ol> Максимальная длина строки в символах — 1000.
 
 
 ### ListFunctionTagHistoryResponse {#ListFunctionTagHistoryResponse}
@@ -697,7 +711,7 @@ function_id | **string**<br>Обязательное поле. Идентифи�
 tag | **string**<br>Конкретный тег, которым должна быть ограничена история. Значение должно соответствовать регулярному выражению ` [a-z][-_0-9a-z]*|[$]latest `.
 page_size | **int64**<br>Максимальное число возвращаемых результатов на странице. Если количество результатов больше чем `pageSize`, сервис вернет значение [ListFunctionOperationsResponse.next_page_token](#ListFunctionOperationsResponse), которое можно использовать для получения следующей страницы. Значение по умолчанию: 100. Допустимые значения — от 0 до 1000 включительно.
 page_token | **string**<br>Токен страницы. Установите значение `pageToken` равным значению поля [ListFunctionOperationsResponse.next_page_token](#ListFunctionOperationsResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
-filter | **string**<br><ol><li>Имя поля. В настоящее время фильтрация осуществляется только по полю [Function.name](../function.proto#Function4). </li><li>Условный оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений. </li><li>Значение. Значение длиной от 3 до 63 символов, совпадающее с регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. Например, `name=my-function`.</li></ol> Максимальная длина строки в символах — 1000.
+filter | **string**<br><ol><li>Имя поля. В настоящее время фильтрация осуществляется только по полю [Function.name](#Function4). </li><li>Условный оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений. </li><li>Значение. Значение длиной от 3 до 63 символов, совпадающее с регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. Например, `name=my-function`.</li></ol> Максимальная длина строки в символах — 1000.
 
 
 ### ListFunctionTagHistoryResponse {#ListFunctionTagHistoryResponse1}
@@ -727,7 +741,7 @@ effective_to | **[google.protobuf.Timestamp](https://developers.google.com/proto
 
 Метаданные и результат операции:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateFunctionVersionMetadata](#CreateFunctionVersionMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Version](../function.proto#Version8)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Version](#Version8)<br>
 
 ### CreateFunctionVersionRequest {#CreateFunctionVersionRequest}
 
@@ -737,16 +751,16 @@ function_id | **string**<br>Обязательное поле. Идентифи�
 runtime | **string**<br>Обязательное поле. Среда выполнения для версии. 
 description | **string**<br>Описание версии. Длина строки в символах должна быть от 0 до 256.
 entrypoint | **string**<br>Обязательное поле. Точка входа для версии. 
-resources | **[Resources](../function.proto#Resources6)**<br>Обязательное поле. Ресурсы, выделенные для версии. 
+resources | **[Resources](#Resources8)**<br>Обязательное поле. Ресурсы, выделенные для версии. 
 execution_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Обязательное поле. Таймаут для выполнения версии. <br>Если время ожидания будет превышено, Cloud Functions возвращает 504 HTTP-код. 
 service_account_id | **string**<br>Идентификатор сервисного аккаунта, который нужно связать с версией. 
 package_source | **oneof:** `package` или `content`<br>Источник пакета развертывания для версии.
-&nbsp;&nbsp;package | **[Package](../function.proto#Package)**<br>Пакет развертывания функций. 
+&nbsp;&nbsp;package | **[Package](#Package)**<br>Пакет развертывания функций. 
 &nbsp;&nbsp;content | **bytes**<br>Содержимое пакета развертывания. Максимальная длина строки в символах — 52428800.
 environment | **map<string,string>**<br>Параметры среды выполнения для версии. Максимальная длина строки в символах для каждого значения — 4096. Каждый ключ должен соответствовать регулярному выражению ` [a-zA-Z][a-zA-Z0-9_]* `.
 
 
-### Resources {#Resources6}
+### Resources {#Resources8}
 
 Поле | Описание
 --- | ---
@@ -775,7 +789,7 @@ done | **bool**<br>Если значение равно `false` — операц
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateFunctionVersionMetadata](#CreateFunctionVersionMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
 result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Version](../function.proto#Version8)>**<br>в случае успешного выполнения операции. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Version](#Version8)>**<br>в случае успешного выполнения операции. 
 
 
 ### CreateFunctionVersionMetadata {#CreateFunctionVersionMetadata}
@@ -795,7 +809,7 @@ description | **string**<br>Описание версии. Длина строк
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания версии. 
 runtime | **string**<br>Идентификатор среды выполнения для функции. <br>Поддерживаемые среды и их идентификаторы перечислены в списке [Среда выполнения](/docs/functions/concepts/runtime). 
 entrypoint | **string**<br>Точка входа для функции: имя функции, вызываемой в качестве обработчика. <br>Указывается в формате `<function file name>.<handler name>`, например, `index.myFunction`. 
-resources | **[Resources](../function.proto#Resources7)**<br>Ресурсы, выделенные для версии. 
+resources | **[Resources](#Resources9)**<br>Ресурсы, выделенные для версии. 
 execution_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Таймаут для выполнения версии. <br>Если время ожидания будет превышено, Cloud Functions возвращает 504 HTTP-код. 
 service_account_id | **string**<br>Идентификатор сервисного аккаунта, который связан с версией. 
 image_size | **int64**<br>Окончательный размер пакета развертывания после распаковки. 
@@ -803,6 +817,13 @@ status | enum **Status**<br>Состояние версии. <ul><li>`CREATING`:
 tags[] | **string**<br>Теги версий. Подробнее см. в [Тег версии](/docs/functions/concepts/function#tag). 
 log_group_id | **string**<br>Идентификатор группы журналов выполнения для версии. 
 environment | **map<string,string>**<br>Параметры среды выполнения для версии. 
+
+
+### Resources {#Resources9}
+
+Поле | Описание
+--- | ---
+memory | **int64**<br>Объем памяти в байтах, доступный для версии. Допустимые значения — от 33554432 до 1073741824 включительно.
 
 
 ## CreateFunctionVersion {#CreateFunctionVersion}
@@ -813,7 +834,7 @@ environment | **map<string,string>**<br>Параметры среды выпол
 
 Метаданные и результат операции:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateFunctionVersionMetadata](#CreateFunctionVersionMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Version](../function.proto#Version9)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Version](#Version9)<br>
 
 ### CreateFunctionVersionRequest {#CreateFunctionVersionRequest1}
 
@@ -823,16 +844,16 @@ function_id | **string**<br>Обязательное поле. Идентифи�
 runtime | **string**<br>Обязательное поле. Среда выполнения для версии. 
 description | **string**<br>Описание версии. Длина строки в символах должна быть от 0 до 256.
 entrypoint | **string**<br>Обязательное поле. Точка входа для версии. 
-resources | **[Resources](../function.proto#Resources7)**<br>Обязательное поле. Ресурсы, выделенные для версии. 
+resources | **[Resources](#Resources10)**<br>Обязательное поле. Ресурсы, выделенные для версии. 
 execution_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Обязательное поле. Таймаут для выполнения версии. <br>Если время ожидания будет превышено, Cloud Functions возвращает 504 HTTP-код. 
 service_account_id | **string**<br>Идентификатор сервисного аккаунта, который нужно связать с версией. 
 package_source | **oneof:** `package` или `content`<br>Источник пакета развертывания для версии.
-&nbsp;&nbsp;package | **[Package](../function.proto#Package1)**<br>Пакет развертывания функций. 
+&nbsp;&nbsp;package | **[Package](#Package1)**<br>Пакет развертывания функций. 
 &nbsp;&nbsp;content | **bytes**<br>Содержимое пакета развертывания. Максимальная длина строки в символах — 52428800.
 environment | **map<string,string>**<br>Параметры среды выполнения для версии. Максимальная длина строки в символах для каждого значения — 4096. Каждый ключ должен соответствовать регулярному выражению ` [a-zA-Z][a-zA-Z0-9_]* `.
 
 
-### Resources {#Resources7}
+### Resources {#Resources10}
 
 Поле | Описание
 --- | ---
@@ -861,7 +882,7 @@ done | **bool**<br>Если значение равно `false` — операц
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateFunctionVersionMetadata](#CreateFunctionVersionMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
 result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Version](../function.proto#Version9)>**<br>в случае успешного выполнения операции. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Version](#Version9)>**<br>в случае успешного выполнения операции. 
 
 
 ### CreateFunctionVersionMetadata {#CreateFunctionVersionMetadata1}
@@ -881,7 +902,7 @@ description | **string**<br>Описание версии. Длина строк
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания версии. 
 runtime | **string**<br>Идентификатор среды выполнения для функции. <br>Поддерживаемые среды и их идентификаторы перечислены в списке [Среда выполнения](/docs/functions/concepts/runtime). 
 entrypoint | **string**<br>Точка входа для функции: имя функции, вызываемой в качестве обработчика. <br>Указывается в формате `<function file name>.<handler name>`, например, `index.myFunction`. 
-resources | **[Resources](../function.proto#Resources8)**<br>Ресурсы, выделенные для версии. 
+resources | **[Resources](#Resources11)**<br>Ресурсы, выделенные для версии. 
 execution_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Таймаут для выполнения версии. <br>Если время ожидания будет превышено, Cloud Functions возвращает 504 HTTP-код. 
 service_account_id | **string**<br>Идентификатор сервисного аккаунта, который связан с версией. 
 image_size | **int64**<br>Окончательный размер пакета развертывания после распаковки. 
@@ -889,6 +910,13 @@ status | enum **Status**<br>Состояние версии. <ul><li>`CREATING`:
 tags[] | **string**<br>Теги версий. Подробнее см. в [Тег версии](/docs/functions/concepts/function#tag). 
 log_group_id | **string**<br>Идентификатор группы журналов выполнения для версии. 
 environment | **map<string,string>**<br>Параметры среды выполнения для версии. 
+
+
+### Resources {#Resources11}
+
+Поле | Описание
+--- | ---
+memory | **int64**<br>Объем памяти в байтах, доступный для версии. Допустимые значения — от 33554432 до 1073741824 включительно.
 
 
 ## ListRuntimes {#ListRuntimes}
@@ -921,7 +949,7 @@ runtimes[] | **string**<br>Среды выполнения, доступные �
 function_id | **string**<br>Обязательное поле. Идентификатор функции, для которой нужно вернуть список версий. 
 page_size | **int64**<br>Максимальное число возвращаемых результатов на странице. Если количество результатов больше чем `pageSize`, сервис вернет значение [ListFunctionOperationsResponse.next_page_token](#ListFunctionOperationsResponse), которое можно использовать для получения следующей страницы. <br>Значение по умолчанию: 100. Допустимые значения — от 0 до 1000 включительно.
 page_token | **string**<br>Токен страницы. Установите значение `pageToken` равным значению поля [ListFunctionOperationsResponse.next_page_token](#ListFunctionOperationsResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
-filter | **string**<br><ol><li>Имя поля. В настоящее время фильтрация осуществляется только по полю [Function.name](../function.proto#Function4). </li><li>Условный оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений. </li><li>Значение. Значение длиной от 3 до 63 символов, совпадающее с регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. Пример фильтра: `name=my-function`.</li></ol> Максимальная длина строки в символах — 1000.
+filter | **string**<br><ol><li>Имя поля. В настоящее время фильтрация осуществляется только по полю [Function.name](#Function4). </li><li>Условный оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений. </li><li>Значение. Значение длиной от 3 до 63 символов, совпадающее с регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. Пример фильтра: `name=my-function`.</li></ol> Максимальная длина строки в символах — 1000.
 
 
 ### ListFunctionOperationsResponse {#ListFunctionOperationsResponse}

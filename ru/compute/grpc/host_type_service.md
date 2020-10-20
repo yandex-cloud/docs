@@ -17,7 +17,7 @@ editable: false
 
 Возвращает информацию об указанном типе выделенного хоста.
 
-**rpc Get ([GetHostTypeRequest](#GetHostTypeRequest)) returns ([HostType](../host_type.proto#HostType))**
+**rpc Get ([GetHostTypeRequest](#GetHostTypeRequest)) returns ([HostType](#HostType))**
 
 ### GetHostTypeRequest {#GetHostTypeRequest}
 
@@ -53,7 +53,7 @@ page_token | **string**<br>Токен страницы. Установите з�
 
 Поле | Описание
 --- | ---
-host_types[] | **[HostType](../host_type.proto#HostType1)**<br>Список типов выделенных хостов. 
+host_types[] | **[HostType](#HostType1)**<br>Список типов выделенных хостов. 
 next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListHostTypesRequest.page_size](#ListHostTypesRequest), используйте `next_page_token` в качестве значения параметра [ListHostTypesRequest.page_token](#ListHostTypesRequest) в следующем запросе списка ресурсов. <br>Каждая следующая страница будет иметь свой `next_page_token` для продолжения перебора страниц результатов. 
 
 

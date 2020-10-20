@@ -25,7 +25,7 @@ A set of methods for managing certificates.
 
 Returns the specified certificate. <br>To get the list of available certificates, make a [List](#List) request.
 
-**rpc Get ([GetCertificateRequest](#GetCertificateRequest)) returns ([Certificate](../certificate.proto#Certificate))**
+**rpc Get ([GetCertificateRequest](#GetCertificateRequest)) returns ([Certificate](#Certificate))**
 
 ### GetCertificateRequest {#GetCertificateRequest}
 
@@ -55,7 +55,7 @@ updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 issued_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the certificate is issued. 
 not_after | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time after which the certificate is not valid. 
 not_before | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time before which the certificate is not valid. 
-challenges[] | **[Challenge](../certificate.proto#Challenge)**<br>Domains validation challenges of the certificate. Used only for managed certificates. 
+challenges[] | **[Challenge](#Challenge)**<br>Domains validation challenges of the certificate. Used only for managed certificates. 
 
 
 ### Challenge {#Challenge}
@@ -70,8 +70,8 @@ status | enum **Status**<br>Status of the challenge. <ul><li>`PENDING`: The chal
 message | **string**<br>Description of the challenge. 
 error | **string**<br>Error of the challenge. 
 challenge | **oneof:** `dns_challenge` or `http_challenge`<br>Data of the challenge.
-&nbsp;&nbsp;dns_challenge | **[DnsRecord](../certificate.proto#DnsRecord)**<br>DNS-record. 
-&nbsp;&nbsp;http_challenge | **[HttpFile](../certificate.proto#HttpFile)**<br>HTTP-file. 
+&nbsp;&nbsp;dns_challenge | **[DnsRecord](#DnsRecord)**<br>DNS-record. 
+&nbsp;&nbsp;http_challenge | **[HttpFile](#HttpFile)**<br>HTTP-file. 
 
 
 ### DnsRecord {#DnsRecord}
@@ -111,7 +111,7 @@ view | enum **CertificateView**<br>The output type of the certificate. <ul><li>`
 
 Field | Description
 --- | ---
-certificates[] | **[Certificate](../certificate.proto#Certificate1)**<br>List of certificates in the specified folder. 
+certificates[] | **[Certificate](#Certificate1)**<br>List of certificates in the specified folder. 
 next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is greater than the specified [ListCertificatesRequest.page_size](#ListCertificatesRequest), use the `next_page_token` as the value for the [ListCertificatesRequest.page_token](#ListCertificatesRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
@@ -135,7 +135,7 @@ updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 issued_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the certificate is issued. 
 not_after | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time after which the certificate is not valid. 
 not_before | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time before which the certificate is not valid. 
-challenges[] | **[Challenge](../certificate.proto#Challenge1)**<br>Domains validation challenges of the certificate. Used only for managed certificates. 
+challenges[] | **[Challenge](#Challenge1)**<br>Domains validation challenges of the certificate. Used only for managed certificates. 
 
 
 ### Challenge {#Challenge1}
@@ -150,8 +150,8 @@ status | enum **Status**<br>Status of the challenge. <ul><li>`PENDING`: The chal
 message | **string**<br>Description of the challenge. 
 error | **string**<br>Error of the challenge. 
 challenge | **oneof:** `dns_challenge` or `http_challenge`<br>Data of the challenge.
-&nbsp;&nbsp;dns_challenge | **[DnsRecord](../certificate.proto#DnsRecord1)**<br>DNS-record. 
-&nbsp;&nbsp;http_challenge | **[HttpFile](../certificate.proto#HttpFile1)**<br>HTTP-file. 
+&nbsp;&nbsp;dns_challenge | **[DnsRecord](#DnsRecord1)**<br>DNS-record. 
+&nbsp;&nbsp;http_challenge | **[HttpFile](#HttpFile1)**<br>HTTP-file. 
 
 
 ### DnsRecord {#DnsRecord1}
@@ -179,7 +179,7 @@ Creates a certificate in the specified folder.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateCertificateMetadata](#CreateCertificateMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Certificate](../certificate.proto#Certificate2)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Certificate](#Certificate2)<br>
 
 ### CreateCertificateRequest {#CreateCertificateRequest}
 
@@ -207,7 +207,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateCertificateMetadata](#CreateCertificateMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Certificate](../certificate.proto#Certificate2)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Certificate](#Certificate2)>**<br>if operation finished successfully. 
 
 
 ### CreateCertificateMetadata {#CreateCertificateMetadata}
@@ -237,7 +237,40 @@ updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 issued_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the certificate is issued. 
 not_after | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time after which the certificate is not valid. 
 not_before | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time before which the certificate is not valid. 
-challenges[] | **[Challenge](../certificate.proto#Challenge2)**<br>Domains validation challenges of the certificate. Used only for managed certificates. 
+challenges[] | **[Challenge](#Challenge2)**<br>Domains validation challenges of the certificate. Used only for managed certificates. 
+
+
+### Challenge {#Challenge2}
+
+Field | Description
+--- | ---
+domain | **string**<br>Domain of the challenge. 
+type | enum **ChallengeType**<br>Type of the challenge. <ul><li>`DNS`: Domain validation type that using DNS-records.</li><li>`HTTP`: Domain validation type that using HTTP-files.</li><ul/>
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the challenge is created. 
+updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the challenge is updated. 
+status | enum **Status**<br>Status of the challenge. <ul><li>`PENDING`: The challenge is waiting to be completed.</li><li>`PROCESSING`: The challenge is awaiting approval from Let's Encrypt.</li><li>`VALID`: The challenge is complete.</li><li>`INVALID`: The rights check for a specific domain failed or the one-week period allocated for the check expired.</li><ul/>
+message | **string**<br>Description of the challenge. 
+error | **string**<br>Error of the challenge. 
+challenge | **oneof:** `dns_challenge` or `http_challenge`<br>Data of the challenge.
+&nbsp;&nbsp;dns_challenge | **[DnsRecord](#DnsRecord2)**<br>DNS-record. 
+&nbsp;&nbsp;http_challenge | **[HttpFile](#HttpFile2)**<br>HTTP-file. 
+
+
+### DnsRecord {#DnsRecord2}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the DNS record. 
+type | **string**<br>Type of the DNS-record. 
+value | **string**<br>Value of the DNS-record. 
+
+
+### HttpFile {#HttpFile2}
+
+Field | Description
+--- | ---
+url | **string**<br>Location of the HTTP file. 
+content | **string**<br>Content of the HTTP file. 
 
 
 ## Update {#Update}
@@ -248,7 +281,7 @@ Updates the specified certificate.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateCertificateMetadata](#UpdateCertificateMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Certificate](../certificate.proto#Certificate3)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Certificate](#Certificate3)<br>
 
 ### UpdateCertificateRequest {#UpdateCertificateRequest}
 
@@ -277,7 +310,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateCertificateMetadata](#UpdateCertificateMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Certificate](../certificate.proto#Certificate3)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Certificate](#Certificate3)>**<br>if operation finished successfully. 
 
 
 ### UpdateCertificateMetadata {#UpdateCertificateMetadata}
@@ -307,7 +340,40 @@ updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 issued_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the certificate is issued. 
 not_after | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time after which the certificate is not valid. 
 not_before | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time before which the certificate is not valid. 
-challenges[] | **[Challenge](../certificate.proto#Challenge2)**<br>Domains validation challenges of the certificate. Used only for managed certificates. 
+challenges[] | **[Challenge](#Challenge3)**<br>Domains validation challenges of the certificate. Used only for managed certificates. 
+
+
+### Challenge {#Challenge3}
+
+Field | Description
+--- | ---
+domain | **string**<br>Domain of the challenge. 
+type | enum **ChallengeType**<br>Type of the challenge. <ul><li>`DNS`: Domain validation type that using DNS-records.</li><li>`HTTP`: Domain validation type that using HTTP-files.</li><ul/>
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the challenge is created. 
+updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the challenge is updated. 
+status | enum **Status**<br>Status of the challenge. <ul><li>`PENDING`: The challenge is waiting to be completed.</li><li>`PROCESSING`: The challenge is awaiting approval from Let's Encrypt.</li><li>`VALID`: The challenge is complete.</li><li>`INVALID`: The rights check for a specific domain failed or the one-week period allocated for the check expired.</li><ul/>
+message | **string**<br>Description of the challenge. 
+error | **string**<br>Error of the challenge. 
+challenge | **oneof:** `dns_challenge` or `http_challenge`<br>Data of the challenge.
+&nbsp;&nbsp;dns_challenge | **[DnsRecord](#DnsRecord3)**<br>DNS-record. 
+&nbsp;&nbsp;http_challenge | **[HttpFile](#HttpFile3)**<br>HTTP-file. 
+
+
+### DnsRecord {#DnsRecord3}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the DNS record. 
+type | **string**<br>Type of the DNS-record. 
+value | **string**<br>Value of the DNS-record. 
+
+
+### HttpFile {#HttpFile3}
+
+Field | Description
+--- | ---
+url | **string**<br>Location of the HTTP file. 
+content | **string**<br>Content of the HTTP file. 
 
 
 ## Delete {#Delete}
@@ -318,7 +384,7 @@ Deletes the specified certificate.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[DeleteCertificateMetadata](#DeleteCertificateMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Certificate](../certificate.proto#Certificate4)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Certificate](#Certificate4)<br>
 
 ### DeleteCertificateRequest {#DeleteCertificateRequest}
 
@@ -340,7 +406,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteCertificateMetadata](#DeleteCertificateMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Certificate](../certificate.proto#Certificate4)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Certificate](#Certificate4)>**<br>if operation finished successfully. 
 
 
 ### DeleteCertificateMetadata {#DeleteCertificateMetadata}
@@ -370,7 +436,40 @@ updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 issued_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the certificate is issued. 
 not_after | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time after which the certificate is not valid. 
 not_before | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time before which the certificate is not valid. 
-challenges[] | **[Challenge](../certificate.proto#Challenge2)**<br>Domains validation challenges of the certificate. Used only for managed certificates. 
+challenges[] | **[Challenge](#Challenge4)**<br>Domains validation challenges of the certificate. Used only for managed certificates. 
+
+
+### Challenge {#Challenge4}
+
+Field | Description
+--- | ---
+domain | **string**<br>Domain of the challenge. 
+type | enum **ChallengeType**<br>Type of the challenge. <ul><li>`DNS`: Domain validation type that using DNS-records.</li><li>`HTTP`: Domain validation type that using HTTP-files.</li><ul/>
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the challenge is created. 
+updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the challenge is updated. 
+status | enum **Status**<br>Status of the challenge. <ul><li>`PENDING`: The challenge is waiting to be completed.</li><li>`PROCESSING`: The challenge is awaiting approval from Let's Encrypt.</li><li>`VALID`: The challenge is complete.</li><li>`INVALID`: The rights check for a specific domain failed or the one-week period allocated for the check expired.</li><ul/>
+message | **string**<br>Description of the challenge. 
+error | **string**<br>Error of the challenge. 
+challenge | **oneof:** `dns_challenge` or `http_challenge`<br>Data of the challenge.
+&nbsp;&nbsp;dns_challenge | **[DnsRecord](#DnsRecord4)**<br>DNS-record. 
+&nbsp;&nbsp;http_challenge | **[HttpFile](#HttpFile4)**<br>HTTP-file. 
+
+
+### DnsRecord {#DnsRecord4}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the DNS record. 
+type | **string**<br>Type of the DNS-record. 
+value | **string**<br>Value of the DNS-record. 
+
+
+### HttpFile {#HttpFile4}
+
+Field | Description
+--- | ---
+url | **string**<br>Location of the HTTP file. 
+content | **string**<br>Content of the HTTP file. 
 
 
 ## RequestNew {#RequestNew}
@@ -381,7 +480,7 @@ Request a certificate in the specified folder.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[RequestNewCertificateMetadata](#RequestNewCertificateMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Certificate](../certificate.proto#Certificate5)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Certificate](#Certificate5)<br>
 
 ### RequestNewCertificateRequest {#RequestNewCertificateRequest}
 
@@ -408,7 +507,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RequestNewCertificateMetadata](#RequestNewCertificateMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Certificate](../certificate.proto#Certificate5)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Certificate](#Certificate5)>**<br>if operation finished successfully. 
 
 
 ### RequestNewCertificateMetadata {#RequestNewCertificateMetadata}
@@ -438,7 +537,40 @@ updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 issued_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the certificate is issued. 
 not_after | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time after which the certificate is not valid. 
 not_before | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time before which the certificate is not valid. 
-challenges[] | **[Challenge](../certificate.proto#Challenge2)**<br>Domains validation challenges of the certificate. Used only for managed certificates. 
+challenges[] | **[Challenge](#Challenge5)**<br>Domains validation challenges of the certificate. Used only for managed certificates. 
+
+
+### Challenge {#Challenge5}
+
+Field | Description
+--- | ---
+domain | **string**<br>Domain of the challenge. 
+type | enum **ChallengeType**<br>Type of the challenge. <ul><li>`DNS`: Domain validation type that using DNS-records.</li><li>`HTTP`: Domain validation type that using HTTP-files.</li><ul/>
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the challenge is created. 
+updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the challenge is updated. 
+status | enum **Status**<br>Status of the challenge. <ul><li>`PENDING`: The challenge is waiting to be completed.</li><li>`PROCESSING`: The challenge is awaiting approval from Let's Encrypt.</li><li>`VALID`: The challenge is complete.</li><li>`INVALID`: The rights check for a specific domain failed or the one-week period allocated for the check expired.</li><ul/>
+message | **string**<br>Description of the challenge. 
+error | **string**<br>Error of the challenge. 
+challenge | **oneof:** `dns_challenge` or `http_challenge`<br>Data of the challenge.
+&nbsp;&nbsp;dns_challenge | **[DnsRecord](#DnsRecord5)**<br>DNS-record. 
+&nbsp;&nbsp;http_challenge | **[HttpFile](#HttpFile5)**<br>HTTP-file. 
+
+
+### DnsRecord {#DnsRecord5}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the DNS record. 
+type | **string**<br>Type of the DNS-record. 
+value | **string**<br>Value of the DNS-record. 
+
+
+### HttpFile {#HttpFile5}
+
+Field | Description
+--- | ---
+url | **string**<br>Location of the HTTP file. 
+content | **string**<br>Content of the HTTP file. 
 
 
 ## ListOperations {#ListOperations}

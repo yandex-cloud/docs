@@ -20,7 +20,7 @@ A set of methods for managing machine learning models.
 
 Returns the specified machine learning model. <br>To get the list of all available models, make a [List](#List) request.
 
-**rpc Get ([GetMlModelRequest](#GetMlModelRequest)) returns ([MlModel](../ml_model.proto#MlModel))**
+**rpc Get ([GetMlModelRequest](#GetMlModelRequest)) returns ([MlModel](#MlModel))**
 
 ### GetMlModelRequest {#GetMlModelRequest}
 
@@ -59,7 +59,7 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 
 Field | Description
 --- | ---
-ml_models[] | **[MlModel](../ml_model.proto#MlModel1)**<br>List of models in the specified cluster. 
+ml_models[] | **[MlModel](#MlModel1)**<br>List of models in the specified cluster. 
 next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListMlModelsRequest.page_size](#ListMlModelsRequest), use `next_page_token` as the value for the [ListMlModelsRequest.page_token](#ListMlModelsRequest) parameter in the next list request. <br>Each subsequent page will have its own `next_page_token` to continue paging through the results. 
 
 
@@ -81,7 +81,7 @@ Creates a machine learning model in the specified cluster.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateMlModelMetadata](#CreateMlModelMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[MlModel](../ml_model.proto#MlModel2)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[MlModel](#MlModel2)<br>
 
 ### CreateMlModelRequest {#CreateMlModelRequest}
 
@@ -106,7 +106,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateMlModelMetadata](#CreateMlModelMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[MlModel](../ml_model.proto#MlModel2)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[MlModel](#MlModel2)>**<br>if operation finished successfully. 
 
 
 ### CreateMlModelMetadata {#CreateMlModelMetadata}
@@ -135,7 +135,7 @@ Updates the specified machine learning model.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateMlModelMetadata](#UpdateMlModelMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[MlModel](../ml_model.proto#MlModel3)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[MlModel](#MlModel3)<br>
 
 ### UpdateMlModelRequest {#UpdateMlModelRequest}
 
@@ -160,7 +160,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateMlModelMetadata](#UpdateMlModelMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[MlModel](../ml_model.proto#MlModel3)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[MlModel](#MlModel3)>**<br>if operation finished successfully. 
 
 
 ### UpdateMlModelMetadata {#UpdateMlModelMetadata}

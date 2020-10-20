@@ -17,47 +17,27 @@
 
 
 ```bash
-$ mkdir ~/.postgresql
-$ wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" -O ~/.postgresql/root.crt
-$ chmod 0600 ~/.postgresql/root.crt
+mkdir ~/.postgresql && \
+wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" -O ~/.postgresql/root.crt && \
+chmod 0600 ~/.postgresql/root.crt
 ```
 
 
+## Примеры строк подключения {#connection-string}
 
-## Строка подключения {#connection-string}
+{% include [conn-strings-environment](../../_includes/mdb/mdb-conn-strings-env.md) %}
 
-Подключиться к БД с помощью команды `psql`.
+Вы можете подключаться к {{ PG }}-хостам в публичном доступе только с использованием SSL-сертификата. Перед подключением к таким хостам [подготовьте сертификат](#configuring-an-ssl-certificate).
+
+В этих примерах предполагается, что SSL-сертификат `root.crt` расположен в директории `/home/<домашняя директория>/.postgresql/`. 
+
+Подключение без использования SSL-сертификата поддерживается только для хостов, находящихся не в публичном доступе. В этом случае трафик внутри виртуальной сети при подключении к БД шифроваться не будет.
 
 {% include [see-fqdn-in-console](../../_includes/mdb/see-fqdn-in-console.md) %}
 
-{% list tabs %}
+{% include [mpg-connection-strings](../../_includes/mdb/mpg-conn-strings.md) %}
 
-- SSL
-
-  {% include [public-connect-ssl](../../_includes/mdb/public-connect-ssl.md) %}
-
-  ```bash
-  $ psql "host=<FQDN хоста БД> \
-          port=6432 \
-          sslmode=verify-full \
-          dbname=<имя базы данных> \
-          user=<имя пользователя базы данных>"
-  ```
-
-- Без SSL
-
-  Если вам не нужно шифровать трафик внутри виртуальной сети при подключении к БД, то можно подключаться к базе без SSL-соединения. Передайте параметр `sslmode` со значением `disable`:
-
-  ```bash
-  $ psql "host=<FQDN хоста БД> \
-          port=6432 \
-          sslmode=disable \
-          dbname=<имя базы данных> \
-          user=<имя пользователя базы данных>"
-  ```
-
-{% endlist %}
-
+При успешном подключении к кластеру и выполнении тестового запроса будет выведена версия {{ PG }}.
 
 ## Автоматический выбор хоста-мастера {#automatic-master-host-selection}
 
@@ -92,7 +72,7 @@ psql "host=<FQDN хоста 1>,<FQDN хоста 2>,<FQDN хоста 3> \
 Это доменное имя всегда указывает на текущий мастер в кластере. Например, для кластера с идентификатором `c9qash3nb1v9ulc8j9nm` к мастеру можно подключиться так:
 
 ```bash
-$ psql "host=c-c9qash3nb1v9ulc8j9nm.rw.mdb.yandexcloud.net \
+psql "host=c-c9qash3nb1v9ulc8j9nm.rw.mdb.yandexcloud.net \
       port=6432 \
       sslmode=verify-full \
       dbname=<имя базы данных> \

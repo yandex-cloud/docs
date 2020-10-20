@@ -24,7 +24,7 @@ editable: false
 
 Возвращает указанный ресурс Folder. <br>Чтобы получить список доступных ресурсов Folder, используйте запрос [List](#List).
 
-**rpc Get ([GetFolderRequest](#GetFolderRequest)) returns ([Folder](../folder.proto#Folder))**
+**rpc Get ([GetFolderRequest](#GetFolderRequest)) returns ([Folder](#Folder))**
 
 ### GetFolderRequest {#GetFolderRequest}
 
@@ -59,14 +59,14 @@ status | enum **Status**<br>Статус каталога. <ul><li>`ACTIVE`: К�
 cloud_id | **string**<br>Обязательное поле. Идентификатор облака, для которого запрашивается список каталогов. Чтобы получить идентификатор облака, используйте запрос [yandex.cloud.resourcemanager.v1.CloudService.List](/docs/resource-manager/grpc/cloud_service#List). Максимальная длина строки в символах — 50.
 page_size | **int64**<br>Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `page_size`, сервис вернет значение [ListFoldersResponse.next_page_token](#ListFoldersResponse), которое можно использовать для получения следующей страницы. Значение по умолчанию: 100. Максимальное значение — 1000.
 page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListFoldersResponse.next_page_token](#ListFoldersResponse) прошлого запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
-filter | **string**<br><ol><li>Имя поля. В настоящее время фильтрация осуществляется только по полю [Folder.name](../folder.proto#Folder1). </li><li>Оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений. </li><li>Значение. Значение длиной от 3 до 63 символов, совпадающее с регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.</li></ol> Максимальная длина строки в символах — 1000.
+filter | **string**<br><ol><li>Имя поля. В настоящее время фильтрация осуществляется только по полю [Folder.name](#Folder1). </li><li>Оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений. </li><li>Значение. Значение длиной от 3 до 63 символов, совпадающее с регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.</li></ol> Максимальная длина строки в символах — 1000.
 
 
 ### ListFoldersResponse {#ListFoldersResponse}
 
 Поле | Описание
 --- | ---
-folders[] | **[Folder](../folder.proto#Folder1)**<br>Список ресурсов Folder. 
+folders[] | **[Folder](#Folder1)**<br>Список ресурсов Folder. 
 next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListFoldersRequest.page_size](#ListFoldersRequest), используйте `next_page_token` в качестве значения параметра [ListFoldersRequest.page_token](#ListFoldersRequest) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
 
 
@@ -91,7 +91,7 @@ status | enum **Status**<br>Статус каталога. <ul><li>`ACTIVE`: К�
 
 Метаданные и результат операции:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateFolderMetadata](#CreateFolderMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Folder](../folder.proto#Folder2)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Folder](#Folder2)<br>
 
 ### CreateFolderRequest {#CreateFolderRequest}
 
@@ -116,7 +116,7 @@ done | **bool**<br>Если значение равно `false` — операц
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateFolderMetadata](#CreateFolderMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
 result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Folder](../folder.proto#Folder2)>**<br>в случае успешного выполнения операции. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Folder](#Folder2)>**<br>в случае успешного выполнения операции. 
 
 
 ### CreateFolderMetadata {#CreateFolderMetadata}
@@ -147,7 +147,7 @@ status | enum **Status**<br>Статус каталога. <ul><li>`ACTIVE`: К�
 
 Метаданные и результат операции:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateFolderMetadata](#UpdateFolderMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Folder](../folder.proto#Folder3)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Folder](#Folder3)<br>
 
 ### UpdateFolderRequest {#UpdateFolderRequest}
 
@@ -173,7 +173,7 @@ done | **bool**<br>Если значение равно `false` — операц
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateFolderMetadata](#UpdateFolderMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
 result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Folder](../folder.proto#Folder3)>**<br>в случае успешного выполнения операции. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Folder](#Folder3)>**<br>в случае успешного выполнения операции. 
 
 
 ### UpdateFolderMetadata {#UpdateFolderMetadata}

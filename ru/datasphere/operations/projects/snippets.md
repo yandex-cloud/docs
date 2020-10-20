@@ -73,3 +73,7 @@ disk = Storage.ya_disk(application_id='ID', application_secret='secret')
 
 disk.put_dir('path/to/dir', 'path/to/dir/within/ya/disk')
 ```
+
+#### Что дальше {#what-is-next}
+
+* [{#T}](checkpoints.md)

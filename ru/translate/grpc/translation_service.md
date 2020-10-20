@@ -60,7 +60,7 @@ translated_text | **string**<br>Обязательное поле. Текст н
 
 Поле | Описание
 --- | ---
-translations[] | **[TranslatedText](../translation.proto#TranslatedText)**<br>Массив переводов. 
+translations[] | **[TranslatedText](#TranslatedText)**<br>Массив переводов. 
 
 
 ### TranslatedText {#TranslatedText}
@@ -110,7 +110,7 @@ folder_id | **string**<br>Идентификатор каталога, к кот
 
 Поле | Описание
 --- | ---
-languages[] | **[Language](../translation.proto#Language)**<br>Список поддерживаемых языков. 
+languages[] | **[Language](#Language)**<br>Список поддерживаемых языков. 
 
 
 ### Language {#Language}

@@ -30,7 +30,7 @@ page_token | **string**<br>Page token. Set `page_token` to the [ListVersionsResp
 
 Field | Description
 --- | ---
-version[] | **[Version](../version.proto#Version)**<br>Requested list of available versions. 
+version[] | **[Version](#Version)**<br>Requested list of available versions. 
 next_page_token | **string**<br>This token allows you to get the next page of results for ListVersions requests, if the number of results is larger than [ListVersionsRequest.page_size](#ListVersionsRequest) specified in the request. To get the next page, specify the value of `next_page_token` as a value for the [ListVersionsRequest.page_token](#ListVersionsRequest) parameter in the next ListVerions request. Subsequent ListVersions requests will have their own `next_page_token` to continue paging through the results. 
 
 

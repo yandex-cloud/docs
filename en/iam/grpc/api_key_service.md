@@ -36,7 +36,7 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 
 Field | Description
 --- | ---
-api_keys[] | **[ApiKey](../api_key.proto#ApiKey)**<br>List of API keys. 
+api_keys[] | **[ApiKey](#ApiKey)**<br>List of API keys. 
 next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListApiKeysRequest.page_size](#ListApiKeysRequest), use the `next_page_token` as the value for the [ListApiKeysRequest.page_token](#ListApiKeysRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
@@ -54,7 +54,7 @@ description | **string**<br>Description of the API key. 0-256 characters long.
 
 Returns the specified API key. <br>To get the list of available API keys, make a [List](#List) request.
 
-**rpc Get ([GetApiKeyRequest](#GetApiKeyRequest)) returns ([ApiKey](../api_key.proto#ApiKey1))**
+**rpc Get ([GetApiKeyRequest](#GetApiKeyRequest)) returns ([ApiKey](#ApiKey1))**
 
 ### GetApiKeyRequest {#GetApiKeyRequest}
 
@@ -91,7 +91,7 @@ description | **string**<br>Description of the API key. The maximum string lengt
 
 Field | Description
 --- | ---
-api_key | **[ApiKey](../api_key.proto#ApiKey2)**<br>ApiKey resource. 
+api_key | **[ApiKey](#ApiKey2)**<br>ApiKey resource. 
 secret | **string**<br>Secret part of the API key. This secret key you may use in the requests for authentication. 
 
 
@@ -113,7 +113,7 @@ Updates the specified API key.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateApiKeyMetadata](#UpdateApiKeyMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[ApiKey](../api_key.proto#ApiKey3)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[ApiKey](#ApiKey3)<br>
 
 ### UpdateApiKeyRequest {#UpdateApiKeyRequest}
 
@@ -137,7 +137,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateApiKeyMetadata](#UpdateApiKeyMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[ApiKey](../api_key.proto#ApiKey3)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[ApiKey](#ApiKey3)>**<br>if operation finished successfully. 
 
 
 ### UpdateApiKeyMetadata {#UpdateApiKeyMetadata}

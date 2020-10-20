@@ -25,83 +25,36 @@
 
 Доступный хосту объем оперативной памяти определяется классом этого хоста. Все доступные варианты перечислены в разделе [{#T}](../concepts/instance-types.md). 
 
-## Настройка SSL-сертификата {#Configuring-an-SSL-certificate}
+## Настройка SSL-сертификата {#configuring-an-ssl-certificate}
 
 {{ MG }}-хосты с публичным доступом поддерживают только соединения с SSL-сертификатом. Подготовить сертификат можно так:
 
 
 ```bash
-$ mkdir ~/.mongodb
-$ wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" -O ~/.mongodb/CA.pem
-$ chmod 0600 ~/.mongodb/CA.pem
+mkdir ~/.mongodb && \
+wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" -O ~/.mongodb/root.crt && \
+chmod 0600 ~/.mongodb/root.crt
 ```
 
 
-## Строка подключения {#Connection-string}
+## Примеры строк подключения {#connection-string}
 
-Подключиться к БД можно с помощью команды `mongo`, перечислив все хосты кластера в значении параметра `host`.
+{% include [conn-strings-environment](../../_includes/mdb/mdb-conn-strings-env.md) %}
+
+Вы можете подключаться к {{ MG }}-хостам в публичном доступе только с использованием SSL-сертификата. Перед подключением к таким хостам [подготовьте сертификат](#configuring-an-ssl-certificate).
+
+В этих примерах предполагается, что SSL-сертификат `root.crt` расположен в директории `/home/<домашняя директория>/.mongodb/`. 
+
+Подключение без использования SSL-сертификата поддерживается только для хостов, находящихся не в публичном доступе. В этом случае трафик внутри виртуальной сети при подключении к БД шифроваться не будет.
+
+Запросы на запись будут автоматически направлены к основной реплике кластера.
 
 {% include [see-fqdn-in-console](../../_includes/mdb/see-fqdn-in-console.md) %}
 
-{% list tabs %}
+{% include [mmg-connection-strings](../../_includes/mdb/mmg-conn-strings.md) %}
 
-- SSL для mongo версий 4.2 и выше
-
-  {% include [public-connect-ssl](../../_includes/mdb/public-connect-ssl.md) %}
-    
-  
-  ```bash
-  $ mongo --norc \
-          --tls \
-          --tlsCAFile ~/.mongodb/CA.pem \
-          --host 'rs01/<FQDN хоста 1>:27018,<FQDN хоста 2>:27018,<FQDN хоста N>:27018' \
-          -u <имя пользователя> \
-          -p <пароль пользователя> \
-          <имя БД>
-  ```
- 
- 
+При успешном подключении к кластеру и выполнении тестового запроса будут выведены:
+1. Для примеров на PHP — результат выполнения команды `ping`.
+1. Для других примеров — имя БД, к которой было выполнено подключение.
 
 
-
-
-- SSL для mongo старых версий
-
-  {% include [public-connect-ssl](../../_includes/mdb/public-connect-ssl.md) %}
-
-  
-  ```bash
-  $ mongo --norc \
-          --ssl \
-          --sslCAFile ~/.mongodb/CA.pem \
-          --host 'rs01/<FQDN хоста 1>:27018,<FQDN хоста 2>:27018,<FQDN хоста N>:27018' \
-          -u <имя пользователя> \
-          -p <пароль пользователя> \
-          <имя БД>
-  ```
- 
- 
-
-
-
-
-- Без SSL
-
-  Если вам не нужно шифровать трафик внутри виртуальной сети при подключении к БД, то вы можете подключаться с виртуальной машины {{ yandex-cloud }} без SSL-соединения. Передайте параметр `sslmode` со значением `disable`:
-
-  
-  ```bash
-  $ mongo --norc \
-          --host 'rs01/<FQDN хоста 1>:27018,<FQDN хоста 2>:27018,<FQDN хоста N>:27018' \
-          -u <имя пользователя> \
-          -p <пароль пользователя> \
-          <имя БД>
-  ```
- 
- 
-
-
-
-{% endlist%}
-
-Запросы на запись будут автоматически направлены к основной реплике кластера.

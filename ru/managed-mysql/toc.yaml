@@ -25,10 +25,8 @@ items:
         href: operations/databases.md
       - name: Настройка базы данных
         href: operations/db-settings.md
-      - name: Управление пользователями БД
+      - name: Управление пользователями
         href: operations/cluster-users.md
-      - name: Назначение ролей
-        href: operations/grant.md
       - name: Управление резервными копиями
         href: operations/cluster-backups.md
       - name: Удаление кластера
@@ -45,6 +43,8 @@ items:
         href: concepts/network.md
       - name: Квоты и лимиты
         href: concepts/limits.md
+      - name: Пользователи и роли
+        href: concepts/roles.md
       - name: Типы хранилища
         href: concepts/storage.md
       - name: Резервные копии

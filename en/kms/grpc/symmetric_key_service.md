@@ -33,7 +33,7 @@ Set of methods for managing symmetric KMS keys.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateSymmetricKeyMetadata](#CreateSymmetricKeyMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[SymmetricKey](../symmetric_key.proto#SymmetricKey)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[SymmetricKey](#SymmetricKey)<br>
 
 ### CreateSymmetricKeyRequest {#CreateSymmetricKeyRequest}
 
@@ -61,7 +61,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateSymmetricKeyMetadata](#CreateSymmetricKeyMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[SymmetricKey](../symmetric_key.proto#SymmetricKey)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[SymmetricKey](#SymmetricKey)>**<br>if operation finished successfully. 
 
 
 ### CreateSymmetricKeyMetadata {#CreateSymmetricKeyMetadata}
@@ -83,18 +83,31 @@ name | **string**<br>Name of the key.
 description | **string**<br>Description of the key. 
 labels | **map<string,string>**<br>Custom labels for the key as `key:value` pairs. Maximum 64 per key. 
 status | enum **Status**<br>Current status of the key. <ul><li>`CREATING`: The key is being created.</li><li>`ACTIVE`: The key is active and can be used for encryption and decryption. Can be set to INACTIVE using the [SymmetricKeyService.Update](#Update) method.</li><li>`INACTIVE`: The key is inactive and unusable. Can be set to ACTIVE using the [SymmetricKeyService.Update](#Update) method.</li><ul/>
-primary_version | **[SymmetricKeyVersion](../symmetric_key.proto#SymmetricKeyVersion)**<br>Primary version of the key, used as the default for all encrypt/decrypt operations, when no version ID is specified. 
+primary_version | **[SymmetricKeyVersion](#SymmetricKeyVersion)**<br>Primary version of the key, used as the default for all encrypt/decrypt operations, when no version ID is specified. 
 default_algorithm | enum **SymmetricAlgorithm**<br>Default encryption algorithm to be used with new versions of the key. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><ul/>
 rotated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time of the last key rotation (time when the last version was created). Empty if the key does not have versions yet. 
 rotation_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time period between automatic key rotations. 
 deletion_protection | **bool**<br>Flag that inhibits deletion of the key 
 
 
+### SymmetricKeyVersion {#SymmetricKeyVersion}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the key version. 
+key_id | **string**<br>ID of the symmetric KMS key that the version belongs to. 
+status | enum **Status**<br>Status of the key version. <ul><li>`ACTIVE`: The version is active and can be used for encryption and decryption.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [SymmetricKeyVersion.destroy_at](#SymmetricKeyVersion) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li><ul/>
+algorithm | enum **SymmetricAlgorithm**<br>Encryption algorithm that should be used when using the key version to encrypt plaintext. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><ul/>
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the key version was created. 
+primary | **bool**<br>Indication of a primary version, that is to be used by default for all cryptographic operations that don't have a key version explicitly specified. 
+destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the key version is going to be destroyed. Empty unless the status is `SCHEDULED_FOR_DESTRUCTION`. 
+
+
 ## Get {#Get}
 
 Returns the specified symmetric KMS key. <br>To get the list of available symmetric KMS keys, make a [SymmetricKeyService.List](#List) request.
 
-**rpc Get ([GetSymmetricKeyRequest](#GetSymmetricKeyRequest)) returns ([SymmetricKey](../symmetric_key.proto#SymmetricKey1))**
+**rpc Get ([GetSymmetricKeyRequest](#GetSymmetricKeyRequest)) returns ([SymmetricKey](#SymmetricKey1))**
 
 ### GetSymmetricKeyRequest {#GetSymmetricKeyRequest}
 
@@ -114,20 +127,20 @@ name | **string**<br>Name of the key.
 description | **string**<br>Description of the key. 
 labels | **map<string,string>**<br>Custom labels for the key as `key:value` pairs. Maximum 64 per key. 
 status | enum **Status**<br>Current status of the key. <ul><li>`CREATING`: The key is being created.</li><li>`ACTIVE`: The key is active and can be used for encryption and decryption. Can be set to INACTIVE using the [SymmetricKeyService.Update](#Update) method.</li><li>`INACTIVE`: The key is inactive and unusable. Can be set to ACTIVE using the [SymmetricKeyService.Update](#Update) method.</li><ul/>
-primary_version | **[SymmetricKeyVersion](../symmetric_key.proto#SymmetricKeyVersion)**<br>Primary version of the key, used as the default for all encrypt/decrypt operations, when no version ID is specified. 
+primary_version | **[SymmetricKeyVersion](#SymmetricKeyVersion1)**<br>Primary version of the key, used as the default for all encrypt/decrypt operations, when no version ID is specified. 
 default_algorithm | enum **SymmetricAlgorithm**<br>Default encryption algorithm to be used with new versions of the key. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><ul/>
 rotated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time of the last key rotation (time when the last version was created). Empty if the key does not have versions yet. 
 rotation_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time period between automatic key rotations. 
 deletion_protection | **bool**<br>Flag that inhibits deletion of the key 
 
 
-### SymmetricKeyVersion {#SymmetricKeyVersion}
+### SymmetricKeyVersion {#SymmetricKeyVersion1}
 
 Field | Description
 --- | ---
 id | **string**<br>ID of the key version. 
 key_id | **string**<br>ID of the symmetric KMS key that the version belongs to. 
-status | enum **Status**<br>Status of the key version. <ul><li>`ACTIVE`: The version is active and can be used for encryption and decryption.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [SymmetricKeyVersion.destroy_at](../symmetric_key.proto#SymmetricKeyVersion) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li><ul/>
+status | enum **Status**<br>Status of the key version. <ul><li>`ACTIVE`: The version is active and can be used for encryption and decryption.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [SymmetricKeyVersion.destroy_at](#SymmetricKeyVersion1) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li><ul/>
 algorithm | enum **SymmetricAlgorithm**<br>Encryption algorithm that should be used when using the key version to encrypt plaintext. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><ul/>
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the key version was created. 
 primary | **bool**<br>Indication of a primary version, that is to be used by default for all cryptographic operations that don't have a key version explicitly specified. 
@@ -153,7 +166,7 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 
 Field | Description
 --- | ---
-keys[] | **[SymmetricKey](../symmetric_key.proto#SymmetricKey2)**<br>List of symmetric KMS keys in the specified folder. 
+keys[] | **[SymmetricKey](#SymmetricKey2)**<br>List of symmetric KMS keys in the specified folder. 
 next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is greater than the specified [ListSymmetricKeysRequest.page_size](#ListSymmetricKeysRequest), use the `next_page_token` as the value for the [ListSymmetricKeysRequest.page_token](#ListSymmetricKeysRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
@@ -168,20 +181,20 @@ name | **string**<br>Name of the key.
 description | **string**<br>Description of the key. 
 labels | **map<string,string>**<br>Custom labels for the key as `key:value` pairs. Maximum 64 per key. 
 status | enum **Status**<br>Current status of the key. <ul><li>`CREATING`: The key is being created.</li><li>`ACTIVE`: The key is active and can be used for encryption and decryption. Can be set to INACTIVE using the [SymmetricKeyService.Update](#Update) method.</li><li>`INACTIVE`: The key is inactive and unusable. Can be set to ACTIVE using the [SymmetricKeyService.Update](#Update) method.</li><ul/>
-primary_version | **[SymmetricKeyVersion](../symmetric_key.proto#SymmetricKeyVersion1)**<br>Primary version of the key, used as the default for all encrypt/decrypt operations, when no version ID is specified. 
+primary_version | **[SymmetricKeyVersion](#SymmetricKeyVersion2)**<br>Primary version of the key, used as the default for all encrypt/decrypt operations, when no version ID is specified. 
 default_algorithm | enum **SymmetricAlgorithm**<br>Default encryption algorithm to be used with new versions of the key. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><ul/>
 rotated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time of the last key rotation (time when the last version was created). Empty if the key does not have versions yet. 
 rotation_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time period between automatic key rotations. 
 deletion_protection | **bool**<br>Flag that inhibits deletion of the key 
 
 
-### SymmetricKeyVersion {#SymmetricKeyVersion1}
+### SymmetricKeyVersion {#SymmetricKeyVersion2}
 
 Field | Description
 --- | ---
 id | **string**<br>ID of the key version. 
 key_id | **string**<br>ID of the symmetric KMS key that the version belongs to. 
-status | enum **Status**<br>Status of the key version. <ul><li>`ACTIVE`: The version is active and can be used for encryption and decryption.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [SymmetricKeyVersion.destroy_at](../symmetric_key.proto#SymmetricKeyVersion1) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li><ul/>
+status | enum **Status**<br>Status of the key version. <ul><li>`ACTIVE`: The version is active and can be used for encryption and decryption.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [SymmetricKeyVersion.destroy_at](#SymmetricKeyVersion2) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li><ul/>
 algorithm | enum **SymmetricAlgorithm**<br>Encryption algorithm that should be used when using the key version to encrypt plaintext. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><ul/>
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the key version was created. 
 primary | **bool**<br>Indication of a primary version, that is to be used by default for all cryptographic operations that don't have a key version explicitly specified. 
@@ -207,17 +220,17 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 
 Field | Description
 --- | ---
-key_versions[] | **[SymmetricKeyVersion](../symmetric_key.proto#SymmetricKeyVersion2)**<br>List of versions for the specified symmetric KMS key. 
+key_versions[] | **[SymmetricKeyVersion](#SymmetricKeyVersion3)**<br>List of versions for the specified symmetric KMS key. 
 next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is greater than the specified [ListSymmetricKeyVersionsRequest.page_size](#ListSymmetricKeyVersionsRequest), use the `next_page_token` as the value for the [ListSymmetricKeyVersionsRequest.page_token](#ListSymmetricKeyVersionsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
-### SymmetricKeyVersion {#SymmetricKeyVersion2}
+### SymmetricKeyVersion {#SymmetricKeyVersion3}
 
 Field | Description
 --- | ---
 id | **string**<br>ID of the key version. 
 key_id | **string**<br>ID of the symmetric KMS key that the version belongs to. 
-status | enum **Status**<br>Status of the key version. <ul><li>`ACTIVE`: The version is active and can be used for encryption and decryption.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [SymmetricKeyVersion.destroy_at](../symmetric_key.proto#SymmetricKeyVersion2) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li><ul/>
+status | enum **Status**<br>Status of the key version. <ul><li>`ACTIVE`: The version is active and can be used for encryption and decryption.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [SymmetricKeyVersion.destroy_at](#SymmetricKeyVersion3) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li><ul/>
 algorithm | enum **SymmetricAlgorithm**<br>Encryption algorithm that should be used when using the key version to encrypt plaintext. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><ul/>
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the key version was created. 
 primary | **bool**<br>Indication of a primary version, that is to be used by default for all cryptographic operations that don't have a key version explicitly specified. 
@@ -232,7 +245,7 @@ Updates the specified symmetric KMS key.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateSymmetricKeyMetadata](#UpdateSymmetricKeyMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[SymmetricKey](../symmetric_key.proto#SymmetricKey3)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[SymmetricKey](#SymmetricKey3)<br>
 
 ### UpdateSymmetricKeyRequest {#UpdateSymmetricKeyRequest}
 
@@ -242,7 +255,7 @@ key_id | **string**<br>Required. ID of the symmetric KMS key to update. To get t
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Required. Field mask that specifies which attributes of the symmetric KMS key are going to be updated. 
 name | **string**<br>New name for the symmetric KMS key. The maximum string length in characters is 100.
 description | **string**<br>New description for the symmetric KMS key. The maximum string length in characters is 1024.
-status | **[SymmetricKey.Status](../symmetric_key.proto#SymmetricKey3)**<br>New status for the symmetric KMS key. Using the [SymmetricKeyService.Update](#Update) method you can only set ACTIVE or INACTIVE status. 
+status | **[SymmetricKey.Status](#SymmetricKey3)**<br>New status for the symmetric KMS key. Using the [SymmetricKeyService.Update](#Update) method you can only set ACTIVE or INACTIVE status. 
 labels | **map<string,string>**<br>Custom labels for the symmetric KMS key as `key:value` pairs. Maximum 64 per key. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 default_algorithm | enum **SymmetricAlgorithm**<br>Default encryption algorithm to be used with new versions of the symmetric KMS key. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><ul/>
 rotation_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time period between automatic symmetric KMS key rotations. 
@@ -262,7 +275,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateSymmetricKeyMetadata](#UpdateSymmetricKeyMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[SymmetricKey](../symmetric_key.proto#SymmetricKey3)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[SymmetricKey](#SymmetricKey3)>**<br>if operation finished successfully. 
 
 
 ### UpdateSymmetricKeyMetadata {#UpdateSymmetricKeyMetadata}
@@ -283,11 +296,24 @@ name | **string**<br>Name of the key.
 description | **string**<br>Description of the key. 
 labels | **map<string,string>**<br>Custom labels for the key as `key:value` pairs. Maximum 64 per key. 
 status | enum **Status**<br>Current status of the key. <ul><li>`CREATING`: The key is being created.</li><li>`ACTIVE`: The key is active and can be used for encryption and decryption. Can be set to INACTIVE using the [SymmetricKeyService.Update](#Update) method.</li><li>`INACTIVE`: The key is inactive and unusable. Can be set to ACTIVE using the [SymmetricKeyService.Update](#Update) method.</li><ul/>
-primary_version | **[SymmetricKeyVersion](../symmetric_key.proto#SymmetricKeyVersion3)**<br>Primary version of the key, used as the default for all encrypt/decrypt operations, when no version ID is specified. 
+primary_version | **[SymmetricKeyVersion](#SymmetricKeyVersion4)**<br>Primary version of the key, used as the default for all encrypt/decrypt operations, when no version ID is specified. 
 default_algorithm | enum **SymmetricAlgorithm**<br>Default encryption algorithm to be used with new versions of the key. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><ul/>
 rotated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time of the last key rotation (time when the last version was created). Empty if the key does not have versions yet. 
 rotation_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time period between automatic key rotations. 
 deletion_protection | **bool**<br>Flag that inhibits deletion of the key 
+
+
+### SymmetricKeyVersion {#SymmetricKeyVersion4}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the key version. 
+key_id | **string**<br>ID of the symmetric KMS key that the version belongs to. 
+status | enum **Status**<br>Status of the key version. <ul><li>`ACTIVE`: The version is active and can be used for encryption and decryption.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [SymmetricKeyVersion.destroy_at](#SymmetricKeyVersion4) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li><ul/>
+algorithm | enum **SymmetricAlgorithm**<br>Encryption algorithm that should be used when using the key version to encrypt plaintext. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><ul/>
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the key version was created. 
+primary | **bool**<br>Indication of a primary version, that is to be used by default for all cryptographic operations that don't have a key version explicitly specified. 
+destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the key version is going to be destroyed. Empty unless the status is `SCHEDULED_FOR_DESTRUCTION`. 
 
 
 ## Delete {#Delete}
@@ -298,7 +324,7 @@ Deletes the specified symmetric KMS key. This action also automatically schedule
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[DeleteSymmetricKeyMetadata](#DeleteSymmetricKeyMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[SymmetricKey](../symmetric_key.proto#SymmetricKey4)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[SymmetricKey](#SymmetricKey4)<br>
 
 ### DeleteSymmetricKeyRequest {#DeleteSymmetricKeyRequest}
 
@@ -320,7 +346,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteSymmetricKeyMetadata](#DeleteSymmetricKeyMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[SymmetricKey](../symmetric_key.proto#SymmetricKey4)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[SymmetricKey](#SymmetricKey4)>**<br>if operation finished successfully. 
 
 
 ### DeleteSymmetricKeyMetadata {#DeleteSymmetricKeyMetadata}
@@ -341,11 +367,24 @@ name | **string**<br>Name of the key.
 description | **string**<br>Description of the key. 
 labels | **map<string,string>**<br>Custom labels for the key as `key:value` pairs. Maximum 64 per key. 
 status | enum **Status**<br>Current status of the key. <ul><li>`CREATING`: The key is being created.</li><li>`ACTIVE`: The key is active and can be used for encryption and decryption. Can be set to INACTIVE using the [SymmetricKeyService.Update](#Update) method.</li><li>`INACTIVE`: The key is inactive and unusable. Can be set to ACTIVE using the [SymmetricKeyService.Update](#Update) method.</li><ul/>
-primary_version | **[SymmetricKeyVersion](../symmetric_key.proto#SymmetricKeyVersion3)**<br>Primary version of the key, used as the default for all encrypt/decrypt operations, when no version ID is specified. 
+primary_version | **[SymmetricKeyVersion](#SymmetricKeyVersion5)**<br>Primary version of the key, used as the default for all encrypt/decrypt operations, when no version ID is specified. 
 default_algorithm | enum **SymmetricAlgorithm**<br>Default encryption algorithm to be used with new versions of the key. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><ul/>
 rotated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time of the last key rotation (time when the last version was created). Empty if the key does not have versions yet. 
 rotation_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time period between automatic key rotations. 
 deletion_protection | **bool**<br>Flag that inhibits deletion of the key 
+
+
+### SymmetricKeyVersion {#SymmetricKeyVersion5}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the key version. 
+key_id | **string**<br>ID of the symmetric KMS key that the version belongs to. 
+status | enum **Status**<br>Status of the key version. <ul><li>`ACTIVE`: The version is active and can be used for encryption and decryption.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [SymmetricKeyVersion.destroy_at](#SymmetricKeyVersion5) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li><ul/>
+algorithm | enum **SymmetricAlgorithm**<br>Encryption algorithm that should be used when using the key version to encrypt plaintext. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><ul/>
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the key version was created. 
+primary | **bool**<br>Indication of a primary version, that is to be used by default for all cryptographic operations that don't have a key version explicitly specified. 
+destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the key version is going to be destroyed. Empty unless the status is `SCHEDULED_FOR_DESTRUCTION`. 
 
 
 ## SetPrimaryVersion {#SetPrimaryVersion}
@@ -356,7 +395,7 @@ Sets the primary version for the specified key. The primary version is used by d
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[SetPrimarySymmetricKeyVersionMetadata](#SetPrimarySymmetricKeyVersionMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[SymmetricKey](../symmetric_key.proto#SymmetricKey5)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[SymmetricKey](#SymmetricKey5)<br>
 
 ### SetPrimarySymmetricKeyVersionRequest {#SetPrimarySymmetricKeyVersionRequest}
 
@@ -379,7 +418,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[SetPrimarySymmetricKeyVersionMetadata](#SetPrimarySymmetricKeyVersionMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[SymmetricKey](../symmetric_key.proto#SymmetricKey5)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[SymmetricKey](#SymmetricKey5)>**<br>if operation finished successfully. 
 
 
 ### SetPrimarySymmetricKeyVersionMetadata {#SetPrimarySymmetricKeyVersionMetadata}
@@ -401,11 +440,24 @@ name | **string**<br>Name of the key.
 description | **string**<br>Description of the key. 
 labels | **map<string,string>**<br>Custom labels for the key as `key:value` pairs. Maximum 64 per key. 
 status | enum **Status**<br>Current status of the key. <ul><li>`CREATING`: The key is being created.</li><li>`ACTIVE`: The key is active and can be used for encryption and decryption. Can be set to INACTIVE using the [SymmetricKeyService.Update](#Update) method.</li><li>`INACTIVE`: The key is inactive and unusable. Can be set to ACTIVE using the [SymmetricKeyService.Update](#Update) method.</li><ul/>
-primary_version | **[SymmetricKeyVersion](../symmetric_key.proto#SymmetricKeyVersion3)**<br>Primary version of the key, used as the default for all encrypt/decrypt operations, when no version ID is specified. 
+primary_version | **[SymmetricKeyVersion](#SymmetricKeyVersion6)**<br>Primary version of the key, used as the default for all encrypt/decrypt operations, when no version ID is specified. 
 default_algorithm | enum **SymmetricAlgorithm**<br>Default encryption algorithm to be used with new versions of the key. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><ul/>
 rotated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time of the last key rotation (time when the last version was created). Empty if the key does not have versions yet. 
 rotation_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time period between automatic key rotations. 
 deletion_protection | **bool**<br>Flag that inhibits deletion of the key 
+
+
+### SymmetricKeyVersion {#SymmetricKeyVersion6}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the key version. 
+key_id | **string**<br>ID of the symmetric KMS key that the version belongs to. 
+status | enum **Status**<br>Status of the key version. <ul><li>`ACTIVE`: The version is active and can be used for encryption and decryption.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [SymmetricKeyVersion.destroy_at](#SymmetricKeyVersion6) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li><ul/>
+algorithm | enum **SymmetricAlgorithm**<br>Encryption algorithm that should be used when using the key version to encrypt plaintext. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><ul/>
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the key version was created. 
+primary | **bool**<br>Indication of a primary version, that is to be used by default for all cryptographic operations that don't have a key version explicitly specified. 
+destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the key version is going to be destroyed. Empty unless the status is `SCHEDULED_FOR_DESTRUCTION`. 
 
 
 ## ScheduleVersionDestruction {#ScheduleVersionDestruction}
@@ -416,7 +468,7 @@ Schedules the specified key version for destruction. <br>Scheduled destruction c
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[ScheduleSymmetricKeyVersionDestructionMetadata](#ScheduleSymmetricKeyVersionDestructionMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[SymmetricKeyVersion](../symmetric_key.proto#SymmetricKeyVersion3)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[SymmetricKeyVersion](#SymmetricKeyVersion7)<br>
 
 ### ScheduleSymmetricKeyVersionDestructionRequest {#ScheduleSymmetricKeyVersionDestructionRequest}
 
@@ -440,7 +492,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[ScheduleSymmetricKeyVersionDestructionMetadata](#ScheduleSymmetricKeyVersionDestructionMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[SymmetricKeyVersion](../symmetric_key.proto#SymmetricKeyVersion3)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[SymmetricKeyVersion](#SymmetricKeyVersion7)>**<br>if operation finished successfully. 
 
 
 ### ScheduleSymmetricKeyVersionDestructionMetadata {#ScheduleSymmetricKeyVersionDestructionMetadata}
@@ -452,13 +504,13 @@ version_id | **string**<br>ID of the version that is being scheduled for destruc
 destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the version is scheduled to be destroyed. 
 
 
-### SymmetricKeyVersion {#SymmetricKeyVersion3}
+### SymmetricKeyVersion {#SymmetricKeyVersion7}
 
 Field | Description
 --- | ---
 id | **string**<br>ID of the key version. 
 key_id | **string**<br>ID of the symmetric KMS key that the version belongs to. 
-status | enum **Status**<br>Status of the key version. <ul><li>`ACTIVE`: The version is active and can be used for encryption and decryption.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [SymmetricKeyVersion.destroy_at](../symmetric_key.proto#SymmetricKeyVersion3) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li><ul/>
+status | enum **Status**<br>Status of the key version. <ul><li>`ACTIVE`: The version is active and can be used for encryption and decryption.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [SymmetricKeyVersion.destroy_at](#SymmetricKeyVersion7) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li><ul/>
 algorithm | enum **SymmetricAlgorithm**<br>Encryption algorithm that should be used when using the key version to encrypt plaintext. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><ul/>
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the key version was created. 
 primary | **bool**<br>Indication of a primary version, that is to be used by default for all cryptographic operations that don't have a key version explicitly specified. 
@@ -473,7 +525,7 @@ Cancels previously scheduled version destruction, if the version hasn't been des
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CancelSymmetricKeyVersionDestructionMetadata](#CancelSymmetricKeyVersionDestructionMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[SymmetricKeyVersion](../symmetric_key.proto#SymmetricKeyVersion4)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[SymmetricKeyVersion](#SymmetricKeyVersion8)<br>
 
 ### CancelSymmetricKeyVersionDestructionRequest {#CancelSymmetricKeyVersionDestructionRequest}
 
@@ -496,7 +548,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CancelSymmetricKeyVersionDestructionMetadata](#CancelSymmetricKeyVersionDestructionMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[SymmetricKeyVersion](../symmetric_key.proto#SymmetricKeyVersion4)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[SymmetricKeyVersion](#SymmetricKeyVersion8)>**<br>if operation finished successfully. 
 
 
 ### CancelSymmetricKeyVersionDestructionMetadata {#CancelSymmetricKeyVersionDestructionMetadata}
@@ -507,13 +559,13 @@ key_id | **string**<br>ID of the key whose version's destruction is being cancel
 version_id | **string**<br>ID of the version whose scheduled destruction is being cancelled. 
 
 
-### SymmetricKeyVersion {#SymmetricKeyVersion4}
+### SymmetricKeyVersion {#SymmetricKeyVersion8}
 
 Field | Description
 --- | ---
 id | **string**<br>ID of the key version. 
 key_id | **string**<br>ID of the symmetric KMS key that the version belongs to. 
-status | enum **Status**<br>Status of the key version. <ul><li>`ACTIVE`: The version is active and can be used for encryption and decryption.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [SymmetricKeyVersion.destroy_at](../symmetric_key.proto#SymmetricKeyVersion4) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li><ul/>
+status | enum **Status**<br>Status of the key version. <ul><li>`ACTIVE`: The version is active and can be used for encryption and decryption.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [SymmetricKeyVersion.destroy_at](#SymmetricKeyVersion8) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li><ul/>
 algorithm | enum **SymmetricAlgorithm**<br>Encryption algorithm that should be used when using the key version to encrypt plaintext. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><ul/>
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the key version was created. 
 primary | **bool**<br>Indication of a primary version, that is to be used by default for all cryptographic operations that don't have a key version explicitly specified. 
@@ -528,7 +580,7 @@ Rotates the specified key: creates a new key version and makes it the primary ve
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[RotateSymmetricKeyMetadata](#RotateSymmetricKeyMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[SymmetricKey](../symmetric_key.proto#SymmetricKey6)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[SymmetricKey](#SymmetricKey6)<br>
 
 ### RotateSymmetricKeyRequest {#RotateSymmetricKeyRequest}
 
@@ -550,7 +602,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RotateSymmetricKeyMetadata](#RotateSymmetricKeyMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[SymmetricKey](../symmetric_key.proto#SymmetricKey6)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[SymmetricKey](#SymmetricKey6)>**<br>if operation finished successfully. 
 
 
 ### RotateSymmetricKeyMetadata {#RotateSymmetricKeyMetadata}
@@ -572,11 +624,24 @@ name | **string**<br>Name of the key.
 description | **string**<br>Description of the key. 
 labels | **map<string,string>**<br>Custom labels for the key as `key:value` pairs. Maximum 64 per key. 
 status | enum **Status**<br>Current status of the key. <ul><li>`CREATING`: The key is being created.</li><li>`ACTIVE`: The key is active and can be used for encryption and decryption. Can be set to INACTIVE using the [SymmetricKeyService.Update](#Update) method.</li><li>`INACTIVE`: The key is inactive and unusable. Can be set to ACTIVE using the [SymmetricKeyService.Update](#Update) method.</li><ul/>
-primary_version | **[SymmetricKeyVersion](../symmetric_key.proto#SymmetricKeyVersion5)**<br>Primary version of the key, used as the default for all encrypt/decrypt operations, when no version ID is specified. 
+primary_version | **[SymmetricKeyVersion](#SymmetricKeyVersion9)**<br>Primary version of the key, used as the default for all encrypt/decrypt operations, when no version ID is specified. 
 default_algorithm | enum **SymmetricAlgorithm**<br>Default encryption algorithm to be used with new versions of the key. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><ul/>
 rotated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time of the last key rotation (time when the last version was created). Empty if the key does not have versions yet. 
 rotation_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time period between automatic key rotations. 
 deletion_protection | **bool**<br>Flag that inhibits deletion of the key 
+
+
+### SymmetricKeyVersion {#SymmetricKeyVersion9}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the key version. 
+key_id | **string**<br>ID of the symmetric KMS key that the version belongs to. 
+status | enum **Status**<br>Status of the key version. <ul><li>`ACTIVE`: The version is active and can be used for encryption and decryption.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [SymmetricKeyVersion.destroy_at](#SymmetricKeyVersion9) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li><ul/>
+algorithm | enum **SymmetricAlgorithm**<br>Encryption algorithm that should be used when using the key version to encrypt plaintext. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><ul/>
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the key version was created. 
+primary | **bool**<br>Indication of a primary version, that is to be used by default for all cryptographic operations that don't have a key version explicitly specified. 
+destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the key version is going to be destroyed. Empty unless the status is `SCHEDULED_FOR_DESTRUCTION`. 
 
 
 ## ListOperations {#ListOperations}

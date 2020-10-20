@@ -20,7 +20,7 @@ editable: false
 
 Возвращает указанную модель машинного обучения. <br>Чтобы получить список доступных подкластеров Data Proc, выполните запрос "[List](#List)".
 
-**rpc Get ([GetMlModelRequest](#GetMlModelRequest)) returns ([MlModel](../ml_model.proto#MlModel))**
+**rpc Get ([GetMlModelRequest](#GetMlModelRequest)) returns ([MlModel](#MlModel))**
 
 ### GetMlModelRequest {#GetMlModelRequest}
 
@@ -59,7 +59,7 @@ page_token | **string**<br>Токен страницы. Установите з�
 
 Поле | Описание
 --- | ---
-ml_models[] | **[MlModel](../ml_model.proto#MlModel1)**<br>Список моделей в указанном кластере. 
+ml_models[] | **[MlModel](#MlModel1)**<br>Список моделей в указанном кластере. 
 next_page_token | **string**<br>Токен для получения следующей страницы списка. Если количество результатов больше чем "[ListMlModelsRequest.page_size](#ListMlModelsRequest)", используйте "next_page_token" в качестве значения параметра "[ListMlModelsRequest.page_token](#ListMlModelsRequest)" в следующем запросе списка ресурсов. <br>Каждая следующая страница будет иметь свой "next_page_token" для продолжения перебора страниц результатов. 
 
 
@@ -81,7 +81,7 @@ uri | **string**<br>URL файла модели. Вы можете исполь�
 
 Метаданные и результат операции:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateMlModelMetadata](#CreateMlModelMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[MlModel](../ml_model.proto#MlModel2)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[MlModel](#MlModel2)<br>
 
 ### CreateMlModelRequest {#CreateMlModelRequest}
 
@@ -106,7 +106,7 @@ done | **bool**<br>Если значение равно `false` — операц
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateMlModelMetadata](#CreateMlModelMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
 result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[MlModel](../ml_model.proto#MlModel2)>**<br>в случае успешного выполнения операции. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[MlModel](#MlModel2)>**<br>в случае успешного выполнения операции. 
 
 
 ### CreateMlModelMetadata {#CreateMlModelMetadata}
@@ -135,7 +135,7 @@ uri | **string**<br>URL файла модели. Вы можете исполь�
 
 Метаданные и результат операции:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateMlModelMetadata](#UpdateMlModelMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[MlModel](../ml_model.proto#MlModel3)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[MlModel](#MlModel3)<br>
 
 ### UpdateMlModelRequest {#UpdateMlModelRequest}
 
@@ -160,7 +160,7 @@ done | **bool**<br>Если значение равно `false` — операц
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateMlModelMetadata](#UpdateMlModelMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
 result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[MlModel](../ml_model.proto#MlModel3)>**<br>в случае успешного выполнения операции. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[MlModel](#MlModel3)>**<br>в случае успешного выполнения операции. 
 
 
 ### UpdateMlModelMetadata {#UpdateMlModelMetadata}

@@ -20,7 +20,7 @@ A set of methods for managing PostgreSQL Database resources.
 
 Returns the specified PostgreSQL Database resource. <br>To get the list of available PostgreSQL Database resources, make a [List](#List) request.
 
-**rpc Get ([GetDatabaseRequest](#GetDatabaseRequest)) returns ([Database](../database.proto#Database))**
+**rpc Get ([GetDatabaseRequest](#GetDatabaseRequest)) returns ([Database](#Database))**
 
 ### GetDatabaseRequest {#GetDatabaseRequest}
 
@@ -39,7 +39,7 @@ cluster_id | **string**<br>ID of the PostgreSQL cluster that the database belong
 owner | **string**<br>Name of the user assigned as the owner of the database. 
 lc_collate | **string**<br>POSIX locale for string sorting order. Can only be set at creation time. 
 lc_ctype | **string**<br>POSIX locale for character classification. Can only be set at creation time. 
-extensions[] | **[Extension](../database.proto#Extension)**<br>PostgreSQL extensions enabled for the database. 
+extensions[] | **[Extension](#Extension)**<br>PostgreSQL extensions enabled for the database. 
 
 
 ### Extension {#Extension}
@@ -69,7 +69,7 @@ page_token | **string**<br>Page token. To get the next page of results, Set `pag
 
 Field | Description
 --- | ---
-databases[] | **[Database](../database.proto#Database1)**<br>List of PostgreSQL Database resources. 
+databases[] | **[Database](#Database1)**<br>List of PostgreSQL Database resources. 
 next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListDatabasesRequest.page_size](#ListDatabasesRequest), use the `next_page_token` as the value for the [ListDatabasesRequest.page_token](#ListDatabasesRequest) parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
@@ -82,7 +82,7 @@ cluster_id | **string**<br>ID of the PostgreSQL cluster that the database belong
 owner | **string**<br>Name of the user assigned as the owner of the database. 
 lc_collate | **string**<br>POSIX locale for string sorting order. Can only be set at creation time. 
 lc_ctype | **string**<br>POSIX locale for character classification. Can only be set at creation time. 
-extensions[] | **[Extension](../database.proto#Extension1)**<br>PostgreSQL extensions enabled for the database. 
+extensions[] | **[Extension](#Extension1)**<br>PostgreSQL extensions enabled for the database. 
 
 
 ### Extension {#Extension1}
@@ -101,14 +101,14 @@ Creates a new PostgreSQL database in the specified cluster.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateDatabaseMetadata](#CreateDatabaseMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Database](../database.proto#Database2)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Database](#Database2)<br>
 
 ### CreateDatabaseRequest {#CreateDatabaseRequest}
 
 Field | Description
 --- | ---
 cluster_id | **string**<br>Required. ID of the PostgreSQL cluster to create a database in. To get the cluster ID use a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
-database_spec | **[DatabaseSpec](../database.proto#DatabaseSpec)**<br>Required. Configuration of the database to create. 
+database_spec | **[DatabaseSpec](#DatabaseSpec)**<br>Required. Configuration of the database to create. 
 
 
 ### DatabaseSpec {#DatabaseSpec}
@@ -119,7 +119,7 @@ name | **string**<br>Required. Name of the PostgreSQL database. 1-63 characters 
 owner | **string**<br>Required. Name of the user to be assigned as the owner of the database. To get the list of available PostgreSQL users, make a [UserService.List](./user_service#List) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
 lc_collate | **string**<br>POSIX locale for string sorting order. Can only be set at creation time. Value must match the regular expression ` |[a-zA-Z_]+.UTF-8|C `.
 lc_ctype | **string**<br>POSIX locale for character classification. Can only be set at creation time. Value must match the regular expression ` |[a-zA-Z_]+.UTF-8|C `.
-extensions[] | **[Extension](../database.proto#Extension2)**<br>PostgreSQL extensions to be enabled for the database. 
+extensions[] | **[Extension](#Extension2)**<br>PostgreSQL extensions to be enabled for the database. 
 
 
 ### Extension {#Extension2}
@@ -143,7 +143,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateDatabaseMetadata](#CreateDatabaseMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Database](../database.proto#Database2)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Database](#Database2)>**<br>if operation finished successfully. 
 
 
 ### CreateDatabaseMetadata {#CreateDatabaseMetadata}
@@ -163,7 +163,15 @@ cluster_id | **string**<br>ID of the PostgreSQL cluster that the database belong
 owner | **string**<br>Name of the user assigned as the owner of the database. 
 lc_collate | **string**<br>POSIX locale for string sorting order. Can only be set at creation time. 
 lc_ctype | **string**<br>POSIX locale for character classification. Can only be set at creation time. 
-extensions[] | **[Extension](../database.proto#Extension3)**<br>PostgreSQL extensions enabled for the database. 
+extensions[] | **[Extension](#Extension3)**<br>PostgreSQL extensions enabled for the database. 
+
+
+### Extension {#Extension3}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the extension, e.g. `pg_trgm` or `pg_btree`. Extensions supported by Managed Service for PostgreSQL are [listed in the Developer's Guide](/docs/managed-postgresql/operations/cluster-extensions). 
+version | **string**<br>Version of the extension. 
 
 
 ## Update {#Update}
@@ -174,7 +182,7 @@ Updates the specified PostgreSQL database.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateDatabaseMetadata](#UpdateDatabaseMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Database](../database.proto#Database3)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Database](#Database3)<br>
 
 ### UpdateDatabaseRequest {#UpdateDatabaseRequest}
 
@@ -183,10 +191,10 @@ Field | Description
 cluster_id | **string**<br>Required. ID of the PostgreSQL cluster to update a database in. To get the cluster ID use a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
 database_name | **string**<br>Required. Name of the database to update. To get the name of the database use a [DatabaseService.List](#List) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the Database resource should be updated. 
-extensions[] | **[Extension](../database.proto#Extension3)**<br>PostgreSQL extensions that should be enabled for the database. <br>If the field is sent, the list of enabled extensions is rewritten entirely. Therefore, to disable an active extension you should simply send the list omitting this extension. 
+extensions[] | **[Extension](#Extension4)**<br>PostgreSQL extensions that should be enabled for the database. <br>If the field is sent, the list of enabled extensions is rewritten entirely. Therefore, to disable an active extension you should simply send the list omitting this extension. 
 
 
-### Extension {#Extension3}
+### Extension {#Extension4}
 
 Field | Description
 --- | ---
@@ -207,7 +215,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateDatabaseMetadata](#UpdateDatabaseMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Database](../database.proto#Database3)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Database](#Database3)>**<br>if operation finished successfully. 
 
 
 ### UpdateDatabaseMetadata {#UpdateDatabaseMetadata}
@@ -227,7 +235,15 @@ cluster_id | **string**<br>ID of the PostgreSQL cluster that the database belong
 owner | **string**<br>Name of the user assigned as the owner of the database. 
 lc_collate | **string**<br>POSIX locale for string sorting order. Can only be set at creation time. 
 lc_ctype | **string**<br>POSIX locale for character classification. Can only be set at creation time. 
-extensions[] | **[Extension](../database.proto#Extension4)**<br>PostgreSQL extensions enabled for the database. 
+extensions[] | **[Extension](#Extension5)**<br>PostgreSQL extensions enabled for the database. 
+
+
+### Extension {#Extension5}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the extension, e.g. `pg_trgm` or `pg_btree`. Extensions supported by Managed Service for PostgreSQL are [listed in the Developer's Guide](/docs/managed-postgresql/operations/cluster-extensions). 
+version | **string**<br>Version of the extension. 
 
 
 ## Delete {#Delete}

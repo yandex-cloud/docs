@@ -24,7 +24,7 @@ editable: false
 
 
 
-**rpc Get ([GetSecurityGroupRequest](#GetSecurityGroupRequest)) returns ([SecurityGroup](../security_group.proto#SecurityGroup))**
+**rpc Get ([GetSecurityGroupRequest](#GetSecurityGroupRequest)) returns ([SecurityGroup](#SecurityGroup))**
 
 ### GetSecurityGroupRequest {#GetSecurityGroupRequest}
 
@@ -45,7 +45,7 @@ description | **string**<br>
 labels | **map<string,string>**<br> 
 network_id | **string**<br> 
 status | enum **Status**<br> <ul><li>`UPDATING`: updating is a long operation because we must update all instances in SG</li><ul/>
-rules[] | **[SecurityGroupRule](../security_group.proto#SecurityGroupRule)**<br> 
+rules[] | **[SecurityGroupRule](#SecurityGroupRule)**<br> 
 default_for_network | **bool**<br> 
 
 
@@ -57,11 +57,11 @@ id | **string**<br>
 description | **string**<br> 
 labels | **map<string,string>**<br> 
 direction | enum **Direction**<br>Required.  <ul><ul/>
-ports | **[PortRange](../security_group.proto#PortRange)**<br> 
+ports | **[PortRange](#PortRange)**<br> 
 protocol_name | **string**<br>null value means any protocol values from https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml 
 protocol_number | **int64**<br> 
 target | **oneof:** `cidr_blocks`, `security_group_id` or `predefined_target`<br>
-&nbsp;&nbsp;cidr_blocks | **[CidrBlocks](../security_group.proto#CidrBlocks)**<br> 
+&nbsp;&nbsp;cidr_blocks | **[CidrBlocks](#CidrBlocks)**<br> 
 &nbsp;&nbsp;security_group_id | **string**<br> 
 &nbsp;&nbsp;predefined_target | **string**<br> 
 
@@ -102,7 +102,7 @@ filter | **string**<br>
 
 Field | Description
 --- | ---
-security_groups[] | **[SecurityGroup](../security_group.proto#SecurityGroup1)**<br> 
+security_groups[] | **[SecurityGroup](#SecurityGroup1)**<br> 
 next_page_token | **string**<br> 
 
 
@@ -118,7 +118,7 @@ description | **string**<br>
 labels | **map<string,string>**<br> 
 network_id | **string**<br> 
 status | enum **Status**<br> <ul><li>`UPDATING`: updating is a long operation because we must update all instances in SG</li><ul/>
-rules[] | **[SecurityGroupRule](../security_group.proto#SecurityGroupRule1)**<br> 
+rules[] | **[SecurityGroupRule](#SecurityGroupRule1)**<br> 
 default_for_network | **bool**<br> 
 
 
@@ -130,11 +130,11 @@ id | **string**<br>
 description | **string**<br> 
 labels | **map<string,string>**<br> 
 direction | enum **Direction**<br>Required.  <ul><ul/>
-ports | **[PortRange](../security_group.proto#PortRange1)**<br> 
+ports | **[PortRange](#PortRange1)**<br> 
 protocol_name | **string**<br>null value means any protocol values from https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml 
 protocol_number | **int64**<br> 
 target | **oneof:** `cidr_blocks`, `security_group_id` or `predefined_target`<br>
-&nbsp;&nbsp;cidr_blocks | **[CidrBlocks](../security_group.proto#CidrBlocks1)**<br> 
+&nbsp;&nbsp;cidr_blocks | **[CidrBlocks](#CidrBlocks1)**<br> 
 &nbsp;&nbsp;security_group_id | **string**<br> 
 &nbsp;&nbsp;predefined_target | **string**<br> 
 
@@ -163,7 +163,7 @@ v6_cidr_blocks[] | **string**<br>
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateSecurityGroupMetadata](#CreateSecurityGroupMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[SecurityGroup](../security_group.proto#SecurityGroup2)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[SecurityGroup](#SecurityGroup2)<br>
 
 ### CreateSecurityGroupRequest {#CreateSecurityGroupRequest}
 
@@ -183,13 +183,13 @@ Field | Description
 --- | ---
 description | **string**<br> 
 labels | **map<string,string>**<br> 
-direction | **[SecurityGroupRule.Direction](../security_group.proto#SecurityGroupRule2)**<br>Required.  
-ports | **[PortRange](../security_group.proto#PortRange2)**<br> 
+direction | **[SecurityGroupRule.Direction](#SecurityGroupRule2)**<br>Required.  
+ports | **[PortRange](#PortRange2)**<br> 
 protocol | **oneof:** `protocol_name` or `protocol_number`<br>values from https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml null value means any protocol
 &nbsp;&nbsp;protocol_name | **string**<br>values from https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml null value means any protocol 
 &nbsp;&nbsp;protocol_number | **int64**<br>values from https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml null value means any protocol 
 target | **oneof:** `cidr_blocks`, `security_group_id` or `predefined_target`<br>
-&nbsp;&nbsp;cidr_blocks | **[CidrBlocks](../security_group.proto#CidrBlocks2)**<br> 
+&nbsp;&nbsp;cidr_blocks | **[CidrBlocks](#CidrBlocks2)**<br> 
 &nbsp;&nbsp;security_group_id | **string**<br> 
 &nbsp;&nbsp;predefined_target | **string**<br> 
 
@@ -223,7 +223,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateSecurityGroupMetadata](#CreateSecurityGroupMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[SecurityGroup](../security_group.proto#SecurityGroup2)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[SecurityGroup](#SecurityGroup2)>**<br>if operation finished successfully. 
 
 
 ### CreateSecurityGroupMetadata {#CreateSecurityGroupMetadata}
@@ -245,45 +245,23 @@ description | **string**<br>
 labels | **map<string,string>**<br> 
 network_id | **string**<br> 
 status | enum **Status**<br> <ul><li>`UPDATING`: updating is a long operation because we must update all instances in SG</li><ul/>
-rules[] | **[SecurityGroupRule](../security_group.proto#SecurityGroupRule2)**<br> 
+rules[] | **[SecurityGroupRule](#SecurityGroupRule2)**<br> 
 default_for_network | **bool**<br> 
 
 
-## Update {#Update}
-
-
-
-**rpc Update ([UpdateSecurityGroupRequest](#UpdateSecurityGroupRequest)) returns ([operation.Operation](#Operation1))**
-
-Metadata and response of Operation:<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateSecurityGroupMetadata](#UpdateSecurityGroupMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[SecurityGroup](../security_group.proto#SecurityGroup3)<br>
-
-### UpdateSecurityGroupRequest {#UpdateSecurityGroupRequest}
+### SecurityGroupRule {#SecurityGroupRule2}
 
 Field | Description
 --- | ---
-security_group_id | **string**<br>Required.  
-update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br> 
-name | **string**<br> 
+id | **string**<br> 
 description | **string**<br> 
 labels | **map<string,string>**<br> 
-rule_specs[] | **[SecurityGroupRuleSpec](#SecurityGroupRuleSpec)**<br>all existing rules will be replaced with given list 
-
-
-### SecurityGroupRuleSpec {#SecurityGroupRuleSpec1}
-
-Field | Description
---- | ---
-description | **string**<br> 
-labels | **map<string,string>**<br> 
-direction | **[SecurityGroupRule.Direction](../security_group.proto#SecurityGroupRule2)**<br>Required.  
-ports | **[PortRange](../security_group.proto#PortRange3)**<br> 
-protocol | **oneof:** `protocol_name` or `protocol_number`<br>values from https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml null value means any protocol
-&nbsp;&nbsp;protocol_name | **string**<br>values from https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml null value means any protocol 
-&nbsp;&nbsp;protocol_number | **int64**<br>values from https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml null value means any protocol 
+direction | enum **Direction**<br>Required.  <ul><ul/>
+ports | **[PortRange](#PortRange3)**<br> 
+protocol_name | **string**<br>null value means any protocol values from https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml 
+protocol_number | **int64**<br> 
 target | **oneof:** `cidr_blocks`, `security_group_id` or `predefined_target`<br>
-&nbsp;&nbsp;cidr_blocks | **[CidrBlocks](../security_group.proto#CidrBlocks3)**<br> 
+&nbsp;&nbsp;cidr_blocks | **[CidrBlocks](#CidrBlocks3)**<br> 
 &nbsp;&nbsp;security_group_id | **string**<br> 
 &nbsp;&nbsp;predefined_target | **string**<br> 
 
@@ -304,6 +282,61 @@ v4_cidr_blocks[] | **string**<br>
 v6_cidr_blocks[] | **string**<br> 
 
 
+## Update {#Update}
+
+
+
+**rpc Update ([UpdateSecurityGroupRequest](#UpdateSecurityGroupRequest)) returns ([operation.Operation](#Operation1))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateSecurityGroupMetadata](#UpdateSecurityGroupMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[SecurityGroup](#SecurityGroup3)<br>
+
+### UpdateSecurityGroupRequest {#UpdateSecurityGroupRequest}
+
+Field | Description
+--- | ---
+security_group_id | **string**<br>Required.  
+update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br> 
+name | **string**<br> 
+description | **string**<br> 
+labels | **map<string,string>**<br> 
+rule_specs[] | **[SecurityGroupRuleSpec](#SecurityGroupRuleSpec)**<br>all existing rules will be replaced with given list 
+
+
+### SecurityGroupRuleSpec {#SecurityGroupRuleSpec1}
+
+Field | Description
+--- | ---
+description | **string**<br> 
+labels | **map<string,string>**<br> 
+direction | **[SecurityGroupRule.Direction](#SecurityGroupRule3)**<br>Required.  
+ports | **[PortRange](#PortRange4)**<br> 
+protocol | **oneof:** `protocol_name` or `protocol_number`<br>values from https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml null value means any protocol
+&nbsp;&nbsp;protocol_name | **string**<br>values from https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml null value means any protocol 
+&nbsp;&nbsp;protocol_number | **int64**<br>values from https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml null value means any protocol 
+target | **oneof:** `cidr_blocks`, `security_group_id` or `predefined_target`<br>
+&nbsp;&nbsp;cidr_blocks | **[CidrBlocks](#CidrBlocks4)**<br> 
+&nbsp;&nbsp;security_group_id | **string**<br> 
+&nbsp;&nbsp;predefined_target | **string**<br> 
+
+
+### PortRange {#PortRange4}
+
+Field | Description
+--- | ---
+from_port | **int64**<br> Acceptable values are 0 to 65535, inclusive.
+to_port | **int64**<br> Acceptable values are 0 to 65535, inclusive.
+
+
+### CidrBlocks {#CidrBlocks4}
+
+Field | Description
+--- | ---
+v4_cidr_blocks[] | **string**<br> 
+v6_cidr_blocks[] | **string**<br> 
+
+
 ### Operation {#Operation1}
 
 Field | Description
@@ -317,7 +350,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateSecurityGroupMetadata](#UpdateSecurityGroupMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[SecurityGroup](../security_group.proto#SecurityGroup3)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[SecurityGroup](#SecurityGroup3)>**<br>if operation finished successfully. 
 
 
 ### UpdateSecurityGroupMetadata {#UpdateSecurityGroupMetadata}
@@ -339,8 +372,41 @@ description | **string**<br>
 labels | **map<string,string>**<br> 
 network_id | **string**<br> 
 status | enum **Status**<br> <ul><li>`UPDATING`: updating is a long operation because we must update all instances in SG</li><ul/>
-rules[] | **[SecurityGroupRule](../security_group.proto#SecurityGroupRule2)**<br> 
+rules[] | **[SecurityGroupRule](#SecurityGroupRule3)**<br> 
 default_for_network | **bool**<br> 
+
+
+### SecurityGroupRule {#SecurityGroupRule3}
+
+Field | Description
+--- | ---
+id | **string**<br> 
+description | **string**<br> 
+labels | **map<string,string>**<br> 
+direction | enum **Direction**<br>Required.  <ul><ul/>
+ports | **[PortRange](#PortRange5)**<br> 
+protocol_name | **string**<br>null value means any protocol values from https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml 
+protocol_number | **int64**<br> 
+target | **oneof:** `cidr_blocks`, `security_group_id` or `predefined_target`<br>
+&nbsp;&nbsp;cidr_blocks | **[CidrBlocks](#CidrBlocks5)**<br> 
+&nbsp;&nbsp;security_group_id | **string**<br> 
+&nbsp;&nbsp;predefined_target | **string**<br> 
+
+
+### PortRange {#PortRange5}
+
+Field | Description
+--- | ---
+from_port | **int64**<br> Acceptable values are 0 to 65535, inclusive.
+to_port | **int64**<br> Acceptable values are 0 to 65535, inclusive.
+
+
+### CidrBlocks {#CidrBlocks5}
+
+Field | Description
+--- | ---
+v4_cidr_blocks[] | **string**<br> 
+v6_cidr_blocks[] | **string**<br> 
 
 
 ## UpdateRules {#UpdateRules}
@@ -351,7 +417,7 @@ default_for_network | **bool**<br>
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateSecurityGroupMetadata](#UpdateSecurityGroupMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[SecurityGroup](../security_group.proto#SecurityGroup4)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[SecurityGroup](#SecurityGroup4)<br>
 
 ### UpdateSecurityGroupRulesRequest {#UpdateSecurityGroupRulesRequest}
 
@@ -368,18 +434,18 @@ Field | Description
 --- | ---
 description | **string**<br> 
 labels | **map<string,string>**<br> 
-direction | **[SecurityGroupRule.Direction](../security_group.proto#SecurityGroupRule2)**<br>Required.  
-ports | **[PortRange](../security_group.proto#PortRange4)**<br> 
+direction | **[SecurityGroupRule.Direction](#SecurityGroupRule4)**<br>Required.  
+ports | **[PortRange](#PortRange6)**<br> 
 protocol | **oneof:** `protocol_name` or `protocol_number`<br>values from https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml null value means any protocol
 &nbsp;&nbsp;protocol_name | **string**<br>values from https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml null value means any protocol 
 &nbsp;&nbsp;protocol_number | **int64**<br>values from https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml null value means any protocol 
 target | **oneof:** `cidr_blocks`, `security_group_id` or `predefined_target`<br>
-&nbsp;&nbsp;cidr_blocks | **[CidrBlocks](../security_group.proto#CidrBlocks4)**<br> 
+&nbsp;&nbsp;cidr_blocks | **[CidrBlocks](#CidrBlocks6)**<br> 
 &nbsp;&nbsp;security_group_id | **string**<br> 
 &nbsp;&nbsp;predefined_target | **string**<br> 
 
 
-### PortRange {#PortRange4}
+### PortRange {#PortRange6}
 
 Field | Description
 --- | ---
@@ -387,7 +453,7 @@ from_port | **int64**<br> Acceptable values are 0 to 65535, inclusive.
 to_port | **int64**<br> Acceptable values are 0 to 65535, inclusive.
 
 
-### CidrBlocks {#CidrBlocks4}
+### CidrBlocks {#CidrBlocks6}
 
 Field | Description
 --- | ---
@@ -408,7 +474,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateSecurityGroupMetadata](#UpdateSecurityGroupMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[SecurityGroup](../security_group.proto#SecurityGroup4)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[SecurityGroup](#SecurityGroup4)>**<br>if operation finished successfully. 
 
 
 ### UpdateSecurityGroupMetadata {#UpdateSecurityGroupMetadata1}
@@ -430,8 +496,41 @@ description | **string**<br>
 labels | **map<string,string>**<br> 
 network_id | **string**<br> 
 status | enum **Status**<br> <ul><li>`UPDATING`: updating is a long operation because we must update all instances in SG</li><ul/>
-rules[] | **[SecurityGroupRule](../security_group.proto#SecurityGroupRule2)**<br> 
+rules[] | **[SecurityGroupRule](#SecurityGroupRule4)**<br> 
 default_for_network | **bool**<br> 
+
+
+### SecurityGroupRule {#SecurityGroupRule4}
+
+Field | Description
+--- | ---
+id | **string**<br> 
+description | **string**<br> 
+labels | **map<string,string>**<br> 
+direction | enum **Direction**<br>Required.  <ul><ul/>
+ports | **[PortRange](#PortRange7)**<br> 
+protocol_name | **string**<br>null value means any protocol values from https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml 
+protocol_number | **int64**<br> 
+target | **oneof:** `cidr_blocks`, `security_group_id` or `predefined_target`<br>
+&nbsp;&nbsp;cidr_blocks | **[CidrBlocks](#CidrBlocks7)**<br> 
+&nbsp;&nbsp;security_group_id | **string**<br> 
+&nbsp;&nbsp;predefined_target | **string**<br> 
+
+
+### PortRange {#PortRange7}
+
+Field | Description
+--- | ---
+from_port | **int64**<br> Acceptable values are 0 to 65535, inclusive.
+to_port | **int64**<br> Acceptable values are 0 to 65535, inclusive.
+
+
+### CidrBlocks {#CidrBlocks7}
+
+Field | Description
+--- | ---
+v4_cidr_blocks[] | **string**<br> 
+v6_cidr_blocks[] | **string**<br> 
 
 
 ## UpdateRule {#UpdateRule}
@@ -442,7 +541,7 @@ update rule description or labels
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateSecurityGroupRuleMetadata](#UpdateSecurityGroupRuleMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[SecurityGroupRule](../security_group.proto#SecurityGroupRule2)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[SecurityGroupRule](#SecurityGroupRule5)<br>
 
 ### UpdateSecurityGroupRuleRequest {#UpdateSecurityGroupRuleRequest}
 
@@ -468,7 +567,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateSecurityGroupRuleMetadata](#UpdateSecurityGroupRuleMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[SecurityGroupRule](../security_group.proto#SecurityGroupRule2)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[SecurityGroupRule](#SecurityGroupRule5)>**<br>if operation finished successfully. 
 
 
 ### UpdateSecurityGroupRuleMetadata {#UpdateSecurityGroupRuleMetadata}
@@ -479,7 +578,7 @@ security_group_id | **string**<br>
 rule_id | **string**<br> 
 
 
-### SecurityGroupRule {#SecurityGroupRule2}
+### SecurityGroupRule {#SecurityGroupRule5}
 
 Field | Description
 --- | ---
@@ -487,13 +586,29 @@ id | **string**<br>
 description | **string**<br> 
 labels | **map<string,string>**<br> 
 direction | enum **Direction**<br>Required.  <ul><ul/>
-ports | **[PortRange](../security_group.proto#PortRange5)**<br> 
+ports | **[PortRange](#PortRange8)**<br> 
 protocol_name | **string**<br>null value means any protocol values from https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml 
 protocol_number | **int64**<br> 
 target | **oneof:** `cidr_blocks`, `security_group_id` or `predefined_target`<br>
-&nbsp;&nbsp;cidr_blocks | **[CidrBlocks](../security_group.proto#CidrBlocks5)**<br> 
+&nbsp;&nbsp;cidr_blocks | **[CidrBlocks](#CidrBlocks8)**<br> 
 &nbsp;&nbsp;security_group_id | **string**<br> 
 &nbsp;&nbsp;predefined_target | **string**<br> 
+
+
+### PortRange {#PortRange8}
+
+Field | Description
+--- | ---
+from_port | **int64**<br> Acceptable values are 0 to 65535, inclusive.
+to_port | **int64**<br> Acceptable values are 0 to 65535, inclusive.
+
+
+### CidrBlocks {#CidrBlocks8}
+
+Field | Description
+--- | ---
+v4_cidr_blocks[] | **string**<br> 
+v6_cidr_blocks[] | **string**<br> 
 
 
 ## Delete {#Delete}
@@ -544,7 +659,7 @@ security_group_id | **string**<br>
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[MoveSecurityGroupMetadata](#MoveSecurityGroupMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[SecurityGroup](../security_group.proto#SecurityGroup5)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[SecurityGroup](#SecurityGroup5)<br>
 
 ### MoveSecurityGroupRequest {#MoveSecurityGroupRequest}
 
@@ -567,7 +682,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[MoveSecurityGroupMetadata](#MoveSecurityGroupMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[SecurityGroup](../security_group.proto#SecurityGroup5)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[SecurityGroup](#SecurityGroup5)>**<br>if operation finished successfully. 
 
 
 ### MoveSecurityGroupMetadata {#MoveSecurityGroupMetadata}
@@ -589,8 +704,41 @@ description | **string**<br>
 labels | **map<string,string>**<br> 
 network_id | **string**<br> 
 status | enum **Status**<br> <ul><li>`UPDATING`: updating is a long operation because we must update all instances in SG</li><ul/>
-rules[] | **[SecurityGroupRule](../security_group.proto#SecurityGroupRule3)**<br> 
+rules[] | **[SecurityGroupRule](#SecurityGroupRule6)**<br> 
 default_for_network | **bool**<br> 
+
+
+### SecurityGroupRule {#SecurityGroupRule6}
+
+Field | Description
+--- | ---
+id | **string**<br> 
+description | **string**<br> 
+labels | **map<string,string>**<br> 
+direction | enum **Direction**<br>Required.  <ul><ul/>
+ports | **[PortRange](#PortRange9)**<br> 
+protocol_name | **string**<br>null value means any protocol values from https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml 
+protocol_number | **int64**<br> 
+target | **oneof:** `cidr_blocks`, `security_group_id` or `predefined_target`<br>
+&nbsp;&nbsp;cidr_blocks | **[CidrBlocks](#CidrBlocks9)**<br> 
+&nbsp;&nbsp;security_group_id | **string**<br> 
+&nbsp;&nbsp;predefined_target | **string**<br> 
+
+
+### PortRange {#PortRange9}
+
+Field | Description
+--- | ---
+from_port | **int64**<br> Acceptable values are 0 to 65535, inclusive.
+to_port | **int64**<br> Acceptable values are 0 to 65535, inclusive.
+
+
+### CidrBlocks {#CidrBlocks9}
+
+Field | Description
+--- | ---
+v4_cidr_blocks[] | **string**<br> 
+v6_cidr_blocks[] | **string**<br> 
 
 
 ## ListOperations {#ListOperations}

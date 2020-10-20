@@ -1,1 +1,0 @@
-[`compute.images.user`](../../../../iam/concepts/access-control/roles.md#compute-images-user) — позволяет использовать образы для создания новых ресурсов, например виртуальных машин.

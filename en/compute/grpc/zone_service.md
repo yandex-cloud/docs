@@ -17,7 +17,7 @@ A set of methods to retrieve information about availability zones.
 
 Returns the information about the specified availability zone. <br>To get the list of availability zones, make a [List](#List) request.
 
-**rpc Get ([GetZoneRequest](#GetZoneRequest)) returns ([Zone](../instance_group.proto#Zone))**
+**rpc Get ([GetZoneRequest](#GetZoneRequest)) returns ([Zone](#Zone))**
 
 ### GetZoneRequest {#GetZoneRequest}
 
@@ -53,7 +53,7 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 
 Field | Description
 --- | ---
-zones[] | **[Zone](../instance_group.proto#Zone1)**<br>List of availability zones. 
+zones[] | **[Zone](#Zone1)**<br>List of availability zones. 
 next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListZonesRequest.page_size](#ListZonesRequest), use the [ListZonesRequest.page_token](#ListZonesRequest)(#ListZonesRequest)(#ListZonesRequest) as the value for the [ListZonesRequest.page_token] query parameter in the next list request. Subsequent list requests will have their own [ListZonesRequest.page_token] to continue paging through the results. 
 
 
