@@ -30,15 +30,15 @@
 {% if audience != "internal" %}
 
 ```bash
-$ sudo mkdir -p /usr/local/share/ca-certificates/Yandex
-$ sudo wget "https://{{ s3-storage-host }}{{ pem-path }}" -O /usr/local/share/ca-certificates/Yandex/YandexCA.crt
-$ sudo chmod 655 /usr/local/share/ca-certificates/Yandex/YandexCA.crt 
+sudo mkdir -p /usr/local/share/ca-certificates/Yandex && \
+sudo wget "https://{{ s3-storage-host }}{{ pem-path }}" -O /usr/local/share/ca-certificates/Yandex/YandexCA.crt && \
+sudo chmod 655 /usr/local/share/ca-certificates/Yandex/YandexCA.crt
 ```
 
 {% else %}
 
 ```bash
-wget "{{ pem-path }}" -O /usr/local/share/ca-certificates/Yandex/YandexCA.crt
+sudo wget "{{ pem-path }}" -O /usr/local/share/ca-certificates/Yandex/YandexCA.crt && \
 chmod 655 /usr/local/share/ca-certificates/Yandex/YandexCA.crt
 ```
 

@@ -2,7 +2,7 @@
 
 Среда выполнения не содержит предустановленной библиотеки для работы с [API {{ yandex-cloud }}](../../../api-design-guide/). Для ее использования требуется добавить [зависимость](dependencies.md) в приложение. С исходным кодом библиотеки можно ознакомиться на [GitHub](https://github.com/yandex-cloud/java-sdk).
 
-[SDK (Software Development Kit)](https://ru.wikipedia.org/wiki/SDK) позволяет взаимодействовать с сервисами Облака с помощью [сервисного аккаунта](../../operations/function-sa.md), указанного в функции. 
+[SDK (Software Development Kit)](https://ru.wikipedia.org/wiki/SDK) позволяет взаимодействовать с сервисами {{ yandex-cloud }} с помощью [сервисного аккаунта](../../operations/function-sa.md), указанного в функции. 
 
 ### Пример:
 

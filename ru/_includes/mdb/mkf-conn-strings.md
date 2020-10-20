@@ -8,7 +8,7 @@
   - Linux
       
     ```bash
-    $ sudo apt-get install kafkacat
+    sudo apt update && sudo apt install -y kafkacat
     ```
       
   - macOS
@@ -20,7 +20,7 @@
   **Чтобы отправить сообщение в топик, выполните команду:**
    
   ```bash
-  $ echo "test message" | kafkacat -P  \
+  echo "test message" | kafkacat -P  \
          -b <FQDN брокера>:9092 \
          -t <имя топика> \
          -X security.protocol=SASL_PLAINTEXT \
@@ -32,7 +32,7 @@
   **Чтобы получить сообщения из топика, выполните команду:**
    
   ```bash
-  $ kafkacat -C \
+  kafkacat -C \
           -b <FQDN брокера>:9092 \
           -t <имя топика> \
           -X security.protocol=SASL_PLAINTEXT \
@@ -49,19 +49,19 @@
   - Linux
       
     ```bash
-    $ sudo apt-get install kafkacat
+    sudo apt update && sudo apt install -y kafkacat
     ```
       
   - macOS
      
-    ```
+    ```bash
     brew install kafkacat
     ```
     
   **Чтобы отправить сообщение в топик, выполните команду:**
   
   ```bash
-  $ echo "test message" | kafkacat -P  \
+  echo "test message" | kafkacat -P  \
       -b <FQDN брокера>:9091 \
       -t <имя топика> \
       -X security.protocol=SASL_SSL \
@@ -74,7 +74,7 @@
   **Чтобы получить сообщения из топика, выполните команду:**
   
   ```bash
-  $ kafkacat -C  \
+  kafkacat -C  \
       -b <FQDN брокера>:9091 \
       -t <имя топика> \
       -X security.protocol=SASL_SSL \
@@ -89,8 +89,8 @@
   **Перед подключением установите зависимости:**   
    
   ```bash
-  $ sudo apt install python3 python3-pip
-  $ pip3 install kafka-python
+  sudo apt update && sudo apt install -y python3 python3-pip && \
+  pip3 install kafka-python
   ```
   
   **Пример кода для отправки сообщения в топик:**
@@ -132,9 +132,12 @@
 
   **Запуск приложений:**
   
+  ```bash
+  python3 producer.py
   ```
-  $ python3 producer.py
-  $ python3 consumer.py
+  
+  ```bash
+  python3 consumer.py
   ```
 
 - Python (SSL)
@@ -142,8 +145,8 @@
   **Перед подключением установите зависимости:**   
    
   ```bash
-  $ sudo apt install python3 python3-pip
-  $ pip3 install kafka-python
+  sudo apt update && sudo apt install -y python3 python3-pip && \
+  pip3 install kafka-python
   ```
   
   **Пример кода для отправки сообщения в топик:**
@@ -187,9 +190,12 @@
 
   **Запуск приложений:**
   
+  ```bash
+  python3 producer.py
   ```
-  $ python3 producer.py
-  $ python3 consumer.py
+  
+  ```bash
+  python3 consumer.py
   ```
 
 - Java
@@ -198,20 +204,20 @@
   
   1. Установите зависимости:
   
-     ```
-     $ sudo apt install default-jdk maven
+     ```bash
+     sudo apt update && sudo apt install -y default-jdk maven
      ```
   
   1. Создайте директорию для проекта Maven:
      
-     ```
-     $ cd ~/ && mkdir project && cd project && mkdir -p consumer/src/java/com/example producer/src/java/com/example && cd ~/project
+     ```bash
+     cd ~/ && mkdir project && cd project && mkdir -p consumer/src/java/com/example producer/src/java/com/example && cd ~/project
      ```
      
   1. Создайте конфигурационный файл для Maven:    
      
      {% cut "pom.xml" %}
-     ```
+     ```xml
      <?xml version="1.0" encoding="UTF-8"?>
      <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
          <modelVersion>4.0.0</modelVersion>
@@ -296,14 +302,14 @@
      
    1. Скопируйте `pom.xml` в директории приложения-производителя и приложения-потребителя:
    
-      ```
-      $ cp pom.xml producer/pom.xml && cp pom.xml consumer/pom.xml
+      ```bash
+      cp pom.xml producer/pom.xml && cp pom.xml consumer/pom.xml
       ```  
   
   **Пример кода для отправки сообщений в топик:**
   
   `producer/src/java/com/example/App.java`
-  ```
+  ```java
   package com.example;
 
   import java.util.*;
@@ -355,7 +361,7 @@
   **Пример кода для получения сообщений из топика:**
   
   `consumer/src/java/com/example/App.java`
-  ```
+  ```java
   package com.example;
 
   import java.util.*;
@@ -406,16 +412,19 @@
   
   **Сборка приложений:**
   
-  ```
-  $ cd ~/project/producer && mvn clean package
-  $ cd ~/project/consumer && mvn clean package 
+  ```bash
+  cd ~/project/producer && mvn clean package && \
+  cd ~/project/consumer && mvn clean package 
   ```
   
   **Запуск приложений:**
   
+  ```bash
+  java -jar ~/project/producer/target/app-0.1.0-jar-with-dependencies.jar
   ```
-  $ java -jar ~/project/producer/target/app-0.1.0-jar-with-dependencies.jar
-  $ java -jar ~/project/consumer/target/app-0.1.0-jar-with-dependencies.jar
+  
+  ```bash
+  java -jar ~/project/consumer/target/app-0.1.0-jar-with-dependencies.jar
   ```
 
 - Java (SSL)
@@ -424,28 +433,29 @@
   
   1. Установите зависимости:
   
-     ```
-     $ sudo apt install default-jdk maven
-     ```
-  
-  1. Добавьте SSL-сертификат в хранилище доверенных сертификатов Java (Java Key Store), чтобы драйвер {{ KF }} мог использовать этот сертификат при защищенном подключении к хостам кластера:
-     ```
-     $ cd /etc/security
-     $ sudo keytool -importcert -alias YandexCA -file /usr/local/share/ca-certificates/Yandex/YandexCA.crt -keystore ssl -storepass <пароль хранилища сертификатов>  --noprompt
+     ```bash
+     sudo apt update && sudo apt install -y default-jdk maven
      ```
   
-     Пароль используется для дополнительной защиты хранилища. Здесь может использоваться любой пароль.
+  1. Добавьте SSL-сертификат в хранилище доверенных сертификатов Java (Java Key Store), чтобы драйвер {{ KF }} мог использовать этот сертификат при защищенном подключении к хостам кластера. При этом задайте пароль в параметре `-storepass` для дополнительной защиты хранилища:
+  
+     ```bash
+     cd /etc/security && \
+     sudo keytool -importcert -alias YandexCA -file /usr/local/share/ca-certificates/Yandex/YandexCA.crt \
+            -keystore ssl -storepass <пароль хранилища сертификатов> \
+            --noprompt
+     ```
   
   1. Создайте директорию для проекта Maven:
      
-     ```
-     $ cd ~/ && mkdir project && cd project && mkdir -p consumer/src/java/com/example producer/src/java/com/example && cd ~/project
+     ```bash
+     cd ~/ && mkdir project && cd project && mkdir -p consumer/src/java/com/example producer/src/java/com/example && cd ~/project
      ```
      
   1. Создайте конфигурационный файл для Maven:    
      
      {% cut "pom.xml" %}
-     ```
+     ```xml
      <?xml version="1.0" encoding="UTF-8"?>
      <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
          <modelVersion>4.0.0</modelVersion>
@@ -530,14 +540,14 @@
      
    1. Скопируйте `pom.xml` в директории приложения-производителя и приложения-потребителя:
    
-      ```
-      $ cp pom.xml producer/pom.xml && cp pom.xml consumer/pom.xml
+      ```bash
+      cp pom.xml producer/pom.xml && cp pom.xml consumer/pom.xml
       ```  
   
   **Пример кода для отправки сообщений в топик:**
   
   `producer/src/java/com/example/App.java`
-  ```
+  ```java
   package com.example;
 
   import java.util.*;
@@ -593,7 +603,7 @@
   **Пример кода для получения сообщений из топика:**
   
   `consumer/src/java/com/example/App.java`
-  ```
+  ```java
   package com.example;
 
   import java.util.*;
@@ -649,15 +659,18 @@
   **Сборка приложений:**
   
   ```bash
-  $ cd ~/project/producer && mvn clean package
-  $ cd ~/project/consumer && mvn clean package 
+  cd ~/project/producer && mvn clean package && \
+  cd ~/project/consumer && mvn clean package 
   ```
   
   **Запуск приложений:**
+
+  ```bash
+  java -jar ~/project/producer/target/app-0.1.0-jar-with-dependencies.jar
+  ```
   
   ```bash
-  $ java -jar ~/project/producer/target/app-0.1.0-jar-with-dependencies.jar
-  $ java -jar ~/project/consumer/target/app-0.1.0-jar-with-dependencies.jar
+  java -jar ~/project/consumer/target/app-0.1.0-jar-with-dependencies.jar
   ```
 
 - Go
@@ -666,15 +679,15 @@
   1. Установите зависимости:
    
      ```bash
-     $ sudo apt install golang git
-     $ go get github.com/Shopify/sarama
-     $ go get github.com/xdg/scram
+     sudo apt update && sudo apt install -y golang git && \
+     go get github.com/Shopify/sarama && \
+     go get github.com/xdg/scram
      ```
   
   1. Создайте директорию для проекта:
      
-     ```
-     $ cd ~/ && mkdir go-project && cd go-project && mkdir -p consumer producer
+     ```bash
+     cd ~/ && mkdir go-project && cd go-project && mkdir -p consumer producer
      ```
    
   1. Создайте файл `scram.go`, содержащий код для использования [SCRAM](https://github.com/xdg-go/scram), общий для приложения-производителя и приложения-потребителя:
@@ -722,8 +735,8 @@
   
   1. Скопируйте `scram.go` в директории приложения-производителя и приложения-потребителя:
    
-     ```
-     $ cp scram.go producer/scram.go && cp scram.go consumer/scram.go
+     ```bash
+     cp scram.go producer/scram.go && cp scram.go consumer/scram.go
      ``` 
   
   **Пример кода для отправки сообщения в топик:**
@@ -861,15 +874,18 @@
   **Сборка приложений:**
   
   ```bash
-  $ cd ~/go-project/producer && go build
-  $ cd ~/go-project/consumer && go build 
+  cd ~/go-project/producer && go build && \
+  cd ~/go-project/consumer && go build 
   ```
   
   **Запуск приложений:**
   
   ```bash
-  $ ~/go-project/producer/producer
-  $ ~/go-project/consumer/consumer
+  ~/go-project/producer/producer
+  ```
+  
+  ```bash
+  ~/go-project/consumer/consumer
   ```  
      
 - Go (SSL)
@@ -878,15 +894,15 @@
   1. Установите зависимости:
    
      ```bash
-     $ sudo apt install golang git
-     $ go get github.com/Shopify/sarama
-     $ go get github.com/xdg/scram
+     sudo apt update && sudo apt install -y golang git && \
+     go get github.com/Shopify/sarama && \
+     go get github.com/xdg/scram
      ```
   
   1. Создайте директорию для проекта:
      
-     ```
-     $ cd ~/ && mkdir go-project && cd go-project && mkdir -p consumer producer
+     ```bash
+     cd ~/ && mkdir go-project && cd go-project && mkdir -p consumer producer
      ```
    
   1. Создайте файл `scram.go`, содержащий код для использования [SCRAM](https://github.com/xdg-go/scram), общий для приложения-производителя и приложения-потребителя:
@@ -934,8 +950,8 @@
   
   1. Скопируйте `scram.go` в директории приложения-производителя и приложения-потребителя:
    
-     ```
-     $ cp scram.go producer/scram.go && cp scram.go consumer/scram.go
+     ```bash
+     cp scram.go producer/scram.go && cp scram.go consumer/scram.go
      ``` 
   
   **Пример кода для отправки сообщения в топик:**
@@ -1109,15 +1125,18 @@
   **Сборка приложений:**
   
   ```bash
-  $ cd ~/go-project/producer && go build
-  $ cd ~/go-project/consumer && go build 
+  cd ~/go-project/producer && go build && \
+  cd ~/go-project/consumer && go build 
   ```
   
   **Запуск приложений:**
   
   ```bash
-  $ ~/go-project/producer/producer
-  $ ~/go-project/consumer/consumer
+  ~/go-project/producer/producer
+  ```
+  
+  ```bash
+  ~/go-project/consumer/consumer
   ```  
 
 {% endlist %}
