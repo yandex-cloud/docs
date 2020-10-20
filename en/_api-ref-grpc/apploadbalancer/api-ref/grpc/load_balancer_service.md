@@ -27,7 +27,7 @@ editable: false
 
 
 
-**rpc Get ([GetLoadBalancerRequest](#GetLoadBalancerRequest)) returns ([LoadBalancer](../load_balancer.proto#LoadBalancer))**
+**rpc Get ([GetLoadBalancerRequest](#GetLoadBalancerRequest)) returns ([LoadBalancer](#LoadBalancer))**
 
 ### GetLoadBalancerRequest {#GetLoadBalancerRequest}
 
@@ -48,8 +48,8 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum
 status | enum **Status**<br>Status of the application load balancer. <ul><li>`CREATING`: Application load balancer is being created.</li><li>`STARTING`: Application load balancer is being started.</li><li>`ACTIVE`: Application load balancer is active and sends traffic to the targets.</li><li>`STOPPING`: Application load balancer is being stopped.</li><li>`STOPPED`: Application load balancer is stopped and doesn't send traffic to the targets.</li><li>`DELETING`: Application load balancer is being deleted.</li><ul/>
 region_id | **string**<br>ID of the region that the load balancer located at. 
 network_id | **string**<br>ID of the network that the load balancer located at. 
-listeners[] | **[Listener](../load_balancer.proto#Listener)**<br>List of listeners for the application load balancer. 
-allocation_policy | **[AllocationPolicy](../load_balancer.proto#AllocationPolicy)**<br>Allocation sites for application load balancer instances. 
+listeners[] | **[Listener](#Listener)**<br>List of listeners for the application load balancer. 
+allocation_policy | **[AllocationPolicy](#AllocationPolicy)**<br>Allocation sites for application load balancer instances. 
 log_group_id | **string**<br> 
 
 
@@ -58,17 +58,17 @@ log_group_id | **string**<br>
 Field | Description
 --- | ---
 name | **string**<br>Required. Name of the listener. The name must be unique for each listener on a single load balancer. 3-63 characters long. 
-endpoints[] | **[Endpoint](../load_balancer.proto#Endpoint)**<br>Network endpoints (addressees and ports) of the listener. 
+endpoints[] | **[Endpoint](#Endpoint)**<br>Network endpoints (addressees and ports) of the listener. 
 listener | **oneof:** `http` or `tls`<br>
-&nbsp;&nbsp;http | **[HttpListener](../load_balancer.proto#HttpListener)**<br> 
-&nbsp;&nbsp;tls | **[TlsListener](../load_balancer.proto#TlsListener)**<br> 
+&nbsp;&nbsp;http | **[HttpListener](#HttpListener)**<br> 
+&nbsp;&nbsp;tls | **[TlsListener](#TlsListener)**<br> 
 
 
 ### Endpoint {#Endpoint}
 
 Field | Description
 --- | ---
-addresses[] | **[Address](../load_balancer.proto#Address)**<br> The number of elements must be greater than 0.
+addresses[] | **[Address](#Address)**<br> The number of elements must be greater than 0.
 ports[] | **int64**<br> The number of elements must be greater than 0. Acceptable values are 1 to 65535, inclusive.
 
 
@@ -77,9 +77,9 @@ ports[] | **int64**<br> The number of elements must be greater than 0. Acceptabl
 Field | Description
 --- | ---
 address | **oneof:** `external_ipv4_address`, `internal_ipv4_address` or `external_ipv6_address`<br>
-&nbsp;&nbsp;external_ipv4_address | **[ExternalIpv4Address](../load_balancer.proto#ExternalIpv4Address)**<br> 
-&nbsp;&nbsp;internal_ipv4_address | **[InternalIpv4Address](../load_balancer.proto#InternalIpv4Address)**<br> 
-&nbsp;&nbsp;external_ipv6_address | **[ExternalIpv6Address](../load_balancer.proto#ExternalIpv6Address)**<br> 
+&nbsp;&nbsp;external_ipv4_address | **[ExternalIpv4Address](#ExternalIpv4Address)**<br> 
+&nbsp;&nbsp;internal_ipv4_address | **[InternalIpv4Address](#InternalIpv4Address)**<br> 
+&nbsp;&nbsp;external_ipv6_address | **[ExternalIpv6Address](#ExternalIpv6Address)**<br> 
 
 
 ### ExternalIpv4Address {#ExternalIpv4Address}
@@ -108,7 +108,7 @@ address | **string**<br>
 
 Field | Description
 --- | ---
-handler | **[HttpHandler](../load_balancer.proto#HttpHandler)**<br> 
+handler | **[HttpHandler](#HttpHandler)**<br> 
 
 
 ### HttpHandler {#HttpHandler}
@@ -117,7 +117,7 @@ Field | Description
 --- | ---
 http_router_id | **string**<br> 
 protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>
-&nbsp;&nbsp;http2_options | **[Http2Options](../load_balancer.proto#Http2Options)**<br> 
+&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options)**<br> 
 &nbsp;&nbsp;allow_http10 | **bool**<br> 
 
 
@@ -132,8 +132,8 @@ max_concurrent_streams | **int64**<br>
 
 Field | Description
 --- | ---
-default_handler | **[TlsHandler](../load_balancer.proto#TlsHandler)**<br>Required.  
-sni_handlers[] | **[SniMatch](../load_balancer.proto#SniMatch)**<br> 
+default_handler | **[TlsHandler](#TlsHandler)**<br>Required.  
+sni_handlers[] | **[SniMatch](#SniMatch)**<br> 
 
 
 ### TlsHandler {#TlsHandler}
@@ -141,9 +141,9 @@ sni_handlers[] | **[SniMatch](../load_balancer.proto#SniMatch)**<br>
 Field | Description
 --- | ---
 handler | **oneof:** `http_handler`<br>
-&nbsp;&nbsp;http_handler | **[HttpHandler](../load_balancer.proto#HttpHandler1)**<br> 
+&nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler1)**<br> 
 certificate_ids[] | **string**<br>Certificate IDs in the Certificate Manager. Multiple TLS certificates can be associated with the same context to allow both RSA and ECDSA certificates. Only the first certificate of each type will be used. The number of elements must be greater than 0.
-tls_options | **[TlsOptions](../tls.proto#TlsOptions)**<br> 
+tls_options | **[TlsOptions](#TlsOptions)**<br> 
 
 
 ### HttpHandler {#HttpHandler1}
@@ -152,7 +152,7 @@ Field | Description
 --- | ---
 http_router_id | **string**<br> 
 protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>
-&nbsp;&nbsp;http2_options | **[Http2Options](../load_balancer.proto#Http2Options1)**<br> 
+&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options1)**<br> 
 &nbsp;&nbsp;allow_http10 | **bool**<br> 
 
 
@@ -179,7 +179,7 @@ Field | Description
 --- | ---
 name | **string**<br>Required.  
 server_names[] | **string**<br> The number of elements must be greater than 0.
-handler | **[TlsHandler](../load_balancer.proto#TlsHandler1)**<br>Required.  
+handler | **[TlsHandler](#TlsHandler1)**<br>Required.  
 
 
 ### TlsHandler {#TlsHandler1}
@@ -187,9 +187,9 @@ handler | **[TlsHandler](../load_balancer.proto#TlsHandler1)**<br>Required.
 Field | Description
 --- | ---
 handler | **oneof:** `http_handler`<br>
-&nbsp;&nbsp;http_handler | **[HttpHandler](../load_balancer.proto#HttpHandler2)**<br> 
+&nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler2)**<br> 
 certificate_ids[] | **string**<br>Certificate IDs in the Certificate Manager. Multiple TLS certificates can be associated with the same context to allow both RSA and ECDSA certificates. Only the first certificate of each type will be used. The number of elements must be greater than 0.
-tls_options | **[TlsOptions](../tls.proto#TlsOptions1)**<br> 
+tls_options | **[TlsOptions](#TlsOptions1)**<br> 
 
 
 ### HttpHandler {#HttpHandler2}
@@ -198,7 +198,7 @@ Field | Description
 --- | ---
 http_router_id | **string**<br> 
 protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>
-&nbsp;&nbsp;http2_options | **[Http2Options](../load_balancer.proto#Http2Options2)**<br> 
+&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options2)**<br> 
 &nbsp;&nbsp;allow_http10 | **bool**<br> 
 
 
@@ -223,7 +223,7 @@ ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only
 
 Field | Description
 --- | ---
-locations[] | **[Location](../load_balancer.proto#Location)**<br> The minimum number of elements is 1.
+locations[] | **[Location](#Location)**<br> The minimum number of elements is 1.
 
 
 ### Location {#Location}
@@ -255,7 +255,7 @@ filter | **string**<br> The maximum string length in characters is 1000.
 
 Field | Description
 --- | ---
-load_balancers[] | **[LoadBalancer](../load_balancer.proto#LoadBalancer1)**<br> 
+load_balancers[] | **[LoadBalancer](#LoadBalancer1)**<br> 
 next_page_token | **string**<br> 
 
 
@@ -271,8 +271,8 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum
 status | enum **Status**<br>Status of the application load balancer. <ul><li>`CREATING`: Application load balancer is being created.</li><li>`STARTING`: Application load balancer is being started.</li><li>`ACTIVE`: Application load balancer is active and sends traffic to the targets.</li><li>`STOPPING`: Application load balancer is being stopped.</li><li>`STOPPED`: Application load balancer is stopped and doesn't send traffic to the targets.</li><li>`DELETING`: Application load balancer is being deleted.</li><ul/>
 region_id | **string**<br>ID of the region that the load balancer located at. 
 network_id | **string**<br>ID of the network that the load balancer located at. 
-listeners[] | **[Listener](../load_balancer.proto#Listener1)**<br>List of listeners for the application load balancer. 
-allocation_policy | **[AllocationPolicy](../load_balancer.proto#AllocationPolicy1)**<br>Allocation sites for application load balancer instances. 
+listeners[] | **[Listener](#Listener1)**<br>List of listeners for the application load balancer. 
+allocation_policy | **[AllocationPolicy](#AllocationPolicy1)**<br>Allocation sites for application load balancer instances. 
 log_group_id | **string**<br> 
 
 
@@ -281,17 +281,17 @@ log_group_id | **string**<br>
 Field | Description
 --- | ---
 name | **string**<br>Required. Name of the listener. The name must be unique for each listener on a single load balancer. 3-63 characters long. 
-endpoints[] | **[Endpoint](../load_balancer.proto#Endpoint1)**<br>Network endpoints (addressees and ports) of the listener. 
+endpoints[] | **[Endpoint](#Endpoint1)**<br>Network endpoints (addressees and ports) of the listener. 
 listener | **oneof:** `http` or `tls`<br>
-&nbsp;&nbsp;http | **[HttpListener](../load_balancer.proto#HttpListener1)**<br> 
-&nbsp;&nbsp;tls | **[TlsListener](../load_balancer.proto#TlsListener1)**<br> 
+&nbsp;&nbsp;http | **[HttpListener](#HttpListener1)**<br> 
+&nbsp;&nbsp;tls | **[TlsListener](#TlsListener1)**<br> 
 
 
 ### Endpoint {#Endpoint1}
 
 Field | Description
 --- | ---
-addresses[] | **[Address](../load_balancer.proto#Address1)**<br> The number of elements must be greater than 0.
+addresses[] | **[Address](#Address1)**<br> The number of elements must be greater than 0.
 ports[] | **int64**<br> The number of elements must be greater than 0. Acceptable values are 1 to 65535, inclusive.
 
 
@@ -300,9 +300,9 @@ ports[] | **int64**<br> The number of elements must be greater than 0. Acceptabl
 Field | Description
 --- | ---
 address | **oneof:** `external_ipv4_address`, `internal_ipv4_address` or `external_ipv6_address`<br>
-&nbsp;&nbsp;external_ipv4_address | **[ExternalIpv4Address](../load_balancer.proto#ExternalIpv4Address1)**<br> 
-&nbsp;&nbsp;internal_ipv4_address | **[InternalIpv4Address](../load_balancer.proto#InternalIpv4Address1)**<br> 
-&nbsp;&nbsp;external_ipv6_address | **[ExternalIpv6Address](../load_balancer.proto#ExternalIpv6Address1)**<br> 
+&nbsp;&nbsp;external_ipv4_address | **[ExternalIpv4Address](#ExternalIpv4Address1)**<br> 
+&nbsp;&nbsp;internal_ipv4_address | **[InternalIpv4Address](#InternalIpv4Address1)**<br> 
+&nbsp;&nbsp;external_ipv6_address | **[ExternalIpv6Address](#ExternalIpv6Address1)**<br> 
 
 
 ### ExternalIpv4Address {#ExternalIpv4Address1}
@@ -331,7 +331,7 @@ address | **string**<br>
 
 Field | Description
 --- | ---
-handler | **[HttpHandler](../load_balancer.proto#HttpHandler3)**<br> 
+handler | **[HttpHandler](#HttpHandler3)**<br> 
 
 
 ### HttpHandler {#HttpHandler3}
@@ -340,7 +340,7 @@ Field | Description
 --- | ---
 http_router_id | **string**<br> 
 protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>
-&nbsp;&nbsp;http2_options | **[Http2Options](../load_balancer.proto#Http2Options3)**<br> 
+&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options3)**<br> 
 &nbsp;&nbsp;allow_http10 | **bool**<br> 
 
 
@@ -355,8 +355,8 @@ max_concurrent_streams | **int64**<br>
 
 Field | Description
 --- | ---
-default_handler | **[TlsHandler](../load_balancer.proto#TlsHandler2)**<br>Required.  
-sni_handlers[] | **[SniMatch](../load_balancer.proto#SniMatch1)**<br> 
+default_handler | **[TlsHandler](#TlsHandler2)**<br>Required.  
+sni_handlers[] | **[SniMatch](#SniMatch1)**<br> 
 
 
 ### TlsHandler {#TlsHandler2}
@@ -364,9 +364,9 @@ sni_handlers[] | **[SniMatch](../load_balancer.proto#SniMatch1)**<br>
 Field | Description
 --- | ---
 handler | **oneof:** `http_handler`<br>
-&nbsp;&nbsp;http_handler | **[HttpHandler](../load_balancer.proto#HttpHandler4)**<br> 
+&nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler4)**<br> 
 certificate_ids[] | **string**<br>Certificate IDs in the Certificate Manager. Multiple TLS certificates can be associated with the same context to allow both RSA and ECDSA certificates. Only the first certificate of each type will be used. The number of elements must be greater than 0.
-tls_options | **[TlsOptions](../tls.proto#TlsOptions2)**<br> 
+tls_options | **[TlsOptions](#TlsOptions2)**<br> 
 
 
 ### HttpHandler {#HttpHandler4}
@@ -375,7 +375,7 @@ Field | Description
 --- | ---
 http_router_id | **string**<br> 
 protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>
-&nbsp;&nbsp;http2_options | **[Http2Options](../load_balancer.proto#Http2Options4)**<br> 
+&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options4)**<br> 
 &nbsp;&nbsp;allow_http10 | **bool**<br> 
 
 
@@ -402,7 +402,7 @@ Field | Description
 --- | ---
 name | **string**<br>Required.  
 server_names[] | **string**<br> The number of elements must be greater than 0.
-handler | **[TlsHandler](../load_balancer.proto#TlsHandler3)**<br>Required.  
+handler | **[TlsHandler](#TlsHandler3)**<br>Required.  
 
 
 ### TlsHandler {#TlsHandler3}
@@ -410,9 +410,9 @@ handler | **[TlsHandler](../load_balancer.proto#TlsHandler3)**<br>Required.
 Field | Description
 --- | ---
 handler | **oneof:** `http_handler`<br>
-&nbsp;&nbsp;http_handler | **[HttpHandler](../load_balancer.proto#HttpHandler5)**<br> 
+&nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler5)**<br> 
 certificate_ids[] | **string**<br>Certificate IDs in the Certificate Manager. Multiple TLS certificates can be associated with the same context to allow both RSA and ECDSA certificates. Only the first certificate of each type will be used. The number of elements must be greater than 0.
-tls_options | **[TlsOptions](../tls.proto#TlsOptions3)**<br> 
+tls_options | **[TlsOptions](#TlsOptions3)**<br> 
 
 
 ### HttpHandler {#HttpHandler5}
@@ -421,7 +421,7 @@ Field | Description
 --- | ---
 http_router_id | **string**<br> 
 protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>
-&nbsp;&nbsp;http2_options | **[Http2Options](../load_balancer.proto#Http2Options5)**<br> 
+&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options5)**<br> 
 &nbsp;&nbsp;allow_http10 | **bool**<br> 
 
 
@@ -446,7 +446,7 @@ ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only
 
 Field | Description
 --- | ---
-locations[] | **[Location](../load_balancer.proto#Location1)**<br> The minimum number of elements is 1.
+locations[] | **[Location](#Location1)**<br> The minimum number of elements is 1.
 
 
 ### Location {#Location1}
@@ -466,7 +466,7 @@ disable_traffic | **bool**<br>If set, will disable all L7 instances in the zone 
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateLoadBalancerMetadata](#CreateLoadBalancerMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[LoadBalancer](../load_balancer.proto#LoadBalancer2)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[LoadBalancer](#LoadBalancer2)<br>
 
 ### CreateLoadBalancerRequest {#CreateLoadBalancerRequest}
 
@@ -479,7 +479,7 @@ labels | **map<string,string>**<br> No more than 64 per resource. The maximum st
 region_id | **string**<br>Required.  
 network_id | **string**<br>Required.  
 listener_specs[] | **[ListenerSpec](#ListenerSpec)**<br> 
-allocation_policy | **[AllocationPolicy](../load_balancer.proto#AllocationPolicy2)**<br> 
+allocation_policy | **[AllocationPolicy](#AllocationPolicy2)**<br> 
 
 
 ### ListenerSpec {#ListenerSpec}
@@ -535,7 +535,7 @@ yandex_only | **bool**<br>
 
 Field | Description
 --- | ---
-locations[] | **[Location](../load_balancer.proto#Location2)**<br> The minimum number of elements is 1.
+locations[] | **[Location](#Location2)**<br> The minimum number of elements is 1.
 
 
 ### Location {#Location2}
@@ -560,7 +560,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateLoadBalancerMetadata](#CreateLoadBalancerMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[LoadBalancer](../load_balancer.proto#LoadBalancer2)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[LoadBalancer](#LoadBalancer2)>**<br>if operation finished successfully. 
 
 
 ### CreateLoadBalancerMetadata {#CreateLoadBalancerMetadata}
@@ -582,9 +582,191 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum
 status | enum **Status**<br>Status of the application load balancer. <ul><li>`CREATING`: Application load balancer is being created.</li><li>`STARTING`: Application load balancer is being started.</li><li>`ACTIVE`: Application load balancer is active and sends traffic to the targets.</li><li>`STOPPING`: Application load balancer is being stopped.</li><li>`STOPPED`: Application load balancer is stopped and doesn't send traffic to the targets.</li><li>`DELETING`: Application load balancer is being deleted.</li><ul/>
 region_id | **string**<br>ID of the region that the load balancer located at. 
 network_id | **string**<br>ID of the network that the load balancer located at. 
-listeners[] | **[Listener](../load_balancer.proto#Listener2)**<br>List of listeners for the application load balancer. 
-allocation_policy | **[AllocationPolicy](../load_balancer.proto#AllocationPolicy3)**<br>Allocation sites for application load balancer instances. 
+listeners[] | **[Listener](#Listener2)**<br>List of listeners for the application load balancer. 
+allocation_policy | **[AllocationPolicy](#AllocationPolicy3)**<br>Allocation sites for application load balancer instances. 
 log_group_id | **string**<br> 
+
+
+### Listener {#Listener2}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the listener. The name must be unique for each listener on a single load balancer. 3-63 characters long. 
+endpoints[] | **[Endpoint](#Endpoint2)**<br>Network endpoints (addressees and ports) of the listener. 
+listener | **oneof:** `http` or `tls`<br>
+&nbsp;&nbsp;http | **[HttpListener](#HttpListener2)**<br> 
+&nbsp;&nbsp;tls | **[TlsListener](#TlsListener2)**<br> 
+
+
+### Endpoint {#Endpoint2}
+
+Field | Description
+--- | ---
+addresses[] | **[Address](#Address2)**<br> The number of elements must be greater than 0.
+ports[] | **int64**<br> The number of elements must be greater than 0. Acceptable values are 1 to 65535, inclusive.
+
+
+### Address {#Address2}
+
+Field | Description
+--- | ---
+address | **oneof:** `external_ipv4_address`, `internal_ipv4_address` or `external_ipv6_address`<br>
+&nbsp;&nbsp;external_ipv4_address | **[ExternalIpv4Address](#ExternalIpv4Address2)**<br> 
+&nbsp;&nbsp;internal_ipv4_address | **[InternalIpv4Address](#InternalIpv4Address2)**<br> 
+&nbsp;&nbsp;external_ipv6_address | **[ExternalIpv6Address](#ExternalIpv6Address2)**<br> 
+
+
+### ExternalIpv4Address {#ExternalIpv4Address2}
+
+Field | Description
+--- | ---
+address | **string**<br> 
+
+
+### InternalIpv4Address {#InternalIpv4Address2}
+
+Field | Description
+--- | ---
+address | **string**<br> 
+subnet_id | **string**<br> 
+
+
+### ExternalIpv6Address {#ExternalIpv6Address2}
+
+Field | Description
+--- | ---
+address | **string**<br> 
+
+
+### HttpListener {#HttpListener2}
+
+Field | Description
+--- | ---
+handler | **[HttpHandler](#HttpHandler6)**<br> 
+
+
+### HttpHandler {#HttpHandler6}
+
+Field | Description
+--- | ---
+http_router_id | **string**<br> 
+protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>
+&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options6)**<br> 
+&nbsp;&nbsp;allow_http10 | **bool**<br> 
+
+
+### Http2Options {#Http2Options6}
+
+Field | Description
+--- | ---
+max_concurrent_streams | **int64**<br> 
+
+
+### TlsListener {#TlsListener2}
+
+Field | Description
+--- | ---
+default_handler | **[TlsHandler](#TlsHandler4)**<br>Required.  
+sni_handlers[] | **[SniMatch](#SniMatch2)**<br> 
+
+
+### TlsHandler {#TlsHandler4}
+
+Field | Description
+--- | ---
+handler | **oneof:** `http_handler`<br>
+&nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler7)**<br> 
+certificate_ids[] | **string**<br>Certificate IDs in the Certificate Manager. Multiple TLS certificates can be associated with the same context to allow both RSA and ECDSA certificates. Only the first certificate of each type will be used. The number of elements must be greater than 0.
+tls_options | **[TlsOptions](#TlsOptions4)**<br> 
+
+
+### HttpHandler {#HttpHandler7}
+
+Field | Description
+--- | ---
+http_router_id | **string**<br> 
+protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>
+&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options7)**<br> 
+&nbsp;&nbsp;allow_http10 | **bool**<br> 
+
+
+### Http2Options {#Http2Options7}
+
+Field | Description
+--- | ---
+max_concurrent_streams | **int64**<br> 
+
+
+### TlsOptions {#TlsOptions4}
+
+Field | Description
+--- | ---
+tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
+tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
+cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
+ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
+
+
+### SniMatch {#SniMatch2}
+
+Field | Description
+--- | ---
+name | **string**<br>Required.  
+server_names[] | **string**<br> The number of elements must be greater than 0.
+handler | **[TlsHandler](#TlsHandler5)**<br>Required.  
+
+
+### TlsHandler {#TlsHandler5}
+
+Field | Description
+--- | ---
+handler | **oneof:** `http_handler`<br>
+&nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler8)**<br> 
+certificate_ids[] | **string**<br>Certificate IDs in the Certificate Manager. Multiple TLS certificates can be associated with the same context to allow both RSA and ECDSA certificates. Only the first certificate of each type will be used. The number of elements must be greater than 0.
+tls_options | **[TlsOptions](#TlsOptions5)**<br> 
+
+
+### HttpHandler {#HttpHandler8}
+
+Field | Description
+--- | ---
+http_router_id | **string**<br> 
+protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>
+&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options8)**<br> 
+&nbsp;&nbsp;allow_http10 | **bool**<br> 
+
+
+### Http2Options {#Http2Options8}
+
+Field | Description
+--- | ---
+max_concurrent_streams | **int64**<br> 
+
+
+### TlsOptions {#TlsOptions5}
+
+Field | Description
+--- | ---
+tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
+tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
+cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
+ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
+
+
+### AllocationPolicy {#AllocationPolicy3}
+
+Field | Description
+--- | ---
+locations[] | **[Location](#Location3)**<br> The minimum number of elements is 1.
+
+
+### Location {#Location3}
+
+Field | Description
+--- | ---
+zone_id | **string**<br>Required.  
+subnet_id | **string**<br> 
+disable_traffic | **bool**<br>If set, will disable all L7 instances in the zone for request handling. 
 
 
 ## Update {#Update}
@@ -595,7 +777,7 @@ log_group_id | **string**<br>
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateLoadBalancerMetadata](#UpdateLoadBalancerMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[LoadBalancer](../load_balancer.proto#LoadBalancer3)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[LoadBalancer](#LoadBalancer3)<br>
 
 ### UpdateLoadBalancerRequest {#UpdateLoadBalancerRequest}
 
@@ -607,7 +789,7 @@ name | **string**<br> Value must match the regular expression ` |[a-z]([-a-z0-9]
 description | **string**<br> The maximum string length in characters is 256.
 labels | **map<string,string>**<br> No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 listener_specs[] | **[ListenerSpec](#ListenerSpec)**<br> 
-allocation_policy | **[AllocationPolicy](../load_balancer.proto#AllocationPolicy3)**<br> 
+allocation_policy | **[AllocationPolicy](#AllocationPolicy4)**<br> 
 
 
 ### ListenerSpec {#ListenerSpec1}
@@ -659,14 +841,14 @@ address | **string**<br>
 yandex_only | **bool**<br> 
 
 
-### AllocationPolicy {#AllocationPolicy3}
+### AllocationPolicy {#AllocationPolicy4}
 
 Field | Description
 --- | ---
-locations[] | **[Location](../load_balancer.proto#Location3)**<br> The minimum number of elements is 1.
+locations[] | **[Location](#Location4)**<br> The minimum number of elements is 1.
 
 
-### Location {#Location3}
+### Location {#Location4}
 
 Field | Description
 --- | ---
@@ -688,7 +870,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateLoadBalancerMetadata](#UpdateLoadBalancerMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[LoadBalancer](../load_balancer.proto#LoadBalancer3)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[LoadBalancer](#LoadBalancer3)>**<br>if operation finished successfully. 
 
 
 ### UpdateLoadBalancerMetadata {#UpdateLoadBalancerMetadata}
@@ -710,9 +892,191 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum
 status | enum **Status**<br>Status of the application load balancer. <ul><li>`CREATING`: Application load balancer is being created.</li><li>`STARTING`: Application load balancer is being started.</li><li>`ACTIVE`: Application load balancer is active and sends traffic to the targets.</li><li>`STOPPING`: Application load balancer is being stopped.</li><li>`STOPPED`: Application load balancer is stopped and doesn't send traffic to the targets.</li><li>`DELETING`: Application load balancer is being deleted.</li><ul/>
 region_id | **string**<br>ID of the region that the load balancer located at. 
 network_id | **string**<br>ID of the network that the load balancer located at. 
-listeners[] | **[Listener](../load_balancer.proto#Listener2)**<br>List of listeners for the application load balancer. 
-allocation_policy | **[AllocationPolicy](../load_balancer.proto#AllocationPolicy4)**<br>Allocation sites for application load balancer instances. 
+listeners[] | **[Listener](#Listener3)**<br>List of listeners for the application load balancer. 
+allocation_policy | **[AllocationPolicy](#AllocationPolicy5)**<br>Allocation sites for application load balancer instances. 
 log_group_id | **string**<br> 
+
+
+### Listener {#Listener3}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the listener. The name must be unique for each listener on a single load balancer. 3-63 characters long. 
+endpoints[] | **[Endpoint](#Endpoint3)**<br>Network endpoints (addressees and ports) of the listener. 
+listener | **oneof:** `http` or `tls`<br>
+&nbsp;&nbsp;http | **[HttpListener](#HttpListener3)**<br> 
+&nbsp;&nbsp;tls | **[TlsListener](#TlsListener3)**<br> 
+
+
+### Endpoint {#Endpoint3}
+
+Field | Description
+--- | ---
+addresses[] | **[Address](#Address3)**<br> The number of elements must be greater than 0.
+ports[] | **int64**<br> The number of elements must be greater than 0. Acceptable values are 1 to 65535, inclusive.
+
+
+### Address {#Address3}
+
+Field | Description
+--- | ---
+address | **oneof:** `external_ipv4_address`, `internal_ipv4_address` or `external_ipv6_address`<br>
+&nbsp;&nbsp;external_ipv4_address | **[ExternalIpv4Address](#ExternalIpv4Address3)**<br> 
+&nbsp;&nbsp;internal_ipv4_address | **[InternalIpv4Address](#InternalIpv4Address3)**<br> 
+&nbsp;&nbsp;external_ipv6_address | **[ExternalIpv6Address](#ExternalIpv6Address3)**<br> 
+
+
+### ExternalIpv4Address {#ExternalIpv4Address3}
+
+Field | Description
+--- | ---
+address | **string**<br> 
+
+
+### InternalIpv4Address {#InternalIpv4Address3}
+
+Field | Description
+--- | ---
+address | **string**<br> 
+subnet_id | **string**<br> 
+
+
+### ExternalIpv6Address {#ExternalIpv6Address3}
+
+Field | Description
+--- | ---
+address | **string**<br> 
+
+
+### HttpListener {#HttpListener3}
+
+Field | Description
+--- | ---
+handler | **[HttpHandler](#HttpHandler9)**<br> 
+
+
+### HttpHandler {#HttpHandler9}
+
+Field | Description
+--- | ---
+http_router_id | **string**<br> 
+protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>
+&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options9)**<br> 
+&nbsp;&nbsp;allow_http10 | **bool**<br> 
+
+
+### Http2Options {#Http2Options9}
+
+Field | Description
+--- | ---
+max_concurrent_streams | **int64**<br> 
+
+
+### TlsListener {#TlsListener3}
+
+Field | Description
+--- | ---
+default_handler | **[TlsHandler](#TlsHandler6)**<br>Required.  
+sni_handlers[] | **[SniMatch](#SniMatch3)**<br> 
+
+
+### TlsHandler {#TlsHandler6}
+
+Field | Description
+--- | ---
+handler | **oneof:** `http_handler`<br>
+&nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler10)**<br> 
+certificate_ids[] | **string**<br>Certificate IDs in the Certificate Manager. Multiple TLS certificates can be associated with the same context to allow both RSA and ECDSA certificates. Only the first certificate of each type will be used. The number of elements must be greater than 0.
+tls_options | **[TlsOptions](#TlsOptions6)**<br> 
+
+
+### HttpHandler {#HttpHandler10}
+
+Field | Description
+--- | ---
+http_router_id | **string**<br> 
+protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>
+&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options10)**<br> 
+&nbsp;&nbsp;allow_http10 | **bool**<br> 
+
+
+### Http2Options {#Http2Options10}
+
+Field | Description
+--- | ---
+max_concurrent_streams | **int64**<br> 
+
+
+### TlsOptions {#TlsOptions6}
+
+Field | Description
+--- | ---
+tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
+tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
+cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
+ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
+
+
+### SniMatch {#SniMatch3}
+
+Field | Description
+--- | ---
+name | **string**<br>Required.  
+server_names[] | **string**<br> The number of elements must be greater than 0.
+handler | **[TlsHandler](#TlsHandler7)**<br>Required.  
+
+
+### TlsHandler {#TlsHandler7}
+
+Field | Description
+--- | ---
+handler | **oneof:** `http_handler`<br>
+&nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler11)**<br> 
+certificate_ids[] | **string**<br>Certificate IDs in the Certificate Manager. Multiple TLS certificates can be associated with the same context to allow both RSA and ECDSA certificates. Only the first certificate of each type will be used. The number of elements must be greater than 0.
+tls_options | **[TlsOptions](#TlsOptions7)**<br> 
+
+
+### HttpHandler {#HttpHandler11}
+
+Field | Description
+--- | ---
+http_router_id | **string**<br> 
+protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>
+&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options11)**<br> 
+&nbsp;&nbsp;allow_http10 | **bool**<br> 
+
+
+### Http2Options {#Http2Options11}
+
+Field | Description
+--- | ---
+max_concurrent_streams | **int64**<br> 
+
+
+### TlsOptions {#TlsOptions7}
+
+Field | Description
+--- | ---
+tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
+tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
+cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
+ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
+
+
+### AllocationPolicy {#AllocationPolicy5}
+
+Field | Description
+--- | ---
+locations[] | **[Location](#Location5)**<br> The minimum number of elements is 1.
+
+
+### Location {#Location5}
+
+Field | Description
+--- | ---
+zone_id | **string**<br>Required.  
+subnet_id | **string**<br> 
+disable_traffic | **bool**<br>If set, will disable all L7 instances in the zone for request handling. 
 
 
 ## Delete {#Delete}
@@ -763,7 +1127,7 @@ load_balancer_id | **string**<br>
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[StartLoadBalancerMetadata](#StartLoadBalancerMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[LoadBalancer](../load_balancer.proto#LoadBalancer4)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[LoadBalancer](#LoadBalancer4)<br>
 
 ### StartLoadBalancerRequest {#StartLoadBalancerRequest}
 
@@ -785,7 +1149,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[StartLoadBalancerMetadata](#StartLoadBalancerMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[LoadBalancer](../load_balancer.proto#LoadBalancer4)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[LoadBalancer](#LoadBalancer4)>**<br>if operation finished successfully. 
 
 
 ### StartLoadBalancerMetadata {#StartLoadBalancerMetadata}
@@ -807,9 +1171,191 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum
 status | enum **Status**<br>Status of the application load balancer. <ul><li>`CREATING`: Application load balancer is being created.</li><li>`STARTING`: Application load balancer is being started.</li><li>`ACTIVE`: Application load balancer is active and sends traffic to the targets.</li><li>`STOPPING`: Application load balancer is being stopped.</li><li>`STOPPED`: Application load balancer is stopped and doesn't send traffic to the targets.</li><li>`DELETING`: Application load balancer is being deleted.</li><ul/>
 region_id | **string**<br>ID of the region that the load balancer located at. 
 network_id | **string**<br>ID of the network that the load balancer located at. 
-listeners[] | **[Listener](../load_balancer.proto#Listener2)**<br>List of listeners for the application load balancer. 
-allocation_policy | **[AllocationPolicy](../load_balancer.proto#AllocationPolicy4)**<br>Allocation sites for application load balancer instances. 
+listeners[] | **[Listener](#Listener4)**<br>List of listeners for the application load balancer. 
+allocation_policy | **[AllocationPolicy](#AllocationPolicy6)**<br>Allocation sites for application load balancer instances. 
 log_group_id | **string**<br> 
+
+
+### Listener {#Listener4}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the listener. The name must be unique for each listener on a single load balancer. 3-63 characters long. 
+endpoints[] | **[Endpoint](#Endpoint4)**<br>Network endpoints (addressees and ports) of the listener. 
+listener | **oneof:** `http` or `tls`<br>
+&nbsp;&nbsp;http | **[HttpListener](#HttpListener4)**<br> 
+&nbsp;&nbsp;tls | **[TlsListener](#TlsListener4)**<br> 
+
+
+### Endpoint {#Endpoint4}
+
+Field | Description
+--- | ---
+addresses[] | **[Address](#Address4)**<br> The number of elements must be greater than 0.
+ports[] | **int64**<br> The number of elements must be greater than 0. Acceptable values are 1 to 65535, inclusive.
+
+
+### Address {#Address4}
+
+Field | Description
+--- | ---
+address | **oneof:** `external_ipv4_address`, `internal_ipv4_address` or `external_ipv6_address`<br>
+&nbsp;&nbsp;external_ipv4_address | **[ExternalIpv4Address](#ExternalIpv4Address4)**<br> 
+&nbsp;&nbsp;internal_ipv4_address | **[InternalIpv4Address](#InternalIpv4Address4)**<br> 
+&nbsp;&nbsp;external_ipv6_address | **[ExternalIpv6Address](#ExternalIpv6Address4)**<br> 
+
+
+### ExternalIpv4Address {#ExternalIpv4Address4}
+
+Field | Description
+--- | ---
+address | **string**<br> 
+
+
+### InternalIpv4Address {#InternalIpv4Address4}
+
+Field | Description
+--- | ---
+address | **string**<br> 
+subnet_id | **string**<br> 
+
+
+### ExternalIpv6Address {#ExternalIpv6Address4}
+
+Field | Description
+--- | ---
+address | **string**<br> 
+
+
+### HttpListener {#HttpListener4}
+
+Field | Description
+--- | ---
+handler | **[HttpHandler](#HttpHandler12)**<br> 
+
+
+### HttpHandler {#HttpHandler12}
+
+Field | Description
+--- | ---
+http_router_id | **string**<br> 
+protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>
+&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options12)**<br> 
+&nbsp;&nbsp;allow_http10 | **bool**<br> 
+
+
+### Http2Options {#Http2Options12}
+
+Field | Description
+--- | ---
+max_concurrent_streams | **int64**<br> 
+
+
+### TlsListener {#TlsListener4}
+
+Field | Description
+--- | ---
+default_handler | **[TlsHandler](#TlsHandler8)**<br>Required.  
+sni_handlers[] | **[SniMatch](#SniMatch4)**<br> 
+
+
+### TlsHandler {#TlsHandler8}
+
+Field | Description
+--- | ---
+handler | **oneof:** `http_handler`<br>
+&nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler13)**<br> 
+certificate_ids[] | **string**<br>Certificate IDs in the Certificate Manager. Multiple TLS certificates can be associated with the same context to allow both RSA and ECDSA certificates. Only the first certificate of each type will be used. The number of elements must be greater than 0.
+tls_options | **[TlsOptions](#TlsOptions8)**<br> 
+
+
+### HttpHandler {#HttpHandler13}
+
+Field | Description
+--- | ---
+http_router_id | **string**<br> 
+protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>
+&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options13)**<br> 
+&nbsp;&nbsp;allow_http10 | **bool**<br> 
+
+
+### Http2Options {#Http2Options13}
+
+Field | Description
+--- | ---
+max_concurrent_streams | **int64**<br> 
+
+
+### TlsOptions {#TlsOptions8}
+
+Field | Description
+--- | ---
+tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
+tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
+cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
+ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
+
+
+### SniMatch {#SniMatch4}
+
+Field | Description
+--- | ---
+name | **string**<br>Required.  
+server_names[] | **string**<br> The number of elements must be greater than 0.
+handler | **[TlsHandler](#TlsHandler9)**<br>Required.  
+
+
+### TlsHandler {#TlsHandler9}
+
+Field | Description
+--- | ---
+handler | **oneof:** `http_handler`<br>
+&nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler14)**<br> 
+certificate_ids[] | **string**<br>Certificate IDs in the Certificate Manager. Multiple TLS certificates can be associated with the same context to allow both RSA and ECDSA certificates. Only the first certificate of each type will be used. The number of elements must be greater than 0.
+tls_options | **[TlsOptions](#TlsOptions9)**<br> 
+
+
+### HttpHandler {#HttpHandler14}
+
+Field | Description
+--- | ---
+http_router_id | **string**<br> 
+protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>
+&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options14)**<br> 
+&nbsp;&nbsp;allow_http10 | **bool**<br> 
+
+
+### Http2Options {#Http2Options14}
+
+Field | Description
+--- | ---
+max_concurrent_streams | **int64**<br> 
+
+
+### TlsOptions {#TlsOptions9}
+
+Field | Description
+--- | ---
+tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
+tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
+cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
+ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
+
+
+### AllocationPolicy {#AllocationPolicy6}
+
+Field | Description
+--- | ---
+locations[] | **[Location](#Location6)**<br> The minimum number of elements is 1.
+
+
+### Location {#Location6}
+
+Field | Description
+--- | ---
+zone_id | **string**<br>Required.  
+subnet_id | **string**<br> 
+disable_traffic | **bool**<br>If set, will disable all L7 instances in the zone for request handling. 
 
 
 ## Stop {#Stop}
@@ -820,7 +1366,7 @@ log_group_id | **string**<br>
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[StopLoadBalancerMetadata](#StopLoadBalancerMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[LoadBalancer](../load_balancer.proto#LoadBalancer5)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[LoadBalancer](#LoadBalancer5)<br>
 
 ### StopLoadBalancerRequest {#StopLoadBalancerRequest}
 
@@ -842,7 +1388,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[StopLoadBalancerMetadata](#StopLoadBalancerMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[LoadBalancer](../load_balancer.proto#LoadBalancer5)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[LoadBalancer](#LoadBalancer5)>**<br>if operation finished successfully. 
 
 
 ### StopLoadBalancerMetadata {#StopLoadBalancerMetadata}
@@ -864,9 +1410,191 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum
 status | enum **Status**<br>Status of the application load balancer. <ul><li>`CREATING`: Application load balancer is being created.</li><li>`STARTING`: Application load balancer is being started.</li><li>`ACTIVE`: Application load balancer is active and sends traffic to the targets.</li><li>`STOPPING`: Application load balancer is being stopped.</li><li>`STOPPED`: Application load balancer is stopped and doesn't send traffic to the targets.</li><li>`DELETING`: Application load balancer is being deleted.</li><ul/>
 region_id | **string**<br>ID of the region that the load balancer located at. 
 network_id | **string**<br>ID of the network that the load balancer located at. 
-listeners[] | **[Listener](../load_balancer.proto#Listener2)**<br>List of listeners for the application load balancer. 
-allocation_policy | **[AllocationPolicy](../load_balancer.proto#AllocationPolicy4)**<br>Allocation sites for application load balancer instances. 
+listeners[] | **[Listener](#Listener5)**<br>List of listeners for the application load balancer. 
+allocation_policy | **[AllocationPolicy](#AllocationPolicy7)**<br>Allocation sites for application load balancer instances. 
 log_group_id | **string**<br> 
+
+
+### Listener {#Listener5}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the listener. The name must be unique for each listener on a single load balancer. 3-63 characters long. 
+endpoints[] | **[Endpoint](#Endpoint5)**<br>Network endpoints (addressees and ports) of the listener. 
+listener | **oneof:** `http` or `tls`<br>
+&nbsp;&nbsp;http | **[HttpListener](#HttpListener5)**<br> 
+&nbsp;&nbsp;tls | **[TlsListener](#TlsListener5)**<br> 
+
+
+### Endpoint {#Endpoint5}
+
+Field | Description
+--- | ---
+addresses[] | **[Address](#Address5)**<br> The number of elements must be greater than 0.
+ports[] | **int64**<br> The number of elements must be greater than 0. Acceptable values are 1 to 65535, inclusive.
+
+
+### Address {#Address5}
+
+Field | Description
+--- | ---
+address | **oneof:** `external_ipv4_address`, `internal_ipv4_address` or `external_ipv6_address`<br>
+&nbsp;&nbsp;external_ipv4_address | **[ExternalIpv4Address](#ExternalIpv4Address5)**<br> 
+&nbsp;&nbsp;internal_ipv4_address | **[InternalIpv4Address](#InternalIpv4Address5)**<br> 
+&nbsp;&nbsp;external_ipv6_address | **[ExternalIpv6Address](#ExternalIpv6Address5)**<br> 
+
+
+### ExternalIpv4Address {#ExternalIpv4Address5}
+
+Field | Description
+--- | ---
+address | **string**<br> 
+
+
+### InternalIpv4Address {#InternalIpv4Address5}
+
+Field | Description
+--- | ---
+address | **string**<br> 
+subnet_id | **string**<br> 
+
+
+### ExternalIpv6Address {#ExternalIpv6Address5}
+
+Field | Description
+--- | ---
+address | **string**<br> 
+
+
+### HttpListener {#HttpListener5}
+
+Field | Description
+--- | ---
+handler | **[HttpHandler](#HttpHandler15)**<br> 
+
+
+### HttpHandler {#HttpHandler15}
+
+Field | Description
+--- | ---
+http_router_id | **string**<br> 
+protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>
+&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options15)**<br> 
+&nbsp;&nbsp;allow_http10 | **bool**<br> 
+
+
+### Http2Options {#Http2Options15}
+
+Field | Description
+--- | ---
+max_concurrent_streams | **int64**<br> 
+
+
+### TlsListener {#TlsListener5}
+
+Field | Description
+--- | ---
+default_handler | **[TlsHandler](#TlsHandler10)**<br>Required.  
+sni_handlers[] | **[SniMatch](#SniMatch5)**<br> 
+
+
+### TlsHandler {#TlsHandler10}
+
+Field | Description
+--- | ---
+handler | **oneof:** `http_handler`<br>
+&nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler16)**<br> 
+certificate_ids[] | **string**<br>Certificate IDs in the Certificate Manager. Multiple TLS certificates can be associated with the same context to allow both RSA and ECDSA certificates. Only the first certificate of each type will be used. The number of elements must be greater than 0.
+tls_options | **[TlsOptions](#TlsOptions10)**<br> 
+
+
+### HttpHandler {#HttpHandler16}
+
+Field | Description
+--- | ---
+http_router_id | **string**<br> 
+protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>
+&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options16)**<br> 
+&nbsp;&nbsp;allow_http10 | **bool**<br> 
+
+
+### Http2Options {#Http2Options16}
+
+Field | Description
+--- | ---
+max_concurrent_streams | **int64**<br> 
+
+
+### TlsOptions {#TlsOptions10}
+
+Field | Description
+--- | ---
+tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
+tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
+cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
+ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
+
+
+### SniMatch {#SniMatch5}
+
+Field | Description
+--- | ---
+name | **string**<br>Required.  
+server_names[] | **string**<br> The number of elements must be greater than 0.
+handler | **[TlsHandler](#TlsHandler11)**<br>Required.  
+
+
+### TlsHandler {#TlsHandler11}
+
+Field | Description
+--- | ---
+handler | **oneof:** `http_handler`<br>
+&nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler17)**<br> 
+certificate_ids[] | **string**<br>Certificate IDs in the Certificate Manager. Multiple TLS certificates can be associated with the same context to allow both RSA and ECDSA certificates. Only the first certificate of each type will be used. The number of elements must be greater than 0.
+tls_options | **[TlsOptions](#TlsOptions11)**<br> 
+
+
+### HttpHandler {#HttpHandler17}
+
+Field | Description
+--- | ---
+http_router_id | **string**<br> 
+protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>
+&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options17)**<br> 
+&nbsp;&nbsp;allow_http10 | **bool**<br> 
+
+
+### Http2Options {#Http2Options17}
+
+Field | Description
+--- | ---
+max_concurrent_streams | **int64**<br> 
+
+
+### TlsOptions {#TlsOptions11}
+
+Field | Description
+--- | ---
+tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
+tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
+cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
+ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
+
+
+### AllocationPolicy {#AllocationPolicy7}
+
+Field | Description
+--- | ---
+locations[] | **[Location](#Location7)**<br> The minimum number of elements is 1.
+
+
+### Location {#Location7}
+
+Field | Description
+--- | ---
+zone_id | **string**<br>Required.  
+subnet_id | **string**<br> 
+disable_traffic | **bool**<br>If set, will disable all L7 instances in the zone for request handling. 
 
 
 ## AddListener {#AddListener}
@@ -877,7 +1605,7 @@ AddListener/UpdateListener technically do the same, but have different semantics
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[AddListenerMetadata](#AddListenerMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[LoadBalancer](../load_balancer.proto#LoadBalancer6)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[LoadBalancer](#LoadBalancer6)<br>
 
 ### AddListenerRequest {#AddListenerRequest}
 
@@ -949,7 +1677,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[AddListenerMetadata](#AddListenerMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[LoadBalancer](../load_balancer.proto#LoadBalancer6)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[LoadBalancer](#LoadBalancer6)>**<br>if operation finished successfully. 
 
 
 ### AddListenerMetadata {#AddListenerMetadata}
@@ -972,9 +1700,191 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum
 status | enum **Status**<br>Status of the application load balancer. <ul><li>`CREATING`: Application load balancer is being created.</li><li>`STARTING`: Application load balancer is being started.</li><li>`ACTIVE`: Application load balancer is active and sends traffic to the targets.</li><li>`STOPPING`: Application load balancer is being stopped.</li><li>`STOPPED`: Application load balancer is stopped and doesn't send traffic to the targets.</li><li>`DELETING`: Application load balancer is being deleted.</li><ul/>
 region_id | **string**<br>ID of the region that the load balancer located at. 
 network_id | **string**<br>ID of the network that the load balancer located at. 
-listeners[] | **[Listener](../load_balancer.proto#Listener2)**<br>List of listeners for the application load balancer. 
-allocation_policy | **[AllocationPolicy](../load_balancer.proto#AllocationPolicy4)**<br>Allocation sites for application load balancer instances. 
+listeners[] | **[Listener](#Listener6)**<br>List of listeners for the application load balancer. 
+allocation_policy | **[AllocationPolicy](#AllocationPolicy8)**<br>Allocation sites for application load balancer instances. 
 log_group_id | **string**<br> 
+
+
+### Listener {#Listener6}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the listener. The name must be unique for each listener on a single load balancer. 3-63 characters long. 
+endpoints[] | **[Endpoint](#Endpoint6)**<br>Network endpoints (addressees and ports) of the listener. 
+listener | **oneof:** `http` or `tls`<br>
+&nbsp;&nbsp;http | **[HttpListener](#HttpListener6)**<br> 
+&nbsp;&nbsp;tls | **[TlsListener](#TlsListener6)**<br> 
+
+
+### Endpoint {#Endpoint6}
+
+Field | Description
+--- | ---
+addresses[] | **[Address](#Address6)**<br> The number of elements must be greater than 0.
+ports[] | **int64**<br> The number of elements must be greater than 0. Acceptable values are 1 to 65535, inclusive.
+
+
+### Address {#Address6}
+
+Field | Description
+--- | ---
+address | **oneof:** `external_ipv4_address`, `internal_ipv4_address` or `external_ipv6_address`<br>
+&nbsp;&nbsp;external_ipv4_address | **[ExternalIpv4Address](#ExternalIpv4Address6)**<br> 
+&nbsp;&nbsp;internal_ipv4_address | **[InternalIpv4Address](#InternalIpv4Address6)**<br> 
+&nbsp;&nbsp;external_ipv6_address | **[ExternalIpv6Address](#ExternalIpv6Address6)**<br> 
+
+
+### ExternalIpv4Address {#ExternalIpv4Address6}
+
+Field | Description
+--- | ---
+address | **string**<br> 
+
+
+### InternalIpv4Address {#InternalIpv4Address6}
+
+Field | Description
+--- | ---
+address | **string**<br> 
+subnet_id | **string**<br> 
+
+
+### ExternalIpv6Address {#ExternalIpv6Address6}
+
+Field | Description
+--- | ---
+address | **string**<br> 
+
+
+### HttpListener {#HttpListener6}
+
+Field | Description
+--- | ---
+handler | **[HttpHandler](#HttpHandler18)**<br> 
+
+
+### HttpHandler {#HttpHandler18}
+
+Field | Description
+--- | ---
+http_router_id | **string**<br> 
+protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>
+&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options18)**<br> 
+&nbsp;&nbsp;allow_http10 | **bool**<br> 
+
+
+### Http2Options {#Http2Options18}
+
+Field | Description
+--- | ---
+max_concurrent_streams | **int64**<br> 
+
+
+### TlsListener {#TlsListener6}
+
+Field | Description
+--- | ---
+default_handler | **[TlsHandler](#TlsHandler12)**<br>Required.  
+sni_handlers[] | **[SniMatch](#SniMatch6)**<br> 
+
+
+### TlsHandler {#TlsHandler12}
+
+Field | Description
+--- | ---
+handler | **oneof:** `http_handler`<br>
+&nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler19)**<br> 
+certificate_ids[] | **string**<br>Certificate IDs in the Certificate Manager. Multiple TLS certificates can be associated with the same context to allow both RSA and ECDSA certificates. Only the first certificate of each type will be used. The number of elements must be greater than 0.
+tls_options | **[TlsOptions](#TlsOptions12)**<br> 
+
+
+### HttpHandler {#HttpHandler19}
+
+Field | Description
+--- | ---
+http_router_id | **string**<br> 
+protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>
+&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options19)**<br> 
+&nbsp;&nbsp;allow_http10 | **bool**<br> 
+
+
+### Http2Options {#Http2Options19}
+
+Field | Description
+--- | ---
+max_concurrent_streams | **int64**<br> 
+
+
+### TlsOptions {#TlsOptions12}
+
+Field | Description
+--- | ---
+tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
+tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
+cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
+ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
+
+
+### SniMatch {#SniMatch6}
+
+Field | Description
+--- | ---
+name | **string**<br>Required.  
+server_names[] | **string**<br> The number of elements must be greater than 0.
+handler | **[TlsHandler](#TlsHandler13)**<br>Required.  
+
+
+### TlsHandler {#TlsHandler13}
+
+Field | Description
+--- | ---
+handler | **oneof:** `http_handler`<br>
+&nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler20)**<br> 
+certificate_ids[] | **string**<br>Certificate IDs in the Certificate Manager. Multiple TLS certificates can be associated with the same context to allow both RSA and ECDSA certificates. Only the first certificate of each type will be used. The number of elements must be greater than 0.
+tls_options | **[TlsOptions](#TlsOptions13)**<br> 
+
+
+### HttpHandler {#HttpHandler20}
+
+Field | Description
+--- | ---
+http_router_id | **string**<br> 
+protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>
+&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options20)**<br> 
+&nbsp;&nbsp;allow_http10 | **bool**<br> 
+
+
+### Http2Options {#Http2Options20}
+
+Field | Description
+--- | ---
+max_concurrent_streams | **int64**<br> 
+
+
+### TlsOptions {#TlsOptions13}
+
+Field | Description
+--- | ---
+tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
+tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
+cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
+ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
+
+
+### AllocationPolicy {#AllocationPolicy8}
+
+Field | Description
+--- | ---
+locations[] | **[Location](#Location8)**<br> The minimum number of elements is 1.
+
+
+### Location {#Location8}
+
+Field | Description
+--- | ---
+zone_id | **string**<br>Required.  
+subnet_id | **string**<br> 
+disable_traffic | **bool**<br>If set, will disable all L7 instances in the zone for request handling. 
 
 
 ## RemoveListener {#RemoveListener}
@@ -985,7 +1895,7 @@ log_group_id | **string**<br>
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[RemoveListenerMetadata](#RemoveListenerMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[LoadBalancer](../load_balancer.proto#LoadBalancer7)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[LoadBalancer](#LoadBalancer7)<br>
 
 ### RemoveListenerRequest {#RemoveListenerRequest}
 
@@ -1008,7 +1918,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RemoveListenerMetadata](#RemoveListenerMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[LoadBalancer](../load_balancer.proto#LoadBalancer7)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[LoadBalancer](#LoadBalancer7)>**<br>if operation finished successfully. 
 
 
 ### RemoveListenerMetadata {#RemoveListenerMetadata}
@@ -1031,9 +1941,191 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum
 status | enum **Status**<br>Status of the application load balancer. <ul><li>`CREATING`: Application load balancer is being created.</li><li>`STARTING`: Application load balancer is being started.</li><li>`ACTIVE`: Application load balancer is active and sends traffic to the targets.</li><li>`STOPPING`: Application load balancer is being stopped.</li><li>`STOPPED`: Application load balancer is stopped and doesn't send traffic to the targets.</li><li>`DELETING`: Application load balancer is being deleted.</li><ul/>
 region_id | **string**<br>ID of the region that the load balancer located at. 
 network_id | **string**<br>ID of the network that the load balancer located at. 
-listeners[] | **[Listener](../load_balancer.proto#Listener2)**<br>List of listeners for the application load balancer. 
-allocation_policy | **[AllocationPolicy](../load_balancer.proto#AllocationPolicy4)**<br>Allocation sites for application load balancer instances. 
+listeners[] | **[Listener](#Listener7)**<br>List of listeners for the application load balancer. 
+allocation_policy | **[AllocationPolicy](#AllocationPolicy9)**<br>Allocation sites for application load balancer instances. 
 log_group_id | **string**<br> 
+
+
+### Listener {#Listener7}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the listener. The name must be unique for each listener on a single load balancer. 3-63 characters long. 
+endpoints[] | **[Endpoint](#Endpoint7)**<br>Network endpoints (addressees and ports) of the listener. 
+listener | **oneof:** `http` or `tls`<br>
+&nbsp;&nbsp;http | **[HttpListener](#HttpListener7)**<br> 
+&nbsp;&nbsp;tls | **[TlsListener](#TlsListener7)**<br> 
+
+
+### Endpoint {#Endpoint7}
+
+Field | Description
+--- | ---
+addresses[] | **[Address](#Address7)**<br> The number of elements must be greater than 0.
+ports[] | **int64**<br> The number of elements must be greater than 0. Acceptable values are 1 to 65535, inclusive.
+
+
+### Address {#Address7}
+
+Field | Description
+--- | ---
+address | **oneof:** `external_ipv4_address`, `internal_ipv4_address` or `external_ipv6_address`<br>
+&nbsp;&nbsp;external_ipv4_address | **[ExternalIpv4Address](#ExternalIpv4Address7)**<br> 
+&nbsp;&nbsp;internal_ipv4_address | **[InternalIpv4Address](#InternalIpv4Address7)**<br> 
+&nbsp;&nbsp;external_ipv6_address | **[ExternalIpv6Address](#ExternalIpv6Address7)**<br> 
+
+
+### ExternalIpv4Address {#ExternalIpv4Address7}
+
+Field | Description
+--- | ---
+address | **string**<br> 
+
+
+### InternalIpv4Address {#InternalIpv4Address7}
+
+Field | Description
+--- | ---
+address | **string**<br> 
+subnet_id | **string**<br> 
+
+
+### ExternalIpv6Address {#ExternalIpv6Address7}
+
+Field | Description
+--- | ---
+address | **string**<br> 
+
+
+### HttpListener {#HttpListener7}
+
+Field | Description
+--- | ---
+handler | **[HttpHandler](#HttpHandler21)**<br> 
+
+
+### HttpHandler {#HttpHandler21}
+
+Field | Description
+--- | ---
+http_router_id | **string**<br> 
+protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>
+&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options21)**<br> 
+&nbsp;&nbsp;allow_http10 | **bool**<br> 
+
+
+### Http2Options {#Http2Options21}
+
+Field | Description
+--- | ---
+max_concurrent_streams | **int64**<br> 
+
+
+### TlsListener {#TlsListener7}
+
+Field | Description
+--- | ---
+default_handler | **[TlsHandler](#TlsHandler14)**<br>Required.  
+sni_handlers[] | **[SniMatch](#SniMatch7)**<br> 
+
+
+### TlsHandler {#TlsHandler14}
+
+Field | Description
+--- | ---
+handler | **oneof:** `http_handler`<br>
+&nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler22)**<br> 
+certificate_ids[] | **string**<br>Certificate IDs in the Certificate Manager. Multiple TLS certificates can be associated with the same context to allow both RSA and ECDSA certificates. Only the first certificate of each type will be used. The number of elements must be greater than 0.
+tls_options | **[TlsOptions](#TlsOptions14)**<br> 
+
+
+### HttpHandler {#HttpHandler22}
+
+Field | Description
+--- | ---
+http_router_id | **string**<br> 
+protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>
+&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options22)**<br> 
+&nbsp;&nbsp;allow_http10 | **bool**<br> 
+
+
+### Http2Options {#Http2Options22}
+
+Field | Description
+--- | ---
+max_concurrent_streams | **int64**<br> 
+
+
+### TlsOptions {#TlsOptions14}
+
+Field | Description
+--- | ---
+tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
+tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
+cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
+ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
+
+
+### SniMatch {#SniMatch7}
+
+Field | Description
+--- | ---
+name | **string**<br>Required.  
+server_names[] | **string**<br> The number of elements must be greater than 0.
+handler | **[TlsHandler](#TlsHandler15)**<br>Required.  
+
+
+### TlsHandler {#TlsHandler15}
+
+Field | Description
+--- | ---
+handler | **oneof:** `http_handler`<br>
+&nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler23)**<br> 
+certificate_ids[] | **string**<br>Certificate IDs in the Certificate Manager. Multiple TLS certificates can be associated with the same context to allow both RSA and ECDSA certificates. Only the first certificate of each type will be used. The number of elements must be greater than 0.
+tls_options | **[TlsOptions](#TlsOptions15)**<br> 
+
+
+### HttpHandler {#HttpHandler23}
+
+Field | Description
+--- | ---
+http_router_id | **string**<br> 
+protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>
+&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options23)**<br> 
+&nbsp;&nbsp;allow_http10 | **bool**<br> 
+
+
+### Http2Options {#Http2Options23}
+
+Field | Description
+--- | ---
+max_concurrent_streams | **int64**<br> 
+
+
+### TlsOptions {#TlsOptions15}
+
+Field | Description
+--- | ---
+tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
+tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
+cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
+ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
+
+
+### AllocationPolicy {#AllocationPolicy9}
+
+Field | Description
+--- | ---
+locations[] | **[Location](#Location9)**<br> The minimum number of elements is 1.
+
+
+### Location {#Location9}
+
+Field | Description
+--- | ---
+zone_id | **string**<br>Required.  
+subnet_id | **string**<br> 
+disable_traffic | **bool**<br>If set, will disable all L7 instances in the zone for request handling. 
 
 
 ## UpdateListener {#UpdateListener}
@@ -1044,7 +2136,7 @@ log_group_id | **string**<br>
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateListenerMetadata](#UpdateListenerMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[LoadBalancer](../load_balancer.proto#LoadBalancer8)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[LoadBalancer](#LoadBalancer8)<br>
 
 ### UpdateListenerRequest {#UpdateListenerRequest}
 
@@ -1117,7 +2209,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateListenerMetadata](#UpdateListenerMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[LoadBalancer](../load_balancer.proto#LoadBalancer8)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[LoadBalancer](#LoadBalancer8)>**<br>if operation finished successfully. 
 
 
 ### UpdateListenerMetadata {#UpdateListenerMetadata}
@@ -1140,9 +2232,191 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum
 status | enum **Status**<br>Status of the application load balancer. <ul><li>`CREATING`: Application load balancer is being created.</li><li>`STARTING`: Application load balancer is being started.</li><li>`ACTIVE`: Application load balancer is active and sends traffic to the targets.</li><li>`STOPPING`: Application load balancer is being stopped.</li><li>`STOPPED`: Application load balancer is stopped and doesn't send traffic to the targets.</li><li>`DELETING`: Application load balancer is being deleted.</li><ul/>
 region_id | **string**<br>ID of the region that the load balancer located at. 
 network_id | **string**<br>ID of the network that the load balancer located at. 
-listeners[] | **[Listener](../load_balancer.proto#Listener2)**<br>List of listeners for the application load balancer. 
-allocation_policy | **[AllocationPolicy](../load_balancer.proto#AllocationPolicy4)**<br>Allocation sites for application load balancer instances. 
+listeners[] | **[Listener](#Listener8)**<br>List of listeners for the application load balancer. 
+allocation_policy | **[AllocationPolicy](#AllocationPolicy10)**<br>Allocation sites for application load balancer instances. 
 log_group_id | **string**<br> 
+
+
+### Listener {#Listener8}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the listener. The name must be unique for each listener on a single load balancer. 3-63 characters long. 
+endpoints[] | **[Endpoint](#Endpoint8)**<br>Network endpoints (addressees and ports) of the listener. 
+listener | **oneof:** `http` or `tls`<br>
+&nbsp;&nbsp;http | **[HttpListener](#HttpListener8)**<br> 
+&nbsp;&nbsp;tls | **[TlsListener](#TlsListener8)**<br> 
+
+
+### Endpoint {#Endpoint8}
+
+Field | Description
+--- | ---
+addresses[] | **[Address](#Address8)**<br> The number of elements must be greater than 0.
+ports[] | **int64**<br> The number of elements must be greater than 0. Acceptable values are 1 to 65535, inclusive.
+
+
+### Address {#Address8}
+
+Field | Description
+--- | ---
+address | **oneof:** `external_ipv4_address`, `internal_ipv4_address` or `external_ipv6_address`<br>
+&nbsp;&nbsp;external_ipv4_address | **[ExternalIpv4Address](#ExternalIpv4Address8)**<br> 
+&nbsp;&nbsp;internal_ipv4_address | **[InternalIpv4Address](#InternalIpv4Address8)**<br> 
+&nbsp;&nbsp;external_ipv6_address | **[ExternalIpv6Address](#ExternalIpv6Address8)**<br> 
+
+
+### ExternalIpv4Address {#ExternalIpv4Address8}
+
+Field | Description
+--- | ---
+address | **string**<br> 
+
+
+### InternalIpv4Address {#InternalIpv4Address8}
+
+Field | Description
+--- | ---
+address | **string**<br> 
+subnet_id | **string**<br> 
+
+
+### ExternalIpv6Address {#ExternalIpv6Address8}
+
+Field | Description
+--- | ---
+address | **string**<br> 
+
+
+### HttpListener {#HttpListener8}
+
+Field | Description
+--- | ---
+handler | **[HttpHandler](#HttpHandler24)**<br> 
+
+
+### HttpHandler {#HttpHandler24}
+
+Field | Description
+--- | ---
+http_router_id | **string**<br> 
+protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>
+&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options24)**<br> 
+&nbsp;&nbsp;allow_http10 | **bool**<br> 
+
+
+### Http2Options {#Http2Options24}
+
+Field | Description
+--- | ---
+max_concurrent_streams | **int64**<br> 
+
+
+### TlsListener {#TlsListener8}
+
+Field | Description
+--- | ---
+default_handler | **[TlsHandler](#TlsHandler16)**<br>Required.  
+sni_handlers[] | **[SniMatch](#SniMatch8)**<br> 
+
+
+### TlsHandler {#TlsHandler16}
+
+Field | Description
+--- | ---
+handler | **oneof:** `http_handler`<br>
+&nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler25)**<br> 
+certificate_ids[] | **string**<br>Certificate IDs in the Certificate Manager. Multiple TLS certificates can be associated with the same context to allow both RSA and ECDSA certificates. Only the first certificate of each type will be used. The number of elements must be greater than 0.
+tls_options | **[TlsOptions](#TlsOptions16)**<br> 
+
+
+### HttpHandler {#HttpHandler25}
+
+Field | Description
+--- | ---
+http_router_id | **string**<br> 
+protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>
+&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options25)**<br> 
+&nbsp;&nbsp;allow_http10 | **bool**<br> 
+
+
+### Http2Options {#Http2Options25}
+
+Field | Description
+--- | ---
+max_concurrent_streams | **int64**<br> 
+
+
+### TlsOptions {#TlsOptions16}
+
+Field | Description
+--- | ---
+tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
+tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
+cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
+ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
+
+
+### SniMatch {#SniMatch8}
+
+Field | Description
+--- | ---
+name | **string**<br>Required.  
+server_names[] | **string**<br> The number of elements must be greater than 0.
+handler | **[TlsHandler](#TlsHandler17)**<br>Required.  
+
+
+### TlsHandler {#TlsHandler17}
+
+Field | Description
+--- | ---
+handler | **oneof:** `http_handler`<br>
+&nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler26)**<br> 
+certificate_ids[] | **string**<br>Certificate IDs in the Certificate Manager. Multiple TLS certificates can be associated with the same context to allow both RSA and ECDSA certificates. Only the first certificate of each type will be used. The number of elements must be greater than 0.
+tls_options | **[TlsOptions](#TlsOptions17)**<br> 
+
+
+### HttpHandler {#HttpHandler26}
+
+Field | Description
+--- | ---
+http_router_id | **string**<br> 
+protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>
+&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options26)**<br> 
+&nbsp;&nbsp;allow_http10 | **bool**<br> 
+
+
+### Http2Options {#Http2Options26}
+
+Field | Description
+--- | ---
+max_concurrent_streams | **int64**<br> 
+
+
+### TlsOptions {#TlsOptions17}
+
+Field | Description
+--- | ---
+tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
+tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
+cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
+ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
+
+
+### AllocationPolicy {#AllocationPolicy10}
+
+Field | Description
+--- | ---
+locations[] | **[Location](#Location10)**<br> The minimum number of elements is 1.
+
+
+### Location {#Location10}
+
+Field | Description
+--- | ---
+zone_id | **string**<br>Required.  
+subnet_id | **string**<br> 
+disable_traffic | **bool**<br>If set, will disable all L7 instances in the zone for request handling. 
 
 
 ## GetTargetStates {#GetTargetStates}
@@ -1164,22 +2438,22 @@ target_group_id | **string**<br>Required.
 
 Field | Description
 --- | ---
-target_states[] | **[TargetState](../load_balancer.proto#TargetState)**<br> 
+target_states[] | **[TargetState](#TargetState)**<br> 
 
 
 ### TargetState {#TargetState}
 
 Field | Description
 --- | ---
-status | **[HealthcheckStatus](../load_balancer.proto#HealthcheckStatus)**<br>Statuses of the target for all known zones. 
-target | **[Target](../target_group.proto#Target)**<br>Required.  
+status | **[HealthcheckStatus](#HealthcheckStatus)**<br>Statuses of the target for all known zones. 
+target | **[Target](#Target)**<br>Required.  
 
 
 ### HealthcheckStatus {#HealthcheckStatus}
 
 Field | Description
 --- | ---
-zone_statuses[] | **[ZoneHealthcheckStatus](../load_balancer.proto#ZoneHealthcheckStatus)**<br> 
+zone_statuses[] | **[ZoneHealthcheckStatus](#ZoneHealthcheckStatus)**<br> 
 
 
 ### ZoneHealthcheckStatus {#ZoneHealthcheckStatus}

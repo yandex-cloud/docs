@@ -84,6 +84,33 @@ result | **oneof:** `error` или `response`<br>Результат операц
 chunks[] | **[SpeechRecognitionResult](#SpeechRecognitionResult)**<br> 
 
 
+### SpeechRecognitionResult {#SpeechRecognitionResult}
+
+Поле | Описание
+--- | ---
+alternatives[] | **[SpeechRecognitionAlternative](#SpeechRecognitionAlternative)**<br> 
+channel_tag | **int64**<br> 
+
+
+### SpeechRecognitionAlternative {#SpeechRecognitionAlternative}
+
+Поле | Описание
+--- | ---
+text | **string**<br> 
+confidence | **float**<br> 
+words[] | **[WordInfo](#WordInfo)**<br> 
+
+
+### WordInfo {#WordInfo}
+
+Поле | Описание
+--- | ---
+start_time | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br> 
+end_time | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br> 
+word | **string**<br> 
+confidence | **float**<br> 
+
+
 ## StreamingRecognize {#StreamingRecognize}
 
 
@@ -138,7 +165,7 @@ alternatives[] | **[SpeechRecognitionAlternative](#SpeechRecognitionAlternative)
 final | **bool**<br> 
 
 
-### SpeechRecognitionAlternative {#SpeechRecognitionAlternative}
+### SpeechRecognitionAlternative {#SpeechRecognitionAlternative1}
 
 Поле | Описание
 --- | ---
@@ -147,7 +174,7 @@ confidence | **float**<br>
 words[] | **[WordInfo](#WordInfo)**<br> 
 
 
-### WordInfo {#WordInfo}
+### WordInfo {#WordInfo1}
 
 Поле | Описание
 --- | ---

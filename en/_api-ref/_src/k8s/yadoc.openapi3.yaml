@@ -1734,14 +1734,14 @@ components:
           description: |-
             Amount of memory available to the node, specified in bytes.
 
-            The maximum value is 824633720832.
+            The minimum value is 0.
           type: string
           format: int64
         cores:
           description: |-
             Number of cores available to the node.
 
-            Value must be one of 0, 1, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 40, 44, 48, 52, 56, 60 or 64.
+            The minimum value is 0.
           type: string
           format: int64
         coreFraction:
@@ -1749,14 +1749,14 @@ components:
             Baseline level of CPU performance with the possibility to burst performance above that baseline level.
             This field sets baseline performance for each core.
 
-            Value must be one of 0, 5, 20, 50 or 100.
+            Acceptable values are 0 to 100, inclusive.
           type: string
           format: int64
         gpus:
           description: |-
             Number of GPUs available to the node.
 
-            Value must be one of 0, 1, 2 or 4.
+            The minimum value is 0.
           type: string
           format: int64
     ScalePolicy:
@@ -2608,14 +2608,14 @@ components:
           description: |-
             Amount of memory available to the node, specified in bytes.
 
-            The maximum value is 824633720832.
+            The minimum value is 0.
           type: string
           format: int64
         cores:
           description: |-
             Number of cores available to the node.
 
-            Value must be one of 0, 1, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 40, 44, 48, 52, 56, 60 or 64.
+            The minimum value is 0.
           type: string
           format: int64
         coreFraction:
@@ -2623,14 +2623,14 @@ components:
             Baseline level of CPU performance with the possibility to burst performance above that baseline level.
             This field sets baseline performance for each core.
 
-            Value must be one of 0, 5, 20, 50 or 100.
+            Acceptable values are 0 to 100, inclusive.
           type: string
           format: int64
         gpus:
           description: |-
             Number of GPUs available to the node.
 
-            Value must be one of 0, 1, 2 or 4.
+            The minimum value is 0.
           type: string
           format: int64
     DiskSpec_in_NodeSpec_disk:
@@ -2659,14 +2659,14 @@ components:
           description: |-
             Amount of memory available to the node, specified in bytes.
 
-            The maximum value is 824633720832.
+            The minimum value is 0.
           type: string
           format: int64
         cores:
           description: |-
             Number of cores available to the node.
 
-            Value must be one of 0, 1, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 40, 44, 48, 52, 56, 60 or 64.
+            The minimum value is 0.
           type: string
           format: int64
         coreFraction:
@@ -2674,14 +2674,14 @@ components:
             Baseline level of CPU performance with the possibility to burst performance above that baseline level.
             This field sets baseline performance for each core.
 
-            Value must be one of 0, 5, 20, 50 or 100.
+            Acceptable values are 0 to 100, inclusive.
           type: string
           format: int64
         gpus:
           description: |-
             Number of GPUs available to the node.
 
-            Value must be one of 0, 1, 2 or 4.
+            The minimum value is 0.
           type: string
           format: int64
     DiskSpec_in_NodeTemplate_bootDiskSpec:

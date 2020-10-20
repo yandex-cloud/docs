@@ -82,10 +82,10 @@ error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/
 Field | Description
 --- | ---
 feature | **oneof:** `text_detection`, `classification`, `face_detection` or `image_copy_search`<br>
-&nbsp;&nbsp;text_detection | **[TextAnnotation](../text_detection.proto#TextAnnotation)**<br>Text detection (OCR) result. 
-&nbsp;&nbsp;classification | **[ClassAnnotation](../classification.proto#ClassAnnotation)**<br>Classification result. 
-&nbsp;&nbsp;face_detection | **[FaceAnnotation](../face_detection.proto#FaceAnnotation)**<br>Face detection result. 
-&nbsp;&nbsp;image_copy_search | **[ImageCopySearchAnnotation](../image_copy_search.proto#ImageCopySearchAnnotation)**<br>Image Copy Search result. 
+&nbsp;&nbsp;text_detection | **[TextAnnotation](#TextAnnotation)**<br>Text detection (OCR) result. 
+&nbsp;&nbsp;classification | **[ClassAnnotation](#ClassAnnotation)**<br>Classification result. 
+&nbsp;&nbsp;face_detection | **[FaceAnnotation](#FaceAnnotation)**<br>Face detection result. 
+&nbsp;&nbsp;image_copy_search | **[ImageCopySearchAnnotation](#ImageCopySearchAnnotation)**<br>Image Copy Search result. 
 error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Return error in case of error during the specified feature processing. 
 
 
@@ -93,7 +93,7 @@ error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/
 
 Field | Description
 --- | ---
-pages[] | **[Page](../text_detection.proto#Page)**<br>Pages of the recognized file. <br>For JPEG and PNG files contains only 1 page. 
+pages[] | **[Page](#Page)**<br>Pages of the recognized file. <br>For JPEG and PNG files contains only 1 page. 
 
 
 ### Page {#Page}
@@ -102,23 +102,23 @@ Field | Description
 --- | ---
 width | **int64**<br>Page width in pixels. 
 height | **int64**<br>Page height in pixels. 
-blocks[] | **[Block](../text_detection.proto#Block)**<br>Recognized text blocks in this page. 
-entities[] | **[Entity](../text_detection.proto#Entity)**<br>Recognized entities 
+blocks[] | **[Block](#Block)**<br>Recognized text blocks in this page. 
+entities[] | **[Entity](#Entity)**<br>Recognized entities 
 
 
 ### Block {#Block}
 
 Field | Description
 --- | ---
-bounding_box | **[Polygon](../primitives.proto#Polygon)**<br>Area on the page where the text block is located. 
-lines[] | **[Line](../text_detection.proto#Line)**<br>Recognized lines in this block. 
+bounding_box | **[Polygon](#Polygon)**<br>Area on the page where the text block is located. 
+lines[] | **[Line](#Line)**<br>Recognized lines in this block. 
 
 
 ### Polygon {#Polygon}
 
 Field | Description
 --- | ---
-vertices[] | **[Vertex](../primitives.proto#Vertex)**<br>The bounding polygon vertices. 
+vertices[] | **[Vertex](#Vertex)**<br>The bounding polygon vertices. 
 
 
 ### Vertex {#Vertex}
@@ -133,8 +133,8 @@ y | **int64**<br>Y coordinate in pixels.
 
 Field | Description
 --- | ---
-bounding_box | **[Polygon](../primitives.proto#Polygon1)**<br>Area on the page where the line is located. 
-words[] | **[Word](../text_detection.proto#Word)**<br>Recognized words in this line. 
+bounding_box | **[Polygon](#Polygon1)**<br>Area on the page where the line is located. 
+words[] | **[Word](#Word)**<br>Recognized words in this line. 
 confidence | **double**<br>Confidence of the OCR results for the line. Range [0, 1]. 
 
 
@@ -142,7 +142,7 @@ confidence | **double**<br>Confidence of the OCR results for the line. Range [0,
 
 Field | Description
 --- | ---
-vertices[] | **[Vertex](../primitives.proto#Vertex1)**<br>The bounding polygon vertices. 
+vertices[] | **[Vertex](#Vertex1)**<br>The bounding polygon vertices. 
 
 
 ### Vertex {#Vertex1}
@@ -157,10 +157,10 @@ y | **int64**<br>Y coordinate in pixels.
 
 Field | Description
 --- | ---
-bounding_box | **[Polygon](../primitives.proto#Polygon2)**<br>Area on the page where the word is located. 
+bounding_box | **[Polygon](#Polygon2)**<br>Area on the page where the word is located. 
 text | **string**<br>Recognized word value. 
 confidence | **double**<br>Confidence of the OCR results for the word. Range [0, 1]. 
-languages[] | **[DetectedLanguage](../text_detection.proto#DetectedLanguage)**<br>A list of detected languages together with confidence. 
+languages[] | **[DetectedLanguage](#DetectedLanguage)**<br>A list of detected languages together with confidence. 
 entity_index | **int64**<br>Id of recognized word in entities array 
 
 
@@ -176,7 +176,7 @@ confidence | **double**<br>Confidence of detected language. Range [0, 1].
 
 Field | Description
 --- | ---
-vertices[] | **[Vertex](../primitives.proto#Vertex2)**<br>The bounding polygon vertices. 
+vertices[] | **[Vertex](#Vertex2)**<br>The bounding polygon vertices. 
 
 
 ### Vertex {#Vertex2}
@@ -199,7 +199,7 @@ text | **string**<br>Recognized entity text
 
 Field | Description
 --- | ---
-properties[] | **[Property](../classification.proto#Property)**<br>Properties extracted by a specified model. <br>For example, if you ask to evaluate the image quality, the service could return such properties as `good` and `bad`. 
+properties[] | **[Property](#Property)**<br>Properties extracted by a specified model. <br>For example, if you ask to evaluate the image quality, the service could return such properties as `good` and `bad`. 
 
 
 ### Property {#Property}
@@ -214,21 +214,21 @@ probability | **double**<br>Probability of the property, from 0 to 1.
 
 Field | Description
 --- | ---
-faces[] | **[Face](../face_detection.proto#Face)**<br>An array of detected faces for the specified image. 
+faces[] | **[Face](#Face)**<br>An array of detected faces for the specified image. 
 
 
 ### Face {#Face}
 
 Field | Description
 --- | ---
-bounding_box | **[Polygon](../primitives.proto#Polygon3)**<br>Area on the image where the face is located. 
+bounding_box | **[Polygon](#Polygon3)**<br>Area on the image where the face is located. 
 
 
 ### Polygon {#Polygon3}
 
 Field | Description
 --- | ---
-vertices[] | **[Vertex](../primitives.proto#Vertex3)**<br>The bounding polygon vertices. 
+vertices[] | **[Vertex](#Vertex3)**<br>The bounding polygon vertices. 
 
 
 ### Vertex {#Vertex3}
@@ -244,7 +244,7 @@ y | **int64**<br>Y coordinate in pixels.
 Field | Description
 --- | ---
 copy_count | **int64**<br>Number of image copies 
-top_results[] | **[CopyMatch](../image_copy_search.proto#CopyMatch)**<br>Top relevance result of image copy search 
+top_results[] | **[CopyMatch](#CopyMatch)**<br>Top relevance result of image copy search 
 
 
 ### CopyMatch {#CopyMatch}

@@ -28,7 +28,7 @@ A set of methods for managing NetworkLoadBalancer resources.
 
 Returns the specified NetworkLoadBalancer resource. <br>Get the list of available NetworkLoadBalancer resources by making a [List](#List) request.
 
-**rpc Get ([GetNetworkLoadBalancerRequest](#GetNetworkLoadBalancerRequest)) returns ([NetworkLoadBalancer](../network_load_balancer.proto#NetworkLoadBalancer))**
+**rpc Get ([GetNetworkLoadBalancerRequest](#GetNetworkLoadBalancerRequest)) returns ([NetworkLoadBalancer](#NetworkLoadBalancer))**
 
 ### GetNetworkLoadBalancerRequest {#GetNetworkLoadBalancerRequest}
 
@@ -51,8 +51,8 @@ region_id | **string**<br>ID of the region that the network load balancer belong
 status | enum **Status**<br>Status of the network load balancer. <ul><li>`CREATING`: Network load balancer is being created.</li><li>`STARTING`: Network load balancer is being started.</li><li>`ACTIVE`: Network load balancer is active and sends traffic to the targets.</li><li>`STOPPING`: Network load balancer is being stopped.</li><li>`STOPPED`: Network load balancer is stopped and doesn't send traffic to the targets.</li><li>`DELETING`: Network load balancer is being deleted.</li><li>`INACTIVE`: The load balancer doesn't have any listeners or target groups, or attached target groups are empty. The load balancer doesn't perform any health checks or send traffic in this state.</li><ul/>
 type | enum **Type**<br>Type of the network load balancer. Only external network load balancers are available now. <ul><li>`EXTERNAL`: External network load balancer.</li><li>`INTERNAL`: Internal network load balancer.</li><ul/>
 session_affinity | enum **SessionAffinity**<br>Type of the session affinity. Only 5-tuple affinity is available now. <ul><li>`CLIENT_IP_PORT_PROTO`: 5-tuple affinity.</li><ul/>
-listeners[] | **[Listener](../network_load_balancer.proto#Listener)**<br>List of listeners for the network load balancer. 
-attached_target_groups[] | **[AttachedTargetGroup](../network_load_balancer.proto#AttachedTargetGroup)**<br>List of target groups attached to the network load balancer. 
+listeners[] | **[Listener](#Listener)**<br>List of listeners for the network load balancer. 
+attached_target_groups[] | **[AttachedTargetGroup](#AttachedTargetGroup)**<br>List of target groups attached to the network load balancer. 
 
 
 ### Listener {#Listener}
@@ -72,7 +72,7 @@ subnet_id | **string**<br>ID of the subnet.
 Field | Description
 --- | ---
 target_group_id | **string**<br>Required. ID of the target group. The maximum string length in characters is 50.
-health_checks[] | **[HealthCheck](../health_check.proto#HealthCheck)**<br>A health check to perform on the target group. For now we accept only one health check per AttachedTargetGroup. The number of elemets must be exactly 1.
+health_checks[] | **[HealthCheck](#HealthCheck)**<br>A health check to perform on the target group. For now we accept only one health check per AttachedTargetGroup. The number of elemets must be exactly 1.
 
 
 ### HealthCheck {#HealthCheck}
@@ -85,8 +85,8 @@ timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-bu
 unhealthy_threshold | **int64**<br>Number of failed health checks before changing the status to `` UNHEALTHY ``. The default is 2. Acceptable values are 2 to 10, inclusive.
 healthy_threshold | **int64**<br>Number of successful health checks required in order to set the `` HEALTHY `` status for the target. The default is 2. Acceptable values are 2 to 10, inclusive.
 options | **oneof:** `tcp_options` or `http_options`<br>Protocol to use for the health check. Either TCP or HTTP.
-&nbsp;&nbsp;tcp_options | **[TcpOptions](../health_check.proto#TcpOptions)**<br>Options for TCP health check. 
-&nbsp;&nbsp;http_options | **[HttpOptions](../health_check.proto#HttpOptions)**<br>Options for HTTP health check. 
+&nbsp;&nbsp;tcp_options | **[TcpOptions](#TcpOptions)**<br>Options for TCP health check. 
+&nbsp;&nbsp;http_options | **[HttpOptions](#HttpOptions)**<br>Options for HTTP health check. 
 
 
 ### TcpOptions {#TcpOptions}
@@ -117,14 +117,14 @@ Field | Description
 folder_id | **string**<br>Required. ID of the folder that the network load balancer belongs to. To get the folder ID, use a [NetworkLoadBalancerService.List](#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [<ResponseMessage>.next_page_token] that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListNetworkLoadBalancersResponse.next_page_token](#ListNetworkLoadBalancersResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently you can only filter by the [NetworkLoadBalancer.name](../network_load_balancer.proto#NetworkLoadBalancer1) field. </li><li>An operator. Can be either `=` or `!=` for single values, or `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.</li></ol> The maximum string length in characters is 1000.
+filter | **string**<br><ol><li>The field name. Currently you can only filter by the [NetworkLoadBalancer.name](#NetworkLoadBalancer1) field. </li><li>An operator. Can be either `=` or `!=` for single values, or `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.</li></ol> The maximum string length in characters is 1000.
 
 
 ### ListNetworkLoadBalancersResponse {#ListNetworkLoadBalancersResponse}
 
 Field | Description
 --- | ---
-network_load_balancers[] | **[NetworkLoadBalancer](../network_load_balancer.proto#NetworkLoadBalancer1)**<br>List of NetworkLoadBalancer resources. 
+network_load_balancers[] | **[NetworkLoadBalancer](#NetworkLoadBalancer1)**<br>List of NetworkLoadBalancer resources. 
 next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListNetworkLoadBalancersRequest.page_size](#ListNetworkLoadBalancersRequest), use the `next_page_token` as the value for the [ListNetworkLoadBalancersRequest.page_token](#ListNetworkLoadBalancersRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
@@ -142,8 +142,8 @@ region_id | **string**<br>ID of the region that the network load balancer belong
 status | enum **Status**<br>Status of the network load balancer. <ul><li>`CREATING`: Network load balancer is being created.</li><li>`STARTING`: Network load balancer is being started.</li><li>`ACTIVE`: Network load balancer is active and sends traffic to the targets.</li><li>`STOPPING`: Network load balancer is being stopped.</li><li>`STOPPED`: Network load balancer is stopped and doesn't send traffic to the targets.</li><li>`DELETING`: Network load balancer is being deleted.</li><li>`INACTIVE`: The load balancer doesn't have any listeners or target groups, or attached target groups are empty. The load balancer doesn't perform any health checks or send traffic in this state.</li><ul/>
 type | enum **Type**<br>Type of the network load balancer. Only external network load balancers are available now. <ul><li>`EXTERNAL`: External network load balancer.</li><li>`INTERNAL`: Internal network load balancer.</li><ul/>
 session_affinity | enum **SessionAffinity**<br>Type of the session affinity. Only 5-tuple affinity is available now. <ul><li>`CLIENT_IP_PORT_PROTO`: 5-tuple affinity.</li><ul/>
-listeners[] | **[Listener](../network_load_balancer.proto#Listener1)**<br>List of listeners for the network load balancer. 
-attached_target_groups[] | **[AttachedTargetGroup](../network_load_balancer.proto#AttachedTargetGroup1)**<br>List of target groups attached to the network load balancer. 
+listeners[] | **[Listener](#Listener1)**<br>List of listeners for the network load balancer. 
+attached_target_groups[] | **[AttachedTargetGroup](#AttachedTargetGroup1)**<br>List of target groups attached to the network load balancer. 
 
 
 ### Listener {#Listener1}
@@ -163,7 +163,7 @@ subnet_id | **string**<br>ID of the subnet.
 Field | Description
 --- | ---
 target_group_id | **string**<br>Required. ID of the target group. The maximum string length in characters is 50.
-health_checks[] | **[HealthCheck](../health_check.proto#HealthCheck1)**<br>A health check to perform on the target group. For now we accept only one health check per AttachedTargetGroup. The number of elemets must be exactly 1.
+health_checks[] | **[HealthCheck](#HealthCheck1)**<br>A health check to perform on the target group. For now we accept only one health check per AttachedTargetGroup. The number of elemets must be exactly 1.
 
 
 ### HealthCheck {#HealthCheck1}
@@ -176,8 +176,8 @@ timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-bu
 unhealthy_threshold | **int64**<br>Number of failed health checks before changing the status to `` UNHEALTHY ``. The default is 2. Acceptable values are 2 to 10, inclusive.
 healthy_threshold | **int64**<br>Number of successful health checks required in order to set the `` HEALTHY `` status for the target. The default is 2. Acceptable values are 2 to 10, inclusive.
 options | **oneof:** `tcp_options` or `http_options`<br>Protocol to use for the health check. Either TCP or HTTP.
-&nbsp;&nbsp;tcp_options | **[TcpOptions](../health_check.proto#TcpOptions1)**<br>Options for TCP health check. 
-&nbsp;&nbsp;http_options | **[HttpOptions](../health_check.proto#HttpOptions1)**<br>Options for HTTP health check. 
+&nbsp;&nbsp;tcp_options | **[TcpOptions](#TcpOptions1)**<br>Options for TCP health check. 
+&nbsp;&nbsp;http_options | **[HttpOptions](#HttpOptions1)**<br>Options for HTTP health check. 
 
 
 ### TcpOptions {#TcpOptions1}
@@ -203,7 +203,7 @@ Creates a network load balancer in the specified folder using the data specified
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateNetworkLoadBalancerMetadata](#CreateNetworkLoadBalancerMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[NetworkLoadBalancer](../network_load_balancer.proto#NetworkLoadBalancer2)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[NetworkLoadBalancer](#NetworkLoadBalancer2)<br>
 
 ### CreateNetworkLoadBalancerRequest {#CreateNetworkLoadBalancerRequest}
 
@@ -214,9 +214,9 @@ name | **string**<br>Name of the network load balancer. The name must be unique 
 description | **string**<br>Description of the network load balancer. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 region_id | **string**<br>ID of the region where the network load balancer resides. The maximum string length in characters is 50.
-type | **[NetworkLoadBalancer.Type](../network_load_balancer.proto#NetworkLoadBalancer2)**<br>Required. Type of the network load balancer. Only external network load balancers are currently available. 
+type | **[NetworkLoadBalancer.Type](#NetworkLoadBalancer2)**<br>Required. Type of the network load balancer. Only external network load balancers are currently available. 
 listener_specs[] | **[ListenerSpec](#ListenerSpec)**<br>List of listeners and their specs for the network load balancer. The maximum number of elements is 1000.
-attached_target_groups[] | **[AttachedTargetGroup](../network_load_balancer.proto#AttachedTargetGroup2)**<br>List of attached target groups for the network load balancer. The maximum number of elements is 5.
+attached_target_groups[] | **[AttachedTargetGroup](#AttachedTargetGroup2)**<br>List of attached target groups for the network load balancer. The maximum number of elements is 5.
 
 
 ### ListenerSpec {#ListenerSpec}
@@ -225,7 +225,7 @@ Field | Description
 --- | ---
 name | **string**<br>Required. Name of the listener. The name must be unique for each listener on a single load balancer. 3-63 characters long. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 port | **int64**<br>Port for incoming traffic. Acceptable values are 1 to 65535, inclusive.
-protocol | **[Listener.Protocol](../network_load_balancer.proto#Listener2)**<br>Required. Protocol for incoming traffic. 
+protocol | **[Listener.Protocol](#Listener2)**<br>Required. Protocol for incoming traffic. 
 address | **oneof:** `external_address_spec` or `internal_address_spec`<br>IP address for incoming traffic. Either the ID of the previously created address or the address specification.
 &nbsp;&nbsp;external_address_spec | **[ExternalAddressSpec](#ExternalAddressSpec)**<br>External IP address specification. 
 &nbsp;&nbsp;internal_address_spec | **[InternalAddressSpec](#InternalAddressSpec)**<br>Internal IP address specification. 
@@ -254,7 +254,7 @@ ip_version | enum **IpVersion**<br>IP version. <ul><li>`IPV4`: IPv4</li><li>`IPV
 Field | Description
 --- | ---
 target_group_id | **string**<br>Required. ID of the target group. The maximum string length in characters is 50.
-health_checks[] | **[HealthCheck](../health_check.proto#HealthCheck2)**<br>A health check to perform on the target group. For now we accept only one health check per AttachedTargetGroup. The number of elemets must be exactly 1.
+health_checks[] | **[HealthCheck](#HealthCheck2)**<br>A health check to perform on the target group. For now we accept only one health check per AttachedTargetGroup. The number of elemets must be exactly 1.
 
 
 ### HealthCheck {#HealthCheck2}
@@ -267,8 +267,8 @@ timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-bu
 unhealthy_threshold | **int64**<br>Number of failed health checks before changing the status to `` UNHEALTHY ``. The default is 2. Acceptable values are 2 to 10, inclusive.
 healthy_threshold | **int64**<br>Number of successful health checks required in order to set the `` HEALTHY `` status for the target. The default is 2. Acceptable values are 2 to 10, inclusive.
 options | **oneof:** `tcp_options` or `http_options`<br>Protocol to use for the health check. Either TCP or HTTP.
-&nbsp;&nbsp;tcp_options | **[TcpOptions](../health_check.proto#TcpOptions2)**<br>Options for TCP health check. 
-&nbsp;&nbsp;http_options | **[HttpOptions](../health_check.proto#HttpOptions2)**<br>Options for HTTP health check. 
+&nbsp;&nbsp;tcp_options | **[TcpOptions](#TcpOptions2)**<br>Options for TCP health check. 
+&nbsp;&nbsp;http_options | **[HttpOptions](#HttpOptions2)**<br>Options for HTTP health check. 
 
 
 ### TcpOptions {#TcpOptions2}
@@ -299,7 +299,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateNetworkLoadBalancerMetadata](#CreateNetworkLoadBalancerMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[NetworkLoadBalancer](../network_load_balancer.proto#NetworkLoadBalancer2)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[NetworkLoadBalancer](#NetworkLoadBalancer2)>**<br>if operation finished successfully. 
 
 
 ### CreateNetworkLoadBalancerMetadata {#CreateNetworkLoadBalancerMetadata}
@@ -323,8 +323,57 @@ region_id | **string**<br>ID of the region that the network load balancer belong
 status | enum **Status**<br>Status of the network load balancer. <ul><li>`CREATING`: Network load balancer is being created.</li><li>`STARTING`: Network load balancer is being started.</li><li>`ACTIVE`: Network load balancer is active and sends traffic to the targets.</li><li>`STOPPING`: Network load balancer is being stopped.</li><li>`STOPPED`: Network load balancer is stopped and doesn't send traffic to the targets.</li><li>`DELETING`: Network load balancer is being deleted.</li><li>`INACTIVE`: The load balancer doesn't have any listeners or target groups, or attached target groups are empty. The load balancer doesn't perform any health checks or send traffic in this state.</li><ul/>
 type | enum **Type**<br>Type of the network load balancer. Only external network load balancers are available now. <ul><li>`EXTERNAL`: External network load balancer.</li><li>`INTERNAL`: Internal network load balancer.</li><ul/>
 session_affinity | enum **SessionAffinity**<br>Type of the session affinity. Only 5-tuple affinity is available now. <ul><li>`CLIENT_IP_PORT_PROTO`: 5-tuple affinity.</li><ul/>
-listeners[] | **[Listener](../network_load_balancer.proto#Listener2)**<br>List of listeners for the network load balancer. 
-attached_target_groups[] | **[AttachedTargetGroup](../network_load_balancer.proto#AttachedTargetGroup3)**<br>List of target groups attached to the network load balancer. 
+listeners[] | **[Listener](#Listener2)**<br>List of listeners for the network load balancer. 
+attached_target_groups[] | **[AttachedTargetGroup](#AttachedTargetGroup3)**<br>List of target groups attached to the network load balancer. 
+
+
+### Listener {#Listener2}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the listener. The name must be unique for each listener on a single load balancer. 3-63 characters long. 
+address | **string**<br>IP address for the listener. 
+port | **int64**<br>Port. 
+protocol | enum **Protocol**<br>Network protocol for incoming traffic. <ul><ul/>
+target_port | **int64**<br>Port of a target. 
+subnet_id | **string**<br>ID of the subnet. 
+
+
+### AttachedTargetGroup {#AttachedTargetGroup3}
+
+Field | Description
+--- | ---
+target_group_id | **string**<br>Required. ID of the target group. The maximum string length in characters is 50.
+health_checks[] | **[HealthCheck](#HealthCheck3)**<br>A health check to perform on the target group. For now we accept only one health check per AttachedTargetGroup. The number of elemets must be exactly 1.
+
+
+### HealthCheck {#HealthCheck3}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the health check. The name must be unique for each target group that attached to a single load balancer. 3-63 characters long. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>The interval between health checks. The default is 2 seconds. 
+timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for a target to return a response for the health check. The default is 1 second. 
+unhealthy_threshold | **int64**<br>Number of failed health checks before changing the status to `` UNHEALTHY ``. The default is 2. Acceptable values are 2 to 10, inclusive.
+healthy_threshold | **int64**<br>Number of successful health checks required in order to set the `` HEALTHY `` status for the target. The default is 2. Acceptable values are 2 to 10, inclusive.
+options | **oneof:** `tcp_options` or `http_options`<br>Protocol to use for the health check. Either TCP or HTTP.
+&nbsp;&nbsp;tcp_options | **[TcpOptions](#TcpOptions3)**<br>Options for TCP health check. 
+&nbsp;&nbsp;http_options | **[HttpOptions](#HttpOptions3)**<br>Options for HTTP health check. 
+
+
+### TcpOptions {#TcpOptions3}
+
+Field | Description
+--- | ---
+port | **int64**<br>Port to use for TCP health checks. Acceptable values are 1 to 65535, inclusive.
+
+
+### HttpOptions {#HttpOptions3}
+
+Field | Description
+--- | ---
+port | **int64**<br>Port to use for HTTP health checks. Acceptable values are 1 to 65535, inclusive.
+path | **string**<br>URL path to set for health checking requests for every target in the target group. For example `` /ping ``. The default path is `` / ``. 
 
 
 ## Update {#Update}
@@ -335,7 +384,7 @@ Updates the specified network load balancer.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateNetworkLoadBalancerMetadata](#UpdateNetworkLoadBalancerMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[NetworkLoadBalancer](../network_load_balancer.proto#NetworkLoadBalancer3)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[NetworkLoadBalancer](#NetworkLoadBalancer3)<br>
 
 ### UpdateNetworkLoadBalancerRequest {#UpdateNetworkLoadBalancerRequest}
 
@@ -347,7 +396,7 @@ name | **string**<br>Name of the network load balancer. The name must be unique 
 description | **string**<br>Description of the network load balancer. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. <br>The existing set of `` labels `` is completely replaced with the provided set. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 listener_specs[] | **[ListenerSpec](#ListenerSpec)**<br>A list of listeners and their specs for the network load balancer. The maximum number of elements is 1000.
-attached_target_groups[] | **[AttachedTargetGroup](../network_load_balancer.proto#AttachedTargetGroup3)**<br>A list of attached target groups for the network load balancer. The maximum number of elements is 5.
+attached_target_groups[] | **[AttachedTargetGroup](#AttachedTargetGroup4)**<br>A list of attached target groups for the network load balancer. The maximum number of elements is 5.
 
 
 ### ListenerSpec {#ListenerSpec1}
@@ -356,7 +405,7 @@ Field | Description
 --- | ---
 name | **string**<br>Required. Name of the listener. The name must be unique for each listener on a single load balancer. 3-63 characters long. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 port | **int64**<br>Port for incoming traffic. Acceptable values are 1 to 65535, inclusive.
-protocol | **[Listener.Protocol](../network_load_balancer.proto#Listener2)**<br>Required. Protocol for incoming traffic. 
+protocol | **[Listener.Protocol](#Listener3)**<br>Required. Protocol for incoming traffic. 
 address | **oneof:** `external_address_spec` or `internal_address_spec`<br>IP address for incoming traffic. Either the ID of the previously created address or the address specification.
 &nbsp;&nbsp;external_address_spec | **[ExternalAddressSpec](#ExternalAddressSpec)**<br>External IP address specification. 
 &nbsp;&nbsp;internal_address_spec | **[InternalAddressSpec](#InternalAddressSpec)**<br>Internal IP address specification. 
@@ -380,15 +429,15 @@ subnet_id | **string**<br>ID of the subnet.
 ip_version | enum **IpVersion**<br>IP version. <ul><li>`IPV4`: IPv4</li><li>`IPV6`: IPv6</li><ul/>
 
 
-### AttachedTargetGroup {#AttachedTargetGroup3}
+### AttachedTargetGroup {#AttachedTargetGroup4}
 
 Field | Description
 --- | ---
 target_group_id | **string**<br>Required. ID of the target group. The maximum string length in characters is 50.
-health_checks[] | **[HealthCheck](../health_check.proto#HealthCheck3)**<br>A health check to perform on the target group. For now we accept only one health check per AttachedTargetGroup. The number of elemets must be exactly 1.
+health_checks[] | **[HealthCheck](#HealthCheck4)**<br>A health check to perform on the target group. For now we accept only one health check per AttachedTargetGroup. The number of elemets must be exactly 1.
 
 
-### HealthCheck {#HealthCheck3}
+### HealthCheck {#HealthCheck4}
 
 Field | Description
 --- | ---
@@ -398,18 +447,18 @@ timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-bu
 unhealthy_threshold | **int64**<br>Number of failed health checks before changing the status to `` UNHEALTHY ``. The default is 2. Acceptable values are 2 to 10, inclusive.
 healthy_threshold | **int64**<br>Number of successful health checks required in order to set the `` HEALTHY `` status for the target. The default is 2. Acceptable values are 2 to 10, inclusive.
 options | **oneof:** `tcp_options` or `http_options`<br>Protocol to use for the health check. Either TCP or HTTP.
-&nbsp;&nbsp;tcp_options | **[TcpOptions](../health_check.proto#TcpOptions3)**<br>Options for TCP health check. 
-&nbsp;&nbsp;http_options | **[HttpOptions](../health_check.proto#HttpOptions3)**<br>Options for HTTP health check. 
+&nbsp;&nbsp;tcp_options | **[TcpOptions](#TcpOptions4)**<br>Options for TCP health check. 
+&nbsp;&nbsp;http_options | **[HttpOptions](#HttpOptions4)**<br>Options for HTTP health check. 
 
 
-### TcpOptions {#TcpOptions3}
+### TcpOptions {#TcpOptions4}
 
 Field | Description
 --- | ---
 port | **int64**<br>Port to use for TCP health checks. Acceptable values are 1 to 65535, inclusive.
 
 
-### HttpOptions {#HttpOptions3}
+### HttpOptions {#HttpOptions4}
 
 Field | Description
 --- | ---
@@ -430,7 +479,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateNetworkLoadBalancerMetadata](#UpdateNetworkLoadBalancerMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[NetworkLoadBalancer](../network_load_balancer.proto#NetworkLoadBalancer3)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[NetworkLoadBalancer](#NetworkLoadBalancer3)>**<br>if operation finished successfully. 
 
 
 ### UpdateNetworkLoadBalancerMetadata {#UpdateNetworkLoadBalancerMetadata}
@@ -454,8 +503,57 @@ region_id | **string**<br>ID of the region that the network load balancer belong
 status | enum **Status**<br>Status of the network load balancer. <ul><li>`CREATING`: Network load balancer is being created.</li><li>`STARTING`: Network load balancer is being started.</li><li>`ACTIVE`: Network load balancer is active and sends traffic to the targets.</li><li>`STOPPING`: Network load balancer is being stopped.</li><li>`STOPPED`: Network load balancer is stopped and doesn't send traffic to the targets.</li><li>`DELETING`: Network load balancer is being deleted.</li><li>`INACTIVE`: The load balancer doesn't have any listeners or target groups, or attached target groups are empty. The load balancer doesn't perform any health checks or send traffic in this state.</li><ul/>
 type | enum **Type**<br>Type of the network load balancer. Only external network load balancers are available now. <ul><li>`EXTERNAL`: External network load balancer.</li><li>`INTERNAL`: Internal network load balancer.</li><ul/>
 session_affinity | enum **SessionAffinity**<br>Type of the session affinity. Only 5-tuple affinity is available now. <ul><li>`CLIENT_IP_PORT_PROTO`: 5-tuple affinity.</li><ul/>
-listeners[] | **[Listener](../network_load_balancer.proto#Listener2)**<br>List of listeners for the network load balancer. 
-attached_target_groups[] | **[AttachedTargetGroup](../network_load_balancer.proto#AttachedTargetGroup4)**<br>List of target groups attached to the network load balancer. 
+listeners[] | **[Listener](#Listener3)**<br>List of listeners for the network load balancer. 
+attached_target_groups[] | **[AttachedTargetGroup](#AttachedTargetGroup5)**<br>List of target groups attached to the network load balancer. 
+
+
+### Listener {#Listener3}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the listener. The name must be unique for each listener on a single load balancer. 3-63 characters long. 
+address | **string**<br>IP address for the listener. 
+port | **int64**<br>Port. 
+protocol | enum **Protocol**<br>Network protocol for incoming traffic. <ul><ul/>
+target_port | **int64**<br>Port of a target. 
+subnet_id | **string**<br>ID of the subnet. 
+
+
+### AttachedTargetGroup {#AttachedTargetGroup5}
+
+Field | Description
+--- | ---
+target_group_id | **string**<br>Required. ID of the target group. The maximum string length in characters is 50.
+health_checks[] | **[HealthCheck](#HealthCheck5)**<br>A health check to perform on the target group. For now we accept only one health check per AttachedTargetGroup. The number of elemets must be exactly 1.
+
+
+### HealthCheck {#HealthCheck5}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the health check. The name must be unique for each target group that attached to a single load balancer. 3-63 characters long. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>The interval between health checks. The default is 2 seconds. 
+timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for a target to return a response for the health check. The default is 1 second. 
+unhealthy_threshold | **int64**<br>Number of failed health checks before changing the status to `` UNHEALTHY ``. The default is 2. Acceptable values are 2 to 10, inclusive.
+healthy_threshold | **int64**<br>Number of successful health checks required in order to set the `` HEALTHY `` status for the target. The default is 2. Acceptable values are 2 to 10, inclusive.
+options | **oneof:** `tcp_options` or `http_options`<br>Protocol to use for the health check. Either TCP or HTTP.
+&nbsp;&nbsp;tcp_options | **[TcpOptions](#TcpOptions5)**<br>Options for TCP health check. 
+&nbsp;&nbsp;http_options | **[HttpOptions](#HttpOptions5)**<br>Options for HTTP health check. 
+
+
+### TcpOptions {#TcpOptions5}
+
+Field | Description
+--- | ---
+port | **int64**<br>Port to use for TCP health checks. Acceptable values are 1 to 65535, inclusive.
+
+
+### HttpOptions {#HttpOptions5}
+
+Field | Description
+--- | ---
+port | **int64**<br>Port to use for HTTP health checks. Acceptable values are 1 to 65535, inclusive.
+path | **string**<br>URL path to set for health checking requests for every target in the target group. For example `` /ping ``. The default path is `` / ``. 
 
 
 ## Delete {#Delete}
@@ -586,25 +684,25 @@ Attaches a target group to the specified network load balancer.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[AttachNetworkLoadBalancerTargetGroupMetadata](#AttachNetworkLoadBalancerTargetGroupMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[NetworkLoadBalancer](../network_load_balancer.proto#NetworkLoadBalancer4)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[NetworkLoadBalancer](#NetworkLoadBalancer4)<br>
 
 ### AttachNetworkLoadBalancerTargetGroupRequest {#AttachNetworkLoadBalancerTargetGroupRequest}
 
 Field | Description
 --- | ---
 network_load_balancer_id | **string**<br>Required. ID of the network load balancer to attach the target group to. To get the network load balancer ID, use a [NetworkLoadBalancerService.List](#List) request. The maximum string length in characters is 50.
-attached_target_group | **[AttachedTargetGroup](../network_load_balancer.proto#AttachedTargetGroup4)**<br>Required. ID of the attached target group to attach to the network load balancer. To get the network load balancer ID, use a [NetworkLoadBalancerService.List](#List) request. 
+attached_target_group | **[AttachedTargetGroup](#AttachedTargetGroup6)**<br>Required. ID of the attached target group to attach to the network load balancer. To get the network load balancer ID, use a [NetworkLoadBalancerService.List](#List) request. 
 
 
-### AttachedTargetGroup {#AttachedTargetGroup4}
+### AttachedTargetGroup {#AttachedTargetGroup6}
 
 Field | Description
 --- | ---
 target_group_id | **string**<br>Required. ID of the target group. The maximum string length in characters is 50.
-health_checks[] | **[HealthCheck](../health_check.proto#HealthCheck4)**<br>A health check to perform on the target group. For now we accept only one health check per AttachedTargetGroup. The number of elemets must be exactly 1.
+health_checks[] | **[HealthCheck](#HealthCheck6)**<br>A health check to perform on the target group. For now we accept only one health check per AttachedTargetGroup. The number of elemets must be exactly 1.
 
 
-### HealthCheck {#HealthCheck4}
+### HealthCheck {#HealthCheck6}
 
 Field | Description
 --- | ---
@@ -614,18 +712,18 @@ timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-bu
 unhealthy_threshold | **int64**<br>Number of failed health checks before changing the status to `` UNHEALTHY ``. The default is 2. Acceptable values are 2 to 10, inclusive.
 healthy_threshold | **int64**<br>Number of successful health checks required in order to set the `` HEALTHY `` status for the target. The default is 2. Acceptable values are 2 to 10, inclusive.
 options | **oneof:** `tcp_options` or `http_options`<br>Protocol to use for the health check. Either TCP or HTTP.
-&nbsp;&nbsp;tcp_options | **[TcpOptions](../health_check.proto#TcpOptions4)**<br>Options for TCP health check. 
-&nbsp;&nbsp;http_options | **[HttpOptions](../health_check.proto#HttpOptions4)**<br>Options for HTTP health check. 
+&nbsp;&nbsp;tcp_options | **[TcpOptions](#TcpOptions6)**<br>Options for TCP health check. 
+&nbsp;&nbsp;http_options | **[HttpOptions](#HttpOptions6)**<br>Options for HTTP health check. 
 
 
-### TcpOptions {#TcpOptions4}
+### TcpOptions {#TcpOptions6}
 
 Field | Description
 --- | ---
 port | **int64**<br>Port to use for TCP health checks. Acceptable values are 1 to 65535, inclusive.
 
 
-### HttpOptions {#HttpOptions4}
+### HttpOptions {#HttpOptions6}
 
 Field | Description
 --- | ---
@@ -646,7 +744,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[AttachNetworkLoadBalancerTargetGroupMetadata](#AttachNetworkLoadBalancerTargetGroupMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[NetworkLoadBalancer](../network_load_balancer.proto#NetworkLoadBalancer4)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[NetworkLoadBalancer](#NetworkLoadBalancer4)>**<br>if operation finished successfully. 
 
 
 ### AttachNetworkLoadBalancerTargetGroupMetadata {#AttachNetworkLoadBalancerTargetGroupMetadata}
@@ -671,8 +769,57 @@ region_id | **string**<br>ID of the region that the network load balancer belong
 status | enum **Status**<br>Status of the network load balancer. <ul><li>`CREATING`: Network load balancer is being created.</li><li>`STARTING`: Network load balancer is being started.</li><li>`ACTIVE`: Network load balancer is active and sends traffic to the targets.</li><li>`STOPPING`: Network load balancer is being stopped.</li><li>`STOPPED`: Network load balancer is stopped and doesn't send traffic to the targets.</li><li>`DELETING`: Network load balancer is being deleted.</li><li>`INACTIVE`: The load balancer doesn't have any listeners or target groups, or attached target groups are empty. The load balancer doesn't perform any health checks or send traffic in this state.</li><ul/>
 type | enum **Type**<br>Type of the network load balancer. Only external network load balancers are available now. <ul><li>`EXTERNAL`: External network load balancer.</li><li>`INTERNAL`: Internal network load balancer.</li><ul/>
 session_affinity | enum **SessionAffinity**<br>Type of the session affinity. Only 5-tuple affinity is available now. <ul><li>`CLIENT_IP_PORT_PROTO`: 5-tuple affinity.</li><ul/>
-listeners[] | **[Listener](../network_load_balancer.proto#Listener2)**<br>List of listeners for the network load balancer. 
-attached_target_groups[] | **[AttachedTargetGroup](../network_load_balancer.proto#AttachedTargetGroup5)**<br>List of target groups attached to the network load balancer. 
+listeners[] | **[Listener](#Listener4)**<br>List of listeners for the network load balancer. 
+attached_target_groups[] | **[AttachedTargetGroup](#AttachedTargetGroup7)**<br>List of target groups attached to the network load balancer. 
+
+
+### Listener {#Listener4}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the listener. The name must be unique for each listener on a single load balancer. 3-63 characters long. 
+address | **string**<br>IP address for the listener. 
+port | **int64**<br>Port. 
+protocol | enum **Protocol**<br>Network protocol for incoming traffic. <ul><ul/>
+target_port | **int64**<br>Port of a target. 
+subnet_id | **string**<br>ID of the subnet. 
+
+
+### AttachedTargetGroup {#AttachedTargetGroup7}
+
+Field | Description
+--- | ---
+target_group_id | **string**<br>Required. ID of the target group. The maximum string length in characters is 50.
+health_checks[] | **[HealthCheck](#HealthCheck7)**<br>A health check to perform on the target group. For now we accept only one health check per AttachedTargetGroup. The number of elemets must be exactly 1.
+
+
+### HealthCheck {#HealthCheck7}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the health check. The name must be unique for each target group that attached to a single load balancer. 3-63 characters long. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>The interval between health checks. The default is 2 seconds. 
+timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for a target to return a response for the health check. The default is 1 second. 
+unhealthy_threshold | **int64**<br>Number of failed health checks before changing the status to `` UNHEALTHY ``. The default is 2. Acceptable values are 2 to 10, inclusive.
+healthy_threshold | **int64**<br>Number of successful health checks required in order to set the `` HEALTHY `` status for the target. The default is 2. Acceptable values are 2 to 10, inclusive.
+options | **oneof:** `tcp_options` or `http_options`<br>Protocol to use for the health check. Either TCP or HTTP.
+&nbsp;&nbsp;tcp_options | **[TcpOptions](#TcpOptions7)**<br>Options for TCP health check. 
+&nbsp;&nbsp;http_options | **[HttpOptions](#HttpOptions7)**<br>Options for HTTP health check. 
+
+
+### TcpOptions {#TcpOptions7}
+
+Field | Description
+--- | ---
+port | **int64**<br>Port to use for TCP health checks. Acceptable values are 1 to 65535, inclusive.
+
+
+### HttpOptions {#HttpOptions7}
+
+Field | Description
+--- | ---
+port | **int64**<br>Port to use for HTTP health checks. Acceptable values are 1 to 65535, inclusive.
+path | **string**<br>URL path to set for health checking requests for every target in the target group. For example `` /ping ``. The default path is `` / ``. 
 
 
 ## DetachTargetGroup {#DetachTargetGroup}
@@ -683,7 +830,7 @@ Detaches the target group from the specified network load balancer.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[DetachNetworkLoadBalancerTargetGroupMetadata](#DetachNetworkLoadBalancerTargetGroupMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[NetworkLoadBalancer](../network_load_balancer.proto#NetworkLoadBalancer5)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[NetworkLoadBalancer](#NetworkLoadBalancer5)<br>
 
 ### DetachNetworkLoadBalancerTargetGroupRequest {#DetachNetworkLoadBalancerTargetGroupRequest}
 
@@ -706,7 +853,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DetachNetworkLoadBalancerTargetGroupMetadata](#DetachNetworkLoadBalancerTargetGroupMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[NetworkLoadBalancer](../network_load_balancer.proto#NetworkLoadBalancer5)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[NetworkLoadBalancer](#NetworkLoadBalancer5)>**<br>if operation finished successfully. 
 
 
 ### DetachNetworkLoadBalancerTargetGroupMetadata {#DetachNetworkLoadBalancerTargetGroupMetadata}
@@ -731,8 +878,57 @@ region_id | **string**<br>ID of the region that the network load balancer belong
 status | enum **Status**<br>Status of the network load balancer. <ul><li>`CREATING`: Network load balancer is being created.</li><li>`STARTING`: Network load balancer is being started.</li><li>`ACTIVE`: Network load balancer is active and sends traffic to the targets.</li><li>`STOPPING`: Network load balancer is being stopped.</li><li>`STOPPED`: Network load balancer is stopped and doesn't send traffic to the targets.</li><li>`DELETING`: Network load balancer is being deleted.</li><li>`INACTIVE`: The load balancer doesn't have any listeners or target groups, or attached target groups are empty. The load balancer doesn't perform any health checks or send traffic in this state.</li><ul/>
 type | enum **Type**<br>Type of the network load balancer. Only external network load balancers are available now. <ul><li>`EXTERNAL`: External network load balancer.</li><li>`INTERNAL`: Internal network load balancer.</li><ul/>
 session_affinity | enum **SessionAffinity**<br>Type of the session affinity. Only 5-tuple affinity is available now. <ul><li>`CLIENT_IP_PORT_PROTO`: 5-tuple affinity.</li><ul/>
-listeners[] | **[Listener](../network_load_balancer.proto#Listener2)**<br>List of listeners for the network load balancer. 
-attached_target_groups[] | **[AttachedTargetGroup](../network_load_balancer.proto#AttachedTargetGroup5)**<br>List of target groups attached to the network load balancer. 
+listeners[] | **[Listener](#Listener5)**<br>List of listeners for the network load balancer. 
+attached_target_groups[] | **[AttachedTargetGroup](#AttachedTargetGroup8)**<br>List of target groups attached to the network load balancer. 
+
+
+### Listener {#Listener5}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the listener. The name must be unique for each listener on a single load balancer. 3-63 characters long. 
+address | **string**<br>IP address for the listener. 
+port | **int64**<br>Port. 
+protocol | enum **Protocol**<br>Network protocol for incoming traffic. <ul><ul/>
+target_port | **int64**<br>Port of a target. 
+subnet_id | **string**<br>ID of the subnet. 
+
+
+### AttachedTargetGroup {#AttachedTargetGroup8}
+
+Field | Description
+--- | ---
+target_group_id | **string**<br>Required. ID of the target group. The maximum string length in characters is 50.
+health_checks[] | **[HealthCheck](#HealthCheck8)**<br>A health check to perform on the target group. For now we accept only one health check per AttachedTargetGroup. The number of elemets must be exactly 1.
+
+
+### HealthCheck {#HealthCheck8}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the health check. The name must be unique for each target group that attached to a single load balancer. 3-63 characters long. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>The interval between health checks. The default is 2 seconds. 
+timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for a target to return a response for the health check. The default is 1 second. 
+unhealthy_threshold | **int64**<br>Number of failed health checks before changing the status to `` UNHEALTHY ``. The default is 2. Acceptable values are 2 to 10, inclusive.
+healthy_threshold | **int64**<br>Number of successful health checks required in order to set the `` HEALTHY `` status for the target. The default is 2. Acceptable values are 2 to 10, inclusive.
+options | **oneof:** `tcp_options` or `http_options`<br>Protocol to use for the health check. Either TCP or HTTP.
+&nbsp;&nbsp;tcp_options | **[TcpOptions](#TcpOptions8)**<br>Options for TCP health check. 
+&nbsp;&nbsp;http_options | **[HttpOptions](#HttpOptions8)**<br>Options for HTTP health check. 
+
+
+### TcpOptions {#TcpOptions8}
+
+Field | Description
+--- | ---
+port | **int64**<br>Port to use for TCP health checks. Acceptable values are 1 to 65535, inclusive.
+
+
+### HttpOptions {#HttpOptions8}
+
+Field | Description
+--- | ---
+port | **int64**<br>Port to use for HTTP health checks. Acceptable values are 1 to 65535, inclusive.
+path | **string**<br>URL path to set for health checking requests for every target in the target group. For example `` /ping ``. The default path is `` / ``. 
 
 
 ## GetTargetStates {#GetTargetStates}
@@ -753,7 +949,7 @@ target_group_id | **string**<br>ID of the target group to get states of resource
 
 Field | Description
 --- | ---
-target_states[] | **[TargetState](../network_load_balancer.proto#TargetState)**<br>List of states of targets within the target group that is specified in the [GetTargetStatesRequest](#GetTargetStatesRequest) message. 
+target_states[] | **[TargetState](#TargetState)**<br>List of states of targets within the target group that is specified in the [GetTargetStatesRequest](#GetTargetStatesRequest) message. 
 
 
 ### TargetState {#TargetState}
@@ -773,7 +969,7 @@ Adds a listener to the specified network load balancer.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[AddNetworkLoadBalancerListenerMetadata](#AddNetworkLoadBalancerListenerMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[NetworkLoadBalancer](../network_load_balancer.proto#NetworkLoadBalancer6)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[NetworkLoadBalancer](#NetworkLoadBalancer6)<br>
 
 ### AddNetworkLoadBalancerListenerRequest {#AddNetworkLoadBalancerListenerRequest}
 
@@ -789,7 +985,7 @@ Field | Description
 --- | ---
 name | **string**<br>Required. Name of the listener. The name must be unique for each listener on a single load balancer. 3-63 characters long. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 port | **int64**<br>Port for incoming traffic. Acceptable values are 1 to 65535, inclusive.
-protocol | **[Listener.Protocol](../network_load_balancer.proto#Listener2)**<br>Required. Protocol for incoming traffic. 
+protocol | **[Listener.Protocol](#Listener6)**<br>Required. Protocol for incoming traffic. 
 address | **oneof:** `external_address_spec` or `internal_address_spec`<br>IP address for incoming traffic. Either the ID of the previously created address or the address specification.
 &nbsp;&nbsp;external_address_spec | **[ExternalAddressSpec](#ExternalAddressSpec)**<br>External IP address specification. 
 &nbsp;&nbsp;internal_address_spec | **[InternalAddressSpec](#InternalAddressSpec)**<br>Internal IP address specification. 
@@ -826,7 +1022,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[AddNetworkLoadBalancerListenerMetadata](#AddNetworkLoadBalancerListenerMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[NetworkLoadBalancer](../network_load_balancer.proto#NetworkLoadBalancer6)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[NetworkLoadBalancer](#NetworkLoadBalancer6)>**<br>if operation finished successfully. 
 
 
 ### AddNetworkLoadBalancerListenerMetadata {#AddNetworkLoadBalancerListenerMetadata}
@@ -850,8 +1046,57 @@ region_id | **string**<br>ID of the region that the network load balancer belong
 status | enum **Status**<br>Status of the network load balancer. <ul><li>`CREATING`: Network load balancer is being created.</li><li>`STARTING`: Network load balancer is being started.</li><li>`ACTIVE`: Network load balancer is active and sends traffic to the targets.</li><li>`STOPPING`: Network load balancer is being stopped.</li><li>`STOPPED`: Network load balancer is stopped and doesn't send traffic to the targets.</li><li>`DELETING`: Network load balancer is being deleted.</li><li>`INACTIVE`: The load balancer doesn't have any listeners or target groups, or attached target groups are empty. The load balancer doesn't perform any health checks or send traffic in this state.</li><ul/>
 type | enum **Type**<br>Type of the network load balancer. Only external network load balancers are available now. <ul><li>`EXTERNAL`: External network load balancer.</li><li>`INTERNAL`: Internal network load balancer.</li><ul/>
 session_affinity | enum **SessionAffinity**<br>Type of the session affinity. Only 5-tuple affinity is available now. <ul><li>`CLIENT_IP_PORT_PROTO`: 5-tuple affinity.</li><ul/>
-listeners[] | **[Listener](../network_load_balancer.proto#Listener2)**<br>List of listeners for the network load balancer. 
-attached_target_groups[] | **[AttachedTargetGroup](../network_load_balancer.proto#AttachedTargetGroup5)**<br>List of target groups attached to the network load balancer. 
+listeners[] | **[Listener](#Listener6)**<br>List of listeners for the network load balancer. 
+attached_target_groups[] | **[AttachedTargetGroup](#AttachedTargetGroup9)**<br>List of target groups attached to the network load balancer. 
+
+
+### Listener {#Listener6}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the listener. The name must be unique for each listener on a single load balancer. 3-63 characters long. 
+address | **string**<br>IP address for the listener. 
+port | **int64**<br>Port. 
+protocol | enum **Protocol**<br>Network protocol for incoming traffic. <ul><ul/>
+target_port | **int64**<br>Port of a target. 
+subnet_id | **string**<br>ID of the subnet. 
+
+
+### AttachedTargetGroup {#AttachedTargetGroup9}
+
+Field | Description
+--- | ---
+target_group_id | **string**<br>Required. ID of the target group. The maximum string length in characters is 50.
+health_checks[] | **[HealthCheck](#HealthCheck9)**<br>A health check to perform on the target group. For now we accept only one health check per AttachedTargetGroup. The number of elemets must be exactly 1.
+
+
+### HealthCheck {#HealthCheck9}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the health check. The name must be unique for each target group that attached to a single load balancer. 3-63 characters long. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>The interval between health checks. The default is 2 seconds. 
+timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for a target to return a response for the health check. The default is 1 second. 
+unhealthy_threshold | **int64**<br>Number of failed health checks before changing the status to `` UNHEALTHY ``. The default is 2. Acceptable values are 2 to 10, inclusive.
+healthy_threshold | **int64**<br>Number of successful health checks required in order to set the `` HEALTHY `` status for the target. The default is 2. Acceptable values are 2 to 10, inclusive.
+options | **oneof:** `tcp_options` or `http_options`<br>Protocol to use for the health check. Either TCP or HTTP.
+&nbsp;&nbsp;tcp_options | **[TcpOptions](#TcpOptions9)**<br>Options for TCP health check. 
+&nbsp;&nbsp;http_options | **[HttpOptions](#HttpOptions9)**<br>Options for HTTP health check. 
+
+
+### TcpOptions {#TcpOptions9}
+
+Field | Description
+--- | ---
+port | **int64**<br>Port to use for TCP health checks. Acceptable values are 1 to 65535, inclusive.
+
+
+### HttpOptions {#HttpOptions9}
+
+Field | Description
+--- | ---
+port | **int64**<br>Port to use for HTTP health checks. Acceptable values are 1 to 65535, inclusive.
+path | **string**<br>URL path to set for health checking requests for every target in the target group. For example `` /ping ``. The default path is `` / ``. 
 
 
 ## RemoveListener {#RemoveListener}
@@ -862,7 +1107,7 @@ Removes the listener from the specified network load balancer.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[RemoveNetworkLoadBalancerListenerMetadata](#RemoveNetworkLoadBalancerListenerMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[NetworkLoadBalancer](../network_load_balancer.proto#NetworkLoadBalancer7)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[NetworkLoadBalancer](#NetworkLoadBalancer7)<br>
 
 ### RemoveNetworkLoadBalancerListenerRequest {#RemoveNetworkLoadBalancerListenerRequest}
 
@@ -885,7 +1130,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RemoveNetworkLoadBalancerListenerMetadata](#RemoveNetworkLoadBalancerListenerMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[NetworkLoadBalancer](../network_load_balancer.proto#NetworkLoadBalancer7)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[NetworkLoadBalancer](#NetworkLoadBalancer7)>**<br>if operation finished successfully. 
 
 
 ### RemoveNetworkLoadBalancerListenerMetadata {#RemoveNetworkLoadBalancerListenerMetadata}
@@ -909,8 +1154,57 @@ region_id | **string**<br>ID of the region that the network load balancer belong
 status | enum **Status**<br>Status of the network load balancer. <ul><li>`CREATING`: Network load balancer is being created.</li><li>`STARTING`: Network load balancer is being started.</li><li>`ACTIVE`: Network load balancer is active and sends traffic to the targets.</li><li>`STOPPING`: Network load balancer is being stopped.</li><li>`STOPPED`: Network load balancer is stopped and doesn't send traffic to the targets.</li><li>`DELETING`: Network load balancer is being deleted.</li><li>`INACTIVE`: The load balancer doesn't have any listeners or target groups, or attached target groups are empty. The load balancer doesn't perform any health checks or send traffic in this state.</li><ul/>
 type | enum **Type**<br>Type of the network load balancer. Only external network load balancers are available now. <ul><li>`EXTERNAL`: External network load balancer.</li><li>`INTERNAL`: Internal network load balancer.</li><ul/>
 session_affinity | enum **SessionAffinity**<br>Type of the session affinity. Only 5-tuple affinity is available now. <ul><li>`CLIENT_IP_PORT_PROTO`: 5-tuple affinity.</li><ul/>
-listeners[] | **[Listener](../network_load_balancer.proto#Listener2)**<br>List of listeners for the network load balancer. 
-attached_target_groups[] | **[AttachedTargetGroup](../network_load_balancer.proto#AttachedTargetGroup5)**<br>List of target groups attached to the network load balancer. 
+listeners[] | **[Listener](#Listener7)**<br>List of listeners for the network load balancer. 
+attached_target_groups[] | **[AttachedTargetGroup](#AttachedTargetGroup10)**<br>List of target groups attached to the network load balancer. 
+
+
+### Listener {#Listener7}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the listener. The name must be unique for each listener on a single load balancer. 3-63 characters long. 
+address | **string**<br>IP address for the listener. 
+port | **int64**<br>Port. 
+protocol | enum **Protocol**<br>Network protocol for incoming traffic. <ul><ul/>
+target_port | **int64**<br>Port of a target. 
+subnet_id | **string**<br>ID of the subnet. 
+
+
+### AttachedTargetGroup {#AttachedTargetGroup10}
+
+Field | Description
+--- | ---
+target_group_id | **string**<br>Required. ID of the target group. The maximum string length in characters is 50.
+health_checks[] | **[HealthCheck](#HealthCheck10)**<br>A health check to perform on the target group. For now we accept only one health check per AttachedTargetGroup. The number of elemets must be exactly 1.
+
+
+### HealthCheck {#HealthCheck10}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the health check. The name must be unique for each target group that attached to a single load balancer. 3-63 characters long. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>The interval between health checks. The default is 2 seconds. 
+timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for a target to return a response for the health check. The default is 1 second. 
+unhealthy_threshold | **int64**<br>Number of failed health checks before changing the status to `` UNHEALTHY ``. The default is 2. Acceptable values are 2 to 10, inclusive.
+healthy_threshold | **int64**<br>Number of successful health checks required in order to set the `` HEALTHY `` status for the target. The default is 2. Acceptable values are 2 to 10, inclusive.
+options | **oneof:** `tcp_options` or `http_options`<br>Protocol to use for the health check. Either TCP or HTTP.
+&nbsp;&nbsp;tcp_options | **[TcpOptions](#TcpOptions10)**<br>Options for TCP health check. 
+&nbsp;&nbsp;http_options | **[HttpOptions](#HttpOptions10)**<br>Options for HTTP health check. 
+
+
+### TcpOptions {#TcpOptions10}
+
+Field | Description
+--- | ---
+port | **int64**<br>Port to use for TCP health checks. Acceptable values are 1 to 65535, inclusive.
+
+
+### HttpOptions {#HttpOptions10}
+
+Field | Description
+--- | ---
+port | **int64**<br>Port to use for HTTP health checks. Acceptable values are 1 to 65535, inclusive.
+path | **string**<br>URL path to set for health checking requests for every target in the target group. For example `` /ping ``. The default path is `` / ``. 
 
 
 ## ListOperations {#ListOperations}

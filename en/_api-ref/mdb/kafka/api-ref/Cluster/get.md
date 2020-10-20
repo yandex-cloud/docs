@@ -45,6 +45,8 @@ clusterId | Required. ID of the Apache Kafka® Cluster resource to return.  To g
         "diskSize": "string",
         "diskTypeId": "string"
       },
+
+      // `config.kafka` includes only one of the fields `kafkaConfig_2_1`, `kafkaConfig_2_6`
       "kafkaConfig_2_1": {
         "compressionType": "string",
         "logFlushIntervalMessages": "integer",
@@ -54,7 +56,19 @@ clusterId | Required. ID of the Apache Kafka® Cluster resource to return.  To g
         "logRetentionHours": "integer",
         "logRetentionMinutes": "integer",
         "logRetentionMs": "integer"
-      }
+      },
+      "kafkaConfig_2_6": {
+        "compressionType": "string",
+        "logFlushIntervalMessages": "integer",
+        "logFlushIntervalMs": "integer",
+        "logFlushSchedulerIntervalMs": "integer",
+        "logRetentionBytes": "integer",
+        "logRetentionHours": "integer",
+        "logRetentionMinutes": "integer",
+        "logRetentionMs": "integer"
+      },
+      // end of the list of possible fields`config.kafka`
+
     },
     "zookeeper": {
       "resources": {
@@ -97,7 +111,7 @@ config.<br>kafka.<br>resources | **object**<br>Resources allocated to Kafka brok
 config.<br>kafka.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory, etc.). All available presets are listed in the <a href="/docs/managed-kafka/concepts/instance-types">documentation</a>.</p> 
 config.<br>kafka.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
 config.<br>kafka.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host.</p> 
-config.<br>kafka.<br>kafkaConfig_2_1 | **object**<br><p>Kafka broker configuration.</p> 
+config.<br>kafka.<br>kafkaConfig_2_1 | **object** <br>`config.kafka` includes only one of the fields `kafkaConfig_2_1`, `kafkaConfig_2_6`<br><br><p>Kafka broker configuration.</p> 
 config.<br>kafka.<br>kafkaConfig_2_1.<br>compressionType | **string**<br><p>Сluster topics compression type.</p> <ul> <li>COMPRESSION_TYPE_UNCOMPRESSED: no codec (uncompressed).</li> <li>COMPRESSION_TYPE_ZSTD: Zstandard codec.</li> <li>COMPRESSION_TYPE_LZ4: LZ4 codec.</li> <li>COMPRESSION_TYPE_SNAPPY: Snappy codec.</li> <li>COMPRESSION_TYPE_GZIP: GZip codec.</li> <li>COMPRESSION_TYPE_PRODUCER: the codec to use is set by a producer (can be any of <code>ZSTD</code>, <code>LZ4</code>, <code>GZIP</code> or <code>SNAPPY</code> codecs).</li> </ul> 
 config.<br>kafka.<br>kafkaConfig_2_1.<br>logFlushIntervalMessages | **integer** (int64)<br><p>The number of messages accumulated on a log partition before messages are flushed to disk.</p> <p>This is the global cluster-level setting that can be overridden on a topic level by using the <code>flushMessages</code> setting.</p> 
 config.<br>kafka.<br>kafkaConfig_2_1.<br>logFlushIntervalMs | **integer** (int64)<br><p>The maximum time (in milliseconds) that a message in any topic is kept in memory before flushed to disk. If not set, the value of <code>logFlushSchedulerIntervalMs</code> is used.</p> <p>This is the global cluster-level setting that can be overridden on a topic level by using the <code>flushMs</code> setting.</p> 
@@ -106,6 +120,15 @@ config.<br>kafka.<br>kafkaConfig_2_1.<br>logRetentionBytes | **integer** (int64)
 config.<br>kafka.<br>kafkaConfig_2_1.<br>logRetentionHours | **integer** (int64)<br><p>The number of hours to keep a log segment file before deleting it.</p> 
 config.<br>kafka.<br>kafkaConfig_2_1.<br>logRetentionMinutes | **integer** (int64)<br><p>The number of minutes to keep a log segment file before deleting it.</p> <p>If not set, the value of <code>logRetentionHours</code> is used.</p> 
 config.<br>kafka.<br>kafkaConfig_2_1.<br>logRetentionMs | **integer** (int64)<br><p>The number of milliseconds to keep a log segment file before deleting it.</p> <p>If not set, the value of <code>logRetentionMinutes</code> is used.</p> <p>This is the global cluster-level setting that can be overridden on a topic level by using the <code>retentionMs</code> setting.</p> 
+config.<br>kafka.<br>kafkaConfig_2_6 | **object** <br>`config.kafka` includes only one of the fields `kafkaConfig_2_1`, `kafkaConfig_2_6`<br><br><p>Kafka 2.6 broker configuration.</p> 
+config.<br>kafka.<br>kafkaConfig_2_6.<br>compressionType | **string**<br><p>Сluster topics compression type.</p> <ul> <li>COMPRESSION_TYPE_UNCOMPRESSED: no codec (uncompressed).</li> <li>COMPRESSION_TYPE_ZSTD: Zstandard codec.</li> <li>COMPRESSION_TYPE_LZ4: LZ4 codec.</li> <li>COMPRESSION_TYPE_SNAPPY: Snappy codec.</li> <li>COMPRESSION_TYPE_GZIP: GZip codec.</li> <li>COMPRESSION_TYPE_PRODUCER: the codec to use is set by a producer (can be any of <code>ZSTD</code>, <code>LZ4</code>, <code>GZIP</code> or <code>SNAPPY</code> codecs).</li> </ul> 
+config.<br>kafka.<br>kafkaConfig_2_6.<br>logFlushIntervalMessages | **integer** (int64)<br><p>The number of messages accumulated on a log partition before messages are flushed to disk.</p> <p>This is the global cluster-level setting that can be overridden on a topic level by using the <code>flushMessages</code> setting.</p> 
+config.<br>kafka.<br>kafkaConfig_2_6.<br>logFlushIntervalMs | **integer** (int64)<br><p>The maximum time (in milliseconds) that a message in any topic is kept in memory before flushed to disk. If not set, the value of <code>logFlushSchedulerIntervalMs</code> is used.</p> <p>This is the global cluster-level setting that can be overridden on a topic level by using the <code>flushMs</code> setting.</p> 
+config.<br>kafka.<br>kafkaConfig_2_6.<br>logFlushSchedulerIntervalMs | **integer** (int64)<br><p>The frequency of checks (in milliseconds) for any logs that need to be flushed to disk. This check is done by the log flusher.</p> 
+config.<br>kafka.<br>kafkaConfig_2_6.<br>logRetentionBytes | **integer** (int64)<br><p>Partition size limit; Kafka will discard old log segments to free up space if <code>delete</code> <code>cleanupPolicy</code> is in effect. This setting is helpful if you need to control the size of a log due to limited disk space.</p> <p>This is the global cluster-level setting that can be overridden on a topic level by using the <code>retentionBytes</code> setting.</p> 
+config.<br>kafka.<br>kafkaConfig_2_6.<br>logRetentionHours | **integer** (int64)<br><p>The number of hours to keep a log segment file before deleting it.</p> 
+config.<br>kafka.<br>kafkaConfig_2_6.<br>logRetentionMinutes | **integer** (int64)<br><p>The number of minutes to keep a log segment file before deleting it.</p> <p>If not set, the value of <code>logRetentionHours</code> is used.</p> 
+config.<br>kafka.<br>kafkaConfig_2_6.<br>logRetentionMs | **integer** (int64)<br><p>The number of milliseconds to keep a log segment file before deleting it.</p> <p>If not set, the value of <code>logRetentionMinutes</code> is used.</p> <p>This is the global cluster-level setting that can be overridden on a topic level by using the <code>retentionMs</code> setting.</p> 
 config.<br>zookeeper | **object**<br><p>Configuration and resource allocation for ZooKeeper hosts.</p> 
 config.<br>zookeeper.<br>resources | **object**<br><p>Resources allocated to ZooKeeper hosts.</p> <p>Computational resources.</p> 
 config.<br>zookeeper.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory, etc.). All available presets are listed in the <a href="/docs/managed-kafka/concepts/instance-types">documentation</a>.</p> 

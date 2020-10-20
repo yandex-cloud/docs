@@ -40,7 +40,7 @@ A set of methods for managing MongoDB Cluster resources.
 
 Returns the specified MongoDB Cluster resource. <br>To get the list of available MongoDB Cluster resources, make a [List](#List) request.
 
-**rpc Get ([GetClusterRequest](#GetClusterRequest)) returns ([Cluster](../cluster.proto#Cluster))**
+**rpc Get ([GetClusterRequest](#GetClusterRequest)) returns ([Cluster](#Cluster))**
 
 ### GetClusterRequest {#GetClusterRequest}
 
@@ -60,14 +60,14 @@ name | **string**<br>Name of the MongoDB cluster. The name is unique within the 
 description | **string**<br>Description of the MongoDB cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the MongoDB cluster as `` key:value `` pairs. Maximum 64 per resource. 
 environment | enum **Environment**<br>Deployment environment of the MongoDB cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
-monitoring[] | **[Monitoring](../cluster.proto#Monitoring)**<br>Description of monitoring systems relevant to the MongoDB cluster. 
-config | **[ClusterConfig](../cluster.proto#ClusterConfig)**<br>Configuration of the MongoDB cluster. 
+monitoring[] | **[Monitoring](#Monitoring)**<br>Description of monitoring systems relevant to the MongoDB cluster. 
+config | **[ClusterConfig](#ClusterConfig)**<br>Configuration of the MongoDB cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](../cluster.proto#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](../cluster.proto#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](../cluster.proto#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](../cluster.proto#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
 sharded | **bool**<br>Indicates current sharding status of the cluster. 
-maintenance_window | **[MaintenanceWindow](../maintenance.proto#MaintenanceWindow)**<br>Window of maintenance operations. 
-planned_operation | **[MaintenanceOperation](../maintenance.proto#MaintenanceOperation)**<br>Maintenance operation planned at nearest maintenance_window. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow)**<br>Window of maintenance operations. 
+planned_operation | **[MaintenanceOperation](#MaintenanceOperation)**<br>Maintenance operation planned at nearest maintenance_window. 
 
 
 ### Monitoring {#Monitoring}
@@ -86,23 +86,23 @@ Field | Description
 version | **string**<br>Version of MongoDB server software. Possible values: `3.6`, `4.0`, `4.2`, `4.4`. 
 feature_compatibility_version | **string**<br><ul><li>`3.6` — persist data compatibility for version 3.6. After setting this option the data will not be compatible with 3.4 or lower. </li><li>`4.0` — persist data compatibility for version 4.0. After setting this option the data will not be compatible with 3.6 or lower. </li><li>`4.2` — persist data compatibility for version 4.2. After setting this option the data will not be compatible with 4.0 or lower. </li><li>`4.4` — persist data compatibility for version 4.4. After setting this option the data will not be compatible with 4.2 or lower.</li></ul> 
 mongodb | **oneof:** `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2` or `mongodb_4_4`<br>Configuration for MongoDB servers in the cluster.
-&nbsp;&nbsp;mongodb_3_6 | **[Mongodb3_6](../cluster.proto#Mongodb3_6)**<br>Configuration and resource allocation for a MongoDB 3.6 cluster. 
-&nbsp;&nbsp;mongodb_4_0 | **[Mongodb4_0](../cluster.proto#Mongodb4_0)**<br>Configuration and resource allocation for a MongoDB 4.0 cluster. 
-&nbsp;&nbsp;mongodb_4_2 | **[Mongodb4_2](../cluster.proto#Mongodb4_2)**<br>Configuration and resource allocation for a MongoDB 4.2 cluster. 
-&nbsp;&nbsp;mongodb_4_4 | **[Mongodb4_4](../cluster.proto#Mongodb4_4)**<br>Configuration and resource allocation for a MongoDB 4.4 cluster. 
+&nbsp;&nbsp;mongodb_3_6 | **[Mongodb3_6](#Mongodb3_6)**<br>Configuration and resource allocation for a MongoDB 3.6 cluster. 
+&nbsp;&nbsp;mongodb_4_0 | **[Mongodb4_0](#Mongodb4_0)**<br>Configuration and resource allocation for a MongoDB 4.0 cluster. 
+&nbsp;&nbsp;mongodb_4_2 | **[Mongodb4_2](#Mongodb4_2)**<br>Configuration and resource allocation for a MongoDB 4.2 cluster. 
+&nbsp;&nbsp;mongodb_4_4 | **[Mongodb4_4](#Mongodb4_4)**<br>Configuration and resource allocation for a MongoDB 4.4 cluster. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retain period of automatically created backup in days 
-access | **[Access](../cluster.proto#Access)**<br>Access policy to DB 
+access | **[Access](#Access)**<br>Access policy to DB 
 
 
 ### Mongodb3_6 {#Mongodb3_6}
 
 Field | Description
 --- | ---
-mongod | **[Mongod](../cluster.proto#Mongod)**<br>Configuration and resource allocation for mongod in a MongoDB 3.6 cluster. 
-mongocfg | **[MongoCfg](../cluster.proto#MongoCfg)**<br>Configuration and resource allocation for mongocfg in a MongoDB 3.6 cluster. 
-mongos | **[Mongos](../cluster.proto#Mongos)**<br>Configuration and resource allocation for mongos in a MongoDB 3.6 cluster. 
-mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 3.6 cluster. 
+mongod | **[Mongod](#Mongod)**<br>Configuration and resource allocation for mongod in a MongoDB 3.6 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg)**<br>Configuration and resource allocation for mongocfg in a MongoDB 3.6 cluster. 
+mongos | **[Mongos](#Mongos)**<br>Configuration and resource allocation for mongos in a MongoDB 3.6 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 3.6 cluster. 
 
 
 ### Mongod {#Mongod}
@@ -110,7 +110,7 @@ mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra)**<br>Configuration and 
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet3_6`**<br>Configuration for a mongod 3.6 hosts. 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to MongoDB hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to MongoDB hosts. 
 
 
 ### MongoCfg {#MongoCfg}
@@ -118,7 +118,7 @@ resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated t
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet3_6`**<br> 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos}
@@ -126,7 +126,7 @@ resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated t
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet3_6`**<br> 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### MongoInfra {#MongoInfra}
@@ -135,17 +135,17 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet3_6](#MongosConfigSet3_6)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet3_6](#MongoCfgConfigSet3_6)**<br> 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb4_0 {#Mongodb4_0}
 
 Field | Description
 --- | ---
-mongod | **[Mongod](../cluster.proto#Mongod1)**<br>Configuration and resource allocation for mongod in a MongoDB 4.0 cluster. 
-mongocfg | **[MongoCfg](../cluster.proto#MongoCfg1)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.0 cluster. 
-mongos | **[Mongos](../cluster.proto#Mongos1)**<br>Configuration and resource allocation for mongos in a MongoDB 4.0 cluster. 
-mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra1)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.0 cluster. 
+mongod | **[Mongod](#Mongod1)**<br>Configuration and resource allocation for mongod in a MongoDB 4.0 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg1)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.0 cluster. 
+mongos | **[Mongos](#Mongos1)**<br>Configuration and resource allocation for mongos in a MongoDB 4.0 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra1)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.0 cluster. 
 
 
 ### Mongod {#Mongod1}
@@ -153,7 +153,7 @@ mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra1)**<br>Configuration and
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet4_0`**<br>Configuration for mongod 4.0 hosts. 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg1}
@@ -161,7 +161,7 @@ resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated t
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet4_0`**<br>Configuration for mongocfg 4.0 hosts. 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos1}
@@ -169,7 +169,7 @@ resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated t
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet4_0`**<br>Configuration for mongos 4.0 hosts. 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra1}
@@ -178,17 +178,17 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet4_0](#MongosConfigSet4_0)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet4_0](#MongoCfgConfigSet4_0)**<br> 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb4_2 {#Mongodb4_2}
 
 Field | Description
 --- | ---
-mongod | **[Mongod](../cluster.proto#Mongod2)**<br>Configuration and resource allocation for mongod in a MongoDB 4.2 cluster. 
-mongocfg | **[MongoCfg](../cluster.proto#MongoCfg2)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.2 cluster. 
-mongos | **[Mongos](../cluster.proto#Mongos2)**<br>Configuration and resource allocation for mongos in a MongoDB 4.2 cluster. 
-mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra2)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.2 cluster. 
+mongod | **[Mongod](#Mongod2)**<br>Configuration and resource allocation for mongod in a MongoDB 4.2 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg2)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.2 cluster. 
+mongos | **[Mongos](#Mongos2)**<br>Configuration and resource allocation for mongos in a MongoDB 4.2 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra2)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.2 cluster. 
 
 
 ### Mongod {#Mongod2}
@@ -196,7 +196,7 @@ mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra2)**<br>Configuration and
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet4_2`**<br>Configuration for mongod 4.2 hosts. 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg2}
@@ -204,7 +204,7 @@ resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated t
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet4_2`**<br>Configuration for mongocfg 4.2 hosts. 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos2}
@@ -212,7 +212,7 @@ resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated t
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet4_2`**<br>Configuration for mongos 4.2 hosts. 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra2}
@@ -221,17 +221,17 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet4_2](#MongosConfigSet4_2)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet4_2](#MongoCfgConfigSet4_2)**<br> 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb4_4 {#Mongodb4_4}
 
 Field | Description
 --- | ---
-mongod | **[Mongod](../cluster.proto#Mongod3)**<br>Configuration and resource allocation for mongod in a MongoDB 4.4 cluster. 
-mongocfg | **[MongoCfg](../cluster.proto#MongoCfg3)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.4 cluster. 
-mongos | **[Mongos](../cluster.proto#Mongos3)**<br>Configuration and resource allocation for mongos in a MongoDB 4.4 cluster. 
-mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra3)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.4 cluster. 
+mongod | **[Mongod](#Mongod3)**<br>Configuration and resource allocation for mongod in a MongoDB 4.4 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg3)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.4 cluster. 
+mongos | **[Mongos](#Mongos3)**<br>Configuration and resource allocation for mongos in a MongoDB 4.4 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra3)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.4 cluster. 
 
 
 ### Mongod {#Mongod3}
@@ -239,7 +239,7 @@ mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra3)**<br>Configuration and
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet4_4`**<br>Configuration for mongod 4.4 hosts. 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg3}
@@ -247,7 +247,7 @@ resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated t
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet4_4`**<br>Configuration for mongocfg 4.4 hosts. 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos3}
@@ -255,7 +255,7 @@ resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated t
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet4_4`**<br>Configuration for mongos 4.4 hosts. 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra3}
@@ -264,7 +264,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet4_4](#MongosConfigSet4_4)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet4_4](#MongoCfgConfigSet4_4)**<br> 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Access {#Access}
@@ -279,8 +279,8 @@ data_lens | **bool**<br>Allow access for DataLens
 Field | Description
 --- | ---
 policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](../maintenance.proto#AnytimeMaintenanceWindow)**<br> 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](../maintenance.proto#WeeklyMaintenanceWindow)**<br> 
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow)**<br> 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow)**<br> 
 
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow}
@@ -316,14 +316,14 @@ Field | Description
 folder_id | **string**<br>Required. ID of the folder to list MongoDB clusters in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClustersResponse.next_page_token](#ListClustersResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListClustersResponse.next_page_token](#ListClustersResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently you can only use filtering with the [Cluster.name](../cluster.proto#Cluster1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Мust be 1-63 characters long and match the regular expression `^[a-zA-Z0-9_-]+$`.</li></ol> The maximum string length in characters is 1000.
+filter | **string**<br><ol><li>The field name. Currently you can only use filtering with the [Cluster.name](#Cluster1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Мust be 1-63 characters long and match the regular expression `^[a-zA-Z0-9_-]+$`.</li></ol> The maximum string length in characters is 1000.
 
 
 ### ListClustersResponse {#ListClustersResponse}
 
 Field | Description
 --- | ---
-clusters[] | **[Cluster](../cluster.proto#Cluster1)**<br>List of MongoDB Cluster resources. 
+clusters[] | **[Cluster](#Cluster1)**<br>List of MongoDB Cluster resources. 
 next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClustersRequest.page_size](#ListClustersRequest), use the `next_page_token` as the value for the [ListClustersRequest.page_token](#ListClustersRequest) parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
@@ -338,14 +338,14 @@ name | **string**<br>Name of the MongoDB cluster. The name is unique within the 
 description | **string**<br>Description of the MongoDB cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the MongoDB cluster as `` key:value `` pairs. Maximum 64 per resource. 
 environment | enum **Environment**<br>Deployment environment of the MongoDB cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
-monitoring[] | **[Monitoring](../cluster.proto#Monitoring1)**<br>Description of monitoring systems relevant to the MongoDB cluster. 
-config | **[ClusterConfig](../cluster.proto#ClusterConfig1)**<br>Configuration of the MongoDB cluster. 
+monitoring[] | **[Monitoring](#Monitoring1)**<br>Description of monitoring systems relevant to the MongoDB cluster. 
+config | **[ClusterConfig](#ClusterConfig1)**<br>Configuration of the MongoDB cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](../cluster.proto#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](../cluster.proto#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](../cluster.proto#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](../cluster.proto#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
 sharded | **bool**<br>Indicates current sharding status of the cluster. 
-maintenance_window | **[MaintenanceWindow](../maintenance.proto#MaintenanceWindow1)**<br>Window of maintenance operations. 
-planned_operation | **[MaintenanceOperation](../maintenance.proto#MaintenanceOperation1)**<br>Maintenance operation planned at nearest maintenance_window. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow1)**<br>Window of maintenance operations. 
+planned_operation | **[MaintenanceOperation](#MaintenanceOperation1)**<br>Maintenance operation planned at nearest maintenance_window. 
 
 
 ### Monitoring {#Monitoring1}
@@ -364,23 +364,23 @@ Field | Description
 version | **string**<br>Version of MongoDB server software. Possible values: `3.6`, `4.0`, `4.2`, `4.4`. 
 feature_compatibility_version | **string**<br><ul><li>`3.6` — persist data compatibility for version 3.6. After setting this option the data will not be compatible with 3.4 or lower. </li><li>`4.0` — persist data compatibility for version 4.0. After setting this option the data will not be compatible with 3.6 or lower. </li><li>`4.2` — persist data compatibility for version 4.2. After setting this option the data will not be compatible with 4.0 or lower. </li><li>`4.4` — persist data compatibility for version 4.4. After setting this option the data will not be compatible with 4.2 or lower.</li></ul> 
 mongodb | **oneof:** `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2` or `mongodb_4_4`<br>Configuration for MongoDB servers in the cluster.
-&nbsp;&nbsp;mongodb_3_6 | **[Mongodb3_6](../cluster.proto#Mongodb3_61)**<br>Configuration and resource allocation for a MongoDB 3.6 cluster. 
-&nbsp;&nbsp;mongodb_4_0 | **[Mongodb4_0](../cluster.proto#Mongodb4_01)**<br>Configuration and resource allocation for a MongoDB 4.0 cluster. 
-&nbsp;&nbsp;mongodb_4_2 | **[Mongodb4_2](../cluster.proto#Mongodb4_21)**<br>Configuration and resource allocation for a MongoDB 4.2 cluster. 
-&nbsp;&nbsp;mongodb_4_4 | **[Mongodb4_4](../cluster.proto#Mongodb4_41)**<br>Configuration and resource allocation for a MongoDB 4.4 cluster. 
+&nbsp;&nbsp;mongodb_3_6 | **[Mongodb3_6](#Mongodb3_61)**<br>Configuration and resource allocation for a MongoDB 3.6 cluster. 
+&nbsp;&nbsp;mongodb_4_0 | **[Mongodb4_0](#Mongodb4_01)**<br>Configuration and resource allocation for a MongoDB 4.0 cluster. 
+&nbsp;&nbsp;mongodb_4_2 | **[Mongodb4_2](#Mongodb4_21)**<br>Configuration and resource allocation for a MongoDB 4.2 cluster. 
+&nbsp;&nbsp;mongodb_4_4 | **[Mongodb4_4](#Mongodb4_41)**<br>Configuration and resource allocation for a MongoDB 4.4 cluster. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retain period of automatically created backup in days 
-access | **[Access](../cluster.proto#Access1)**<br>Access policy to DB 
+access | **[Access](#Access1)**<br>Access policy to DB 
 
 
 ### Mongodb3_6 {#Mongodb3_61}
 
 Field | Description
 --- | ---
-mongod | **[Mongod](../cluster.proto#Mongod4)**<br>Configuration and resource allocation for mongod in a MongoDB 3.6 cluster. 
-mongocfg | **[MongoCfg](../cluster.proto#MongoCfg4)**<br>Configuration and resource allocation for mongocfg in a MongoDB 3.6 cluster. 
-mongos | **[Mongos](../cluster.proto#Mongos4)**<br>Configuration and resource allocation for mongos in a MongoDB 3.6 cluster. 
-mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra4)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 3.6 cluster. 
+mongod | **[Mongod](#Mongod4)**<br>Configuration and resource allocation for mongod in a MongoDB 3.6 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg4)**<br>Configuration and resource allocation for mongocfg in a MongoDB 3.6 cluster. 
+mongos | **[Mongos](#Mongos4)**<br>Configuration and resource allocation for mongos in a MongoDB 3.6 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra4)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 3.6 cluster. 
 
 
 ### Mongod {#Mongod4}
@@ -388,7 +388,7 @@ mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra4)**<br>Configuration and
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet3_6`**<br>Configuration for a mongod 3.6 hosts. 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to MongoDB hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to MongoDB hosts. 
 
 
 ### MongoCfg {#MongoCfg4}
@@ -396,7 +396,7 @@ resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated t
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet3_6`**<br> 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos4}
@@ -404,7 +404,7 @@ resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated t
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet3_6`**<br> 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### MongoInfra {#MongoInfra4}
@@ -413,17 +413,17 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet3_6](#MongosConfigSet3_6)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet3_6](#MongoCfgConfigSet3_6)**<br> 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb4_0 {#Mongodb4_01}
 
 Field | Description
 --- | ---
-mongod | **[Mongod](../cluster.proto#Mongod5)**<br>Configuration and resource allocation for mongod in a MongoDB 4.0 cluster. 
-mongocfg | **[MongoCfg](../cluster.proto#MongoCfg5)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.0 cluster. 
-mongos | **[Mongos](../cluster.proto#Mongos5)**<br>Configuration and resource allocation for mongos in a MongoDB 4.0 cluster. 
-mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra5)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.0 cluster. 
+mongod | **[Mongod](#Mongod5)**<br>Configuration and resource allocation for mongod in a MongoDB 4.0 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg5)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.0 cluster. 
+mongos | **[Mongos](#Mongos5)**<br>Configuration and resource allocation for mongos in a MongoDB 4.0 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra5)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.0 cluster. 
 
 
 ### Mongod {#Mongod5}
@@ -431,7 +431,7 @@ mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra5)**<br>Configuration and
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet4_0`**<br>Configuration for mongod 4.0 hosts. 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg5}
@@ -439,7 +439,7 @@ resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated t
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet4_0`**<br>Configuration for mongocfg 4.0 hosts. 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos5}
@@ -447,7 +447,7 @@ resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated t
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet4_0`**<br>Configuration for mongos 4.0 hosts. 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra5}
@@ -456,17 +456,17 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet4_0](#MongosConfigSet4_0)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet4_0](#MongoCfgConfigSet4_0)**<br> 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb4_2 {#Mongodb4_21}
 
 Field | Description
 --- | ---
-mongod | **[Mongod](../cluster.proto#Mongod6)**<br>Configuration and resource allocation for mongod in a MongoDB 4.2 cluster. 
-mongocfg | **[MongoCfg](../cluster.proto#MongoCfg6)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.2 cluster. 
-mongos | **[Mongos](../cluster.proto#Mongos6)**<br>Configuration and resource allocation for mongos in a MongoDB 4.2 cluster. 
-mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra6)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.2 cluster. 
+mongod | **[Mongod](#Mongod6)**<br>Configuration and resource allocation for mongod in a MongoDB 4.2 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg6)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.2 cluster. 
+mongos | **[Mongos](#Mongos6)**<br>Configuration and resource allocation for mongos in a MongoDB 4.2 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra6)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.2 cluster. 
 
 
 ### Mongod {#Mongod6}
@@ -474,7 +474,7 @@ mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra6)**<br>Configuration and
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet4_2`**<br>Configuration for mongod 4.2 hosts. 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg6}
@@ -482,7 +482,7 @@ resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated t
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet4_2`**<br>Configuration for mongocfg 4.2 hosts. 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos6}
@@ -490,7 +490,7 @@ resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated t
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet4_2`**<br>Configuration for mongos 4.2 hosts. 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra6}
@@ -499,17 +499,17 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet4_2](#MongosConfigSet4_2)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet4_2](#MongoCfgConfigSet4_2)**<br> 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb4_4 {#Mongodb4_41}
 
 Field | Description
 --- | ---
-mongod | **[Mongod](../cluster.proto#Mongod7)**<br>Configuration and resource allocation for mongod in a MongoDB 4.4 cluster. 
-mongocfg | **[MongoCfg](../cluster.proto#MongoCfg7)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.4 cluster. 
-mongos | **[Mongos](../cluster.proto#Mongos7)**<br>Configuration and resource allocation for mongos in a MongoDB 4.4 cluster. 
-mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra7)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.4 cluster. 
+mongod | **[Mongod](#Mongod7)**<br>Configuration and resource allocation for mongod in a MongoDB 4.4 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg7)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.4 cluster. 
+mongos | **[Mongos](#Mongos7)**<br>Configuration and resource allocation for mongos in a MongoDB 4.4 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra7)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.4 cluster. 
 
 
 ### Mongod {#Mongod7}
@@ -517,7 +517,7 @@ mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra7)**<br>Configuration and
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet4_4`**<br>Configuration for mongod 4.4 hosts. 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg7}
@@ -525,7 +525,7 @@ resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated t
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet4_4`**<br>Configuration for mongocfg 4.4 hosts. 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos7}
@@ -533,7 +533,7 @@ resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated t
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet4_4`**<br>Configuration for mongos 4.4 hosts. 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra7}
@@ -542,7 +542,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet4_4](#MongosConfigSet4_4)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet4_4](#MongoCfgConfigSet4_4)**<br> 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Access {#Access1}
@@ -557,8 +557,8 @@ data_lens | **bool**<br>Allow access for DataLens
 Field | Description
 --- | ---
 policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](../maintenance.proto#AnytimeMaintenanceWindow1)**<br> 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](../maintenance.proto#WeeklyMaintenanceWindow1)**<br> 
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow1)**<br> 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow1)**<br> 
 
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow1}
@@ -589,7 +589,7 @@ Creates a MongoDB cluster in the specified folder.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateClusterMetadata](#CreateClusterMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](../cluster.proto#Cluster2)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster2)<br>
 
 ### CreateClusterRequest {#CreateClusterRequest}
 
@@ -599,10 +599,10 @@ folder_id | **string**<br>Required. ID of the folder to create MongoDB cluster i
 name | **string**<br>Required. Name of the MongoDB cluster. The name must be unique within the folder. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
 description | **string**<br>Description of the MongoDB cluster. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Custom labels for the MongoDB cluster as `` key:value `` pairs. Maximum 64 per resource. For example, "project": "mvp" or "source": "dictionary". No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
-environment | **[Cluster.Environment](../cluster.proto#Cluster2)**<br>Required. Deployment environment of the MongoDB cluster. 
+environment | **[Cluster.Environment](#Cluster2)**<br>Required. Deployment environment of the MongoDB cluster. 
 config_spec | **[ConfigSpec](#ConfigSpec)**<br>Required. Configuration and resources for hosts that should be created for the MongoDB cluster. 
-database_specs[] | **[DatabaseSpec](../database.proto#DatabaseSpec)**<br>Descriptions of databases to be created in the MongoDB cluster. The number of elements must be greater than 0.
-user_specs[] | **[UserSpec](../user.proto#UserSpec)**<br>Descriptions of database users to be created in the MongoDB cluster. The number of elements must be greater than 0.
+database_specs[] | **[DatabaseSpec](#DatabaseSpec)**<br>Descriptions of databases to be created in the MongoDB cluster. The number of elements must be greater than 0.
+user_specs[] | **[UserSpec](#UserSpec)**<br>Descriptions of database users to be created in the MongoDB cluster. The number of elements must be greater than 0.
 host_specs[] | **[HostSpec](#HostSpec)**<br>Individual configurations for hosts that should be created for the MongoDB cluster. The number of elements must be greater than 0.
 network_id | **string**<br>Required. ID of the network to create the cluster in. The maximum string length in characters is 50.
 
@@ -620,17 +620,17 @@ mongodb_spec | **oneof:** `mongodb_spec_3_6`, `mongodb_spec_4_0`, `mongodb_spec_
 &nbsp;&nbsp;mongodb_spec_4_4 | **[MongodbSpec4_4](#MongodbSpec4_4)**<br>Configuration and resource allocation for a MongoDB 4.4 cluster. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retain period of automatically created backup in days Acceptable values are 7 to 35, inclusive.
-access | **[Access](../cluster.proto#Access2)**<br>Access policy to DB 
+access | **[Access](#Access2)**<br>Access policy to DB 
 
 
 ### MongodbSpec3_6 {#MongodbSpec3_6}
 
 Field | Description
 --- | ---
-mongod | **[Mongod](../cluster.proto#Mongod8)**<br>Configuration and resource allocation for mongod 3.6 hosts. 
-mongocfg | **[MongoCfg](../cluster.proto#MongoCfg8)**<br>Configuration and resource allocation for mongocfg 3.6 hosts. 
-mongos | **[Mongos](../cluster.proto#Mongos8)**<br>Configuration and resource allocation for mongos 3.6 hosts. 
-mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra8)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 3.6 hosts. 
+mongod | **[Mongod](#Mongod8)**<br>Configuration and resource allocation for mongod 3.6 hosts. 
+mongocfg | **[MongoCfg](#MongoCfg8)**<br>Configuration and resource allocation for mongocfg 3.6 hosts. 
+mongos | **[Mongos](#Mongos8)**<br>Configuration and resource allocation for mongos 3.6 hosts. 
+mongoinfra | **[MongoInfra](#MongoInfra8)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 3.6 hosts. 
 
 
 ### Mongod {#Mongod8}
@@ -638,7 +638,7 @@ mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra8)**<br>Configuration and
 Field | Description
 --- | ---
 config | **`config.MongodConfig3_6`**<br>Configuration for mongod 3.6 hosts. 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongod host. 
+resources | **[Resources](#Resources)**<br>Resources allocated to each mongod host. 
 
 
 ### MongoCfg {#MongoCfg8}
@@ -646,7 +646,7 @@ resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated t
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfig3_6`**<br>Configuration for mongocfg 3.6 hosts. 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongocfg host. 
+resources | **[Resources](#Resources)**<br>Resources allocated to each mongocfg host. 
 
 
 ### Mongos {#Mongos8}
@@ -654,7 +654,7 @@ resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated t
 Field | Description
 --- | ---
 config | **`config.MongosConfig3_6`**<br>Configuration for mongos 3.6 hosts. 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongos host. 
+resources | **[Resources](#Resources)**<br>Resources allocated to each mongos host. 
 
 
 ### MongoInfra {#MongoInfra8}
@@ -663,17 +663,17 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfig3_6](#MongosConfig3_6)**<br>Configuration for mongoinfra 3.6 hosts. 
 config_mongocfg | **[config.MongoCfgConfig3_6](#MongoCfgConfig3_6)**<br> 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
+resources | **[Resources](#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
 
 
 ### MongodbSpec4_0 {#MongodbSpec4_0}
 
 Field | Description
 --- | ---
-mongod | **[Mongod](../cluster.proto#Mongod9)**<br>Configuration and resource allocation for mongod 4.0 hosts. 
-mongocfg | **[MongoCfg](../cluster.proto#MongoCfg9)**<br>Configuration and resource allocation for mongocfg 4.0 hosts. 
-mongos | **[Mongos](../cluster.proto#Mongos9)**<br>Configuration and resource allocation for mongos 4.0 hosts. 
-mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra9)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.0 hosts. 
+mongod | **[Mongod](#Mongod9)**<br>Configuration and resource allocation for mongod 4.0 hosts. 
+mongocfg | **[MongoCfg](#MongoCfg9)**<br>Configuration and resource allocation for mongocfg 4.0 hosts. 
+mongos | **[Mongos](#Mongos9)**<br>Configuration and resource allocation for mongos 4.0 hosts. 
+mongoinfra | **[MongoInfra](#MongoInfra9)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.0 hosts. 
 
 
 ### Mongod {#Mongod9}
@@ -681,7 +681,7 @@ mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra9)**<br>Configuration and
 Field | Description
 --- | ---
 config | **`config.MongodConfig4_0`**<br>Configuration for mongod 4.0 hosts. 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongod host. 
+resources | **[Resources](#Resources)**<br>Resources allocated to each mongod host. 
 
 
 ### MongoCfg {#MongoCfg9}
@@ -689,7 +689,7 @@ resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated t
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfig4_0`**<br>Configuration for mongocfg 4.0 hosts. 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongocfg host. 
+resources | **[Resources](#Resources)**<br>Resources allocated to each mongocfg host. 
 
 
 ### Mongos {#Mongos9}
@@ -697,7 +697,7 @@ resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated t
 Field | Description
 --- | ---
 config | **`config.MongosConfig4_0`**<br>Configuration for mongos 4.0 hosts. 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongos host. 
+resources | **[Resources](#Resources)**<br>Resources allocated to each mongos host. 
 
 
 ### MongoInfra {#MongoInfra9}
@@ -706,17 +706,17 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfig4_0](#MongosConfig4_0)**<br>Configuration for mongoinfra 4.0 hosts. 
 config_mongocfg | **[config.MongoCfgConfig4_0](#MongoCfgConfig4_0)**<br> 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
+resources | **[Resources](#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
 
 
 ### MongodbSpec4_2 {#MongodbSpec4_2}
 
 Field | Description
 --- | ---
-mongod | **[Mongod](../cluster.proto#Mongod10)**<br>Configuration and resource allocation for mongod 4.2 hosts. 
-mongocfg | **[MongoCfg](../cluster.proto#MongoCfg10)**<br>Configuration and resource allocation for mongocfg 4.2 hosts. 
-mongos | **[Mongos](../cluster.proto#Mongos10)**<br>Configuration and resource allocation for mongos 4.2 hosts. 
-mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra10)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.2 hosts. 
+mongod | **[Mongod](#Mongod10)**<br>Configuration and resource allocation for mongod 4.2 hosts. 
+mongocfg | **[MongoCfg](#MongoCfg10)**<br>Configuration and resource allocation for mongocfg 4.2 hosts. 
+mongos | **[Mongos](#Mongos10)**<br>Configuration and resource allocation for mongos 4.2 hosts. 
+mongoinfra | **[MongoInfra](#MongoInfra10)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.2 hosts. 
 
 
 ### Mongod {#Mongod10}
@@ -724,7 +724,7 @@ mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra10)**<br>Configuration an
 Field | Description
 --- | ---
 config | **`config.MongodConfig4_2`**<br>Configuration for mongod 4.2 hosts. 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongod host. 
+resources | **[Resources](#Resources)**<br>Resources allocated to each mongod host. 
 
 
 ### MongoCfg {#MongoCfg10}
@@ -732,7 +732,7 @@ resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated t
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfig4_2`**<br>Configuration for mongocfg 4.2 hosts. 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongocfg host. 
+resources | **[Resources](#Resources)**<br>Resources allocated to each mongocfg host. 
 
 
 ### Mongos {#Mongos10}
@@ -740,7 +740,7 @@ resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated t
 Field | Description
 --- | ---
 config | **`config.MongosConfig4_2`**<br>Configuration for mongos 4.2 hosts. 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongos host. 
+resources | **[Resources](#Resources)**<br>Resources allocated to each mongos host. 
 
 
 ### MongoInfra {#MongoInfra10}
@@ -749,17 +749,17 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfig4_2](#MongosConfig4_2)**<br>Configuration for mongoinfra 4.2 hosts. 
 config_mongocfg | **[config.MongoCfgConfig4_2](#MongoCfgConfig4_2)**<br> 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
+resources | **[Resources](#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
 
 
 ### MongodbSpec4_4 {#MongodbSpec4_4}
 
 Field | Description
 --- | ---
-mongod | **[Mongod](../cluster.proto#Mongod11)**<br>Configuration and resource allocation for mongod 4.4 hosts. 
-mongocfg | **[MongoCfg](../cluster.proto#MongoCfg11)**<br>Configuration and resource allocation for mongocfg 4.4 hosts. 
-mongos | **[Mongos](../cluster.proto#Mongos11)**<br>Configuration and resource allocation for mongos 4.4 hosts. 
-mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra11)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.4 hosts. 
+mongod | **[Mongod](#Mongod11)**<br>Configuration and resource allocation for mongod 4.4 hosts. 
+mongocfg | **[MongoCfg](#MongoCfg11)**<br>Configuration and resource allocation for mongocfg 4.4 hosts. 
+mongos | **[Mongos](#Mongos11)**<br>Configuration and resource allocation for mongos 4.4 hosts. 
+mongoinfra | **[MongoInfra](#MongoInfra11)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.4 hosts. 
 
 
 ### Mongod {#Mongod11}
@@ -767,7 +767,7 @@ mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra11)**<br>Configuration an
 Field | Description
 --- | ---
 config | **`config.MongodConfig4_4`**<br>Configuration for mongod 4.4 hosts. 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongod host. 
+resources | **[Resources](#Resources)**<br>Resources allocated to each mongod host. 
 
 
 ### MongoCfg {#MongoCfg11}
@@ -775,7 +775,7 @@ resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated t
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfig4_4`**<br>Configuration for mongocfg 4.4 hosts. 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongocfg host. 
+resources | **[Resources](#Resources)**<br>Resources allocated to each mongocfg host. 
 
 
 ### Mongos {#Mongos11}
@@ -783,7 +783,7 @@ resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated t
 Field | Description
 --- | ---
 config | **`config.MongosConfig4_4`**<br>Configuration for mongos 4.4 hosts. 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongos host. 
+resources | **[Resources](#Resources)**<br>Resources allocated to each mongos host. 
 
 
 ### MongoInfra {#MongoInfra11}
@@ -792,7 +792,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfig4_4](#MongosConfig4_4)**<br>Configuration for mongoinfra 4.4 hosts. 
 config_mongocfg | **[config.MongoCfgConfig4_4](#MongoCfgConfig4_4)**<br> 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
+resources | **[Resources](#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
 
 
 ### Access {#Access2}
@@ -815,7 +815,7 @@ Field | Description
 --- | ---
 name | **string**<br>Required. Name of the MongoDB user. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
 password | **string**<br>Required. Password of the MongoDB user. The string length in characters must be 8-128.
-permissions[] | **[Permission](../user.proto#Permission)**<br>Set of permissions to grant to the user. 
+permissions[] | **[Permission](#Permission)**<br>Set of permissions to grant to the user. 
 
 
 ### Permission {#Permission}
@@ -831,9 +831,9 @@ roles[] | **string**<br>MongoDB roles for the `database_name` database that the 
 Field | Description
 --- | ---
 zone_id | **string**<br>ID of the availability zone where the host resides. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/grpc/zone_service#List) request. The maximum string length in characters is 50.
-subnet_id | **string**<br>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The network ID is set in the [Cluster.network_id](../cluster.proto#Cluster2) field. The maximum string length in characters is 50.
+subnet_id | **string**<br>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The network ID is set in the [Cluster.network_id](#Cluster2) field. The maximum string length in characters is 50.
 assign_public_ip | **bool**<br><ul><li>false — don't assign a public IP to the host. </li><li>true — the host should have a public IP address.</li></ul> 
-type | **[Host.Type](../cluster.proto#Host)**<br>Type of the host to be deployed. 
+type | **[Host.Type](#Host)**<br>Type of the host to be deployed. 
 shard_name | **string**<br>Name of the shard that the host belongs to. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
@@ -850,7 +850,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateClusterMetadata](#CreateClusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](../cluster.proto#Cluster2)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster2)>**<br>if operation finished successfully. 
 
 
 ### CreateClusterMetadata {#CreateClusterMetadata}
@@ -871,14 +871,247 @@ name | **string**<br>Name of the MongoDB cluster. The name is unique within the 
 description | **string**<br>Description of the MongoDB cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the MongoDB cluster as `` key:value `` pairs. Maximum 64 per resource. 
 environment | enum **Environment**<br>Deployment environment of the MongoDB cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
-monitoring[] | **[Monitoring](../cluster.proto#Monitoring2)**<br>Description of monitoring systems relevant to the MongoDB cluster. 
-config | **[ClusterConfig](../cluster.proto#ClusterConfig2)**<br>Configuration of the MongoDB cluster. 
+monitoring[] | **[Monitoring](#Monitoring2)**<br>Description of monitoring systems relevant to the MongoDB cluster. 
+config | **[ClusterConfig](#ClusterConfig2)**<br>Configuration of the MongoDB cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](../cluster.proto#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](../cluster.proto#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](../cluster.proto#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](../cluster.proto#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
 sharded | **bool**<br>Indicates current sharding status of the cluster. 
-maintenance_window | **[MaintenanceWindow](../maintenance.proto#MaintenanceWindow2)**<br>Window of maintenance operations. 
-planned_operation | **[MaintenanceOperation](../maintenance.proto#MaintenanceOperation2)**<br>Maintenance operation planned at nearest maintenance_window. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow2)**<br>Window of maintenance operations. 
+planned_operation | **[MaintenanceOperation](#MaintenanceOperation2)**<br>Maintenance operation planned at nearest maintenance_window. 
+
+
+### Monitoring {#Monitoring2}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the monitoring system. 
+description | **string**<br>Description of the monitoring system. 
+link | **string**<br>Link to the monitoring system charts for the MongoDB cluster. 
+
+
+### ClusterConfig {#ClusterConfig2}
+
+Field | Description
+--- | ---
+version | **string**<br>Version of MongoDB server software. Possible values: `3.6`, `4.0`, `4.2`, `4.4`. 
+feature_compatibility_version | **string**<br><ul><li>`3.6` — persist data compatibility for version 3.6. After setting this option the data will not be compatible with 3.4 or lower. </li><li>`4.0` — persist data compatibility for version 4.0. After setting this option the data will not be compatible with 3.6 or lower. </li><li>`4.2` — persist data compatibility for version 4.2. After setting this option the data will not be compatible with 4.0 or lower. </li><li>`4.4` — persist data compatibility for version 4.4. After setting this option the data will not be compatible with 4.2 or lower.</li></ul> 
+mongodb | **oneof:** `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2` or `mongodb_4_4`<br>Configuration for MongoDB servers in the cluster.
+&nbsp;&nbsp;mongodb_3_6 | **[Mongodb3_6](#Mongodb3_62)**<br>Configuration and resource allocation for a MongoDB 3.6 cluster. 
+&nbsp;&nbsp;mongodb_4_0 | **[Mongodb4_0](#Mongodb4_02)**<br>Configuration and resource allocation for a MongoDB 4.0 cluster. 
+&nbsp;&nbsp;mongodb_4_2 | **[Mongodb4_2](#Mongodb4_22)**<br>Configuration and resource allocation for a MongoDB 4.2 cluster. 
+&nbsp;&nbsp;mongodb_4_4 | **[Mongodb4_4](#Mongodb4_42)**<br>Configuration and resource allocation for a MongoDB 4.4 cluster. 
+backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
+backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retain period of automatically created backup in days 
+access | **[Access](#Access3)**<br>Access policy to DB 
+
+
+### Mongodb3_6 {#Mongodb3_62}
+
+Field | Description
+--- | ---
+mongod | **[Mongod](#Mongod12)**<br>Configuration and resource allocation for mongod in a MongoDB 3.6 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg12)**<br>Configuration and resource allocation for mongocfg in a MongoDB 3.6 cluster. 
+mongos | **[Mongos](#Mongos12)**<br>Configuration and resource allocation for mongos in a MongoDB 3.6 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra12)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 3.6 cluster. 
+
+
+### Mongod {#Mongod12}
+
+Field | Description
+--- | ---
+config | **`config.MongodConfigSet3_6`**<br>Configuration for a mongod 3.6 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to MongoDB hosts. 
+
+
+### MongoCfg {#MongoCfg12}
+
+Field | Description
+--- | ---
+config | **`config.MongoCfgConfigSet3_6`**<br> 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+
+
+### Mongos {#Mongos12}
+
+Field | Description
+--- | ---
+config | **`config.MongosConfigSet3_6`**<br> 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+
+
+### MongoInfra {#MongoInfra12}
+
+Field | Description
+--- | ---
+config_mongos | **[config.MongosConfigSet3_6](#MongosConfigSet3_6)**<br> 
+config_mongocfg | **[config.MongoCfgConfigSet3_6](#MongoCfgConfigSet3_6)**<br> 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+
+
+### Mongodb4_0 {#Mongodb4_02}
+
+Field | Description
+--- | ---
+mongod | **[Mongod](#Mongod13)**<br>Configuration and resource allocation for mongod in a MongoDB 4.0 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg13)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.0 cluster. 
+mongos | **[Mongos](#Mongos13)**<br>Configuration and resource allocation for mongos in a MongoDB 4.0 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra13)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.0 cluster. 
+
+
+### Mongod {#Mongod13}
+
+Field | Description
+--- | ---
+config | **`config.MongodConfigSet4_0`**<br>Configuration for mongod 4.0 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+
+
+### MongoCfg {#MongoCfg13}
+
+Field | Description
+--- | ---
+config | **`config.MongoCfgConfigSet4_0`**<br>Configuration for mongocfg 4.0 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+
+
+### Mongos {#Mongos13}
+
+Field | Description
+--- | ---
+config | **`config.MongosConfigSet4_0`**<br>Configuration for mongos 4.0 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+
+
+### MongoInfra {#MongoInfra13}
+
+Field | Description
+--- | ---
+config_mongos | **[config.MongosConfigSet4_0](#MongosConfigSet4_0)**<br> 
+config_mongocfg | **[config.MongoCfgConfigSet4_0](#MongoCfgConfigSet4_0)**<br> 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+
+
+### Mongodb4_2 {#Mongodb4_22}
+
+Field | Description
+--- | ---
+mongod | **[Mongod](#Mongod14)**<br>Configuration and resource allocation for mongod in a MongoDB 4.2 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg14)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.2 cluster. 
+mongos | **[Mongos](#Mongos14)**<br>Configuration and resource allocation for mongos in a MongoDB 4.2 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra14)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.2 cluster. 
+
+
+### Mongod {#Mongod14}
+
+Field | Description
+--- | ---
+config | **`config.MongodConfigSet4_2`**<br>Configuration for mongod 4.2 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+
+
+### MongoCfg {#MongoCfg14}
+
+Field | Description
+--- | ---
+config | **`config.MongoCfgConfigSet4_2`**<br>Configuration for mongocfg 4.2 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+
+
+### Mongos {#Mongos14}
+
+Field | Description
+--- | ---
+config | **`config.MongosConfigSet4_2`**<br>Configuration for mongos 4.2 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+
+
+### MongoInfra {#MongoInfra14}
+
+Field | Description
+--- | ---
+config_mongos | **[config.MongosConfigSet4_2](#MongosConfigSet4_2)**<br> 
+config_mongocfg | **[config.MongoCfgConfigSet4_2](#MongoCfgConfigSet4_2)**<br> 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+
+
+### Mongodb4_4 {#Mongodb4_42}
+
+Field | Description
+--- | ---
+mongod | **[Mongod](#Mongod15)**<br>Configuration and resource allocation for mongod in a MongoDB 4.4 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg15)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.4 cluster. 
+mongos | **[Mongos](#Mongos15)**<br>Configuration and resource allocation for mongos in a MongoDB 4.4 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra15)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.4 cluster. 
+
+
+### Mongod {#Mongod15}
+
+Field | Description
+--- | ---
+config | **`config.MongodConfigSet4_4`**<br>Configuration for mongod 4.4 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+
+
+### MongoCfg {#MongoCfg15}
+
+Field | Description
+--- | ---
+config | **`config.MongoCfgConfigSet4_4`**<br>Configuration for mongocfg 4.4 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+
+
+### Mongos {#Mongos15}
+
+Field | Description
+--- | ---
+config | **`config.MongosConfigSet4_4`**<br>Configuration for mongos 4.4 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+
+
+### MongoInfra {#MongoInfra15}
+
+Field | Description
+--- | ---
+config_mongos | **[config.MongosConfigSet4_4](#MongosConfigSet4_4)**<br> 
+config_mongocfg | **[config.MongoCfgConfigSet4_4](#MongoCfgConfigSet4_4)**<br> 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+
+
+### Access {#Access3}
+
+Field | Description
+--- | ---
+data_lens | **bool**<br>Allow access for DataLens 
+
+
+### MaintenanceWindow {#MaintenanceWindow2}
+
+Field | Description
+--- | ---
+policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow2)**<br> 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow2)**<br> 
+
+
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow2}
+
+
+
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow2}
+
+Field | Description
+--- | ---
+day | enum **WeekDay**<br> <ul><ul/>
+hour | **int64**<br>Hour of the day in UTC. Acceptable values are 1 to 24, inclusive.
+
+
+### MaintenanceOperation {#MaintenanceOperation2}
+
+Field | Description
+--- | ---
+info | **string**<br> The maximum string length in characters is 256.
+delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
 
 
 ## Update {#Update}
@@ -889,7 +1122,7 @@ Updates the specified MongoDB cluster.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateClusterMetadata](#UpdateClusterMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](../cluster.proto#Cluster3)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster3)<br>
 
 ### UpdateClusterRequest {#UpdateClusterRequest}
 
@@ -901,7 +1134,7 @@ description | **string**<br>New description of the MongoDB cluster. The maximum 
 labels | **map<string,string>**<br>Custom labels for the MongoDB cluster as `` key:value `` pairs. Maximum 64 per resource. For example, "project": "mvp" or "source": "dictionary". <br>The new set of labels will completely replace the old ones. To add a label, request the current set with the [ClusterService.Get](#Get) method, then send an [ClusterService.Update](#Update) request with the new label added to the set. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 config_spec | **[ConfigSpec](#ConfigSpec)**<br>New configuration and resources for hosts in the cluster. 
 name | **string**<br>New name for the cluster. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
-maintenance_window | **[MaintenanceWindow](../maintenance.proto#MaintenanceWindow2)**<br>Window of maintenance operations. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow3)**<br>Window of maintenance operations. 
 
 
 ### ConfigSpec {#ConfigSpec1}
@@ -917,202 +1150,202 @@ mongodb_spec | **oneof:** `mongodb_spec_3_6`, `mongodb_spec_4_0`, `mongodb_spec_
 &nbsp;&nbsp;mongodb_spec_4_4 | **[MongodbSpec4_4](#MongodbSpec4_4)**<br>Configuration and resource allocation for a MongoDB 4.4 cluster. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retain period of automatically created backup in days Acceptable values are 7 to 35, inclusive.
-access | **[Access](../cluster.proto#Access3)**<br>Access policy to DB 
+access | **[Access](#Access4)**<br>Access policy to DB 
 
 
 ### MongodbSpec3_6 {#MongodbSpec3_61}
 
 Field | Description
 --- | ---
-mongod | **[Mongod](../cluster.proto#Mongod12)**<br>Configuration and resource allocation for mongod 3.6 hosts. 
-mongocfg | **[MongoCfg](../cluster.proto#MongoCfg12)**<br>Configuration and resource allocation for mongocfg 3.6 hosts. 
-mongos | **[Mongos](../cluster.proto#Mongos12)**<br>Configuration and resource allocation for mongos 3.6 hosts. 
-mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra12)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 3.6 hosts. 
+mongod | **[Mongod](#Mongod16)**<br>Configuration and resource allocation for mongod 3.6 hosts. 
+mongocfg | **[MongoCfg](#MongoCfg16)**<br>Configuration and resource allocation for mongocfg 3.6 hosts. 
+mongos | **[Mongos](#Mongos16)**<br>Configuration and resource allocation for mongos 3.6 hosts. 
+mongoinfra | **[MongoInfra](#MongoInfra16)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 3.6 hosts. 
 
 
-### Mongod {#Mongod12}
+### Mongod {#Mongod16}
 
 Field | Description
 --- | ---
 config | **`config.MongodConfig3_6`**<br>Configuration for mongod 3.6 hosts. 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongod host. 
+resources | **[Resources](#Resources)**<br>Resources allocated to each mongod host. 
 
 
-### MongoCfg {#MongoCfg12}
+### MongoCfg {#MongoCfg16}
 
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfig3_6`**<br>Configuration for mongocfg 3.6 hosts. 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongocfg host. 
+resources | **[Resources](#Resources)**<br>Resources allocated to each mongocfg host. 
 
 
-### Mongos {#Mongos12}
+### Mongos {#Mongos16}
 
 Field | Description
 --- | ---
 config | **`config.MongosConfig3_6`**<br>Configuration for mongos 3.6 hosts. 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongos host. 
+resources | **[Resources](#Resources)**<br>Resources allocated to each mongos host. 
 
 
-### MongoInfra {#MongoInfra12}
+### MongoInfra {#MongoInfra16}
 
 Field | Description
 --- | ---
 config_mongos | **[config.MongosConfig3_6](#MongosConfig3_6)**<br>Configuration for mongoinfra 3.6 hosts. 
 config_mongocfg | **[config.MongoCfgConfig3_6](#MongoCfgConfig3_6)**<br> 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
+resources | **[Resources](#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
 
 
 ### MongodbSpec4_0 {#MongodbSpec4_01}
 
 Field | Description
 --- | ---
-mongod | **[Mongod](../cluster.proto#Mongod13)**<br>Configuration and resource allocation for mongod 4.0 hosts. 
-mongocfg | **[MongoCfg](../cluster.proto#MongoCfg13)**<br>Configuration and resource allocation for mongocfg 4.0 hosts. 
-mongos | **[Mongos](../cluster.proto#Mongos13)**<br>Configuration and resource allocation for mongos 4.0 hosts. 
-mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra13)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.0 hosts. 
+mongod | **[Mongod](#Mongod17)**<br>Configuration and resource allocation for mongod 4.0 hosts. 
+mongocfg | **[MongoCfg](#MongoCfg17)**<br>Configuration and resource allocation for mongocfg 4.0 hosts. 
+mongos | **[Mongos](#Mongos17)**<br>Configuration and resource allocation for mongos 4.0 hosts. 
+mongoinfra | **[MongoInfra](#MongoInfra17)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.0 hosts. 
 
 
-### Mongod {#Mongod13}
+### Mongod {#Mongod17}
 
 Field | Description
 --- | ---
 config | **`config.MongodConfig4_0`**<br>Configuration for mongod 4.0 hosts. 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongod host. 
+resources | **[Resources](#Resources)**<br>Resources allocated to each mongod host. 
 
 
-### MongoCfg {#MongoCfg13}
+### MongoCfg {#MongoCfg17}
 
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfig4_0`**<br>Configuration for mongocfg 4.0 hosts. 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongocfg host. 
+resources | **[Resources](#Resources)**<br>Resources allocated to each mongocfg host. 
 
 
-### Mongos {#Mongos13}
+### Mongos {#Mongos17}
 
 Field | Description
 --- | ---
 config | **`config.MongosConfig4_0`**<br>Configuration for mongos 4.0 hosts. 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongos host. 
+resources | **[Resources](#Resources)**<br>Resources allocated to each mongos host. 
 
 
-### MongoInfra {#MongoInfra13}
+### MongoInfra {#MongoInfra17}
 
 Field | Description
 --- | ---
 config_mongos | **[config.MongosConfig4_0](#MongosConfig4_0)**<br>Configuration for mongoinfra 4.0 hosts. 
 config_mongocfg | **[config.MongoCfgConfig4_0](#MongoCfgConfig4_0)**<br> 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
+resources | **[Resources](#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
 
 
 ### MongodbSpec4_2 {#MongodbSpec4_21}
 
 Field | Description
 --- | ---
-mongod | **[Mongod](../cluster.proto#Mongod14)**<br>Configuration and resource allocation for mongod 4.2 hosts. 
-mongocfg | **[MongoCfg](../cluster.proto#MongoCfg14)**<br>Configuration and resource allocation for mongocfg 4.2 hosts. 
-mongos | **[Mongos](../cluster.proto#Mongos14)**<br>Configuration and resource allocation for mongos 4.2 hosts. 
-mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra14)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.2 hosts. 
+mongod | **[Mongod](#Mongod18)**<br>Configuration and resource allocation for mongod 4.2 hosts. 
+mongocfg | **[MongoCfg](#MongoCfg18)**<br>Configuration and resource allocation for mongocfg 4.2 hosts. 
+mongos | **[Mongos](#Mongos18)**<br>Configuration and resource allocation for mongos 4.2 hosts. 
+mongoinfra | **[MongoInfra](#MongoInfra18)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.2 hosts. 
 
 
-### Mongod {#Mongod14}
+### Mongod {#Mongod18}
 
 Field | Description
 --- | ---
 config | **`config.MongodConfig4_2`**<br>Configuration for mongod 4.2 hosts. 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongod host. 
+resources | **[Resources](#Resources)**<br>Resources allocated to each mongod host. 
 
 
-### MongoCfg {#MongoCfg14}
+### MongoCfg {#MongoCfg18}
 
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfig4_2`**<br>Configuration for mongocfg 4.2 hosts. 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongocfg host. 
+resources | **[Resources](#Resources)**<br>Resources allocated to each mongocfg host. 
 
 
-### Mongos {#Mongos14}
+### Mongos {#Mongos18}
 
 Field | Description
 --- | ---
 config | **`config.MongosConfig4_2`**<br>Configuration for mongos 4.2 hosts. 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongos host. 
+resources | **[Resources](#Resources)**<br>Resources allocated to each mongos host. 
 
 
-### MongoInfra {#MongoInfra14}
+### MongoInfra {#MongoInfra18}
 
 Field | Description
 --- | ---
 config_mongos | **[config.MongosConfig4_2](#MongosConfig4_2)**<br>Configuration for mongoinfra 4.2 hosts. 
 config_mongocfg | **[config.MongoCfgConfig4_2](#MongoCfgConfig4_2)**<br> 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
+resources | **[Resources](#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
 
 
 ### MongodbSpec4_4 {#MongodbSpec4_41}
 
 Field | Description
 --- | ---
-mongod | **[Mongod](../cluster.proto#Mongod15)**<br>Configuration and resource allocation for mongod 4.4 hosts. 
-mongocfg | **[MongoCfg](../cluster.proto#MongoCfg15)**<br>Configuration and resource allocation for mongocfg 4.4 hosts. 
-mongos | **[Mongos](../cluster.proto#Mongos15)**<br>Configuration and resource allocation for mongos 4.4 hosts. 
-mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra15)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.4 hosts. 
+mongod | **[Mongod](#Mongod19)**<br>Configuration and resource allocation for mongod 4.4 hosts. 
+mongocfg | **[MongoCfg](#MongoCfg19)**<br>Configuration and resource allocation for mongocfg 4.4 hosts. 
+mongos | **[Mongos](#Mongos19)**<br>Configuration and resource allocation for mongos 4.4 hosts. 
+mongoinfra | **[MongoInfra](#MongoInfra19)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.4 hosts. 
 
 
-### Mongod {#Mongod15}
+### Mongod {#Mongod19}
 
 Field | Description
 --- | ---
 config | **`config.MongodConfig4_4`**<br>Configuration for mongod 4.4 hosts. 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongod host. 
+resources | **[Resources](#Resources)**<br>Resources allocated to each mongod host. 
 
 
-### MongoCfg {#MongoCfg15}
+### MongoCfg {#MongoCfg19}
 
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfig4_4`**<br>Configuration for mongocfg 4.4 hosts. 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongocfg host. 
+resources | **[Resources](#Resources)**<br>Resources allocated to each mongocfg host. 
 
 
-### Mongos {#Mongos15}
+### Mongos {#Mongos19}
 
 Field | Description
 --- | ---
 config | **`config.MongosConfig4_4`**<br>Configuration for mongos 4.4 hosts. 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongos host. 
+resources | **[Resources](#Resources)**<br>Resources allocated to each mongos host. 
 
 
-### MongoInfra {#MongoInfra15}
+### MongoInfra {#MongoInfra19}
 
 Field | Description
 --- | ---
 config_mongos | **[config.MongosConfig4_4](#MongosConfig4_4)**<br>Configuration for mongoinfra 4.4 hosts. 
 config_mongocfg | **[config.MongoCfgConfig4_4](#MongoCfgConfig4_4)**<br> 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
+resources | **[Resources](#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
 
 
-### Access {#Access3}
+### Access {#Access4}
 
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
 
 
-### MaintenanceWindow {#MaintenanceWindow2}
+### MaintenanceWindow {#MaintenanceWindow3}
 
 Field | Description
 --- | ---
 policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](../maintenance.proto#AnytimeMaintenanceWindow2)**<br> 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](../maintenance.proto#WeeklyMaintenanceWindow2)**<br> 
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow3)**<br> 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow3)**<br> 
 
 
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow2}
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow3}
 
 
 
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow2}
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow3}
 
 Field | Description
 --- | ---
@@ -1133,7 +1366,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateClusterMetadata](#UpdateClusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](../cluster.proto#Cluster3)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster3)>**<br>if operation finished successfully. 
 
 
 ### UpdateClusterMetadata {#UpdateClusterMetadata}
@@ -1154,14 +1387,247 @@ name | **string**<br>Name of the MongoDB cluster. The name is unique within the 
 description | **string**<br>Description of the MongoDB cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the MongoDB cluster as `` key:value `` pairs. Maximum 64 per resource. 
 environment | enum **Environment**<br>Deployment environment of the MongoDB cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
-monitoring[] | **[Monitoring](../cluster.proto#Monitoring2)**<br>Description of monitoring systems relevant to the MongoDB cluster. 
-config | **[ClusterConfig](../cluster.proto#ClusterConfig2)**<br>Configuration of the MongoDB cluster. 
+monitoring[] | **[Monitoring](#Monitoring3)**<br>Description of monitoring systems relevant to the MongoDB cluster. 
+config | **[ClusterConfig](#ClusterConfig3)**<br>Configuration of the MongoDB cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](../cluster.proto#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](../cluster.proto#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](../cluster.proto#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](../cluster.proto#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
 sharded | **bool**<br>Indicates current sharding status of the cluster. 
-maintenance_window | **[MaintenanceWindow](../maintenance.proto#MaintenanceWindow3)**<br>Window of maintenance operations. 
-planned_operation | **[MaintenanceOperation](../maintenance.proto#MaintenanceOperation2)**<br>Maintenance operation planned at nearest maintenance_window. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow4)**<br>Window of maintenance operations. 
+planned_operation | **[MaintenanceOperation](#MaintenanceOperation3)**<br>Maintenance operation planned at nearest maintenance_window. 
+
+
+### Monitoring {#Monitoring3}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the monitoring system. 
+description | **string**<br>Description of the monitoring system. 
+link | **string**<br>Link to the monitoring system charts for the MongoDB cluster. 
+
+
+### ClusterConfig {#ClusterConfig3}
+
+Field | Description
+--- | ---
+version | **string**<br>Version of MongoDB server software. Possible values: `3.6`, `4.0`, `4.2`, `4.4`. 
+feature_compatibility_version | **string**<br><ul><li>`3.6` — persist data compatibility for version 3.6. After setting this option the data will not be compatible with 3.4 or lower. </li><li>`4.0` — persist data compatibility for version 4.0. After setting this option the data will not be compatible with 3.6 or lower. </li><li>`4.2` — persist data compatibility for version 4.2. After setting this option the data will not be compatible with 4.0 or lower. </li><li>`4.4` — persist data compatibility for version 4.4. After setting this option the data will not be compatible with 4.2 or lower.</li></ul> 
+mongodb | **oneof:** `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2` or `mongodb_4_4`<br>Configuration for MongoDB servers in the cluster.
+&nbsp;&nbsp;mongodb_3_6 | **[Mongodb3_6](#Mongodb3_63)**<br>Configuration and resource allocation for a MongoDB 3.6 cluster. 
+&nbsp;&nbsp;mongodb_4_0 | **[Mongodb4_0](#Mongodb4_03)**<br>Configuration and resource allocation for a MongoDB 4.0 cluster. 
+&nbsp;&nbsp;mongodb_4_2 | **[Mongodb4_2](#Mongodb4_23)**<br>Configuration and resource allocation for a MongoDB 4.2 cluster. 
+&nbsp;&nbsp;mongodb_4_4 | **[Mongodb4_4](#Mongodb4_43)**<br>Configuration and resource allocation for a MongoDB 4.4 cluster. 
+backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
+backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retain period of automatically created backup in days 
+access | **[Access](#Access5)**<br>Access policy to DB 
+
+
+### Mongodb3_6 {#Mongodb3_63}
+
+Field | Description
+--- | ---
+mongod | **[Mongod](#Mongod20)**<br>Configuration and resource allocation for mongod in a MongoDB 3.6 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg20)**<br>Configuration and resource allocation for mongocfg in a MongoDB 3.6 cluster. 
+mongos | **[Mongos](#Mongos20)**<br>Configuration and resource allocation for mongos in a MongoDB 3.6 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra20)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 3.6 cluster. 
+
+
+### Mongod {#Mongod20}
+
+Field | Description
+--- | ---
+config | **`config.MongodConfigSet3_6`**<br>Configuration for a mongod 3.6 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to MongoDB hosts. 
+
+
+### MongoCfg {#MongoCfg20}
+
+Field | Description
+--- | ---
+config | **`config.MongoCfgConfigSet3_6`**<br> 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+
+
+### Mongos {#Mongos20}
+
+Field | Description
+--- | ---
+config | **`config.MongosConfigSet3_6`**<br> 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+
+
+### MongoInfra {#MongoInfra20}
+
+Field | Description
+--- | ---
+config_mongos | **[config.MongosConfigSet3_6](#MongosConfigSet3_6)**<br> 
+config_mongocfg | **[config.MongoCfgConfigSet3_6](#MongoCfgConfigSet3_6)**<br> 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+
+
+### Mongodb4_0 {#Mongodb4_03}
+
+Field | Description
+--- | ---
+mongod | **[Mongod](#Mongod21)**<br>Configuration and resource allocation for mongod in a MongoDB 4.0 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg21)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.0 cluster. 
+mongos | **[Mongos](#Mongos21)**<br>Configuration and resource allocation for mongos in a MongoDB 4.0 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra21)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.0 cluster. 
+
+
+### Mongod {#Mongod21}
+
+Field | Description
+--- | ---
+config | **`config.MongodConfigSet4_0`**<br>Configuration for mongod 4.0 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+
+
+### MongoCfg {#MongoCfg21}
+
+Field | Description
+--- | ---
+config | **`config.MongoCfgConfigSet4_0`**<br>Configuration for mongocfg 4.0 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+
+
+### Mongos {#Mongos21}
+
+Field | Description
+--- | ---
+config | **`config.MongosConfigSet4_0`**<br>Configuration for mongos 4.0 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+
+
+### MongoInfra {#MongoInfra21}
+
+Field | Description
+--- | ---
+config_mongos | **[config.MongosConfigSet4_0](#MongosConfigSet4_0)**<br> 
+config_mongocfg | **[config.MongoCfgConfigSet4_0](#MongoCfgConfigSet4_0)**<br> 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+
+
+### Mongodb4_2 {#Mongodb4_23}
+
+Field | Description
+--- | ---
+mongod | **[Mongod](#Mongod22)**<br>Configuration and resource allocation for mongod in a MongoDB 4.2 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg22)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.2 cluster. 
+mongos | **[Mongos](#Mongos22)**<br>Configuration and resource allocation for mongos in a MongoDB 4.2 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra22)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.2 cluster. 
+
+
+### Mongod {#Mongod22}
+
+Field | Description
+--- | ---
+config | **`config.MongodConfigSet4_2`**<br>Configuration for mongod 4.2 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+
+
+### MongoCfg {#MongoCfg22}
+
+Field | Description
+--- | ---
+config | **`config.MongoCfgConfigSet4_2`**<br>Configuration for mongocfg 4.2 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+
+
+### Mongos {#Mongos22}
+
+Field | Description
+--- | ---
+config | **`config.MongosConfigSet4_2`**<br>Configuration for mongos 4.2 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+
+
+### MongoInfra {#MongoInfra22}
+
+Field | Description
+--- | ---
+config_mongos | **[config.MongosConfigSet4_2](#MongosConfigSet4_2)**<br> 
+config_mongocfg | **[config.MongoCfgConfigSet4_2](#MongoCfgConfigSet4_2)**<br> 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+
+
+### Mongodb4_4 {#Mongodb4_43}
+
+Field | Description
+--- | ---
+mongod | **[Mongod](#Mongod23)**<br>Configuration and resource allocation for mongod in a MongoDB 4.4 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg23)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.4 cluster. 
+mongos | **[Mongos](#Mongos23)**<br>Configuration and resource allocation for mongos in a MongoDB 4.4 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra23)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.4 cluster. 
+
+
+### Mongod {#Mongod23}
+
+Field | Description
+--- | ---
+config | **`config.MongodConfigSet4_4`**<br>Configuration for mongod 4.4 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+
+
+### MongoCfg {#MongoCfg23}
+
+Field | Description
+--- | ---
+config | **`config.MongoCfgConfigSet4_4`**<br>Configuration for mongocfg 4.4 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+
+
+### Mongos {#Mongos23}
+
+Field | Description
+--- | ---
+config | **`config.MongosConfigSet4_4`**<br>Configuration for mongos 4.4 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+
+
+### MongoInfra {#MongoInfra23}
+
+Field | Description
+--- | ---
+config_mongos | **[config.MongosConfigSet4_4](#MongosConfigSet4_4)**<br> 
+config_mongocfg | **[config.MongoCfgConfigSet4_4](#MongoCfgConfigSet4_4)**<br> 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+
+
+### Access {#Access5}
+
+Field | Description
+--- | ---
+data_lens | **bool**<br>Allow access for DataLens 
+
+
+### MaintenanceWindow {#MaintenanceWindow4}
+
+Field | Description
+--- | ---
+policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow4)**<br> 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow4)**<br> 
+
+
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow4}
+
+
+
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow4}
+
+Field | Description
+--- | ---
+day | enum **WeekDay**<br> <ul><ul/>
+hour | **int64**<br>Hour of the day in UTC. Acceptable values are 1 to 24, inclusive.
+
+
+### MaintenanceOperation {#MaintenanceOperation3}
+
+Field | Description
+--- | ---
+info | **string**<br> The maximum string length in characters is 256.
+delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
 
 
 ## Delete {#Delete}
@@ -1212,7 +1678,7 @@ Start the specified MongoDB cluster.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[StartClusterMetadata](#StartClusterMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](../cluster.proto#Cluster4)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster4)<br>
 
 ### StartClusterRequest {#StartClusterRequest}
 
@@ -1234,7 +1700,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[StartClusterMetadata](#StartClusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](../cluster.proto#Cluster4)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster4)>**<br>if operation finished successfully. 
 
 
 ### StartClusterMetadata {#StartClusterMetadata}
@@ -1255,14 +1721,247 @@ name | **string**<br>Name of the MongoDB cluster. The name is unique within the 
 description | **string**<br>Description of the MongoDB cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the MongoDB cluster as `` key:value `` pairs. Maximum 64 per resource. 
 environment | enum **Environment**<br>Deployment environment of the MongoDB cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
-monitoring[] | **[Monitoring](../cluster.proto#Monitoring2)**<br>Description of monitoring systems relevant to the MongoDB cluster. 
-config | **[ClusterConfig](../cluster.proto#ClusterConfig2)**<br>Configuration of the MongoDB cluster. 
+monitoring[] | **[Monitoring](#Monitoring4)**<br>Description of monitoring systems relevant to the MongoDB cluster. 
+config | **[ClusterConfig](#ClusterConfig4)**<br>Configuration of the MongoDB cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](../cluster.proto#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](../cluster.proto#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](../cluster.proto#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](../cluster.proto#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
 sharded | **bool**<br>Indicates current sharding status of the cluster. 
-maintenance_window | **[MaintenanceWindow](../maintenance.proto#MaintenanceWindow3)**<br>Window of maintenance operations. 
-planned_operation | **[MaintenanceOperation](../maintenance.proto#MaintenanceOperation2)**<br>Maintenance operation planned at nearest maintenance_window. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow5)**<br>Window of maintenance operations. 
+planned_operation | **[MaintenanceOperation](#MaintenanceOperation4)**<br>Maintenance operation planned at nearest maintenance_window. 
+
+
+### Monitoring {#Monitoring4}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the monitoring system. 
+description | **string**<br>Description of the monitoring system. 
+link | **string**<br>Link to the monitoring system charts for the MongoDB cluster. 
+
+
+### ClusterConfig {#ClusterConfig4}
+
+Field | Description
+--- | ---
+version | **string**<br>Version of MongoDB server software. Possible values: `3.6`, `4.0`, `4.2`, `4.4`. 
+feature_compatibility_version | **string**<br><ul><li>`3.6` — persist data compatibility for version 3.6. After setting this option the data will not be compatible with 3.4 or lower. </li><li>`4.0` — persist data compatibility for version 4.0. After setting this option the data will not be compatible with 3.6 or lower. </li><li>`4.2` — persist data compatibility for version 4.2. After setting this option the data will not be compatible with 4.0 or lower. </li><li>`4.4` — persist data compatibility for version 4.4. After setting this option the data will not be compatible with 4.2 or lower.</li></ul> 
+mongodb | **oneof:** `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2` or `mongodb_4_4`<br>Configuration for MongoDB servers in the cluster.
+&nbsp;&nbsp;mongodb_3_6 | **[Mongodb3_6](#Mongodb3_64)**<br>Configuration and resource allocation for a MongoDB 3.6 cluster. 
+&nbsp;&nbsp;mongodb_4_0 | **[Mongodb4_0](#Mongodb4_04)**<br>Configuration and resource allocation for a MongoDB 4.0 cluster. 
+&nbsp;&nbsp;mongodb_4_2 | **[Mongodb4_2](#Mongodb4_24)**<br>Configuration and resource allocation for a MongoDB 4.2 cluster. 
+&nbsp;&nbsp;mongodb_4_4 | **[Mongodb4_4](#Mongodb4_44)**<br>Configuration and resource allocation for a MongoDB 4.4 cluster. 
+backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
+backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retain period of automatically created backup in days 
+access | **[Access](#Access6)**<br>Access policy to DB 
+
+
+### Mongodb3_6 {#Mongodb3_64}
+
+Field | Description
+--- | ---
+mongod | **[Mongod](#Mongod24)**<br>Configuration and resource allocation for mongod in a MongoDB 3.6 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg24)**<br>Configuration and resource allocation for mongocfg in a MongoDB 3.6 cluster. 
+mongos | **[Mongos](#Mongos24)**<br>Configuration and resource allocation for mongos in a MongoDB 3.6 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra24)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 3.6 cluster. 
+
+
+### Mongod {#Mongod24}
+
+Field | Description
+--- | ---
+config | **`config.MongodConfigSet3_6`**<br>Configuration for a mongod 3.6 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to MongoDB hosts. 
+
+
+### MongoCfg {#MongoCfg24}
+
+Field | Description
+--- | ---
+config | **`config.MongoCfgConfigSet3_6`**<br> 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+
+
+### Mongos {#Mongos24}
+
+Field | Description
+--- | ---
+config | **`config.MongosConfigSet3_6`**<br> 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+
+
+### MongoInfra {#MongoInfra24}
+
+Field | Description
+--- | ---
+config_mongos | **[config.MongosConfigSet3_6](#MongosConfigSet3_6)**<br> 
+config_mongocfg | **[config.MongoCfgConfigSet3_6](#MongoCfgConfigSet3_6)**<br> 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+
+
+### Mongodb4_0 {#Mongodb4_04}
+
+Field | Description
+--- | ---
+mongod | **[Mongod](#Mongod25)**<br>Configuration and resource allocation for mongod in a MongoDB 4.0 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg25)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.0 cluster. 
+mongos | **[Mongos](#Mongos25)**<br>Configuration and resource allocation for mongos in a MongoDB 4.0 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra25)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.0 cluster. 
+
+
+### Mongod {#Mongod25}
+
+Field | Description
+--- | ---
+config | **`config.MongodConfigSet4_0`**<br>Configuration for mongod 4.0 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+
+
+### MongoCfg {#MongoCfg25}
+
+Field | Description
+--- | ---
+config | **`config.MongoCfgConfigSet4_0`**<br>Configuration for mongocfg 4.0 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+
+
+### Mongos {#Mongos25}
+
+Field | Description
+--- | ---
+config | **`config.MongosConfigSet4_0`**<br>Configuration for mongos 4.0 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+
+
+### MongoInfra {#MongoInfra25}
+
+Field | Description
+--- | ---
+config_mongos | **[config.MongosConfigSet4_0](#MongosConfigSet4_0)**<br> 
+config_mongocfg | **[config.MongoCfgConfigSet4_0](#MongoCfgConfigSet4_0)**<br> 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+
+
+### Mongodb4_2 {#Mongodb4_24}
+
+Field | Description
+--- | ---
+mongod | **[Mongod](#Mongod26)**<br>Configuration and resource allocation for mongod in a MongoDB 4.2 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg26)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.2 cluster. 
+mongos | **[Mongos](#Mongos26)**<br>Configuration and resource allocation for mongos in a MongoDB 4.2 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra26)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.2 cluster. 
+
+
+### Mongod {#Mongod26}
+
+Field | Description
+--- | ---
+config | **`config.MongodConfigSet4_2`**<br>Configuration for mongod 4.2 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+
+
+### MongoCfg {#MongoCfg26}
+
+Field | Description
+--- | ---
+config | **`config.MongoCfgConfigSet4_2`**<br>Configuration for mongocfg 4.2 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+
+
+### Mongos {#Mongos26}
+
+Field | Description
+--- | ---
+config | **`config.MongosConfigSet4_2`**<br>Configuration for mongos 4.2 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+
+
+### MongoInfra {#MongoInfra26}
+
+Field | Description
+--- | ---
+config_mongos | **[config.MongosConfigSet4_2](#MongosConfigSet4_2)**<br> 
+config_mongocfg | **[config.MongoCfgConfigSet4_2](#MongoCfgConfigSet4_2)**<br> 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+
+
+### Mongodb4_4 {#Mongodb4_44}
+
+Field | Description
+--- | ---
+mongod | **[Mongod](#Mongod27)**<br>Configuration and resource allocation for mongod in a MongoDB 4.4 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg27)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.4 cluster. 
+mongos | **[Mongos](#Mongos27)**<br>Configuration and resource allocation for mongos in a MongoDB 4.4 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra27)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.4 cluster. 
+
+
+### Mongod {#Mongod27}
+
+Field | Description
+--- | ---
+config | **`config.MongodConfigSet4_4`**<br>Configuration for mongod 4.4 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+
+
+### MongoCfg {#MongoCfg27}
+
+Field | Description
+--- | ---
+config | **`config.MongoCfgConfigSet4_4`**<br>Configuration for mongocfg 4.4 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+
+
+### Mongos {#Mongos27}
+
+Field | Description
+--- | ---
+config | **`config.MongosConfigSet4_4`**<br>Configuration for mongos 4.4 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+
+
+### MongoInfra {#MongoInfra27}
+
+Field | Description
+--- | ---
+config_mongos | **[config.MongosConfigSet4_4](#MongosConfigSet4_4)**<br> 
+config_mongocfg | **[config.MongoCfgConfigSet4_4](#MongoCfgConfigSet4_4)**<br> 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+
+
+### Access {#Access6}
+
+Field | Description
+--- | ---
+data_lens | **bool**<br>Allow access for DataLens 
+
+
+### MaintenanceWindow {#MaintenanceWindow5}
+
+Field | Description
+--- | ---
+policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow5)**<br> 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow5)**<br> 
+
+
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow5}
+
+
+
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow5}
+
+Field | Description
+--- | ---
+day | enum **WeekDay**<br> <ul><ul/>
+hour | **int64**<br>Hour of the day in UTC. Acceptable values are 1 to 24, inclusive.
+
+
+### MaintenanceOperation {#MaintenanceOperation4}
+
+Field | Description
+--- | ---
+info | **string**<br> The maximum string length in characters is 256.
+delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
 
 
 ## Stop {#Stop}
@@ -1273,7 +1972,7 @@ Stop the specified MongoDB cluster.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[StopClusterMetadata](#StopClusterMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](../cluster.proto#Cluster5)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster5)<br>
 
 ### StopClusterRequest {#StopClusterRequest}
 
@@ -1295,7 +1994,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[StopClusterMetadata](#StopClusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](../cluster.proto#Cluster5)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster5)>**<br>if operation finished successfully. 
 
 
 ### StopClusterMetadata {#StopClusterMetadata}
@@ -1316,14 +2015,247 @@ name | **string**<br>Name of the MongoDB cluster. The name is unique within the 
 description | **string**<br>Description of the MongoDB cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the MongoDB cluster as `` key:value `` pairs. Maximum 64 per resource. 
 environment | enum **Environment**<br>Deployment environment of the MongoDB cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
-monitoring[] | **[Monitoring](../cluster.proto#Monitoring2)**<br>Description of monitoring systems relevant to the MongoDB cluster. 
-config | **[ClusterConfig](../cluster.proto#ClusterConfig2)**<br>Configuration of the MongoDB cluster. 
+monitoring[] | **[Monitoring](#Monitoring5)**<br>Description of monitoring systems relevant to the MongoDB cluster. 
+config | **[ClusterConfig](#ClusterConfig5)**<br>Configuration of the MongoDB cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](../cluster.proto#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](../cluster.proto#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](../cluster.proto#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](../cluster.proto#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
 sharded | **bool**<br>Indicates current sharding status of the cluster. 
-maintenance_window | **[MaintenanceWindow](../maintenance.proto#MaintenanceWindow3)**<br>Window of maintenance operations. 
-planned_operation | **[MaintenanceOperation](../maintenance.proto#MaintenanceOperation2)**<br>Maintenance operation planned at nearest maintenance_window. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow6)**<br>Window of maintenance operations. 
+planned_operation | **[MaintenanceOperation](#MaintenanceOperation5)**<br>Maintenance operation planned at nearest maintenance_window. 
+
+
+### Monitoring {#Monitoring5}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the monitoring system. 
+description | **string**<br>Description of the monitoring system. 
+link | **string**<br>Link to the monitoring system charts for the MongoDB cluster. 
+
+
+### ClusterConfig {#ClusterConfig5}
+
+Field | Description
+--- | ---
+version | **string**<br>Version of MongoDB server software. Possible values: `3.6`, `4.0`, `4.2`, `4.4`. 
+feature_compatibility_version | **string**<br><ul><li>`3.6` — persist data compatibility for version 3.6. After setting this option the data will not be compatible with 3.4 or lower. </li><li>`4.0` — persist data compatibility for version 4.0. After setting this option the data will not be compatible with 3.6 or lower. </li><li>`4.2` — persist data compatibility for version 4.2. After setting this option the data will not be compatible with 4.0 or lower. </li><li>`4.4` — persist data compatibility for version 4.4. After setting this option the data will not be compatible with 4.2 or lower.</li></ul> 
+mongodb | **oneof:** `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2` or `mongodb_4_4`<br>Configuration for MongoDB servers in the cluster.
+&nbsp;&nbsp;mongodb_3_6 | **[Mongodb3_6](#Mongodb3_65)**<br>Configuration and resource allocation for a MongoDB 3.6 cluster. 
+&nbsp;&nbsp;mongodb_4_0 | **[Mongodb4_0](#Mongodb4_05)**<br>Configuration and resource allocation for a MongoDB 4.0 cluster. 
+&nbsp;&nbsp;mongodb_4_2 | **[Mongodb4_2](#Mongodb4_25)**<br>Configuration and resource allocation for a MongoDB 4.2 cluster. 
+&nbsp;&nbsp;mongodb_4_4 | **[Mongodb4_4](#Mongodb4_45)**<br>Configuration and resource allocation for a MongoDB 4.4 cluster. 
+backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
+backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retain period of automatically created backup in days 
+access | **[Access](#Access7)**<br>Access policy to DB 
+
+
+### Mongodb3_6 {#Mongodb3_65}
+
+Field | Description
+--- | ---
+mongod | **[Mongod](#Mongod28)**<br>Configuration and resource allocation for mongod in a MongoDB 3.6 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg28)**<br>Configuration and resource allocation for mongocfg in a MongoDB 3.6 cluster. 
+mongos | **[Mongos](#Mongos28)**<br>Configuration and resource allocation for mongos in a MongoDB 3.6 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra28)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 3.6 cluster. 
+
+
+### Mongod {#Mongod28}
+
+Field | Description
+--- | ---
+config | **`config.MongodConfigSet3_6`**<br>Configuration for a mongod 3.6 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to MongoDB hosts. 
+
+
+### MongoCfg {#MongoCfg28}
+
+Field | Description
+--- | ---
+config | **`config.MongoCfgConfigSet3_6`**<br> 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+
+
+### Mongos {#Mongos28}
+
+Field | Description
+--- | ---
+config | **`config.MongosConfigSet3_6`**<br> 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+
+
+### MongoInfra {#MongoInfra28}
+
+Field | Description
+--- | ---
+config_mongos | **[config.MongosConfigSet3_6](#MongosConfigSet3_6)**<br> 
+config_mongocfg | **[config.MongoCfgConfigSet3_6](#MongoCfgConfigSet3_6)**<br> 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+
+
+### Mongodb4_0 {#Mongodb4_05}
+
+Field | Description
+--- | ---
+mongod | **[Mongod](#Mongod29)**<br>Configuration and resource allocation for mongod in a MongoDB 4.0 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg29)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.0 cluster. 
+mongos | **[Mongos](#Mongos29)**<br>Configuration and resource allocation for mongos in a MongoDB 4.0 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra29)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.0 cluster. 
+
+
+### Mongod {#Mongod29}
+
+Field | Description
+--- | ---
+config | **`config.MongodConfigSet4_0`**<br>Configuration for mongod 4.0 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+
+
+### MongoCfg {#MongoCfg29}
+
+Field | Description
+--- | ---
+config | **`config.MongoCfgConfigSet4_0`**<br>Configuration for mongocfg 4.0 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+
+
+### Mongos {#Mongos29}
+
+Field | Description
+--- | ---
+config | **`config.MongosConfigSet4_0`**<br>Configuration for mongos 4.0 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+
+
+### MongoInfra {#MongoInfra29}
+
+Field | Description
+--- | ---
+config_mongos | **[config.MongosConfigSet4_0](#MongosConfigSet4_0)**<br> 
+config_mongocfg | **[config.MongoCfgConfigSet4_0](#MongoCfgConfigSet4_0)**<br> 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+
+
+### Mongodb4_2 {#Mongodb4_25}
+
+Field | Description
+--- | ---
+mongod | **[Mongod](#Mongod30)**<br>Configuration and resource allocation for mongod in a MongoDB 4.2 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg30)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.2 cluster. 
+mongos | **[Mongos](#Mongos30)**<br>Configuration and resource allocation for mongos in a MongoDB 4.2 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra30)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.2 cluster. 
+
+
+### Mongod {#Mongod30}
+
+Field | Description
+--- | ---
+config | **`config.MongodConfigSet4_2`**<br>Configuration for mongod 4.2 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+
+
+### MongoCfg {#MongoCfg30}
+
+Field | Description
+--- | ---
+config | **`config.MongoCfgConfigSet4_2`**<br>Configuration for mongocfg 4.2 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+
+
+### Mongos {#Mongos30}
+
+Field | Description
+--- | ---
+config | **`config.MongosConfigSet4_2`**<br>Configuration for mongos 4.2 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+
+
+### MongoInfra {#MongoInfra30}
+
+Field | Description
+--- | ---
+config_mongos | **[config.MongosConfigSet4_2](#MongosConfigSet4_2)**<br> 
+config_mongocfg | **[config.MongoCfgConfigSet4_2](#MongoCfgConfigSet4_2)**<br> 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+
+
+### Mongodb4_4 {#Mongodb4_45}
+
+Field | Description
+--- | ---
+mongod | **[Mongod](#Mongod31)**<br>Configuration and resource allocation for mongod in a MongoDB 4.4 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg31)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.4 cluster. 
+mongos | **[Mongos](#Mongos31)**<br>Configuration and resource allocation for mongos in a MongoDB 4.4 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra31)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.4 cluster. 
+
+
+### Mongod {#Mongod31}
+
+Field | Description
+--- | ---
+config | **`config.MongodConfigSet4_4`**<br>Configuration for mongod 4.4 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+
+
+### MongoCfg {#MongoCfg31}
+
+Field | Description
+--- | ---
+config | **`config.MongoCfgConfigSet4_4`**<br>Configuration for mongocfg 4.4 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+
+
+### Mongos {#Mongos31}
+
+Field | Description
+--- | ---
+config | **`config.MongosConfigSet4_4`**<br>Configuration for mongos 4.4 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+
+
+### MongoInfra {#MongoInfra31}
+
+Field | Description
+--- | ---
+config_mongos | **[config.MongosConfigSet4_4](#MongosConfigSet4_4)**<br> 
+config_mongocfg | **[config.MongoCfgConfigSet4_4](#MongoCfgConfigSet4_4)**<br> 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+
+
+### Access {#Access7}
+
+Field | Description
+--- | ---
+data_lens | **bool**<br>Allow access for DataLens 
+
+
+### MaintenanceWindow {#MaintenanceWindow6}
+
+Field | Description
+--- | ---
+policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow6)**<br> 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow6)**<br> 
+
+
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow6}
+
+
+
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow6}
+
+Field | Description
+--- | ---
+day | enum **WeekDay**<br> <ul><ul/>
+hour | **int64**<br>Hour of the day in UTC. Acceptable values are 1 to 24, inclusive.
+
+
+### MaintenanceOperation {#MaintenanceOperation5}
+
+Field | Description
+--- | ---
+info | **string**<br> The maximum string length in characters is 256.
+delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
 
 
 ## Move {#Move}
@@ -1334,7 +2266,7 @@ Moves the specified MongoDB cluster to the specified folder.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[MoveClusterMetadata](#MoveClusterMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](../cluster.proto#Cluster6)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster6)<br>
 
 ### MoveClusterRequest {#MoveClusterRequest}
 
@@ -1357,7 +2289,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[MoveClusterMetadata](#MoveClusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](../cluster.proto#Cluster6)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster6)>**<br>if operation finished successfully. 
 
 
 ### MoveClusterMetadata {#MoveClusterMetadata}
@@ -1380,14 +2312,247 @@ name | **string**<br>Name of the MongoDB cluster. The name is unique within the 
 description | **string**<br>Description of the MongoDB cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the MongoDB cluster as `` key:value `` pairs. Maximum 64 per resource. 
 environment | enum **Environment**<br>Deployment environment of the MongoDB cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
-monitoring[] | **[Monitoring](../cluster.proto#Monitoring2)**<br>Description of monitoring systems relevant to the MongoDB cluster. 
-config | **[ClusterConfig](../cluster.proto#ClusterConfig2)**<br>Configuration of the MongoDB cluster. 
+monitoring[] | **[Monitoring](#Monitoring6)**<br>Description of monitoring systems relevant to the MongoDB cluster. 
+config | **[ClusterConfig](#ClusterConfig6)**<br>Configuration of the MongoDB cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](../cluster.proto#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](../cluster.proto#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](../cluster.proto#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](../cluster.proto#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
 sharded | **bool**<br>Indicates current sharding status of the cluster. 
-maintenance_window | **[MaintenanceWindow](../maintenance.proto#MaintenanceWindow3)**<br>Window of maintenance operations. 
-planned_operation | **[MaintenanceOperation](../maintenance.proto#MaintenanceOperation2)**<br>Maintenance operation planned at nearest maintenance_window. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow7)**<br>Window of maintenance operations. 
+planned_operation | **[MaintenanceOperation](#MaintenanceOperation6)**<br>Maintenance operation planned at nearest maintenance_window. 
+
+
+### Monitoring {#Monitoring6}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the monitoring system. 
+description | **string**<br>Description of the monitoring system. 
+link | **string**<br>Link to the monitoring system charts for the MongoDB cluster. 
+
+
+### ClusterConfig {#ClusterConfig6}
+
+Field | Description
+--- | ---
+version | **string**<br>Version of MongoDB server software. Possible values: `3.6`, `4.0`, `4.2`, `4.4`. 
+feature_compatibility_version | **string**<br><ul><li>`3.6` — persist data compatibility for version 3.6. After setting this option the data will not be compatible with 3.4 or lower. </li><li>`4.0` — persist data compatibility for version 4.0. After setting this option the data will not be compatible with 3.6 or lower. </li><li>`4.2` — persist data compatibility for version 4.2. After setting this option the data will not be compatible with 4.0 or lower. </li><li>`4.4` — persist data compatibility for version 4.4. After setting this option the data will not be compatible with 4.2 or lower.</li></ul> 
+mongodb | **oneof:** `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2` or `mongodb_4_4`<br>Configuration for MongoDB servers in the cluster.
+&nbsp;&nbsp;mongodb_3_6 | **[Mongodb3_6](#Mongodb3_66)**<br>Configuration and resource allocation for a MongoDB 3.6 cluster. 
+&nbsp;&nbsp;mongodb_4_0 | **[Mongodb4_0](#Mongodb4_06)**<br>Configuration and resource allocation for a MongoDB 4.0 cluster. 
+&nbsp;&nbsp;mongodb_4_2 | **[Mongodb4_2](#Mongodb4_26)**<br>Configuration and resource allocation for a MongoDB 4.2 cluster. 
+&nbsp;&nbsp;mongodb_4_4 | **[Mongodb4_4](#Mongodb4_46)**<br>Configuration and resource allocation for a MongoDB 4.4 cluster. 
+backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
+backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retain period of automatically created backup in days 
+access | **[Access](#Access8)**<br>Access policy to DB 
+
+
+### Mongodb3_6 {#Mongodb3_66}
+
+Field | Description
+--- | ---
+mongod | **[Mongod](#Mongod32)**<br>Configuration and resource allocation for mongod in a MongoDB 3.6 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg32)**<br>Configuration and resource allocation for mongocfg in a MongoDB 3.6 cluster. 
+mongos | **[Mongos](#Mongos32)**<br>Configuration and resource allocation for mongos in a MongoDB 3.6 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra32)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 3.6 cluster. 
+
+
+### Mongod {#Mongod32}
+
+Field | Description
+--- | ---
+config | **`config.MongodConfigSet3_6`**<br>Configuration for a mongod 3.6 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to MongoDB hosts. 
+
+
+### MongoCfg {#MongoCfg32}
+
+Field | Description
+--- | ---
+config | **`config.MongoCfgConfigSet3_6`**<br> 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+
+
+### Mongos {#Mongos32}
+
+Field | Description
+--- | ---
+config | **`config.MongosConfigSet3_6`**<br> 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+
+
+### MongoInfra {#MongoInfra32}
+
+Field | Description
+--- | ---
+config_mongos | **[config.MongosConfigSet3_6](#MongosConfigSet3_6)**<br> 
+config_mongocfg | **[config.MongoCfgConfigSet3_6](#MongoCfgConfigSet3_6)**<br> 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+
+
+### Mongodb4_0 {#Mongodb4_06}
+
+Field | Description
+--- | ---
+mongod | **[Mongod](#Mongod33)**<br>Configuration and resource allocation for mongod in a MongoDB 4.0 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg33)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.0 cluster. 
+mongos | **[Mongos](#Mongos33)**<br>Configuration and resource allocation for mongos in a MongoDB 4.0 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra33)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.0 cluster. 
+
+
+### Mongod {#Mongod33}
+
+Field | Description
+--- | ---
+config | **`config.MongodConfigSet4_0`**<br>Configuration for mongod 4.0 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+
+
+### MongoCfg {#MongoCfg33}
+
+Field | Description
+--- | ---
+config | **`config.MongoCfgConfigSet4_0`**<br>Configuration for mongocfg 4.0 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+
+
+### Mongos {#Mongos33}
+
+Field | Description
+--- | ---
+config | **`config.MongosConfigSet4_0`**<br>Configuration for mongos 4.0 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+
+
+### MongoInfra {#MongoInfra33}
+
+Field | Description
+--- | ---
+config_mongos | **[config.MongosConfigSet4_0](#MongosConfigSet4_0)**<br> 
+config_mongocfg | **[config.MongoCfgConfigSet4_0](#MongoCfgConfigSet4_0)**<br> 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+
+
+### Mongodb4_2 {#Mongodb4_26}
+
+Field | Description
+--- | ---
+mongod | **[Mongod](#Mongod34)**<br>Configuration and resource allocation for mongod in a MongoDB 4.2 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg34)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.2 cluster. 
+mongos | **[Mongos](#Mongos34)**<br>Configuration and resource allocation for mongos in a MongoDB 4.2 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra34)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.2 cluster. 
+
+
+### Mongod {#Mongod34}
+
+Field | Description
+--- | ---
+config | **`config.MongodConfigSet4_2`**<br>Configuration for mongod 4.2 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+
+
+### MongoCfg {#MongoCfg34}
+
+Field | Description
+--- | ---
+config | **`config.MongoCfgConfigSet4_2`**<br>Configuration for mongocfg 4.2 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+
+
+### Mongos {#Mongos34}
+
+Field | Description
+--- | ---
+config | **`config.MongosConfigSet4_2`**<br>Configuration for mongos 4.2 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+
+
+### MongoInfra {#MongoInfra34}
+
+Field | Description
+--- | ---
+config_mongos | **[config.MongosConfigSet4_2](#MongosConfigSet4_2)**<br> 
+config_mongocfg | **[config.MongoCfgConfigSet4_2](#MongoCfgConfigSet4_2)**<br> 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+
+
+### Mongodb4_4 {#Mongodb4_46}
+
+Field | Description
+--- | ---
+mongod | **[Mongod](#Mongod35)**<br>Configuration and resource allocation for mongod in a MongoDB 4.4 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg35)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.4 cluster. 
+mongos | **[Mongos](#Mongos35)**<br>Configuration and resource allocation for mongos in a MongoDB 4.4 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra35)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.4 cluster. 
+
+
+### Mongod {#Mongod35}
+
+Field | Description
+--- | ---
+config | **`config.MongodConfigSet4_4`**<br>Configuration for mongod 4.4 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+
+
+### MongoCfg {#MongoCfg35}
+
+Field | Description
+--- | ---
+config | **`config.MongoCfgConfigSet4_4`**<br>Configuration for mongocfg 4.4 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+
+
+### Mongos {#Mongos35}
+
+Field | Description
+--- | ---
+config | **`config.MongosConfigSet4_4`**<br>Configuration for mongos 4.4 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+
+
+### MongoInfra {#MongoInfra35}
+
+Field | Description
+--- | ---
+config_mongos | **[config.MongosConfigSet4_4](#MongosConfigSet4_4)**<br> 
+config_mongocfg | **[config.MongoCfgConfigSet4_4](#MongoCfgConfigSet4_4)**<br> 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+
+
+### Access {#Access8}
+
+Field | Description
+--- | ---
+data_lens | **bool**<br>Allow access for DataLens 
+
+
+### MaintenanceWindow {#MaintenanceWindow7}
+
+Field | Description
+--- | ---
+policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow7)**<br> 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow7)**<br> 
+
+
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow7}
+
+
+
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow7}
+
+Field | Description
+--- | ---
+day | enum **WeekDay**<br> <ul><ul/>
+hour | **int64**<br>Hour of the day in UTC. Acceptable values are 1 to 24, inclusive.
+
+
+### MaintenanceOperation {#MaintenanceOperation6}
+
+Field | Description
+--- | ---
+info | **string**<br> The maximum string length in characters is 256.
+delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
 
 
 ## Backup {#Backup}
@@ -1398,7 +2563,7 @@ Creates a backup for the specified MongoDB cluster.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[BackupClusterMetadata](#BackupClusterMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](../cluster.proto#Cluster7)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster7)<br>
 
 ### BackupClusterRequest {#BackupClusterRequest}
 
@@ -1420,7 +2585,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[BackupClusterMetadata](#BackupClusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](../cluster.proto#Cluster7)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster7)>**<br>if operation finished successfully. 
 
 
 ### BackupClusterMetadata {#BackupClusterMetadata}
@@ -1441,14 +2606,247 @@ name | **string**<br>Name of the MongoDB cluster. The name is unique within the 
 description | **string**<br>Description of the MongoDB cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the MongoDB cluster as `` key:value `` pairs. Maximum 64 per resource. 
 environment | enum **Environment**<br>Deployment environment of the MongoDB cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
-monitoring[] | **[Monitoring](../cluster.proto#Monitoring2)**<br>Description of monitoring systems relevant to the MongoDB cluster. 
-config | **[ClusterConfig](../cluster.proto#ClusterConfig2)**<br>Configuration of the MongoDB cluster. 
+monitoring[] | **[Monitoring](#Monitoring7)**<br>Description of monitoring systems relevant to the MongoDB cluster. 
+config | **[ClusterConfig](#ClusterConfig7)**<br>Configuration of the MongoDB cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](../cluster.proto#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](../cluster.proto#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](../cluster.proto#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](../cluster.proto#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
 sharded | **bool**<br>Indicates current sharding status of the cluster. 
-maintenance_window | **[MaintenanceWindow](../maintenance.proto#MaintenanceWindow3)**<br>Window of maintenance operations. 
-planned_operation | **[MaintenanceOperation](../maintenance.proto#MaintenanceOperation2)**<br>Maintenance operation planned at nearest maintenance_window. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow8)**<br>Window of maintenance operations. 
+planned_operation | **[MaintenanceOperation](#MaintenanceOperation7)**<br>Maintenance operation planned at nearest maintenance_window. 
+
+
+### Monitoring {#Monitoring7}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the monitoring system. 
+description | **string**<br>Description of the monitoring system. 
+link | **string**<br>Link to the monitoring system charts for the MongoDB cluster. 
+
+
+### ClusterConfig {#ClusterConfig7}
+
+Field | Description
+--- | ---
+version | **string**<br>Version of MongoDB server software. Possible values: `3.6`, `4.0`, `4.2`, `4.4`. 
+feature_compatibility_version | **string**<br><ul><li>`3.6` — persist data compatibility for version 3.6. After setting this option the data will not be compatible with 3.4 or lower. </li><li>`4.0` — persist data compatibility for version 4.0. After setting this option the data will not be compatible with 3.6 or lower. </li><li>`4.2` — persist data compatibility for version 4.2. After setting this option the data will not be compatible with 4.0 or lower. </li><li>`4.4` — persist data compatibility for version 4.4. After setting this option the data will not be compatible with 4.2 or lower.</li></ul> 
+mongodb | **oneof:** `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2` or `mongodb_4_4`<br>Configuration for MongoDB servers in the cluster.
+&nbsp;&nbsp;mongodb_3_6 | **[Mongodb3_6](#Mongodb3_67)**<br>Configuration and resource allocation for a MongoDB 3.6 cluster. 
+&nbsp;&nbsp;mongodb_4_0 | **[Mongodb4_0](#Mongodb4_07)**<br>Configuration and resource allocation for a MongoDB 4.0 cluster. 
+&nbsp;&nbsp;mongodb_4_2 | **[Mongodb4_2](#Mongodb4_27)**<br>Configuration and resource allocation for a MongoDB 4.2 cluster. 
+&nbsp;&nbsp;mongodb_4_4 | **[Mongodb4_4](#Mongodb4_47)**<br>Configuration and resource allocation for a MongoDB 4.4 cluster. 
+backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
+backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retain period of automatically created backup in days 
+access | **[Access](#Access9)**<br>Access policy to DB 
+
+
+### Mongodb3_6 {#Mongodb3_67}
+
+Field | Description
+--- | ---
+mongod | **[Mongod](#Mongod36)**<br>Configuration and resource allocation for mongod in a MongoDB 3.6 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg36)**<br>Configuration and resource allocation for mongocfg in a MongoDB 3.6 cluster. 
+mongos | **[Mongos](#Mongos36)**<br>Configuration and resource allocation for mongos in a MongoDB 3.6 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra36)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 3.6 cluster. 
+
+
+### Mongod {#Mongod36}
+
+Field | Description
+--- | ---
+config | **`config.MongodConfigSet3_6`**<br>Configuration for a mongod 3.6 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to MongoDB hosts. 
+
+
+### MongoCfg {#MongoCfg36}
+
+Field | Description
+--- | ---
+config | **`config.MongoCfgConfigSet3_6`**<br> 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+
+
+### Mongos {#Mongos36}
+
+Field | Description
+--- | ---
+config | **`config.MongosConfigSet3_6`**<br> 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+
+
+### MongoInfra {#MongoInfra36}
+
+Field | Description
+--- | ---
+config_mongos | **[config.MongosConfigSet3_6](#MongosConfigSet3_6)**<br> 
+config_mongocfg | **[config.MongoCfgConfigSet3_6](#MongoCfgConfigSet3_6)**<br> 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+
+
+### Mongodb4_0 {#Mongodb4_07}
+
+Field | Description
+--- | ---
+mongod | **[Mongod](#Mongod37)**<br>Configuration and resource allocation for mongod in a MongoDB 4.0 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg37)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.0 cluster. 
+mongos | **[Mongos](#Mongos37)**<br>Configuration and resource allocation for mongos in a MongoDB 4.0 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra37)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.0 cluster. 
+
+
+### Mongod {#Mongod37}
+
+Field | Description
+--- | ---
+config | **`config.MongodConfigSet4_0`**<br>Configuration for mongod 4.0 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+
+
+### MongoCfg {#MongoCfg37}
+
+Field | Description
+--- | ---
+config | **`config.MongoCfgConfigSet4_0`**<br>Configuration for mongocfg 4.0 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+
+
+### Mongos {#Mongos37}
+
+Field | Description
+--- | ---
+config | **`config.MongosConfigSet4_0`**<br>Configuration for mongos 4.0 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+
+
+### MongoInfra {#MongoInfra37}
+
+Field | Description
+--- | ---
+config_mongos | **[config.MongosConfigSet4_0](#MongosConfigSet4_0)**<br> 
+config_mongocfg | **[config.MongoCfgConfigSet4_0](#MongoCfgConfigSet4_0)**<br> 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+
+
+### Mongodb4_2 {#Mongodb4_27}
+
+Field | Description
+--- | ---
+mongod | **[Mongod](#Mongod38)**<br>Configuration and resource allocation for mongod in a MongoDB 4.2 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg38)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.2 cluster. 
+mongos | **[Mongos](#Mongos38)**<br>Configuration and resource allocation for mongos in a MongoDB 4.2 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra38)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.2 cluster. 
+
+
+### Mongod {#Mongod38}
+
+Field | Description
+--- | ---
+config | **`config.MongodConfigSet4_2`**<br>Configuration for mongod 4.2 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+
+
+### MongoCfg {#MongoCfg38}
+
+Field | Description
+--- | ---
+config | **`config.MongoCfgConfigSet4_2`**<br>Configuration for mongocfg 4.2 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+
+
+### Mongos {#Mongos38}
+
+Field | Description
+--- | ---
+config | **`config.MongosConfigSet4_2`**<br>Configuration for mongos 4.2 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+
+
+### MongoInfra {#MongoInfra38}
+
+Field | Description
+--- | ---
+config_mongos | **[config.MongosConfigSet4_2](#MongosConfigSet4_2)**<br> 
+config_mongocfg | **[config.MongoCfgConfigSet4_2](#MongoCfgConfigSet4_2)**<br> 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+
+
+### Mongodb4_4 {#Mongodb4_47}
+
+Field | Description
+--- | ---
+mongod | **[Mongod](#Mongod39)**<br>Configuration and resource allocation for mongod in a MongoDB 4.4 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg39)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.4 cluster. 
+mongos | **[Mongos](#Mongos39)**<br>Configuration and resource allocation for mongos in a MongoDB 4.4 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra39)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.4 cluster. 
+
+
+### Mongod {#Mongod39}
+
+Field | Description
+--- | ---
+config | **`config.MongodConfigSet4_4`**<br>Configuration for mongod 4.4 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+
+
+### MongoCfg {#MongoCfg39}
+
+Field | Description
+--- | ---
+config | **`config.MongoCfgConfigSet4_4`**<br>Configuration for mongocfg 4.4 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+
+
+### Mongos {#Mongos39}
+
+Field | Description
+--- | ---
+config | **`config.MongosConfigSet4_4`**<br>Configuration for mongos 4.4 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+
+
+### MongoInfra {#MongoInfra39}
+
+Field | Description
+--- | ---
+config_mongos | **[config.MongosConfigSet4_4](#MongosConfigSet4_4)**<br> 
+config_mongocfg | **[config.MongoCfgConfigSet4_4](#MongoCfgConfigSet4_4)**<br> 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+
+
+### Access {#Access9}
+
+Field | Description
+--- | ---
+data_lens | **bool**<br>Allow access for DataLens 
+
+
+### MaintenanceWindow {#MaintenanceWindow8}
+
+Field | Description
+--- | ---
+policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow8)**<br> 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow8)**<br> 
+
+
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow8}
+
+
+
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow8}
+
+Field | Description
+--- | ---
+day | enum **WeekDay**<br> <ul><ul/>
+hour | **int64**<br>Hour of the day in UTC. Acceptable values are 1 to 24, inclusive.
+
+
+### MaintenanceOperation {#MaintenanceOperation7}
+
+Field | Description
+--- | ---
+info | **string**<br> The maximum string length in characters is 256.
+delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
 
 
 ## Restore {#Restore}
@@ -1459,7 +2857,7 @@ Creates a new MongoDB cluster using the specified backup.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[RestoreClusterMetadata](#RestoreClusterMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](../cluster.proto#Cluster8)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster8)<br>
 
 ### RestoreClusterRequest {#RestoreClusterRequest}
 
@@ -1469,7 +2867,7 @@ backup_id | **string**<br>Required. ID of the backup to create a cluster from. T
 name | **string**<br>Required. Name of the new MongoDB cluster. The name must be unique within the folder. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 description | **string**<br>Description of the new MongoDB cluster. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Custom labels for the MongoDB cluster as `` key:value `` pairs. Maximum 64 per resource. For example, "project": "mvp" or "source": "dictionary". No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
-environment | **[Cluster.Environment](../cluster.proto#Cluster8)**<br>Required. Deployment environment of the new MongoDB cluster. 
+environment | **[Cluster.Environment](#Cluster8)**<br>Required. Deployment environment of the new MongoDB cluster. 
 config_spec | **[ConfigSpec](#ConfigSpec)**<br>Required. Configuration for the MongoDB cluster to be created. 
 host_specs[] | **[HostSpec](#HostSpec)**<br>Configurations for MongoDB hosts that should be created for the cluster that is being created from the backup. The number of elements must be greater than 0.
 network_id | **string**<br>Required. ID of the network to create the MongoDB cluster in. The maximum string length in characters is 50.
@@ -1497,182 +2895,182 @@ mongodb_spec | **oneof:** `mongodb_spec_3_6`, `mongodb_spec_4_0`, `mongodb_spec_
 &nbsp;&nbsp;mongodb_spec_4_4 | **[MongodbSpec4_4](#MongodbSpec4_4)**<br>Configuration and resource allocation for a MongoDB 4.4 cluster. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retain period of automatically created backup in days Acceptable values are 7 to 35, inclusive.
-access | **[Access](../cluster.proto#Access4)**<br>Access policy to DB 
+access | **[Access](#Access10)**<br>Access policy to DB 
 
 
 ### MongodbSpec3_6 {#MongodbSpec3_62}
 
 Field | Description
 --- | ---
-mongod | **[Mongod](../cluster.proto#Mongod16)**<br>Configuration and resource allocation for mongod 3.6 hosts. 
-mongocfg | **[MongoCfg](../cluster.proto#MongoCfg16)**<br>Configuration and resource allocation for mongocfg 3.6 hosts. 
-mongos | **[Mongos](../cluster.proto#Mongos16)**<br>Configuration and resource allocation for mongos 3.6 hosts. 
-mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra16)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 3.6 hosts. 
+mongod | **[Mongod](#Mongod40)**<br>Configuration and resource allocation for mongod 3.6 hosts. 
+mongocfg | **[MongoCfg](#MongoCfg40)**<br>Configuration and resource allocation for mongocfg 3.6 hosts. 
+mongos | **[Mongos](#Mongos40)**<br>Configuration and resource allocation for mongos 3.6 hosts. 
+mongoinfra | **[MongoInfra](#MongoInfra40)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 3.6 hosts. 
 
 
-### Mongod {#Mongod16}
+### Mongod {#Mongod40}
 
 Field | Description
 --- | ---
 config | **`config.MongodConfig3_6`**<br>Configuration for mongod 3.6 hosts. 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongod host. 
+resources | **[Resources](#Resources)**<br>Resources allocated to each mongod host. 
 
 
-### MongoCfg {#MongoCfg16}
+### MongoCfg {#MongoCfg40}
 
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfig3_6`**<br>Configuration for mongocfg 3.6 hosts. 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongocfg host. 
+resources | **[Resources](#Resources)**<br>Resources allocated to each mongocfg host. 
 
 
-### Mongos {#Mongos16}
+### Mongos {#Mongos40}
 
 Field | Description
 --- | ---
 config | **`config.MongosConfig3_6`**<br>Configuration for mongos 3.6 hosts. 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongos host. 
+resources | **[Resources](#Resources)**<br>Resources allocated to each mongos host. 
 
 
-### MongoInfra {#MongoInfra16}
+### MongoInfra {#MongoInfra40}
 
 Field | Description
 --- | ---
 config_mongos | **[config.MongosConfig3_6](#MongosConfig3_6)**<br>Configuration for mongoinfra 3.6 hosts. 
 config_mongocfg | **[config.MongoCfgConfig3_6](#MongoCfgConfig3_6)**<br> 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
+resources | **[Resources](#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
 
 
 ### MongodbSpec4_0 {#MongodbSpec4_02}
 
 Field | Description
 --- | ---
-mongod | **[Mongod](../cluster.proto#Mongod17)**<br>Configuration and resource allocation for mongod 4.0 hosts. 
-mongocfg | **[MongoCfg](../cluster.proto#MongoCfg17)**<br>Configuration and resource allocation for mongocfg 4.0 hosts. 
-mongos | **[Mongos](../cluster.proto#Mongos17)**<br>Configuration and resource allocation for mongos 4.0 hosts. 
-mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra17)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.0 hosts. 
+mongod | **[Mongod](#Mongod41)**<br>Configuration and resource allocation for mongod 4.0 hosts. 
+mongocfg | **[MongoCfg](#MongoCfg41)**<br>Configuration and resource allocation for mongocfg 4.0 hosts. 
+mongos | **[Mongos](#Mongos41)**<br>Configuration and resource allocation for mongos 4.0 hosts. 
+mongoinfra | **[MongoInfra](#MongoInfra41)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.0 hosts. 
 
 
-### Mongod {#Mongod17}
+### Mongod {#Mongod41}
 
 Field | Description
 --- | ---
 config | **`config.MongodConfig4_0`**<br>Configuration for mongod 4.0 hosts. 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongod host. 
+resources | **[Resources](#Resources)**<br>Resources allocated to each mongod host. 
 
 
-### MongoCfg {#MongoCfg17}
+### MongoCfg {#MongoCfg41}
 
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfig4_0`**<br>Configuration for mongocfg 4.0 hosts. 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongocfg host. 
+resources | **[Resources](#Resources)**<br>Resources allocated to each mongocfg host. 
 
 
-### Mongos {#Mongos17}
+### Mongos {#Mongos41}
 
 Field | Description
 --- | ---
 config | **`config.MongosConfig4_0`**<br>Configuration for mongos 4.0 hosts. 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongos host. 
+resources | **[Resources](#Resources)**<br>Resources allocated to each mongos host. 
 
 
-### MongoInfra {#MongoInfra17}
+### MongoInfra {#MongoInfra41}
 
 Field | Description
 --- | ---
 config_mongos | **[config.MongosConfig4_0](#MongosConfig4_0)**<br>Configuration for mongoinfra 4.0 hosts. 
 config_mongocfg | **[config.MongoCfgConfig4_0](#MongoCfgConfig4_0)**<br> 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
+resources | **[Resources](#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
 
 
 ### MongodbSpec4_2 {#MongodbSpec4_22}
 
 Field | Description
 --- | ---
-mongod | **[Mongod](../cluster.proto#Mongod18)**<br>Configuration and resource allocation for mongod 4.2 hosts. 
-mongocfg | **[MongoCfg](../cluster.proto#MongoCfg18)**<br>Configuration and resource allocation for mongocfg 4.2 hosts. 
-mongos | **[Mongos](../cluster.proto#Mongos18)**<br>Configuration and resource allocation for mongos 4.2 hosts. 
-mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra18)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.2 hosts. 
+mongod | **[Mongod](#Mongod42)**<br>Configuration and resource allocation for mongod 4.2 hosts. 
+mongocfg | **[MongoCfg](#MongoCfg42)**<br>Configuration and resource allocation for mongocfg 4.2 hosts. 
+mongos | **[Mongos](#Mongos42)**<br>Configuration and resource allocation for mongos 4.2 hosts. 
+mongoinfra | **[MongoInfra](#MongoInfra42)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.2 hosts. 
 
 
-### Mongod {#Mongod18}
+### Mongod {#Mongod42}
 
 Field | Description
 --- | ---
 config | **`config.MongodConfig4_2`**<br>Configuration for mongod 4.2 hosts. 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongod host. 
+resources | **[Resources](#Resources)**<br>Resources allocated to each mongod host. 
 
 
-### MongoCfg {#MongoCfg18}
+### MongoCfg {#MongoCfg42}
 
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfig4_2`**<br>Configuration for mongocfg 4.2 hosts. 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongocfg host. 
+resources | **[Resources](#Resources)**<br>Resources allocated to each mongocfg host. 
 
 
-### Mongos {#Mongos18}
+### Mongos {#Mongos42}
 
 Field | Description
 --- | ---
 config | **`config.MongosConfig4_2`**<br>Configuration for mongos 4.2 hosts. 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongos host. 
+resources | **[Resources](#Resources)**<br>Resources allocated to each mongos host. 
 
 
-### MongoInfra {#MongoInfra18}
+### MongoInfra {#MongoInfra42}
 
 Field | Description
 --- | ---
 config_mongos | **[config.MongosConfig4_2](#MongosConfig4_2)**<br>Configuration for mongoinfra 4.2 hosts. 
 config_mongocfg | **[config.MongoCfgConfig4_2](#MongoCfgConfig4_2)**<br> 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
+resources | **[Resources](#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
 
 
 ### MongodbSpec4_4 {#MongodbSpec4_42}
 
 Field | Description
 --- | ---
-mongod | **[Mongod](../cluster.proto#Mongod19)**<br>Configuration and resource allocation for mongod 4.4 hosts. 
-mongocfg | **[MongoCfg](../cluster.proto#MongoCfg19)**<br>Configuration and resource allocation for mongocfg 4.4 hosts. 
-mongos | **[Mongos](../cluster.proto#Mongos19)**<br>Configuration and resource allocation for mongos 4.4 hosts. 
-mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra19)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.4 hosts. 
+mongod | **[Mongod](#Mongod43)**<br>Configuration and resource allocation for mongod 4.4 hosts. 
+mongocfg | **[MongoCfg](#MongoCfg43)**<br>Configuration and resource allocation for mongocfg 4.4 hosts. 
+mongos | **[Mongos](#Mongos43)**<br>Configuration and resource allocation for mongos 4.4 hosts. 
+mongoinfra | **[MongoInfra](#MongoInfra43)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.4 hosts. 
 
 
-### Mongod {#Mongod19}
+### Mongod {#Mongod43}
 
 Field | Description
 --- | ---
 config | **`config.MongodConfig4_4`**<br>Configuration for mongod 4.4 hosts. 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongod host. 
+resources | **[Resources](#Resources)**<br>Resources allocated to each mongod host. 
 
 
-### MongoCfg {#MongoCfg19}
+### MongoCfg {#MongoCfg43}
 
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfig4_4`**<br>Configuration for mongocfg 4.4 hosts. 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongocfg host. 
+resources | **[Resources](#Resources)**<br>Resources allocated to each mongocfg host. 
 
 
-### Mongos {#Mongos19}
+### Mongos {#Mongos43}
 
 Field | Description
 --- | ---
 config | **`config.MongosConfig4_4`**<br>Configuration for mongos 4.4 hosts. 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongos host. 
+resources | **[Resources](#Resources)**<br>Resources allocated to each mongos host. 
 
 
-### MongoInfra {#MongoInfra19}
+### MongoInfra {#MongoInfra43}
 
 Field | Description
 --- | ---
 config_mongos | **[config.MongosConfig4_4](#MongosConfig4_4)**<br>Configuration for mongoinfra 4.4 hosts. 
 config_mongocfg | **[config.MongoCfgConfig4_4](#MongoCfgConfig4_4)**<br> 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
+resources | **[Resources](#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
 
 
-### Access {#Access4}
+### Access {#Access10}
 
 Field | Description
 --- | ---
@@ -1684,9 +3082,9 @@ data_lens | **bool**<br>Allow access for DataLens
 Field | Description
 --- | ---
 zone_id | **string**<br>ID of the availability zone where the host resides. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/grpc/zone_service#List) request. The maximum string length in characters is 50.
-subnet_id | **string**<br>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The network ID is set in the [Cluster.network_id](../cluster.proto#Cluster8) field. The maximum string length in characters is 50.
+subnet_id | **string**<br>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The network ID is set in the [Cluster.network_id](#Cluster8) field. The maximum string length in characters is 50.
 assign_public_ip | **bool**<br><ul><li>false — don't assign a public IP to the host. </li><li>true — the host should have a public IP address.</li></ul> 
-type | **[Host.Type](../cluster.proto#Host)**<br>Type of the host to be deployed. 
+type | **[Host.Type](#Host)**<br>Type of the host to be deployed. 
 shard_name | **string**<br>Name of the shard that the host belongs to. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
@@ -1703,7 +3101,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RestoreClusterMetadata](#RestoreClusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](../cluster.proto#Cluster8)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster8)>**<br>if operation finished successfully. 
 
 
 ### RestoreClusterMetadata {#RestoreClusterMetadata}
@@ -1725,14 +3123,247 @@ name | **string**<br>Name of the MongoDB cluster. The name is unique within the 
 description | **string**<br>Description of the MongoDB cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the MongoDB cluster as `` key:value `` pairs. Maximum 64 per resource. 
 environment | enum **Environment**<br>Deployment environment of the MongoDB cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
-monitoring[] | **[Monitoring](../cluster.proto#Monitoring2)**<br>Description of monitoring systems relevant to the MongoDB cluster. 
-config | **[ClusterConfig](../cluster.proto#ClusterConfig2)**<br>Configuration of the MongoDB cluster. 
+monitoring[] | **[Monitoring](#Monitoring8)**<br>Description of monitoring systems relevant to the MongoDB cluster. 
+config | **[ClusterConfig](#ClusterConfig8)**<br>Configuration of the MongoDB cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](../cluster.proto#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](../cluster.proto#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](../cluster.proto#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](../cluster.proto#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
 sharded | **bool**<br>Indicates current sharding status of the cluster. 
-maintenance_window | **[MaintenanceWindow](../maintenance.proto#MaintenanceWindow3)**<br>Window of maintenance operations. 
-planned_operation | **[MaintenanceOperation](../maintenance.proto#MaintenanceOperation2)**<br>Maintenance operation planned at nearest maintenance_window. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow9)**<br>Window of maintenance operations. 
+planned_operation | **[MaintenanceOperation](#MaintenanceOperation8)**<br>Maintenance operation planned at nearest maintenance_window. 
+
+
+### Monitoring {#Monitoring8}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the monitoring system. 
+description | **string**<br>Description of the monitoring system. 
+link | **string**<br>Link to the monitoring system charts for the MongoDB cluster. 
+
+
+### ClusterConfig {#ClusterConfig8}
+
+Field | Description
+--- | ---
+version | **string**<br>Version of MongoDB server software. Possible values: `3.6`, `4.0`, `4.2`, `4.4`. 
+feature_compatibility_version | **string**<br><ul><li>`3.6` — persist data compatibility for version 3.6. After setting this option the data will not be compatible with 3.4 or lower. </li><li>`4.0` — persist data compatibility for version 4.0. After setting this option the data will not be compatible with 3.6 or lower. </li><li>`4.2` — persist data compatibility for version 4.2. After setting this option the data will not be compatible with 4.0 or lower. </li><li>`4.4` — persist data compatibility for version 4.4. After setting this option the data will not be compatible with 4.2 or lower.</li></ul> 
+mongodb | **oneof:** `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2` or `mongodb_4_4`<br>Configuration for MongoDB servers in the cluster.
+&nbsp;&nbsp;mongodb_3_6 | **[Mongodb3_6](#Mongodb3_68)**<br>Configuration and resource allocation for a MongoDB 3.6 cluster. 
+&nbsp;&nbsp;mongodb_4_0 | **[Mongodb4_0](#Mongodb4_08)**<br>Configuration and resource allocation for a MongoDB 4.0 cluster. 
+&nbsp;&nbsp;mongodb_4_2 | **[Mongodb4_2](#Mongodb4_28)**<br>Configuration and resource allocation for a MongoDB 4.2 cluster. 
+&nbsp;&nbsp;mongodb_4_4 | **[Mongodb4_4](#Mongodb4_48)**<br>Configuration and resource allocation for a MongoDB 4.4 cluster. 
+backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
+backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retain period of automatically created backup in days 
+access | **[Access](#Access11)**<br>Access policy to DB 
+
+
+### Mongodb3_6 {#Mongodb3_68}
+
+Field | Description
+--- | ---
+mongod | **[Mongod](#Mongod44)**<br>Configuration and resource allocation for mongod in a MongoDB 3.6 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg44)**<br>Configuration and resource allocation for mongocfg in a MongoDB 3.6 cluster. 
+mongos | **[Mongos](#Mongos44)**<br>Configuration and resource allocation for mongos in a MongoDB 3.6 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra44)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 3.6 cluster. 
+
+
+### Mongod {#Mongod44}
+
+Field | Description
+--- | ---
+config | **`config.MongodConfigSet3_6`**<br>Configuration for a mongod 3.6 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to MongoDB hosts. 
+
+
+### MongoCfg {#MongoCfg44}
+
+Field | Description
+--- | ---
+config | **`config.MongoCfgConfigSet3_6`**<br> 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+
+
+### Mongos {#Mongos44}
+
+Field | Description
+--- | ---
+config | **`config.MongosConfigSet3_6`**<br> 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+
+
+### MongoInfra {#MongoInfra44}
+
+Field | Description
+--- | ---
+config_mongos | **[config.MongosConfigSet3_6](#MongosConfigSet3_6)**<br> 
+config_mongocfg | **[config.MongoCfgConfigSet3_6](#MongoCfgConfigSet3_6)**<br> 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+
+
+### Mongodb4_0 {#Mongodb4_08}
+
+Field | Description
+--- | ---
+mongod | **[Mongod](#Mongod45)**<br>Configuration and resource allocation for mongod in a MongoDB 4.0 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg45)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.0 cluster. 
+mongos | **[Mongos](#Mongos45)**<br>Configuration and resource allocation for mongos in a MongoDB 4.0 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra45)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.0 cluster. 
+
+
+### Mongod {#Mongod45}
+
+Field | Description
+--- | ---
+config | **`config.MongodConfigSet4_0`**<br>Configuration for mongod 4.0 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+
+
+### MongoCfg {#MongoCfg45}
+
+Field | Description
+--- | ---
+config | **`config.MongoCfgConfigSet4_0`**<br>Configuration for mongocfg 4.0 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+
+
+### Mongos {#Mongos45}
+
+Field | Description
+--- | ---
+config | **`config.MongosConfigSet4_0`**<br>Configuration for mongos 4.0 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+
+
+### MongoInfra {#MongoInfra45}
+
+Field | Description
+--- | ---
+config_mongos | **[config.MongosConfigSet4_0](#MongosConfigSet4_0)**<br> 
+config_mongocfg | **[config.MongoCfgConfigSet4_0](#MongoCfgConfigSet4_0)**<br> 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+
+
+### Mongodb4_2 {#Mongodb4_28}
+
+Field | Description
+--- | ---
+mongod | **[Mongod](#Mongod46)**<br>Configuration and resource allocation for mongod in a MongoDB 4.2 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg46)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.2 cluster. 
+mongos | **[Mongos](#Mongos46)**<br>Configuration and resource allocation for mongos in a MongoDB 4.2 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra46)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.2 cluster. 
+
+
+### Mongod {#Mongod46}
+
+Field | Description
+--- | ---
+config | **`config.MongodConfigSet4_2`**<br>Configuration for mongod 4.2 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+
+
+### MongoCfg {#MongoCfg46}
+
+Field | Description
+--- | ---
+config | **`config.MongoCfgConfigSet4_2`**<br>Configuration for mongocfg 4.2 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+
+
+### Mongos {#Mongos46}
+
+Field | Description
+--- | ---
+config | **`config.MongosConfigSet4_2`**<br>Configuration for mongos 4.2 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+
+
+### MongoInfra {#MongoInfra46}
+
+Field | Description
+--- | ---
+config_mongos | **[config.MongosConfigSet4_2](#MongosConfigSet4_2)**<br> 
+config_mongocfg | **[config.MongoCfgConfigSet4_2](#MongoCfgConfigSet4_2)**<br> 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+
+
+### Mongodb4_4 {#Mongodb4_48}
+
+Field | Description
+--- | ---
+mongod | **[Mongod](#Mongod47)**<br>Configuration and resource allocation for mongod in a MongoDB 4.4 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg47)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.4 cluster. 
+mongos | **[Mongos](#Mongos47)**<br>Configuration and resource allocation for mongos in a MongoDB 4.4 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra47)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.4 cluster. 
+
+
+### Mongod {#Mongod47}
+
+Field | Description
+--- | ---
+config | **`config.MongodConfigSet4_4`**<br>Configuration for mongod 4.4 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+
+
+### MongoCfg {#MongoCfg47}
+
+Field | Description
+--- | ---
+config | **`config.MongoCfgConfigSet4_4`**<br>Configuration for mongocfg 4.4 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+
+
+### Mongos {#Mongos47}
+
+Field | Description
+--- | ---
+config | **`config.MongosConfigSet4_4`**<br>Configuration for mongos 4.4 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+
+
+### MongoInfra {#MongoInfra47}
+
+Field | Description
+--- | ---
+config_mongos | **[config.MongosConfigSet4_4](#MongosConfigSet4_4)**<br> 
+config_mongocfg | **[config.MongoCfgConfigSet4_4](#MongoCfgConfigSet4_4)**<br> 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+
+
+### Access {#Access11}
+
+Field | Description
+--- | ---
+data_lens | **bool**<br>Allow access for DataLens 
+
+
+### MaintenanceWindow {#MaintenanceWindow9}
+
+Field | Description
+--- | ---
+policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow9)**<br> 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow9)**<br> 
+
+
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow9}
+
+
+
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow9}
+
+Field | Description
+--- | ---
+day | enum **WeekDay**<br> <ul><ul/>
+hour | **int64**<br>Hour of the day in UTC. Acceptable values are 1 to 24, inclusive.
+
+
+### MaintenanceOperation {#MaintenanceOperation8}
+
+Field | Description
+--- | ---
+info | **string**<br> The maximum string length in characters is 256.
+delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
 
 
 ## RescheduleMaintenance {#RescheduleMaintenance}
@@ -1743,7 +3374,7 @@ Reschedule planned maintenance operation.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[RescheduleMaintenanceMetadata](#RescheduleMaintenanceMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](../cluster.proto#Cluster9)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster9)<br>
 
 ### RescheduleMaintenanceRequest {#RescheduleMaintenanceRequest}
 
@@ -1767,7 +3398,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RescheduleMaintenanceMetadata](#RescheduleMaintenanceMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](../cluster.proto#Cluster9)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster9)>**<br>if operation finished successfully. 
 
 
 ### RescheduleMaintenanceMetadata {#RescheduleMaintenanceMetadata}
@@ -1789,14 +3420,247 @@ name | **string**<br>Name of the MongoDB cluster. The name is unique within the 
 description | **string**<br>Description of the MongoDB cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the MongoDB cluster as `` key:value `` pairs. Maximum 64 per resource. 
 environment | enum **Environment**<br>Deployment environment of the MongoDB cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
-monitoring[] | **[Monitoring](../cluster.proto#Monitoring2)**<br>Description of monitoring systems relevant to the MongoDB cluster. 
-config | **[ClusterConfig](../cluster.proto#ClusterConfig2)**<br>Configuration of the MongoDB cluster. 
+monitoring[] | **[Monitoring](#Monitoring9)**<br>Description of monitoring systems relevant to the MongoDB cluster. 
+config | **[ClusterConfig](#ClusterConfig9)**<br>Configuration of the MongoDB cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](../cluster.proto#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](../cluster.proto#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](../cluster.proto#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](../cluster.proto#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
 sharded | **bool**<br>Indicates current sharding status of the cluster. 
-maintenance_window | **[MaintenanceWindow](../maintenance.proto#MaintenanceWindow3)**<br>Window of maintenance operations. 
-planned_operation | **[MaintenanceOperation](../maintenance.proto#MaintenanceOperation2)**<br>Maintenance operation planned at nearest maintenance_window. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow10)**<br>Window of maintenance operations. 
+planned_operation | **[MaintenanceOperation](#MaintenanceOperation9)**<br>Maintenance operation planned at nearest maintenance_window. 
+
+
+### Monitoring {#Monitoring9}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the monitoring system. 
+description | **string**<br>Description of the monitoring system. 
+link | **string**<br>Link to the monitoring system charts for the MongoDB cluster. 
+
+
+### ClusterConfig {#ClusterConfig9}
+
+Field | Description
+--- | ---
+version | **string**<br>Version of MongoDB server software. Possible values: `3.6`, `4.0`, `4.2`, `4.4`. 
+feature_compatibility_version | **string**<br><ul><li>`3.6` — persist data compatibility for version 3.6. After setting this option the data will not be compatible with 3.4 or lower. </li><li>`4.0` — persist data compatibility for version 4.0. After setting this option the data will not be compatible with 3.6 or lower. </li><li>`4.2` — persist data compatibility for version 4.2. After setting this option the data will not be compatible with 4.0 or lower. </li><li>`4.4` — persist data compatibility for version 4.4. After setting this option the data will not be compatible with 4.2 or lower.</li></ul> 
+mongodb | **oneof:** `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2` or `mongodb_4_4`<br>Configuration for MongoDB servers in the cluster.
+&nbsp;&nbsp;mongodb_3_6 | **[Mongodb3_6](#Mongodb3_69)**<br>Configuration and resource allocation for a MongoDB 3.6 cluster. 
+&nbsp;&nbsp;mongodb_4_0 | **[Mongodb4_0](#Mongodb4_09)**<br>Configuration and resource allocation for a MongoDB 4.0 cluster. 
+&nbsp;&nbsp;mongodb_4_2 | **[Mongodb4_2](#Mongodb4_29)**<br>Configuration and resource allocation for a MongoDB 4.2 cluster. 
+&nbsp;&nbsp;mongodb_4_4 | **[Mongodb4_4](#Mongodb4_49)**<br>Configuration and resource allocation for a MongoDB 4.4 cluster. 
+backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
+backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retain period of automatically created backup in days 
+access | **[Access](#Access12)**<br>Access policy to DB 
+
+
+### Mongodb3_6 {#Mongodb3_69}
+
+Field | Description
+--- | ---
+mongod | **[Mongod](#Mongod48)**<br>Configuration and resource allocation for mongod in a MongoDB 3.6 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg48)**<br>Configuration and resource allocation for mongocfg in a MongoDB 3.6 cluster. 
+mongos | **[Mongos](#Mongos48)**<br>Configuration and resource allocation for mongos in a MongoDB 3.6 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra48)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 3.6 cluster. 
+
+
+### Mongod {#Mongod48}
+
+Field | Description
+--- | ---
+config | **`config.MongodConfigSet3_6`**<br>Configuration for a mongod 3.6 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to MongoDB hosts. 
+
+
+### MongoCfg {#MongoCfg48}
+
+Field | Description
+--- | ---
+config | **`config.MongoCfgConfigSet3_6`**<br> 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+
+
+### Mongos {#Mongos48}
+
+Field | Description
+--- | ---
+config | **`config.MongosConfigSet3_6`**<br> 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+
+
+### MongoInfra {#MongoInfra48}
+
+Field | Description
+--- | ---
+config_mongos | **[config.MongosConfigSet3_6](#MongosConfigSet3_6)**<br> 
+config_mongocfg | **[config.MongoCfgConfigSet3_6](#MongoCfgConfigSet3_6)**<br> 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+
+
+### Mongodb4_0 {#Mongodb4_09}
+
+Field | Description
+--- | ---
+mongod | **[Mongod](#Mongod49)**<br>Configuration and resource allocation for mongod in a MongoDB 4.0 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg49)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.0 cluster. 
+mongos | **[Mongos](#Mongos49)**<br>Configuration and resource allocation for mongos in a MongoDB 4.0 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra49)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.0 cluster. 
+
+
+### Mongod {#Mongod49}
+
+Field | Description
+--- | ---
+config | **`config.MongodConfigSet4_0`**<br>Configuration for mongod 4.0 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+
+
+### MongoCfg {#MongoCfg49}
+
+Field | Description
+--- | ---
+config | **`config.MongoCfgConfigSet4_0`**<br>Configuration for mongocfg 4.0 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+
+
+### Mongos {#Mongos49}
+
+Field | Description
+--- | ---
+config | **`config.MongosConfigSet4_0`**<br>Configuration for mongos 4.0 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+
+
+### MongoInfra {#MongoInfra49}
+
+Field | Description
+--- | ---
+config_mongos | **[config.MongosConfigSet4_0](#MongosConfigSet4_0)**<br> 
+config_mongocfg | **[config.MongoCfgConfigSet4_0](#MongoCfgConfigSet4_0)**<br> 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+
+
+### Mongodb4_2 {#Mongodb4_29}
+
+Field | Description
+--- | ---
+mongod | **[Mongod](#Mongod50)**<br>Configuration and resource allocation for mongod in a MongoDB 4.2 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg50)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.2 cluster. 
+mongos | **[Mongos](#Mongos50)**<br>Configuration and resource allocation for mongos in a MongoDB 4.2 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra50)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.2 cluster. 
+
+
+### Mongod {#Mongod50}
+
+Field | Description
+--- | ---
+config | **`config.MongodConfigSet4_2`**<br>Configuration for mongod 4.2 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+
+
+### MongoCfg {#MongoCfg50}
+
+Field | Description
+--- | ---
+config | **`config.MongoCfgConfigSet4_2`**<br>Configuration for mongocfg 4.2 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+
+
+### Mongos {#Mongos50}
+
+Field | Description
+--- | ---
+config | **`config.MongosConfigSet4_2`**<br>Configuration for mongos 4.2 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+
+
+### MongoInfra {#MongoInfra50}
+
+Field | Description
+--- | ---
+config_mongos | **[config.MongosConfigSet4_2](#MongosConfigSet4_2)**<br> 
+config_mongocfg | **[config.MongoCfgConfigSet4_2](#MongoCfgConfigSet4_2)**<br> 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+
+
+### Mongodb4_4 {#Mongodb4_49}
+
+Field | Description
+--- | ---
+mongod | **[Mongod](#Mongod51)**<br>Configuration and resource allocation for mongod in a MongoDB 4.4 cluster. 
+mongocfg | **[MongoCfg](#MongoCfg51)**<br>Configuration and resource allocation for mongocfg in a MongoDB 4.4 cluster. 
+mongos | **[Mongos](#Mongos51)**<br>Configuration and resource allocation for mongos in a MongoDB 4.4 cluster. 
+mongoinfra | **[MongoInfra](#MongoInfra51)**<br>Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.4 cluster. 
+
+
+### Mongod {#Mongod51}
+
+Field | Description
+--- | ---
+config | **`config.MongodConfigSet4_4`**<br>Configuration for mongod 4.4 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+
+
+### MongoCfg {#MongoCfg51}
+
+Field | Description
+--- | ---
+config | **`config.MongoCfgConfigSet4_4`**<br>Configuration for mongocfg 4.4 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+
+
+### Mongos {#Mongos51}
+
+Field | Description
+--- | ---
+config | **`config.MongosConfigSet4_4`**<br>Configuration for mongos 4.4 hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+
+
+### MongoInfra {#MongoInfra51}
+
+Field | Description
+--- | ---
+config_mongos | **[config.MongosConfigSet4_4](#MongosConfigSet4_4)**<br> 
+config_mongocfg | **[config.MongoCfgConfigSet4_4](#MongoCfgConfigSet4_4)**<br> 
+resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+
+
+### Access {#Access12}
+
+Field | Description
+--- | ---
+data_lens | **bool**<br>Allow access for DataLens 
+
+
+### MaintenanceWindow {#MaintenanceWindow10}
+
+Field | Description
+--- | ---
+policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow10)**<br> 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow10)**<br> 
+
+
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow10}
+
+
+
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow10}
+
+Field | Description
+--- | ---
+day | enum **WeekDay**<br> <ul><ul/>
+hour | **int64**<br>Hour of the day in UTC. Acceptable values are 1 to 24, inclusive.
+
+
+### MaintenanceOperation {#MaintenanceOperation9}
+
+Field | Description
+--- | ---
+info | **string**<br> The maximum string length in characters is 256.
+delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
 
 
 ## ListLogs {#ListLogs}
@@ -1964,7 +3828,7 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 
 Field | Description
 --- | ---
-hosts[] | **[Host](../cluster.proto#Host)**<br>List of Host resources. 
+hosts[] | **[Host](#Host)**<br>List of Host resources. 
 next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterHostsRequest.page_size](#ListClusterHostsRequest), use the `next_page_token` as the value for the [ListClusterHostsRequest.page_token](#ListClusterHostsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
@@ -1975,10 +3839,10 @@ Field | Description
 name | **string**<br>Name of the MongoDB host. The host name is assigned by MDB at creation time, and cannot be changed. 1-63 characters long. <br>The name is unique across all existing MDB hosts in Yandex.Cloud, as it defines the FQDN of the host. 
 cluster_id | **string**<br>ID of the MongoDB host. The ID is assigned by MDB at creation time. 
 zone_id | **string**<br>ID of the availability zone where the MongoDB host resides. 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to the MongoDB host. 
+resources | **[Resources](#Resources)**<br>Resources allocated to the MongoDB host. 
 role | enum **Role**<br>Role of the host in the cluster. <ul><li>`ROLE_UNKNOWN`: Role of the host in the cluster is unknown.</li><li>`PRIMARY`: Host is the primary MongoDB server in the cluster.</li><li>`SECONDARY`: Host is a secondary MongoDB server in the cluster.</li><ul/>
 health | enum **Health**<br>Status code of the aggregated health of the host. <ul><li>`HEALTH_UNKNOWN`: Health of the host is unknown.</li><li>`ALIVE`: The host is performing all its functions normally.</li><li>`DEAD`: The host is inoperable, and cannot perform any of its essential functions.</li><li>`DEGRADED`: The host is degraded, and can perform only some of its essential functions.</li><ul/>
-services[] | **[Service](../cluster.proto#Service)**<br>Services provided by the host. 
+services[] | **[Service](#Service)**<br>Services provided by the host. 
 subnet_id | **string**<br>ID of the subnet that the host belongs to. 
 assign_public_ip | **bool**<br>Flag showing public IP assignment status to this host. 
 shard_name | **string**<br>Shard which this host belongs to. 
@@ -2025,9 +3889,9 @@ host_specs[] | **[HostSpec](#HostSpec)**<br>Configurations for MongoDB hosts tha
 Field | Description
 --- | ---
 zone_id | **string**<br>ID of the availability zone where the host resides. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/grpc/zone_service#List) request. The maximum string length in characters is 50.
-subnet_id | **string**<br>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The network ID is set in the [Cluster.network_id](../cluster.proto#Cluster10) field. The maximum string length in characters is 50.
+subnet_id | **string**<br>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The network ID is set in the [Cluster.network_id](#Cluster10) field. The maximum string length in characters is 50.
 assign_public_ip | **bool**<br><ul><li>false — don't assign a public IP to the host. </li><li>true — the host should have a public IP address.</li></ul> 
-type | **[Host.Type](../cluster.proto#Host1)**<br>Type of the host to be deployed. 
+type | **[Host.Type](#Host1)**<br>Type of the host to be deployed. 
 shard_name | **string**<br>Name of the shard that the host belongs to. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
@@ -2112,31 +3976,31 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 cluster_id | **string**<br>Required. ID of the MongoDB cluster to enable sharding for. The maximum string length in characters is 50.
-mongocfg | **[MongoCfg](../cluster.proto#MongoCfg20)**<br>mongocfg specification for sharding. 
-mongos | **[Mongos](../cluster.proto#Mongos20)**<br>mongos specification for sharding. 
+mongocfg | **[MongoCfg](#MongoCfg52)**<br>mongocfg specification for sharding. 
+mongos | **[Mongos](#Mongos52)**<br>mongos specification for sharding. 
 host_specs[] | **[HostSpec](#HostSpec)**<br>Configurations for mongos and mongocfg hosts. The number of elements must be greater than 0.
-mongoinfra | **[MongoInfra](../cluster.proto#MongoInfra20)**<br>mongos specification for sharding. 
+mongoinfra | **[MongoInfra](#MongoInfra52)**<br>mongos specification for sharding. 
 
 
-### MongoCfg {#MongoCfg20}
-
-Field | Description
---- | ---
-resources | **[Resources](../cluster.proto#Resources1)**<br>Required. Resources for mongocfg hosts. 
-
-
-### Mongos {#Mongos20}
+### MongoCfg {#MongoCfg52}
 
 Field | Description
 --- | ---
-resources | **[Resources](../cluster.proto#Resources1)**<br>Required. Resources for mongos hosts. 
+resources | **[Resources](#Resources1)**<br>Required. Resources for mongocfg hosts. 
 
 
-### MongoInfra {#MongoInfra20}
+### Mongos {#Mongos52}
 
 Field | Description
 --- | ---
-resources | **[Resources](../cluster.proto#Resources1)**<br>Required. Resources for mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources1)**<br>Required. Resources for mongos hosts. 
+
+
+### MongoInfra {#MongoInfra52}
+
+Field | Description
+--- | ---
+resources | **[Resources](#Resources1)**<br>Required. Resources for mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### HostSpec {#HostSpec3}
@@ -2144,9 +4008,9 @@ resources | **[Resources](../cluster.proto#Resources1)**<br>Required. Resources 
 Field | Description
 --- | ---
 zone_id | **string**<br>ID of the availability zone where the host resides. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/grpc/zone_service#List) request. The maximum string length in characters is 50.
-subnet_id | **string**<br>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The network ID is set in the [Cluster.network_id](../cluster.proto#Cluster10) field. The maximum string length in characters is 50.
+subnet_id | **string**<br>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The network ID is set in the [Cluster.network_id](#Cluster10) field. The maximum string length in characters is 50.
 assign_public_ip | **bool**<br><ul><li>false — don't assign a public IP to the host. </li><li>true — the host should have a public IP address.</li></ul> 
-type | **[Host.Type](../cluster.proto#Host1)**<br>Type of the host to be deployed. 
+type | **[Host.Type](#Host1)**<br>Type of the host to be deployed. 
 shard_name | **string**<br>Name of the shard that the host belongs to. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
@@ -2177,7 +4041,7 @@ cluster_id | **string**<br>ID of the MongoDB cluster that sharding is being enab
 
 Returns the specified shard.
 
-**rpc GetShard ([GetClusterShardRequest](#GetClusterShardRequest)) returns ([Shard](../cluster.proto#Shard))**
+**rpc GetShard ([GetClusterShardRequest](#GetClusterShardRequest)) returns ([Shard](#Shard))**
 
 ### GetClusterShardRequest {#GetClusterShardRequest}
 
@@ -2214,7 +4078,7 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 
 Field | Description
 --- | ---
-shards[] | **[Shard](../cluster.proto#Shard1)**<br>List of MongoDB shards. 
+shards[] | **[Shard](#Shard1)**<br>List of MongoDB shards. 
 next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterShardsRequest.page_size](#ListClusterShardsRequest), use the `next_page_token` as the value for the [ListClusterShardsRequest.page_token](#ListClusterShardsRequest) parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
@@ -2234,7 +4098,7 @@ Creates a new shard.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[AddClusterShardMetadata](#AddClusterShardMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Shard](../cluster.proto#Shard2)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Shard](#Shard2)<br>
 
 ### AddClusterShardRequest {#AddClusterShardRequest}
 
@@ -2250,9 +4114,9 @@ host_specs[] | **[HostSpec](#HostSpec)**<br>Configurations for mongod hosts to b
 Field | Description
 --- | ---
 zone_id | **string**<br>ID of the availability zone where the host resides. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/grpc/zone_service#List) request. The maximum string length in characters is 50.
-subnet_id | **string**<br>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The network ID is set in the [Cluster.network_id](../cluster.proto#Cluster10) field. The maximum string length in characters is 50.
+subnet_id | **string**<br>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The network ID is set in the [Cluster.network_id](#Cluster10) field. The maximum string length in characters is 50.
 assign_public_ip | **bool**<br><ul><li>false — don't assign a public IP to the host. </li><li>true — the host should have a public IP address.</li></ul> 
-type | **[Host.Type](../cluster.proto#Host1)**<br>Type of the host to be deployed. 
+type | **[Host.Type](#Host1)**<br>Type of the host to be deployed. 
 shard_name | **string**<br>Name of the shard that the host belongs to. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
@@ -2269,7 +4133,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[AddClusterShardMetadata](#AddClusterShardMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Shard](../cluster.proto#Shard2)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Shard](#Shard2)>**<br>if operation finished successfully. 
 
 
 ### AddClusterShardMetadata {#AddClusterShardMetadata}

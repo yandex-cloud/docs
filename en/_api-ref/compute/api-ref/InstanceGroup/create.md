@@ -302,7 +302,7 @@ allocationPolicy | **object**<br><p>Required. Allocation policy of the instance 
 allocationPolicy.<br>zones[] | **object**<br><p>Required. List of availability zones.</p> <p>The minimum number of elements is 1.</p> 
 allocationPolicy.<br>zones[].<br>zoneId | **string**<br><p>Required. ID of the availability zone where the instance resides.</p> 
 loadBalancerSpec | **object**<br><p>Load balancing specification.</p> 
-loadBalancerSpec.<br>targetGroupSpec | **object**<br><p>Specification of the target group that the instance group will be added to. For more information, see <a href="/docs/load-balancer/target-resources">Target groups and resources</a>.</p> 
+loadBalancerSpec.<br>targetGroupSpec | **object**<br><p>Specification of the target group that the instance group will be added to. For more information, see <a href="/docs/load-balancer/concepts/target-resources">Target groups and resources</a>.</p> 
 loadBalancerSpec.<br>targetGroupSpec.<br>name | **string**<br><p>Name of the target group.</p> <p>Value must match the regular expression <code>\|[a-z]([-a-z0-9]{0,61}[a-z0-9])?</code>.</p> 
 loadBalancerSpec.<br>targetGroupSpec.<br>description | **string**<br><p>Description of the target group.</p> <p>The maximum string length in characters is 256.</p> 
 loadBalancerSpec.<br>targetGroupSpec.<br>labels | **object**<br><p>Resource labels as <code>key:value</code> pairs.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression <code>[a-z][-_./\@0-9a-z]*</code>. The maximum string length in characters for each value is 63. Each value must match the regular expression <code>[-_./\@0-9a-z]*</code>.</p> 

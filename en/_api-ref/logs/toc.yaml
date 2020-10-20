@@ -7,3 +7,5 @@ items:
         href: undefined/LogEvent/index.md
       - name: read
         href: undefined/LogEvent/read.md
+      - name: write
+        href: undefined/LogEvent/write.md

@@ -1029,7 +1029,7 @@ components:
             * `allUsers`: A special system identifier that represents anyone. No authentication is required.
                For example, you don't need to specify the IAM token in an API query.
             * `<cloud generated id>`: An identifier that represents a user account.
-               It can be used only if the `type` is `userAccount` or `serviceAccount`.
+               It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`.
 
             The maximum string length in characters is 50.
           type: string
@@ -1410,7 +1410,7 @@ components:
             * `allUsers`: A special system identifier that represents anyone. No authentication is required.
                For example, you don't need to specify the IAM token in an API query.
             * `<cloud generated id>`: An identifier that represents a user account.
-               It can be used only if the `type` is `userAccount` or `serviceAccount`.
+               It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`.
 
             The maximum string length in characters is 50.
           type: string

@@ -22,7 +22,7 @@ A set of methods for managing DiskPlacementGroup resources.
 
 Returns the specified placement group.
 
-**rpc Get ([GetDiskPlacementGroupRequest](#GetDiskPlacementGroupRequest)) returns ([DiskPlacementGroup](../disk_placement_group.proto#DiskPlacementGroup))**
+**rpc Get ([GetDiskPlacementGroupRequest](#GetDiskPlacementGroupRequest)) returns ([DiskPlacementGroup](#DiskPlacementGroup))**
 
 ### GetDiskPlacementGroupRequest {#GetDiskPlacementGroupRequest}
 
@@ -44,7 +44,7 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs.
 zone_id | **string**<br>ID of the availability zone where the placement group resides. 
 status | enum **Status**<br>Current status of the placement group <ul><ul/>
 placement_strategy | **oneof:** `spread_placement_strategy`<br>Placement strategy.
-&nbsp;&nbsp;spread_placement_strategy | **[DiskSpreadPlacementStrategy](../disk_placement_group.proto#DiskSpreadPlacementStrategy)**<br>Distribute instances over distinct failure domains. 
+&nbsp;&nbsp;spread_placement_strategy | **[DiskSpreadPlacementStrategy](#DiskSpreadPlacementStrategy)**<br>Distribute instances over distinct failure domains. 
 
 
 ### DiskSpreadPlacementStrategy {#DiskSpreadPlacementStrategy}
@@ -64,14 +64,14 @@ Field | Description
 folder_id | **string**<br>Required. ID of the folder to list placement groups in. To get the folder ID, use [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListDiskPlacementGroupsResponse.next_page_token](#ListDiskPlacementGroupsResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListDiskPlacementGroupsResponse.next_page_token](#ListDiskPlacementGroupsResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br>A filter expression that filters resources listed in the response. Currently you can use filtering only on the [DiskPlacementGroup.name](../disk_placement_group.proto#DiskPlacementGroup1) field. The maximum string length in characters is 1000.
+filter | **string**<br>A filter expression that filters resources listed in the response. Currently you can use filtering only on the [DiskPlacementGroup.name](#DiskPlacementGroup1) field. The maximum string length in characters is 1000.
 
 
 ### ListDiskPlacementGroupsResponse {#ListDiskPlacementGroupsResponse}
 
 Field | Description
 --- | ---
-disk_placement_groups[] | **[DiskPlacementGroup](../disk_placement_group.proto#DiskPlacementGroup1)**<br>Lists placement groups for the specified folder. 
+disk_placement_groups[] | **[DiskPlacementGroup](#DiskPlacementGroup1)**<br>Lists placement groups for the specified folder. 
 next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListDiskPlacementGroupsRequest.page_size](#ListDiskPlacementGroupsRequest), use `next_page_token` as the value for the [ListDiskPlacementGroupsRequest.page_token](#ListDiskPlacementGroupsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
@@ -88,7 +88,7 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs.
 zone_id | **string**<br>ID of the availability zone where the placement group resides. 
 status | enum **Status**<br>Current status of the placement group <ul><ul/>
 placement_strategy | **oneof:** `spread_placement_strategy`<br>Placement strategy.
-&nbsp;&nbsp;spread_placement_strategy | **[DiskSpreadPlacementStrategy](../disk_placement_group.proto#DiskSpreadPlacementStrategy1)**<br>Distribute instances over distinct failure domains. 
+&nbsp;&nbsp;spread_placement_strategy | **[DiskSpreadPlacementStrategy](#DiskSpreadPlacementStrategy1)**<br>Distribute instances over distinct failure domains. 
 
 
 ### DiskSpreadPlacementStrategy {#DiskSpreadPlacementStrategy1}
@@ -103,7 +103,7 @@ Creates a placement group in the specified folder.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateDiskPlacementGroupMetadata](#CreateDiskPlacementGroupMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[DiskPlacementGroup](../disk_placement_group.proto#DiskPlacementGroup2)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[DiskPlacementGroup](#DiskPlacementGroup2)<br>
 
 ### CreateDiskPlacementGroupRequest {#CreateDiskPlacementGroupRequest}
 
@@ -115,7 +115,7 @@ description | **string**<br>Description of the placement group. The maximum stri
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 zone_id | **string**<br>Required. ID of the availability zone where the placement group resides. To get a list of available zones use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/grpc/zone_service#List) request. The maximum string length in characters is 50.
 placement_strategy | **oneof:** `spread_placement_strategy`<br>Placement strategy.
-&nbsp;&nbsp;spread_placement_strategy | **[DiskSpreadPlacementStrategy](../disk_placement_group.proto#DiskSpreadPlacementStrategy2)**<br>Distribute disks over distinct failure domains. 
+&nbsp;&nbsp;spread_placement_strategy | **[DiskSpreadPlacementStrategy](#DiskSpreadPlacementStrategy2)**<br>Distribute disks over distinct failure domains. 
 
 
 ### DiskSpreadPlacementStrategy {#DiskSpreadPlacementStrategy2}
@@ -135,7 +135,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateDiskPlacementGroupMetadata](#CreateDiskPlacementGroupMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DiskPlacementGroup](../disk_placement_group.proto#DiskPlacementGroup2)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DiskPlacementGroup](#DiskPlacementGroup2)>**<br>if operation finished successfully. 
 
 
 ### CreateDiskPlacementGroupMetadata {#CreateDiskPlacementGroupMetadata}
@@ -158,7 +158,11 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs.
 zone_id | **string**<br>ID of the availability zone where the placement group resides. 
 status | enum **Status**<br>Current status of the placement group <ul><ul/>
 placement_strategy | **oneof:** `spread_placement_strategy`<br>Placement strategy.
-&nbsp;&nbsp;spread_placement_strategy | **[DiskSpreadPlacementStrategy](../disk_placement_group.proto#DiskSpreadPlacementStrategy3)**<br>Distribute instances over distinct failure domains. 
+&nbsp;&nbsp;spread_placement_strategy | **[DiskSpreadPlacementStrategy](#DiskSpreadPlacementStrategy3)**<br>Distribute instances over distinct failure domains. 
+
+
+### DiskSpreadPlacementStrategy {#DiskSpreadPlacementStrategy3}
+
 
 
 ## Update {#Update}
@@ -169,7 +173,7 @@ Updates the specified placement group.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateDiskPlacementGroupMetadata](#UpdateDiskPlacementGroupMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[DiskPlacementGroup](../disk_placement_group.proto#DiskPlacementGroup3)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[DiskPlacementGroup](#DiskPlacementGroup3)<br>
 
 ### UpdateDiskPlacementGroupRequest {#UpdateDiskPlacementGroupRequest}
 
@@ -195,7 +199,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateDiskPlacementGroupMetadata](#UpdateDiskPlacementGroupMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DiskPlacementGroup](../disk_placement_group.proto#DiskPlacementGroup3)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DiskPlacementGroup](#DiskPlacementGroup3)>**<br>if operation finished successfully. 
 
 
 ### UpdateDiskPlacementGroupMetadata {#UpdateDiskPlacementGroupMetadata}
@@ -218,7 +222,11 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs.
 zone_id | **string**<br>ID of the availability zone where the placement group resides. 
 status | enum **Status**<br>Current status of the placement group <ul><ul/>
 placement_strategy | **oneof:** `spread_placement_strategy`<br>Placement strategy.
-&nbsp;&nbsp;spread_placement_strategy | **[DiskSpreadPlacementStrategy](../disk_placement_group.proto#DiskSpreadPlacementStrategy3)**<br>Distribute instances over distinct failure domains. 
+&nbsp;&nbsp;spread_placement_strategy | **[DiskSpreadPlacementStrategy](#DiskSpreadPlacementStrategy4)**<br>Distribute instances over distinct failure domains. 
+
+
+### DiskSpreadPlacementStrategy {#DiskSpreadPlacementStrategy4}
+
 
 
 ## Delete {#Delete}
@@ -280,7 +288,7 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 
 Field | Description
 --- | ---
-disks[] | **[Disk](../disk.proto#Disk)**<br>Lists disks for the specified placement group. 
+disks[] | **[Disk](#Disk)**<br>Lists disks for the specified placement group. 
 next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is more than [ListDiskPlacementGroupInstancesRequest.page_size], use `next_page_token` as the value for the [ListDiskPlacementGroupInstancesRequest.page_token] query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
@@ -304,7 +312,7 @@ source | **oneof:** `source_image_id` or `source_snapshot_id`<br>
 &nbsp;&nbsp;source_image_id | **string**<br>ID of the image that was used for disk creation. 
 &nbsp;&nbsp;source_snapshot_id | **string**<br>ID of the snapshot that was used for disk creation. 
 instance_ids[] | **string**<br>Array of instances to which the disk is attached. 
-disk_placement_policy | **[DiskPlacementPolicy](../disk.proto#DiskPlacementPolicy)**<br>Placement policy configuration. 
+disk_placement_policy | **[DiskPlacementPolicy](#DiskPlacementPolicy)**<br>Placement policy configuration. 
 
 
 ### DiskPlacementPolicy {#DiskPlacementPolicy}

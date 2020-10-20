@@ -24,7 +24,7 @@ editable: false
 
 
 
-**rpc Get ([GetBackendGroupRequest](#GetBackendGroupRequest)) returns ([BackendGroup](../backend_group.proto#BackendGroup))**
+**rpc Get ([GetBackendGroupRequest](#GetBackendGroupRequest)) returns ([BackendGroup](#BackendGroup))**
 
 ### GetBackendGroupRequest {#GetBackendGroupRequest}
 
@@ -43,15 +43,15 @@ description | **string**<br>Description of the backend group. 0-256 characters l
 folder_id | **string**<br>ID of the folder that the backend group belongs to. 
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
 backend | **oneof:** `http` or `grpc`<br>
-&nbsp;&nbsp;http | **[HttpBackendGroup](../backend_group.proto#HttpBackendGroup)**<br> 
-&nbsp;&nbsp;grpc | **[GrpcBackendGroup](../backend_group.proto#GrpcBackendGroup)**<br> 
+&nbsp;&nbsp;http | **[HttpBackendGroup](#HttpBackendGroup)**<br> 
+&nbsp;&nbsp;grpc | **[GrpcBackendGroup](#GrpcBackendGroup)**<br> 
 
 
 ### HttpBackendGroup {#HttpBackendGroup}
 
 Field | Description
 --- | ---
-backends[] | **[HttpBackend](../backend_group.proto#HttpBackend)**<br> 
+backends[] | **[HttpBackend](#HttpBackend)**<br> 
 
 
 ### HttpBackend {#HttpBackend}
@@ -60,12 +60,12 @@ Field | Description
 --- | ---
 name | **string**<br>Required. Name. 
 backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If not set, backend will be disabled. 
-load_balancing_config | **[LoadBalancingConfig](../backend_group.proto#LoadBalancingConfig)**<br> 
+load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig)**<br> 
 port | **int64**<br>Port for all targets from target group. Acceptable values are 0 to 65535, inclusive.
 backend_type | **oneof:** `target_groups`<br>
-&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](../backend_group.proto#TargetGroupsBackend)**<br>References target groups for the backend. 
-healthchecks[] | **[HealthCheck](../backend_group.proto#HealthCheck)**<br>No health checks means no active health checking will be performed. 
-tls | **[BackendTls](../backend_group.proto#BackendTls)**<br>TLS settings for the upstream. 
+&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend)**<br>References target groups for the backend. 
+healthchecks[] | **[HealthCheck](#HealthCheck)**<br>No health checks means no active health checking will be performed. 
+tls | **[BackendTls](#BackendTls)**<br>TLS settings for the upstream. 
 use_http2 | **bool**<br>Enables HTTP2 for upstream requests. If not set, HTTP 1.1 will be used by default. 
 
 
@@ -95,17 +95,17 @@ healthy_threshold | **int64**<br><ul><li> 1. </li></ul>
 unhealthy_threshold | **int64**<br><ul><li> 1. </li></ul> 
 healthcheck_port | **int64**<br>Optional alternative port for health checking. Acceptable values are 0 to 65535, inclusive.
 healthcheck | **oneof:** `stream`, `http` or `grpc`<br>TCP (+TLS) health check ("Stream protocol HC").
-&nbsp;&nbsp;stream | **[StreamHealthCheck](../backend_group.proto#StreamHealthCheck)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
-&nbsp;&nbsp;http | **[HttpHealthCheck](../backend_group.proto#HttpHealthCheck)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
-&nbsp;&nbsp;grpc | **[GrpcHealthCheck](../backend_group.proto#GrpcHealthCheck)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
+&nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
+&nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
+&nbsp;&nbsp;grpc | **[GrpcHealthCheck](#GrpcHealthCheck)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
 
 
 ### StreamHealthCheck {#StreamHealthCheck}
 
 Field | Description
 --- | ---
-send | **[Payload](../payload.proto#Payload)**<br>Optional message to send. If empty, it's a connect-only health check. 
-receive | **[Payload](../payload.proto#Payload)**<br>Optional text to search in reply. 
+send | **[Payload](#Payload)**<br>Optional message to send. If empty, it's a connect-only health check. 
+receive | **[Payload](#Payload)**<br>Optional text to search in reply. 
 
 
 ### HttpHealthCheck {#HttpHealthCheck}
@@ -129,8 +129,8 @@ service_name | **string**<br>Optional service name for grpc.health.v1.HealthChec
 Field | Description
 --- | ---
 sni | **string**<br>SNI string for TLS connections. 
-tls_options | **[TlsOptions](../tls.proto#TlsOptions)**<br>Common TLS options used for backend TLS connections. 
-validation_context | **[ValidationContext](../tls.proto#ValidationContext)**<br>Validation context for backend TLS connections. 
+tls_options | **[TlsOptions](#TlsOptions)**<br>Common TLS options used for backend TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext)**<br>Validation context for backend TLS connections. 
 
 
 ### TlsOptions {#TlsOptions}
@@ -156,7 +156,7 @@ trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>
 
 Field | Description
 --- | ---
-backends[] | **[GrpcBackend](../backend_group.proto#GrpcBackend)**<br> 
+backends[] | **[GrpcBackend](#GrpcBackend)**<br> 
 
 
 ### GrpcBackend {#GrpcBackend}
@@ -165,12 +165,12 @@ Field | Description
 --- | ---
 name | **string**<br>Required. Name. 
 backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If not set, backend will be disabled. 
-load_balancing_config | **[LoadBalancingConfig](../backend_group.proto#LoadBalancingConfig1)**<br> 
+load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig1)**<br> 
 port | **int64**<br>Port for all targets from target group. Acceptable values are 0 to 65535, inclusive.
 backend_type | **oneof:** `target_groups`<br>
-&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](../backend_group.proto#TargetGroupsBackend1)**<br>References target groups for the backend. 
-healthchecks[] | **[HealthCheck](../backend_group.proto#HealthCheck1)**<br>No health checks means no active health checking will be performed. 
-tls | **[BackendTls](../backend_group.proto#BackendTls1)**<br>TLS settings for the upstream. 
+&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend1)**<br>References target groups for the backend. 
+healthchecks[] | **[HealthCheck](#HealthCheck1)**<br>No health checks means no active health checking will be performed. 
+tls | **[BackendTls](#BackendTls1)**<br>TLS settings for the upstream. 
 
 
 ### LoadBalancingConfig {#LoadBalancingConfig1}
@@ -199,17 +199,17 @@ healthy_threshold | **int64**<br><ul><li> 1. </li></ul>
 unhealthy_threshold | **int64**<br><ul><li> 1. </li></ul> 
 healthcheck_port | **int64**<br>Optional alternative port for health checking. Acceptable values are 0 to 65535, inclusive.
 healthcheck | **oneof:** `stream`, `http` or `grpc`<br>TCP (+TLS) health check ("Stream protocol HC").
-&nbsp;&nbsp;stream | **[StreamHealthCheck](../backend_group.proto#StreamHealthCheck1)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
-&nbsp;&nbsp;http | **[HttpHealthCheck](../backend_group.proto#HttpHealthCheck1)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
-&nbsp;&nbsp;grpc | **[GrpcHealthCheck](../backend_group.proto#GrpcHealthCheck1)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
+&nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck1)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
+&nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck1)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
+&nbsp;&nbsp;grpc | **[GrpcHealthCheck](#GrpcHealthCheck1)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
 
 
 ### StreamHealthCheck {#StreamHealthCheck1}
 
 Field | Description
 --- | ---
-send | **[Payload](../payload.proto#Payload)**<br>Optional message to send. If empty, it's a connect-only health check. 
-receive | **[Payload](../payload.proto#Payload)**<br>Optional text to search in reply. 
+send | **[Payload](#Payload)**<br>Optional message to send. If empty, it's a connect-only health check. 
+receive | **[Payload](#Payload)**<br>Optional text to search in reply. 
 
 
 ### HttpHealthCheck {#HttpHealthCheck1}
@@ -233,8 +233,8 @@ service_name | **string**<br>Optional service name for grpc.health.v1.HealthChec
 Field | Description
 --- | ---
 sni | **string**<br>SNI string for TLS connections. 
-tls_options | **[TlsOptions](../tls.proto#TlsOptions1)**<br>Common TLS options used for backend TLS connections. 
-validation_context | **[ValidationContext](../tls.proto#ValidationContext1)**<br>Validation context for backend TLS connections. 
+tls_options | **[TlsOptions](#TlsOptions1)**<br>Common TLS options used for backend TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext1)**<br>Validation context for backend TLS connections. 
 
 
 ### TlsOptions {#TlsOptions1}
@@ -276,7 +276,7 @@ filter | **string**<br> The maximum string length in characters is 1000.
 
 Field | Description
 --- | ---
-backend_groups[] | **[BackendGroup](../backend_group.proto#BackendGroup1)**<br> 
+backend_groups[] | **[BackendGroup](#BackendGroup1)**<br> 
 next_page_token | **string**<br> 
 
 
@@ -290,15 +290,15 @@ description | **string**<br>Description of the backend group. 0-256 characters l
 folder_id | **string**<br>ID of the folder that the backend group belongs to. 
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
 backend | **oneof:** `http` or `grpc`<br>
-&nbsp;&nbsp;http | **[HttpBackendGroup](../backend_group.proto#HttpBackendGroup1)**<br> 
-&nbsp;&nbsp;grpc | **[GrpcBackendGroup](../backend_group.proto#GrpcBackendGroup1)**<br> 
+&nbsp;&nbsp;http | **[HttpBackendGroup](#HttpBackendGroup1)**<br> 
+&nbsp;&nbsp;grpc | **[GrpcBackendGroup](#GrpcBackendGroup1)**<br> 
 
 
 ### HttpBackendGroup {#HttpBackendGroup1}
 
 Field | Description
 --- | ---
-backends[] | **[HttpBackend](../backend_group.proto#HttpBackend1)**<br> 
+backends[] | **[HttpBackend](#HttpBackend1)**<br> 
 
 
 ### HttpBackend {#HttpBackend1}
@@ -307,12 +307,12 @@ Field | Description
 --- | ---
 name | **string**<br>Required. Name. 
 backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If not set, backend will be disabled. 
-load_balancing_config | **[LoadBalancingConfig](../backend_group.proto#LoadBalancingConfig2)**<br> 
+load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig2)**<br> 
 port | **int64**<br>Port for all targets from target group. Acceptable values are 0 to 65535, inclusive.
 backend_type | **oneof:** `target_groups`<br>
-&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](../backend_group.proto#TargetGroupsBackend2)**<br>References target groups for the backend. 
-healthchecks[] | **[HealthCheck](../backend_group.proto#HealthCheck2)**<br>No health checks means no active health checking will be performed. 
-tls | **[BackendTls](../backend_group.proto#BackendTls2)**<br>TLS settings for the upstream. 
+&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend2)**<br>References target groups for the backend. 
+healthchecks[] | **[HealthCheck](#HealthCheck2)**<br>No health checks means no active health checking will be performed. 
+tls | **[BackendTls](#BackendTls2)**<br>TLS settings for the upstream. 
 use_http2 | **bool**<br>Enables HTTP2 for upstream requests. If not set, HTTP 1.1 will be used by default. 
 
 
@@ -342,17 +342,17 @@ healthy_threshold | **int64**<br><ul><li> 1. </li></ul>
 unhealthy_threshold | **int64**<br><ul><li> 1. </li></ul> 
 healthcheck_port | **int64**<br>Optional alternative port for health checking. Acceptable values are 0 to 65535, inclusive.
 healthcheck | **oneof:** `stream`, `http` or `grpc`<br>TCP (+TLS) health check ("Stream protocol HC").
-&nbsp;&nbsp;stream | **[StreamHealthCheck](../backend_group.proto#StreamHealthCheck2)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
-&nbsp;&nbsp;http | **[HttpHealthCheck](../backend_group.proto#HttpHealthCheck2)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
-&nbsp;&nbsp;grpc | **[GrpcHealthCheck](../backend_group.proto#GrpcHealthCheck2)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
+&nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck2)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
+&nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck2)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
+&nbsp;&nbsp;grpc | **[GrpcHealthCheck](#GrpcHealthCheck2)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
 
 
 ### StreamHealthCheck {#StreamHealthCheck2}
 
 Field | Description
 --- | ---
-send | **[Payload](../payload.proto#Payload)**<br>Optional message to send. If empty, it's a connect-only health check. 
-receive | **[Payload](../payload.proto#Payload)**<br>Optional text to search in reply. 
+send | **[Payload](#Payload)**<br>Optional message to send. If empty, it's a connect-only health check. 
+receive | **[Payload](#Payload)**<br>Optional text to search in reply. 
 
 
 ### HttpHealthCheck {#HttpHealthCheck2}
@@ -376,8 +376,8 @@ service_name | **string**<br>Optional service name for grpc.health.v1.HealthChec
 Field | Description
 --- | ---
 sni | **string**<br>SNI string for TLS connections. 
-tls_options | **[TlsOptions](../tls.proto#TlsOptions2)**<br>Common TLS options used for backend TLS connections. 
-validation_context | **[ValidationContext](../tls.proto#ValidationContext2)**<br>Validation context for backend TLS connections. 
+tls_options | **[TlsOptions](#TlsOptions2)**<br>Common TLS options used for backend TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext2)**<br>Validation context for backend TLS connections. 
 
 
 ### TlsOptions {#TlsOptions2}
@@ -403,7 +403,7 @@ trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>
 
 Field | Description
 --- | ---
-backends[] | **[GrpcBackend](../backend_group.proto#GrpcBackend1)**<br> 
+backends[] | **[GrpcBackend](#GrpcBackend1)**<br> 
 
 
 ### GrpcBackend {#GrpcBackend1}
@@ -412,12 +412,12 @@ Field | Description
 --- | ---
 name | **string**<br>Required. Name. 
 backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If not set, backend will be disabled. 
-load_balancing_config | **[LoadBalancingConfig](../backend_group.proto#LoadBalancingConfig3)**<br> 
+load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig3)**<br> 
 port | **int64**<br>Port for all targets from target group. Acceptable values are 0 to 65535, inclusive.
 backend_type | **oneof:** `target_groups`<br>
-&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](../backend_group.proto#TargetGroupsBackend3)**<br>References target groups for the backend. 
-healthchecks[] | **[HealthCheck](../backend_group.proto#HealthCheck3)**<br>No health checks means no active health checking will be performed. 
-tls | **[BackendTls](../backend_group.proto#BackendTls3)**<br>TLS settings for the upstream. 
+&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend3)**<br>References target groups for the backend. 
+healthchecks[] | **[HealthCheck](#HealthCheck3)**<br>No health checks means no active health checking will be performed. 
+tls | **[BackendTls](#BackendTls3)**<br>TLS settings for the upstream. 
 
 
 ### LoadBalancingConfig {#LoadBalancingConfig3}
@@ -446,17 +446,17 @@ healthy_threshold | **int64**<br><ul><li> 1. </li></ul>
 unhealthy_threshold | **int64**<br><ul><li> 1. </li></ul> 
 healthcheck_port | **int64**<br>Optional alternative port for health checking. Acceptable values are 0 to 65535, inclusive.
 healthcheck | **oneof:** `stream`, `http` or `grpc`<br>TCP (+TLS) health check ("Stream protocol HC").
-&nbsp;&nbsp;stream | **[StreamHealthCheck](../backend_group.proto#StreamHealthCheck3)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
-&nbsp;&nbsp;http | **[HttpHealthCheck](../backend_group.proto#HttpHealthCheck3)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
-&nbsp;&nbsp;grpc | **[GrpcHealthCheck](../backend_group.proto#GrpcHealthCheck3)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
+&nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck3)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
+&nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck3)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
+&nbsp;&nbsp;grpc | **[GrpcHealthCheck](#GrpcHealthCheck3)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
 
 
 ### StreamHealthCheck {#StreamHealthCheck3}
 
 Field | Description
 --- | ---
-send | **[Payload](../payload.proto#Payload)**<br>Optional message to send. If empty, it's a connect-only health check. 
-receive | **[Payload](../payload.proto#Payload)**<br>Optional text to search in reply. 
+send | **[Payload](#Payload)**<br>Optional message to send. If empty, it's a connect-only health check. 
+receive | **[Payload](#Payload)**<br>Optional text to search in reply. 
 
 
 ### HttpHealthCheck {#HttpHealthCheck3}
@@ -480,8 +480,8 @@ service_name | **string**<br>Optional service name for grpc.health.v1.HealthChec
 Field | Description
 --- | ---
 sni | **string**<br>SNI string for TLS connections. 
-tls_options | **[TlsOptions](../tls.proto#TlsOptions3)**<br>Common TLS options used for backend TLS connections. 
-validation_context | **[ValidationContext](../tls.proto#ValidationContext3)**<br>Validation context for backend TLS connections. 
+tls_options | **[TlsOptions](#TlsOptions3)**<br>Common TLS options used for backend TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext3)**<br>Validation context for backend TLS connections. 
 
 
 ### TlsOptions {#TlsOptions3}
@@ -511,7 +511,7 @@ trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateBackendGroupMetadata](#CreateBackendGroupMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[BackendGroup](../backend_group.proto#BackendGroup2)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[BackendGroup](#BackendGroup2)<br>
 
 ### CreateBackendGroupRequest {#CreateBackendGroupRequest}
 
@@ -522,15 +522,15 @@ name | **string**<br> Value must match the regular expression ` |[a-z]([-a-z0-9]
 description | **string**<br> The maximum string length in characters is 256.
 labels | **map<string,string>**<br> No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 backend | **oneof:** `http` or `grpc`<br>
-&nbsp;&nbsp;http | **[HttpBackendGroup](../backend_group.proto#HttpBackendGroup2)**<br> 
-&nbsp;&nbsp;grpc | **[GrpcBackendGroup](../backend_group.proto#GrpcBackendGroup2)**<br> 
+&nbsp;&nbsp;http | **[HttpBackendGroup](#HttpBackendGroup2)**<br> 
+&nbsp;&nbsp;grpc | **[GrpcBackendGroup](#GrpcBackendGroup2)**<br> 
 
 
 ### HttpBackendGroup {#HttpBackendGroup2}
 
 Field | Description
 --- | ---
-backends[] | **[HttpBackend](../backend_group.proto#HttpBackend2)**<br> 
+backends[] | **[HttpBackend](#HttpBackend2)**<br> 
 
 
 ### HttpBackend {#HttpBackend2}
@@ -539,12 +539,12 @@ Field | Description
 --- | ---
 name | **string**<br>Required. Name. 
 backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If not set, backend will be disabled. 
-load_balancing_config | **[LoadBalancingConfig](../backend_group.proto#LoadBalancingConfig4)**<br> 
+load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig4)**<br> 
 port | **int64**<br>Port for all targets from target group. Acceptable values are 0 to 65535, inclusive.
 backend_type | **oneof:** `target_groups`<br>
-&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](../backend_group.proto#TargetGroupsBackend4)**<br>References target groups for the backend. 
-healthchecks[] | **[HealthCheck](../backend_group.proto#HealthCheck4)**<br>No health checks means no active health checking will be performed. 
-tls | **[BackendTls](../backend_group.proto#BackendTls4)**<br>TLS settings for the upstream. 
+&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend4)**<br>References target groups for the backend. 
+healthchecks[] | **[HealthCheck](#HealthCheck4)**<br>No health checks means no active health checking will be performed. 
+tls | **[BackendTls](#BackendTls4)**<br>TLS settings for the upstream. 
 use_http2 | **bool**<br>Enables HTTP2 for upstream requests. If not set, HTTP 1.1 will be used by default. 
 
 
@@ -574,17 +574,17 @@ healthy_threshold | **int64**<br><ul><li> 1. </li></ul>
 unhealthy_threshold | **int64**<br><ul><li> 1. </li></ul> 
 healthcheck_port | **int64**<br>Optional alternative port for health checking. Acceptable values are 0 to 65535, inclusive.
 healthcheck | **oneof:** `stream`, `http` or `grpc`<br>TCP (+TLS) health check ("Stream protocol HC").
-&nbsp;&nbsp;stream | **[StreamHealthCheck](../backend_group.proto#StreamHealthCheck4)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
-&nbsp;&nbsp;http | **[HttpHealthCheck](../backend_group.proto#HttpHealthCheck4)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
-&nbsp;&nbsp;grpc | **[GrpcHealthCheck](../backend_group.proto#GrpcHealthCheck4)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
+&nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck4)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
+&nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck4)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
+&nbsp;&nbsp;grpc | **[GrpcHealthCheck](#GrpcHealthCheck4)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
 
 
 ### StreamHealthCheck {#StreamHealthCheck4}
 
 Field | Description
 --- | ---
-send | **[Payload](../payload.proto#Payload)**<br>Optional message to send. If empty, it's a connect-only health check. 
-receive | **[Payload](../payload.proto#Payload)**<br>Optional text to search in reply. 
+send | **[Payload](#Payload)**<br>Optional message to send. If empty, it's a connect-only health check. 
+receive | **[Payload](#Payload)**<br>Optional text to search in reply. 
 
 
 ### HttpHealthCheck {#HttpHealthCheck4}
@@ -608,8 +608,8 @@ service_name | **string**<br>Optional service name for grpc.health.v1.HealthChec
 Field | Description
 --- | ---
 sni | **string**<br>SNI string for TLS connections. 
-tls_options | **[TlsOptions](../tls.proto#TlsOptions4)**<br>Common TLS options used for backend TLS connections. 
-validation_context | **[ValidationContext](../tls.proto#ValidationContext4)**<br>Validation context for backend TLS connections. 
+tls_options | **[TlsOptions](#TlsOptions4)**<br>Common TLS options used for backend TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext4)**<br>Validation context for backend TLS connections. 
 
 
 ### TlsOptions {#TlsOptions4}
@@ -635,7 +635,7 @@ trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>
 
 Field | Description
 --- | ---
-backends[] | **[GrpcBackend](../backend_group.proto#GrpcBackend2)**<br> 
+backends[] | **[GrpcBackend](#GrpcBackend2)**<br> 
 
 
 ### GrpcBackend {#GrpcBackend2}
@@ -644,12 +644,12 @@ Field | Description
 --- | ---
 name | **string**<br>Required. Name. 
 backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If not set, backend will be disabled. 
-load_balancing_config | **[LoadBalancingConfig](../backend_group.proto#LoadBalancingConfig5)**<br> 
+load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig5)**<br> 
 port | **int64**<br>Port for all targets from target group. Acceptable values are 0 to 65535, inclusive.
 backend_type | **oneof:** `target_groups`<br>
-&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](../backend_group.proto#TargetGroupsBackend5)**<br>References target groups for the backend. 
-healthchecks[] | **[HealthCheck](../backend_group.proto#HealthCheck5)**<br>No health checks means no active health checking will be performed. 
-tls | **[BackendTls](../backend_group.proto#BackendTls5)**<br>TLS settings for the upstream. 
+&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend5)**<br>References target groups for the backend. 
+healthchecks[] | **[HealthCheck](#HealthCheck5)**<br>No health checks means no active health checking will be performed. 
+tls | **[BackendTls](#BackendTls5)**<br>TLS settings for the upstream. 
 
 
 ### LoadBalancingConfig {#LoadBalancingConfig5}
@@ -678,17 +678,17 @@ healthy_threshold | **int64**<br><ul><li> 1. </li></ul>
 unhealthy_threshold | **int64**<br><ul><li> 1. </li></ul> 
 healthcheck_port | **int64**<br>Optional alternative port for health checking. Acceptable values are 0 to 65535, inclusive.
 healthcheck | **oneof:** `stream`, `http` or `grpc`<br>TCP (+TLS) health check ("Stream protocol HC").
-&nbsp;&nbsp;stream | **[StreamHealthCheck](../backend_group.proto#StreamHealthCheck5)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
-&nbsp;&nbsp;http | **[HttpHealthCheck](../backend_group.proto#HttpHealthCheck5)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
-&nbsp;&nbsp;grpc | **[GrpcHealthCheck](../backend_group.proto#GrpcHealthCheck5)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
+&nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck5)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
+&nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck5)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
+&nbsp;&nbsp;grpc | **[GrpcHealthCheck](#GrpcHealthCheck5)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
 
 
 ### StreamHealthCheck {#StreamHealthCheck5}
 
 Field | Description
 --- | ---
-send | **[Payload](../payload.proto#Payload)**<br>Optional message to send. If empty, it's a connect-only health check. 
-receive | **[Payload](../payload.proto#Payload)**<br>Optional text to search in reply. 
+send | **[Payload](#Payload)**<br>Optional message to send. If empty, it's a connect-only health check. 
+receive | **[Payload](#Payload)**<br>Optional text to search in reply. 
 
 
 ### HttpHealthCheck {#HttpHealthCheck5}
@@ -712,8 +712,8 @@ service_name | **string**<br>Optional service name for grpc.health.v1.HealthChec
 Field | Description
 --- | ---
 sni | **string**<br>SNI string for TLS connections. 
-tls_options | **[TlsOptions](../tls.proto#TlsOptions5)**<br>Common TLS options used for backend TLS connections. 
-validation_context | **[ValidationContext](../tls.proto#ValidationContext5)**<br>Validation context for backend TLS connections. 
+tls_options | **[TlsOptions](#TlsOptions5)**<br>Common TLS options used for backend TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext5)**<br>Validation context for backend TLS connections. 
 
 
 ### TlsOptions {#TlsOptions5}
@@ -748,7 +748,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateBackendGroupMetadata](#CreateBackendGroupMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[BackendGroup](../backend_group.proto#BackendGroup2)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[BackendGroup](#BackendGroup2)>**<br>if operation finished successfully. 
 
 
 ### CreateBackendGroupMetadata {#CreateBackendGroupMetadata}
@@ -768,39 +768,15 @@ description | **string**<br>Description of the backend group. 0-256 characters l
 folder_id | **string**<br>ID of the folder that the backend group belongs to. 
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
 backend | **oneof:** `http` or `grpc`<br>
-&nbsp;&nbsp;http | **[HttpBackendGroup](../backend_group.proto#HttpBackendGroup3)**<br> 
-&nbsp;&nbsp;grpc | **[GrpcBackendGroup](../backend_group.proto#GrpcBackendGroup3)**<br> 
-
-
-## Update {#Update}
-
-
-
-**rpc Update ([UpdateBackendGroupRequest](#UpdateBackendGroupRequest)) returns ([operation.Operation](#Operation1))**
-
-Metadata and response of Operation:<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateBackendGroupMetadata](#UpdateBackendGroupMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[BackendGroup](../backend_group.proto#BackendGroup3)<br>
-
-### UpdateBackendGroupRequest {#UpdateBackendGroupRequest}
-
-Field | Description
---- | ---
-backend_group_id | **string**<br>Required.  
-update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br> 
-name | **string**<br> Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
-description | **string**<br> The maximum string length in characters is 256.
-labels | **map<string,string>**<br> No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
-backend | **oneof:** `http` or `grpc`<br>
-&nbsp;&nbsp;http | **[HttpBackendGroup](../backend_group.proto#HttpBackendGroup3)**<br> 
-&nbsp;&nbsp;grpc | **[GrpcBackendGroup](../backend_group.proto#GrpcBackendGroup3)**<br> 
+&nbsp;&nbsp;http | **[HttpBackendGroup](#HttpBackendGroup3)**<br> 
+&nbsp;&nbsp;grpc | **[GrpcBackendGroup](#GrpcBackendGroup3)**<br> 
 
 
 ### HttpBackendGroup {#HttpBackendGroup3}
 
 Field | Description
 --- | ---
-backends[] | **[HttpBackend](../backend_group.proto#HttpBackend3)**<br> 
+backends[] | **[HttpBackend](#HttpBackend3)**<br> 
 
 
 ### HttpBackend {#HttpBackend3}
@@ -809,12 +785,12 @@ Field | Description
 --- | ---
 name | **string**<br>Required. Name. 
 backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If not set, backend will be disabled. 
-load_balancing_config | **[LoadBalancingConfig](../backend_group.proto#LoadBalancingConfig6)**<br> 
+load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig6)**<br> 
 port | **int64**<br>Port for all targets from target group. Acceptable values are 0 to 65535, inclusive.
 backend_type | **oneof:** `target_groups`<br>
-&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](../backend_group.proto#TargetGroupsBackend6)**<br>References target groups for the backend. 
-healthchecks[] | **[HealthCheck](../backend_group.proto#HealthCheck6)**<br>No health checks means no active health checking will be performed. 
-tls | **[BackendTls](../backend_group.proto#BackendTls6)**<br>TLS settings for the upstream. 
+&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend6)**<br>References target groups for the backend. 
+healthchecks[] | **[HealthCheck](#HealthCheck6)**<br>No health checks means no active health checking will be performed. 
+tls | **[BackendTls](#BackendTls6)**<br>TLS settings for the upstream. 
 use_http2 | **bool**<br>Enables HTTP2 for upstream requests. If not set, HTTP 1.1 will be used by default. 
 
 
@@ -844,17 +820,17 @@ healthy_threshold | **int64**<br><ul><li> 1. </li></ul>
 unhealthy_threshold | **int64**<br><ul><li> 1. </li></ul> 
 healthcheck_port | **int64**<br>Optional alternative port for health checking. Acceptable values are 0 to 65535, inclusive.
 healthcheck | **oneof:** `stream`, `http` or `grpc`<br>TCP (+TLS) health check ("Stream protocol HC").
-&nbsp;&nbsp;stream | **[StreamHealthCheck](../backend_group.proto#StreamHealthCheck6)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
-&nbsp;&nbsp;http | **[HttpHealthCheck](../backend_group.proto#HttpHealthCheck6)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
-&nbsp;&nbsp;grpc | **[GrpcHealthCheck](../backend_group.proto#GrpcHealthCheck6)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
+&nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck6)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
+&nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck6)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
+&nbsp;&nbsp;grpc | **[GrpcHealthCheck](#GrpcHealthCheck6)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
 
 
 ### StreamHealthCheck {#StreamHealthCheck6}
 
 Field | Description
 --- | ---
-send | **[Payload](../payload.proto#Payload)**<br>Optional message to send. If empty, it's a connect-only health check. 
-receive | **[Payload](../payload.proto#Payload)**<br>Optional text to search in reply. 
+send | **[Payload](#Payload)**<br>Optional message to send. If empty, it's a connect-only health check. 
+receive | **[Payload](#Payload)**<br>Optional text to search in reply. 
 
 
 ### HttpHealthCheck {#HttpHealthCheck6}
@@ -878,8 +854,8 @@ service_name | **string**<br>Optional service name for grpc.health.v1.HealthChec
 Field | Description
 --- | ---
 sni | **string**<br>SNI string for TLS connections. 
-tls_options | **[TlsOptions](../tls.proto#TlsOptions6)**<br>Common TLS options used for backend TLS connections. 
-validation_context | **[ValidationContext](../tls.proto#ValidationContext6)**<br>Validation context for backend TLS connections. 
+tls_options | **[TlsOptions](#TlsOptions6)**<br>Common TLS options used for backend TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext6)**<br>Validation context for backend TLS connections. 
 
 
 ### TlsOptions {#TlsOptions6}
@@ -905,7 +881,7 @@ trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>
 
 Field | Description
 --- | ---
-backends[] | **[GrpcBackend](../backend_group.proto#GrpcBackend3)**<br> 
+backends[] | **[GrpcBackend](#GrpcBackend3)**<br> 
 
 
 ### GrpcBackend {#GrpcBackend3}
@@ -914,12 +890,12 @@ Field | Description
 --- | ---
 name | **string**<br>Required. Name. 
 backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If not set, backend will be disabled. 
-load_balancing_config | **[LoadBalancingConfig](../backend_group.proto#LoadBalancingConfig7)**<br> 
+load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig7)**<br> 
 port | **int64**<br>Port for all targets from target group. Acceptable values are 0 to 65535, inclusive.
 backend_type | **oneof:** `target_groups`<br>
-&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](../backend_group.proto#TargetGroupsBackend7)**<br>References target groups for the backend. 
-healthchecks[] | **[HealthCheck](../backend_group.proto#HealthCheck7)**<br>No health checks means no active health checking will be performed. 
-tls | **[BackendTls](../backend_group.proto#BackendTls7)**<br>TLS settings for the upstream. 
+&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend7)**<br>References target groups for the backend. 
+healthchecks[] | **[HealthCheck](#HealthCheck7)**<br>No health checks means no active health checking will be performed. 
+tls | **[BackendTls](#BackendTls7)**<br>TLS settings for the upstream. 
 
 
 ### LoadBalancingConfig {#LoadBalancingConfig7}
@@ -948,17 +924,17 @@ healthy_threshold | **int64**<br><ul><li> 1. </li></ul>
 unhealthy_threshold | **int64**<br><ul><li> 1. </li></ul> 
 healthcheck_port | **int64**<br>Optional alternative port for health checking. Acceptable values are 0 to 65535, inclusive.
 healthcheck | **oneof:** `stream`, `http` or `grpc`<br>TCP (+TLS) health check ("Stream protocol HC").
-&nbsp;&nbsp;stream | **[StreamHealthCheck](../backend_group.proto#StreamHealthCheck7)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
-&nbsp;&nbsp;http | **[HttpHealthCheck](../backend_group.proto#HttpHealthCheck7)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
-&nbsp;&nbsp;grpc | **[GrpcHealthCheck](../backend_group.proto#GrpcHealthCheck7)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
+&nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck7)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
+&nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck7)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
+&nbsp;&nbsp;grpc | **[GrpcHealthCheck](#GrpcHealthCheck7)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
 
 
 ### StreamHealthCheck {#StreamHealthCheck7}
 
 Field | Description
 --- | ---
-send | **[Payload](../payload.proto#Payload)**<br>Optional message to send. If empty, it's a connect-only health check. 
-receive | **[Payload](../payload.proto#Payload)**<br>Optional text to search in reply. 
+send | **[Payload](#Payload)**<br>Optional message to send. If empty, it's a connect-only health check. 
+receive | **[Payload](#Payload)**<br>Optional text to search in reply. 
 
 
 ### HttpHealthCheck {#HttpHealthCheck7}
@@ -982,8 +958,8 @@ service_name | **string**<br>Optional service name for grpc.health.v1.HealthChec
 Field | Description
 --- | ---
 sni | **string**<br>SNI string for TLS connections. 
-tls_options | **[TlsOptions](../tls.proto#TlsOptions7)**<br>Common TLS options used for backend TLS connections. 
-validation_context | **[ValidationContext](../tls.proto#ValidationContext7)**<br>Validation context for backend TLS connections. 
+tls_options | **[TlsOptions](#TlsOptions7)**<br>Common TLS options used for backend TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext7)**<br>Validation context for backend TLS connections. 
 
 
 ### TlsOptions {#TlsOptions7}
@@ -1005,6 +981,239 @@ trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>
 &nbsp;&nbsp;trusted_ca_bytes | **string**<br>Trusted CA blob. 
 
 
+## Update {#Update}
+
+
+
+**rpc Update ([UpdateBackendGroupRequest](#UpdateBackendGroupRequest)) returns ([operation.Operation](#Operation1))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateBackendGroupMetadata](#UpdateBackendGroupMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[BackendGroup](#BackendGroup3)<br>
+
+### UpdateBackendGroupRequest {#UpdateBackendGroupRequest}
+
+Field | Description
+--- | ---
+backend_group_id | **string**<br>Required.  
+update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br> 
+name | **string**<br> Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
+description | **string**<br> The maximum string length in characters is 256.
+labels | **map<string,string>**<br> No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
+backend | **oneof:** `http` or `grpc`<br>
+&nbsp;&nbsp;http | **[HttpBackendGroup](#HttpBackendGroup4)**<br> 
+&nbsp;&nbsp;grpc | **[GrpcBackendGroup](#GrpcBackendGroup4)**<br> 
+
+
+### HttpBackendGroup {#HttpBackendGroup4}
+
+Field | Description
+--- | ---
+backends[] | **[HttpBackend](#HttpBackend4)**<br> 
+
+
+### HttpBackend {#HttpBackend4}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name. 
+backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If not set, backend will be disabled. 
+load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig8)**<br> 
+port | **int64**<br>Port for all targets from target group. Acceptable values are 0 to 65535, inclusive.
+backend_type | **oneof:** `target_groups`<br>
+&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend8)**<br>References target groups for the backend. 
+healthchecks[] | **[HealthCheck](#HealthCheck8)**<br>No health checks means no active health checking will be performed. 
+tls | **[BackendTls](#BackendTls8)**<br>TLS settings for the upstream. 
+use_http2 | **bool**<br>Enables HTTP2 for upstream requests. If not set, HTTP 1.1 will be used by default. 
+
+
+### LoadBalancingConfig {#LoadBalancingConfig8}
+
+Field | Description
+--- | ---
+panic_threshold | **int64**<br>If percentage of healthy hosts in the backend is lower than panic_threshold, traffic will be routed to all backends no matter what the health status is. This helps to avoid healthy backends overloading  when everything is bad. zero means no panic threshold. Acceptable values are 0 to 100, inclusive.
+locality_aware_routing_percent | **int64**<br>Percent of traffic to be sent to the same availability zone. The rest will be equally divided between other zones. Acceptable values are 0 to 100, inclusive.
+
+
+### TargetGroupsBackend {#TargetGroupsBackend8}
+
+Field | Description
+--- | ---
+target_group_ids[] | **string**<br> The number of elements must be greater than 0.
+
+
+### HealthCheck {#HealthCheck8}
+
+Field | Description
+--- | ---
+timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Time to wait for a health check response. 
+interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Interval between health checks. 
+interval_jitter_percent | **double**<br><ul><li> * interval_jitter_percent / 100) will be added to the wait time.</li></ul> 
+healthy_threshold | **int64**<br><ul><li> 1. </li></ul> 
+unhealthy_threshold | **int64**<br><ul><li> 1. </li></ul> 
+healthcheck_port | **int64**<br>Optional alternative port for health checking. Acceptable values are 0 to 65535, inclusive.
+healthcheck | **oneof:** `stream`, `http` or `grpc`<br>TCP (+TLS) health check ("Stream protocol HC").
+&nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck8)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
+&nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck8)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
+&nbsp;&nbsp;grpc | **[GrpcHealthCheck](#GrpcHealthCheck8)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
+
+
+### StreamHealthCheck {#StreamHealthCheck8}
+
+Field | Description
+--- | ---
+send | **[Payload](#Payload)**<br>Optional message to send. If empty, it's a connect-only health check. 
+receive | **[Payload](#Payload)**<br>Optional text to search in reply. 
+
+
+### HttpHealthCheck {#HttpHealthCheck8}
+
+Field | Description
+--- | ---
+host | **string**<br>Optional "Host" HTTP header value. 
+path | **string**<br>Required. HTTP path. 
+use_http2 | **bool**<br>If set, health checks will use HTTP/2. 
+
+
+### GrpcHealthCheck {#GrpcHealthCheck8}
+
+Field | Description
+--- | ---
+service_name | **string**<br>Optional service name for grpc.health.v1.HealthCheckRequest message. 
+
+
+### BackendTls {#BackendTls8}
+
+Field | Description
+--- | ---
+sni | **string**<br>SNI string for TLS connections. 
+tls_options | **[TlsOptions](#TlsOptions8)**<br>Common TLS options used for backend TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext8)**<br>Validation context for backend TLS connections. 
+
+
+### TlsOptions {#TlsOptions8}
+
+Field | Description
+--- | ---
+tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
+tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
+cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
+ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
+
+
+### ValidationContext {#ValidationContext8}
+
+Field | Description
+--- | ---
+trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>
+&nbsp;&nbsp;trusted_ca_id | **string**<br>Trusted CA certificate ID in the Certificate Manager. 
+&nbsp;&nbsp;trusted_ca_bytes | **string**<br>Trusted CA blob. 
+
+
+### GrpcBackendGroup {#GrpcBackendGroup4}
+
+Field | Description
+--- | ---
+backends[] | **[GrpcBackend](#GrpcBackend4)**<br> 
+
+
+### GrpcBackend {#GrpcBackend4}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name. 
+backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If not set, backend will be disabled. 
+load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig9)**<br> 
+port | **int64**<br>Port for all targets from target group. Acceptable values are 0 to 65535, inclusive.
+backend_type | **oneof:** `target_groups`<br>
+&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend9)**<br>References target groups for the backend. 
+healthchecks[] | **[HealthCheck](#HealthCheck9)**<br>No health checks means no active health checking will be performed. 
+tls | **[BackendTls](#BackendTls9)**<br>TLS settings for the upstream. 
+
+
+### LoadBalancingConfig {#LoadBalancingConfig9}
+
+Field | Description
+--- | ---
+panic_threshold | **int64**<br>If percentage of healthy hosts in the backend is lower than panic_threshold, traffic will be routed to all backends no matter what the health status is. This helps to avoid healthy backends overloading  when everything is bad. zero means no panic threshold. Acceptable values are 0 to 100, inclusive.
+locality_aware_routing_percent | **int64**<br>Percent of traffic to be sent to the same availability zone. The rest will be equally divided between other zones. Acceptable values are 0 to 100, inclusive.
+
+
+### TargetGroupsBackend {#TargetGroupsBackend9}
+
+Field | Description
+--- | ---
+target_group_ids[] | **string**<br> The number of elements must be greater than 0.
+
+
+### HealthCheck {#HealthCheck9}
+
+Field | Description
+--- | ---
+timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Time to wait for a health check response. 
+interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Interval between health checks. 
+interval_jitter_percent | **double**<br><ul><li> * interval_jitter_percent / 100) will be added to the wait time.</li></ul> 
+healthy_threshold | **int64**<br><ul><li> 1. </li></ul> 
+unhealthy_threshold | **int64**<br><ul><li> 1. </li></ul> 
+healthcheck_port | **int64**<br>Optional alternative port for health checking. Acceptable values are 0 to 65535, inclusive.
+healthcheck | **oneof:** `stream`, `http` or `grpc`<br>TCP (+TLS) health check ("Stream protocol HC").
+&nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck9)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
+&nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck9)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
+&nbsp;&nbsp;grpc | **[GrpcHealthCheck](#GrpcHealthCheck9)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
+
+
+### StreamHealthCheck {#StreamHealthCheck9}
+
+Field | Description
+--- | ---
+send | **[Payload](#Payload)**<br>Optional message to send. If empty, it's a connect-only health check. 
+receive | **[Payload](#Payload)**<br>Optional text to search in reply. 
+
+
+### HttpHealthCheck {#HttpHealthCheck9}
+
+Field | Description
+--- | ---
+host | **string**<br>Optional "Host" HTTP header value. 
+path | **string**<br>Required. HTTP path. 
+use_http2 | **bool**<br>If set, health checks will use HTTP/2. 
+
+
+### GrpcHealthCheck {#GrpcHealthCheck9}
+
+Field | Description
+--- | ---
+service_name | **string**<br>Optional service name for grpc.health.v1.HealthCheckRequest message. 
+
+
+### BackendTls {#BackendTls9}
+
+Field | Description
+--- | ---
+sni | **string**<br>SNI string for TLS connections. 
+tls_options | **[TlsOptions](#TlsOptions9)**<br>Common TLS options used for backend TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext9)**<br>Validation context for backend TLS connections. 
+
+
+### TlsOptions {#TlsOptions9}
+
+Field | Description
+--- | ---
+tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
+tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
+cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
+ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
+
+
+### ValidationContext {#ValidationContext9}
+
+Field | Description
+--- | ---
+trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>
+&nbsp;&nbsp;trusted_ca_id | **string**<br>Trusted CA certificate ID in the Certificate Manager. 
+&nbsp;&nbsp;trusted_ca_bytes | **string**<br>Trusted CA blob. 
+
+
 ### Operation {#Operation1}
 
 Field | Description
@@ -1018,7 +1227,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateBackendGroupMetadata](#UpdateBackendGroupMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[BackendGroup](../backend_group.proto#BackendGroup3)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[BackendGroup](#BackendGroup3)>**<br>if operation finished successfully. 
 
 
 ### UpdateBackendGroupMetadata {#UpdateBackendGroupMetadata}
@@ -1038,8 +1247,217 @@ description | **string**<br>Description of the backend group. 0-256 characters l
 folder_id | **string**<br>ID of the folder that the backend group belongs to. 
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
 backend | **oneof:** `http` or `grpc`<br>
-&nbsp;&nbsp;http | **[HttpBackendGroup](../backend_group.proto#HttpBackendGroup4)**<br> 
-&nbsp;&nbsp;grpc | **[GrpcBackendGroup](../backend_group.proto#GrpcBackendGroup4)**<br> 
+&nbsp;&nbsp;http | **[HttpBackendGroup](#HttpBackendGroup5)**<br> 
+&nbsp;&nbsp;grpc | **[GrpcBackendGroup](#GrpcBackendGroup5)**<br> 
+
+
+### HttpBackendGroup {#HttpBackendGroup5}
+
+Field | Description
+--- | ---
+backends[] | **[HttpBackend](#HttpBackend5)**<br> 
+
+
+### HttpBackend {#HttpBackend5}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name. 
+backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If not set, backend will be disabled. 
+load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig10)**<br> 
+port | **int64**<br>Port for all targets from target group. Acceptable values are 0 to 65535, inclusive.
+backend_type | **oneof:** `target_groups`<br>
+&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend10)**<br>References target groups for the backend. 
+healthchecks[] | **[HealthCheck](#HealthCheck10)**<br>No health checks means no active health checking will be performed. 
+tls | **[BackendTls](#BackendTls10)**<br>TLS settings for the upstream. 
+use_http2 | **bool**<br>Enables HTTP2 for upstream requests. If not set, HTTP 1.1 will be used by default. 
+
+
+### LoadBalancingConfig {#LoadBalancingConfig10}
+
+Field | Description
+--- | ---
+panic_threshold | **int64**<br>If percentage of healthy hosts in the backend is lower than panic_threshold, traffic will be routed to all backends no matter what the health status is. This helps to avoid healthy backends overloading  when everything is bad. zero means no panic threshold. Acceptable values are 0 to 100, inclusive.
+locality_aware_routing_percent | **int64**<br>Percent of traffic to be sent to the same availability zone. The rest will be equally divided between other zones. Acceptable values are 0 to 100, inclusive.
+
+
+### TargetGroupsBackend {#TargetGroupsBackend10}
+
+Field | Description
+--- | ---
+target_group_ids[] | **string**<br> The number of elements must be greater than 0.
+
+
+### HealthCheck {#HealthCheck10}
+
+Field | Description
+--- | ---
+timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Time to wait for a health check response. 
+interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Interval between health checks. 
+interval_jitter_percent | **double**<br><ul><li> * interval_jitter_percent / 100) will be added to the wait time.</li></ul> 
+healthy_threshold | **int64**<br><ul><li> 1. </li></ul> 
+unhealthy_threshold | **int64**<br><ul><li> 1. </li></ul> 
+healthcheck_port | **int64**<br>Optional alternative port for health checking. Acceptable values are 0 to 65535, inclusive.
+healthcheck | **oneof:** `stream`, `http` or `grpc`<br>TCP (+TLS) health check ("Stream protocol HC").
+&nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck10)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
+&nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck10)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
+&nbsp;&nbsp;grpc | **[GrpcHealthCheck](#GrpcHealthCheck10)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
+
+
+### StreamHealthCheck {#StreamHealthCheck10}
+
+Field | Description
+--- | ---
+send | **[Payload](#Payload)**<br>Optional message to send. If empty, it's a connect-only health check. 
+receive | **[Payload](#Payload)**<br>Optional text to search in reply. 
+
+
+### HttpHealthCheck {#HttpHealthCheck10}
+
+Field | Description
+--- | ---
+host | **string**<br>Optional "Host" HTTP header value. 
+path | **string**<br>Required. HTTP path. 
+use_http2 | **bool**<br>If set, health checks will use HTTP/2. 
+
+
+### GrpcHealthCheck {#GrpcHealthCheck10}
+
+Field | Description
+--- | ---
+service_name | **string**<br>Optional service name for grpc.health.v1.HealthCheckRequest message. 
+
+
+### BackendTls {#BackendTls10}
+
+Field | Description
+--- | ---
+sni | **string**<br>SNI string for TLS connections. 
+tls_options | **[TlsOptions](#TlsOptions10)**<br>Common TLS options used for backend TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext10)**<br>Validation context for backend TLS connections. 
+
+
+### TlsOptions {#TlsOptions10}
+
+Field | Description
+--- | ---
+tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
+tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
+cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
+ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
+
+
+### ValidationContext {#ValidationContext10}
+
+Field | Description
+--- | ---
+trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>
+&nbsp;&nbsp;trusted_ca_id | **string**<br>Trusted CA certificate ID in the Certificate Manager. 
+&nbsp;&nbsp;trusted_ca_bytes | **string**<br>Trusted CA blob. 
+
+
+### GrpcBackendGroup {#GrpcBackendGroup5}
+
+Field | Description
+--- | ---
+backends[] | **[GrpcBackend](#GrpcBackend5)**<br> 
+
+
+### GrpcBackend {#GrpcBackend5}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name. 
+backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If not set, backend will be disabled. 
+load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig11)**<br> 
+port | **int64**<br>Port for all targets from target group. Acceptable values are 0 to 65535, inclusive.
+backend_type | **oneof:** `target_groups`<br>
+&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend11)**<br>References target groups for the backend. 
+healthchecks[] | **[HealthCheck](#HealthCheck11)**<br>No health checks means no active health checking will be performed. 
+tls | **[BackendTls](#BackendTls11)**<br>TLS settings for the upstream. 
+
+
+### LoadBalancingConfig {#LoadBalancingConfig11}
+
+Field | Description
+--- | ---
+panic_threshold | **int64**<br>If percentage of healthy hosts in the backend is lower than panic_threshold, traffic will be routed to all backends no matter what the health status is. This helps to avoid healthy backends overloading  when everything is bad. zero means no panic threshold. Acceptable values are 0 to 100, inclusive.
+locality_aware_routing_percent | **int64**<br>Percent of traffic to be sent to the same availability zone. The rest will be equally divided between other zones. Acceptable values are 0 to 100, inclusive.
+
+
+### TargetGroupsBackend {#TargetGroupsBackend11}
+
+Field | Description
+--- | ---
+target_group_ids[] | **string**<br> The number of elements must be greater than 0.
+
+
+### HealthCheck {#HealthCheck11}
+
+Field | Description
+--- | ---
+timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Time to wait for a health check response. 
+interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Interval between health checks. 
+interval_jitter_percent | **double**<br><ul><li> * interval_jitter_percent / 100) will be added to the wait time.</li></ul> 
+healthy_threshold | **int64**<br><ul><li> 1. </li></ul> 
+unhealthy_threshold | **int64**<br><ul><li> 1. </li></ul> 
+healthcheck_port | **int64**<br>Optional alternative port for health checking. Acceptable values are 0 to 65535, inclusive.
+healthcheck | **oneof:** `stream`, `http` or `grpc`<br>TCP (+TLS) health check ("Stream protocol HC").
+&nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck11)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
+&nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck11)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
+&nbsp;&nbsp;grpc | **[GrpcHealthCheck](#GrpcHealthCheck11)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
+
+
+### StreamHealthCheck {#StreamHealthCheck11}
+
+Field | Description
+--- | ---
+send | **[Payload](#Payload)**<br>Optional message to send. If empty, it's a connect-only health check. 
+receive | **[Payload](#Payload)**<br>Optional text to search in reply. 
+
+
+### HttpHealthCheck {#HttpHealthCheck11}
+
+Field | Description
+--- | ---
+host | **string**<br>Optional "Host" HTTP header value. 
+path | **string**<br>Required. HTTP path. 
+use_http2 | **bool**<br>If set, health checks will use HTTP/2. 
+
+
+### GrpcHealthCheck {#GrpcHealthCheck11}
+
+Field | Description
+--- | ---
+service_name | **string**<br>Optional service name for grpc.health.v1.HealthCheckRequest message. 
+
+
+### BackendTls {#BackendTls11}
+
+Field | Description
+--- | ---
+sni | **string**<br>SNI string for TLS connections. 
+tls_options | **[TlsOptions](#TlsOptions11)**<br>Common TLS options used for backend TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext11)**<br>Validation context for backend TLS connections. 
+
+
+### TlsOptions {#TlsOptions11}
+
+Field | Description
+--- | ---
+tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
+tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
+cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
+ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
+
+
+### ValidationContext {#ValidationContext11}
+
+Field | Description
+--- | ---
+trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>
+&nbsp;&nbsp;trusted_ca_id | **string**<br>Trusted CA certificate ID in the Certificate Manager. 
+&nbsp;&nbsp;trusted_ca_bytes | **string**<br>Trusted CA blob. 
 
 
 ## Delete {#Delete}
@@ -1090,7 +1508,7 @@ AddBackend/RemoveBackend technically do the same, but have different semantics.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[AddBackendMetadata](#AddBackendMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[BackendGroup](../backend_group.proto#BackendGroup4)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[BackendGroup](#BackendGroup4)<br>
 
 ### AddBackendRequest {#AddBackendRequest}
 
@@ -1098,26 +1516,26 @@ Field | Description
 --- | ---
 backend_group_id | **string**<br>Required.  
 backend | **oneof:** `http` or `grpc`<br>
-&nbsp;&nbsp;http | **[HttpBackend](../backend_group.proto#HttpBackend4)**<br> 
-&nbsp;&nbsp;grpc | **[GrpcBackend](../backend_group.proto#GrpcBackend4)**<br> 
+&nbsp;&nbsp;http | **[HttpBackend](#HttpBackend6)**<br> 
+&nbsp;&nbsp;grpc | **[GrpcBackend](#GrpcBackend6)**<br> 
 
 
-### HttpBackend {#HttpBackend4}
+### HttpBackend {#HttpBackend6}
 
 Field | Description
 --- | ---
 name | **string**<br>Required. Name. 
 backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If not set, backend will be disabled. 
-load_balancing_config | **[LoadBalancingConfig](../backend_group.proto#LoadBalancingConfig8)**<br> 
+load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig12)**<br> 
 port | **int64**<br>Port for all targets from target group. Acceptable values are 0 to 65535, inclusive.
 backend_type | **oneof:** `target_groups`<br>
-&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](../backend_group.proto#TargetGroupsBackend8)**<br>References target groups for the backend. 
-healthchecks[] | **[HealthCheck](../backend_group.proto#HealthCheck8)**<br>No health checks means no active health checking will be performed. 
-tls | **[BackendTls](../backend_group.proto#BackendTls8)**<br>TLS settings for the upstream. 
+&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend12)**<br>References target groups for the backend. 
+healthchecks[] | **[HealthCheck](#HealthCheck12)**<br>No health checks means no active health checking will be performed. 
+tls | **[BackendTls](#BackendTls12)**<br>TLS settings for the upstream. 
 use_http2 | **bool**<br>Enables HTTP2 for upstream requests. If not set, HTTP 1.1 will be used by default. 
 
 
-### LoadBalancingConfig {#LoadBalancingConfig8}
+### LoadBalancingConfig {#LoadBalancingConfig12}
 
 Field | Description
 --- | ---
@@ -1125,14 +1543,14 @@ panic_threshold | **int64**<br>If percentage of healthy hosts in the backend is 
 locality_aware_routing_percent | **int64**<br>Percent of traffic to be sent to the same availability zone. The rest will be equally divided between other zones. Acceptable values are 0 to 100, inclusive.
 
 
-### TargetGroupsBackend {#TargetGroupsBackend8}
+### TargetGroupsBackend {#TargetGroupsBackend12}
 
 Field | Description
 --- | ---
 target_group_ids[] | **string**<br> The number of elements must be greater than 0.
 
 
-### HealthCheck {#HealthCheck8}
+### HealthCheck {#HealthCheck12}
 
 Field | Description
 --- | ---
@@ -1143,20 +1561,20 @@ healthy_threshold | **int64**<br><ul><li> 1. </li></ul>
 unhealthy_threshold | **int64**<br><ul><li> 1. </li></ul> 
 healthcheck_port | **int64**<br>Optional alternative port for health checking. Acceptable values are 0 to 65535, inclusive.
 healthcheck | **oneof:** `stream`, `http` or `grpc`<br>TCP (+TLS) health check ("Stream protocol HC").
-&nbsp;&nbsp;stream | **[StreamHealthCheck](../backend_group.proto#StreamHealthCheck8)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
-&nbsp;&nbsp;http | **[HttpHealthCheck](../backend_group.proto#HttpHealthCheck8)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
-&nbsp;&nbsp;grpc | **[GrpcHealthCheck](../backend_group.proto#GrpcHealthCheck8)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
+&nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck12)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
+&nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck12)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
+&nbsp;&nbsp;grpc | **[GrpcHealthCheck](#GrpcHealthCheck12)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
 
 
-### StreamHealthCheck {#StreamHealthCheck8}
+### StreamHealthCheck {#StreamHealthCheck12}
 
 Field | Description
 --- | ---
-send | **[Payload](../payload.proto#Payload)**<br>Optional message to send. If empty, it's a connect-only health check. 
-receive | **[Payload](../payload.proto#Payload)**<br>Optional text to search in reply. 
+send | **[Payload](#Payload)**<br>Optional message to send. If empty, it's a connect-only health check. 
+receive | **[Payload](#Payload)**<br>Optional text to search in reply. 
 
 
-### HttpHealthCheck {#HttpHealthCheck8}
+### HttpHealthCheck {#HttpHealthCheck12}
 
 Field | Description
 --- | ---
@@ -1165,23 +1583,23 @@ path | **string**<br>Required. HTTP path.
 use_http2 | **bool**<br>If set, health checks will use HTTP/2. 
 
 
-### GrpcHealthCheck {#GrpcHealthCheck8}
+### GrpcHealthCheck {#GrpcHealthCheck12}
 
 Field | Description
 --- | ---
 service_name | **string**<br>Optional service name for grpc.health.v1.HealthCheckRequest message. 
 
 
-### BackendTls {#BackendTls8}
+### BackendTls {#BackendTls12}
 
 Field | Description
 --- | ---
 sni | **string**<br>SNI string for TLS connections. 
-tls_options | **[TlsOptions](../tls.proto#TlsOptions8)**<br>Common TLS options used for backend TLS connections. 
-validation_context | **[ValidationContext](../tls.proto#ValidationContext8)**<br>Validation context for backend TLS connections. 
+tls_options | **[TlsOptions](#TlsOptions12)**<br>Common TLS options used for backend TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext12)**<br>Validation context for backend TLS connections. 
 
 
-### TlsOptions {#TlsOptions8}
+### TlsOptions {#TlsOptions12}
 
 Field | Description
 --- | ---
@@ -1191,7 +1609,7 @@ cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will on
 ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
 
 
-### ValidationContext {#ValidationContext8}
+### ValidationContext {#ValidationContext12}
 
 Field | Description
 --- | ---
@@ -1200,21 +1618,21 @@ trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>
 &nbsp;&nbsp;trusted_ca_bytes | **string**<br>Trusted CA blob. 
 
 
-### GrpcBackend {#GrpcBackend4}
+### GrpcBackend {#GrpcBackend6}
 
 Field | Description
 --- | ---
 name | **string**<br>Required. Name. 
 backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If not set, backend will be disabled. 
-load_balancing_config | **[LoadBalancingConfig](../backend_group.proto#LoadBalancingConfig9)**<br> 
+load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig13)**<br> 
 port | **int64**<br>Port for all targets from target group. Acceptable values are 0 to 65535, inclusive.
 backend_type | **oneof:** `target_groups`<br>
-&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](../backend_group.proto#TargetGroupsBackend9)**<br>References target groups for the backend. 
-healthchecks[] | **[HealthCheck](../backend_group.proto#HealthCheck9)**<br>No health checks means no active health checking will be performed. 
-tls | **[BackendTls](../backend_group.proto#BackendTls9)**<br>TLS settings for the upstream. 
+&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend13)**<br>References target groups for the backend. 
+healthchecks[] | **[HealthCheck](#HealthCheck13)**<br>No health checks means no active health checking will be performed. 
+tls | **[BackendTls](#BackendTls13)**<br>TLS settings for the upstream. 
 
 
-### LoadBalancingConfig {#LoadBalancingConfig9}
+### LoadBalancingConfig {#LoadBalancingConfig13}
 
 Field | Description
 --- | ---
@@ -1222,14 +1640,14 @@ panic_threshold | **int64**<br>If percentage of healthy hosts in the backend is 
 locality_aware_routing_percent | **int64**<br>Percent of traffic to be sent to the same availability zone. The rest will be equally divided between other zones. Acceptable values are 0 to 100, inclusive.
 
 
-### TargetGroupsBackend {#TargetGroupsBackend9}
+### TargetGroupsBackend {#TargetGroupsBackend13}
 
 Field | Description
 --- | ---
 target_group_ids[] | **string**<br> The number of elements must be greater than 0.
 
 
-### HealthCheck {#HealthCheck9}
+### HealthCheck {#HealthCheck13}
 
 Field | Description
 --- | ---
@@ -1240,20 +1658,20 @@ healthy_threshold | **int64**<br><ul><li> 1. </li></ul>
 unhealthy_threshold | **int64**<br><ul><li> 1. </li></ul> 
 healthcheck_port | **int64**<br>Optional alternative port for health checking. Acceptable values are 0 to 65535, inclusive.
 healthcheck | **oneof:** `stream`, `http` or `grpc`<br>TCP (+TLS) health check ("Stream protocol HC").
-&nbsp;&nbsp;stream | **[StreamHealthCheck](../backend_group.proto#StreamHealthCheck9)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
-&nbsp;&nbsp;http | **[HttpHealthCheck](../backend_group.proto#HttpHealthCheck9)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
-&nbsp;&nbsp;grpc | **[GrpcHealthCheck](../backend_group.proto#GrpcHealthCheck9)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
+&nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck13)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
+&nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck13)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
+&nbsp;&nbsp;grpc | **[GrpcHealthCheck](#GrpcHealthCheck13)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
 
 
-### StreamHealthCheck {#StreamHealthCheck9}
+### StreamHealthCheck {#StreamHealthCheck13}
 
 Field | Description
 --- | ---
-send | **[Payload](../payload.proto#Payload)**<br>Optional message to send. If empty, it's a connect-only health check. 
-receive | **[Payload](../payload.proto#Payload)**<br>Optional text to search in reply. 
+send | **[Payload](#Payload)**<br>Optional message to send. If empty, it's a connect-only health check. 
+receive | **[Payload](#Payload)**<br>Optional text to search in reply. 
 
 
-### HttpHealthCheck {#HttpHealthCheck9}
+### HttpHealthCheck {#HttpHealthCheck13}
 
 Field | Description
 --- | ---
@@ -1262,23 +1680,23 @@ path | **string**<br>Required. HTTP path.
 use_http2 | **bool**<br>If set, health checks will use HTTP/2. 
 
 
-### GrpcHealthCheck {#GrpcHealthCheck9}
+### GrpcHealthCheck {#GrpcHealthCheck13}
 
 Field | Description
 --- | ---
 service_name | **string**<br>Optional service name for grpc.health.v1.HealthCheckRequest message. 
 
 
-### BackendTls {#BackendTls9}
+### BackendTls {#BackendTls13}
 
 Field | Description
 --- | ---
 sni | **string**<br>SNI string for TLS connections. 
-tls_options | **[TlsOptions](../tls.proto#TlsOptions9)**<br>Common TLS options used for backend TLS connections. 
-validation_context | **[ValidationContext](../tls.proto#ValidationContext9)**<br>Validation context for backend TLS connections. 
+tls_options | **[TlsOptions](#TlsOptions13)**<br>Common TLS options used for backend TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext13)**<br>Validation context for backend TLS connections. 
 
 
-### TlsOptions {#TlsOptions9}
+### TlsOptions {#TlsOptions13}
 
 Field | Description
 --- | ---
@@ -1288,7 +1706,7 @@ cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will on
 ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
 
 
-### ValidationContext {#ValidationContext9}
+### ValidationContext {#ValidationContext13}
 
 Field | Description
 --- | ---
@@ -1310,7 +1728,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[AddBackendMetadata](#AddBackendMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[BackendGroup](../backend_group.proto#BackendGroup4)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[BackendGroup](#BackendGroup4)>**<br>if operation finished successfully. 
 
 
 ### AddBackendMetadata {#AddBackendMetadata}
@@ -1331,8 +1749,217 @@ description | **string**<br>Description of the backend group. 0-256 characters l
 folder_id | **string**<br>ID of the folder that the backend group belongs to. 
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
 backend | **oneof:** `http` or `grpc`<br>
-&nbsp;&nbsp;http | **[HttpBackendGroup](../backend_group.proto#HttpBackendGroup4)**<br> 
-&nbsp;&nbsp;grpc | **[GrpcBackendGroup](../backend_group.proto#GrpcBackendGroup4)**<br> 
+&nbsp;&nbsp;http | **[HttpBackendGroup](#HttpBackendGroup6)**<br> 
+&nbsp;&nbsp;grpc | **[GrpcBackendGroup](#GrpcBackendGroup6)**<br> 
+
+
+### HttpBackendGroup {#HttpBackendGroup6}
+
+Field | Description
+--- | ---
+backends[] | **[HttpBackend](#HttpBackend7)**<br> 
+
+
+### HttpBackend {#HttpBackend7}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name. 
+backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If not set, backend will be disabled. 
+load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig14)**<br> 
+port | **int64**<br>Port for all targets from target group. Acceptable values are 0 to 65535, inclusive.
+backend_type | **oneof:** `target_groups`<br>
+&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend14)**<br>References target groups for the backend. 
+healthchecks[] | **[HealthCheck](#HealthCheck14)**<br>No health checks means no active health checking will be performed. 
+tls | **[BackendTls](#BackendTls14)**<br>TLS settings for the upstream. 
+use_http2 | **bool**<br>Enables HTTP2 for upstream requests. If not set, HTTP 1.1 will be used by default. 
+
+
+### LoadBalancingConfig {#LoadBalancingConfig14}
+
+Field | Description
+--- | ---
+panic_threshold | **int64**<br>If percentage of healthy hosts in the backend is lower than panic_threshold, traffic will be routed to all backends no matter what the health status is. This helps to avoid healthy backends overloading  when everything is bad. zero means no panic threshold. Acceptable values are 0 to 100, inclusive.
+locality_aware_routing_percent | **int64**<br>Percent of traffic to be sent to the same availability zone. The rest will be equally divided between other zones. Acceptable values are 0 to 100, inclusive.
+
+
+### TargetGroupsBackend {#TargetGroupsBackend14}
+
+Field | Description
+--- | ---
+target_group_ids[] | **string**<br> The number of elements must be greater than 0.
+
+
+### HealthCheck {#HealthCheck14}
+
+Field | Description
+--- | ---
+timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Time to wait for a health check response. 
+interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Interval between health checks. 
+interval_jitter_percent | **double**<br><ul><li> * interval_jitter_percent / 100) will be added to the wait time.</li></ul> 
+healthy_threshold | **int64**<br><ul><li> 1. </li></ul> 
+unhealthy_threshold | **int64**<br><ul><li> 1. </li></ul> 
+healthcheck_port | **int64**<br>Optional alternative port for health checking. Acceptable values are 0 to 65535, inclusive.
+healthcheck | **oneof:** `stream`, `http` or `grpc`<br>TCP (+TLS) health check ("Stream protocol HC").
+&nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck14)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
+&nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck14)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
+&nbsp;&nbsp;grpc | **[GrpcHealthCheck](#GrpcHealthCheck14)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
+
+
+### StreamHealthCheck {#StreamHealthCheck14}
+
+Field | Description
+--- | ---
+send | **[Payload](#Payload)**<br>Optional message to send. If empty, it's a connect-only health check. 
+receive | **[Payload](#Payload)**<br>Optional text to search in reply. 
+
+
+### HttpHealthCheck {#HttpHealthCheck14}
+
+Field | Description
+--- | ---
+host | **string**<br>Optional "Host" HTTP header value. 
+path | **string**<br>Required. HTTP path. 
+use_http2 | **bool**<br>If set, health checks will use HTTP/2. 
+
+
+### GrpcHealthCheck {#GrpcHealthCheck14}
+
+Field | Description
+--- | ---
+service_name | **string**<br>Optional service name for grpc.health.v1.HealthCheckRequest message. 
+
+
+### BackendTls {#BackendTls14}
+
+Field | Description
+--- | ---
+sni | **string**<br>SNI string for TLS connections. 
+tls_options | **[TlsOptions](#TlsOptions14)**<br>Common TLS options used for backend TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext14)**<br>Validation context for backend TLS connections. 
+
+
+### TlsOptions {#TlsOptions14}
+
+Field | Description
+--- | ---
+tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
+tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
+cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
+ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
+
+
+### ValidationContext {#ValidationContext14}
+
+Field | Description
+--- | ---
+trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>
+&nbsp;&nbsp;trusted_ca_id | **string**<br>Trusted CA certificate ID in the Certificate Manager. 
+&nbsp;&nbsp;trusted_ca_bytes | **string**<br>Trusted CA blob. 
+
+
+### GrpcBackendGroup {#GrpcBackendGroup6}
+
+Field | Description
+--- | ---
+backends[] | **[GrpcBackend](#GrpcBackend7)**<br> 
+
+
+### GrpcBackend {#GrpcBackend7}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name. 
+backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If not set, backend will be disabled. 
+load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig15)**<br> 
+port | **int64**<br>Port for all targets from target group. Acceptable values are 0 to 65535, inclusive.
+backend_type | **oneof:** `target_groups`<br>
+&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend15)**<br>References target groups for the backend. 
+healthchecks[] | **[HealthCheck](#HealthCheck15)**<br>No health checks means no active health checking will be performed. 
+tls | **[BackendTls](#BackendTls15)**<br>TLS settings for the upstream. 
+
+
+### LoadBalancingConfig {#LoadBalancingConfig15}
+
+Field | Description
+--- | ---
+panic_threshold | **int64**<br>If percentage of healthy hosts in the backend is lower than panic_threshold, traffic will be routed to all backends no matter what the health status is. This helps to avoid healthy backends overloading  when everything is bad. zero means no panic threshold. Acceptable values are 0 to 100, inclusive.
+locality_aware_routing_percent | **int64**<br>Percent of traffic to be sent to the same availability zone. The rest will be equally divided between other zones. Acceptable values are 0 to 100, inclusive.
+
+
+### TargetGroupsBackend {#TargetGroupsBackend15}
+
+Field | Description
+--- | ---
+target_group_ids[] | **string**<br> The number of elements must be greater than 0.
+
+
+### HealthCheck {#HealthCheck15}
+
+Field | Description
+--- | ---
+timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Time to wait for a health check response. 
+interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Interval between health checks. 
+interval_jitter_percent | **double**<br><ul><li> * interval_jitter_percent / 100) will be added to the wait time.</li></ul> 
+healthy_threshold | **int64**<br><ul><li> 1. </li></ul> 
+unhealthy_threshold | **int64**<br><ul><li> 1. </li></ul> 
+healthcheck_port | **int64**<br>Optional alternative port for health checking. Acceptable values are 0 to 65535, inclusive.
+healthcheck | **oneof:** `stream`, `http` or `grpc`<br>TCP (+TLS) health check ("Stream protocol HC").
+&nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck15)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
+&nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck15)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
+&nbsp;&nbsp;grpc | **[GrpcHealthCheck](#GrpcHealthCheck15)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
+
+
+### StreamHealthCheck {#StreamHealthCheck15}
+
+Field | Description
+--- | ---
+send | **[Payload](#Payload)**<br>Optional message to send. If empty, it's a connect-only health check. 
+receive | **[Payload](#Payload)**<br>Optional text to search in reply. 
+
+
+### HttpHealthCheck {#HttpHealthCheck15}
+
+Field | Description
+--- | ---
+host | **string**<br>Optional "Host" HTTP header value. 
+path | **string**<br>Required. HTTP path. 
+use_http2 | **bool**<br>If set, health checks will use HTTP/2. 
+
+
+### GrpcHealthCheck {#GrpcHealthCheck15}
+
+Field | Description
+--- | ---
+service_name | **string**<br>Optional service name for grpc.health.v1.HealthCheckRequest message. 
+
+
+### BackendTls {#BackendTls15}
+
+Field | Description
+--- | ---
+sni | **string**<br>SNI string for TLS connections. 
+tls_options | **[TlsOptions](#TlsOptions15)**<br>Common TLS options used for backend TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext15)**<br>Validation context for backend TLS connections. 
+
+
+### TlsOptions {#TlsOptions15}
+
+Field | Description
+--- | ---
+tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
+tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
+cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
+ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
+
+
+### ValidationContext {#ValidationContext15}
+
+Field | Description
+--- | ---
+trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>
+&nbsp;&nbsp;trusted_ca_id | **string**<br>Trusted CA certificate ID in the Certificate Manager. 
+&nbsp;&nbsp;trusted_ca_bytes | **string**<br>Trusted CA blob. 
 
 
 ## RemoveBackend {#RemoveBackend}
@@ -1343,7 +1970,7 @@ backend | **oneof:** `http` or `grpc`<br>
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[RemoveBackendMetadata](#RemoveBackendMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[BackendGroup](../backend_group.proto#BackendGroup5)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[BackendGroup](#BackendGroup5)<br>
 
 ### RemoveBackendRequest {#RemoveBackendRequest}
 
@@ -1366,7 +1993,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RemoveBackendMetadata](#RemoveBackendMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[BackendGroup](../backend_group.proto#BackendGroup5)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[BackendGroup](#BackendGroup5)>**<br>if operation finished successfully. 
 
 
 ### RemoveBackendMetadata {#RemoveBackendMetadata}
@@ -1387,8 +2014,217 @@ description | **string**<br>Description of the backend group. 0-256 characters l
 folder_id | **string**<br>ID of the folder that the backend group belongs to. 
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
 backend | **oneof:** `http` or `grpc`<br>
-&nbsp;&nbsp;http | **[HttpBackendGroup](../backend_group.proto#HttpBackendGroup4)**<br> 
-&nbsp;&nbsp;grpc | **[GrpcBackendGroup](../backend_group.proto#GrpcBackendGroup4)**<br> 
+&nbsp;&nbsp;http | **[HttpBackendGroup](#HttpBackendGroup7)**<br> 
+&nbsp;&nbsp;grpc | **[GrpcBackendGroup](#GrpcBackendGroup7)**<br> 
+
+
+### HttpBackendGroup {#HttpBackendGroup7}
+
+Field | Description
+--- | ---
+backends[] | **[HttpBackend](#HttpBackend8)**<br> 
+
+
+### HttpBackend {#HttpBackend8}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name. 
+backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If not set, backend will be disabled. 
+load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig16)**<br> 
+port | **int64**<br>Port for all targets from target group. Acceptable values are 0 to 65535, inclusive.
+backend_type | **oneof:** `target_groups`<br>
+&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend16)**<br>References target groups for the backend. 
+healthchecks[] | **[HealthCheck](#HealthCheck16)**<br>No health checks means no active health checking will be performed. 
+tls | **[BackendTls](#BackendTls16)**<br>TLS settings for the upstream. 
+use_http2 | **bool**<br>Enables HTTP2 for upstream requests. If not set, HTTP 1.1 will be used by default. 
+
+
+### LoadBalancingConfig {#LoadBalancingConfig16}
+
+Field | Description
+--- | ---
+panic_threshold | **int64**<br>If percentage of healthy hosts in the backend is lower than panic_threshold, traffic will be routed to all backends no matter what the health status is. This helps to avoid healthy backends overloading  when everything is bad. zero means no panic threshold. Acceptable values are 0 to 100, inclusive.
+locality_aware_routing_percent | **int64**<br>Percent of traffic to be sent to the same availability zone. The rest will be equally divided between other zones. Acceptable values are 0 to 100, inclusive.
+
+
+### TargetGroupsBackend {#TargetGroupsBackend16}
+
+Field | Description
+--- | ---
+target_group_ids[] | **string**<br> The number of elements must be greater than 0.
+
+
+### HealthCheck {#HealthCheck16}
+
+Field | Description
+--- | ---
+timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Time to wait for a health check response. 
+interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Interval between health checks. 
+interval_jitter_percent | **double**<br><ul><li> * interval_jitter_percent / 100) will be added to the wait time.</li></ul> 
+healthy_threshold | **int64**<br><ul><li> 1. </li></ul> 
+unhealthy_threshold | **int64**<br><ul><li> 1. </li></ul> 
+healthcheck_port | **int64**<br>Optional alternative port for health checking. Acceptable values are 0 to 65535, inclusive.
+healthcheck | **oneof:** `stream`, `http` or `grpc`<br>TCP (+TLS) health check ("Stream protocol HC").
+&nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck16)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
+&nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck16)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
+&nbsp;&nbsp;grpc | **[GrpcHealthCheck](#GrpcHealthCheck16)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
+
+
+### StreamHealthCheck {#StreamHealthCheck16}
+
+Field | Description
+--- | ---
+send | **[Payload](#Payload)**<br>Optional message to send. If empty, it's a connect-only health check. 
+receive | **[Payload](#Payload)**<br>Optional text to search in reply. 
+
+
+### HttpHealthCheck {#HttpHealthCheck16}
+
+Field | Description
+--- | ---
+host | **string**<br>Optional "Host" HTTP header value. 
+path | **string**<br>Required. HTTP path. 
+use_http2 | **bool**<br>If set, health checks will use HTTP/2. 
+
+
+### GrpcHealthCheck {#GrpcHealthCheck16}
+
+Field | Description
+--- | ---
+service_name | **string**<br>Optional service name for grpc.health.v1.HealthCheckRequest message. 
+
+
+### BackendTls {#BackendTls16}
+
+Field | Description
+--- | ---
+sni | **string**<br>SNI string for TLS connections. 
+tls_options | **[TlsOptions](#TlsOptions16)**<br>Common TLS options used for backend TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext16)**<br>Validation context for backend TLS connections. 
+
+
+### TlsOptions {#TlsOptions16}
+
+Field | Description
+--- | ---
+tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
+tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
+cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
+ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
+
+
+### ValidationContext {#ValidationContext16}
+
+Field | Description
+--- | ---
+trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>
+&nbsp;&nbsp;trusted_ca_id | **string**<br>Trusted CA certificate ID in the Certificate Manager. 
+&nbsp;&nbsp;trusted_ca_bytes | **string**<br>Trusted CA blob. 
+
+
+### GrpcBackendGroup {#GrpcBackendGroup7}
+
+Field | Description
+--- | ---
+backends[] | **[GrpcBackend](#GrpcBackend8)**<br> 
+
+
+### GrpcBackend {#GrpcBackend8}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name. 
+backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If not set, backend will be disabled. 
+load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig17)**<br> 
+port | **int64**<br>Port for all targets from target group. Acceptable values are 0 to 65535, inclusive.
+backend_type | **oneof:** `target_groups`<br>
+&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend17)**<br>References target groups for the backend. 
+healthchecks[] | **[HealthCheck](#HealthCheck17)**<br>No health checks means no active health checking will be performed. 
+tls | **[BackendTls](#BackendTls17)**<br>TLS settings for the upstream. 
+
+
+### LoadBalancingConfig {#LoadBalancingConfig17}
+
+Field | Description
+--- | ---
+panic_threshold | **int64**<br>If percentage of healthy hosts in the backend is lower than panic_threshold, traffic will be routed to all backends no matter what the health status is. This helps to avoid healthy backends overloading  when everything is bad. zero means no panic threshold. Acceptable values are 0 to 100, inclusive.
+locality_aware_routing_percent | **int64**<br>Percent of traffic to be sent to the same availability zone. The rest will be equally divided between other zones. Acceptable values are 0 to 100, inclusive.
+
+
+### TargetGroupsBackend {#TargetGroupsBackend17}
+
+Field | Description
+--- | ---
+target_group_ids[] | **string**<br> The number of elements must be greater than 0.
+
+
+### HealthCheck {#HealthCheck17}
+
+Field | Description
+--- | ---
+timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Time to wait for a health check response. 
+interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Interval between health checks. 
+interval_jitter_percent | **double**<br><ul><li> * interval_jitter_percent / 100) will be added to the wait time.</li></ul> 
+healthy_threshold | **int64**<br><ul><li> 1. </li></ul> 
+unhealthy_threshold | **int64**<br><ul><li> 1. </li></ul> 
+healthcheck_port | **int64**<br>Optional alternative port for health checking. Acceptable values are 0 to 65535, inclusive.
+healthcheck | **oneof:** `stream`, `http` or `grpc`<br>TCP (+TLS) health check ("Stream protocol HC").
+&nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck17)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
+&nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck17)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
+&nbsp;&nbsp;grpc | **[GrpcHealthCheck](#GrpcHealthCheck17)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
+
+
+### StreamHealthCheck {#StreamHealthCheck17}
+
+Field | Description
+--- | ---
+send | **[Payload](#Payload)**<br>Optional message to send. If empty, it's a connect-only health check. 
+receive | **[Payload](#Payload)**<br>Optional text to search in reply. 
+
+
+### HttpHealthCheck {#HttpHealthCheck17}
+
+Field | Description
+--- | ---
+host | **string**<br>Optional "Host" HTTP header value. 
+path | **string**<br>Required. HTTP path. 
+use_http2 | **bool**<br>If set, health checks will use HTTP/2. 
+
+
+### GrpcHealthCheck {#GrpcHealthCheck17}
+
+Field | Description
+--- | ---
+service_name | **string**<br>Optional service name for grpc.health.v1.HealthCheckRequest message. 
+
+
+### BackendTls {#BackendTls17}
+
+Field | Description
+--- | ---
+sni | **string**<br>SNI string for TLS connections. 
+tls_options | **[TlsOptions](#TlsOptions17)**<br>Common TLS options used for backend TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext17)**<br>Validation context for backend TLS connections. 
+
+
+### TlsOptions {#TlsOptions17}
+
+Field | Description
+--- | ---
+tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
+tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
+cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
+ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
+
+
+### ValidationContext {#ValidationContext17}
+
+Field | Description
+--- | ---
+trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>
+&nbsp;&nbsp;trusted_ca_id | **string**<br>Trusted CA certificate ID in the Certificate Manager. 
+&nbsp;&nbsp;trusted_ca_bytes | **string**<br>Trusted CA blob. 
 
 
 ## UpdateBackend {#UpdateBackend}
@@ -1399,7 +2235,7 @@ backend | **oneof:** `http` or `grpc`<br>
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateBackendMetadata](#UpdateBackendMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[BackendGroup](../backend_group.proto#BackendGroup6)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[BackendGroup](#BackendGroup6)<br>
 
 ### UpdateBackendRequest {#UpdateBackendRequest}
 
@@ -1408,26 +2244,26 @@ Field | Description
 backend_group_id | **string**<br>Required.  
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br> 
 backend | **oneof:** `http` or `grpc`<br>
-&nbsp;&nbsp;http | **[HttpBackend](../backend_group.proto#HttpBackend5)**<br> 
-&nbsp;&nbsp;grpc | **[GrpcBackend](../backend_group.proto#GrpcBackend5)**<br> 
+&nbsp;&nbsp;http | **[HttpBackend](#HttpBackend9)**<br> 
+&nbsp;&nbsp;grpc | **[GrpcBackend](#GrpcBackend9)**<br> 
 
 
-### HttpBackend {#HttpBackend5}
+### HttpBackend {#HttpBackend9}
 
 Field | Description
 --- | ---
 name | **string**<br>Required. Name. 
 backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If not set, backend will be disabled. 
-load_balancing_config | **[LoadBalancingConfig](../backend_group.proto#LoadBalancingConfig10)**<br> 
+load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig18)**<br> 
 port | **int64**<br>Port for all targets from target group. Acceptable values are 0 to 65535, inclusive.
 backend_type | **oneof:** `target_groups`<br>
-&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](../backend_group.proto#TargetGroupsBackend10)**<br>References target groups for the backend. 
-healthchecks[] | **[HealthCheck](../backend_group.proto#HealthCheck10)**<br>No health checks means no active health checking will be performed. 
-tls | **[BackendTls](../backend_group.proto#BackendTls10)**<br>TLS settings for the upstream. 
+&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend18)**<br>References target groups for the backend. 
+healthchecks[] | **[HealthCheck](#HealthCheck18)**<br>No health checks means no active health checking will be performed. 
+tls | **[BackendTls](#BackendTls18)**<br>TLS settings for the upstream. 
 use_http2 | **bool**<br>Enables HTTP2 for upstream requests. If not set, HTTP 1.1 will be used by default. 
 
 
-### LoadBalancingConfig {#LoadBalancingConfig10}
+### LoadBalancingConfig {#LoadBalancingConfig18}
 
 Field | Description
 --- | ---
@@ -1435,14 +2271,14 @@ panic_threshold | **int64**<br>If percentage of healthy hosts in the backend is 
 locality_aware_routing_percent | **int64**<br>Percent of traffic to be sent to the same availability zone. The rest will be equally divided between other zones. Acceptable values are 0 to 100, inclusive.
 
 
-### TargetGroupsBackend {#TargetGroupsBackend10}
+### TargetGroupsBackend {#TargetGroupsBackend18}
 
 Field | Description
 --- | ---
 target_group_ids[] | **string**<br> The number of elements must be greater than 0.
 
 
-### HealthCheck {#HealthCheck10}
+### HealthCheck {#HealthCheck18}
 
 Field | Description
 --- | ---
@@ -1453,20 +2289,20 @@ healthy_threshold | **int64**<br><ul><li> 1. </li></ul>
 unhealthy_threshold | **int64**<br><ul><li> 1. </li></ul> 
 healthcheck_port | **int64**<br>Optional alternative port for health checking. Acceptable values are 0 to 65535, inclusive.
 healthcheck | **oneof:** `stream`, `http` or `grpc`<br>TCP (+TLS) health check ("Stream protocol HC").
-&nbsp;&nbsp;stream | **[StreamHealthCheck](../backend_group.proto#StreamHealthCheck10)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
-&nbsp;&nbsp;http | **[HttpHealthCheck](../backend_group.proto#HttpHealthCheck10)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
-&nbsp;&nbsp;grpc | **[GrpcHealthCheck](../backend_group.proto#GrpcHealthCheck10)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
+&nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck18)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
+&nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck18)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
+&nbsp;&nbsp;grpc | **[GrpcHealthCheck](#GrpcHealthCheck18)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
 
 
-### StreamHealthCheck {#StreamHealthCheck10}
+### StreamHealthCheck {#StreamHealthCheck18}
 
 Field | Description
 --- | ---
-send | **[Payload](../payload.proto#Payload)**<br>Optional message to send. If empty, it's a connect-only health check. 
-receive | **[Payload](../payload.proto#Payload)**<br>Optional text to search in reply. 
+send | **[Payload](#Payload)**<br>Optional message to send. If empty, it's a connect-only health check. 
+receive | **[Payload](#Payload)**<br>Optional text to search in reply. 
 
 
-### HttpHealthCheck {#HttpHealthCheck10}
+### HttpHealthCheck {#HttpHealthCheck18}
 
 Field | Description
 --- | ---
@@ -1475,23 +2311,23 @@ path | **string**<br>Required. HTTP path.
 use_http2 | **bool**<br>If set, health checks will use HTTP/2. 
 
 
-### GrpcHealthCheck {#GrpcHealthCheck10}
+### GrpcHealthCheck {#GrpcHealthCheck18}
 
 Field | Description
 --- | ---
 service_name | **string**<br>Optional service name for grpc.health.v1.HealthCheckRequest message. 
 
 
-### BackendTls {#BackendTls10}
+### BackendTls {#BackendTls18}
 
 Field | Description
 --- | ---
 sni | **string**<br>SNI string for TLS connections. 
-tls_options | **[TlsOptions](../tls.proto#TlsOptions10)**<br>Common TLS options used for backend TLS connections. 
-validation_context | **[ValidationContext](../tls.proto#ValidationContext10)**<br>Validation context for backend TLS connections. 
+tls_options | **[TlsOptions](#TlsOptions18)**<br>Common TLS options used for backend TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext18)**<br>Validation context for backend TLS connections. 
 
 
-### TlsOptions {#TlsOptions10}
+### TlsOptions {#TlsOptions18}
 
 Field | Description
 --- | ---
@@ -1501,7 +2337,7 @@ cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will on
 ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
 
 
-### ValidationContext {#ValidationContext10}
+### ValidationContext {#ValidationContext18}
 
 Field | Description
 --- | ---
@@ -1510,21 +2346,21 @@ trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>
 &nbsp;&nbsp;trusted_ca_bytes | **string**<br>Trusted CA blob. 
 
 
-### GrpcBackend {#GrpcBackend5}
+### GrpcBackend {#GrpcBackend9}
 
 Field | Description
 --- | ---
 name | **string**<br>Required. Name. 
 backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If not set, backend will be disabled. 
-load_balancing_config | **[LoadBalancingConfig](../backend_group.proto#LoadBalancingConfig11)**<br> 
+load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig19)**<br> 
 port | **int64**<br>Port for all targets from target group. Acceptable values are 0 to 65535, inclusive.
 backend_type | **oneof:** `target_groups`<br>
-&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](../backend_group.proto#TargetGroupsBackend11)**<br>References target groups for the backend. 
-healthchecks[] | **[HealthCheck](../backend_group.proto#HealthCheck11)**<br>No health checks means no active health checking will be performed. 
-tls | **[BackendTls](../backend_group.proto#BackendTls11)**<br>TLS settings for the upstream. 
+&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend19)**<br>References target groups for the backend. 
+healthchecks[] | **[HealthCheck](#HealthCheck19)**<br>No health checks means no active health checking will be performed. 
+tls | **[BackendTls](#BackendTls19)**<br>TLS settings for the upstream. 
 
 
-### LoadBalancingConfig {#LoadBalancingConfig11}
+### LoadBalancingConfig {#LoadBalancingConfig19}
 
 Field | Description
 --- | ---
@@ -1532,14 +2368,14 @@ panic_threshold | **int64**<br>If percentage of healthy hosts in the backend is 
 locality_aware_routing_percent | **int64**<br>Percent of traffic to be sent to the same availability zone. The rest will be equally divided between other zones. Acceptable values are 0 to 100, inclusive.
 
 
-### TargetGroupsBackend {#TargetGroupsBackend11}
+### TargetGroupsBackend {#TargetGroupsBackend19}
 
 Field | Description
 --- | ---
 target_group_ids[] | **string**<br> The number of elements must be greater than 0.
 
 
-### HealthCheck {#HealthCheck11}
+### HealthCheck {#HealthCheck19}
 
 Field | Description
 --- | ---
@@ -1550,20 +2386,20 @@ healthy_threshold | **int64**<br><ul><li> 1. </li></ul>
 unhealthy_threshold | **int64**<br><ul><li> 1. </li></ul> 
 healthcheck_port | **int64**<br>Optional alternative port for health checking. Acceptable values are 0 to 65535, inclusive.
 healthcheck | **oneof:** `stream`, `http` or `grpc`<br>TCP (+TLS) health check ("Stream protocol HC").
-&nbsp;&nbsp;stream | **[StreamHealthCheck](../backend_group.proto#StreamHealthCheck11)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
-&nbsp;&nbsp;http | **[HttpHealthCheck](../backend_group.proto#HttpHealthCheck11)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
-&nbsp;&nbsp;grpc | **[GrpcHealthCheck](../backend_group.proto#GrpcHealthCheck11)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
+&nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck19)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
+&nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck19)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
+&nbsp;&nbsp;grpc | **[GrpcHealthCheck](#GrpcHealthCheck19)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
 
 
-### StreamHealthCheck {#StreamHealthCheck11}
+### StreamHealthCheck {#StreamHealthCheck19}
 
 Field | Description
 --- | ---
-send | **[Payload](../payload.proto#Payload)**<br>Optional message to send. If empty, it's a connect-only health check. 
-receive | **[Payload](../payload.proto#Payload)**<br>Optional text to search in reply. 
+send | **[Payload](#Payload)**<br>Optional message to send. If empty, it's a connect-only health check. 
+receive | **[Payload](#Payload)**<br>Optional text to search in reply. 
 
 
-### HttpHealthCheck {#HttpHealthCheck11}
+### HttpHealthCheck {#HttpHealthCheck19}
 
 Field | Description
 --- | ---
@@ -1572,23 +2408,23 @@ path | **string**<br>Required. HTTP path.
 use_http2 | **bool**<br>If set, health checks will use HTTP/2. 
 
 
-### GrpcHealthCheck {#GrpcHealthCheck11}
+### GrpcHealthCheck {#GrpcHealthCheck19}
 
 Field | Description
 --- | ---
 service_name | **string**<br>Optional service name for grpc.health.v1.HealthCheckRequest message. 
 
 
-### BackendTls {#BackendTls11}
+### BackendTls {#BackendTls19}
 
 Field | Description
 --- | ---
 sni | **string**<br>SNI string for TLS connections. 
-tls_options | **[TlsOptions](../tls.proto#TlsOptions11)**<br>Common TLS options used for backend TLS connections. 
-validation_context | **[ValidationContext](../tls.proto#ValidationContext11)**<br>Validation context for backend TLS connections. 
+tls_options | **[TlsOptions](#TlsOptions19)**<br>Common TLS options used for backend TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext19)**<br>Validation context for backend TLS connections. 
 
 
-### TlsOptions {#TlsOptions11}
+### TlsOptions {#TlsOptions19}
 
 Field | Description
 --- | ---
@@ -1598,7 +2434,7 @@ cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will on
 ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
 
 
-### ValidationContext {#ValidationContext11}
+### ValidationContext {#ValidationContext19}
 
 Field | Description
 --- | ---
@@ -1620,7 +2456,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateBackendMetadata](#UpdateBackendMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[BackendGroup](../backend_group.proto#BackendGroup6)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[BackendGroup](#BackendGroup6)>**<br>if operation finished successfully. 
 
 
 ### UpdateBackendMetadata {#UpdateBackendMetadata}
@@ -1641,8 +2477,217 @@ description | **string**<br>Description of the backend group. 0-256 characters l
 folder_id | **string**<br>ID of the folder that the backend group belongs to. 
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
 backend | **oneof:** `http` or `grpc`<br>
-&nbsp;&nbsp;http | **[HttpBackendGroup](../backend_group.proto#HttpBackendGroup4)**<br> 
-&nbsp;&nbsp;grpc | **[GrpcBackendGroup](../backend_group.proto#GrpcBackendGroup4)**<br> 
+&nbsp;&nbsp;http | **[HttpBackendGroup](#HttpBackendGroup8)**<br> 
+&nbsp;&nbsp;grpc | **[GrpcBackendGroup](#GrpcBackendGroup8)**<br> 
+
+
+### HttpBackendGroup {#HttpBackendGroup8}
+
+Field | Description
+--- | ---
+backends[] | **[HttpBackend](#HttpBackend10)**<br> 
+
+
+### HttpBackend {#HttpBackend10}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name. 
+backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If not set, backend will be disabled. 
+load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig20)**<br> 
+port | **int64**<br>Port for all targets from target group. Acceptable values are 0 to 65535, inclusive.
+backend_type | **oneof:** `target_groups`<br>
+&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend20)**<br>References target groups for the backend. 
+healthchecks[] | **[HealthCheck](#HealthCheck20)**<br>No health checks means no active health checking will be performed. 
+tls | **[BackendTls](#BackendTls20)**<br>TLS settings for the upstream. 
+use_http2 | **bool**<br>Enables HTTP2 for upstream requests. If not set, HTTP 1.1 will be used by default. 
+
+
+### LoadBalancingConfig {#LoadBalancingConfig20}
+
+Field | Description
+--- | ---
+panic_threshold | **int64**<br>If percentage of healthy hosts in the backend is lower than panic_threshold, traffic will be routed to all backends no matter what the health status is. This helps to avoid healthy backends overloading  when everything is bad. zero means no panic threshold. Acceptable values are 0 to 100, inclusive.
+locality_aware_routing_percent | **int64**<br>Percent of traffic to be sent to the same availability zone. The rest will be equally divided between other zones. Acceptable values are 0 to 100, inclusive.
+
+
+### TargetGroupsBackend {#TargetGroupsBackend20}
+
+Field | Description
+--- | ---
+target_group_ids[] | **string**<br> The number of elements must be greater than 0.
+
+
+### HealthCheck {#HealthCheck20}
+
+Field | Description
+--- | ---
+timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Time to wait for a health check response. 
+interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Interval between health checks. 
+interval_jitter_percent | **double**<br><ul><li> * interval_jitter_percent / 100) will be added to the wait time.</li></ul> 
+healthy_threshold | **int64**<br><ul><li> 1. </li></ul> 
+unhealthy_threshold | **int64**<br><ul><li> 1. </li></ul> 
+healthcheck_port | **int64**<br>Optional alternative port for health checking. Acceptable values are 0 to 65535, inclusive.
+healthcheck | **oneof:** `stream`, `http` or `grpc`<br>TCP (+TLS) health check ("Stream protocol HC").
+&nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck20)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
+&nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck20)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
+&nbsp;&nbsp;grpc | **[GrpcHealthCheck](#GrpcHealthCheck20)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
+
+
+### StreamHealthCheck {#StreamHealthCheck20}
+
+Field | Description
+--- | ---
+send | **[Payload](#Payload)**<br>Optional message to send. If empty, it's a connect-only health check. 
+receive | **[Payload](#Payload)**<br>Optional text to search in reply. 
+
+
+### HttpHealthCheck {#HttpHealthCheck20}
+
+Field | Description
+--- | ---
+host | **string**<br>Optional "Host" HTTP header value. 
+path | **string**<br>Required. HTTP path. 
+use_http2 | **bool**<br>If set, health checks will use HTTP/2. 
+
+
+### GrpcHealthCheck {#GrpcHealthCheck20}
+
+Field | Description
+--- | ---
+service_name | **string**<br>Optional service name for grpc.health.v1.HealthCheckRequest message. 
+
+
+### BackendTls {#BackendTls20}
+
+Field | Description
+--- | ---
+sni | **string**<br>SNI string for TLS connections. 
+tls_options | **[TlsOptions](#TlsOptions20)**<br>Common TLS options used for backend TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext20)**<br>Validation context for backend TLS connections. 
+
+
+### TlsOptions {#TlsOptions20}
+
+Field | Description
+--- | ---
+tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
+tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
+cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
+ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
+
+
+### ValidationContext {#ValidationContext20}
+
+Field | Description
+--- | ---
+trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>
+&nbsp;&nbsp;trusted_ca_id | **string**<br>Trusted CA certificate ID in the Certificate Manager. 
+&nbsp;&nbsp;trusted_ca_bytes | **string**<br>Trusted CA blob. 
+
+
+### GrpcBackendGroup {#GrpcBackendGroup8}
+
+Field | Description
+--- | ---
+backends[] | **[GrpcBackend](#GrpcBackend10)**<br> 
+
+
+### GrpcBackend {#GrpcBackend10}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name. 
+backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If not set, backend will be disabled. 
+load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig21)**<br> 
+port | **int64**<br>Port for all targets from target group. Acceptable values are 0 to 65535, inclusive.
+backend_type | **oneof:** `target_groups`<br>
+&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend21)**<br>References target groups for the backend. 
+healthchecks[] | **[HealthCheck](#HealthCheck21)**<br>No health checks means no active health checking will be performed. 
+tls | **[BackendTls](#BackendTls21)**<br>TLS settings for the upstream. 
+
+
+### LoadBalancingConfig {#LoadBalancingConfig21}
+
+Field | Description
+--- | ---
+panic_threshold | **int64**<br>If percentage of healthy hosts in the backend is lower than panic_threshold, traffic will be routed to all backends no matter what the health status is. This helps to avoid healthy backends overloading  when everything is bad. zero means no panic threshold. Acceptable values are 0 to 100, inclusive.
+locality_aware_routing_percent | **int64**<br>Percent of traffic to be sent to the same availability zone. The rest will be equally divided between other zones. Acceptable values are 0 to 100, inclusive.
+
+
+### TargetGroupsBackend {#TargetGroupsBackend21}
+
+Field | Description
+--- | ---
+target_group_ids[] | **string**<br> The number of elements must be greater than 0.
+
+
+### HealthCheck {#HealthCheck21}
+
+Field | Description
+--- | ---
+timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Time to wait for a health check response. 
+interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Interval between health checks. 
+interval_jitter_percent | **double**<br><ul><li> * interval_jitter_percent / 100) will be added to the wait time.</li></ul> 
+healthy_threshold | **int64**<br><ul><li> 1. </li></ul> 
+unhealthy_threshold | **int64**<br><ul><li> 1. </li></ul> 
+healthcheck_port | **int64**<br>Optional alternative port for health checking. Acceptable values are 0 to 65535, inclusive.
+healthcheck | **oneof:** `stream`, `http` or `grpc`<br>TCP (+TLS) health check ("Stream protocol HC").
+&nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck21)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
+&nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck21)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
+&nbsp;&nbsp;grpc | **[GrpcHealthCheck](#GrpcHealthCheck21)**<br>TCP (+TLS) health check ("Stream protocol HC"). 
+
+
+### StreamHealthCheck {#StreamHealthCheck21}
+
+Field | Description
+--- | ---
+send | **[Payload](#Payload)**<br>Optional message to send. If empty, it's a connect-only health check. 
+receive | **[Payload](#Payload)**<br>Optional text to search in reply. 
+
+
+### HttpHealthCheck {#HttpHealthCheck21}
+
+Field | Description
+--- | ---
+host | **string**<br>Optional "Host" HTTP header value. 
+path | **string**<br>Required. HTTP path. 
+use_http2 | **bool**<br>If set, health checks will use HTTP/2. 
+
+
+### GrpcHealthCheck {#GrpcHealthCheck21}
+
+Field | Description
+--- | ---
+service_name | **string**<br>Optional service name for grpc.health.v1.HealthCheckRequest message. 
+
+
+### BackendTls {#BackendTls21}
+
+Field | Description
+--- | ---
+sni | **string**<br>SNI string for TLS connections. 
+tls_options | **[TlsOptions](#TlsOptions21)**<br>Common TLS options used for backend TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext21)**<br>Validation context for backend TLS connections. 
+
+
+### TlsOptions {#TlsOptions21}
+
+Field | Description
+--- | ---
+tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
+tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
+cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
+ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
+
+
+### ValidationContext {#ValidationContext21}
+
+Field | Description
+--- | ---
+trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>
+&nbsp;&nbsp;trusted_ca_id | **string**<br>Trusted CA certificate ID in the Certificate Manager. 
+&nbsp;&nbsp;trusted_ca_bytes | **string**<br>Trusted CA blob. 
 
 
 ## ListOperations {#ListOperations}

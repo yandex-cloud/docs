@@ -22,7 +22,7 @@ A set of methods for managing virtual hosts of HTTP Router resource.
 
 Returns the specified VirtualHost resource.
 
-**rpc Get ([GetVirtualHostRequest](#GetVirtualHostRequest)) returns ([VirtualHost](../virtual_host.proto#VirtualHost))**
+**rpc Get ([GetVirtualHostRequest](#GetVirtualHostRequest)) returns ([VirtualHost](#VirtualHost))**
 
 ### GetVirtualHostRequest {#GetVirtualHostRequest}
 
@@ -39,9 +39,9 @@ Field | Description
 name | **string**<br>Required.  
 authority[] | **string**<br>A list of domains (host/authority header) that will be matched to this virtual host. Wildcard hosts are supported in the form of '*.foo.com' or '*-bar.foo.com'. If not specified, all domains will be matched. 
 ports[] | **int64**<br><ol><li></li></ol> 
-routes[] | **[Route](../virtual_host.proto#Route)**<br>Routes are matched *in-order*. Be careful when adding them to the end. For instance, having http '/' match first makes all other routes unused. 
-modify_request_headers[] | **[HeaderModification](../virtual_host.proto#HeaderModification)**<br>Apply the following modifications to the request headers. 
-modify_response_headers[] | **[HeaderModification](../virtual_host.proto#HeaderModification)**<br>Apply the following modifications to the response headers. 
+routes[] | **[Route](#Route)**<br>Routes are matched *in-order*. Be careful when adding them to the end. For instance, having http '/' match first makes all other routes unused. 
+modify_request_headers[] | **[HeaderModification](#HeaderModification)**<br>Apply the following modifications to the request headers. 
+modify_response_headers[] | **[HeaderModification](#HeaderModification)**<br>Apply the following modifications to the response headers. 
 
 
 ### Route {#Route}
@@ -50,19 +50,19 @@ Field | Description
 --- | ---
 name | **string**<br>Required.  
 route | **oneof:** `http` or `grpc`<br>
-&nbsp;&nbsp;http | **[HttpRoute](../virtual_host.proto#HttpRoute)**<br> 
-&nbsp;&nbsp;grpc | **[GrpcRoute](../virtual_host.proto#GrpcRoute)**<br> 
+&nbsp;&nbsp;http | **[HttpRoute](#HttpRoute)**<br> 
+&nbsp;&nbsp;grpc | **[GrpcRoute](#GrpcRoute)**<br> 
 
 
 ### HttpRoute {#HttpRoute}
 
 Field | Description
 --- | ---
-match | **[HttpRouteMatch](../virtual_host.proto#HttpRouteMatch)**<br>Checks "/" prefix by default. 
+match | **[HttpRouteMatch](#HttpRouteMatch)**<br>Checks "/" prefix by default. 
 action | **oneof:** `route`, `redirect` or `direct_response`<br>
-&nbsp;&nbsp;route | **[HttpRouteAction](../virtual_host.proto#HttpRouteAction)**<br> 
-&nbsp;&nbsp;redirect | **[RedirectAction](../virtual_host.proto#RedirectAction)**<br> 
-&nbsp;&nbsp;direct_response | **[DirectResponseAction](../virtual_host.proto#DirectResponseAction)**<br> 
+&nbsp;&nbsp;route | **[HttpRouteAction](#HttpRouteAction)**<br> 
+&nbsp;&nbsp;redirect | **[RedirectAction](#RedirectAction)**<br> 
+&nbsp;&nbsp;direct_response | **[DirectResponseAction](#DirectResponseAction)**<br> 
 
 
 ### HttpRouteMatch {#HttpRouteMatch}
@@ -70,7 +70,7 @@ action | **oneof:** `route`, `redirect` or `direct_response`<br>
 Field | Description
 --- | ---
 http_method[] | **string**<br> 
-path | **[StringMatch](../virtual_host.proto#StringMatch)**<br>If not set, '/' is assumed. 
+path | **[StringMatch](#StringMatch)**<br>If not set, '/' is assumed. 
 
 
 ### StringMatch {#StringMatch}
@@ -108,7 +108,7 @@ response_code | enum **RedirectResponseCode**<br>The HTTP status code to use in 
 Field | Description
 --- | ---
 status | **int64**<br>HTTP response status. Acceptable values are 100 to 599, inclusive.
-body | **[Payload](../payload.proto#Payload)**<br>Optional response body. 
+body | **[Payload](#Payload)**<br>Optional response body. 
 
 
 ### Payload {#Payload}
@@ -123,17 +123,17 @@ payload | **oneof:** `text`<br>
 
 Field | Description
 --- | ---
-match | **[GrpcRouteMatch](../virtual_host.proto#GrpcRouteMatch)**<br>Checks "/" prefix by default. 
+match | **[GrpcRouteMatch](#GrpcRouteMatch)**<br>Checks "/" prefix by default. 
 action | **oneof:** `route` or `status_response`<br>
-&nbsp;&nbsp;route | **[GrpcRouteAction](../virtual_host.proto#GrpcRouteAction)**<br> 
-&nbsp;&nbsp;status_response | **[GrpcStatusResponseAction](../virtual_host.proto#GrpcStatusResponseAction)**<br> 
+&nbsp;&nbsp;route | **[GrpcRouteAction](#GrpcRouteAction)**<br> 
+&nbsp;&nbsp;status_response | **[GrpcStatusResponseAction](#GrpcStatusResponseAction)**<br> 
 
 
 ### GrpcRouteMatch {#GrpcRouteMatch}
 
 Field | Description
 --- | ---
-fqmn | **[StringMatch](../virtual_host.proto#StringMatch1)**<br>If not set, all services/methods are assumed. 
+fqmn | **[StringMatch](#StringMatch1)**<br>If not set, all services/methods are assumed. 
 
 
 ### StringMatch {#StringMatch1}
@@ -194,7 +194,7 @@ page_token | **string**<br> The maximum string length in characters is 100.
 
 Field | Description
 --- | ---
-virtual_hosts[] | **[VirtualHost](../virtual_host.proto#VirtualHost1)**<br>List of virtual hosts. 
+virtual_hosts[] | **[VirtualHost](#VirtualHost1)**<br>List of virtual hosts. 
 next_page_token | **string**<br> 
 
 
@@ -205,9 +205,9 @@ Field | Description
 name | **string**<br>Required.  
 authority[] | **string**<br>A list of domains (host/authority header) that will be matched to this virtual host. Wildcard hosts are supported in the form of '*.foo.com' or '*-bar.foo.com'. If not specified, all domains will be matched. 
 ports[] | **int64**<br><ol><li></li></ol> 
-routes[] | **[Route](../virtual_host.proto#Route1)**<br>Routes are matched *in-order*. Be careful when adding them to the end. For instance, having http '/' match first makes all other routes unused. 
-modify_request_headers[] | **[HeaderModification](../virtual_host.proto#HeaderModification1)**<br>Apply the following modifications to the request headers. 
-modify_response_headers[] | **[HeaderModification](../virtual_host.proto#HeaderModification1)**<br>Apply the following modifications to the response headers. 
+routes[] | **[Route](#Route1)**<br>Routes are matched *in-order*. Be careful when adding them to the end. For instance, having http '/' match first makes all other routes unused. 
+modify_request_headers[] | **[HeaderModification](#HeaderModification1)**<br>Apply the following modifications to the request headers. 
+modify_response_headers[] | **[HeaderModification](#HeaderModification1)**<br>Apply the following modifications to the response headers. 
 
 
 ### Route {#Route1}
@@ -216,19 +216,19 @@ Field | Description
 --- | ---
 name | **string**<br>Required.  
 route | **oneof:** `http` or `grpc`<br>
-&nbsp;&nbsp;http | **[HttpRoute](../virtual_host.proto#HttpRoute1)**<br> 
-&nbsp;&nbsp;grpc | **[GrpcRoute](../virtual_host.proto#GrpcRoute1)**<br> 
+&nbsp;&nbsp;http | **[HttpRoute](#HttpRoute1)**<br> 
+&nbsp;&nbsp;grpc | **[GrpcRoute](#GrpcRoute1)**<br> 
 
 
 ### HttpRoute {#HttpRoute1}
 
 Field | Description
 --- | ---
-match | **[HttpRouteMatch](../virtual_host.proto#HttpRouteMatch1)**<br>Checks "/" prefix by default. 
+match | **[HttpRouteMatch](#HttpRouteMatch1)**<br>Checks "/" prefix by default. 
 action | **oneof:** `route`, `redirect` or `direct_response`<br>
-&nbsp;&nbsp;route | **[HttpRouteAction](../virtual_host.proto#HttpRouteAction1)**<br> 
-&nbsp;&nbsp;redirect | **[RedirectAction](../virtual_host.proto#RedirectAction1)**<br> 
-&nbsp;&nbsp;direct_response | **[DirectResponseAction](../virtual_host.proto#DirectResponseAction1)**<br> 
+&nbsp;&nbsp;route | **[HttpRouteAction](#HttpRouteAction1)**<br> 
+&nbsp;&nbsp;redirect | **[RedirectAction](#RedirectAction1)**<br> 
+&nbsp;&nbsp;direct_response | **[DirectResponseAction](#DirectResponseAction1)**<br> 
 
 
 ### HttpRouteMatch {#HttpRouteMatch1}
@@ -236,7 +236,7 @@ action | **oneof:** `route`, `redirect` or `direct_response`<br>
 Field | Description
 --- | ---
 http_method[] | **string**<br> 
-path | **[StringMatch](../virtual_host.proto#StringMatch2)**<br>If not set, '/' is assumed. 
+path | **[StringMatch](#StringMatch2)**<br>If not set, '/' is assumed. 
 
 
 ### StringMatch {#StringMatch2}
@@ -274,7 +274,7 @@ response_code | enum **RedirectResponseCode**<br>The HTTP status code to use in 
 Field | Description
 --- | ---
 status | **int64**<br>HTTP response status. Acceptable values are 100 to 599, inclusive.
-body | **[Payload](../payload.proto#Payload1)**<br>Optional response body. 
+body | **[Payload](#Payload1)**<br>Optional response body. 
 
 
 ### Payload {#Payload1}
@@ -289,17 +289,17 @@ payload | **oneof:** `text`<br>
 
 Field | Description
 --- | ---
-match | **[GrpcRouteMatch](../virtual_host.proto#GrpcRouteMatch1)**<br>Checks "/" prefix by default. 
+match | **[GrpcRouteMatch](#GrpcRouteMatch1)**<br>Checks "/" prefix by default. 
 action | **oneof:** `route` or `status_response`<br>
-&nbsp;&nbsp;route | **[GrpcRouteAction](../virtual_host.proto#GrpcRouteAction1)**<br> 
-&nbsp;&nbsp;status_response | **[GrpcStatusResponseAction](../virtual_host.proto#GrpcStatusResponseAction1)**<br> 
+&nbsp;&nbsp;route | **[GrpcRouteAction](#GrpcRouteAction1)**<br> 
+&nbsp;&nbsp;status_response | **[GrpcStatusResponseAction](#GrpcStatusResponseAction1)**<br> 
 
 
 ### GrpcRouteMatch {#GrpcRouteMatch1}
 
 Field | Description
 --- | ---
-fqmn | **[StringMatch](../virtual_host.proto#StringMatch3)**<br>If not set, all services/methods are assumed. 
+fqmn | **[StringMatch](#StringMatch3)**<br>If not set, all services/methods are assumed. 
 
 
 ### StringMatch {#StringMatch3}
@@ -349,7 +349,7 @@ Creates a new virtual host in the specified HTTP Router.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateVirtualHostMetadata](#CreateVirtualHostMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[VirtualHost](../virtual_host.proto#VirtualHost2)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[VirtualHost](#VirtualHost2)<br>
 
 ### CreateVirtualHostRequest {#CreateVirtualHostRequest}
 
@@ -359,9 +359,9 @@ http_router_id | **string**<br>Required. ID of the HTTP Router that the virtual 
 name | **string**<br>Configuration of the virtual host to create. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 authority[] | **string**<br> 
 ports[] | **int64**<br> 
-routes[] | **[Route](../virtual_host.proto#Route2)**<br> 
-modify_request_headers[] | **[HeaderModification](../virtual_host.proto#HeaderModification2)**<br> 
-modify_response_headers[] | **[HeaderModification](../virtual_host.proto#HeaderModification2)**<br> 
+routes[] | **[Route](#Route2)**<br> 
+modify_request_headers[] | **[HeaderModification](#HeaderModification2)**<br> 
+modify_response_headers[] | **[HeaderModification](#HeaderModification2)**<br> 
 
 
 ### Route {#Route2}
@@ -370,19 +370,19 @@ Field | Description
 --- | ---
 name | **string**<br>Required.  
 route | **oneof:** `http` or `grpc`<br>
-&nbsp;&nbsp;http | **[HttpRoute](../virtual_host.proto#HttpRoute2)**<br> 
-&nbsp;&nbsp;grpc | **[GrpcRoute](../virtual_host.proto#GrpcRoute2)**<br> 
+&nbsp;&nbsp;http | **[HttpRoute](#HttpRoute2)**<br> 
+&nbsp;&nbsp;grpc | **[GrpcRoute](#GrpcRoute2)**<br> 
 
 
 ### HttpRoute {#HttpRoute2}
 
 Field | Description
 --- | ---
-match | **[HttpRouteMatch](../virtual_host.proto#HttpRouteMatch2)**<br>Checks "/" prefix by default. 
+match | **[HttpRouteMatch](#HttpRouteMatch2)**<br>Checks "/" prefix by default. 
 action | **oneof:** `route`, `redirect` or `direct_response`<br>
-&nbsp;&nbsp;route | **[HttpRouteAction](../virtual_host.proto#HttpRouteAction2)**<br> 
-&nbsp;&nbsp;redirect | **[RedirectAction](../virtual_host.proto#RedirectAction2)**<br> 
-&nbsp;&nbsp;direct_response | **[DirectResponseAction](../virtual_host.proto#DirectResponseAction2)**<br> 
+&nbsp;&nbsp;route | **[HttpRouteAction](#HttpRouteAction2)**<br> 
+&nbsp;&nbsp;redirect | **[RedirectAction](#RedirectAction2)**<br> 
+&nbsp;&nbsp;direct_response | **[DirectResponseAction](#DirectResponseAction2)**<br> 
 
 
 ### HttpRouteMatch {#HttpRouteMatch2}
@@ -390,7 +390,7 @@ action | **oneof:** `route`, `redirect` or `direct_response`<br>
 Field | Description
 --- | ---
 http_method[] | **string**<br> 
-path | **[StringMatch](../virtual_host.proto#StringMatch4)**<br>If not set, '/' is assumed. 
+path | **[StringMatch](#StringMatch4)**<br>If not set, '/' is assumed. 
 
 
 ### StringMatch {#StringMatch4}
@@ -428,7 +428,7 @@ response_code | enum **RedirectResponseCode**<br>The HTTP status code to use in 
 Field | Description
 --- | ---
 status | **int64**<br>HTTP response status. Acceptable values are 100 to 599, inclusive.
-body | **[Payload](../payload.proto#Payload2)**<br>Optional response body. 
+body | **[Payload](#Payload2)**<br>Optional response body. 
 
 
 ### Payload {#Payload2}
@@ -443,17 +443,17 @@ payload | **oneof:** `text`<br>
 
 Field | Description
 --- | ---
-match | **[GrpcRouteMatch](../virtual_host.proto#GrpcRouteMatch2)**<br>Checks "/" prefix by default. 
+match | **[GrpcRouteMatch](#GrpcRouteMatch2)**<br>Checks "/" prefix by default. 
 action | **oneof:** `route` or `status_response`<br>
-&nbsp;&nbsp;route | **[GrpcRouteAction](../virtual_host.proto#GrpcRouteAction2)**<br> 
-&nbsp;&nbsp;status_response | **[GrpcStatusResponseAction](../virtual_host.proto#GrpcStatusResponseAction2)**<br> 
+&nbsp;&nbsp;route | **[GrpcRouteAction](#GrpcRouteAction2)**<br> 
+&nbsp;&nbsp;status_response | **[GrpcStatusResponseAction](#GrpcStatusResponseAction2)**<br> 
 
 
 ### GrpcRouteMatch {#GrpcRouteMatch2}
 
 Field | Description
 --- | ---
-fqmn | **[StringMatch](../virtual_host.proto#StringMatch5)**<br>If not set, all services/methods are assumed. 
+fqmn | **[StringMatch](#StringMatch5)**<br>If not set, all services/methods are assumed. 
 
 
 ### StringMatch {#StringMatch5}
@@ -508,7 +508,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateVirtualHostMetadata](#CreateVirtualHostMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[VirtualHost](../virtual_host.proto#VirtualHost2)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[VirtualHost](#VirtualHost2)>**<br>if operation finished successfully. 
 
 
 ### CreateVirtualHostMetadata {#CreateVirtualHostMetadata}
@@ -526,33 +526,9 @@ Field | Description
 name | **string**<br>Required.  
 authority[] | **string**<br>A list of domains (host/authority header) that will be matched to this virtual host. Wildcard hosts are supported in the form of '*.foo.com' or '*-bar.foo.com'. If not specified, all domains will be matched. 
 ports[] | **int64**<br><ol><li></li></ol> 
-routes[] | **[Route](../virtual_host.proto#Route3)**<br>Routes are matched *in-order*. Be careful when adding them to the end. For instance, having http '/' match first makes all other routes unused. 
-modify_request_headers[] | **[HeaderModification](../virtual_host.proto#HeaderModification3)**<br>Apply the following modifications to the request headers. 
-modify_response_headers[] | **[HeaderModification](../virtual_host.proto#HeaderModification3)**<br>Apply the following modifications to the response headers. 
-
-
-## Update {#Update}
-
-Updates an existing VirtualHost in the specified HTTP Router.
-
-**rpc Update ([UpdateVirtualHostRequest](#UpdateVirtualHostRequest)) returns ([operation.Operation](#Operation1))**
-
-Metadata and response of Operation:<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateVirtualHostMetadata](#UpdateVirtualHostMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[VirtualHost](../virtual_host.proto#VirtualHost3)<br>
-
-### UpdateVirtualHostRequest {#UpdateVirtualHostRequest}
-
-Field | Description
---- | ---
-http_router_id | **string**<br>Required. ID of the HTTP Router that the virtual host belongs to. 
-virtual_host_name | **string**<br>Required.  
-update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br> 
-authority[] | **string**<br>Fields of the virtual host to update. Except name, that field used to address virtual host within the http router and cannot be changed after creation. 
-ports[] | **int64**<br> 
-routes[] | **[Route](../virtual_host.proto#Route3)**<br> 
-modify_request_headers[] | **[HeaderModification](../virtual_host.proto#HeaderModification3)**<br> 
-modify_response_headers[] | **[HeaderModification](../virtual_host.proto#HeaderModification3)**<br> 
+routes[] | **[Route](#Route3)**<br>Routes are matched *in-order*. Be careful when adding them to the end. For instance, having http '/' match first makes all other routes unused. 
+modify_request_headers[] | **[HeaderModification](#HeaderModification3)**<br>Apply the following modifications to the request headers. 
+modify_response_headers[] | **[HeaderModification](#HeaderModification3)**<br>Apply the following modifications to the response headers. 
 
 
 ### Route {#Route3}
@@ -561,19 +537,19 @@ Field | Description
 --- | ---
 name | **string**<br>Required.  
 route | **oneof:** `http` or `grpc`<br>
-&nbsp;&nbsp;http | **[HttpRoute](../virtual_host.proto#HttpRoute3)**<br> 
-&nbsp;&nbsp;grpc | **[GrpcRoute](../virtual_host.proto#GrpcRoute3)**<br> 
+&nbsp;&nbsp;http | **[HttpRoute](#HttpRoute3)**<br> 
+&nbsp;&nbsp;grpc | **[GrpcRoute](#GrpcRoute3)**<br> 
 
 
 ### HttpRoute {#HttpRoute3}
 
 Field | Description
 --- | ---
-match | **[HttpRouteMatch](../virtual_host.proto#HttpRouteMatch3)**<br>Checks "/" prefix by default. 
+match | **[HttpRouteMatch](#HttpRouteMatch3)**<br>Checks "/" prefix by default. 
 action | **oneof:** `route`, `redirect` or `direct_response`<br>
-&nbsp;&nbsp;route | **[HttpRouteAction](../virtual_host.proto#HttpRouteAction3)**<br> 
-&nbsp;&nbsp;redirect | **[RedirectAction](../virtual_host.proto#RedirectAction3)**<br> 
-&nbsp;&nbsp;direct_response | **[DirectResponseAction](../virtual_host.proto#DirectResponseAction3)**<br> 
+&nbsp;&nbsp;route | **[HttpRouteAction](#HttpRouteAction3)**<br> 
+&nbsp;&nbsp;redirect | **[RedirectAction](#RedirectAction3)**<br> 
+&nbsp;&nbsp;direct_response | **[DirectResponseAction](#DirectResponseAction3)**<br> 
 
 
 ### HttpRouteMatch {#HttpRouteMatch3}
@@ -581,7 +557,7 @@ action | **oneof:** `route`, `redirect` or `direct_response`<br>
 Field | Description
 --- | ---
 http_method[] | **string**<br> 
-path | **[StringMatch](../virtual_host.proto#StringMatch6)**<br>If not set, '/' is assumed. 
+path | **[StringMatch](#StringMatch6)**<br>If not set, '/' is assumed. 
 
 
 ### StringMatch {#StringMatch6}
@@ -619,7 +595,7 @@ response_code | enum **RedirectResponseCode**<br>The HTTP status code to use in 
 Field | Description
 --- | ---
 status | **int64**<br>HTTP response status. Acceptable values are 100 to 599, inclusive.
-body | **[Payload](../payload.proto#Payload3)**<br>Optional response body. 
+body | **[Payload](#Payload3)**<br>Optional response body. 
 
 
 ### Payload {#Payload3}
@@ -634,17 +610,17 @@ payload | **oneof:** `text`<br>
 
 Field | Description
 --- | ---
-match | **[GrpcRouteMatch](../virtual_host.proto#GrpcRouteMatch3)**<br>Checks "/" prefix by default. 
+match | **[GrpcRouteMatch](#GrpcRouteMatch3)**<br>Checks "/" prefix by default. 
 action | **oneof:** `route` or `status_response`<br>
-&nbsp;&nbsp;route | **[GrpcRouteAction](../virtual_host.proto#GrpcRouteAction3)**<br> 
-&nbsp;&nbsp;status_response | **[GrpcStatusResponseAction](../virtual_host.proto#GrpcStatusResponseAction3)**<br> 
+&nbsp;&nbsp;route | **[GrpcRouteAction](#GrpcRouteAction3)**<br> 
+&nbsp;&nbsp;status_response | **[GrpcStatusResponseAction](#GrpcStatusResponseAction3)**<br> 
 
 
 ### GrpcRouteMatch {#GrpcRouteMatch3}
 
 Field | Description
 --- | ---
-fqmn | **[StringMatch](../virtual_host.proto#StringMatch7)**<br>If not set, all services/methods are assumed. 
+fqmn | **[StringMatch](#StringMatch7)**<br>If not set, all services/methods are assumed. 
 
 
 ### StringMatch {#StringMatch7}
@@ -686,6 +662,161 @@ operation | **oneof:** `append`, `replace`, `remove` or `rename`<br>Header value
 &nbsp;&nbsp;rename | **string**<br>New name for a header. 
 
 
+## Update {#Update}
+
+Updates an existing VirtualHost in the specified HTTP Router.
+
+**rpc Update ([UpdateVirtualHostRequest](#UpdateVirtualHostRequest)) returns ([operation.Operation](#Operation1))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateVirtualHostMetadata](#UpdateVirtualHostMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[VirtualHost](#VirtualHost3)<br>
+
+### UpdateVirtualHostRequest {#UpdateVirtualHostRequest}
+
+Field | Description
+--- | ---
+http_router_id | **string**<br>Required. ID of the HTTP Router that the virtual host belongs to. 
+virtual_host_name | **string**<br>Required.  
+update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br> 
+authority[] | **string**<br>Fields of the virtual host to update. Except name, that field used to address virtual host within the http router and cannot be changed after creation. 
+ports[] | **int64**<br> 
+routes[] | **[Route](#Route4)**<br> 
+modify_request_headers[] | **[HeaderModification](#HeaderModification4)**<br> 
+modify_response_headers[] | **[HeaderModification](#HeaderModification4)**<br> 
+
+
+### Route {#Route4}
+
+Field | Description
+--- | ---
+name | **string**<br>Required.  
+route | **oneof:** `http` or `grpc`<br>
+&nbsp;&nbsp;http | **[HttpRoute](#HttpRoute4)**<br> 
+&nbsp;&nbsp;grpc | **[GrpcRoute](#GrpcRoute4)**<br> 
+
+
+### HttpRoute {#HttpRoute4}
+
+Field | Description
+--- | ---
+match | **[HttpRouteMatch](#HttpRouteMatch4)**<br>Checks "/" prefix by default. 
+action | **oneof:** `route`, `redirect` or `direct_response`<br>
+&nbsp;&nbsp;route | **[HttpRouteAction](#HttpRouteAction4)**<br> 
+&nbsp;&nbsp;redirect | **[RedirectAction](#RedirectAction4)**<br> 
+&nbsp;&nbsp;direct_response | **[DirectResponseAction](#DirectResponseAction4)**<br> 
+
+
+### HttpRouteMatch {#HttpRouteMatch4}
+
+Field | Description
+--- | ---
+http_method[] | **string**<br> 
+path | **[StringMatch](#StringMatch8)**<br>If not set, '/' is assumed. 
+
+
+### StringMatch {#StringMatch8}
+
+Field | Description
+--- | ---
+match | **oneof:** `exact_match` or `prefix_match`<br>
+&nbsp;&nbsp;exact_match | **string**<br> 
+&nbsp;&nbsp;prefix_match | **string**<br> 
+
+
+### HttpRouteAction {#HttpRouteAction4}
+
+Field | Description
+--- | ---
+backend_group_id | **string**<br>Required. Backend group to route requests. 
+timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>If not set, default is 60 seconds. 
+host_rewrite_specifier | **oneof:** `host_rewrite` or `auto_host_rewrite`<br>
+&nbsp;&nbsp;host_rewrite | **string**<br> 
+&nbsp;&nbsp;auto_host_rewrite | **bool**<br> 
+prefix_rewrite | **string**<br>If not empty, matched path prefix will be replaced by this value. 
+support_websockets | **bool**<br>Allows websocket upgrades. 
+
+
+### RedirectAction {#RedirectAction4}
+
+Field | Description
+--- | ---
+replace_scheme | **string**<br>Replaces scheme. If the original scheme is `http` or `https`, will also remove the 80 or 443 port, if present. 
+response_code | enum **RedirectResponseCode**<br>The HTTP status code to use in the redirect response. <ul><li>`MOVED_PERMANENTLY`: Moved Permanently HTTP Status Code - 301.</li><li>`FOUND`: Found HTTP Status Code - 302.</li><li>`SEE_OTHER`: See Other HTTP Status Code - 303.</li><li>`TEMPORARY_REDIRECT`: Temporary Redirect HTTP Status Code - 307.</li><li>`PERMANENT_REDIRECT`: Permanent Redirect HTTP Status Code - 308.</li><ul/>
+
+
+### DirectResponseAction {#DirectResponseAction4}
+
+Field | Description
+--- | ---
+status | **int64**<br>HTTP response status. Acceptable values are 100 to 599, inclusive.
+body | **[Payload](#Payload4)**<br>Optional response body. 
+
+
+### Payload {#Payload4}
+
+Field | Description
+--- | ---
+payload | **oneof:** `text`<br>
+&nbsp;&nbsp;text | **string**<br>Text message. The string length in characters must be greater than 0.
+
+
+### GrpcRoute {#GrpcRoute4}
+
+Field | Description
+--- | ---
+match | **[GrpcRouteMatch](#GrpcRouteMatch4)**<br>Checks "/" prefix by default. 
+action | **oneof:** `route` or `status_response`<br>
+&nbsp;&nbsp;route | **[GrpcRouteAction](#GrpcRouteAction4)**<br> 
+&nbsp;&nbsp;status_response | **[GrpcStatusResponseAction](#GrpcStatusResponseAction4)**<br> 
+
+
+### GrpcRouteMatch {#GrpcRouteMatch4}
+
+Field | Description
+--- | ---
+fqmn | **[StringMatch](#StringMatch9)**<br>If not set, all services/methods are assumed. 
+
+
+### StringMatch {#StringMatch9}
+
+Field | Description
+--- | ---
+match | **oneof:** `exact_match` or `prefix_match`<br>
+&nbsp;&nbsp;exact_match | **string**<br> 
+&nbsp;&nbsp;prefix_match | **string**<br> 
+
+
+### GrpcRouteAction {#GrpcRouteAction4}
+
+Field | Description
+--- | ---
+backend_group_id | **string**<br>Required. Backend group to route requests. 
+max_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Lower timeout may be specified by the client (using grpc-timeout header). If not set, default is 60 seconds. 
+host_rewrite_specifier | **oneof:** `host_rewrite` or `auto_host_rewrite`<br>
+&nbsp;&nbsp;host_rewrite | **string**<br> 
+&nbsp;&nbsp;auto_host_rewrite | **bool**<br> 
+
+
+### GrpcStatusResponseAction {#GrpcStatusResponseAction4}
+
+Field | Description
+--- | ---
+status | enum **Status**<br> <ul><ul/>
+
+
+### HeaderModification {#HeaderModification4}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the header. 
+operation | **oneof:** `append`, `replace`, `remove` or `rename`<br>Header values support the following formatters: https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers
+&nbsp;&nbsp;append | **string**<br>Append string to the header value. 
+&nbsp;&nbsp;replace | **string**<br>New value for a header. 
+&nbsp;&nbsp;remove | **bool**<br>Remove the header. 
+&nbsp;&nbsp;rename | **string**<br>New name for a header. 
+
+
 ### Operation {#Operation1}
 
 Field | Description
@@ -699,7 +830,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateVirtualHostMetadata](#UpdateVirtualHostMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[VirtualHost](../virtual_host.proto#VirtualHost3)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[VirtualHost](#VirtualHost3)>**<br>if operation finished successfully. 
 
 
 ### UpdateVirtualHostMetadata {#UpdateVirtualHostMetadata}
@@ -717,9 +848,140 @@ Field | Description
 name | **string**<br>Required.  
 authority[] | **string**<br>A list of domains (host/authority header) that will be matched to this virtual host. Wildcard hosts are supported in the form of '*.foo.com' or '*-bar.foo.com'. If not specified, all domains will be matched. 
 ports[] | **int64**<br><ol><li></li></ol> 
-routes[] | **[Route](../virtual_host.proto#Route4)**<br>Routes are matched *in-order*. Be careful when adding them to the end. For instance, having http '/' match first makes all other routes unused. 
-modify_request_headers[] | **[HeaderModification](../virtual_host.proto#HeaderModification4)**<br>Apply the following modifications to the request headers. 
-modify_response_headers[] | **[HeaderModification](../virtual_host.proto#HeaderModification4)**<br>Apply the following modifications to the response headers. 
+routes[] | **[Route](#Route5)**<br>Routes are matched *in-order*. Be careful when adding them to the end. For instance, having http '/' match first makes all other routes unused. 
+modify_request_headers[] | **[HeaderModification](#HeaderModification5)**<br>Apply the following modifications to the request headers. 
+modify_response_headers[] | **[HeaderModification](#HeaderModification5)**<br>Apply the following modifications to the response headers. 
+
+
+### Route {#Route5}
+
+Field | Description
+--- | ---
+name | **string**<br>Required.  
+route | **oneof:** `http` or `grpc`<br>
+&nbsp;&nbsp;http | **[HttpRoute](#HttpRoute5)**<br> 
+&nbsp;&nbsp;grpc | **[GrpcRoute](#GrpcRoute5)**<br> 
+
+
+### HttpRoute {#HttpRoute5}
+
+Field | Description
+--- | ---
+match | **[HttpRouteMatch](#HttpRouteMatch5)**<br>Checks "/" prefix by default. 
+action | **oneof:** `route`, `redirect` or `direct_response`<br>
+&nbsp;&nbsp;route | **[HttpRouteAction](#HttpRouteAction5)**<br> 
+&nbsp;&nbsp;redirect | **[RedirectAction](#RedirectAction5)**<br> 
+&nbsp;&nbsp;direct_response | **[DirectResponseAction](#DirectResponseAction5)**<br> 
+
+
+### HttpRouteMatch {#HttpRouteMatch5}
+
+Field | Description
+--- | ---
+http_method[] | **string**<br> 
+path | **[StringMatch](#StringMatch10)**<br>If not set, '/' is assumed. 
+
+
+### StringMatch {#StringMatch10}
+
+Field | Description
+--- | ---
+match | **oneof:** `exact_match` or `prefix_match`<br>
+&nbsp;&nbsp;exact_match | **string**<br> 
+&nbsp;&nbsp;prefix_match | **string**<br> 
+
+
+### HttpRouteAction {#HttpRouteAction5}
+
+Field | Description
+--- | ---
+backend_group_id | **string**<br>Required. Backend group to route requests. 
+timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>If not set, default is 60 seconds. 
+host_rewrite_specifier | **oneof:** `host_rewrite` or `auto_host_rewrite`<br>
+&nbsp;&nbsp;host_rewrite | **string**<br> 
+&nbsp;&nbsp;auto_host_rewrite | **bool**<br> 
+prefix_rewrite | **string**<br>If not empty, matched path prefix will be replaced by this value. 
+support_websockets | **bool**<br>Allows websocket upgrades. 
+
+
+### RedirectAction {#RedirectAction5}
+
+Field | Description
+--- | ---
+replace_scheme | **string**<br>Replaces scheme. If the original scheme is `http` or `https`, will also remove the 80 or 443 port, if present. 
+response_code | enum **RedirectResponseCode**<br>The HTTP status code to use in the redirect response. <ul><li>`MOVED_PERMANENTLY`: Moved Permanently HTTP Status Code - 301.</li><li>`FOUND`: Found HTTP Status Code - 302.</li><li>`SEE_OTHER`: See Other HTTP Status Code - 303.</li><li>`TEMPORARY_REDIRECT`: Temporary Redirect HTTP Status Code - 307.</li><li>`PERMANENT_REDIRECT`: Permanent Redirect HTTP Status Code - 308.</li><ul/>
+
+
+### DirectResponseAction {#DirectResponseAction5}
+
+Field | Description
+--- | ---
+status | **int64**<br>HTTP response status. Acceptable values are 100 to 599, inclusive.
+body | **[Payload](#Payload5)**<br>Optional response body. 
+
+
+### Payload {#Payload5}
+
+Field | Description
+--- | ---
+payload | **oneof:** `text`<br>
+&nbsp;&nbsp;text | **string**<br>Text message. The string length in characters must be greater than 0.
+
+
+### GrpcRoute {#GrpcRoute5}
+
+Field | Description
+--- | ---
+match | **[GrpcRouteMatch](#GrpcRouteMatch5)**<br>Checks "/" prefix by default. 
+action | **oneof:** `route` or `status_response`<br>
+&nbsp;&nbsp;route | **[GrpcRouteAction](#GrpcRouteAction5)**<br> 
+&nbsp;&nbsp;status_response | **[GrpcStatusResponseAction](#GrpcStatusResponseAction5)**<br> 
+
+
+### GrpcRouteMatch {#GrpcRouteMatch5}
+
+Field | Description
+--- | ---
+fqmn | **[StringMatch](#StringMatch11)**<br>If not set, all services/methods are assumed. 
+
+
+### StringMatch {#StringMatch11}
+
+Field | Description
+--- | ---
+match | **oneof:** `exact_match` or `prefix_match`<br>
+&nbsp;&nbsp;exact_match | **string**<br> 
+&nbsp;&nbsp;prefix_match | **string**<br> 
+
+
+### GrpcRouteAction {#GrpcRouteAction5}
+
+Field | Description
+--- | ---
+backend_group_id | **string**<br>Required. Backend group to route requests. 
+max_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Lower timeout may be specified by the client (using grpc-timeout header). If not set, default is 60 seconds. 
+host_rewrite_specifier | **oneof:** `host_rewrite` or `auto_host_rewrite`<br>
+&nbsp;&nbsp;host_rewrite | **string**<br> 
+&nbsp;&nbsp;auto_host_rewrite | **bool**<br> 
+
+
+### GrpcStatusResponseAction {#GrpcStatusResponseAction5}
+
+Field | Description
+--- | ---
+status | enum **Status**<br> <ul><ul/>
+
+
+### HeaderModification {#HeaderModification5}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the header. 
+operation | **oneof:** `append`, `replace`, `remove` or `rename`<br>Header values support the following formatters: https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers
+&nbsp;&nbsp;append | **string**<br>Append string to the header value. 
+&nbsp;&nbsp;replace | **string**<br>New value for a header. 
+&nbsp;&nbsp;remove | **bool**<br>Remove the header. 
+&nbsp;&nbsp;rename | **string**<br>New name for a header. 
 
 
 ## Delete {#Delete}
@@ -772,7 +1034,7 @@ virtual_host_name | **string**<br>Name of the virtual host that is being deleted
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[RemoveRouteMetadata](#RemoveRouteMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[VirtualHost](../virtual_host.proto#VirtualHost4)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[VirtualHost](#VirtualHost4)<br>
 
 ### RemoveRouteRequest {#RemoveRouteRequest}
 
@@ -796,7 +1058,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RemoveRouteMetadata](#RemoveRouteMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[VirtualHost](../virtual_host.proto#VirtualHost4)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[VirtualHost](#VirtualHost4)>**<br>if operation finished successfully. 
 
 
 ### RemoveRouteMetadata {#RemoveRouteMetadata}
@@ -815,54 +1077,41 @@ Field | Description
 name | **string**<br>Required.  
 authority[] | **string**<br>A list of domains (host/authority header) that will be matched to this virtual host. Wildcard hosts are supported in the form of '*.foo.com' or '*-bar.foo.com'. If not specified, all domains will be matched. 
 ports[] | **int64**<br><ol><li></li></ol> 
-routes[] | **[Route](../virtual_host.proto#Route4)**<br>Routes are matched *in-order*. Be careful when adding them to the end. For instance, having http '/' match first makes all other routes unused. 
-modify_request_headers[] | **[HeaderModification](../virtual_host.proto#HeaderModification4)**<br>Apply the following modifications to the request headers. 
-modify_response_headers[] | **[HeaderModification](../virtual_host.proto#HeaderModification4)**<br>Apply the following modifications to the response headers. 
+routes[] | **[Route](#Route6)**<br>Routes are matched *in-order*. Be careful when adding them to the end. For instance, having http '/' match first makes all other routes unused. 
+modify_request_headers[] | **[HeaderModification](#HeaderModification6)**<br>Apply the following modifications to the request headers. 
+modify_response_headers[] | **[HeaderModification](#HeaderModification6)**<br>Apply the following modifications to the response headers. 
 
 
-## UpdateRoute {#UpdateRoute}
-
-
-
-**rpc UpdateRoute ([UpdateRouteRequest](#UpdateRouteRequest)) returns ([operation.Operation](#Operation4))**
-
-Metadata and response of Operation:<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateRouteMetadata](#UpdateRouteMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[VirtualHost](../virtual_host.proto#VirtualHost5)<br>
-
-### UpdateRouteRequest {#UpdateRouteRequest}
+### Route {#Route6}
 
 Field | Description
 --- | ---
-http_router_id | **string**<br>Required.  
-virtual_host_name | **string**<br>Required.  
-route_name | **string**<br>Required.  
-update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br> 
+name | **string**<br>Required.  
 route | **oneof:** `http` or `grpc`<br>
-&nbsp;&nbsp;http | **[HttpRoute](../virtual_host.proto#HttpRoute4)**<br> 
-&nbsp;&nbsp;grpc | **[GrpcRoute](../virtual_host.proto#GrpcRoute4)**<br> 
+&nbsp;&nbsp;http | **[HttpRoute](#HttpRoute6)**<br> 
+&nbsp;&nbsp;grpc | **[GrpcRoute](#GrpcRoute6)**<br> 
 
 
-### HttpRoute {#HttpRoute4}
+### HttpRoute {#HttpRoute6}
 
 Field | Description
 --- | ---
-match | **[HttpRouteMatch](../virtual_host.proto#HttpRouteMatch4)**<br>Checks "/" prefix by default. 
+match | **[HttpRouteMatch](#HttpRouteMatch6)**<br>Checks "/" prefix by default. 
 action | **oneof:** `route`, `redirect` or `direct_response`<br>
-&nbsp;&nbsp;route | **[HttpRouteAction](../virtual_host.proto#HttpRouteAction4)**<br> 
-&nbsp;&nbsp;redirect | **[RedirectAction](../virtual_host.proto#RedirectAction4)**<br> 
-&nbsp;&nbsp;direct_response | **[DirectResponseAction](../virtual_host.proto#DirectResponseAction4)**<br> 
+&nbsp;&nbsp;route | **[HttpRouteAction](#HttpRouteAction6)**<br> 
+&nbsp;&nbsp;redirect | **[RedirectAction](#RedirectAction6)**<br> 
+&nbsp;&nbsp;direct_response | **[DirectResponseAction](#DirectResponseAction6)**<br> 
 
 
-### HttpRouteMatch {#HttpRouteMatch4}
+### HttpRouteMatch {#HttpRouteMatch6}
 
 Field | Description
 --- | ---
 http_method[] | **string**<br> 
-path | **[StringMatch](../virtual_host.proto#StringMatch8)**<br>If not set, '/' is assumed. 
+path | **[StringMatch](#StringMatch12)**<br>If not set, '/' is assumed. 
 
 
-### StringMatch {#StringMatch8}
+### StringMatch {#StringMatch12}
 
 Field | Description
 --- | ---
@@ -871,7 +1120,7 @@ match | **oneof:** `exact_match` or `prefix_match`<br>
 &nbsp;&nbsp;prefix_match | **string**<br> 
 
 
-### HttpRouteAction {#HttpRouteAction4}
+### HttpRouteAction {#HttpRouteAction6}
 
 Field | Description
 --- | ---
@@ -884,7 +1133,7 @@ prefix_rewrite | **string**<br>If not empty, matched path prefix will be replace
 support_websockets | **bool**<br>Allows websocket upgrades. 
 
 
-### RedirectAction {#RedirectAction4}
+### RedirectAction {#RedirectAction6}
 
 Field | Description
 --- | ---
@@ -892,15 +1141,15 @@ replace_scheme | **string**<br>Replaces scheme. If the original scheme is `http`
 response_code | enum **RedirectResponseCode**<br>The HTTP status code to use in the redirect response. <ul><li>`MOVED_PERMANENTLY`: Moved Permanently HTTP Status Code - 301.</li><li>`FOUND`: Found HTTP Status Code - 302.</li><li>`SEE_OTHER`: See Other HTTP Status Code - 303.</li><li>`TEMPORARY_REDIRECT`: Temporary Redirect HTTP Status Code - 307.</li><li>`PERMANENT_REDIRECT`: Permanent Redirect HTTP Status Code - 308.</li><ul/>
 
 
-### DirectResponseAction {#DirectResponseAction4}
+### DirectResponseAction {#DirectResponseAction6}
 
 Field | Description
 --- | ---
 status | **int64**<br>HTTP response status. Acceptable values are 100 to 599, inclusive.
-body | **[Payload](../payload.proto#Payload4)**<br>Optional response body. 
+body | **[Payload](#Payload6)**<br>Optional response body. 
 
 
-### Payload {#Payload4}
+### Payload {#Payload6}
 
 Field | Description
 --- | ---
@@ -908,24 +1157,24 @@ payload | **oneof:** `text`<br>
 &nbsp;&nbsp;text | **string**<br>Text message. The string length in characters must be greater than 0.
 
 
-### GrpcRoute {#GrpcRoute4}
+### GrpcRoute {#GrpcRoute6}
 
 Field | Description
 --- | ---
-match | **[GrpcRouteMatch](../virtual_host.proto#GrpcRouteMatch4)**<br>Checks "/" prefix by default. 
+match | **[GrpcRouteMatch](#GrpcRouteMatch6)**<br>Checks "/" prefix by default. 
 action | **oneof:** `route` or `status_response`<br>
-&nbsp;&nbsp;route | **[GrpcRouteAction](../virtual_host.proto#GrpcRouteAction4)**<br> 
-&nbsp;&nbsp;status_response | **[GrpcStatusResponseAction](../virtual_host.proto#GrpcStatusResponseAction4)**<br> 
+&nbsp;&nbsp;route | **[GrpcRouteAction](#GrpcRouteAction6)**<br> 
+&nbsp;&nbsp;status_response | **[GrpcStatusResponseAction](#GrpcStatusResponseAction6)**<br> 
 
 
-### GrpcRouteMatch {#GrpcRouteMatch4}
+### GrpcRouteMatch {#GrpcRouteMatch6}
 
 Field | Description
 --- | ---
-fqmn | **[StringMatch](../virtual_host.proto#StringMatch9)**<br>If not set, all services/methods are assumed. 
+fqmn | **[StringMatch](#StringMatch13)**<br>If not set, all services/methods are assumed. 
 
 
-### StringMatch {#StringMatch9}
+### StringMatch {#StringMatch13}
 
 Field | Description
 --- | ---
@@ -934,7 +1183,7 @@ match | **oneof:** `exact_match` or `prefix_match`<br>
 &nbsp;&nbsp;prefix_match | **string**<br> 
 
 
-### GrpcRouteAction {#GrpcRouteAction4}
+### GrpcRouteAction {#GrpcRouteAction6}
 
 Field | Description
 --- | ---
@@ -945,7 +1194,151 @@ host_rewrite_specifier | **oneof:** `host_rewrite` or `auto_host_rewrite`<br>
 &nbsp;&nbsp;auto_host_rewrite | **bool**<br> 
 
 
-### GrpcStatusResponseAction {#GrpcStatusResponseAction4}
+### GrpcStatusResponseAction {#GrpcStatusResponseAction6}
+
+Field | Description
+--- | ---
+status | enum **Status**<br> <ul><ul/>
+
+
+### HeaderModification {#HeaderModification6}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the header. 
+operation | **oneof:** `append`, `replace`, `remove` or `rename`<br>Header values support the following formatters: https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers
+&nbsp;&nbsp;append | **string**<br>Append string to the header value. 
+&nbsp;&nbsp;replace | **string**<br>New value for a header. 
+&nbsp;&nbsp;remove | **bool**<br>Remove the header. 
+&nbsp;&nbsp;rename | **string**<br>New name for a header. 
+
+
+## UpdateRoute {#UpdateRoute}
+
+
+
+**rpc UpdateRoute ([UpdateRouteRequest](#UpdateRouteRequest)) returns ([operation.Operation](#Operation4))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateRouteMetadata](#UpdateRouteMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[VirtualHost](#VirtualHost5)<br>
+
+### UpdateRouteRequest {#UpdateRouteRequest}
+
+Field | Description
+--- | ---
+http_router_id | **string**<br>Required.  
+virtual_host_name | **string**<br>Required.  
+route_name | **string**<br>Required.  
+update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br> 
+route | **oneof:** `http` or `grpc`<br>
+&nbsp;&nbsp;http | **[HttpRoute](#HttpRoute7)**<br> 
+&nbsp;&nbsp;grpc | **[GrpcRoute](#GrpcRoute7)**<br> 
+
+
+### HttpRoute {#HttpRoute7}
+
+Field | Description
+--- | ---
+match | **[HttpRouteMatch](#HttpRouteMatch7)**<br>Checks "/" prefix by default. 
+action | **oneof:** `route`, `redirect` or `direct_response`<br>
+&nbsp;&nbsp;route | **[HttpRouteAction](#HttpRouteAction7)**<br> 
+&nbsp;&nbsp;redirect | **[RedirectAction](#RedirectAction7)**<br> 
+&nbsp;&nbsp;direct_response | **[DirectResponseAction](#DirectResponseAction7)**<br> 
+
+
+### HttpRouteMatch {#HttpRouteMatch7}
+
+Field | Description
+--- | ---
+http_method[] | **string**<br> 
+path | **[StringMatch](#StringMatch14)**<br>If not set, '/' is assumed. 
+
+
+### StringMatch {#StringMatch14}
+
+Field | Description
+--- | ---
+match | **oneof:** `exact_match` or `prefix_match`<br>
+&nbsp;&nbsp;exact_match | **string**<br> 
+&nbsp;&nbsp;prefix_match | **string**<br> 
+
+
+### HttpRouteAction {#HttpRouteAction7}
+
+Field | Description
+--- | ---
+backend_group_id | **string**<br>Required. Backend group to route requests. 
+timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>If not set, default is 60 seconds. 
+host_rewrite_specifier | **oneof:** `host_rewrite` or `auto_host_rewrite`<br>
+&nbsp;&nbsp;host_rewrite | **string**<br> 
+&nbsp;&nbsp;auto_host_rewrite | **bool**<br> 
+prefix_rewrite | **string**<br>If not empty, matched path prefix will be replaced by this value. 
+support_websockets | **bool**<br>Allows websocket upgrades. 
+
+
+### RedirectAction {#RedirectAction7}
+
+Field | Description
+--- | ---
+replace_scheme | **string**<br>Replaces scheme. If the original scheme is `http` or `https`, will also remove the 80 or 443 port, if present. 
+response_code | enum **RedirectResponseCode**<br>The HTTP status code to use in the redirect response. <ul><li>`MOVED_PERMANENTLY`: Moved Permanently HTTP Status Code - 301.</li><li>`FOUND`: Found HTTP Status Code - 302.</li><li>`SEE_OTHER`: See Other HTTP Status Code - 303.</li><li>`TEMPORARY_REDIRECT`: Temporary Redirect HTTP Status Code - 307.</li><li>`PERMANENT_REDIRECT`: Permanent Redirect HTTP Status Code - 308.</li><ul/>
+
+
+### DirectResponseAction {#DirectResponseAction7}
+
+Field | Description
+--- | ---
+status | **int64**<br>HTTP response status. Acceptable values are 100 to 599, inclusive.
+body | **[Payload](#Payload7)**<br>Optional response body. 
+
+
+### Payload {#Payload7}
+
+Field | Description
+--- | ---
+payload | **oneof:** `text`<br>
+&nbsp;&nbsp;text | **string**<br>Text message. The string length in characters must be greater than 0.
+
+
+### GrpcRoute {#GrpcRoute7}
+
+Field | Description
+--- | ---
+match | **[GrpcRouteMatch](#GrpcRouteMatch7)**<br>Checks "/" prefix by default. 
+action | **oneof:** `route` or `status_response`<br>
+&nbsp;&nbsp;route | **[GrpcRouteAction](#GrpcRouteAction7)**<br> 
+&nbsp;&nbsp;status_response | **[GrpcStatusResponseAction](#GrpcStatusResponseAction7)**<br> 
+
+
+### GrpcRouteMatch {#GrpcRouteMatch7}
+
+Field | Description
+--- | ---
+fqmn | **[StringMatch](#StringMatch15)**<br>If not set, all services/methods are assumed. 
+
+
+### StringMatch {#StringMatch15}
+
+Field | Description
+--- | ---
+match | **oneof:** `exact_match` or `prefix_match`<br>
+&nbsp;&nbsp;exact_match | **string**<br> 
+&nbsp;&nbsp;prefix_match | **string**<br> 
+
+
+### GrpcRouteAction {#GrpcRouteAction7}
+
+Field | Description
+--- | ---
+backend_group_id | **string**<br>Required. Backend group to route requests. 
+max_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Lower timeout may be specified by the client (using grpc-timeout header). If not set, default is 60 seconds. 
+host_rewrite_specifier | **oneof:** `host_rewrite` or `auto_host_rewrite`<br>
+&nbsp;&nbsp;host_rewrite | **string**<br> 
+&nbsp;&nbsp;auto_host_rewrite | **bool**<br> 
+
+
+### GrpcStatusResponseAction {#GrpcStatusResponseAction7}
 
 Field | Description
 --- | ---
@@ -965,7 +1358,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateRouteMetadata](#UpdateRouteMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[VirtualHost](../virtual_host.proto#VirtualHost5)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[VirtualHost](#VirtualHost5)>**<br>if operation finished successfully. 
 
 
 ### UpdateRouteMetadata {#UpdateRouteMetadata}
@@ -984,8 +1377,139 @@ Field | Description
 name | **string**<br>Required.  
 authority[] | **string**<br>A list of domains (host/authority header) that will be matched to this virtual host. Wildcard hosts are supported in the form of '*.foo.com' or '*-bar.foo.com'. If not specified, all domains will be matched. 
 ports[] | **int64**<br><ol><li></li></ol> 
-routes[] | **[Route](../virtual_host.proto#Route4)**<br>Routes are matched *in-order*. Be careful when adding them to the end. For instance, having http '/' match first makes all other routes unused. 
-modify_request_headers[] | **[HeaderModification](../virtual_host.proto#HeaderModification4)**<br>Apply the following modifications to the request headers. 
-modify_response_headers[] | **[HeaderModification](../virtual_host.proto#HeaderModification4)**<br>Apply the following modifications to the response headers. 
+routes[] | **[Route](#Route7)**<br>Routes are matched *in-order*. Be careful when adding them to the end. For instance, having http '/' match first makes all other routes unused. 
+modify_request_headers[] | **[HeaderModification](#HeaderModification7)**<br>Apply the following modifications to the request headers. 
+modify_response_headers[] | **[HeaderModification](#HeaderModification7)**<br>Apply the following modifications to the response headers. 
+
+
+### Route {#Route7}
+
+Field | Description
+--- | ---
+name | **string**<br>Required.  
+route | **oneof:** `http` or `grpc`<br>
+&nbsp;&nbsp;http | **[HttpRoute](#HttpRoute8)**<br> 
+&nbsp;&nbsp;grpc | **[GrpcRoute](#GrpcRoute8)**<br> 
+
+
+### HttpRoute {#HttpRoute8}
+
+Field | Description
+--- | ---
+match | **[HttpRouteMatch](#HttpRouteMatch8)**<br>Checks "/" prefix by default. 
+action | **oneof:** `route`, `redirect` or `direct_response`<br>
+&nbsp;&nbsp;route | **[HttpRouteAction](#HttpRouteAction8)**<br> 
+&nbsp;&nbsp;redirect | **[RedirectAction](#RedirectAction8)**<br> 
+&nbsp;&nbsp;direct_response | **[DirectResponseAction](#DirectResponseAction8)**<br> 
+
+
+### HttpRouteMatch {#HttpRouteMatch8}
+
+Field | Description
+--- | ---
+http_method[] | **string**<br> 
+path | **[StringMatch](#StringMatch16)**<br>If not set, '/' is assumed. 
+
+
+### StringMatch {#StringMatch16}
+
+Field | Description
+--- | ---
+match | **oneof:** `exact_match` or `prefix_match`<br>
+&nbsp;&nbsp;exact_match | **string**<br> 
+&nbsp;&nbsp;prefix_match | **string**<br> 
+
+
+### HttpRouteAction {#HttpRouteAction8}
+
+Field | Description
+--- | ---
+backend_group_id | **string**<br>Required. Backend group to route requests. 
+timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>If not set, default is 60 seconds. 
+host_rewrite_specifier | **oneof:** `host_rewrite` or `auto_host_rewrite`<br>
+&nbsp;&nbsp;host_rewrite | **string**<br> 
+&nbsp;&nbsp;auto_host_rewrite | **bool**<br> 
+prefix_rewrite | **string**<br>If not empty, matched path prefix will be replaced by this value. 
+support_websockets | **bool**<br>Allows websocket upgrades. 
+
+
+### RedirectAction {#RedirectAction8}
+
+Field | Description
+--- | ---
+replace_scheme | **string**<br>Replaces scheme. If the original scheme is `http` or `https`, will also remove the 80 or 443 port, if present. 
+response_code | enum **RedirectResponseCode**<br>The HTTP status code to use in the redirect response. <ul><li>`MOVED_PERMANENTLY`: Moved Permanently HTTP Status Code - 301.</li><li>`FOUND`: Found HTTP Status Code - 302.</li><li>`SEE_OTHER`: See Other HTTP Status Code - 303.</li><li>`TEMPORARY_REDIRECT`: Temporary Redirect HTTP Status Code - 307.</li><li>`PERMANENT_REDIRECT`: Permanent Redirect HTTP Status Code - 308.</li><ul/>
+
+
+### DirectResponseAction {#DirectResponseAction8}
+
+Field | Description
+--- | ---
+status | **int64**<br>HTTP response status. Acceptable values are 100 to 599, inclusive.
+body | **[Payload](#Payload8)**<br>Optional response body. 
+
+
+### Payload {#Payload8}
+
+Field | Description
+--- | ---
+payload | **oneof:** `text`<br>
+&nbsp;&nbsp;text | **string**<br>Text message. The string length in characters must be greater than 0.
+
+
+### GrpcRoute {#GrpcRoute8}
+
+Field | Description
+--- | ---
+match | **[GrpcRouteMatch](#GrpcRouteMatch8)**<br>Checks "/" prefix by default. 
+action | **oneof:** `route` or `status_response`<br>
+&nbsp;&nbsp;route | **[GrpcRouteAction](#GrpcRouteAction8)**<br> 
+&nbsp;&nbsp;status_response | **[GrpcStatusResponseAction](#GrpcStatusResponseAction8)**<br> 
+
+
+### GrpcRouteMatch {#GrpcRouteMatch8}
+
+Field | Description
+--- | ---
+fqmn | **[StringMatch](#StringMatch17)**<br>If not set, all services/methods are assumed. 
+
+
+### StringMatch {#StringMatch17}
+
+Field | Description
+--- | ---
+match | **oneof:** `exact_match` or `prefix_match`<br>
+&nbsp;&nbsp;exact_match | **string**<br> 
+&nbsp;&nbsp;prefix_match | **string**<br> 
+
+
+### GrpcRouteAction {#GrpcRouteAction8}
+
+Field | Description
+--- | ---
+backend_group_id | **string**<br>Required. Backend group to route requests. 
+max_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Lower timeout may be specified by the client (using grpc-timeout header). If not set, default is 60 seconds. 
+host_rewrite_specifier | **oneof:** `host_rewrite` or `auto_host_rewrite`<br>
+&nbsp;&nbsp;host_rewrite | **string**<br> 
+&nbsp;&nbsp;auto_host_rewrite | **bool**<br> 
+
+
+### GrpcStatusResponseAction {#GrpcStatusResponseAction8}
+
+Field | Description
+--- | ---
+status | enum **Status**<br> <ul><ul/>
+
+
+### HeaderModification {#HeaderModification7}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the header. 
+operation | **oneof:** `append`, `replace`, `remove` or `rename`<br>Header values support the following formatters: https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers
+&nbsp;&nbsp;append | **string**<br>Append string to the header value. 
+&nbsp;&nbsp;replace | **string**<br>New value for a header. 
+&nbsp;&nbsp;remove | **bool**<br>Remove the header. 
+&nbsp;&nbsp;rename | **string**<br>New name for a header. 
 
 

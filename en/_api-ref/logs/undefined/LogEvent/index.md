@@ -29,3 +29,4 @@ savedAt | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/r
 Method | Description
 --- | ---
 [read](read.md) | 
+[write](write.md) | 

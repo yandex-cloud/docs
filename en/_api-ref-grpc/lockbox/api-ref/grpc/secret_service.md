@@ -30,7 +30,7 @@ editable: false
 
 Returns the specified secret. Use [PayloadService.Get](./payload_service#Get) to get the payload (confidential data themselves) of the secret
 
-**rpc Get ([GetSecretRequest](#GetSecretRequest)) returns ([Secret](../secret.proto#Secret))**
+**rpc Get ([GetSecretRequest](#GetSecretRequest)) returns ([Secret](#Secret))**
 
 ### GetSecretRequest {#GetSecretRequest}
 
@@ -51,7 +51,7 @@ description | **string**<br>Description of the secret.
 labels | **map<string,string>**<br>Custom labels for the secret as `key:value` pairs. Maximum 64 per key. 
 kms_key_id | **string**<br>Optional ID of the KMS key will be used to encrypt and decrypt the secret. 
 status | enum **Status**<br>Status of the secret. <ul><li>`CREATING`: The secret is being created.</li><li>`ACTIVE`: The secret is active and the secret payload can be accessed. Can be set to INACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li><li>`INACTIVE`: The secret is inactive and unusable. Can be set to ACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li><ul/>
-current_version | **[Version](../secret.proto#Version)**<br>Current (i.e. the latest) version of the secret. 
+current_version | **[Version](#Version)**<br>Current (i.e. the latest) version of the secret. 
 deletion_protection | **bool**<br>Flag that inhibits deletion of the secret. 
 
 
@@ -64,7 +64,7 @@ secret_id | **string**<br>ID of the secret that the version belongs to.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the version was created. 
 destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the version is going to be destroyed. Empty unless the status is `SCHEDULED_FOR_DESTRUCTION`. 
 description | **string**<br>Description of the version. 
-status | enum **Status**<br>Status of the secret. <ul><li>`ACTIVE`: The version is active and the secret payload can be accessed.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [Version.destroy_at](../secret.proto#Version) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li><ul/>
+status | enum **Status**<br>Status of the secret. <ul><li>`ACTIVE`: The version is active and the secret payload can be accessed.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [Version.destroy_at](#Version) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li><ul/>
 payload_entry_keys[] | **string**<br>Keys of the entries contained in the version payload. 
 
 
@@ -87,7 +87,7 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 
 Field | Description
 --- | ---
-secrets[] | **[Secret](../secret.proto#Secret1)**<br>List of secrets in the specified folder. 
+secrets[] | **[Secret](#Secret1)**<br>List of secrets in the specified folder. 
 next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is greater than the specified [ListSecretsRequest.page_size](#ListSecretsRequest), use the `next_page_token` as the value for the [ListSecretsRequest.page_token](#ListSecretsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
@@ -103,7 +103,7 @@ description | **string**<br>Description of the secret.
 labels | **map<string,string>**<br>Custom labels for the secret as `key:value` pairs. Maximum 64 per key. 
 kms_key_id | **string**<br>Optional ID of the KMS key will be used to encrypt and decrypt the secret. 
 status | enum **Status**<br>Status of the secret. <ul><li>`CREATING`: The secret is being created.</li><li>`ACTIVE`: The secret is active and the secret payload can be accessed. Can be set to INACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li><li>`INACTIVE`: The secret is inactive and unusable. Can be set to ACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li><ul/>
-current_version | **[Version](../secret.proto#Version1)**<br>Current (i.e. the latest) version of the secret. 
+current_version | **[Version](#Version1)**<br>Current (i.e. the latest) version of the secret. 
 deletion_protection | **bool**<br>Flag that inhibits deletion of the secret. 
 
 
@@ -116,7 +116,7 @@ secret_id | **string**<br>ID of the secret that the version belongs to.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the version was created. 
 destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the version is going to be destroyed. Empty unless the status is `SCHEDULED_FOR_DESTRUCTION`. 
 description | **string**<br>Description of the version. 
-status | enum **Status**<br>Status of the secret. <ul><li>`ACTIVE`: The version is active and the secret payload can be accessed.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [Version.destroy_at](../secret.proto#Version1) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li><ul/>
+status | enum **Status**<br>Status of the secret. <ul><li>`ACTIVE`: The version is active and the secret payload can be accessed.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [Version.destroy_at](#Version1) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li><ul/>
 payload_entry_keys[] | **string**<br>Keys of the entries contained in the version payload. 
 
 
@@ -128,7 +128,7 @@ Creates a secret in the specified folder.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateSecretMetadata](#CreateSecretMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Secret](../secret.proto#Secret2)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Secret](#Secret2)<br>
 
 ### CreateSecretRequest {#CreateSecretRequest}
 
@@ -167,7 +167,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateSecretMetadata](#CreateSecretMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Secret](../secret.proto#Secret2)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Secret](#Secret2)>**<br>if operation finished successfully. 
 
 
 ### CreateSecretMetadata {#CreateSecretMetadata}
@@ -190,8 +190,21 @@ description | **string**<br>Description of the secret.
 labels | **map<string,string>**<br>Custom labels for the secret as `key:value` pairs. Maximum 64 per key. 
 kms_key_id | **string**<br>Optional ID of the KMS key will be used to encrypt and decrypt the secret. 
 status | enum **Status**<br>Status of the secret. <ul><li>`CREATING`: The secret is being created.</li><li>`ACTIVE`: The secret is active and the secret payload can be accessed. Can be set to INACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li><li>`INACTIVE`: The secret is inactive and unusable. Can be set to ACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li><ul/>
-current_version | **[Version](../secret.proto#Version2)**<br>Current (i.e. the latest) version of the secret. 
+current_version | **[Version](#Version2)**<br>Current (i.e. the latest) version of the secret. 
 deletion_protection | **bool**<br>Flag that inhibits deletion of the secret. 
+
+
+### Version {#Version2}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the version. 
+secret_id | **string**<br>ID of the secret that the version belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the version was created. 
+destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the version is going to be destroyed. Empty unless the status is `SCHEDULED_FOR_DESTRUCTION`. 
+description | **string**<br>Description of the version. 
+status | enum **Status**<br>Status of the secret. <ul><li>`ACTIVE`: The version is active and the secret payload can be accessed.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [Version.destroy_at](#Version2) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li><ul/>
+payload_entry_keys[] | **string**<br>Keys of the entries contained in the version payload. 
 
 
 ## Update {#Update}
@@ -202,7 +215,7 @@ Updates the specified secret.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateSecretMetadata](#UpdateSecretMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Secret](../secret.proto#Secret3)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Secret](#Secret3)<br>
 
 ### UpdateSecretRequest {#UpdateSecretRequest}
 
@@ -229,7 +242,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateSecretMetadata](#UpdateSecretMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Secret](../secret.proto#Secret3)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Secret](#Secret3)>**<br>if operation finished successfully. 
 
 
 ### UpdateSecretMetadata {#UpdateSecretMetadata}
@@ -251,8 +264,21 @@ description | **string**<br>Description of the secret.
 labels | **map<string,string>**<br>Custom labels for the secret as `key:value` pairs. Maximum 64 per key. 
 kms_key_id | **string**<br>Optional ID of the KMS key will be used to encrypt and decrypt the secret. 
 status | enum **Status**<br>Status of the secret. <ul><li>`CREATING`: The secret is being created.</li><li>`ACTIVE`: The secret is active and the secret payload can be accessed. Can be set to INACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li><li>`INACTIVE`: The secret is inactive and unusable. Can be set to ACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li><ul/>
-current_version | **[Version](../secret.proto#Version2)**<br>Current (i.e. the latest) version of the secret. 
+current_version | **[Version](#Version3)**<br>Current (i.e. the latest) version of the secret. 
 deletion_protection | **bool**<br>Flag that inhibits deletion of the secret. 
+
+
+### Version {#Version3}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the version. 
+secret_id | **string**<br>ID of the secret that the version belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the version was created. 
+destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the version is going to be destroyed. Empty unless the status is `SCHEDULED_FOR_DESTRUCTION`. 
+description | **string**<br>Description of the version. 
+status | enum **Status**<br>Status of the secret. <ul><li>`ACTIVE`: The version is active and the secret payload can be accessed.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [Version.destroy_at](#Version3) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li><ul/>
+payload_entry_keys[] | **string**<br>Keys of the entries contained in the version payload. 
 
 
 ## Delete {#Delete}
@@ -263,7 +289,7 @@ Deletes the specified secret.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[DeleteSecretMetadata](#DeleteSecretMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Secret](../secret.proto#Secret4)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Secret](#Secret4)<br>
 
 ### DeleteSecretRequest {#DeleteSecretRequest}
 
@@ -285,7 +311,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteSecretMetadata](#DeleteSecretMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Secret](../secret.proto#Secret4)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Secret](#Secret4)>**<br>if operation finished successfully. 
 
 
 ### DeleteSecretMetadata {#DeleteSecretMetadata}
@@ -307,8 +333,21 @@ description | **string**<br>Description of the secret.
 labels | **map<string,string>**<br>Custom labels for the secret as `key:value` pairs. Maximum 64 per key. 
 kms_key_id | **string**<br>Optional ID of the KMS key will be used to encrypt and decrypt the secret. 
 status | enum **Status**<br>Status of the secret. <ul><li>`CREATING`: The secret is being created.</li><li>`ACTIVE`: The secret is active and the secret payload can be accessed. Can be set to INACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li><li>`INACTIVE`: The secret is inactive and unusable. Can be set to ACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li><ul/>
-current_version | **[Version](../secret.proto#Version2)**<br>Current (i.e. the latest) version of the secret. 
+current_version | **[Version](#Version4)**<br>Current (i.e. the latest) version of the secret. 
 deletion_protection | **bool**<br>Flag that inhibits deletion of the secret. 
+
+
+### Version {#Version4}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the version. 
+secret_id | **string**<br>ID of the secret that the version belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the version was created. 
+destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the version is going to be destroyed. Empty unless the status is `SCHEDULED_FOR_DESTRUCTION`. 
+description | **string**<br>Description of the version. 
+status | enum **Status**<br>Status of the secret. <ul><li>`ACTIVE`: The version is active and the secret payload can be accessed.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [Version.destroy_at](#Version4) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li><ul/>
+payload_entry_keys[] | **string**<br>Keys of the entries contained in the version payload. 
 
 
 ## Activate {#Activate}
@@ -319,7 +358,7 @@ Activates the specified secret.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[ActivateSecretMetadata](#ActivateSecretMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Secret](../secret.proto#Secret5)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Secret](#Secret5)<br>
 
 ### ActivateSecretRequest {#ActivateSecretRequest}
 
@@ -341,7 +380,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[ActivateSecretMetadata](#ActivateSecretMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Secret](../secret.proto#Secret5)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Secret](#Secret5)>**<br>if operation finished successfully. 
 
 
 ### ActivateSecretMetadata {#ActivateSecretMetadata}
@@ -363,8 +402,21 @@ description | **string**<br>Description of the secret.
 labels | **map<string,string>**<br>Custom labels for the secret as `key:value` pairs. Maximum 64 per key. 
 kms_key_id | **string**<br>Optional ID of the KMS key will be used to encrypt and decrypt the secret. 
 status | enum **Status**<br>Status of the secret. <ul><li>`CREATING`: The secret is being created.</li><li>`ACTIVE`: The secret is active and the secret payload can be accessed. Can be set to INACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li><li>`INACTIVE`: The secret is inactive and unusable. Can be set to ACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li><ul/>
-current_version | **[Version](../secret.proto#Version2)**<br>Current (i.e. the latest) version of the secret. 
+current_version | **[Version](#Version5)**<br>Current (i.e. the latest) version of the secret. 
 deletion_protection | **bool**<br>Flag that inhibits deletion of the secret. 
+
+
+### Version {#Version5}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the version. 
+secret_id | **string**<br>ID of the secret that the version belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the version was created. 
+destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the version is going to be destroyed. Empty unless the status is `SCHEDULED_FOR_DESTRUCTION`. 
+description | **string**<br>Description of the version. 
+status | enum **Status**<br>Status of the secret. <ul><li>`ACTIVE`: The version is active and the secret payload can be accessed.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [Version.destroy_at](#Version5) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li><ul/>
+payload_entry_keys[] | **string**<br>Keys of the entries contained in the version payload. 
 
 
 ## Deactivate {#Deactivate}
@@ -375,7 +427,7 @@ Deactivates the specified secret.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[DeactivateSecretMetadata](#DeactivateSecretMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Secret](../secret.proto#Secret6)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Secret](#Secret6)<br>
 
 ### DeactivateSecretRequest {#DeactivateSecretRequest}
 
@@ -397,7 +449,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeactivateSecretMetadata](#DeactivateSecretMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Secret](../secret.proto#Secret6)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Secret](#Secret6)>**<br>if operation finished successfully. 
 
 
 ### DeactivateSecretMetadata {#DeactivateSecretMetadata}
@@ -419,8 +471,21 @@ description | **string**<br>Description of the secret.
 labels | **map<string,string>**<br>Custom labels for the secret as `key:value` pairs. Maximum 64 per key. 
 kms_key_id | **string**<br>Optional ID of the KMS key will be used to encrypt and decrypt the secret. 
 status | enum **Status**<br>Status of the secret. <ul><li>`CREATING`: The secret is being created.</li><li>`ACTIVE`: The secret is active and the secret payload can be accessed. Can be set to INACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li><li>`INACTIVE`: The secret is inactive and unusable. Can be set to ACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li><ul/>
-current_version | **[Version](../secret.proto#Version2)**<br>Current (i.e. the latest) version of the secret. 
+current_version | **[Version](#Version6)**<br>Current (i.e. the latest) version of the secret. 
 deletion_protection | **bool**<br>Flag that inhibits deletion of the secret. 
+
+
+### Version {#Version6}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the version. 
+secret_id | **string**<br>ID of the secret that the version belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the version was created. 
+destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the version is going to be destroyed. Empty unless the status is `SCHEDULED_FOR_DESTRUCTION`. 
+description | **string**<br>Description of the version. 
+status | enum **Status**<br>Status of the secret. <ul><li>`ACTIVE`: The version is active and the secret payload can be accessed.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [Version.destroy_at](#Version6) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li><ul/>
+payload_entry_keys[] | **string**<br>Keys of the entries contained in the version payload. 
 
 
 ## ListVersions {#ListVersions}
@@ -442,11 +507,11 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 
 Field | Description
 --- | ---
-versions[] | **[Version](../secret.proto#Version2)**<br>List of versions for the specified secret. 
+versions[] | **[Version](#Version7)**<br>List of versions for the specified secret. 
 next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is greater than the specified [ListVersionsRequest.page_size](#ListVersionsRequest), use the `next_page_token` as the value for the [ListVersionsRequest.page_token](#ListVersionsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
-### Version {#Version2}
+### Version {#Version7}
 
 Field | Description
 --- | ---
@@ -455,7 +520,7 @@ secret_id | **string**<br>ID of the secret that the version belongs to.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the version was created. 
 destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the version is going to be destroyed. Empty unless the status is `SCHEDULED_FOR_DESTRUCTION`. 
 description | **string**<br>Description of the version. 
-status | enum **Status**<br>Status of the secret. <ul><li>`ACTIVE`: The version is active and the secret payload can be accessed.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [Version.destroy_at](../secret.proto#Version2) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li><ul/>
+status | enum **Status**<br>Status of the secret. <ul><li>`ACTIVE`: The version is active and the secret payload can be accessed.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [Version.destroy_at](#Version7) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li><ul/>
 payload_entry_keys[] | **string**<br>Keys of the entries contained in the version payload. 
 
 
@@ -467,7 +532,7 @@ Adds new version based on a previous one.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[AddVersionMetadata](#AddVersionMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Version](../secret.proto#Version3)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Version](#Version8)<br>
 
 ### AddVersionRequest {#AddVersionRequest}
 
@@ -502,7 +567,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[AddVersionMetadata](#AddVersionMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Version](../secret.proto#Version3)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Version](#Version8)>**<br>if operation finished successfully. 
 
 
 ### AddVersionMetadata {#AddVersionMetadata}
@@ -513,7 +578,7 @@ secret_id | **string**<br>ID of the secret.
 version_id | **string**<br>ID of the added version. 
 
 
-### Version {#Version3}
+### Version {#Version8}
 
 Field | Description
 --- | ---
@@ -522,7 +587,7 @@ secret_id | **string**<br>ID of the secret that the version belongs to.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the version was created. 
 destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the version is going to be destroyed. Empty unless the status is `SCHEDULED_FOR_DESTRUCTION`. 
 description | **string**<br>Description of the version. 
-status | enum **Status**<br>Status of the secret. <ul><li>`ACTIVE`: The version is active and the secret payload can be accessed.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [Version.destroy_at](../secret.proto#Version3) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li><ul/>
+status | enum **Status**<br>Status of the secret. <ul><li>`ACTIVE`: The version is active and the secret payload can be accessed.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [Version.destroy_at](#Version8) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li><ul/>
 payload_entry_keys[] | **string**<br>Keys of the entries contained in the version payload. 
 
 
@@ -534,7 +599,7 @@ Schedules the specified version for destruction. <br>Scheduled destruction can b
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[ScheduleVersionDestructionMetadata](#ScheduleVersionDestructionMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Version](../secret.proto#Version4)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Version](#Version9)<br>
 
 ### ScheduleVersionDestructionRequest {#ScheduleVersionDestructionRequest}
 
@@ -558,7 +623,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[ScheduleVersionDestructionMetadata](#ScheduleVersionDestructionMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Version](../secret.proto#Version4)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Version](#Version9)>**<br>if operation finished successfully. 
 
 
 ### ScheduleVersionDestructionMetadata {#ScheduleVersionDestructionMetadata}
@@ -570,7 +635,7 @@ version_id | **string**<br>ID of the version that is being scheduled for destruc
 destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the version is scheduled to be destroyed. 
 
 
-### Version {#Version4}
+### Version {#Version9}
 
 Field | Description
 --- | ---
@@ -579,7 +644,7 @@ secret_id | **string**<br>ID of the secret that the version belongs to.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the version was created. 
 destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the version is going to be destroyed. Empty unless the status is `SCHEDULED_FOR_DESTRUCTION`. 
 description | **string**<br>Description of the version. 
-status | enum **Status**<br>Status of the secret. <ul><li>`ACTIVE`: The version is active and the secret payload can be accessed.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [Version.destroy_at](../secret.proto#Version4) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li><ul/>
+status | enum **Status**<br>Status of the secret. <ul><li>`ACTIVE`: The version is active and the secret payload can be accessed.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [Version.destroy_at](#Version9) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li><ul/>
 payload_entry_keys[] | **string**<br>Keys of the entries contained in the version payload. 
 
 
@@ -591,7 +656,7 @@ Cancels previously scheduled version destruction, if the version hasn't been des
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CancelVersionDestructionMetadata](#CancelVersionDestructionMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Version](../secret.proto#Version5)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Version](#Version10)<br>
 
 ### CancelVersionDestructionRequest {#CancelVersionDestructionRequest}
 
@@ -614,7 +679,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CancelVersionDestructionMetadata](#CancelVersionDestructionMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Version](../secret.proto#Version5)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Version](#Version10)>**<br>if operation finished successfully. 
 
 
 ### CancelVersionDestructionMetadata {#CancelVersionDestructionMetadata}
@@ -625,7 +690,7 @@ secret_id | **string**<br>ID of the secret whose version's destruction is being 
 version_id | **string**<br>ID of the version whose scheduled destruction is being cancelled. 
 
 
-### Version {#Version5}
+### Version {#Version10}
 
 Field | Description
 --- | ---
@@ -634,7 +699,7 @@ secret_id | **string**<br>ID of the secret that the version belongs to.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the version was created. 
 destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the version is going to be destroyed. Empty unless the status is `SCHEDULED_FOR_DESTRUCTION`. 
 description | **string**<br>Description of the version. 
-status | enum **Status**<br>Status of the secret. <ul><li>`ACTIVE`: The version is active and the secret payload can be accessed.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [Version.destroy_at](../secret.proto#Version5) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li><ul/>
+status | enum **Status**<br>Status of the secret. <ul><li>`ACTIVE`: The version is active and the secret payload can be accessed.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [Version.destroy_at](#Version10) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li><ul/>
 payload_entry_keys[] | **string**<br>Keys of the entries contained in the version payload. 
 
 

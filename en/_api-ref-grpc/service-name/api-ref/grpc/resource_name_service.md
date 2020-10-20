@@ -24,7 +24,7 @@ A set of methods for managing resource names.
 
 Returns the specified resource name. <br>To get the list of all available resource names, make a [List](#List) request.
 
-**rpc Get ([GetResourceNameRequest](#GetResourceNameRequest)) returns ([ResourceName](../resource_name.proto#ResourceName))**
+**rpc Get ([GetResourceNameRequest](#GetResourceNameRequest)) returns ([ResourceName](#ResourceName))**
 
 ### GetResourceNameRequest {#GetResourceNameRequest}
 
@@ -60,14 +60,14 @@ Field | Description
 folder_id | **string**<br>Required. ID of the folder to list resource names in. <br>To get the folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListResourceNamesResponse.next_page_token](#ListResourceNamesResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListResourceNamesResponse.next_page_token](#ListResourceNamesResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently you can use filtering only on [ResourceName.name](../resource_name.proto#ResourceName1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]. </li></ol> The maximum string length in characters is 1000.
+filter | **string**<br><ol><li>The field name. Currently you can use filtering only on [ResourceName.name](#ResourceName1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]. </li></ol> The maximum string length in characters is 1000.
 
 
 ### ListResourceNamesResponse {#ListResourceNamesResponse}
 
 Field | Description
 --- | ---
-resource_names[] | **[ResourceName](../resource_name.proto#ResourceName1)**<br>List of resource name in the specified folder. 
+resource_names[] | **[ResourceName](#ResourceName1)**<br>List of resource name in the specified folder. 
 next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListResourceNamesRequest.page_size](#ListResourceNamesRequest), use `next_page_token` as the value for the [ListResourceNamesRequest.page_token](#ListResourceNamesRequest) parameter in the next list request. <br>Each subsequent page will have its own `next_page_token` to continue paging through the results. 
 
 
@@ -93,7 +93,7 @@ Creates a resource name in the specified folder.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateResourceNameMetadata](#CreateResourceNameMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[ResourceName](../resource_name.proto#ResourceName2)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[ResourceName](#ResourceName2)<br>
 
 ### CreateResourceNameRequest {#CreateResourceNameRequest}
 
@@ -119,7 +119,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateResourceNameMetadata](#CreateResourceNameMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[ResourceName](../resource_name.proto#ResourceName2)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[ResourceName](#ResourceName2)>**<br>if operation finished successfully. 
 
 
 ### CreateResourceNameMetadata {#CreateResourceNameMetadata}
@@ -151,7 +151,7 @@ Updates the specified resource name.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateResourceNameMetadata](#UpdateResourceNameMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[ResourceName](../resource_name.proto#ResourceName3)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[ResourceName](#ResourceName3)<br>
 
 ### UpdateResourceNameRequest {#UpdateResourceNameRequest}
 
@@ -177,7 +177,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateResourceNameMetadata](#UpdateResourceNameMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[ResourceName](../resource_name.proto#ResourceName3)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[ResourceName](#ResourceName3)>**<br>if operation finished successfully. 
 
 
 ### UpdateResourceNameMetadata {#UpdateResourceNameMetadata}

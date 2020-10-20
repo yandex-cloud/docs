@@ -1319,11 +1319,11 @@ components:
         properties:
           fixedScale:
             $ref: '#/components/schemas/ScalePolicyFixedScale'
-            description: '[Политика масштабирования](/docs/compute/concepts/instance-groups/scale#fixed-policy)
+            description: '[Политика масштабирования](/docs/compute/concepts/instance-groups/policies/scale-policy#fixed-scale-policy)
               группы виртуальных машин.'
           autoScale:
             $ref: '#/components/schemas/ScalePolicyAutoScale'
-            description: '[Политика автоматического масштабирования](/docs/compute/concepts/instance-groups/scale#auto-scale)
+            description: '[Политика автоматического масштабирования](/docs/compute/concepts/instance-groups/policies/scale-policy#auto-scale-policy)
               группы виртуальных машин.'
     ScalePolicyAutoScale:
       type: object
@@ -1732,11 +1732,11 @@ components:
         properties:
           fixedScale:
             $ref: '#/components/schemas/ScalePolicyFixedScale'
-            description: '[Политика масштабирования](/docs/compute/concepts/instance-groups/scale#fixed-policy)
+            description: '[Политика масштабирования](/docs/compute/concepts/instance-groups/policies/scale-policy#fixed-scale-policy)
               группы виртуальных машин.'
           autoScale:
             $ref: '#/components/schemas/ScalePolicyAutoScale'
-            description: '[Политика автоматического масштабирования](/docs/compute/concepts/instance-groups/scale#auto-scale)
+            description: '[Политика автоматического масштабирования](/docs/compute/concepts/instance-groups/policies/scale-policy#auto-scale-policy)
               группы виртуальных машин.'
     DeployPolicy_in_CreateInstanceGroupRequest_deployPolicy:
       description: |-
@@ -1827,7 +1827,7 @@ components:
     InstanceTemplate_in_InstanceGroup_instanceTemplate:
       description: |-
         Шаблон виртуальной машины для создания группы ВМ. Дополнительные сведения см. в
-        разделе [Шаблон виртуальной машины](/docs/compute/concepts/ig-instance-templates).
+        разделе [Шаблон виртуальной машины](/docs/compute/concepts/instance-groups/instance-template).
       type: object
       properties:
         description:
@@ -1908,11 +1908,11 @@ components:
         properties:
           fixedScale:
             $ref: '#/components/schemas/ScalePolicyFixedScale'
-            description: '[Политика масштабирования](/docs/compute/concepts/instance-groups/scale#fixed-policy)
+            description: '[Политика масштабирования](/docs/compute/concepts/instance-groups/policies/scale-policy#fixed-scale-policy)
               группы виртуальных машин.'
           autoScale:
             $ref: '#/components/schemas/ScalePolicyAutoScale'
-            description: '[Политика автоматического масштабирования](/docs/compute/concepts/instance-groups/scale#auto-scale)
+            description: '[Политика автоматического масштабирования](/docs/compute/concepts/instance-groups/policies/scale-policy#auto-scale-policy)
               группы виртуальных машин.'
     DeployPolicy_in_InstanceGroup_deployPolicy:
       description: Политика развертывания группы виртуальных машин.
@@ -2126,7 +2126,7 @@ components:
     TargetGroupSpec_in_LoadBalancerSpec_targetGroupSpec:
       description: |-
         Спецификация целевой группы, к которой будет добавлена группа виртуальных машин.
-        Дополнительные сведения см. в разделе [Целевые ресурсы и группы](/docs/load-balancer/target-resources).
+        Дополнительные сведения см. в разделе [Целевые ресурсы и группы](/docs/load-balancer/concepts/target-resources).
       type: object
       properties:
         name:
@@ -2422,11 +2422,11 @@ components:
         properties:
           fixedScale:
             $ref: '#/components/schemas/ScalePolicyFixedScale'
-            description: '[Политика масштабирования](/docs/compute/concepts/instance-groups/scale#fixed-policy)
+            description: '[Политика масштабирования](/docs/compute/concepts/instance-groups/policies/scale-policy#fixed-scale-policy)
               группы виртуальных машин.'
           autoScale:
             $ref: '#/components/schemas/ScalePolicyAutoScale'
-            description: '[Политика автоматического масштабирования](/docs/compute/concepts/instance-groups/scale#auto-scale)
+            description: '[Политика автоматического масштабирования](/docs/compute/concepts/instance-groups/policies/scale-policy#auto-scale-policy)
               группы виртуальных машин.'
     DeployPolicy_in_UpdateInstanceGroupRequest_deployPolicy:
       description: |-

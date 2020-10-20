@@ -1329,6 +1329,8 @@ components:
         properties:
           kafkaConfig_2_1:
             $ref: '#/components/schemas/KafkaConfig2_1'
+          kafkaConfig_2_6:
+            $ref: '#/components/schemas/KafkaConfig2_6'
     ConfigSpecZookeeper:
       type: object
       properties:
@@ -1552,6 +1554,62 @@ components:
       properties:
         compressionType:
           $ref: '#/components/schemas/CompressionType_in_KafkaConfig2_1_compressionType'
+        logFlushIntervalMessages:
+          description: |-
+            The number of messages accumulated on a log partition before messages are flushed to disk.
+
+            This is the global cluster-level setting that can be overridden on a topic level by using the `flushMessages` setting.
+          type: integer
+          format: int64
+        logFlushIntervalMs:
+          description: |-
+            The maximum time (in milliseconds) that a message in any topic is kept in memory before flushed to disk.
+            If not set, the value of `logFlushSchedulerIntervalMs` is used.
+
+            This is the global cluster-level setting that can be overridden on a topic level by using the `flushMs` setting.
+          type: integer
+          format: int64
+        logFlushSchedulerIntervalMs:
+          description: |-
+            The frequency of checks (in milliseconds) for any logs that need to be flushed to disk.
+            This check is done by the log flusher.
+          type: integer
+          format: int64
+        logRetentionBytes:
+          description: |-
+            Partition size limit; Kafka will discard old log segments to free up space if `delete` `cleanupPolicy` is in effect.
+            This setting is helpful if you need to control the size of a log due to limited disk space.
+
+            This is the global cluster-level setting that can be overridden on a topic level by using the `retentionBytes` setting.
+          type: integer
+          format: int64
+        logRetentionHours:
+          description: The number of hours to keep a log segment file before deleting
+            it.
+          type: integer
+          format: int64
+        logRetentionMinutes:
+          description: |-
+            The number of minutes to keep a log segment file before deleting it.
+
+            If not set, the value of `logRetentionHours` is used.
+          type: integer
+          format: int64
+        logRetentionMs:
+          description: |-
+            The number of milliseconds to keep a log segment file before deleting it.
+
+            If not set, the value of `logRetentionMinutes` is used.
+
+            This is the global cluster-level setting that can be overridden on a topic level by using the `retentionMs` setting.
+          type: integer
+          format: int64
+    KafkaConfig2_6:
+      description: Kafka 2.6 broker configuration.
+      type: object
+      properties:
+        compressionType:
+          $ref: '#/components/schemas/CompressionType_in_KafkaConfig2_6_compressionType'
         logFlushIntervalMessages:
           description: |-
             The number of messages accumulated on a log partition before messages are flushed to disk.
@@ -1945,8 +2003,10 @@ components:
         properties:
           topicConfig_2_1:
             $ref: '#/components/schemas/TopicConfig2_1'
+          topicConfig_2_6:
+            $ref: '#/components/schemas/TopicConfig2_6'
     TopicConfig2_1:
-      description: A topic settings.
+      description: A topic settings for 2.1.
       type: object
       properties:
         cleanupPolicy:
@@ -2006,6 +2066,67 @@ components:
       - CLEANUP_POLICY_DELETE
       - CLEANUP_POLICY_COMPACT
       - CLEANUP_POLICY_COMPACT_AND_DELETE
+    TopicConfig2_6:
+      description: A topic settings for 2.6
+      type: object
+      properties:
+        cleanupPolicy:
+          $ref: '#/components/schemas/TopicConfig2_6CleanupPolicy_in_TopicConfig2_6_cleanupPolicy'
+        compressionType:
+          $ref: '#/components/schemas/CompressionType_in_TopicConfig2_6_compressionType'
+        deleteRetentionMs:
+          description: The amount of time in milliseconds to retain delete tombstone
+            markers for log compacted topics.
+          type: integer
+          format: int64
+        fileDeleteDelayMs:
+          description: The time to wait before deleting a file from the filesystem.
+          type: integer
+          format: int64
+        flushMessages:
+          description: |-
+            The number of messages accumulated on a log partition before messages are flushed to disk.
+
+            This setting overrides the cluster-level `logFlushIntervalMessages` setting on the topic level.
+          type: integer
+          format: int64
+        flushMs:
+          description: |-
+            The maximum time in milliseconds that a message in the topic is kept in memory before flushed to disk.
+
+            This setting overrides the cluster-level `logFlushIntervalMs` setting on the topic level.
+          type: integer
+          format: int64
+        minCompactionLagMs:
+          description: The minimum time in milliseconds a message will remain uncompacted
+            in the log.
+          type: integer
+          format: int64
+        retentionBytes:
+          description: |-
+            The maximum size a partition can grow to before Kafka will discard old log segments to free up space if the `delete` `cleanupPolicy` is in effect.
+            It is helpful if you need to control the size of log due to limited disk space.
+
+            This setting overrides the cluster-level `logRetentionBytes` setting on the topic level.
+          type: integer
+          format: int64
+        retentionMs:
+          description: |-
+            The number of milliseconds to keep a log segment's file before deleting it.
+
+            This setting overrides the cluster-level `logRetentionMs` setting on the topic level.
+          type: integer
+          format: int64
+    TopicConfig2_6CleanupPolicy:
+      description: |2-
+         - CLEANUP_POLICY_DELETE: this policy discards log segments when either their retention time or log size limit is reached. See also: `logRetentionMs` and other similar parameters.
+         - CLEANUP_POLICY_COMPACT: this policy compacts messages in log.
+         - CLEANUP_POLICY_COMPACT_AND_DELETE: this policy use both compaction and deletion for messages and log segments.
+      type: string
+      enum:
+      - CLEANUP_POLICY_DELETE
+      - CLEANUP_POLICY_COMPACT
+      - CLEANUP_POLICY_COMPACT_AND_DELETE
     TopicSpec:
       type: object
       allOf:
@@ -2028,6 +2149,8 @@ components:
         properties:
           topicConfig_2_1:
             $ref: '#/components/schemas/TopicConfig2_1'
+          topicConfig_2_6:
+            $ref: '#/components/schemas/TopicConfig2_6'
     UpdateClusterMetadata:
       type: object
       properties:
@@ -2260,6 +2383,8 @@ components:
         properties:
           kafkaConfig_2_1:
             $ref: '#/components/schemas/KafkaConfig2_1'
+          kafkaConfig_2_6:
+            $ref: '#/components/schemas/KafkaConfig2_6'
     ConfigSpecZookeeper_in_ConfigSpec_zookeeper:
       description: Configuration and resource allocation for ZooKeeper hosts.
       type: object
@@ -2346,6 +2471,8 @@ components:
         properties:
           topicConfig_2_1:
             $ref: '#/components/schemas/TopicConfig2_1'
+          topicConfig_2_6:
+            $ref: '#/components/schemas/TopicConfig2_6'
     UserSpec_in_CreateUserRequest_userSpec:
       description: |-
         Required.
@@ -2448,6 +2575,24 @@ components:
       - COMPRESSION_TYPE_SNAPPY
       - COMPRESSION_TYPE_GZIP
       - COMPRESSION_TYPE_PRODUCER
+    CompressionType_in_KafkaConfig2_6_compressionType:
+      description: |-
+        Сluster topics compression type.
+
+         - COMPRESSION_TYPE_UNCOMPRESSED: no codec (uncompressed).
+         - COMPRESSION_TYPE_ZSTD: Zstandard codec.
+         - COMPRESSION_TYPE_LZ4: LZ4 codec.
+         - COMPRESSION_TYPE_SNAPPY: Snappy codec.
+         - COMPRESSION_TYPE_GZIP: GZip codec.
+         - COMPRESSION_TYPE_PRODUCER: the codec to use is set by a producer (can be any of `ZSTD`, `LZ4`, `GZIP` or `SNAPPY` codecs).
+      type: string
+      enum:
+      - COMPRESSION_TYPE_UNCOMPRESSED
+      - COMPRESSION_TYPE_ZSTD
+      - COMPRESSION_TYPE_LZ4
+      - COMPRESSION_TYPE_SNAPPY
+      - COMPRESSION_TYPE_GZIP
+      - COMPRESSION_TYPE_PRODUCER
     PermissionAccessRole_in_Permission_role:
       description: |-
         Access role type to grant to the user.
@@ -2504,6 +2649,36 @@ components:
       - CLEANUP_POLICY_COMPACT
       - CLEANUP_POLICY_COMPACT_AND_DELETE
     CompressionType_in_TopicConfig2_1_compressionType:
+      description: |-
+        The compression type for a given topic.
+
+         - COMPRESSION_TYPE_UNCOMPRESSED: no codec (uncompressed).
+         - COMPRESSION_TYPE_ZSTD: Zstandard codec.
+         - COMPRESSION_TYPE_LZ4: LZ4 codec.
+         - COMPRESSION_TYPE_SNAPPY: Snappy codec.
+         - COMPRESSION_TYPE_GZIP: GZip codec.
+         - COMPRESSION_TYPE_PRODUCER: the codec to use is set by a producer (can be any of `ZSTD`, `LZ4`, `GZIP` or `SNAPPY` codecs).
+      type: string
+      enum:
+      - COMPRESSION_TYPE_UNCOMPRESSED
+      - COMPRESSION_TYPE_ZSTD
+      - COMPRESSION_TYPE_LZ4
+      - COMPRESSION_TYPE_SNAPPY
+      - COMPRESSION_TYPE_GZIP
+      - COMPRESSION_TYPE_PRODUCER
+    TopicConfig2_6CleanupPolicy_in_TopicConfig2_6_cleanupPolicy:
+      description: |-
+        Retention policy to use on old log messages.
+
+         - CLEANUP_POLICY_DELETE: this policy discards log segments when either their retention time or log size limit is reached. See also: `logRetentionMs` and other similar parameters.
+         - CLEANUP_POLICY_COMPACT: this policy compacts messages in log.
+         - CLEANUP_POLICY_COMPACT_AND_DELETE: this policy use both compaction and deletion for messages and log segments.
+      type: string
+      enum:
+      - CLEANUP_POLICY_DELETE
+      - CLEANUP_POLICY_COMPACT
+      - CLEANUP_POLICY_COMPACT_AND_DELETE
+    CompressionType_in_TopicConfig2_6_compressionType:
       description: |-
         The compression type for a given topic.
 
@@ -2598,6 +2773,8 @@ components:
         properties:
           topicConfig_2_1:
             $ref: '#/components/schemas/TopicConfig2_1'
+          topicConfig_2_6:
+            $ref: '#/components/schemas/TopicConfig2_6'
     FieldMask_in_UpdateUserRequest_updateMask:
       description: |-
         A comma-separated names off ALL fields to be updated.

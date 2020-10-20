@@ -1770,7 +1770,7 @@ components:
             * `allUsers`: A special system identifier that represents anyone. No authentication is required.
                For example, you don't need to specify the IAM token in an API query.
             * `<cloud generated id>`: An identifier that represents a user account.
-               It can be used only if the `type` is `userAccount` or `serviceAccount`.
+               It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`.
 
             The maximum string length in characters is 50.
           type: string
@@ -1954,7 +1954,7 @@ components:
             * `allUsers`: A special system identifier that represents anyone. No authentication is required.
                For example, you don't need to specify the IAM token in an API query.
             * `<cloud generated id>`: An identifier that represents a user account.
-               It can be used only if the `type` is `userAccount` or `serviceAccount`.
+               It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`.
 
             The maximum string length in characters is 50.
           type: string
@@ -2302,7 +2302,7 @@ components:
     InstanceTemplate_in_InstanceGroup_instanceTemplate:
       description: |-
         Instance template for creating the instance group.
-        For more information, see [Instance Templates](/docs/compute/concepts/ig-instance-templates).
+        For more information, see [Instance Templates](/docs/compute/concepts/instance-groups/instance-template).
       type: object
       properties:
         description:
@@ -2659,7 +2659,7 @@ components:
           $ref: '#/components/schemas/NetworkSettingsType_in_NetworkSettings_type'
     TargetGroupSpec_in_LoadBalancerSpec_targetGroupSpec:
       description: Specification of the target group that the instance group will
-        be added to. For more information, see [Target groups and resources](/docs/load-balancer/target-resources).
+        be added to. For more information, see [Target groups and resources](/docs/load-balancer/concepts/target-resources).
       type: object
       properties:
         name:

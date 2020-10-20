@@ -17,7 +17,7 @@ A set of methods for managing Elasticsearch users.
 
 Returns the specified Elasticsearch user. <br>To get the list of available Elasticsearch users, make a [List](#List) request.
 
-**rpc Get ([GetUserRequest](#GetUserRequest)) returns ([User](../user.proto#User))**
+**rpc Get ([GetUserRequest](#GetUserRequest)) returns ([User](#User))**
 
 ### GetUserRequest {#GetUserRequest}
 
@@ -54,7 +54,7 @@ page_token | **string**<br>Page token. <br>To get the next page of results, set 
 
 Field | Description
 --- | ---
-users[] | **[User](../user.proto#User1)**<br>List of Elasticsearch users. 
+users[] | **[User](#User1)**<br>List of Elasticsearch users. 
 next_page_token | **string**<br>This token allows you to get the next page of results for list requests. <br>If the number of results is larger than [ListUsersRequest.page_size](#ListUsersRequest), use the `next_page_token` as the value for the [ListUsersRequest.page_token](#ListUsersRequest) parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 

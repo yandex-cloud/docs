@@ -17,7 +17,7 @@ editable: false
 
 Возвращает информацию об указанном пользователе Elasticsearch. <br>Чтобы получить список доступных пользователей Elasticsearch, выполните запрос [List](#List).
 
-**rpc Get ([GetUserRequest](#GetUserRequest)) returns ([User](../user.proto#User))**
+**rpc Get ([GetUserRequest](#GetUserRequest)) returns ([User](#User))**
 
 ### GetUserRequest {#GetUserRequest}
 
@@ -54,7 +54,7 @@ page_token | **string**<br>Токен страницы. <br>Установите
 
 Поле | Описание
 --- | ---
-users[] | **[User](../user.proto#User1)**<br>Список пользователей Elasticsearch. 
+users[] | **[User](#User1)**<br>Список пользователей Elasticsearch. 
 next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. <br>Если количество результатов больше чем [ListUsersRequest.page_size](#ListUsersRequest), используйте `next_page_token` в качестве значения параметра [ListUsersRequest.page_token](#ListUsersRequest) в следующем запросе. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
 
 

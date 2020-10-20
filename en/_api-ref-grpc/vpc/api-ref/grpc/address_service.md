@@ -22,7 +22,7 @@ editable: false
 
 
 
-**rpc Get ([GetAddressRequest](#GetAddressRequest)) returns ([Address](../address.proto#Address))**
+**rpc Get ([GetAddressRequest](#GetAddressRequest)) returns ([Address](#Address))**
 
 ### GetAddressRequest {#GetAddressRequest}
 
@@ -42,7 +42,7 @@ name | **string**<br>
 description | **string**<br> 
 labels | **map<string,string>**<br> 
 address | **oneof:** `external_ipv4_address`<br>
-&nbsp;&nbsp;external_ipv4_address | **[ExternalIpv4Address](../address.proto#ExternalIpv4Address)**<br> 
+&nbsp;&nbsp;external_ipv4_address | **[ExternalIpv4Address](#ExternalIpv4Address)**<br> 
 reserved | **bool**<br> 
 used | **bool**<br> 
 
@@ -53,7 +53,7 @@ Field | Description
 --- | ---
 address | **string**<br> 
 zone_id | **string**<br> 
-requirements | **[AddressRequirements](../address.proto#AddressRequirements)**<br> 
+requirements | **[AddressRequirements](#AddressRequirements)**<br> 
 
 
 ### AddressRequirements {#AddressRequirements}
@@ -68,7 +68,7 @@ outgoing_smtp_capability | **string**<br>
 
 
 
-**rpc GetByValue ([GetAddressByValueRequest](#GetAddressByValueRequest)) returns ([Address](../address.proto#Address1))**
+**rpc GetByValue ([GetAddressByValueRequest](#GetAddressByValueRequest)) returns ([Address](#Address1))**
 
 ### GetAddressByValueRequest {#GetAddressByValueRequest}
 
@@ -89,7 +89,7 @@ name | **string**<br>
 description | **string**<br> 
 labels | **map<string,string>**<br> 
 address | **oneof:** `external_ipv4_address`<br>
-&nbsp;&nbsp;external_ipv4_address | **[ExternalIpv4Address](../address.proto#ExternalIpv4Address1)**<br> 
+&nbsp;&nbsp;external_ipv4_address | **[ExternalIpv4Address](#ExternalIpv4Address1)**<br> 
 reserved | **bool**<br> 
 used | **bool**<br> 
 
@@ -100,7 +100,7 @@ Field | Description
 --- | ---
 address | **string**<br> 
 zone_id | **string**<br> 
-requirements | **[AddressRequirements](../address.proto#AddressRequirements1)**<br> 
+requirements | **[AddressRequirements](#AddressRequirements1)**<br> 
 
 
 ### AddressRequirements {#AddressRequirements1}
@@ -131,7 +131,7 @@ filter | **string**<br>
 
 Field | Description
 --- | ---
-addresses[] | **[Address](../address.proto#Address2)**<br> 
+addresses[] | **[Address](#Address2)**<br> 
 next_page_token | **string**<br> 
 
 
@@ -146,7 +146,7 @@ name | **string**<br>
 description | **string**<br> 
 labels | **map<string,string>**<br> 
 address | **oneof:** `external_ipv4_address`<br>
-&nbsp;&nbsp;external_ipv4_address | **[ExternalIpv4Address](../address.proto#ExternalIpv4Address2)**<br> 
+&nbsp;&nbsp;external_ipv4_address | **[ExternalIpv4Address](#ExternalIpv4Address2)**<br> 
 reserved | **bool**<br> 
 used | **bool**<br> 
 
@@ -157,7 +157,7 @@ Field | Description
 --- | ---
 address | **string**<br> 
 zone_id | **string**<br> 
-requirements | **[AddressRequirements](../address.proto#AddressRequirements2)**<br> 
+requirements | **[AddressRequirements](#AddressRequirements2)**<br> 
 
 
 ### AddressRequirements {#AddressRequirements2}
@@ -176,7 +176,7 @@ outgoing_smtp_capability | **string**<br>
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateAddressMetadata](#CreateAddressMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Address](../address.proto#Address3)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Address](#Address3)<br>
 
 ### CreateAddressRequest {#CreateAddressRequest}
 
@@ -196,7 +196,7 @@ Field | Description
 --- | ---
 address | **string**<br> 
 zone_id | **string**<br> 
-requirements | **[AddressRequirements](../address.proto#AddressRequirements3)**<br> 
+requirements | **[AddressRequirements](#AddressRequirements3)**<br> 
 
 
 ### AddressRequirements {#AddressRequirements3}
@@ -220,7 +220,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateAddressMetadata](#CreateAddressMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Address](../address.proto#Address3)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Address](#Address3)>**<br>if operation finished successfully. 
 
 
 ### CreateAddressMetadata {#CreateAddressMetadata}
@@ -241,9 +241,26 @@ name | **string**<br>
 description | **string**<br> 
 labels | **map<string,string>**<br> 
 address | **oneof:** `external_ipv4_address`<br>
-&nbsp;&nbsp;external_ipv4_address | **[ExternalIpv4Address](../address.proto#ExternalIpv4Address3)**<br> 
+&nbsp;&nbsp;external_ipv4_address | **[ExternalIpv4Address](#ExternalIpv4Address3)**<br> 
 reserved | **bool**<br> 
 used | **bool**<br> 
+
+
+### ExternalIpv4Address {#ExternalIpv4Address3}
+
+Field | Description
+--- | ---
+address | **string**<br> 
+zone_id | **string**<br> 
+requirements | **[AddressRequirements](#AddressRequirements4)**<br> 
+
+
+### AddressRequirements {#AddressRequirements4}
+
+Field | Description
+--- | ---
+ddos_protection_provider | **string**<br> 
+outgoing_smtp_capability | **string**<br> 
 
 
 ## Update {#Update}
@@ -254,7 +271,7 @@ used | **bool**<br>
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateAddressMetadata](#UpdateAddressMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Address](../address.proto#Address4)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Address](#Address4)<br>
 
 ### UpdateAddressRequest {#UpdateAddressRequest}
 
@@ -281,7 +298,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateAddressMetadata](#UpdateAddressMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Address](../address.proto#Address4)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Address](#Address4)>**<br>if operation finished successfully. 
 
 
 ### UpdateAddressMetadata {#UpdateAddressMetadata}
@@ -302,9 +319,26 @@ name | **string**<br>
 description | **string**<br> 
 labels | **map<string,string>**<br> 
 address | **oneof:** `external_ipv4_address`<br>
-&nbsp;&nbsp;external_ipv4_address | **[ExternalIpv4Address](../address.proto#ExternalIpv4Address3)**<br> 
+&nbsp;&nbsp;external_ipv4_address | **[ExternalIpv4Address](#ExternalIpv4Address4)**<br> 
 reserved | **bool**<br> 
 used | **bool**<br> 
+
+
+### ExternalIpv4Address {#ExternalIpv4Address4}
+
+Field | Description
+--- | ---
+address | **string**<br> 
+zone_id | **string**<br> 
+requirements | **[AddressRequirements](#AddressRequirements5)**<br> 
+
+
+### AddressRequirements {#AddressRequirements5}
+
+Field | Description
+--- | ---
+ddos_protection_provider | **string**<br> 
+outgoing_smtp_capability | **string**<br> 
 
 
 ## Delete {#Delete}

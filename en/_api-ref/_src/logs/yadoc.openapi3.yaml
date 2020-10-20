@@ -53,6 +53,37 @@ paths:
               schema:
                 $ref: '#/components/schemas/ReadLogEventsResponse'
       x-y-navtitle: read
+    post:
+      tags:
+      - LogEvent
+      operationId: LogEventWrite
+      parameters:
+      - name: logGroupId
+        in: path
+        description: Required.
+        required: true
+        schema:
+          type: string
+      - name: streamName
+        in: path
+        description: Required.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WriteLogEventsRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WriteLogEventsResponse'
+      x-y-navtitle: write
 components:
   schemas:
     Criteria:
@@ -68,6 +99,18 @@ components:
             format.
           type: string
           format: date-time
+    IncomingLogEvent:
+      type: object
+      properties:
+        createdAt:
+          description: |-
+            Required.
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        message:
+          description: The maximum string length in characters is 262144.
+          type: string
     LogEvent:
       type: object
       properties:
@@ -103,5 +146,16 @@ components:
           type: string
         previousPageToken:
           type: string
+    WriteLogEventsRequest:
+      type: object
+      properties:
+        events:
+          description: The maximum number of elements is 100.
+          type: array
+          items:
+            $ref: '#/components/schemas/IncomingLogEvent'
+    WriteLogEventsResponse:
+      type: object
+      properties: {}
 tags:
 - name: LogEvent

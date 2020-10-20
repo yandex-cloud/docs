@@ -19,7 +19,7 @@ editable: false
 
 Возвращает указанную базу данных MySQL. <br>Чтобы получить список доступных баз данных MySQL, выполните запрос [List](#List).
 
-**rpc Get ([GetDatabaseRequest](#GetDatabaseRequest)) returns ([Database](../database.proto#Database))**
+**rpc Get ([GetDatabaseRequest](#GetDatabaseRequest)) returns ([Database](#Database))**
 
 ### GetDatabaseRequest {#GetDatabaseRequest}
 
@@ -56,7 +56,7 @@ page_token | **string**<br>Токен страницы. Установите з�
 
 Поле | Описание
 --- | ---
-databases[] | **[Database](../database.proto#Database1)**<br>Список баз данных MySQL. 
+databases[] | **[Database](#Database1)**<br>Список баз данных MySQL. 
 next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListDatabasesRequest.page_size](#ListDatabasesRequest), используйте `next_page_token` в качестве значения параметра [ListDatabasesRequest.page_token](#ListDatabasesRequest) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
 
 
@@ -76,14 +76,14 @@ cluster_id | **string**<br>Идентификатор кластера MySQL, к
 
 Метаданные и результат операции:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateDatabaseMetadata](#CreateDatabaseMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Database](../database.proto#Database2)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Database](#Database2)<br>
 
 ### CreateDatabaseRequest {#CreateDatabaseRequest}
 
 Поле | Описание
 --- | ---
 cluster_id | **string**<br>Обязательное поле. Идентификатор кластера MySQL, в котором следует создать базу данных. Чтобы получить идентификатор кластера, используйте запрос [ClusterService.List](./cluster_service#List). Максимальная длина строки в символах — 50.
-database_spec | **[DatabaseSpec](../database.proto#DatabaseSpec)**<br>Обязательное поле. Конфигурация создаваемой базы данных. 
+database_spec | **[DatabaseSpec](#DatabaseSpec)**<br>Обязательное поле. Конфигурация создаваемой базы данных. 
 
 
 ### DatabaseSpec {#DatabaseSpec}
@@ -106,7 +106,7 @@ done | **bool**<br>Если значение равно `false` — операц
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateDatabaseMetadata](#CreateDatabaseMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
 result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Database](../database.proto#Database2)>**<br>в случае успешного выполнения операции. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Database](#Database2)>**<br>в случае успешного выполнения операции. 
 
 
 ### CreateDatabaseMetadata {#CreateDatabaseMetadata}

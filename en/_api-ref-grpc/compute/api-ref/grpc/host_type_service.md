@@ -17,7 +17,7 @@ Set of methods to view possible host configurations.
 
 Returns information about specified host type.
 
-**rpc Get ([GetHostTypeRequest](#GetHostTypeRequest)) returns ([HostType](../host_type.proto#HostType))**
+**rpc Get ([GetHostTypeRequest](#GetHostTypeRequest)) returns ([HostType](#HostType))**
 
 ### GetHostTypeRequest {#GetHostTypeRequest}
 
@@ -53,7 +53,7 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 
 Field | Description
 --- | ---
-host_types[] | **[HostType](../host_type.proto#HostType1)**<br>Lists host types. 
+host_types[] | **[HostType](#HostType1)**<br>Lists host types. 
 next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListHostTypesRequest.page_size](#ListHostTypesRequest), use `next_page_token` as the value for the [ListHostTypesRequest.page_token](#ListHostTypesRequest) parameter in the next list request. <br>Each subsequent page will have its own `next_page_token` to continue paging through the results. 
 
 

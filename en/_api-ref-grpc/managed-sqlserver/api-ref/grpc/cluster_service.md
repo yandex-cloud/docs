@@ -29,7 +29,7 @@ A set of methods for managing SQL Server clusters.
 
 Returns the specified SQL Server cluster. <br>To get the list of available SQL Server clusters, make a [List](#List) request.
 
-**rpc Get ([GetClusterRequest](#GetClusterRequest)) returns ([Cluster](../cluster.proto#Cluster))**
+**rpc Get ([GetClusterRequest](#GetClusterRequest)) returns ([Cluster](#Cluster))**
 
 ### GetClusterRequest {#GetClusterRequest}
 
@@ -49,10 +49,10 @@ name | **string**<br>Name of the SQL Server cluster. <br>The name must be unique
 description | **string**<br>Description of the SQL Server cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the SQL Server cluster as `key:value` pairs. Maximum 64 per resource. 
 environment | enum **Environment**<br>Deployment environment of the SQL Server cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
-monitoring[] | **[Monitoring](../cluster.proto#Monitoring)**<br>Description of monitoring systems relevant to the SQL Server cluster. 
-config | **[ClusterConfig](../cluster.proto#ClusterConfig)**<br>Configuration of the SQL Server cluster. 
+monitoring[] | **[Monitoring](#Monitoring)**<br>Description of monitoring systems relevant to the SQL Server cluster. 
+config | **[ClusterConfig](#ClusterConfig)**<br>Configuration of the SQL Server cluster. 
 network_id | **string**<br>ID of the network the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](../cluster.proto#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](../cluster.proto#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](../cluster.proto#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is in degraded state ([Host.health](../cluster.proto#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is in degraded state ([Host.health](#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li><ul/>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
 
 
@@ -72,7 +72,7 @@ Field | Description
 version | **string**<br>Version of the SQL Server. 
 sqlserver_config | **oneof:** `sqlserver_config_2016sp2`<br>Configuration of the SQL Server instances in the cluster.
 &nbsp;&nbsp;sqlserver_config_2016sp2 | **[config.SQLServerConfigSet2016sp2](#SQLServerConfigSet2016sp2)**<br>Configuration of the SQL Server 2016sp2 instance. 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to SQL Server hosts. 
+resources | **[Resources](#Resources)**<br>Resources allocated to SQL Server hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Start time for the daily backup in UTC timezone 
 
 
@@ -98,14 +98,14 @@ Field | Description
 folder_id | **string**<br>Required. ID of the folder to list SQL Server clusters in. <br>To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClustersResponse.next_page_token](#ListClustersResponse) that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListClustersResponse.next_page_token](#ListClustersResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name to filter by. Currently you can only use filtering with the [Cluster.name](../cluster.proto#Cluster1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 1-63 characters long and match the regular expression `^[a-zA-Z0-9_-]+$`. </li></ol> The maximum string length in characters is 1000.
+filter | **string**<br><ol><li>The field name to filter by. Currently you can only use filtering with the [Cluster.name](#Cluster1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 1-63 characters long and match the regular expression `^[a-zA-Z0-9_-]+$`. </li></ol> The maximum string length in characters is 1000.
 
 
 ### ListClustersResponse {#ListClustersResponse}
 
 Field | Description
 --- | ---
-clusters[] | **[Cluster](../cluster.proto#Cluster1)**<br>List of SQL Server clusters. 
+clusters[] | **[Cluster](#Cluster1)**<br>List of SQL Server clusters. 
 next_page_token | **string**<br>Token that allows you to get the next page of results for list requests. If the number of results is larger than [ListClustersRequest.page_size](#ListClustersRequest), use the `next_page_token` as the value for the [ListClustersRequest.page_token](#ListClustersRequest) parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
@@ -120,10 +120,10 @@ name | **string**<br>Name of the SQL Server cluster. <br>The name must be unique
 description | **string**<br>Description of the SQL Server cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the SQL Server cluster as `key:value` pairs. Maximum 64 per resource. 
 environment | enum **Environment**<br>Deployment environment of the SQL Server cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
-monitoring[] | **[Monitoring](../cluster.proto#Monitoring1)**<br>Description of monitoring systems relevant to the SQL Server cluster. 
-config | **[ClusterConfig](../cluster.proto#ClusterConfig1)**<br>Configuration of the SQL Server cluster. 
+monitoring[] | **[Monitoring](#Monitoring1)**<br>Description of monitoring systems relevant to the SQL Server cluster. 
+config | **[ClusterConfig](#ClusterConfig1)**<br>Configuration of the SQL Server cluster. 
 network_id | **string**<br>ID of the network the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](../cluster.proto#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](../cluster.proto#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](../cluster.proto#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is in degraded state ([Host.health](../cluster.proto#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is in degraded state ([Host.health](#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li><ul/>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
 
 
@@ -143,7 +143,7 @@ Field | Description
 version | **string**<br>Version of the SQL Server. 
 sqlserver_config | **oneof:** `sqlserver_config_2016sp2`<br>Configuration of the SQL Server instances in the cluster.
 &nbsp;&nbsp;sqlserver_config_2016sp2 | **[config.SQLServerConfigSet2016sp2](#SQLServerConfigSet2016sp2)**<br>Configuration of the SQL Server 2016sp2 instance. 
-resources | **[Resources](../cluster.proto#Resources1)**<br>Resources allocated to SQL Server hosts. 
+resources | **[Resources](#Resources1)**<br>Resources allocated to SQL Server hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Start time for the daily backup in UTC timezone 
 
 
@@ -164,7 +164,7 @@ Creates an SQL Server cluster in the specified folder.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateClusterMetadata](#CreateClusterMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](../cluster.proto#Cluster2)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster2)<br>
 
 ### CreateClusterRequest {#CreateClusterRequest}
 
@@ -174,10 +174,10 @@ folder_id | **string**<br>Required. ID of the folder to create the SQL Server cl
 name | **string**<br>Required. Name of the SQL Server cluster. The name must be unique within the folder. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 description | **string**<br>Description of the SQL Server cluster. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Custom labels for the SQL Server cluster as `key:value` pairs. For example, "project": "mvp" or "source": "dictionary". No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
-environment | **[Cluster.Environment](../cluster.proto#Cluster2)**<br>Deployment environment of the SQL Server cluster. 
+environment | **[Cluster.Environment](#Cluster2)**<br>Deployment environment of the SQL Server cluster. 
 config_spec | **[ConfigSpec](#ConfigSpec)**<br>SQL Server and hosts configuration for the cluster. 
-database_specs[] | **[DatabaseSpec](../database.proto#DatabaseSpec)**<br>One or more configurations of databases to be created in the SQL Server cluster. 
-user_specs[] | **[UserSpec](../user.proto#UserSpec)**<br>One or more configurations of database users to be created in the SQL Server cluster. 
+database_specs[] | **[DatabaseSpec](#DatabaseSpec)**<br>One or more configurations of databases to be created in the SQL Server cluster. 
+user_specs[] | **[UserSpec](#UserSpec)**<br>One or more configurations of database users to be created in the SQL Server cluster. 
 host_specs[] | **[HostSpec](#HostSpec)**<br>One or more configurations of hosts to be created in the SQL Server cluster. 
 network_id | **string**<br>ID of the network to create the SQL Server cluster in. The maximum string length in characters is 50.
 
@@ -189,7 +189,7 @@ Field | Description
 version | **string**<br><ul><li>2016sp2</li></ul> 
 sqlserver_config | **oneof:** `sqlserver_config_2016sp2`<br>Configuration of an SQL Server cluster.
 &nbsp;&nbsp;sqlserver_config_2016sp2 | **[config.SQLServerConfig2016sp2](#SQLServerConfig2016sp2)**<br>Configuration for an SQL Server 2016 SP2 cluster. 
-resources | **[Resources](../cluster.proto#Resources2)**<br>Resources allocated to SQL Server hosts. 
+resources | **[Resources](#Resources2)**<br>Resources allocated to SQL Server hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Start time for the daily backup in UTC timezone 
 
 
@@ -215,7 +215,7 @@ Field | Description
 --- | ---
 name | **string**<br>Required. Name of the SQL Server user. The maximum string length in characters is 32. Value must match the regular expression ` [a-zA-Z0-9_]* `.
 password | **string**<br>Required. Password of the SQL Server user. The string length in characters must be 8-128.
-permissions[] | **[Permission](../user.proto#Permission)**<br>Set of permissions to grant to the user. 
+permissions[] | **[Permission](#Permission)**<br>Set of permissions to grant to the user. 
 
 
 ### Permission {#Permission}
@@ -231,7 +231,7 @@ roles[] | enum **Role**<br>Roles granted to the user within the database. The mi
 Field | Description
 --- | ---
 zone_id | **string**<br>ID of the availability zone where the host resides. <br>To get the list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/grpc/zone_service#List) request. The maximum string length in characters is 50.
-subnet_id | **string**<br>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The ID of the network is set in the field [Cluster.network_id](../cluster.proto#Cluster2). The maximum string length in characters is 50.
+subnet_id | **string**<br>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The ID of the network is set in the field [Cluster.network_id](#Cluster2). The maximum string length in characters is 50.
 assign_public_ip | **bool**<br><ul><li>false — don't assign a public IP to the host. </li><li>true — the host should have a public IP address.</li></ul> 
 
 
@@ -248,7 +248,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateClusterMetadata](#CreateClusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](../cluster.proto#Cluster2)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster2)>**<br>if operation finished successfully. 
 
 
 ### CreateClusterMetadata {#CreateClusterMetadata}
@@ -269,11 +269,40 @@ name | **string**<br>Name of the SQL Server cluster. <br>The name must be unique
 description | **string**<br>Description of the SQL Server cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the SQL Server cluster as `key:value` pairs. Maximum 64 per resource. 
 environment | enum **Environment**<br>Deployment environment of the SQL Server cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
-monitoring[] | **[Monitoring](../cluster.proto#Monitoring2)**<br>Description of monitoring systems relevant to the SQL Server cluster. 
-config | **[ClusterConfig](../cluster.proto#ClusterConfig2)**<br>Configuration of the SQL Server cluster. 
+monitoring[] | **[Monitoring](#Monitoring2)**<br>Description of monitoring systems relevant to the SQL Server cluster. 
+config | **[ClusterConfig](#ClusterConfig2)**<br>Configuration of the SQL Server cluster. 
 network_id | **string**<br>ID of the network the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](../cluster.proto#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](../cluster.proto#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](../cluster.proto#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is in degraded state ([Host.health](../cluster.proto#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is in degraded state ([Host.health](#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li><ul/>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+
+
+### Monitoring {#Monitoring2}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the monitoring system. 
+description | **string**<br>Description of the monitoring system. 
+link | **string**<br>Link to the monitoring system charts for the SQL Server cluster. 
+
+
+### ClusterConfig {#ClusterConfig2}
+
+Field | Description
+--- | ---
+version | **string**<br>Version of the SQL Server. 
+sqlserver_config | **oneof:** `sqlserver_config_2016sp2`<br>Configuration of the SQL Server instances in the cluster.
+&nbsp;&nbsp;sqlserver_config_2016sp2 | **[config.SQLServerConfigSet2016sp2](#SQLServerConfigSet2016sp2)**<br>Configuration of the SQL Server 2016sp2 instance. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to SQL Server hosts. 
+backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Start time for the daily backup in UTC timezone 
+
+
+### Resources {#Resources3}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-sqlserver/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage available to a host. 
+disk_type_id | **string**<br><ul><li>network-hdd — network HDD drive, </li><li>network-ssd — network SSD drive, </li><li>local-ssd — local SSD storage.</li></ul> 
 
 
 ## Update {#Update}
@@ -284,7 +313,7 @@ Modifies the specified SQL Server cluster.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateClusterMetadata](#UpdateClusterMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](../cluster.proto#Cluster3)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster3)<br>
 
 ### UpdateClusterRequest {#UpdateClusterRequest}
 
@@ -305,11 +334,11 @@ Field | Description
 version | **string**<br><ul><li>2016sp2</li></ul> 
 sqlserver_config | **oneof:** `sqlserver_config_2016sp2`<br>Configuration of an SQL Server cluster.
 &nbsp;&nbsp;sqlserver_config_2016sp2 | **[config.SQLServerConfig2016sp2](#SQLServerConfig2016sp2)**<br>Configuration for an SQL Server 2016 SP2 cluster. 
-resources | **[Resources](../cluster.proto#Resources3)**<br>Resources allocated to SQL Server hosts. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to SQL Server hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Start time for the daily backup in UTC timezone 
 
 
-### Resources {#Resources3}
+### Resources {#Resources4}
 
 Field | Description
 --- | ---
@@ -331,7 +360,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateClusterMetadata](#UpdateClusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](../cluster.proto#Cluster3)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster3)>**<br>if operation finished successfully. 
 
 
 ### UpdateClusterMetadata {#UpdateClusterMetadata}
@@ -352,11 +381,40 @@ name | **string**<br>Name of the SQL Server cluster. <br>The name must be unique
 description | **string**<br>Description of the SQL Server cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the SQL Server cluster as `key:value` pairs. Maximum 64 per resource. 
 environment | enum **Environment**<br>Deployment environment of the SQL Server cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
-monitoring[] | **[Monitoring](../cluster.proto#Monitoring2)**<br>Description of monitoring systems relevant to the SQL Server cluster. 
-config | **[ClusterConfig](../cluster.proto#ClusterConfig2)**<br>Configuration of the SQL Server cluster. 
+monitoring[] | **[Monitoring](#Monitoring3)**<br>Description of monitoring systems relevant to the SQL Server cluster. 
+config | **[ClusterConfig](#ClusterConfig3)**<br>Configuration of the SQL Server cluster. 
 network_id | **string**<br>ID of the network the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](../cluster.proto#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](../cluster.proto#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](../cluster.proto#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is in degraded state ([Host.health](../cluster.proto#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is in degraded state ([Host.health](#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li><ul/>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+
+
+### Monitoring {#Monitoring3}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the monitoring system. 
+description | **string**<br>Description of the monitoring system. 
+link | **string**<br>Link to the monitoring system charts for the SQL Server cluster. 
+
+
+### ClusterConfig {#ClusterConfig3}
+
+Field | Description
+--- | ---
+version | **string**<br>Version of the SQL Server. 
+sqlserver_config | **oneof:** `sqlserver_config_2016sp2`<br>Configuration of the SQL Server instances in the cluster.
+&nbsp;&nbsp;sqlserver_config_2016sp2 | **[config.SQLServerConfigSet2016sp2](#SQLServerConfigSet2016sp2)**<br>Configuration of the SQL Server 2016sp2 instance. 
+resources | **[Resources](#Resources5)**<br>Resources allocated to SQL Server hosts. 
+backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Start time for the daily backup in UTC timezone 
+
+
+### Resources {#Resources5}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-sqlserver/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage available to a host. 
+disk_type_id | **string**<br><ul><li>network-hdd — network HDD drive, </li><li>network-ssd — network SSD drive, </li><li>local-ssd — local SSD storage.</li></ul> 
 
 
 ## Delete {#Delete}
@@ -407,7 +465,7 @@ Starts the specified SQL Server cluster.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[StartClusterMetadata](#StartClusterMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](../cluster.proto#Cluster4)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster4)<br>
 
 ### StartClusterRequest {#StartClusterRequest}
 
@@ -429,7 +487,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[StartClusterMetadata](#StartClusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](../cluster.proto#Cluster4)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster4)>**<br>if operation finished successfully. 
 
 
 ### StartClusterMetadata {#StartClusterMetadata}
@@ -450,11 +508,40 @@ name | **string**<br>Name of the SQL Server cluster. <br>The name must be unique
 description | **string**<br>Description of the SQL Server cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the SQL Server cluster as `key:value` pairs. Maximum 64 per resource. 
 environment | enum **Environment**<br>Deployment environment of the SQL Server cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
-monitoring[] | **[Monitoring](../cluster.proto#Monitoring2)**<br>Description of monitoring systems relevant to the SQL Server cluster. 
-config | **[ClusterConfig](../cluster.proto#ClusterConfig2)**<br>Configuration of the SQL Server cluster. 
+monitoring[] | **[Monitoring](#Monitoring4)**<br>Description of monitoring systems relevant to the SQL Server cluster. 
+config | **[ClusterConfig](#ClusterConfig4)**<br>Configuration of the SQL Server cluster. 
 network_id | **string**<br>ID of the network the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](../cluster.proto#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](../cluster.proto#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](../cluster.proto#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is in degraded state ([Host.health](../cluster.proto#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is in degraded state ([Host.health](#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li><ul/>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+
+
+### Monitoring {#Monitoring4}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the monitoring system. 
+description | **string**<br>Description of the monitoring system. 
+link | **string**<br>Link to the monitoring system charts for the SQL Server cluster. 
+
+
+### ClusterConfig {#ClusterConfig4}
+
+Field | Description
+--- | ---
+version | **string**<br>Version of the SQL Server. 
+sqlserver_config | **oneof:** `sqlserver_config_2016sp2`<br>Configuration of the SQL Server instances in the cluster.
+&nbsp;&nbsp;sqlserver_config_2016sp2 | **[config.SQLServerConfigSet2016sp2](#SQLServerConfigSet2016sp2)**<br>Configuration of the SQL Server 2016sp2 instance. 
+resources | **[Resources](#Resources6)**<br>Resources allocated to SQL Server hosts. 
+backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Start time for the daily backup in UTC timezone 
+
+
+### Resources {#Resources6}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-sqlserver/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage available to a host. 
+disk_type_id | **string**<br><ul><li>network-hdd — network HDD drive, </li><li>network-ssd — network SSD drive, </li><li>local-ssd — local SSD storage.</li></ul> 
 
 
 ## Stop {#Stop}
@@ -465,7 +552,7 @@ Stops the specified SQL Server cluster.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[StopClusterMetadata](#StopClusterMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](../cluster.proto#Cluster5)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster5)<br>
 
 ### StopClusterRequest {#StopClusterRequest}
 
@@ -487,7 +574,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[StopClusterMetadata](#StopClusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](../cluster.proto#Cluster5)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster5)>**<br>if operation finished successfully. 
 
 
 ### StopClusterMetadata {#StopClusterMetadata}
@@ -508,11 +595,40 @@ name | **string**<br>Name of the SQL Server cluster. <br>The name must be unique
 description | **string**<br>Description of the SQL Server cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the SQL Server cluster as `key:value` pairs. Maximum 64 per resource. 
 environment | enum **Environment**<br>Deployment environment of the SQL Server cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
-monitoring[] | **[Monitoring](../cluster.proto#Monitoring2)**<br>Description of monitoring systems relevant to the SQL Server cluster. 
-config | **[ClusterConfig](../cluster.proto#ClusterConfig2)**<br>Configuration of the SQL Server cluster. 
+monitoring[] | **[Monitoring](#Monitoring5)**<br>Description of monitoring systems relevant to the SQL Server cluster. 
+config | **[ClusterConfig](#ClusterConfig5)**<br>Configuration of the SQL Server cluster. 
 network_id | **string**<br>ID of the network the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](../cluster.proto#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](../cluster.proto#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](../cluster.proto#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is in degraded state ([Host.health](../cluster.proto#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is in degraded state ([Host.health](#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li><ul/>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+
+
+### Monitoring {#Monitoring5}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the monitoring system. 
+description | **string**<br>Description of the monitoring system. 
+link | **string**<br>Link to the monitoring system charts for the SQL Server cluster. 
+
+
+### ClusterConfig {#ClusterConfig5}
+
+Field | Description
+--- | ---
+version | **string**<br>Version of the SQL Server. 
+sqlserver_config | **oneof:** `sqlserver_config_2016sp2`<br>Configuration of the SQL Server instances in the cluster.
+&nbsp;&nbsp;sqlserver_config_2016sp2 | **[config.SQLServerConfigSet2016sp2](#SQLServerConfigSet2016sp2)**<br>Configuration of the SQL Server 2016sp2 instance. 
+resources | **[Resources](#Resources7)**<br>Resources allocated to SQL Server hosts. 
+backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Start time for the daily backup in UTC timezone 
+
+
+### Resources {#Resources7}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-sqlserver/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage available to a host. 
+disk_type_id | **string**<br><ul><li>network-hdd — network HDD drive, </li><li>network-ssd — network SSD drive, </li><li>local-ssd — local SSD storage.</li></ul> 
 
 
 ## Move {#Move}
@@ -523,7 +639,7 @@ Moves the specified SQL Server cluster to the specified folder.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[MoveClusterMetadata](#MoveClusterMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](../cluster.proto#Cluster6)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster6)<br>
 
 ### MoveClusterRequest {#MoveClusterRequest}
 
@@ -546,7 +662,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[MoveClusterMetadata](#MoveClusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](../cluster.proto#Cluster6)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster6)>**<br>if operation finished successfully. 
 
 
 ### MoveClusterMetadata {#MoveClusterMetadata}
@@ -569,11 +685,40 @@ name | **string**<br>Name of the SQL Server cluster. <br>The name must be unique
 description | **string**<br>Description of the SQL Server cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the SQL Server cluster as `key:value` pairs. Maximum 64 per resource. 
 environment | enum **Environment**<br>Deployment environment of the SQL Server cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
-monitoring[] | **[Monitoring](../cluster.proto#Monitoring2)**<br>Description of monitoring systems relevant to the SQL Server cluster. 
-config | **[ClusterConfig](../cluster.proto#ClusterConfig2)**<br>Configuration of the SQL Server cluster. 
+monitoring[] | **[Monitoring](#Monitoring6)**<br>Description of monitoring systems relevant to the SQL Server cluster. 
+config | **[ClusterConfig](#ClusterConfig6)**<br>Configuration of the SQL Server cluster. 
 network_id | **string**<br>ID of the network the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](../cluster.proto#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](../cluster.proto#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](../cluster.proto#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is in degraded state ([Host.health](../cluster.proto#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is in degraded state ([Host.health](#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li><ul/>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+
+
+### Monitoring {#Monitoring6}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the monitoring system. 
+description | **string**<br>Description of the monitoring system. 
+link | **string**<br>Link to the monitoring system charts for the SQL Server cluster. 
+
+
+### ClusterConfig {#ClusterConfig6}
+
+Field | Description
+--- | ---
+version | **string**<br>Version of the SQL Server. 
+sqlserver_config | **oneof:** `sqlserver_config_2016sp2`<br>Configuration of the SQL Server instances in the cluster.
+&nbsp;&nbsp;sqlserver_config_2016sp2 | **[config.SQLServerConfigSet2016sp2](#SQLServerConfigSet2016sp2)**<br>Configuration of the SQL Server 2016sp2 instance. 
+resources | **[Resources](#Resources8)**<br>Resources allocated to SQL Server hosts. 
+backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Start time for the daily backup in UTC timezone 
+
+
+### Resources {#Resources8}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-sqlserver/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage available to a host. 
+disk_type_id | **string**<br><ul><li>network-hdd — network HDD drive, </li><li>network-ssd — network SSD drive, </li><li>local-ssd — local SSD storage.</li></ul> 
 
 
 ## Backup {#Backup}
@@ -584,7 +729,7 @@ Creates a backup for the specified SQL Server cluster.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[BackupClusterMetadata](#BackupClusterMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](../cluster.proto#Cluster7)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster7)<br>
 
 ### BackupClusterRequest {#BackupClusterRequest}
 
@@ -606,7 +751,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[BackupClusterMetadata](#BackupClusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](../cluster.proto#Cluster7)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster7)>**<br>if operation finished successfully. 
 
 
 ### BackupClusterMetadata {#BackupClusterMetadata}
@@ -627,11 +772,40 @@ name | **string**<br>Name of the SQL Server cluster. <br>The name must be unique
 description | **string**<br>Description of the SQL Server cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the SQL Server cluster as `key:value` pairs. Maximum 64 per resource. 
 environment | enum **Environment**<br>Deployment environment of the SQL Server cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
-monitoring[] | **[Monitoring](../cluster.proto#Monitoring2)**<br>Description of monitoring systems relevant to the SQL Server cluster. 
-config | **[ClusterConfig](../cluster.proto#ClusterConfig2)**<br>Configuration of the SQL Server cluster. 
+monitoring[] | **[Monitoring](#Monitoring7)**<br>Description of monitoring systems relevant to the SQL Server cluster. 
+config | **[ClusterConfig](#ClusterConfig7)**<br>Configuration of the SQL Server cluster. 
 network_id | **string**<br>ID of the network the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](../cluster.proto#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](../cluster.proto#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](../cluster.proto#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is in degraded state ([Host.health](../cluster.proto#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is in degraded state ([Host.health](#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li><ul/>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+
+
+### Monitoring {#Monitoring7}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the monitoring system. 
+description | **string**<br>Description of the monitoring system. 
+link | **string**<br>Link to the monitoring system charts for the SQL Server cluster. 
+
+
+### ClusterConfig {#ClusterConfig7}
+
+Field | Description
+--- | ---
+version | **string**<br>Version of the SQL Server. 
+sqlserver_config | **oneof:** `sqlserver_config_2016sp2`<br>Configuration of the SQL Server instances in the cluster.
+&nbsp;&nbsp;sqlserver_config_2016sp2 | **[config.SQLServerConfigSet2016sp2](#SQLServerConfigSet2016sp2)**<br>Configuration of the SQL Server 2016sp2 instance. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to SQL Server hosts. 
+backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Start time for the daily backup in UTC timezone 
+
+
+### Resources {#Resources9}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-sqlserver/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage available to a host. 
+disk_type_id | **string**<br><ul><li>network-hdd — network HDD drive, </li><li>network-ssd — network SSD drive, </li><li>local-ssd — local SSD storage.</li></ul> 
 
 
 ## Restore {#Restore}
@@ -642,7 +816,7 @@ Creates a new SQL Server cluster using the specified backup.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[RestoreClusterMetadata](#RestoreClusterMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](../cluster.proto#Cluster8)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster8)<br>
 
 ### RestoreClusterRequest {#RestoreClusterRequest}
 
@@ -653,7 +827,7 @@ time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buff
 name | **string**<br>Required. Name of the new SQL Server cluster to be created from the backup. The name must be unique within the folder. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 description | **string**<br>Description of the new SQL Server cluster to be created from the backup. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Custom labels for the new SQL Server cluster to be created from the backup as `key:value` pairs. Maximum 64 per resource. For example, "project": "mvp" or "source": "dictionary". No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
-environment | **[Cluster.Environment](../cluster.proto#Cluster8)**<br>Deployment environment of the new SQL Server cluster to be created from the backup. 
+environment | **[Cluster.Environment](#Cluster8)**<br>Deployment environment of the new SQL Server cluster to be created from the backup. 
 config_spec | **[ConfigSpec](#ConfigSpec)**<br>Configuration for the new SQL Server cluster to be created from the backup. 
 host_specs[] | **[HostSpec](#HostSpec)**<br>Configurations for SQL Server hosts that should be added to the cluster being created from the backup. 
 network_id | **string**<br>ID of the network to create the SQL Server cluster in. The maximum string length in characters is 50.
@@ -667,11 +841,11 @@ Field | Description
 version | **string**<br><ul><li>2016sp2</li></ul> 
 sqlserver_config | **oneof:** `sqlserver_config_2016sp2`<br>Configuration of an SQL Server cluster.
 &nbsp;&nbsp;sqlserver_config_2016sp2 | **[config.SQLServerConfig2016sp2](#SQLServerConfig2016sp2)**<br>Configuration for an SQL Server 2016 SP2 cluster. 
-resources | **[Resources](../cluster.proto#Resources4)**<br>Resources allocated to SQL Server hosts. 
+resources | **[Resources](#Resources10)**<br>Resources allocated to SQL Server hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Start time for the daily backup in UTC timezone 
 
 
-### Resources {#Resources4}
+### Resources {#Resources10}
 
 Field | Description
 --- | ---
@@ -685,7 +859,7 @@ disk_type_id | **string**<br><ul><li>network-hdd — network HDD drive, </li><li
 Field | Description
 --- | ---
 zone_id | **string**<br>ID of the availability zone where the host resides. <br>To get the list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/grpc/zone_service#List) request. The maximum string length in characters is 50.
-subnet_id | **string**<br>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The ID of the network is set in the field [Cluster.network_id](../cluster.proto#Cluster8). The maximum string length in characters is 50.
+subnet_id | **string**<br>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The ID of the network is set in the field [Cluster.network_id](#Cluster8). The maximum string length in characters is 50.
 assign_public_ip | **bool**<br><ul><li>false — don't assign a public IP to the host. </li><li>true — the host should have a public IP address.</li></ul> 
 
 
@@ -702,7 +876,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RestoreClusterMetadata](#RestoreClusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](../cluster.proto#Cluster8)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster8)>**<br>if operation finished successfully. 
 
 
 ### RestoreClusterMetadata {#RestoreClusterMetadata}
@@ -724,11 +898,40 @@ name | **string**<br>Name of the SQL Server cluster. <br>The name must be unique
 description | **string**<br>Description of the SQL Server cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the SQL Server cluster as `key:value` pairs. Maximum 64 per resource. 
 environment | enum **Environment**<br>Deployment environment of the SQL Server cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
-monitoring[] | **[Monitoring](../cluster.proto#Monitoring2)**<br>Description of monitoring systems relevant to the SQL Server cluster. 
-config | **[ClusterConfig](../cluster.proto#ClusterConfig2)**<br>Configuration of the SQL Server cluster. 
+monitoring[] | **[Monitoring](#Monitoring8)**<br>Description of monitoring systems relevant to the SQL Server cluster. 
+config | **[ClusterConfig](#ClusterConfig8)**<br>Configuration of the SQL Server cluster. 
 network_id | **string**<br>ID of the network the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](../cluster.proto#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](../cluster.proto#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](../cluster.proto#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is in degraded state ([Host.health](../cluster.proto#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is in degraded state ([Host.health](#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li><ul/>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+
+
+### Monitoring {#Monitoring8}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the monitoring system. 
+description | **string**<br>Description of the monitoring system. 
+link | **string**<br>Link to the monitoring system charts for the SQL Server cluster. 
+
+
+### ClusterConfig {#ClusterConfig8}
+
+Field | Description
+--- | ---
+version | **string**<br>Version of the SQL Server. 
+sqlserver_config | **oneof:** `sqlserver_config_2016sp2`<br>Configuration of the SQL Server instances in the cluster.
+&nbsp;&nbsp;sqlserver_config_2016sp2 | **[config.SQLServerConfigSet2016sp2](#SQLServerConfigSet2016sp2)**<br>Configuration of the SQL Server 2016sp2 instance. 
+resources | **[Resources](#Resources11)**<br>Resources allocated to SQL Server hosts. 
+backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Start time for the daily backup in UTC timezone 
+
+
+### Resources {#Resources11}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-sqlserver/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage available to a host. 
+disk_type_id | **string**<br><ul><li>network-hdd — network HDD drive, </li><li>network-ssd — network SSD drive, </li><li>local-ssd — local SSD storage.</li></ul> 
 
 
 ## ListLogs {#ListLogs}
@@ -860,7 +1063,7 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 
 Field | Description
 --- | ---
-hosts[] | **[Host](../cluster.proto#Host)**<br>List of SQL Server hosts. 
+hosts[] | **[Host](#Host)**<br>List of SQL Server hosts. 
 next_page_token | **string**<br>Token that allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterHostsRequest.page_size](#ListClusterHostsRequest), use the `next_page_token` as the value for the [ListClusterHostsRequest.page_token](#ListClusterHostsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
@@ -871,15 +1074,15 @@ Field | Description
 name | **string**<br>Name of the SQL Server host. The host name is assigned by Managed Service for SQL Server at creation time, and cannot be changed. 1-63 characters long. <br>The name is unique across all existing database hosts in Yandex.Cloud, as it defines the FQDN of the host. 
 cluster_id | **string**<br>ID of the SQL Server host. The ID is assigned by Managed Service for SQL Server at creation time. 
 zone_id | **string**<br>ID of the availability zone where the SQL Server host resides. 
-resources | **[Resources](../cluster.proto#Resources5)**<br>Resources allocated to the host. 
+resources | **[Resources](#Resources12)**<br>Resources allocated to the host. 
 role | enum **Role**<br>Role of the host in the cluster. <ul><li>`ROLE_UNKNOWN`: Role of the host in the cluster is unknown.</li><li>`MASTER`: Host is the master SQL Server instance in the cluster.</li><li>`REPLICA`: Host is a replica SQL Server instance in the cluster.</li><ul/>
 health | enum **Health**<br>Status code of the aggregated health of the host. <ul><li>`HEALTH_UNKNOWN`: Health of the host is unknown.</li><li>`ALIVE`: The host is performing all its functions normally.</li><li>`DEAD`: The host is inoperable, and cannot perform any of its essential functions.</li><li>`DEGRADED`: The host is degraded, and can perform only some of its essential functions.</li><ul/>
-services[] | **[Service](../cluster.proto#Service)**<br>Services provided by the host. 
+services[] | **[Service](#Service)**<br>Services provided by the host. 
 subnet_id | **string**<br>ID of the subnet that the host belongs to. 
 assign_public_ip | **bool**<br>Flag showing public IP assignment status to this host. 
 
 
-### Resources {#Resources5}
+### Resources {#Resources12}
 
 Field | Description
 --- | ---

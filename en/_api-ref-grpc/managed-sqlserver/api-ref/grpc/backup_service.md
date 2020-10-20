@@ -17,7 +17,7 @@ A set of methods for managing SQL Server backups.
 
 Returns the specified SQL Server backup. <br>To get the list of available SQL Server backups, make a [List](#List) request.
 
-**rpc Get ([GetBackupRequest](#GetBackupRequest)) returns ([Backup](../backup.proto#Backup))**
+**rpc Get ([GetBackupRequest](#GetBackupRequest)) returns ([Backup](#Backup))**
 
 ### GetBackupRequest {#GetBackupRequest}
 
@@ -56,7 +56,7 @@ page_token | **string**<br>Page token. To get the next page of results, Set `pag
 
 Field | Description
 --- | ---
-backups[] | **[Backup](../backup.proto#Backup1)**<br>List of SQL Server backups. 
+backups[] | **[Backup](#Backup1)**<br>List of SQL Server backups. 
 next_page_token | **string**<br>Token that allows you to get the next page of results for list requests. If the number of results is larger than [ListBackupsRequest.page_size](#ListBackupsRequest), use the `next_page_token` as the value for the [ListBackupsRequest.page_token](#ListBackupsRequest) parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. The maximum string length in characters is 100.
 
 

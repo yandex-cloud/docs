@@ -22,7 +22,7 @@ A set of methods for managing Kafka users.
 
 Returns the specified Kafka user. <br>To get the list of available Kafka users, make a [List](#List) request.
 
-**rpc Get ([GetUserRequest](#GetUserRequest)) returns ([User](../user.proto#User))**
+**rpc Get ([GetUserRequest](#GetUserRequest)) returns ([User](#User))**
 
 ### GetUserRequest {#GetUserRequest}
 
@@ -38,7 +38,7 @@ Field | Description
 --- | ---
 name | **string**<br>Name of the Kafka user. 
 cluster_id | **string**<br>ID of the Apache Kafka® cluster the user belongs to. <br>To get the Apache Kafka® cluster ID, make a [ClusterService.List](./cluster_service#List) request. 
-permissions[] | **[Permission](../user.proto#Permission)**<br>Set of permissions granted to this user. 
+permissions[] | **[Permission](#Permission)**<br>Set of permissions granted to this user. 
 
 
 ### Permission {#Permission}
@@ -68,7 +68,7 @@ page_token | **string**<br>Page token. <br>To get the next page of results, set 
 
 Field | Description
 --- | ---
-users[] | **[User](../user.proto#User1)**<br>List of Kafka users. 
+users[] | **[User](#User1)**<br>List of Kafka users. 
 next_page_token | **string**<br>This token allows you to get the next page of results for list requests. <br>If the number of results is larger than [ListUsersRequest.page_size](#ListUsersRequest), use the `next_page_token` as the value for the [ListUsersRequest.page_token](#ListUsersRequest) parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
@@ -78,7 +78,7 @@ Field | Description
 --- | ---
 name | **string**<br>Name of the Kafka user. 
 cluster_id | **string**<br>ID of the Apache Kafka® cluster the user belongs to. <br>To get the Apache Kafka® cluster ID, make a [ClusterService.List](./cluster_service#List) request. 
-permissions[] | **[Permission](../user.proto#Permission1)**<br>Set of permissions granted to this user. 
+permissions[] | **[Permission](#Permission1)**<br>Set of permissions granted to this user. 
 
 
 ### Permission {#Permission1}
@@ -97,14 +97,14 @@ Creates a Kafka user in the specified cluster.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateUserMetadata](#CreateUserMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[User](../user.proto#User2)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[User](#User2)<br>
 
 ### CreateUserRequest {#CreateUserRequest}
 
 Field | Description
 --- | ---
 cluster_id | **string**<br>Required. ID of the Apache Kafka® cluster to create a user in. <br>To get the cluster ID, make a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
-user_spec | **[UserSpec](../user.proto#UserSpec)**<br>Required. Configuration of the user to create. 
+user_spec | **[UserSpec](#UserSpec)**<br>Required. Configuration of the user to create. 
 
 
 ### UserSpec {#UserSpec}
@@ -113,7 +113,7 @@ Field | Description
 --- | ---
 name | **string**<br>Required. Name of the Kafka user. The string length in characters must be 1-63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
 password | **string**<br>Required. Password of the Kafka user. The string length in characters must be 8-128.
-permissions[] | **[Permission](../user.proto#Permission2)**<br>Set of permissions granted to the user. 
+permissions[] | **[Permission](#Permission2)**<br>Set of permissions granted to the user. 
 
 
 ### Permission {#Permission2}
@@ -137,7 +137,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateUserMetadata](#CreateUserMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[User](../user.proto#User2)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[User](#User2)>**<br>if operation finished successfully. 
 
 
 ### CreateUserMetadata {#CreateUserMetadata}
@@ -154,7 +154,15 @@ Field | Description
 --- | ---
 name | **string**<br>Name of the Kafka user. 
 cluster_id | **string**<br>ID of the Apache Kafka® cluster the user belongs to. <br>To get the Apache Kafka® cluster ID, make a [ClusterService.List](./cluster_service#List) request. 
-permissions[] | **[Permission](../user.proto#Permission3)**<br>Set of permissions granted to this user. 
+permissions[] | **[Permission](#Permission3)**<br>Set of permissions granted to this user. 
+
+
+### Permission {#Permission3}
+
+Field | Description
+--- | ---
+topic_name | **string**<br>Name of the topic that the permission grants access to. <br>To get the topic name, make a [TopicService.List](./topic_service#List) request. 
+role | enum **AccessRole**<br>Access role type to grant to the user. <ul><li>`ACCESS_ROLE_PRODUCER`: producer role for the user.</li><li>`ACCESS_ROLE_CONSUMER`: consumer role for the user.</li><ul/>
 
 
 ## Update {#Update}
@@ -165,7 +173,7 @@ Updates the specified Kafka user.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateUserMetadata](#UpdateUserMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[User](../user.proto#User3)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[User](#User3)<br>
 
 ### UpdateUserRequest {#UpdateUserRequest}
 
@@ -175,10 +183,10 @@ cluster_id | **string**<br>Required. ID of the Apache Kafka® cluster the user b
 user_name | **string**<br>Required. Name of the user to be updated. <br>To get the name of the user, make a [UserService.List](#List) request. The string length in characters must be 1-63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br> 
 password | **string**<br>New password for the user. The string length in characters must be 8-128.
-permissions[] | **[Permission](../user.proto#Permission3)**<br>New set of permissions for the user. 
+permissions[] | **[Permission](#Permission4)**<br>New set of permissions for the user. 
 
 
-### Permission {#Permission3}
+### Permission {#Permission4}
 
 Field | Description
 --- | ---
@@ -199,7 +207,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateUserMetadata](#UpdateUserMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[User](../user.proto#User3)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[User](#User3)>**<br>if operation finished successfully. 
 
 
 ### UpdateUserMetadata {#UpdateUserMetadata}
@@ -216,7 +224,15 @@ Field | Description
 --- | ---
 name | **string**<br>Name of the Kafka user. 
 cluster_id | **string**<br>ID of the Apache Kafka® cluster the user belongs to. <br>To get the Apache Kafka® cluster ID, make a [ClusterService.List](./cluster_service#List) request. 
-permissions[] | **[Permission](../user.proto#Permission4)**<br>Set of permissions granted to this user. 
+permissions[] | **[Permission](#Permission5)**<br>Set of permissions granted to this user. 
+
+
+### Permission {#Permission5}
+
+Field | Description
+--- | ---
+topic_name | **string**<br>Name of the topic that the permission grants access to. <br>To get the topic name, make a [TopicService.List](./topic_service#List) request. 
+role | enum **AccessRole**<br>Access role type to grant to the user. <ul><li>`ACCESS_ROLE_PRODUCER`: producer role for the user.</li><li>`ACCESS_ROLE_CONSUMER`: consumer role for the user.</li><ul/>
 
 
 ## Delete {#Delete}
@@ -269,7 +285,7 @@ Grants permission to the specified Kafka user.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[GrantUserPermissionMetadata](#GrantUserPermissionMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[User](../user.proto#User4)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[User](#User4)<br>
 
 ### GrantUserPermissionRequest {#GrantUserPermissionRequest}
 
@@ -277,10 +293,10 @@ Field | Description
 --- | ---
 cluster_id | **string**<br>Required. ID of the Apache Kafka® cluster the user belongs to. <br>To get the cluster ID, make a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
 user_name | **string**<br>Required. Name of the user to grant the permission to. <br>To get the name of the user, make a [UserService.List](#List) request. The string length in characters must be 1-63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
-permission | **[Permission](../user.proto#Permission4)**<br>Required. Permission that should be granted to the specified user. 
+permission | **[Permission](#Permission6)**<br>Required. Permission that should be granted to the specified user. 
 
 
-### Permission {#Permission4}
+### Permission {#Permission6}
 
 Field | Description
 --- | ---
@@ -301,7 +317,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[GrantUserPermissionMetadata](#GrantUserPermissionMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[User](../user.proto#User4)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[User](#User4)>**<br>if operation finished successfully. 
 
 
 ### GrantUserPermissionMetadata {#GrantUserPermissionMetadata}
@@ -318,7 +334,15 @@ Field | Description
 --- | ---
 name | **string**<br>Name of the Kafka user. 
 cluster_id | **string**<br>ID of the Apache Kafka® cluster the user belongs to. <br>To get the Apache Kafka® cluster ID, make a [ClusterService.List](./cluster_service#List) request. 
-permissions[] | **[Permission](../user.proto#Permission5)**<br>Set of permissions granted to this user. 
+permissions[] | **[Permission](#Permission7)**<br>Set of permissions granted to this user. 
+
+
+### Permission {#Permission7}
+
+Field | Description
+--- | ---
+topic_name | **string**<br>Name of the topic that the permission grants access to. <br>To get the topic name, make a [TopicService.List](./topic_service#List) request. 
+role | enum **AccessRole**<br>Access role type to grant to the user. <ul><li>`ACCESS_ROLE_PRODUCER`: producer role for the user.</li><li>`ACCESS_ROLE_CONSUMER`: consumer role for the user.</li><ul/>
 
 
 ## RevokePermission {#RevokePermission}
@@ -329,7 +353,7 @@ Revokes permission from the specified Kafka user.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[RevokeUserPermissionMetadata](#RevokeUserPermissionMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[User](../user.proto#User5)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[User](#User5)<br>
 
 ### RevokeUserPermissionRequest {#RevokeUserPermissionRequest}
 
@@ -337,10 +361,10 @@ Field | Description
 --- | ---
 cluster_id | **string**<br>Required. ID of the Apache Kafka® cluster the user belongs to. <br>To get the cluster ID, make a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
 user_name | **string**<br>Required. Name of the user to revoke a permission from. <br>To get the name of the user, make a [UserService.List](#List) request. The string length in characters must be 1-63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
-permission | **[Permission](../user.proto#Permission5)**<br>Required. Permission that should be revoked from the specified user. 
+permission | **[Permission](#Permission8)**<br>Required. Permission that should be revoked from the specified user. 
 
 
-### Permission {#Permission5}
+### Permission {#Permission8}
 
 Field | Description
 --- | ---
@@ -361,7 +385,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RevokeUserPermissionMetadata](#RevokeUserPermissionMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[User](../user.proto#User5)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[User](#User5)>**<br>if operation finished successfully. 
 
 
 ### RevokeUserPermissionMetadata {#RevokeUserPermissionMetadata}
@@ -378,6 +402,14 @@ Field | Description
 --- | ---
 name | **string**<br>Name of the Kafka user. 
 cluster_id | **string**<br>ID of the Apache Kafka® cluster the user belongs to. <br>To get the Apache Kafka® cluster ID, make a [ClusterService.List](./cluster_service#List) request. 
-permissions[] | **[Permission](../user.proto#Permission6)**<br>Set of permissions granted to this user. 
+permissions[] | **[Permission](#Permission9)**<br>Set of permissions granted to this user. 
+
+
+### Permission {#Permission9}
+
+Field | Description
+--- | ---
+topic_name | **string**<br>Name of the topic that the permission grants access to. <br>To get the topic name, make a [TopicService.List](./topic_service#List) request. 
+role | enum **AccessRole**<br>Access role type to grant to the user. <ul><li>`ACCESS_ROLE_PRODUCER`: producer role for the user.</li><li>`ACCESS_ROLE_CONSUMER`: consumer role for the user.</li><ul/>
 
 

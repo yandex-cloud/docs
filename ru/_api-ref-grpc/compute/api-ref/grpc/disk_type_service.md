@@ -17,7 +17,7 @@ editable: false
 
 Возвращает сведения об указанном типе диска. <br>Чтобы получить список доступных типов дисков, выполните запрос [List](#List).
 
-**rpc Get ([GetDiskTypeRequest](#GetDiskTypeRequest)) returns ([DiskType](../disk_type.proto#DiskType))**
+**rpc Get ([GetDiskTypeRequest](#GetDiskTypeRequest)) returns ([DiskType](#DiskType))**
 
 ### GetDiskTypeRequest {#GetDiskTypeRequest}
 
@@ -53,7 +53,7 @@ page_token | **string**<br>Токен страницы. Установите з�
 
 Поле | Описание
 --- | ---
-disk_types[] | **[DiskType](../disk_type.proto#DiskType1)**<br>Список типов дисков. 
+disk_types[] | **[DiskType](#DiskType1)**<br>Список типов дисков. 
 next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListDiskTypesRequest.page_size](#ListDiskTypesRequest), используйте `next_page_token` в качестве значения параметра [ListDiskTypesRequest.page_token](#ListDiskTypesRequest) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
 
 

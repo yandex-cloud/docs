@@ -1059,9 +1059,9 @@ components:
           $ref: '#/components/schemas/ElasticsearchDataNode_in_Elasticsearch_dataNode'
         masterNode:
           $ref: '#/components/schemas/ElasticsearchMasterNode_in_Elasticsearch_masterNode'
-    ElasticsearchConfig7_6:
+    ElasticsearchConfig7:
       description: |-
-        Elasticsearch 7.6 supported configuration options are listed here.
+        Elasticsearch 7.x supported configuration options are listed here.
 
         Detailed description for each set of options is available in [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html).
 
@@ -1092,16 +1092,16 @@ components:
             See in-depth description in [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-settings.html).
           type: integer
           format: int64
-    ElasticsearchConfigSet7_6:
-      description: Elasticsearch 7.6 data node configuration.
+    ElasticsearchConfigSet7:
+      description: Elasticsearch 7.x data node configuration.
       type: object
       properties:
         effectiveConfig:
-          $ref: '#/components/schemas/ElasticsearchConfig7_6_in_ElasticsearchConfigSet7_6_effectiveConfig'
+          $ref: '#/components/schemas/ElasticsearchConfig7_in_ElasticsearchConfigSet7_effectiveConfig'
         userConfig:
-          $ref: '#/components/schemas/ElasticsearchConfig7_6_in_ElasticsearchConfigSet7_6_userConfig'
+          $ref: '#/components/schemas/ElasticsearchConfig7_in_ElasticsearchConfigSet7_userConfig'
         defaultConfig:
-          $ref: '#/components/schemas/ElasticsearchConfig7_6_in_ElasticsearchConfigSet7_6_defaultConfig'
+          $ref: '#/components/schemas/ElasticsearchConfig7_in_ElasticsearchConfigSet7_defaultConfig'
     ElasticsearchDataNode:
       type: object
       allOf:
@@ -1114,9 +1114,9 @@ components:
         type: object
         maxProperties: 1
         properties:
-          elasticsearchConfigSet_7_6:
-            $ref: '#/components/schemas/ElasticsearchConfigSet7_6'
-            description: Elasticsearch 7.6 data node configuration.
+          elasticsearchConfigSet_7:
+            $ref: '#/components/schemas/ElasticsearchConfigSet7'
+            description: Elasticsearch 7.x data node configuration.
     ElasticsearchMasterNode:
       type: object
       properties:
@@ -1141,8 +1141,8 @@ components:
         type: object
         maxProperties: 1
         properties:
-          elasticsearchConfig_7_6:
-            $ref: '#/components/schemas/ElasticsearchConfig7_6'
+          elasticsearchConfig_7:
+            $ref: '#/components/schemas/ElasticsearchConfig7'
     ElasticsearchSpecMasterNode:
       type: object
       properties:
@@ -1737,9 +1737,9 @@ components:
         type: object
         maxProperties: 1
         properties:
-          elasticsearchConfigSet_7_6:
-            $ref: '#/components/schemas/ElasticsearchConfigSet7_6'
-            description: Elasticsearch 7.6 data node configuration.
+          elasticsearchConfigSet_7:
+            $ref: '#/components/schemas/ElasticsearchConfigSet7'
+            description: Elasticsearch 7.x data node configuration.
     ElasticsearchMasterNode_in_Elasticsearch_masterNode:
       description: Configuration and resource allocation for Elasticsearch master
         nodes.
@@ -1747,12 +1747,12 @@ components:
       properties:
         resources:
           $ref: '#/components/schemas/Resources_in_ElasticsearchMasterNode_resources'
-    ElasticsearchConfig7_6_in_ElasticsearchConfigSet7_6_effectiveConfig:
+    ElasticsearchConfig7_in_ElasticsearchConfigSet7_effectiveConfig:
       description: |-
         Required.
         Effective settings for an Elasticsearch cluster (a combination of settings defined in `userConfig` and `defaultConfig`).
 
-        Elasticsearch 7.6 supported configuration options are listed here.
+        Elasticsearch 7.x supported configuration options are listed here.
 
         Detailed description for each set of options is available in [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html).
 
@@ -1783,11 +1783,11 @@ components:
             See in-depth description in [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-settings.html).
           type: integer
           format: int64
-    ElasticsearchConfig7_6_in_ElasticsearchConfigSet7_6_userConfig:
+    ElasticsearchConfig7_in_ElasticsearchConfigSet7_userConfig:
       description: |-
         User-defined settings for an Elasticsearch cluster.
 
-        Elasticsearch 7.6 supported configuration options are listed here.
+        Elasticsearch 7.x supported configuration options are listed here.
 
         Detailed description for each set of options is available in [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html).
 
@@ -1818,11 +1818,11 @@ components:
             See in-depth description in [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-settings.html).
           type: integer
           format: int64
-    ElasticsearchConfig7_6_in_ElasticsearchConfigSet7_6_defaultConfig:
+    ElasticsearchConfig7_in_ElasticsearchConfigSet7_defaultConfig:
       description: |-
         Default settings for an Elasticsearch cluster.
 
-        Elasticsearch 7.6 supported configuration options are listed here.
+        Elasticsearch 7.x supported configuration options are listed here.
 
         Detailed description for each set of options is available in [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html).
 
@@ -1887,8 +1887,8 @@ components:
         type: object
         maxProperties: 1
         properties:
-          elasticsearchConfig_7_6:
-            $ref: '#/components/schemas/ElasticsearchConfig7_6'
+          elasticsearchConfig_7:
+            $ref: '#/components/schemas/ElasticsearchConfig7'
     ElasticsearchSpecMasterNode_in_ElasticsearchSpec_masterNode:
       description: Configuration and resource allocation for Elasticsearch master
         nodes.

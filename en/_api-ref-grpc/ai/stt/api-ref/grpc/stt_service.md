@@ -84,6 +84,33 @@ Field | Description
 chunks[] | **[SpeechRecognitionResult](#SpeechRecognitionResult)**<br> 
 
 
+### SpeechRecognitionResult {#SpeechRecognitionResult}
+
+Field | Description
+--- | ---
+alternatives[] | **[SpeechRecognitionAlternative](#SpeechRecognitionAlternative)**<br> 
+channel_tag | **int64**<br> 
+
+
+### SpeechRecognitionAlternative {#SpeechRecognitionAlternative}
+
+Field | Description
+--- | ---
+text | **string**<br> 
+confidence | **float**<br> 
+words[] | **[WordInfo](#WordInfo)**<br> 
+
+
+### WordInfo {#WordInfo}
+
+Field | Description
+--- | ---
+start_time | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br> 
+end_time | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br> 
+word | **string**<br> 
+confidence | **float**<br> 
+
+
 ## StreamingRecognize {#StreamingRecognize}
 
 
@@ -138,7 +165,7 @@ final | **bool**<br>This flag shows that the received chunk contains a part of t
 end_of_utterance | **bool**<br>This flag shows that the received chunk is the end of an utterance. 
 
 
-### SpeechRecognitionAlternative {#SpeechRecognitionAlternative}
+### SpeechRecognitionAlternative {#SpeechRecognitionAlternative1}
 
 Field | Description
 --- | ---
@@ -147,7 +174,7 @@ confidence | **float**<br>
 words[] | **[WordInfo](#WordInfo)**<br> 
 
 
-### WordInfo {#WordInfo}
+### WordInfo {#WordInfo1}
 
 Field | Description
 --- | ---

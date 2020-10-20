@@ -16,7 +16,7 @@ Set of methods to access payload of secrets.
 
 Returns payload of the given secret
 
-**rpc Get ([GetPayloadRequest](#GetPayloadRequest)) returns ([Payload](../payload.proto#Payload))**
+**rpc Get ([GetPayloadRequest](#GetPayloadRequest)) returns ([Payload](#Payload))**
 
 ### GetPayloadRequest {#GetPayloadRequest}
 
@@ -31,7 +31,7 @@ version_id | **string**<br>Optional ID of the version. Defaults to the current v
 Field | Description
 --- | ---
 version_id | **string**<br>ID of the version that the payload belongs to. 
-entries[] | **[Entry](../payload.proto#Entry)**<br>Payload entries. 
+entries[] | **[Entry](#Entry)**<br>Payload entries. 
 
 
 ### Entry {#Entry}

@@ -16,7 +16,7 @@ A set of methods for managing user accounts. Currently applicable only for [Yand
 
 Returns the specified UserAccount resource.
 
-**rpc Get ([GetUserAccountRequest](#GetUserAccountRequest)) returns ([UserAccount](../user_account.proto#UserAccount))**
+**rpc Get ([GetUserAccountRequest](#GetUserAccountRequest)) returns ([UserAccount](#UserAccount))**
 
 ### GetUserAccountRequest {#GetUserAccountRequest}
 
@@ -31,8 +31,8 @@ Field | Description
 --- | ---
 id | **string**<br>ID of the user account. 
 user_account | **oneof:** `yandex_passport_user_account` or `saml_user_account`<br>
-&nbsp;&nbsp;yandex_passport_user_account | **[YandexPassportUserAccount](../user_account.proto#YandexPassportUserAccount)**<br>A YandexPassportUserAccount resource. 
-&nbsp;&nbsp;saml_user_account | **[SamlUserAccount](../user_account.proto#SamlUserAccount)**<br>A SAML federated user. 
+&nbsp;&nbsp;yandex_passport_user_account | **[YandexPassportUserAccount](#YandexPassportUserAccount)**<br>A YandexPassportUserAccount resource. 
+&nbsp;&nbsp;saml_user_account | **[SamlUserAccount](#SamlUserAccount)**<br>A SAML federated user. 
 
 
 ### YandexPassportUserAccount {#YandexPassportUserAccount}

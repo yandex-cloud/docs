@@ -21,7 +21,7 @@ editable: false
 
 Возвращает указанную таблицу маршрутизации. <br>Чтобы получить список доступных таблиц маршрутизации, используйте запрос [List](#List).
 
-**rpc Get ([GetRouteTableRequest](#GetRouteTableRequest)) returns ([RouteTable](../route_table.proto#RouteTable))**
+**rpc Get ([GetRouteTableRequest](#GetRouteTableRequest)) returns ([RouteTable](#RouteTable))**
 
 ### GetRouteTableRequest {#GetRouteTableRequest}
 
@@ -41,7 +41,7 @@ name | **string**<br>Имя таблицы маршрутизации. Имя д
 description | **string**<br>Описание таблицы маршрутизации. Длина описания должна быть от 0 до 256 символов. 
 labels | **map<string,string>**<br>Метки ресурса в формате `` ключ:значение ``. Максимум 64 метки на ресурс. 
 network_id | **string**<br>Идентификатор облачной сети, к которой принадлежит таблица маршрутизации. 
-static_routes[] | **[StaticRoute](../route_table.proto#StaticRoute)**<br>Список статических маршрутов в таблице маршрутизации. 
+static_routes[] | **[StaticRoute](#StaticRoute)**<br>Список статических маршрутов в таблице маршрутизации. 
 
 
 ### StaticRoute {#StaticRoute}
@@ -67,14 +67,14 @@ next_hop | **oneof:** `next_hop_address`<br>
 folder_id | **string**<br>Обязательное поле. Идентификатор каталога, к которому принадлежит таблица маршрутизации. Чтобы получить идентификатор каталога, используйте запрос [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List). Максимальная длина строки в символах — 50.
 page_size | **int64**<br>Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `page_size`, сервис вернет значение [ListRouteTablesResponse.next_page_token](#ListRouteTablesResponse), которое можно использовать для получения следующей страницы. Значение по умолчанию: 100. Максимальное значение — 1000.
 page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListRouteTablesResponse.next_page_token](#ListRouteTablesResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
-filter | **string**<br><ol><li>Имя поля. В настоящее время фильтрация осуществляется только по полю [RouteTable.name](../route_table.proto#RouteTable1). </li><li>Оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений. </li><li>Значение. Значение длиной от 3 до 63 символов, совпадающее с регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.</li></ol> Максимальная длина строки в символах — 1000.
+filter | **string**<br><ol><li>Имя поля. В настоящее время фильтрация осуществляется только по полю [RouteTable.name](#RouteTable1). </li><li>Оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений. </li><li>Значение. Значение длиной от 3 до 63 символов, совпадающее с регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.</li></ol> Максимальная длина строки в символах — 1000.
 
 
 ### ListRouteTablesResponse {#ListRouteTablesResponse}
 
 Поле | Описание
 --- | ---
-route_tables[] | **[RouteTable](../route_table.proto#RouteTable1)**<br>Список таблиц маршрутизации. 
+route_tables[] | **[RouteTable](#RouteTable1)**<br>Список таблиц маршрутизации. 
 next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListRouteTablesRequest.page_size](#ListRouteTablesRequest), используйте `next_page_token` в качестве значения параметра [ListRouteTablesRequest.page_token](#ListRouteTablesRequest) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token`, для перебора страниц результатов. 
 
 
@@ -89,7 +89,7 @@ name | **string**<br>Имя таблицы маршрутизации. Имя д
 description | **string**<br>Описание таблицы маршрутизации. Длина описания должна быть от 0 до 256 символов. 
 labels | **map<string,string>**<br>Метки ресурса в формате `` ключ:значение ``. Максимум 64 метки на ресурс. 
 network_id | **string**<br>Идентификатор облачной сети, к которой принадлежит таблица маршрутизации. 
-static_routes[] | **[StaticRoute](../route_table.proto#StaticRoute1)**<br>Список статических маршрутов в таблице маршрутизации. 
+static_routes[] | **[StaticRoute](#StaticRoute1)**<br>Список статических маршрутов в таблице маршрутизации. 
 
 
 ### StaticRoute {#StaticRoute1}
@@ -110,7 +110,7 @@ next_hop | **oneof:** `next_hop_address`<br>
 
 Метаданные и результат операции:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateRouteTableMetadata](#CreateRouteTableMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[RouteTable](../route_table.proto#RouteTable2)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[RouteTable](#RouteTable2)<br>
 
 ### CreateRouteTableRequest {#CreateRouteTableRequest}
 
@@ -121,7 +121,7 @@ name | **string**<br>Имя таблицы маршрутизации. Имя д
 description | **string**<br>Описание таблицы маршрутизации. Максимальная длина строки в символах — 256.
 labels | **map<string,string>**<br>Метки ресурса в формате `` ключ:значение ``. Не более 64 на ресурс. Максимальная длина строки в символах для каждого значения — 63. Каждое значение должно соответствовать регулярному выражению ` [-_0-9a-z]* `. Длина строки в символах для каждого ключа должна быть от 1 до 63. Каждый ключ должен соответствовать регулярному выражению ` [a-z][-_0-9a-z]* `.
 network_id | **string**<br>Обязательное поле. Идентификатор облачной сети, к которой принадлежит таблица маршрутизации. Максимальная длина строки в символах — 50.
-static_routes[] | **[StaticRoute](../route_table.proto#StaticRoute2)**<br>Список статических маршрутов в таблице маршрутизации. 
+static_routes[] | **[StaticRoute](#StaticRoute2)**<br>Список статических маршрутов в таблице маршрутизации. 
 
 
 ### StaticRoute {#StaticRoute2}
@@ -147,7 +147,7 @@ done | **bool**<br>Если значение равно `false` — операц
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateRouteTableMetadata](#CreateRouteTableMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
 result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RouteTable](../route_table.proto#RouteTable2)>**<br>в случае успешного выполнения операции. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RouteTable](#RouteTable2)>**<br>в случае успешного выполнения операции. 
 
 
 ### CreateRouteTableMetadata {#CreateRouteTableMetadata}
@@ -168,7 +168,17 @@ name | **string**<br>Имя таблицы маршрутизации. Имя д
 description | **string**<br>Описание таблицы маршрутизации. Длина описания должна быть от 0 до 256 символов. 
 labels | **map<string,string>**<br>Метки ресурса в формате `` ключ:значение ``. Максимум 64 метки на ресурс. 
 network_id | **string**<br>Идентификатор облачной сети, к которой принадлежит таблица маршрутизации. 
-static_routes[] | **[StaticRoute](../route_table.proto#StaticRoute3)**<br>Список статических маршрутов в таблице маршрутизации. 
+static_routes[] | **[StaticRoute](#StaticRoute3)**<br>Список статических маршрутов в таблице маршрутизации. 
+
+
+### StaticRoute {#StaticRoute3}
+
+Поле | Описание
+--- | ---
+destination | **oneof:** `destination_prefix`<br>
+&nbsp;&nbsp;destination_prefix | **string**<br>Подсеть назначения в нотации CIDR. 
+next_hop | **oneof:** `next_hop_address`<br>
+&nbsp;&nbsp;next_hop_address | **string**<br>IP-адрес next hop. 
 
 
 ## Update {#Update}
@@ -179,7 +189,7 @@ static_routes[] | **[StaticRoute](../route_table.proto#StaticRoute3)**<br>Спи
 
 Метаданные и результат операции:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateRouteTableMetadata](#UpdateRouteTableMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[RouteTable](../route_table.proto#RouteTable3)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[RouteTable](#RouteTable3)<br>
 
 ### UpdateRouteTableRequest {#UpdateRouteTableRequest}
 
@@ -190,10 +200,10 @@ update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protoc
 name | **string**<br>Имя таблицы маршрутизации. Имя должно быть уникальным в каталоге. Значение должно соответствовать регулярному выражению ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>Описание таблицы маршрутизации. Максимальная длина строки в символах — 256.
 labels | **map<string,string>**<br>Метки ресурса в формате `` ключ:значение ``. Не более 64 на ресурс. Максимальная длина строки в символах для каждого значения — 63. Каждое значение должно соответствовать регулярному выражению ` [-_0-9a-z]* `. Длина строки в символах для каждого ключа должна быть от 1 до 63. Каждый ключ должен соответствовать регулярному выражению ` [a-z][-_0-9a-z]* `.
-static_routes[] | **[StaticRoute](../route_table.proto#StaticRoute3)**<br>Список статических маршрутов. 
+static_routes[] | **[StaticRoute](#StaticRoute4)**<br>Список статических маршрутов. 
 
 
-### StaticRoute {#StaticRoute3}
+### StaticRoute {#StaticRoute4}
 
 Поле | Описание
 --- | ---
@@ -216,7 +226,7 @@ done | **bool**<br>Если значение равно `false` — операц
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateRouteTableMetadata](#UpdateRouteTableMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
 result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RouteTable](../route_table.proto#RouteTable3)>**<br>в случае успешного выполнения операции. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RouteTable](#RouteTable3)>**<br>в случае успешного выполнения операции. 
 
 
 ### UpdateRouteTableMetadata {#UpdateRouteTableMetadata}
@@ -237,7 +247,17 @@ name | **string**<br>Имя таблицы маршрутизации. Имя д
 description | **string**<br>Описание таблицы маршрутизации. Длина описания должна быть от 0 до 256 символов. 
 labels | **map<string,string>**<br>Метки ресурса в формате `` ключ:значение ``. Максимум 64 метки на ресурс. 
 network_id | **string**<br>Идентификатор облачной сети, к которой принадлежит таблица маршрутизации. 
-static_routes[] | **[StaticRoute](../route_table.proto#StaticRoute4)**<br>Список статических маршрутов в таблице маршрутизации. 
+static_routes[] | **[StaticRoute](#StaticRoute5)**<br>Список статических маршрутов в таблице маршрутизации. 
+
+
+### StaticRoute {#StaticRoute5}
+
+Поле | Описание
+--- | ---
+destination | **oneof:** `destination_prefix`<br>
+&nbsp;&nbsp;destination_prefix | **string**<br>Подсеть назначения в нотации CIDR. 
+next_hop | **oneof:** `next_hop_address`<br>
+&nbsp;&nbsp;next_hop_address | **string**<br>IP-адрес next hop. 
 
 
 ## Delete {#Delete}

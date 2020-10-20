@@ -17,7 +17,7 @@ editable: false
 
 Возвращает указанный шаблон ресурса. <br>Чтобы получить список доступных шаблонов ресурсов, выполните запрос [List](#List).
 
-**rpc Get ([GetResourcePresetRequest](#GetResourcePresetRequest)) returns ([ResourcePreset](../resource_preset.proto#ResourcePreset))**
+**rpc Get ([GetResourcePresetRequest](#GetResourcePresetRequest)) returns ([ResourcePreset](#ResourcePreset))**
 
 ### GetResourcePresetRequest {#GetResourcePresetRequest}
 
@@ -54,7 +54,7 @@ page_token | **string**<br>Токен страницы. <br>Установите
 
 Поле | Описание
 --- | ---
-resource_presets[] | **[ResourcePreset](../resource_preset.proto#ResourcePreset1)**<br>Список шаблонов ресурсов. 
+resource_presets[] | **[ResourcePreset](#ResourcePreset1)**<br>Список шаблонов ресурсов. 
 next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. <br>Если количество результатов больше чем [ListResourcePresetsRequest.page_size](#ListResourcePresetsRequest), используйте `next_page_token` в качестве значения параметра [ListResourcePresetsRequest.page_token](#ListResourcePresetsRequest) в следующем запросе. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. Максимальная длина строки в символах — 100.
 
 

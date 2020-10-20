@@ -32,7 +32,7 @@ page_size | **int64**<br>Количество метрик в одной стр�
 
 Поле | Описание
 --- | ---
-result[] | **[MetricMeta](../metric.proto#MetricMeta)**<br>Список метрик. 
+result[] | **[MetricMeta](#MetricMeta)**<br>Список метрик. 
 page | **[PageOptions](#PageOptions)**<br>Параметры пагинации. 
 
 
