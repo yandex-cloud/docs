@@ -13,6 +13,8 @@ items:
         href: operations/projects/install-dependencies.md
       - name: Запуск примеров кода в ноутбуке
         href: operations/projects/snippets.md
+      - name: Работа с контрольными точками
+        href: operations/projects/checkpoints.md
       - name: Управление вычислительными ресурсами
         href: operations/projects/control-compute-resources.md
       - name: Очистка состояния интерпретатора

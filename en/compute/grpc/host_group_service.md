@@ -23,7 +23,7 @@ A set of methods for managing groups of dedicated hosts.
 
 Returns the specified host group.
 
-**rpc Get ([GetHostGroupRequest](#GetHostGroupRequest)) returns ([HostGroup](../host_group.proto#HostGroup))**
+**rpc Get ([GetHostGroupRequest](#GetHostGroupRequest)) returns ([HostGroup](#HostGroup))**
 
 ### GetHostGroupRequest {#GetHostGroupRequest}
 
@@ -46,7 +46,7 @@ zone_id | **string**<br>Availability zone where all dedicated hosts are allocate
 status | enum **Status**<br>Status of the group. <ul><ul/>
 type_id | **string**<br>ID of host type. Resources provided by each host of the group. 
 maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events. <ul><li>`RESTART`: Restart instances on the same host after maintenance event.</li><li>`MIGRATE`: Migrate instances to another host before maintenance event.</li><ul/>
-scale_policy | **[ScalePolicy](../host_group.proto#ScalePolicy)**<br>Scale policy. Only fixed number of hosts are supported at this moment. 
+scale_policy | **[ScalePolicy](#ScalePolicy)**<br>Scale policy. Only fixed number of hosts are supported at this moment. 
 
 
 ### ScalePolicy {#ScalePolicy}
@@ -54,7 +54,7 @@ scale_policy | **[ScalePolicy](../host_group.proto#ScalePolicy)**<br>Scale polic
 Field | Description
 --- | ---
 scale_type | **oneof:** `fixed_scale`<br>
-&nbsp;&nbsp;fixed_scale | **[FixedScale](../host_group.proto#FixedScale)**<br> 
+&nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale)**<br> 
 
 
 ### FixedScale {#FixedScale}
@@ -77,14 +77,14 @@ Field | Description
 folder_id | **string**<br>Required. ID of the folder to list host groups in. To get the folder ID, use [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListHostGroupsResponse.next_page_token](#ListHostGroupsResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListHostGroupsResponse.next_page_token](#ListHostGroupsResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br>A filter expression that filters resources listed in the response. Currently you can use filtering only on the [HostGroup.name](../host_group.proto#HostGroup1) field. The maximum string length in characters is 1000.
+filter | **string**<br>A filter expression that filters resources listed in the response. Currently you can use filtering only on the [HostGroup.name](#HostGroup1) field. The maximum string length in characters is 1000.
 
 
 ### ListHostGroupsResponse {#ListHostGroupsResponse}
 
 Field | Description
 --- | ---
-host_groups[] | **[HostGroup](../host_group.proto#HostGroup1)**<br>Lists host groups for the specified folder. 
+host_groups[] | **[HostGroup](#HostGroup1)**<br>Lists host groups for the specified folder. 
 next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListHostGroupsRequest.page_size](#ListHostGroupsRequest), use `next_page_token` as the value for the [ListHostGroupsRequest.page_token](#ListHostGroupsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
@@ -102,7 +102,7 @@ zone_id | **string**<br>Availability zone where all dedicated hosts are allocate
 status | enum **Status**<br>Status of the group. <ul><ul/>
 type_id | **string**<br>ID of host type. Resources provided by each host of the group. 
 maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events. <ul><li>`RESTART`: Restart instances on the same host after maintenance event.</li><li>`MIGRATE`: Migrate instances to another host before maintenance event.</li><ul/>
-scale_policy | **[ScalePolicy](../host_group.proto#ScalePolicy1)**<br>Scale policy. Only fixed number of hosts are supported at this moment. 
+scale_policy | **[ScalePolicy](#ScalePolicy1)**<br>Scale policy. Only fixed number of hosts are supported at this moment. 
 
 
 ### ScalePolicy {#ScalePolicy1}
@@ -110,7 +110,7 @@ scale_policy | **[ScalePolicy](../host_group.proto#ScalePolicy1)**<br>Scale poli
 Field | Description
 --- | ---
 scale_type | **oneof:** `fixed_scale`<br>
-&nbsp;&nbsp;fixed_scale | **[FixedScale](../host_group.proto#FixedScale1)**<br> 
+&nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale1)**<br> 
 
 
 ### FixedScale {#FixedScale1}
@@ -128,7 +128,7 @@ Creates a host group in the specified folder.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateHostGroupMetadata](#CreateHostGroupMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[HostGroup](../host_group.proto#HostGroup2)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[HostGroup](#HostGroup2)<br>
 
 ### CreateHostGroupRequest {#CreateHostGroupRequest}
 
@@ -141,7 +141,7 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more
 zone_id | **string**<br>Required. Availability zone where all dedicated hosts will be allocated. The maximum string length in characters is 50.
 type_id | **string**<br>Required. ID of host type. Resources provided by each host of the group. The maximum string length in characters is 50.
 maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events. <ul><li>`RESTART`: Restart instances on the same host after maintenance event.</li><li>`MIGRATE`: Migrate instances to another host before maintenance event.</li><ul/>
-scale_policy | **[ScalePolicy](../host_group.proto#ScalePolicy2)**<br>Scale policy. Only fixed number of hosts are supported at this moment. 
+scale_policy | **[ScalePolicy](#ScalePolicy2)**<br>Scale policy. Only fixed number of hosts are supported at this moment. 
 
 
 ### ScalePolicy {#ScalePolicy2}
@@ -149,7 +149,7 @@ scale_policy | **[ScalePolicy](../host_group.proto#ScalePolicy2)**<br>Scale poli
 Field | Description
 --- | ---
 scale_type | **oneof:** `fixed_scale`<br>
-&nbsp;&nbsp;fixed_scale | **[FixedScale](../host_group.proto#FixedScale2)**<br> 
+&nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale2)**<br> 
 
 
 ### FixedScale {#FixedScale2}
@@ -172,7 +172,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateHostGroupMetadata](#CreateHostGroupMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[HostGroup](../host_group.proto#HostGroup2)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[HostGroup](#HostGroup2)>**<br>if operation finished successfully. 
 
 
 ### CreateHostGroupMetadata {#CreateHostGroupMetadata}
@@ -196,7 +196,22 @@ zone_id | **string**<br>Availability zone where all dedicated hosts are allocate
 status | enum **Status**<br>Status of the group. <ul><ul/>
 type_id | **string**<br>ID of host type. Resources provided by each host of the group. 
 maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events. <ul><li>`RESTART`: Restart instances on the same host after maintenance event.</li><li>`MIGRATE`: Migrate instances to another host before maintenance event.</li><ul/>
-scale_policy | **[ScalePolicy](../host_group.proto#ScalePolicy3)**<br>Scale policy. Only fixed number of hosts are supported at this moment. 
+scale_policy | **[ScalePolicy](#ScalePolicy3)**<br>Scale policy. Only fixed number of hosts are supported at this moment. 
+
+
+### ScalePolicy {#ScalePolicy3}
+
+Field | Description
+--- | ---
+scale_type | **oneof:** `fixed_scale`<br>
+&nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale3)**<br> 
+
+
+### FixedScale {#FixedScale3}
+
+Field | Description
+--- | ---
+size | **int64**<br> 
 
 
 ## Update {#Update}
@@ -207,7 +222,7 @@ Updates the specified host group.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateHostGroupMetadata](#UpdateHostGroupMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[HostGroup](../host_group.proto#HostGroup3)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[HostGroup](#HostGroup3)<br>
 
 ### UpdateHostGroupRequest {#UpdateHostGroupRequest}
 
@@ -219,18 +234,18 @@ name | **string**<br>Name of the group. Value must match the regular expression 
 description | **string**<br>Description of the group. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. <br>The existing set of `labels` is completely replaced by the provided set. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events <ul><li>`RESTART`: Restart instances on the same host after maintenance event.</li><li>`MIGRATE`: Migrate instances to another host before maintenance event.</li><ul/>
-scale_policy | **[ScalePolicy](../host_group.proto#ScalePolicy3)**<br>Scale policy. Only fixed number of hosts are supported at this moment. 
+scale_policy | **[ScalePolicy](#ScalePolicy4)**<br>Scale policy. Only fixed number of hosts are supported at this moment. 
 
 
-### ScalePolicy {#ScalePolicy3}
+### ScalePolicy {#ScalePolicy4}
 
 Field | Description
 --- | ---
 scale_type | **oneof:** `fixed_scale`<br>
-&nbsp;&nbsp;fixed_scale | **[FixedScale](../host_group.proto#FixedScale3)**<br> 
+&nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale4)**<br> 
 
 
-### FixedScale {#FixedScale3}
+### FixedScale {#FixedScale4}
 
 Field | Description
 --- | ---
@@ -250,7 +265,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateHostGroupMetadata](#UpdateHostGroupMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[HostGroup](../host_group.proto#HostGroup3)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[HostGroup](#HostGroup3)>**<br>if operation finished successfully. 
 
 
 ### UpdateHostGroupMetadata {#UpdateHostGroupMetadata}
@@ -274,7 +289,22 @@ zone_id | **string**<br>Availability zone where all dedicated hosts are allocate
 status | enum **Status**<br>Status of the group. <ul><ul/>
 type_id | **string**<br>ID of host type. Resources provided by each host of the group. 
 maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events. <ul><li>`RESTART`: Restart instances on the same host after maintenance event.</li><li>`MIGRATE`: Migrate instances to another host before maintenance event.</li><ul/>
-scale_policy | **[ScalePolicy](../host_group.proto#ScalePolicy4)**<br>Scale policy. Only fixed number of hosts are supported at this moment. 
+scale_policy | **[ScalePolicy](#ScalePolicy5)**<br>Scale policy. Only fixed number of hosts are supported at this moment. 
+
+
+### ScalePolicy {#ScalePolicy5}
+
+Field | Description
+--- | ---
+scale_type | **oneof:** `fixed_scale`<br>
+&nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale5)**<br> 
+
+
+### FixedScale {#FixedScale5}
+
+Field | Description
+--- | ---
+size | **int64**<br> 
 
 
 ## Delete {#Delete}
@@ -369,14 +399,14 @@ Field | Description
 host_group_id | **string**<br>Required. ID of the host group to list instances for. To get the host group ID, use [HostGroupService.List](#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListHostGroupInstancesResponse.next_page_token](#ListHostGroupInstancesResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListHostGroupInstancesResponse.next_page_token](#ListHostGroupInstancesResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br>A filter expression that filters resources listed in the response. Currently you can use filtering only on the [Host.id](../host_group.proto#Host) field. To get the host ID, use [HostGroupService.ListHosts](#ListHosts) request. The maximum string length in characters is 1000.
+filter | **string**<br>A filter expression that filters resources listed in the response. Currently you can use filtering only on the [Host.id](#Host) field. To get the host ID, use [HostGroupService.ListHosts](#ListHosts) request. The maximum string length in characters is 1000.
 
 
 ### ListHostGroupInstancesResponse {#ListHostGroupInstancesResponse}
 
 Field | Description
 --- | ---
-instances[] | **[Instance](../instance.proto#Instance)**<br>Lists instances for the specified host group. 
+instances[] | **[Instance](#Instance)**<br>Lists instances for the specified host group. 
 next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is more than [ListHostGroupInstancesRequest.page_size](#ListHostGroupInstancesRequest), use `next_page_token` as the value for the [ListHostGroupInstancesRequest.page_token](#ListHostGroupInstancesRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
@@ -392,17 +422,17 @@ description | **string**<br>Description of the instance. 0-256 characters long.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
 zone_id | **string**<br>ID of the availability zone where the instance resides. 
 platform_id | **string**<br>ID of the hardware platform configuration for the instance. 
-resources | **[Resources](../instance.proto#Resources)**<br>Computing resources of the instance such as the amount of memory and number of cores. 
+resources | **[Resources](#Resources)**<br>Computing resources of the instance such as the amount of memory and number of cores. 
 status | enum **Status**<br>Status of the instance. <ul><li>`PROVISIONING`: Instance is waiting for resources to be allocated.</li><li>`RUNNING`: Instance is running normally.</li><li>`STOPPING`: Instance is being stopped.</li><li>`STOPPED`: Instance stopped.</li><li>`STARTING`: Instance is being started.</li><li>`RESTARTING`: Instance is being restarted.</li><li>`UPDATING`: Instance is being updated.</li><li>`ERROR`: Instance encountered a problem and cannot operate.</li><li>`CRASHED`: Instance crashed and will be restarted automatically.</li><li>`DELETING`: Instance is being deleted.</li><ul/>
 metadata | **map<string,string>**<br>The metadata `key:value` pairs assigned to this instance. This includes custom metadata and predefined keys. <br>For example, you may use the metadata in order to provide your public SSH key to the instance. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). 
-boot_disk | **[AttachedDisk](../instance.proto#AttachedDisk)**<br>Boot disk that is attached to the instance. 
-secondary_disks[] | **[AttachedDisk](../instance.proto#AttachedDisk)**<br>Array of secondary disks that are attached to the instance. 
-network_interfaces[] | **[NetworkInterface](../instance.proto#NetworkInterface)**<br>Array of network interfaces that are attached to the instance. 
+boot_disk | **[AttachedDisk](#AttachedDisk)**<br>Boot disk that is attached to the instance. 
+secondary_disks[] | **[AttachedDisk](#AttachedDisk)**<br>Array of secondary disks that are attached to the instance. 
+network_interfaces[] | **[NetworkInterface](#NetworkInterface)**<br>Array of network interfaces that are attached to the instance. 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
-scheduling_policy | **[SchedulingPolicy](../instance.proto#SchedulingPolicy)**<br>Scheduling policy configuration. 
+scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy)**<br>Scheduling policy configuration. 
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/grpc/service_account_service#List) request. 
-network_settings | **[NetworkSettings](../instance.proto#NetworkSettings)**<br>Network Settings 
-placement_policy | **[PlacementPolicy](../instance.proto#PlacementPolicy)**<br>Placement policy configuration. 
+network_settings | **[NetworkSettings](#NetworkSettings)**<br>Network Settings 
+placement_policy | **[PlacementPolicy](#PlacementPolicy)**<br>Placement policy configuration. 
 
 
 ### Resources {#Resources}
@@ -432,8 +462,8 @@ Field | Description
 index | **string**<br>The index of the network interface, generated by the server, 0,1,2... etc. Currently only one network interface is supported per instance. 
 mac_address | **string**<br>MAC address that is assigned to the network interface. 
 subnet_id | **string**<br>ID of the subnet. 
-primary_v4_address | **[PrimaryAddress](../instance.proto#PrimaryAddress)**<br>Primary IPv4 address that is assigned to the instance for this network interface. 
-primary_v6_address | **[PrimaryAddress](../instance.proto#PrimaryAddress)**<br>Primary IPv6 address that is assigned to the instance for this network interface. IPv6 not available yet. 
+primary_v4_address | **[PrimaryAddress](#PrimaryAddress)**<br>Primary IPv4 address that is assigned to the instance for this network interface. 
+primary_v6_address | **[PrimaryAddress](#PrimaryAddress)**<br>Primary IPv6 address that is assigned to the instance for this network interface. IPv6 not available yet. 
 security_group_ids[] | **string**<br>ID's of security groups attached to the interface 
 
 
@@ -442,7 +472,7 @@ security_group_ids[] | **string**<br>ID's of security groups attached to the int
 Field | Description
 --- | ---
 address | **string**<br>An IPv4 internal network address that is assigned to the instance for this network interface. 
-one_to_one_nat | **[OneToOneNat](../instance.proto#OneToOneNat)**<br>One-to-one NAT configuration. If missing, NAT has not been set up. 
+one_to_one_nat | **[OneToOneNat](#OneToOneNat)**<br>One-to-one NAT configuration. If missing, NAT has not been set up. 
 
 
 ### OneToOneNat {#OneToOneNat}
@@ -472,7 +502,7 @@ type | enum **[Type](./disk_type#undefined)**<br>Network Type <ul><li>`STANDARD`
 Field | Description
 --- | ---
 placement_group_id | **string**<br>Placement group ID. 
-host_affinity_rules[] | **[HostAffinityRule](../instance.proto#HostAffinityRule)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
+host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
 
 
 ### HostAffinityRule {#HostAffinityRule}
@@ -503,7 +533,7 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 
 Field | Description
 --- | ---
-hosts[] | **[Host](../host_group.proto#Host)**<br>Lists hosts for the specified host group. 
+hosts[] | **[Host](#Host)**<br>Lists hosts for the specified host group. 
 next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is more than [ListHostGroupHostsRequest.page_size](#ListHostGroupHostsRequest), use `next_page_token` as the value for the [ListHostGroupHostsRequest.page_token](#ListHostGroupHostsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 

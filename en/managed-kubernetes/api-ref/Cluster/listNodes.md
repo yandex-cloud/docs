@@ -88,10 +88,10 @@ nodes[] | **object**<br><p>List of nodes for the specified Kubernetes cluster.</
 nodes[].<br>status | **string**<br><p>Computed node status.</p> <p>Computed node status.</p> <ul> <li>PROVISIONING: Node instance is not yet created (e.g. in progress).</li> <li>NOT_CONNECTED: Node instance is created but not registered (e.g. is still initializing).</li> <li>NOT_READY: Node has connected but is not ready for workload (see conditions for details).</li> <li>READY: Node has connected and ready for workload.</li> <li>MISSING: Node is still registered but its instance is deleted (this is our bug).</li> </ul> 
 nodes[].<br>spec | **object**<br><p>Node specificaion.</p> <p>Node specification.</p> 
 nodes[].<br>spec.<br>resources | **object**<br><p>Node group specified resources.</p> 
-nodes[].<br>spec.<br>resources.<br>memory | **string** (int64)<br><p>Amount of memory available to the node, specified in bytes.</p> <p>The maximum value is 824633720832.</p> 
-nodes[].<br>spec.<br>resources.<br>cores | **string** (int64)<br><p>Number of cores available to the node.</p> <p>Value must be one of 0, 1, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 40, 44, 48, 52, 56, 60 or 64.</p> 
-nodes[].<br>spec.<br>resources.<br>coreFraction | **string** (int64)<br><p>Baseline level of CPU performance with the possibility to burst performance above that baseline level. This field sets baseline performance for each core.</p> <p>Value must be one of 0, 5, 20, 50 or 100.</p> 
-nodes[].<br>spec.<br>resources.<br>gpus | **string** (int64)<br><p>Number of GPUs available to the node.</p> <p>Value must be one of 0, 1, 2 or 4.</p> 
+nodes[].<br>spec.<br>resources.<br>memory | **string** (int64)<br><p>Amount of memory available to the node, specified in bytes.</p> <p>The minimum value is 0.</p> 
+nodes[].<br>spec.<br>resources.<br>cores | **string** (int64)<br><p>Number of cores available to the node.</p> <p>The minimum value is 0.</p> 
+nodes[].<br>spec.<br>resources.<br>coreFraction | **string** (int64)<br><p>Baseline level of CPU performance with the possibility to burst performance above that baseline level. This field sets baseline performance for each core.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+nodes[].<br>spec.<br>resources.<br>gpus | **string** (int64)<br><p>Number of GPUs available to the node.</p> <p>The minimum value is 0.</p> 
 nodes[].<br>spec.<br>disk | **object**<br><p>Node group specified disk.</p> 
 nodes[].<br>spec.<br>disk.<br>diskTypeId | **string**<br><p>ID of the disk type.</p> <p>Value must match the regular expression <code>\|network-ssd\|network-hdd</code>.</p> 
 nodes[].<br>spec.<br>disk.<br>diskSize | **string** (int64)<br><p>Size of the disk, specified in bytes.</p> <p>Acceptable values are 0 to 4398046511104, inclusive.</p> 

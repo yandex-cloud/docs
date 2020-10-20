@@ -22,7 +22,7 @@ editable: false
 
 Возвращает указанный ресурс Cloud. <br>Чтобы получить список доступных ресурсов Cloud, используйте запрос [List](#List).
 
-**rpc Get ([GetCloudRequest](#GetCloudRequest)) returns ([Cloud](../cloud.proto#Cloud))**
+**rpc Get ([GetCloudRequest](#GetCloudRequest)) returns ([Cloud](#Cloud))**
 
 ### GetCloudRequest {#GetCloudRequest}
 
@@ -53,14 +53,14 @@ description | **string**<br>Описание облака. Длина описа
 --- | ---
 page_size | **int64**<br>Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `page_size`, сервис вернет значение [ListCloudsResponse.next_page_token](#ListCloudsResponse), которое можно использовать для получения следующей страницы. Значение по умолчанию: 100. Максимальное значение — 1000.
 page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListCloudsResponse.next_page_token](#ListCloudsResponse) прошлого запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
-filter | **string**<br><ol><li>Имя поля. В настоящее время фильтрация осуществляется только по полю [Cloud.name](../cloud.proto#Cloud1). </li><li>Оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений. </li><li>Значение. Значение длиной от 3 до 63 символов, совпадающее с регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.</li></ol> Максимальная длина строки в символах — 1000.
+filter | **string**<br><ol><li>Имя поля. В настоящее время фильтрация осуществляется только по полю [Cloud.name](#Cloud1). </li><li>Оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений. </li><li>Значение. Значение длиной от 3 до 63 символов, совпадающее с регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.</li></ol> Максимальная длина строки в символах — 1000.
 
 
 ### ListCloudsResponse {#ListCloudsResponse}
 
 Поле | Описание
 --- | ---
-clouds[] | **[Cloud](../cloud.proto#Cloud1)**<br>Список ресурсов Cloud. 
+clouds[] | **[Cloud](#Cloud1)**<br>Список ресурсов Cloud. 
 next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListCloudsRequest.page_size](#ListCloudsRequest), используйте `next_page_token` в качестве значения параметра [ListCloudsRequest.page_token](#ListCloudsRequest) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
 
 
@@ -82,7 +82,7 @@ description | **string**<br>Описание облака. Длина описа
 
 Метаданные и результат операции:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateCloudMetadata](#UpdateCloudMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cloud](../cloud.proto#Cloud2)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cloud](#Cloud2)<br>
 
 ### UpdateCloudRequest {#UpdateCloudRequest}
 
@@ -107,7 +107,7 @@ done | **bool**<br>Если значение равно `false` — операц
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateCloudMetadata](#UpdateCloudMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
 result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cloud](../cloud.proto#Cloud2)>**<br>в случае успешного выполнения операции. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cloud](#Cloud2)>**<br>в случае успешного выполнения операции. 
 
 
 ### UpdateCloudMetadata {#UpdateCloudMetadata}

@@ -35,7 +35,7 @@ A set of methods for managing PostgreSQL Cluster resources.
 
 Returns the specified PostgreSQL Cluster resource. <br>To get the list of available PostgreSQL Cluster resources, make a [List](#List) request.
 
-**rpc Get ([GetClusterRequest](#GetClusterRequest)) returns ([Cluster](../cluster.proto#Cluster))**
+**rpc Get ([GetClusterRequest](#GetClusterRequest)) returns ([Cluster](#Cluster))**
 
 ### GetClusterRequest {#GetClusterRequest}
 
@@ -55,13 +55,13 @@ name | **string**<br>Name of the PostgreSQL cluster. The name is unique within t
 description | **string**<br>Description of the PostgreSQL cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the PostgreSQL cluster as `` key:value `` pairs. Maximum 64 per resource. 
 environment | enum **Environment**<br>Deployment environment of the PostgreSQL cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
-monitoring[] | **[Monitoring](../cluster.proto#Monitoring)**<br>Description of monitoring systems relevant to the PostgreSQL cluster. 
-config | **[ClusterConfig](../cluster.proto#ClusterConfig)**<br>Configuration of the PostgreSQL cluster. 
+monitoring[] | **[Monitoring](#Monitoring)**<br>Description of monitoring systems relevant to the PostgreSQL cluster. 
+config | **[ClusterConfig](#ClusterConfig)**<br>Configuration of the PostgreSQL cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](../cluster.proto#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](../cluster.proto#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](../cluster.proto#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](../cluster.proto#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
-maintenance_window | **[MaintenanceWindow](../maintenance.proto#MaintenanceWindow)**<br>Window of maintenance operations. 
-planned_operation | **[MaintenanceOperation](../maintenance.proto#MaintenanceOperation)**<br>Maintenance operation planned at nearest maintenance_window. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow)**<br>Window of maintenance operations. 
+planned_operation | **[MaintenanceOperation](#MaintenanceOperation)**<br>Maintenance operation planned at nearest maintenance_window. 
 
 
 ### Monitoring {#Monitoring}
@@ -86,12 +86,12 @@ postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c
 &nbsp;&nbsp;postgresql_config_11_1c | **[config.PostgresqlConfigSet11_1C](./config/host10#PostgresqlConfigSet11_1C)**<br>Configuration of a PostgreSQL 11 1C server. 
 &nbsp;&nbsp;postgresql_config_12 | **[PostgresqlConfigSet12](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql12.proto)**<br>Configuration of a PostgreSQL 12 server. 
 &nbsp;&nbsp;postgresql_config_12_1c | **[config.PostgresqlConfigSet12_1C](./config/host10#PostgresqlConfigSet12_1C)**<br>Configuration of a PostgreSQL 12 1C server. 
-pooler_config | **[ConnectionPoolerConfig](../cluster.proto#ConnectionPoolerConfig)**<br>Configuration of the connection pooler. 
-resources | **[Resources](../cluster.proto#Resources)**<br>Resources allocated to PostgreSQL hosts. 
+pooler_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig)**<br>Configuration of the connection pooler. 
+resources | **[Resources](#Resources)**<br>Resources allocated to PostgreSQL hosts. 
 autofailover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Configuration setting which enables/disables autofailover in cluster. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
-access | **[Access](../cluster.proto#Access)**<br>Access policy to DB 
-performance_diagnostics | **[PerformanceDiagnostics](../cluster.proto#PerformanceDiagnostics)**<br>Configuration of the performance diagnostics service. 
+access | **[Access](#Access)**<br>Access policy to DB 
+performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics)**<br>Configuration of the performance diagnostics service. 
 
 
 ### ConnectionPoolerConfig {#ConnectionPoolerConfig}
@@ -132,8 +132,8 @@ statements_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_st
 Field | Description
 --- | ---
 policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](../maintenance.proto#AnytimeMaintenanceWindow)**<br> 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](../maintenance.proto#WeeklyMaintenanceWindow)**<br> 
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow)**<br> 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow)**<br> 
 
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow}
@@ -169,14 +169,14 @@ Field | Description
 folder_id | **string**<br>Required. ID of the folder to list PostgreSQL clusters in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClustersResponse.next_page_token](#ListClustersResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListClustersResponse.next_page_token](#ListClustersResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently you can only use filtering with the [Cluster.name](../cluster.proto#Cluster1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Мust be 1-63 characters long and match the regular expression `^[a-zA-Z0-9_-]+$`.</li></ol> The maximum string length in characters is 1000.
+filter | **string**<br><ol><li>The field name. Currently you can only use filtering with the [Cluster.name](#Cluster1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Мust be 1-63 characters long and match the regular expression `^[a-zA-Z0-9_-]+$`.</li></ol> The maximum string length in characters is 1000.
 
 
 ### ListClustersResponse {#ListClustersResponse}
 
 Field | Description
 --- | ---
-clusters[] | **[Cluster](../cluster.proto#Cluster1)**<br>List of PostgreSQL Cluster resources. 
+clusters[] | **[Cluster](#Cluster1)**<br>List of PostgreSQL Cluster resources. 
 next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClustersRequest.page_size](#ListClustersRequest), use the `next_page_token` as the value for the [ListClustersRequest.page_token](#ListClustersRequest) parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
@@ -191,13 +191,13 @@ name | **string**<br>Name of the PostgreSQL cluster. The name is unique within t
 description | **string**<br>Description of the PostgreSQL cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the PostgreSQL cluster as `` key:value `` pairs. Maximum 64 per resource. 
 environment | enum **Environment**<br>Deployment environment of the PostgreSQL cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
-monitoring[] | **[Monitoring](../cluster.proto#Monitoring1)**<br>Description of monitoring systems relevant to the PostgreSQL cluster. 
-config | **[ClusterConfig](../cluster.proto#ClusterConfig1)**<br>Configuration of the PostgreSQL cluster. 
+monitoring[] | **[Monitoring](#Monitoring1)**<br>Description of monitoring systems relevant to the PostgreSQL cluster. 
+config | **[ClusterConfig](#ClusterConfig1)**<br>Configuration of the PostgreSQL cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](../cluster.proto#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](../cluster.proto#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](../cluster.proto#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](../cluster.proto#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
-maintenance_window | **[MaintenanceWindow](../maintenance.proto#MaintenanceWindow1)**<br>Window of maintenance operations. 
-planned_operation | **[MaintenanceOperation](../maintenance.proto#MaintenanceOperation1)**<br>Maintenance operation planned at nearest maintenance_window. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow1)**<br>Window of maintenance operations. 
+planned_operation | **[MaintenanceOperation](#MaintenanceOperation1)**<br>Maintenance operation planned at nearest maintenance_window. 
 
 
 ### Monitoring {#Monitoring1}
@@ -222,12 +222,12 @@ postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c
 &nbsp;&nbsp;postgresql_config_11_1c | **[config.PostgresqlConfigSet11_1C](./config/host10#PostgresqlConfigSet11_1C)**<br>Configuration of a PostgreSQL 11 1C server. 
 &nbsp;&nbsp;postgresql_config_12 | **[PostgresqlConfigSet12](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql12.proto)**<br>Configuration of a PostgreSQL 12 server. 
 &nbsp;&nbsp;postgresql_config_12_1c | **[config.PostgresqlConfigSet12_1C](./config/host10#PostgresqlConfigSet12_1C)**<br>Configuration of a PostgreSQL 12 1C server. 
-pooler_config | **[ConnectionPoolerConfig](../cluster.proto#ConnectionPoolerConfig1)**<br>Configuration of the connection pooler. 
-resources | **[Resources](../cluster.proto#Resources1)**<br>Resources allocated to PostgreSQL hosts. 
+pooler_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig1)**<br>Configuration of the connection pooler. 
+resources | **[Resources](#Resources1)**<br>Resources allocated to PostgreSQL hosts. 
 autofailover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Configuration setting which enables/disables autofailover in cluster. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
-access | **[Access](../cluster.proto#Access1)**<br>Access policy to DB 
-performance_diagnostics | **[PerformanceDiagnostics](../cluster.proto#PerformanceDiagnostics1)**<br>Configuration of the performance diagnostics service. 
+access | **[Access](#Access1)**<br>Access policy to DB 
+performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics1)**<br>Configuration of the performance diagnostics service. 
 
 
 ### ConnectionPoolerConfig {#ConnectionPoolerConfig1}
@@ -268,8 +268,8 @@ statements_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_st
 Field | Description
 --- | ---
 policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](../maintenance.proto#AnytimeMaintenanceWindow1)**<br> 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](../maintenance.proto#WeeklyMaintenanceWindow1)**<br> 
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow1)**<br> 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow1)**<br> 
 
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow1}
@@ -300,7 +300,7 @@ Creates a PostgreSQL cluster in the specified folder.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateClusterMetadata](#CreateClusterMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](../cluster.proto#Cluster2)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster2)<br>
 
 ### CreateClusterRequest {#CreateClusterRequest}
 
@@ -310,10 +310,10 @@ folder_id | **string**<br>Required. ID of the folder to create the PostgreSQL cl
 name | **string**<br>Required. Name of the PostgreSQL cluster. The name must be unique within the folder. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 description | **string**<br>Description of the PostgreSQL cluster. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Custom labels for the PostgreSQL cluster as `` key:value `` pairs. Maximum 64 per resource. For example, "project": "mvp" or "source": "dictionary". No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
-environment | **[Cluster.Environment](../cluster.proto#Cluster2)**<br>Required. Deployment environment of the PostgreSQL cluster. 
+environment | **[Cluster.Environment](#Cluster2)**<br>Required. Deployment environment of the PostgreSQL cluster. 
 config_spec | **[ConfigSpec](#ConfigSpec)**<br>Required. Configuration and resources for hosts that should be created for the PostgreSQL cluster. 
-database_specs[] | **[DatabaseSpec](../database.proto#DatabaseSpec)**<br>Required. Descriptions of databases to be created in the PostgreSQL cluster. 
-user_specs[] | **[UserSpec](../user.proto#UserSpec)**<br>Required. Descriptions of database users to be created in the PostgreSQL cluster. 
+database_specs[] | **[DatabaseSpec](#DatabaseSpec)**<br>Required. Descriptions of databases to be created in the PostgreSQL cluster. 
+user_specs[] | **[UserSpec](#UserSpec)**<br>Required. Descriptions of database users to be created in the PostgreSQL cluster. 
 host_specs[] | **[HostSpec](#HostSpec)**<br>Required. Individual configurations for hosts that should be created for the PostgreSQL cluster. 
 network_id | **string**<br>Required. ID of the network to create the cluster in. The maximum string length in characters is 50.
 
@@ -331,12 +331,12 @@ postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c
 &nbsp;&nbsp;postgresql_config_11_1c | **[config.PostgresqlConfig11_1C](./config/host10#PostgresqlConfig11_1C)**<br>Configuration for a PostgreSQL 11 1C cluster. 
 &nbsp;&nbsp;postgresql_config_12 | **[PostgresqlConfig12](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql12.proto)**<br>Configuration for a PostgreSQL 12 cluster. 
 &nbsp;&nbsp;postgresql_config_12_1c | **[config.PostgresqlConfig12_1C](./config/host10#PostgresqlConfig12_1C)**<br>Configuration for a PostgreSQL 12 1C cluster. 
-pooler_config | **[ConnectionPoolerConfig](../cluster.proto#ConnectionPoolerConfig2)**<br>Configuration of the connection pooler. 
-resources | **[Resources](../cluster.proto#Resources2)**<br>Resources allocated to PostgreSQL hosts. 
+pooler_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig2)**<br>Configuration of the connection pooler. 
+resources | **[Resources](#Resources2)**<br>Resources allocated to PostgreSQL hosts. 
 autofailover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Configuration setting which enables/disables autofailover in cluster. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
-access | **[Access](../cluster.proto#Access2)**<br>Access policy to DB 
-performance_diagnostics | **[PerformanceDiagnostics](../cluster.proto#PerformanceDiagnostics2)**<br>Configuration of the performance diagnostics service. 
+access | **[Access](#Access2)**<br>Access policy to DB 
+performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics2)**<br>Configuration of the performance diagnostics service. 
 
 
 ### ConnectionPoolerConfig {#ConnectionPoolerConfig2}
@@ -380,7 +380,7 @@ name | **string**<br>Required. Name of the PostgreSQL database. 1-63 characters 
 owner | **string**<br>Required. Name of the user to be assigned as the owner of the database. To get the list of available PostgreSQL users, make a [UserService.List](./user_service#List) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
 lc_collate | **string**<br>POSIX locale for string sorting order. Can only be set at creation time. Value must match the regular expression ` |[a-zA-Z_]+.UTF-8|C `.
 lc_ctype | **string**<br>POSIX locale for character classification. Can only be set at creation time. Value must match the regular expression ` |[a-zA-Z_]+.UTF-8|C `.
-extensions[] | **[Extension](../database.proto#Extension)**<br>PostgreSQL extensions to be enabled for the database. 
+extensions[] | **[Extension](#Extension)**<br>PostgreSQL extensions to be enabled for the database. 
 
 
 ### Extension {#Extension}
@@ -397,9 +397,9 @@ Field | Description
 --- | ---
 name | **string**<br>Required. Name of the PostgreSQL user. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
 password | **string**<br>Required. Password of the PostgreSQL user. The string length in characters must be 8-128.
-permissions[] | **[Permission](../user.proto#Permission)**<br>Set of permissions to grant to the user to access specific databases. 
-conn_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of database connections that should be available to the user. <br>When used in session pooling, this setting limits the number of connections to every single host in PostgreSQL cluster. In this case, the setting's value must be greater than the total number of connections that backend services can open to access the PostgreSQL cluster. The setting's value should not exceed the value of the [Cluster.config.postgresql_config_12.effective_config.max_connections](../cluster.proto#Cluster2) setting. <br>When used in transaction pooling, this setting limits the number of user's active transactions; therefore, in this mode user can open thousands of connections, but only `N` concurrent connections will be opened, where `N` is the value of the setting. <br>Minimum value: `10` (default: `50`), when used in session pooling. The minimum value is 10.
-settings | **[UserSettings](../user.proto#UserSettings)**<br>PostgreSQL settings for the user. 
+permissions[] | **[Permission](#Permission)**<br>Set of permissions to grant to the user to access specific databases. 
+conn_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of database connections that should be available to the user. <br>When used in session pooling, this setting limits the number of connections to every single host in PostgreSQL cluster. In this case, the setting's value must be greater than the total number of connections that backend services can open to access the PostgreSQL cluster. The setting's value should not exceed the value of the [Cluster.config.postgresql_config_12.effective_config.max_connections](#Cluster2) setting. <br>When used in transaction pooling, this setting limits the number of user's active transactions; therefore, in this mode user can open thousands of connections, but only `N` concurrent connections will be opened, where `N` is the value of the setting. <br>Minimum value: `10` (default: `50`), when used in session pooling. The minimum value is 10.
+settings | **[UserSettings](#UserSettings)**<br>PostgreSQL settings for the user. 
 login | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>This flag defines whether the user can login to a PostgreSQL database. <br>Default value: `true` (login is allowed). 
 grants[] | **string**<br>Roles and privileges that are granted to the user (`GRANT <role> TO <user>`). <br>For more information, see [the documentation](/docs/managed-postgresql/operations/grant). The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-zA-Z0-9_]* `.
 
@@ -428,9 +428,9 @@ log_statement | enum **LogStatement**<br>This setting specifies which SQL statem
 Field | Description
 --- | ---
 zone_id | **string**<br>ID of the availability zone where the host resides. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/grpc/zone_service#List) request. The maximum string length in characters is 50.
-subnet_id | **string**<br>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The ID of the network is set in the field [Cluster.network_id](../cluster.proto#Cluster2). The maximum string length in characters is 50.
+subnet_id | **string**<br>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The ID of the network is set in the field [Cluster.network_id](#Cluster2). The maximum string length in characters is 50.
 assign_public_ip | **bool**<br><ul><li>false — don't assign a public IP to the host. </li><li>true — the host should have a public IP address.</li></ul> 
-replication_source | **string**<br>[Host.name](../cluster.proto#Host) of the host to be used as the replication source (for cascading replication). 
+replication_source | **string**<br>[Host.name](#Host) of the host to be used as the replication source (for cascading replication). 
 priority | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Priority of the host as a replica. A higher value corresponds to higher priority. <br>The host with the highest priority is the synchronous replica. All others are asynchronous. The synchronous replica replaces the master when needed. <br>When a replica becomes the master, its priority is ignored. 
 config_spec | **[ConfigHostSpec](#ConfigHostSpec)**<br>Configuration of a PostgreSQL server for the host. 
 
@@ -462,7 +462,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateClusterMetadata](#CreateClusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](../cluster.proto#Cluster2)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster2)>**<br>if operation finished successfully. 
 
 
 ### CreateClusterMetadata {#CreateClusterMetadata}
@@ -483,57 +483,43 @@ name | **string**<br>Name of the PostgreSQL cluster. The name is unique within t
 description | **string**<br>Description of the PostgreSQL cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the PostgreSQL cluster as `` key:value `` pairs. Maximum 64 per resource. 
 environment | enum **Environment**<br>Deployment environment of the PostgreSQL cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
-monitoring[] | **[Monitoring](../cluster.proto#Monitoring2)**<br>Description of monitoring systems relevant to the PostgreSQL cluster. 
-config | **[ClusterConfig](../cluster.proto#ClusterConfig2)**<br>Configuration of the PostgreSQL cluster. 
+monitoring[] | **[Monitoring](#Monitoring2)**<br>Description of monitoring systems relevant to the PostgreSQL cluster. 
+config | **[ClusterConfig](#ClusterConfig2)**<br>Configuration of the PostgreSQL cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](../cluster.proto#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](../cluster.proto#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](../cluster.proto#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](../cluster.proto#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
-maintenance_window | **[MaintenanceWindow](../maintenance.proto#MaintenanceWindow2)**<br>Window of maintenance operations. 
-planned_operation | **[MaintenanceOperation](../maintenance.proto#MaintenanceOperation2)**<br>Maintenance operation planned at nearest maintenance_window. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow2)**<br>Window of maintenance operations. 
+planned_operation | **[MaintenanceOperation](#MaintenanceOperation2)**<br>Maintenance operation planned at nearest maintenance_window. 
 
 
-## Update {#Update}
-
-Updates the specified PostgreSQL cluster.
-
-**rpc Update ([UpdateClusterRequest](#UpdateClusterRequest)) returns ([operation.Operation](#Operation1))**
-
-Metadata and response of Operation:<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateClusterMetadata](#UpdateClusterMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](../cluster.proto#Cluster3)<br>
-
-### UpdateClusterRequest {#UpdateClusterRequest}
+### Monitoring {#Monitoring2}
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the PostgreSQL Cluster resource to update. To get the PostgreSQL cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
-update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the PostgreSQL Cluster resource should be updated. 
-description | **string**<br>New description of the PostgreSQL cluster. The maximum string length in characters is 256.
-labels | **map<string,string>**<br>Custom labels for the PostgreSQL cluster as `` key:value `` pairs. Maximum 64 per resource. For example, "project": "mvp" or "source": "dictionary". <br>The new set of labels will completely replace the old ones. To add a label, request the current set with the [ClusterService.Get](#Get) method, then send an [ClusterService.Update](#Update) request with the new label added to the set. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
-config_spec | **[ConfigSpec](#ConfigSpec)**<br>New configuration and resources for hosts in the cluster. 
-name | **string**<br>New name for the cluster. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
-maintenance_window | **[MaintenanceWindow](../maintenance.proto#MaintenanceWindow2)**<br>Window of maintenance operations. 
+name | **string**<br>Name of the monitoring system. 
+description | **string**<br>Description of the monitoring system. 
+link | **string**<br>Link to the monitoring system charts for the PostgreSQL cluster. 
 
 
-### ConfigSpec {#ConfigSpec1}
+### ClusterConfig {#ClusterConfig2}
 
 Field | Description
 --- | ---
-version | **string**<br>Version of PostgreSQL used in the cluster. Possible values: `9.6`, `10`, `10_1c`, `11`, `12`. 
-postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12` or `postgresql_config_12_1c`<br>Configuration of a PostgreSQL cluster.
-&nbsp;&nbsp;postgresql_config_9_6 | **[PostgresqlConfig9_6](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql9_6.proto)**<br>Configuration for a PostgreSQL 9.6 cluster. 
-&nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlConfig10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10_1c.proto)**<br>Configuration for a PostgreSQL 10 1C cluster. 
-&nbsp;&nbsp;postgresql_config_10 | **[PostgresqlConfig10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10.proto)**<br>Configuration for a PostgreSQL 10 cluster. 
-&nbsp;&nbsp;postgresql_config_11 | **[PostgresqlConfig11](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql11.proto)**<br>Configuration for a PostgreSQL 11 cluster. 
-&nbsp;&nbsp;postgresql_config_11_1c | **[config.PostgresqlConfig11_1C](./config/host10#PostgresqlConfig11_1C)**<br>Configuration for a PostgreSQL 11 1C cluster. 
-&nbsp;&nbsp;postgresql_config_12 | **[PostgresqlConfig12](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql12.proto)**<br>Configuration for a PostgreSQL 12 cluster. 
-&nbsp;&nbsp;postgresql_config_12_1c | **[config.PostgresqlConfig12_1C](./config/host10#PostgresqlConfig12_1C)**<br>Configuration for a PostgreSQL 12 1C cluster. 
-pooler_config | **[ConnectionPoolerConfig](../cluster.proto#ConnectionPoolerConfig3)**<br>Configuration of the connection pooler. 
-resources | **[Resources](../cluster.proto#Resources3)**<br>Resources allocated to PostgreSQL hosts. 
+version | **string**<br>Version of PostgreSQL server software. 
+postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12` or `postgresql_config_12_1c`<br>Configuration for PostgreSQL servers in the cluster.
+&nbsp;&nbsp;postgresql_config_9_6 | **[PostgresqlConfigSet9_6](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql9_6.proto)**<br>Configuration of a PostgreSQL 9.6 server. 
+&nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlConfigSet10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10_1c.proto)**<br>Configuration of a PostgreSQL 10 1C server. 
+&nbsp;&nbsp;postgresql_config_10 | **[PostgresqlConfigSet10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10.proto)**<br>Configuration of a PostgreSQL 10 server. 
+&nbsp;&nbsp;postgresql_config_11 | **[PostgresqlConfigSet11](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql11.proto)**<br>Configuration of a PostgreSQL 11 server. 
+&nbsp;&nbsp;postgresql_config_11_1c | **[config.PostgresqlConfigSet11_1C](./config/host10#PostgresqlConfigSet11_1C)**<br>Configuration of a PostgreSQL 11 1C server. 
+&nbsp;&nbsp;postgresql_config_12 | **[PostgresqlConfigSet12](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql12.proto)**<br>Configuration of a PostgreSQL 12 server. 
+&nbsp;&nbsp;postgresql_config_12_1c | **[config.PostgresqlConfigSet12_1C](./config/host10#PostgresqlConfigSet12_1C)**<br>Configuration of a PostgreSQL 12 1C server. 
+pooler_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig3)**<br>Configuration of the connection pooler. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to PostgreSQL hosts. 
 autofailover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Configuration setting which enables/disables autofailover in cluster. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
-access | **[Access](../cluster.proto#Access3)**<br>Access policy to DB 
-performance_diagnostics | **[PerformanceDiagnostics](../cluster.proto#PerformanceDiagnostics3)**<br>Configuration of the performance diagnostics service. 
+access | **[Access](#Access3)**<br>Access policy to DB 
+performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics3)**<br>Configuration of the performance diagnostics service. 
 
 
 ### ConnectionPoolerConfig {#ConnectionPoolerConfig3}
@@ -574,8 +560,8 @@ statements_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_st
 Field | Description
 --- | ---
 policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](../maintenance.proto#AnytimeMaintenanceWindow2)**<br> 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](../maintenance.proto#WeeklyMaintenanceWindow2)**<br> 
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow2)**<br> 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow2)**<br> 
 
 
 ### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow2}
@@ -583,6 +569,112 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
 
 
 ### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow2}
+
+Field | Description
+--- | ---
+day | enum **WeekDay**<br> <ul><ul/>
+hour | **int64**<br>Hour of the day in UTC. Acceptable values are 1 to 24, inclusive.
+
+
+### MaintenanceOperation {#MaintenanceOperation2}
+
+Field | Description
+--- | ---
+info | **string**<br> The maximum string length in characters is 256.
+delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
+
+
+## Update {#Update}
+
+Updates the specified PostgreSQL cluster.
+
+**rpc Update ([UpdateClusterRequest](#UpdateClusterRequest)) returns ([operation.Operation](#Operation1))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateClusterMetadata](#UpdateClusterMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster3)<br>
+
+### UpdateClusterRequest {#UpdateClusterRequest}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>Required. ID of the PostgreSQL Cluster resource to update. To get the PostgreSQL cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the PostgreSQL Cluster resource should be updated. 
+description | **string**<br>New description of the PostgreSQL cluster. The maximum string length in characters is 256.
+labels | **map<string,string>**<br>Custom labels for the PostgreSQL cluster as `` key:value `` pairs. Maximum 64 per resource. For example, "project": "mvp" or "source": "dictionary". <br>The new set of labels will completely replace the old ones. To add a label, request the current set with the [ClusterService.Get](#Get) method, then send an [ClusterService.Update](#Update) request with the new label added to the set. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+config_spec | **[ConfigSpec](#ConfigSpec)**<br>New configuration and resources for hosts in the cluster. 
+name | **string**<br>New name for the cluster. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow3)**<br>Window of maintenance operations. 
+
+
+### ConfigSpec {#ConfigSpec1}
+
+Field | Description
+--- | ---
+version | **string**<br>Version of PostgreSQL used in the cluster. Possible values: `9.6`, `10`, `10_1c`, `11`, `12`. 
+postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12` or `postgresql_config_12_1c`<br>Configuration of a PostgreSQL cluster.
+&nbsp;&nbsp;postgresql_config_9_6 | **[PostgresqlConfig9_6](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql9_6.proto)**<br>Configuration for a PostgreSQL 9.6 cluster. 
+&nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlConfig10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10_1c.proto)**<br>Configuration for a PostgreSQL 10 1C cluster. 
+&nbsp;&nbsp;postgresql_config_10 | **[PostgresqlConfig10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10.proto)**<br>Configuration for a PostgreSQL 10 cluster. 
+&nbsp;&nbsp;postgresql_config_11 | **[PostgresqlConfig11](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql11.proto)**<br>Configuration for a PostgreSQL 11 cluster. 
+&nbsp;&nbsp;postgresql_config_11_1c | **[config.PostgresqlConfig11_1C](./config/host10#PostgresqlConfig11_1C)**<br>Configuration for a PostgreSQL 11 1C cluster. 
+&nbsp;&nbsp;postgresql_config_12 | **[PostgresqlConfig12](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql12.proto)**<br>Configuration for a PostgreSQL 12 cluster. 
+&nbsp;&nbsp;postgresql_config_12_1c | **[config.PostgresqlConfig12_1C](./config/host10#PostgresqlConfig12_1C)**<br>Configuration for a PostgreSQL 12 1C cluster. 
+pooler_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig4)**<br>Configuration of the connection pooler. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to PostgreSQL hosts. 
+autofailover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Configuration setting which enables/disables autofailover in cluster. 
+backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
+access | **[Access](#Access4)**<br>Access policy to DB 
+performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics4)**<br>Configuration of the performance diagnostics service. 
+
+
+### ConnectionPoolerConfig {#ConnectionPoolerConfig4}
+
+Field | Description
+--- | ---
+pooling_mode | enum **PoolingMode**<br>Mode that the connection pooler is working in. See descriptions of all modes in the [documentation for PgBouncer](https://pgbouncer.github.io/usage). <ul><li>`SESSION`: Session pooling mode.</li><li>`TRANSACTION`: Transaction pooling mode.</li><li>`STATEMENT`: Statement pooling mode.</li><ul/>
+pool_discard | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Setting `server_reset_query_always` parameter in PgBouncer. 
+
+
+### Resources {#Resources4}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-postgresql/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+disk_type_id | **string**<br><ul><li>network-hdd — network HDD drive, </li><li>network-ssd — network SSD drive, </li><li>local-ssd — local SSD storage.</li></ul> 
+
+
+### Access {#Access4}
+
+Field | Description
+--- | ---
+data_lens | **bool**<br>Allow access for DataLens 
+
+
+### PerformanceDiagnostics {#PerformanceDiagnostics4}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>Configuration setting which enables/disables performance diagnostics service in cluster. 
+sessions_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_activity sampling Acceptable values are 1 to 86400, inclusive.
+statements_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_statements sampling Acceptable values are 1 to 86400, inclusive.
+
+
+### MaintenanceWindow {#MaintenanceWindow3}
+
+Field | Description
+--- | ---
+policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow3)**<br> 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow3)**<br> 
+
+
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow3}
+
+
+
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow3}
 
 Field | Description
 --- | ---
@@ -603,7 +695,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateClusterMetadata](#UpdateClusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](../cluster.proto#Cluster3)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster3)>**<br>if operation finished successfully. 
 
 
 ### UpdateClusterMetadata {#UpdateClusterMetadata}
@@ -624,13 +716,105 @@ name | **string**<br>Name of the PostgreSQL cluster. The name is unique within t
 description | **string**<br>Description of the PostgreSQL cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the PostgreSQL cluster as `` key:value `` pairs. Maximum 64 per resource. 
 environment | enum **Environment**<br>Deployment environment of the PostgreSQL cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
-monitoring[] | **[Monitoring](../cluster.proto#Monitoring2)**<br>Description of monitoring systems relevant to the PostgreSQL cluster. 
-config | **[ClusterConfig](../cluster.proto#ClusterConfig2)**<br>Configuration of the PostgreSQL cluster. 
+monitoring[] | **[Monitoring](#Monitoring3)**<br>Description of monitoring systems relevant to the PostgreSQL cluster. 
+config | **[ClusterConfig](#ClusterConfig3)**<br>Configuration of the PostgreSQL cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](../cluster.proto#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](../cluster.proto#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](../cluster.proto#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](../cluster.proto#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
-maintenance_window | **[MaintenanceWindow](../maintenance.proto#MaintenanceWindow3)**<br>Window of maintenance operations. 
-planned_operation | **[MaintenanceOperation](../maintenance.proto#MaintenanceOperation2)**<br>Maintenance operation planned at nearest maintenance_window. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow4)**<br>Window of maintenance operations. 
+planned_operation | **[MaintenanceOperation](#MaintenanceOperation3)**<br>Maintenance operation planned at nearest maintenance_window. 
+
+
+### Monitoring {#Monitoring3}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the monitoring system. 
+description | **string**<br>Description of the monitoring system. 
+link | **string**<br>Link to the monitoring system charts for the PostgreSQL cluster. 
+
+
+### ClusterConfig {#ClusterConfig3}
+
+Field | Description
+--- | ---
+version | **string**<br>Version of PostgreSQL server software. 
+postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12` or `postgresql_config_12_1c`<br>Configuration for PostgreSQL servers in the cluster.
+&nbsp;&nbsp;postgresql_config_9_6 | **[PostgresqlConfigSet9_6](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql9_6.proto)**<br>Configuration of a PostgreSQL 9.6 server. 
+&nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlConfigSet10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10_1c.proto)**<br>Configuration of a PostgreSQL 10 1C server. 
+&nbsp;&nbsp;postgresql_config_10 | **[PostgresqlConfigSet10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10.proto)**<br>Configuration of a PostgreSQL 10 server. 
+&nbsp;&nbsp;postgresql_config_11 | **[PostgresqlConfigSet11](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql11.proto)**<br>Configuration of a PostgreSQL 11 server. 
+&nbsp;&nbsp;postgresql_config_11_1c | **[config.PostgresqlConfigSet11_1C](./config/host10#PostgresqlConfigSet11_1C)**<br>Configuration of a PostgreSQL 11 1C server. 
+&nbsp;&nbsp;postgresql_config_12 | **[PostgresqlConfigSet12](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql12.proto)**<br>Configuration of a PostgreSQL 12 server. 
+&nbsp;&nbsp;postgresql_config_12_1c | **[config.PostgresqlConfigSet12_1C](./config/host10#PostgresqlConfigSet12_1C)**<br>Configuration of a PostgreSQL 12 1C server. 
+pooler_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig5)**<br>Configuration of the connection pooler. 
+resources | **[Resources](#Resources5)**<br>Resources allocated to PostgreSQL hosts. 
+autofailover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Configuration setting which enables/disables autofailover in cluster. 
+backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
+access | **[Access](#Access5)**<br>Access policy to DB 
+performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics5)**<br>Configuration of the performance diagnostics service. 
+
+
+### ConnectionPoolerConfig {#ConnectionPoolerConfig5}
+
+Field | Description
+--- | ---
+pooling_mode | enum **PoolingMode**<br>Mode that the connection pooler is working in. See descriptions of all modes in the [documentation for PgBouncer](https://pgbouncer.github.io/usage). <ul><li>`SESSION`: Session pooling mode.</li><li>`TRANSACTION`: Transaction pooling mode.</li><li>`STATEMENT`: Statement pooling mode.</li><ul/>
+pool_discard | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Setting `server_reset_query_always` parameter in PgBouncer. 
+
+
+### Resources {#Resources5}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-postgresql/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+disk_type_id | **string**<br><ul><li>network-hdd — network HDD drive, </li><li>network-ssd — network SSD drive, </li><li>local-ssd — local SSD storage.</li></ul> 
+
+
+### Access {#Access5}
+
+Field | Description
+--- | ---
+data_lens | **bool**<br>Allow access for DataLens 
+
+
+### PerformanceDiagnostics {#PerformanceDiagnostics5}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>Configuration setting which enables/disables performance diagnostics service in cluster. 
+sessions_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_activity sampling Acceptable values are 1 to 86400, inclusive.
+statements_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_statements sampling Acceptable values are 1 to 86400, inclusive.
+
+
+### MaintenanceWindow {#MaintenanceWindow4}
+
+Field | Description
+--- | ---
+policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow4)**<br> 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow4)**<br> 
+
+
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow4}
+
+
+
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow4}
+
+Field | Description
+--- | ---
+day | enum **WeekDay**<br> <ul><ul/>
+hour | **int64**<br>Hour of the day in UTC. Acceptable values are 1 to 24, inclusive.
+
+
+### MaintenanceOperation {#MaintenanceOperation3}
+
+Field | Description
+--- | ---
+info | **string**<br> The maximum string length in characters is 256.
+delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
 
 
 ## Delete {#Delete}
@@ -681,7 +865,7 @@ Start the specified PostgreSQL cluster.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[StartClusterMetadata](#StartClusterMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](../cluster.proto#Cluster4)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster4)<br>
 
 ### StartClusterRequest {#StartClusterRequest}
 
@@ -703,7 +887,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[StartClusterMetadata](#StartClusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](../cluster.proto#Cluster4)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster4)>**<br>if operation finished successfully. 
 
 
 ### StartClusterMetadata {#StartClusterMetadata}
@@ -724,13 +908,105 @@ name | **string**<br>Name of the PostgreSQL cluster. The name is unique within t
 description | **string**<br>Description of the PostgreSQL cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the PostgreSQL cluster as `` key:value `` pairs. Maximum 64 per resource. 
 environment | enum **Environment**<br>Deployment environment of the PostgreSQL cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
-monitoring[] | **[Monitoring](../cluster.proto#Monitoring2)**<br>Description of monitoring systems relevant to the PostgreSQL cluster. 
-config | **[ClusterConfig](../cluster.proto#ClusterConfig2)**<br>Configuration of the PostgreSQL cluster. 
+monitoring[] | **[Monitoring](#Monitoring4)**<br>Description of monitoring systems relevant to the PostgreSQL cluster. 
+config | **[ClusterConfig](#ClusterConfig4)**<br>Configuration of the PostgreSQL cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](../cluster.proto#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](../cluster.proto#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](../cluster.proto#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](../cluster.proto#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
-maintenance_window | **[MaintenanceWindow](../maintenance.proto#MaintenanceWindow3)**<br>Window of maintenance operations. 
-planned_operation | **[MaintenanceOperation](../maintenance.proto#MaintenanceOperation2)**<br>Maintenance operation planned at nearest maintenance_window. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow5)**<br>Window of maintenance operations. 
+planned_operation | **[MaintenanceOperation](#MaintenanceOperation4)**<br>Maintenance operation planned at nearest maintenance_window. 
+
+
+### Monitoring {#Monitoring4}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the monitoring system. 
+description | **string**<br>Description of the monitoring system. 
+link | **string**<br>Link to the monitoring system charts for the PostgreSQL cluster. 
+
+
+### ClusterConfig {#ClusterConfig4}
+
+Field | Description
+--- | ---
+version | **string**<br>Version of PostgreSQL server software. 
+postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12` or `postgresql_config_12_1c`<br>Configuration for PostgreSQL servers in the cluster.
+&nbsp;&nbsp;postgresql_config_9_6 | **[PostgresqlConfigSet9_6](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql9_6.proto)**<br>Configuration of a PostgreSQL 9.6 server. 
+&nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlConfigSet10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10_1c.proto)**<br>Configuration of a PostgreSQL 10 1C server. 
+&nbsp;&nbsp;postgresql_config_10 | **[PostgresqlConfigSet10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10.proto)**<br>Configuration of a PostgreSQL 10 server. 
+&nbsp;&nbsp;postgresql_config_11 | **[PostgresqlConfigSet11](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql11.proto)**<br>Configuration of a PostgreSQL 11 server. 
+&nbsp;&nbsp;postgresql_config_11_1c | **[config.PostgresqlConfigSet11_1C](./config/host10#PostgresqlConfigSet11_1C)**<br>Configuration of a PostgreSQL 11 1C server. 
+&nbsp;&nbsp;postgresql_config_12 | **[PostgresqlConfigSet12](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql12.proto)**<br>Configuration of a PostgreSQL 12 server. 
+&nbsp;&nbsp;postgresql_config_12_1c | **[config.PostgresqlConfigSet12_1C](./config/host10#PostgresqlConfigSet12_1C)**<br>Configuration of a PostgreSQL 12 1C server. 
+pooler_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig6)**<br>Configuration of the connection pooler. 
+resources | **[Resources](#Resources6)**<br>Resources allocated to PostgreSQL hosts. 
+autofailover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Configuration setting which enables/disables autofailover in cluster. 
+backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
+access | **[Access](#Access6)**<br>Access policy to DB 
+performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics6)**<br>Configuration of the performance diagnostics service. 
+
+
+### ConnectionPoolerConfig {#ConnectionPoolerConfig6}
+
+Field | Description
+--- | ---
+pooling_mode | enum **PoolingMode**<br>Mode that the connection pooler is working in. See descriptions of all modes in the [documentation for PgBouncer](https://pgbouncer.github.io/usage). <ul><li>`SESSION`: Session pooling mode.</li><li>`TRANSACTION`: Transaction pooling mode.</li><li>`STATEMENT`: Statement pooling mode.</li><ul/>
+pool_discard | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Setting `server_reset_query_always` parameter in PgBouncer. 
+
+
+### Resources {#Resources6}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-postgresql/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+disk_type_id | **string**<br><ul><li>network-hdd — network HDD drive, </li><li>network-ssd — network SSD drive, </li><li>local-ssd — local SSD storage.</li></ul> 
+
+
+### Access {#Access6}
+
+Field | Description
+--- | ---
+data_lens | **bool**<br>Allow access for DataLens 
+
+
+### PerformanceDiagnostics {#PerformanceDiagnostics6}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>Configuration setting which enables/disables performance diagnostics service in cluster. 
+sessions_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_activity sampling Acceptable values are 1 to 86400, inclusive.
+statements_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_statements sampling Acceptable values are 1 to 86400, inclusive.
+
+
+### MaintenanceWindow {#MaintenanceWindow5}
+
+Field | Description
+--- | ---
+policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow5)**<br> 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow5)**<br> 
+
+
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow5}
+
+
+
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow5}
+
+Field | Description
+--- | ---
+day | enum **WeekDay**<br> <ul><ul/>
+hour | **int64**<br>Hour of the day in UTC. Acceptable values are 1 to 24, inclusive.
+
+
+### MaintenanceOperation {#MaintenanceOperation4}
+
+Field | Description
+--- | ---
+info | **string**<br> The maximum string length in characters is 256.
+delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
 
 
 ## Stop {#Stop}
@@ -741,7 +1017,7 @@ Stop the specified PostgreSQL cluster.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[StopClusterMetadata](#StopClusterMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](../cluster.proto#Cluster5)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster5)<br>
 
 ### StopClusterRequest {#StopClusterRequest}
 
@@ -763,7 +1039,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[StopClusterMetadata](#StopClusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](../cluster.proto#Cluster5)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster5)>**<br>if operation finished successfully. 
 
 
 ### StopClusterMetadata {#StopClusterMetadata}
@@ -784,13 +1060,105 @@ name | **string**<br>Name of the PostgreSQL cluster. The name is unique within t
 description | **string**<br>Description of the PostgreSQL cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the PostgreSQL cluster as `` key:value `` pairs. Maximum 64 per resource. 
 environment | enum **Environment**<br>Deployment environment of the PostgreSQL cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
-monitoring[] | **[Monitoring](../cluster.proto#Monitoring2)**<br>Description of monitoring systems relevant to the PostgreSQL cluster. 
-config | **[ClusterConfig](../cluster.proto#ClusterConfig2)**<br>Configuration of the PostgreSQL cluster. 
+monitoring[] | **[Monitoring](#Monitoring5)**<br>Description of monitoring systems relevant to the PostgreSQL cluster. 
+config | **[ClusterConfig](#ClusterConfig5)**<br>Configuration of the PostgreSQL cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](../cluster.proto#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](../cluster.proto#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](../cluster.proto#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](../cluster.proto#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
-maintenance_window | **[MaintenanceWindow](../maintenance.proto#MaintenanceWindow3)**<br>Window of maintenance operations. 
-planned_operation | **[MaintenanceOperation](../maintenance.proto#MaintenanceOperation2)**<br>Maintenance operation planned at nearest maintenance_window. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow6)**<br>Window of maintenance operations. 
+planned_operation | **[MaintenanceOperation](#MaintenanceOperation5)**<br>Maintenance operation planned at nearest maintenance_window. 
+
+
+### Monitoring {#Monitoring5}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the monitoring system. 
+description | **string**<br>Description of the monitoring system. 
+link | **string**<br>Link to the monitoring system charts for the PostgreSQL cluster. 
+
+
+### ClusterConfig {#ClusterConfig5}
+
+Field | Description
+--- | ---
+version | **string**<br>Version of PostgreSQL server software. 
+postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12` or `postgresql_config_12_1c`<br>Configuration for PostgreSQL servers in the cluster.
+&nbsp;&nbsp;postgresql_config_9_6 | **[PostgresqlConfigSet9_6](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql9_6.proto)**<br>Configuration of a PostgreSQL 9.6 server. 
+&nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlConfigSet10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10_1c.proto)**<br>Configuration of a PostgreSQL 10 1C server. 
+&nbsp;&nbsp;postgresql_config_10 | **[PostgresqlConfigSet10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10.proto)**<br>Configuration of a PostgreSQL 10 server. 
+&nbsp;&nbsp;postgresql_config_11 | **[PostgresqlConfigSet11](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql11.proto)**<br>Configuration of a PostgreSQL 11 server. 
+&nbsp;&nbsp;postgresql_config_11_1c | **[config.PostgresqlConfigSet11_1C](./config/host10#PostgresqlConfigSet11_1C)**<br>Configuration of a PostgreSQL 11 1C server. 
+&nbsp;&nbsp;postgresql_config_12 | **[PostgresqlConfigSet12](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql12.proto)**<br>Configuration of a PostgreSQL 12 server. 
+&nbsp;&nbsp;postgresql_config_12_1c | **[config.PostgresqlConfigSet12_1C](./config/host10#PostgresqlConfigSet12_1C)**<br>Configuration of a PostgreSQL 12 1C server. 
+pooler_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig7)**<br>Configuration of the connection pooler. 
+resources | **[Resources](#Resources7)**<br>Resources allocated to PostgreSQL hosts. 
+autofailover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Configuration setting which enables/disables autofailover in cluster. 
+backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
+access | **[Access](#Access7)**<br>Access policy to DB 
+performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics7)**<br>Configuration of the performance diagnostics service. 
+
+
+### ConnectionPoolerConfig {#ConnectionPoolerConfig7}
+
+Field | Description
+--- | ---
+pooling_mode | enum **PoolingMode**<br>Mode that the connection pooler is working in. See descriptions of all modes in the [documentation for PgBouncer](https://pgbouncer.github.io/usage). <ul><li>`SESSION`: Session pooling mode.</li><li>`TRANSACTION`: Transaction pooling mode.</li><li>`STATEMENT`: Statement pooling mode.</li><ul/>
+pool_discard | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Setting `server_reset_query_always` parameter in PgBouncer. 
+
+
+### Resources {#Resources7}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-postgresql/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+disk_type_id | **string**<br><ul><li>network-hdd — network HDD drive, </li><li>network-ssd — network SSD drive, </li><li>local-ssd — local SSD storage.</li></ul> 
+
+
+### Access {#Access7}
+
+Field | Description
+--- | ---
+data_lens | **bool**<br>Allow access for DataLens 
+
+
+### PerformanceDiagnostics {#PerformanceDiagnostics7}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>Configuration setting which enables/disables performance diagnostics service in cluster. 
+sessions_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_activity sampling Acceptable values are 1 to 86400, inclusive.
+statements_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_statements sampling Acceptable values are 1 to 86400, inclusive.
+
+
+### MaintenanceWindow {#MaintenanceWindow6}
+
+Field | Description
+--- | ---
+policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow6)**<br> 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow6)**<br> 
+
+
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow6}
+
+
+
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow6}
+
+Field | Description
+--- | ---
+day | enum **WeekDay**<br> <ul><ul/>
+hour | **int64**<br>Hour of the day in UTC. Acceptable values are 1 to 24, inclusive.
+
+
+### MaintenanceOperation {#MaintenanceOperation5}
+
+Field | Description
+--- | ---
+info | **string**<br> The maximum string length in characters is 256.
+delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
 
 
 ## Move {#Move}
@@ -801,7 +1169,7 @@ Moves the specified PostgreSQL cluster to the specified folder.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[MoveClusterMetadata](#MoveClusterMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](../cluster.proto#Cluster6)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster6)<br>
 
 ### MoveClusterRequest {#MoveClusterRequest}
 
@@ -824,7 +1192,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[MoveClusterMetadata](#MoveClusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](../cluster.proto#Cluster6)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster6)>**<br>if operation finished successfully. 
 
 
 ### MoveClusterMetadata {#MoveClusterMetadata}
@@ -847,13 +1215,105 @@ name | **string**<br>Name of the PostgreSQL cluster. The name is unique within t
 description | **string**<br>Description of the PostgreSQL cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the PostgreSQL cluster as `` key:value `` pairs. Maximum 64 per resource. 
 environment | enum **Environment**<br>Deployment environment of the PostgreSQL cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
-monitoring[] | **[Monitoring](../cluster.proto#Monitoring2)**<br>Description of monitoring systems relevant to the PostgreSQL cluster. 
-config | **[ClusterConfig](../cluster.proto#ClusterConfig2)**<br>Configuration of the PostgreSQL cluster. 
+monitoring[] | **[Monitoring](#Monitoring6)**<br>Description of monitoring systems relevant to the PostgreSQL cluster. 
+config | **[ClusterConfig](#ClusterConfig6)**<br>Configuration of the PostgreSQL cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](../cluster.proto#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](../cluster.proto#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](../cluster.proto#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](../cluster.proto#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
-maintenance_window | **[MaintenanceWindow](../maintenance.proto#MaintenanceWindow3)**<br>Window of maintenance operations. 
-planned_operation | **[MaintenanceOperation](../maintenance.proto#MaintenanceOperation2)**<br>Maintenance operation planned at nearest maintenance_window. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow7)**<br>Window of maintenance operations. 
+planned_operation | **[MaintenanceOperation](#MaintenanceOperation6)**<br>Maintenance operation planned at nearest maintenance_window. 
+
+
+### Monitoring {#Monitoring6}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the monitoring system. 
+description | **string**<br>Description of the monitoring system. 
+link | **string**<br>Link to the monitoring system charts for the PostgreSQL cluster. 
+
+
+### ClusterConfig {#ClusterConfig6}
+
+Field | Description
+--- | ---
+version | **string**<br>Version of PostgreSQL server software. 
+postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12` or `postgresql_config_12_1c`<br>Configuration for PostgreSQL servers in the cluster.
+&nbsp;&nbsp;postgresql_config_9_6 | **[PostgresqlConfigSet9_6](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql9_6.proto)**<br>Configuration of a PostgreSQL 9.6 server. 
+&nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlConfigSet10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10_1c.proto)**<br>Configuration of a PostgreSQL 10 1C server. 
+&nbsp;&nbsp;postgresql_config_10 | **[PostgresqlConfigSet10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10.proto)**<br>Configuration of a PostgreSQL 10 server. 
+&nbsp;&nbsp;postgresql_config_11 | **[PostgresqlConfigSet11](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql11.proto)**<br>Configuration of a PostgreSQL 11 server. 
+&nbsp;&nbsp;postgresql_config_11_1c | **[config.PostgresqlConfigSet11_1C](./config/host10#PostgresqlConfigSet11_1C)**<br>Configuration of a PostgreSQL 11 1C server. 
+&nbsp;&nbsp;postgresql_config_12 | **[PostgresqlConfigSet12](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql12.proto)**<br>Configuration of a PostgreSQL 12 server. 
+&nbsp;&nbsp;postgresql_config_12_1c | **[config.PostgresqlConfigSet12_1C](./config/host10#PostgresqlConfigSet12_1C)**<br>Configuration of a PostgreSQL 12 1C server. 
+pooler_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig8)**<br>Configuration of the connection pooler. 
+resources | **[Resources](#Resources8)**<br>Resources allocated to PostgreSQL hosts. 
+autofailover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Configuration setting which enables/disables autofailover in cluster. 
+backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
+access | **[Access](#Access8)**<br>Access policy to DB 
+performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics8)**<br>Configuration of the performance diagnostics service. 
+
+
+### ConnectionPoolerConfig {#ConnectionPoolerConfig8}
+
+Field | Description
+--- | ---
+pooling_mode | enum **PoolingMode**<br>Mode that the connection pooler is working in. See descriptions of all modes in the [documentation for PgBouncer](https://pgbouncer.github.io/usage). <ul><li>`SESSION`: Session pooling mode.</li><li>`TRANSACTION`: Transaction pooling mode.</li><li>`STATEMENT`: Statement pooling mode.</li><ul/>
+pool_discard | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Setting `server_reset_query_always` parameter in PgBouncer. 
+
+
+### Resources {#Resources8}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-postgresql/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+disk_type_id | **string**<br><ul><li>network-hdd — network HDD drive, </li><li>network-ssd — network SSD drive, </li><li>local-ssd — local SSD storage.</li></ul> 
+
+
+### Access {#Access8}
+
+Field | Description
+--- | ---
+data_lens | **bool**<br>Allow access for DataLens 
+
+
+### PerformanceDiagnostics {#PerformanceDiagnostics8}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>Configuration setting which enables/disables performance diagnostics service in cluster. 
+sessions_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_activity sampling Acceptable values are 1 to 86400, inclusive.
+statements_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_statements sampling Acceptable values are 1 to 86400, inclusive.
+
+
+### MaintenanceWindow {#MaintenanceWindow7}
+
+Field | Description
+--- | ---
+policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow7)**<br> 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow7)**<br> 
+
+
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow7}
+
+
+
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow7}
+
+Field | Description
+--- | ---
+day | enum **WeekDay**<br> <ul><ul/>
+hour | **int64**<br>Hour of the day in UTC. Acceptable values are 1 to 24, inclusive.
+
+
+### MaintenanceOperation {#MaintenanceOperation6}
+
+Field | Description
+--- | ---
+info | **string**<br> The maximum string length in characters is 256.
+delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
 
 
 ## Backup {#Backup}
@@ -864,7 +1324,7 @@ Creates a backup for the specified PostgreSQL cluster.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[BackupClusterMetadata](#BackupClusterMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](../cluster.proto#Cluster7)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster7)<br>
 
 ### BackupClusterRequest {#BackupClusterRequest}
 
@@ -886,7 +1346,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[BackupClusterMetadata](#BackupClusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](../cluster.proto#Cluster7)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster7)>**<br>if operation finished successfully. 
 
 
 ### BackupClusterMetadata {#BackupClusterMetadata}
@@ -907,13 +1367,105 @@ name | **string**<br>Name of the PostgreSQL cluster. The name is unique within t
 description | **string**<br>Description of the PostgreSQL cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the PostgreSQL cluster as `` key:value `` pairs. Maximum 64 per resource. 
 environment | enum **Environment**<br>Deployment environment of the PostgreSQL cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
-monitoring[] | **[Monitoring](../cluster.proto#Monitoring2)**<br>Description of monitoring systems relevant to the PostgreSQL cluster. 
-config | **[ClusterConfig](../cluster.proto#ClusterConfig2)**<br>Configuration of the PostgreSQL cluster. 
+monitoring[] | **[Monitoring](#Monitoring7)**<br>Description of monitoring systems relevant to the PostgreSQL cluster. 
+config | **[ClusterConfig](#ClusterConfig7)**<br>Configuration of the PostgreSQL cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](../cluster.proto#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](../cluster.proto#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](../cluster.proto#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](../cluster.proto#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
-maintenance_window | **[MaintenanceWindow](../maintenance.proto#MaintenanceWindow3)**<br>Window of maintenance operations. 
-planned_operation | **[MaintenanceOperation](../maintenance.proto#MaintenanceOperation2)**<br>Maintenance operation planned at nearest maintenance_window. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow8)**<br>Window of maintenance operations. 
+planned_operation | **[MaintenanceOperation](#MaintenanceOperation7)**<br>Maintenance operation planned at nearest maintenance_window. 
+
+
+### Monitoring {#Monitoring7}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the monitoring system. 
+description | **string**<br>Description of the monitoring system. 
+link | **string**<br>Link to the monitoring system charts for the PostgreSQL cluster. 
+
+
+### ClusterConfig {#ClusterConfig7}
+
+Field | Description
+--- | ---
+version | **string**<br>Version of PostgreSQL server software. 
+postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12` or `postgresql_config_12_1c`<br>Configuration for PostgreSQL servers in the cluster.
+&nbsp;&nbsp;postgresql_config_9_6 | **[PostgresqlConfigSet9_6](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql9_6.proto)**<br>Configuration of a PostgreSQL 9.6 server. 
+&nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlConfigSet10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10_1c.proto)**<br>Configuration of a PostgreSQL 10 1C server. 
+&nbsp;&nbsp;postgresql_config_10 | **[PostgresqlConfigSet10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10.proto)**<br>Configuration of a PostgreSQL 10 server. 
+&nbsp;&nbsp;postgresql_config_11 | **[PostgresqlConfigSet11](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql11.proto)**<br>Configuration of a PostgreSQL 11 server. 
+&nbsp;&nbsp;postgresql_config_11_1c | **[config.PostgresqlConfigSet11_1C](./config/host10#PostgresqlConfigSet11_1C)**<br>Configuration of a PostgreSQL 11 1C server. 
+&nbsp;&nbsp;postgresql_config_12 | **[PostgresqlConfigSet12](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql12.proto)**<br>Configuration of a PostgreSQL 12 server. 
+&nbsp;&nbsp;postgresql_config_12_1c | **[config.PostgresqlConfigSet12_1C](./config/host10#PostgresqlConfigSet12_1C)**<br>Configuration of a PostgreSQL 12 1C server. 
+pooler_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig9)**<br>Configuration of the connection pooler. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to PostgreSQL hosts. 
+autofailover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Configuration setting which enables/disables autofailover in cluster. 
+backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
+access | **[Access](#Access9)**<br>Access policy to DB 
+performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics9)**<br>Configuration of the performance diagnostics service. 
+
+
+### ConnectionPoolerConfig {#ConnectionPoolerConfig9}
+
+Field | Description
+--- | ---
+pooling_mode | enum **PoolingMode**<br>Mode that the connection pooler is working in. See descriptions of all modes in the [documentation for PgBouncer](https://pgbouncer.github.io/usage). <ul><li>`SESSION`: Session pooling mode.</li><li>`TRANSACTION`: Transaction pooling mode.</li><li>`STATEMENT`: Statement pooling mode.</li><ul/>
+pool_discard | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Setting `server_reset_query_always` parameter in PgBouncer. 
+
+
+### Resources {#Resources9}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-postgresql/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+disk_type_id | **string**<br><ul><li>network-hdd — network HDD drive, </li><li>network-ssd — network SSD drive, </li><li>local-ssd — local SSD storage.</li></ul> 
+
+
+### Access {#Access9}
+
+Field | Description
+--- | ---
+data_lens | **bool**<br>Allow access for DataLens 
+
+
+### PerformanceDiagnostics {#PerformanceDiagnostics9}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>Configuration setting which enables/disables performance diagnostics service in cluster. 
+sessions_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_activity sampling Acceptable values are 1 to 86400, inclusive.
+statements_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_statements sampling Acceptable values are 1 to 86400, inclusive.
+
+
+### MaintenanceWindow {#MaintenanceWindow8}
+
+Field | Description
+--- | ---
+policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow8)**<br> 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow8)**<br> 
+
+
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow8}
+
+
+
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow8}
+
+Field | Description
+--- | ---
+day | enum **WeekDay**<br> <ul><ul/>
+hour | **int64**<br>Hour of the day in UTC. Acceptable values are 1 to 24, inclusive.
+
+
+### MaintenanceOperation {#MaintenanceOperation7}
+
+Field | Description
+--- | ---
+info | **string**<br> The maximum string length in characters is 256.
+delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
 
 
 ## Restore {#Restore}
@@ -924,7 +1476,7 @@ Creates a new PostgreSQL cluster using the specified backup.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[RestoreClusterMetadata](#RestoreClusterMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](../cluster.proto#Cluster8)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster8)<br>
 
 ### RestoreClusterRequest {#RestoreClusterRequest}
 
@@ -936,7 +1488,7 @@ time_inclusive | **bool**<br><ul><li>false (default) — the restore point refer
 name | **string**<br>Required. Name of the new PostgreSQL cluster. The name must be unique within the folder. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 description | **string**<br>Description of the new PostgreSQL cluster. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Custom labels for the PostgreSQL cluster as `` key:value `` pairs. Maximum 64 per resource. For example, "project": "mvp" or "source": "dictionary". No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
-environment | **[Cluster.Environment](../cluster.proto#Cluster8)**<br>Deployment environment of the new PostgreSQL cluster. 
+environment | **[Cluster.Environment](#Cluster8)**<br>Deployment environment of the new PostgreSQL cluster. 
 config_spec | **[ConfigSpec](#ConfigSpec)**<br>Configuration for the PostgreSQL cluster to be created. 
 host_specs[] | **[HostSpec](#HostSpec)**<br>Configurations for PostgreSQL hosts that should be created for the cluster that is being created from the backup. The number of elements must be greater than 0.
 network_id | **string**<br>Required. ID of the network to create the PostgreSQL cluster in. The maximum string length in characters is 50.
@@ -956,15 +1508,15 @@ postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c
 &nbsp;&nbsp;postgresql_config_11_1c | **[config.PostgresqlConfig11_1C](./config/host10#PostgresqlConfig11_1C)**<br>Configuration for a PostgreSQL 11 1C cluster. 
 &nbsp;&nbsp;postgresql_config_12 | **[PostgresqlConfig12](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql12.proto)**<br>Configuration for a PostgreSQL 12 cluster. 
 &nbsp;&nbsp;postgresql_config_12_1c | **[config.PostgresqlConfig12_1C](./config/host10#PostgresqlConfig12_1C)**<br>Configuration for a PostgreSQL 12 1C cluster. 
-pooler_config | **[ConnectionPoolerConfig](../cluster.proto#ConnectionPoolerConfig4)**<br>Configuration of the connection pooler. 
-resources | **[Resources](../cluster.proto#Resources4)**<br>Resources allocated to PostgreSQL hosts. 
+pooler_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig10)**<br>Configuration of the connection pooler. 
+resources | **[Resources](#Resources10)**<br>Resources allocated to PostgreSQL hosts. 
 autofailover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Configuration setting which enables/disables autofailover in cluster. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
-access | **[Access](../cluster.proto#Access4)**<br>Access policy to DB 
-performance_diagnostics | **[PerformanceDiagnostics](../cluster.proto#PerformanceDiagnostics4)**<br>Configuration of the performance diagnostics service. 
+access | **[Access](#Access10)**<br>Access policy to DB 
+performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics10)**<br>Configuration of the performance diagnostics service. 
 
 
-### ConnectionPoolerConfig {#ConnectionPoolerConfig4}
+### ConnectionPoolerConfig {#ConnectionPoolerConfig10}
 
 Field | Description
 --- | ---
@@ -972,7 +1524,7 @@ pooling_mode | enum **PoolingMode**<br>Mode that the connection pooler is workin
 pool_discard | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Setting `server_reset_query_always` parameter in PgBouncer. 
 
 
-### Resources {#Resources4}
+### Resources {#Resources10}
 
 Field | Description
 --- | ---
@@ -981,14 +1533,14 @@ disk_size | **int64**<br>Volume of the storage available to a host, in bytes.
 disk_type_id | **string**<br><ul><li>network-hdd — network HDD drive, </li><li>network-ssd — network SSD drive, </li><li>local-ssd — local SSD storage.</li></ul> 
 
 
-### Access {#Access4}
+### Access {#Access10}
 
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
 
 
-### PerformanceDiagnostics {#PerformanceDiagnostics4}
+### PerformanceDiagnostics {#PerformanceDiagnostics10}
 
 Field | Description
 --- | ---
@@ -1002,9 +1554,9 @@ statements_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_st
 Field | Description
 --- | ---
 zone_id | **string**<br>ID of the availability zone where the host resides. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/grpc/zone_service#List) request. The maximum string length in characters is 50.
-subnet_id | **string**<br>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The ID of the network is set in the field [Cluster.network_id](../cluster.proto#Cluster8). The maximum string length in characters is 50.
+subnet_id | **string**<br>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The ID of the network is set in the field [Cluster.network_id](#Cluster8). The maximum string length in characters is 50.
 assign_public_ip | **bool**<br><ul><li>false — don't assign a public IP to the host. </li><li>true — the host should have a public IP address.</li></ul> 
-replication_source | **string**<br>[Host.name](../cluster.proto#Host) of the host to be used as the replication source (for cascading replication). 
+replication_source | **string**<br>[Host.name](#Host) of the host to be used as the replication source (for cascading replication). 
 priority | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Priority of the host as a replica. A higher value corresponds to higher priority. <br>The host with the highest priority is the synchronous replica. All others are asynchronous. The synchronous replica replaces the master when needed. <br>When a replica becomes the master, its priority is ignored. 
 config_spec | **[ConfigHostSpec](#ConfigHostSpec)**<br>Configuration of a PostgreSQL server for the host. 
 
@@ -1036,7 +1588,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RestoreClusterMetadata](#RestoreClusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](../cluster.proto#Cluster8)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster8)>**<br>if operation finished successfully. 
 
 
 ### RestoreClusterMetadata {#RestoreClusterMetadata}
@@ -1058,13 +1610,105 @@ name | **string**<br>Name of the PostgreSQL cluster. The name is unique within t
 description | **string**<br>Description of the PostgreSQL cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the PostgreSQL cluster as `` key:value `` pairs. Maximum 64 per resource. 
 environment | enum **Environment**<br>Deployment environment of the PostgreSQL cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
-monitoring[] | **[Monitoring](../cluster.proto#Monitoring2)**<br>Description of monitoring systems relevant to the PostgreSQL cluster. 
-config | **[ClusterConfig](../cluster.proto#ClusterConfig2)**<br>Configuration of the PostgreSQL cluster. 
+monitoring[] | **[Monitoring](#Monitoring8)**<br>Description of monitoring systems relevant to the PostgreSQL cluster. 
+config | **[ClusterConfig](#ClusterConfig8)**<br>Configuration of the PostgreSQL cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](../cluster.proto#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](../cluster.proto#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](../cluster.proto#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](../cluster.proto#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
-maintenance_window | **[MaintenanceWindow](../maintenance.proto#MaintenanceWindow3)**<br>Window of maintenance operations. 
-planned_operation | **[MaintenanceOperation](../maintenance.proto#MaintenanceOperation2)**<br>Maintenance operation planned at nearest maintenance_window. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow9)**<br>Window of maintenance operations. 
+planned_operation | **[MaintenanceOperation](#MaintenanceOperation8)**<br>Maintenance operation planned at nearest maintenance_window. 
+
+
+### Monitoring {#Monitoring8}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the monitoring system. 
+description | **string**<br>Description of the monitoring system. 
+link | **string**<br>Link to the monitoring system charts for the PostgreSQL cluster. 
+
+
+### ClusterConfig {#ClusterConfig8}
+
+Field | Description
+--- | ---
+version | **string**<br>Version of PostgreSQL server software. 
+postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12` or `postgresql_config_12_1c`<br>Configuration for PostgreSQL servers in the cluster.
+&nbsp;&nbsp;postgresql_config_9_6 | **[PostgresqlConfigSet9_6](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql9_6.proto)**<br>Configuration of a PostgreSQL 9.6 server. 
+&nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlConfigSet10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10_1c.proto)**<br>Configuration of a PostgreSQL 10 1C server. 
+&nbsp;&nbsp;postgresql_config_10 | **[PostgresqlConfigSet10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10.proto)**<br>Configuration of a PostgreSQL 10 server. 
+&nbsp;&nbsp;postgresql_config_11 | **[PostgresqlConfigSet11](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql11.proto)**<br>Configuration of a PostgreSQL 11 server. 
+&nbsp;&nbsp;postgresql_config_11_1c | **[config.PostgresqlConfigSet11_1C](./config/host10#PostgresqlConfigSet11_1C)**<br>Configuration of a PostgreSQL 11 1C server. 
+&nbsp;&nbsp;postgresql_config_12 | **[PostgresqlConfigSet12](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql12.proto)**<br>Configuration of a PostgreSQL 12 server. 
+&nbsp;&nbsp;postgresql_config_12_1c | **[config.PostgresqlConfigSet12_1C](./config/host10#PostgresqlConfigSet12_1C)**<br>Configuration of a PostgreSQL 12 1C server. 
+pooler_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig11)**<br>Configuration of the connection pooler. 
+resources | **[Resources](#Resources11)**<br>Resources allocated to PostgreSQL hosts. 
+autofailover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Configuration setting which enables/disables autofailover in cluster. 
+backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
+access | **[Access](#Access11)**<br>Access policy to DB 
+performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics11)**<br>Configuration of the performance diagnostics service. 
+
+
+### ConnectionPoolerConfig {#ConnectionPoolerConfig11}
+
+Field | Description
+--- | ---
+pooling_mode | enum **PoolingMode**<br>Mode that the connection pooler is working in. See descriptions of all modes in the [documentation for PgBouncer](https://pgbouncer.github.io/usage). <ul><li>`SESSION`: Session pooling mode.</li><li>`TRANSACTION`: Transaction pooling mode.</li><li>`STATEMENT`: Statement pooling mode.</li><ul/>
+pool_discard | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Setting `server_reset_query_always` parameter in PgBouncer. 
+
+
+### Resources {#Resources11}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-postgresql/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+disk_type_id | **string**<br><ul><li>network-hdd — network HDD drive, </li><li>network-ssd — network SSD drive, </li><li>local-ssd — local SSD storage.</li></ul> 
+
+
+### Access {#Access11}
+
+Field | Description
+--- | ---
+data_lens | **bool**<br>Allow access for DataLens 
+
+
+### PerformanceDiagnostics {#PerformanceDiagnostics11}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>Configuration setting which enables/disables performance diagnostics service in cluster. 
+sessions_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_activity sampling Acceptable values are 1 to 86400, inclusive.
+statements_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_statements sampling Acceptable values are 1 to 86400, inclusive.
+
+
+### MaintenanceWindow {#MaintenanceWindow9}
+
+Field | Description
+--- | ---
+policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow9)**<br> 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow9)**<br> 
+
+
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow9}
+
+
+
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow9}
+
+Field | Description
+--- | ---
+day | enum **WeekDay**<br> <ul><ul/>
+hour | **int64**<br>Hour of the day in UTC. Acceptable values are 1 to 24, inclusive.
+
+
+### MaintenanceOperation {#MaintenanceOperation8}
+
+Field | Description
+--- | ---
+info | **string**<br> The maximum string length in characters is 256.
+delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
 
 
 ## RescheduleMaintenance {#RescheduleMaintenance}
@@ -1075,7 +1719,7 @@ Reschedule planned maintenance operation.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[RescheduleMaintenanceMetadata](#RescheduleMaintenanceMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](../cluster.proto#Cluster9)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster9)<br>
 
 ### RescheduleMaintenanceRequest {#RescheduleMaintenanceRequest}
 
@@ -1099,7 +1743,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RescheduleMaintenanceMetadata](#RescheduleMaintenanceMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](../cluster.proto#Cluster9)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster9)>**<br>if operation finished successfully. 
 
 
 ### RescheduleMaintenanceMetadata {#RescheduleMaintenanceMetadata}
@@ -1121,13 +1765,105 @@ name | **string**<br>Name of the PostgreSQL cluster. The name is unique within t
 description | **string**<br>Description of the PostgreSQL cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the PostgreSQL cluster as `` key:value `` pairs. Maximum 64 per resource. 
 environment | enum **Environment**<br>Deployment environment of the PostgreSQL cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
-monitoring[] | **[Monitoring](../cluster.proto#Monitoring2)**<br>Description of monitoring systems relevant to the PostgreSQL cluster. 
-config | **[ClusterConfig](../cluster.proto#ClusterConfig2)**<br>Configuration of the PostgreSQL cluster. 
+monitoring[] | **[Monitoring](#Monitoring9)**<br>Description of monitoring systems relevant to the PostgreSQL cluster. 
+config | **[ClusterConfig](#ClusterConfig9)**<br>Configuration of the PostgreSQL cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](../cluster.proto#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](../cluster.proto#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](../cluster.proto#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](../cluster.proto#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
-maintenance_window | **[MaintenanceWindow](../maintenance.proto#MaintenanceWindow3)**<br>Window of maintenance operations. 
-planned_operation | **[MaintenanceOperation](../maintenance.proto#MaintenanceOperation2)**<br>Maintenance operation planned at nearest maintenance_window. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow10)**<br>Window of maintenance operations. 
+planned_operation | **[MaintenanceOperation](#MaintenanceOperation9)**<br>Maintenance operation planned at nearest maintenance_window. 
+
+
+### Monitoring {#Monitoring9}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the monitoring system. 
+description | **string**<br>Description of the monitoring system. 
+link | **string**<br>Link to the monitoring system charts for the PostgreSQL cluster. 
+
+
+### ClusterConfig {#ClusterConfig9}
+
+Field | Description
+--- | ---
+version | **string**<br>Version of PostgreSQL server software. 
+postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12` or `postgresql_config_12_1c`<br>Configuration for PostgreSQL servers in the cluster.
+&nbsp;&nbsp;postgresql_config_9_6 | **[PostgresqlConfigSet9_6](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql9_6.proto)**<br>Configuration of a PostgreSQL 9.6 server. 
+&nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlConfigSet10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10_1c.proto)**<br>Configuration of a PostgreSQL 10 1C server. 
+&nbsp;&nbsp;postgresql_config_10 | **[PostgresqlConfigSet10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10.proto)**<br>Configuration of a PostgreSQL 10 server. 
+&nbsp;&nbsp;postgresql_config_11 | **[PostgresqlConfigSet11](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql11.proto)**<br>Configuration of a PostgreSQL 11 server. 
+&nbsp;&nbsp;postgresql_config_11_1c | **[config.PostgresqlConfigSet11_1C](./config/host10#PostgresqlConfigSet11_1C)**<br>Configuration of a PostgreSQL 11 1C server. 
+&nbsp;&nbsp;postgresql_config_12 | **[PostgresqlConfigSet12](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql12.proto)**<br>Configuration of a PostgreSQL 12 server. 
+&nbsp;&nbsp;postgresql_config_12_1c | **[config.PostgresqlConfigSet12_1C](./config/host10#PostgresqlConfigSet12_1C)**<br>Configuration of a PostgreSQL 12 1C server. 
+pooler_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig12)**<br>Configuration of the connection pooler. 
+resources | **[Resources](#Resources12)**<br>Resources allocated to PostgreSQL hosts. 
+autofailover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Configuration setting which enables/disables autofailover in cluster. 
+backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
+access | **[Access](#Access12)**<br>Access policy to DB 
+performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics12)**<br>Configuration of the performance diagnostics service. 
+
+
+### ConnectionPoolerConfig {#ConnectionPoolerConfig12}
+
+Field | Description
+--- | ---
+pooling_mode | enum **PoolingMode**<br>Mode that the connection pooler is working in. See descriptions of all modes in the [documentation for PgBouncer](https://pgbouncer.github.io/usage). <ul><li>`SESSION`: Session pooling mode.</li><li>`TRANSACTION`: Transaction pooling mode.</li><li>`STATEMENT`: Statement pooling mode.</li><ul/>
+pool_discard | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Setting `server_reset_query_always` parameter in PgBouncer. 
+
+
+### Resources {#Resources12}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-postgresql/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+disk_type_id | **string**<br><ul><li>network-hdd — network HDD drive, </li><li>network-ssd — network SSD drive, </li><li>local-ssd — local SSD storage.</li></ul> 
+
+
+### Access {#Access12}
+
+Field | Description
+--- | ---
+data_lens | **bool**<br>Allow access for DataLens 
+
+
+### PerformanceDiagnostics {#PerformanceDiagnostics12}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>Configuration setting which enables/disables performance diagnostics service in cluster. 
+sessions_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_activity sampling Acceptable values are 1 to 86400, inclusive.
+statements_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_statements sampling Acceptable values are 1 to 86400, inclusive.
+
+
+### MaintenanceWindow {#MaintenanceWindow10}
+
+Field | Description
+--- | ---
+policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow10)**<br> 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow10)**<br> 
+
+
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow10}
+
+
+
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow10}
+
+Field | Description
+--- | ---
+day | enum **WeekDay**<br> <ul><ul/>
+hour | **int64**<br>Hour of the day in UTC. Acceptable values are 1 to 24, inclusive.
+
+
+### MaintenanceOperation {#MaintenanceOperation9}
+
+Field | Description
+--- | ---
+info | **string**<br> The maximum string length in characters is 256.
+delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
 
 
 ## StartFailover {#StartFailover}
@@ -1138,7 +1874,7 @@ Start a manual failover on the specified PostgreSQL cluster.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[StartClusterFailoverMetadata](#StartClusterFailoverMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](../cluster.proto#Cluster10)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster10)<br>
 
 ### StartClusterFailoverRequest {#StartClusterFailoverRequest}
 
@@ -1161,7 +1897,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[StartClusterFailoverMetadata](#StartClusterFailoverMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](../cluster.proto#Cluster10)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster10)>**<br>if operation finished successfully. 
 
 
 ### StartClusterFailoverMetadata {#StartClusterFailoverMetadata}
@@ -1182,13 +1918,105 @@ name | **string**<br>Name of the PostgreSQL cluster. The name is unique within t
 description | **string**<br>Description of the PostgreSQL cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the PostgreSQL cluster as `` key:value `` pairs. Maximum 64 per resource. 
 environment | enum **Environment**<br>Deployment environment of the PostgreSQL cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
-monitoring[] | **[Monitoring](../cluster.proto#Monitoring2)**<br>Description of monitoring systems relevant to the PostgreSQL cluster. 
-config | **[ClusterConfig](../cluster.proto#ClusterConfig2)**<br>Configuration of the PostgreSQL cluster. 
+monitoring[] | **[Monitoring](#Monitoring10)**<br>Description of monitoring systems relevant to the PostgreSQL cluster. 
+config | **[ClusterConfig](#ClusterConfig10)**<br>Configuration of the PostgreSQL cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](../cluster.proto#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](../cluster.proto#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](../cluster.proto#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](../cluster.proto#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
-maintenance_window | **[MaintenanceWindow](../maintenance.proto#MaintenanceWindow3)**<br>Window of maintenance operations. 
-planned_operation | **[MaintenanceOperation](../maintenance.proto#MaintenanceOperation2)**<br>Maintenance operation planned at nearest maintenance_window. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow11)**<br>Window of maintenance operations. 
+planned_operation | **[MaintenanceOperation](#MaintenanceOperation10)**<br>Maintenance operation planned at nearest maintenance_window. 
+
+
+### Monitoring {#Monitoring10}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the monitoring system. 
+description | **string**<br>Description of the monitoring system. 
+link | **string**<br>Link to the monitoring system charts for the PostgreSQL cluster. 
+
+
+### ClusterConfig {#ClusterConfig10}
+
+Field | Description
+--- | ---
+version | **string**<br>Version of PostgreSQL server software. 
+postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12` or `postgresql_config_12_1c`<br>Configuration for PostgreSQL servers in the cluster.
+&nbsp;&nbsp;postgresql_config_9_6 | **[PostgresqlConfigSet9_6](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql9_6.proto)**<br>Configuration of a PostgreSQL 9.6 server. 
+&nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlConfigSet10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10_1c.proto)**<br>Configuration of a PostgreSQL 10 1C server. 
+&nbsp;&nbsp;postgresql_config_10 | **[PostgresqlConfigSet10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10.proto)**<br>Configuration of a PostgreSQL 10 server. 
+&nbsp;&nbsp;postgresql_config_11 | **[PostgresqlConfigSet11](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql11.proto)**<br>Configuration of a PostgreSQL 11 server. 
+&nbsp;&nbsp;postgresql_config_11_1c | **[config.PostgresqlConfigSet11_1C](./config/host10#PostgresqlConfigSet11_1C)**<br>Configuration of a PostgreSQL 11 1C server. 
+&nbsp;&nbsp;postgresql_config_12 | **[PostgresqlConfigSet12](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql12.proto)**<br>Configuration of a PostgreSQL 12 server. 
+&nbsp;&nbsp;postgresql_config_12_1c | **[config.PostgresqlConfigSet12_1C](./config/host10#PostgresqlConfigSet12_1C)**<br>Configuration of a PostgreSQL 12 1C server. 
+pooler_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig13)**<br>Configuration of the connection pooler. 
+resources | **[Resources](#Resources13)**<br>Resources allocated to PostgreSQL hosts. 
+autofailover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Configuration setting which enables/disables autofailover in cluster. 
+backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
+access | **[Access](#Access13)**<br>Access policy to DB 
+performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics13)**<br>Configuration of the performance diagnostics service. 
+
+
+### ConnectionPoolerConfig {#ConnectionPoolerConfig13}
+
+Field | Description
+--- | ---
+pooling_mode | enum **PoolingMode**<br>Mode that the connection pooler is working in. See descriptions of all modes in the [documentation for PgBouncer](https://pgbouncer.github.io/usage). <ul><li>`SESSION`: Session pooling mode.</li><li>`TRANSACTION`: Transaction pooling mode.</li><li>`STATEMENT`: Statement pooling mode.</li><ul/>
+pool_discard | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Setting `server_reset_query_always` parameter in PgBouncer. 
+
+
+### Resources {#Resources13}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-postgresql/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+disk_type_id | **string**<br><ul><li>network-hdd — network HDD drive, </li><li>network-ssd — network SSD drive, </li><li>local-ssd — local SSD storage.</li></ul> 
+
+
+### Access {#Access13}
+
+Field | Description
+--- | ---
+data_lens | **bool**<br>Allow access for DataLens 
+
+
+### PerformanceDiagnostics {#PerformanceDiagnostics13}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>Configuration setting which enables/disables performance diagnostics service in cluster. 
+sessions_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_activity sampling Acceptable values are 1 to 86400, inclusive.
+statements_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_statements sampling Acceptable values are 1 to 86400, inclusive.
+
+
+### MaintenanceWindow {#MaintenanceWindow11}
+
+Field | Description
+--- | ---
+policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow11)**<br> 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow11)**<br> 
+
+
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow11}
+
+
+
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow11}
+
+Field | Description
+--- | ---
+day | enum **WeekDay**<br> <ul><ul/>
+hour | **int64**<br>Hour of the day in UTC. Acceptable values are 1 to 24, inclusive.
+
+
+### MaintenanceOperation {#MaintenanceOperation10}
+
+Field | Description
+--- | ---
+info | **string**<br> The maximum string length in characters is 256.
+delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
 
 
 ## ListLogs {#ListLogs}
@@ -1354,7 +2182,7 @@ page_token | **string**<br>Page token.  To get the next page of results, set `pa
 
 Field | Description
 --- | ---
-hosts[] | **[Host](../cluster.proto#Host)**<br>List of Host resources. 
+hosts[] | **[Host](#Host)**<br>List of Host resources. 
 next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterHostsRequest.page_size](#ListClusterHostsRequest), use the `next_page_token` as the value for the [ListClusterHostsRequest.page_token](#ListClusterHostsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
@@ -1365,19 +2193,19 @@ Field | Description
 name | **string**<br>Name of the PostgreSQL host. The host name is assigned by MDB at creation time, and cannot be changed. 1-63 characters long. <br>The name is unique across all existing MDB hosts in Yandex.Cloud, as it defines the FQDN of the host. 
 cluster_id | **string**<br>ID of the PostgreSQL host. The ID is assigned by MDB at creation time. 
 zone_id | **string**<br>ID of the availability zone where the PostgreSQL host resides. 
-resources | **[Resources](../cluster.proto#Resources5)**<br>Resources allocated to the PostgreSQL host. 
+resources | **[Resources](#Resources14)**<br>Resources allocated to the PostgreSQL host. 
 role | enum **Role**<br>Role of the host in the cluster. <ul><li>`ROLE_UNKNOWN`: Role of the host in the cluster is unknown.</li><li>`MASTER`: Host is the master PostgreSQL server in the cluster.</li><li>`REPLICA`: Host is a replica (standby) PostgreSQL server in the cluster.</li><ul/>
 health | enum **Health**<br>Status code of the aggregated health of the host. <ul><li>`HEALTH_UNKNOWN`: Health of the host is unknown.</li><li>`ALIVE`: The host is performing all its functions normally.</li><li>`DEAD`: The host is inoperable, and cannot perform any of its essential functions.</li><li>`DEGRADED`: The host is degraded, and can perform only some of its essential functions.</li><ul/>
-services[] | **[Service](../cluster.proto#Service)**<br>Services provided by the host. 
+services[] | **[Service](#Service)**<br>Services provided by the host. 
 subnet_id | **string**<br>ID of the subnet that the host belongs to. 
 replication_source | **string**<br>Name of the host to be used as the replication source for cascading replication. 
 priority | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Priority of the host as a replica. Higher value means higher priority. <br>The host with the highest priority is the synchronous replica. All others are asynchronous. The synchronous replica replaces the master when needed. <br>When a replica becomes the master, its priority is ignored. 
-config | **[HostConfig](../cluster.proto#HostConfig)**<br>Configuration of a PostgreSQL server for the host. 
+config | **[HostConfig](#HostConfig)**<br>Configuration of a PostgreSQL server for the host. 
 assign_public_ip | **bool**<br>Flag showing public IP assignment status to this host. 
 replica_type | enum **ReplicaType**<br> <ul><ul/>
 
 
-### Resources {#Resources5}
+### Resources {#Resources14}
 
 Field | Description
 --- | ---
@@ -1431,9 +2259,9 @@ host_specs[] | **[HostSpec](#HostSpec)**<br>Configurations for PostgreSQL hosts 
 Field | Description
 --- | ---
 zone_id | **string**<br>ID of the availability zone where the host resides. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/grpc/zone_service#List) request. The maximum string length in characters is 50.
-subnet_id | **string**<br>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The ID of the network is set in the field [Cluster.network_id](../cluster.proto#Cluster11). The maximum string length in characters is 50.
+subnet_id | **string**<br>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The ID of the network is set in the field [Cluster.network_id](#Cluster11). The maximum string length in characters is 50.
 assign_public_ip | **bool**<br><ul><li>false — don't assign a public IP to the host. </li><li>true — the host should have a public IP address.</li></ul> 
-replication_source | **string**<br>[Host.name](../cluster.proto#Host1) of the host to be used as the replication source (for cascading replication). 
+replication_source | **string**<br>[Host.name](#Host1) of the host to be used as the replication source (for cascading replication). 
 priority | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Priority of the host as a replica. A higher value corresponds to higher priority. <br>The host with the highest priority is the synchronous replica. All others are asynchronous. The synchronous replica replaces the master when needed. <br>When a replica becomes the master, its priority is ignored. 
 config_spec | **[ConfigHostSpec](#ConfigHostSpec)**<br>Configuration of a PostgreSQL server for the host. 
 
@@ -1541,7 +2369,7 @@ update_host_specs[] | **[UpdateHostSpec](#UpdateHostSpec)**<br>New configuration
 Field | Description
 --- | ---
 host_name | **string**<br>Required. Name of the host to update. To get the PostgreSQL host name, use a [ClusterService.ListHosts](#ListHosts) request. 
-replication_source | **string**<br>[Host.name](../cluster.proto#Host1) of the host to be used as the replication source (for cascading replication). To get the PostgreSQL host name, use a [ClusterService.ListHosts](#ListHosts) request. 
+replication_source | **string**<br>[Host.name](#Host1) of the host to be used as the replication source (for cascading replication). To get the PostgreSQL host name, use a [ClusterService.ListHosts](#ListHosts) request. 
 priority | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The host with the highest priority is the synchronous replica. All others are asynchronous. The synchronous replica replaces the master when needed. <br>When a replica becomes the master, its priority is ignored. 
 config_spec | **[ConfigHostSpec](#ConfigHostSpec)**<br>Configuration of a PostgreSQL server for the host. 
 

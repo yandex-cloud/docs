@@ -17,7 +17,7 @@ editable: false
 
 Возвращает указанный ресурс UserAccount.
 
-**rpc Get ([GetUserAccountRequest](#GetUserAccountRequest)) returns ([UserAccount](../user_account.proto#UserAccount))**
+**rpc Get ([GetUserAccountRequest](#GetUserAccountRequest)) returns ([UserAccount](#UserAccount))**
 
 ### GetUserAccountRequest {#GetUserAccountRequest}
 
@@ -32,8 +32,8 @@ user_account_id | **string**<br>Обязательное поле. Иденти�
 --- | ---
 id | **string**<br>Идентификатор аккаунта пользователя 
 user_account | **oneof:** `yandex_passport_user_account` или `saml_user_account`<br>
-&nbsp;&nbsp;yandex_passport_user_account | **[YandexPassportUserAccount](../user_account.proto#YandexPassportUserAccount)**<br>Ресурс YandexPassportUserAccount. 
-&nbsp;&nbsp;saml_user_account | **[SamlUserAccount](../user_account.proto#SamlUserAccount)**<br>Пользователь федерации. 
+&nbsp;&nbsp;yandex_passport_user_account | **[YandexPassportUserAccount](#YandexPassportUserAccount)**<br>Ресурс YandexPassportUserAccount. 
+&nbsp;&nbsp;saml_user_account | **[SamlUserAccount](#SamlUserAccount)**<br>Пользователь федерации. 
 
 
 ### YandexPassportUserAccount {#YandexPassportUserAccount}

@@ -25,7 +25,7 @@ editable: false
 
 Возвращает указанный API-шлюз. Обратите внимание, что возвращаются только базовые параметры API-шлюза. Чтобы получить соответствующую спецификацию OpenAPI, сделайте [GetOpenapiSpec](#GetOpenapiSpec) запрос. <br>Чтобы получить список всех доступных API-шлюзов, сделайте [List](#List) запрос.
 
-**rpc Get ([GetApiGatewayRequest](#GetApiGatewayRequest)) returns ([ApiGateway](../apigateway.proto#ApiGateway))**
+**rpc Get ([GetApiGatewayRequest](#GetApiGatewayRequest)) returns ([ApiGateway](#ApiGateway))**
 
 ### GetApiGatewayRequest {#GetApiGatewayRequest}
 
@@ -62,14 +62,14 @@ log_group_id | **string**<br>Идентификатор группы журна�
 folder_id | **string**<br>Обязательное поле. Идентификатор каталога для получения списка API-шлюзов. <br>Чтобы получить идентификатор каталога, используйте запрос [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List). 
 page_size | **int64**<br>Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `pageSize`, сервис вернет значение [ListApiGatewayResponse.next_page_token](#ListApiGatewayResponse), которое можно использовать для получения следующей страницы. <br>Значение по умолчанию: 100. 
 page_token | **string**<br>Токен страницы. Установите значение `pageToken` равным значению поля [ListApiGatewayResponse.next_page_token](#ListApiGatewayResponse) предыдущего запроса, чтобы получить следующую страницу результатов. 
-filter | **string**<br><ol><li>Имя поля. В настоящее время фильтрация осуществляется только по полю [ApiGateway.name](../apigateway.proto#ApiGateway1). </li><li>Условный оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений. </li><li>Значение. Значение длиной от 3 до 63 символов, совпадающее с регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. Пример фильтра: `name=my-apigw`.</li></ol> 
+filter | **string**<br><ol><li>Имя поля. В настоящее время фильтрация осуществляется только по полю [ApiGateway.name](#ApiGateway1). </li><li>Условный оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений. </li><li>Значение. Значение длиной от 3 до 63 символов, совпадающее с регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. Пример фильтра: `name=my-apigw`.</li></ol> 
 
 
 ### ListApiGatewayResponse {#ListApiGatewayResponse}
 
 Поле | Описание
 --- | ---
-api_gateways[] | **[ApiGateway](../apigateway.proto#ApiGateway1)**<br>Возвращает список API-шлюзов в указанном каталоге. 
+api_gateways[] | **[ApiGateway](#ApiGateway1)**<br>Возвращает список API-шлюзов в указанном каталоге. 
 next_page_token | **string**<br>Токен для получения следующей страницы списка. Если количество результатов больше чем [ListApiGatewayRequest.page_size](#ListApiGatewayRequest), используйте `nextPageToken` в качестве значения параметра [ListApiGatewayRequest.page_token](#ListApiGatewayRequest) в следующем запросе списка ресурсов. <br>Каждая следующая страница будет иметь свой `nextPageToken` для продолжения перебора страниц результатов. 
 
 
@@ -96,7 +96,7 @@ log_group_id | **string**<br>Идентификатор группы журна�
 
 Метаданные и результат операции:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateApiGatewayMetadata](#CreateApiGatewayMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[ApiGateway](../apigateway.proto#ApiGateway2)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[ApiGateway](#ApiGateway2)<br>
 
 ### CreateApiGatewayRequest {#CreateApiGatewayRequest}
 
@@ -123,7 +123,7 @@ done | **bool**<br>Если значение равно `false` — операц
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateApiGatewayMetadata](#CreateApiGatewayMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
 result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[ApiGateway](../apigateway.proto#ApiGateway2)>**<br>в случае успешного выполнения операции. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[ApiGateway](#ApiGateway2)>**<br>в случае успешного выполнения операции. 
 
 
 ### CreateApiGatewayMetadata {#CreateApiGatewayMetadata}
@@ -156,7 +156,7 @@ log_group_id | **string**<br>Идентификатор группы журна�
 
 Метаданные и результат операции:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateApiGatewayMetadata](#UpdateApiGatewayMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[ApiGateway](../apigateway.proto#ApiGateway3)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[ApiGateway](#ApiGateway3)<br>
 
 ### UpdateApiGatewayRequest {#UpdateApiGatewayRequest}
 
@@ -184,7 +184,7 @@ done | **bool**<br>Если значение равно `false` — операц
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateApiGatewayMetadata](#UpdateApiGatewayMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
 result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[ApiGateway](../apigateway.proto#ApiGateway3)>**<br>в случае успешного выполнения операции. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[ApiGateway](#ApiGateway3)>**<br>в случае успешного выполнения операции. 
 
 
 ### UpdateApiGatewayMetadata {#UpdateApiGatewayMetadata}

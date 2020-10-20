@@ -16,21 +16,26 @@
 
 ![image](service-roles-hierarchy.svg)
 
-Роли, действующие в сервисе:
+### Сервисные роли
 
-* Сервисные роли:
-    * {% include [compute.images.user](../../_includes/iam/roles/short-descriptions/compute.images.user.md) %}
-    * {% include [compute.disks.user](../../_includes/iam/roles/short-descriptions/compute.disks.user.md) %}
-    * {% include [iam.serviceAccounts.user](../../_includes/iam/roles/short-descriptions/iam.serviceAccounts.user.md) %}
+Роль | Разрешения
+----- | -----
+`compute.admin` | Дает права на управление виртуальными машинами и [группами виртуальных машин](../../compute/concepts/instance-groups/index.md).
+`compute.disks.user` | Позволяет использовать диски для создания новых ресурсов, например виртуальных машин.
+`compute.images.user` | Позволяет использовать образы для создания новых ресурсов, например виртуальных машин.
+`iam.serviceAccounts.user` | Подтверждает права на использование сервисного аккаунта.<br/>Эта роль необходима для выполнения операций с группами ВМ. Если вы указали сервисный аккаунт в запросе, {{ iam-short-name }} проверит, есть ли у вас права на использование этого аккаунта.
+`resource-manager.clouds.member` | Роль, необходимая для доступа к ресурсам в облаке всем, кроме [владельцев облака](../../resource-manager/concepts/resources-hierarchy.md#owner) и [сервисных аккаунтов](../../iam/concepts/users/service-accounts.md).
+`resource-manager.clouds.owner` | Дает полный доступ к облаку и ресурсам в нем. Можно назначить только на облако.
 
-        Эта роль необходима для выполнения операций в [{{ ig-name }}](../concepts/instance-groups/index.md). Если вы указали сервисный аккаунт в запросе, то {{ iam-short-name }} проверит, что у вас есть права на использование этого аккаунта.
-    * {% include [resource-manager.clouds.owner](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.owner.md) %}
-    * {% include [resource-manager.clouds.member](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.member.md) %}
-* Примитивные роли:
-    * {% include [viewer](../../_includes/iam/roles/short-descriptions/viewer.md) %}
-    * {% include [editor](../../_includes/iam/roles/short-descriptions/editor.md) %}
-    * {% include [admin](../../_includes/iam/roles/short-descriptions/admin.md) %}
+Более подробную информацию о сервисных ролях читайте на странице [{#T}](../../iam/concepts/access-control/roles.md) в документации сервиса {{ iam-full-name }}.
 
+### Примитивные роли
+
+Роль | Разрешения
+----- | -----
+`admin` | Позволяет управлять ресурсами и доступом к ним.
+`editor` | Позволяет управлять ресурсами (создавать, изменять и удалять их).
+`viewer` | Позволяет только просматривать информацию о ресурсах.
 
 #### Что дальше {#what-is-next}
 
