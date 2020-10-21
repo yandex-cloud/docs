@@ -17,6 +17,7 @@ To create a PostgreSQL connection:
     - **Username**. Specify the username for the PostgreSQL connection.
     - **Password**. Enter the password for the specified user.
 1. Click **Connect**. The connection appears in the list.
+
 {% note info %}
 
 You can check the host connection before creating it. To do this, click **Check connection**.
