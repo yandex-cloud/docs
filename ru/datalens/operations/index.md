@@ -24,9 +24,10 @@
 ## Создание и настройка чартов {#creating-and-configuring-charts}
 
 - [{#T}](chart/create-line-chart.md)
-- [{#T}](chart/create-bar-chart.md)
+- [{#T}](chart/create-column-chart.md)
 - [{#T}](chart/create-area-chart.md)
 - [{#T}](chart/create-pie-chart.md)
+- [{#T}](chart/create-bar-chart.md)
 - [{#T}](chart/create-map-chart.md)
 - [{#T}](chart/create-table.md)
 - [{#T}](chart/create-pivot-table.md)

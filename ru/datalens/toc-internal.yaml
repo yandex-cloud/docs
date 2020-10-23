@@ -50,12 +50,12 @@ items:
         items:
           - name: Создание линейной диаграммы
             href: operations/chart/create-line-chart.md
-          - name: Создание диаграммы с площадями
+          - name: Создание диаграммы с областями
             href: operations/chart/create-area-chart.md
           - name: Создания круговой диаграммы
             href: operations/chart/create-pie-chart.md
           - name: Создание столбчатой диаграммы
-            href: operations/chart/create-bar-chart.md
+            href: operations/chart/create-column-chart.md
           - name: Создание таблицы
             href: operations/chart/create-table.md
           - name: Создание сводной таблицы

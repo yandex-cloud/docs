@@ -314,6 +314,7 @@ _Геослои_ — визуализация показателей по точ
 - [{#T}](../operations/chart/create-pivot-table.md)
 - [{#T}](../operations/chart/create-table.md)
 - [{#T}](../operations/chart/create-area-chart.md)
+- [{#T}](../operations/chart/create-column-chart.md)
 - [{#T}](../operations/chart/create-bar-chart.md)
 - [{#T}](../operations/chart/create-pie-chart.md)
 - [{#T}](../operations/chart/create-map-chart.md)

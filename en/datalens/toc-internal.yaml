@@ -54,8 +54,8 @@ items:
             href: operations/chart/create-area-chart.md
           - name: Creating a pie chart
             href: operations/chart/create-pie-chart.md
-          - name: Creating a bar chart
-            href: operations/chart/create-bar-chart.md
+          - name: Creating a column chart
+            href: operations/chart/create-column-chart.md
           - name: Creating a table
             href: operations/chart/create-table.md
           - name: Creating a pivot table
