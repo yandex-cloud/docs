@@ -29,3 +29,4 @@ ssh -A -J <публичный IP-адрес ВМ> -L <номер порта>:<FQ
 | HBase REST | 8085 |
 | Zeppelin | 8890 |
 | Oozie | 11000 |
+| Spark History | 18080 |
