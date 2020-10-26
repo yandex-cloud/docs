@@ -5,7 +5,9 @@
 ## Установка {#install}
 
 Установите AWS SDK для PHP [по инструкции](https://aws.amazon.com/ru/sdk-for-php/) на официальном сайте.
-
+```
+$ composer require aws/aws-sdk-php-resources
+```
 ## Подготовка к работе {#prepare}
 
 {% include [mq-http-api-preps](../_includes_service/mq-http-api-preps-sdk.md)%}
@@ -30,12 +32,11 @@ $ export AWS_SECRET_ACCESS_KEY="<секретный ключ>"
 ```php
 <?php
 
-require 'vendor/autoload.php';
+require __DIR__ . '/vendor/autoload.php';
 
-use Aws\SQS\SQSClient;
-use Aws\Exception\AwsException;
+use Aws\Sqs\SqsClient;
 
-$ymq = new Aws\SQS\SQSClient([
+$ymq = new SqsClient([
     'version' => 'latest',
     'region' => 'ru-central1',
     'endpoint' => 'https://message-queue.api.cloud.yandex.net',
