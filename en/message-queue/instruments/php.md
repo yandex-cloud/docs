@@ -5,7 +5,9 @@ Using the [AWS SDK for PHP](https://aws.amazon.com/en/sdk-for-php/), you can man
 ## Installation {#install}
 
 Install the AWS SDK for PHP [by following the instructions](https://aws.amazon.com/en/sdk-for-php/) on the official site.
-
+```
+$ composer require aws/aws-sdk-php-resources
+```
 ## Before you start {#prepare}
 
 {% include [mq-http-api-preps](../_includes_service/mq-http-api-preps-sdk.md)%}
@@ -30,12 +32,11 @@ In this example:
 ```php
 <?php
 
-require 'vendor/autoload.php';
+require __DIR__ . '/vendor/autoload.php';
 
-use Aws\SQS\SQSClient;
-use Aws\Exception\AwsException;
+use Aws\Sqs\SqsClient;
 
-$ymq = new Aws\SQS\SQSClient([
+$ymq = new SqsClient([
     'version' => 'latest',
     'region' => 'ru-central1',
     'endpoint' => 'https://message-queue.api.cloud.yandex.net',
