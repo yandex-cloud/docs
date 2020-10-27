@@ -158,7 +158,7 @@
   
 - API
   
-  Удалить хост можно с помощью метода [deleteHosts](../api-ref/Cluster/deleteHosts.md).
+  Удалить хост можно с помощью метода [updateHosts](../api-ref/Cluster/updateHosts.md).
   
 {% endlist %}
 
