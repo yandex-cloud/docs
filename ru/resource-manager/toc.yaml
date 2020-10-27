@@ -31,6 +31,8 @@ items:
     items:
       - name: Иерархия ресурсов Yandex.Cloud
         href: concepts/resources-hierarchy.md
+      - name: Метки ресурсов
+        href: concepts/labels.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Управление доступом
