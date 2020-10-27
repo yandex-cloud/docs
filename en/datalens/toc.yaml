@@ -127,6 +127,8 @@ items:
         href: concepts/datalens-public.md
       - name: Calculated fields
         href: concepts/calculations.md
+      - name: Backups in DataLens
+        href: concepts/backup.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Access management
