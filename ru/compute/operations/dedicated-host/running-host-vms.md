@@ -14,12 +14,6 @@
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. Посмотрите описание любой команды CLI с помощью флага `--help`. Например:
-
-     ```bash
-     yc compute host-type --help
-     ```
-
   1. Посмотрите список возможных типов выделенных хостов:
 
      ```bash
