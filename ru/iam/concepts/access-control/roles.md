@@ -56,6 +56,8 @@ _Роль_ — это набор разрешений, который опре�
 
 ## {{ container-registry-name }} {#cr-roles}
 
+{% include [container-registry-admin](../../../_includes/roles-container-registry-admin.md)%}
+
 {% include [container-registry-puller](../../../_includes/roles-container-registry-puller.md)%}
 
 {% include [container-registry-pusher](../../../_includes/roles-container-registry-pusher.md)%}
