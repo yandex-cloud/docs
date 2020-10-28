@@ -119,7 +119,7 @@
       ```bash
       git clone https://github.com/yandex-cloud/ydb-nodejs-sdk.git
       cd ydb-nodejs-sdk/examples
-      npm install ydb-sdk
+      npm install
       npm run build
       ```
 
@@ -129,26 +129,32 @@
       yc iam key create --service-account-name sa_name -o  ~/.ydb/sa_name.json
       ```
 
+     {% note info %}
+
+     Для подключения к YDB Dedicated базе установите переменную окружения с сертификатом:
+
+      ```bash
+      export YDB_SSL_ROOT_CERTIFICATES_FILE=~/.ydb/CA.pem
+      ```
+
+     {% endnote %}
+     
   1. Установите переменные окружения, необходимые для аутентификации приложения:
 
       ```bash
       export SA_JSON_FILE=~/.ydb/sa_name.json
       export IAM_ENDPOINT=iam.api.cloud.yandex.net:443
-      export ENTRYPOINT=grpcs://YOURENDPOINT
-      export DB=YOUR_DATABASE
       export YDB_SDK_LOGLEVEL=debug
       ```
 
       * `SA_JSON_FILE` — локальный путь к файлу с IAM токеном.
       * `IAM_ENDPOINT` — эндпоинт IAM, установите значение `iam.api.cloud.yandex.net:443`.
-      * `ENTRYPOINT` — эндпоинт базы данных.
-      * `DB` — база данных YDB.
       * `YDB_SDK_LOGLEVEL` — уровень логирования, установите значение `debug`.
 
   1. Запустите тестовое приложение `basic_example_v1`:
 
       ```bash
-      npm run basic-v1
+      npm run basic-v1 -- --db <база данных YDB> --endpoint <эндпойнт базы данных>
       ```
 
       Результат выполнения приложения:
