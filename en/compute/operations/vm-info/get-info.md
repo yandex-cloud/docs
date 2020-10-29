@@ -1,6 +1,6 @@
 # Getting information about a VM
 
-To get basic details of each virtual machine you created, open the virtual machine page in [console]({{ link-console-main }}). To get detailed information with user-defined [metadata](../../concepts/vm-metadata.md), use the CLI or API.
+To get basic details of each virtual machine you created, open the virtual machine page in [management console]({{ link-console-main }}). To get detailed information with user-defined [metadata](../../concepts/vm-metadata.md), use the CLI or API.
 
 You can also get the basic details and metadata [from inside a VM](#inside-instance).
 
@@ -61,7 +61,7 @@ You can also get the basic details and metadata [from inside a VM](#inside-insta
 
 ### Google Compute Engine {#gce-metadata}
 
-The Yandex.Cloud metadata service lets you return metadata in the Google Compute Engine format.
+The {{ yandex-cloud }} metadata service lets you return metadata in Google Compute Engine format.
 
 #### HTTP request {#gce-http}
 
@@ -103,7 +103,7 @@ Get metadata in an easy-to-read format. Use the [jq](https://stedolan.github.io/
 $ curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/?recursive=true | jq -r '.'
 ```
 
-#### List of returned elements {#list-of-returned-elements}
+#### List of returned elements {#list-of-returned-items}
 
 List of elements that are available for this request.
 
@@ -114,7 +114,7 @@ List of elements that are available for this request.
 | `description` | Text description passed when creating or updating the VM. |
 | `disks/` | Disks attached to the VM. |
 | `hostname` | [FQDN](../../concepts/network.md#hostname) assigned to the VM. |
-| `id` | ID of the VM. The ID is generated automatically when the VM is being created and is unique within Yandex.Cloud. |
+| `id` | ID of the VM. The ID is generated automatically when the VM is being created and is unique within {{ yandex-cloud }}. |
 | `name` | Name that was passed when creating or updating the VM. |
 | `networkInterfaces/` | Network interfaces connected to the VM. |
 | `service-accounts` | [Service accounts](../../../iam/concepts/users/service-accounts.md) linked to the VM. |
@@ -124,7 +124,7 @@ Other elements, such as `project`, which are used for backward compatibility and
 
 ### Amazon EC2 {#ec2-metadata}
 
-The Yandex.Cloud metadata service lets you return metadata in the Amazon EC2 format.
+The {{ yandex-cloud }} metadata service lets you return metadata in Amazon EC2 format. This format has no support for user-defined metadata fields.
 
 #### HTTP request {#ec2-http}
 
@@ -136,7 +136,7 @@ GET http://169.254.169.254/latest/meta-data/<element>
 | ----- | ----- |
 | `<element>` | Path to the element you want to get. If the element is omitted, the response returns a list of available elements. |
 
-#### List of returned elements {#list-of-returned-elements}
+#### List of returned elements {#list-of-returned-items}
 
 List of elements that are available for this request.
 
@@ -166,4 +166,3 @@ Get an internal IP address from inside a VM:
 ```
 $ curl http://169.254.169.254/latest/meta-data/local-ipv4
 ```
-

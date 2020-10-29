@@ -14,11 +14,11 @@ To create a VM:
 
         {% include [name-fqdn](../../_includes/compute/name-fqdn.md) %}
 
-    - Select an [availability zone](../../overview/concepts/geo-scope.md) to host the VM in.
+    - Select the [availability zone](../../overview/concepts/geo-scope.md) to host the VM in.
 
     - (optional) Select or create a [service account](../../iam/concepts/index.md#sa). By using a service account, you can flexibly configure access rights for your resources.
 
-1. In the **Images from {{ marketplace-name }}** section:
+1. Under **Images from {{ marketplace-name }}**:
     - Select **Windows**.
     - Select the operating system version and edition.
 
@@ -37,7 +37,7 @@ To create a VM:
     - Specify the subnet ID or select a [cloud network](../../vpc/concepts/network.md#network) from the list. If you don't have a network, click **Create a new network** to create one:
         - In the window that opens, enter a name for the new network and choose a subnet to connect the virtual machine to. Each network must have at least one [subnet](../../vpc/concepts/network.md#subnet) (if there's no subnet, create one). Then click **Create**.
     - In the **Public IP** field, choose a method for assigning an IP address:
-        - **Auto**: Assign a random IP address from the Yandex.Cloud IP pool.
+        - **Auto**: Assign a random IP address from the {{ yandex-cloud }} IP pool.
         - **List**: Select a public IP address from the list of previously reserved static addresses. For more information, see [{#T}](../../vpc/operations/set-static-ip.md).
         - **No address**: Don't assign a public IP address.
     - (optional) Enable [DDoS protection](../../vpc/ddos-protection/).
@@ -48,5 +48,4 @@ To create a VM:
 
 1. Click **Create VM**.
 
-The virtual machine appears in the list. When a VM is being created, it is assigned an [IP address](../../vpc/concepts/address) and [hostname](../../vpc/concepts/address#imya-hosta-(fqdn)) (FQDN).
-
+The virtual machine appears in the list. When a VM is being created, it is assigned an [IP address](../../vpc/concepts/address) and [hostname](../../vpc/concepts/address#fqdn) (FQDN). You can use this data to access the VM via RDP.
