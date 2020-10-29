@@ -106,17 +106,17 @@ The VMs have a different number of cores and amount of RAM: 1 core and 2 GB of R
 
    ```
    provider "yandex" {
-   token = "<OAuth or static key of service account>"
-   folder_id = "<folder ID>"
-   zone      = "ru-central1-a"
+     token     = "<OAuth or static key of service account>"
+     folder_id = "<folder ID>"
+     zone      = "ru-central1-a"
    }
 
    terraform {
      backend "s3" {
        endpoint   = "storage.yandexcloud.net"
-       bucket   = "<bucket name>"
+       bucket     = "<bucket name>"
        region     = "us-east-1"
-       key = "<path to the state file in the bucket>/<state file name>.tfstate"
+       key        = "<path to the state file in the bucket>/<state file name>.tfstate"
        access_key = "<static key identifier>"
        secret_key = "<secret key>"
 
@@ -191,7 +191,6 @@ The VMs have a different number of cores and amount of RAM: 1 core and 2 GB of R
    output "internal_ip_address_vm_2" {
      value = "${yandex_compute_instance.vm-2.network_interface.0.ip_address}"
    }
-
 
    output "external_ip_address_vm_1" {
      value = "${yandex_compute_instance.vm-1.network_interface.0.nat_ip_address}"
