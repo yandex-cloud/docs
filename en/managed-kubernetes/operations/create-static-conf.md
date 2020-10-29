@@ -1,6 +1,6 @@
 # Creating a configuration file
 
-Static configuration files let you access a {{ k8s }} cluster without using the CLI (for example: from continuous integration systems).
+Static configuration files let you access a {{ k8s }} cluster without using the CLI (for example, from continuous integration systems).
 
 You can also use a static configuration file to configure access to multiple {{ k8s }} clusters. You can quickly switch between {{ k8s }} clusters described in configuration files using the `kubectl config use-context` command. For more information about how to configure access to multiple {{ k8s }} clusters, see the [{{ k8s }} documentation](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/).
 
@@ -20,14 +20,26 @@ To access a {{ k8s }} cluster, use its unique ID. Save it to a variable and use 
 
 1. Find the unique ID of the {{ k8s }} cluster:
 
-    ```
-    $ yc managed-kubernetes cluster list
-    +----------------------+----------+---------------------+---------+---------+-------------------------+----------------------+
-    |          ID          |   NAME   |     CREATED AT      | HEALTH  | STATUS  |    EXTERNAL ENDPOINT    |  INTERNAL ENDPOINT   |
-    +----------------------+----------+---------------------+---------+---------+-------------------------+----------------------+
-    | catb3ppsdsh7vajr216f | my-k8s   | 2019-09-04 15:17:11 | HEALTHY | RUNNING | https://84.201.148.31/  | https://10.0.0.24/   |
-    +----------------------+----------+---------------------+---------+---------+-------------------------+----------------------+
-    ```
+    {% list tabs %}
+
+    - Management console
+         1. Go to the folder page and select {{ managed-k8s-name }}.
+         1. Click on the name of the {{ k8s }} cluster you need.
+
+         You can see the unique ID of the {{ k8s }} cluster under **General information**.
+
+    - CLI
+
+         ```bash
+         $ yc managed-kubernetes cluster list
+         +----------------------+----------+---------------------+---------+---------+-------------------------+----------------------+
+         |          ID          |   NAME   |     CREATED AT      | HEALTH  | STATUS  |    EXTERNAL ENDPOINT    |  INTERNAL ENDPOINT   |
+         +----------------------+----------+---------------------+---------+---------+-------------------------+----------------------+
+         | catb3ppsdsh7vajr216f | my-k8s   | 2019-09-04 15:17:11 | HEALTHY | RUNNING | https://84.201.148.31/  | https://10.0.0.24/   |
+         +----------------------+----------+---------------------+---------+---------+-------------------------+----------------------+
+         ```
+
+    {% endlist %}
 
 1. Save the unique ID of the {{ k8s }} cluster to a variable.
 
