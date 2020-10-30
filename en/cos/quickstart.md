@@ -11,15 +11,28 @@ If the required Docker image is pushed to {{ container-registry-name }}, create 
 {% list tabs %}
 
 - Management console
+
     1. In the [management console]({{ link-console-main }}), select the folder to create your VM in.
+
     1. In the list of services, select **{{ compute-name }}**.
+
     1. Click **Create VM**.
-    1. Under **Images from {{ marketplace-name }}**, select a **{{ coi }}**.
-    1. The **Docker container settings** section appears at the bottom of the VM creation page. Fill out this section based on the prompts next to each field:
-       1. Enter the name of the Docker container to run on the VM.
-       1. Specify the Docker image used to launch the Docker container on the VM.
-       1. If necessary, fill in the remaining fields.
-    1. Specify the other VM parameters following these [instructions](../compute/operations/vm-create/create-linux-vm.md).
+
+    1. Under **Image/boot disk selection**, go to the **Container Solution** tab.
+
+    1. Click **Configure**.
+
+    1. In the **Docker container settings** window that opens, set parameters using hints:
+       * Specify the **Docker image** used to launch the Docker container on the VM.
+       * Select the **Restart policy** field value for the Docker container:
+          * **Always**: Always restart the Docker container when it's stopped.
+          * **Never**: Don't restart the Docker container automatically.
+          * **On-Failure**: Restart the Docker container only if it shut down with a non-zero return code.
+       * If necessary, fill in the remaining fields.
+
+       Click **Apply**.
+
+    1. Specify the other VM parameters by following the [instructions](../compute/operations/vm-create/create-linux-vm.md).
 
 - CLI
 

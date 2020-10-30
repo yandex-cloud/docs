@@ -11,54 +11,64 @@ If the required Docker image is pushed to {{ container-registry-name }}, create 
 {% list tabs %}
 
 - Management console
+
     1. In the [management console]({{ link-console-main }}), select the folder to create your VM in.
     1. In the list of services, select **{{ compute-name }}**.
     1. Click **Create VM**.
-    1. Under **Images from {{ marketplace-name }}**, select a **{{ coi }}**.
-    1. The **Docker container settings** section appears at the bottom of the VM creation page. Fill out this section based on the prompts next to each field:
-       1. Enter the name of the Docker container to run on the VM.
-       1. Specify the Docker image used to launch the Docker container on the VM.
-       1. If necessary, fill in the remaining fields.
-    1. Configure the other VM settings based on these [instructions](../../compute/operations/vm-create/create-linux-vm.md).
+    1. Under **Image/boot disk selection**, go to the **Container Solution** tab.
+    1. Click **Configure**.
+    1. In the **Docker container settings** window that opens, set parameters using hints:
+       * (optional) Enter the **Name** of the Docker container to run on the VM. Naming requirements:
+          * The length can be from 3 to 63 characters.
+          * It may contain Latin letters, numbers, and hyphens.
+          * The first character must be a letter. The last character can't be a hyphen.
+       * Specify the [**Docker image**](../concepts/index.md#docker-image) used to launch the Docker container on the VM.
+       * (optional) In the **Command** field, specify the executable file to run when the Docker container starts.
+       * (optional) Specify **Command arguments**.
+       * (optional) Specify **Environment variables** in `key:value` format, which are available in the Docker container.
+       * Select the [**Restart policy**](../concepts/index.md#restart-policy) field value for the Docker container:
+          * **Always**: Always restart the Docker container when it's stopped.
+          * **Never**: Don't restart the Docker container automatically.
+          * **On-Failure**: Restart the Docker container only if it shut down with a non-zero return code.
+       * (optional) Enable **Attach a TTY to the Docker container** to use the command shell in the Docker container.
+       * (optional) Enable **Allocate an stdin buffer for a running Docker container** to link the input stream to the running Docker container.
+       * (optional) Enable **Run Docker container in privileged mode** to allow the Docker container processes to access all VM resources.
+       
+       Click **Apply**.
+    1. Configure the other VM settings based on the [instructions](../../compute/operations/vm-create/create-linux-vm.md).
 
-- CLI
+- CLI using flags
 
     {% include [cli-install](../../_includes/cli-install.md) %}
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    1. View a description of the CLI command to create a VM from a {{ coi }}:
+    To create a VM and set Docker container parameters via the YC CLI:
 
-        ```
-        $ yc compute instance create-with-container --help
-        ```
+    1. View a description of the command:
 
-    1. Create a VM from a {{ coi }}:
-
-        ```
-        $ yc compute instance create-with-container
-        --name my-vm \
-        --zone=ru-central1-b \
-        --ssh-key ssh-key.pub \
-        --service-account-name my-robot \
-        --public-ip \
-        --container-name=my-app \
-        --container-image=cr.yandex/mirror/ubuntu:16.04 \
-        --container-command=sleep \
-        --container-arg="1000" \
-        --container-env=KEY1=VAL1,KEY2=VAL2 \
-        --container-privileged
-        done (17s)
-        id: epdbf646ge5qgutfvh43
-        folder_id: b1g88tflru0ek1omtsu0
-        created_at: "2019-08-07T09:44:03Z"
-        name: my-vm
-        zone_id: ru-central1-b
-        platform_id: standard-v2
-        ...
+        ```bash
+        yc compute instance create-with-container --help
         ```
 
-        Where:
+    1. Run the command:
+
+        ```bash
+        yc compute instance create-with-container
+         --name my-vm \
+         --zone=ru-central1-b \
+         --ssh-key ssh-key.pub \
+         --service-account-name my-robot \
+         --public-ip \
+         --container-name=my-app \
+         --container-image=cr.yandex/mirror/ubuntu:16.04 \
+         --container-command=sleep \
+         --container-arg="1000" \
+         --container-env=KEY1=VAL1,KEY2=VAL2 \
+         --container-privileged
+        ```
+
+        Command parameters:
         - `--name`: VM name.
         - `--zone`: Availability zone.
         - `--ssh-key`: Contents of the [public key file](../../compute/quickstart/quick-create-linux.md#create-ssh).
@@ -71,7 +81,84 @@ If the required Docker image is pushed to {{ container-registry-name }}, create 
         - `--container-env`: The environment variables available in the Docker container.
         - `--container-privileged`: Launch the Docker container in privileged mode.
 
-        Once the VM is created, it appears in the list of VMs under **{{ compute-name }}** in the [management console]({{ link-console-main }}). For more information about working with VMs, see our [step-by-step instructions](../../compute/operations/index.md).
+        Command results:
+
+        ```
+        done (17s)
+         id: epdbf646ge5qgutfvh43
+         folder_id: b1g88tflru0ek1omtsu0
+         created_at: "2019-08-07T09:44:03Z"
+         name: my-vm
+         zone_id: ru-central1-b
+         platform_id: standard-v2
+        ...
+        ```
+
+    Once the VM is created, it appears in the list of VMs under **{{ compute-name }}** in the [management console]({{ link-console-main }}). For more information about working with VMs, see our [step-by-step instructions](../../compute/operations/index.md).
+
+- CLI using a specification file
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    To create a VM and set Docker container parameters using a [specification file](../concepts/index.md#coi-specification):
+
+    1. View a description of the command:
+
+        ```bash
+        yc compute instance create-with-container --help
+        ```
+
+    1. Create a Docker container specification file. Save the following data to a file named `docker-spec.yaml`:
+
+        ```yaml
+        spec:
+          containers:
+          - command:
+            - sleep
+            args:
+            - 100000
+            image: cr.yandex/mirror/ubuntu:20.04
+            name: my-container
+            securityContext:
+              privileged: true
+        ```
+
+    1. Run the command:
+
+        ```bash
+        yc compute instance create-with-container \
+          --coi-spec-file docker-spec.yaml \
+          --name my-vm \
+          --zone=ru-central1-b \
+          --ssh-key ssh-key.pub \
+          --service-account-name my-service-account \
+          --public-ip
+        ```
+
+       Command parameters:
+       - `--coi-spec-file` is the path to the Docker container [specification file](../concepts/index.md#coi-specification).
+       - `--name`: VM name.
+       - `--zone`: Availability zone.
+       - `--ssh-key`: Contents of the [public key file](../../compute/quickstart/quick-create-linux.md#create-ssh).
+       - `--service-account-name`: Service account name.
+       - `--public-ip`: Public IP address allocated to the VM.
+
+       Command results:
+
+       ```
+       done (1m40s)
+        id: epde18u4mahl4a8n39ta
+        folder_id: b1g7gvsi89m34qmcm3ke
+        created_at: "2020-08-10T13:50:17Z"
+        name: my-vm
+        zone_id: ru-central1-b
+        platform_id: standard-v2
+        ...
+       ```
+
+    Once the VM is created, it appears in the list of VMs under **{{ compute-name }}** in the [management console]({{ link-console-main }}). For more information about working with VMs, see our [step-by-step instructions](../../compute/operations/index.md).
 
 {% endlist %}
 
