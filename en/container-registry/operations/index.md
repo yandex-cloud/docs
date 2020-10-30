@@ -25,3 +25,10 @@ For more information about how to work with a {{ coi }}, see the [{{ cos-name }}
 
 - [{#T}](repository/repository-list.md)
 
+## Managing policies for automatically deleting Docker images {#lifecycle-policy}
+
+- [{#T}](lifecycle-policy/lifecycle-policy-list.md)
+- [{#T}](lifecycle-policy/lifecycle-policy-create.md)
+- [{#T}](lifecycle-policy/lifecycle-policy-update.md)
+- [{#T}](lifecycle-policy/lifecycle-policy-dry-run.md)
+- [{#T}](lifecycle-policy/lifecycle-policy-delete.md)

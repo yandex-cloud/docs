@@ -4,11 +4,11 @@ Using these instructions, you will create your first [registry](../concepts/regi
 
 ## Before you start {#before-you-begin}
 
-To create a registry, you will need a folder in Yandex.Cloud. If you don't have any folders yet, create a new folder before creating a registry:
+To create a registry, you'll need a folder in {{ yandex-cloud }}. If you don't have any folders yet, create a new folder before creating a registry:
 
 {% include [create-folder](../../_includes/create-folder.md) %}
 
-You will also need the [Yandex CLI](../../cli/quickstart.md) and [Docker](https://docs.docker.com/install/).
+You'll also need the [Yandex CLI](../../cli/quickstart.md) and [Docker](https://docs.docker.com/install/).
 
 ## Creating a registry and performing basic operations on Docker images {#registry-create}
 
@@ -24,23 +24,23 @@ You will also need the [Yandex CLI](../../cli/quickstart.md) and [Docker](https:
     created_at: "2018-12-25T12:24:56.286Z"
     ```
 
-    You will need the received `ID` to access the created registry.
+    You will need the received `id` to access the created registry.
 
-1. Authenticate to {{ container-registry-short-name }} using a [Docker Credential helper](../operations/authentication.md#cred-helper):
+1. Authenticate in {{ container-registry-short-name }} using a [Docker Credential helper](../operations/authentication.md#cred-helper):
 
     1. Configure Docker to use `docker-credential-yc`:
-    
+
         ```
         $ yc container registry configure-docker
         Credential helper is configured in '/home/<user>/.docker/config.json'
         ```
-    
+
         During setup, information about the current user profile is saved.
-    
+
     1. Make sure that Docker is configured.
-    
+
         The `/home/<user>/.docker/config.json` file must contain the following line:
-    
+
         ```
         "cr.yandex": "yc"
         ```
@@ -78,6 +78,5 @@ You will also need the [Yandex CLI](../../cli/quickstart.md) and [Docker](https:
 * [Authentication in {{ container-registry-short-name }}](../operations/authentication.md)
 * [Creating a Docker image](../operations/docker-image/docker-image-create.md)
 * [Pushing a Docker image](../operations/docker-image/docker-image-push.md)
-* [Pulling a Docker image](../operations/docker-image/docker-image-pull.md)
+* [Pull a Docker image](../operations/docker-image/docker-image-pull.md)
 * [Running a Docker image on a VM](../solutions/index.md)
-
