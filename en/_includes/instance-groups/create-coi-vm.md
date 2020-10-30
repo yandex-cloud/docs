@@ -102,7 +102,7 @@ To create an instance group built on a {{ coi }}:
         | `metadata` | Values to pass to the VM metadata. |
         | `docker-container-declaration` | The key in the VM metadata to access the [Docker container description](../../cos/concepts/index.md#coi-specification). |
 
-    - [Policies](../../compute/concepts/instance-groups/policies.md):
+    - [Policies](../../compute/concepts/instance-groups/policies/index.md):
 
         ```
         deploy_policy:

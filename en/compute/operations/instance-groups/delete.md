@@ -52,5 +52,27 @@ To delete an instance group:
 
   To request a list of available groups, use the method [listInstances](../../api-ref/InstanceGroup/listInstances.md).
 
+- Terraform
+
+  Read more about Terraform in the [documentation](../../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  If you created an instance group using Terraform, you can delete it:
+
+  1. In the command line, go to the directory with the Terraform configuration file.
+
+  1. Delete resources using the command:
+
+      ```
+      $ terraform destroy
+      ```
+
+      {% note alert %}
+
+      Terraform deletes all the resources that you created in the current configuration, such as clusters, networks, subnets, and VMs.
+
+      {% endnote %}
+
+  1. Confirm the deletion of resources.
+
 {% endlist %}
 
