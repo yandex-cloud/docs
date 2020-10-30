@@ -2,20 +2,13 @@
 
 - Bash
   
-  Для подключения к кластеру {{ KF }} из командной строки используйте утилиту `kafkacat`. `kafkacat` — это утилита с открытым исходным кодом, которая может работать как универсальный производитель или потребитель данных. Подробнее читайте в [документации](https://github.com/edenhill/kafkacat).
+  Для подключения к кластеру {{ KF }} из командной строки используйте утилиту `kafkacat` — приложение с открытым исходным кодом, которое может работать как универсальный производитель или потребитель данных. Подробнее читайте в [документации](https://github.com/edenhill/kafkacat).
   
   **Перед подключением установите зависимости:**   
-  - Linux
       
-    ```bash
-    sudo apt update && sudo apt install -y kafkacat
-    ```
-      
-  - macOS
-     
-    ```
-    brew install kafkacat
-    ```
+  ```bash
+  sudo apt update && sudo apt install -y kafkacat
+  ```
      
   **Чтобы отправить сообщение в топик, выполните команду:**
    
@@ -23,10 +16,11 @@
   echo "test message" | kafkacat -P  \
          -b <FQDN брокера>:9092 \
          -t <имя топика> \
+         -k key \
          -X security.protocol=SASL_PLAINTEXT \
          -X sasl.mechanisms=SCRAM-SHA-512 \
          -X sasl.username=<логин производителя> \
-         -X sasl.password=<пароль производителя> -Z -K:
+         -X sasl.password=<пароль производителя> -Z
   ```
    
   **Чтобы получить сообщения из топика, выполните команду:**
@@ -38,37 +32,31 @@
           -X security.protocol=SASL_PLAINTEXT \
           -X sasl.mechanisms=SCRAM-SHA-512 \
           -X sasl.username=<логин потребителя> \
-          -X sasl.password=<пароль потребителя>
+          -X sasl.password=<пароль потребителя> -Z -K:
   ```
 
 - Bash (SSL)
   
-  Для подключения к кластеру {{ KF }} из командной строки используйте утилиту `kafkacat`. `kafkacat` — это утилита с открытым исходным кодом, которая может работать как универсальный производитель или потребитель данных. Подробнее читайте в [документации](https://github.com/edenhill/kafkacat).
+  Для подключения к кластеру {{ KF }} из командной строки используйте утилиту `kafkacat` — приложение с открытым исходным кодом, которое может работать как универсальный производитель или потребитель данных. Подробнее читайте в [документации](https://github.com/edenhill/kafkacat).
   
   **Перед подключением установите зависимости:**   
-  - Linux
-      
-    ```bash
-    sudo apt update && sudo apt install -y kafkacat
-    ```
-      
-  - macOS
-     
-    ```bash
-    brew install kafkacat
-    ```
-    
+
+  ```bash
+  sudo apt update && sudo apt install -y kafkacat
+  ```
+          
   **Чтобы отправить сообщение в топик, выполните команду:**
   
   ```bash
   echo "test message" | kafkacat -P  \
       -b <FQDN брокера>:9091 \
       -t <имя топика> \
+      -k key \
       -X security.protocol=SASL_SSL \
       -X sasl.mechanisms=SCRAM-SHA-512 \
       -X sasl.username=<логин производителя> \
       -X sasl.password=<пароль производителя> \
-      -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexCA.crt -Z -K:   
+      -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexCA.crt -Z   
   ```
   
   **Чтобы получить сообщения из топика, выполните команду:**
@@ -89,8 +77,8 @@
   **Перед подключением установите зависимости:**   
    
   ```bash
-  sudo apt update && sudo apt install -y python3 python3-pip && \
-  pip3 install kafka-python
+  sudo apt update && sudo apt install -y python3 python3-pip libsnappy-dev && \
+  pip3 install kafka-python lz4 python-snappy crc32c
   ```
   
   **Пример кода для отправки сообщения в топик:**
@@ -106,7 +94,7 @@
     sasl_plain_password='<пароль производителя>',
     sasl_plain_username='<имя производителя>')
 
-  producer.send('<имя топика>', b'test message')
+  producer.send('<имя топика>', b'test message', b'key')
   producer.flush()
   producer.close()
   ```
@@ -127,7 +115,7 @@
   print("ready")
 
   for msg in consumer:
-    print(msg)
+    print(msg.key.decode("utf-8") + ":" + msg.value.decode("utf-8"))
   ```  
 
   **Запуск приложений:**
@@ -145,8 +133,8 @@
   **Перед подключением установите зависимости:**   
    
   ```bash
-  sudo apt update && sudo apt install -y python3 python3-pip && \
-  pip3 install kafka-python
+  sudo apt update && sudo apt install -y python3 python3-pip libsnappy-dev && \
+  pip3 install kafka-python lz4 python-snappy crc32c
   ```
   
   **Пример кода для отправки сообщения в топик:**
@@ -163,7 +151,7 @@
     sasl_plain_username='<имя производителя>',
     ssl_cafile="/usr/local/share/ca-certificates/Yandex/YandexCA.crt")
 
-  producer.send('<имя топика>', b'test message')
+  producer.send('<имя топика>', b'test message', b'key')
   producer.flush()
   producer.close()
   ```
@@ -185,7 +173,7 @@
   print("ready")
 
   for msg in consumer:
-    print(msg)
+    print(msg.key.decode("utf-8") + ":" + msg.value.decode("utf-8"))
   ```  
 
   **Запуск приложений:**
@@ -327,10 +315,11 @@
       String TOPIC = "<имя топика>";
       String USER = "<имя производителя>";
       String PASS = "<пароль производителя>";
-
+  
       String jaasTemplate = "org.apache.kafka.common.security.scram.ScramLoginModule required username=\"%s\" password=\"%s\";";
       String jaasCfg = String.format(jaasTemplate, USER, PASS);
-
+      String KEY = "key";
+  
       String serializer = StringSerializer.class.getName();
       Properties props = new Properties();
       props.put("bootstrap.servers", HOST);
@@ -345,7 +334,7 @@
 
       try {
        for (int i = 1; i <= MSG_COUNT; i++){
-         producer.send(new ProducerRecord<String, String>(TOPIC, "test message")).get();
+         producer.send(new ProducerRecord<String, String>(TOPIC, KEY, "test message")).get();
          System.out.println("Test message " + i);
         }
        producer.flush();
@@ -399,11 +388,7 @@
       while(true) {
         ConsumerRecords<String, String> records = consumer.poll(100);
         for (ConsumerRecord<String, String> record : records) {
-          Map<String, Object> data = new HashMap<>();
-          data.put("partition", record.partition());
-          data.put("offset", record.offset());
-          data.put("value", record.value());
-          System.out.println(data);
+          System.out.println(record.key() + ":" + record.value());
         }
       }
     }
@@ -534,8 +519,8 @@
      {% endcut %}
      
      Актуальные версии зависимостей для Maven:
-     - [kafka-clients](https://mvnrepository.com/artifact/org.apache.kafka/kafka-clients).
-     - [jackson-databind](https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind).
+     - [kafka-clients](https://mvnrepository.com/artifact/org.apache.kafka/kafka-clients);
+     - [jackson-databind](https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind);
      - [slf4j-simple](https://mvnrepository.com/artifact/org.slf4j/slf4j-simple).
      
    1. Скопируйте `pom.xml` в директории приложения-производителя и приложения-потребителя:
@@ -570,6 +555,7 @@
 
       String jaasTemplate = "org.apache.kafka.common.security.scram.ScramLoginModule required username=\"%s\" password=\"%s\";";
       String jaasCfg = String.format(jaasTemplate, USER, PASS);
+      String KEY = "key";
 
       String serializer = StringSerializer.class.getName();
       Properties props = new Properties();
@@ -587,7 +573,7 @@
 
       try {
        for (int i = 1; i <= MSG_COUNT; i++){
-         producer.send(new ProducerRecord<String, String>(TOPIC, "test message")).get();
+         producer.send(new ProducerRecord<String, String>(TOPIC, KEY, "test message")).get();
          System.out.println("Test message " + i);
         }
        producer.flush();
@@ -645,11 +631,7 @@
       while(true) {
         ConsumerRecords<String, String> records = consumer.poll(100);
         for (ConsumerRecord<String, String> record : records) {
-          Map<String, Object> data = new HashMap<>();
-          data.put("partition", record.partition());
-          data.put("offset", record.offset());
-          data.put("value", record.value());
-          System.out.println(data);
+          System.out.println(record.key() + ":" + record.value());
         }
       }
     }

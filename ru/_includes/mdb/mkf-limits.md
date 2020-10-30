@@ -10,7 +10,7 @@
 #### Лимиты {#limits}
 Вид ограничения | Значение
 ----- | -----
-Минимальный класс хоста | b1.micro ([20%](../../compute/concepts/performance-levels.md) × 2 vCPU Intel Broadwell, 2 ГБ RAM)
+Минимальный класс хоста | b2.medium ([50%](../../compute/concepts/performance-levels.md) × 2 vCPU Intel Cascade Lake, 4 ГБ RAM)
 Максимальный класс хоста | m2.8xlarge (64 vCPU Intel Cascade Lake, 512 ГБ RAM)
 Максимальное количество брокеров в одной зоне доступности | 7
 Максимальный объем данных при использовании сетевого хранилища | 2048 ГБ

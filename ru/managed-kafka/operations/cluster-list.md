@@ -45,7 +45,7 @@
 
 ## Посмотреть список операций в кластере {#list-operations}
 
-{% include [list-operations-about](../../_includes/mdb/list-operations-about.md) %}
+{% include [list-operations-about](../../_includes/mdb/mkf-list-operations-about.md) %}
 
 {% list tabs %}
 
