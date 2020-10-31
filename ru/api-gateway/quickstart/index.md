@@ -113,6 +113,7 @@
             ```
         1. В поле **Точка входа** введите `index.handler`.
         1. Нажмите кнопку **Создать версию**.
+        1. Убедитесь что параметр "Публичная функция" включен
 
 {% endlist %}
 
@@ -191,7 +192,7 @@
 Обратитесь к API-шлюзу:
 
 ```
-curl https://falrnjna8r5vj88ero6a.apigw.yandexcloud.net/user_ids
+curl https://falrnjna8r5vj88ero6a.apigw.yandexcloud.net/numbers
 [0, 1, 2]
 ```
 
