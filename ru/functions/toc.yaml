@@ -283,4 +283,5 @@ items:
         include:
           repo: docs
           path: ru/_api-ref/serverless/triggers/toc.yaml
-
+  - name: Вопросы и ответы
+    href: qa/index.md

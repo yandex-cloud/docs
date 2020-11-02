@@ -81,3 +81,5 @@ items:
         include:
           repo: docs
           path: ru/_api-ref/certificatemanager/toc.yaml
+  - name: Вопросы и ответы
+    href: qa/index.md

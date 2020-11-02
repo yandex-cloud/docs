@@ -107,3 +107,5 @@ items:
         include:
           repo: docs
           path: ru/_api-ref/iot/devices/toc.yaml
+  - name: Вопросы и ответы
+    href: qa/index.md
