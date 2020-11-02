@@ -4,12 +4,6 @@ editable: false
 
 # Правила тарификации для {{ mkf-name }}
 
-{% note alert %}
-
-На стадии Preview сервис не тарифицируется. Приведенные ниже тарифы начнут действовать со 2 ноября 2020 года после перехода сервиса в [общедоступную версию](../overview/concepts/launch-stages.md).
-
-{% endnote %}
-
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
 ## Статус кластера {#running-stopped}

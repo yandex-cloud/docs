@@ -1,7 +1,6 @@
 # Заголовок и описание на странице
 title: "Yandex Managed Service for Apache Kafka<sup>®</sup>"
 description:
-  - "<em>Сервис Managed Service for Apache Kafka<sup>®</sup> находится на <a href=\"/docs/overview/concepts/launch-stages\">стадии Preview</a></em>."
   - "Сервис Managed Service for Apache Kafka<sup>®</sup> помогает разворачивать и поддерживать кластеры серверов Apache Kafka<sup>®</sup> в инфраструктуре Yandex.Cloud."
   - "Инфраструктура Yandex.Cloud <a href=\"https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf\">защищена</a> в соответствии с ФЗ-152."
   - "<em>Apache<sup>®</sup> и Apache Kafka<sup>®</sup> являются зарегистрированными товарными знаками или товарными знаками Apache Software Foundation в США и/или других странах.</em>"

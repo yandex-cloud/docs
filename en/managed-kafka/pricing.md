@@ -4,12 +4,6 @@ editable: false
 
 # Pricing for {{ mkf-name }}
 
-{% note alert %}
-
-At the Preview stage, {{ mkf-full-name }} can be used free of charge. Starting November, 2, 2020, the [public version](../overview/concepts/launch-stages.md) of {{ mkf-name }} is available, and is charged according to the price list below.
-
-{% endnote %}
-
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
 ## Cluster status {#running-stopped}
