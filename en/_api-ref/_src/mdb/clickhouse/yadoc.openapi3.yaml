@@ -2410,6 +2410,12 @@ components:
             $ref: '#/components/schemas/ClickhouseConfigGraphiteRollup'
         kafka:
           $ref: '#/components/schemas/ClickhouseConfigKafka_in_ClickhouseConfig_kafka'
+        kafkaTopics:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClickhouseConfigKafkaTopic'
+        rabbitmq:
+          $ref: '#/components/schemas/ClickhouseConfigRabbitmq_in_ClickhouseConfig_rabbitmq'
         maxConnections:
           description: |-
             Maximum number of inbound connections.
@@ -3062,6 +3068,14 @@ components:
       - SECURITY_PROTOCOL_SSL
       - SECURITY_PROTOCOL_SASL_PLAINTEXT
       - SECURITY_PROTOCOL_SASL_SSL
+    ClickhouseConfigKafkaTopic:
+      type: object
+      properties:
+        name:
+          description: Required.
+          type: string
+        settings:
+          $ref: '#/components/schemas/ClickhouseConfigKafka_in_ClickhouseConfigKafkaTopic_settings'
     ClickhouseConfigLogLevel:
       type: string
       enum:
@@ -3109,6 +3123,13 @@ components:
             in replication queue).
           type: integer
           format: int64
+    ClickhouseConfigRabbitmq:
+      type: object
+      properties:
+        username:
+          type: string
+        password:
+          type: string
     ClickhouseConfigSet:
       type: object
       properties:
@@ -5475,6 +5496,15 @@ components:
             * **false** (default)—ClickHouse will return a single-line result consisting of **NULL** values for aggregation functions, in accordance with SQL standard.
           type: boolean
           format: boolean
+        joinedSubqueryRequiresAlias:
+          type: boolean
+          format: boolean
+        joinUseNulls:
+          type: boolean
+          format: boolean
+        transformNullIn:
+          type: boolean
+          format: boolean
         httpConnectionTimeout:
           description: |-
             HTTP connection timeout, in milliseconds.
@@ -5749,6 +5779,13 @@ components:
           type: string
         saslPassword:
           type: string
+    ClickhouseConfigRabbitmq_in_ClickhouseConfig_rabbitmq:
+      type: object
+      properties:
+        username:
+          type: string
+        password:
+          type: string
     ClickhouseConfigLogLevel_in_ClickhouseConfig_textLogLevel:
       description: 'Logging level for text_log system table. Possible values: TRACE,
         DEBUG, INFORMATION, WARNING, ERROR.'
@@ -5925,6 +5962,18 @@ components:
       - SASL_MECHANISM_PLAIN
       - SASL_MECHANISM_SCRAM_SHA_256
       - SASL_MECHANISM_SCRAM_SHA_512
+    ClickhouseConfigKafka_in_ClickhouseConfigKafkaTopic_settings:
+      description: Required.
+      type: object
+      properties:
+        securityProtocol:
+          $ref: '#/components/schemas/ClickhouseConfigKafkaSecurityProtocol_in_ClickhouseConfigKafka_securityProtocol'
+        saslMechanism:
+          $ref: '#/components/schemas/ClickhouseConfigKafkaSaslMechanism_in_ClickhouseConfigKafka_saslMechanism'
+        saslUsername:
+          type: string
+        saslPassword:
+          type: string
     ClickhouseConfig_in_ClickhouseConfigSet_effectiveConfig:
       description: |-
         Required.
@@ -5964,6 +6013,12 @@ components:
             $ref: '#/components/schemas/ClickhouseConfigGraphiteRollup'
         kafka:
           $ref: '#/components/schemas/ClickhouseConfigKafka_in_ClickhouseConfig_kafka'
+        kafkaTopics:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClickhouseConfigKafkaTopic'
+        rabbitmq:
+          $ref: '#/components/schemas/ClickhouseConfigRabbitmq_in_ClickhouseConfig_rabbitmq'
         maxConnections:
           description: |-
             Maximum number of inbound connections.
@@ -6152,6 +6207,12 @@ components:
             $ref: '#/components/schemas/ClickhouseConfigGraphiteRollup'
         kafka:
           $ref: '#/components/schemas/ClickhouseConfigKafka_in_ClickhouseConfig_kafka'
+        kafkaTopics:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClickhouseConfigKafkaTopic'
+        rabbitmq:
+          $ref: '#/components/schemas/ClickhouseConfigRabbitmq_in_ClickhouseConfig_rabbitmq'
         maxConnections:
           description: |-
             Maximum number of inbound connections.
@@ -6340,6 +6401,12 @@ components:
             $ref: '#/components/schemas/ClickhouseConfigGraphiteRollup'
         kafka:
           $ref: '#/components/schemas/ClickhouseConfigKafka_in_ClickhouseConfig_kafka'
+        kafkaTopics:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClickhouseConfigKafkaTopic'
+        rabbitmq:
+          $ref: '#/components/schemas/ClickhouseConfigRabbitmq_in_ClickhouseConfig_rabbitmq'
         maxConnections:
           description: |-
             Maximum number of inbound connections.
@@ -6838,6 +6905,12 @@ components:
             $ref: '#/components/schemas/ClickhouseConfigGraphiteRollup'
         kafka:
           $ref: '#/components/schemas/ClickhouseConfigKafka_in_ClickhouseConfig_kafka'
+        kafkaTopics:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClickhouseConfigKafkaTopic'
+        rabbitmq:
+          $ref: '#/components/schemas/ClickhouseConfigRabbitmq_in_ClickhouseConfig_rabbitmq'
         maxConnections:
           description: |-
             Maximum number of inbound connections.
@@ -7450,6 +7523,12 @@ components:
             $ref: '#/components/schemas/ClickhouseConfigGraphiteRollup'
         kafka:
           $ref: '#/components/schemas/ClickhouseConfigKafka_in_ClickhouseConfig_kafka'
+        kafkaTopics:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClickhouseConfigKafkaTopic'
+        rabbitmq:
+          $ref: '#/components/schemas/ClickhouseConfigRabbitmq_in_ClickhouseConfig_rabbitmq'
         maxConnections:
           description: |-
             Maximum number of inbound connections.
@@ -8548,6 +8627,15 @@ components:
             * **false** (default)—ClickHouse will return a single-line result consisting of **NULL** values for aggregation functions, in accordance with SQL standard.
           type: boolean
           format: boolean
+        joinedSubqueryRequiresAlias:
+          type: boolean
+          format: boolean
+        joinUseNulls:
+          type: boolean
+          format: boolean
+        transformNullIn:
+          type: boolean
+          format: boolean
         httpConnectionTimeout:
           description: |-
             HTTP connection timeout, in milliseconds.
@@ -9396,6 +9484,15 @@ components:
 
             * **true**—ClickHouse will return an empty result for such queries.
             * **false** (default)—ClickHouse will return a single-line result consisting of **NULL** values for aggregation functions, in accordance with SQL standard.
+          type: boolean
+          format: boolean
+        joinedSubqueryRequiresAlias:
+          type: boolean
+          format: boolean
+        joinUseNulls:
+          type: boolean
+          format: boolean
+        transformNullIn:
           type: boolean
           format: boolean
         httpConnectionTimeout:
@@ -10368,6 +10465,15 @@ components:
 
             * **true**—ClickHouse will return an empty result for such queries.
             * **false** (default)—ClickHouse will return a single-line result consisting of **NULL** values for aggregation functions, in accordance with SQL standard.
+          type: boolean
+          format: boolean
+        joinedSubqueryRequiresAlias:
+          type: boolean
+          format: boolean
+        joinUseNulls:
+          type: boolean
+          format: boolean
+        transformNullIn:
           type: boolean
           format: boolean
         httpConnectionTimeout:

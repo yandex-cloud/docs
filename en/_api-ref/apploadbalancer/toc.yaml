@@ -45,6 +45,8 @@ items:
         href: api-ref/LoadBalancer/index.md
       - name: addListener
         href: api-ref/LoadBalancer/addListener.md
+      - name: addSniMatch
+        href: api-ref/LoadBalancer/addSniMatch.md
       - name: create
         href: api-ref/LoadBalancer/create.md
       - name: delete
@@ -59,6 +61,8 @@ items:
         href: api-ref/LoadBalancer/listOperations.md
       - name: removeListener
         href: api-ref/LoadBalancer/removeListener.md
+      - name: removeSniMatch
+        href: api-ref/LoadBalancer/removeSniMatch.md
       - name: start
         href: api-ref/LoadBalancer/start.md
       - name: stop
@@ -67,6 +71,8 @@ items:
         href: api-ref/LoadBalancer/update.md
       - name: updateListener
         href: api-ref/LoadBalancer/updateListener.md
+      - name: updateSniMatch
+        href: api-ref/LoadBalancer/updateSniMatch.md
   - name: TargetGroup
     items:
       - name: Overview

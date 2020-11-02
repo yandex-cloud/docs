@@ -2,14 +2,14 @@
 editable: false
 ---
 
-# Method updateListener
+# Method updateSniMatch
 
  
 
  
 ## HTTP request {#https-request}
 ```
-POST https://apploadbalancer.api.cloud.yandex.net/apploadbalancer/v1/loadBalancers/{loadBalancerId}:updateListener
+POST https://apploadbalancer.api.cloud.yandex.net/apploadbalancer/v1/loadBalancers/{loadBalancerId}:updateSniMatch
 ```
  
 ## Path parameters {#path_params}
@@ -22,34 +22,37 @@ loadBalancerId | Required.
  
 ```json 
 {
+  "listenerName": "string",
+  "name": "string",
   "updateMask": "string",
-  "listenerSpec": {
-    "name": "string",
-    "endpointSpecs": [
-      {
-        "addressSpecs": [
-          {
+  "serverNames": [
+    "string"
+  ],
+  "handler": {
+    "certificateIds": [
+      "string"
+    ],
+    "tlsOptions": {
+      "tlsMinVersion": "string",
+      "tlsMaxVersion": "string",
+      "cipherSuites": [
+        "string"
+      ],
+      "ecdhCurves": [
+        "string"
+      ]
+    },
+    "httpHandler": {
+      "httpRouterId": "string",
 
-            // `listenerSpec.endpointSpecs[].addressSpecs[]` includes only one of the fields `externalIpv4AddressSpec`, `internalIpv4AddressSpec`, `externalIpv6AddressSpec`
-            "externalIpv4AddressSpec": {
-              "address": "string"
-            },
-            "internalIpv4AddressSpec": {
-              "address": "string",
-              "subnetId": "string"
-            },
-            "externalIpv6AddressSpec": {
-              "address": "string"
-            },
-            // end of the list of possible fields`listenerSpec.endpointSpecs[].addressSpecs[]`
+      // `handler.httpHandler` includes only one of the fields `http2Options`, `allowHttp10`
+      "http2Options": {
+        "maxConcurrentStreams": "string"
+      },
+      "allowHttp10": true,
+      // end of the list of possible fields`handler.httpHandler`
 
-          }
-        ],
-        "ports": [
-          "string"
-        ]
-      }
-    ]
+    }
   }
 }
 ```
@@ -57,19 +60,22 @@ loadBalancerId | Required.
  
 Field | Description
 --- | ---
+listenerName | **string**<br><p>Required.</p> 
+name | **string**<br><p>Required.</p> 
 updateMask | **string**<br><p>A comma-separated names off ALL fields to be updated. Оnly the specified fields will be changed. The others will be left untouched. If the field is specified in <code>updateMask</code> and no value for that field was sent in the request, the field's value will be reset to the default. The default value for most fields is null or 0.</p> <p>If <code>updateMask</code> is not sent in the request, all fields' values will be updated. Fields specified in the request will be updated to provided values. The rest of the fields will be reset to the default.</p> 
-listenerSpec | **object**<br><p>Required.</p> 
-listenerSpec.<br>name | **string**<br><p>Required. Value must match the regular expression <code>[a-z]([-a-z0-9]{0,61}[a-z0-9])?</code>.</p> 
-listenerSpec.<br>endpointSpecs[] | **object**<br><p>Required. Must contain at least one element.</p> 
-listenerSpec.<br>endpointSpecs[].<br>addressSpecs[] | **object**<br><p>Required. Must contain at least one element.</p> 
-listenerSpec.<br>endpointSpecs[].<br>addressSpecs[].<br>externalIpv4AddressSpec | **object** <br>`listenerSpec.endpointSpecs[].addressSpecs[]` includes only one of the fields `externalIpv4AddressSpec`, `internalIpv4AddressSpec`, `externalIpv6AddressSpec`<br><br>
-listenerSpec.<br>endpointSpecs[].<br>addressSpecs[].<br>externalIpv4AddressSpec.<br>address | **string**<br>
-listenerSpec.<br>endpointSpecs[].<br>addressSpecs[].<br>internalIpv4AddressSpec | **object** <br>`listenerSpec.endpointSpecs[].addressSpecs[]` includes only one of the fields `externalIpv4AddressSpec`, `internalIpv4AddressSpec`, `externalIpv6AddressSpec`<br><br>
-listenerSpec.<br>endpointSpecs[].<br>addressSpecs[].<br>internalIpv4AddressSpec.<br>address | **string**<br>
-listenerSpec.<br>endpointSpecs[].<br>addressSpecs[].<br>internalIpv4AddressSpec.<br>subnetId | **string**<br>
-listenerSpec.<br>endpointSpecs[].<br>addressSpecs[].<br>externalIpv6AddressSpec | **object** <br>`listenerSpec.endpointSpecs[].addressSpecs[]` includes only one of the fields `externalIpv4AddressSpec`, `internalIpv4AddressSpec`, `externalIpv6AddressSpec`<br><br>
-listenerSpec.<br>endpointSpecs[].<br>addressSpecs[].<br>externalIpv6AddressSpec.<br>address | **string**<br>
-listenerSpec.<br>endpointSpecs[].<br>ports[] | **string** (int64)<br><p>Required. Must contain at least one element. Acceptable values are 1 to 65535, inclusive.</p> 
+serverNames[] | **string**<br><p>Required. Must contain at least one element.</p> 
+handler | **object**<br><p>Required.</p> 
+handler.<br>certificateIds[] | **string**<br><p>Required. Certificate IDs in the Certificate Manager. Multiple TLS certificates can be associated with the same context to allow both RSA and ECDSA certificates. Only the first certificate of each type will be used.</p> <p>Must contain at least one element.</p> 
+handler.<br>tlsOptions | **object**<br>
+handler.<br>tlsOptions.<br>tlsMinVersion | **string**<br><p>Minimum TLS protocol version.</p> 
+handler.<br>tlsOptions.<br>tlsMaxVersion | **string**<br><p>Maximum TLS protocol version.</p> 
+handler.<br>tlsOptions.<br>cipherSuites[] | **string**<br><p>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used.</p> 
+handler.<br>tlsOptions.<br>ecdhCurves[] | **string**<br><p>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used.</p> 
+handler.<br>httpHandler | **object**<br>
+handler.<br>httpHandler.<br>httpRouterId | **string**<br>
+handler.<br>httpHandler.<br>http2Options | **object**<br>If set, will enable HTTP2 protocol for the handler. <br>`handler.httpHandler` includes only one of the fields `http2Options`, `allowHttp10`<br><br>
+handler.<br>httpHandler.<br>http2Options.<br>maxConcurrentStreams | **string** (int64)<br>
+handler.<br>httpHandler.<br>allowHttp10 | **boolean** (boolean) <br>`handler.httpHandler` includes only one of the fields `http2Options`, `allowHttp10`<br><br><p>If set, will enable only HTTP1 protocol with HTTP1.0 support.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

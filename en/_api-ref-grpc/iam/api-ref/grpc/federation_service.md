@@ -14,6 +14,7 @@ A set of methods for managing federations.
 | [Update](#Update) | Updates the specified federation. |
 | [Delete](#Delete) | Deletes the specified federation. |
 | [AddUserAccounts](#AddUserAccounts) | Adds users to the specified federation. |
+| [ListUserAccounts](#ListUserAccounts) |  |
 | [ListOperations](#ListOperations) | Lists operations for the specified federation. |
 
 ## Calls FederationService {#calls}
@@ -386,6 +387,63 @@ attributes | **map<string,Attribute>**<br>Additional attributes of the SAML fede
 
 
 ### Attribute {#Attribute}
+
+Field | Description
+--- | ---
+value[] | **string**<br> 
+
+
+## ListUserAccounts {#ListUserAccounts}
+
+
+
+**rpc ListUserAccounts ([ListFederatedUserAccountsRequest](#ListFederatedUserAccountsRequest)) returns ([ListFederatedUserAccountsResponse](#ListFederatedUserAccountsResponse))**
+
+### ListFederatedUserAccountsRequest {#ListFederatedUserAccountsRequest}
+
+Field | Description
+--- | ---
+federation_id | **string**<br>Required. ID of the federation to list user accounts for. The maximum string length in characters is 50.
+page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListFederatedUserAccountsResponse.next_page_token](#ListFederatedUserAccountsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. Acceptable values are 0 to 1000, inclusive.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListFederatedUserAccountsResponse.next_page_token](#ListFederatedUserAccountsResponse) returned by a previous list request. The maximum string length in characters is 100.
+
+
+### ListFederatedUserAccountsResponse {#ListFederatedUserAccountsResponse}
+
+Field | Description
+--- | ---
+user_accounts[] | **[UserAccount](./#UserAccount1)**<br>List of user accounts for the specified federation. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListFederatedUserAccountsRequest.page_size](#ListFederatedUserAccountsRequest), use the `next_page_token` as the value for the [ListFederatedUserAccountsRequest.page_token](#ListFederatedUserAccountsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+
+
+### UserAccount {#UserAccount1}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the user account. 
+user_account | **oneof:** `yandex_passport_user_account` or `saml_user_account`<br>
+&nbsp;&nbsp;yandex_passport_user_account | **YandexPassportUserAccount**<br>A YandexPassportUserAccount resource. 
+&nbsp;&nbsp;saml_user_account | **SamlUserAccount**<br>A SAML federated user. 
+
+
+### YandexPassportUserAccount {#YandexPassportUserAccount1}
+
+Field | Description
+--- | ---
+login | **string**<br>Login of the Yandex.Passport user account. 
+default_email | **string**<br>Default email of the Yandex.Passport user account. 
+
+
+### SamlUserAccount {#SamlUserAccount1}
+
+Field | Description
+--- | ---
+federation_id | **string**<br>Required. ID of the federation that the federation belongs to. The maximum string length in characters is 50.
+name_id | **string**<br>Required. Name Id of the SAML federated user. The name is unique within the federation. 1-256 characters long. The string length in characters must be 1-256.
+attributes | **map<string,Attribute>**<br>Additional attributes of the SAML federated user. 
+
+
+### Attribute {#Attribute1}
 
 Field | Description
 --- | ---

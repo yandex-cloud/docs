@@ -1442,6 +1442,13 @@ components:
           description: Allow access for DataLens
           type: boolean
           format: boolean
+        webSql:
+          description: |-
+            Allow SQL queries to the cluster databases from the Yandex.Cloud management console.
+
+            See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details.
+          type: boolean
+          format: boolean
     AddClusterHostsMetadata:
       type: object
       properties:

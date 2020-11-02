@@ -8,7 +8,6 @@ Service | Description
 [BackupService](./backup_service.md) | A set of methods for managing SQL Server backups.
 [ClusterService](./cluster_service.md) | A set of methods for managing SQL Server clusters.
 [DatabaseService](./database_service.md) | A set of methods for managing SQL Server databases.
-[OperationService](./operation_service.md) | A set of methods for managing operations that are asynchronous API requests.
 [ResourcePresetService](./resource_preset_service.md) | A set of methods for managing resource presets.
 [UserService](./user_service.md) | A set of methods for managing SQL Server users.
 [OperationService](./operation_service.md) | A set of methods for managing operations for asynchronous API requests.

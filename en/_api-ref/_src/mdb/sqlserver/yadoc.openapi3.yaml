@@ -818,31 +818,6 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/CreateDatabaseMetadata'
       x-y-operation-response: '[Database](/docs/managed-sqlserver/api-ref/Database#representation)'
-  /mdb/sqlserver/v1alpha/operations/{operationId}:
-    get:
-      tags:
-      - Operation
-      summary: Returns the specified operation.
-      operationId: OperationGet
-      parameters:
-      - name: operationId
-        in: path
-        description: |-
-          Required.
-          ID of the operation to return.
-
-          The maximum string length in characters is 50.
-        required: true
-        schema:
-          type: string
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Operation'
-      x-y-navtitle: get
   /mdb/sqlserver/v1alpha/resourcePresets/{resourcePresetId}:
     get:
       tags:
@@ -3064,9 +3039,6 @@ tags:
   description: A set of methods for managing SQL Server clusters.
 - name: Database
   description: A set of methods for managing SQL Server databases.
-- name: Operation
-  description: A set of methods for managing operations that are asynchronous API
-    requests.
 - name: ResourcePreset
   description: A set of methods for managing resource presets.
 - name: User

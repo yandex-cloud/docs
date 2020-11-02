@@ -562,31 +562,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListClusterHostsResponse'
       x-y-navtitle: listHosts
-  /managed-kafka/v1/operations/{operationId}:
-    get:
-      tags:
-      - Operation
-      summary: Returns the specified operation.
-      operationId: OperationGet
-      parameters:
-      - name: operationId
-        in: path
-        description: |-
-          Required.
-          ID of the operation to return.
-
-          The maximum string length in characters is 50.
-        required: true
-        schema:
-          type: string
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Operation'
-      x-y-navtitle: get
   /managed-kafka/v1/resourcePresets/{resourcePresetId}:
     get:
       tags:
@@ -1202,7 +1177,7 @@ components:
         name:
           description: |-
             Name of the Apache Kafka® cluster.
-            The name must be unique within the folder. 1-63 characters long.
+            The name must be unique within the folder. 1-63 characters long. Value must match the regular expression `[a-zA-Z0-9_-]*`.
           type: string
         description:
           description: Description of the Apache Kafka® cluster. 0-256 characters
@@ -1294,7 +1269,8 @@ components:
       type: object
       properties:
         version:
-          description: Version of Apache Kafka® used in the cluster.
+          description: 'Version of Apache Kafka® used in the cluster. Possible values:
+            `2.1`, `2.6`.'
           type: string
         kafka:
           $ref: '#/components/schemas/ConfigSpecKafka_in_ConfigSpec_kafka'
@@ -1549,7 +1525,7 @@ components:
       - KAFKA
       - ZOOKEEPER
     KafkaConfig2_1:
-      description: Kafka broker configuration.
+      description: Kafka version 2.1 broker configuration.
       type: object
       properties:
         compressionType:
@@ -1605,7 +1581,7 @@ components:
           type: integer
           format: int64
     KafkaConfig2_6:
-      description: Kafka 2.6 broker configuration.
+      description: Kafka version 2.6 broker configuration.
       type: object
       properties:
         compressionType:
@@ -1918,7 +1894,6 @@ components:
           type: string
           format: int64
     Resources:
-      description: Computational resources.
       type: object
       properties:
         resourcePresetId:
@@ -2309,7 +2284,8 @@ components:
       type: object
       properties:
         version:
-          description: Version of Apache Kafka® used in the cluster.
+          description: 'Version of Apache Kafka® used in the cluster. Possible values:
+            `2.1`, `2.6`.'
           type: string
         kafka:
           $ref: '#/components/schemas/ConfigSpecKafka_in_ConfigSpec_kafka'
@@ -2392,10 +2368,7 @@ components:
         resources:
           $ref: '#/components/schemas/Resources_in_ConfigSpecZookeeper_resources'
     Resources_in_ConfigSpecZookeeper_resources:
-      description: |-
-        Resources allocated to ZooKeeper hosts.
-
-        Computational resources.
+      description: Resources allocated to ZooKeeper hosts.
       type: object
       properties:
         resourcePresetId:
@@ -2425,7 +2398,8 @@ components:
       type: object
       properties:
         version:
-          description: Version of Apache Kafka® used in the cluster.
+          description: 'Version of Apache Kafka® used in the cluster. Possible values:
+            `2.1`, `2.6`.'
           type: string
         kafka:
           $ref: '#/components/schemas/ConfigSpecKafka_in_ConfigSpec_kafka'
@@ -2524,10 +2498,7 @@ components:
       - KAFKA
       - ZOOKEEPER
     Resources_in_Host_resources:
-      description: |-
-        Resources allocated to the host.
-
-        Computational resources.
+      description: Computational resources allocated to the host.
       type: object
       properties:
         resourcePresetId:
@@ -2715,7 +2686,8 @@ components:
       type: object
       properties:
         version:
-          description: Version of Apache Kafka® used in the cluster.
+          description: 'Version of Apache Kafka® used in the cluster. Possible values:
+            `2.1`, `2.6`.'
           type: string
         kafka:
           $ref: '#/components/schemas/ConfigSpecKafka_in_ConfigSpec_kafka'
@@ -2789,9 +2761,6 @@ components:
 tags:
 - name: Cluster
   description: A set of methods for managing Apache Kafka® clusters.
-- name: Operation
-  description: A set of methods for managing operations that are asynchronous API
-    requests.
 - name: ResourcePreset
   description: A set of methods for managing Kafka resource presets.
 - name: Topic

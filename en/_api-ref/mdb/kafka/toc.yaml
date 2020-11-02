@@ -29,12 +29,6 @@ items:
         href: api-ref/Cluster/streamLogs.md
       - name: update
         href: api-ref/Cluster/update.md
-  - name: Operation
-    items:
-      - name: Overview
-        href: api-ref/Operation/index.md
-      - name: get
-        href: api-ref/Operation/get.md
   - name: ResourcePreset
     items:
       - name: Overview
@@ -75,3 +69,9 @@ items:
         href: api-ref/User/revokePermission.md
       - name: update
         href: api-ref/User/update.md
+  - name: Operation
+    items:
+      - name: Overview
+        href: api-ref/Operation/index.md
+      - name: get
+        href: api-ref/Operation/get.md

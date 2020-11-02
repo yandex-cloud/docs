@@ -18,6 +18,9 @@ editable: false
 | [AddListener](#AddListener) | AddListener/UpdateListener technically do the same, but have different semantics. |
 | [RemoveListener](#RemoveListener) |  |
 | [UpdateListener](#UpdateListener) |  |
+| [AddSniMatch](#AddSniMatch) |  |
+| [UpdateSniMatch](#UpdateSniMatch) |  |
+| [RemoveSniMatch](#RemoveSniMatch) |  |
 | [GetTargetStates](#GetTargetStates) | Returns zonal state of each target within target group for a given backend group and load balancer. |
 | [ListOperations](#ListOperations) | Lists operations for the specified load balancer. |
 
@@ -50,7 +53,8 @@ region_id | **string**<br>ID of the region that the load balancer located at.
 network_id | **string**<br>ID of the network that the load balancer located at. 
 listeners[] | **[Listener](#Listener)**<br>List of listeners for the application load balancer. 
 allocation_policy | **[AllocationPolicy](#AllocationPolicy)**<br>Allocation sites for application load balancer instances. 
-log_group_id | **string**<br> 
+log_group_id | **string**<br>Cloud log group used by the load balancer to store access logs. 
+security_group_ids[] | **string**<br>ID's of security groups attached to the load balancer. 
 
 
 ### Listener {#Listener}
@@ -58,7 +62,7 @@ log_group_id | **string**<br>
 Field | Description
 --- | ---
 name | **string**<br>Required. Name of the listener. The name must be unique for each listener on a single load balancer. 3-63 characters long. 
-endpoints[] | **[Endpoint](#Endpoint)**<br>Network endpoints (addressees and ports) of the listener. 
+endpoints[] | **[Endpoint](#Endpoint)**<br>Network endpoints (addresses and ports) of the listener. 
 listener | **oneof:** `http` or `tls`<br>
 &nbsp;&nbsp;http | **[HttpListener](#HttpListener)**<br> 
 &nbsp;&nbsp;tls | **[TlsListener](#TlsListener)**<br> 
@@ -117,8 +121,8 @@ Field | Description
 --- | ---
 http_router_id | **string**<br> 
 protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>
-&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options)**<br> 
-&nbsp;&nbsp;allow_http10 | **bool**<br> 
+&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options)**<br>If set, will enable HTTP2 protocol for the handler. 
+&nbsp;&nbsp;allow_http10 | **bool**<br>If set, will enable only HTTP1 protocol with HTTP1.0 support. 
 
 
 ### Http2Options {#Http2Options}
@@ -152,8 +156,8 @@ Field | Description
 --- | ---
 http_router_id | **string**<br> 
 protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>
-&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options1)**<br> 
-&nbsp;&nbsp;allow_http10 | **bool**<br> 
+&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options1)**<br>If set, will enable HTTP2 protocol for the handler. 
+&nbsp;&nbsp;allow_http10 | **bool**<br>If set, will enable only HTTP1 protocol with HTTP1.0 support. 
 
 
 ### Http2Options {#Http2Options1}
@@ -198,8 +202,8 @@ Field | Description
 --- | ---
 http_router_id | **string**<br> 
 protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>
-&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options2)**<br> 
-&nbsp;&nbsp;allow_http10 | **bool**<br> 
+&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options2)**<br>If set, will enable HTTP2 protocol for the handler. 
+&nbsp;&nbsp;allow_http10 | **bool**<br>If set, will enable only HTTP1 protocol with HTTP1.0 support. 
 
 
 ### Http2Options {#Http2Options2}
@@ -273,7 +277,8 @@ region_id | **string**<br>ID of the region that the load balancer located at.
 network_id | **string**<br>ID of the network that the load balancer located at. 
 listeners[] | **[Listener](#Listener1)**<br>List of listeners for the application load balancer. 
 allocation_policy | **[AllocationPolicy](#AllocationPolicy1)**<br>Allocation sites for application load balancer instances. 
-log_group_id | **string**<br> 
+log_group_id | **string**<br>Cloud log group used by the load balancer to store access logs. 
+security_group_ids[] | **string**<br>ID's of security groups attached to the load balancer. 
 
 
 ### Listener {#Listener1}
@@ -281,7 +286,7 @@ log_group_id | **string**<br>
 Field | Description
 --- | ---
 name | **string**<br>Required. Name of the listener. The name must be unique for each listener on a single load balancer. 3-63 characters long. 
-endpoints[] | **[Endpoint](#Endpoint1)**<br>Network endpoints (addressees and ports) of the listener. 
+endpoints[] | **[Endpoint](#Endpoint1)**<br>Network endpoints (addresses and ports) of the listener. 
 listener | **oneof:** `http` or `tls`<br>
 &nbsp;&nbsp;http | **[HttpListener](#HttpListener1)**<br> 
 &nbsp;&nbsp;tls | **[TlsListener](#TlsListener1)**<br> 
@@ -340,8 +345,8 @@ Field | Description
 --- | ---
 http_router_id | **string**<br> 
 protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>
-&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options3)**<br> 
-&nbsp;&nbsp;allow_http10 | **bool**<br> 
+&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options3)**<br>If set, will enable HTTP2 protocol for the handler. 
+&nbsp;&nbsp;allow_http10 | **bool**<br>If set, will enable only HTTP1 protocol with HTTP1.0 support. 
 
 
 ### Http2Options {#Http2Options3}
@@ -375,8 +380,8 @@ Field | Description
 --- | ---
 http_router_id | **string**<br> 
 protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>
-&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options4)**<br> 
-&nbsp;&nbsp;allow_http10 | **bool**<br> 
+&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options4)**<br>If set, will enable HTTP2 protocol for the handler. 
+&nbsp;&nbsp;allow_http10 | **bool**<br>If set, will enable only HTTP1 protocol with HTTP1.0 support. 
 
 
 ### Http2Options {#Http2Options4}
@@ -421,8 +426,8 @@ Field | Description
 --- | ---
 http_router_id | **string**<br> 
 protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>
-&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options5)**<br> 
-&nbsp;&nbsp;allow_http10 | **bool**<br> 
+&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options5)**<br>If set, will enable HTTP2 protocol for the handler. 
+&nbsp;&nbsp;allow_http10 | **bool**<br>If set, will enable only HTTP1 protocol with HTTP1.0 support. 
 
 
 ### Http2Options {#Http2Options5}
@@ -480,6 +485,7 @@ region_id | **string**<br>Required.
 network_id | **string**<br>Required.  
 listener_specs[] | **[ListenerSpec](#ListenerSpec)**<br> 
 allocation_policy | **[AllocationPolicy](#AllocationPolicy2)**<br> 
+security_group_ids[] | **string**<br> 
 
 
 ### ListenerSpec {#ListenerSpec}
@@ -528,7 +534,6 @@ subnet_id | **string**<br>
 Field | Description
 --- | ---
 address | **string**<br> 
-yandex_only | **bool**<br> 
 
 
 ### AllocationPolicy {#AllocationPolicy2}
@@ -584,7 +589,8 @@ region_id | **string**<br>ID of the region that the load balancer located at.
 network_id | **string**<br>ID of the network that the load balancer located at. 
 listeners[] | **[Listener](#Listener2)**<br>List of listeners for the application load balancer. 
 allocation_policy | **[AllocationPolicy](#AllocationPolicy3)**<br>Allocation sites for application load balancer instances. 
-log_group_id | **string**<br> 
+log_group_id | **string**<br>Cloud log group used by the load balancer to store access logs. 
+security_group_ids[] | **string**<br>ID's of security groups attached to the load balancer. 
 
 
 ### Listener {#Listener2}
@@ -592,7 +598,7 @@ log_group_id | **string**<br>
 Field | Description
 --- | ---
 name | **string**<br>Required. Name of the listener. The name must be unique for each listener on a single load balancer. 3-63 characters long. 
-endpoints[] | **[Endpoint](#Endpoint2)**<br>Network endpoints (addressees and ports) of the listener. 
+endpoints[] | **[Endpoint](#Endpoint2)**<br>Network endpoints (addresses and ports) of the listener. 
 listener | **oneof:** `http` or `tls`<br>
 &nbsp;&nbsp;http | **[HttpListener](#HttpListener2)**<br> 
 &nbsp;&nbsp;tls | **[TlsListener](#TlsListener2)**<br> 
@@ -651,8 +657,8 @@ Field | Description
 --- | ---
 http_router_id | **string**<br> 
 protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>
-&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options6)**<br> 
-&nbsp;&nbsp;allow_http10 | **bool**<br> 
+&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options6)**<br>If set, will enable HTTP2 protocol for the handler. 
+&nbsp;&nbsp;allow_http10 | **bool**<br>If set, will enable only HTTP1 protocol with HTTP1.0 support. 
 
 
 ### Http2Options {#Http2Options6}
@@ -686,8 +692,8 @@ Field | Description
 --- | ---
 http_router_id | **string**<br> 
 protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>
-&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options7)**<br> 
-&nbsp;&nbsp;allow_http10 | **bool**<br> 
+&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options7)**<br>If set, will enable HTTP2 protocol for the handler. 
+&nbsp;&nbsp;allow_http10 | **bool**<br>If set, will enable only HTTP1 protocol with HTTP1.0 support. 
 
 
 ### Http2Options {#Http2Options7}
@@ -732,8 +738,8 @@ Field | Description
 --- | ---
 http_router_id | **string**<br> 
 protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>
-&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options8)**<br> 
-&nbsp;&nbsp;allow_http10 | **bool**<br> 
+&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options8)**<br>If set, will enable HTTP2 protocol for the handler. 
+&nbsp;&nbsp;allow_http10 | **bool**<br>If set, will enable only HTTP1 protocol with HTTP1.0 support. 
 
 
 ### Http2Options {#Http2Options8}
@@ -790,6 +796,7 @@ description | **string**<br> The maximum string length in characters is 256.
 labels | **map<string,string>**<br> No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 listener_specs[] | **[ListenerSpec](#ListenerSpec)**<br> 
 allocation_policy | **[AllocationPolicy](#AllocationPolicy4)**<br> 
+security_group_ids[] | **string**<br> 
 
 
 ### ListenerSpec {#ListenerSpec1}
@@ -838,7 +845,6 @@ subnet_id | **string**<br>
 Field | Description
 --- | ---
 address | **string**<br> 
-yandex_only | **bool**<br> 
 
 
 ### AllocationPolicy {#AllocationPolicy4}
@@ -894,7 +900,8 @@ region_id | **string**<br>ID of the region that the load balancer located at.
 network_id | **string**<br>ID of the network that the load balancer located at. 
 listeners[] | **[Listener](#Listener3)**<br>List of listeners for the application load balancer. 
 allocation_policy | **[AllocationPolicy](#AllocationPolicy5)**<br>Allocation sites for application load balancer instances. 
-log_group_id | **string**<br> 
+log_group_id | **string**<br>Cloud log group used by the load balancer to store access logs. 
+security_group_ids[] | **string**<br>ID's of security groups attached to the load balancer. 
 
 
 ### Listener {#Listener3}
@@ -902,7 +909,7 @@ log_group_id | **string**<br>
 Field | Description
 --- | ---
 name | **string**<br>Required. Name of the listener. The name must be unique for each listener on a single load balancer. 3-63 characters long. 
-endpoints[] | **[Endpoint](#Endpoint3)**<br>Network endpoints (addressees and ports) of the listener. 
+endpoints[] | **[Endpoint](#Endpoint3)**<br>Network endpoints (addresses and ports) of the listener. 
 listener | **oneof:** `http` or `tls`<br>
 &nbsp;&nbsp;http | **[HttpListener](#HttpListener3)**<br> 
 &nbsp;&nbsp;tls | **[TlsListener](#TlsListener3)**<br> 
@@ -961,8 +968,8 @@ Field | Description
 --- | ---
 http_router_id | **string**<br> 
 protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>
-&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options9)**<br> 
-&nbsp;&nbsp;allow_http10 | **bool**<br> 
+&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options9)**<br>If set, will enable HTTP2 protocol for the handler. 
+&nbsp;&nbsp;allow_http10 | **bool**<br>If set, will enable only HTTP1 protocol with HTTP1.0 support. 
 
 
 ### Http2Options {#Http2Options9}
@@ -996,8 +1003,8 @@ Field | Description
 --- | ---
 http_router_id | **string**<br> 
 protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>
-&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options10)**<br> 
-&nbsp;&nbsp;allow_http10 | **bool**<br> 
+&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options10)**<br>If set, will enable HTTP2 protocol for the handler. 
+&nbsp;&nbsp;allow_http10 | **bool**<br>If set, will enable only HTTP1 protocol with HTTP1.0 support. 
 
 
 ### Http2Options {#Http2Options10}
@@ -1042,8 +1049,8 @@ Field | Description
 --- | ---
 http_router_id | **string**<br> 
 protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>
-&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options11)**<br> 
-&nbsp;&nbsp;allow_http10 | **bool**<br> 
+&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options11)**<br>If set, will enable HTTP2 protocol for the handler. 
+&nbsp;&nbsp;allow_http10 | **bool**<br>If set, will enable only HTTP1 protocol with HTTP1.0 support. 
 
 
 ### Http2Options {#Http2Options11}
@@ -1173,7 +1180,8 @@ region_id | **string**<br>ID of the region that the load balancer located at.
 network_id | **string**<br>ID of the network that the load balancer located at. 
 listeners[] | **[Listener](#Listener4)**<br>List of listeners for the application load balancer. 
 allocation_policy | **[AllocationPolicy](#AllocationPolicy6)**<br>Allocation sites for application load balancer instances. 
-log_group_id | **string**<br> 
+log_group_id | **string**<br>Cloud log group used by the load balancer to store access logs. 
+security_group_ids[] | **string**<br>ID's of security groups attached to the load balancer. 
 
 
 ### Listener {#Listener4}
@@ -1181,7 +1189,7 @@ log_group_id | **string**<br>
 Field | Description
 --- | ---
 name | **string**<br>Required. Name of the listener. The name must be unique for each listener on a single load balancer. 3-63 characters long. 
-endpoints[] | **[Endpoint](#Endpoint4)**<br>Network endpoints (addressees and ports) of the listener. 
+endpoints[] | **[Endpoint](#Endpoint4)**<br>Network endpoints (addresses and ports) of the listener. 
 listener | **oneof:** `http` or `tls`<br>
 &nbsp;&nbsp;http | **[HttpListener](#HttpListener4)**<br> 
 &nbsp;&nbsp;tls | **[TlsListener](#TlsListener4)**<br> 
@@ -1240,8 +1248,8 @@ Field | Description
 --- | ---
 http_router_id | **string**<br> 
 protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>
-&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options12)**<br> 
-&nbsp;&nbsp;allow_http10 | **bool**<br> 
+&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options12)**<br>If set, will enable HTTP2 protocol for the handler. 
+&nbsp;&nbsp;allow_http10 | **bool**<br>If set, will enable only HTTP1 protocol with HTTP1.0 support. 
 
 
 ### Http2Options {#Http2Options12}
@@ -1275,8 +1283,8 @@ Field | Description
 --- | ---
 http_router_id | **string**<br> 
 protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>
-&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options13)**<br> 
-&nbsp;&nbsp;allow_http10 | **bool**<br> 
+&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options13)**<br>If set, will enable HTTP2 protocol for the handler. 
+&nbsp;&nbsp;allow_http10 | **bool**<br>If set, will enable only HTTP1 protocol with HTTP1.0 support. 
 
 
 ### Http2Options {#Http2Options13}
@@ -1321,8 +1329,8 @@ Field | Description
 --- | ---
 http_router_id | **string**<br> 
 protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>
-&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options14)**<br> 
-&nbsp;&nbsp;allow_http10 | **bool**<br> 
+&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options14)**<br>If set, will enable HTTP2 protocol for the handler. 
+&nbsp;&nbsp;allow_http10 | **bool**<br>If set, will enable only HTTP1 protocol with HTTP1.0 support. 
 
 
 ### Http2Options {#Http2Options14}
@@ -1412,7 +1420,8 @@ region_id | **string**<br>ID of the region that the load balancer located at.
 network_id | **string**<br>ID of the network that the load balancer located at. 
 listeners[] | **[Listener](#Listener5)**<br>List of listeners for the application load balancer. 
 allocation_policy | **[AllocationPolicy](#AllocationPolicy7)**<br>Allocation sites for application load balancer instances. 
-log_group_id | **string**<br> 
+log_group_id | **string**<br>Cloud log group used by the load balancer to store access logs. 
+security_group_ids[] | **string**<br>ID's of security groups attached to the load balancer. 
 
 
 ### Listener {#Listener5}
@@ -1420,7 +1429,7 @@ log_group_id | **string**<br>
 Field | Description
 --- | ---
 name | **string**<br>Required. Name of the listener. The name must be unique for each listener on a single load balancer. 3-63 characters long. 
-endpoints[] | **[Endpoint](#Endpoint5)**<br>Network endpoints (addressees and ports) of the listener. 
+endpoints[] | **[Endpoint](#Endpoint5)**<br>Network endpoints (addresses and ports) of the listener. 
 listener | **oneof:** `http` or `tls`<br>
 &nbsp;&nbsp;http | **[HttpListener](#HttpListener5)**<br> 
 &nbsp;&nbsp;tls | **[TlsListener](#TlsListener5)**<br> 
@@ -1479,8 +1488,8 @@ Field | Description
 --- | ---
 http_router_id | **string**<br> 
 protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>
-&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options15)**<br> 
-&nbsp;&nbsp;allow_http10 | **bool**<br> 
+&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options15)**<br>If set, will enable HTTP2 protocol for the handler. 
+&nbsp;&nbsp;allow_http10 | **bool**<br>If set, will enable only HTTP1 protocol with HTTP1.0 support. 
 
 
 ### Http2Options {#Http2Options15}
@@ -1514,8 +1523,8 @@ Field | Description
 --- | ---
 http_router_id | **string**<br> 
 protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>
-&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options16)**<br> 
-&nbsp;&nbsp;allow_http10 | **bool**<br> 
+&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options16)**<br>If set, will enable HTTP2 protocol for the handler. 
+&nbsp;&nbsp;allow_http10 | **bool**<br>If set, will enable only HTTP1 protocol with HTTP1.0 support. 
 
 
 ### Http2Options {#Http2Options16}
@@ -1560,8 +1569,8 @@ Field | Description
 --- | ---
 http_router_id | **string**<br> 
 protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>
-&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options17)**<br> 
-&nbsp;&nbsp;allow_http10 | **bool**<br> 
+&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options17)**<br>If set, will enable HTTP2 protocol for the handler. 
+&nbsp;&nbsp;allow_http10 | **bool**<br>If set, will enable only HTTP1 protocol with HTTP1.0 support. 
 
 
 ### Http2Options {#Http2Options17}
@@ -1661,7 +1670,6 @@ subnet_id | **string**<br>
 Field | Description
 --- | ---
 address | **string**<br> 
-yandex_only | **bool**<br> 
 
 
 ### Operation {#Operation5}
@@ -1702,7 +1710,8 @@ region_id | **string**<br>ID of the region that the load balancer located at.
 network_id | **string**<br>ID of the network that the load balancer located at. 
 listeners[] | **[Listener](#Listener6)**<br>List of listeners for the application load balancer. 
 allocation_policy | **[AllocationPolicy](#AllocationPolicy8)**<br>Allocation sites for application load balancer instances. 
-log_group_id | **string**<br> 
+log_group_id | **string**<br>Cloud log group used by the load balancer to store access logs. 
+security_group_ids[] | **string**<br>ID's of security groups attached to the load balancer. 
 
 
 ### Listener {#Listener6}
@@ -1710,7 +1719,7 @@ log_group_id | **string**<br>
 Field | Description
 --- | ---
 name | **string**<br>Required. Name of the listener. The name must be unique for each listener on a single load balancer. 3-63 characters long. 
-endpoints[] | **[Endpoint](#Endpoint6)**<br>Network endpoints (addressees and ports) of the listener. 
+endpoints[] | **[Endpoint](#Endpoint6)**<br>Network endpoints (addresses and ports) of the listener. 
 listener | **oneof:** `http` or `tls`<br>
 &nbsp;&nbsp;http | **[HttpListener](#HttpListener6)**<br> 
 &nbsp;&nbsp;tls | **[TlsListener](#TlsListener6)**<br> 
@@ -1769,8 +1778,8 @@ Field | Description
 --- | ---
 http_router_id | **string**<br> 
 protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>
-&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options18)**<br> 
-&nbsp;&nbsp;allow_http10 | **bool**<br> 
+&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options18)**<br>If set, will enable HTTP2 protocol for the handler. 
+&nbsp;&nbsp;allow_http10 | **bool**<br>If set, will enable only HTTP1 protocol with HTTP1.0 support. 
 
 
 ### Http2Options {#Http2Options18}
@@ -1804,8 +1813,8 @@ Field | Description
 --- | ---
 http_router_id | **string**<br> 
 protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>
-&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options19)**<br> 
-&nbsp;&nbsp;allow_http10 | **bool**<br> 
+&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options19)**<br>If set, will enable HTTP2 protocol for the handler. 
+&nbsp;&nbsp;allow_http10 | **bool**<br>If set, will enable only HTTP1 protocol with HTTP1.0 support. 
 
 
 ### Http2Options {#Http2Options19}
@@ -1850,8 +1859,8 @@ Field | Description
 --- | ---
 http_router_id | **string**<br> 
 protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>
-&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options20)**<br> 
-&nbsp;&nbsp;allow_http10 | **bool**<br> 
+&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options20)**<br>If set, will enable HTTP2 protocol for the handler. 
+&nbsp;&nbsp;allow_http10 | **bool**<br>If set, will enable only HTTP1 protocol with HTTP1.0 support. 
 
 
 ### Http2Options {#Http2Options20}
@@ -1943,7 +1952,8 @@ region_id | **string**<br>ID of the region that the load balancer located at.
 network_id | **string**<br>ID of the network that the load balancer located at. 
 listeners[] | **[Listener](#Listener7)**<br>List of listeners for the application load balancer. 
 allocation_policy | **[AllocationPolicy](#AllocationPolicy9)**<br>Allocation sites for application load balancer instances. 
-log_group_id | **string**<br> 
+log_group_id | **string**<br>Cloud log group used by the load balancer to store access logs. 
+security_group_ids[] | **string**<br>ID's of security groups attached to the load balancer. 
 
 
 ### Listener {#Listener7}
@@ -1951,7 +1961,7 @@ log_group_id | **string**<br>
 Field | Description
 --- | ---
 name | **string**<br>Required. Name of the listener. The name must be unique for each listener on a single load balancer. 3-63 characters long. 
-endpoints[] | **[Endpoint](#Endpoint7)**<br>Network endpoints (addressees and ports) of the listener. 
+endpoints[] | **[Endpoint](#Endpoint7)**<br>Network endpoints (addresses and ports) of the listener. 
 listener | **oneof:** `http` or `tls`<br>
 &nbsp;&nbsp;http | **[HttpListener](#HttpListener7)**<br> 
 &nbsp;&nbsp;tls | **[TlsListener](#TlsListener7)**<br> 
@@ -2010,8 +2020,8 @@ Field | Description
 --- | ---
 http_router_id | **string**<br> 
 protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>
-&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options21)**<br> 
-&nbsp;&nbsp;allow_http10 | **bool**<br> 
+&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options21)**<br>If set, will enable HTTP2 protocol for the handler. 
+&nbsp;&nbsp;allow_http10 | **bool**<br>If set, will enable only HTTP1 protocol with HTTP1.0 support. 
 
 
 ### Http2Options {#Http2Options21}
@@ -2045,8 +2055,8 @@ Field | Description
 --- | ---
 http_router_id | **string**<br> 
 protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>
-&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options22)**<br> 
-&nbsp;&nbsp;allow_http10 | **bool**<br> 
+&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options22)**<br>If set, will enable HTTP2 protocol for the handler. 
+&nbsp;&nbsp;allow_http10 | **bool**<br>If set, will enable only HTTP1 protocol with HTTP1.0 support. 
 
 
 ### Http2Options {#Http2Options22}
@@ -2091,8 +2101,8 @@ Field | Description
 --- | ---
 http_router_id | **string**<br> 
 protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>
-&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options23)**<br> 
-&nbsp;&nbsp;allow_http10 | **bool**<br> 
+&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options23)**<br>If set, will enable HTTP2 protocol for the handler. 
+&nbsp;&nbsp;allow_http10 | **bool**<br>If set, will enable only HTTP1 protocol with HTTP1.0 support. 
 
 
 ### Http2Options {#Http2Options23}
@@ -2193,7 +2203,6 @@ subnet_id | **string**<br>
 Field | Description
 --- | ---
 address | **string**<br> 
-yandex_only | **bool**<br> 
 
 
 ### Operation {#Operation7}
@@ -2234,7 +2243,8 @@ region_id | **string**<br>ID of the region that the load balancer located at.
 network_id | **string**<br>ID of the network that the load balancer located at. 
 listeners[] | **[Listener](#Listener8)**<br>List of listeners for the application load balancer. 
 allocation_policy | **[AllocationPolicy](#AllocationPolicy10)**<br>Allocation sites for application load balancer instances. 
-log_group_id | **string**<br> 
+log_group_id | **string**<br>Cloud log group used by the load balancer to store access logs. 
+security_group_ids[] | **string**<br>ID's of security groups attached to the load balancer. 
 
 
 ### Listener {#Listener8}
@@ -2242,7 +2252,7 @@ log_group_id | **string**<br>
 Field | Description
 --- | ---
 name | **string**<br>Required. Name of the listener. The name must be unique for each listener on a single load balancer. 3-63 characters long. 
-endpoints[] | **[Endpoint](#Endpoint8)**<br>Network endpoints (addressees and ports) of the listener. 
+endpoints[] | **[Endpoint](#Endpoint8)**<br>Network endpoints (addresses and ports) of the listener. 
 listener | **oneof:** `http` or `tls`<br>
 &nbsp;&nbsp;http | **[HttpListener](#HttpListener8)**<br> 
 &nbsp;&nbsp;tls | **[TlsListener](#TlsListener8)**<br> 
@@ -2301,8 +2311,8 @@ Field | Description
 --- | ---
 http_router_id | **string**<br> 
 protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>
-&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options24)**<br> 
-&nbsp;&nbsp;allow_http10 | **bool**<br> 
+&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options24)**<br>If set, will enable HTTP2 protocol for the handler. 
+&nbsp;&nbsp;allow_http10 | **bool**<br>If set, will enable only HTTP1 protocol with HTTP1.0 support. 
 
 
 ### Http2Options {#Http2Options24}
@@ -2336,8 +2346,8 @@ Field | Description
 --- | ---
 http_router_id | **string**<br> 
 protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>
-&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options25)**<br> 
-&nbsp;&nbsp;allow_http10 | **bool**<br> 
+&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options25)**<br>If set, will enable HTTP2 protocol for the handler. 
+&nbsp;&nbsp;allow_http10 | **bool**<br>If set, will enable only HTTP1 protocol with HTTP1.0 support. 
 
 
 ### Http2Options {#Http2Options25}
@@ -2382,8 +2392,8 @@ Field | Description
 --- | ---
 http_router_id | **string**<br> 
 protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>
-&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options26)**<br> 
-&nbsp;&nbsp;allow_http10 | **bool**<br> 
+&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options26)**<br>If set, will enable HTTP2 protocol for the handler. 
+&nbsp;&nbsp;allow_http10 | **bool**<br>If set, will enable only HTTP1 protocol with HTTP1.0 support. 
 
 
 ### Http2Options {#Http2Options26}
@@ -2417,6 +2427,217 @@ Field | Description
 zone_id | **string**<br>Required.  
 subnet_id | **string**<br> 
 disable_traffic | **bool**<br>If set, will disable all L7 instances in the zone for request handling. 
+
+
+## AddSniMatch {#AddSniMatch}
+
+
+
+**rpc AddSniMatch ([AddSniMatchRequest](#AddSniMatchRequest)) returns ([operation.Operation](#Operation8))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[AddSniMatchMetadata](#AddSniMatchMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
+
+### AddSniMatchRequest {#AddSniMatchRequest}
+
+Field | Description
+--- | ---
+load_balancer_id | **string**<br>Required.  
+listener_name | **string**<br>Required.  
+name | **string**<br>Required.  
+server_names[] | **string**<br> The number of elements must be greater than 0.
+handler | **[TlsHandler](#TlsHandler18)**<br>Required.  
+
+
+### TlsHandler {#TlsHandler18}
+
+Field | Description
+--- | ---
+handler | **oneof:** `http_handler`<br>
+&nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler27)**<br> 
+certificate_ids[] | **string**<br>Certificate IDs in the Certificate Manager. Multiple TLS certificates can be associated with the same context to allow both RSA and ECDSA certificates. Only the first certificate of each type will be used. The number of elements must be greater than 0.
+tls_options | **[TlsOptions](#TlsOptions18)**<br> 
+
+
+### HttpHandler {#HttpHandler27}
+
+Field | Description
+--- | ---
+http_router_id | **string**<br> 
+protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>
+&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options27)**<br>If set, will enable HTTP2 protocol for the handler. 
+&nbsp;&nbsp;allow_http10 | **bool**<br>If set, will enable only HTTP1 protocol with HTTP1.0 support. 
+
+
+### Http2Options {#Http2Options27}
+
+Field | Description
+--- | ---
+max_concurrent_streams | **int64**<br> 
+
+
+### TlsOptions {#TlsOptions18}
+
+Field | Description
+--- | ---
+tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
+tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
+cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
+ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
+
+
+### Operation {#Operation8}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[AddSniMatchMetadata](#AddSniMatchMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>if operation finished successfully. 
+
+
+### AddSniMatchMetadata {#AddSniMatchMetadata}
+
+Field | Description
+--- | ---
+load_balancer_id | **string**<br> 
+listener_name | **string**<br> 
+sni_match_name | **string**<br> 
+
+
+## UpdateSniMatch {#UpdateSniMatch}
+
+
+
+**rpc UpdateSniMatch ([UpdateSniMatchRequest](#UpdateSniMatchRequest)) returns ([operation.Operation](#Operation9))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateSniMatchMetadata](#UpdateSniMatchMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
+
+### UpdateSniMatchRequest {#UpdateSniMatchRequest}
+
+Field | Description
+--- | ---
+load_balancer_id | **string**<br>Required.  
+listener_name | **string**<br>Required.  
+name | **string**<br>Required.  
+update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br> 
+server_names[] | **string**<br> The number of elements must be greater than 0.
+handler | **[TlsHandler](#TlsHandler19)**<br>Required.  
+
+
+### TlsHandler {#TlsHandler19}
+
+Field | Description
+--- | ---
+handler | **oneof:** `http_handler`<br>
+&nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler28)**<br> 
+certificate_ids[] | **string**<br>Certificate IDs in the Certificate Manager. Multiple TLS certificates can be associated with the same context to allow both RSA and ECDSA certificates. Only the first certificate of each type will be used. The number of elements must be greater than 0.
+tls_options | **[TlsOptions](#TlsOptions19)**<br> 
+
+
+### HttpHandler {#HttpHandler28}
+
+Field | Description
+--- | ---
+http_router_id | **string**<br> 
+protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>
+&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options28)**<br>If set, will enable HTTP2 protocol for the handler. 
+&nbsp;&nbsp;allow_http10 | **bool**<br>If set, will enable only HTTP1 protocol with HTTP1.0 support. 
+
+
+### Http2Options {#Http2Options28}
+
+Field | Description
+--- | ---
+max_concurrent_streams | **int64**<br> 
+
+
+### TlsOptions {#TlsOptions19}
+
+Field | Description
+--- | ---
+tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
+tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
+cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
+ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
+
+
+### Operation {#Operation9}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateSniMatchMetadata](#UpdateSniMatchMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>if operation finished successfully. 
+
+
+### UpdateSniMatchMetadata {#UpdateSniMatchMetadata}
+
+Field | Description
+--- | ---
+load_balancer_id | **string**<br> 
+listener_name | **string**<br> 
+sni_match_name | **string**<br> 
+
+
+## RemoveSniMatch {#RemoveSniMatch}
+
+
+
+**rpc RemoveSniMatch ([RemoveSniMatchRequest](#RemoveSniMatchRequest)) returns ([operation.Operation](#Operation10))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[RemoveSniMatchMetadata](#RemoveSniMatchMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
+
+### RemoveSniMatchRequest {#RemoveSniMatchRequest}
+
+Field | Description
+--- | ---
+load_balancer_id | **string**<br>Required.  
+listener_name | **string**<br>Required.  
+sni_match_name | **string**<br>Required.  
+
+
+### Operation {#Operation10}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RemoveSniMatchMetadata](#RemoveSniMatchMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>if operation finished successfully. 
+
+
+### RemoveSniMatchMetadata {#RemoveSniMatchMetadata}
+
+Field | Description
+--- | ---
+load_balancer_id | **string**<br> 
+listener_name | **string**<br> 
+sni_match_name | **string**<br> 
 
 
 ## GetTargetStates {#GetTargetStates}
@@ -2494,11 +2715,11 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 
 Field | Description
 --- | ---
-operations[] | **[operation.Operation](#Operation8)**<br>List of operations for the specified target group. 
+operations[] | **[operation.Operation](#Operation11)**<br>List of operations for the specified target group. 
 next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListLoadBalancerOperationsRequest.page_size](#ListLoadBalancerOperationsRequest), use the `next_page_token` as the value for the [ListLoadBalancerOperationsRequest.page_token](#ListLoadBalancerOperationsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
-### Operation {#Operation8}
+### Operation {#Operation11}
 
 Field | Description
 --- | ---

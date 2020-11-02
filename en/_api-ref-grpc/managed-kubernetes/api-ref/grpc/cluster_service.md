@@ -70,6 +70,7 @@ endpoints | **[MasterEndpoints](#MasterEndpoints)**<br>Endpoints of the master. 
 master_auth | **[MasterAuth](#MasterAuth)**<br>Master authentication parameters are used to establish trust between the master and a client. 
 version_info | **[VersionInfo](#VersionInfo)**<br>Detailed information about the Kubernetes version that is running on the master. 
 maintenance_policy | **[MasterMaintenancePolicy](#MasterMaintenancePolicy)**<br>Maintenance policy of the master. 
+security_group_ids[] | **string**<br>Master security groups. 
 
 
 ### ZonalMaster {#ZonalMaster}
@@ -168,6 +169,8 @@ Field | Description
 cluster_ipv4_cidr_block | **string**<br>CIDR block. IP range for allocating pod addresses. <br>It should not overlap with any subnet in the network the Kubernetes cluster located in. Static routes will be set up for this CIDR blocks in node subnets. 
 node_ipv4_cidr_mask_size | **int64**<br>Size of the masks that are assigned for each node in the cluster. <br>If not specified, 24 is used. Value must be equal to 0,24,25,26,27,28.
 service_ipv4_cidr_block | **string**<br>CIDR block. IP range Kubernetes service Kubernetes cluster IP addresses will be allocated from. <br>It should not overlap with any subnet in the network the Kubernetes cluster located in. 
+cluster_ipv6_cidr_block | **string**<br>IPv6 range for allocating pod IP addresses. 
+service_ipv6_cidr_block | **string**<br>IPv6 range for allocating Kubernetes service IP addresses 
 
 
 ### NetworkPolicy {#NetworkPolicy}
@@ -244,6 +247,7 @@ endpoints | **[MasterEndpoints](#MasterEndpoints1)**<br>Endpoints of the master.
 master_auth | **[MasterAuth](#MasterAuth1)**<br>Master authentication parameters are used to establish trust between the master and a client. 
 version_info | **[VersionInfo](#VersionInfo1)**<br>Detailed information about the Kubernetes version that is running on the master. 
 maintenance_policy | **[MasterMaintenancePolicy](#MasterMaintenancePolicy1)**<br>Maintenance policy of the master. 
+security_group_ids[] | **string**<br>Master security groups. 
 
 
 ### ZonalMaster {#ZonalMaster1}
@@ -342,6 +346,8 @@ Field | Description
 cluster_ipv4_cidr_block | **string**<br>CIDR block. IP range for allocating pod addresses. <br>It should not overlap with any subnet in the network the Kubernetes cluster located in. Static routes will be set up for this CIDR blocks in node subnets. 
 node_ipv4_cidr_mask_size | **int64**<br>Size of the masks that are assigned for each node in the cluster. <br>If not specified, 24 is used. Value must be equal to 0,24,25,26,27,28.
 service_ipv4_cidr_block | **string**<br>CIDR block. IP range Kubernetes service Kubernetes cluster IP addresses will be allocated from. <br>It should not overlap with any subnet in the network the Kubernetes cluster located in. 
+cluster_ipv6_cidr_block | **string**<br>IPv6 range for allocating pod IP addresses. 
+service_ipv6_cidr_block | **string**<br>IPv6 range for allocating Kubernetes service IP addresses 
 
 
 ### NetworkPolicy {#NetworkPolicy1}
@@ -397,6 +403,7 @@ master_type | **oneof:** `zonal_master_spec` or `regional_master_spec`<br>
 &nbsp;&nbsp;regional_master_spec | **[RegionalMasterSpec](#RegionalMasterSpec)**<br>Specification of the regional master. 
 version | **string**<br>Version of Kubernetes components that runs on the master. 
 maintenance_policy | **[MasterMaintenancePolicy](#MasterMaintenancePolicy2)**<br>Maintenance policy of the master. 
+security_group_ids[] | **string**<br>Master security groups. 
 
 
 ### ZonalMasterSpec {#ZonalMasterSpec}
@@ -500,6 +507,8 @@ Field | Description
 cluster_ipv4_cidr_block | **string**<br>CIDR block. IP range for allocating pod addresses. <br>It should not overlap with any subnet in the network the Kubernetes cluster located in. Static routes will be set up for this CIDR blocks in node subnets. 
 node_ipv4_cidr_mask_size | **int64**<br>Size of the masks that are assigned for each node in the cluster. <br>If not specified, 24 is used. Value must be equal to 0,24,25,26,27,28.
 service_ipv4_cidr_block | **string**<br>CIDR block. IP range Kubernetes service Kubernetes cluster IP addresses will be allocated from. <br>It should not overlap with any subnet in the network the Kubernetes cluster located in. 
+cluster_ipv6_cidr_block | **string**<br>IPv6 range for allocating pod IP addresses. 
+service_ipv6_cidr_block | **string**<br>IPv6 range for allocating Kubernetes service IP addresses 
 
 
 ### NetworkPolicy {#NetworkPolicy2}
@@ -575,6 +584,7 @@ endpoints | **[MasterEndpoints](#MasterEndpoints2)**<br>Endpoints of the master.
 master_auth | **[MasterAuth](#MasterAuth2)**<br>Master authentication parameters are used to establish trust between the master and a client. 
 version_info | **[VersionInfo](#VersionInfo2)**<br>Detailed information about the Kubernetes version that is running on the master. 
 maintenance_policy | **[MasterMaintenancePolicy](#MasterMaintenancePolicy3)**<br>Maintenance policy of the master. 
+security_group_ids[] | **string**<br>Master security groups. 
 
 
 ### ZonalMaster {#ZonalMaster2}
@@ -673,6 +683,8 @@ Field | Description
 cluster_ipv4_cidr_block | **string**<br>CIDR block. IP range for allocating pod addresses. <br>It should not overlap with any subnet in the network the Kubernetes cluster located in. Static routes will be set up for this CIDR blocks in node subnets. 
 node_ipv4_cidr_mask_size | **int64**<br>Size of the masks that are assigned for each node in the cluster. <br>If not specified, 24 is used. Value must be equal to 0,24,25,26,27,28.
 service_ipv4_cidr_block | **string**<br>CIDR block. IP range Kubernetes service Kubernetes cluster IP addresses will be allocated from. <br>It should not overlap with any subnet in the network the Kubernetes cluster located in. 
+cluster_ipv6_cidr_block | **string**<br>IPv6 range for allocating pod IP addresses. 
+service_ipv6_cidr_block | **string**<br>IPv6 range for allocating Kubernetes service IP addresses 
 
 
 ### NetworkPolicy {#NetworkPolicy3}
@@ -722,6 +734,7 @@ Field | Description
 --- | ---
 version | **[UpdateVersionSpec](#UpdateVersionSpec)**<br>Specification of the master update. 
 maintenance_policy | **[MasterMaintenancePolicy](#MasterMaintenancePolicy4)**<br>Maintenance policy of the master. 
+security_group_ids[] | **string**<br>Master security groups. 
 
 
 ### UpdateVersionSpec {#UpdateVersionSpec}
@@ -845,6 +858,7 @@ endpoints | **[MasterEndpoints](#MasterEndpoints3)**<br>Endpoints of the master.
 master_auth | **[MasterAuth](#MasterAuth3)**<br>Master authentication parameters are used to establish trust between the master and a client. 
 version_info | **[VersionInfo](#VersionInfo3)**<br>Detailed information about the Kubernetes version that is running on the master. 
 maintenance_policy | **[MasterMaintenancePolicy](#MasterMaintenancePolicy5)**<br>Maintenance policy of the master. 
+security_group_ids[] | **string**<br>Master security groups. 
 
 
 ### ZonalMaster {#ZonalMaster3}
@@ -943,6 +957,8 @@ Field | Description
 cluster_ipv4_cidr_block | **string**<br>CIDR block. IP range for allocating pod addresses. <br>It should not overlap with any subnet in the network the Kubernetes cluster located in. Static routes will be set up for this CIDR blocks in node subnets. 
 node_ipv4_cidr_mask_size | **int64**<br>Size of the masks that are assigned for each node in the cluster. <br>If not specified, 24 is used. Value must be equal to 0,24,25,26,27,28.
 service_ipv4_cidr_block | **string**<br>CIDR block. IP range Kubernetes service Kubernetes cluster IP addresses will be allocated from. <br>It should not overlap with any subnet in the network the Kubernetes cluster located in. 
+cluster_ipv6_cidr_block | **string**<br>IPv6 range for allocating pod IP addresses. 
+service_ipv6_cidr_block | **string**<br>IPv6 range for allocating Kubernetes service IP addresses 
 
 
 ### NetworkPolicy {#NetworkPolicy5}
@@ -1075,6 +1091,7 @@ endpoints | **[MasterEndpoints](#MasterEndpoints4)**<br>Endpoints of the master.
 master_auth | **[MasterAuth](#MasterAuth4)**<br>Master authentication parameters are used to establish trust between the master and a client. 
 version_info | **[VersionInfo](#VersionInfo4)**<br>Detailed information about the Kubernetes version that is running on the master. 
 maintenance_policy | **[MasterMaintenancePolicy](#MasterMaintenancePolicy6)**<br>Maintenance policy of the master. 
+security_group_ids[] | **string**<br>Master security groups. 
 
 
 ### ZonalMaster {#ZonalMaster4}
@@ -1173,6 +1190,8 @@ Field | Description
 cluster_ipv4_cidr_block | **string**<br>CIDR block. IP range for allocating pod addresses. <br>It should not overlap with any subnet in the network the Kubernetes cluster located in. Static routes will be set up for this CIDR blocks in node subnets. 
 node_ipv4_cidr_mask_size | **int64**<br>Size of the masks that are assigned for each node in the cluster. <br>If not specified, 24 is used. Value must be equal to 0,24,25,26,27,28.
 service_ipv4_cidr_block | **string**<br>CIDR block. IP range Kubernetes service Kubernetes cluster IP addresses will be allocated from. <br>It should not overlap with any subnet in the network the Kubernetes cluster located in. 
+cluster_ipv6_cidr_block | **string**<br>IPv6 range for allocating pod IP addresses. 
+service_ipv6_cidr_block | **string**<br>IPv6 range for allocating Kubernetes service IP addresses 
 
 
 ### NetworkPolicy {#NetworkPolicy6}
@@ -1265,6 +1284,7 @@ endpoints | **[MasterEndpoints](#MasterEndpoints5)**<br>Endpoints of the master.
 master_auth | **[MasterAuth](#MasterAuth5)**<br>Master authentication parameters are used to establish trust between the master and a client. 
 version_info | **[VersionInfo](#VersionInfo5)**<br>Detailed information about the Kubernetes version that is running on the master. 
 maintenance_policy | **[MasterMaintenancePolicy](#MasterMaintenancePolicy7)**<br>Maintenance policy of the master. 
+security_group_ids[] | **string**<br>Master security groups. 
 
 
 ### ZonalMaster {#ZonalMaster5}
@@ -1363,6 +1383,8 @@ Field | Description
 cluster_ipv4_cidr_block | **string**<br>CIDR block. IP range for allocating pod addresses. <br>It should not overlap with any subnet in the network the Kubernetes cluster located in. Static routes will be set up for this CIDR blocks in node subnets. 
 node_ipv4_cidr_mask_size | **int64**<br>Size of the masks that are assigned for each node in the cluster. <br>If not specified, 24 is used. Value must be equal to 0,24,25,26,27,28.
 service_ipv4_cidr_block | **string**<br>CIDR block. IP range Kubernetes service Kubernetes cluster IP addresses will be allocated from. <br>It should not overlap with any subnet in the network the Kubernetes cluster located in. 
+cluster_ipv6_cidr_block | **string**<br>IPv6 range for allocating pod IP addresses. 
+service_ipv6_cidr_block | **string**<br>IPv6 range for allocating Kubernetes service IP addresses 
 
 
 ### NetworkPolicy {#NetworkPolicy7}
@@ -1435,8 +1457,9 @@ platform_id | **string**<br>ID of the hardware platform configuration for the no
 resources_spec | **[ResourcesSpec](#ResourcesSpec)**<br>Computing resources of the node such as the amount of memory and number of cores. 
 boot_disk_spec | **[DiskSpec](#DiskSpec)**<br>Specification for the boot disk that will be attached to the node. 
 metadata | **map<string,string>**<br>The metadata as `key:value` pairs assigned to this instance template. This includes custom metadata and predefined keys. <br>For example, you may use the metadata in order to provide your public SSH key to the node. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). No more than 64 per resource. The maximum string length in characters for each value is 131072. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
-v4_address_spec | **[NodeAddressSpec](#NodeAddressSpec)**<br>Specification for the create network interfaces for the node group compute instances. 
+v4_address_spec | **[NodeAddressSpec](#NodeAddressSpec)**<br>Specification for the create network interfaces for the node group compute instances. Deprecated, please use network_interface_specs. 
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy)**<br>Scheduling policy configuration. 
+network_interface_specs[] | **[NetworkInterfaceSpec](#NetworkInterfaceSpec)**<br>New api, to specify network interfaces for the node group compute instances. Can not be used together with 'v4_address_spec' 
 
 
 ### ResourcesSpec {#ResourcesSpec}
@@ -1476,6 +1499,30 @@ ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li
 Field | Description
 --- | ---
 preemptible | **bool**<br>True for preemptible compute instances. Default value is false. Preemptible compute instances are stopped at least once every 24 hours, and can be stopped at any time if their resources are needed by Compute. For more information, see [Preemptible Virtual Machines](/docs/compute/concepts/preemptible-vm). 
+
+
+### NetworkInterfaceSpec {#NetworkInterfaceSpec}
+
+Field | Description
+--- | ---
+subnet_ids[] | **string**<br>IDs of the subnets. 
+primary_v4_address_spec | **[NodeAddressSpec](#NodeAddressSpec1)**<br>Primary IPv4 address that is assigned to the instance for this network interface. 
+primary_v6_address_spec | **[NodeAddressSpec](#NodeAddressSpec1)**<br>Primary IPv6 address that is assigned to the instance for this network interface. 
+security_group_ids[] | **string**<br>IDs of security groups. 
+
+
+### NodeAddressSpec {#NodeAddressSpec1}
+
+Field | Description
+--- | ---
+one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec1)**<br>One-to-one NAT configuration. Setting up one-to-one NAT ensures that public IP addresses are assigned to nodes, and therefore internet is accessible for all nodes of the node group. If the field is not set, NAT will not be set up. 
+
+
+### OneToOneNatSpec {#OneToOneNatSpec1}
+
+Field | Description
+--- | ---
+ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
 
 
 ### ScalePolicy {#ScalePolicy}

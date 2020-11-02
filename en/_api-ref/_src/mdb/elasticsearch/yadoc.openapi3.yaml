@@ -634,31 +634,6 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/DeleteClusterHostsMetadata'
       x-y-operation-response: Empty
-  /managed-elasticsearch/v1/operations/{operationId}:
-    get:
-      tags:
-      - Operation
-      summary: Returns the specified operation.
-      operationId: OperationGet
-      parameters:
-      - name: operationId
-        in: path
-        description: |-
-          Required.
-          ID of the operation to return.
-
-          The maximum string length in characters is 50.
-        required: true
-        schema:
-          type: string
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Operation'
-      x-y-navtitle: get
   /managed-elasticsearch/v1/resourcePresets/{resourcePresetId}:
     get:
       tags:
@@ -2037,9 +2012,6 @@ components:
 tags:
 - name: Cluster
   description: A set of methods for managing Elasticsearch clusters.
-- name: Operation
-  description: A set of methods for managing operations that are asynchronous API
-    requests.
 - name: ResourcePreset
   description: A set of methods for managing Elasticsearch resource presets.
 - name: User

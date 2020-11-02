@@ -177,6 +177,21 @@ POST https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters
           "saslUsername": "string",
           "saslPassword": "string"
         },
+        "kafkaTopics": [
+          {
+            "name": "string",
+            "settings": {
+              "securityProtocol": "string",
+              "saslMechanism": "string",
+              "saslUsername": "string",
+              "saslPassword": "string"
+            }
+          }
+        ],
+        "rabbitmq": {
+          "username": "string",
+          "password": "string"
+        },
         "maxConnections": "integer",
         "maxConcurrentQueries": "integer",
         "keepAliveTimeout": "integer",
@@ -336,6 +351,9 @@ POST https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters
         "outputFormatJsonQuoteDenormals": true,
         "lowCardinalityAllowInNativeFormat": true,
         "emptyResultForAggregationByEmptySet": true,
+        "joinedSubqueryRequiresAlias": true,
+        "joinUseNulls": true,
+        "transformNullIn": true,
         "httpConnectionTimeout": "integer",
         "httpReceiveTimeout": "integer",
         "httpSendTimeout": "integer",
@@ -492,6 +510,16 @@ configSpec.<br>clickhouse.<br>config.<br>kafka.<br>securityProtocol | **string**
 configSpec.<br>clickhouse.<br>config.<br>kafka.<br>saslMechanism | **string**<br>
 configSpec.<br>clickhouse.<br>config.<br>kafka.<br>saslUsername | **string**<br>
 configSpec.<br>clickhouse.<br>config.<br>kafka.<br>saslPassword | **string**<br>
+configSpec.<br>clickhouse.<br>config.<br>kafkaTopics[] | **object**<br>
+configSpec.<br>clickhouse.<br>config.<br>kafkaTopics[].<br>name | **string**<br><p>Required.</p> 
+configSpec.<br>clickhouse.<br>config.<br>kafkaTopics[].<br>settings | **object**<br><p>Required.</p> 
+configSpec.<br>clickhouse.<br>config.<br>kafkaTopics[].<br>settings.<br>securityProtocol | **string**<br>
+configSpec.<br>clickhouse.<br>config.<br>kafkaTopics[].<br>settings.<br>saslMechanism | **string**<br>
+configSpec.<br>clickhouse.<br>config.<br>kafkaTopics[].<br>settings.<br>saslUsername | **string**<br>
+configSpec.<br>clickhouse.<br>config.<br>kafkaTopics[].<br>settings.<br>saslPassword | **string**<br>
+configSpec.<br>clickhouse.<br>config.<br>rabbitmq | **object**<br>
+configSpec.<br>clickhouse.<br>config.<br>rabbitmq.<br>username | **string**<br>
+configSpec.<br>clickhouse.<br>config.<br>rabbitmq.<br>password | **string**<br>
 configSpec.<br>clickhouse.<br>config.<br>maxConnections | **integer** (int64)<br><p>Maximum number of inbound connections.</p> <p>The minimum value is 10.</p> 
 configSpec.<br>clickhouse.<br>config.<br>maxConcurrentQueries | **integer** (int64)<br><p>Maximum number of simultaneously processed requests.</p> <p>The minimum value is 10.</p> 
 configSpec.<br>clickhouse.<br>config.<br>keepAliveTimeout | **integer** (int64)<br><p>Number of milliseconds that ClickHouse waits for incoming requests before closing the connection.</p> 
@@ -635,6 +663,9 @@ userSpecs[].<br>settings.<br>outputFormatJsonQuote_64BitIntegers | **boolean** (
 userSpecs[].<br>settings.<br>outputFormatJsonQuoteDenormals | **boolean** (boolean)<br><p>Enables special floating-point values (<strong>+nan</strong>, <strong>-nan</strong>, <strong>+inf</strong> and <strong>-inf</strong>) in JSON output format.</p> <p>Default value: <strong>false</strong> (special values do not present in output).</p> 
 userSpecs[].<br>settings.<br>lowCardinalityAllowInNativeFormat | **boolean** (boolean)<br><p>Determines whether to use LowCardinality type in Native format.</p> <ul> <li><strong>true</strong> (default)—yes, use.</li> <li><strong>false</strong>—convert LowCardinality columns to regular columns when doing <strong>SELECT</strong>, and convert regular columns to LowCardinality when doing <strong>INSERT</strong>.</li> </ul> <p>LowCardinality columns (aka sparse columns) store data in more effective way, compared to regular columns, by using hash tables. If data to insert suits this storage format, ClickHouse will place them into LowCardinality column.</p> <p>If you use a third-party ClickHouse client that can't work with LowCardinality columns, then this client will not be able to correctly interpret the result of the query that asks for data stored in LowCardinality column. Disable this setting to convert LowCardinality column to regular column when creating the result, so such clients will be able to process the result.</p> <p>Official ClickHouse client works with LowCardinality columns out-of-the-box.</p> <p>Default value: <strong>true</strong> (LowCardinality columns are used in Native format).</p> 
 userSpecs[].<br>settings.<br>emptyResultForAggregationByEmptySet | **boolean** (boolean)<br><p>Enables returning of empty result when aggregating without keys (with <strong>GROUP BY</strong> operation absent) on empty set (e.g., <strong>SELECT count(*) FROM table WHERE 0</strong>).</p> <ul> <li><strong>true</strong>—ClickHouse will return an empty result for such queries.</li> <li><strong>false</strong> (default)—ClickHouse will return a single-line result consisting of <strong>NULL</strong> values for aggregation functions, in accordance with SQL standard.</li> </ul> 
+userSpecs[].<br>settings.<br>joinedSubqueryRequiresAlias | **boolean** (boolean)<br>
+userSpecs[].<br>settings.<br>joinUseNulls | **boolean** (boolean)<br>
+userSpecs[].<br>settings.<br>transformNullIn | **boolean** (boolean)<br>
 userSpecs[].<br>settings.<br>httpConnectionTimeout | **integer** (int64)<br><p>HTTP connection timeout, in milliseconds.</p> <p>Value must be greater than <strong>0</strong> (default: <strong>1000</strong>, 1 second).</p> 
 userSpecs[].<br>settings.<br>httpReceiveTimeout | **integer** (int64)<br><p>HTTP receive timeout, in milliseconds.</p> <p>Value must be greater than <strong>0</strong> (default: <strong>1800000</strong>, 1800 seconds, 30 minutes).</p> 
 userSpecs[].<br>settings.<br>httpSendTimeout | **integer** (int64)<br><p>HTTP send timeout, in milliseconds.</p> <p>Value must be greater than <strong>0</strong> (default: <strong>1800000</strong>, 1800 seconds, 30 minutes).</p> 

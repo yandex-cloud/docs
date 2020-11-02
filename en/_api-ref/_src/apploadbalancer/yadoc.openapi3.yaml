@@ -706,6 +706,93 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/UpdateListenerMetadata'
       x-y-operation-response: '[LoadBalancer](/docs/apploadbalancer/api-ref/LoadBalancer#representation)'
+  /apploadbalancer/v1/loadBalancers/{loadBalancerId}:addSniMatch:
+    post:
+      tags:
+      - LoadBalancer
+      operationId: LoadBalancerAddSniMatch
+      parameters:
+      - name: loadBalancerId
+        in: path
+        description: Required.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddSniMatchRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: addSniMatch
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/AddSniMatchMetadata'
+      x-y-operation-response: Empty
+  /apploadbalancer/v1/loadBalancers/{loadBalancerId}:updateSniMatch:
+    post:
+      tags:
+      - LoadBalancer
+      operationId: LoadBalancerUpdateSniMatch
+      parameters:
+      - name: loadBalancerId
+        in: path
+        description: Required.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateSniMatchRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: updateSniMatch
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateSniMatchMetadata'
+      x-y-operation-response: Empty
+  /apploadbalancer/v1/loadBalancers/{loadBalancerId}:removeSniMatch:
+    post:
+      tags:
+      - LoadBalancer
+      operationId: LoadBalancerRemoveSniMatch
+      parameters:
+      - name: loadBalancerId
+        in: path
+        description: Required.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RemoveSniMatchRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: removeSniMatch
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/RemoveSniMatchMetadata'
+      x-y-operation-response: Empty
   /apploadbalancer/v1/loadBalancers/{loadBalancerId}/targetStates/{backendGroupId}/{targetGroupId}:
     get:
       tags:
@@ -1293,6 +1380,33 @@ components:
       properties:
         listenerSpec:
           $ref: '#/components/schemas/ListenerSpec_in_AddListenerRequest_listenerSpec'
+    AddSniMatchMetadata:
+      type: object
+      properties:
+        loadBalancerId:
+          type: string
+        listenerName:
+          type: string
+        sniMatchName:
+          type: string
+    AddSniMatchRequest:
+      type: object
+      properties:
+        listenerName:
+          description: Required.
+          type: string
+        name:
+          description: Required.
+          type: string
+        serverNames:
+          description: |-
+            Required.
+            Must contain at least one element.
+          type: array
+          items:
+            type: string
+        handler:
+          $ref: '#/components/schemas/TlsHandler_in_AddSniMatchRequest_handler'
     AddTargetsMetadata:
       type: object
       properties:
@@ -1513,6 +1627,10 @@ components:
             $ref: '#/components/schemas/ListenerSpec'
         allocationPolicy:
           $ref: '#/components/schemas/AllocationPolicy_in_CreateLoadBalancerRequest_allocationPolicy'
+        securityGroupIds:
+          type: array
+          items:
+            type: string
     CreateTargetGroupMetadata:
       type: object
       properties:
@@ -1695,9 +1813,6 @@ components:
       properties:
         address:
           type: string
-        yandexOnly:
-          type: boolean
-          format: boolean
     FieldMask:
       description: |-
         A comma-separated names off ALL fields to be updated.
@@ -2008,7 +2123,9 @@ components:
         properties:
           http2Options:
             $ref: '#/components/schemas/Http2Options'
+            description: If set, will enable HTTP2 protocol for the handler.
           allowHttp10:
+            description: If set, will enable only HTTP1 protocol with HTTP1.0 support.
             type: boolean
             format: boolean
     HttpListener:
@@ -2231,7 +2348,7 @@ components:
               Name of the listener. The name must be unique for each listener on a single load balancer. 3-63 characters long.
             type: string
           endpoints:
-            description: Network endpoints (addressees and ports) of the listener.
+            description: Network endpoints (addresses and ports) of the listener.
             type: array
             items:
               $ref: '#/components/schemas/Endpoint'
@@ -2295,7 +2412,13 @@ components:
         allocationPolicy:
           $ref: '#/components/schemas/AllocationPolicy_in_LoadBalancer_allocationPolicy'
         logGroupId:
+          description: Cloud log group used by the load balancer to store access logs.
           type: string
+        securityGroupIds:
+          description: ID's of security groups attached to the load balancer.
+          type: array
+          items:
+            type: string
     LoadBalancerStatus:
       description: |2-
          - CREATING: Application load balancer is being created.
@@ -2481,6 +2604,24 @@ components:
       type: object
       properties:
         routeName:
+          description: Required.
+          type: string
+    RemoveSniMatchMetadata:
+      type: object
+      properties:
+        loadBalancerId:
+          type: string
+        listenerName:
+          type: string
+        sniMatchName:
+          type: string
+    RemoveSniMatchRequest:
+      type: object
+      properties:
+        listenerName:
+          description: Required.
+          type: string
+        sniMatchName:
           description: Required.
           type: string
     RemoveTargetsMetadata:
@@ -2847,6 +2988,10 @@ components:
             $ref: '#/components/schemas/ListenerSpec'
         allocationPolicy:
           $ref: '#/components/schemas/AllocationPolicy_in_UpdateLoadBalancerRequest_allocationPolicy'
+        securityGroupIds:
+          type: array
+          items:
+            type: string
     UpdateRouteMetadata:
       type: object
       properties:
@@ -2874,6 +3019,35 @@ components:
             $ref: '#/components/schemas/HttpRoute'
           grpc:
             $ref: '#/components/schemas/GrpcRoute'
+    UpdateSniMatchMetadata:
+      type: object
+      properties:
+        loadBalancerId:
+          type: string
+        listenerName:
+          type: string
+        sniMatchName:
+          type: string
+    UpdateSniMatchRequest:
+      type: object
+      properties:
+        listenerName:
+          description: Required.
+          type: string
+        name:
+          description: Required.
+          type: string
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateSniMatchRequest_updateMask'
+        serverNames:
+          description: |-
+            Required.
+            Must contain at least one element.
+          type: array
+          items:
+            type: string
+        handler:
+          $ref: '#/components/schemas/TlsHandler_in_UpdateSniMatchRequest_handler'
     UpdateTargetGroupMetadata:
       type: object
       properties:
@@ -3032,6 +3206,32 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/EndpointSpec'
+    TlsHandler_in_AddSniMatchRequest_handler:
+      description: Required.
+      type: object
+      allOf:
+      - type: object
+        properties:
+          certificateIds:
+            description: |-
+              Required.
+              Certificate IDs in the Certificate Manager.
+              Multiple TLS certificates can be associated with the same context to allow
+              both RSA and ECDSA certificates.
+              Only the first certificate of each type will be used.
+
+              Must contain at least one element.
+            type: array
+            items:
+              type: string
+          tlsOptions:
+            $ref: '#/components/schemas/TlsOptions'
+      - title: handler
+        type: object
+        maxProperties: 1
+        properties:
+          httpHandler:
+            $ref: '#/components/schemas/HttpHandler'
     TlsOptions_in_BackendTls_tlsOptions:
       description: Common TLS options used for backend TLS connections.
       type: object
@@ -3160,7 +3360,9 @@ components:
         properties:
           http2Options:
             $ref: '#/components/schemas/Http2Options'
+            description: If set, will enable HTTP2 protocol for the handler.
           allowHttp10:
+            description: If set, will enable only HTTP1 protocol with HTTP1.0 support.
             type: boolean
             format: boolean
     StringMatch_in_HttpRouteMatch_path:
@@ -3391,6 +3593,43 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Location'
+    FieldMask_in_UpdateSniMatchRequest_updateMask:
+      description: |-
+        A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
+    TlsHandler_in_UpdateSniMatchRequest_handler:
+      description: Required.
+      type: object
+      allOf:
+      - type: object
+        properties:
+          certificateIds:
+            description: |-
+              Required.
+              Certificate IDs in the Certificate Manager.
+              Multiple TLS certificates can be associated with the same context to allow
+              both RSA and ECDSA certificates.
+              Only the first certificate of each type will be used.
+
+              Must contain at least one element.
+            type: array
+            items:
+              type: string
+          tlsOptions:
+            $ref: '#/components/schemas/TlsOptions'
+      - title: handler
+        type: object
+        maxProperties: 1
+        properties:
+          httpHandler:
+            $ref: '#/components/schemas/HttpHandler'
     FieldMask_in_UpdateTargetGroupRequest_updateMask:
       description: |-
         A comma-separated names off ALL fields to be updated.

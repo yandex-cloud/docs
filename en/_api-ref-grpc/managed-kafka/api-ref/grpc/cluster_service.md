@@ -43,7 +43,7 @@ Field | Description
 id | **string**<br>ID of the Apache Kafka® cluster. This ID is assigned at creation time. 
 folder_id | **string**<br>ID of the folder that the Apache Kafka® cluster belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
-name | **string**<br>Name of the Apache Kafka® cluster. The name must be unique within the folder. 1-63 characters long. 
+name | **string**<br>Name of the Apache Kafka® cluster. The name must be unique within the folder. 1-63 characters long. Value must match the regular expression `[a-zA-Z0-9_-]*`. 
 description | **string**<br>Description of the Apache Kafka® cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the Apache Kafka® cluster as `key:value` pairs. A maximum of 64 labels per resource is allowed. 
 environment | enum **Environment**<br>Deployment environment of the Apache Kafka® cluster. <ul><li>`PRODUCTION`: stable environment with a conservative update policy when only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: environment with a more aggressive update policy when new versions are rolled out irrespective of backward compatibility.</li><ul/>
@@ -67,7 +67,7 @@ link | **string**<br>Link to the monitoring system charts for the Apache Kafka®
 
 Field | Description
 --- | ---
-version | **string**<br>Version of Apache Kafka® used in the cluster. 
+version | **string**<br>Version of Apache Kafka® used in the cluster. Possible values: `2.1`, `2.6`. 
 kafka | **[Kafka](#Kafka)**<br>Configuration and resource allocation for Kafka brokers. 
 zookeeper | **[Zookeeper](#Zookeeper)**<br>Configuration and resource allocation for ZooKeeper hosts. 
 zone_id[] | **string**<br>IDs of availability zones where Kafka brokers reside. 
@@ -123,7 +123,7 @@ Field | Description
 id | **string**<br>ID of the Apache Kafka® cluster. This ID is assigned at creation time. 
 folder_id | **string**<br>ID of the folder that the Apache Kafka® cluster belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
-name | **string**<br>Name of the Apache Kafka® cluster. The name must be unique within the folder. 1-63 characters long. 
+name | **string**<br>Name of the Apache Kafka® cluster. The name must be unique within the folder. 1-63 characters long. Value must match the regular expression `[a-zA-Z0-9_-]*`. 
 description | **string**<br>Description of the Apache Kafka® cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the Apache Kafka® cluster as `key:value` pairs. A maximum of 64 labels per resource is allowed. 
 environment | enum **Environment**<br>Deployment environment of the Apache Kafka® cluster. <ul><li>`PRODUCTION`: stable environment with a conservative update policy when only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: environment with a more aggressive update policy when new versions are rolled out irrespective of backward compatibility.</li><ul/>
@@ -147,7 +147,7 @@ link | **string**<br>Link to the monitoring system charts for the Apache Kafka®
 
 Field | Description
 --- | ---
-version | **string**<br>Version of Apache Kafka® used in the cluster. 
+version | **string**<br>Version of Apache Kafka® used in the cluster. Possible values: `2.1`, `2.6`. 
 kafka | **[Kafka](#Kafka1)**<br>Configuration and resource allocation for Kafka brokers. 
 zookeeper | **[Zookeeper](#Zookeeper1)**<br>Configuration and resource allocation for ZooKeeper hosts. 
 zone_id[] | **string**<br>IDs of availability zones where Kafka brokers reside. 
@@ -202,7 +202,7 @@ subnet_id[] | **string**<br>IDs of subnets to create brokers in.
 
 Field | Description
 --- | ---
-version | **string**<br>Version of Apache Kafka® used in the cluster. 
+version | **string**<br>Version of Apache Kafka® used in the cluster. Possible values: `2.1`, `2.6`. 
 kafka | **[Kafka](#Kafka2)**<br>Configuration and resource allocation for Kafka brokers. 
 zookeeper | **[Zookeeper](#Zookeeper2)**<br>Configuration and resource allocation for ZooKeeper hosts. 
 zone_id[] | **string**<br>IDs of availability zones where Kafka brokers reside. 
@@ -316,7 +316,7 @@ Field | Description
 id | **string**<br>ID of the Apache Kafka® cluster. This ID is assigned at creation time. 
 folder_id | **string**<br>ID of the folder that the Apache Kafka® cluster belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
-name | **string**<br>Name of the Apache Kafka® cluster. The name must be unique within the folder. 1-63 characters long. 
+name | **string**<br>Name of the Apache Kafka® cluster. The name must be unique within the folder. 1-63 characters long. Value must match the regular expression `[a-zA-Z0-9_-]*`. 
 description | **string**<br>Description of the Apache Kafka® cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the Apache Kafka® cluster as `key:value` pairs. A maximum of 64 labels per resource is allowed. 
 environment | enum **Environment**<br>Deployment environment of the Apache Kafka® cluster. <ul><li>`PRODUCTION`: stable environment with a conservative update policy when only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: environment with a more aggressive update policy when new versions are rolled out irrespective of backward compatibility.</li><ul/>
@@ -340,7 +340,7 @@ link | **string**<br>Link to the monitoring system charts for the Apache Kafka®
 
 Field | Description
 --- | ---
-version | **string**<br>Version of Apache Kafka® used in the cluster. 
+version | **string**<br>Version of Apache Kafka® used in the cluster. Possible values: `2.1`, `2.6`. 
 kafka | **[Kafka](#Kafka3)**<br>Configuration and resource allocation for Kafka brokers. 
 zookeeper | **[Zookeeper](#Zookeeper3)**<br>Configuration and resource allocation for ZooKeeper hosts. 
 zone_id[] | **string**<br>IDs of availability zones where Kafka brokers reside. 
@@ -391,7 +391,7 @@ name | **string**<br>New name for the Apache Kafka® cluster. The maximum string
 
 Field | Description
 --- | ---
-version | **string**<br>Version of Apache Kafka® used in the cluster. 
+version | **string**<br>Version of Apache Kafka® used in the cluster. Possible values: `2.1`, `2.6`. 
 kafka | **[Kafka](#Kafka4)**<br>Configuration and resource allocation for Kafka brokers. 
 zookeeper | **[Zookeeper](#Zookeeper4)**<br>Configuration and resource allocation for ZooKeeper hosts. 
 zone_id[] | **string**<br>IDs of availability zones where Kafka brokers reside. 
@@ -446,7 +446,7 @@ Field | Description
 id | **string**<br>ID of the Apache Kafka® cluster. This ID is assigned at creation time. 
 folder_id | **string**<br>ID of the folder that the Apache Kafka® cluster belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
-name | **string**<br>Name of the Apache Kafka® cluster. The name must be unique within the folder. 1-63 characters long. 
+name | **string**<br>Name of the Apache Kafka® cluster. The name must be unique within the folder. 1-63 characters long. Value must match the regular expression `[a-zA-Z0-9_-]*`. 
 description | **string**<br>Description of the Apache Kafka® cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the Apache Kafka® cluster as `key:value` pairs. A maximum of 64 labels per resource is allowed. 
 environment | enum **Environment**<br>Deployment environment of the Apache Kafka® cluster. <ul><li>`PRODUCTION`: stable environment with a conservative update policy when only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: environment with a more aggressive update policy when new versions are rolled out irrespective of backward compatibility.</li><ul/>
@@ -470,7 +470,7 @@ link | **string**<br>Link to the monitoring system charts for the Apache Kafka®
 
 Field | Description
 --- | ---
-version | **string**<br>Version of Apache Kafka® used in the cluster. 
+version | **string**<br>Version of Apache Kafka® used in the cluster. Possible values: `2.1`, `2.6`. 
 kafka | **[Kafka](#Kafka5)**<br>Configuration and resource allocation for Kafka brokers. 
 zookeeper | **[Zookeeper](#Zookeeper5)**<br>Configuration and resource allocation for ZooKeeper hosts. 
 zone_id[] | **string**<br>IDs of availability zones where Kafka brokers reside. 
@@ -585,7 +585,7 @@ Field | Description
 id | **string**<br>ID of the Apache Kafka® cluster. This ID is assigned at creation time. 
 folder_id | **string**<br>ID of the folder that the Apache Kafka® cluster belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
-name | **string**<br>Name of the Apache Kafka® cluster. The name must be unique within the folder. 1-63 characters long. 
+name | **string**<br>Name of the Apache Kafka® cluster. The name must be unique within the folder. 1-63 characters long. Value must match the regular expression `[a-zA-Z0-9_-]*`. 
 description | **string**<br>Description of the Apache Kafka® cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the Apache Kafka® cluster as `key:value` pairs. A maximum of 64 labels per resource is allowed. 
 environment | enum **Environment**<br>Deployment environment of the Apache Kafka® cluster. <ul><li>`PRODUCTION`: stable environment with a conservative update policy when only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: environment with a more aggressive update policy when new versions are rolled out irrespective of backward compatibility.</li><ul/>
@@ -609,7 +609,7 @@ link | **string**<br>Link to the monitoring system charts for the Apache Kafka®
 
 Field | Description
 --- | ---
-version | **string**<br>Version of Apache Kafka® used in the cluster. 
+version | **string**<br>Version of Apache Kafka® used in the cluster. Possible values: `2.1`, `2.6`. 
 kafka | **[Kafka](#Kafka6)**<br>Configuration and resource allocation for Kafka brokers. 
 zookeeper | **[Zookeeper](#Zookeeper6)**<br>Configuration and resource allocation for ZooKeeper hosts. 
 zone_id[] | **string**<br>IDs of availability zones where Kafka brokers reside. 
@@ -681,7 +681,7 @@ Field | Description
 id | **string**<br>ID of the Apache Kafka® cluster. This ID is assigned at creation time. 
 folder_id | **string**<br>ID of the folder that the Apache Kafka® cluster belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
-name | **string**<br>Name of the Apache Kafka® cluster. The name must be unique within the folder. 1-63 characters long. 
+name | **string**<br>Name of the Apache Kafka® cluster. The name must be unique within the folder. 1-63 characters long. Value must match the regular expression `[a-zA-Z0-9_-]*`. 
 description | **string**<br>Description of the Apache Kafka® cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the Apache Kafka® cluster as `key:value` pairs. A maximum of 64 labels per resource is allowed. 
 environment | enum **Environment**<br>Deployment environment of the Apache Kafka® cluster. <ul><li>`PRODUCTION`: stable environment with a conservative update policy when only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: environment with a more aggressive update policy when new versions are rolled out irrespective of backward compatibility.</li><ul/>
@@ -705,7 +705,7 @@ link | **string**<br>Link to the monitoring system charts for the Apache Kafka®
 
 Field | Description
 --- | ---
-version | **string**<br>Version of Apache Kafka® used in the cluster. 
+version | **string**<br>Version of Apache Kafka® used in the cluster. Possible values: `2.1`, `2.6`. 
 kafka | **[Kafka](#Kafka7)**<br>Configuration and resource allocation for Kafka brokers. 
 zookeeper | **[Zookeeper](#Zookeeper7)**<br>Configuration and resource allocation for ZooKeeper hosts. 
 zone_id[] | **string**<br>IDs of availability zones where Kafka brokers reside. 
@@ -777,7 +777,7 @@ Field | Description
 id | **string**<br>ID of the Apache Kafka® cluster. This ID is assigned at creation time. 
 folder_id | **string**<br>ID of the folder that the Apache Kafka® cluster belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
-name | **string**<br>Name of the Apache Kafka® cluster. The name must be unique within the folder. 1-63 characters long. 
+name | **string**<br>Name of the Apache Kafka® cluster. The name must be unique within the folder. 1-63 characters long. Value must match the regular expression `[a-zA-Z0-9_-]*`. 
 description | **string**<br>Description of the Apache Kafka® cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the Apache Kafka® cluster as `key:value` pairs. A maximum of 64 labels per resource is allowed. 
 environment | enum **Environment**<br>Deployment environment of the Apache Kafka® cluster. <ul><li>`PRODUCTION`: stable environment with a conservative update policy when only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: environment with a more aggressive update policy when new versions are rolled out irrespective of backward compatibility.</li><ul/>
@@ -801,7 +801,7 @@ link | **string**<br>Link to the monitoring system charts for the Apache Kafka®
 
 Field | Description
 --- | ---
-version | **string**<br>Version of Apache Kafka® used in the cluster. 
+version | **string**<br>Version of Apache Kafka® used in the cluster. Possible values: `2.1`, `2.6`. 
 kafka | **[Kafka](#Kafka8)**<br>Configuration and resource allocation for Kafka brokers. 
 zookeeper | **[Zookeeper](#Zookeeper8)**<br>Configuration and resource allocation for ZooKeeper hosts. 
 zone_id[] | **string**<br>IDs of availability zones where Kafka brokers reside. 
@@ -966,7 +966,7 @@ name | **string**<br>Name of the host.
 cluster_id | **string**<br>ID of the Apache Kafka® cluster. 
 zone_id | **string**<br>ID of the availability zone where the host resides. 
 role | enum **Role**<br>Host role. <ul><li>`KAFKA`: the host is a Kafka broker.</li><li>`ZOOKEEPER`: the host is a ZooKeeper server.</li><ul/>
-resources | **[Resources](#Resources)**<br>Resources allocated to the host. 
+resources | **[Resources](#Resources)**<br>Computational resources allocated to the host. 
 health | enum **Health**<br>Aggregated host health data. <ul><li>`UNKNOWN`: health of the host is unknown.</li><li>`ALIVE`: the host is performing all its functions normally.</li><li>`DEAD`: the host is inoperable and cannot perform any of its essential functions.</li><li>`DEGRADED`: the host is degraded and can perform only some of its essential functions.</li><ul/>
 subnet_id | **string**<br>ID of the subnet the host resides in. 
 assign_public_ip | **bool**<br>The flag that defines whether a public IP address is assigned to the node. <br>If the value is `true`, then this node is available on the Internet via it's public IP address. 

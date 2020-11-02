@@ -6,7 +6,6 @@ See the interface definitions of Yandex.Cloud API on [GitHub](https://github.com
 Service | Description
 --- | ---
 [ClusterService](./cluster_service.md) | A set of methods for managing Elasticsearch clusters.
-[OperationService](./operation_service.md) | A set of methods for managing operations that are asynchronous API requests.
 [ResourcePresetService](./resource_preset_service.md) | A set of methods for managing Elasticsearch resource presets.
 [UserService](./user_service.md) | A set of methods for managing Elasticsearch users.
 [OperationService](./operation_service.md) | A set of methods for managing operations for asynchronous API requests.

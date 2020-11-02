@@ -1192,8 +1192,7 @@ paths:
 components:
   schemas:
     Cluster:
-      description: Кластер Apache Kafka. Подробнее читайте в разделе [Concepts](/docs/managed-kafka/concepts)
-        документации.
+      description: Кластер Apache Kafka. Подробнее читайте в разделе [Концепции](/docs/managed-kafka/concepts).
       type: object
       properties:
         id:
@@ -1213,7 +1212,8 @@ components:
           format: date-time
         name:
           description: Имя кластера Apache Kafka®. Имя должно быть уникальным в рамках
-            каталога. Длина 1-63 символов.
+            каталога. Длина 1-63 символов. Значение должно соответствовать регулярному
+            выражению `[a-zA-Z0-9_-]*`.
           type: string
         description:
           description: Описание кластера Apache Kafka®. Длина описания должна быть
@@ -1244,18 +1244,18 @@ components:
           $ref: '#/components/schemas/ClusterStatus_in_Cluster_status'
     ClusterEnvironment:
       description: |2-
-         - PRODUCTION: стабильная среда с осторожной политикой обновления — во время регулярного обслуживания применяются только срочные исправления.
-         - PRESTABLE: среда с более агрессивной политикой обновления — новые версии развертываются независимо от обратной совместимости.
+         - PRODUCTION: Стабильная среда с осторожной политикой обновления — во время регулярного обслуживания применяются только срочные исправления.
+         - PRESTABLE: Среда с более агрессивной политикой обновления — новые версии развертываются независимо от обратной совместимости.
       type: string
       enum:
       - PRODUCTION
       - PRESTABLE
     ClusterHealth:
       description: |2-
-         - HEALTH_UNKNOWN: состояние кластера неизвестно (`health` всех хостов в кластере — `UNKNOWN`).
-         - ALIVE: кластер работает нормально (`health` всех хостов в кластере — `ALIVE`).
-         - DEAD: кластер не работает (`health` всех хостов в кластере — `DEAD`).
-         - DEGRADED: кластер находится в состоянии деградации (`health` по крайней мере одного из хостов в кластере — не `ALIVE`).
+         - HEALTH_UNKNOWN: Состояние кластера неизвестно (`health` всех хостов в кластере — `UNKNOWN`).
+         - ALIVE: Кластер работает нормально (`health` всех хостов в кластере — `ALIVE`).
+         - DEAD: Кластер не работает (`health` всех хостов в кластере — `DEAD`).
+         - DEGRADED: Кластер находится в состоянии деградации (`health` по крайней мере одного из хостов в кластере — не `ALIVE`).
       type: string
       enum:
       - HEALTH_UNKNOWN
@@ -1265,14 +1265,14 @@ components:
       default: HEALTH_UNKNOWN
     ClusterStatus:
       description: |2-
-         - STATUS_UNKNOWN: состояние кластера неизвестно.
-         - CREATING: кластер создается.
-         - RUNNING: кластер работает нормально.
-         - ERROR: в кластере произошла ошибка, блокирующая работу.
-         - UPDATING: кластер изменяется.
-         - STOPPING: кластер останавливается.
-         - STOPPED: кластер остановлен.
-         - STARTING: кластер запускается.
+         - STATUS_UNKNOWN: Состояние кластера неизвестно.
+         - CREATING: Кластер создается.
+         - RUNNING: Кластер работает нормально.
+         - ERROR: В кластере произошла ошибка, блокирующая работу.
+         - UPDATING: Кластер изменяется.
+         - STOPPING: Кластер останавливается.
+         - STOPPED: Кластер остановлен.
+         - STARTING: Кластер запускается.
       type: string
       enum:
       - STATUS_UNKNOWN
@@ -1304,7 +1304,8 @@ components:
       type: object
       properties:
         version:
-          description: Версия Apache Kafka®, которая используется в кластере.
+          description: 'Версия Apache Kafka®, которая используется в кластере. Возможные
+            значения: `2.1`, `2.6`.'
           type: string
         kafka:
           $ref: '#/components/schemas/ConfigSpecKafka_in_ConfigSpec_kafka'
@@ -1321,9 +1322,9 @@ components:
           type: integer
           format: int64
         assignPublicIp:
-          description: |-
-            Флаг, определяющий, назначен ли кластеру публичный IP-адрес. Если значение равно `true`, то кластер Apache Kafka® доступен в Интернете через его публичный
-            IP-адрес.
+          description: Флаг, определяющий, назначен ли кластеру публичный IP-адрес.
+            Если значение равно `true`, то кластер Apache Kafka® доступен в Интернете
+            через его публичный IP-адрес.
           type: boolean
           format: boolean
     ConfigSpecKafka:
@@ -1333,13 +1334,15 @@ components:
         properties:
           resources:
             $ref: '#/components/schemas/Resources'
-            description: Ресурсы, выделенные брокерам Kafka.
+            description: Вычислительные ресурсы, выделенные брокерам Kafka.
       - title: kafka_config
         type: object
         maxProperties: 1
         properties:
           kafkaConfig_2_1:
             $ref: '#/components/schemas/KafkaConfig2_1'
+          kafkaConfig_2_6:
+            $ref: '#/components/schemas/KafkaConfig2_6'
     ConfigSpecZookeeper:
       type: object
       properties:
@@ -1554,7 +1557,7 @@ components:
       - KAFKA
       - ZOOKEEPER
     KafkaConfig2_1:
-      description: Конфигурация брокера Kafka.
+      description: Конфигурация брокера Kafka версии 2.1.
       type: object
       properties:
         compressionType:
@@ -1563,7 +1566,7 @@ components:
           description: |-
             Количество сообщений, которые должны быть накоплены в разделе прежде, чем эти сообщения будут сброшены на диск.
 
-            Это глобальная настройка, которая задается на уровне кластера. Её можно переопределить на уровне топика с помощью настройки
+            Это глобальная настройка, которая задается на уровне кластера. Ее можно переопределить на уровне топика с помощью настройки
             `flushMessages`.
           type: integer
           format: int64
@@ -1572,7 +1575,7 @@ components:
             Максимальное время (в миллисекундах), в течение которого сообщение в любом топике хранится в памяти перед сбросом на диск. Если значение не задано, то
             используется значение настройки `logFlushSchedulerIntervalMs`.
 
-            Это глобальная настройка, которая задается на уровне кластера. Её можно переопределить на уровне топика с помощью настройки `flushMs`.
+            Это глобальная настройка, которая задается на уровне кластера. Ее можно переопределить на уровне топика с помощью настройки `flushMs`.
           type: integer
           format: int64
         logFlushSchedulerIntervalMs:
@@ -1586,7 +1589,7 @@ components:
             Ограничение размера раздела; Kafka отбросит старые сегменты лога, если , чтобы освободить место, если действует политика `delete`
             `cleanupPolicy`. Этот настройка полезна, если вам необходимо контролировать размер лога из-за ограниченного дискового пространства.
 
-            Это глобальная настройка, которая задается на уровне кластера. Её можно переопределить на уровне топика с помощью настройки
+            Это глобальная настройка, которая задается на уровне кластера. Ее можно переопределить на уровне топика с помощью настройки
             `retentionBytes`.
           type: integer
           format: int64
@@ -1608,7 +1611,65 @@ components:
 
             Если значение не задано, то используется значение настройки `logRetentionMinutes`.
 
-            Это глобальная настройка, которая задается на уровне кластера. Её можно переопределить на уровне топика с помощью настройки `retentionMs`.
+            Это глобальная настройка, которая задается на уровне кластера. Ее можно переопределить на уровне топика с помощью настройки `retentionMs`.
+          type: integer
+          format: int64
+    KafkaConfig2_6:
+      description: Конфигурация брокера Kafka версии 2.6.
+      type: object
+      properties:
+        compressionType:
+          $ref: '#/components/schemas/CompressionType_in_KafkaConfig2_6_compressionType'
+        logFlushIntervalMessages:
+          description: |-
+            Количество сообщений, которые должны быть накоплены в разделе прежде, чем эти сообщения будут сброшены на диск.
+
+            Это глобальная настройка, которая задается на уровне кластера. Ее можно переопределить на уровне топика с помощью настройки
+            `flushMessages`.
+          type: integer
+          format: int64
+        logFlushIntervalMs:
+          description: |-
+            Максимальное время (в миллисекундах), в течение которого сообщение в любом топике хранится в памяти перед сбросом на диск. Если значение не задано, то
+            используется значение настройки `logFlushSchedulerIntervalMs`.
+
+            Это глобальная настройка, которая задается на уровне кластера. Ее можно переопределить на уровне топика с помощью настройки `flushMs`.
+          type: integer
+          format: int64
+        logFlushSchedulerIntervalMs:
+          description: Частота проверки (в миллисекундах) наличия логов, которые нужно
+            сбросить на диск. Эта проверка выполняется процессом, ответственным за
+            сброс логов.
+          type: integer
+          format: int64
+        logRetentionBytes:
+          description: |-
+            Ограничение размера раздела; Kafka отбросит старые сегменты лога, чтобы освободить место, если действует политика `delete`
+            `cleanupPolicy`. Эта настройка полезна, если вам необходимо контролировать размер лога из-за ограниченного дискового пространства.
+
+            Это глобальная настройка, которая задается на уровне кластера. Ее можно переопределить на уровне топика с помощью настройки
+            `retentionBytes`.
+          type: integer
+          format: int64
+        logRetentionHours:
+          description: Количество часов до удаления файла сегмента лога; в течение
+            этого времени Kafka будет хранить файл сегмента лога.
+          type: integer
+          format: int64
+        logRetentionMinutes:
+          description: |-
+            Количество минут до удаления файла сегмента лога; в течение этого времени Kafka будет хранить файл сегмента лога.
+
+            Если значение не задано, то используется значение настройки `logRetentionHours`.
+          type: integer
+          format: int64
+        logRetentionMs:
+          description: |-
+            Количество миллисекунд до удаления файла сегмента лога; в течение этого времени Kafka будет хранить файл сегмента лога.
+
+            Если значение не задано, то используется значение настройки `logRetentionMinutes`.
+
+            Это глобальная настройка, которая задается на уровне кластера. Ее можно переопределить на уровне топика с помощью настройки `retentionMs`.
           type: integer
           format: int64
     ListClusterHostsResponse:
@@ -1886,13 +1947,12 @@ components:
           type: string
           format: int64
     Resources:
-      description: Вычислительные ресурсы.
       type: object
       properties:
         resourcePresetId:
           description: |-
             Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в
-            [documentation](/docs/managed-kafka/concepts/instance-types).
+            [документации](/docs/managed-kafka/concepts/instance-types).
           type: string
         diskSize:
           description: Объем хранилища, доступного хосту, в байтах.
@@ -2204,8 +2264,8 @@ components:
       description: |-
         Среда развертывания кластера Apache Kafka®.
 
-         - PRODUCTION: стабильная среда с осторожной политикой обновления — во время регулярного обслуживания применяются только срочные исправления.
-         - PRESTABLE: среда с более агрессивной политикой обновления — новые версии развертываются независимо от обратной совместимости.
+         - PRODUCTION: Стабильная среда с осторожной политикой обновления — во время регулярного обслуживания применяются только срочные исправления.
+         - PRESTABLE: Среда с более агрессивной политикой обновления — новые версии развертываются независимо от обратной совместимости.
       type: string
       enum:
       - PRODUCTION
@@ -2215,7 +2275,8 @@ components:
       type: object
       properties:
         version:
-          description: Версия Apache Kafka®, которая используется в кластере.
+          description: 'Версия Apache Kafka®, которая используется в кластере. Возможные
+            значения: `2.1`, `2.6`.'
           type: string
         kafka:
           $ref: '#/components/schemas/ConfigSpecKafka_in_ConfigSpec_kafka'
@@ -2232,19 +2293,19 @@ components:
           type: integer
           format: int64
         assignPublicIp:
-          description: |-
-            Флаг, определяющий, назначен ли кластеру публичный IP-адрес. Если значение равно `true`, то кластер Apache Kafka® доступен в Интернете через его публичный
-            IP-адрес.
+          description: Флаг, определяющий, назначен ли кластеру публичный IP-адрес.
+            Если значение равно `true`, то кластер Apache Kafka® доступен в Интернете
+            через его публичный IP-адрес.
           type: boolean
           format: boolean
     ClusterHealth_in_Cluster_health:
       description: |-
         Здоровье кластера.
 
-         - HEALTH_UNKNOWN: состояние кластера неизвестно (`health` всех хостов в кластере — `UNKNOWN`).
-         - ALIVE: кластер работает нормально (`health` всех хостов в кластере — `ALIVE`).
-         - DEAD: кластер не работает (`health` всех хостов в кластере — `DEAD`).
-         - DEGRADED: кластер находится в состоянии деградации (`health` по крайней мере одного из хостов в кластере — не `ALIVE`).
+         - HEALTH_UNKNOWN: Состояние кластера неизвестно (`health` всех хостов в кластере — `UNKNOWN`).
+         - ALIVE: Кластер работает нормально (`health` всех хостов в кластере — `ALIVE`).
+         - DEAD: Кластер не работает (`health` всех хостов в кластере — `DEAD`).
+         - DEGRADED: Кластер находится в состоянии деградации (`health` по крайней мере одного из хостов в кластере — не `ALIVE`).
       type: string
       enum:
       - HEALTH_UNKNOWN
@@ -2256,14 +2317,14 @@ components:
       description: |-
         Текущее состояние кластера.
 
-         - STATUS_UNKNOWN: состояние кластера неизвестно.
-         - CREATING: кластер создается.
-         - RUNNING: кластер работает нормально.
-         - ERROR: в кластере произошла ошибка, блокирующая работу.
-         - UPDATING: кластер изменяется.
-         - STOPPING: кластер останавливается.
-         - STOPPED: кластер остановлен.
-         - STARTING: кластер запускается.
+         - STATUS_UNKNOWN: Состояние кластера неизвестно.
+         - CREATING: Кластер создается.
+         - RUNNING: Кластер работает нормально.
+         - ERROR: В кластере произошла ошибка, блокирующая работу.
+         - UPDATING: Кластер изменяется.
+         - STOPPING: Кластер останавливается.
+         - STOPPED: Кластер остановлен.
+         - STARTING: Кластер запускается.
       type: string
       enum:
       - STATUS_UNKNOWN
@@ -2283,13 +2344,15 @@ components:
         properties:
           resources:
             $ref: '#/components/schemas/Resources'
-            description: Ресурсы, выделенные брокерам Kafka.
+            description: Вычислительные ресурсы, выделенные брокерам Kafka.
       - title: kafka_config
         type: object
         maxProperties: 1
         properties:
           kafkaConfig_2_1:
             $ref: '#/components/schemas/KafkaConfig2_1'
+          kafkaConfig_2_6:
+            $ref: '#/components/schemas/KafkaConfig2_6'
     ConfigSpecZookeeper_in_ConfigSpec_zookeeper:
       description: Конфигурация и распределение ресурсов для хостов ZooKeeper.
       type: object
@@ -2297,16 +2360,13 @@ components:
         resources:
           $ref: '#/components/schemas/Resources_in_ConfigSpecZookeeper_resources'
     Resources_in_ConfigSpecZookeeper_resources:
-      description: |-
-        Ресурсы, выделенные хостам ZooKeeper.
-
-        Вычислительные ресурсы.
+      description: Вычислительные ресурсы, выделенные хостам ZooKeeper.
       type: object
       properties:
         resourcePresetId:
           description: |-
             Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в
-            [documentation](/docs/managed-kafka/concepts/instance-types).
+            [документации](/docs/managed-kafka/concepts/instance-types).
           type: string
         diskSize:
           description: Объем хранилища, доступного хосту, в байтах.
@@ -2319,8 +2379,8 @@ components:
       description: |-
         Среда развертывания кластера Apache Kafka®.
 
-         - PRODUCTION: стабильная среда с осторожной политикой обновления — во время регулярного обслуживания применяются только срочные исправления.
-         - PRESTABLE: среда с более агрессивной политикой обновления — новые версии развертываются независимо от обратной совместимости.
+         - PRODUCTION: Стабильная среда с осторожной политикой обновления — во время регулярного обслуживания применяются только срочные исправления.
+         - PRESTABLE: Среда с более агрессивной политикой обновления — новые версии развертываются независимо от обратной совместимости.
       type: string
       enum:
       - PRODUCTION
@@ -2330,7 +2390,8 @@ components:
       type: object
       properties:
         version:
-          description: Версия Apache Kafka®, которая используется в кластере.
+          description: 'Версия Apache Kafka®, которая используется в кластере. Возможные
+            значения: `2.1`, `2.6`.'
           type: string
         kafka:
           $ref: '#/components/schemas/ConfigSpecKafka_in_ConfigSpec_kafka'
@@ -2347,9 +2408,9 @@ components:
           type: integer
           format: int64
         assignPublicIp:
-          description: |-
-            Флаг, определяющий, назначен ли кластеру публичный IP-адрес. Если значение равно `true`, то кластер Apache Kafka® доступен в Интернете через его публичный
-            IP-адрес.
+          description: Флаг, определяющий, назначен ли кластеру публичный IP-адрес.
+            Если значение равно `true`, то кластер Apache Kafka® доступен в Интернете
+            через его публичный IP-адрес.
           type: boolean
           format: boolean
     TopicSpec_in_CreateTopicRequest_topicSpec:
@@ -2428,16 +2489,13 @@ components:
       - KAFKA
       - ZOOKEEPER
     Resources_in_Host_resources:
-      description: |-
-        Ресурсы, выделенные хосту.
-
-        Вычислительные ресурсы.
+      description: Вычислительные ресурсы, выделенные хосту.
       type: object
       properties:
         resourcePresetId:
           description: |-
             Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в
-            [documentation](/docs/managed-kafka/concepts/instance-types).
+            [документации](/docs/managed-kafka/concepts/instance-types).
           type: string
         diskSize:
           description: Объем хранилища, доступного хосту, в байтах.
@@ -2462,6 +2520,24 @@ components:
       - DEGRADED
       default: UNKNOWN
     CompressionType_in_KafkaConfig2_1_compressionType:
+      description: |-
+        Тип сжатия для топиков кластера.
+
+         - COMPRESSION_TYPE_UNCOMPRESSED: не использовать кодек (сообщения не сжимаются).
+         - COMPRESSION_TYPE_ZSTD: кодек Zstandard.
+         - COMPRESSION_TYPE_LZ4: Кодек LZ4.
+         - COMPRESSION_TYPE_SNAPPY: Кодек Snappy.
+         - COMPRESSION_TYPE_GZIP: кодек GZip.
+         - COMPRESSION_TYPE_PRODUCER: кодек задается на стороне производителя (допустимые кодеки: `ZSTD`, `LZ4`, `GZIP` или `SNAPPY`).
+      type: string
+      enum:
+      - COMPRESSION_TYPE_UNCOMPRESSED
+      - COMPRESSION_TYPE_ZSTD
+      - COMPRESSION_TYPE_LZ4
+      - COMPRESSION_TYPE_SNAPPY
+      - COMPRESSION_TYPE_GZIP
+      - COMPRESSION_TYPE_PRODUCER
+    CompressionType_in_KafkaConfig2_6_compressionType:
       description: |-
         Тип сжатия для топиков кластера.
 
@@ -2572,7 +2648,8 @@ components:
       type: object
       properties:
         version:
-          description: Версия Apache Kafka®, которая используется в кластере.
+          description: 'Версия Apache Kafka®, которая используется в кластере. Возможные
+            значения: `2.1`, `2.6`.'
           type: string
         kafka:
           $ref: '#/components/schemas/ConfigSpecKafka_in_ConfigSpec_kafka'
@@ -2589,9 +2666,9 @@ components:
           type: integer
           format: int64
         assignPublicIp:
-          description: |-
-            Флаг, определяющий, назначен ли кластеру публичный IP-адрес. Если значение равно `true`, то кластер Apache Kafka® доступен в Интернете через его публичный
-            IP-адрес.
+          description: Флаг, определяющий, назначен ли кластеру публичный IP-адрес.
+            Если значение равно `true`, то кластер Apache Kafka® доступен в Интернете
+            через его публичный IP-адрес.
           type: boolean
           format: boolean
     FieldMask_in_UpdateTopicRequest_updateMask:

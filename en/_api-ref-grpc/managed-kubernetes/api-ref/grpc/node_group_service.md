@@ -63,8 +63,9 @@ platform_id | **string**<br>ID of the hardware platform configuration for the no
 resources_spec | **[ResourcesSpec](#ResourcesSpec)**<br>Computing resources of the node such as the amount of memory and number of cores. 
 boot_disk_spec | **[DiskSpec](#DiskSpec)**<br>Specification for the boot disk that will be attached to the node. 
 metadata | **map<string,string>**<br>The metadata as `key:value` pairs assigned to this instance template. This includes custom metadata and predefined keys. <br>For example, you may use the metadata in order to provide your public SSH key to the node. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). No more than 64 per resource. The maximum string length in characters for each value is 131072. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
-v4_address_spec | **[NodeAddressSpec](#NodeAddressSpec)**<br>Specification for the create network interfaces for the node group compute instances. 
+v4_address_spec | **[NodeAddressSpec](#NodeAddressSpec)**<br>Specification for the create network interfaces for the node group compute instances. Deprecated, please use network_interface_specs. 
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy)**<br>Scheduling policy configuration. 
+network_interface_specs[] | **[NetworkInterfaceSpec](#NetworkInterfaceSpec)**<br>New api, to specify network interfaces for the node group compute instances. Can not be used together with 'v4_address_spec' 
 
 
 ### ResourcesSpec {#ResourcesSpec}
@@ -104,6 +105,30 @@ ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li
 Field | Description
 --- | ---
 preemptible | **bool**<br>True for preemptible compute instances. Default value is false. Preemptible compute instances are stopped at least once every 24 hours, and can be stopped at any time if their resources are needed by Compute. For more information, see [Preemptible Virtual Machines](/docs/compute/concepts/preemptible-vm). 
+
+
+### NetworkInterfaceSpec {#NetworkInterfaceSpec}
+
+Field | Description
+--- | ---
+subnet_ids[] | **string**<br>IDs of the subnets. 
+primary_v4_address_spec | **[NodeAddressSpec](#NodeAddressSpec1)**<br>Primary IPv4 address that is assigned to the instance for this network interface. 
+primary_v6_address_spec | **[NodeAddressSpec](#NodeAddressSpec1)**<br>Primary IPv6 address that is assigned to the instance for this network interface. 
+security_group_ids[] | **string**<br>IDs of security groups. 
+
+
+### NodeAddressSpec {#NodeAddressSpec1}
+
+Field | Description
+--- | ---
+one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec1)**<br>One-to-one NAT configuration. Setting up one-to-one NAT ensures that public IP addresses are assigned to nodes, and therefore internet is accessible for all nodes of the node group. If the field is not set, NAT will not be set up. 
+
+
+### OneToOneNatSpec {#OneToOneNatSpec1}
+
+Field | Description
+--- | ---
+ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
 
 
 ### ScalePolicy {#ScalePolicy}
@@ -276,8 +301,9 @@ platform_id | **string**<br>ID of the hardware platform configuration for the no
 resources_spec | **[ResourcesSpec](#ResourcesSpec1)**<br>Computing resources of the node such as the amount of memory and number of cores. 
 boot_disk_spec | **[DiskSpec](#DiskSpec1)**<br>Specification for the boot disk that will be attached to the node. 
 metadata | **map<string,string>**<br>The metadata as `key:value` pairs assigned to this instance template. This includes custom metadata and predefined keys. <br>For example, you may use the metadata in order to provide your public SSH key to the node. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). No more than 64 per resource. The maximum string length in characters for each value is 131072. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
-v4_address_spec | **[NodeAddressSpec](#NodeAddressSpec1)**<br>Specification for the create network interfaces for the node group compute instances. 
+v4_address_spec | **[NodeAddressSpec](#NodeAddressSpec2)**<br>Specification for the create network interfaces for the node group compute instances. Deprecated, please use network_interface_specs. 
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy1)**<br>Scheduling policy configuration. 
+network_interface_specs[] | **[NetworkInterfaceSpec](#NetworkInterfaceSpec1)**<br>New api, to specify network interfaces for the node group compute instances. Can not be used together with 'v4_address_spec' 
 
 
 ### ResourcesSpec {#ResourcesSpec1}
@@ -298,14 +324,14 @@ disk_type_id | **string**<br>ID of the disk type. Value must match the regular e
 disk_size | **int64**<br>Size of the disk, specified in bytes. Acceptable values are 0 to 4398046511104, inclusive.
 
 
-### NodeAddressSpec {#NodeAddressSpec1}
+### NodeAddressSpec {#NodeAddressSpec2}
 
 Field | Description
 --- | ---
-one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec1)**<br>One-to-one NAT configuration. Setting up one-to-one NAT ensures that public IP addresses are assigned to nodes, and therefore internet is accessible for all nodes of the node group. If the field is not set, NAT will not be set up. 
+one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec2)**<br>One-to-one NAT configuration. Setting up one-to-one NAT ensures that public IP addresses are assigned to nodes, and therefore internet is accessible for all nodes of the node group. If the field is not set, NAT will not be set up. 
 
 
-### OneToOneNatSpec {#OneToOneNatSpec1}
+### OneToOneNatSpec {#OneToOneNatSpec2}
 
 Field | Description
 --- | ---
@@ -317,6 +343,30 @@ ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li
 Field | Description
 --- | ---
 preemptible | **bool**<br>True for preemptible compute instances. Default value is false. Preemptible compute instances are stopped at least once every 24 hours, and can be stopped at any time if their resources are needed by Compute. For more information, see [Preemptible Virtual Machines](/docs/compute/concepts/preemptible-vm). 
+
+
+### NetworkInterfaceSpec {#NetworkInterfaceSpec1}
+
+Field | Description
+--- | ---
+subnet_ids[] | **string**<br>IDs of the subnets. 
+primary_v4_address_spec | **[NodeAddressSpec](#NodeAddressSpec3)**<br>Primary IPv4 address that is assigned to the instance for this network interface. 
+primary_v6_address_spec | **[NodeAddressSpec](#NodeAddressSpec3)**<br>Primary IPv6 address that is assigned to the instance for this network interface. 
+security_group_ids[] | **string**<br>IDs of security groups. 
+
+
+### NodeAddressSpec {#NodeAddressSpec3}
+
+Field | Description
+--- | ---
+one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec3)**<br>One-to-one NAT configuration. Setting up one-to-one NAT ensures that public IP addresses are assigned to nodes, and therefore internet is accessible for all nodes of the node group. If the field is not set, NAT will not be set up. 
+
+
+### OneToOneNatSpec {#OneToOneNatSpec3}
+
+Field | Description
+--- | ---
+ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
 
 
 ### ScalePolicy {#ScalePolicy1}
@@ -470,8 +520,9 @@ platform_id | **string**<br>ID of the hardware platform configuration for the no
 resources_spec | **[ResourcesSpec](#ResourcesSpec2)**<br>Computing resources of the node such as the amount of memory and number of cores. 
 boot_disk_spec | **[DiskSpec](#DiskSpec2)**<br>Specification for the boot disk that will be attached to the node. 
 metadata | **map<string,string>**<br>The metadata as `key:value` pairs assigned to this instance template. This includes custom metadata and predefined keys. <br>For example, you may use the metadata in order to provide your public SSH key to the node. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). No more than 64 per resource. The maximum string length in characters for each value is 131072. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
-v4_address_spec | **[NodeAddressSpec](#NodeAddressSpec2)**<br>Specification for the create network interfaces for the node group compute instances. 
+v4_address_spec | **[NodeAddressSpec](#NodeAddressSpec4)**<br>Specification for the create network interfaces for the node group compute instances. Deprecated, please use network_interface_specs. 
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy2)**<br>Scheduling policy configuration. 
+network_interface_specs[] | **[NetworkInterfaceSpec](#NetworkInterfaceSpec2)**<br>New api, to specify network interfaces for the node group compute instances. Can not be used together with 'v4_address_spec' 
 
 
 ### ResourcesSpec {#ResourcesSpec2}
@@ -492,14 +543,14 @@ disk_type_id | **string**<br>ID of the disk type. Value must match the regular e
 disk_size | **int64**<br>Size of the disk, specified in bytes. Acceptable values are 0 to 4398046511104, inclusive.
 
 
-### NodeAddressSpec {#NodeAddressSpec2}
+### NodeAddressSpec {#NodeAddressSpec4}
 
 Field | Description
 --- | ---
-one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec2)**<br>One-to-one NAT configuration. Setting up one-to-one NAT ensures that public IP addresses are assigned to nodes, and therefore internet is accessible for all nodes of the node group. If the field is not set, NAT will not be set up. 
+one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec4)**<br>One-to-one NAT configuration. Setting up one-to-one NAT ensures that public IP addresses are assigned to nodes, and therefore internet is accessible for all nodes of the node group. If the field is not set, NAT will not be set up. 
 
 
-### OneToOneNatSpec {#OneToOneNatSpec2}
+### OneToOneNatSpec {#OneToOneNatSpec4}
 
 Field | Description
 --- | ---
@@ -511,6 +562,30 @@ ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li
 Field | Description
 --- | ---
 preemptible | **bool**<br>True for preemptible compute instances. Default value is false. Preemptible compute instances are stopped at least once every 24 hours, and can be stopped at any time if their resources are needed by Compute. For more information, see [Preemptible Virtual Machines](/docs/compute/concepts/preemptible-vm). 
+
+
+### NetworkInterfaceSpec {#NetworkInterfaceSpec2}
+
+Field | Description
+--- | ---
+subnet_ids[] | **string**<br>IDs of the subnets. 
+primary_v4_address_spec | **[NodeAddressSpec](#NodeAddressSpec5)**<br>Primary IPv4 address that is assigned to the instance for this network interface. 
+primary_v6_address_spec | **[NodeAddressSpec](#NodeAddressSpec5)**<br>Primary IPv6 address that is assigned to the instance for this network interface. 
+security_group_ids[] | **string**<br>IDs of security groups. 
+
+
+### NodeAddressSpec {#NodeAddressSpec5}
+
+Field | Description
+--- | ---
+one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec5)**<br>One-to-one NAT configuration. Setting up one-to-one NAT ensures that public IP addresses are assigned to nodes, and therefore internet is accessible for all nodes of the node group. If the field is not set, NAT will not be set up. 
+
+
+### OneToOneNatSpec {#OneToOneNatSpec5}
+
+Field | Description
+--- | ---
+ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
 
 
 ### ScalePolicy {#ScalePolicy2}
@@ -672,8 +747,9 @@ platform_id | **string**<br>ID of the hardware platform configuration for the no
 resources_spec | **[ResourcesSpec](#ResourcesSpec3)**<br>Computing resources of the node such as the amount of memory and number of cores. 
 boot_disk_spec | **[DiskSpec](#DiskSpec3)**<br>Specification for the boot disk that will be attached to the node. 
 metadata | **map<string,string>**<br>The metadata as `key:value` pairs assigned to this instance template. This includes custom metadata and predefined keys. <br>For example, you may use the metadata in order to provide your public SSH key to the node. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). No more than 64 per resource. The maximum string length in characters for each value is 131072. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
-v4_address_spec | **[NodeAddressSpec](#NodeAddressSpec3)**<br>Specification for the create network interfaces for the node group compute instances. 
+v4_address_spec | **[NodeAddressSpec](#NodeAddressSpec6)**<br>Specification for the create network interfaces for the node group compute instances. Deprecated, please use network_interface_specs. 
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy3)**<br>Scheduling policy configuration. 
+network_interface_specs[] | **[NetworkInterfaceSpec](#NetworkInterfaceSpec3)**<br>New api, to specify network interfaces for the node group compute instances. Can not be used together with 'v4_address_spec' 
 
 
 ### ResourcesSpec {#ResourcesSpec3}
@@ -694,14 +770,14 @@ disk_type_id | **string**<br>ID of the disk type. Value must match the regular e
 disk_size | **int64**<br>Size of the disk, specified in bytes. Acceptable values are 0 to 4398046511104, inclusive.
 
 
-### NodeAddressSpec {#NodeAddressSpec3}
+### NodeAddressSpec {#NodeAddressSpec6}
 
 Field | Description
 --- | ---
-one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec3)**<br>One-to-one NAT configuration. Setting up one-to-one NAT ensures that public IP addresses are assigned to nodes, and therefore internet is accessible for all nodes of the node group. If the field is not set, NAT will not be set up. 
+one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec6)**<br>One-to-one NAT configuration. Setting up one-to-one NAT ensures that public IP addresses are assigned to nodes, and therefore internet is accessible for all nodes of the node group. If the field is not set, NAT will not be set up. 
 
 
-### OneToOneNatSpec {#OneToOneNatSpec3}
+### OneToOneNatSpec {#OneToOneNatSpec6}
 
 Field | Description
 --- | ---
@@ -713,6 +789,30 @@ ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li
 Field | Description
 --- | ---
 preemptible | **bool**<br>True for preemptible compute instances. Default value is false. Preemptible compute instances are stopped at least once every 24 hours, and can be stopped at any time if their resources are needed by Compute. For more information, see [Preemptible Virtual Machines](/docs/compute/concepts/preemptible-vm). 
+
+
+### NetworkInterfaceSpec {#NetworkInterfaceSpec3}
+
+Field | Description
+--- | ---
+subnet_ids[] | **string**<br>IDs of the subnets. 
+primary_v4_address_spec | **[NodeAddressSpec](#NodeAddressSpec7)**<br>Primary IPv4 address that is assigned to the instance for this network interface. 
+primary_v6_address_spec | **[NodeAddressSpec](#NodeAddressSpec7)**<br>Primary IPv6 address that is assigned to the instance for this network interface. 
+security_group_ids[] | **string**<br>IDs of security groups. 
+
+
+### NodeAddressSpec {#NodeAddressSpec7}
+
+Field | Description
+--- | ---
+one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec7)**<br>One-to-one NAT configuration. Setting up one-to-one NAT ensures that public IP addresses are assigned to nodes, and therefore internet is accessible for all nodes of the node group. If the field is not set, NAT will not be set up. 
+
+
+### OneToOneNatSpec {#OneToOneNatSpec7}
+
+Field | Description
+--- | ---
+ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
 
 
 ### ScalePolicy {#ScalePolicy3}
@@ -867,8 +967,9 @@ platform_id | **string**<br>ID of the hardware platform configuration for the no
 resources_spec | **[ResourcesSpec](#ResourcesSpec4)**<br>Computing resources of the node such as the amount of memory and number of cores. 
 boot_disk_spec | **[DiskSpec](#DiskSpec4)**<br>Specification for the boot disk that will be attached to the node. 
 metadata | **map<string,string>**<br>The metadata as `key:value` pairs assigned to this instance template. This includes custom metadata and predefined keys. <br>For example, you may use the metadata in order to provide your public SSH key to the node. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). No more than 64 per resource. The maximum string length in characters for each value is 131072. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
-v4_address_spec | **[NodeAddressSpec](#NodeAddressSpec4)**<br>Specification for the create network interfaces for the node group compute instances. 
+v4_address_spec | **[NodeAddressSpec](#NodeAddressSpec8)**<br>Specification for the create network interfaces for the node group compute instances. Deprecated, please use network_interface_specs. 
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy4)**<br>Scheduling policy configuration. 
+network_interface_specs[] | **[NetworkInterfaceSpec](#NetworkInterfaceSpec4)**<br>New api, to specify network interfaces for the node group compute instances. Can not be used together with 'v4_address_spec' 
 
 
 ### ResourcesSpec {#ResourcesSpec4}
@@ -889,14 +990,14 @@ disk_type_id | **string**<br>ID of the disk type. Value must match the regular e
 disk_size | **int64**<br>Size of the disk, specified in bytes. Acceptable values are 0 to 4398046511104, inclusive.
 
 
-### NodeAddressSpec {#NodeAddressSpec4}
+### NodeAddressSpec {#NodeAddressSpec8}
 
 Field | Description
 --- | ---
-one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec4)**<br>One-to-one NAT configuration. Setting up one-to-one NAT ensures that public IP addresses are assigned to nodes, and therefore internet is accessible for all nodes of the node group. If the field is not set, NAT will not be set up. 
+one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec8)**<br>One-to-one NAT configuration. Setting up one-to-one NAT ensures that public IP addresses are assigned to nodes, and therefore internet is accessible for all nodes of the node group. If the field is not set, NAT will not be set up. 
 
 
-### OneToOneNatSpec {#OneToOneNatSpec4}
+### OneToOneNatSpec {#OneToOneNatSpec8}
 
 Field | Description
 --- | ---
@@ -908,6 +1009,30 @@ ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li
 Field | Description
 --- | ---
 preemptible | **bool**<br>True for preemptible compute instances. Default value is false. Preemptible compute instances are stopped at least once every 24 hours, and can be stopped at any time if their resources are needed by Compute. For more information, see [Preemptible Virtual Machines](/docs/compute/concepts/preemptible-vm). 
+
+
+### NetworkInterfaceSpec {#NetworkInterfaceSpec4}
+
+Field | Description
+--- | ---
+subnet_ids[] | **string**<br>IDs of the subnets. 
+primary_v4_address_spec | **[NodeAddressSpec](#NodeAddressSpec9)**<br>Primary IPv4 address that is assigned to the instance for this network interface. 
+primary_v6_address_spec | **[NodeAddressSpec](#NodeAddressSpec9)**<br>Primary IPv6 address that is assigned to the instance for this network interface. 
+security_group_ids[] | **string**<br>IDs of security groups. 
+
+
+### NodeAddressSpec {#NodeAddressSpec9}
+
+Field | Description
+--- | ---
+one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec9)**<br>One-to-one NAT configuration. Setting up one-to-one NAT ensures that public IP addresses are assigned to nodes, and therefore internet is accessible for all nodes of the node group. If the field is not set, NAT will not be set up. 
+
+
+### OneToOneNatSpec {#OneToOneNatSpec9}
+
+Field | Description
+--- | ---
+ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
 
 
 ### ScalePolicy {#ScalePolicy4}
@@ -1078,8 +1203,9 @@ platform_id | **string**<br>ID of the hardware platform configuration for the no
 resources_spec | **[ResourcesSpec](#ResourcesSpec5)**<br>Computing resources of the node such as the amount of memory and number of cores. 
 boot_disk_spec | **[DiskSpec](#DiskSpec5)**<br>Specification for the boot disk that will be attached to the node. 
 metadata | **map<string,string>**<br>The metadata as `key:value` pairs assigned to this instance template. This includes custom metadata and predefined keys. <br>For example, you may use the metadata in order to provide your public SSH key to the node. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). No more than 64 per resource. The maximum string length in characters for each value is 131072. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
-v4_address_spec | **[NodeAddressSpec](#NodeAddressSpec5)**<br>Specification for the create network interfaces for the node group compute instances. 
+v4_address_spec | **[NodeAddressSpec](#NodeAddressSpec10)**<br>Specification for the create network interfaces for the node group compute instances. Deprecated, please use network_interface_specs. 
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy5)**<br>Scheduling policy configuration. 
+network_interface_specs[] | **[NetworkInterfaceSpec](#NetworkInterfaceSpec5)**<br>New api, to specify network interfaces for the node group compute instances. Can not be used together with 'v4_address_spec' 
 
 
 ### ResourcesSpec {#ResourcesSpec5}
@@ -1100,14 +1226,14 @@ disk_type_id | **string**<br>ID of the disk type. Value must match the regular e
 disk_size | **int64**<br>Size of the disk, specified in bytes. Acceptable values are 0 to 4398046511104, inclusive.
 
 
-### NodeAddressSpec {#NodeAddressSpec5}
+### NodeAddressSpec {#NodeAddressSpec10}
 
 Field | Description
 --- | ---
-one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec5)**<br>One-to-one NAT configuration. Setting up one-to-one NAT ensures that public IP addresses are assigned to nodes, and therefore internet is accessible for all nodes of the node group. If the field is not set, NAT will not be set up. 
+one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec10)**<br>One-to-one NAT configuration. Setting up one-to-one NAT ensures that public IP addresses are assigned to nodes, and therefore internet is accessible for all nodes of the node group. If the field is not set, NAT will not be set up. 
 
 
-### OneToOneNatSpec {#OneToOneNatSpec5}
+### OneToOneNatSpec {#OneToOneNatSpec10}
 
 Field | Description
 --- | ---
@@ -1119,6 +1245,30 @@ ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li
 Field | Description
 --- | ---
 preemptible | **bool**<br>True for preemptible compute instances. Default value is false. Preemptible compute instances are stopped at least once every 24 hours, and can be stopped at any time if their resources are needed by Compute. For more information, see [Preemptible Virtual Machines](/docs/compute/concepts/preemptible-vm). 
+
+
+### NetworkInterfaceSpec {#NetworkInterfaceSpec5}
+
+Field | Description
+--- | ---
+subnet_ids[] | **string**<br>IDs of the subnets. 
+primary_v4_address_spec | **[NodeAddressSpec](#NodeAddressSpec11)**<br>Primary IPv4 address that is assigned to the instance for this network interface. 
+primary_v6_address_spec | **[NodeAddressSpec](#NodeAddressSpec11)**<br>Primary IPv6 address that is assigned to the instance for this network interface. 
+security_group_ids[] | **string**<br>IDs of security groups. 
+
+
+### NodeAddressSpec {#NodeAddressSpec11}
+
+Field | Description
+--- | ---
+one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec11)**<br>One-to-one NAT configuration. Setting up one-to-one NAT ensures that public IP addresses are assigned to nodes, and therefore internet is accessible for all nodes of the node group. If the field is not set, NAT will not be set up. 
+
+
+### OneToOneNatSpec {#OneToOneNatSpec11}
+
+Field | Description
+--- | ---
+ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
 
 
 ### ScalePolicy {#ScalePolicy5}

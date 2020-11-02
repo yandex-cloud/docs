@@ -432,6 +432,52 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/AddFederatedUserAccountsMetadata'
       x-y-operation-response: '`AddFederatedUserAccountsResponse`'
+  /iam/v1/saml/federations/{federationId}:listUserAccounts:
+    get:
+      tags:
+      - Federation
+      operationId: FederationListUserAccounts
+      parameters:
+      - name: federationId
+        in: path
+        description: |-
+          Required.
+          ID of the federation to list user accounts for.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/iam/api-ref/Federation/listUserAccounts#query_params), the service returns a [nextPageToken](/docs/iam/api-ref/Federation/listUserAccounts#responses)
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
+
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/iam/api-ref/Federation/listUserAccounts#query_params)
+          to the [nextPageToken](/docs/iam/api-ref/Federation/listUserAccounts#responses)
+          returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListFederatedUserAccountsResponse'
+      x-y-navtitle: listUserAccounts
   /iam/v1/saml/federations/{federationId}/operations:
     get:
       tags:
@@ -816,6 +862,21 @@ components:
             for the [pageToken](/docs/iam/api-ref/Certificate/list#query_params) query parameter
             in the next list request. Each subsequent list request will have its own
             [nextPageToken](/docs/iam/api-ref/Certificate/list#responses) to continue paging through the results.
+          type: string
+    ListFederatedUserAccountsResponse:
+      type: object
+      properties:
+        userAccounts:
+          description: List of user accounts for the specified federation.
+          type: array
+          items:
+            $ref: '#/components/schemas/UserAccount'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/iam/api-ref/Federation/listUserAccounts#query_params), use the [nextPageToken](/docs/iam/api-ref/Federation/listUserAccounts#responses) as the value
+            for the [pageToken](/docs/iam/api-ref/Federation/listUserAccounts#query_params) query parameter in the next list request.
+            Each subsequent list request will have its own [nextPageToken](/docs/iam/api-ref/Federation/listUserAccounts#responses) to continue paging through the results.
           type: string
     ListFederationOperationsResponse:
       type: object

@@ -133,7 +133,10 @@ editable: false
       }
     ]
   },
-  "logGroupId": "string"
+  "logGroupId": "string",
+  "securityGroupIds": [
+    "string"
+  ]
 }
 ```
  
@@ -149,7 +152,7 @@ regionId | **string**<br><p>ID of the region that the load balancer located at.<
 networkId | **string**<br><p>ID of the network that the load balancer located at.</p> 
 listeners[] | **object**<br><p>A Listener resource.</p> 
 listeners[].<br>name | **string**<br><p>Required. Name of the listener. The name must be unique for each listener on a single load balancer. 3-63 characters long.</p> 
-listeners[].<br>endpoints[] | **object**<br><p>Network endpoints (addressees and ports) of the listener.</p> 
+listeners[].<br>endpoints[] | **object**<br><p>Network endpoints (addresses and ports) of the listener.</p> 
 listeners[].<br>endpoints[].<br>addresses[] | **object**<br><p>Required. Must contain at least one element.</p> 
 listeners[].<br>endpoints[].<br>addresses[].<br>externalIpv4Address | **object** <br>`listeners[].endpoints[].addresses[]` includes only one of the fields `externalIpv4Address`, `internalIpv4Address`, `externalIpv6Address`<br><br>
 listeners[].<br>endpoints[].<br>addresses[].<br>externalIpv4Address.<br>address | **string**<br>
@@ -164,7 +167,7 @@ listeners[].<br>http.<br>handler | **object**<br>
 listeners[].<br>http.<br>handler.<br>httpRouterId | **string**<br>
 listeners[].<br>http.<br>handler.<br>http2Options | **object** <br>`listeners[].http.handler` includes only one of the fields `http2Options`, `allowHttp10`<br><br>
 listeners[].<br>http.<br>handler.<br>http2Options.<br>maxConcurrentStreams | **string** (int64)<br>
-listeners[].<br>http.<br>handler.<br>allowHttp10 | **boolean** (boolean) <br>`listeners[].http.handler` includes only one of the fields `http2Options`, `allowHttp10`<br><br>
+listeners[].<br>http.<br>handler.<br>allowHttp10 | **boolean** (boolean) <br>`listeners[].http.handler` includes only one of the fields `http2Options`, `allowHttp10`<br><br><p>If set, will enable only HTTP1 protocol with HTTP1.0 support.</p> 
 listeners[].<br>tls | **object** <br>`listeners[]` includes only one of the fields `http`, `tls`<br><br>
 listeners[].<br>tls.<br>defaultHandler | **object**<br><p>Required.</p> 
 listeners[].<br>tls.<br>defaultHandler.<br>certificateIds[] | **string**<br><p>Required. Certificate IDs in the Certificate Manager. Multiple TLS certificates can be associated with the same context to allow both RSA and ECDSA certificates. Only the first certificate of each type will be used.</p> <p>Must contain at least one element.</p> 
@@ -175,9 +178,9 @@ listeners[].<br>tls.<br>defaultHandler.<br>tlsOptions.<br>cipherSuites[] | **str
 listeners[].<br>tls.<br>defaultHandler.<br>tlsOptions.<br>ecdhCurves[] | **string**<br><p>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used.</p> 
 listeners[].<br>tls.<br>defaultHandler.<br>httpHandler | **object**<br>
 listeners[].<br>tls.<br>defaultHandler.<br>httpHandler.<br>httpRouterId | **string**<br>
-listeners[].<br>tls.<br>defaultHandler.<br>httpHandler.<br>http2Options | **object** <br>`listeners[].tls.defaultHandler.httpHandler` includes only one of the fields `http2Options`, `allowHttp10`<br><br>
+listeners[].<br>tls.<br>defaultHandler.<br>httpHandler.<br>http2Options | **object**<br>If set, will enable HTTP2 protocol for the handler. <br>`listeners[].tls.defaultHandler.httpHandler` includes only one of the fields `http2Options`, `allowHttp10`<br><br>
 listeners[].<br>tls.<br>defaultHandler.<br>httpHandler.<br>http2Options.<br>maxConcurrentStreams | **string** (int64)<br>
-listeners[].<br>tls.<br>defaultHandler.<br>httpHandler.<br>allowHttp10 | **boolean** (boolean) <br>`listeners[].tls.defaultHandler.httpHandler` includes only one of the fields `http2Options`, `allowHttp10`<br><br>
+listeners[].<br>tls.<br>defaultHandler.<br>httpHandler.<br>allowHttp10 | **boolean** (boolean) <br>`listeners[].tls.defaultHandler.httpHandler` includes only one of the fields `http2Options`, `allowHttp10`<br><br><p>If set, will enable only HTTP1 protocol with HTTP1.0 support.</p> 
 listeners[].<br>tls.<br>sniHandlers[] | **object**<br>
 listeners[].<br>tls.<br>sniHandlers[].<br>name | **string**<br><p>Required.</p> 
 listeners[].<br>tls.<br>sniHandlers[].<br>serverNames[] | **string**<br><p>Required. Must contain at least one element.</p> 
@@ -190,20 +193,22 @@ listeners[].<br>tls.<br>sniHandlers[].<br>handler.<br>tlsOptions.<br>cipherSuite
 listeners[].<br>tls.<br>sniHandlers[].<br>handler.<br>tlsOptions.<br>ecdhCurves[] | **string**<br><p>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used.</p> 
 listeners[].<br>tls.<br>sniHandlers[].<br>handler.<br>httpHandler | **object**<br>
 listeners[].<br>tls.<br>sniHandlers[].<br>handler.<br>httpHandler.<br>httpRouterId | **string**<br>
-listeners[].<br>tls.<br>sniHandlers[].<br>handler.<br>httpHandler.<br>http2Options | **object** <br>`listeners[].tls.sniHandlers[].handler.httpHandler` includes only one of the fields `http2Options`, `allowHttp10`<br><br>
+listeners[].<br>tls.<br>sniHandlers[].<br>handler.<br>httpHandler.<br>http2Options | **object**<br>If set, will enable HTTP2 protocol for the handler. <br>`listeners[].tls.sniHandlers[].handler.httpHandler` includes only one of the fields `http2Options`, `allowHttp10`<br><br>
 listeners[].<br>tls.<br>sniHandlers[].<br>handler.<br>httpHandler.<br>http2Options.<br>maxConcurrentStreams | **string** (int64)<br>
-listeners[].<br>tls.<br>sniHandlers[].<br>handler.<br>httpHandler.<br>allowHttp10 | **boolean** (boolean) <br>`listeners[].tls.sniHandlers[].handler.httpHandler` includes only one of the fields `http2Options`, `allowHttp10`<br><br>
+listeners[].<br>tls.<br>sniHandlers[].<br>handler.<br>httpHandler.<br>allowHttp10 | **boolean** (boolean) <br>`listeners[].tls.sniHandlers[].handler.httpHandler` includes only one of the fields `http2Options`, `allowHttp10`<br><br><p>If set, will enable only HTTP1 protocol with HTTP1.0 support.</p> 
 allocationPolicy | **object**<br><p>Allocation sites for application load balancer instances.</p> 
 allocationPolicy.<br>locations[] | **object**<br><p>Required. The minimum number of elements is 1.</p> 
 allocationPolicy.<br>locations[].<br>zoneId | **string**<br><p>Required.</p> 
 allocationPolicy.<br>locations[].<br>subnetId | **string**<br>
 allocationPolicy.<br>locations[].<br>disableTraffic | **boolean** (boolean)<br><p>If set, will disable all L7 instances in the zone for request handling.</p> 
-logGroupId | **string**<br>
+logGroupId | **string**<br><p>Cloud log group used by the load balancer to store access logs.</p> 
+securityGroupIds[] | **string**<br><p>ID's of security groups attached to the load balancer.</p> 
 
 ## Methods {#methods}
 Method | Description
 --- | ---
 [addListener](addListener.md) | AddListener/UpdateListener technically do the same, but have different semantics.
+[addSniMatch](addSniMatch.md) | 
 [create](create.md) | 
 [delete](delete.md) | 
 [get](get.md) | 
@@ -211,7 +216,9 @@ Method | Description
 [list](list.md) | 
 [listOperations](listOperations.md) | Lists operations for the specified load balancer.
 [removeListener](removeListener.md) | 
+[removeSniMatch](removeSniMatch.md) | 
 [start](start.md) | 
 [stop](stop.md) | 
 [update](update.md) | 
 [updateListener](updateListener.md) | 
+[updateSniMatch](updateSniMatch.md) | 

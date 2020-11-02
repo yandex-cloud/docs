@@ -2,14 +2,14 @@
 editable: false
 ---
 
-# Method addListener
-AddListener/UpdateListener technically do the same, but have different semantics.
+# Method removeSniMatch
+
  
 
  
 ## HTTP request {#https-request}
 ```
-POST https://apploadbalancer.api.cloud.yandex.net/apploadbalancer/v1/loadBalancers/{loadBalancerId}:addListener
+POST https://apploadbalancer.api.cloud.yandex.net/apploadbalancer/v1/loadBalancers/{loadBalancerId}:removeSniMatch
 ```
  
 ## Path parameters {#path_params}
@@ -22,52 +22,16 @@ loadBalancerId | Required.
  
 ```json 
 {
-  "listenerSpec": {
-    "name": "string",
-    "endpointSpecs": [
-      {
-        "addressSpecs": [
-          {
-
-            // `listenerSpec.endpointSpecs[].addressSpecs[]` includes only one of the fields `externalIpv4AddressSpec`, `internalIpv4AddressSpec`, `externalIpv6AddressSpec`
-            "externalIpv4AddressSpec": {
-              "address": "string"
-            },
-            "internalIpv4AddressSpec": {
-              "address": "string",
-              "subnetId": "string"
-            },
-            "externalIpv6AddressSpec": {
-              "address": "string"
-            },
-            // end of the list of possible fields`listenerSpec.endpointSpecs[].addressSpecs[]`
-
-          }
-        ],
-        "ports": [
-          "string"
-        ]
-      }
-    ]
-  }
+  "listenerName": "string",
+  "sniMatchName": "string"
 }
 ```
 
  
 Field | Description
 --- | ---
-listenerSpec | **object**<br><p>Required.</p> 
-listenerSpec.<br>name | **string**<br><p>Required. Value must match the regular expression <code>[a-z]([-a-z0-9]{0,61}[a-z0-9])?</code>.</p> 
-listenerSpec.<br>endpointSpecs[] | **object**<br><p>Required. Must contain at least one element.</p> 
-listenerSpec.<br>endpointSpecs[].<br>addressSpecs[] | **object**<br><p>Required. Must contain at least one element.</p> 
-listenerSpec.<br>endpointSpecs[].<br>addressSpecs[].<br>externalIpv4AddressSpec | **object** <br>`listenerSpec.endpointSpecs[].addressSpecs[]` includes only one of the fields `externalIpv4AddressSpec`, `internalIpv4AddressSpec`, `externalIpv6AddressSpec`<br><br>
-listenerSpec.<br>endpointSpecs[].<br>addressSpecs[].<br>externalIpv4AddressSpec.<br>address | **string**<br>
-listenerSpec.<br>endpointSpecs[].<br>addressSpecs[].<br>internalIpv4AddressSpec | **object** <br>`listenerSpec.endpointSpecs[].addressSpecs[]` includes only one of the fields `externalIpv4AddressSpec`, `internalIpv4AddressSpec`, `externalIpv6AddressSpec`<br><br>
-listenerSpec.<br>endpointSpecs[].<br>addressSpecs[].<br>internalIpv4AddressSpec.<br>address | **string**<br>
-listenerSpec.<br>endpointSpecs[].<br>addressSpecs[].<br>internalIpv4AddressSpec.<br>subnetId | **string**<br>
-listenerSpec.<br>endpointSpecs[].<br>addressSpecs[].<br>externalIpv6AddressSpec | **object** <br>`listenerSpec.endpointSpecs[].addressSpecs[]` includes only one of the fields `externalIpv4AddressSpec`, `internalIpv4AddressSpec`, `externalIpv6AddressSpec`<br><br>
-listenerSpec.<br>endpointSpecs[].<br>addressSpecs[].<br>externalIpv6AddressSpec.<br>address | **string**<br>
-listenerSpec.<br>endpointSpecs[].<br>ports[] | **string** (int64)<br><p>Required. Must contain at least one element. Acceptable values are 1 to 65535, inclusive.</p> 
+listenerName | **string**<br><p>Required.</p> 
+sniMatchName | **string**<br><p>Required.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

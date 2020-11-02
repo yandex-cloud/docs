@@ -116,6 +116,7 @@ disk_type_id | **string**<br><ul><li>network-hdd — network HDD drive, </li><li
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
 
 
 ### PerformanceDiagnostics {#PerformanceDiagnostics}
@@ -252,6 +253,7 @@ disk_type_id | **string**<br><ul><li>network-hdd — network HDD drive, </li><li
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
 
 
 ### PerformanceDiagnostics {#PerformanceDiagnostics1}
@@ -361,6 +363,7 @@ disk_type_id | **string**<br><ul><li>network-hdd — network HDD drive, </li><li
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
 
 
 ### PerformanceDiagnostics {#PerformanceDiagnostics2}
@@ -544,6 +547,7 @@ disk_type_id | **string**<br><ul><li>network-hdd — network HDD drive, </li><li
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
 
 
 ### PerformanceDiagnostics {#PerformanceDiagnostics3}
@@ -650,6 +654,7 @@ disk_type_id | **string**<br><ul><li>network-hdd — network HDD drive, </li><li
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
 
 
 ### PerformanceDiagnostics {#PerformanceDiagnostics4}
@@ -777,6 +782,7 @@ disk_type_id | **string**<br><ul><li>network-hdd — network HDD drive, </li><li
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
 
 
 ### PerformanceDiagnostics {#PerformanceDiagnostics5}
@@ -969,6 +975,7 @@ disk_type_id | **string**<br><ul><li>network-hdd — network HDD drive, </li><li
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
 
 
 ### PerformanceDiagnostics {#PerformanceDiagnostics6}
@@ -1121,6 +1128,7 @@ disk_type_id | **string**<br><ul><li>network-hdd — network HDD drive, </li><li
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
 
 
 ### PerformanceDiagnostics {#PerformanceDiagnostics7}
@@ -1276,6 +1284,7 @@ disk_type_id | **string**<br><ul><li>network-hdd — network HDD drive, </li><li
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
 
 
 ### PerformanceDiagnostics {#PerformanceDiagnostics8}
@@ -1428,6 +1437,7 @@ disk_type_id | **string**<br><ul><li>network-hdd — network HDD drive, </li><li
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
 
 
 ### PerformanceDiagnostics {#PerformanceDiagnostics9}
@@ -1538,6 +1548,7 @@ disk_type_id | **string**<br><ul><li>network-hdd — network HDD drive, </li><li
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
 
 
 ### PerformanceDiagnostics {#PerformanceDiagnostics10}
@@ -1671,6 +1682,7 @@ disk_type_id | **string**<br><ul><li>network-hdd — network HDD drive, </li><li
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
 
 
 ### PerformanceDiagnostics {#PerformanceDiagnostics11}
@@ -1826,6 +1838,7 @@ disk_type_id | **string**<br><ul><li>network-hdd — network HDD drive, </li><li
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
 
 
 ### PerformanceDiagnostics {#PerformanceDiagnostics12}
@@ -1979,6 +1992,7 @@ disk_type_id | **string**<br><ul><li>network-hdd — network HDD drive, </li><li
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
 
 
 ### PerformanceDiagnostics {#PerformanceDiagnostics13}

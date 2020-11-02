@@ -1120,6 +1120,12 @@ components:
 
             It should not overlap with any subnet in the network the Kubernetes cluster located in.
           type: string
+        clusterIpv6CidrBlock:
+          description: IPv6 range for allocating pod IP addresses.
+          type: string
+        serviceIpv6CidrBlock:
+          description: IPv6 range for allocating Kubernetes service IP addresses
+          type: string
     InternalAddressSpec:
       type: object
       properties:
@@ -1308,6 +1314,11 @@ components:
           maintenancePolicy:
             $ref: '#/components/schemas/MasterMaintenancePolicy'
             description: Maintenance policy of the master.
+          securityGroupIds:
+            description: Master security groups.
+            type: array
+            items:
+              type: string
       - title: master_type
         type: object
         maxProperties: 1
@@ -1368,6 +1379,11 @@ components:
           maintenancePolicy:
             $ref: '#/components/schemas/MasterMaintenancePolicy'
             description: Maintenance policy of the master.
+          securityGroupIds:
+            description: Master security groups.
+            type: array
+            items:
+              type: string
       - title: master_type
         type: object
         maxProperties: 1
@@ -1385,6 +1401,28 @@ components:
           $ref: '#/components/schemas/UpdateVersionSpec_in_MasterUpdateSpec_version'
         maintenancePolicy:
           $ref: '#/components/schemas/MasterMaintenancePolicy_in_MasterUpdateSpec_maintenancePolicy'
+        securityGroupIds:
+          description: Master security groups.
+          type: array
+          items:
+            type: string
+    NetworkInterfaceSpec:
+      type: object
+      properties:
+        subnetIds:
+          description: IDs of the subnets.
+          type: array
+          items:
+            type: string
+        primaryV4AddressSpec:
+          $ref: '#/components/schemas/NodeAddressSpec_in_NetworkInterfaceSpec_primaryV4AddressSpec'
+        primaryV6AddressSpec:
+          $ref: '#/components/schemas/NodeAddressSpec_in_NetworkInterfaceSpec_primaryV6AddressSpec'
+        securityGroupIds:
+          description: IDs of security groups.
+          type: array
+          items:
+            type: string
     NetworkPolicy:
       type: object
       properties:
@@ -1627,6 +1665,13 @@ components:
           $ref: '#/components/schemas/NodeAddressSpec_in_NodeTemplate_v4AddressSpec'
         schedulingPolicy:
           $ref: '#/components/schemas/SchedulingPolicy_in_NodeTemplate_schedulingPolicy'
+        networkInterfaceSpecs:
+          description: |-
+            New api, to specify network interfaces for the node group compute instances.
+            Can not be used together with 'v4_address_spec'
+          type: array
+          items:
+            $ref: '#/components/schemas/NetworkInterfaceSpec'
     OneToOneNatSpec:
       type: object
       properties:
@@ -2159,6 +2204,13 @@ components:
           $ref: '#/components/schemas/NodeAddressSpec_in_NodeTemplate_v4AddressSpec'
         schedulingPolicy:
           $ref: '#/components/schemas/SchedulingPolicy_in_NodeTemplate_schedulingPolicy'
+        networkInterfaceSpecs:
+          description: |-
+            New api, to specify network interfaces for the node group compute instances.
+            Can not be used together with 'v4_address_spec'
+          type: array
+          items:
+            $ref: '#/components/schemas/NetworkInterfaceSpec'
     ScalePolicy_in_CreateNodeGroupRequest_scalePolicy:
       description: |-
         Required.
@@ -2346,6 +2398,20 @@ components:
           format: boolean
         maintenanceWindow:
           $ref: '#/components/schemas/MaintenanceWindow_in_MasterMaintenancePolicy_maintenanceWindow'
+    NodeAddressSpec_in_NetworkInterfaceSpec_primaryV4AddressSpec:
+      description: Primary IPv4 address that is assigned to the instance for this
+        network interface.
+      type: object
+      properties:
+        oneToOneNatSpec:
+          $ref: '#/components/schemas/OneToOneNatSpec_in_NodeAddressSpec_oneToOneNatSpec'
+    NodeAddressSpec_in_NetworkInterfaceSpec_primaryV6AddressSpec:
+      description: Primary IPv6 address that is assigned to the instance for this
+        network interface.
+      type: object
+      properties:
+        oneToOneNatSpec:
+          $ref: '#/components/schemas/OneToOneNatSpec_in_NodeAddressSpec_oneToOneNatSpec'
     NetworkPolicyProvider_in_NetworkPolicy_provider:
       type: string
       enum:
@@ -2486,6 +2552,13 @@ components:
           $ref: '#/components/schemas/NodeAddressSpec_in_NodeTemplate_v4AddressSpec'
         schedulingPolicy:
           $ref: '#/components/schemas/SchedulingPolicy_in_NodeTemplate_schedulingPolicy'
+        networkInterfaceSpecs:
+          description: |-
+            New api, to specify network interfaces for the node group compute instances.
+            Can not be used together with 'v4_address_spec'
+          type: array
+          items:
+            $ref: '#/components/schemas/NetworkInterfaceSpec'
     ScalePolicy_in_NodeGroup_scalePolicy:
       description: Scale policy of the node group.  For more information, see [Scaling
         policy](/docs/compute/concepts/instance-groups/policies#scale-policy).
@@ -2702,8 +2775,9 @@ components:
           type: string
           format: int64
     NodeAddressSpec_in_NodeTemplate_v4AddressSpec:
-      description: Specification for the create network interfaces for the node group
-        compute instances.
+      description: |-
+        Specification for the create network interfaces for the node group compute instances.
+        Deprecated, please use network_interface_specs.
       type: object
       properties:
         oneToOneNatSpec:
@@ -2793,6 +2867,13 @@ components:
           $ref: '#/components/schemas/NodeAddressSpec_in_NodeTemplate_v4AddressSpec'
         schedulingPolicy:
           $ref: '#/components/schemas/SchedulingPolicy_in_NodeTemplate_schedulingPolicy'
+        networkInterfaceSpecs:
+          description: |-
+            New api, to specify network interfaces for the node group compute instances.
+            Can not be used together with 'v4_address_spec'
+          type: array
+          items:
+            $ref: '#/components/schemas/NetworkInterfaceSpec'
     ScalePolicy_in_UpdateNodeGroupRequest_scalePolicy:
       description: Scale policy of the node group.
       type: object

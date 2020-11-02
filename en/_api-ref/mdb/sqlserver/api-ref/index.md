@@ -10,6 +10,5 @@ Resource | Description
 [Backup](Backup/index.md) | A set of methods for managing SQL Server backups.
 [Cluster](Cluster/index.md) | A set of methods for managing SQL Server clusters.
 [Database](Database/index.md) | A set of methods for managing SQL Server databases.
-[Operation](Operation/index.md) | A set of methods for managing operations that are asynchronous API requests.
 [ResourcePreset](ResourcePreset/index.md) | A set of methods for managing resource presets.
 [User](User/index.md) | A set of methods for managing SQL Server users.

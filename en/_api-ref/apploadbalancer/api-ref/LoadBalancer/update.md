@@ -43,8 +43,7 @@ loadBalancerId | Required.
                 "subnetId": "string"
               },
               "externalIpv6AddressSpec": {
-                "address": "string",
-                "yandexOnly": true
+                "address": "string"
               },
               // end of the list of possible fields`listenerSpecs[].endpointSpecs[].addressSpecs[]`
 
@@ -65,7 +64,10 @@ loadBalancerId | Required.
         "disableTraffic": true
       }
     ]
-  }
+  },
+  "securityGroupIds": [
+    "string"
+  ]
 }
 ```
 
@@ -87,13 +89,13 @@ listenerSpecs[].<br>endpointSpecs[].<br>addressSpecs[].<br>internalIpv4AddressSp
 listenerSpecs[].<br>endpointSpecs[].<br>addressSpecs[].<br>internalIpv4AddressSpec.<br>subnetId | **string**<br>
 listenerSpecs[].<br>endpointSpecs[].<br>addressSpecs[].<br>externalIpv6AddressSpec | **object** <br>`listenerSpecs[].endpointSpecs[].addressSpecs[]` includes only one of the fields `externalIpv4AddressSpec`, `internalIpv4AddressSpec`, `externalIpv6AddressSpec`<br><br>
 listenerSpecs[].<br>endpointSpecs[].<br>addressSpecs[].<br>externalIpv6AddressSpec.<br>address | **string**<br>
-listenerSpecs[].<br>endpointSpecs[].<br>addressSpecs[].<br>externalIpv6AddressSpec.<br>yandexOnly | **boolean** (boolean)<br>
 listenerSpecs[].<br>endpointSpecs[].<br>ports[] | **string** (int64)<br><p>Required. Must contain at least one element. Acceptable values are 1 to 65535, inclusive.</p> 
 allocationPolicy | **object**<br>
 allocationPolicy.<br>locations[] | **object**<br><p>Required. The minimum number of elements is 1.</p> 
 allocationPolicy.<br>locations[].<br>zoneId | **string**<br><p>Required.</p> 
 allocationPolicy.<br>locations[].<br>subnetId | **string**<br>
 allocationPolicy.<br>locations[].<br>disableTraffic | **boolean** (boolean)<br><p>If set, will disable all L7 instances in the zone for request handling.</p> 
+securityGroupIds[] | **string**<br>
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
