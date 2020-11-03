@@ -26,7 +26,7 @@
   
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. {% include [registry-list](../../_includes/iot-core/registry-list.md) %}
+  1. [Получите](registry/registry-list.md##registry-list) список реестров в каталоге.
   
   2. Посмотрите журнал подключений реестра:
         ```
@@ -74,14 +74,16 @@
   
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    1. {% include [device-list](../../_includes/iot-core/device-list.md) %}
+    1. [Получите](device/device-list.md##device-list) список устройств в реестре.
 
     2. Посмотрите журнал подключений устройства:
 
         ```
         $ yc iot devices logs my-device
         ```
+
         Результат:
+        
         ```
         2019-09-19 18:52:03     connected, cert: "ea7bd563e2352ad87e2aca529cfe3d0c3255281c", address: "77.88.15.128:53189", clientID: "YCCmdLine"
         2019-09-19 18:52:03     disconnected: publish to topic "$device/areqjd6un3afc3cefcvm/events" not allowed
