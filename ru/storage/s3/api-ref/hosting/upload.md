@@ -2,10 +2,9 @@
 
 Загружает конфигурацию хостинга статического сайта для бакета.
 
-
 ## Запрос {#request}
 
-```
+```bash
 PUT /{bucket}?website HTTP/1.1
 ```
 
@@ -15,13 +14,11 @@ PUT /{bucket}?website HTTP/1.1
 ----- | -----
 `bucket` | Имя бакета.
 
-
 ### Query параметры {#request-params}
 
 Параметр | Описание
 ----- | -----
 `website` | Обязательный параметр для обозначения типа операции.
-
 
 ### Заголовки {#request-headers}
 
@@ -29,7 +26,7 @@ PUT /{bucket}?website HTTP/1.1
 
 ### Схема данных {#request-scheme}
 
-Бакета можно сконфигурировать:
+Бакет можно сконфигурировать:
 
 {% list tabs %}
 
@@ -37,7 +34,8 @@ PUT /{bucket}?website HTTP/1.1
 
   Пример конфигурации:
 
-  ```
+  ```xml
+  <!--Конфигурация для сайта-->
   <WebsiteConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
       <IndexDocument>
           <Suffix>index.html</Suffix>
@@ -52,14 +50,15 @@ PUT /{bucket}?website HTTP/1.1
 
   Элемент | Описание
   ----- | -----
+  `WebsiteConfiguration` | Заголовок верхнего уровня описания веб-сайта.
   `IndexDocument/Suffix` | Главная страница сайта.<br/><br/>Путь: `/WebsiteConfiguration/IndexDocument/Suffix`.
-  `ErrorDocument/Key` | Документ, который пользователь увидит при возникновении ошибок с кодом 4xx.<br/><br/>Путь: `/WebsiteConfiguration/ErrorDocument/Key`.
+  `ErrorDocument/Key` | Документ, который пользователь увидит при возникновении ошибок с кодом `4xx`.<br/><br/>Путь: `/WebsiteConfiguration/ErrorDocument/Key`.
 
 - Для редиректа всех запросов
 
   Пример конфигурации:
 
-  ```
+  ```xml
   <!--Конфигурация для редиректа всех запросов-->
   <WebsiteConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
       <RedirectAllRequestsTo>
@@ -73,12 +72,57 @@ PUT /{bucket}?website HTTP/1.1
 
   Элемент | Описание
   ----- | -----
-  `RedirectAllRequestsTo` | Содержит конфигурацию редиректов всех запросов.<br/><br/>Путь: `/WebsiteConfiguration/RedirectAllRequestsTo`.
+  `WebsiteConfiguration` | Заголовок верхнего уровня описания веб-сайта.
+  `RedirectAllRequestsTo` | Содержит конфигурацию переадресации всех запросов.<br/><br/>Путь: `/WebsiteConfiguration/RedirectAllRequestsTo`.
   `HostName` | Хост, на который перенаравляются все запросы к бакету.<br/><br/>Путь: `/WebsiteConfiguration/RedirectAllRequestsTo/HostName`.
-  `Protocol` | Протокол, который используется при перенаправлении: `http`, `https`. Необязательный элемент.<br/><br/>Путь: `/WebsiteConfiguration/RedirectAllRequestsTo/Protocol`.
+  `Protocol` | Протокол, который используется при переадресации: `http`, `https`. Необязательный элемент.<br/><br/>Путь: `/WebsiteConfiguration/RedirectAllRequestsTo/Protocol`.
+
+- Для условной переадресации запросов
+
+  Пример конфигурации:
+
+  ```xml
+  <!--Конфигурация для условного редиректа запросов-->
+  <WebsiteConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
+      <IndexDocument>
+          <Suffix>index.html</Suffix>
+      </IndexDocument>
+      <ErrorDocument>
+          <Key>Error.html</Key>
+      </ErrorDocument>
+      <RoutingRules>
+          <RoutingRule>
+              <Condition>
+                  <KeyPrefixEquals>k8s/</KeyPrefixEquals>
+              </Condition>
+              <Redirect>
+                  <ReplaceKeyPrefixWith>kubernetes/</ReplaceKeyPrefixWith>
+              </Redirect>
+          </RoutingRule>
+      </RoutingRules>
+  </WebsiteConfiguration>
+  ```
+
+  Возможные элементы:
+  
+  Элемент | Описание
+  ----- | -----
+  `WebsiteConfiguration` | Заголовок верхнего уровня описания веб-сайта.
+  `IndexDocument/Suffix` | Главная страница сайта.
+  `ErrorDocument/Key` | Документ, который пользователь увидит при возникновении ошибок с кодом `4xx`.
+  `RoutingRules` | Контейнер правил маршрутизации `RoutingRule`.<br/>Должен содержать хотя бы одно правило.
+  `RoutingRule` | Правило маршрутизации.<br/>Определяет условия и переадресацию при выполнении условий.
+  `Condition` | Контейнер условий, которые должны выполняться для применения переадресации.<br/>Если правило маршрутизации не содержит условий, переадресация применяется ко всем запросам.<br/>Контейнер должен содержать хотя бы одно правило.
+  `KeyPrefixEquals` | Условие задает префикс имени объекта, с которого перенаправляются запросы.<br/>`KeyPrefixEquals` обязателен, если `HttpErrorCodeReturnedEquals` не определен. Если `KeyPrefixEquals` и `HttpErrorCodeReturnedEquals` определены, условие выполняется при значении `true` обоих параметров.
+  `HttpErrorCodeReturnedEquals` | Условие задает код ошибки, при возникновении которой применяется переадресация.<br/>`HttpErrorCodeReturnedEquals` обязателен, если `KeyPrefixEquals` не определен. Если `KeyPrefixEquals` и `HttpErrorCodeReturnedEquals` определены, условие выполняется при значении `true` обоих параметров.
+  `Redirect` | Контейнер переадресаций.<br/>Запрос можно перенаправить на другую страницу, другой хост, а также изменить протокол.<br/>Правило `RoutingRule` должно содержать хотя бы  один элемент `Redirect`.<br/>Переадресация должна содержать хотя бы один из элементов `Protocol`, `HostName`, `ReplaceKeyPrefixWith`, `ReplaceKeyWith` или `HttpRedirectCode`.
+  `Protocol` | Переадресация указывает в заголовке ответа `Location`, какой из протоколов `http` или `https` следует использовать.<br/>Параметр необязателен, если применяются другие переадресации.
+  `HostName` | Переадресация указывает в заголовке ответа `Location` имя хоста, которое следует использовать.<br/>Параметр необязателен, если применяются другие переадресации.
+  `ReplaceKeyPrefixWith` | Переадресация указывает префикс имени ключа объекта, заменяющий значение `KeyPrefixEquals` в запросе перенаправления.<br/>Несовместим с параметром `ReplaceKeyWith`.<br/>Параметр необязателен, если применяются другие переадресации.
+  `ReplaceKeyWith` | Переадресация указывает ключ объекта, который будет использоваться в заголовке `Location`.<br/>Несовместим с параметром `ReplaceKeyPrefixWith`.<br/>Параметр необязателен, если применяются другие переадресации.
+  `HttpRedirectCode` | Переадресация указывает `HTTP-код` перенаправления в заголовке ответа `Location`.<br/>Параметр необязателен, если применяются другие переадресации.
 
 {% endlist %}
-
 
 ## Ответ {#response}
 

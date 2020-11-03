@@ -110,6 +110,7 @@ default:
   data-transfer-short-name: Data Transfer
   api-gw-short-name: API Gateway
   price-per-hour-count-per-second: Цена указывается за 1 час использования. Тарификация посекундная.
+  roles-cr-admin: container-registry.admin
   roles-cr-puller: container-registry.images.puller
   roles-cr-pusher: container-registry.images.pusher
   roles-datasphere-admin: datasphere.admin

@@ -95,3 +95,5 @@ items:
                 href: api-ref/Folder/update.md
               - name: updateAccessBindings
                 href: api-ref/Folder/updateAccessBindings.md
+  - name: Вопросы и ответы
+    href: qa/index.md

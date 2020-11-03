@@ -114,7 +114,7 @@ To partition and mount an empty disk yourself:
 
 1. Run the `lsblk` command to check whether the disk is connected as a device and get its path in the system.  An empty disk is usually labeled `/dev/vdb`.
 
-1. Partition your disk. To do this, create [partitions](https://help.ubuntu.ru/wiki/%D1%80%D0%B0%D0%B7%D0%B4%D0%B5%D0%BB%D1%8B_%D0%B8_%D1%84%D0%B0%D0%B9%D0%BB%D0%BE%D0%B2%D1%8B%D0%B5_%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D1%8B_linux) on the disk using the [`cfdisk`](https://www.alv.me/utility-razmetki-cfdisk/), `fdisk`, or `parted` utilities. Format the disk for the appropriate file system. For example, you can use the [`mkfs`](https://www.opennet.ru/man.shtml?topic=mkfs&category=8&russian=0) utility.
+1. Partition your disk. To do this, create [partitions](https://help.ubuntu.com/stable/ubuntu-help/disk-partitions.html.en) on the disk using the [`cfdisk`](https://manpages.ubuntu.com/manpages/xenial/en/man8/cfdisk.8.html), `fdisk`, or `parted` utilities. Format the disk for the appropriate file system. For example, you can use the [`mkfs`](https://manpages.ubuntu.com/manpages/xenial/man8/mkfs.8.html) utility.
 
 1. {% include [include](../../../_includes/compute/mount-disk.md) %}
 

@@ -1,37 +1,36 @@
 # Управление доступом
 
-В этом разделе перечислены необходимые роли, которыми должен обладать аккаунт для выполнения операций с ресурсами {{ objstorage-name }}. Доступ к {{ objstorage-name }} могут получить следующие категории пользователей:
+В этом разделе вы узнаете:
 
-- пользователи с зарегистрированным аккаунтом в Яндекс.Паспорте;
-- [сервисные аккаунты](../../iam/concepts/users/service-accounts.md) {{ iam-full-name }}.
+* [на какие ресурсы можно назначить роль](#resources);
+* [какие роли действуют в сервисе](#roles-list).
 
-{% note info %}
+{% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-Права доступа к ресурсам наследуются от облака и каталога.
+## На какие ресурсы можно назначить роль {#resources}
 
-{% endnote %}
+В консоли {{ yandex-cloud }} вы можете назначить роль на [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud) или [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder). С помощью YC CLI – на облако, каталог или [бакет](../../storage/concepts/bucket.md). Эти роли будут действовать и на вложенные ресурсы.
 
+## Какие роли действуют в сервисе {#roles-list}
 
-## Назначение ролей {#grant-roles}
+{% include [roles-intro](../../_includes/roles-intro.md) %}
 
-Для управления бакетами и объектами пользователь должен иметь соответствующие полномочия в облаке и каталогах, в которых будут выполняться операции.
+![service-roles-hierarchy](../../_assets/storage/service-roles-hierarchy.svg)
 
-Чтобы назначить нужные роли пользователю:
+### Сервисные роли
 
-{% include [grant-role-console](../../_includes/grant-role-console.md) %}
+Роль | Разрешения
+----- | -----
+`resource-manager.clouds.member` | Роль, необходимая для доступа к ресурсам в облаке всем, кроме [владельцев облака](../../resource-manager/concepts/resources-hierarchy.md#owner) и [сервисных аккаунтов](../../iam/concepts/users/service-accounts.md).
+`resource-manager.clouds.owner` | Дает полный доступ к облаку и ресурсам в нем. Можно назначить только на облако.
+`storage.admin` | Дает право на управление сервисом {{ objstorage-name }}.
+`storage.configurer` | Позволяет управлять настройками [жизненных циклов объектов](../../storage/concepts/lifecycles.md), [хостинга статических сайтов](../../storage/concepts/hosting.md) и [CORS](../../storage/concepts/cors.md).
+`storage.editor` | Разрешает любые операции с бакетами и [объектами](../../storage/concepts/object.md) в них.
+`storage.uploader` | Дает право на загрузку объектов в бакет.
+`storage.viewer` | Дает доступ на чтение списка бакетов, их настроек и данных в бакетах.
 
-## Разрешения в {{ objstorage-short-name }} {#permissions}
+Более подробную информацию о сервисных ролях читайте на странице [{#T}](../../iam/concepts/access-control/roles.md) в документации сервиса {{ iam-full-name }}.
 
-{% include [cloud-roles](../../_includes/cloud-roles.md) %}
+### Примитивные роли
 
-### admin {#admin}
-Пользователь с ролью `admin` может:
-
-  - выполнять любые операции с бакетами и объектами в каталоге: создавать, удалять и изменять их;
-  - назначать роли другим пользователям.
-
-### editor {#editor}
-Пользователь с ролью `editor` может выполнять любые операции с бакетами и объектами в каталоге: создавать, удалять и изменять их.
-
-### viewer {#viewer}
-Пользователь с ролью `viewer` может смотреть списки бакетов и объектов в каталоге.
+{% include [roles-primitive](../../_includes/roles-primitive.md) %}

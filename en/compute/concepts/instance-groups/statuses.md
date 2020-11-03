@@ -22,18 +22,28 @@ The statuses of instances in groups differ from the [statuses of instances](../v
 
 | Status | Description |
 | ----- | ----- |
-| `CREATING_INSTANCE` | Instance is being created. |
-| `AWAITING_STARTUP_DURATION` | After starting, the instance keeps this status for the startup period specified by the user. During this time, user apps can start up and the instance won't receive any time. For [automatic scaling](scale.md), instances with this status are not taken into account. |
-| `OPENING_TRAFFIC` | The instance is ready to receive network traffic. |
-| `AWAITING_WARMUP_DURATION` | When [automatic scaling](scale.md) is enabled, instances switch to this status when they start receiving network traffic. Instances keep this status during the warm-up period specified in the [automatic scaling settings](scale#auto-scale-settings). Metric values received from an instance with this status are replaced with average values from instances in the same availability zone. |
-| `RUNNING_ACTUAL` | The instance is started, receives network traffic, and user apps are running. |
-| `CHECKING_HEALTH` | The instance status is being checked. |
-| `CLOSING_TRAFFIC` | The instance isn't ready to receive network traffic. |
-| `STOPPING_INSTANCE` | The instance is being stopped. |
-| `STOPPED` | The instance was stopped. You aren't charged for instances with this status. |
-| `STARTING_INSTANCE` | The OS and user application are being started. |
+| `CREATING_INSTANCE` | An instance is created and started. {{ ig-name }} waits until the instance in {{ compute-name }} changes its [status to](../vm-statuses.md) `RUNNING`. |
+| `AWAITING_STARTUP_DURATION` | The instance has been created and is waiting for the user application to start for the specified startup period. Network traffic is not sent to the instance. For [automatic scaling](scale.md), instances with this status are not taken into account. |
+| `CHECKING_HEALTH` | {{ ig-name }} expects the results from the [health check](autohealing.md#auto-healthcheck) of the instance. |
+| `OPENING_TRAFFIC` | When the instance changes its state to [condition](../../../load-balancer/concepts/health-check.md) `HEALTHY`, it's added to the load balancer's target group. The instance is ready to receive network traffic from the load balancer. |
+| `AWAITING_WARMUP_DURATION` | The instance receives traffic, but no metrics for [automatic scaling](scale.md) are read from it during the specified time interval. |
+| `RUNNING_ACTUAL` | The instance is running and receives network traffic. User applications are running. |
 | `RUNNING_OUTDATED` | The instance is running but will soon be updated or deleted. |
-| `UPDATING_INSTANCE` | The basic parameters or metadata are being updated without re-creating the instance. |
+| `CLOSING_TRAFFIC` | The instance is removed from the load balancer's target group. Network traffic from the load balancer to the instance is stopped. |
+| `STOPPING_INSTANCE` | Instance is being stopped. |
+| `STOPPED` | The instance was stopped. You aren't charged for instances with this status. |
+| `STARTING_INSTANCE` | An instance is started. {{ ig-name }} waits until the instance in {{ compute-name }} changes its [status to](../vm-statuses.md) `RUNNING`. |
+| `UPDATING_INSTANCE` | The basic parameters or metadata of the instance are being updated. |
 | `DELETING_INSTANCE` | The instance is being deleted. |
-| `DELETED` | The instance was deleted. |
+| `PREPARING_RESOURCES` | The instance is being prepared for use with new instances. For example, renaming or changing disk volumes. |
+| `DELETED` | The instance was deleted. All the data and resources associated with this instance are saved for later use. |
+
+## Lifecycle of instances in a group {#life-cycle-instance}
+
+The diagram shows how the instance status changes during the lifecycle:
+
+- ![dot-yellow](../../../_assets/dot-yellow.png): {{ ig-name }} performs an action on the instance.
+- ![dot-green](../../../_assets/dot-green.png): The instance expects an action from {{ ig-name }}.
+
+![life cycle instance](../../../_assets/life-cycle-instance.svg =495x697)
 

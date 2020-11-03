@@ -75,5 +75,6 @@
 
 По умолчанию доступ к хранилищу осуществляется по протоколу HTTPS.
 
-
 {% include [qa-fz-152.md](../_includes/qa-fz-152.md) %}
+
+{% include [qa-logs.md](../_includes/qa-logs.md) %}

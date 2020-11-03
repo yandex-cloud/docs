@@ -194,6 +194,21 @@ clusterId | Required. ID of the ClickHouse Cluster resource to return. To get th
             "saslUsername": "string",
             "saslPassword": "string"
           },
+          "kafkaTopics": [
+            {
+              "name": "string",
+              "settings": {
+                "securityProtocol": "string",
+                "saslMechanism": "string",
+                "saslUsername": "string",
+                "saslPassword": "string"
+              }
+            }
+          ],
+          "rabbitmq": {
+            "username": "string",
+            "password": "string"
+          },
           "maxConnections": "integer",
           "maxConcurrentQueries": "integer",
           "keepAliveTimeout": "integer",
@@ -377,6 +392,21 @@ clusterId | Required. ID of the ClickHouse Cluster resource to return. To get th
             "saslUsername": "string",
             "saslPassword": "string"
           },
+          "kafkaTopics": [
+            {
+              "name": "string",
+              "settings": {
+                "securityProtocol": "string",
+                "saslMechanism": "string",
+                "saslUsername": "string",
+                "saslPassword": "string"
+              }
+            }
+          ],
+          "rabbitmq": {
+            "username": "string",
+            "password": "string"
+          },
           "maxConnections": "integer",
           "maxConcurrentQueries": "integer",
           "keepAliveTimeout": "integer",
@@ -559,6 +589,21 @@ clusterId | Required. ID of the ClickHouse Cluster resource to return. To get th
             "saslMechanism": "string",
             "saslUsername": "string",
             "saslPassword": "string"
+          },
+          "kafkaTopics": [
+            {
+              "name": "string",
+              "settings": {
+                "securityProtocol": "string",
+                "saslMechanism": "string",
+                "saslUsername": "string",
+                "saslPassword": "string"
+              }
+            }
+          ],
+          "rabbitmq": {
+            "username": "string",
+            "password": "string"
           },
           "maxConnections": "integer",
           "maxConcurrentQueries": "integer",
@@ -772,6 +817,16 @@ config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>kafka.<br>securityProto
 config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>kafka.<br>saslMechanism | **string**<br>
 config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>kafka.<br>saslUsername | **string**<br>
 config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>kafka.<br>saslPassword | **string**<br>
+config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>kafkaTopics[] | **object**<br>
+config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>kafkaTopics[].<br>name | **string**<br><p>Required.</p> 
+config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>kafkaTopics[].<br>settings | **object**<br><p>Required.</p> 
+config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>kafkaTopics[].<br>settings.<br>securityProtocol | **string**<br>
+config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>kafkaTopics[].<br>settings.<br>saslMechanism | **string**<br>
+config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>kafkaTopics[].<br>settings.<br>saslUsername | **string**<br>
+config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>kafkaTopics[].<br>settings.<br>saslPassword | **string**<br>
+config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>rabbitmq | **object**<br>
+config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>rabbitmq.<br>username | **string**<br>
+config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>rabbitmq.<br>password | **string**<br>
 config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>maxConnections | **integer** (int64)<br><p>Maximum number of inbound connections.</p> <p>The minimum value is 10.</p> 
 config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>maxConcurrentQueries | **integer** (int64)<br><p>Maximum number of simultaneously processed requests.</p> <p>The minimum value is 10.</p> 
 config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>keepAliveTimeout | **integer** (int64)<br><p>Number of milliseconds that ClickHouse waits for incoming requests before closing the connection.</p> 
@@ -910,6 +965,16 @@ config.<br>clickhouse.<br>config.<br>userConfig.<br>kafka.<br>securityProtocol |
 config.<br>clickhouse.<br>config.<br>userConfig.<br>kafka.<br>saslMechanism | **string**<br>
 config.<br>clickhouse.<br>config.<br>userConfig.<br>kafka.<br>saslUsername | **string**<br>
 config.<br>clickhouse.<br>config.<br>userConfig.<br>kafka.<br>saslPassword | **string**<br>
+config.<br>clickhouse.<br>config.<br>userConfig.<br>kafkaTopics[] | **object**<br>
+config.<br>clickhouse.<br>config.<br>userConfig.<br>kafkaTopics[].<br>name | **string**<br><p>Required.</p> 
+config.<br>clickhouse.<br>config.<br>userConfig.<br>kafkaTopics[].<br>settings | **object**<br><p>Required.</p> 
+config.<br>clickhouse.<br>config.<br>userConfig.<br>kafkaTopics[].<br>settings.<br>securityProtocol | **string**<br>
+config.<br>clickhouse.<br>config.<br>userConfig.<br>kafkaTopics[].<br>settings.<br>saslMechanism | **string**<br>
+config.<br>clickhouse.<br>config.<br>userConfig.<br>kafkaTopics[].<br>settings.<br>saslUsername | **string**<br>
+config.<br>clickhouse.<br>config.<br>userConfig.<br>kafkaTopics[].<br>settings.<br>saslPassword | **string**<br>
+config.<br>clickhouse.<br>config.<br>userConfig.<br>rabbitmq | **object**<br>
+config.<br>clickhouse.<br>config.<br>userConfig.<br>rabbitmq.<br>username | **string**<br>
+config.<br>clickhouse.<br>config.<br>userConfig.<br>rabbitmq.<br>password | **string**<br>
 config.<br>clickhouse.<br>config.<br>userConfig.<br>maxConnections | **integer** (int64)<br><p>Maximum number of inbound connections.</p> <p>The minimum value is 10.</p> 
 config.<br>clickhouse.<br>config.<br>userConfig.<br>maxConcurrentQueries | **integer** (int64)<br><p>Maximum number of simultaneously processed requests.</p> <p>The minimum value is 10.</p> 
 config.<br>clickhouse.<br>config.<br>userConfig.<br>keepAliveTimeout | **integer** (int64)<br><p>Number of milliseconds that ClickHouse waits for incoming requests before closing the connection.</p> 
@@ -1048,6 +1113,16 @@ config.<br>clickhouse.<br>config.<br>defaultConfig.<br>kafka.<br>securityProtoco
 config.<br>clickhouse.<br>config.<br>defaultConfig.<br>kafka.<br>saslMechanism | **string**<br>
 config.<br>clickhouse.<br>config.<br>defaultConfig.<br>kafka.<br>saslUsername | **string**<br>
 config.<br>clickhouse.<br>config.<br>defaultConfig.<br>kafka.<br>saslPassword | **string**<br>
+config.<br>clickhouse.<br>config.<br>defaultConfig.<br>kafkaTopics[] | **object**<br>
+config.<br>clickhouse.<br>config.<br>defaultConfig.<br>kafkaTopics[].<br>name | **string**<br><p>Required.</p> 
+config.<br>clickhouse.<br>config.<br>defaultConfig.<br>kafkaTopics[].<br>settings | **object**<br><p>Required.</p> 
+config.<br>clickhouse.<br>config.<br>defaultConfig.<br>kafkaTopics[].<br>settings.<br>securityProtocol | **string**<br>
+config.<br>clickhouse.<br>config.<br>defaultConfig.<br>kafkaTopics[].<br>settings.<br>saslMechanism | **string**<br>
+config.<br>clickhouse.<br>config.<br>defaultConfig.<br>kafkaTopics[].<br>settings.<br>saslUsername | **string**<br>
+config.<br>clickhouse.<br>config.<br>defaultConfig.<br>kafkaTopics[].<br>settings.<br>saslPassword | **string**<br>
+config.<br>clickhouse.<br>config.<br>defaultConfig.<br>rabbitmq | **object**<br>
+config.<br>clickhouse.<br>config.<br>defaultConfig.<br>rabbitmq.<br>username | **string**<br>
+config.<br>clickhouse.<br>config.<br>defaultConfig.<br>rabbitmq.<br>password | **string**<br>
 config.<br>clickhouse.<br>config.<br>defaultConfig.<br>maxConnections | **integer** (int64)<br><p>Maximum number of inbound connections.</p> <p>The minimum value is 10.</p> 
 config.<br>clickhouse.<br>config.<br>defaultConfig.<br>maxConcurrentQueries | **integer** (int64)<br><p>Maximum number of simultaneously processed requests.</p> <p>The minimum value is 10.</p> 
 config.<br>clickhouse.<br>config.<br>defaultConfig.<br>keepAliveTimeout | **integer** (int64)<br><p>Number of milliseconds that ClickHouse waits for incoming requests before closing the connection.</p> 

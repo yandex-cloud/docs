@@ -69,7 +69,10 @@ clusterId | Required. ID of the Kubernetes cluster to update. To get the Kuberne
         // end of the list of possible fields`masterSpec.maintenancePolicy.maintenanceWindow`
 
       }
-    }
+    },
+    "securityGroupIds": [
+      "string"
+    ]
   },
   "serviceAccountId": "string",
   "nodeServiceAccountId": "string",
@@ -111,6 +114,7 @@ masterSpec.<br>maintenancePolicy.<br>maintenanceWindow.<br>weeklyMaintenanceWind
 masterSpec.<br>maintenancePolicy.<br>maintenanceWindow.<br>weeklyMaintenanceWindow.<br>daysOfWeek[].<br>startTime.<br>seconds | **integer** (int32)<br><p>Seconds of minutes of the time. Must normally be from 0 to 59. An API may allow the value 60 if it allows leap-seconds.</p> 
 masterSpec.<br>maintenancePolicy.<br>maintenanceWindow.<br>weeklyMaintenanceWindow.<br>daysOfWeek[].<br>startTime.<br>nanos | **integer** (int32)<br><p>Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.</p> 
 masterSpec.<br>maintenancePolicy.<br>maintenanceWindow.<br>weeklyMaintenanceWindow.<br>daysOfWeek[].<br>duration | **string**<br><p>Window duration.</p> <p>Acceptable values are 3600 seconds to 86400 seconds, inclusive.</p> 
+masterSpec.<br>securityGroupIds[] | **string**<br><p>Master security groups.</p> 
 serviceAccountId | **string**<br><p>Service account to be used for provisioning Compute Cloud and VPC resources for Kubernetes cluster. Selected service account should have <code>edit</code> role on the folder where the Kubernetes cluster will be located and on the folder where selected network resides.</p> 
 nodeServiceAccountId | **string**<br><p>Service account to be used by the worker nodes of the Kubernetes cluster to access Container Registry or to push node logs and metrics.</p> 
 networkPolicy | **object**<br>

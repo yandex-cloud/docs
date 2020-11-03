@@ -6,6 +6,7 @@ The list of commands available in the notebook is made up of standard commands w
 
 Standard commands that aren't available in the notebook:
 
+* `%%bash`
 * `%%perl`
 * `%%python`
 * `%%python2`
@@ -13,6 +14,35 @@ Standard commands that aren't available in the notebook:
 * `%%ruby`
 * `%%script`
 * `%%sh`
+
+### Alternative use of blocked commands {#restriction}
+
+#### %%bash {#bash}
+
+To run bash commands, put 'bash' explicitly at the beginning of the cell:
+
+* With no configuration specified. The default configuration is used in this case.
+
+    ```
+    #!:bash
+    ```
+
+* With a configuration specified:
+
+    ```
+    #!<configuration name>:bash
+    ```
+
+    > For example, to run commands in the S configuration, enter `#!S:bash`.
+
+The available configurations are described in [{#T}](configurations.md)
+
+**Limits**
+
+The following restrictions apply to using bash commands:
+
+* Background jobs are not supported, for example, `sshd`.
+* Launching `pip` is not supported. Use the `%pip` format for pip.
 
 ## Additional commands {#extension}
 

@@ -29,7 +29,7 @@ Packer создаст и запустит виртуальную машину с
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-Оплачивается хранение созданных образов (см. [тарифы {{ compute-full-name }}](../../compute/pricing#prices-storage).
+Оплачивается хранение созданных образов (см. [тарифы {{ compute-full-name }}](../../compute/pricing#prices-storage)).
 
 ## Установите Packer {#install-packer}
 

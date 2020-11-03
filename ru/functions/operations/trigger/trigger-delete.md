@@ -2,7 +2,9 @@
 
 {% include [triggers-preview](../../../_includes/functions/triggers-preview-stage.md) %}
 
-{% include [yc-trigger-list](../../../_includes/functions/trigger-list.md) %}
+{% include [trigger-list-note](../../../_includes/functions/trigger-list-note.md) %}
+
+## Удалить триггер
 
 {% list tabs %}
 

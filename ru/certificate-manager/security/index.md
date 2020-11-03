@@ -9,7 +9,7 @@
 
 ## На какие ресурсы можно назначить роль {#resources}
 
-Вы можете назначить роль на [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud), [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) или [сертификат](../concepts/index). Эти роли будут действовать и на вложенные ресурсы.
+{% include [roles-intro](../../_includes/roles-intro.md) %}
 
 ## Какие роли действуют в сервисе {#roles-list}
 
@@ -27,7 +27,7 @@
     * {% include [viewer](../../_includes/iam/roles/short-descriptions/viewer.md) %}
     * {% include [editor](../../_includes/iam/roles/short-descriptions/editor.md) %}
     * {% include [admin](../../_includes/iam/roles/short-descriptions/admin.md) %}
-    
+
 ## Какие роли мне необходимы {#choosing-roles}
 
 В таблице ниже перечислено, какие роли нужны для выполнения указанного действия. Вы всегда можете назначить роль, которая дает более широкие разрешения, нежели указанная. Например, назначить `editor` вместо `viewer`.

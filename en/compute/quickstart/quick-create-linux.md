@@ -1,6 +1,6 @@
 # Creating a Linux VM
 
-Create a Linux [virtual machine](../concepts/vm.md) using {{ compute-name }} in the Yandex.Cloud management console and connect to it.
+Create a Linux [virtual machine](../concepts/vm.md) using {{ compute-name }} from the {{ yandex-cloud }} management console and connect to it.
 
 ## Before you start {#before-you-begin}
 
@@ -14,14 +14,19 @@ Create a Linux [virtual machine](../concepts/vm.md) using {{ compute-name }} in 
 
 {% include notitle [vm-connect-ssh](../operations/vm-connect/ssh.md#vm-connect) %}
 
-## Delete VMs {#delete-vm}
+## Configuring the serial console {#serial-console}
+
+Using the [serial console](../operations/serial-console/index.md), you can connect to a VM regardless of the network or OS state (for example, if there are SSH loading or access issues).
+
+Make sure you configure access to the VM via the serial console in advance.
+
+## Deleting VMs {#delete-vm}
 
 If you no longer plan to use a virtual machine, [delete it](../operations/vm-control/vm-delete.md).
 
 ## What's next {#what-is-next}
 
-- Watch [tutorials for creating web services in Yandex.Cloud](../../solutions/web/).
+- Watch [tutorials for creating web services in {{ yandex-cloud }}](../../solutions/web/).
 - Learn [how to use VMs](../operations/).
 - Learn [how to create a VM with a GPU](../operations/vm-create/create-vm-with-gpu.md).
 - Read [answers to frequently asked questions](../qa/general.md).
-

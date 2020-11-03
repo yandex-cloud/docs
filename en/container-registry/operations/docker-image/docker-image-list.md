@@ -10,24 +10,24 @@ Find out how to get:
 {% list tabs %}
 
 - CLI
-  
+
   {% include [cli-install](../../../_includes/cli-install.md) %}
-  
+
   Get a list of [Docker images](../../concepts/docker-image.md) in the current registry:
-  
-     ```
-     $ yc container image list
-     +----------------------+---------------------+----------------------------+------+-----------------+
-     |          ID          |       CREATED       |            NAME            | TAGS | COMPRESSED SIZE |
-     +----------------------+---------------------+----------------------------+------+-----------------+
-     | crp9vik7sgeco7emq743 | 2019-01-17 17:00:48 | crph8pf7irvcu3p7gjpb/myimg |  111 | 30.7 MB         |
-     +----------------------+---------------------+----------------------------+------+-----------------+
-     ```
-  
+
+  ```
+  $ yc container image list
+  +----------------------+---------------------+----------------------------+------+-----------------+
+  |          ID          |       CREATED       |            NAME            | TAGS | COMPRESSED SIZE |
+  +----------------------+---------------------+----------------------------+------+-----------------+
+  | crp9vik7sgeco7emq743 | 2019-01-17 17:00:48 | crph8pf7irvcu3p7gjpb/myimg |  111 | 30.7 MB         |
+  +----------------------+---------------------+----------------------------+------+-----------------+
+  ```
+
 - API
-  
+
   You can get a list of Docker images in a registry by using the [list](../../api-ref/Image/list.md) method for the [Image](../../api-ref/Image/) resource.
-  
+
 {% endlist %}
 
 ## Getting information about a Docker image {#docker-image-get}
@@ -35,11 +35,11 @@ Find out how to get:
 {% list tabs %}
 
 - CLI
-  
+
   {% include [cli-install](../../../_includes/cli-install.md) %}
-  
-  Get detailed information about a Docker image by using the `id` parameter from the [previous](#docker-image-list) item:
-  
+
+  Get detailed information about a Docker image by using the `id` from the [previous](#docker-image-list) item:
+
   ```
   $ yc container image get crphc7nnrvhlg73oeiv5
   id:crphc7nnrvhlg73oeiv5
@@ -66,10 +66,9 @@ Find out how to get:
   tags:
   - hello
   ```
-  
-- API
-  
-  You can get detailed information about a Docker image by using the [get](../../api-ref/Image/get.md) method for the [Image](../../api-ref/Image/) resource.
-  
-{% endlist %}
 
+- API
+
+  You can get detailed information about a Docker image by using the [get](../../api-ref/Image/get.md) method for the [Image](../../api-ref/Image/) resource.
+
+{% endlist %}

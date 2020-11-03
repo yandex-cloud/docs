@@ -58,6 +58,9 @@ POST https://mks.api.cloud.yandex.net/managed-kubernetes/v1/clusters
 
       }
     },
+    "securityGroupIds": [
+      "string"
+    ],
 
     // `masterSpec` includes only one of the fields `zonalMasterSpec`, `regionalMasterSpec`
     "zonalMasterSpec": {
@@ -85,7 +88,9 @@ POST https://mks.api.cloud.yandex.net/managed-kubernetes/v1/clusters
   "ipAllocationPolicy": {
     "clusterIpv4CidrBlock": "string",
     "nodeIpv4CidrMaskSize": "string",
-    "serviceIpv4CidrBlock": "string"
+    "serviceIpv4CidrBlock": "string",
+    "clusterIpv6CidrBlock": "string",
+    "serviceIpv6CidrBlock": "string"
   },
   "serviceAccountId": "string",
   "nodeServiceAccountId": "string",
@@ -130,6 +135,7 @@ masterSpec.<br>maintenancePolicy.<br>maintenanceWindow.<br>weeklyMaintenanceWind
 masterSpec.<br>maintenancePolicy.<br>maintenanceWindow.<br>weeklyMaintenanceWindow.<br>daysOfWeek[].<br>startTime.<br>seconds | **integer** (int32)<br><p>Seconds of minutes of the time. Must normally be from 0 to 59. An API may allow the value 60 if it allows leap-seconds.</p> 
 masterSpec.<br>maintenancePolicy.<br>maintenanceWindow.<br>weeklyMaintenanceWindow.<br>daysOfWeek[].<br>startTime.<br>nanos | **integer** (int32)<br><p>Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.</p> 
 masterSpec.<br>maintenancePolicy.<br>maintenanceWindow.<br>weeklyMaintenanceWindow.<br>daysOfWeek[].<br>duration | **string**<br><p>Window duration.</p> <p>Acceptable values are 3600 seconds to 86400 seconds, inclusive.</p> 
+masterSpec.<br>securityGroupIds[] | **string**<br><p>Master security groups.</p> 
 masterSpec.<br>zonalMasterSpec | **object**<br>Specification of the zonal master. <br>`masterSpec` includes only one of the fields `zonalMasterSpec`, `regionalMasterSpec`<br><br>
 masterSpec.<br>zonalMasterSpec.<br>zoneId | **string**<br><p>Required. ID of the availability zone.</p> 
 masterSpec.<br>zonalMasterSpec.<br>internalV4AddressSpec | **object**<br><p>Specification of parameters for internal IPv4 networking.</p> 
@@ -146,6 +152,8 @@ ipAllocationPolicy | **object**<br>IP allocation policy of the Kubernetes cluste
 ipAllocationPolicy.<br>clusterIpv4CidrBlock | **string**<br><p>CIDR block. IP range for allocating pod addresses.</p> <p>It should not overlap with any subnet in the network the Kubernetes cluster located in. Static routes will be set up for this CIDR blocks in node subnets.</p> 
 ipAllocationPolicy.<br>nodeIpv4CidrMaskSize | **string** (int64)<br><p>Size of the masks that are assigned for each node in the cluster.</p> <p>If not specified, 24 is used.</p> <p>Value must be one of 0, 24, 25, 26, 27 or 28.</p> 
 ipAllocationPolicy.<br>serviceIpv4CidrBlock | **string**<br><p>CIDR block. IP range Kubernetes service Kubernetes cluster IP addresses will be allocated from.</p> <p>It should not overlap with any subnet in the network the Kubernetes cluster located in.</p> 
+ipAllocationPolicy.<br>clusterIpv6CidrBlock | **string**<br><p>IPv6 range for allocating pod IP addresses.</p> 
+ipAllocationPolicy.<br>serviceIpv6CidrBlock | **string**<br><p>IPv6 range for allocating Kubernetes service IP addresses</p> 
 serviceAccountId | **string**<br><p>Required. Service account to be used for provisioning Compute Cloud and VPC resources for Kubernetes cluster. Selected service account should have <code>edit</code> role on the folder where the Kubernetes cluster will be located and on the folder where selected network resides.</p> 
 nodeServiceAccountId | **string**<br><p>Required. Service account to be used by the worker nodes of the Kubernetes cluster to access Container Registry or to push node logs and metrics.</p> 
 releaseChannel | **string**<br>Release channel for the master.<br><ul> <li>RAPID: Minor updates with new functions and improvements are often added. You can't disable automatic updates in this channel, but you can specify a time period for automatic updates.</li> <li>REGULAR: New functions and improvements are added in chunks shortly after they appear on <code>RAPID</code>.</li> <li>STABLE: Only updates related to bug fixes or security improvements are added.</li> </ul> 

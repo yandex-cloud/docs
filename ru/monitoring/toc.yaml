@@ -95,3 +95,5 @@ items:
                 href: api-ref/MetricsMeta/listMetricNames.md
               - name: listMetrics
                 href: api-ref/MetricsMeta/listMetrics.md
+  - name: Вопросы и ответы
+    href: qa/index.md

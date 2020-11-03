@@ -75,7 +75,7 @@ Maintenance in {{ mrd-short-name }} implies:
 
 #### Which version of {{ RD }} does {{ mrd-short-name }} use? {#dbms-version}
 
-{{ mrd-short-name }} supports {{ RD }} 5.
+{{ mrd-short-name }} supports {{ RD }} 5 and 6.
 
 #### What happens when a new DBMS version is released? {#new-version}
 

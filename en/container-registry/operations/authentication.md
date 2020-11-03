@@ -31,7 +31,7 @@ $ docker login \
          cr.yandex
 ```
 
-- Pass the token type in `<token type>` for the `username` parameter. Acceptable values: `oauth`, `iam`, or `json_key`.
+- Pass the token type in `<token type>` to the `username` parameter. Acceptable values: `oauth`, `iam`, or `json_key`.
 - Pass the token itself to the `password` parameter.
 - After specifying all the parameters, set `cr.yandex` as the address for authentication. Otherwise, the request will be sent to the default service, [Docker Hub](https://hub.docker.com).
 
@@ -85,7 +85,7 @@ Authorized keys do not expire, but you can always get new authorized keys and au
 
 {% endnote %}
 
-Using a [service account](../../iam/concepts/users/service-accounts.md), your programs can access Yandex.Cloud resources. Get a file with authorized keys for your service account via the CLI.
+Using a [service account](../../iam/concepts/users/service-accounts.md), your programs can access {{ yandex-cloud }} resources. Get a file with authorized keys for your service account via the CLI.
 
 1. Get [authorized keys](../../iam/concepts/users/service-accounts.md#sa-key) for your service account:
 
@@ -133,32 +133,34 @@ Using a [service account](../../iam/concepts/users/service-accounts.md), your pr
 
 The Docker Engine can keep user credentials in an external credentials store. This is more secure than storing credentials in the Docker configuration file. To use a credentials store, you need an external [Docker Credential helper](https://docs.docker.com/engine/reference/commandline/login/#credential-helpers).
 
-Yandex.Cloud uses `docker-credential-yc` as a Docker Credential helper. It stores user credentials and lets you use private Yandex.Cloud registries without running the `docker login` command. This authentication method supports operations on behalf of a user and service account. To work with `docker-credential-yc`, you need the Yandex.Cloud command-line interface: [YC CLI](../../cli/quickstart.md).
-
-### Configuring a Credential helper {#ch-setting}
-
-{% note warning %}
+{{ yandex-cloud }} uses `docker-credential-yc` as a Docker Credential helper. It stores user credentials and lets you use private {{ yandex-cloud }} registries without running the `docker login` command. This authentication method supports operations on behalf of a user and service account. To work with `docker-credential-yc`, you need the {{ yandex-cloud }} command-line interface: [YC CLI](../../cli/quickstart.md).
 
 You don't need to install the `docker-credential-yc` separately: just install the YC CLI and configure the Credential helper following the description below.
 
-{% endnote %}
+### Configuring a Credential helper {#ch-setting}
 
 1. If you don't have a YC CLI profile yet, [create one](../../cli/quickstart.md#initialize).
 
 1. Configure Docker to use `docker-credential-yc`:
 
-    ```
+    ```bash
     $ yc container registry configure-docker
     Credential helper is configured in '/home/<user>/.docker/config.json'
     ```
 
-    During setup, information about the current user profile is saved.
+    Settings are saved in the current user's profile.
+
+    {% note warning %}
+
+    The Credential helper only works when using Docker without `sudo`. For information about how to configure Docker to run as the current user without using the `sudo` command, see the [official documentation](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user).
+
+    {% endnote %}
 
 1. Make sure that Docker is configured.
 
     The `/home/<user>/.docker/config.json` file must contain the following line:
 
-    ```
+    ```json
     "cr.yandex": "yc"
     ```
 
@@ -179,4 +181,3 @@ For more information about YC CLI profile management, see the [step-by-step inst
 #### Disabling a Credential helper {#ch-not-use}
 
 To avoid using Credential helpers for authentication, remove the `cr.yandex` domain string from the `credHelpers` block in the `/home/<user>/.docker/config.json` file.
-

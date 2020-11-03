@@ -32,5 +32,6 @@
 
 В подсетях можно использовать только частные IP адреса из IPv4-диапазонов, определенных в [RFC 1918](https://tools.ietf.org/html/rfc1918).
 
-
 {% include [qa-fz-152.md](../../_includes/qa-fz-152.md) %}
+
+{% include [qa-logs.md](../../_includes/qa-logs.md) %}

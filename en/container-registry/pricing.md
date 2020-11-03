@@ -53,4 +53,3 @@ Storage_cost = Cost_per_GB_per_month * 15 * 12 / 24 / 30
 ```
 
 {% include [pricing-egress-traffic](../_includes/pricing/pricing-egress-traffic.md) %}
-

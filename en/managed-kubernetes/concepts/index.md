@@ -8,7 +8,7 @@ The main entity in the service is the _{{ k8s }} cluster_.
 
 {{ k8s }} clusters consist of a master and one or more node groups. The master is responsible for managing the {{ k8s }} cluster. Containerized user applications are run on nodes.
 
-The service fully controls the master and monitors the status and health of node groups. Users can manage nodes directly as well as configure a {{ k8s }} cluster through the Yandex.Cloud management console and the Managed Service for Kubernetes CLI and API.
+The service fully controls the master and monitors the status and health of node groups. Users can manage nodes directly as well as configure a {{ k8s }} cluster through the {{ yandex-cloud }} management console and the Managed Service for Kubernetes CLI and API.
 
 {% note warning %}
 
@@ -21,9 +21,9 @@ Internet access can be provided in the following ways:
 
 {% endnote %}
 
-{{ k8s }} clusters in the Yandex.Cloud infrastructure use the following resources:
+{{ k8s }} clusters in the {{ yandex-cloud }} infrastructure use the following resources:
 
-| Resource | Amount | Comment |
+| Resource | Amount | Comments |
 | ---- | :---: | ---- |
 | Subnet | 2 | {{ k8s }} reserves IP address ranges to be used for pods and services. |
 | Public IP | N | N includes:</br> - **One** public IP address for the NAT instance.</br> - A public IP address assigned to **each** node in the group if you use one-to-one NAT technology.</br> |
@@ -64,3 +64,22 @@ You can create groups with different configurations in a {{ k8s }} cluster and p
 
 You can connect to nodes in a group via SSH. Learn more in [Connecting to a node via SSH](../operations/node-connect-ssh.md).
 
+### Pod {#pod}
+
+_A pod_ is a request to run one or more containers on a group node. In a {{ k8s }} cluster, each pod has a unique IP address so that applications do not conflict when using ports.
+
+Containers are described in pods via JSON or YAML objects.
+
+### Service {#service}
+
+_A service_ is an abstraction that provides network load balancing functions. Traffic rules are configured for a group of pods united by a set of labels.
+
+By default, a service is only available within a specific {{ k8s }} cluster, but it can be public and receive [requests from outside](../operations/create-load-balancer.md#lb-create) the {{ k8s }} cluster.
+
+### Namespace {#namespace}
+
+_A namespace_ is an abstraction that logically isolates {{ k8s }} cluster resources and distributes quotas to them. This is useful for isolating resources of different teams and projects in a single {{ k8s }} cluster.
+
+### Labels {#labels}
+
+_Labels_ are the main mechanism of object grouping in {{ k8s }}. Most scenarios involving multiple objects (for example, sending traffic through a service, configuring network policies, and running application controllers) use selectors based on label values. This lets you define subsets of managed objects (usually pods).

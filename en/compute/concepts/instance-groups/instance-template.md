@@ -2,9 +2,9 @@
 
 When creating a group, you need to describe an _instance template_, which is the basic instance configuration used for deploying all the instances in the group.
 
-The template description and [policy](policies.md) description are passed to the CLI in a YAML file when creating or updating an instance group with the `--file` flag. This is convenient for passing values that consist of multiple strings. For more information, see [{#T}](../../operations/instance-groups/create-fixed-group.md).
+The template description and [policy](policies/index.md) description are passed to the CLI in a YAML file when creating or updating an instance group with the `--file` flag. This is convenient for passing values that consist of multiple strings. For more information, see [{#T}](../../operations/instance-groups/create-fixed-group.md).
 
-You can set variable values for the instance template. For more information, see [{#T}](variables-in-the-template.md).
+You can set the values of variables for the instance template. For more information, see [{#T}](variables-in-the-template.md).
 
 ## Computing resources {#types}
 
@@ -97,7 +97,7 @@ Keys (the table lists keys that directly define the base instance's configuratio
 | `memory` | The amount of RAM available to the instance, specified in bytes. The maximum value is 274877906944 (275 GB). |
 | `cores` | The number of cores available to the instance. The value depends on the [platform](../vm-platforms.md) type. |
 | `core_fraction` | Basic [vCPU performance level](../performance-levels.md). |
-| `mode` | Disk access mode.</br>– `READ_ONLY` — Read access.</br>– `READ_WRITE` — Read and write access. |
+| `mode` | Disk access mode.</br>– `READ_ONLY`: Read access.</br>– `READ_WRITE`: Read and write access. |
 | `image_id` | ID of the image that will be used for disk creation. |
 | `type_id` | ID of the disk type. To get a list of available disk types, use the request [diskTypes](../../api-ref/DiskType/list.md) request. |
 | `size` | Size of the disk, specified in bytes. Acceptable values are in the range from 4194304 (4 MB) to 4398046511104 (4 TB). |

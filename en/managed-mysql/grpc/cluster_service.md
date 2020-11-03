@@ -99,6 +99,7 @@ disk_type_id | **string**<br><ul><li>network-ssd — network SSD drive, </li><li
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-mysql/operations/web-sql-query) for more details. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow}
@@ -210,6 +211,7 @@ disk_type_id | **string**<br><ul><li>network-ssd — network SSD drive, </li><li
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-mysql/operations/web-sql-query) for more details. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow1}
@@ -294,6 +296,7 @@ disk_type_id | **string**<br><ul><li>network-ssd — network SSD drive, </li><li
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-mysql/operations/web-sql-query) for more details. 
 
 
 ### DatabaseSpec {#DatabaseSpec}
@@ -421,6 +424,7 @@ disk_type_id | **string**<br><ul><li>network-ssd — network SSD drive, </li><li
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-mysql/operations/web-sql-query) for more details. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow2}
@@ -502,6 +506,7 @@ disk_type_id | **string**<br><ul><li>network-ssd — network SSD drive, </li><li
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-mysql/operations/web-sql-query) for more details. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow3}
@@ -604,6 +609,7 @@ disk_type_id | **string**<br><ul><li>network-ssd — network SSD drive, </li><li
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-mysql/operations/web-sql-query) for more details. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow4}
@@ -771,6 +777,7 @@ disk_type_id | **string**<br><ul><li>network-ssd — network SSD drive, </li><li
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-mysql/operations/web-sql-query) for more details. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow5}
@@ -898,6 +905,7 @@ disk_type_id | **string**<br><ul><li>network-ssd — network SSD drive, </li><li
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-mysql/operations/web-sql-query) for more details. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow6}
@@ -1028,6 +1036,7 @@ disk_type_id | **string**<br><ul><li>network-ssd — network SSD drive, </li><li
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-mysql/operations/web-sql-query) for more details. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow7}
@@ -1155,6 +1164,7 @@ disk_type_id | **string**<br><ul><li>network-ssd — network SSD drive, </li><li
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-mysql/operations/web-sql-query) for more details. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow8}
@@ -1239,6 +1249,7 @@ disk_type_id | **string**<br><ul><li>network-ssd — network SSD drive, </li><li
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-mysql/operations/web-sql-query) for more details. 
 
 
 ### HostSpec {#HostSpec1}
@@ -1330,6 +1341,7 @@ disk_type_id | **string**<br><ul><li>network-ssd — network SSD drive, </li><li
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-mysql/operations/web-sql-query) for more details. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow9}
@@ -1460,6 +1472,7 @@ disk_type_id | **string**<br><ul><li>network-ssd — network SSD drive, </li><li
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-mysql/operations/web-sql-query) for more details. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow10}
@@ -1588,6 +1601,7 @@ disk_type_id | **string**<br><ul><li>network-ssd — network SSD drive, </li><li
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-mysql/operations/web-sql-query) for more details. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow11}

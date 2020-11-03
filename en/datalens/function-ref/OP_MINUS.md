@@ -38,7 +38,7 @@ Behaves differently depending on the argument types. Possible options are listed
 ```
 
 ```
-2 - 0.5 = 0.5
+2 - 0.5 = 1.5
 ```
 
 ```

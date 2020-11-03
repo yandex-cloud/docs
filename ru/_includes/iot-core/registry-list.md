@@ -1,9 +1,25 @@
-Получите список [реестров](../../iot-core/concepts/index.md#registry) в каталоге:
+{% list tabs %}
+
+- Консоль управления
+
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите получить список реестров.
+  1. Выберите сервис **{{ iot-name }}**.
+  1. На странице **Реестры** отобразится список реестров.
+
+- CLI
+
+  {% include [cli-install](../cli-install.md) %}
+  
+  {% include [default-catalogue](../default-catalogue.md) %}
+
+  Получите список реестров в каталоге:
 
   ```
-  $ yc iot registry list
+  yc iot registry list
   ```
+
   Результат:
+
   ```
   +----------------------+-------------+
   |          ID          |    NAME     |
@@ -11,3 +27,9 @@
   | b91ki3851hab9m0l68je | my-registry |
   +----------------------+-------------+
   ```
+
+- API
+
+  Получить список реестров можно с помощью метода API [list](../../iot-core/api-ref/Registry/list.md).
+  
+{% endlist %}

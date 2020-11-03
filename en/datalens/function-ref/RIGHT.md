@@ -26,7 +26,7 @@ Returns a string that contains the number of characters specified in `number` fr
 #### Examples {#examples}
 
 ```
-LEFT("Computer", 3) = "ter"
+RIGHT("Computer", 3) = "ter"
 ```
 
 

@@ -1,1 +1,0 @@
-[`container-registry.images.pusher`](../../../../iam/concepts/access-control/roles.md#cr-images-puller) — позволяет управлять [Docker-образами](../../../../container-registry/concepts/registry.md) и просматривать информацию о ресурсах сервиса (реестрах, Docker-образах, репозиториях).

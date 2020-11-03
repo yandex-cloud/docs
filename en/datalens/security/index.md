@@ -137,6 +137,11 @@ The `{{ permission-admin }}` permission includes everything under the `{{ permis
 | Deleting dashboards | N/A | - | - | ✔ |
 | Edit permissions | N/A | - | - | ✔ |
 
+## Object access audit
+
+A {{ datalens-short-name }} user can get access logs for {{ datalens-short-name }} objects (view, edit, delete).
+To get logs, you can contact [technical support]({{ link-console-support }}).
+
 #### What's next {#what-is-next}
 
 - [{#T}](../operations/permission/grant.md)

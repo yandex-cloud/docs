@@ -1,6 +1,6 @@
 # Auto-healing
 
-{{ ig-name }} regularly runs health checks for the instances in your instance group. If an instance stopped or an app is taking too long to respond, {{ ig-name }} tries to recover the instance: it either restarts it or creates a new one, depending on the [deployment policy](policies.md#deploy-policy).
+{{ ig-name }} regularly runs health checks for the instances in your instance group. If an instance has stopped or an app is taking too long to respond, {{ ig-name }} will try to recover the instance: either it will restart it or create a new one, depending on the [deployment policy](policies/deploy-policy.md).
 
 ## Types of health checks {#setting-up-health-checks}
 
@@ -46,7 +46,7 @@ For the purpose of instance recovery, {{ ig-name }} can restart  and create new 
     > Let's say you specified `max_expansion = 1` and `max_unavailable = 1`. When one instance fails the check, Instance Groups will begin restarting this instance and creating a new one in parallel. The instance that passes all the checks successfully will continue running and the other one will be deleted.
 
 * To limit the speed of recovery and deployment you can also use the following parameters:
-    * `max_creating` — Limits the number of instances that are deployed at the same time. These are created and started instances with the `CREATING` and `STARTING` statuses.<br>Acceptable values: 0 to 100. The value 0 is any number of instances within the allowed values.
+    * `max_creating` — Limits the number of instances that are deployed at the same time, meaning the created and started instances in the statuses `CREATING` and `STARTING`.<br>Acceptable values: 0 to 100. The value 0 is any number of instances within the allowed values.
     * `max_deleting` — Limits the number of instances undeployed at the same time, meaning instances in the `STOPPING` status. When deleting an instance, {{ ig-name }} always stops it first, hence this status is used to limit the workload.<br>Acceptable values: 0 to 100. The value 0 is any number of instances within the allowed values.
 
 ### Change the instance status at recovery {#healtcheck-and-vm-state}
@@ -63,7 +63,7 @@ Instance recovery has a higher priority than instance configuration update.
 
 > Let's say you have a group of 100 instances and `max_unavailable = 1`. When you update the instance configuration in an instance group, {{ ig-name }} will restart the instances one by one, updating their configuration.
 >
-> If one of the instances fails the application health check at that point, {{ ig-name }} makes it the first one in the restart queue.
+>If one of the instances fails the application health check at that point, {{ ig-name }} makes it the first one in the restart queue.
 
 ### Recovery on instance size change {#healthcheck-and-group-size}
 
@@ -73,13 +73,13 @@ If you increase the target size of the instance group, new instances will be cre
 
 > Let's say 2 out of 4 instances in an instance group failed the [application health check](#functional-healthcheck). At that point, the target size of the instance group has increased to 6 instances. You have two instances to create and another two to recover.
 >
-> If `max_expansion = 1` and `max_creating` is not set, then {{ ig-name }} will start creating three instances in parallel: two under the instance group expansion, and one under the recovery process.
+>If `max_expansion = 1` and `max_creating` is not set, then {{ ig-name }} will start creating three instances in parallel: two under the instance group expansion, and one under the recovery process.
 
 ### Auto-healing preemptible instances {#healthcheck-preemptible-vm}
 
 [Preemptible](../preemptible-vm.md) instances can only be auto-healed if the computing resources in the availability zone allow for this. If the resources are insufficient, {{ ig-name }} will resume auto-healing as soon as the resources become available, but this may take a long time.
 
-Preemptible VMs must be terminated within 24 hours of their launch. In this case, there is a risk that the entire instance group will restart at the same time and stop handling the load of running applications. To avoid this, {{ ig-name }} stops preemptible instances in the group not exactly after 24 hours, but after a random interval from 22 to 24 hours.
+Preemptible VMs must be terminated within 24 hours of their launch. However, in this case, there is a risk that the entire instance group will restart at the same time and stop handling the load of running applications. To avoid this, {{ ig-name }} stops preemptible instances in the group not exactly after 24 hours, but after a random interval from 22 to 24 hours.
 
 #### See also {#see-also}
 

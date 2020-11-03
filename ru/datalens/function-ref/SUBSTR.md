@@ -29,7 +29,7 @@ SUBSTR( string, from_index [ , length ] )
 #### Примеры {#examples}
 
 ```
-SUBSTR("Computer", 2) = "mputer"
+SUBSTR("Computer", 3) = "mputer"
 ```
 
 

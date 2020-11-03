@@ -56,7 +56,7 @@ To add more disks, click **Add disk**.
 
     - The number of instances that can be deleted simultaneously.
 
-        For more information, see [{#T}](../../compute/concepts/instance-groups/policies.md#deploy-policy).
+        For more information, see [{#T}](../../compute/concepts/instance-groups/policies/deploy-policy.md).
 
 1. In the **Scalability** section:
     - Select the [scaling type](../../compute/concepts/instance-groups/scale.md). Currently, you can only create fixed-size groups.

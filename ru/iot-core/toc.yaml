@@ -69,6 +69,8 @@ items:
         href: concepts/mqtt-properties.md
       - name: Топик
         href: concepts/topic.md
+      - name: Резервное копирование
+        href: concepts/backup.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Сценарии использования
@@ -169,3 +171,5 @@ items:
                 href: api-ref/Registry/listPasswords.md
               - name: update
                 href: api-ref/Registry/update.md
+  - name: Вопросы и ответы
+    href: qa/index.md

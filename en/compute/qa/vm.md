@@ -1,18 +1,18 @@
 # Virtual machines
 
-## Technical parameters {#technical-parameters}
+### Technical parameters {#technical-parameters}
 
 #### What VM configuration (memory, vCPU) can I use? {#configure-vm}
 
 {% include [support-channels](../../_includes/compute/compute-resources.md) %}
 
-For more information, see the section [{#T}](../concepts/performance-levels.md).
+Read more in [{#T}](../concepts/performance-levels.md).
 
 #### How can I change the amount of RAM and the number of cores allocated to a VM? {#update-type}
 
-For more information, see the section [{#T}](../operations/vm-control/vm-update-resources.md).
+Read more in [{#T}](../operations/vm-control/vm-update-resources.md).
 
-## Operations on VMs {#operations-on-vm}
+### Operations on VMs {#operations-on-vm}
 
 #### Can I copy or clone an existing VM? {#clone-vm}
 
@@ -32,3 +32,20 @@ No, you can't. Deleting a VM is an operation that cannot be undone.
 
 To avoid losing your data in case of accidental deletion, you can configure disk backup using snapshots, or specify that the disks should not be automatically deleted when deleting the VM.
 
+#### If I lose a private key file from a Linux VM, how else can I log in to it? {#lost-sshkey}
+
+If you configured the [serial console](../operations/serial-console/index.md), you can use it to connect to the VM.
+
+You can also access your data the following way:
+
+1. [Create a snapshot](../operations/disk-control/create-snapshot.md) of the boot disk.
+1. [Create a VM](../operations/vm-create/create-linux-vm.md) from a public image.
+1. [Attach](../operations/vm-control/vm-attach-disk.md) the disk restored from the snapshot to the VM.
+
+You can then export your data or restore access to the VM.
+
+To restore access:
+
+1. Change the SSH key in the `/home/<username>/.ssh/authorized_keys` file.
+1. Make a snapshot of the attached disk.
+1. [Create a VM with the disk from the snapshot](../operations/vm-create/create-from-snapshots.md).

@@ -1,0 +1,3 @@
+```sql
+DROP TABLE series;
+```

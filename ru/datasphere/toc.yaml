@@ -31,6 +31,8 @@ items:
         href: operations/projects/delete.md
       - name: Работа с Git
         href: operations/projects/work-with-git.md
+      - name: Настройка интеграции с Data Proc
+        href: operations/data-proc-integration.md
   - name: Концепции
     items:
       - name: Обзор
@@ -45,9 +47,13 @@ items:
         href: concepts/configurations.md
       - name: Интеграция с системами контроля версий и данных
         href: concepts/dvc-and-git.md
+      - name: Интеграция с Data Proc
+        href: concepts/data-proc.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
+  - name: Вопросы и ответы
+    href: qa/index.md

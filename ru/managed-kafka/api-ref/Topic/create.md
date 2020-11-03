@@ -1,0 +1,104 @@
+---
+editable: false
+---
+
+# Метод create
+Создает топик Kafka в указанном кластере.
+ 
+
+ 
+## HTTP-запрос {#https-request}
+```
+POST https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/{clusterId}/topics
+```
+ 
+## Path-параметры {#path_params}
+ 
+Параметр | Описание
+--- | ---
+clusterId | Обязательное поле. Идентификатор кластера Apache Kafka®, в котором следует создать топик.  Чтобы получить идентификатор кластера, выполните запрос [list](/docs/managed-kafka/api-ref/Cluster/list).  Максимальная длина строки в символах — 50.
+ 
+## Параметры в теле запроса {#body_params}
+ 
+```json 
+{
+  "topicSpec": {
+    "name": "string",
+    "partitions": "integer",
+    "replicationFactor": "integer",
+    "topicConfig_2_1": {
+      "cleanupPolicy": "string",
+      "compressionType": "string",
+      "deleteRetentionMs": "integer",
+      "fileDeleteDelayMs": "integer",
+      "flushMessages": "integer",
+      "flushMs": "integer",
+      "minCompactionLagMs": "integer",
+      "retentionBytes": "integer",
+      "retentionMs": "integer"
+    }
+  }
+}
+```
+
+ 
+Поле | Описание
+--- | ---
+topicSpec | **object**<br><p>Обязательное поле. Конфигурация топика, который нужно создать.</p> 
+topicSpec.<br>name | **string**<br><p>Имя топика.</p> 
+topicSpec.<br>partitions | **integer** (int64)<br><p>Количество разделов в топике.</p> 
+topicSpec.<br>replicationFactor | **integer** (int64)<br><p>Количество копий данных топика, хранящихся в кластере.</p> 
+topicSpec.<br>topicConfig_2_1 | **object**<br><p>Настройки топика.</p> 
+topicSpec.<br>topicConfig_2_1.<br>cleanupPolicy | **string**<br><p>Политика хранения старых сообщений лога.</p> <ul> <li>CLEANUP_POLICY_DELETE: эта политика отбрасывает сегменты лога либо при истечении срока их хранения, либо при достижении предельного размера лога. См. также описание <code>logRetentionMs</code> и других подобных параметров.</li> <li>CLEANUP_POLICY_COMPACT: эта политика сжимает сообщения в логе.</li> <li>CLEANUP_POLICY_COMPACT_AND_DELETE: эта политика использует как сжатие сообщений, так и удаление сегментов лога.</li> </ul> 
+topicSpec.<br>topicConfig_2_1.<br>compressionType | **string**<br><p>Тип сжатия для указанного топика.</p> <ul> <li>COMPRESSION_TYPE_UNCOMPRESSED: не использовать кодек (сообщения не сжимаются).</li> <li>COMPRESSION_TYPE_ZSTD: кодек Zstandard.</li> <li>COMPRESSION_TYPE_LZ4: Кодек LZ4.</li> <li>COMPRESSION_TYPE_SNAPPY: Кодек Snappy.</li> <li>COMPRESSION_TYPE_GZIP: кодек GZip.</li> <li>COMPRESSION_TYPE_PRODUCER: кодек задается на стороне производителя (допустимые кодеки: <code>ZSTD</code>, <code>LZ4</code>, <code>GZIP</code> или <code>SNAPPY</code>).</li> </ul> 
+topicSpec.<br>topicConfig_2_1.<br>deleteRetentionMs | **integer** (int64)<br><p>Время (в миллисекундах), в течение которого нужно хранить tombstone-маркеры удаления для топиков со сжатым логом.</p> 
+topicSpec.<br>topicConfig_2_1.<br>fileDeleteDelayMs | **integer** (int64)<br><p>Время ожидания перед удалением файла из файловой системы.</p> 
+topicSpec.<br>topicConfig_2_1.<br>flushMessages | **integer** (int64)<br><p>Количество сообщений, которые должны быть накоплены в разделе прежде, чем эти сообщения будут сброшены на диск.</p> <p>Эта настройка переопределяет на уровне топика настройку уровня кластера <code>logFlushIntervalMessages</code>.</p> 
+topicSpec.<br>topicConfig_2_1.<br>flushMs | **integer** (int64)<br><p>Максимальное время (в миллисекундах), в течение которого сообщение в любом топике хранится в памяти перед сбросом на диск.</p> <p>Эта настройка переопределяет на уровне топика настройку уровня кластера <code>logFlushIntervalMs</code>.</p> 
+topicSpec.<br>topicConfig_2_1.<br>minCompactionLagMs | **integer** (int64)<br><p>Минимальное время в миллисекундах, в течение которого сообщение в логе будет оставаться несжатым.</p> 
+topicSpec.<br>topicConfig_2_1.<br>retentionBytes | **integer** (int64)<br><p>Максимальный размер, до которого может вырасти раздел, прежде чем Kafka начнет отбрасывать старые сегменты лога, если действует настройка <code>delete</code> <code>cleanupPolicy</code>. Эта настройка полезна, если вам необходимо контролировать размер лога из-за ограниченного дискового пространства.</p> <p>Эта настройка переопределяет на уровне топика настройку уровня кластера <code>logRetentionBytes</code>.</p> 
+topicSpec.<br>topicConfig_2_1.<br>retentionMs | **integer** (int64)<br><p>Количество миллисекунд до удаления файла сегмента лога; в течение этого времени Kafka будет хранить файл сегмента лога.</p> <p>Эта настройка переопределяет на уровне топика настройку уровня кластера <code>logRetentionMs</code>.</p> 
+ 
+## Ответ {#responses}
+**HTTP Code: 200 - OK**
+
+```json 
+{
+  "id": "string",
+  "description": "string",
+  "createdAt": "string",
+  "createdBy": "string",
+  "modifiedAt": "string",
+  "done": true,
+  "metadata": "object",
+
+  //  включает только одно из полей `error`, `response`
+  "error": {
+    "code": "integer",
+    "message": "string",
+    "details": [
+      "object"
+    ]
+  },
+  "response": "object",
+  // конец списка возможных полей
+
+}
+```
+Ресурс Operation. Дополнительные сведения см. в разделе
+[Объект Operation](/docs/api-design-guide/concepts/operation).
+ 
+Поле | Описание
+--- | ---
+id | **string**<br><p>Идентификатор операции.</p> 
+description | **string**<br><p>Описание операции. Длина описания должна быть от 0 до 256 символов.</p> 
+createdAt | **string** (date-time)<br><p>Время создания ресурса в формате в <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
+createdBy | **string**<br><p>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию.</p> 
+modifiedAt | **string** (date-time)<br><p>Время, когда ресурс Operation последний раз обновлялся. Значение в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
+done | **boolean** (boolean)<br><p>Если значение равно <code>false</code> — операция еще выполняется. Если <code>true</code> — операция завершена, и задано значение одного из полей <code>error</code> или <code>response</code>.</p> 
+metadata | **object**<br><p>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля <code>metadata</code>.</p> 
+error | **object**<br>Описание ошибки в случае сбоя или отмены операции. <br> включает только одно из полей `error`, `response`<br><br><p>Описание ошибки в случае сбоя или отмены операции.</p> 
+error.<br>code | **integer** (int32)<br><p>Код ошибки. Значение из списка <a href="https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto">google.rpc.Code</a>.</p> 
+error.<br>message | **string**<br><p>Текст ошибки.</p> 
+error.<br>details[] | **object**<br><p>Список сообщений с подробными сведениями об ошибке.</p> 
+response | **object** <br> включает только одно из полей `error`, `response`<br><br><p>Результат операции в случае успешного завершения. Если исходный метод не возвращает никаких данных при успешном завершении, например метод Delete, поле содержит объект <a href="https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty">google.protobuf.Empty</a>. Если исходный метод — это стандартный метод Create / Update, поле содержит целевой ресурс операции. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля <code>response</code>.</p> 

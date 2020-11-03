@@ -9,13 +9,13 @@ All operations in {{ ig-name }} must be performed on behalf of a service account
 
 {% endnote %}
 
-Each group consists of one or more instances of the same type. Group instances may reside in different availability zones and regions. Learn more about [Yandex.Cloud geography](../../../overview/concepts/geo-scope.md).
+Each group consists of one or more instances of the same type. Group instances may reside in different availability zones and regions. More about the [geo scope of {{ yandex-cloud }}](../../../overview/concepts/geo-scope.md).
 
-![Instance groups](../../../_assets/instance-groups/ig.svg)
+![Instance groups](../../../_assets/instance-groups/ig.svg "Instance groups")
 
 Use {{ ig-name }} to:
 
-- Simultaneously [update](configuration-update.md) all instances in a group.
+- Simultaneously [update](deploy/index.md) all instances in a group.
 
 - Integrate with [{{ load-balancer-full-name }}](../../../load-balancer/concepts/index.md) and evenly distribute workloads across instances.
 
@@ -29,7 +29,7 @@ When creating a group, describe the following:
 
 - [The template](instance-template.md) for deploying group instances.
 
-- [{#T}](policies.md) for scaling, deployment, and allocation.
+- [{#T}](policies/index.md) for scaling, deployment, and allocation.
 
 Instance groups created in the folder can be accessed by all instances connected to the same cloud network. [Learn more about networking](../../../vpc/).
 

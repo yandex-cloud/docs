@@ -1,0 +1,5 @@
+```sql
+SELECT
+    *
+FROM series;
+```

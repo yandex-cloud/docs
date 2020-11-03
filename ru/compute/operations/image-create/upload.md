@@ -8,7 +8,7 @@
 
 {% endnote %}
 
-## 1. Подготовьте файл с образом {#prepare-file}
+## Подготовьте файл с образом {#prepare-file}
 
 Поддерживаемые форматы образов: Qcow2, VMDK и VHD.
 
@@ -37,7 +37,7 @@
 
 {% endnote %}
 
-## 2. Загрузите файл образа в {{ objstorage-name }} {#upload-file}
+## Загрузите файл образа в {{ objstorage-name }} {#upload-file}
 
 Загрузите файл с образом в сервис {{ objstorage-full-name }} и получите ссылку на загруженный образ:
 
@@ -45,7 +45,7 @@
 1. [Загрузите образ](../../../storage/operations/objects/upload.md) в ваш бакет. В терминах {{ objstorage-name }} загружаемый файл образа будет называться _объектом_.
 1. [Получите ссылку](../../../storage/operations/objects/link-for-download.md) на загруженный образ. Используйте эту ссылку при создании образа в {{ compute-name }}.
 
-## 3. Создайте образ в {{ compute-name }} {#create-image}
+## Создайте образ в {{ compute-name }} {#create-image}
 
 Создайте новый образ по ссылке, полученной в {{ objstorage-name }}:
 
@@ -70,7 +70,7 @@
   Чтобы создать новый образ по ссылке, воспользуйтесь флагом `--source-uri`.
 
   ```
-  $ yc compute image create --name <IMAGE-NAME> --source-uri <IMAGE-URL>
+  yc compute image create --name <IMAGE-NAME> --source-uri <IMAGE-URL>
   ```
 
   где:
@@ -81,7 +81,7 @@
   Если необходимо, добавьте описание и укажите [семейство](../../concepts/image.md#family), к которому относится этот образ:
 
   ```
-  $ yc compute image create  \
+  yc compute image create  \
       --name ubuntu-cosmic \
       --description "Ubuntu Server 18.10 (Cosmic Cuttlefish)" \
       --family ubuntu \
@@ -91,7 +91,7 @@
   Если вы знаете минимальные требования к размеру диска, который будет создан из этого образа, укажите размер в гигабайтах:
 
   ```
-  $ yc compute image create  \
+  yc compute image create  \
       --name big-image \
       --min-disk-size 20 \
       --source-uri "https://storage.yandexcloud.net/mybucket/cosmic-server-cloudimg-amd64.vmdk"
@@ -124,26 +124,26 @@
 
      Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](https://www.terraform.io/docs/providers/yandex/index.html).
 
-  2. Проверьте корректность конфигурационных файлов.
+  1. Проверьте корректность конфигурационных файлов.
 
      1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
-     2. Выполните проверку с помощью команды:
+     1. Выполните проверку с помощью команды:
 
         ```
-        $ terraform plan
+        terraform plan
         ```
 
      Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет. 
 
-  3. Разверните облачные ресурсы.
+  1. Разверните облачные ресурсы.
 
      1. Если в конфигурации нет ошибок, выполните команду:
 
         ```
-        $ terraform apply
+        terraform apply
         ```
 
-     2. Подтвердите создание ресурсов.
+     1. Подтвердите создание ресурсов.
 
      После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
@@ -151,7 +151,7 @@
 
 После создания образ перейдет в статус `CREATING`. Дождитесь, когда образ перейдет в статус `READY`, прежде чем его использовать.
 
-## 4. Удалите образ из {{ objstorage-name }} {#delete-image}
+## Удалите образ из {{ objstorage-name }} {#delete-image}
 
 Если образ был успешно создан, вы можете [удалить файл образа](../../../storage/operations/objects/delete.md) из сервиса {{ objstorage-name }}. Также можно [удалить бакет](../../../storage/operations/buckets/delete.md), если в нем не осталось объектов.
 

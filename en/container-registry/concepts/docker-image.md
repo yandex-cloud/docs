@@ -11,16 +11,17 @@ A Docker image consists of layers. Each change is written to a new layer.
 
 Docker image version control is carried out using tags and digests.
 
-- _Tags_ are assigned by the user. If no tag is specified, Docker CLI assigns the **latest** tag by default while [pushing a Docker image](../operations/docker-image/docker-image-push.md) to the registry. Tags are unique within a [repository](repository.md) and can be changed. A Docker image can have multiple tags.
+- _Tags_ are assigned by the user. Tags are unique within a [repository](repository.md) and can be changed. If no tag is specified, the Docker CLI assigns the **latest** tag by default while [pushing a Docker image](../operations/docker-image/docker-image-push.md) to the registry.
 
     {% include [latest-info](../../_includes/container-registry/info-about-latest.md) %}
+
+    A Docker image can have multiple tags. If you push a new version of the Docker image with an existing tag, it's reused: it gets deleted from the old Docker image version and written to the new one.
 
 - _A digest_ is generated automatically, is unique, and identifies the exact version of the Docker image.
 
 You can access a specific version of the Docker image in one of the following ways:
 
-- `<registry>/<image name>:<tag>`
-- `<registry>/<image name>@<digest>`
+- `<registry>/<image name>:<tag>`;
+- `<registry>/<image name>@<digest>`.
 
 A Docker image and all its versions are stored in a repository.
-

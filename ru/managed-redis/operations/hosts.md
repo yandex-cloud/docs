@@ -24,12 +24,12 @@
   $ yc managed-redis host list
        --cluster-name=<имя кластера>
 
-  +---------------------------------+----------------------+--------+---------------+
-  |               NAME              |      CLUSTER ID      | HEALTH |    ZONE ID    |
-  +---------------------------------+----------------------+--------+---------------+
-  | rc1a-...caf.mdb.yandexcloud.net | c9qb2qj7nnt3b26fr0gg | ALIVE  | ru-central1-a |
-  | rc1c-...bgc.mdb.yandexcloud.net | c9qb2qj7nnt3b26fr0gg | ALIVE  | ru-central1-c |
-  +---------------------------------+----------------------+--------+---------------+
+  +---------------------------------+--------------+------------+---------+--------+---------------+
+  |              NAME               |  CLUSTER ID  | SHARD NAME |  ROLE   | HEALTH |    ZONE ID    |
+  +---------------------------------+--------------+------------+---------+--------+---------------+
+  | rc1a-...caf.mdb.yandexcloud.net | c9qb2...0gg  | shard1     | MASTER  | ALIVE  | ru-central1-a |
+  | rc1c-...bgc.mdb.yandexcloud.net | c9qb2...0gg  | shard1     | REPLICA | ALIVE  | ru-central1-c |
+  +---------------------------------+--------------+------------+---------+--------+---------------+
   ```
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).

@@ -2,11 +2,23 @@
 
 After you create a VM, you can change its name, description, tags, platform, or metadata.
 
-For more information about how to update a VM's configuration, see the section [{#T}](vm-update-resources.md).
+For more information about how to update a VM configuration, see [{#T}](vm-update-resources.md).
 
 {% list tabs %}
 
+- Management console
+
+   To update a VM:
+   1. Open the folder that the VM belongs to.
+   1. Select **{{ compute-full-name }}**.
+   1. Click on the VM name.
+   1. Click **Edit VM**.
+   1. Change the VM parameters, for example, rename it by editing the **Name** field.
+   1. At the bottom of the page, click **Save changes**.
+
 - CLI
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
@@ -20,7 +32,8 @@ For more information about how to update a VM's configuration, see the section [
 
       {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
 
-  1. Select the `ID` or `NAME` of the VM you need (for example, `first-instance`).
+  1. Select the VM `ID` or `NAME` (for example, `first-instance`).
+
   1. Change the VM parameters, for example, rename it:
 
       ```
@@ -33,6 +46,12 @@ For more information about how to update a VM's configuration, see the section [
   To change the VM, use the [update](../../api-ref/Instance/update.md) method for the [Instance](../../api-ref/Instance/) resource.
 
 {% endlist %}
+
+{% note info %}
+
+If you change the VM name, the host name and FQDN are not changed. For more information about generating the FQDN, see [{#T}](../../concepts/network.md#hostname).
+
+{% endnote %}
 
 ## Examples {#examples}
 
@@ -58,13 +77,16 @@ To change the name and description of a VM, follow these steps:
 
 - CLI
 
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
   1. Get a list of VMs in the default folder:
 
       {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
 
-  1. Select the `ID` or `NAME` of the VM you need (for example, `first-instance`).
+  1. Select the VM `ID` or `NAME` (for example, `first-instance`).
+
   1. Change the VM's name and description:
 
       ```
@@ -85,13 +107,16 @@ To change a VM's metadata, follow these steps:
 
 - CLI
 
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
   1. Get a list of VMs in the default folder:
 
       {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
 
-  1. Select the `ID` or `NAME` of the VM you need (for example, `first-instance`).
+  1. Select the VM `ID` or `NAME` (for example, `first-instance`).
+
   1. Get information about the VM with the metadata. All user-defined metadata is specified in the `user-data` key.
 
       ```
@@ -102,7 +127,7 @@ To change a VM's metadata, follow these steps:
       - `--metadata` — to change a value from a single string.
       - `--metadata-from-file` — to change a value from multiple strings.
 
-      Example of changing the administrator's password on a Windows-based VM:
+      Example of changing the administrator password on a Windows-based VM:
 
       1. Create a YAML file (for example, `metadata.yaml`) and specify the following:
 
@@ -118,6 +143,6 @@ To change a VM's metadata, follow these steps:
               --metadata-from-file user-data=metadata.yaml
           ```
 
-      The existing metadata set will be completely overwritten.
+          The existing metadata set will be completely overwritten.
 
 {% endlist %}

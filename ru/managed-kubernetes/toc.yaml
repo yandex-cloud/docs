@@ -63,6 +63,8 @@ items:
         href: solutions/container-registry.md
       - name: Запуск рабочих нагрузок с GPU
         href: solutions/running-pod-gpu.md
+      - name: Резервное копирование в Object Storage
+        href: solutions/backup.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса
@@ -153,3 +155,5 @@ items:
                 href: api-ref/Version/index.md
               - name: list
                 href: api-ref/Version/list.md
+  - name: Вопросы и ответы
+    href: qa/index.md

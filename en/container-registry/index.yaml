@@ -1,11 +1,12 @@
 # Yandex Container Registry
 title: "Yandex Container Registry"
 description:
-- "Yandex Container Registry is a service for storing and distributing Docker images."
-# Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
+  - "Yandex Container Registry is a service for storing and distributing Docker images."
+  - "The service is subject to the <a href=\"https://yandex.com/legal/cloud_sla\">Service Level Agreement</a>. The Service Level is defined in the <a href=\"https://yandex.com/legal/cloud_sla_ycr\">Yandex Container Registry Service Level Agreement</a>."
+# Meta-information title, description, keywords и т.п. (title tab и other SEO-tags)
 meta:
   title: "Yandex Container Registry"
-# Блок со ссылками
+# Block of links
 links:
 - title: "Getting started"
   description: "Create the first registry"
@@ -19,15 +20,15 @@ links:
 - title: "API reference"
   description: "HTTP API method descriptions"
   href: "api-ref/"
-- title: "Tutorials"
+- title: "Use cases"
   description: "Use Yandex Container Registry to perform common tasks for managing Docker images"
   href: "solutions/"
 - title: "Quotas and limits"
   description: "Technical and organizational limitations of the service"
   href: "concepts/limits"
 - title: "Access management"
-  description: "Set up access rights to work with the service"
+  description: "Configure access rights to work with the service"
   href: "security/"
 - title: "Pricing policy"
-  description: "Pricing and cost calculation for services"
+  description: "Service pricing and cost calculations"
   href: "pricing"

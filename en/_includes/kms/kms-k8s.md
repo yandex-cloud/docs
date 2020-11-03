@@ -43,4 +43,3 @@ Make sure you specify the encryption key when creating a {{ k8s }} cluster, as y
 {% endlist %}
 
 {{ managed-k8s-name }} interacts with {{ kms-short-name }} using the [{{ kms-short-name }} provider mechanism](https://kubernetes.io/docs/tasks/administer-cluster/kms-provider/). {{ managed-k8s-name }} supports the {{ kms-short-name }} plugin that is used to encrypt and decrypt data encryption keys (DEK) in {{ kms-short-name }}. Secrets are encrypted using standard {{ k8s }} tools.
-

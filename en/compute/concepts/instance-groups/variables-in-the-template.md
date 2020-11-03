@@ -1,14 +1,14 @@
 # Variables in an instance template
 
-{{ ig-name }} lets you create a group of instances of the same type from a [template](instance-template.md). To give these have different characteristics, use the mechanism for substituting system and user-defined variables in the template.
+{{ ig-name }} lets you create a group of instances of the same type from a [template](instance-template.md). To use different characteristics for such instances, use the substitution mechanism for the system and user-defined variables in the template.
 
 _A system variable_ is a value that {{ ig-name }} calculates during instance creation and inserts it into the template for further use.
 
-_A user-defined variable_ is a value that {{ ig-name }} takes from a list. The list is made by the user in advance and variables in it are described in `key:value` format.
+_A user-defined variable_ is a value that {{ ig-name }} takes from a list. The list is made by the user in advance and its variables are described in `key:value` format.
 
 ## Fields that support variables {#support-fields}
 
-The instance template is described in a YAML file using the `instance_template` key. You can specify system and user-defined variables instead of the values of the following template fields:
+The instance template is described in a YAML file using the `instance_template` key. You can specify the system and user-defined variables instead of the values of the following template fields:
 
 * `instance_template.fqdn`: Host FQDN.
 * `instance_template.hostname`: Hostname.
@@ -30,12 +30,12 @@ The instance template is described in a YAML file using the `instance_template` 
 
 {{ ig-name }} replaces system and user-defined variables with values in two stages:
 
-1. [Replace system variables with calculated values](#first-stage).
-1. [Replace user-defined variables with values from the list](#second-stage).
+1. [Replacing system variables with calculated values](#first-stage).
+1. [Replacing user-defined variables with values from the list](#second-stage).
 
-The conversion can occur in multiple parts. In this case, the value obtained in the first stage is a variable for the second stage.
+Conversion can occur in multiple stages. In this case, the value obtained in the first stage is a variable for the second stage.
 
-[An example](#example) of substitution steps is given below.
+[An example](#example) of substitution stages is given below.
 
 ### First stage of value substitution {#first-stage}
 
@@ -45,8 +45,8 @@ The conversion can occur in multiple parts. In this case, the value obtained in 
 | --- | --- |
 | `{instance_group.id}` | Instance group ID. |
 | `{instance_group.labels.label_key}` | Value of the label with the `label_key` key. |
-| `{instance.index}` | Unique instance number in the group.</br>Possible values: 1 to N, where N is the number of instances in the group. |
-| `{instance.index_in_zone}` | Instance number in the zone. Unique within the zone for a specific group of</br>instances. |
+| `{instance.index}` | The unique instance number in the group.</br>Possible values: 1 to N, where N is the number of instances in the group. |
+| `{instance.index_in_zone}` | Instance number in the zone. It's unique for a specific group of</br>instances within a zone. |
 | `{instance.short_id}` | Instance ID that is unique within the group. Consists of four letters. |
 | `{instance.zone_id}` | Zone ID. |
 
@@ -61,22 +61,22 @@ At this stage, {{ ig-name }}:
 1. Compares variables with the keys from the custom list.
 1. Sets them to the values specified in the keys.
 
-## Variable conversions {#converting-rules}
+## Conversion of variables {#converting-rules}
 
 System and user-defined variables are specified as values for template fields in curly brackets `{}`. {{ ig-name }} converts them according to the rules below.
 
 | Template field value | Field value</br>after conversion | Conversion description |
 | --- | --- | --- |
-| `{specified key}` | `value` | The value is substituted from the list made in advance. |
-| `{unknown key}` | `{unknown key}` | If the set key is not supported by the substitution mechanism, {{ ig-name }} won't replace it. |
-| `{{specified key}}` | `{specified key}` | At the first stage, the internal level of brackets is removed. |
-| `{{unknown key}}` | `{{unknown key}}` | A key that is not supported by the substitution mechanism won't change. |
+| `{specified_key}` | `value` | The value is inserted from the list created in advance. |
+| `{unknown_key}` | `{unknown_key}` | If the specified key is not supported by the substitution mechanism, {{ ig-name }} won't replace it. |
+| `{{specified_key}}` | `{specified_key}` | At the first stage, the internal level of brackets is removed. |
+| `{{unknown_key}}` | `{{unknown_key}}` | A key that is not supported by the substitution mechanism won't change. |
 
-## Example of passing the substitution stages {#example}
+## Example of running the substitution stages {#example}
 
 1. The instance template specifies:
    * The list of user-defined variables in `key:value` format in the `variables` section.
-   * System and user-defined variables in the [allowed](#support-fields) fields:
+   * The system and user-defined variables in the [supported](#support-fields) fields:
      * The `instance_template.name` field specifies the `{shot_zone_var_{instance.zone_id}}` user-defined variable and the `{instance.index}` system variable.
      * The `instance_template.hostname` field specifies the `{instance.index}` system variable.
 
@@ -96,11 +96,11 @@ System and user-defined variables are specified as values for template fields in
    ...
    ```
 
-1. During the first stage, {{ ig-name }} replaces [system variables](#first-stage) with calculated values.
+1. During the first stage, {{ ig-name }} replaces the [system variables](#first-stage) with the calculated values.
    * In the `instance_template.name` field:
-     * The `{shot_zone_var_{instance.zone_id}}` variable will be converted to the `{shot_zone_var_ru-central1-a}` variable.
-     * The `{instance.index}` system variable will be converted to index `1`.
-   * In the `instance_template.hostname` field, the `{instance.index}` system variable will be converted to index `1`.
+     * The `{shot_zone_var_{instance.zone_id}}` variable is converted to the `{shot_zone_var_ru-central1-a}` variable.
+     * The `{instance.index}` system variable is converted to index `1`.
+   * In the `instance_template.hostname` field, the `{instance.index}` system variable is converted to index `1`.
 
    ```yaml
    ...
@@ -119,7 +119,7 @@ System and user-defined variables are specified as values for template fields in
    ```
 
 1. At the second stage, {{ ig-name }} converts the resulting variables to the values from the list in the `variables` section:
-   * In the `instance_template.name` field: the `{shot_zone_var_ru-central1-a}` variable will be converted to the value `rc1a`.
+   * In the `instance_template.name` field: the `{shot_zone_var_ru-central1-a}` variable is converted to the value `rc1a`.
 
    ```yaml
    ...

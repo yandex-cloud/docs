@@ -145,10 +145,16 @@ items:
             href: operations/instance-groups/get-list-instances.md
       - name: Managing instance groups
         items:
-          - name: Update a group
+          - name: Edit a group
             href: operations/instance-groups/update.md
           - name: Configure application health check on the VM
             href: operations/instance-groups/enable-autohealing.md
+          - name: Update a group
+            items:
+              - name: Incremental update
+                href: operations/instance-groups/deploy/rolling-update.md
+              - name: Updating without downtime
+                href: operations/instance-groups/deploy/zero-downtime.md
           - name: Stop a group
             href: operations/instance-groups/stop.md
           - name: Start a group
@@ -206,13 +212,29 @@ items:
           - name: Variables in an instance template
             href: concepts/instance-groups/variables-in-the-template.md
           - name: Policies
-            href: concepts/instance-groups/policies.md
+            items:
+              - name: Overview
+                href: concepts/instance-groups/policies/index.md
+              - name: Allocation policy
+                href: concepts/instance-groups/policies/allocation-policy.md
+              - name: Deployment policy
+                href: concepts/instance-groups/policies/deploy-policy.md
+              - name: Scaling policy
+                href: concepts/instance-groups/policies/scale-policy.md
           - name: Scaling types
             href: concepts/instance-groups/scale.md
           - name: Auto-healing
             href: concepts/instance-groups/autohealing.md
-          - name: Configuration update
-            href: concepts/instance-groups/configuration-update.md
+          - name: Update
+            items:
+              - name: Overview
+                href: concepts/instance-groups/deploy/index.md
+              - name: Allocating instances across zones
+                href: concepts/instance-groups/deploy/zones.md
+              - name: Deployment algorithm
+                href: concepts/instance-groups/deploy/deploy.md
+              - name: Rules for updating instance groups
+                href: concepts/instance-groups/deploy/instance.md
           - name: Statuses
             href: concepts/instance-groups/statuses.md
       - name: Backups
