@@ -6,7 +6,9 @@
 
 {% endnote %}
 
-{% include [yc-function-list](../../../_includes/functions/function-list.md) %}
+{% include [function-list-note](../../../_includes/functions/function-list-note.md) %}
+
+## Вызвать функцию
 
 Для примера используется функция, описанная в разделе [{#T}](version-manage.md#func-version-create).
 

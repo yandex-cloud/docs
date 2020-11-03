@@ -1,6 +1,8 @@
 # Удаление функции
 
-{% include [yc-function-list](../../../_includes/functions/function-list.md) %}
+{% include [function-list-note](../../../_includes/functions/function-list-note.md) %}
+
+## Удалить функцию
 
 {% list tabs %}
 

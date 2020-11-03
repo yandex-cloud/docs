@@ -103,6 +103,8 @@ items:
         href: concepts/log-group.md
       - name: Мониторинг
         href: concepts/monitoring.md
+      - name: Резервное копирование
+        href: concepts/backup.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Разработка на Node.js
