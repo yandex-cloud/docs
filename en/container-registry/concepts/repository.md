@@ -4,14 +4,16 @@ _A repository_ is a set of Docker images with the same name. Repositories usuall
 
 A repository is defined by the `<registry ID>/<Docker image name>` combination.
 
-- In Docker CLI commands, you must use the full name that includes the {{ container-registry-short-name }} address:
-    
+- In Docker CLI commands, use the full name that includes the {{ container-registry-short-name }} address:
+
     ```
     $ docker push cr.yandex/<registry ID>/<Docker image name>
     ```
+
 - In YC CLI commands, use the repository name without the {{ container-registry-short-name }} address:
-    
+
     ```
     $ yc container image list --repository-name=<registry ID>/<Docker image name>
     ```
 
+For a repository, you can set a [policy for automatically deleting Docker images](lifecycle-policy.md). Based on its rules, Docker images will be deleted automatically.

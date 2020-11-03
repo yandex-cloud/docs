@@ -128,3 +128,5 @@ items:
                 href: api-ref/Subcluster/list.md
               - name: update
                 href: api-ref/Subcluster/update.md
+  - name: Вопросы и ответы
+    href: qa/index.md

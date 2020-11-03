@@ -23,7 +23,7 @@
   
   {% include [cli-install](../../../_includes/cli-install.md) %}
   
-  Чтобы удалить [Docker-образ](../../concepts/docker-image.md), используйте его идентификатор. Узнать идентификатор можно
+  Чтобы удалить [Docker-образ](../../concepts/docker-image.md), используйте его идентификатор. Узнать идентификатор можно,
   [запросив список Docker-образов в нужном реестре](docker-image-list.md#docker-image-list).
   
   1. Удалите Docker-образ:

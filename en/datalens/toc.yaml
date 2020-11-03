@@ -67,10 +67,10 @@ items:
             href: operations/chart/create-area-chart.md
           - name: Creating a pie chart
             href: operations/chart/create-pie-chart.md
+          - name: Creating a column chart
+            href: operations/chart/create-column-chart.md
           - name: Creating a bar chart
             href: operations/chart/create-bar-chart.md
-          - name: Creating a horizontal bar chart
-            href: operations/chart/create-horizontal-bar-chart.md
           - name: Creating a map
             href: operations/chart/create-map-chart.md
           - name: Creating a table
@@ -127,6 +127,8 @@ items:
         href: concepts/datalens-public.md
       - name: Calculated fields
         href: concepts/calculations.md
+      - name: Backups in DataLens
+        href: concepts/backup.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Access management

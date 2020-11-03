@@ -36,8 +36,8 @@
           Digest: sha256:035ac8e1bd9c49871a2fd76ccb3c4b0f84e7eee775919ccd345337ec7b49f80d
           Status: Downloaded newer image for cr.yandex/crpd50616s9a2t7gr8mi/ubuntu@sha256:035ac8e1bd9c49871a2fd76ccb3c4b0f84e7eee775919ccd345337ec7b49f80d
           ```
-      
-      Обратите внимание, что в данном случае Docker-образ будет скачан без тега. В поле `TAG` будет указано `<none>`.
+
+          Обратите внимание, что в данном случае Docker-образ будет скачан без тега. В поле `TAG` будет указано `<none>`.
       
   1. Проверьте, что Docker-образ действительно скачался:
       
@@ -50,4 +50,3 @@
   
   
 {% endlist %}
-

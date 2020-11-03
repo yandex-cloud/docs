@@ -29,7 +29,7 @@ If an additional argument `length` is specified, a substring of the specified le
 #### Examples {#examples}
 
 ```
-SUBSTR("Computer", 2) = "mputer"
+SUBSTR("Computer", 3) = "mputer"
 ```
 
 

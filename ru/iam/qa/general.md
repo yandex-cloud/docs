@@ -21,3 +21,5 @@
 #### Сколько стоит использование сервиса {{ iam-short-name }}? {#price}
 
 Использование сервиса {{ iam-short-name }} не тарифицируется.
+
+{% include [qa-logs.md](../../_includes/qa-logs.md) %}

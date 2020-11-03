@@ -1,4 +1,4 @@
-# Configure application health check on the instance
+# Configure application health check on the VM
 
 To make the application more available and make sure that it responds to requests, you can set up the application health check on the instance. {{ ig-name }} will check and automatically recover the instance if it fails the check. Don't confuse this with the [health check](../../../load-balancer/concepts/health-check.md) in the load balancer. [Read more](../../concepts/instance-groups/autohealing.md) about automatic recovery and types of checks.
 
@@ -34,7 +34,7 @@ This section describes how to set up application health check for an existing gr
 
       - The response timeout in seconds.
 
-        If you have [connected your instance group to a load balancer](create-with-balancer.md), we recommend setting a _smaller_ value here than in the load balancer.
+        If you [connected your instance group to a load balancer](create-with-balancer.md), we recommend setting a _smaller_ value here than in the load balancer.
 
       - Check interval in seconds — This is the interval for {{ ig-name }} to wait between health checks.
 
@@ -70,7 +70,7 @@ This section describes how to set up application health check for an existing gr
 
   1. Create a YAML file with any name (for example, `group.yaml`) and, based on the information received, describe:
       - [The template](../../concepts/instance-groups/instance-template.md) of the instance.
-      - [The policies](../../concepts/instance-groups/policies.md).
+      - [The policies](../../concepts/instance-groups/policies/index.md).
       - The service account ID.
       - The load balancer specifications (if necessary).
 
@@ -99,7 +99,7 @@ This section describes how to set up application health check for an existing gr
       | `port` | The port in the range 1-32767 to receive the check requests from {{ ig-name }}. |
       | `path` | The URL path for the HTTP health check requests sent from {{ ig-name }}. |
       | `interval` | Check interval in seconds — This is the interval for {{ ig-name }} to wait between health checks. |
-      | `timeout` | Response waiting time in seconds.<br>If you have [connected your instance group to a load balancer](create-with-balancer.md), we recommend setting a _smaller_ value here than in the load balancer. |
+      | `timeout` | Response waiting time in seconds.<br>If you [connected your instance group to a load balancer](create-with-balancer.md), we recommend setting a _larger_ value here than in the load balancer. |
       | `unhealthy_threshold` | Unhealthy threshold — The number of failed health checks after which the instance is considered inoperable.<br>If you have connected your instance group to a load balancer, we recommend that you set a _higher_ value here than in the load balancer. |
       | `healthy_threshold` | Healthy threshold — The number of successful health checks after which the instance is considered operable.<br>If you have connected your instance group to a load balancer, we recommend that you set a _smaller_ value here than in the load balancer. |
 

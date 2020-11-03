@@ -32,16 +32,6 @@ Different computing resources are required for different tasks. For some of them
 
 You can [change the configuration](../operations/projects/control-compute-resources.md) at any time when working in the notebook. The state of the interpreter is maintained.
 
-### Errors don't change the state of the interpreter {#handling-errors}
-
-If an error occurs while running a cell, it won't update the state of the interpreter. This allows you to keep the results obtained in the previous cells.
-
-{% note warning %}
-
-If a variable value was assigned in the cell where the error occurred, the assignment is also canceled.
-
-{% endnote %}
-
 ### You can share your results {#share-results}
 
 You can [export your notebook as HTML](../operations/projects/publication.md) with all your calculation results and cell explanations and share a link to the report in this format. Exporting in other formats is currently not supported.

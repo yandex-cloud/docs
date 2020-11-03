@@ -49,4 +49,5 @@ caseInsensitiveNameIds | **boolean** (boolean)<br><p>Использовать н
 [get](get.md) | Возвращает указанную федерацию.
 [list](list.md) | Возвращает список федераций в указанном каталоге.
 [listOperations](listOperations.md) | Возвращает список операций для указанной федерации.
+[listUserAccounts](listUserAccounts.md) | Возвращает список пользователей для указанной федерации.
 [update](update.md) | Изменяет указанную федерацию.

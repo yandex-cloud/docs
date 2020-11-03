@@ -26,7 +26,7 @@ RIGHT( string, number )
 #### Примеры {#examples}
 
 ```
-LEFT("Computer", 3) = "ter"
+RIGHT("Computer", 3) = "ter"
 ```
 
 

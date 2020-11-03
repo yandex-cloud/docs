@@ -33,9 +33,21 @@ items:
             href: operations/registry/registry-delete.md
       - name: Managing a repository
         items:
-          - name: Getting a list of repositories in a registry
+          - name: Getting information about existing repositories
             href: operations/repository/repository-list.md
-  - name: Yandex Container Optimized Solutions
+      - name: Managing policies for automatically deleting Docker images
+        items:
+          - name: Getting information about existing lifecycle policies
+            href: operations/lifecycle-policy/lifecycle-policy-list.md
+          - name: Creating a lifecycle policy
+            href: operations/lifecycle-policy/lifecycle-policy-create.md
+          - name: Updating a lifecycle policy
+            href: operations/lifecycle-policy/lifecycle-policy-update.md
+          - name: Performing lifecycle policy dry runs
+            href: operations/lifecycle-policy/lifecycle-policy-dry-run.md
+          - name: Deleting a lifecycle policy
+            href: operations/lifecycle-policy/lifecycle-policy-delete.md
+  - name: Yandex Container Solution
     href: ../cos/
   - name: Concepts
     items:
@@ -43,15 +55,17 @@ items:
         href: concepts/index.md
       - name: Docker image
         href: concepts/docker-image.md
-      - name: Registries
+      - name: Registry
         href: concepts/registry.md
       - name: Repository
         href: concepts/repository.md
+      - name: Policies for automatically deleting Docker images
+        href: concepts/lifecycle-policy.md
       - name: Quotas and limits
         href: concepts/limits.md
-  - name: Solutions
+  - name: Use cases
     items:
-      - name: All solutions
+      - name: All use cases
         href: solutions/index.md
       - name: Running a Docker image on a VM
         href: solutions/run-docker-on-vm.md

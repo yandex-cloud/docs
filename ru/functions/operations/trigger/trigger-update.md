@@ -4,7 +4,7 @@
 
 Вы можете изменить [имя](#update-name) или [описание](#update-description) триггера, а также [управлять метками триггера](#manage-label).
 
-{% include [yc-trigger-list](../../../_includes/functions/trigger-list.md) %}
+{% include [trigger-list-note](../../../_includes/functions/trigger-list-note.md) %}
 
 ## Изменить имя триггера {#update-name}
 

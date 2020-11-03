@@ -9,8 +9,8 @@ The Object Storage API is partially compatible with the AWS S3 API, so you can u
 In this section, you'll learn how to:
 
 1. [Create buckets](#the-first-bucket) for storing data.
-1. [Upload files to buckets](#install-dependencies).
-1. [Get links to download files](#control-compute-resources).
+1. [Upload files to buckets](#upload-files).
+1. [Get links to download files](#get-link).
 
 ## Before you start {#before-you-begin}
 
@@ -31,6 +31,8 @@ To create your first bucket in {{ objstorage-name }}:
     The bucket name must be unique across {{ objstorage-name }}. It's used as part of the data access URL and is visible to your data users.
 
 1. If necessary, limit the maximum bucket size.
+
+    {% include [storage-no-max-limit](_includes_service/storage-no-max-limit.md) %}
 
 1. To make sure that uploaded files are always available from outside {{ yandex-cloud }}, select the public [access type](concepts/bucket.md#bucket-access). Otherwise, you'll need to create a temporary link to provide access to such files.
 
@@ -58,4 +60,3 @@ To get a link to an uploaded object:
 You can share the received link or use it in your service to access the file.
 
 To perform operations with buckets and objects, you can use [other tools](tools/index.md) in addition to the {{ yandex-cloud }} management console.
-

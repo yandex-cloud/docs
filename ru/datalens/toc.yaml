@@ -63,14 +63,14 @@ items:
         items:
           - name: Создание линейной диаграммы
             href: operations/chart/create-line-chart.md
-          - name: Создание диаграммы с площадями
+          - name: Создание диаграммы с областями
             href: operations/chart/create-area-chart.md
           - name: Создания круговой диаграммы
             href: operations/chart/create-pie-chart.md
           - name: Создание столбчатой диаграммы
-            href: operations/chart/create-bar-chart.md
+            href: operations/chart/create-column-chart.md
           - name: Создание линейчатой диаграммы
-            href: operations/chart/create-horizontal-bar-chart.md
+            href: operations/chart/create-bar-chart.md
           - name: Создание карты
             href: operations/chart/create-map-chart.md
           - name: Создание таблицы
@@ -127,6 +127,8 @@ items:
         href: concepts/datalens-public.md
       - name: Вычисляемые поля
         href: concepts/calculations.md
+      - name: Резервное копирование в DataLens
+        href: concepts/backup.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Управление доступом
@@ -457,3 +459,5 @@ items:
             href: function-ref/RSUM.md
       - name: Поддержка функций
         href: function-ref/availability.md
+  - name: Вопросы и ответы
+    href: qa/index.md

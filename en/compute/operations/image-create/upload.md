@@ -1,4 +1,4 @@
-# Uploading a disk image to Yandex.Cloud
+# Uploading a disk image to {{ yandex-cloud }}
 
 The following instructions describe how to prepare a disk image, upload the image file to {{ objstorage-full-name }}, and use it to create an [image](../../concepts/image.md) in {{ compute-name }}.
 
@@ -8,7 +8,7 @@ In {{ compute-name }}, you can only create images using links to files uploaded 
 
 {% endnote %}
 
-## 1. Prepare an image {#prepare-file}
+## Prepare an image {#prepare-file}
 
 Supported image formats: Qcow2, VMDK, and VHD.
 
@@ -20,10 +20,9 @@ Boot disk images must meet the following requirements:
 * The Linux kernel is running with the `console=ttyS0` parameter.
 * The SSH server starts automatically at VM startup.
 * The network interface obtains the IP address via DHCP.
+* The `cloud-init` package and `virtio-net` and `virtio-blk` drivers are installed.
 
 Recommendations:
-
-* We recommend uploading 64-bit systems with the pre-installed `cloud-init` package and `virtio-net` and `virtio-blk` drivers.
 
 * Optimize images before uploading them by using the `qemu-img` utility to import faster:
 
@@ -33,7 +32,13 @@ Recommendations:
 
 * For the image to be compatible with [GPU](../../concepts/gpus.md), [install NVIDIA drivers](../vm-operate/install-nvidia-drivers.md) while preparing the file.
 
-## 2. Upload an image to {{ objstorage-name }} {#upload-file}
+{% note info %}
+
+Don't use file compression or archiving software when preparing the image file.
+
+{% endnote %}
+
+## Upload an image to {{ objstorage-name }} {#upload-file}
 
 Upload your image to {{ objstorage-full-name }} and get a link to the uploaded image:
 
@@ -41,7 +46,7 @@ Upload your image to {{ objstorage-full-name }} and get a link to the uploaded i
 1. [Upload the image](../../../storage/operations/objects/upload.md) to your bucket. In {{ objstorage-name }} terms, the uploaded image is called an _object_.
 1. [Get a link](../../../storage/operations/objects/link-for-download.md) to the uploaded image. Use this link when creating an image in {{ compute-name }}.
 
-## 3. Create an image in {{ compute-name }} {#create-image}
+## Create an image in {{ compute-name }} {#create-image}
 
 Create a new image from the link obtained in {{ objstorage-name }}:
 
@@ -72,18 +77,17 @@ Create a new image from the link obtained in {{ objstorage-name }}:
   To create a new image via the link, use the flag `--source-uri`.
 
   ```
-  $ yc compute image create --name <IMAGE-NAME> --source-uri <IMAGE-URL>
+  yc compute image create --name <IMAGE-NAME> --source-uri <IMAGE-URL>
   ```
 
   where:
-  
-  - `<IMAGE-NAME>` is the name to assign to the image. 
+  - `<IMAGE-NAME>` is the name to assign to the image.
   - `<IMAGE-URL>` is the link to the image obtained in {{ objstorage-name }}.
 
   If necessary, add a description and specify the [family](../../concepts/image.md#family) that the image belongs to:
 
   ```
-  $ yc compute image create  \
+  yc compute image create  \
       --name ubuntu-cosmic \
       --description "Ubuntu Server 18.10 (Cosmic Cuttlefish)" \
       --family ubuntu \
@@ -93,7 +97,7 @@ Create a new image from the link obtained in {{ objstorage-name }}:
   If you know the minimum requirements for the size of a disk that will be created from this image, specify the size in GB:
 
   ```
-  $ yc compute image create  \
+  yc compute image create  \
       --name big-image \
       --min-disk-size 20 \
       --source-uri "https://storage.yandexcloud.net/mybucket/cosmic-server-cloudimg-amd64.vmdk"
@@ -105,13 +109,57 @@ Create a new image from the link obtained in {{ objstorage-name }}:
 
   To create a new image via the link, use the [Create](../../api-ref/Image/create.md) method for the `Image` resource. Pass the link to the image in the `uri` element.
 
+- Terraform
+
+  If you don't have Terraform yet, [install it and configure the {{ yandex-cloud }} provider](../../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  To create an image:
+
+  1. Describe the resource parameters in the `yandex_compute_image` configuration file.
+
+     Example configuration file structure:
+
+     ```
+     resource "yandex_compute_image" "image-1" {
+     
+       name       = "ubuntu-cosmic"
+       os_type    = "LINUX"
+       source_url = "<link to the image in Object Storage>"
+     }
+     ```
+
+     For more information about the resources you can create using Terraform, see the [provider documentation](https://www.terraform.io/docs/providers/yandex/index.html).
+
+  1. Make sure that the configuration files are correct.
+
+     1. In the command line, go to the directory where you created the configuration file.
+
+     1. Run the check using the command:
+
+        ```
+        terraform plan
+        ```
+
+     If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
+
+  1. Deploy the cloud resources.
+
+     1. If the configuration doesn't contain any errors, run the command:
+
+        ```
+        terraform apply
+        ```
+
+     1. Confirm that you want to create the resources.
+
+     Afterwards, all the necessary resources are created in the specified folder. You can check resource availability and their settings in [management console]({{ link-console-main }}).
+
 {% endlist %}
 
-After being created, the image will get the `CREATING` status. Wait until the image status changes to `READY` before using it.
+After being created, the image will have the `CREATING` status. Wait until the image status changes to `READY` before using it.
 
-## 4. Delete the image from {{ objstorage-name }} {#delete-image}
+## Delete the image from {{ objstorage-name }} {#delete-image}
 
 If the image was created successfully, you can [delete the image file](../../../storage/operations/objects/delete.md) from {{ objstorage-name }}. You can also [delete the bucket](../../../storage/operations/buckets/delete.md) if there are no objects left in it.
 
 For information about {{ objstorage-name }} pricing, see [{#T}](../../../storage/pricing.md).
-

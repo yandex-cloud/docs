@@ -42,7 +42,7 @@ The general syntax for window functions is as follows:
 
 It starts off, just like a regular function call, with its name and arguments (`arg1, arg2, ...` in this case).
 
-### Grouping
+### Grouping {#syntax-grouping}
 
 The arguments are followed by a window grouping, which can be one of three types:
 - `TOTAL` (equivalent to `WITHIN` without dimensions): all query entries fall into a single window.
@@ -51,7 +51,7 @@ The arguments are followed by a window grouping, which can be one of three types
 
 The grouping clause is optional. `TOTAL` is used by default.
 
-### Ordering
+### Ordering {#syntax-order-by}
 
 After the grouping comes the ordering clause. It is only supported for order-dependent functions:
 

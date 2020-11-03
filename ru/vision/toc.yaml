@@ -76,3 +76,5 @@ items:
                 href: api-ref/Vision/index.md
               - name: batchAnalyze
                 href: api-ref/Vision/batchAnalyze.md
+  - name: Вопросы и ответы
+    href: qa/index.md

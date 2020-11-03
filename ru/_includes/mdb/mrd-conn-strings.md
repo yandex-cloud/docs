@@ -10,11 +10,17 @@
   
   **Подключение с помощью Sentinel:**
   
-  ```bash
-  redis-cli -c -h $(redis-cli -h <FQDN любого хоста Redis> \
-    -p 26379 sentinel get-master-addr-by-name <имя кластера Redis> | head -n 1) \
-    -a <пароль>
-  ```
+  1. Получите адрес хоста-мастера, используя Sentinel и любой хост {{ RD }}:
+     
+     ```bash
+     redis-cli -h <FQDN любого хоста Redis> -p 26379 sentinel get-master-addr-by-name <имя кластера Redis> | head -n 1
+     ```
+   
+  1. Подключитесь к хосту с этим адресом:
+        
+     ```bash
+     redis-cli -с -h <адрес хоста-мастера Redis> -a <пароль Redis>
+     ```
   
   **Подключение напрямую к мастеру:**
   

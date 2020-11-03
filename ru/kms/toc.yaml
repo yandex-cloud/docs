@@ -117,3 +117,5 @@ items:
                 href: api-ref/SymmetricKey/update.md
               - name: updateAccessBindings
                 href: api-ref/SymmetricKey/updateAccessBindings.md
+  - name: Вопросы и ответы
+    href: qa/index.md

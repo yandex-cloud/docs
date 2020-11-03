@@ -12,9 +12,9 @@ When creating an automatically scaled group, you specify the target metric value
 
 * If the average metric value rises above the target, {{ ig-name }} creates new instances in the group.
 
-* If the average value decreases so that it stays below the target value with a smaller group, then {{ ig-name }} deletes the unnecessary instances.
+* If the average value decreases so that it's below the target value with a smaller group, then {{ ig-name }} deletes the unnecessary instances.
 
-    For example, there are 4 instances in an availability zone with an average metric value of 70 and target value of 80. {{ ig-name }} doesn't reduce the group size, because as you delete an instance, the average value surpasses the target value: 4 × 70/3 = 93.3. When the average value drops to 60, {{ ig-name }} deletes one instance since the average value doesn't surpass the target: 4 × 60/3 = 80.
+    For example, there are 4 instances in an availability zone with an average metric value of 70 and target value of 80. {{ ig-name }} doesn't reduce the group size, because as you delete an instance, the average value surpasses the target value: 4 × 70 / 3 = 93.3. When the average value drops to 60, {{ ig-name }} deletes one instance since the average value doesn't surpass the target: 4 × 60 / 3 = 80.
 
 For automatically scaled groups, assign [common scaling settings](#auto-scale-settings) and [metric](#metrics) settings.
 
@@ -52,13 +52,13 @@ Let's look at the algorithm of service actions outside the stabilization period:
 
 1. Calculate average CPU utilization for each instance, except those in the warm-up period. The load is measured several times per minute on every instance. The resulting values are averaged for each instance over the averaging period you set during group creation.
 
-2. Calculate the average load on each instance and additionally average it across availability zones.
+1. Calculate the average load on each instance and additionally average it across availability zones.
 
-   For example, a group of 4 instances is located entirely in one zone. One of the instances starts, while the others are under 90%, 75%, and 85% workload. Average load across the zone: (90+75+85)/3 = 83.4%
+   For example, a group of 4 instances is located entirely in one zone. One of the instances starts, while the others are under 90%, 75%, and 85% workload. Average load across the zone: (90+75+85) / 3 = 83.4%
 
 1. Obtain the total load: multiply the resulting average load by the total number of instances. In the example, 83.4 × 4 = 333.6%
 
-2. Divide the total load by the target load level per zone to obtain the number of instances needed (the result is rounded up). Say, for example, the target level is 75%. This means that you need 333.6/75 = 4.48 ~ 5 instances.
+1. Divide the total load by the target load level per zone to obtain the number of instances needed (the result is rounded up). Say, for example, the target level is 75%. This means that you need 333.6 / 75 = 4.48 ~ 5 instances.
 
 Based on the approximate results, you need to create another instance. {{ ig-name }} starts this process, and begins calculating the average load again.
 
@@ -75,7 +75,7 @@ When saving metrics, specify additional labels in {{ monitoring-name }}:
 When using this metric, specify the following in {{ ig-name }}:
 
 * _The name of the metric_ that you specified in {{ monitoring-full-name }}.
-* _The target metric value_ that {{ ig-name }} should maintain.
+* _The target metric value_ that {{ ig-name }} should support.
 * _The metric type_ that affects how {{ ig-name }} computes the average metric value:
   * `GAUGE`: Used for metrics that show the metric value at a specific point in time, such as the number of requests per second to a server running on an instance. {{ ig-name }} computes the average metric value for the specified averaging period.
   * `COUNTER`: Used for metrics that grow uniformly over time, such as the total number of requests to a server running on an instance. {{ ig-name }} calculates the average metric growth for the specified averaging period.
@@ -85,7 +85,7 @@ When using this metric, specify the following in {{ ig-name }}:
 
 #### See also {#see-also}
 
-- [{#T}](policies.md#scale-policy).
+- [{#T}](policies/scale-policy.md).
 - [{#T}](../../operations/instance-groups/create-fixed-group.md).
 - [{#T}](../../operations/instance-groups/create-autoscaled-group.md).
 

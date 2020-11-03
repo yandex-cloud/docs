@@ -4,7 +4,7 @@
 
 На этой странице подробно разбирается код тестового приложения `basic_example_v1`, доступного в составе SDK:
 
-* Для [Python](https://github.com/yandex-cloud/ydb-python-sdk/tree/master/kikimr/public/sdk/python/examples/basic_example_v1)
+* Для [Python](https://github.com/yandex-cloud/ydb-python-sdk/tree/master/examples/basic_example_v1)
 * Для [Go](https://github.com/yandex-cloud/ydb-go-sdk/tree/master/example/basic_example_v1)
 * Для [Java](https://github.com/yandex-cloud/ydb-java-sdk/tree/master/examples/src/main/java/com/yandex/ydb/examples/basic_example_v1)
 
@@ -341,7 +341,7 @@ PRAGMA TablePathPrefix = "/cluster/database";
 SELECT * FROM episodes;
 ```
 
-Подробнее о PRAGMA YQL можно прочитать в [документации YQL](../yql/reference/overview.md).
+Подробнее про PRAGMA YQL можно прочитать в [документации YQL](../yql/reference/overview.md).
 
 ## Обработка запросов и транзакций {#query-processing}
 
@@ -573,7 +573,7 @@ SELECT * FROM episodes;
 
 ## Параметризованные подготовленные запросы {#param-prepared-queries}
 
-Параметризованные подготовленные запросы (prepared queries) записываются в форме шаблона, в котором определенного вида имена заменяются конкретными параметрами при каждом выполнении запроса. Использование параметризованных запросов может улучшить производительность за счет сокращения частоты выполнения компиляции и перекомпиляции запросов, отличающихся только значениями параметров.
+Параметризованные подготовленные запросы (prepared queries) записываются в форме шаблона, в котором определенного вида имена заменяются конкретными параметрами при каждом выполнении запроса. Использование параметризованных запросов может улучшить производительность, за счет сокращения частоты выполнения компиляции и перекомпиляции запросов, отличающихся только значениями параметров.
 
 {% list tabs %}
 

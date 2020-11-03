@@ -296,7 +296,7 @@
           `target_group_description` | Описание целевой группы {{ load-balancer-name }}.
 
      * `yandex_vpc_network` — описание [облачной сети](../../../vpc/concepts/network.md#network).
-     * `yandex_vpc_subnet` — описание [подсети](../../../vpc/concepts/network.md#network), к которой будет подключена группа виртуальных машин.
+     * `yandex_vpc_subnet` — описание [подсети](../../../vpc/concepts/network.md#subnet), к которой будет подключена группа виртуальных машин.
 
      Пример структуры конфигурационного файла:
 

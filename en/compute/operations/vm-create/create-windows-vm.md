@@ -34,7 +34,7 @@ This section provides guidelines on how to create a VM with the Windows OS. To c
           $ export FAMILY=windows-2016-gvlk
           $ curl -H "Authorization: Bearer ${IAM_TOKEN}" \
             "https://compute.api.cloud.yandex.net/compute/v1/images:latestByFamily?folderId=standard-images&family=${FAMILY}"
-
+          
           {
            "productIds": [
             "f2eu62v659or2tqv28l0"
@@ -117,7 +117,7 @@ This section provides guidelines on how to create a VM with the Windows OS. To c
               }
             ```
 
-      Read more about the request body format in the [API reference](../../api-ref/Instance/create.md).
+      Read more about the request body format in the [API reference](../../api-ref/Instance/create.md) API method.
 
       Example `body.json` file:
 
@@ -164,15 +164,100 @@ This section provides guidelines on how to create a VM with the Windows OS. To c
         https://compute.api.cloud.yandex.net/compute/v1/instances
       ```
 
+- Terraform
+
+  If you don't have Terraform yet, [install it and configure the {{ yandex-cloud }} provider](../../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  1. In the configuration file, describe the parameters of resources that you want to create:
+
+       {% note info %}
+
+       If you already have suitable resources, such as a cloud network and subnet, you don't need to describe them again. Use their names and IDs in the appropriate parameters.
+
+       {% endnote %}
+
+     * `yandex_compute_instance`: Description of the [VM](../../concepts/vm.md):
+       * `name`: VM name.
+       * `platform_id`: The [platform](../../concepts/vm-platforms.md).
+       * `resources`: The number of vCPU cores and the amount of RAM available to the VM. The values must match the selected [platform](../../concepts/vm-platforms.md).
+       * `boot_disk`: Boot disk settings. Specify the ID of the selected image. You can get the image ID from the [list of public images](../images-with-pre-installed-software/get-list.md).
+       * `network_interface`: Network settings. Specify the ID of the selected subnet. To automatically assign a public IP address to the VM, set `nat = true`.
+       * `metadata`: In the [metadata](../../concepts/vm-metadata.md) in the `user-data` parameter, pass the script with the administrator password.
+     * `yandex_vpc_network`: Description of the [cloud network](../../../vpc/concepts/network.md#network).
+     * `yandex_vpc_subnet`: Description of the [subnet](../../../vpc/concepts/network.md#subnet) that the VM will be connected to.
+
+     Example configuration file structure:
+
+     ```
+     resource "yandex_compute_instance" "vm-1" {
+     
+       name        = "windows-vm"
+       platform_id = "standard-v2"
+     
+       resources {
+         cores  = <number of vCPU cores>
+         memory = <RAM in GB>
+       }
+     
+       boot_disk {
+         initialize_params {
+           image_id = "<image ID>"
+         }
+       }
+     
+       network_interface {
+         subnet_id = "${yandex_vpc_subnet.subnet-1.id}"
+         nat       = true
+       }
+     
+       metadata = {
+         user-data = "#ps1\nnet user Administrator <administrator password>"
+       }
+     }
+     
+     resource "yandex_vpc_network" "network-1" {
+       name = "network1"
+     }
+     
+     resource "yandex_vpc_subnet" "subnet-1" {
+       name       = "subnet1"
+       zone       = "<availability zone>"
+       network_id = "${yandex_vpc_network.<network name>.id}"
+     }
+     ```
+
+     For more information about the resources you can create using Terraform, see the [provider documentation](https://www.terraform.io/docs/providers/yandex/index.html).
+
+  2. Make sure that the configuration files are correct.
+
+     1. In the command line, go to the directory where you created the configuration file.
+
+     2. Run the check using the command:
+
+        ```
+        $ terraform plan
+        ```
+
+     If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
+
+  3. Deploy the cloud resources.
+
+     1. If the configuration doesn't contain any errors, run the command:
+
+        ```
+        $ terraform apply
+        ```
+
+     2. Confirm that you want to create the resources.
+
+     Afterwards, all the necessary resources are created in the specified folder. You can check resource availability and their settings in [management console]({{ link-console-main }}).
+
 {% endlist %}
 
 {% include [initialization-windows-vm](../../../_includes/initialization-windows-vm.md) %}
-
-When a VM is being created, it is assigned an IP address and FQDN. You can use this data to access the VM via RDP.
 
 You can make a public IP address static. Learn more in [{#T}](../vm-control/vm-set-static-ip.md).
 
 #### See also {#see-also}
 
 - [{#T}](../vm-connect/rdp.md)
-

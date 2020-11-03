@@ -49,4 +49,5 @@ Method | Description
 [get](get.md) | Returns the specified federation.
 [list](list.md) | Retrieves the list of federations in the specified folder.
 [listOperations](listOperations.md) | Lists operations for the specified federation.
+[listUserAccounts](listUserAccounts.md) | 
 [update](update.md) | Updates the specified federation.

@@ -61,6 +61,8 @@ items:
         href: concepts/repository.md
       - name: Политика автоматического удаления Docker-образов
         href: concepts/lifecycle-policy.md
+      - name: Резервное копирование
+        href: concepts/backup.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Сценарии использования

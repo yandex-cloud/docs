@@ -179,6 +179,21 @@ shardName | Required. Name of the shard to be updated. To get the name of a shar
           "saslUsername": "string",
           "saslPassword": "string"
         },
+        "kafkaTopics": [
+          {
+            "name": "string",
+            "settings": {
+              "securityProtocol": "string",
+              "saslMechanism": "string",
+              "saslUsername": "string",
+              "saslPassword": "string"
+            }
+          }
+        ],
+        "rabbitmq": {
+          "username": "string",
+          "password": "string"
+        },
         "maxConnections": "integer",
         "maxConcurrentQueries": "integer",
         "keepAliveTimeout": "integer",
@@ -335,6 +350,16 @@ configSpec.<br>clickhouse.<br>config.<br>kafka.<br>securityProtocol | **string**
 configSpec.<br>clickhouse.<br>config.<br>kafka.<br>saslMechanism | **string**<br>
 configSpec.<br>clickhouse.<br>config.<br>kafka.<br>saslUsername | **string**<br>
 configSpec.<br>clickhouse.<br>config.<br>kafka.<br>saslPassword | **string**<br>
+configSpec.<br>clickhouse.<br>config.<br>kafkaTopics[] | **object**<br>
+configSpec.<br>clickhouse.<br>config.<br>kafkaTopics[].<br>name | **string**<br><p>Required.</p> 
+configSpec.<br>clickhouse.<br>config.<br>kafkaTopics[].<br>settings | **object**<br><p>Required.</p> 
+configSpec.<br>clickhouse.<br>config.<br>kafkaTopics[].<br>settings.<br>securityProtocol | **string**<br>
+configSpec.<br>clickhouse.<br>config.<br>kafkaTopics[].<br>settings.<br>saslMechanism | **string**<br>
+configSpec.<br>clickhouse.<br>config.<br>kafkaTopics[].<br>settings.<br>saslUsername | **string**<br>
+configSpec.<br>clickhouse.<br>config.<br>kafkaTopics[].<br>settings.<br>saslPassword | **string**<br>
+configSpec.<br>clickhouse.<br>config.<br>rabbitmq | **object**<br>
+configSpec.<br>clickhouse.<br>config.<br>rabbitmq.<br>username | **string**<br>
+configSpec.<br>clickhouse.<br>config.<br>rabbitmq.<br>password | **string**<br>
 configSpec.<br>clickhouse.<br>config.<br>maxConnections | **integer** (int64)<br><p>Maximum number of inbound connections.</p> <p>The minimum value is 10.</p> 
 configSpec.<br>clickhouse.<br>config.<br>maxConcurrentQueries | **integer** (int64)<br><p>Maximum number of simultaneously processed requests.</p> <p>The minimum value is 10.</p> 
 configSpec.<br>clickhouse.<br>config.<br>keepAliveTimeout | **integer** (int64)<br><p>Number of milliseconds that ClickHouse waits for incoming requests before closing the connection.</p> 
