@@ -16,8 +16,9 @@
 | Number of concurrent [operations](../api-design-guide/concepts/operation.md) in the cloud | 15 |
 | Maximum number of VM instances in a [placement group](../compute/concepts/placement-groups.md) | 5 |
 | Maximum number of placement groups per cloud | 2 |
+| Number of dedicated hosts per cloud* | 0 |
 
-\* To create a VM with a GPU, contact [technical support](https://cloud.yandex.com/support).
+\* To create a VM with a GPU or a dedicated host, contact [technical support]({{ link-console-support }}).
 
 #### VM limits {#limits-vm}
 
@@ -68,7 +69,7 @@
 
 {% endlist %}
 
-Read and write operations utilize the same disk resource. The more read operations you do, the fewer write operations  you can do, and vice versa. Learn more in [Disks](../compute/concepts/disk.md#rw).
+Read and write operations utilize the same disk resource. The more read operations you do, the fewer write operations you can do, and vice versa. Learn more in [Disks](../compute/concepts/disk.md#rw).
 
 ##### * {#max_iops}
 
@@ -77,3 +78,4 @@ To achieve maximum IOPS, we recommend performing read and write operations that 
 ##### ** {#max_bandwidth}
 
 To achieve the maximum possible bandwidth, we recommend performing 4 MB reads and writes.
+
