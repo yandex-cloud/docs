@@ -237,6 +237,8 @@ items:
                 href: concepts/instance-groups/deploy/instance.md
           - name: Statuses
             href: concepts/instance-groups/statuses.md
+      - name: Dedicated host
+        href: concepts/dedicated-host.md
       - name: Backups
         href: concepts/backups.md
       - name: Quotas and limits

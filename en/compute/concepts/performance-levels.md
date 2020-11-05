@@ -2,8 +2,8 @@
 
 Choose the vCPU performance level when creating a VM. It sets the guaranteed vCPU share to be allocated to the VM. Available configurations of computing resources may change for different levels, depending on the selected [platform](vm-platforms.md).
 
-- VMs with a guaranteed vCPU share below 100% are designed for running apps that do not require high performance. These VMs are also cheaper.
-- VMs with a 100% guaranteed vCPU share are designed for running apps that require high performance.
+* VMs with a guaranteed vCPU share below 100% are designed for running apps that do not require high performance. These VMs are also cheaper.
+* VMs with a 100% guaranteed vCPU share are designed for running apps that require high performance.
 
 The available disk space does not depend on the VM performance level. For limitations, see [{#T}](limits.md).
 
