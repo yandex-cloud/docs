@@ -87,37 +87,50 @@
 
 ## Смонтировать диск, созданный из снимка или образа {#mount-disk-and-fix-uuid}
 
-После подключения диска к ВМ Linux, смонтируйте его:
+Для использования подключенного диска:
 
-1. [Подключитесь к виртуальной машине](../vm-connect/ssh.md).
-1. Выполните команду `blkid` и проверьте, что нет разделов с одинаковыми UUID:
+{% list tabs %}
 
-    ```bash
-    $ sudo blkid
-    /dev/vda2: UUID="0d6dfef0-542d-47ba-b55b-18ab5f5f9210" TYPE="ext4" PARTUUID="752aa845-94ee-4850-9188-71c2f919ee7b"
-    /dev/vdb2: UUID="0d6dfef0-542d-47ba-b55b-18ab5f5f9210" TYPE="ext4" PARTUUID="752aa845-94ee-4850-9188-71c2f919ee7b"
-    ...
-    ```
-1. Если вы обнаружили, что какие-то UUID дублируются, сгенерируйте новый UUID для тех дубликатов, которые идут последними в выводе команды `blkid`. Для примера из предыдущего шага надо сгенерировать UUID для раздела `/dev/vdb2`:
+- Linux
 
-    ```bash
-    $ sudo e2fsck -f /dev/vdb2
-    $ sudo tune2fs -U $(uuidgen) /dev/vdb2
-    ```
+  Смонтируйте диск:
 
-    Этот способ подойдет для разделов с файловыми системами `ext2`, `ext3` и `ext4`. Последняя используется в образах Linux, предоставляемых {{ yandex-cloud }}. Тип файловой системы возвращается командой `blkid` в параметре `TYPE`.
+  1. Подключитесь к виртуальной машине [по SSH](../vm-connect/ssh.md).
+  1. Выполните команду `blkid` и проверьте, что нет разделов с одинаковыми UUID:
 
-    Чтобы проверить, что UUID изменился, снова выполните команду `blkid`:
+      ```bash
+      $ sudo blkid
+      /dev/vda2: UUID="0d6dfef0-542d-47ba-b55b-18ab5f5f9210" TYPE="ext4" PARTUUID="752aa845-94ee-4850-9188-71c2f919ee7b"
+      /dev/vdb2: UUID="0d6dfef0-542d-47ba-b55b-18ab5f5f9210" TYPE="ext4" PARTUUID="752aa845-94ee-4850-9188-71c2f919ee7b"
+      ...
+      ```
+  1. Если вы обнаружили, что какие-то UUID дублируются, сгенерируйте новый UUID для тех дубликатов, которые идут последними в выводе команды `blkid`. Для примера из предыдущего шага надо сгенерировать UUID для раздела `/dev/vdb2`:
 
-    ```bash
-    $ sudo blkid
-    /dev/vda2: UUID="0d6dfef0-542d-47ba-b55b-18ab5f5f9210" TYPE="ext4" PARTUUID="752aa845-94ee-4850-9188-71c2f919ee7b"
-    /dev/vdb2: UUID="ea004485-07fb-4128-b20d-e408db1e8ae8" TYPE="ext4" PARTUUID="752aa845-94ee-4850-9188-71c2f919ee7b"
-    ```
+      ```bash
+      $ sudo e2fsck -f /dev/vdb2
+      $ sudo tune2fs -U $(uuidgen) /dev/vdb2
+      ```
 
-    {% include [include](../../../_includes/compute/duplicated-uuid-note.md) %}
-1. {% include [include](../../../_includes/compute/mount-disk.md) %}
-1. Выполните команду `df`, чтобы проверить состояние файловой системы.
+      Этот способ подойдет для разделов с файловыми системами `ext2`, `ext3` и `ext4`. Последняя используется в образах Linux, предоставляемых {{ yandex-cloud }}. Тип файловой системы возвращается командой `blkid` в параметре `TYPE`.
+
+      Чтобы проверить, что UUID изменился, снова выполните команду `blkid`:
+
+      ```bash
+      $ sudo blkid
+      /dev/vda2: UUID="0d6dfef0-542d-47ba-b55b-18ab5f5f9210" TYPE="ext4" PARTUUID="752aa845-94ee-4850-9188-71c2f919ee7b"
+      /dev/vdb2: UUID="ea004485-07fb-4128-b20d-e408db1e8ae8" TYPE="ext4" PARTUUID="752aa845-94ee-4850-9188-71c2f919ee7b"
+      ```
+
+      {% include [include](../../../_includes/compute/duplicated-uuid-note.md) %}
+  1. {% include [include](../../../_includes/compute/mount-disk.md) %}
+  1. Выполните команду `df`, чтобы проверить состояние файловой системы.
+
+- Windows
+
+  1. Подключитесь к виртуальной машине [по RDP](../vm-connect/rdp.md).
+  1. Назначьте букву подключенному диску. Как это сделать читайте в [документации Microsoft](https://docs.microsoft.com/ru-ru/windows-server/storage/disk-management/change-a-drive-letter).
+
+{% endlist %}
 
 ## Разметить и смонтировать пустой диск в Linux {#mount}
 

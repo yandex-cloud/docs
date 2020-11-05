@@ -12,7 +12,7 @@
 
 * Команда `yc kms symmetric-key create`.
   Добавлен флаг `--deletion-protection` для включения защиты ключа от удаления.
-    
+
 * Команда `yc kms symmetric-key update`.
   Добавлены флаги для включения и выключения защиты ключа от удаления: `--deletion-protection` и `--no-deletion-protection`.
 
@@ -44,9 +44,9 @@
 
 ## Предыдущие релизы {#previous-releases}
 
-## Версия 0.67.0 (05.10.20)
+### Версия 0.67.0 (05.10.20)
 
-### Изменения в сервисах {{ yandex-cloud }} 
+#### Изменения в сервисах {{ yandex-cloud }}
 
 #### {{ compute-name }} {#compute}
 
@@ -56,7 +56,7 @@
 
 #### {{ container-registry-name }} {#container-registry}
 
-* Добавлены команды `yc container image scan`, `yc container image list-vulnerabilities` для сканирования Docker-образов.
+* Добавлены команды `yc container image list-vulnerabilities` и `yc container image scan` для сканирования Docker-образов.
 
 ### Версия 0.66.0 (28.09.20) {#version0.66.0}
 
@@ -64,8 +64,10 @@
 
 #### {{ compute-name }} {#compute}
 
-* Добавлена команда `yc compute host-group`, позволяющая управлять группами хостов.
-* Добавлена команда `yc compute host-type`, позволяющая управлять типами выделенных хостов хостов.
+* Добавлена команда `yc compute host-group`, позволяющая управлять выделенными хостами.
+
+* Добавлена команда `yc compute host-type`, позволяющая управлять типами выделенных хостов.
+
 * Добавлена команда `yc compute disk-placement-group`, позволяющая управлять группами нереплицированных дисков.
  
 #### Сервисы управляемых баз данных {#managed-db}
@@ -73,8 +75,7 @@
 **{{ mmg-name }}**
 
 * Команда `yc managed-mongodb cluster restore --help`.
-    
-    Добавлен пример использования флага `--recovery-target-timestamp`.
+  Добавлен пример использования флага `--recovery-target-timestamp`.
 
 ### Версия 0.65.0 (22.09.20) {#version0.65.0}
 
@@ -85,28 +86,23 @@
 Добавлена поддержка функциональности UI Proxy:
 * Добавлена команда `yc dataproc cluster list-ui-links`, позволяющая получить список ссылок для доступа к интерфейсам кластера {{ dataproc-name }}.
 * Команды `yc dataproc cluster create` и `yc dataproc cluster update`.
-
-    Добавлен параметр  `--ui-proxy`, позволяющий включить функциональность UI Proxy для кластера {{ dataproc-name }}.
+  Добавлен параметр  `--ui-proxy`, позволяющий включить функциональность UI Proxy для кластера {{ dataproc-name }}.
 * Команды `yc dataproc cluster create`, `yc dataproc subcluster create`, `yc dataproc subcluster update`.
-
-    Добавлены флаги для автомасштабируемых подкластеров: `--max-hosts-count`, `--preemptible`, `--warmup-duration`, `--stabilization-duration`, `--measurement-duration`, `--cpu-utilization-target` и `--autoscaling-decommission-timeout`.
+  Добавлены флаги для автомасштабируемых подкластеров: `--autoscaling-decommission-timeout`, `--cpu-utilization-target`, `--max-hosts-count`, `--measurement-duration`, `--preemptible`, `--stabilization-duration` и `--warmup-duration`.
 * Команда `yc dataproc subcluster list`.
-
-    В ответ добавлено поле `instance group id` с идентификаторами групп ВМ автомасштабируемых подкластеров. 
+  В ответ добавлено поле `instance group id` с идентификаторами групп ВМ автомасштабируемых подкластеров.
 
 #### {{ certificate-manager-name }} {#certificate-manager}
 
 * Добавлена команда `yc certificate-manager certificate content` для получения содержимого сертификата.
-
-    С ее помощью можно загрузить цепочку сертификатов и закрытый ключ для самостоятельного использования в конфигурации веб-сервера на виртуальной машине. 
+  С ее помощью можно загрузить цепочку сертификатов и закрытый ключ для самостоятельного использования в конфигурации веб-сервера на виртуальной машине.
 
 #### Сервисы управляемых баз данных {#managed-db}
 
 **{{ mmg-name }}**
 
 * Команды  `{{ yc-mdb-mg }} cluster get` и `{{ yc-mdb-mg }} cluster update`.
-
-    Добавлено поле `backup-retain-period-days`, показывающее сколько дней хранятся автоматические резервные копии.
+  Добавлено поле `backup-retain-period-days`, показывающее сколько дней хранятся автоматические резервные копии.
 
 * Команды  `{{ yc-mdb-mg }} cluster list-backups` и `{{ yc-mdb-mg }} backup list`.
 
