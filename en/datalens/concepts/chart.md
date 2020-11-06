@@ -26,7 +26,7 @@ The following types of charts are available in {{ datalens-full-name }}:
 * **Diagrams**:
    - [Line chart](#line-chart)
    - [Area chart](#area-chart)
-   - [Normalized area chart](#normalized-area-chart)
+   - [Stacked area chart](#normalized-area-chart)
    - [Column chart](#bar-chart)
    - [Normalized column chart](#normalized-bar-chart)
    - [Bar chart](#horizontal-bar-chart)
@@ -72,9 +72,9 @@ Displays changes to measures by dimensions as areas, showing the contribution of
 | Sorting | Dimension. Can only use one dimension from the X-axis. Affects the sorting of the X-axis |
 | Signatures | Measure. Displays measure values on the chart |
 
-### Normalized area chart {#normalized-area-chart}
+### Stacked area chart {#normalized-area-chart}
 
-Normalized area chart that shows the ratio of measures as a percentage.
+Stacked area chart that shows the ratio of measures as a percentage.
 
 | Section<br/> in the wizard | Description |
 | ----- | ---- |

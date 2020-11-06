@@ -176,7 +176,7 @@ To visualize sales by brand and product categories, create a [column chart](../c
 
     1. In the window that opens, enter the name **Sales by year and product** for the new chart and click **Save**.
 
-1. For the visualization type, choose **Column chart**.
+1. For the visualization type, choose **Bar chart**.
 
     ![image](../../_assets/datalens/solution-02/24-choose-barchart.png)
 
@@ -343,4 +343,3 @@ Add [selectors](..concepts/dashboard.md#selector) to filter your charts by date,
     ![image](../../_assets/datalens/solution-02/43-dashboard2.png)
 
 Your dashboard is ready. Now you can filter charts using selectors.![image](../../_assets/datalens/solution-02/44-dashboard3.png)
-
