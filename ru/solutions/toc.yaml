@@ -91,7 +91,7 @@ items:
         href: windows/exchange.md
       - name: Развертывание Remote Desktop Services
         href: windows/rds.md
-      - name: Развертывание группы доступности Always On 
+      - name: Развертывание группы доступности Always On
         href: windows/mssql-alwayson.md
       - name: Развертывание группы доступности Always On с внутренним балансировщиком
         href: windows/mssql-alwayson-lb.md
@@ -127,3 +127,9 @@ items:
         href: datalens/data-from-appmetrica-visualization.md
       - name: Визуализация геоданных из CSV-файла
         href: datalens/data-from-csv-geo-visualization.md
+  - name: Интернет вещей
+    items:
+      - name: Сценарии работы с интернетом вещей
+        href: iot/index.md
+      - name: Мониторинг состояния географически распределенных устройств
+        href: iot/datalens.md
