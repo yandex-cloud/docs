@@ -1,14 +1,12 @@
 # Getting started with {{ certificate-manager-name }}
 
-{{ certificate-manager-full-name }} is at the Preview stage and appears in the list of resources available to you only after your [request](https://cloud.yandex.ru/services/certificate-manager#request-access) is approved.
-
-By following these instructions, you will create your first [Let's Encrypt<sup>®</sup>](../concepts/managed-certificate) certificate and use it to [set up HTTPS access](../../storage/operations/hosting/certificate.md) to your static website hosted in {{ objstorage-full-name }}.
+By following these instructions, you'll create your first [Let's Encrypt<sup>®</sup>](../concepts/managed-certificate) certificate and use it to [set up HTTPS access](../../storage/operations/hosting/certificate.md) to your static website hosted in {{ objstorage-full-name }}.
 
 ## Before you start {#before-you-begin}
 
 To get started with {{ certificate-manager-name }}, you need:
 
-1. A folder in Yandex.Cloud. If you don't have a folder, create one:
+1. A folder in {{ yandex-cloud }}. If you don't have a folder, create one:
 
     {% include [create-folder](../../_includes/create-folder.md) %}
 
@@ -40,7 +38,7 @@ To get started with {{ certificate-manager-name }}, you need:
     {% list tabs %}
 
     - Management console
-        1. In the management console, select **{{ objstorage-name }}**.
+        1. In the [management console]({{ link-console-main }}), select **{{ objstorage-name }}**.
         1. In the **Buckets** tab, click the bucket with the same name as the domain.
         1. In the left pane, select **Website**.
         1. Select **Hosting** and enter your website home page.
@@ -56,7 +54,7 @@ To get started with {{ certificate-manager-name }}, you need:
     www.example.com CNAME www.example.com.{{ s3-web-host }}
     ```
 
-1. Install and configure the AWS CLI by following our [instructions](../../storage/tools/aws-cli#before-you-begin).
+1. Install and configure the AWS CLI by following our [instructions](../../storage/tools/aws-cli.md#before-you-begin).
 
 ## Create a request for a Let's Encrypt certificate {#request-certificate}
 
@@ -68,7 +66,7 @@ To get started with {{ certificate-manager-name }}, you need:
     1. Click **Add certificate**.
     1. In the menu that opens, select **Let's Encrypt certificate**.
     1. In the window that opens, enter a name for the certificate.
-    1. (optional) Add a description for the certificate.
+    1. (Optional) Add a description for the certificate.
     1. In the **Domains** field, specify the domains you want to issue the certificate for.
     1. For the [Check type](../concepts/challenges.md) of the domain rights check, select: `HTTP`.
     1. Click **Create**.

@@ -53,6 +53,12 @@ For example, the `{{ roles-admin }}` role lets you perform the following operati
 
 {% include [roles-sa-user](../../../_includes/roles-sa-user.md) %}
 
+## {{ certificate-manager-name }} {#certificate-manager-roles}
+
+{% include [roles-certificate-manager-admin](../../../_includes/roles-certificate-manager-admin.md) %}
+
+{% include [roles-certificate-manager-certificates-downloader](../../../_includes/roles-certificate-manager-certificates-downloader.md) %}
+
 ## {{ compute-name }} {#compute-roles}
 
 {% include [roles-disks-user](../../../_includes/roles-disks-user.md) %}
@@ -69,15 +75,21 @@ For example, the `{{ roles-admin }}` role lets you perform the following operati
 
 ## {{ container-registry-name }} {#cr-roles}
 
-{% include [container-registry-puller](../../../_includes/roles-container-registry-puller.md)%}
+{% include [container-registry-puller](../../../_includes/roles-container-registry-puller.md) %}
 
-{% include [container-registry-pusher](../../../_includes/roles-container-registry-pusher.md)%}
+{% include [container-registry-pusher](../../../_includes/roles-container-registry-pusher.md) %}
 
 ## {{ datalens-name }} {#datalens-roles}
 
-{% include [datalens-instances-user](../../../_includes/roles-datalens-user.md)%}
+{% include [datalens-instances-user](../../../_includes/roles-datalens-user.md) %}
 
-{% include [datalens-instances-admin](../../../_includes/roles-datalens-admin.md)%}
+{% include [datalens-instances-admin](../../../_includes/roles-datalens-admin.md) %}
+
+## {{ ml-platform-name }} {#datasphere-roles}
+
+{% include [datasphere-user](../../../_includes/roles-datasphere-user.md) %}
+
+{% include [datasphere-admin](../../../_includes/roles-datasphere-admin.md) %}
 
 ## {{ vpc-name }} {#vpc-roles}
 

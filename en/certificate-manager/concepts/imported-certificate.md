@@ -14,7 +14,7 @@ Supported cryptographic algorithms for creating private keys:
 
 User certificate requirements:
 
-* The certificate must meet X.509 ver.3 standards.
+* The certificate must meet X.509 ver.3.
 
 * The certificate must contain the public key, website domain name, and publisher information.
 
@@ -42,5 +42,5 @@ To renew a certificate:
 
 #### See also {#see-also}
 
-* [Integration with Yandex.Cloud services](services.md)
+* [Integration with {{ yandex-cloud }} services](services.md)
 
