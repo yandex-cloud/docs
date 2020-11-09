@@ -45,6 +45,7 @@ The table below lists the roles needed to perform a given action. You can always
 | List subnets in the network | `listSubnets` | `vpc.viewer` or `viewer` for the network |
 | **Use of resources** |  |
 | Assign {{ vpc-short-name }} resources to other {{ yandex-cloud }} resources (for example, assigning an address to a VM or connecting a network interface to a subnet) | Various | `vpc.user` for the resource and the right to change the receiving object if the resource assignment operation is mutating |
+| Creating a VM connected to multiple networks | `create` | `vpc.publicAdmin` for each network the VM is connecting to |
 | **Manage resources** |  |
 | [Create networks in a folder](../operations/network-create.md) | `create` | `vpc.privateAdmin` or `editor` for the folder |
 | [Update](../operations/network-update.md), and [delete networks](../operations/network-delete.md) | `update`, `delete` | `vpc.privateAdmin` or `editor` for the network |
@@ -65,5 +66,5 @@ The table below lists the roles needed to perform a given action. You can always
 * [How to assign a role](../../iam/operations/roles/grant.md).
 * [How to revoke a role](../../iam/operations/roles/revoke.md).
 * [Learn more about access management in {{ yandex-cloud }}](../../iam/concepts/access-control/index.md).
-* [More about role inheritance](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
+* [For more information about role inheritance](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
 
