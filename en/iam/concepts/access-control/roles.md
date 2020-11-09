@@ -91,6 +91,12 @@ For example, the `{{ roles-admin }}` role lets you perform the following operati
 
 {% include [datasphere-admin](../../../_includes/roles-datasphere-admin.md) %}
 
+## {{ ml-platform-name }} {#datasphere-roles}
+
+{% include [datasphere-user](../../../_includes/roles-datasphere-user.md)%}
+
+{% include [datasphere-admin](../../../_includes/roles-datasphere-admin.md)%}
+
 ## {{ vpc-name }} {#vpc-roles}
 
 {% include [roles-vpc-viewer](../../../_includes/roles-vpc-viewer.md) %}
