@@ -804,7 +804,12 @@ components:
           items:
             $ref: '#/components/schemas/Variable'
         deletionProtection:
-          description: Flag that inhibits deletion of the instance group
+          description: |-
+            Flag prohibiting deletion of the instance group.
+
+            Allowed values:</br>- `false`: The instance group can be deleted.</br>- `true`: The instance group cannot be deleted.
+
+            The default is `false`.
           type: boolean
           format: boolean
     DeleteInstanceGroupMetadata:
@@ -1030,7 +1035,12 @@ components:
           items:
             $ref: '#/components/schemas/Variable'
         deletionProtection:
-          description: Flag that inhibits deletion of the instance group
+          description: |-
+            Flag prohibiting deletion of the instance group.
+
+            Allowed values:</br>- `false`: The instance group can be deleted.</br>- `true`: The instance group cannot be deleted.
+
+            The default is `false`.
           type: boolean
           format: boolean
     InstanceGroupStatus:

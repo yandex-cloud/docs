@@ -38,7 +38,6 @@ Field | Description
 --- | ---
 name | **string**<br>Required.  
 authority[] | **string**<br>A list of domains (host/authority header) that will be matched to this virtual host. Wildcard hosts are supported in the form of '*.foo.com' or '*-bar.foo.com'. If not specified, all domains will be matched. 
-ports[] | **int64**<br><ol><li></li></ol> 
 routes[] | **[Route](#Route)**<br>Routes are matched *in-order*. Be careful when adding them to the end. For instance, having http '/' match first makes all other routes unused. 
 modify_request_headers[] | **[HeaderModification](#HeaderModification)**<br>Apply the following modifications to the request headers. 
 modify_response_headers[] | **[HeaderModification](#HeaderModification)**<br>Apply the following modifications to the response headers. 
@@ -204,7 +203,6 @@ Field | Description
 --- | ---
 name | **string**<br>Required.  
 authority[] | **string**<br>A list of domains (host/authority header) that will be matched to this virtual host. Wildcard hosts are supported in the form of '*.foo.com' or '*-bar.foo.com'. If not specified, all domains will be matched. 
-ports[] | **int64**<br><ol><li></li></ol> 
 routes[] | **[Route](#Route1)**<br>Routes are matched *in-order*. Be careful when adding them to the end. For instance, having http '/' match first makes all other routes unused. 
 modify_request_headers[] | **[HeaderModification](#HeaderModification1)**<br>Apply the following modifications to the request headers. 
 modify_response_headers[] | **[HeaderModification](#HeaderModification1)**<br>Apply the following modifications to the response headers. 
@@ -525,7 +523,6 @@ Field | Description
 --- | ---
 name | **string**<br>Required.  
 authority[] | **string**<br>A list of domains (host/authority header) that will be matched to this virtual host. Wildcard hosts are supported in the form of '*.foo.com' or '*-bar.foo.com'. If not specified, all domains will be matched. 
-ports[] | **int64**<br><ol><li></li></ol> 
 routes[] | **[Route](#Route3)**<br>Routes are matched *in-order*. Be careful when adding them to the end. For instance, having http '/' match first makes all other routes unused. 
 modify_request_headers[] | **[HeaderModification](#HeaderModification3)**<br>Apply the following modifications to the request headers. 
 modify_response_headers[] | **[HeaderModification](#HeaderModification3)**<br>Apply the following modifications to the response headers. 
@@ -847,7 +844,6 @@ Field | Description
 --- | ---
 name | **string**<br>Required.  
 authority[] | **string**<br>A list of domains (host/authority header) that will be matched to this virtual host. Wildcard hosts are supported in the form of '*.foo.com' or '*-bar.foo.com'. If not specified, all domains will be matched. 
-ports[] | **int64**<br><ol><li></li></ol> 
 routes[] | **[Route](#Route5)**<br>Routes are matched *in-order*. Be careful when adding them to the end. For instance, having http '/' match first makes all other routes unused. 
 modify_request_headers[] | **[HeaderModification](#HeaderModification5)**<br>Apply the following modifications to the request headers. 
 modify_response_headers[] | **[HeaderModification](#HeaderModification5)**<br>Apply the following modifications to the response headers. 
@@ -1076,7 +1072,6 @@ Field | Description
 --- | ---
 name | **string**<br>Required.  
 authority[] | **string**<br>A list of domains (host/authority header) that will be matched to this virtual host. Wildcard hosts are supported in the form of '*.foo.com' or '*-bar.foo.com'. If not specified, all domains will be matched. 
-ports[] | **int64**<br><ol><li></li></ol> 
 routes[] | **[Route](#Route6)**<br>Routes are matched *in-order*. Be careful when adding them to the end. For instance, having http '/' match first makes all other routes unused. 
 modify_request_headers[] | **[HeaderModification](#HeaderModification6)**<br>Apply the following modifications to the request headers. 
 modify_response_headers[] | **[HeaderModification](#HeaderModification6)**<br>Apply the following modifications to the response headers. 
@@ -1376,7 +1371,6 @@ Field | Description
 --- | ---
 name | **string**<br>Required.  
 authority[] | **string**<br>A list of domains (host/authority header) that will be matched to this virtual host. Wildcard hosts are supported in the form of '*.foo.com' or '*-bar.foo.com'. If not specified, all domains will be matched. 
-ports[] | **int64**<br><ol><li></li></ol> 
 routes[] | **[Route](#Route7)**<br>Routes are matched *in-order*. Be careful when adding them to the end. For instance, having http '/' match first makes all other routes unused. 
 modify_request_headers[] | **[HeaderModification](#HeaderModification7)**<br>Apply the following modifications to the request headers. 
 modify_response_headers[] | **[HeaderModification](#HeaderModification7)**<br>Apply the following modifications to the response headers. 

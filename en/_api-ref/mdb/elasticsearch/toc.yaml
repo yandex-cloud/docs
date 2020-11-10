@@ -45,10 +45,16 @@ items:
     items:
       - name: Overview
         href: api-ref/User/index.md
+      - name: create
+        href: api-ref/User/create.md
+      - name: delete
+        href: api-ref/User/delete.md
       - name: get
         href: api-ref/User/get.md
       - name: list
         href: api-ref/User/list.md
+      - name: update
+        href: api-ref/User/update.md
   - name: Operation
     items:
       - name: Overview

@@ -3146,17 +3146,6 @@ components:
           type: array
           items:
             type: string
-        ports:
-          description: |-
-            Ports to attach to each authority, e.g. if authority is example.com and
-            ports are 2345, 80, the resulting server names matches will be
-            example.com, example.com:2345, example.com:80.
-            If not specified, 443 and 80 are assumed (i.e. example.com, example.com:80,
-            example.com:443).
-          type: array
-          items:
-            type: string
-            format: int64
         routes:
           description: |-
             Routes are matched *in-order*. Be careful when adding them to the end.

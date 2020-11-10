@@ -32,9 +32,6 @@ httpRouterId | Required.
       "authority": [
         "string"
       ],
-      "ports": [
-        "string"
-      ],
       "routes": [
         {
           "name": "string",
@@ -156,7 +153,6 @@ labels | **object**<br><p>No more than 64 per resource. The string length in cha
 virtualHosts[] | **object**<br>
 virtualHosts[].<br>name | **string**<br><p>Required.</p> 
 virtualHosts[].<br>authority[] | **string**<br><p>A list of domains (host/authority header) that will be matched to this virtual host. Wildcard hosts are supported in the form of '<em>.foo.com' or '</em>-bar.foo.com'. If not specified, all domains will be matched.</p> 
-virtualHosts[].<br>ports[] | **string** (int64)<br><p>Ports to attach to each authority, e.g. if authority is example.com and ports are 2345, 80, the resulting server names matches will be example.com, example.com:2345, example.com:80. If not specified, 443 and 80 are assumed (i.e. example.com, example.com:80, example.com:443).</p> 
 virtualHosts[].<br>routes[] | **object**<br><p>Routes are matched <em>in-order</em>. Be careful when adding them to the end. For instance, having http '/' match first makes all other routes unused.</p> 
 virtualHosts[].<br>routes[].<br>name | **string**<br><p>Required.</p> 
 virtualHosts[].<br>routes[].<br>http | **object** <br>`virtualHosts[].routes[]` includes only one of the fields `http`, `grpc`<br><br>

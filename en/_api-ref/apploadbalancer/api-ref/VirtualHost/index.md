@@ -11,9 +11,6 @@ A set of methods for managing virtual hosts of HTTP Router resource.
   "authority": [
     "string"
   ],
-  "ports": [
-    "string"
-  ],
   "routes": [
     {
       "name": "string",
@@ -126,7 +123,6 @@ Field | Description
 --- | ---
 name | **string**<br><p>Required.</p> 
 authority[] | **string**<br><p>A list of domains (host/authority header) that will be matched to this virtual host. Wildcard hosts are supported in the form of '<em>.foo.com' or '</em>-bar.foo.com'. If not specified, all domains will be matched.</p> 
-ports[] | **string** (int64)<br><p>Ports to attach to each authority, e.g. if authority is example.com and ports are 2345, 80, the resulting server names matches will be example.com, example.com:2345, example.com:80. If not specified, 443 and 80 are assumed (i.e. example.com, example.com:80, example.com:443).</p> 
 routes[] | **object**<br><p>Routes are matched <em>in-order</em>. Be careful when adding them to the end. For instance, having http '/' match first makes all other routes unused.</p> 
 routes[].<br>name | **string**<br><p>Required.</p> 
 routes[].<br>http | **object** <br>`routes[]` includes only one of the fields `http`, `grpc`<br><br>

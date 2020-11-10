@@ -739,6 +739,96 @@ paths:
               schema:
                 $ref: '#/components/schemas/User'
       x-y-navtitle: get
+    delete:
+      tags:
+      - User
+      summary: Deletes the specified user.
+      operationId: UserDelete
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the Elasticsearch cluster the user belongs to.
+
+          To get the cluster ID, make a [list](/docs/managed-elasticsearch/api-ref/Cluster/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: userName
+        in: path
+        description: |-
+          Required.
+          Name of the user to delete.
+
+          To get the name of the user, make a [list](/docs/managed-elasticsearch/api-ref/User/list) request.
+
+          The string length in characters must be 1-63.
+          Value must match the regular expression `` [a-zA-Z0-9_]* ``.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteUserMetadata'
+      x-y-operation-response: Empty
+    patch:
+      tags:
+      - User
+      summary: Updates the specified user.
+      operationId: UserUpdate
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the Elasticsearch cluster the user belongs to.
+
+          To get the cluster ID, make a [list](/docs/managed-elasticsearch/api-ref/Cluster/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: userName
+        in: path
+        description: |-
+          Required.
+          Name of the user to be updated.
+
+          To get the name of the user, make a [list](/docs/managed-elasticsearch/api-ref/User/list) request.
+
+          The string length in characters must be 1-63.
+          Value must match the regular expression `` [a-zA-Z0-9_]* ``.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateUserRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateUserMetadata'
+      x-y-operation-response: '[User](/docs/managed-elasticsearch/api-ref/User#representation)'
   /managed-elasticsearch/v1/clusters/{clusterId}/users:
     get:
       tags:
@@ -787,6 +877,41 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListUsersResponse'
       x-y-navtitle: list
+    post:
+      tags:
+      - User
+      summary: Creates a user in the specified cluster.
+      operationId: UserCreate
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the Elasticsearch cluster to create a user in.
+
+          To get the cluster ID, make a [list](/docs/managed-elasticsearch/api-ref/Cluster/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateUserRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateUserMetadata'
+      x-y-operation-response: '[User](/docs/managed-elasticsearch/api-ref/User#representation)'
 components:
   schemas:
     AddClusterHostsMetadata:
@@ -997,6 +1122,20 @@ components:
 
             The maximum string length in characters is 50.
           type: string
+    CreateUserMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: ID of the Elasticsearch cluster the user is being created in.
+          type: string
+        userName:
+          description: Name of the user that is being created.
+          type: string
+    CreateUserRequest:
+      type: object
+      properties:
+        userSpec:
+          $ref: '#/components/schemas/UserSpec_in_CreateUserRequest_userSpec'
     DeleteClusterHostsMetadata:
       type: object
       properties:
@@ -1026,6 +1165,15 @@ components:
       properties:
         clusterId:
           description: ID of the Elasticsearch cluster that is being deleted.
+          type: string
+    DeleteUserMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: ID of the Elasticsearch cluster the user belongs to.
+          type: string
+        userName:
+          description: Name of the user that is being deleted.
           type: string
     Elasticsearch:
       type: object
@@ -1561,6 +1709,26 @@ components:
             The maximum string length in characters is 63.
             Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
           type: string
+    UpdateUserMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: ID of the Elasticsearch cluster the user belongs to.
+          type: string
+        userName:
+          description: Name of the user that is being updated.
+          type: string
+    UpdateUserRequest:
+      type: object
+      properties:
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateUserRequest_updateMask'
+        password:
+          description: |-
+            New password for the user.
+
+            The string length in characters must be 8-128.
+          type: string
     User:
       description: An Elasticsearch user.
       type: object
@@ -1699,6 +1867,27 @@ components:
           type: string
         elasticsearchSpec:
           $ref: '#/components/schemas/ElasticsearchSpec_in_ConfigSpec_elasticsearchSpec'
+    UserSpec_in_CreateUserRequest_userSpec:
+      description: |-
+        Required.
+        Configuration of the user to create.
+      type: object
+      properties:
+        name:
+          description: |-
+            Required.
+            Name of the Elasticsearch user.
+
+            The maximum string length in characters is 63.
+            Value must match the regular expression `` [a-zA-Z0-9_]* ``.
+          type: string
+        password:
+          description: |-
+            Required.
+            Password of the Elasticsearch user.
+
+            The string length in characters must be 8-128.
+          type: string
     ElasticsearchDataNode_in_Elasticsearch_dataNode:
       description: Configuration and resource allocation for Elasticsearch data nodes.
       type: object
@@ -2009,6 +2198,17 @@ components:
           type: string
         elasticsearchSpec:
           $ref: '#/components/schemas/ElasticsearchSpec_in_ConfigSpec_elasticsearchSpec'
+    FieldMask_in_UpdateUserRequest_updateMask:
+      description: |-
+        A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
 tags:
 - name: Cluster
   description: A set of methods for managing Elasticsearch clusters.

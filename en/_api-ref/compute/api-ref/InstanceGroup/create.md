@@ -321,7 +321,7 @@ serviceAccountId | **string**<br><p>ID of the service account. The service accou
 variables[] | **object**<br>
 variables[].<br>key | **string**<br><p>The string length in characters must be 1-128. Value must match the regular expression <code>[a-zA-Z0-9._-]*</code>.</p> 
 variables[].<br>value | **string**<br><p>The maximum string length in characters is 128.</p> 
-deletionProtection | **boolean** (boolean)<br><p>Flag that inhibits deletion of the instance group</p> 
+deletionProtection | **boolean** (boolean)<br><p>Flag prohibiting deletion of the instance group.</p> <p>Allowed values:</br>- <code>false</code>: The instance group can be deleted.</br>- <code>true</code>: The instance group cannot be deleted.</p> <p>The default is <code>false</code>.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
