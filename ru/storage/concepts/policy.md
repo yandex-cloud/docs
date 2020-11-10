@@ -83,14 +83,18 @@
     {
       "Sid":"User1Permissions",
       "Effect":"Allow",
-      "Principal": "ajeanexampleusername",
+      "Principal": {
+        "CanonicalUser": "ajeanexampleusername"
+      },
       "Action": "*",
       "Resource":["arn:aws:s3:::common-bucket/user1path/*"]
     },
     {
       "Sid":"User2Permissions",
       "Effect":"Allow",
-      "Principal": "ajesomeotherusername",
+      "Principal": {
+        "CanonicalUser": "ajesomeotherusername"
+      },
       "Action": "*",
       "Resource":["arn:aws:s3:::common-bucket/user2path/*"]
     }
