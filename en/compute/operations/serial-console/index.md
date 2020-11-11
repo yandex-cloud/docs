@@ -231,4 +231,3 @@ If you created it before February 22, 2019, you need to update the Windows regis
 1. Restart the VM.
 
 {% endlist %}
-

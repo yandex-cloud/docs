@@ -11,7 +11,7 @@ Minimum and maximum configurations:
 
 {% note info %}
 
-Minimum configurations are specified for the 5% performance level, and maximum configurations for 100%.
+Minimum configurations are specified for the 5% performance level, and maximum configurations — for that of 100%.
 
 {% endnote %}
 
@@ -47,4 +47,3 @@ Available configurations of computing resources:
     | 20% | 2, 4 | 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4 |
     | 50% | 2, 4 | 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4 |
     | 100% | 2, 4, 6, 8, 10, 12, 14,</br> 16, 20, 24, 28, 32, 36,</br> 40, 44, 48, 52, 56, 60,</br> 64, 68, 72, 76, 80 | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,</br> 11, 12, 13, 14, 15, 16 |
-
