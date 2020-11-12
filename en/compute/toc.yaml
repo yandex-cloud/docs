@@ -161,6 +161,12 @@ items:
             href: operations/instance-groups/start.md
           - name: Delete a group
             href: operations/instance-groups/delete.md
+      - name: Dedicated hosts
+        items:
+          - name: Creating a VM in a group of dedicated hosts
+            href: operations/dedicated-host/running-host-group-vms.md
+          - name: Creating a VM on a dedicated host
+            href: operations/dedicated-host/running-host-vms.md
   - name: Yandex Container Optimized Solutions
     href: ../cos/
   - name: Scenarios

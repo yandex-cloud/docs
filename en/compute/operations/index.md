@@ -2,94 +2,100 @@
 
 ## Creating VMs {#vm-create}
 
-- [{#T}](vm-create/create-linux-vm.md)
-- [{#T}](vm-create/create-windows-vm.md)
-- [{#T}](vm-create/create-from-disks.md)
-- [{#T}](vm-create/create-from-snapshots.md)
-- [{#T}](vm-create/create-from-user-image.md)
-- [{#T}](vm-create/create-preemptible-vm.md)
+* [{#T}](vm-create/create-linux-vm.md)
+* [{#T}](vm-create/create-windows-vm.md)
+* [{#T}](vm-create/create-from-disks.md)
+* [{#T}](vm-create/create-from-snapshots.md)
+* [{#T}](vm-create/create-from-user-image.md)
+* [{#T}](vm-create/create-preemptible-vm.md)
 
 ## DSVM {#dsvm}
 
-- [{#T}](dsvm/index.md)
-- [{#T}](dsvm/quickstart.md)
+* [{#T}](dsvm/index.md)
+* [{#T}](dsvm/quickstart.md)
 
-## Placement groups
+## Placement groups. {#placement-groups}
 
-- [{#T}](placement-groups/create.md)
-- [{#T}](placement-groups/delete.md)
-- [{#T}](placement-groups/create-vm-in-pg.md)
-- [{#T}](placement-groups/add-vm.md)
-- [{#T}](placement-groups/delete-vm.md)
+* [{#T}](placement-groups/create.md)
+* [{#T}](placement-groups/delete.md)
+* [{#T}](placement-groups/create-vm-in-pg.md)
+* [{#T}](placement-groups/add-vm.md)
+* [{#T}](placement-groups/delete-vm.md)
 
 ## Images with pre-installed software {#images-with-pre-installed-software}
 
-- [{#T}](images-with-pre-installed-software/create.md)
-- [{#T}](images-with-pre-installed-software/setup.md)
-- [{#T}](images-with-pre-installed-software/operate.md)
-- [{#T}](images-with-pre-installed-software/get-list.md)
+* [{#T}](images-with-pre-installed-software/create.md)
+* [{#T}](images-with-pre-installed-software/setup.md)
+* [{#T}](images-with-pre-installed-software/operate.md)
+* [{#T}](images-with-pre-installed-software/get-list.md)
 
 ## Getting information about VMs {#vm-info}
 
-- [{#T}](vm-info/get-info.md)
-- [{#T}](vm-info/get-serial-port-output.md)
+* [{#T}](vm-info/get-info.md)
+* [{#T}](vm-info/get-serial-port-output.md)
 
 ## Managing VMs {#vm-control}
 
-- [{#T}](vm-control/vm-stop-and-start.md)
-- [{#T}](vm-control/vm-attach-disk.md)
-- [{#T}](vm-control/vm-detach-disk.md)
-- [{#T}](vm-control/vm-set-static-ip.md)
-- [{#T}](vm-control/vm-change-zone.md)
-- [{#T}](vm-control/vm-update.md)
-- [{#T}](vm-control/vm-update-resources.md)
-- [{#T}](vm-control/vm-delete.md)
+* [{#T}](vm-control/vm-stop-and-start.md)
+* [{#T}](vm-control/vm-attach-disk.md)
+* [{#T}](vm-control/vm-detach-disk.md)
+* [{#T}](vm-control/vm-set-static-ip.md)
+* [{#T}](vm-control/vm-change-zone.md)
+* [{#T}](vm-control/vm-update.md)
+* [{#T}](vm-control/vm-update-resources.md)
+* [{#T}](vm-control/vm-delete.md)
 
 ## Working on VMs {#vm-use}
 
-- [{#T}](vm-connect/ssh.md)
-- [{#T}](vm-connect/rdp.md)
-- [{#T}](vm-connect/auth-inside-vm.md)
+* [{#T}](vm-connect/ssh.md)
+* [{#T}](vm-connect/rdp.md)
+* [{#T}](vm-connect/auth-inside-vm.md)
 
 ## Creating new disks {#disk-create}
 
-- [{#T}](disk-create/empty.md)
+* [{#T}](disk-create/empty.md)
 
 ## Disk management {#disk-control}
 
-- [{#T}](disk-control/create-snapshot.md)
-- [{#T}](disk-control/update.md)
-- [{#T}](disk-control/delete.md)
-- [{#T}](snapshot-control/delete.md)
+* [{#T}](disk-control/create-snapshot.md)
+* [{#T}](disk-control/update.md)
+* [{#T}](disk-control/delete.md)
+* [{#T}](snapshot-control/delete.md)
 
 ## Creating new images {#image-create}
 
-- [{#T}](image-create/upload.md)
+* [{#T}](image-create/upload.md)
 
 ## Managing images {#image-control}
 
-- [{#T}](image-control/delete.md)
+* [{#T}](image-control/delete.md)
 
 ## Managing the serial console {#serial-console}
 
-- [{#T}](serial-console/index.md)
-- [{#T}](serial-console/connect-cli.md)
-- [{#T}](serial-console/connect-ssh.md)
-- [{#T}](serial-console/disable.md)
+* [{#T}](serial-console/index.md)
+* [{#T}](serial-console/connect-cli.md)
+* [{#T}](serial-console/connect-ssh.md)
+* [{#T}](serial-console/disable.md)
 
 ## Creating instance groups {#ig-create}
 
-- [{#T}](instance-groups/create-fixed-group.md)
-- [{#T}](instance-groups/create-with-balancer.md)
+* [{#T}](instance-groups/create-fixed-group.md)
+* [{#T}](instance-groups/create-autoscaled-group.md)
+* [{#T}](instance-groups/create-with-balancer.md)
 
 ## Getting information about instance groups {#ig-info}
 
-- [{#T}](instance-groups/get-list.md)
-- [{#T}](instance-groups/get-info.md)
-- [{#T}](instance-groups/get-list-instances.md)
+* [{#T}](instance-groups/get-list.md)
+* [{#T}](instance-groups/get-info.md)
+* [{#T}](instance-groups/get-list-instances.md)
 
 ## Managing instance groups {#ig-control}
 
-- [{#T}](instance-groups/update.md)
-- [{#T}](instance-groups/delete.md)
-- [{#T}](instance-groups/enable-autohealing.md)
+* [{#T}](instance-groups/update.md)
+* [{#T}](instance-groups/delete.md)
+* [{#T}](instance-groups/enable-autohealing.md)
+
+## Dedicated hosts {#dedicated-host}
+
+* [{#T}](dedicated-host/running-host-group-vms.md)
+* [{#T}](dedicated-host/running-host-vms.md)
