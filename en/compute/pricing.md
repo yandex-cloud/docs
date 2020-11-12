@@ -183,8 +183,9 @@ Prices are shown for 1 hour of use. Billing occurs per second.
     | 1 GPU | $0.500000 |
     | RAM (for 1 GB) | $0.000961 |
     | **Intel Cascade Lake** |
+    | 1 GPU | $1.999397 |
     | RAM (for 1 GB) | $0.000630 |
-
+    
 - Prices in roubles
 
     | Guaranteed vCPU performance | Rate for 1 hour, with VAT |
@@ -202,9 +203,10 @@ Prices are shown for 1 hour of use. Billing occurs per second.
     | Other computing resources | Rate for 1 hour, with VAT |
     | ----- | ----- |
     | **Intel Broadwell** |
-    | 1 GPU | ₽39,0000 |
+    | 1 GPU | ₽39.0000 |
     | RAM (for 1 GB) | ₽0.0750 |
     | **Intel Cascade Lake** |
+    | 1 GPU | ₽155.9530 |
     | RAM (for 1 GB) | ₽0.0492 |
 
 {% endlist %}
