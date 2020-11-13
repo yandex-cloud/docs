@@ -3,10 +3,51 @@ href: index.yaml
 items:
   - name: Getting started
     href: quickstart.md
+  - name: Step-by-step instructions
+    items:
+      - name: All instructions
+        href: operations/index.md
+      - name: Managing a source endpoint
+        items: 
+        - name: Creating a source endpoint
+          href: operations/source/create-endpoint.md
+        - name: Updating a source endpoint
+          href: operations/source/update-endpoint.md
+        - name: Deleting a source endpoint
+          href: operations/source/delete-endpoint.md
+      - name: Managing a target endpoint
+        items: 
+        - name: Creating a target endpoint
+          href: operations/target/create-endpoint.md
+        - name: Updating a target endpoint
+          href: operations/target/update-endpoint.md
+        - name: Deleting a target endpoint
+          href: operations/target/delete-endpoint.md
+      - name: Managing the transfer process
+        items: 
+        - name: Creating a transfer
+          href: operations/transfer/create-transfer.md
+        - name: Updating a transfer
+          href: operations/transfer/update-transfer.md
+        - name: Deleting a transfer
+          href: operations/transfer/delete-transfer.md
+    href: quickstart.md
   - name: Concepts
     items:
       - name: Relationship between service resources
         href: concepts/index.md
+      - name: What tasks is the service used for?
+        href: concepts/solutions.md
+      - name: Service specifics
+        items:
+          - name: Overview
+            href: concepts/specific.md
+          - name: MySQL specifics
+            href: concepts/specific-mysql.md
+          - name: PostgreSQL specifics
+            href: concepts/specific-postgresql.md
+      - name: Monitoring transfers
+        href: concepts/monitoring.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Access management
