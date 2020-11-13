@@ -1,5 +1,4 @@
 title: "Yandex Load Balancer"
-stage: new
 href: index.yaml
 items:
   - name: Getting started
@@ -12,6 +11,8 @@ items:
         items:
           - name: Create a load balancer
             href: operations/load-balancer-create.md
+          - name: Create an internal network load balancer
+            href: operations/internal-lb-create.md
           - name: Start a load balancer
             href: operations/load-balancer-start.md
           - name: Stop a load balancer
@@ -20,9 +21,9 @@ items:
             href: operations/load-balancer-delete.md
           - name: Check target health statuses
             href: operations/check-resource-health.md
-          - name: Add a listener to a load balancer
+          - name: Add a listener
             href: operations/listener-add.md
-          - name: Remove a listener
+          - name: Delete a listener
             href: operations/listener-remove.md
       - name: Target groups
         items:
@@ -38,6 +39,8 @@ items:
     items:
       - name: Load balancer
         href: concepts/index.md
+      - name: Internal load balancer
+        href: concepts/internal-load-balancer.md
       - name: Listener
         href: concepts/listener.md
       - name: Targets and groups
@@ -52,6 +55,7 @@ items:
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
+  - name: API reference
     items:
       - name: Authentication in the API
         href: api-ref/authentication.md
