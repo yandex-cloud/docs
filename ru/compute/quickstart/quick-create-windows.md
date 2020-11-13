@@ -12,8 +12,6 @@ Cоздайте [виртуальную машину](../concepts/vm.md) Windows
 
 {% include [create-instance-via-console-windows](../_includes_service/create-instance-via-console-windows.md) %}
 
-{% include [initialization-windows-vm](../../_includes/initialization-windows-vm.md) %}
-
 ## Подключитесь к виртуальной машине {#connect-rdp}
 
 {% include [vm-connect-rdp](../../_includes/vm-connect-rdp.md) %}

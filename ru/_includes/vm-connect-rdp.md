@@ -17,6 +17,8 @@
       - **Пароль**: пароль, который вы задали при создании виртуальной машины.
   6. Нажмите кнопку **ОК**.
   
+  {% include [initialization-windows-vm](initialization-windows-vm.md) %}	
+  
   #### См. также
   - [Подключение к удаленному рабочему столу](https://support.microsoft.com/ru-ru/help/17463/windows-7-connect-to-another-computer-remote-desktop-connection)
   
