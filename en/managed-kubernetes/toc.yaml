@@ -11,19 +11,19 @@ items:
         href: operations/node-connect-ssh.md
       - name: Creating a configuration file
         href: operations/create-static-conf.md
-      - name: Configuring the Kubernetes cluster network
+      - name: Configuring a Kubernetes cluster network
         items:
           - name: Granting access to an app running in a Kubernetes cluster
             href: operations/create-load-balancer.md
-          - name: Using cluster network policies in Kubernetes
+          - name: Using Kubernetes cluster network policies
             href: operations/running-network-policy.md
-      - name: Encrypting secrets 
+      - name: Encrypting secrets
         href: operations/encrypting-secrets.md
-      - name: Working with persistent volumes
+      - name: Using persistent volumes
         items:
-          - name: Dynamic volume provisioning
+          - name: Dynamically preparing volumes
             href: operations/volumes/dynamic-create-pv.md
-          - name: Static volume provisioning
+          - name: Statically preparing volumes
             href: operations/volumes/static-create-pv.md
           - name: Managing storage classes
             href: operations/volumes/manage-storage-class.md
@@ -49,16 +49,18 @@ items:
             href: operations/node-group/node-group-list.md
           - name: Creating a node group
             href: operations/node-group/node-group-create.md
-          - name: Changing a node group
+          - name: Editing a node group
             href: operations/node-group/node-group-update.md
           - name: Deleting a node group
             href: operations/node-group/node-group-delete.md
-  - name: Use cases
+  - name: Solutions
     items:
       - name: Integration with Container Registry
         href: solutions/container-registry.md
       - name: Running workloads with GPUs
         href: solutions/running-pod-gpu.md
+      - name: Making backups to Object Storage
+        href: solutions/backup.md
   - name: Concepts
     items:
       - name: Relationship between service resources
@@ -67,21 +69,21 @@ items:
         href: concepts/release-channels-and-updates.md
       - name: Using Kubernetes API objects
         items:
-          - name: Volumes
+          - name: Volume
             href: concepts/volume.md
           - name: Service
             href: concepts/service.md
-      - name: Node groups
+      - name: Node group
         items:
-          - name: Cluster autoscaler
+          - name: Autoscaling node groups
             href: concepts/node-group/cluster-autoscaler.md
-          - name: Evicting pods from nodes
+          - name: Evicting pods from a node
             href: concepts/node-group/node-drain.md
           - name: Dynamic resource allocation for a node
             href: concepts/node-group/allocatable-resources.md
           - name: Node groups with GPUs
             href: concepts/node-group/node-group-gpu.md
-      - name: Cluster network policies in Kubernetes
+      - name: Kubernetes cluster network policies
         href: concepts/network-policy.md
       - name: Quotas and limits
         href: concepts/limits.md
