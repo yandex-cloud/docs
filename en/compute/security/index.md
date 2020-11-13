@@ -17,29 +17,30 @@ The diagram shows which roles are available in the service and how they inherit 
 
 ![image](service-roles-hierarchy.svg)
 
-Active roles in the service:
+### Service roles
 
-* Service roles:
-    * {% include [compute.images.user](../../_includes/iam/roles/short-descriptions/compute.images.user.md) %}
+| Role | Permissions |
+| ----- | ----- |
+| `compute.admin` | Gives rights to manage virtual machines and [instance groups](../../compute/concepts/instance-groups/index.md). |
+| `compute.disks.user` | Lets you use disks to create new resources, such as virtual machines. |
+| `compute.images.user` | Lets you use images to create new resources, such as virtual machines. |
+| `iam.serviceAccounts.user` | Verifies the right to use the service account.<br/>This role is required to perform operations with instance groups. If you enter a service account in the request, {{ iam-short-name }} checks that you have rights to use this account. |
+| `resource-manager.clouds.member` | The role required to access resources in the cloud for all users except [cloud owners](../../resource-manager/concepts/resources-hierarchy.md#owner) and [service accounts](../../iam/concepts/users/service-accounts.md). |
+| `resource-manager.clouds.owner` | Grants you full access to a cloud and the resources in it. You can only assign this role for a cloud. |
 
-    * {% include [compute.disks.user](../../_includes/iam/roles/short-descriptions/compute.disks.user.md) %}
+For more information about service roles, see [{#T}](../../iam/concepts/access-control/roles.md) in the {{ iam-full-name }} documentation.
 
-    * {% include [iam.serviceAccounts.user](../../_includes/iam/roles/short-descriptions/iam.serviceAccounts.user.md) %}
+### Primitive roles
 
-        This role is required to execute operations in [{{ ig-name }}](../concepts/instance-groups/index.md). If you have entered a service account in the request, {{ iam-short-name }} checks that you have rights to use this account.
-
-    * {% include [resource-manager.clouds.owner](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.owner.md) %}
-
-    * {% include [resource-manager.clouds.member](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.member.md) %}
-* Primitive roles:
-    * {% include [viewer](../../_includes/iam/roles/short-descriptions/viewer.md) %}
-    * {% include [editor](../../_includes/iam/roles/short-descriptions/editor.md) %}
-    * {% include [admin](../../_includes/iam/roles/short-descriptions/admin.md) %}
+| Role | Permissions |
+| ----- | ----- |
+| `admin` | Lets you manage your resources and access to them. |
+| `editor` | Lets you manage resources (create, edit, and delete). |
+| `viewer` | Lets you only view information about resources. |
 
 #### What's next {#what-is-next}
 
 * [How to assign a role](../../iam/operations/roles/grant.md).
 * [How to revoke a role](../../iam/operations/roles/revoke.md).
-* [Read more about access management in Yandex.Cloud](../../iam/concepts/access-control/index.md).
-* [More about role inheritance](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
-
+* [Learn more about access management in {{ yandex-cloud }}](../../iam/concepts/access-control/index.md).
+* [More information about role inheritance](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
