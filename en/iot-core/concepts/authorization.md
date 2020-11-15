@@ -7,7 +7,7 @@ There are two authorization methods:
 
 You can use both X.509 certificates and passwords at the same time. Note that passwords have a higher priority than certificates. The table below describes different ways to use a certificate and password simultaneously during authorization.
 
-| Certificates | Password | Authorization |
+| Certificate | Password | Authorization |
 | ---- | ---- | ---- |
 | Invalid | Invalid | Authorization fails. |
 | Invalid | Correct | Authorization is successful. |

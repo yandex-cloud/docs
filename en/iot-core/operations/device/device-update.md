@@ -1,12 +1,23 @@
 # Updating a device
 
-You can update the [name](device-update.md#update-name) and [description](device-update.md#update-description) of a device.
+You can update the [name](device-update.md#update-name) or [description](device-update.md#update-description) of a device.
 
-To access a device, use its ID or name. For information about how to get the ID or name of a device, see [{#T}](device-list.md).
+To access a device, use its unique ID or name. For information about how to get the unique device ID or name, see [{#T}](device-list.md).
 
-## Updating the name of a device {#update-name}
+## Updating device names {#update-name}
 
 {% list tabs %}
+
+- Management console
+
+   To update the name of a device:
+   1. In the [management console]({{ link-console-main }}), select the folder to update the device name in.
+   1. Select **{{ iot-name }}**.
+   1. Select the desired registry from the list.
+   1. In the left part of the window, select **Devices**.
+   1. To the right of the device name, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **Edit** from the drop-down list.
+   1. Edit the **Name** field.
+   1. Click **Save**.
 
 - CLI
 
@@ -16,7 +27,7 @@ To access a device, use its ID or name. For information about how to get the ID 
 
   ```
   $ yc iot device update my-device --new-name test-device
-
+  
   id: b9135goeh1uc1s2i07nm
   registry_id: b91ki3851hab9m0l68je
   created_at: "2019-05-28T16:08:30.938Z"
@@ -25,9 +36,20 @@ To access a device, use its ID or name. For information about how to get the ID 
 
 {% endlist %}
 
-## Updating the description of a device {#update-description}
+## Updating device descriptions {#update-description}
 
 {% list tabs %}
+
+- Management console
+
+   To update the description of a device:
+   1. In the [management console]({{ link-console-main }}), select the folder to update the device description in.
+   1. Select **{{ iot-name }}**.
+   1. Select the desired registry from the list.
+   1. In the left part of the window, select **Devices**.
+   1. To the right of the device name, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **Edit** from the drop-down list.
+   1. Edit the **Description** field.
+   1. Click **Save**.
 
 - CLI
 
@@ -37,7 +59,7 @@ To access a device, use its ID or name. For information about how to get the ID 
 
   ```
   $ yc iot device update my-device --description "My first device."
-
+  
   id: b9135goeh1uc1s2i07nm
   registry_id: b91ki3851hab9m0l68je
   created_at: "2019-05-28T16:08:30.938Z"

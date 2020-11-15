@@ -1,6 +1,6 @@
 # Managing device passwords
 
-For devices and registries to begin exchanging data and commands, you need to [log in](../../concepts/authorization.md). This section describes how to manage device passwords for the relevant authorization method.
+For devices and registries to begin exchanging data and commands, you need to [log in](../../concepts/authorization.md). This section describes how to manage device passwords for the appropriate authorization method.
 
 {% include [pass-priority-note](../../../_includes/iot-core/pass-priority-note.md) %}
 
@@ -17,6 +17,18 @@ You can add a password to an already created device or set it when creating a de
 ### Adding a password to an already created device {#add}
 
 {% list tabs %}
+
+- Management console
+
+   To add a password to an existing device:
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to add a password to an existing device.
+   1. Select **{{ iot-name }}**.
+   1. Select the registry with the desired device from the list.
+   1. In the left part of the window, select **Devices**.
+   1. Select the desired device from the list.
+   1. Under **Passwords**, click **Add password**.
+   1. In the **Password** field, set a password that you'll use to access the device.<br/>To do this, you can use a [password generator](https://passwordsgenerator.net/).<br/>Don't forget to save your password, you'll need it.
+   1. Click **Add**.
 
 - CLI
 
@@ -50,6 +62,10 @@ You can add a password to an already created device or set it when creating a de
 ### Setting a password for a device when creating it {#create}
 
 {% list tabs %}
+
+- Management console
+
+   For information about how to set a password for a device when creating it, see [{#T}](../device/device-create.md).
 
 - CLI
 
@@ -85,6 +101,18 @@ You can add a password to an already created device or set it when creating a de
 ## Getting a list of device passwords {#list}
 
 {% list tabs %}
+
+- Management console
+
+   To view the list of device passwords:
+   1. In the [management console]({{ link-console-main }}), select the folder to get the list of device passwords in.
+   1. Select **{{ iot-name }}**.
+   1. Select the registry with the desired device from the list.
+   1. In the left part of the window, select **Devices**.
+   1. Select the desired device from the list.
+   1. On the **Overview** page, go to the **Passwords** section.
+
+   The list of device passwords is displayed in the **Passwords** section.
 
 - CLI
 
@@ -123,6 +151,17 @@ You can add a password to an already created device or set it when creating a de
 ## Deleting a device password {#delete}
 
 {% list tabs %}
+
+- Management console
+
+   To delete a device password:
+   1. In the [management console]({{ link-console-main }}), select the folder to delete the device password from.
+   1. Select **{{ iot-name }}**.
+   1. Select the registry with the desired device from the list.
+   1. In the left part of the window, select **Devices**.
+   1. Select the desired device from the list.
+   1. To the right of the password to delete, click ![image](../../../_assets/horizontal-ellipsis.svg), and select **Delete** from the drop-down list.
+   1. In the window that opens, click **Delete**.
 
 - CLI
 
