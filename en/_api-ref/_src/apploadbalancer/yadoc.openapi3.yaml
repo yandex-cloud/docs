@@ -2133,6 +2133,8 @@ components:
       properties:
         handler:
           $ref: '#/components/schemas/HttpHandler_in_HttpListener_handler'
+        redirects:
+          $ref: '#/components/schemas/Redirects_in_HttpListener_redirects'
     HttpRoute:
       type: object
       allOf:
@@ -2362,19 +2364,29 @@ components:
             $ref: '#/components/schemas/TlsListener'
     ListenerSpec:
       type: object
-      properties:
-        name:
-          description: |-
-            Required.
-            Value must match the regular expression `` [a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
-          type: string
-        endpointSpecs:
-          description: |-
-            Required.
-            Must contain at least one element.
-          type: array
-          items:
-            $ref: '#/components/schemas/EndpointSpec'
+      allOf:
+      - type: object
+        properties:
+          name:
+            description: |-
+              Required.
+              Value must match the regular expression `` [a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
+            type: string
+          endpointSpecs:
+            description: |-
+              Required.
+              Must contain at least one element.
+            type: array
+            items:
+              $ref: '#/components/schemas/EndpointSpec'
+      - title: listener
+        type: object
+        maxProperties: 1
+        properties:
+          http:
+            $ref: '#/components/schemas/HttpListener'
+          tls:
+            $ref: '#/components/schemas/TlsListener'
     LoadBalancer:
       description: A LoadBalancer resource.
       type: object
@@ -2565,6 +2577,13 @@ components:
       - TEMPORARY_REDIRECT
       - PERMANENT_REDIRECT
       default: MOVED_PERMANENTLY
+    Redirects:
+      type: object
+      properties:
+        httpToHttps:
+          description: Adds "*" VirtualHost with a http -> https redirect.
+          type: boolean
+          format: boolean
     RemoveBackendMetadata:
       type: object
       properties:
@@ -3182,19 +3201,29 @@ components:
     ListenerSpec_in_AddListenerRequest_listenerSpec:
       description: Required.
       type: object
-      properties:
-        name:
-          description: |-
-            Required.
-            Value must match the regular expression `` [a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
-          type: string
-        endpointSpecs:
-          description: |-
-            Required.
-            Must contain at least one element.
-          type: array
-          items:
-            $ref: '#/components/schemas/EndpointSpec'
+      allOf:
+      - type: object
+        properties:
+          name:
+            description: |-
+              Required.
+              Value must match the regular expression `` [a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
+            type: string
+          endpointSpecs:
+            description: |-
+              Required.
+              Must contain at least one element.
+            type: array
+            items:
+              $ref: '#/components/schemas/EndpointSpec'
+      - title: listener
+        type: object
+        maxProperties: 1
+        properties:
+          http:
+            $ref: '#/components/schemas/HttpListener'
+          tls:
+            $ref: '#/components/schemas/TlsListener'
     TlsHandler_in_AddSniMatchRequest_handler:
       description: Required.
       type: object
@@ -3337,6 +3366,7 @@ components:
               The string length in characters must be greater than 0.
             type: string
     HttpHandler_in_HttpListener_handler:
+      description: Sets plaintext HTTP router, optional.
       type: object
       allOf:
       - type: object
@@ -3354,6 +3384,16 @@ components:
             description: If set, will enable only HTTP1 protocol with HTTP1.0 support.
             type: boolean
             format: boolean
+    Redirects_in_HttpListener_redirects:
+      description: |-
+        Shortcut for adding http -> https redirects,
+        can be used instead of the HttpHandler above.
+      type: object
+      properties:
+        httpToHttps:
+          description: Adds "*" VirtualHost with a http -> https redirect.
+          type: boolean
+          format: boolean
     StringMatch_in_HttpRouteMatch_path:
       description: If not set, '/' is assumed.
       type: object
@@ -3548,19 +3588,29 @@ components:
     ListenerSpec_in_UpdateListenerRequest_listenerSpec:
       description: Required.
       type: object
-      properties:
-        name:
-          description: |-
-            Required.
-            Value must match the regular expression `` [a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
-          type: string
-        endpointSpecs:
-          description: |-
-            Required.
-            Must contain at least one element.
-          type: array
-          items:
-            $ref: '#/components/schemas/EndpointSpec'
+      allOf:
+      - type: object
+        properties:
+          name:
+            description: |-
+              Required.
+              Value must match the regular expression `` [a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
+            type: string
+          endpointSpecs:
+            description: |-
+              Required.
+              Must contain at least one element.
+            type: array
+            items:
+              $ref: '#/components/schemas/EndpointSpec'
+      - title: listener
+        type: object
+        maxProperties: 1
+        properties:
+          http:
+            $ref: '#/components/schemas/HttpListener'
+          tls:
+            $ref: '#/components/schemas/TlsListener'
     FieldMask_in_UpdateLoadBalancerRequest_updateMask:
       description: |-
         A comma-separated names off ALL fields to be updated.

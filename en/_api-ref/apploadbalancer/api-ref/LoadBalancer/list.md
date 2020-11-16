@@ -77,6 +77,9 @@ filter | The maximum string length in characters is 1000.
               "allowHttp10": true,
               // end of the list of possible fields`loadBalancers[].listeners[].http.handler`
 
+            },
+            "redirects": {
+              "httpToHttps": true
             }
           },
           "tls": {
@@ -189,11 +192,13 @@ loadBalancers[].<br>listeners[].<br>endpoints[].<br>addresses[].<br>externalIpv6
 loadBalancers[].<br>listeners[].<br>endpoints[].<br>addresses[].<br>externalIpv6Address.<br>address | **string**<br>
 loadBalancers[].<br>listeners[].<br>endpoints[].<br>ports[] | **string** (int64)<br><p>Required. Must contain at least one element. Acceptable values are 1 to 65535, inclusive.</p> 
 loadBalancers[].<br>listeners[].<br>http | **object** <br>`loadBalancers[].listeners[]` includes only one of the fields `http`, `tls`<br><br>
-loadBalancers[].<br>listeners[].<br>http.<br>handler | **object**<br>
+loadBalancers[].<br>listeners[].<br>http.<br>handler | **object**<br><p>Sets plaintext HTTP router, optional.</p> 
 loadBalancers[].<br>listeners[].<br>http.<br>handler.<br>httpRouterId | **string**<br>
 loadBalancers[].<br>listeners[].<br>http.<br>handler.<br>http2Options | **object**<br>If set, will enable HTTP2 protocol for the handler. <br>`loadBalancers[].listeners[].http.handler` includes only one of the fields `http2Options`, `allowHttp10`<br><br>
 loadBalancers[].<br>listeners[].<br>http.<br>handler.<br>http2Options.<br>maxConcurrentStreams | **string** (int64)<br>
 loadBalancers[].<br>listeners[].<br>http.<br>handler.<br>allowHttp10 | **boolean** (boolean) <br>`loadBalancers[].listeners[].http.handler` includes only one of the fields `http2Options`, `allowHttp10`<br><br><p>If set, will enable only HTTP1 protocol with HTTP1.0 support.</p> 
+loadBalancers[].<br>listeners[].<br>http.<br>redirects | **object**<br><p>Shortcut for adding http -&gt; https redirects, can be used instead of the HttpHandler above.</p> 
+loadBalancers[].<br>listeners[].<br>http.<br>redirects.<br>httpToHttps | **boolean** (boolean)<br><p>Adds &quot;*&quot; VirtualHost with a http -&gt; https redirect.</p> 
 loadBalancers[].<br>listeners[].<br>tls | **object** <br>`loadBalancers[].listeners[]` includes only one of the fields `http`, `tls`<br><br>
 loadBalancers[].<br>listeners[].<br>tls.<br>defaultHandler | **object**<br><p>Required.</p> 
 loadBalancers[].<br>listeners[].<br>tls.<br>defaultHandler.<br>certificateIds[] | **string**<br><p>Required. Certificate IDs in the Certificate Manager. Multiple TLS certificates can be associated with the same context to allow both RSA and ECDSA certificates. Only the first certificate of each type will be used.</p> <p>Must contain at least one element.</p> 

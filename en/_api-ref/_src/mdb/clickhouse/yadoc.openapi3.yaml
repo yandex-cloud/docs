@@ -2284,6 +2284,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/HostSpec'
+        copySchema:
+          description: Whether to copy schema to new ClickHouse hosts from replicas.
+          type: boolean
+          format: boolean
     AddClusterShardMetadata:
       type: object
       properties:
@@ -2315,6 +2319,11 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/HostSpec'
+        copySchema:
+          description: Whether to copy schema to hosts of the shard to be created.
+            The schema is copied from hosts of an existing shard.
+          type: boolean
+          format: boolean
     AddClusterZookeeperMetadata:
       type: object
       properties:
@@ -2444,7 +2453,7 @@ components:
           description: |-
             Approximate size (in bytes) of the cache of "marks" used by MergeTree tables.
 
-            Value must be greater than 5368709120.
+            Value must be greater than 0.
           type: integer
           format: int64
         maxTableSizeToDrop:
@@ -6047,7 +6056,7 @@ components:
           description: |-
             Approximate size (in bytes) of the cache of "marks" used by MergeTree tables.
 
-            Value must be greater than 5368709120.
+            Value must be greater than 0.
           type: integer
           format: int64
         maxTableSizeToDrop:
@@ -6241,7 +6250,7 @@ components:
           description: |-
             Approximate size (in bytes) of the cache of "marks" used by MergeTree tables.
 
-            Value must be greater than 5368709120.
+            Value must be greater than 0.
           type: integer
           format: int64
         maxTableSizeToDrop:
@@ -6435,7 +6444,7 @@ components:
           description: |-
             Approximate size (in bytes) of the cache of "marks" used by MergeTree tables.
 
-            Value must be greater than 5368709120.
+            Value must be greater than 0.
           type: integer
           format: int64
         maxTableSizeToDrop:
@@ -6939,7 +6948,7 @@ components:
           description: |-
             Approximate size (in bytes) of the cache of "marks" used by MergeTree tables.
 
-            Value must be greater than 5368709120.
+            Value must be greater than 0.
           type: integer
           format: int64
         maxTableSizeToDrop:
@@ -7557,7 +7566,7 @@ components:
           description: |-
             Approximate size (in bytes) of the cache of "marks" used by MergeTree tables.
 
-            Value must be greater than 5368709120.
+            Value must be greater than 0.
           type: integer
           format: int64
         maxTableSizeToDrop:

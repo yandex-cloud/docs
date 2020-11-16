@@ -49,7 +49,89 @@ loadBalancerId | Required.
           "string"
         ]
       }
-    ]
+    ],
+
+    // `listenerSpec` includes only one of the fields `http`, `tls`
+    "http": {
+      "handler": {
+        "httpRouterId": "string",
+
+        // `listenerSpec.http.handler` includes only one of the fields `http2Options`, `allowHttp10`
+        "http2Options": {
+          "maxConcurrentStreams": "string"
+        },
+        "allowHttp10": true,
+        // end of the list of possible fields`listenerSpec.http.handler`
+
+      },
+      "redirects": {
+        "httpToHttps": true
+      }
+    },
+    "tls": {
+      "defaultHandler": {
+        "certificateIds": [
+          "string"
+        ],
+        "tlsOptions": {
+          "tlsMinVersion": "string",
+          "tlsMaxVersion": "string",
+          "cipherSuites": [
+            "string"
+          ],
+          "ecdhCurves": [
+            "string"
+          ]
+        },
+        "httpHandler": {
+          "httpRouterId": "string",
+
+          // `listenerSpec.tls.defaultHandler.httpHandler` includes only one of the fields `http2Options`, `allowHttp10`
+          "http2Options": {
+            "maxConcurrentStreams": "string"
+          },
+          "allowHttp10": true,
+          // end of the list of possible fields`listenerSpec.tls.defaultHandler.httpHandler`
+
+        }
+      },
+      "sniHandlers": [
+        {
+          "name": "string",
+          "serverNames": [
+            "string"
+          ],
+          "handler": {
+            "certificateIds": [
+              "string"
+            ],
+            "tlsOptions": {
+              "tlsMinVersion": "string",
+              "tlsMaxVersion": "string",
+              "cipherSuites": [
+                "string"
+              ],
+              "ecdhCurves": [
+                "string"
+              ]
+            },
+            "httpHandler": {
+              "httpRouterId": "string",
+
+              // `listenerSpec.tls.sniHandlers[].handler.httpHandler` includes only one of the fields `http2Options`, `allowHttp10`
+              "http2Options": {
+                "maxConcurrentStreams": "string"
+              },
+              "allowHttp10": true,
+              // end of the list of possible fields`listenerSpec.tls.sniHandlers[].handler.httpHandler`
+
+            }
+          }
+        }
+      ]
+    },
+    // end of the list of possible fields`listenerSpec`
+
   }
 }
 ```
@@ -70,6 +152,42 @@ listenerSpec.<br>endpointSpecs[].<br>addressSpecs[].<br>internalIpv4AddressSpec.
 listenerSpec.<br>endpointSpecs[].<br>addressSpecs[].<br>externalIpv6AddressSpec | **object** <br>`listenerSpec.endpointSpecs[].addressSpecs[]` includes only one of the fields `externalIpv4AddressSpec`, `internalIpv4AddressSpec`, `externalIpv6AddressSpec`<br><br>
 listenerSpec.<br>endpointSpecs[].<br>addressSpecs[].<br>externalIpv6AddressSpec.<br>address | **string**<br>
 listenerSpec.<br>endpointSpecs[].<br>ports[] | **string** (int64)<br><p>Required. Must contain at least one element. Acceptable values are 1 to 65535, inclusive.</p> 
+listenerSpec.<br>http | **object** <br>`listenerSpec` includes only one of the fields `http`, `tls`<br><br>
+listenerSpec.<br>http.<br>handler | **object**<br><p>Sets plaintext HTTP router, optional.</p> 
+listenerSpec.<br>http.<br>handler.<br>httpRouterId | **string**<br>
+listenerSpec.<br>http.<br>handler.<br>http2Options | **object**<br>If set, will enable HTTP2 protocol for the handler. <br>`listenerSpec.http.handler` includes only one of the fields `http2Options`, `allowHttp10`<br><br>
+listenerSpec.<br>http.<br>handler.<br>http2Options.<br>maxConcurrentStreams | **string** (int64)<br>
+listenerSpec.<br>http.<br>handler.<br>allowHttp10 | **boolean** (boolean) <br>`listenerSpec.http.handler` includes only one of the fields `http2Options`, `allowHttp10`<br><br><p>If set, will enable only HTTP1 protocol with HTTP1.0 support.</p> 
+listenerSpec.<br>http.<br>redirects | **object**<br><p>Shortcut for adding http -&gt; https redirects, can be used instead of the HttpHandler above.</p> 
+listenerSpec.<br>http.<br>redirects.<br>httpToHttps | **boolean** (boolean)<br><p>Adds &quot;*&quot; VirtualHost with a http -&gt; https redirect.</p> 
+listenerSpec.<br>tls | **object** <br>`listenerSpec` includes only one of the fields `http`, `tls`<br><br>
+listenerSpec.<br>tls.<br>defaultHandler | **object**<br><p>Required.</p> 
+listenerSpec.<br>tls.<br>defaultHandler.<br>certificateIds[] | **string**<br><p>Required. Certificate IDs in the Certificate Manager. Multiple TLS certificates can be associated with the same context to allow both RSA and ECDSA certificates. Only the first certificate of each type will be used.</p> <p>Must contain at least one element.</p> 
+listenerSpec.<br>tls.<br>defaultHandler.<br>tlsOptions | **object**<br>
+listenerSpec.<br>tls.<br>defaultHandler.<br>tlsOptions.<br>tlsMinVersion | **string**<br><p>Minimum TLS protocol version.</p> 
+listenerSpec.<br>tls.<br>defaultHandler.<br>tlsOptions.<br>tlsMaxVersion | **string**<br><p>Maximum TLS protocol version.</p> 
+listenerSpec.<br>tls.<br>defaultHandler.<br>tlsOptions.<br>cipherSuites[] | **string**<br><p>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used.</p> 
+listenerSpec.<br>tls.<br>defaultHandler.<br>tlsOptions.<br>ecdhCurves[] | **string**<br><p>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used.</p> 
+listenerSpec.<br>tls.<br>defaultHandler.<br>httpHandler | **object**<br>
+listenerSpec.<br>tls.<br>defaultHandler.<br>httpHandler.<br>httpRouterId | **string**<br>
+listenerSpec.<br>tls.<br>defaultHandler.<br>httpHandler.<br>http2Options | **object**<br>If set, will enable HTTP2 protocol for the handler. <br>`listenerSpec.tls.defaultHandler.httpHandler` includes only one of the fields `http2Options`, `allowHttp10`<br><br>
+listenerSpec.<br>tls.<br>defaultHandler.<br>httpHandler.<br>http2Options.<br>maxConcurrentStreams | **string** (int64)<br>
+listenerSpec.<br>tls.<br>defaultHandler.<br>httpHandler.<br>allowHttp10 | **boolean** (boolean) <br>`listenerSpec.tls.defaultHandler.httpHandler` includes only one of the fields `http2Options`, `allowHttp10`<br><br><p>If set, will enable only HTTP1 protocol with HTTP1.0 support.</p> 
+listenerSpec.<br>tls.<br>sniHandlers[] | **object**<br>
+listenerSpec.<br>tls.<br>sniHandlers[].<br>name | **string**<br><p>Required.</p> 
+listenerSpec.<br>tls.<br>sniHandlers[].<br>serverNames[] | **string**<br><p>Required. Must contain at least one element.</p> 
+listenerSpec.<br>tls.<br>sniHandlers[].<br>handler | **object**<br><p>Required.</p> 
+listenerSpec.<br>tls.<br>sniHandlers[].<br>handler.<br>certificateIds[] | **string**<br><p>Required. Certificate IDs in the Certificate Manager. Multiple TLS certificates can be associated with the same context to allow both RSA and ECDSA certificates. Only the first certificate of each type will be used.</p> <p>Must contain at least one element.</p> 
+listenerSpec.<br>tls.<br>sniHandlers[].<br>handler.<br>tlsOptions | **object**<br>
+listenerSpec.<br>tls.<br>sniHandlers[].<br>handler.<br>tlsOptions.<br>tlsMinVersion | **string**<br><p>Minimum TLS protocol version.</p> 
+listenerSpec.<br>tls.<br>sniHandlers[].<br>handler.<br>tlsOptions.<br>tlsMaxVersion | **string**<br><p>Maximum TLS protocol version.</p> 
+listenerSpec.<br>tls.<br>sniHandlers[].<br>handler.<br>tlsOptions.<br>cipherSuites[] | **string**<br><p>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used.</p> 
+listenerSpec.<br>tls.<br>sniHandlers[].<br>handler.<br>tlsOptions.<br>ecdhCurves[] | **string**<br><p>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used.</p> 
+listenerSpec.<br>tls.<br>sniHandlers[].<br>handler.<br>httpHandler | **object**<br>
+listenerSpec.<br>tls.<br>sniHandlers[].<br>handler.<br>httpHandler.<br>httpRouterId | **string**<br>
+listenerSpec.<br>tls.<br>sniHandlers[].<br>handler.<br>httpHandler.<br>http2Options | **object**<br>If set, will enable HTTP2 protocol for the handler. <br>`listenerSpec.tls.sniHandlers[].handler.httpHandler` includes only one of the fields `http2Options`, `allowHttp10`<br><br>
+listenerSpec.<br>tls.<br>sniHandlers[].<br>handler.<br>httpHandler.<br>http2Options.<br>maxConcurrentStreams | **string** (int64)<br>
+listenerSpec.<br>tls.<br>sniHandlers[].<br>handler.<br>httpHandler.<br>allowHttp10 | **boolean** (boolean) <br>`listenerSpec.tls.sniHandlers[].handler.httpHandler` includes only one of the fields `http2Options`, `allowHttp10`<br><br><p>If set, will enable only HTTP1 protocol with HTTP1.0 support.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

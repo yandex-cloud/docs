@@ -2226,6 +2226,7 @@ Field | Description
 --- | ---
 cluster_id | **string**<br>Required. ID of the ClickHouse cluster to add hosts to. To get the ClickHouse cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
 host_specs[] | **[HostSpec](#HostSpec)**<br>Configurations for ClickHouse hosts that should be added to the cluster. The number of elements must be greater than 0.
+copy_schema | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether to copy schema to new ClickHouse hosts from replicas. 
 
 
 ### HostSpec {#HostSpec3}
@@ -2410,6 +2411,7 @@ cluster_id | **string**<br>Required. ID of the ClickHouse cluster to add a shard
 shard_name | **string**<br>Required. Name for the new shard. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 config_spec | **[ShardConfigSpec](#ShardConfigSpec)**<br>Configuration of the new shard. 
 host_specs[] | **[HostSpec](#HostSpec)**<br>Configurations for ClickHouse hosts that should be created with the shard. The number of elements must be greater than 0.
+copy_schema | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether to copy schema to hosts of the shard to be created. The schema is copied from hosts of an existing shard. 
 
 
 ### ShardConfigSpec {#ShardConfigSpec}
