@@ -526,7 +526,7 @@
 
   Команды позволяют управлять NAT на уже созданных инстансах.
 
-* Команды `yc compute instance create` и `yc compute instance create`.
+* Команды `yc compute instance create` и `yc compute instance update`.
 
   Добавлен флаг `--network-settings`, с помощью которого можно изменить тип сети на `Software accelerated` и обратно в `Standard`.
 
