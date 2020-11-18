@@ -55,38 +55,50 @@ GET /{bucket}?uploads HTTP/1.1
   <KeyMarker></KeyMarker>
   <UploadIdMarker></UploadIdMarker>
   <NextKeyMarker>my-movie.m2ts</NextKeyMarker>
-  <NextUploadIdMarker>YW55IGlkZWEgd2h5IGVsdmluZydzIHVwbG9hZCBmYWlsZWQ</NextUploadIdMarker>
+  <NextUploadIdMarker>0005B4661731B011</NextUploadIdMarker>
   <MaxUploads>3</MaxUploads>
   <IsTruncated>true</IsTruncated>
   <Upload>
     <Key>my-divisor</Key>
-    <UploadId>XMgbGlrZSBlbHZpbmcncyBub3QgaGF2aW5nIG11Y2ggbHVjaw</UploadId>
+    <UploadId>0005B46503714F29</UploadId>
     <Initiator>
-      <ID>arn:aws:iam::111122223333:user/user1-11111a31-17b5-4fb7-9df5-b111111f13de</ID>
-      <DisplayName>user1-11111a31-17b5-4fb7-9df5-b111111f13de</DisplayName>
+      <ID>ajeanexampleuser</ID>
+      <DisplayName>ajeanexampleuser</DisplayName>
     </Initiator>
+    <Owner>
+      <ID>aje2v5og9qplr6pe0c59</ID>
+      <DisplayName>aje2v5og9qplr6pe0c59</DisplayName>
+    </Owner>
     <StorageClass>STANDARD</StorageClass>
-    <Initiated>2010-11-10T20:48:33.000Z</Initiated>
+    <Initiated>2020-11-18T17:33:46.007Z</Initiated>
   </Upload>
   <Upload>
     <Key>my-movie.m2ts</Key>
-    <UploadId>VXBsb2FkIElEIGZvciBlbHZpbmcncyBteS1tb3ZpZS5tMnRzIHVwbG9hZA</UploadId>
+    <UploadId>0005B46508244E72</UploadId>
     <Initiator>
-      <ID>b1d16700c70b0b05597d7acd6a3f92be</ID>
-      <DisplayName>InitiatorDisplayName</DisplayName>
+      <ID>ajeanexampleuser</ID>
+      <DisplayName>ajeanexampleuser</DisplayName>
     </Initiator>
-    <StorageClass>COLD</StorageClass>
-    <Initiated>2010-11-10T20:48:33.000Z</Initiated>
+    <Owner>
+      <ID>aje2v5og9qplr6pe0c59</ID>
+      <DisplayName>aje2v5og9qplr6pe0c59</DisplayName>
+    </Owner>
+    <StorageClass>STANDARD</StorageClass>
+    <Initiated>2020-11-18T18:34:47.017Z</Initiated>
   </Upload>
   <Upload>
     <Key>my-movie.m2ts</Key>
-    <UploadId>YW55IGlkZWEgd2h5IGVsdmluZydzIHVwbG9hZCBmYWlsZWQ</UploadId>
+    <UploadId>0005B4661731B011</UploadId>
     <Initiator>
-      <ID>arn:aws:iam::444455556666:user/user1-22222a31-17b5-4fb7-9df5-b222222f13de</ID>
-      <DisplayName>user1-22222a31-17b5-4fb7-9df5-b222222f13de</DisplayName>
+      <ID>ajeanexampleuser</ID>
+      <DisplayName>ajeanexampleuser</DisplayName>
     </Initiator>
+    <Owner>
+      <ID>aje2v5og9qplr6pe0c59</ID>
+      <DisplayName>aje2v5og9qplr6pe0c59</DisplayName>
+    </Owner>
     <StorageClass>STANDARD</StorageClass>
-    <Initiated>2010-11-10T20:49:33.000Z</Initiated>
+    <Initiated>2020-11-18T18:35:41.231Z</Initiated>
   </Upload>
 </ListMultipartUploadsResult>
 ```
@@ -108,6 +120,7 @@ GET /{bucket}?uploads HTTP/1.1
 `Initiator` | Инициатор составной загрузки.<br/><br/>Путь: `/ListMultipartUploadsResult/Upload/Initiator`.
 `ID` | Идентификатор пользователя.<br/><br/>Возможные пути:<br/>- `/ListMultipartUploadsResult/Upload/Initiator/ID`
 `DisplayName` | Отображаемое имя пользователя.<br/><br/>Возможные пути:<br/>- `/ListMultipartUploadsResult/Upload/Initiator/DisplayName`
+`Owner` | Информация о пользователе владельце объекта, совпадает с `Initiator`.<br/><br/>Путь: `/ListMultipartUploadsResult/Owner`.
 `StorageClass` | Класс хранения объекта: `STANDARD` или `COLD`.<br/><br/>Путь: `/ListMultipartUploadsResult/Upload/StorageClass`.
 `Initiated` | Дата и время запроса на [начало составной загрузки](startupload.md).
 `/ListMultipartUploadsResult/Prefix` | Префикс ключа.<br/><br/>Смотрите параметр запроса `prefix`.<br/><br/>Путь: `/ListMultipartUploadsResult/Prefix`.
