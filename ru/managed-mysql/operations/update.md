@@ -38,8 +38,6 @@
      +-----------+--------------------------------+-------+----------+
      |    ID     |            ZONE IDS            | CORES |  MEMORY  |
      +-----------+--------------------------------+-------+----------+
-     | s1.nano   | ru-central1-a, ru-central1-b,  |     1 | 4.0 GB   |
-     |           | ru-central1-c                  |       |          |
      | s1.micro  | ru-central1-a, ru-central1-b,  |     2 | 8.0 GB   |
      |           | ru-central1-c                  |       |          |
      | ...                                                           |
@@ -110,7 +108,7 @@
       config:
         ...
         resources:
-          resource_preset_id: s1.nano
+          resource_preset_id: s1.micro
           disk_size: "10737418240"
           disk_type_id: network-ssd
       ...
