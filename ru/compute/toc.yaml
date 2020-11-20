@@ -123,6 +123,8 @@ items:
             href: operations/serial-console/connect-ssh.md
           - name: Подключиться к серийной консоли с помощью CLI
             href: operations/serial-console/connect-cli.md
+          - name: Запустить командную оболочку в Windows SAC
+            href: operations/serial-console/windows-sac.md
           - name: Отключить доступ к серийной консоли
             href: operations/serial-console/disable.md
       - name: Создание группы виртуальных машин

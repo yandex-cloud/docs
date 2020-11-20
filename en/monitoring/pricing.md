@@ -3,12 +3,6 @@ editable: false
 ---
 # Pricing for {{ monitoring-full-name }}
 
-{% note warning %}
-
-Starting October 1, 2020, we're introducing new [pricing plans](#prices) for {{ monitoring-short-name }}.
-
-{% endnote %}
-
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
 ## What goes into the cost of using {{ monitoring-short-name }} {#rules}
@@ -33,32 +27,23 @@ For example, the cost of writing the first 86,400 values is `₽0.6048` and roun
 
   Service | Price per 1 million values,<br>without VAT
   ----- | -----
-  Writing {{ yandex-cloud }} resource metric values | $0.00
-  Writing custom metric values via the API<br/>(up to 50 million values) | $0,089744
-  Writing custom metric values via the API<br/>(over 50 million values) | $0,051282
-
-  New pricing plans introduced starting October 1, 2020:
-
-  Service | Cost of reading 1 million values <br>with VAT
-  ----- | -----
   Reading any metric values via the API<br/>(up to 50 million values) | $0,064103
   Reading any metric values via the API<br/>(over 50 million values) | $0,038462
+  Writing custom metric values via the API<br/>(up to 50 million values) | $0,089744
+  Writing custom metric values via the API<br/>(over 50 million values) | $0,051282
+  Writing {{ yandex-cloud }} resource metric values | $0.00
 
 
 - Prices in roubles
 
-  Service | Cost of writing 1 million values <br>with VAT
-  ----- | -----
-  Writing {{ yandex-cloud }} resource metric values | ₽0.00
-  Writing custom metric values via the API<br/>(up to 50 million values) | ₽7.00
-  Writing custom metric values via the API<br/>(over 50 million values) | ₽4.00
-
-  New pricing plans introduced starting October 1, 2020:
-
-  Service | Cost of reading 1 million values <br>with VAT
+  Service | Price per 1 million values,<br>with VAT
   ----- | -----
   Reading any metric values via the API<br/>(up to 50 million values) | ₽5.00
   Reading any metric values via the API<br/>(over 50 million values) | ₽3.00
+  Writing custom metric values via the API<br/>(up to 50 million values) | ₽7.00
+  Writing custom metric values via the API<br/>(over 50 million values) | ₽4.00
+  Writing {{ yandex-cloud }} resource metric values | ₽0.00
+  
 
 {% endlist %}
 

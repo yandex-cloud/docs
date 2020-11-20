@@ -4,6 +4,16 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
 
 {% list tabs %}
 
+- Management console
+
+   To delete a device:
+   1. In the [management console]({{ link-console-main }}), select the folder to delete the device from.
+   1. Select **{{ iot-name }}**.
+   1. Select the desired registry from the list.
+   1. In the left part of the window, select **Devices**.
+   1. To the right of the name of the device to delete, click ![image](../../../_assets/horizontal-ellipsis.svg), and select **Delete** from the drop-down list.
+   1. In the window that opens, click **Delete**.
+
 - CLI
 
   {% include [cli-install](../../../_includes/cli-install.md) %}

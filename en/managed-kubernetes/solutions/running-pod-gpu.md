@@ -188,7 +188,7 @@ To run workloads with GPUs on {{ k8s }} cluster pods:
      - `--name`: Name of the node group.
      - `--cluster-name`: Name of the {{ k8s }} cluster where the node group is created.
      - `--gpus`: Number of GPUs for the nodes.
-     - `--public-ip`: Flag specified if the node group needs a public IP address.
+     - `--public-ip`: The flag that is specified if the node group needs a public IP address.
      - `--location`: Availability zone to host the nodes in. You can specify several options.
      - `--fixed-size`: Number of nodes in the group.
 
@@ -263,4 +263,3 @@ To run workloads with GPUs on {{ k8s }} cluster pods:
     Test PASSED
     Done
     ```
-

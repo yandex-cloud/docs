@@ -64,7 +64,13 @@ items:
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
-    href: pricing.md
+    items:
+      - name: Действующие правила
+        href: pricing.md
+      - name: Архив
+        items:
+          - name: Правила до 1 октября 2020 года
+            href: pricing-archive/pricing-01102020.md
   - name: Справочник API
     items:
       - name: Аутентификация в API

@@ -1,6 +1,6 @@
 # Quotas and limits
 
-In the {{ iot-full-name }} service, the following limitations apply:
+{{ iot-full-name }} has the following limits:
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
 

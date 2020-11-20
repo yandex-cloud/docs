@@ -24,7 +24,7 @@
 `resource-manager.clouds.member` | Роль, необходимая для доступа к ресурсам в облаке всем, кроме [владельцев облака](../../resource-manager/concepts/resources-hierarchy.md#owner) и [сервисных аккаунтов](../../iam/concepts/users/service-accounts.md).
 `resource-manager.clouds.owner` | Дает полный доступ к облаку и ресурсам в нем. Можно назначить только на облако.
 `storage.admin` | Дает право на управление сервисом {{ objstorage-name }}.
-`storage.configurer` | Позволяет управлять настройками [жизненных циклов объектов](../../storage/concepts/lifecycles.md), [хостинга статических сайтов](../../storage/concepts/hosting.md) и [CORS](../../storage/concepts/cors.md).
+`storage.configurer` | Позволяет управлять настройками [жизненных циклов объектов](../../storage/concepts/lifecycles.md), [хостинга статических сайтов](../../storage/concepts/hosting.md), [политики доступа](../concepts/policy.md) и [CORS](../../storage/concepts/cors.md).
 `storage.editor` | Разрешает любые операции с бакетами и [объектами](../../storage/concepts/object.md) в них.
 `storage.uploader` | Дает право на загрузку объектов в бакет.
 `storage.viewer` | Дает доступ на чтение списка бакетов, их настроек и данных в бакетах.

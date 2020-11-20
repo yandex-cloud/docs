@@ -28,6 +28,26 @@ Create a trigger for the device topic.
 
 {% list tabs %}
 
+- Management console
+
+   To create a trigger:
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
+   1. Select **{{ sf-name }}**.
+   1. In the left part of the window, select **Triggers**.
+   1. Click **Create trigger**.
+   1. In the **Name** field, enter the trigger name.
+   1. In the **Type** drop-down list, select `Yandex IoT Core`.
+   1. Under **Yandex IoT Core message settings**, enter the parameters previously set for your registry and device:
+      - **Registry**: Select the registry with the desired device.
+      - **Device**: Select the desired device.
+      - **MQTT topic**: Enter the topic to create a trigger for.
+   1. Under **Function settings**, enter the parameters previously set for your function:
+      - **Function**: Select the desired function.
+      - **Service account**: Select the service account to perform the function for.
+   1. Click "Create trigger".
+
+   The trigger is created and displayed in the table's **Triggers** section.
+
 - CLI
 
     {% include [cli-install](../../_includes/cli-install.md) %}
@@ -43,13 +63,18 @@ Create a trigger for the device topic.
     - `--invoke-function-service-account-id`: Service account with rights to call the function.
 
     ```
-    $ yc serverless trigger create internet-of-things 
-        --name iot-trigger \
-        --registry-id arenou2oj4ct42eq8g3n \
-        --device-id areqjd6un3afc3cefcvm \
-        --mqtt-topic '$devices/areqjd6un3afc3cefcvm/events' \
-        --invoke-function-id d4eofc7n0m03lmudse8l \
-        --invoke-function-service-account-id aje3932acd0c5ur7dagp
+    $ yc serverless trigger create internet-of-things \
+        --name <trigger name> \
+        --registry-id <registry ID> \
+        --device-id <device ID> \
+        --mqtt-topic '$devices/<device ID>/events' \
+        --invoke-function-id <function ID> \
+        --invoke-function-service-account-id <service account ID>
+    ```
+
+    Result:
+
+    ```
     id: a1sl0mkmimfj3uv52fr8
     folder_id: b1g88tflru0ek1omtsu0
     created_at: "2019-09-25T13:54:35.654935Z"
@@ -65,7 +90,8 @@ Create a trigger for the device topic.
           service_account_id: aje3932acd0c5ur7dagp
           retry_settings:
             retry_attempts: "1"
-            interval: 10s   
+            interval: 10s
+    status: ACTIVE
     ```
 
 {% endlist %}
@@ -77,8 +103,12 @@ Check the function logs to see if the function was run:
 1. The function logs should contain information about the function call. In this example, the function outputs information about the messages processed.
 
     ```
-    $ yc serverless function logs b09e5lu91ta21vdrrgma
-    
+    $ yc serverless function logs <function ID>
+    ```
+
+    Result:
+
+    ```
     2019-09-25 14:00:00     MESSAGE_BATCH
     2019-09-25 14:00:00     {
     2019-09-25 14:00:00       "event_metadata": {

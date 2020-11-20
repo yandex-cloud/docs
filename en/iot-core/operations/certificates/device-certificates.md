@@ -14,6 +14,16 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
 
 {% list tabs %}
 
+- Management console
+
+   To view the list of device certificates:
+   1. In the [management console]({{ link-console-main }}), select the folder to view the list of device certificates in.
+   1. Select **{{ iot-name }}**.
+   1. Click on the name of the registry.
+   1. In the left menu, select **Devices**.
+   1. Select the desired device from the list.
+   1. On the **Overview** page, go to the **Certificates** section.
+
 - CLI
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
@@ -35,6 +45,33 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
 ## Adding a certificate {#add-cert}
 
 {% list tabs %}
+
+- Management console
+
+   To add a device certificate:
+
+   1. In the [management console]({{ link-console-main }}), select the folder to add the device certificate to.
+
+   1. Select **{{ iot-name }}**.
+
+   1. Click on the name of the registry.
+
+   1. In the left menu, select **Devices**.
+
+   1. Select the desired device from the list.
+
+   1. On the **Overview** page, go to the **Certificates** section and click **Add certificate**.
+
+      - To add a file:
+         1. Choose the **File** method.
+         1. Click **Select file**.
+         1. Specify the certificate file on your computer and click **Open**.
+         1. Click **Add**.
+
+      - To add text:
+         1. Choose the **Text** method.
+         1. Insert the certificate body in the **Contents** field.
+         1. Click **Add**.
 
 - CLI
 
@@ -61,6 +98,18 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
 ## Deleting a certificate {#delete-cert}
 
 {% list tabs %}
+
+- Management console
+
+   To delete a device certificate:
+   1. In the [management console]({{ link-console-main }}), select the folder to delete the device certificate from.
+   1. Select **{{ iot-name }}**.
+   1. Click on the name of the registry.
+   1. In the left menu, select **Devices**.
+   1. Select the desired device from the list.
+   1. On the **Overview** page, go to the **Certificates** section.
+   1. Click ![image](../../../_assets/horizontal-ellipsis.svg) in the line with the appropriate certificate and select **Delete** from the drop-down list.
+   1. In the window that opens, click **Delete**.
 
 - CLI
 

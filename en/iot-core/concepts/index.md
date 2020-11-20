@@ -18,11 +18,14 @@ _A registry_ is a set of devices that are logically related to each other. Regis
 
 ## MQTT broker {#mqtt-broker}
 
-_The MQTT broker_ is the central node for exchanging MQTT messages between devices and registries. Data is only exchanged through the broker. It's responsible for receiving and processing messages and controls their delivery to clients (devices or registries) to ensure the necessary [QoS](#qos).
+_The MQTT broker_ is the central node for exchanging MQTT messages between devices and registries. Data is only exchanged through the broker. It's responsible for receiving and processing messages and controls their delivery to MQTT clients (devices or registries) to ensure the necessary [QoS](#qos).
 
-Inside the service, devices and registries exchange data and commands as messages with specific [topics](topic.md).
+_MQTT clients_ are devices and registries that exchange messages containing data or commands. Each message includes a _topic_, which is a message subject used to classify data and identify the client this data is intended for.
 
-{% include [mqtt-note](../../_includes/iot-core/mqtt-note.md) %}
+To make sure devices and registries receive each other's messages via the MQTT broker, [subscribe them to the appropriate topics](../operations/subscribe).
+
+If you have devices whose sensor readings you need to quickly respond to and you may face network communication problems and a broken connection between your devices and the MQTT broker, you can subscribe your devices and registries to [permanent topics](topic.md#permanent).
+For example, use permanent topics for temperature sensors on devices that need to be turned off quickly when heated to a certain temperature.
 
 ## QoS levels {#qos}
 

@@ -21,15 +21,6 @@
 b1.nano | 2 | 5% | 2
 b1.micro | 2 | 20% | 2
 b1.medium | 2 | 50% | 4
-m1.micro | 2 | 100%| 16
-m1.small | 4 | 100%| 32
-m1.medium | 6 | 100%| 48
-m1.large | 8 | 100%| 64
-m1.xlarge | 12 | 100%| 96
-m1.2xlarge | 16 | 100%| 128
-m1.3xlarge | 24 | 100%| 192
-m1.4xlarge | 32 | 100%| 256
-s1.nano | 1 | 100%| 4
 s1.micro | 2 | 100%| 8
 s1.small | 4 | 100%| 16
 s1.medium | 8 | 100%| 32

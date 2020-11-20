@@ -10,7 +10,7 @@ The signing process consists of the following stages:
 2. [Generate a string to sign](#string-to-sign-gen)
 3. [Sign the string with a key](#signing)
 
-Use [HMAC](https://en.wikipedia.org/wiki/HMAC) with the [SHA256](https://en.wikipedia.org/wiki/SHA-2) hash function to sign. Many programming languages support relevant methods. The examples assume that there is a `sign(STRING, KEY)` function that encodes the input string with the specified key.
+Use [HMAC](https://en.wikipedia.org/wiki/HMAC) with the [SHA256](https://en.wikipedia.org/wiki/SHA-2) hash function to sign. Many programming languages support relevant methods. The examples assume that there is a `sign(KEY, STRING)` function that encodes the input string with the specified key.
 
 ## Generating a signing key {#signing-key-gen}
 

@@ -155,4 +155,8 @@
 
 Если образ был успешно создан, вы можете [удалить файл образа](../../../storage/operations/objects/delete.md) из сервиса {{ objstorage-name }}. Также можно [удалить бакет](../../../storage/operations/buckets/delete.md), если в нем не осталось объектов.
 
+## Создайте виртуальную машину из подготовленного образа {#create-vm-from-user-image}
+
+{% include notitle [Как создать ВМ из своего образа](../../operations/vm-create/create-from-user-image.md#create-vm-from-image) %}
+
 О стоимости использования {{ objstorage-name }} читайте в разделе [{#T}](../../../storage/pricing.md).

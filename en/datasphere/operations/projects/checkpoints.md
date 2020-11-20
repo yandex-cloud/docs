@@ -1,4 +1,4 @@
-# Working with checkpoints
+# Version control. Working with checkpoints
 
 A checkpoint in {{ ml-platform-name }} is a notebook's state automatically saved after each run of a code cell. A checkpoint consists of the cell code, output, and variable values.
 

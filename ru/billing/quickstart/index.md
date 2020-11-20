@@ -1,85 +1,103 @@
-# Как начать работать с Биллингом
+# Регистрация аккаунта в {{ yandex-cloud }}
 
-{% include [yandex-account](../_includes/yandex-account.md) %}
+Чтобы пользоваться сервисами {{ yandex-cloud }}, создайте платежный аккаунт. 
 
-Чтобы начать пользоваться Биллингом:
+Платежный аккаунт необходим, даже если вы планируете пользоваться только бесплатными сервисами. При создании платежного аккаунта нужно ввести данные плательщика, но {{ yandex-cloud }} не списывает деньги с карты и не выставляет счета, пока вы не перешли на [платную версию](../operations/activate-commercial.md).
 
-- [Создайте платежный аккаунт](#create_billing_account)
-- [Начните знакомство с {{ yandex-cloud }}](#start)
+В рамках одного аккаунта на Яндексе либо все плательщики должны быть резидентами РФ, либо все нерезидентами. Подробнее о [платежном аккаунте](../concepts/billing-account.md).
 
+{% list tabs %}
 
-### Создайте платежный аккаунт {#create_billing_account}
+- Физическое лицо
 
-Чтобы создать [платежный аккаунт](../concepts/billing-account.md):
+   Чтобы создать платежный аккаунт:
 
-1. Откройте [консоль управления]({{ link-console-main }}) {{ yandex-cloud }}.
-1. Авторизуйтесь на Яндексе:
-    - Если вы авторизованы на Яндексе или в Яндекс.Коннекте через ваши логин и пароль, перейдите к шагу 4.
-    - Если вы авторизованы на Яндексе через профиль в социальной сети, [заведите логин и пароль](https://passport.yandex.ru/passport?mode=postregistration&create_login=1) для вашей учетной записи и затем перейдите к шагу 4.
-    - Если вы не авторизованы на Яндексе или в Яндекс.Коннекте, нажмите кнопку **Войти**. Затем введите логин и пароль и нажмите кнопку **Войти**.
+   1. Откройте [консоль управления]({{ link-console-main }}) {{ yandex-cloud }}.
 
-1. Ознакомьтесь и подтвердите согласие с [Политикой конфиденциальности](https://yandex.ru/legal/confidential/) и [Условиями использования](https://yandex.ru/legal/cloud_termsofuse/).
+   1. Войдите в свой аккаунт на Яндексе или в Яндекс.Коннекте. Если у вас еще нет аккаунта, зарегистрируйтесь.
 
-1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
+      - К аккаунту обязательно должен быть привязан ваш номер телефона. Подробные инструкции смотрите в справке [Яндекс.Паспорта](https://yandex.ru/support/passport/authorization/registration.html) и [Яндекс.Коннекта](https://yandex.ru/support/connect/personal.html#personal__section_aq5_hcq_23b).
+      - Если для входа на Яндекс вы используете профиль в социальной сети, [заведите логин и пароль](https://passport.yandex.ru/passport?mode=postregistration&create_login=1). 
 
-1. {% include [create-account-button-step](../_includes/create-account-button-step.md) %}
+   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
 
-1. {% include [choose-country-step](../_includes/choose-country-step.md) %}
+   1. На странице **Список аккаунтов** нажмите кнопку **Создать аккаунт**. Заполните данные:
 
-   {% include [billing-account-payers](../_includes/billing-account-payers.md) %}
+      - Выберите страну плательщика.
 
-1. {% include [choose-balance-payer](../_includes/choose-balance-payer.md) %} 
+      - Укажите имя платежного аккаунта. Имя будет отображаться в списке ваших платежных аккаунтов и поможет выбрать нужный.
 
-1. {% include [choose-name-step](../_includes/choose-name-step.md) %}
+   1. Если в блоке **Плательщики** показан список доступных плательщиков, вы можете выбрать одного из них или добавить нового.
 
-1. {% include [choose-type-step](../_includes/choose-type-step.md) %}
+      Чтобы добавить плательщика:
 
-1. Заполните анкету:
+      - Выберите тип плательщика: **Физическое лицо**.
+      - Укажите ваше имя, фамилию и отчество.
 
-   {% list tabs %}
-
-    - Физическое лицо
-
-       Укажите ваши ФИО и привяжите банковскую карту:
-       
-         {% include [pin-card-data](../_includes/pin-card-data.md) %}
+      {% include [pin-card-data](../_includes/pin-card-data.md) %}
 
         {% include [payment-card-types](../_includes/payment-card-types.md) %}
-
-        {% include [pin-card-note-2](../_includes/pin-card-note-2.md) %}
 
         {% include [payment-card-validation](../_includes/payment-card-validation.md) %}
 
-    - Юридическое лицо или ИП
+   1. Нажмите кнопку **Активировать**.
 
-      10.1. Выберите способ оплаты (банковская карта или банковский перевод):
-      - **Банковская карта**.
-      <br/>Привяжите корпоративную банковскую карту:
+- Юридическое лицо, ИП или нерезидент РФ
+
+   Чтобы создать платежный аккаунт:
+
+   1. Откройте [консоль управления]({{ link-console-main }}) {{ yandex-cloud }}.
+
+   1. Войдите в свой аккаунт на Яндексе или в Яндекс.Коннекте. Если у вас еще нет аккаунта, зарегистрируйтесь.
+
+      - К аккаунту обязательно должен быть привязан ваш номер телефона. Подробные инструкции смотрите в справке [Яндекс.Паспорта](https://yandex.ru/support/passport/authorization/registration.html) и [Яндекс.Коннекта](https://yandex.ru/support/connect/personal.html#personal__section_aq5_hcq_23b).
+      - Если для входа на Яндекс вы используете профиль в социальной сети, [заведите логин и пароль](https://passport.yandex.ru/passport?mode=postregistration&create_login=1). 
+
+   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
+
+   1. На странице **Список аккаунтов** нажмите кнопку **Создать аккаунт**. Заполните данные:
+
+      - Выберите страну плательщика.
+
+      - Укажите имя платежного аккаунта. Имя будет отображаться в списке ваших платежных аккаунтов и поможет выбрать нужный.
+
+   1. Если в блоке **Плательщики** показан список доступных плательщиков, вы можете выбрать одного из них или добавить нового.
+
+      Чтобы добавить плательщика:
       
-         {% include [pin-card-data](../_includes/pin-card-data.md) %}
+        - Выберите тип плательщика: **Юридическое лицо или ИП**.
 
-        {% include [payment-card-types](../_includes/payment-card-types.md) %}
+           Если плательщик — нерезидент РФ, доступен только один тип плательщика: **Юридическое лицо (нерезидент РФ)**.
 
-        {% include [pin-card-note](../_includes/pin-card-note.md) %}
+        - Выберите способ оплаты: **Банковская карта** или **Банковский перевод**. В любой момент после создания платежного аккаунта вы можете [изменить способ оплаты](../operations/change-payment-method.md).
+        - Укажите юридическую информацию о вашей организации.
 
-        {% include [yandex-account](../_includes/payment-card-validation.md) %}
-      - **Банковский перевод**.
+            {% include [contacts-note](../_includes/contacts-note.md) %}
+
+
+        - Если вы выбрали способ оплаты **Банковская карта**, привяжите корпоративную банковскую карту:
       
-      10.2. Укажите юридическую информацию о вашей организации.
+            {% include [pin-card-data](../_includes/pin-card-data.md) %}
 
-   {% endlist %}
+            - Подтвердите, что карта является корпоративной и вы уполномочены ею распоряжаться.
 
-   {% include [contacts-note](../_includes/contacts-note.md) %}
+            {% include [payment-card-types](../_includes/payment-card-types.md) %}
 
-1. {% include [contract-step](../_includes/contract-step.md) %}
+            {% include [yandex-account](../_includes/payment-card-validation.md) %}
 
-1. {% include [activate-button-step](../_includes/activate-button-step.md) %}
+   1. Нажмите кнопку **Активировать**.
 
-    {% include [account-roles](../_includes/account-roles.md) %}
+      Если вы выбрали способ оплаты **Банковский перевод** или если плательщик  — нерезидент РФ, вы получите письмо с описанием дальнейших действий на почту, указанную в аккаунте Яндекса или Яндекс.Коннекта. В этом случае активация платежного аккаунта может занять до трех рабочих дней.
 
+{% endlist %}
 
-### Начните знакомство {#start}
+{% include [account-roles](../_includes/account-roles.md) %}
 
-Чтобы начать знакомство с {{ yandex-cloud }}, воспользуйтесь инструкциями:
+### Узнайте больше
+
+- [Платежный аккаунт](../concepts/billing-account.md)
+- [Пробный период](../../free-trial/concepts/quickstart.md)
+
+### Начните знакомство с {{ yandex-cloud }} {#start}
 
    {% include [quickstart-all-no-billing](../../_includes/quickstart-all-no-billing.md) %}

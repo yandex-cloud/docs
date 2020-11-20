@@ -11,7 +11,7 @@ items:
         href: operations/node-connect-ssh.md
       - name: Создание файла конфигурации
         href: operations/create-static-conf.md
-      - name: Настройка сети кластера Kubernetes
+      - name: Сетевые сценарии
         items:
           - name: >-
               Обеспечение доступа к приложению, запущенному в кластере

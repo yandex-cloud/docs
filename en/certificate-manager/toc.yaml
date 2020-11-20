@@ -12,6 +12,8 @@ items:
         items:
           - name: Create a certificate
             href: operations/managed/cert-create.md
+          - name: Get the contents of a certificate
+            href: operations/managed/cert-get-content.md
           - name: Domain rights check procedure
             href: operations/managed/cert-validate.md
           - name: Renew a certificate
@@ -24,12 +26,24 @@ items:
         items:
           - name: Create a certificate
             href: operations/import/cert-create.md
+          - name: Get the contents of a certificate
+            href: operations/import/cert-get-content.md
           - name: Renew a certificate
             href: operations/import/cert-update.md
           - name: Edit a certificate
             href: operations/import/cert-modify.md
           - name: Delete a certificate
             href: operations/import/cert-delete.md
+      - name: Domain
+        items:
+          - name: Create a domain
+            href: operations/domain/domain-create.md
+          - name: Link a certificate to a domain
+            href: operations/domain/domain-link-cert.md
+          - name: Update a domain description
+            href: operations/domain/domain-modify.md
+          - name: Delete a domain
+            href: operations/domain/domain-delete.md
   - name: Concepts
     items:
       - name: Overview
@@ -44,6 +58,14 @@ items:
         href: concepts/services.md
       - name: Quotas and limits
         href: concepts/limits.md
+      - name: Domain
+        items:
+          - name: Overview
+            href: concepts/domains/index.md
+          - name: >-
+              Integration of the domain management system with services from
+              Yandex.Cloud
+            href: concepts/domains/services.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

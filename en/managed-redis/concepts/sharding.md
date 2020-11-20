@@ -20,7 +20,7 @@ Each cluster has 16,348 *hash slots* evenly distributed between shards. Slots de
 
 All hosts in the cluster use service connections to exchange data about slots and regularly poll statuses from each other.
 
-If the majority of master hosts fails to get a response from the host polled, they consider the host offline. If the master host is down, one of its replicas is assigned as the master. If the host doesn't have any replicas left or can't be re-assigned, it stop receiving queries. However, if a single shard is down, the entire Redis Cluster can stay  functional as long as the other shards are available for reading and writing data.
+If the majority of master hosts fails to get a response from the host polled, they consider the host offline. If the master host is down, one of its replicas is assigned as the master. If all the replicas fail or none of them can be switched to, the host stops receiving queries. However, if a single shard is down, the entire Redis Cluster can stay  functional as long as the other shards are available for reading and writing data.
 
 To ensure stable cluster operation, you need to create at least three master hosts in different availability zones, each with a single replica. Masters and their replicas must be located in different availability zones.
 

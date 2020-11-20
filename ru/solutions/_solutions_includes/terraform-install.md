@@ -1,5 +1,3 @@
-Установите Terraform:
-
 {% list tabs %}
 
 - Windows/Linux
@@ -8,10 +6,14 @@
 
 - macOS
 
-  Установите Terraform с помощью пакетного менеджера [Homebrew](https://brew.sh):
+  Используйте один из способов:
 
-  ```
-  $ brew install terraform
-  ```
+    * Для установки Terraform с помощью пакетного менеджера [Homebrew](https://brew.sh) выполните команду:
 
+      ```
+      $ brew install terraform
+      ```
+
+    * Для установки вручную [скачайте дистрибутив Terraform](https://www.terraform.io/downloads.html) и установите его по [инструкции](https://www.terraform.io/intro/getting-started/install.html).
+  
 {% endlist %}

@@ -15,5 +15,5 @@
 
 #### См. также {#see-also}
 
-[Serverless API Gateway](#serverless-api-gateway-api-gw)
+[{{ api-gw-full-name }}](../../../api-gateway/)
 

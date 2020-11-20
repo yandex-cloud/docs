@@ -7,7 +7,7 @@
 {% list tabs %}
 
 - Windows
-  
+
   1. Нажмите **Пуск**.
   2. В поле поиска введите **Подключение к удаленному рабочему столу** и выберите соответствующий пункт.
   3. В окне **Подключение к удаленному рабочему столу** в поле **Компьютер** введите публичный IP-адрес виртуальной машины, к которой необходимо подключиться.
@@ -16,48 +16,59 @@
       - **Имя пользователя**: `Administrator`.
       - **Пароль**: пароль, который вы задали при создании виртуальной машины.
   6. Нажмите кнопку **ОК**.
-  
+
+  {% include [initialization-windows-vm](initialization-windows-vm.md) %}
+
   #### См. также
-  - [Подключение к удаленному рабочему столу](https://support.microsoft.com/ru-ru/help/17463/windows-7-connect-to-another-computer-remote-desktop-connection)
-  
+
+  * [Подключение к удаленному рабочему столу](https://support.microsoft.com/ru-ru/help/17463/windows-7-connect-to-another-computer-remote-desktop-connection).
+
 - macOS
-  
+
   1. Установите и запустите [Microsoft Remote Desktop](https://itunes.apple.com/ru/app/microsoft-remote-desktop/id1295203466) (бесплатный официальный RDP-клиент для Mac).
   2. Нажмите ![image](../_assets/plus.svg) → **Desktop**.
   3. В диалоговом окне **Add Desktop** в поле **PC Name** введите публичный IP-адрес виртуальной машины, к которой необходимо подключиться.
   4. В поле **User Account** выберите **Add User Account**.
   5. В диалоговом окне **Add User Account** укажите параметры учетной записи:
-      - **User Name**: `Administrator`.
-      - **Password**: пароль, который вы задали при создании виртуальной машины.
+     * **User Name**: `Administrator`.
+     * **Password**: пароль, который вы задали при создании виртуальной машины.
   6. Дважды нажмите кнопку **Save**.
   7. Подключитесь к удаленной машине двойным нажатием на созданное подключение в главном окне Microsoft Remote Desktop.
-  
+
   #### См. также
-  - [Начало работы с удаленного рабочего стола в Mac](https://docs.microsoft.com/ru-ru/windows-server/remote/remote-desktop-services/clients/remote-desktop-mac)
-  
+
+  * [Начало работы с удаленного рабочего стола в Mac](https://docs.microsoft.com/ru-ru/windows-server/remote/remote-desktop-services/clients/remote-desktop-mac).
+
 - Linux
-  
+
   1. Установите Remmina (бесплатный RDP-клиент для Linux) с помощью команд:
-  
-      ```
-      $ sudo apt-add-repository ppa:remmina-ppa-team/remmina-next
-      $ sudo apt-get update
-      $ sudo apt-get install remmina remmina-plugin-rdp
-      ```
-  
+
+     ```bash
+     sudo apt-add-repository ppa:remmina-ppa-team/remmina-next
+     ```
+
+     ```bash
+     sudo apt-get update
+     ```
+
+     ```bash
+     sudo apt-get install remmina remmina-plugin-rdp
+     ```
+
   2. Запустите Remmina.
   3. Нажмите значок ![image](../_assets/plus.svg).
   4. В блоке **Profile** укажите следующие данные:
-      - **Name**: произвольное имя подключения.
-      - **Protocol**: **RDP - Remote Desktop Protocol**.
+     * **Name**: произвольное имя подключения.
+     * **Protocol**: **RDP - Remote Desktop Protocol**.
   5. На вкладке **Basic** укажите данные для подключения и авторизации:
-      - **Server**: публичный IP-адрес виртуальной машины, к которой необходимо подключиться.
-      - **User Name**: `Administrator`.
-      - **Password**: пароль, который вы задали при создании виртуальной машины.
+     * **Server**: публичный IP-адрес виртуальной машины, к которой необходимо подключиться.
+     * **User Name**: `Administrator`.
+     * **Password**: пароль, который вы задали при создании виртуальной машины.
   6. Нажмите кнопку **Save**.
   7. Подключитесь к удаленной машине двойным нажатием на созданное подключение в списке подключений для быстрого доступа.
-  
+
   #### См. также
-  - [Установка Remmina на дистрибутивы Linux отличные от Ubuntu](https://remmina.org/how-to-install-remmina/)
-  
+
+  * [Установка Remmina на дистрибутивы Linux отличные от Ubuntu](https://remmina.org/how-to-install-remmina/).
+
 {% endlist %}

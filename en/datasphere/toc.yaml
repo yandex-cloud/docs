@@ -13,7 +13,7 @@ items:
         href: operations/projects/install-dependencies.md
       - name: Running sample code in a notebook
         href: operations/projects/snippets.md
-      - name: Working with checkpoints
+      - name: Version control. Working with checkpoints
         href: operations/projects/checkpoints.md
       - name: Managing computing resources
         href: operations/projects/control-compute-resources.md

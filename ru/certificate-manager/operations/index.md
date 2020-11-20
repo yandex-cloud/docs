@@ -26,4 +26,6 @@
 - [{#T}](domain/domain-modify.md)
 - [{#T}](domain/domain-delete.md)
 
+## Резервное копирование
 
+- [Сохранение и восстановление сертификата](cert-backup.md)

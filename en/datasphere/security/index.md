@@ -1,45 +1,44 @@
 # Access management
 
-To use the service, log in to the management console with your [Yandex account](../../iam/concepts/index.md#passport) or [federated account](../../iam/concepts/index.md#saml-federation).
+The list of operations available to {{ yandex-cloud }} users is determined by the roles they have. A role is assigned to a user at the folder or cloud level, and nested resources inherit this role.
 
-In this section, you'll learn:
+To allow access to resources in {{ ml-platform-short-name }}, assign the required roles to the user from the list below.
 
-* [What roles are required](#choosing-roles) for particular actions.
-* [What resources you can assign roles to](#resources).
-* [What roles exist in the service](#roles-list).
+{% note info %}
 
-{% include [about-access-management](../../_includes/iam/about-access-management.md) %}
+For more information about role inheritance, see [{#T}](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) in the {{ resmgr-full-name }} documentation.
 
-## What roles are required {#required-roles}
+{% endnote %}
 
-To use the service, you need a [role](../../iam/concepts/access-control/roles.md) `editor` or a higher role for the folder where projects are created. With the `viewer` role, you can only view the list of projects and the contents of files that were downloaded.
+## Assigning roles {#grant-role}
 
-You can always assign a role granting more permissions than the role specified. For example, assign the `admin` role instead of `editor`.
+To assign a user a role:
 
-## What resources you can assign roles to. {#resources}
+{% include [grant-role-console](../../_includes/grant-role-console.md) %}
 
-You can assign roles for a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) and [folder](../../resource-manager/concepts/resources-hierarchy.md#folder). Cloud roles also apply to nested folders.
+## Roles for managing clouds and folders {#rm-roles}
 
-## What roles exist in the service {#roles-list}
+{% include [cloud-roles](../../_includes/cloud-roles.md) %}
 
-The diagram shows which roles are available in the service and how they inherit each other's permissions. For example, the `editor` role includes all `viewer` role permissions. A description of each role is given under the diagram.
+## Service roles {#services}
 
-![image](service-roles-hierarchy.svg)
+{% include [datasphere.user](../../_includes/roles-datasphere-user.md) %}
 
-Active roles in the service:
+{% include [datasphere.admin](../../_includes/roles-datasphere-admin.md) %}
 
-* Service roles:
-    * {% include [resource-manager.clouds.owner](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.owner.md) %}
-    * {% include [resource-manager.clouds.member](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.member.md) %}
-* Primitive roles:
-    * {% include [viewer](../../_includes/iam/roles/short-descriptions/viewer.md) %}
-    * {% include [editor](../../_includes/iam/roles/short-descriptions/editor.md) %}
-    * {% include [admin](../../_includes/iam/roles/short-descriptions/admin.md) %}
+## Primitive roles {#primitive}
 
-#### What's next
+### {{ roles-viewer }} {#viewer}
 
-* [How to assign a role](../../iam/operations/roles/grant.md).
-* [How to revoke a role](../../iam/operations/roles/revoke.md).
-* [Read more about access management in Yandex.Cloud](../../iam/concepts/access-control/index.md).
-* [More about role inheritance](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
+The `{{ roles-viewer }}` role includes all permissions of the `{{ roles-datasphere-user }}` role. The user can view the list of projects and work with existing projects. The user can't create or delete projects.
+
+### {{ roles-editor }} {#editor}
+
+The `{{ roles-editor }}` role includes all permissions of the `{{ roles-viewer }}` role. In terms of access to {{ ml-platform-short-name }} service resources, these roles match.
+
+### {{ roles-admin }} {#admin}
+
+Users with the `{{ roles-admin }}` role can manage resource access rights, such as allow other users to work with folders or view information about projects and user permissions.
+
+The `{{ roles-admin }}` role also includes all `{{ roles-editor }}` role permissions.
 

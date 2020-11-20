@@ -14,6 +14,8 @@
  
 Эти параметры необходимо [указать в дополнительных настройках проекта](../operations/data-proc-integration.md#settings).
 
+{% include [subnet-create](../../_includes/subnet-create.md) %}
+
 ### Роли, необходимые для корректной работы с кластерами {{ dataproc-name }} {#roles}
 
 * Для создания кластера {{ dataproc-name }} вам необходимо разрешение на сервисный аккаунт, от имени которого {{ ml-platform-name }} будет выполнять операции. Это разрешение входит в роли `iam.serviceAccounts.user`, `editor` и выше.

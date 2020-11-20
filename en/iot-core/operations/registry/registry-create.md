@@ -2,6 +2,29 @@
 
 {% list tabs %}
 
+- Management console
+
+   To create a registry:
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your registry.
+   1. Select **{{ iot-name }}**.
+   1. Click **Create registry**.
+   1. Specify **basic parameters** for the registry:
+      - Enter the registry **Name**. For example, `my-registry`.
+      - (optional) Add a **Description** with additional information about the registry.
+      - Set a **Password** that you'll use to access the registry.<br/>To do this, you can use a [password generator](https://passwordsgenerator.net/).<br/>Don't forget to save your password, you'll need it.
+      - (optional) To assign a label to the registry, fill in the **Key** and **Value** fields and click **Add label**.
+   1. (optional) Add [certificates](../../operations/certificates/create-certificates.md):
+      - To add a file:
+         1. Choose the **File** method.
+         1. Click **Select file**.
+         1. Specify the certificate file on your computer and click **Open**.
+         1. Click **Add**.
+      - To add text:
+         1. Choose the **Text** method.
+         1. Insert the certificate body in the **Contents** field.
+         1. Click **Add**.
+   1. Click **Create**.
+
 - CLI
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
@@ -36,7 +59,7 @@
 
    {% include [terraform-definition](../../../solutions/_solutions_includes/terraform-definition.md) %}
 
-   If you don't have Terraform, [install it and configure the Yandex.Cloud provider](../../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you don't have Terraform yet, [install it and configure the {{ yandex-cloud }} provider](../../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    {% note info %}
 
@@ -100,7 +123,7 @@
          ```
       2. Confirm that you want to create the resources.
 
-      Afterwards, all the necessary resources are created in the specified folder. You can check resource availability and their settings in the [management console]({{ link-console-main }}).
+      Afterwards, all the necessary resources are created in the specified folder. You can check resource availability and their settings In the [management console]({{ link-console-main }}).
 
 {% endlist %}
 

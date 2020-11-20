@@ -1,15 +1,15 @@
-# How access management in Yandex.Cloud works
+# How access management works in {{ yandex-cloud }}
 
 Here you can learn how to manage access to your resources and how {{ iam-short-name }} checks access rights for the resources.
 
 ## How are access rights verified? {#access-verifying}
 
-All operations in Yandex.Cloud are first sent for verification to {{ iam-short-name }}. For example:
+All operations in {{ yandex-cloud }} are first sent for verification to {{ iam-short-name }}. For example:
 
 1. A user requests Yandex Compute Cloud to create a new disk in the <q>default</q> folder.
 1. The service sends a request to {{ iam-short-name }} to check whether this user is allowed to create disks in this folder.
 1. {{ iam-short-name }} checks if the user is a member of the cloud with the <q>default</q> folder and has the necessary permissions to create a disk in this folder.
-1. If the user does not have any of the permissions, the operation is not performed and Yandex.Cloud returns an error.
+1. If the user doesn't have any of the permissions, the operation isn't performed and {{ yandex-cloud }} returns an error.
 If all the required permissions were granted, {{ iam-short-name }} reports this to the service.
 1. The service creates a new disk.
 
@@ -17,7 +17,7 @@ If all the required permissions were granted, {{ iam-short-name }} reports this 
 
 ## How do I perform access management? {#how-do-i-perform-access-management}
 
-Access management in Yandex.Cloud leverages the [Role Based Access Control](https://en.wikipedia.org/wiki/Role-based_access_control) (RBAC) policy. To grant users access to a resource, you specify which [roles](roles.md) are assigned to them for that resource.
+Access management in {{ yandex-cloud }} leverages the [Role Based Access Control](https://en.wikipedia.org/wiki/Role-based_access_control) (RBAC) policy. To grant users access to a resource, you specify which [roles](roles.md) are assigned to them for that resource.
 
 To assign a role, [select a resource](#resource), [choose a role](#role), and [describe the subject](#subject) assigned to the role. This lets you [bind access rights](#access-bindings) to the resource.
 
@@ -49,9 +49,9 @@ To find out what roles exist and the permissions they include, see [{#T}](roles.
 
 Roles are assigned to subjects. There are four types of subjects:
 
-* `userAccount`: A [Yandex account](../index.md#passport) added to Yandex.Cloud.
+* `userAccount`: A [Yandex account](../index.md#passport) added to {{ yandex-cloud }}.
 
-* `serviceAccount`: A [service account](../users/service-accounts.md) created in Yandex.Cloud.
+* `serviceAccount`: A [service account](../users/service-accounts.md) created in {{ yandex-cloud }}.
 
     {% include [include](../../../_includes/sa-assign-role-note.md) %}
 
@@ -86,7 +86,7 @@ Some restrictions apply to assigning roles in the management console:
 
 #### See also {#see-also}
 
-For more information about managing access to a specific Yandex.Cloud service, see the <q>Access management</q> section in the documentation on that service.
+For more information about managing access to a specific {{ yandex-cloud }} service, see the <q>Access management</q> section in the documentation for that service.
 
 Step-by-step instructions and examples:
 

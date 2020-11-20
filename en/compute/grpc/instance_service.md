@@ -310,7 +310,7 @@ placement_policy | **[PlacementPolicy](#PlacementPolicy2)**<br>Placement policy 
 Field | Description
 --- | ---
 memory | **int64**<br>Required. The amount of memory available to the instance, specified in bytes. The maximum value is 274877906944.
-cores | **int64**<br>Required. The number of cores available to the instance. Value must be equal to 1,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32.
+cores | **int64**<br>Required. The number of cores available to the instance. Value must be equal to 2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,40,44,48,52,56,60,64,68,72,76,80.
 core_fraction | **int64**<br><ol><li></li></ol> Value must be equal to 0,5,20,50,100.
 gpus | **int64**<br>The number of GPUs available to the instance. Value must be equal to 0,1,2,4.
 
@@ -558,7 +558,7 @@ placement_policy | **[PlacementPolicy](#PlacementPolicy4)**<br>Placement policy 
 Field | Description
 --- | ---
 memory | **int64**<br>Required. The amount of memory available to the instance, specified in bytes. The maximum value is 274877906944.
-cores | **int64**<br>Required. The number of cores available to the instance. Value must be equal to 1,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32.
+cores | **int64**<br>Required. The number of cores available to the instance. Value must be equal to 2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,40,44,48,52,56,60,64,68,72,76,80.
 core_fraction | **int64**<br><ol><li></li></ol> Value must be equal to 0,5,20,50,100.
 gpus | **int64**<br>The number of GPUs available to the instance. Value must be equal to 0,1,2,4.
 

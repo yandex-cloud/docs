@@ -6,9 +6,21 @@ The log contains information about connecting/disconnecting devices and errors. 
 
 The device connection log contains information about operations performed with the device certificate.
 
-To access a [device](../concepts/index.md#device), use its ID or name. For information about how to get the device ID or name, see [{#T}](device/device-list.md)
+To access a [device](../concepts/index.md#device), use its ID or name. For information about how to get its ID or name, see [{#T}](device/device-list.md)
 
 {% list tabs %}
+
+- Management console
+
+   To view the device connection log:
+   1. In the [management console]({{ link-console-main }}), select the folder to view the device connection log in.
+   1. Select **{{ iot-name }}**.
+   1. Select the registry with the desired device from the list.
+   1. In the left part of the window, select **Devices**.
+   1. Select the desired device from the list.
+   1. In the left part of the window, select **Logs**.
+
+   The **Logs** window shows the device connection log.
 
 - CLI
 
@@ -44,6 +56,16 @@ The registry connection log contains information about operations performed with
 To access a [registry](../concepts/index.md#registry), use its ID or name. For information about how to get the registry ID or name, see [{#T}](registry/registry-list.md)
 
 {% list tabs %}
+
+- Management console
+
+   To view the registry connection log:
+   1. In the [management console]({{ link-console-main }}), select the folder to view the registry connection log in.
+   1. Select **{{ iot-name }}**.
+   1. Select the registry with the desired device from the list.
+   1. In the left part of the window, select **Logs**.
+
+   The **Logs** window shows the registry connection log.
 
 - CLI
 

@@ -4,7 +4,7 @@ In this scenario, you'll learn how to store information received from a device i
 
 To start writing information from your device to the database:
 
-1. [Create the necessary {{ iot-full-name }} resources](#resources).
+1. [Create the necessary resources {{ iot-full-name }}](#resources).
     1. [Create a registry](#registry).
     1. [Create a device](#device).
 1. [Connect your device to the MQTT broker](#connect).
@@ -19,7 +19,7 @@ To start writing information from your device to the database:
 
 {% note info %}
 
-The scenario assumes [username and password-based authorization](../concepts/authorization.md#log-pass), which is why you don't need to add a certificate to the registry and device. In your projects, you can use [authorization using certificates](../concepts/authorization.md#certs).
+The scenario implies [username and password-based authorization](../concepts/authorization.md#log-pass), so you don't need to add a certificate to the registry and device. In your projects, you can use [authorization using certificates](../concepts/authorization.md#certs).
 
 {% endnote %}
 
@@ -119,7 +119,7 @@ After creating the registry, you'll be automatically redirected to the **Registr
     - The name of the user who is the DB owner. The username may only contain Latin letters, numbers, and underscores.
     - User password. From 8 to 128 characters.
 
-    For a database created with the cluster, the character set and collate settings are specified as `LC_CTYPE=C` and `LC_COLLATE=C`. You can't change these settings after the database is created, but you can [create a new database](../../managed-postgresql/operations/databases.md#add-db) with the right settings.
+    For the database created with the cluster, the character set and collate settings are specified as `LC_CTYPE=C` and `LC_COLLATE=C`. You can't change these settings after the database is created, but you can [create a new database](../../managed-postgresql/operations/databases.md#add-db) with the right settings.
 
 1. Leave the default values in the other fields.
 
@@ -190,7 +190,7 @@ Once you [connect to the cluster](#connect-to-cluster), create a table. To do th
 
 1. Click **Run**.
 
-1. Wait until a message that the query is executed appears.
+1. Wait until a message saying that the query is executed appears.
 
 ## Create a function for processing data {#func}
 
@@ -216,7 +216,7 @@ After creating the function, you'll be automatically redirected to the **Editor*
 
     {% note info %}
 
-    The query used to write data to the DB is generated in the `makeInsertStatement` method. If you need to remove or add parameters, make changes to this method.
+    The query that is used to write data to the DB is generated in the `makeInsertStatement` method. If you need to remove or add parameters, make changes to this method.
 
     {% endnote %}
 
@@ -284,7 +284,7 @@ The trigger will accept copies of messages from the device topic and pass them t
 
         Where `<device id>` is the ID of your device.
 
-        The trigger works when new data appears in the specified topic.
+The trigger will be triggered when new data appears in the specified topic.
 
 1. Under **Function settings**:
     - Select the data processing function that you created earlier.

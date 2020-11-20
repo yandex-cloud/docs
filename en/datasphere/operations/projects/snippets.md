@@ -10,7 +10,7 @@ If not, open the project:
 
 1. {% include [include](../../../_includes/datasphere/first-step.md) %}
 1. Go to the **Projects** tab.
-1. Select the project you want to delete and click ![image](../../../_assets/datalens/horizontal-ellipsis.svg).
+1. Select the project you want to open and click ![image](../../../_assets/datalens/horizontal-ellipsis.svg).
 1. Choose **Open** and wait for the project to open.
 
 ## Run the sample code {#run}

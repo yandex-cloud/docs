@@ -1,8 +1,9 @@
 # Access management
 
-Yandex.Cloud users can only perform operations on resources that are allowed by the roles assigned to them. If a user doesn't have any roles assigned, almost all operations are forbidden.
+{{ yandex-cloud }} users can only perform operations on resources that are allowed by the roles assigned to them.
+If a user doesn't have any roles assigned, almost all operations are forbidden.
 
-To allow access to {{ iot-short-name }} resources (registries and devices), assign users applicable roles from the list below. Roles can currently only be assigned to parent resources (folder or cloud), whose roles are inherited by nested resources.
+To allow access to {{ iot-short-name }} resources (registers and devices), assign users applicable roles from the list below. For now, a role can only be assigned for a parent resource (folder or cloud), and roles are inherited by nested resources.
 
 {% note info %}
 
@@ -12,7 +13,7 @@ For more information about role inheritance, see [{#T}](../../resource-manager/c
 
 ## Assigning roles {#grant-roles}
 
-To assign a role to a user:
+To assign a user a role:
 
 {% include [grant-role-console](../../_includes/grant-role-console.md) %}
 
@@ -24,17 +25,17 @@ The list below shows all roles that are considered when verifying access rights 
 
 ### {{ roles-viewer }} {#viewer}
 
-A user with the `{{ roles-viewer }}` role can view information about resources, for example, a list of devices and their certificates.
+Users with the `{{ roles-viewer }}` role can view information about resources, for example, a list of devices and their certificates.
 
 ### {{ roles-editor }} {#editor}
 
-A user with the `{{ roles-editor }}` role can manage devices, for example, create registries and devices or add and delete certificates.
+Users with the `{{ roles-editor }}` role can manage devices, such as creating registries and devices or adding and deleting certificates.
 
-The `{{ roles-editor }}` role also includes all the permissions of the `{{ roles-viewer }}` role.
+The `{{ roles-editor }}` role also includes all `{{ roles-viewer }}` role permissions.
 
 ### {{ roles-admin }} {#admin}
 
-A user with the `{{ roles-admin }}` role can manage access rights to resources, for example, allow other users to view devices.
+Users with the `{{ roles-admin }}` role can manage resource access rights, such as allowing other users to view devices.
 
-The `{{ roles-admin }}` role includes all permissions of the role of `{{ roles-editor }}`.
+The `{{ roles-admin }}` role also includes all `{{ roles-editor }}` role permissions.
 

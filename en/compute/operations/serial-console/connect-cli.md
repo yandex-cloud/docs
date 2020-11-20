@@ -66,4 +66,3 @@ To disconnect from the serial console:
 
 1. Press `Enter`.
 1. Enter the following characters in order: `~.`.
-

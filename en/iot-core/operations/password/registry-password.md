@@ -1,6 +1,6 @@
 # Managing registry passwords
 
-For devices and registries to begin exchanging data and commands, you need to [log in](../../concepts/authorization.md). This section describes how to manage registry passwords for the relevant authorization method.
+For devices and registries to begin exchanging data and commands, you need to [log in](../../concepts/authorization.md). This section describes how to manage registry passwords for the appropriate authorization method.
 
 {% include [pass-priority-note](../../../_includes/iot-core/pass-priority-note.md) %}
 
@@ -10,13 +10,23 @@ For devices and registries to begin exchanging data and commands, you need to [l
 
 ## Adding a password to a registry {#create-or-add}
 
-You can add a password to an already created registry or set it when creating a registry using the `--password` parameter.
+You can add a password to an existing registry or set it when creating a registry using the `--password` parameter.
 
 {% include [read-pass](../../../_includes/iot-core/read-pass.md) %}
 
-### Adding a password to an already created registry {#add}
+### Adding a password to an existing registry {#add}
 
 {% list tabs %}
+
+- Management console
+
+   To add a password to an existing registry:
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to add a password to an existing registry.
+   1. Select **{{ iot-name }}**.
+   1. Select the desired registry from the list.
+   1. Under **Passwords**, click **Add password**.
+   1. In the **Password** field, set a password that you'll use to access the registry.<br/>To do this, you can use a [password generator](https://passwordsgenerator.net/).<br/>Don't forget to save your password, you'll need it.
+   1. Click **Add**.
 
 - CLI
 
@@ -50,6 +60,10 @@ You can add a password to an already created registry or set it when creating a 
 
 {% list tabs %}
 
+- Management console
+
+   For information about how to set a password for a registry when creating it, see [{#T}](../registry/registry-create.md).
+
 - CLI
 
     {% include [cli-install](../../../_includes/cli-install.md) %}
@@ -74,6 +88,14 @@ You can add a password to an already created registry or set it when creating a 
 ## Getting a list of registry passwords {#list}
 
 {% list tabs %}
+
+- Management console
+
+   To view the list of registry passwords:
+   1. In the [management console]({{ link-console-main }}), select the folder to get the list of registry passwords in.
+   1. Select **{{ iot-name }}**.
+   1. Select the desired registry from the list.
+   1. On the **Overview** page, go to the **Passwords** section.
 
 - CLI
 
@@ -111,6 +133,15 @@ You can add a password to an already created registry or set it when creating a 
 ## Deleting a registry password {#delete}
 
 {% list tabs %}
+
+- Management console
+
+   To delete a registry password:
+   1. In the [management console]({{ link-console-main }}), select the folder to delete the registry password from.
+   1. Select **{{ iot-name }}**.
+   1. Select the desired registry from the list.
+   1. To the right of the password to delete, click ![image](../../../_assets/horizontal-ellipsis.svg), and select **Delete** from the drop-down list.
+   1. In the window that opens, click **Delete**.
 
 - CLI
 

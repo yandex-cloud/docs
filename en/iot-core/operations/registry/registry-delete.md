@@ -10,6 +10,14 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
 
 {% list tabs %}
 
+- Management console
+
+   To delete a registry:
+   1. In the [management console]({{ link-console-main }}), select the folder to delete the registry from.
+   1. Select **{{ iot-name }}**.
+   1. To the right of the name of the registry to delete, click ![image](../../../_assets/horizontal-ellipsis.svg), and select **Delete** from the drop-down list.
+   1. In the window that opens, click **Delete**.
+
 - CLI
 
   {% include [cli-install](../../../_includes/cli-install.md) %}

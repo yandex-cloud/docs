@@ -43,6 +43,8 @@ items:
             href: operations/domain/domain-modify.md
           - name: Удаление домена
             href: operations/domain/domain-delete.md
+      - name: Резервное копирование
+        href: operations/cert-backup.md
   - name: Концепции
     items:
       - name: Обзор

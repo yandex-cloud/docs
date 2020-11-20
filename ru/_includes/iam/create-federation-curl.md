@@ -1,4 +1,4 @@
-Создайте федерацию с помощью метода [create](../../api-ref/Federation/create):
+Создайте федерацию с помощью метода [create](../../iam/api-ref/Federation/create.md):
 
 ```
 $ curl -X POST \
