@@ -97,7 +97,7 @@ GET /{bucket}/{key}?uploadId=UploadId HTTP/1.1
 `Initiator` | Информация о пользователе, инициировавшем загрузку.<br/><br/>Путь: `/ListPartsResult/Initiator`.
 `ID` | Идентификатор пользователя.<br/><br/>Путь: `/ListPartsResult/Initiator/ID`.
 `DisplayName` | Отображаемое имя пользователя.<br/><br/>Путь: `/ListPartsResult/Initiator/DisplayName`.
-`Owner` | Информация о пользователе владельце объекта, совпадает с `Initiator`.<br/><br/>Путь: `/ListPartsResult/Owner`.
+`Owner` | Информация о владельце объекта, совпадает с `Initiator`.<br/><br/>Путь: `/ListPartsResult/Owner`.
 `StorageClass` | Класс хранения объекта: `STANDARD` или `COLD`.<br/><br/>Путь: `/ListPartsResult/StorageClass`.
 `PartNumberMarker` | Номер части, после которого начинается список.<br/><br/>Первый элемент списка имеет номер, следующий за `PartNumberMarker`.<br/><br/>Путь: `/ListPartsResult/PartNumberMarker`.
 `NextPartNumberMarker` | Номер части, которым заканчивается текущий список.<br/><br/>Присутствует в случае, когда в ответ не поместился весь перечень частей.<br/><br/>Путь: `/ListPartsResult/NextPartNumberMarker`.

@@ -120,7 +120,7 @@ GET /{bucket}?uploads HTTP/1.1
 `Initiator` | Инициатор составной загрузки.<br/><br/>Путь: `/ListMultipartUploadsResult/Upload/Initiator`.
 `ID` | Идентификатор пользователя.<br/><br/>Возможные пути:<br/>- `/ListMultipartUploadsResult/Upload/Initiator/ID`
 `DisplayName` | Отображаемое имя пользователя.<br/><br/>Возможные пути:<br/>- `/ListMultipartUploadsResult/Upload/Initiator/DisplayName`
-`Owner` | Информация о пользователе владельце объекта, совпадает с `Initiator`.<br/><br/>Путь: `/ListMultipartUploadsResult/Owner`.
+`Owner` | Информация о владельце объекта, совпадает с `Initiator`.<br/><br/>Путь: `/ListMultipartUploadsResult/Owner`.
 `StorageClass` | Класс хранения объекта: `STANDARD` или `COLD`.<br/><br/>Путь: `/ListMultipartUploadsResult/Upload/StorageClass`.
 `Initiated` | Дата и время запроса на [начало составной загрузки](startupload.md).
 `/ListMultipartUploadsResult/Prefix` | Префикс ключа.<br/><br/>Смотрите параметр запроса `prefix`.<br/><br/>Путь: `/ListMultipartUploadsResult/Prefix`.
