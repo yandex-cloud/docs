@@ -3,7 +3,9 @@
 You can subscribe:
 
 - A registry to device events using the `$devices/<device ID>/events` or `$registries/<registry ID>/events` topics.
+- A registry to device events using the permanent `$devices/<device ID>/state` or `$registries/<registry ID>/state` topics.
 - A device to registry commands using the `$devices/<device ID>/commands` or `$registries/<registry ID>/commands` topics.
+- A device to registry commands using the permanent `$devices/<device ID>/config` or `$registries/<registry ID>/config` topics.
 
 To learn about messaging, see [{#T}](publish.md).
 
@@ -11,13 +13,13 @@ To learn about messaging, see [{#T}](publish.md).
 
 {% include [iot-before-begin](../../_includes/iot-core/iot-before-begin.md) %}
 
-## Subscribing a registry to a device {#sub-events}
+## Subscribing a registry to device topics {#sub-events}
 
-You can subscribe a registry to one, multiple, or all devices added to it.
+You can subscribe a registry to topics of one, multiple, or all devices added to it.
 
 {% include [debug-note](../../_includes/iot-core/debug-note.md) %}
 
-### Subscribe a registry to a single device {#one-device}
+### Subscribe a registry to a single device's topic {#one-device}
 
 {% list tabs %}
 
@@ -27,7 +29,7 @@ You can subscribe a registry to one, multiple, or all devices added to it.
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    - Subscribe a registry using a certificate:
+    - Subscribe a registry to a device topic using certificate-based authorization:
 
         ```
         $ yc iot mqtt subscribe \
@@ -37,19 +39,39 @@ You can subscribe a registry to one, multiple, or all devices added to it.
         --qos 1
         ```
 
+    - Subscribe a registry to a device's permanent topic using certificate-based authorization:
+
+        ```
+        $ yc iot mqtt subscribe \
+        --cert registry-cert.pem \
+        --key registry-key.pem \
+        --topic '$devices/<device ID>/state' \
+        --qos 1
+        ```
+
         Where:
         - `--cert` and `--key`: Parameters for authorization using a certificate.
         - `--topic`: Device topic for sending data.
         - `--message`: Message text.
         - `--qos`: [Quality of service (QoS)](../concepts/index.md#qos).
 
-    - Subscribe a registry using a username and password:
+    - Subscribe a registry to a device topic using username and password authorization:
 
         ```
         $ yc iot mqtt subscribe \
         --username <registry ID> \
         --password <registry password> \
         --topic '$devices/<device ID>/events' \
+        --qos 1
+        ```
+
+    - Subscribe a registry to a device's permanent topic using username and password authorization:
+
+        ```
+        $ yc iot mqtt subscribe \
+        --username <registry ID> \
+        --password <registry password> \
+        --topic '$devices/<device ID>/state' \
         --qos 1
         ```
 
@@ -61,9 +83,9 @@ You can subscribe a registry to one, multiple, or all devices added to it.
 
 {% endlist %}
 
-### Subscribe a registry to all devices added to it {#all-device}
+### Subscribe a registry to the topics of all devices added to it {#all-device}
 
-The registry will only receive data from devices that send messages to the `$registries/<registry ID>/events` topic.
+The registry will only receive data from devices that send messages to the `$registries/<registry ID>/events` or `$registries/<registry ID>/state` topic.
 
 {% list tabs %}
 
@@ -73,7 +95,7 @@ The registry will only receive data from devices that send messages to the `$reg
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    - Subscribe a registry using a certificate:
+    - Subscribe a registry to the topics of all devices using certificate-based authorization:
 
         ```
         $ yc iot mqtt subscribe \
@@ -83,19 +105,39 @@ The registry will only receive data from devices that send messages to the `$reg
         --qos 1
         ```
 
+    - Subscribe a registry to the permanent topics of all devices using certificate-based authorization:
+
+        ```
+        $ yc iot mqtt subscribe \
+        --cert registry-cert.pem \
+        --key registry-key.pem \
+        --topic '$registries/<registry ID>/state' \
+        --qos 1
+        ```
+
         Where:
         - `--cert` and `--key`: Parameters for authorization using a certificate.
         - `--topic`: Registry topic for getting data.
         - `--message`: Message text.
         - `--qos`: [Quality of service (QoS)](../concepts/index.md#qos).
 
-    - Subscribe a registry using a username and password:
+    - Subscribe a registry to the topics of all devices using username and password authorization:
 
         ```
         $ yc iot mqtt subscribe \
         --username <registry ID> \
         --password <registry password> \
         --topic '$registries/<registry ID>/events' \
+        --qos 1
+        ```
+
+    - Subscribe a registry to the permanent topics of all devices using username and password authorization:
+
+        ```
+        $ yc iot mqtt subscribe \
+        --username <registry ID> \
+        --password <registry password> \
+        --topic '$registries/<registry ID>/state' \
         --qos 1
         ```
 
@@ -107,13 +149,13 @@ The registry will only receive data from devices that send messages to the `$reg
 
 {% endlist %}
 
-## Subscribing a device to a registry {#sub-commands}
+## Subscribing a device to registry topics {#sub-commands}
 
 Commands from a registry can be given to a specific device or all devices in the registry. This involves using different topics.
 
 {% include [debug-note](../../_includes/iot-core/debug-note.md) %}
 
-### Subscribe a device to commands for a specific device {#for-one}
+### Subscribe a device to topics that are commands for a specific device {#for-one}
 
 {% list tabs %}
 
@@ -123,45 +165,63 @@ Commands from a registry can be given to a specific device or all devices in the
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    - Subscribe a device to commands for a specific device:
+    - Subscribe a device to topics that are commands for a specific device using certificate-based authorization:
 
-        - Using a certificate:
+        ```
+        yc iot mqtt subscribe \
+        --cert device-cert.pem \
+        --key device-key.pem \
+        --topic '$devices/<device ID>/commands' \
+        --qos 1
+        ```
 
-            ```
-            yc iot mqtt subscribe \
-            --cert device-cert.pem \
-            --key device-key.pem \
-            --topic '$devices/<device ID>/commands' \
-            --qos 1
-            ```
+    - Subscribe a device to permanent topics that are commands for a specific device using certificate-based authorization:
 
-            Where:
-            - `--cert` and `--key`: Parameters for authorization using a certificate.
-            - `--topic`: Device topic for getting commands.
-            - `--message`: Message text.
-            - `--qos`: [Quality of service (QoS)](../concepts/index.md#qos).
+        ```
+        yc iot mqtt subscribe \
+        --cert device-cert.pem \
+        --key device-key.pem \
+        --topic '$devices/<device ID>/config' \
+        --qos 1
+        ```
 
-        - Using your username and password:
+        Where:
+        - `--cert` and `--key`: Parameters for authorization using a certificate.
+        - `--topic`: Device topic for getting commands.
+        - `--message`: Message text.
+        - `--qos`: [Quality of service (QoS)](../concepts/index.md#qos).
 
-            ```
-            yc iot mqtt subscribe \
-            --username <device ID> \
-            --password <device password> \
-            --topic '$devices/<device ID>/commands' \
-            --qos 1
-            ```
+    - Subscribe a device to topics that are commands for a specific device using username and password authorization:
 
-            Where:
-            - `--username` and `--password`: Parameters for authorization using a username and password.
-            - `--topic`: Device topic for getting commands.
-            - `--message`: Message text.
-            - `--qos`: [Quality of service (QoS)](../concepts/index.md#qos).
+        ```
+        yc iot mqtt subscribe \
+        --username <device ID> \
+        --password <device password> \
+        --topic '$devices/<device ID>/commands' \
+        --qos 1
+        ```
+
+    - Subscribe a device to permanent topics that are commands for a specific device using username and password authorization:
+
+        ```
+        yc iot mqtt subscribe \
+        --username <device ID> \
+        --password <device password> \
+        --topic '$devices/<device ID>/config' \
+        --qos 1
+        ```
+
+        Where:
+        - `--username` and `--password`: Parameters for authorization using a username and password.
+        - `--topic`: Device topic for getting commands.
+        - `--message`: Message text.
+        - `--qos`: [Quality of service (QoS)](../concepts/index.md#qos).
 
 {% endlist %}
 
-### Subscribe a device to commands for all devices {#for-all}
+### Subscribe a device to topics that are commands for all devices {#for-all}
 
-Only devices subscribed to the `$registries/<registry ID>/commands` topic will receive commands.
+Only devices subscribed to the `$registries/<registry ID>/commands` or `$registries/<registry ID>/config` topic will receive commands.
 
 {% list tabs %}
 
@@ -171,7 +231,7 @@ Only devices subscribed to the `$registries/<registry ID>/commands` topic will r
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    - Subscribe a device using a certificate:
+    - Subscribe a device to topics that are commands using certificate-based authorization:
 
         ```
         $ yc iot mqtt subscribe \
@@ -181,13 +241,23 @@ Only devices subscribed to the `$registries/<registry ID>/commands` topic will r
         --qos 1
         ```
 
+    - Subscribe a device to permanent topics that are commands using certificate-based authorization:
+
+        ```
+        $ yc iot mqtt subscribe \
+        --cert device-cert.pem \
+        --key device-key.pem \
+        --topic '$registries/<registry ID>/config' \
+        --qos 2
+        ```
+
         Where:
         - `--cert` and `--key`: Parameters for authorization using a certificate.
         - `--topic`: Registry topic for sending commands.
         - `--message`: Message text.
         - `--qos`: [Quality of service (QoS)](../concepts/index.md#qos).
 
-    - Subscribe a device using a username and password:
+    - Subscribe a device to topics that are commands using username and password authorization:
 
         ```
         $ yc iot mqtt subscribe \
@@ -197,10 +267,20 @@ Only devices subscribed to the `$registries/<registry ID>/commands` topic will r
         --qos 1
         ```
 
+    - Subscribe a device to permanent topics that are commands using username and password authorization:
+
+        ```
+        $ yc iot mqtt subscribe \
+        --username <device ID> \
+        --password <device password> \
+        --topic '$registries/<registry ID>/config' \
+        --qos 1
+        ```
+
         Where:
         - `--username` and `--password`: Parameters for authorization using a username and password.
         - `--topic`: Registry topic for sending commands.
         - `--message`: Message text.
         - `--qos`: [Quality of service (QoS)](../concepts/index.md#qos).
-{% endlist %}
 
+{% endlist %}

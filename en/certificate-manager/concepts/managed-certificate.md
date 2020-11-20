@@ -40,9 +40,16 @@ To renew a certificate, follow the steps below. Keep track of the lifecycle of y
 
     Depending on the type of check you selected, update the file on the web server or update the `TXT` record on the DNS to the new value. For more information, see [Check rights for domain](challenges.md).
 
+    {% note info %}
+
+    If the certificate is used for a [static website in {{ objstorage-name }}](../../solutions/web/static.md) and doesn't contain [masked domains](https://en.wikipedia.org/wiki/Wildcard_certificate), the rights can be checked automatically. For more information, see [Checking rights automatically](challenges.md#auto).
+
+    {% endnote %}
+
 1. After you check the rights for the domains, the certificate renews and its status becomes `Issued`. All the resources that use the certificate will get its new version.
 
-The certificate isn't renewed if the domain rights check fails for at least one domain. The certificate status changes to `Renewal_failed`. However, the certificate will stay valid for a few more weeks.
+The certificate isn't renewed if the domain rights check fails for at least one domain. The certificate status changes to `Renewal_failed`. However, the certificate stays valid until it expires.
+Some time after the failed renewal, a new attempt is made to update the certificate.
 
 To avoid issues accessing resources that use the certificate with the `Renewal_failed` status:
 
@@ -53,5 +60,5 @@ To avoid issues accessing resources that use the certificate with the `Renewal_f
 #### See also {#see-also}
 
 - [Check rights for domain](challenges.md)
-- [ Services integrated with {{ certificate-manager-name }}](services.md)
+- [Services integrated with {{ certificate-manager-name }}](services.md)
 

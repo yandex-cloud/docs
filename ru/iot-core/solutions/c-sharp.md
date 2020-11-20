@@ -4,7 +4,7 @@
 
 {% note info %}
 
-Исходный код, который используется в этом сценарии, доступен на [GitHub](https://github.com/yandex-cloud/examples/tree/master/iot/Samples/c%23/). Взаимодействие с {{ iot-full-name }} инкапсулировано в классе [YaClient](https://github.com/yandex-cloud/examples/blob/master/iot/c%23/YaClient.cs), который вы можете использовать в своих проектах.
+Исходный код, который используется в этом сценарии, доступен на [GitHub](https://github.com/yandex-cloud/examples/tree/master/iot/Samples/c%23/). Взаимодействие с {{ iot-full-name }} инкапсулировано в классе [YaClient](https://github.com/yandex-cloud/examples/blob/master/iot/Samples/c%23/YaClient.cs), который вы можете использовать в своих проектах.
 
 {% endnote %}
 

@@ -1,6 +1,6 @@
 # Check rights for domain
 
-To get and renew a Let's Encrypt<sup>®</sup> certificate, check the rights for each domain specified in the certificate. You can use two types of checks in {{ certificate-manager-name }}: `HTTP` and `DNS`. When you create a certificate, you can choose any type of check.
+To get and renew a Let's Encrypt<sup>®</sup> certificate, check the rights for each domain specified in the certificate. You can use two types of checks in {{ certificate-manager-name }}: `HTTP` and `DNS`. When you create a certificate, you can choose any type of check. Checking rights for domains may take a long time.
 
 {% note info %}
 
@@ -46,19 +46,101 @@ To check the rights for the `example.com` domain:
 
 ## DNS {#dns}
 
-If you don't have access to the web server or need to get a [Wildcard certificate](https://en.wikipedia.org/wiki/Wildcard_certificate), use the `DNS` check type.
+If you don't have access to the web server or need to get a [Wildcard certificate](https://en.wikipedia.org/wiki/Wildcard_certificate) with masks for subdomains like `*.example.com`, use the `DNS` check type.
+
+To pass a check, you need to add a special DNS record of the `TXT` or `CNAME` type:
+
+* In case of a TXT record, when the certificate is renewed automatically after 60 days, you'll have to pass the check again and add a new value for the TXT record.
+* When adding a CNAME record, you only need to pass the check once. You can delegate to {{ certificate-manager-name }} the right of response in the domain's DNS zone used for checks. In this case, checks are performed automatically when certificates are issued and then renewed.
+
+### Adding a CNAME record {#cname}
+
+To check the rights for the `example.com` domain automatically:
+
+1. In the [management console]({{ link-console-main }}), select the folder where the certificate was created.
+
+1. In the list of services, select **{{ certificate-manager-name }}**.
+
+1. Under **Check rights for domains**, see the value for the domain in the **Value** field.
+
+1. With your DNS provider or on your own DNS server, host a `CNAME` record for delegating the management rights to the DNS zone used for checks:
+
+    ```
+    _acme-challenge.example.com CNAME <certificate ID>.cm.yandexcloud.net.
+    ```
+
+### Adding a TXT record {#txt}
 
 To check the rights for the `example.com` domain:
 
-1. At your DNS provider or your own DNS server, host a `TXT` record in a special format:
+1. In the [management console]({{ link-console-main }}), select the folder where the certificate was created.
 
-    The domain value is specified on the certificate details page (**Value** field under **Check rights for domains**).
+1. In the list of services, select **{{ certificate-manager-name }}**.
+
+1. Under **Check rights for domains**, see the value for the domain in the **Value** field.
+
+1. With your DNS provider or on your own DNS server, host a `TXT` record:
 
     ```
-    _acme-challenge.example.com. IN TXT <value>
+    _acme-challenge.example.com. IN TXT <Value>
     ```
 
 1. After the certificate status changes to `Issued`, delete the `TXT` record you added from the DNS server.
+
+## Checking rights automatically {#auto}
+
+In some cases, domain rights checks require no interaction from the user.
+
+### A CNAME record for a zone {#auto-cname}
+
+A check is performed automatically if the following conditions are met:
+
+* The certificate status is `Renewing`: it is being [renewed](managed-certificate.md#renew).
+
+* A DNS record is configured for each certificate domain:
+
+    ```
+    _acme-challenge.example.com CNAME <certificate ID>.cm.yandexcloud.net.
+    ```
+
+### Redirecting a static website {{ objstorage-name }} {#auto-s3}
+
+A check is performed automatically if the following conditions are met:
+
+* The certificate status is `Renewing`: it is being [renewed](managed-certificate.md#renew).
+* The certificate is used in the [HTTPS configuration](../../storage/operations/hosting/certificate#cert-manager) of a static website in [{{ objstorage-name }}](../../solutions/web/static.md).
+* For each certificate domain, the following is configured:
+    * [An alias](../../storage/operations/hosting/own-domain.md) for the static website bucket where the certificate is used.
+    * Or a [redirect](../../storage/operations/hosting/multiple-domains.md) to the domain with the alias for the bucket.
+* The certificate is not a [Wildcard certificate](https://en.wikipedia.org/wiki/Wildcard_certificate): it doesn't contain masks for subdomains.
+
+### Redirecting to a validation server in a web server {#auto-vs}
+
+A check is performed automatically if the following conditions are met:
+
+* The certificate status is `Renewing`: it is being [renewed](managed-certificate.md#renew).
+* The certificate is not a [Wildcard certificate](https://en.wikipedia.org/wiki/Wildcard_certificate): it doesn't contain masks for subdomains.
+* For each certificate domain in the web server, a redirect is configured from
+
+    ```
+    http://<Domain>/.well-known/acme-challenge/*
+    ```
+
+    to
+
+    ```
+    https://validation.certificate-manager.api.cloud.yandex.net/<Certificate ID>/*
+    ```
+
+Example of setting up a redirect in the nginx configuration:
+
+```
+   server {
+        location ~ ^/.well-known/acme-challenge/([a-zA-Z0-9-_]+)$ {
+                return 301 https://validation.certificate-manager.api.cloud.yandex.net/<certificate ID>/$1.
+        }
+   }
+```
 
 #### See also {#see-also}
 

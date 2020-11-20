@@ -1,4 +1,4 @@
-To run multiple instances of the service in Docker containers, you can create an instance group from a [{{ coi }}](../../cos/concepts/index.md). In such groups, you can use VM metadata to update Docker containers.
+To run multiple instances of the service in Docker containers, you can create an instance group from a [{{ coi }}](../../cos/concepts/index.md). In such groups, you can update Docker containers with VM metadata using the [COI or Docker Compose specification](../../cos/concepts/index.md#coi-specifications).
 
 {% include [warning.md](warning.md) %}
 
@@ -10,7 +10,7 @@ To create an instance group built on a {{ coi }}:
 
 1. {% include [default-catalogue.md](../default-catalogue.md) %}
 
-1. See the description of the CLI's create instance group command:
+1. View a description of the create instance group command in the CLI:
 
     ```
     $ yc compute instance-group create --help
@@ -28,7 +28,7 @@ To create an instance group built on a {{ coi }}:
 
 1. Select the latest version of the {{ coi }} from the [public images](../../compute/operations/images-with-pre-installed-software/get-list.md).
 
-    To get the ID of the latest version of the {{ coi }}, run the command:
+    To get the ID of the latest version of the {{ coi }} image, run the command:
 
     ```
     $ yc compute image get-latest-from-family container-optimized-image --folder-id standard-images
@@ -44,7 +44,7 @@ To create an instance group built on a {{ coi }}:
         ```
         name: container-optimized-group
         service_account_id: aje3932acd8avp6edhbt
-        description: "This instance group was created from YAML config"
+        description: "This instance group was created from YAML config."
         ```
 
         Keys:
@@ -61,8 +61,8 @@ To create an instance group built on a {{ coi }}:
         instance_template:
             platform_id: standard-v1
             resources_spec:
-                memory: 4G
-                cores: 1
+                memory: 2G
+                cores: 2
             boot_disk_spec:
                 mode: READ_WRITE
                 disk_spec:
@@ -93,14 +93,14 @@ To create an instance group built on a {{ coi }}:
         | `platform_id` | Platform ID. |
         | `memory` | Amount of memory (RAM). |
         | `cores` | Number of processor cores (vCPUs). |
-        | `mode` | Disk access mode. </br> - `READ_ONLY`: read-only access. </br>- `READ_WRITE`: read/write access. |
+        | `mode` | Disk access mode.</br>- `READ_ONLY`: read-only access.</br>- `READ_WRITE`: read/write access. |
         | `image_id` | ID of the public {{ coi }}. |
         | `type_id` | Disk type. |
         | `size` | Disk size. |
         | `network_id` | The `default-net` ID. |
         | `primary_v4_address_spec` | IPv4 specification. Only IPv4 is currently available. You can allow public access to group instances by specifying the IP version for the public IP address. For more information, see [{#T}](../../compute/concepts/instance-groups/instance-template.md#instance-template). |
         | `metadata` | Values to pass to the VM metadata. |
-        | `docker-container-declaration` | The key in the VM metadata to access the [Docker container description](../../cos/concepts/index.md#coi-specification). |
+        | `docker-container-declaration` | The key in the VM metadata that is used with the [COI specification of the Docker container](../../cos/concepts/index.md#coi-specifications). In the metadata, you can use the [Docker Compose specification](../../cos/concepts/index.md#compose-spec). To do this, specify the `docker-compose` key instead of the `docker-container-declaration` key. |
 
     - [Policies](../../compute/concepts/instance-groups/policies/index.md):
 
@@ -129,12 +129,13 @@ To create an instance group built on a {{ coi }}:
         ```
         name: container-optimized-group
         service_account_id: aje3932acd8avp6edhbt
-        description: "This instance group was created from YAML config"
+        description: "This instance group was created from YAML config."
         instance_template:
+            service_account_id: aje3932acd8avp6edhbt # ID of the service account to access private Docker images.
             platform_id: standard-v1
             resources_spec:
-                memory: 4G
-                cores: 1
+                memory: 2G
+                cores: 2
             boot_disk_spec:
                 mode: READ_WRITE
                 disk_spec:
@@ -165,6 +166,12 @@ To create an instance group built on a {{ coi }}:
                 - zone_id: ru-central1-a
         ```
 
+        {% note info %}
+
+        To use in `specification.yaml` [the Docker Compose specification](../../cos/concepts/index.md#compose-spec), specify the `docker-compose` key instead of the `docker-container-declaration` key.
+
+        {% endnote %}
+
 1. Create an instance group in the default folder:
 
     ```
@@ -177,6 +184,6 @@ To create an instance group built on a {{ coi }}:
     - With a running Docker container based on `cr.yandex/mirror/nginx:1.17.4-alpine`.
     - In the `default-net` network.
     - In the `ru-central1-a` availability zone.
-    - With a single vCPU and 4 GB RAM.
+    - With 2 vCPUs and 2 GB of RAM.
     - With a 32 GB network HDD.
 

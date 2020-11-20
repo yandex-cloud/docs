@@ -4,6 +4,20 @@ Aliases are linked to specific devices. To create an alias, you need [the device
 
 {% list tabs %}
 
+- Management console
+
+   To create an alias:
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create an alias.
+   1. Select **{{ iot-name }}**.
+   1. Select the desired registry from the list.
+   1. In the left part of the window, select **Devices**.
+   1. Click ![image](../../../../_assets/horizontal-ellipsis.svg) to the right of the appropriate device name and select **Edit** from the drop-down list.
+   1. Add an alias:
+      1. Click **Add alias**.
+      1. Fill in the fields: enter an alias (for example, `events`) and the topic type after `$devices/<deviceID>` (for example, `events`).<br/>You can use the `events` alias instead of the `$devices/<deviceID>/events` topic.
+      1. Repeat the steps for each alias you add.
+   1. Click **Save**.
+
 - CLI
 
     {% include [cli-install](../../../../_includes/cli-install.md) %}
@@ -30,7 +44,7 @@ Aliases are linked to specific devices. To create an alias, you need [the device
     $ yc iot device create 
     --registry-name <registry name> 
     --name <device name> 
-    --topic-aliases <alias name>='$devices/{id}/<events or commands>'
+    --topic-aliases <alias name>='$devices/{id}/<events, state, commands, or config>'
     ```
 
 {% endlist %}

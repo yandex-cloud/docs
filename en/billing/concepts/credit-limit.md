@@ -1,6 +1,22 @@
 # Credit limit
 
-The credit limit is the maximum negative [personal account balance](../concepts/personal-account.md#balance).
+The credit limit is a negative [personal account balance](../concepts/personal-account.md#balance). The credit limit is the implementation of a postpaid usage model for {{ yandex-cloud }}. In other words, this is the limit after which {{ yandex-cloud }} can:
+
+* Require that you settle your arrears before the reporting period.
+* Suspend your use of resources.
+
+When the credit limit is reached, a notification email is sent to your email address.
+
+Depending on the payment method, the following actions are taken so that you settle your arrears:
+
+* Bank card payment: An attempt is made to debit funds from your bank card.
+* Payment by bank transfer: An invoice is sent to you that must be paid within three business days.
+
+{% note alert %}
+
+The credit limit amount and the total arrears when you are blocked may be different, since access to resources is not suspended immediately. This means the credit limit does not guarantee that the negative balance won't exceed the set limit.
+
+{% endnote %}
 
 ## Credit limit amount {#amount}
 
@@ -20,14 +36,15 @@ The credit limit is activated automatically after you [switch to the paid versio
 
 ## Using the credit limit {#using}
 
-The credit limit can only be used if you don't have a [grant](../concepts/bonus-account.md) and your [personal account balance](../concepts/personal-account.md#balance) is zero. If you are using the credit limit, charges are accumulated.
+The credit limit can only be used if you don't have a [grant](../concepts/bonus-account.md) and your [personal account balance](../concepts/personal-account.md#balance) is zero. If you use the credit limit, you go into arrears as your personal account balance falls below zero.
 
-## Paying outstanding charges {#using}
+## Paying arrears {#using}
 
 The outstanding charges shall be paid within the deadline stipulated in the [agreement](../concepts/contract.md). [The payment method](../payment/payment-methods.md) depends on your legal status.
 
 {% note info %}
 
-We recommend that you track spending on your personal account and [top up the balance so that it is always positive](../operations/pay-the-bill.md). If your personal account balance exceeds the maximum amount of the credit limit and you fail to pay the outstanding charges before the deadline stipulated in the agreement, Yandex.Cloud reserves the right to change the status of your personal account to [PAYMENT_REQUIRED](../concepts/billing-account-statuses.md). For more information, see the sections [Billing cycle](../payment/billing-cycle-business.md) and [Payment methods](../payment/payment-methods.md).
+We recommend that you track spending on your personal account and [top up the balance so that it is always positive](../operations/pay-the-bill.md). If your personal account balance exceeds the credit limit amount and you fail to pay your arrears before the deadline stipulated in the agreement, {{ yandex-cloud }} reserves the right to change the status of your personal account to [SUSPENDED](../concepts/billing-account-statuses.md). For more information, see the sections [Billing cycle](../payment/billing-cycle-business.md) and [Payment methods](../payment/payment-methods.md).
 
 {% endnote %}
+

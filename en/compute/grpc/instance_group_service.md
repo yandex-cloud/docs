@@ -63,7 +63,7 @@ health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec)**<br>Health checkin
 service_account_id | **string**<br>ID of the service account. The service account will be used for all API calls made by the Instance Groups component on behalf of the user (for example, creating instances, adding them to load balancer target group, etc.). For more information, see [Service accounts](/docs/iam/concepts/users/service-accounts). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/grpc/service_account_service#List) request. 
 status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/grpc/instance_group_service#Stop).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><ul/>
 variables[] | **[Variable](#Variable)**<br> 
-deletion_protection | **bool**<br>Flag that inhibits deletion of the instance group 
+deletion_protection | **bool**<br>Flag prohibiting deletion of the instance group. <br>Allowed values:</br>- `false`: The instance group can be deleted.</br>- `true`: The instance group cannot be deleted. <br>The default is `false`. 
 
 
 ### InstanceTemplate {#InstanceTemplate}
@@ -90,7 +90,7 @@ hostname | **string**<br>Host name for the instance. This field is used to gener
 Field | Description
 --- | ---
 memory | **int64**<br>The amount of memory available to the instance, specified in bytes. The maximum value is 824633720832.
-cores | **int64**<br>The number of cores available to the instance. Value must be equal to 1,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,40,44,48,52,56,60,64,68,72,76,80.
+cores | **int64**<br>The number of cores available to the instance. Value must be equal to 2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,40,44,48,52,56,60,64,68,72,76,80.
 core_fraction | **int64**<br>Baseline level of CPU performance with the ability to burst performance above that baseline level. This field sets baseline performance for each core. Value must be equal to 0,5,20,50,100.
 gpus | **int64**<br>The number of GPUs available to the instance. Value must be equal to 0,1,2,4.
 
@@ -371,7 +371,7 @@ health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec1)**<br>Health checki
 service_account_id | **string**<br>ID of the service account. The service account will be used for all API calls made by the Instance Groups component on behalf of the user (for example, creating instances, adding them to load balancer target group, etc.). For more information, see [Service accounts](/docs/iam/concepts/users/service-accounts). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/grpc/service_account_service#List) request. 
 status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/grpc/instance_group_service#Stop).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><ul/>
 variables[] | **[Variable](#Variable1)**<br> 
-deletion_protection | **bool**<br>Flag that inhibits deletion of the instance group 
+deletion_protection | **bool**<br>Flag prohibiting deletion of the instance group. <br>Allowed values:</br>- `false`: The instance group can be deleted.</br>- `true`: The instance group cannot be deleted. <br>The default is `false`. 
 
 
 ### InstanceTemplate {#InstanceTemplate1}
@@ -398,7 +398,7 @@ hostname | **string**<br>Host name for the instance. This field is used to gener
 Field | Description
 --- | ---
 memory | **int64**<br>The amount of memory available to the instance, specified in bytes. The maximum value is 824633720832.
-cores | **int64**<br>The number of cores available to the instance. Value must be equal to 1,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,40,44,48,52,56,60,64,68,72,76,80.
+cores | **int64**<br>The number of cores available to the instance. Value must be equal to 2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,40,44,48,52,56,60,64,68,72,76,80.
 core_fraction | **int64**<br>Baseline level of CPU performance with the ability to burst performance above that baseline level. This field sets baseline performance for each core. Value must be equal to 0,5,20,50,100.
 gpus | **int64**<br>The number of GPUs available to the instance. Value must be equal to 0,1,2,4.
 
@@ -659,7 +659,7 @@ load_balancer_spec | **[LoadBalancerSpec](#LoadBalancerSpec2)**<br>Load balancin
 health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec2)**<br>Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check). 
 service_account_id | **string**<br>ID of the service account. The service account will be used for all API calls made by the Instance Groups component on behalf of the user (for example, creating instances, adding them to load balancer target group, etc.). For more information, see [Service accounts](/docs/iam/concepts/users/service-accounts). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/grpc/service_account_service#List) request. 
 variables[] | **[Variable](#Variable2)**<br> 
-deletion_protection | **bool**<br>Flag that inhibits deletion of the instance group 
+deletion_protection | **bool**<br>Flag prohibiting deletion of the instance group. <br>Allowed values:</br>- `false`: The instance group can be deleted.</br>- `true`: The instance group cannot be deleted. <br>The default is `false`. 
 
 
 ### InstanceTemplate {#InstanceTemplate2}
@@ -686,7 +686,7 @@ hostname | **string**<br>Host name for the instance. This field is used to gener
 Field | Description
 --- | ---
 memory | **int64**<br>The amount of memory available to the instance, specified in bytes. The maximum value is 824633720832.
-cores | **int64**<br>The number of cores available to the instance. Value must be equal to 1,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,40,44,48,52,56,60,64,68,72,76,80.
+cores | **int64**<br>The number of cores available to the instance. Value must be equal to 2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,40,44,48,52,56,60,64,68,72,76,80.
 core_fraction | **int64**<br>Baseline level of CPU performance with the ability to burst performance above that baseline level. This field sets baseline performance for each core. Value must be equal to 0,5,20,50,100.
 gpus | **int64**<br>The number of GPUs available to the instance. Value must be equal to 0,1,2,4.
 
@@ -931,7 +931,7 @@ health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec3)**<br>Health checki
 service_account_id | **string**<br>ID of the service account. The service account will be used for all API calls made by the Instance Groups component on behalf of the user (for example, creating instances, adding them to load balancer target group, etc.). For more information, see [Service accounts](/docs/iam/concepts/users/service-accounts). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/grpc/service_account_service#List) request. 
 status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/grpc/instance_group_service#Stop).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><ul/>
 variables[] | **[Variable](#Variable3)**<br> 
-deletion_protection | **bool**<br>Flag that inhibits deletion of the instance group 
+deletion_protection | **bool**<br>Flag prohibiting deletion of the instance group. <br>Allowed values:</br>- `false`: The instance group can be deleted.</br>- `true`: The instance group cannot be deleted. <br>The default is `false`. 
 
 
 ### InstanceTemplate {#InstanceTemplate3}
@@ -958,7 +958,7 @@ hostname | **string**<br>Host name for the instance. This field is used to gener
 Field | Description
 --- | ---
 memory | **int64**<br>The amount of memory available to the instance, specified in bytes. The maximum value is 824633720832.
-cores | **int64**<br>The number of cores available to the instance. Value must be equal to 1,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,40,44,48,52,56,60,64,68,72,76,80.
+cores | **int64**<br>The number of cores available to the instance. Value must be equal to 2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,40,44,48,52,56,60,64,68,72,76,80.
 core_fraction | **int64**<br>Baseline level of CPU performance with the ability to burst performance above that baseline level. This field sets baseline performance for each core. Value must be equal to 0,5,20,50,100.
 gpus | **int64**<br>The number of GPUs available to the instance. Value must be equal to 0,1,2,4.
 
@@ -1255,7 +1255,7 @@ health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec4)**<br>Health checki
 service_account_id | **string**<br>ID of the service account. The service account will be used for all API calls made by the Instance Groups component on behalf of the user (for example, creating instances, adding them to load balancer target group, etc.). For more information, see [Service accounts](/docs/iam/concepts/users/service-accounts). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/grpc/service_account_service#List) request. 
 status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/grpc/instance_group_service#Stop).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><ul/>
 variables[] | **[Variable](#Variable4)**<br> 
-deletion_protection | **bool**<br>Flag that inhibits deletion of the instance group 
+deletion_protection | **bool**<br>Flag prohibiting deletion of the instance group. <br>Allowed values:</br>- `false`: The instance group can be deleted.</br>- `true`: The instance group cannot be deleted. <br>The default is `false`. 
 
 
 ### InstanceTemplate {#InstanceTemplate4}
@@ -1282,7 +1282,7 @@ hostname | **string**<br>Host name for the instance. This field is used to gener
 Field | Description
 --- | ---
 memory | **int64**<br>The amount of memory available to the instance, specified in bytes. The maximum value is 824633720832.
-cores | **int64**<br>The number of cores available to the instance. Value must be equal to 1,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,40,44,48,52,56,60,64,68,72,76,80.
+cores | **int64**<br>The number of cores available to the instance. Value must be equal to 2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,40,44,48,52,56,60,64,68,72,76,80.
 core_fraction | **int64**<br>Baseline level of CPU performance with the ability to burst performance above that baseline level. This field sets baseline performance for each core. Value must be equal to 0,5,20,50,100.
 gpus | **int64**<br>The number of GPUs available to the instance. Value must be equal to 0,1,2,4.
 
@@ -1571,7 +1571,7 @@ hostname | **string**<br>Host name for the instance. This field is used to gener
 Field | Description
 --- | ---
 memory | **int64**<br>The amount of memory available to the instance, specified in bytes. The maximum value is 824633720832.
-cores | **int64**<br>The number of cores available to the instance. Value must be equal to 1,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,40,44,48,52,56,60,64,68,72,76,80.
+cores | **int64**<br>The number of cores available to the instance. Value must be equal to 2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,40,44,48,52,56,60,64,68,72,76,80.
 core_fraction | **int64**<br>Baseline level of CPU performance with the ability to burst performance above that baseline level. This field sets baseline performance for each core. Value must be equal to 0,5,20,50,100.
 gpus | **int64**<br>The number of GPUs available to the instance. Value must be equal to 0,1,2,4.
 
@@ -1816,7 +1816,7 @@ health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec6)**<br>Health checki
 service_account_id | **string**<br>ID of the service account. The service account will be used for all API calls made by the Instance Groups component on behalf of the user (for example, creating instances, adding them to load balancer target group, etc.). For more information, see [Service accounts](/docs/iam/concepts/users/service-accounts). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/grpc/service_account_service#List) request. 
 status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/grpc/instance_group_service#Stop).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><ul/>
 variables[] | **[Variable](#Variable6)**<br> 
-deletion_protection | **bool**<br>Flag that inhibits deletion of the instance group 
+deletion_protection | **bool**<br>Flag prohibiting deletion of the instance group. <br>Allowed values:</br>- `false`: The instance group can be deleted.</br>- `true`: The instance group cannot be deleted. <br>The default is `false`. 
 
 
 ### InstanceTemplate {#InstanceTemplate6}
@@ -1843,7 +1843,7 @@ hostname | **string**<br>Host name for the instance. This field is used to gener
 Field | Description
 --- | ---
 memory | **int64**<br>The amount of memory available to the instance, specified in bytes. The maximum value is 824633720832.
-cores | **int64**<br>The number of cores available to the instance. Value must be equal to 1,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,40,44,48,52,56,60,64,68,72,76,80.
+cores | **int64**<br>The number of cores available to the instance. Value must be equal to 2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,40,44,48,52,56,60,64,68,72,76,80.
 core_fraction | **int64**<br>Baseline level of CPU performance with the ability to burst performance above that baseline level. This field sets baseline performance for each core. Value must be equal to 0,5,20,50,100.
 gpus | **int64**<br>The number of GPUs available to the instance. Value must be equal to 0,1,2,4.
 
@@ -2140,7 +2140,7 @@ health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec7)**<br>Health checki
 service_account_id | **string**<br>ID of the service account. The service account will be used for all API calls made by the Instance Groups component on behalf of the user (for example, creating instances, adding them to load balancer target group, etc.). For more information, see [Service accounts](/docs/iam/concepts/users/service-accounts). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/grpc/service_account_service#List) request. 
 status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/grpc/instance_group_service#Stop).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><ul/>
 variables[] | **[Variable](#Variable7)**<br> 
-deletion_protection | **bool**<br>Flag that inhibits deletion of the instance group 
+deletion_protection | **bool**<br>Flag prohibiting deletion of the instance group. <br>Allowed values:</br>- `false`: The instance group can be deleted.</br>- `true`: The instance group cannot be deleted. <br>The default is `false`. 
 
 
 ### InstanceTemplate {#InstanceTemplate7}
@@ -2167,7 +2167,7 @@ hostname | **string**<br>Host name for the instance. This field is used to gener
 Field | Description
 --- | ---
 memory | **int64**<br>The amount of memory available to the instance, specified in bytes. The maximum value is 824633720832.
-cores | **int64**<br>The number of cores available to the instance. Value must be equal to 1,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,40,44,48,52,56,60,64,68,72,76,80.
+cores | **int64**<br>The number of cores available to the instance. Value must be equal to 2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,40,44,48,52,56,60,64,68,72,76,80.
 core_fraction | **int64**<br>Baseline level of CPU performance with the ability to burst performance above that baseline level. This field sets baseline performance for each core. Value must be equal to 0,5,20,50,100.
 gpus | **int64**<br>The number of GPUs available to the instance. Value must be equal to 0,1,2,4.
 
@@ -2463,7 +2463,7 @@ health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec8)**<br>Health checki
 service_account_id | **string**<br>ID of the service account. The service account will be used for all API calls made by the Instance Groups component on behalf of the user (for example, creating instances, adding them to load balancer target group, etc.). For more information, see [Service accounts](/docs/iam/concepts/users/service-accounts). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/grpc/service_account_service#List) request. 
 status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/grpc/instance_group_service#Stop).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><ul/>
 variables[] | **[Variable](#Variable8)**<br> 
-deletion_protection | **bool**<br>Flag that inhibits deletion of the instance group 
+deletion_protection | **bool**<br>Flag prohibiting deletion of the instance group. <br>Allowed values:</br>- `false`: The instance group can be deleted.</br>- `true`: The instance group cannot be deleted. <br>The default is `false`. 
 
 
 ### InstanceTemplate {#InstanceTemplate8}
@@ -2490,7 +2490,7 @@ hostname | **string**<br>Host name for the instance. This field is used to gener
 Field | Description
 --- | ---
 memory | **int64**<br>The amount of memory available to the instance, specified in bytes. The maximum value is 824633720832.
-cores | **int64**<br>The number of cores available to the instance. Value must be equal to 1,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,40,44,48,52,56,60,64,68,72,76,80.
+cores | **int64**<br>The number of cores available to the instance. Value must be equal to 2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,40,44,48,52,56,60,64,68,72,76,80.
 core_fraction | **int64**<br>Baseline level of CPU performance with the ability to burst performance above that baseline level. This field sets baseline performance for each core. Value must be equal to 0,5,20,50,100.
 gpus | **int64**<br>The number of GPUs available to the instance. Value must be equal to 0,1,2,4.
 
@@ -2786,7 +2786,7 @@ health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec9)**<br>Health checki
 service_account_id | **string**<br>ID of the service account. The service account will be used for all API calls made by the Instance Groups component on behalf of the user (for example, creating instances, adding them to load balancer target group, etc.). For more information, see [Service accounts](/docs/iam/concepts/users/service-accounts). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/grpc/service_account_service#List) request. 
 status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/grpc/instance_group_service#Stop).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><ul/>
 variables[] | **[Variable](#Variable9)**<br> 
-deletion_protection | **bool**<br>Flag that inhibits deletion of the instance group 
+deletion_protection | **bool**<br>Flag prohibiting deletion of the instance group. <br>Allowed values:</br>- `false`: The instance group can be deleted.</br>- `true`: The instance group cannot be deleted. <br>The default is `false`. 
 
 
 ### InstanceTemplate {#InstanceTemplate9}
@@ -2813,7 +2813,7 @@ hostname | **string**<br>Host name for the instance. This field is used to gener
 Field | Description
 --- | ---
 memory | **int64**<br>The amount of memory available to the instance, specified in bytes. The maximum value is 824633720832.
-cores | **int64**<br>The number of cores available to the instance. Value must be equal to 1,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,40,44,48,52,56,60,64,68,72,76,80.
+cores | **int64**<br>The number of cores available to the instance. Value must be equal to 2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,40,44,48,52,56,60,64,68,72,76,80.
 core_fraction | **int64**<br>Baseline level of CPU performance with the ability to burst performance above that baseline level. This field sets baseline performance for each core. Value must be equal to 0,5,20,50,100.
 gpus | **int64**<br>The number of GPUs available to the instance. Value must be equal to 0,1,2,4.
 
@@ -3217,7 +3217,7 @@ health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec10)**<br>Health check
 service_account_id | **string**<br>ID of the service account. The service account will be used for all API calls made by the Instance Groups component on behalf of the user (for example, creating instances, adding them to load balancer target group, etc.). For more information, see [Service accounts](/docs/iam/concepts/users/service-accounts). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/grpc/service_account_service#List) request. 
 status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/grpc/instance_group_service#Stop).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><ul/>
 variables[] | **[Variable](#Variable10)**<br> 
-deletion_protection | **bool**<br>Flag that inhibits deletion of the instance group 
+deletion_protection | **bool**<br>Flag prohibiting deletion of the instance group. <br>Allowed values:</br>- `false`: The instance group can be deleted.</br>- `true`: The instance group cannot be deleted. <br>The default is `false`. 
 
 
 ### InstanceTemplate {#InstanceTemplate10}
@@ -3244,7 +3244,7 @@ hostname | **string**<br>Host name for the instance. This field is used to gener
 Field | Description
 --- | ---
 memory | **int64**<br>The amount of memory available to the instance, specified in bytes. The maximum value is 824633720832.
-cores | **int64**<br>The number of cores available to the instance. Value must be equal to 1,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,40,44,48,52,56,60,64,68,72,76,80.
+cores | **int64**<br>The number of cores available to the instance. Value must be equal to 2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,40,44,48,52,56,60,64,68,72,76,80.
 core_fraction | **int64**<br>Baseline level of CPU performance with the ability to burst performance above that baseline level. This field sets baseline performance for each core. Value must be equal to 0,5,20,50,100.
 gpus | **int64**<br>The number of GPUs available to the instance. Value must be equal to 0,1,2,4.
 
@@ -3541,7 +3541,7 @@ health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec11)**<br>Health check
 service_account_id | **string**<br>ID of the service account. The service account will be used for all API calls made by the Instance Groups component on behalf of the user (for example, creating instances, adding them to load balancer target group, etc.). For more information, see [Service accounts](/docs/iam/concepts/users/service-accounts). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/grpc/service_account_service#List) request. 
 status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/grpc/instance_group_service#Stop).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><ul/>
 variables[] | **[Variable](#Variable11)**<br> 
-deletion_protection | **bool**<br>Flag that inhibits deletion of the instance group 
+deletion_protection | **bool**<br>Flag prohibiting deletion of the instance group. <br>Allowed values:</br>- `false`: The instance group can be deleted.</br>- `true`: The instance group cannot be deleted. <br>The default is `false`. 
 
 
 ### InstanceTemplate {#InstanceTemplate11}
@@ -3568,7 +3568,7 @@ hostname | **string**<br>Host name for the instance. This field is used to gener
 Field | Description
 --- | ---
 memory | **int64**<br>The amount of memory available to the instance, specified in bytes. The maximum value is 824633720832.
-cores | **int64**<br>The number of cores available to the instance. Value must be equal to 1,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,40,44,48,52,56,60,64,68,72,76,80.
+cores | **int64**<br>The number of cores available to the instance. Value must be equal to 2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,40,44,48,52,56,60,64,68,72,76,80.
 core_fraction | **int64**<br>Baseline level of CPU performance with the ability to burst performance above that baseline level. This field sets baseline performance for each core. Value must be equal to 0,5,20,50,100.
 gpus | **int64**<br>The number of GPUs available to the instance. Value must be equal to 0,1,2,4.
 
@@ -3885,7 +3885,7 @@ Lists existing access bindings for the specified instance group.
 
 Field | Description
 --- | ---
-resource_id | **string**<br>Required. ID of the resource to list access bindings for. <br>To get the resource ID, use a corresponding List request. For example, use the [yandex.cloud.resourcemanager.v1.CloudService.List](/docs/resource-manager/grpc/cloud_service#List) request to get the Cloud resource ID. 
+resource_id | **string**<br>Required. ID of the resource to list access bindings for. <br>To get the resource ID, use a corresponding List request. For example, use the [yandex.cloud.resourcemanager.v1.CloudService.List](/docs/resource-manager/grpc/cloud_service#List) request to get the Cloud resource ID. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page that should be returned. If the number of available results is larger than `page_size`, the service returns a [ListAccessBindingsResponse.next_page_token](#ListAccessBindingsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
 page_token | **string**<br>Page token. Set `page_token` to the [ListAccessBindingsResponse.next_page_token](#ListAccessBindingsResponse) returned by a previous list request to get the next page of results. The maximum string length in characters is 100.
 
@@ -3902,7 +3902,7 @@ next_page_token | **string**<br>This token allows you to get the next page of re
 
 Field | Description
 --- | ---
-role_id | **string**<br>ID of the `yandex.cloud.iam.v1.Role` that is assigned to the `subject`. The maximum string length in characters is 50.
+role_id | **string**<br>Required. ID of the `yandex.cloud.iam.v1.Role` that is assigned to the `subject`. The maximum string length in characters is 50.
 subject | **[Subject](#Subject)**<br>Required. Identity for which access binding is being created. It can represent an account with a unique ID or several accounts with a system identifier. 
 
 
@@ -3910,8 +3910,8 @@ subject | **[Subject](#Subject)**<br>Required. Identity for which access binding
 
 Field | Description
 --- | ---
-id | **string**<br><ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul> The maximum string length in characters is 50.
-type | **string**<br><ul><li>`userAccount`: An account on Yandex or [Yandex.Connect](./disk#Connect)(https://connect.yandex.com), added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul> 
+id | **string**<br>Required. <ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul> The maximum string length in characters is 50.
+type | **string**<br>Required. <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul> The maximum string length in characters is 100.
 
 
 ## SetAccessBindings {#SetAccessBindings}
@@ -3928,7 +3928,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-resource_id | **string**<br>Required. ID of the resource for which access bindings are being set. <br>To get the resource ID, use a corresponding List request. 
+resource_id | **string**<br>Required. ID of the resource for which access bindings are being set. <br>To get the resource ID, use a corresponding List request. The maximum string length in characters is 50.
 access_bindings[] | **[AccessBinding](#AccessBinding)**<br>Required. Access bindings to be set. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings). 
 
 
@@ -3936,7 +3936,7 @@ access_bindings[] | **[AccessBinding](#AccessBinding)**<br>Required. Access bind
 
 Field | Description
 --- | ---
-role_id | **string**<br>ID of the `yandex.cloud.iam.v1.Role` that is assigned to the `subject`. The maximum string length in characters is 50.
+role_id | **string**<br>Required. ID of the `yandex.cloud.iam.v1.Role` that is assigned to the `subject`. The maximum string length in characters is 50.
 subject | **[Subject](#Subject)**<br>Required. Identity for which access binding is being created. It can represent an account with a unique ID or several accounts with a system identifier. 
 
 
@@ -3944,8 +3944,8 @@ subject | **[Subject](#Subject)**<br>Required. Identity for which access binding
 
 Field | Description
 --- | ---
-id | **string**<br><ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul> The maximum string length in characters is 50.
-type | **string**<br><ul><li>`userAccount`: An account on Yandex or [Yandex.Connect](./disk#Connect)(https://connect.yandex.com), added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul> 
+id | **string**<br>Required. <ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul> The maximum string length in characters is 50.
+type | **string**<br>Required. <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul> The maximum string length in characters is 100.
 
 
 ### Operation {#Operation10}
@@ -3985,8 +3985,8 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-resource_id | **string**<br>Required. ID of the resource for which access bindings are being updated. 
-access_binding_deltas[] | **[AccessBindingDelta](#AccessBindingDelta)**<br>Required. Updates to access bindings. 
+resource_id | **string**<br>Required. ID of the resource for which access bindings are being updated. The maximum string length in characters is 50.
+access_binding_deltas[] | **[AccessBindingDelta](#AccessBindingDelta)**<br>Required. Updates to access bindings. The number of elements must be greater than 0.
 
 
 ### AccessBindingDelta {#AccessBindingDelta}
@@ -4001,7 +4001,7 @@ access_binding | **[AccessBinding](#AccessBinding)**<br>Required. Access binding
 
 Field | Description
 --- | ---
-role_id | **string**<br>ID of the `yandex.cloud.iam.v1.Role` that is assigned to the `subject`. The maximum string length in characters is 50.
+role_id | **string**<br>Required. ID of the `yandex.cloud.iam.v1.Role` that is assigned to the `subject`. The maximum string length in characters is 50.
 subject | **[Subject](#Subject)**<br>Required. Identity for which access binding is being created. It can represent an account with a unique ID or several accounts with a system identifier. 
 
 
@@ -4009,8 +4009,8 @@ subject | **[Subject](#Subject)**<br>Required. Identity for which access binding
 
 Field | Description
 --- | ---
-id | **string**<br><ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul> The maximum string length in characters is 50.
-type | **string**<br><ul><li>`userAccount`: An account on Yandex or [Yandex.Connect](./disk#Connect)(https://connect.yandex.com), added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul> 
+id | **string**<br>Required. <ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul> The maximum string length in characters is 50.
+type | **string**<br>Required. <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul> The maximum string length in characters is 100.
 
 
 ### Operation {#Operation11}

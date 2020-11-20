@@ -60,6 +60,7 @@ POST https://transcribe.api.cloud.yandex.net/speech/stt/v2/longRunningRecognize
     "config": {
         "specification": {
             "languageCode": "string",
+            "model": "string",
             "profanityFilter": "string",
             "audioEncoding": "string",
             "sampleRateHertz": "integer",
@@ -77,6 +78,7 @@ POST https://transcribe.api.cloud.yandex.net/speech/stt/v2/longRunningRecognize
 config | **object**<br>Поле с настройками распознавания.
 config.<br>specification | **object**<br>Настройки распознавания.
 config.<br>specification.<br>languageCode | **string**<br>Язык, для которого будет выполнено распознавание.<br/>Сейчас поддерживается только русский язык — `ru-RU`.
+config.<br>specification.<br>model | **string**<br>Языковая модель, которую следует использовать при распознавании.<br/>Чем точнее выбрана модель, тем лучше результат распознавания. В одном запросе можно указать только одну модель.<br/>[Допустимые значения](models.md) зависят от выбранного языка. Значение параметра по умолчанию: `general`.
 config.<br>specification.<br>profanityFilter | **boolean**<br>Фильтр ненормативной лексики.<br/>Допустимые значения:<ul><li>`true` — исключать ненормативную лексику из результатов распознавания.</li><li>`false` (по умолчанию) — не исключать ненормативную лексику.</li></ul>
 config.<br>specification.<br>audioEncoding | **string**<br>[Формат](formats.md) передаваемого аудио.<br/>Допустимые значения:<ul><li>`LINEAR16_PCM` — [LPCM без WAV-заголовка](formats.md#lpcm).</li><li>`OGG_OPUS` (по умолчанию) — формат [OggOpus](formats.md#oggopus).</li></ul>
 config.<br>specification.<br>sampleRateHertz | **integer** (int64)<br>Частота дискретизации передаваемого аудио.<br/>Этот параметр обязателен, если значение `format` равно `LINEAR16_PCM`. Допустимые значения:<ul><li>`48000` (по умолчанию) — частота дискретизации 48 кГц;</li><li>`16000` — частота дискретизации 16 кГц;</li><li>`8000` — частота дискретизации 8 кГц.</li></ul>
@@ -205,7 +207,7 @@ operationId | Идентификатор операции, полученный 
 
 ### Распознать русскую речь в формате OggOpus {#examples_ogg}
 
-Чтобы распознать речь в формате [OggOpus](formats.md#oggopus), достаточно указать в конфигурации язык распознавания в поле `languageCode`.
+Чтобы распознать речь в формате [OggOpus](formats.md#oggopus), достаточно указать в конфигурации язык распознавания в поле `languageCode`. По умолчанию будет использована языковая модель `general`.
 
 {% list tabs %}
 
@@ -341,15 +343,22 @@ operationId | Идентификатор операции, полученный 
 
 ### Распознать речь в формате LPCM {#examples_lpcm}
 
-Чтобы распознать речь в формате [LPCM](formats.md#lpcm) в настройках распознавания укажите частоту дискретизации файла и количество аудиоканалов. Язык распознавания укажите в поле `languageCode`.
+Чтобы распознать речь в формате [LPCM](formats.md#lpcm), в настройках распознавания укажите частоту дискретизации файла и количество аудиоканалов. Язык распознавания укажите в поле `languageCode`, языковую модель задайте в поле `model`.
 
 1. Сформируйте тело запроса и сохраните его в файл, например `body.json`:
 
+    {% note info %}
+
+    Чтобы использовать языковую модель по умолчанию, не передавайте поле `model` в запросе.
+
+    {% endnote %}
+    
     ```json
     {
         "config": {
             "specification": {
                 "languageCode": "ru-RU",
+                "model": "general:rc",
                 "audioEncoding": "LINEAR16_PCM",
                 "sampleRateHertz": 8000,
                 "audioChannelCount": 1
@@ -360,6 +369,7 @@ operationId | Идентификатор операции, полученный 
         }
     }
     ```
+
 1. Отправьте запрос на распознавание:
     ```bash
     $ export IAM_TOKEN=CggaATEVAgA...

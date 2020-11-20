@@ -4,6 +4,17 @@ Aliases are linked to specific devices. To delete an alias, you need [the device
 
 {% list tabs %}
 
+- Management console
+
+   To delete an alias:
+   1. In the [management console]({{ link-console-main }}), select the folder to delete the alias from.
+   1. Select **{{ iot-name }}**.
+   1. Select the desired registry from the list.
+   1. In the left part of the window, select **Devices**.
+   1. To the right of the device name, click ![image](../../../../_assets/horizontal-ellipsis.svg) and select **Edit** from the drop-down list.
+   1. To the right of the alias to delete, click ![image](../../../../_assets/cross.svg).
+   1. Click **Save**.
+
 - CLI
 
     {% include [cli-install](../../../../_includes/cli-install.md) %}

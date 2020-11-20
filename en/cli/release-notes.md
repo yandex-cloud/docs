@@ -187,7 +187,7 @@ with a `yc` command, we can likely help you faster if you attach your log file.
 
   These commands let you manage NAT on already existing instances.
 
-- Commands `yc compute instance create` and `yc compute instance create`
+- Commands `yc compute instance create` and `yc compute instance update`
 
   Added the `--network-settings` flag to change the network type to `Software accelerated` and back to `Standard`.
 

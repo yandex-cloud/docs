@@ -5,7 +5,7 @@ To create a user certificate:
 {% list tabs %}
 
 - Management console
-    1. In the [management console]({{ link-console-main }}), select the folder to delete a certificate from.
+    1. In the [management console]({{ link-console-main }}), select the folder to create your certificate in.
     1. In the list of services, select **{{ certificate-manager-name }}**.
     1. Click **Add certificate**.
     1. In the menu that opens, select **User certificate**.
@@ -22,7 +22,57 @@ To create a user certificate:
         1. Click **Add**.
     1. Click **Create**.
 
-    A new certificate with the `Issued` status appears in the certificate list.
+- CLI
+
+    {% include [cli-install](../../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+    1. View a description of the command:
+
+        ```bash
+        yc certificate-manager certificate create --help
+        ```
+
+    1. Run the command:
+
+        ```bash
+        yc certificate-manager certificate create \
+          --name mycert \
+          --chain mycert.pem \
+          --key mykey.pem
+        ```
+
+        Command parameters:
+          - `--name`: Certificate name.
+          - `--chain`: Path to the certificate chain file.
+          - `--key`: Path to the file of the certificate private key.
+
+        Command results:
+
+        ```bash
+        id: fpqmg47avvimp7rvmp30
+        folder_id: b1g7gvsi89m34qmcm3ke
+        created_at: "2020-09-15T06:54:44.916325Z"
+        name: mycert
+        type: IMPORTED
+        domains:
+        - example.com
+        status: ISSUED
+        issuer: CN=example.com
+        subject: CN=example.com
+        serial: c32fd55592a376635fa53d9aea677caae6bf08f
+        updated_at: "2020-09-15T06:54:44.916325Z"
+        issued_at: "2020-09-15T06:54:44.916325Z"
+        not_after: "2021-09-15T06:48:26Z"
+        not_before: "2020-09-15T06:48:26Z"
+        ```
+
+- API
+
+    To create a certificate, use the [create](../../api-ref/Certificate/create.md) method for the [Certificate](../../api-ref/Certificate/) resource.
 
 {% endlist %}
+
+A new certificate with the `Issued` status appears in the certificate list.
 

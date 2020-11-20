@@ -1,6 +1,6 @@
 # Quotas and limits
 
-During the [Preview stage](../../overview/concepts/launch-stages.md), {{ certificate-manager-name }} is subject to the following restrictions:
+{{ certificate-manager-name }} has the following limits:
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
 

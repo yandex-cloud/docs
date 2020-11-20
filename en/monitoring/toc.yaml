@@ -64,7 +64,13 @@ items:
   - name: Access management
     href: security/index.md
   - name: Pricing policy
-    href: pricing.md
+    items:
+      - name: Current pricing policy
+        href: pricing.md
+      - name: Archive
+        items:
+          - name: 'Policy before October 1, 2020'
+            href: pricing-archive/pricing-01102020.md
   - name: API reference
     items:
       - name: Authentication in the API

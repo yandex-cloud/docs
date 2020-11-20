@@ -1,4 +1,4 @@
-# Attaching disks to a VM
+# Attaching a disk to a VM
 
 You can attach a disk to either a running or stopped virtual machine.
 
@@ -8,7 +8,21 @@ For a disk to be successfully attached to a running VM, the operating system mus
 
 ## Attaching a disk {#attach}
 
+To attach a disk to a VM:
+
 {% list tabs %}
+
+- Management console
+   1. Select the folder the VM belongs to.
+   1. Select **{{ compute-full-name }}**.
+   1. Go to **Disks**.
+   1. Under **Disks**, select an unmounted disk or [create](../disk-create/empty.md) a new one.
+   1. Next to the desired disk, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **Attach**.
+   1. In the window that opens:
+      - In the **VM** field, select the virtual machine you want to mount your disk to.
+      - Enter a **Device name**.
+      - Select the value of the **Delete automatically** parameter.
+   1. Click **Attach**.
 
 - CLI
 
@@ -92,7 +106,7 @@ After attaching the disk to the Linux VM, mount it:
     $ sudo tune2fs -U $(uuidgen) /dev/vdb2
     ```
 
-    This method works for partitions with `ext2`, `ext3`, and `ext4` file systems. The latter is used in the Linux images provided by Yandex.Cloud. The file system type is returned by the `blkid` command in the `TYPE` parameter.
+    This method works for partitions with `ext2`, `ext3`, and `ext4` file systems. The latter is used in the Linux images provided by {{ yandex-cloud }}. The file system type is returned by the `blkid` command in the `TYPE` parameter.
 
     To see if the UUID changed, run the `blkid` command again:
 
@@ -114,9 +128,8 @@ To partition and mount an empty disk yourself:
 
 1. Run the `lsblk` command to check whether the disk is connected as a device and get its path in the system.  An empty disk is usually labeled `/dev/vdb`.
 
-1. Partition your disk. To do this, create [partitions](https://help.ubuntu.com/stable/ubuntu-help/disk-partitions.html.en) on the disk using the [`cfdisk`](https://manpages.ubuntu.com/manpages/xenial/en/man8/cfdisk.8.html), `fdisk`, or `parted` utilities. Format the disk for the appropriate file system. For example, you can use the [`mkfs`](https://manpages.ubuntu.com/manpages/xenial/man8/mkfs.8.html) utility.
+1. Partition your disk. To do this, create [partitions](https://help.ubuntu.com/stable/ubuntu-help/disk-partitions.html.en) on the disk using the [cfdisk](https://manpages.ubuntu.com/manpages/xenial/en/man8/cfdisk.8.html), `fdisk`, or `parted` utilities. Format the disk for the appropriate file system. For example, you can use the [mkfs](https://manpages.ubuntu.com/manpages/xenial/man8/mkfs.8.html) utility.
 
 1. {% include [include](../../../_includes/compute/mount-disk.md) %}
 
 1. Run the `df` command to check the state of the file system.
-

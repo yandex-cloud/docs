@@ -1,5 +1,7 @@
 {% note warning %}
 
+The serial console is not available to [federated users](../../iam/concepts/users/identity-federations.md). They can only connect to a VM via [CLI](../../cli/quickstart.md) or [SSH](../../compute/operations/vm-connect/ssh.md).
+
 Assess the risk of enabling access via the serial console considering the following:
 
 * The user will be able to manage the VM from the internet even if there is no external IP address.

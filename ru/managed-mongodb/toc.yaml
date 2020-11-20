@@ -42,7 +42,15 @@ items:
       - name: Взаимосвязь ресурсов сервиса
         href: concepts/index.md
       - name: Классы хостов
-        href: concepts/instance-types.md
+        items:
+          - name: Действующие классы хостов
+            href: concepts/instance-types.md
+          - name: Архив
+            items:
+              - name: До 1 июня 2020 года
+                href: concepts/instance-types-archive/instance-types-01062020.md
+          - name: Использование устаревших классов хостов
+            href: concepts/using-deprecated-instances.md
       - name: Сеть в Managed Service for MongoDB
         href: concepts/network.md
       - name: Квоты и лимиты

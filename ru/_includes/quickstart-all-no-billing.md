@@ -1,27 +1,27 @@
-- Создать виртуальную машину в {{ compute-name }}:
+- Создайте виртуальную машину в {{ compute-name }}:
   - [Linux](../compute/quickstart/quick-create-linux.md).
   - [Windows](../compute/quickstart/quick-create-windows.md).
   - [группу виртуальных машин](../compute/quickstart/ig.md).
-- Использовать сервисы для хранения:
-  - [Разместить файлы в {{ objstorage-name }}](../storage/quickstart.md).
-  - [Загрузить Docker-образ в реестр в {{ container-registry-name }}](../container-registry/quickstart/index.md).
-- Настроить сети:
-  - [Создать облачную сеть в {{ vpc-name }}](../vpc/quickstart.md).
-  - [Настроить балансировщик в {{ load-balancer-name }}](../load-balancer/quickstart.md).
-- Управлять доступом:
-  - [Добавить пользователей и назначить им роли в {{ iam-short-name }}](../iam/quickstart.md).
-  - [Создать новый каталог в облаке и предоставить к нему доступ в {{ resmgr-name }}](../resource-manager/quickstart.md).
-- Создать кластер баз данных:
+- Используйте сервисы для хранения:
+  - [Разместите файлы в {{ objstorage-name }}](../storage/quickstart.md).
+  - [Загрузите Docker-образ в реестр в {{ container-registry-name }}](../container-registry/quickstart/index.md).
+- Настройте сети:
+  - [Создайте облачную сеть в {{ vpc-name }}](../vpc/quickstart.md).
+  - [Настройте балансировщик в {{ load-balancer-name }}](../load-balancer/quickstart.md).
+- Управляйте доступом:
+  - [Добавьте пользователей и назначьте им роли в {{ iam-short-name }}](../iam/quickstart.md).
+  - [Создайте новый каталог в облаке и предоставьте к нему доступ в {{ resmgr-name }}](../resource-manager/quickstart.md).
+- Создайте кластер баз данных:
   - [ClickHouse](../managed-clickhouse/quickstart.md).
   - [MongoDB](../managed-mongodb/quickstart.md).
   - [MySQL](../managed-mysql/quickstart.md).
   - [Redis](../managed-redis/quickstart.md)
   - [PostgreSQL](../managed-postgresql/quickstart.md).
-- Использовать машинное обучение:
-  - [Преобразовать текст в речь и распознать речь в {{ speechkit-name }}](../speechkit/quickstart.md).
-  - [Перевести текст в {{ translate-name }}](../translate/quickstart.md).
-  - [Анализировать изображение с помощью компьютерного зрения в {{ vision-name }}](../vision/quickstart.md).
+- Используйте машинное обучение:
+  - [Преобразуйте текст в речь и наоборот с помощью {{ speechkit-name }}](../speechkit/quickstart.md).
+  - [Переведите текст в {{ translate-name }}](../translate/quickstart.md).
+  - [Анализируйте изображение с помощью компьютерного зрения в {{ vision-name }}](../vision/quickstart.md).
 - Прочее:
-  - [Создать кластер {{ k8s }}](../managed-kubernetes/quickstart.md).
-  - [Настроить обмен сообщениями между приложениями в {{ message-queue-name }}](../message-queue/quickstart.md).
-  - [Визуализировать данные в {{ datalens-name }}](../datalens/).
+  - [Создайте кластер {{ k8s }}](../managed-kubernetes/quickstart.md).
+  - [Настройте обмен сообщениями между приложениями в {{ message-queue-name }}](../message-queue/quickstart.md).
+  - [Визуализируйте данные в {{ datalens-name }}](../datalens/).

@@ -4,12 +4,16 @@ Resources you can [assign](../../operations/roles/grant.md) roles to, [view](../
 
 **{{ resmgr-name }}:**
 
-* [Clouds](../../../resource-manager/concepts/resources-hierarchy.md#cloud)
+* [Cloud](../../../resource-manager/concepts/resources-hierarchy.md#cloud)
 * [Folders](../../../resource-manager/concepts/resources-hierarchy.md#folder)
 
 **{{ iam-name }}:**
 
 * [Service accounts](../users/service-accounts.md)
+
+**{{ certificate-manager-name }}:**
+
+* [Certificates](../../../certificate-manager/concepts/index.md)
 
 **{{ container-registry-name }}:**
 

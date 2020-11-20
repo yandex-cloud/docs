@@ -1,6 +1,5 @@
 title: "Yandex Certificate Manager"
 description:
-  - "Certificate Manager is currently in the <a href=\"/docs/overview/concepts/launch-stages\">Preview stage</a></em>."
   - "Yandex Certificate Manager is a service where you can obtain and update TLS certificates from Let's Encrypt<sup>®</sup> and upload your own certificates to access static websites over HTTPS."
 meta:
   title: "Yandex Certificate Manager"
@@ -18,8 +17,8 @@ links:
   description: "Technical and organizational limitations of the service"
   href: "concepts/limits"
 - title: "Access management"
-  description: "Access rights required for using the service"
+  description: "Permissions required for using the service"
   href: "security/"
 - title: "Pricing policy"
-  description: "Service pricing and cost calculations"
+  description: "Prices and rules for calculating the service cost"
   href: "pricing"
