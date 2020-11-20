@@ -53,6 +53,8 @@ items:
             href: operations/dataset/create-field.md
           - name: Создание вычисляемого поля данных
             href: operations/dataset/create-calculated-field.md
+          - name: Обновление полей в датасете
+            href: operations/dataset/update-field.md
           - name: Материализация датасета
             href: operations/dataset/materialize.md
           - name: Управление доступом к датасету
