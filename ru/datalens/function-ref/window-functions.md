@@ -15,12 +15,7 @@ editable: false
     - некорректная: `MAX(RANK([Profit] TOTAL))`.
     - некорректная: `RANK([Profit] TOTAL)`, где `[Profit]` - неагрегированное выражение.
 
-2. Вызовы оконных функций не могут быть вложены один в другой.
-
-    Пример:
-    - некорректная формула: `RSUM(RANK(SUM([Profit]) WITHIN [Order Date]) TOTAL)`.
-
-3. Ключевое слово `AMONG` не может быть использовано с измерениями, которые не входят в запрос данных.
+1. Ключевое слово `AMONG` не может быть использовано с измерениями, которые не входят в запрос данных.
 
     Пример:
     - некорректная формула: `RANK(SUM([Profit]) AMONG [City])` с измерениями `[Order Date]` и `[Category]`.
@@ -37,6 +32,8 @@ editable: false
     | AMONG dim1, dim2, ... ]
 
     [ ORDER BY field1, field2, ... ]
+
+    [ BEFORE FILTER BY filtered_field1, ... ]
 )
 ```
 
@@ -74,6 +71,21 @@ editable: false
 - функция — `... ORDER BY [Date] DESC, [City]`;
 - чарт — сортировка по `Date` и `Category`;
 - результат сортировки — `Date` (по убыванию), `City`, `Category`.
+
+### BEFORE FILTER BY {#syntax-before-filter-by}
+
+Если какие-либо поля перечислены в `BEFORE FILTER BY`, то эта оконная функция будет рассчитана до фильтрации данных по этим полям.
+
+`BEFORE FILTER BY` применяется также и ко всем вложенным оконным функциям.
+Пример:
+- функция — `MAVG(RSUM([Sales] BEFORE FILTER BY [Date]), 10)';
+- эквивалент — `MAVG(RSUM([Sales] BEFORE FILTER BY [Date]), 10 BEFORE FILTER BY [Date])`.
+
+Не используйте кофликтующие `BEFORE FILTER BY` в запросе:
+- корректная формула: `MAVG(RSUM([Sales] BEFORE FILTER BY [Date], [Category]), 10 BEFORE FILTER BY [Date])` — функции вложены друг в друга, и (`[Date]`) является подмножеством (`[Date], [Category]`);
+- корректная формула: `MAVG(RSUM([Sales] BEFORE FILTER BY [Category]), 10 BEFORE FILTER BY [Date])` — функции вложены друг в друга, поэтому списки полей комбинируются во второй из функций;
+- корректная формула: `RSUM([Sales] BEFORE FILTER BY [Date], [Category]) - RSUM([Sales] BEFORE FILTER BY [Date])` — (`[Date]`) является подмножеством (`[Date], [Category]`);
+- некорректная формула: `RSUM([Sales] BEFORE FILTER BY [Category]) - RSUM([Sales] BEFORE FILTER BY [Date])` — функции не вложены, и ни одно из (`[Category]`) и (`[Date]`) не является подмножеством другого.
 
 ## Агрегатные функции как оконные {#aggregate-functions-as-window-functions}
 

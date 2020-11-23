@@ -1,0 +1,35 @@
+---
+editable: false
+---
+
+# URL
+
+_Функции разметки_
+
+#### Синтаксис {#syntax}
+
+
+```
+URL( address, text )
+```
+
+#### Описание {#description}
+Оборачивает `text` в ссылку на URL `address`.
+
+**Типы аргументов:**
+- `address` — `Строка`
+- `text` — `Разметка | Строка`
+
+
+**Возвращаемый тип**: `Разметка`
+
+#### Примеры {#examples}
+
+```
+URL('https://example.com/?value=' + [value], [value]))
+```
+
+
+#### Поддержка источников данных {#data-source-support}
+
+`Материализованный датасет`, `ClickHouse 1.1`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`.
