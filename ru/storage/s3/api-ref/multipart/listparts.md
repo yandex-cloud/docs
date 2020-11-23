@@ -56,27 +56,31 @@ GET /{bucket}/{key}?uploadId=UploadId HTTP/1.1
 <ListPartsResult xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
   <Bucket>example-bucket</Bucket>
   <Key>example-object</Key>
-  <UploadId>XXBsb2FkIElEIGZvciBlbHZpbmcncyVcdS1tb3ZpZS5tMnRzEEEwbG9hZA</UploadId>
+  <UploadId>0005B46503714F29</UploadId>
   <Initiator>
-      <ID>arn:aws:iam::111122223333:user/some-user-11116a31-17b5-4fb7-9df5-b288870f11xx</ID>
-      <DisplayName>umat-user-11116a31-17b5-4fb7-9df5-b288870f11xx</DisplayName>
+      <ID>ajeanexampleuser</ID>
+      <DisplayName>ajeanexampleuser</DisplayName>
   </Initiator>
+  <Owner>
+      <ID>ajeanexampleuser</ID>
+      <DisplayName>ajeanexampleuser</DisplayName>
+  </Owner>
   <StorageClass>STANDARD</StorageClass>
-  <PartNumberMarker>1</PartNumberMarker>
-  <NextPartNumberMarker>3</NextPartNumberMarker>
+  <PartNumberMarker>0</PartNumberMarker>
+  <NextPartNumberMarker>2</NextPartNumberMarker>
   <MaxParts>2</MaxParts>
   <IsTruncated>true</IsTruncated>
   <Part>
-    <PartNumber>2</PartNumber>
-    <LastModified>2010-11-10T20:48:34.000Z</LastModified>
-    <ETag>"7778aef83f66abc1fa1e8477f296d394"</ETag>
-    <Size>10485760</Size>
+    <PartNumber>1</PartNumber>
+    <LastModified>2020-11-18T17:33:46.787Z</LastModified>
+    <ETag>"1430884b802ee5206cbe0ca0cf9b73d4"</ETag>
+    <Size>8388608</Size>
   </Part>
   <Part>
-    <PartNumber>3</PartNumber>
-    <LastModified>2010-11-10T20:48:33.000Z</LastModified>
-    <ETag>"aaaa18db4cc2f85cedef654fccc4a4x8"</ETag>
-    <Size>10485760</Size>
+    <PartNumber>2</PartNumber>
+    <LastModified>2020-11-18T17:33:46.812Z</LastModified>
+    <ETag>"449aa7eaff2e841923b0da9ff2be5946"</ETag>
+    <Size>8388608</Size>
   </Part>
 </ListPartsResult>
 ```
@@ -93,6 +97,7 @@ GET /{bucket}/{key}?uploadId=UploadId HTTP/1.1
 `Initiator` | Информация о пользователе, инициировавшем загрузку.<br/><br/>Путь: `/ListPartsResult/Initiator`.
 `ID` | Идентификатор пользователя.<br/><br/>Путь: `/ListPartsResult/Initiator/ID`.
 `DisplayName` | Отображаемое имя пользователя.<br/><br/>Путь: `/ListPartsResult/Initiator/DisplayName`.
+`Owner` | Информация о владельце объекта, совпадает с `Initiator`.<br/><br/>Путь: `/ListPartsResult/Owner`.
 `StorageClass` | Класс хранения объекта: `STANDARD` или `COLD`.<br/><br/>Путь: `/ListPartsResult/StorageClass`.
 `PartNumberMarker` | Номер части, после которого начинается список.<br/><br/>Первый элемент списка имеет номер, следующий за `PartNumberMarker`.<br/><br/>Путь: `/ListPartsResult/PartNumberMarker`.
 `NextPartNumberMarker` | Номер части, которым заканчивается текущий список.<br/><br/>Присутствует в случае, когда в ответ не поместился весь перечень частей.<br/><br/>Путь: `/ListPartsResult/NextPartNumberMarker`.

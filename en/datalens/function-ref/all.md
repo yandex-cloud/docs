@@ -233,6 +233,14 @@ The option `value NOT BETWEEEN low AND high` returns the opposite value.
 
 
 
+## [BOLD](BOLD.md)
+
+**Syntax:**`BOLD( text )`
+
+Stylizes the passed text in bold font.
+
+
+
 ## [BOOL](BOOL.md)
 
 **Syntax:**`BOOL( expression )`
@@ -712,6 +720,14 @@ The `value IS NOT TRUE` option returns the opposite value.
 
 
 
+## [ITALIC](ITALIC.md)
+
+**Syntax:**`ITALIC( text )`
+
+Stylizes the passed text in cursive font.
+
+
+
 ## [LEAST](LEAST.md)
 
 **Syntax:**`LEAST( value_1, value_2, value_3 [ , ... ] )`
@@ -792,6 +808,14 @@ Returns the string `string` in lowercase.
 **Syntax:**`LTRIM( string )`
 
 Returns the string `string` without spaces at the beginning of the string.
+
+
+
+## [MARKUP](MARKUP.md)
+
+**Syntax:**`MARKUP( arg_1, arg_2, arg_3 [ , ... ] )`
+
+Merges marked up text pieces. Can also be used for converting strings to marked up text.
 
 
 
@@ -1407,6 +1431,14 @@ Returns the string `string` without spaces at the beginning or end of the string
 **Syntax:**`UPPER( string )`
 
 Returns the string `string` in uppercase.
+
+
+
+## [URL](URL.md)
+
+**Syntax:**`URL( address, text )`
+
+Wraps `text` into a hyperlink to URL `address`.
 
 
 

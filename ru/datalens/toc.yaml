@@ -53,6 +53,8 @@ items:
             href: operations/dataset/create-field.md
           - name: Создание вычисляемого поля данных
             href: operations/dataset/create-calculated-field.md
+          - name: Обновление полей в датасете
+            href: operations/dataset/update-field.md
           - name: Материализация датасета
             href: operations/dataset/materialize.md
           - name: Управление доступом к датасету
@@ -249,6 +251,18 @@ items:
             href: function-ref/ISNULL.md
           - name: ZN
             href: function-ref/ZN.md
+      - name: Функции разметки
+        items:
+          - name: Обзор
+            href: function-ref/markup-functions.md
+          - name: BOLD
+            href: function-ref/BOLD.md
+          - name: ITALIC
+            href: function-ref/ITALIC.md
+          - name: MARKUP
+            href: function-ref/MARKUP.md
+          - name: URL
+            href: function-ref/URL.md
       - name: Математические функции
         items:
           - name: Обзор

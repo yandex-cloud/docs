@@ -9,7 +9,7 @@ Returns chain and private key of the specified certificate.
  
 ## HTTP request {#https-request}
 ```
-GET https://certificate-manager.api.cloud.yandex.net/certificate-manager/v1/certificates/{certificateId}:getContent
+GET https://data.certificate-manager.api.cloud.yandex.net/certificate-manager/v1/certificates/{certificateId}:getContent
 ```
  
 ## Path parameters {#path_params}

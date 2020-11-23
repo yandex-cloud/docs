@@ -15,12 +15,7 @@ Aggregate functions are calculated from groups of values that are determined by 
     - Not valid: `MAX(RANK([Profit] TOTAL))`.
     - Not valid: `RANK([Profit] TOTAL)`, where `[Profit]` is not an aggregate expression.
 
-2. A window function cannot be nested into another window function.
-
-    Example:
-    - Not valid: `RSUM(RANK(SUM([Profit]) WITHIN [Order Date]) TOTAL)`.
-
-3. The `AMONG` keyword cannot be used with dimensions that are not included in the data query.
+1. The `AMONG` keyword cannot be used with dimensions that are not included in the data query.
 
     Example:
     - Not valid: `RANK(SUM([Profit]) AMONG [City])` with dimensions `[Order Date]` and `[Category]`.
@@ -37,6 +32,8 @@ The general syntax for window functions is as follows:
     | AMONG dim1, dim2, ... ]
 
     [ ORDER BY field1, field2, ... ]
+
+    [ BEFORE FILTER BY filtered_field1, ... ]
 )
 ```
 
@@ -74,6 +71,21 @@ Example:
 - Function — `... ORDER BY [Date] DESC, [City]`.
 - Chart — Sorted by `Date` and `Category`.
 - Result — `Date` (descending), `City`, `Category`.
+
+### BEFORE FILTER BY {#syntax-before-filter-by}
+
+If any fields are listed in `BEFORE FILTER BY`, then this window function is calculated before data is filtered using these fields.
+
+`BEFORE FILTER BY` applies to all nested window functions too.
+Example:
+- Formula — `MAVG(RSUM([Sales] BEFORE FILTER BY [Date]), 10)'
+- Equivalent — `MAVG(RSUM([Sales] BEFORE FILTER BY [Date]), 10 BEFORE FILTER BY [Date])`.
+
+Do not use conflicting `BEFORE FILTER BY` clauses:
+- Valid: `MAVG(RSUM([Sales] BEFORE FILTER BY [Date], [Category]), 10 BEFORE FILTER BY [Date])` — functions are nested and (`[Date]`) is a subset of (`[Date], [Category]`).
+- Valid: `MAVG(RSUM([Sales] BEFORE FILTER BY [Category]), 10 BEFORE FILTER BY [Date])` — functions are nested, so field lists are combined in the second of the two functions.
+- Valid: `RSUM([Sales] BEFORE FILTER BY [Date], [Category]) - RSUM([Sales] BEFORE FILTER BY [Date])` — (`[Date]`) is a subset of (`[Date], [Category]`).
+- Not valid: `RSUM([Sales] BEFORE FILTER BY [Category]) - RSUM([Sales] BEFORE FILTER BY [Date])` — functions are not nested and neither of (`[Category]`) and (`[Date]`) is a subset of the other.
 
 ## Aggregate Functions as Window Functions {#aggregate-functions-as-window-functions}
 
