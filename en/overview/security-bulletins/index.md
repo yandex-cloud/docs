@@ -2,6 +2,16 @@
 
 This page lists security recommendations given by Yandex.Cloud experts.
 
+## 19.11.2020: Deprecation of outdated TLS protocols
+
+### Description
+
+To improve security of data transmission, {{ yandex-cloud }} recommends all users to migrate towards solutions that support [TLS 1.2](https://tools.ietf.org/html/rfc5246) protocol and higher.
+
+### Impact on Yandex.Cloud services
+
+All {{ yandex-cloud}} services support TLS 1.2 and higher. Support for outdated protocols will be phased out soon. We strongly recommend to switch all customer applications to higher TLS versions in advance.
+
 ## 20.09.2020: CVE-2020-1472 (aka Zerologon)
 
 ### Description
