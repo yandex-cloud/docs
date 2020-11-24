@@ -22,3 +22,6 @@ links:
 - title: "Решение проблем"
   description: "Узнайте, как собрать диагностическую информацию"
   href: "error"
+- title: "Справочник CLI"
+  description: "Дерево команд CLI"
+  href: "command-tree/"

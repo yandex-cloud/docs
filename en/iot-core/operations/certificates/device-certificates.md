@@ -4,43 +4,15 @@ For devices and registries to begin exchanging data and commands, you need to [l
 
 {% include [pass-priority-note](../../../_includes/iot-core/pass-priority-note.md) %}
 
-- [Viewing a list of device certificates](device-certificates.md#list-cert)
-- [Adding a certificate to a device](device-certificates.md#add-cert)
-- [Deleting a device certificate](device-certificates.md#delete-cert)
+- [Viewing a list of device certificates](device-certificates.md#list-cert).
+- [Adding a certificate to a device](device-certificates.md#add-cert).
+- [Deleting a device certificate](device-certificates.md#delete-cert).
 
 To access a [device](../../concepts/index.md#device), use its unique ID or name. For information about how to get its unique ID or name, see [{#T}](../device/device-list.md).
 
-## Viewing a list of certificates {#list-cert}
+## Getting a list of certificates {#device-certificates-list}
 
-{% list tabs %}
-
-- Management console
-
-   To view the list of device certificates:
-   1. In the [management console]({{ link-console-main }}), select the folder to view the list of device certificates in.
-   1. Select **{{ iot-name }}**.
-   1. Click on the name of the registry.
-   1. In the left menu, select **Devices**.
-   1. Select the desired device from the list.
-   1. On the **Overview** page, go to the **Certificates** section.
-
-- CLI
-
-  {% include [cli-install](../../../_includes/cli-install.md) %}
-
-  View the list of device certificates:
-
-  ```
-  $ yc iot device certificate list --device-name my-device
-  +------------------------------------------+---------------------+
-  |               FINGERPRINT                |     CREATED AT      |
-  +------------------------------------------+---------------------+
-  | df3cc4f337eba01a264803d15b119e2d33943315 | 2019-05-29 17:14:36 |
-  | 65e5b050069da5ca5996a4a8a92514098b0a5dd1 | 2019-05-29 17:14:18 |
-  +------------------------------------------+---------------------+
-  ```
-
-{% endlist %}
+{% include [device-certificates-list](../../../_includes/iot-core/device-certificates-list.md) %}
 
 ## Adding a certificate {#add-cert}
 
@@ -52,7 +24,7 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
 
    1. In the [management console]({{ link-console-main }}), select the folder to add the device certificate to.
 
-   1. Select **{{ iot-name }}**.
+   1. Select the **{{ iot-name }}**.
 
    1. Click on the name of the registry.
 
@@ -103,7 +75,7 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
 
    To delete a device certificate:
    1. In the [management console]({{ link-console-main }}), select the folder to delete the device certificate from.
-   1. Select **{{ iot-name }}**.
+   1. Select the **{{ iot-name }}**.
    1. Click on the name of the registry.
    1. In the left menu, select **Devices**.
    1. Select the desired device from the list.
@@ -132,4 +104,3 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
       ```
 
 {% endlist %}
-
