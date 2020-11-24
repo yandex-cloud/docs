@@ -30,9 +30,9 @@ GRANT SELECT ON DATABASE db1 TO user2;
   Чтобы назначить роли, выполните команду:
 
   ```
-  $ {{ yc-mdb-pg }} user update <имя пользователя>
-       --cluster-name <имя кластера>
-       --grants="<роль1,роль2>"
+  $ {{ yc-mdb-pg }} user update <имя пользователя> \
+         --grants=<роль1,роль2> \
+         --cluster-id <идентификатор кластера>
   ```
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md), имя пользователя — в [списке пользователей](../operations/cluster-users.md#list-users).
