@@ -67,6 +67,7 @@ POST https://transcribe.api.cloud.yandex.net/speech/stt/v2/longRunningRecognize
     "config": {
         "specification": {
             "languageCode": "string",
+            "model": "string",
             "profanityFilter": "string",
             "audioEncoding": "string",
             "sampleRateHertz": "integer",
@@ -84,11 +85,12 @@ POST https://transcribe.api.cloud.yandex.net/speech/stt/v2/longRunningRecognize
 | config | **object**<br>Field with the recognition settings. |
 | config.<br>specification | **object**<br>Recognition settings. |
 | config.<br>specification.<br>languageCode | **string**<br>The language that recognition will be performed for.<br/>Only Russian is currently supported (`ru-RU`). |
-| config.<br>specification.<br>profanityFilter | **boolean**<br>The profanity filter.<br/>Acceptable values:<ul><li>`true` — Exclude profanity from recognition results.</li><li>`false` (by default) — Do not exclude profanity from recognition results.</li></ul> |
-| config.<br>specification.<br>audioEncoding | **string**<br>[The format](formats.md) of the submitted audio.<br/>Acceptable values:<ul><li>`LINEAR16_PCM` — [LPCM with no WAV header](formats.md#lpcm).</li><li>`OGG_OPUS` (default) — [OggOpus](formats.md#oggopus) format.</li></ul> |
-| config.<br>specification.<br>sampleRateHertz | **integer** (int64)<br>The sampling frequency of the submitted audio.<br/>Required if `format` is set to `LINEAR16_PCM`. Acceptable values:<ul><li>`48000` (default) — Sampling rate of 48 kHz.</li><li>`16000` — Sampling rate of 16 kHz.</li><li>`8000` — Sampling rate of 8 kHz.</li></ul> |
+| config<br>.specification<br>.model | **string**<br>The language model to be used for recognition.<br/>The closer the model is matched, the better the recognition result. You can only specify one model per request.<br/>[Acceptable values](models.md) depend on the selected language. Default value: `general`. |
+| config.<br>specification.<br>profanityFilter | **boolean**<br>The profanity filter.<br/>Acceptable values:<ul><li>`true`: Exclude profanity from recognition results.</li><li>`false` (default): Do not exclude profanity from recognition results.</li></ul> |
+| config.<br>specification.<br>audioEncoding | **string**<br>[The format](formats.md) of the submitted audio.<br/>Acceptable values:<ul><li>`LINEAR16_PCM`: [LPCM with no WAV header](formats.md#lpcm).</li><li>`OGG_OPUS` (default): [OggOpus](formats.md#oggopus) format.</li></ul> |
+| config.<br>specification.<br>sampleRateHertz | **integer** (int64)<br>The sampling frequency of the submitted audio.<br/>Required if `format` is set to `LINEAR16_PCM`. Acceptable values:<ul><li>`48000` (default): Sampling rate of 48 kHz.</li><li>`16000`: Sampling rate of 16 kHz.</li><li>`8000`: Sampling rate of 8 kHz.</li></ul> |
 | config.<br>specification.<br>audioChannelCount | **integer** (int64)<br>The number of channels in [LPCM](formats.md#lpcm) files. By default, `1`.<br>Don't use this field for [OggOpus](formats.md#oggopus) files. |
-| config.<br>specification.<br>rawResults | **boolean** <br>Flag that indicates how to write numbers. `true` — In words. `false` (default) — In figures. |
+| config.<br>specification.<br>rawResults | **boolean** <br>Flag that indicates how to write numbers. `true`: In words. `false` (default): In figures. |
 | audio.<br>uri | **string**<br>The URI of the audio file for recognition. Supports only links to files stored in [Yandex Object Storage](/docs/storage/). |
 
 #### Response {#sendfile-response}
@@ -189,8 +191,7 @@ Each result in the `chunks[]` list contains the following fields:
 
 To use the service, create an app that will send audio fragments and process responses with recognition results.
 
-To enable the app to send requests and get results, you need to generate the client interface code for the programming language you use. Generate this code from the files [stt_service.proto](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/ai/stt/v2/stt_service.proto) and [operation_service.proto](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/operation/operation_service.proto)
-из репозитория [in the Yandex.Cloud API repository](https://github.com/yandex-cloud/cloudapi).
+To enable the app to send requests and get results, you need to generate the client interface code for the programming language you use. Generate this code from the files [stt_service.proto](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/ai/stt/v2/stt_service.proto) and [operation_service.proto](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/operation/operation_service.proto) in [the Yandex.Cloud API](https://github.com/yandex-cloud/cloudapi) repository.
 
 See the [gRPC documentation](https://grpc.io/docs/tutorials/) for detailed instructions on how to generate interfaces and deploy client apps for various programming languages.
 
@@ -212,7 +213,7 @@ To get the entire response, increase the maximum message size limit:
 
 ### Recognize Russian speech in OggOpus format {#examples_ogg}
 
-To recognize speech in [OggOpus](formats.md#oggopus) format, just specify the recognition language in the `languageCode` field of the configuration.
+To recognize speech in [OggOpus](formats.md#oggopus) format, just specify the recognition language in the `languageCode` field of the configuration. The language model used by default is `general`.
 
 {% list tabs %}
 
@@ -356,15 +357,22 @@ To recognize speech in [OggOpus](formats.md#oggopus) format, just specify the re
 
 ### Recognize speech in LPCM format {#examples_lpcm}
 
-To recognize speech in [LPCM](formats.md#lpcm) format, specify the file sampling frequency and the number of audio channels in the recognition settings. Set the recognition language in the `languageCode` field.
+To recognize speech in [LPCM](formats.md#lpcm) format, specify the file sampling frequency and the number of audio channels in the recognition settings. Set the recognition language in the `languageCode` field and the language model in the `model` field.
 
 1. Create a request body and save it to a file (for example, `body.json`):
+
+    {% note info %}
+
+    To use the default language model, don't pass the `model` field in the request.
+
+    {% endnote %}
 
     ```json
     {
         "config": {
             "specification": {
                 "languageCode": "ru-RU",
+                "model": "general:rc",
                 "audioEncoding": "LINEAR16_PCM",
                 "sampleRateHertz": 8000,
                 "audioChannelCount": 1
@@ -425,4 +433,3 @@ To recognize speech in [LPCM](formats.md#lpcm) format, specify the file sampling
     "modifiedAt": "2019-04-21T22:49:36Z"
     }
     ```
-
