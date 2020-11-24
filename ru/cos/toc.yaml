@@ -19,6 +19,8 @@ items:
         href: solutions/vm-update.md
       - name: Настройка вывода информации из Docker-контейнера в серийный порт
         href: solutions/serial-port.md
+      - name: Создать ВМ и группу ВМ с Container Optimized Image с помощью Terraform
+        href: solutions/coi-with-terraform.md
   - name: Концепции
     items:
       - name: Образ Container Optimized Image
