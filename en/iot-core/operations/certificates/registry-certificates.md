@@ -4,41 +4,15 @@ For devices and registries to begin exchanging data and commands, you need to [l
 
 {% include [pass-priority-note](../../../_includes/iot-core/pass-priority-note.md) %}
 
-- [Viewing a list of registry certificates](registry-certificates.md#list-cert)
-- [Adding a certificate to a registry](registry-certificates.md#add-cert)
-- [Deleting a registry certificate](registry-certificates.md#delete-cert)
+- [Viewing a list of registry certificates](registry-certificates.md#list-cert).
+- [Adding a certificate to a registry](registry-certificates.md#add-cert).
+- [Deleting a registry certificate](registry-certificates.md#delete-cert).
 
 To access a [registry](../../concepts/index.md#registry), use its unique ID or name. For information about how to find the unique ID or name, see [{#T}](../registry/registry-list.md).
 
-## Viewing a list of certificates {#list-cert}
+## Getting a list of registry certificates {#registry-certificates-list}
 
-{% list tabs %}
-
-- Management console
-
-   To view the list of registry certificates:
-   1. In the [management console]({{ link-console-main }}), select the folder to view the list of registry certificates in.
-   1. Select **{{ iot-name }}**.
-   1. Select the desired registry from the list.
-   1. On the **Overview** page, go to the **Certificates** section.
-
-- CLI
-
-  {% include [cli-install](../../../_includes/cli-install.md) %}
-
-  View the list of registry certificates:
-
-  ```
-  $ yc iot registry certificate list --registry-name my-registry
-  +------------------------------------------+---------------------+
-  |               FINGERPRINT                |     CREATED AT      |
-  +------------------------------------------+---------------------+
-  | 0f511ea32139178edf73afb953a9cc398f33adf1 | 2019-05-29 16:46:23 |
-  | 589ce1605019eeff7bb0992f290be0cd708ecc6c | 2019-05-29 16:40:48 |
-  +------------------------------------------+---------------------+
-  ```
-
-{% endlist %}
+{% include [registry-certificates-list](../../../_includes/iot-core/registry-certificates-list.md) %}
 
 ## Adding a certificate {#add-cert}
 
@@ -50,7 +24,7 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
 
    1. In the [management console]({{ link-console-main }}), select the folder to add the registry certificate to.
 
-   1. Select **{{ iot-name }}**.
+   1. Select the **{{ iot-name }}**.
 
    1. Select the desired registry from the list.
 
@@ -97,7 +71,7 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
 
    To delete a registry certificate:
    1. In the [management console]({{ link-console-main }}), select the folder to delete the registry certificate from.
-   1. Select **{{ iot-name }}**.
+   1. Select the **{{ iot-name }}**.
    1. Select the desired registry from the list.
    1. On the **Overview** page, go to the **Certificates** section.
    1. In the line with the appropriate certificate, click ![image](../../../_assets/horizontal-ellipsis.svg), and select **Delete** from the drop-down list.
@@ -124,4 +98,3 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
       ```
 
 {% endlist %}
-

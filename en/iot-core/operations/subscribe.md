@@ -282,5 +282,6 @@ Only devices subscribed to the `$registries/<registry ID>/commands` or `$registr
         - `--topic`: Registry topic for sending commands.
         - `--message`: Message text.
         - `--qos`: [Quality of service (QoS)](../concepts/index.md#qos).
-
+        
 {% endlist %}
+

@@ -8,7 +8,10 @@ With {{ datalens-public }}, you can grant public access to created charts and da
 
 To publish a chart or dashboard, make sure you meet the following conditions:
 
-- [Materializing a dataset](../operations/dataset/materialize.md). After the materialization, {{datalens-short-name}} has guaranteed access to data.
+- [Materializing a dataset](../operations/dataset/materialize.md). After the materialization, {{datalens-short-name}} has guaranteed access to data. 
+
+    {% include [datalens-materialization](../../_includes/datalens/datalens-materialization.md) %}
+
 - Grant permissions to publish related datasets and connections. To do this, you need to have `{{ permission-admin }}` permission to these objects.
 
 ## Embedding public charts {#embedded-public-chart}

@@ -22,3 +22,6 @@ links:
 - title: "Troubleshooting"
   description: "Find out how to collect diagnostic information"
   href: "error"
+- title: "CLI reference"
+  description: "CLI command tree"
+  href: "command-tree/"

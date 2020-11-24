@@ -8,7 +8,10 @@
 
 Для публикации чарта или дашборда необходимо выполнить следующие условия:
 
-- [Материализовать датасет](../operations/dataset/materialize.md). После материализации {{datalens-short-name}} имеет гарантированный доступ к данным.
+- [Материализовать датасет](../operations/dataset/materialize.md). После материализации {{datalens-short-name}} имеет гарантированный доступ к данным. 
+
+    {% include [datalens-materialisation](../../_includes/datalens/datalens-materialisation.md) %}
+
 - Выдать права публикации на связанные датасеты и подключения. Для этого вам необходимо иметь права доступа `{{ permission-admin }}` на эти объекты.
 
 ## Встраивание публичных чартов {#embedded-public-chart}

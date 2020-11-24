@@ -3,7 +3,7 @@
 _A topic_ is a channel for messaging between devices and registries.
 
 The service supports [device topics](#devices-topic) and [registry topics](#registries-topic). Device topics identify messages intended for a specific device, and registry topics identify messages intended for all devices in that registry.
-Both of these types can use [subtopics](#subtopic).
+Both topic types can use [subtopics](#subtopic).
 
 If you have devices whose sensor readings you need to quickly respond to and you may face network communication problems and a broken connection between your devices and the MQTT broker, you can subscribe your devices and registries to [permanent topics](#permanent).
 For example, use permanent topics for temperature sensors on devices that need to be turned off quickly when heated to a certain temperature.
