@@ -69,6 +69,8 @@ items:
           href: concepts/mqtt-properties.md
         - name: Topic
           href: concepts/topic.md
+        - name: Backups
+          href: concepts/backup.md
         - name: Quotas and limits
           href: concepts/limits.md
   - name: Use cases
