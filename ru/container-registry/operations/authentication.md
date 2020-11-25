@@ -74,6 +74,18 @@ $ docker login \
              cr.yandex
     ```
 
+или используйте напрямую CLI:
+
+1. Выполните команду:
+
+    ```
+    $ yc iam create-token |
+         docker login \
+             --username iam \
+             --password-stdin \
+             cr.yandex
+    ```
+
 ## Аутентифицироваться как сервисный аккаунт {#sa}
 
 ### Аутентификация с помощью авторизованных ключей {#sa-json}
