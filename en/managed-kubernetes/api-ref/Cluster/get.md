@@ -116,6 +116,7 @@ clusterId | Required. ID of the Kubernetes cluster to return.
   "kmsProvider": {
     "keyId": "string"
   },
+  "logGroupId": "string",
   "gatewayIpv4Address": "string"
 }
 ```
@@ -186,4 +187,5 @@ networkPolicy | **object**<br>
 networkPolicy.<br>provider | **string**<br>
 kmsProvider | **object**<br>KMS provider configuration.<br>
 kmsProvider.<br>keyId | **string**<br><p>KMS key ID for secrets encryption. To obtain a KMS key ID use a <a href="/docs/kms/api-ref/SymmetricKey/list">list</a> request.</p> 
+logGroupId | **string**<br><p>Log group where cluster stores cluster system logs, like audit, events, or controlplane logs.</p> 
 gatewayIpv4Address | **string**<br><p>Gateway IPv4 address.</p> <p>The maximum string length in characters is 15.</p> 

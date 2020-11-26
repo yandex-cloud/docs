@@ -431,7 +431,10 @@ clusterId | Required. ID of the MongoDB Cluster resource to update. To get the M
     },
     // end of the list of possible fields`maintenanceWindow`
 
-  }
+  },
+  "securityGroupIds": [
+    "string"
+  ]
 }
 ```
 
@@ -703,6 +706,7 @@ maintenanceWindow.<br>anytime | **object** <br>`maintenanceWindow` includes only
 maintenanceWindow.<br>weeklyMaintenanceWindow | **object** <br>`maintenanceWindow` includes only one of the fields `anytime`, `weeklyMaintenanceWindow`<br><br>
 maintenanceWindow.<br>weeklyMaintenanceWindow.<br>day | **string**<br>
 maintenanceWindow.<br>weeklyMaintenanceWindow.<br>hour | **string** (int64)<br><p>Hour of the day in UTC.</p> <p>Acceptable values are 1 to 24, inclusive.</p> 
+securityGroupIds[] | **string**<br><p>User security groups</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

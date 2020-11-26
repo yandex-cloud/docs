@@ -56,6 +56,7 @@ node_service_account_id | **string**<br>Service account to be used by the worker
 release_channel | enum **ReleaseChannel**<br>When creating a Kubernetes cluster, you should specify one of three release channels. The release channel contains several Kubernetes versions. Channels differ in the set of available versions, the management of auto-updates, and the updates received. You can't change the channel once the Kubernetes cluster is created, you can only recreate the Kubernetes cluster and specify a new release channel. For more details see [documentation](https://cloud.yandex.com/docs/managed-kubernetes/concepts/release-channels-and-updates). <ul><li>`RAPID`: Minor updates with new functions and improvements are often added. You can't disable automatic updates in this channel, but you can specify a time period for automatic updates.</li><li>`REGULAR`: New functions and improvements are added in chunks shortly after they appear on `RAPID`.</li><li>`STABLE`: Only updates related to bug fixes or security improvements are added.</li><ul/>
 network_policy | **[NetworkPolicy](#NetworkPolicy)**<br> 
 kms_provider | **[KMSProvider](#KMSProvider)**<br>KMS provider configuration. 
+log_group_id | **string**<br>Log group where cluster stores cluster system logs, like audit, events, or controlplane logs. 
 
 
 ### Master {#Master}
@@ -233,6 +234,7 @@ node_service_account_id | **string**<br>Service account to be used by the worker
 release_channel | enum **ReleaseChannel**<br>When creating a Kubernetes cluster, you should specify one of three release channels. The release channel contains several Kubernetes versions. Channels differ in the set of available versions, the management of auto-updates, and the updates received. You can't change the channel once the Kubernetes cluster is created, you can only recreate the Kubernetes cluster and specify a new release channel. For more details see [documentation](https://cloud.yandex.com/docs/managed-kubernetes/concepts/release-channels-and-updates). <ul><li>`RAPID`: Minor updates with new functions and improvements are often added. You can't disable automatic updates in this channel, but you can specify a time period for automatic updates.</li><li>`REGULAR`: New functions and improvements are added in chunks shortly after they appear on `RAPID`.</li><li>`STABLE`: Only updates related to bug fixes or security improvements are added.</li><ul/>
 network_policy | **[NetworkPolicy](#NetworkPolicy1)**<br> 
 kms_provider | **[KMSProvider](#KMSProvider1)**<br>KMS provider configuration. 
+log_group_id | **string**<br>Log group where cluster stores cluster system logs, like audit, events, or controlplane logs. 
 
 
 ### Master {#Master1}
@@ -570,6 +572,7 @@ node_service_account_id | **string**<br>Service account to be used by the worker
 release_channel | enum **ReleaseChannel**<br>When creating a Kubernetes cluster, you should specify one of three release channels. The release channel contains several Kubernetes versions. Channels differ in the set of available versions, the management of auto-updates, and the updates received. You can't change the channel once the Kubernetes cluster is created, you can only recreate the Kubernetes cluster and specify a new release channel. For more details see [documentation](https://cloud.yandex.com/docs/managed-kubernetes/concepts/release-channels-and-updates). <ul><li>`RAPID`: Minor updates with new functions and improvements are often added. You can't disable automatic updates in this channel, but you can specify a time period for automatic updates.</li><li>`REGULAR`: New functions and improvements are added in chunks shortly after they appear on `RAPID`.</li><li>`STABLE`: Only updates related to bug fixes or security improvements are added.</li><ul/>
 network_policy | **[NetworkPolicy](#NetworkPolicy3)**<br> 
 kms_provider | **[KMSProvider](#KMSProvider3)**<br>KMS provider configuration. 
+log_group_id | **string**<br>Log group where cluster stores cluster system logs, like audit, events, or controlplane logs. 
 
 
 ### Master {#Master2}
@@ -844,6 +847,7 @@ node_service_account_id | **string**<br>Service account to be used by the worker
 release_channel | enum **ReleaseChannel**<br>When creating a Kubernetes cluster, you should specify one of three release channels. The release channel contains several Kubernetes versions. Channels differ in the set of available versions, the management of auto-updates, and the updates received. You can't change the channel once the Kubernetes cluster is created, you can only recreate the Kubernetes cluster and specify a new release channel. For more details see [documentation](https://cloud.yandex.com/docs/managed-kubernetes/concepts/release-channels-and-updates). <ul><li>`RAPID`: Minor updates with new functions and improvements are often added. You can't disable automatic updates in this channel, but you can specify a time period for automatic updates.</li><li>`REGULAR`: New functions and improvements are added in chunks shortly after they appear on `RAPID`.</li><li>`STABLE`: Only updates related to bug fixes or security improvements are added.</li><ul/>
 network_policy | **[NetworkPolicy](#NetworkPolicy5)**<br> 
 kms_provider | **[KMSProvider](#KMSProvider4)**<br>KMS provider configuration. 
+log_group_id | **string**<br>Log group where cluster stores cluster system logs, like audit, events, or controlplane logs. 
 
 
 ### Master {#Master3}
@@ -1077,6 +1081,7 @@ node_service_account_id | **string**<br>Service account to be used by the worker
 release_channel | enum **ReleaseChannel**<br>When creating a Kubernetes cluster, you should specify one of three release channels. The release channel contains several Kubernetes versions. Channels differ in the set of available versions, the management of auto-updates, and the updates received. You can't change the channel once the Kubernetes cluster is created, you can only recreate the Kubernetes cluster and specify a new release channel. For more details see [documentation](https://cloud.yandex.com/docs/managed-kubernetes/concepts/release-channels-and-updates). <ul><li>`RAPID`: Minor updates with new functions and improvements are often added. You can't disable automatic updates in this channel, but you can specify a time period for automatic updates.</li><li>`REGULAR`: New functions and improvements are added in chunks shortly after they appear on `RAPID`.</li><li>`STABLE`: Only updates related to bug fixes or security improvements are added.</li><ul/>
 network_policy | **[NetworkPolicy](#NetworkPolicy6)**<br> 
 kms_provider | **[KMSProvider](#KMSProvider5)**<br>KMS provider configuration. 
+log_group_id | **string**<br>Log group where cluster stores cluster system logs, like audit, events, or controlplane logs. 
 
 
 ### Master {#Master4}
@@ -1270,6 +1275,7 @@ node_service_account_id | **string**<br>Service account to be used by the worker
 release_channel | enum **ReleaseChannel**<br>When creating a Kubernetes cluster, you should specify one of three release channels. The release channel contains several Kubernetes versions. Channels differ in the set of available versions, the management of auto-updates, and the updates received. You can't change the channel once the Kubernetes cluster is created, you can only recreate the Kubernetes cluster and specify a new release channel. For more details see [documentation](https://cloud.yandex.com/docs/managed-kubernetes/concepts/release-channels-and-updates). <ul><li>`RAPID`: Minor updates with new functions and improvements are often added. You can't disable automatic updates in this channel, but you can specify a time period for automatic updates.</li><li>`REGULAR`: New functions and improvements are added in chunks shortly after they appear on `RAPID`.</li><li>`STABLE`: Only updates related to bug fixes or security improvements are added.</li><ul/>
 network_policy | **[NetworkPolicy](#NetworkPolicy7)**<br> 
 kms_provider | **[KMSProvider](#KMSProvider6)**<br>KMS provider configuration. 
+log_group_id | **string**<br>Log group where cluster stores cluster system logs, like audit, events, or controlplane logs. 
 
 
 ### Master {#Master5}

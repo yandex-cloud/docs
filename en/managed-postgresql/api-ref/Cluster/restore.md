@@ -1355,7 +1355,10 @@ POST https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters:restore
     }
   ],
   "networkId": "string",
-  "folderId": "string"
+  "folderId": "string",
+  "securityGroupIds": [
+    "string"
+  ]
 }
 ```
 
@@ -2658,6 +2661,7 @@ hostSpecs[].<br>configSpec.<br>postgresqlConfig_12_1C.<br>effectiveIoConcurrency
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_12_1C.<br>effectiveCacheSize | **integer** (int64)<br><p>Acceptable values are 0 to 549755813888, inclusive.</p> 
 networkId | **string**<br><p>Required. ID of the network to create the PostgreSQL cluster in.</p> <p>The maximum string length in characters is 50.</p> 
 folderId | **string**<br><p>ID of the folder to create the PostgreSQL cluster in.</p> <p>The maximum string length in characters is 50.</p> 
+securityGroupIds[] | **string**<br><p>User security groups</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

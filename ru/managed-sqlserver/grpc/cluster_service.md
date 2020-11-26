@@ -18,7 +18,7 @@ editable: false
 | [Move](#Move) | Перемещает кластер SQL Server в указанный каталог. |
 | [Backup](#Backup) | Создает резервную копию для указанного кластера SQL Server. |
 | [Restore](#Restore) | Создает новый кластер SQL Server с использованием указанной резервной копии. |
-| [ListLogs](#ListLogs) | // Запускает ручное переключение мастера для указанного кластера SQL Server. |
+| [ListLogs](#ListLogs) | Возвращает логи для указанного кластера SQL Server. |
 | [ListOperations](#ListOperations) | Возвращает список операций для указанного кластера SQL Server. |
 | [ListBackups](#ListBackups) | Возвращает список доступных резервных копий для указанного кластера SQL Server. |
 | [ListHosts](#ListHosts) | Возвращает список хостов для указанного кластера SQL Server. |
@@ -936,7 +936,7 @@ disk_type_id | **string**<br><ul><li>network-hdd — сетевой HDD-диск
 
 ## ListLogs {#ListLogs}
 
-// Запускает ручное переключение мастера для указанного кластера SQL Server. rpc StartFailover (StartClusterFailoverRequest) returns (operation.Operation) {option (google.api.http) = {post: "/mdb/sqlserver/v1alpha/clusters/{cluster_id}:startFailover" body: "*"}; option (yandex.cloud.api.operation) = {metadata: "StartClusterFailoverMetadata" response: "Cluster" }; } Возвращает логи для указанного кластера SQL Server. <br>Для получения дополнительной информации о логах см. раздел [Просмотр логов кластера](/docs/managed-sqlserver/operations/cluster-logs)" в документации.
+Возвращает логи для указанного кластера SQL Server. <br>Для получения дополнительной информации о логах см. раздел [Просмотр логов кластера](/docs/managed-sqlserver/operations/cluster-logs)" в документации.
 
 **rpc ListLogs ([ListClusterLogsRequest](#ListClusterLogsRequest)) returns ([ListClusterLogsResponse](#ListClusterLogsResponse))**
 

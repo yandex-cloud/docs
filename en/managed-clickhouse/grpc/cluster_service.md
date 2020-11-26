@@ -74,6 +74,7 @@ status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOW
 service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow)**<br>Window of maintenance operations. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation)**<br>Maintenance operation planned at nearest maintenance_window. 
+security_group_ids[] | **string**<br>User security groups 
 
 
 ### Monitoring {#Monitoring}
@@ -203,6 +204,7 @@ status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOW
 service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow1)**<br>Window of maintenance operations. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation1)**<br>Maintenance operation planned at nearest maintenance_window. 
+security_group_ids[] | **string**<br>User security groups 
 
 
 ### Monitoring {#Monitoring1}
@@ -315,6 +317,7 @@ host_specs[] | **[HostSpec](#HostSpec)**<br>Individual configurations for hosts 
 network_id | **string**<br>Required. ID of the network to create the cluster in. The maximum string length in characters is 50.
 shard_name | **string**<br>Name of the first shard in cluster. If not set, defaults to the value 'shard1'. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
+security_group_ids[] | **string**<br>User security groups 
 
 
 ### ConfigSpec {#ConfigSpec}
@@ -553,6 +556,7 @@ status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOW
 service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow2)**<br>Window of maintenance operations. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation2)**<br>Maintenance operation planned at nearest maintenance_window. 
+security_group_ids[] | **string**<br>User security groups 
 
 
 ### Monitoring {#Monitoring2}
@@ -661,6 +665,7 @@ config_spec | **[ConfigSpec](#ConfigSpec)**<br>New configuration and resources f
 name | **string**<br>New name for the cluster. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow3)**<br>Window of maintenance operations. 
+security_group_ids[] | **string**<br>User security groups 
 
 
 ### ConfigSpec {#ConfigSpec1}
@@ -773,6 +778,7 @@ status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOW
 service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow4)**<br>Window of maintenance operations. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation3)**<br>Maintenance operation planned at nearest maintenance_window. 
+security_group_ids[] | **string**<br>User security groups 
 
 
 ### Monitoring {#Monitoring3}
@@ -958,6 +964,7 @@ status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOW
 service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow5)**<br>Window of maintenance operations. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation4)**<br>Maintenance operation planned at nearest maintenance_window. 
+security_group_ids[] | **string**<br>User security groups 
 
 
 ### Monitoring {#Monitoring4}
@@ -1103,6 +1110,7 @@ status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOW
 service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow6)**<br>Window of maintenance operations. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation5)**<br>Maintenance operation planned at nearest maintenance_window. 
+security_group_ids[] | **string**<br>User security groups 
 
 
 ### Monitoring {#Monitoring5}
@@ -1251,6 +1259,7 @@ status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOW
 service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow7)**<br>Window of maintenance operations. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation6)**<br>Maintenance operation planned at nearest maintenance_window. 
+security_group_ids[] | **string**<br>User security groups 
 
 
 ### Monitoring {#Monitoring6}
@@ -1418,6 +1427,7 @@ status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOW
 service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow8)**<br>Window of maintenance operations. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation7)**<br>Maintenance operation planned at nearest maintenance_window. 
+security_group_ids[] | **string**<br>User security groups 
 
 
 ### Monitoring {#Monitoring7}
@@ -1563,6 +1573,7 @@ status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOW
 service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow9)**<br>Window of maintenance operations. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation8)**<br>Maintenance operation planned at nearest maintenance_window. 
+security_group_ids[] | **string**<br>User security groups 
 
 
 ### Monitoring {#Monitoring8}
@@ -1673,6 +1684,7 @@ host_specs[] | **[HostSpec](#HostSpec)**<br>Configurations for ClickHouse hosts 
 network_id | **string**<br>Required. ID of the network to create the ClickHouse cluster in. The maximum string length in characters is 50.
 folder_id | **string**<br>ID of the folder to create the ClickHouse cluster in. The maximum string length in characters is 50.
 service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
+security_group_ids[] | **string**<br>User security groups 
 
 
 ### ConfigSpec {#ConfigSpec2}
@@ -1776,6 +1788,7 @@ status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOW
 service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow10)**<br>Window of maintenance operations. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation9)**<br>Maintenance operation planned at nearest maintenance_window. 
+security_group_ids[] | **string**<br>User security groups 
 
 
 ### Monitoring {#Monitoring9}
@@ -1924,6 +1937,7 @@ status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOW
 service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow11)**<br>Window of maintenance operations. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation10)**<br>Maintenance operation planned at nearest maintenance_window. 
+security_group_ids[] | **string**<br>User security groups 
 
 
 ### Monitoring {#Monitoring10}
@@ -2885,6 +2899,7 @@ status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOW
 service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow12)**<br>Window of maintenance operations. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation11)**<br>Maintenance operation planned at nearest maintenance_window. 
+security_group_ids[] | **string**<br>User security groups 
 
 
 ### Monitoring {#Monitoring11}
@@ -3031,6 +3046,7 @@ status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOW
 service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow13)**<br>Window of maintenance operations. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation12)**<br>Maintenance operation planned at nearest maintenance_window. 
+security_group_ids[] | **string**<br>User security groups 
 
 
 ### Monitoring {#Monitoring12}

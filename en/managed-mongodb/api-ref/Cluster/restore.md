@@ -429,7 +429,10 @@ POST https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters:restore
   "folderId": "string",
   "recoveryTargetSpec": {
     "timestamp": "string"
-  }
+  },
+  "securityGroupIds": [
+    "string"
+  ]
 }
 ```
 
@@ -707,6 +710,7 @@ networkId | **string**<br><p>Required. ID of the network to create the MongoDB c
 folderId | **string**<br><p>Required. ID of the folder to create the MongoDB cluster in.</p> <p>The maximum string length in characters is 50.</p> 
 recoveryTargetSpec | **object**<br><p>Specification of the moment to which the MongoDB cluster should be restored.</p> 
 recoveryTargetSpec.<br>timestamp | **string** (int64)<br><p>Timestamp of the recovery target</p> <p>Value must be greater than 0.</p> 
+securityGroupIds[] | **string**<br><p>User security groups</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
