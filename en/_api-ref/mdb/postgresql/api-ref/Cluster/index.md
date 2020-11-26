@@ -2517,7 +2517,10 @@ A set of methods for managing PostgreSQL Cluster resources.
   "plannedOperation": {
     "info": "string",
     "delayedUntil": "string"
-  }
+  },
+  "securityGroupIds": [
+    "string"
+  ]
 }
 ```
  
@@ -4950,6 +4953,7 @@ maintenanceWindow.<br>weeklyMaintenanceWindow.<br>hour | **string** (int64)<br><
 plannedOperation | **object**<br><p>Maintenance operation planned at nearest maintenance_window.</p> 
 plannedOperation.<br>info | **string**<br><p>The maximum string length in characters is 256.</p> 
 plannedOperation.<br>delayedUntil | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+securityGroupIds[] | **string**<br><p>User security groups</p> 
 
 ## Methods {#methods}
 Method | Description

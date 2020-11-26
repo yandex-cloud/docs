@@ -3,9 +3,9 @@ editable: false
 ---
 
 # Method get
-Returns payload of the given secret
+Returns the payload of the specified secret.
  
-
+To get the list of all available secrets, make a [list](/docs/lockbox/api-ref/Secret/list) request.
  
 ## HTTP request {#https-request}
 ```
@@ -22,7 +22,7 @@ secretId | Required. ID of the secret.  The maximum string length in characters 
  
 Parameter | Description
 --- | ---
-versionId | Optional ID of the version. Defaults to the current version if not specified  The maximum string length in characters is 50.
+versionId | Optional ID of the version.  The maximum string length in characters is 50.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -43,7 +43,7 @@ versionId | Optional ID of the version. Defaults to the current version if not s
   ]
 }
 ```
-
+A payload.
  
 Field | Description
 --- | ---

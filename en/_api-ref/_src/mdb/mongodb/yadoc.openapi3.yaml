@@ -1709,6 +1709,11 @@ components:
           $ref: '#/components/schemas/MaintenanceWindow_in_Cluster_maintenanceWindow'
         plannedOperation:
           $ref: '#/components/schemas/MaintenanceOperation_in_Cluster_plannedOperation'
+        securityGroupIds:
+          description: User security groups
+          type: array
+          items:
+            type: string
     ClusterConfig:
       type: object
       allOf:
@@ -1929,6 +1934,11 @@ components:
 
             The maximum string length in characters is 50.
           type: string
+        securityGroupIds:
+          description: User security groups
+          type: array
+          items:
+            type: string
     CreateDatabaseMetadata:
       type: object
       properties:
@@ -3848,6 +3858,11 @@ components:
           type: string
         recoveryTargetSpec:
           $ref: '#/components/schemas/RestoreClusterRequestRecoveryTargetSpec_in_RestoreClusterRequest_recoveryTargetSpec'
+        securityGroupIds:
+          description: User security groups
+          type: array
+          items:
+            type: string
     RestoreClusterRequestRecoveryTargetSpec:
       type: object
       properties:
@@ -4017,6 +4032,11 @@ components:
           type: string
         maintenanceWindow:
           $ref: '#/components/schemas/MaintenanceWindow_in_UpdateClusterRequest_maintenanceWindow'
+        securityGroupIds:
+          description: User security groups
+          type: array
+          items:
+            type: string
     UpdateUserMetadata:
       type: object
       properties:

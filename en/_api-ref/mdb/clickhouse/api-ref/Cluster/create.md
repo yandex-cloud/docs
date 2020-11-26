@@ -386,7 +386,10 @@ POST https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters
   ],
   "networkId": "string",
   "shardName": "string",
-  "serviceAccountId": "string"
+  "serviceAccountId": "string",
+  "securityGroupIds": [
+    "string"
+  ]
 }
 ```
 
@@ -690,6 +693,7 @@ hostSpecs[].<br>shardName | **string**<br><p>Name of the shard that the host is 
 networkId | **string**<br><p>Required. ID of the network to create the cluster in.</p> <p>The maximum string length in characters is 50.</p> 
 shardName | **string**<br><p>Name of the first shard in cluster. If not set, defaults to the value 'shard1'.</p> <p>The maximum string length in characters is 63. Value must match the regular expression <code>[a-zA-Z0-9_-]*</code>.</p> 
 serviceAccountId | **string**<br><p>ID of the service account used for access to Yandex Object Storage.</p> 
+securityGroupIds[] | **string**<br><p>User security groups</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

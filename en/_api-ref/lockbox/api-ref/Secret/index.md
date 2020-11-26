@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Secret
-
+A set of methods for managing secrets.
 ## JSON Representation {#representation}
 ```json 
 {
@@ -34,13 +34,13 @@ Field | Description
 --- | ---
 id | **string**<br><p>ID of the secret.</p> 
 folderId | **string**<br><p>ID of the folder that the secret belongs to.</p> 
-createdAt | **string** (date-time)<br><p>Time when the secret was created.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 name | **string**<br><p>Name of the secret.</p> 
 description | **string**<br><p>Description of the secret.</p> 
 labels | **object**<br><p>Custom labels for the secret as <code>key:value</code> pairs. Maximum 64 per key.</p> 
 kmsKeyId | **string**<br><p>Optional ID of the KMS key will be used to encrypt and decrypt the secret.</p> 
-status | **string**<br><p>Status of the secret.</p> <ul> <li>CREATING: The secret is being created.</li> <li>ACTIVE: The secret is active and the secret payload can be accessed. Can be set to INACTIVE using the <a href="/docs/lockbox/api-ref/Secret/deactivate">deactivate</a> method.</li> <li>INACTIVE: The secret is inactive and unusable. Can be set to ACTIVE using the <a href="/docs/lockbox/api-ref/Secret/deactivate">deactivate</a> method.</li> </ul> 
-currentVersion | **object**<br><p>Current (i.e. the latest) version of the secret.</p> 
+status | **string**<br><p>Status of the secret.</p> <ul> <li>CREATING: The secret is being created.</li> <li>ACTIVE: The secret is active and the secret payload can be accessed.</li> </ul> <p>Can be set to INACTIVE using the <a href="/docs/lockbox/api-ref/Secret/deactivate">deactivate</a> method.</p> <ul> <li>INACTIVE: The secret is inactive and unusable.</li> </ul> <p>Can be set to ACTIVE using the <a href="/docs/lockbox/api-ref/Secret/deactivate">deactivate</a> method.</p> 
+currentVersion | **object**<br><p>Current (i.e. the <code>latest</code>) version of the secret.</p> 
 currentVersion.<br>id | **string**<br><p>ID of the version.</p> 
 currentVersion.<br>secretId | **string**<br><p>ID of the secret that the version belongs to.</p> 
 currentVersion.<br>createdAt | **string** (date-time)<br><p>Time when the version was created.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
@@ -59,11 +59,11 @@ Method | Description
 [create](create.md) | Creates a secret in the specified folder.
 [deactivate](deactivate.md) | Deactivates the specified secret.
 [delete](delete.md) | Deletes the specified secret.
-[get](get.md) | Returns the specified secret. Use [get](/docs/lockbox/api-ref/Payload/get) to get the payload (confidential data themselves) of the secret
-[list](list.md) | Returns the list of secrets in the specified folder.
+[get](get.md) | Returns the specified secret.
+[list](list.md) | Retrieves the list of secrets in the specified folder.
 [listAccessBindings](listAccessBindings.md) | Lists existing access bindings for the specified secret.
 [listOperations](listOperations.md) | Lists operations for the specified secret.
-[listVersions](listVersions.md) | Returns the list of versions of the specified secret.
+[listVersions](listVersions.md) | Retrieves the list of versions of the specified secret.
 [scheduleVersionDestruction](scheduleVersionDestruction.md) | Schedules the specified version for destruction.
 [setAccessBindings](setAccessBindings.md) | Sets access bindings for the secret.
 [update](update.md) | Updates the specified secret.

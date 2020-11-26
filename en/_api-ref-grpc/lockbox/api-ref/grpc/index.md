@@ -6,5 +6,5 @@ See the interface definitions of Yandex.Cloud API on [GitHub](https://github.com
 Service | Description
 --- | ---
 [PayloadService](./payload_service.md) | Set of methods to access payload of secrets.
-[SecretService](./secret_service.md) | 
+[SecretService](./secret_service.md) | A set of methods for managing secrets.
 [OperationService](./operation_service.md) | A set of methods for managing operations for asynchronous API requests.

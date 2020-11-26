@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method listVersions
-Returns the list of versions of the specified secret.
+Retrieves the list of versions of the specified secret.
  
 
  
@@ -22,8 +22,8 @@ secretId | Required. ID of the secret to list versions for.  The maximum string 
  
 Parameter | Description
 --- | ---
-pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/lockbox/api-ref/Secret/listVersions#query_params), the service returns a [ListVersionsRequest.next_page_token] that can be used to get the next page of results in subsequent list requests. Default value: 100.  The maximum value is 1000.
-pageToken | Page token. To get the next page of results, set [pageToken](/docs/lockbox/api-ref/Secret/listVersions#query_params) to the [ListVersionsRequest.next_page_token] returned by a previous list request.  The maximum string length in characters is 100.
+pageSize | The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListVersionsRequest.next_page_token] that can be used to get the next page of results in subsequent list requests. Default value: 100.  The maximum value is 1000.
+pageToken | Page token. To get the next page of results, set `page_token` to the [ListVersionsRequest.next_page_token] returned by a previous list request.  The maximum string length in characters is 100.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -58,4 +58,4 @@ versions[].<br>destroyAt | **string** (date-time)<br><p>Time when the version is
 versions[].<br>description | **string**<br><p>Description of the version.</p> 
 versions[].<br>status | **string**<br><p>Status of the secret.</p> <ul> <li>ACTIVE: The version is active and the secret payload can be accessed.</li> <li>SCHEDULED_FOR_DESTRUCTION: The version is scheduled for destruction, the time when it will be destroyed is specified in the <code>destroyAt</code> field.</li> <li>DESTROYED: The version is destroyed and cannot be recovered.</li> </ul> 
 versions[].<br>payloadEntryKeys[] | **string**<br><p>Keys of the entries contained in the version payload.</p> 
-nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is greater than the specified <a href="/docs/lockbox/api-ref/Secret/listVersions#query_params">pageSize</a>, use the <a href="/docs/lockbox/api-ref/Secret/listVersions#responses">nextPageToken</a> as the value for the <a href="/docs/lockbox/api-ref/Secret/listVersions#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own <a href="/docs/lockbox/api-ref/Secret/listVersions#responses">nextPageToken</a> to continue paging through the results.</p> 
+nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is greater than the specified <a href="/docs/lockbox/api-ref/Secret/listVersions#query_params">pageSize</a>, use the <code>next_page_token</code> as the value for the <a href="/docs/lockbox/api-ref/Secret/listVersions#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own <code>next_page_token</code> to continue paging through the results.</p> 

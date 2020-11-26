@@ -4,18 +4,18 @@ editable: false
 
 # SecretService
 
-
+A set of methods for managing secrets.
 
 | Call | Description |
 | --- | --- |
 | [Get](#Get) | Returns the specified secret. |
-| [List](#List) | Returns the list of secrets in the specified folder. |
+| [List](#List) | Retrieves the list of secrets in the specified folder. |
 | [Create](#Create) | Creates a secret in the specified folder. |
 | [Update](#Update) | Updates the specified secret. |
 | [Delete](#Delete) | Deletes the specified secret. |
 | [Activate](#Activate) | Activates the specified secret. |
 | [Deactivate](#Deactivate) | Deactivates the specified secret. |
-| [ListVersions](#ListVersions) | Returns the list of versions of the specified secret. |
+| [ListVersions](#ListVersions) | Retrieves the list of versions of the specified secret. |
 | [AddVersion](#AddVersion) | Adds new version based on a previous one. |
 | [ScheduleVersionDestruction](#ScheduleVersionDestruction) | Schedules the specified version for destruction. |
 | [CancelVersionDestruction](#CancelVersionDestruction) | Cancels previously scheduled version destruction, if the version hasn't been destroyed yet. |
@@ -28,7 +28,7 @@ editable: false
 
 ## Get {#Get}
 
-Returns the specified secret. Use [PayloadService.Get](./payload_service#Get) to get the payload (confidential data themselves) of the secret
+Returns the specified secret. <br>To get the list of all available secrets, make a [List](#List) request. Use [PayloadService.Get](./payload_service#Get) to get the payload (confidential data themselves) of the secret.
 
 **rpc Get ([GetSecretRequest](#GetSecretRequest)) returns ([Secret](#Secret))**
 
@@ -36,7 +36,7 @@ Returns the specified secret. Use [PayloadService.Get](./payload_service#Get) to
 
 Field | Description
 --- | ---
-secret_id | **string**<br>Required. ID of the secret to return. The maximum string length in characters is 50.
+secret_id | **string**<br>Required. ID of the secret to return. <br>To get a secret ID make a [List](#List) request. The maximum string length in characters is 50.
 
 
 ### Secret {#Secret}
@@ -45,13 +45,13 @@ Field | Description
 --- | ---
 id | **string**<br>ID of the secret. 
 folder_id | **string**<br>ID of the folder that the secret belongs to. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the secret was created. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 name | **string**<br>Name of the secret. 
 description | **string**<br>Description of the secret. 
 labels | **map<string,string>**<br>Custom labels for the secret as `key:value` pairs. Maximum 64 per key. 
 kms_key_id | **string**<br>Optional ID of the KMS key will be used to encrypt and decrypt the secret. 
-status | enum **Status**<br>Status of the secret. <ul><li>`CREATING`: The secret is being created.</li><li>`ACTIVE`: The secret is active and the secret payload can be accessed. Can be set to INACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li><li>`INACTIVE`: The secret is inactive and unusable. Can be set to ACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li><ul/>
-current_version | **[Version](#Version)**<br>Current (i.e. the latest) version of the secret. 
+status | enum **Status**<br>Status of the secret. <ul><li>`CREATING`: The secret is being created.</li><li>`ACTIVE`: The secret is active and the secret payload can be accessed. <br>Can be set to INACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li><li>`INACTIVE`: The secret is inactive and unusable. <br>Can be set to ACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li><ul/>
+current_version | **[Version](#Version)**<br>Current (i.e. the `latest`) version of the secret. 
 deletion_protection | **bool**<br>Flag that inhibits deletion of the secret. 
 
 
@@ -70,7 +70,7 @@ payload_entry_keys[] | **string**<br>Keys of the entries contained in the versio
 
 ## List {#List}
 
-Returns the list of secrets in the specified folder.
+Retrieves the list of secrets in the specified folder.
 
 **rpc List ([ListSecretsRequest](#ListSecretsRequest)) returns ([ListSecretsResponse](#ListSecretsResponse))**
 
@@ -97,13 +97,13 @@ Field | Description
 --- | ---
 id | **string**<br>ID of the secret. 
 folder_id | **string**<br>ID of the folder that the secret belongs to. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the secret was created. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 name | **string**<br>Name of the secret. 
 description | **string**<br>Description of the secret. 
 labels | **map<string,string>**<br>Custom labels for the secret as `key:value` pairs. Maximum 64 per key. 
 kms_key_id | **string**<br>Optional ID of the KMS key will be used to encrypt and decrypt the secret. 
-status | enum **Status**<br>Status of the secret. <ul><li>`CREATING`: The secret is being created.</li><li>`ACTIVE`: The secret is active and the secret payload can be accessed. Can be set to INACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li><li>`INACTIVE`: The secret is inactive and unusable. Can be set to ACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li><ul/>
-current_version | **[Version](#Version1)**<br>Current (i.e. the latest) version of the secret. 
+status | enum **Status**<br>Status of the secret. <ul><li>`CREATING`: The secret is being created.</li><li>`ACTIVE`: The secret is active and the secret payload can be accessed. <br>Can be set to INACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li><li>`INACTIVE`: The secret is inactive and unusable. <br>Can be set to ACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li><ul/>
+current_version | **[Version](#Version1)**<br>Current (i.e. the `latest`) version of the secret. 
 deletion_protection | **bool**<br>Flag that inhibits deletion of the secret. 
 
 
@@ -184,13 +184,13 @@ Field | Description
 --- | ---
 id | **string**<br>ID of the secret. 
 folder_id | **string**<br>ID of the folder that the secret belongs to. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the secret was created. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 name | **string**<br>Name of the secret. 
 description | **string**<br>Description of the secret. 
 labels | **map<string,string>**<br>Custom labels for the secret as `key:value` pairs. Maximum 64 per key. 
 kms_key_id | **string**<br>Optional ID of the KMS key will be used to encrypt and decrypt the secret. 
-status | enum **Status**<br>Status of the secret. <ul><li>`CREATING`: The secret is being created.</li><li>`ACTIVE`: The secret is active and the secret payload can be accessed. Can be set to INACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li><li>`INACTIVE`: The secret is inactive and unusable. Can be set to ACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li><ul/>
-current_version | **[Version](#Version2)**<br>Current (i.e. the latest) version of the secret. 
+status | enum **Status**<br>Status of the secret. <ul><li>`CREATING`: The secret is being created.</li><li>`ACTIVE`: The secret is active and the secret payload can be accessed. <br>Can be set to INACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li><li>`INACTIVE`: The secret is inactive and unusable. <br>Can be set to ACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li><ul/>
+current_version | **[Version](#Version2)**<br>Current (i.e. the `latest`) version of the secret. 
 deletion_protection | **bool**<br>Flag that inhibits deletion of the secret. 
 
 
@@ -258,13 +258,13 @@ Field | Description
 --- | ---
 id | **string**<br>ID of the secret. 
 folder_id | **string**<br>ID of the folder that the secret belongs to. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the secret was created. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 name | **string**<br>Name of the secret. 
 description | **string**<br>Description of the secret. 
 labels | **map<string,string>**<br>Custom labels for the secret as `key:value` pairs. Maximum 64 per key. 
 kms_key_id | **string**<br>Optional ID of the KMS key will be used to encrypt and decrypt the secret. 
-status | enum **Status**<br>Status of the secret. <ul><li>`CREATING`: The secret is being created.</li><li>`ACTIVE`: The secret is active and the secret payload can be accessed. Can be set to INACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li><li>`INACTIVE`: The secret is inactive and unusable. Can be set to ACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li><ul/>
-current_version | **[Version](#Version3)**<br>Current (i.e. the latest) version of the secret. 
+status | enum **Status**<br>Status of the secret. <ul><li>`CREATING`: The secret is being created.</li><li>`ACTIVE`: The secret is active and the secret payload can be accessed. <br>Can be set to INACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li><li>`INACTIVE`: The secret is inactive and unusable. <br>Can be set to ACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li><ul/>
+current_version | **[Version](#Version3)**<br>Current (i.e. the `latest`) version of the secret. 
 deletion_protection | **bool**<br>Flag that inhibits deletion of the secret. 
 
 
@@ -327,13 +327,13 @@ Field | Description
 --- | ---
 id | **string**<br>ID of the secret. 
 folder_id | **string**<br>ID of the folder that the secret belongs to. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the secret was created. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 name | **string**<br>Name of the secret. 
 description | **string**<br>Description of the secret. 
 labels | **map<string,string>**<br>Custom labels for the secret as `key:value` pairs. Maximum 64 per key. 
 kms_key_id | **string**<br>Optional ID of the KMS key will be used to encrypt and decrypt the secret. 
-status | enum **Status**<br>Status of the secret. <ul><li>`CREATING`: The secret is being created.</li><li>`ACTIVE`: The secret is active and the secret payload can be accessed. Can be set to INACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li><li>`INACTIVE`: The secret is inactive and unusable. Can be set to ACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li><ul/>
-current_version | **[Version](#Version4)**<br>Current (i.e. the latest) version of the secret. 
+status | enum **Status**<br>Status of the secret. <ul><li>`CREATING`: The secret is being created.</li><li>`ACTIVE`: The secret is active and the secret payload can be accessed. <br>Can be set to INACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li><li>`INACTIVE`: The secret is inactive and unusable. <br>Can be set to ACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li><ul/>
+current_version | **[Version](#Version4)**<br>Current (i.e. the `latest`) version of the secret. 
 deletion_protection | **bool**<br>Flag that inhibits deletion of the secret. 
 
 
@@ -396,13 +396,13 @@ Field | Description
 --- | ---
 id | **string**<br>ID of the secret. 
 folder_id | **string**<br>ID of the folder that the secret belongs to. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the secret was created. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 name | **string**<br>Name of the secret. 
 description | **string**<br>Description of the secret. 
 labels | **map<string,string>**<br>Custom labels for the secret as `key:value` pairs. Maximum 64 per key. 
 kms_key_id | **string**<br>Optional ID of the KMS key will be used to encrypt and decrypt the secret. 
-status | enum **Status**<br>Status of the secret. <ul><li>`CREATING`: The secret is being created.</li><li>`ACTIVE`: The secret is active and the secret payload can be accessed. Can be set to INACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li><li>`INACTIVE`: The secret is inactive and unusable. Can be set to ACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li><ul/>
-current_version | **[Version](#Version5)**<br>Current (i.e. the latest) version of the secret. 
+status | enum **Status**<br>Status of the secret. <ul><li>`CREATING`: The secret is being created.</li><li>`ACTIVE`: The secret is active and the secret payload can be accessed. <br>Can be set to INACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li><li>`INACTIVE`: The secret is inactive and unusable. <br>Can be set to ACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li><ul/>
+current_version | **[Version](#Version5)**<br>Current (i.e. the `latest`) version of the secret. 
 deletion_protection | **bool**<br>Flag that inhibits deletion of the secret. 
 
 
@@ -465,13 +465,13 @@ Field | Description
 --- | ---
 id | **string**<br>ID of the secret. 
 folder_id | **string**<br>ID of the folder that the secret belongs to. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the secret was created. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 name | **string**<br>Name of the secret. 
 description | **string**<br>Description of the secret. 
 labels | **map<string,string>**<br>Custom labels for the secret as `key:value` pairs. Maximum 64 per key. 
 kms_key_id | **string**<br>Optional ID of the KMS key will be used to encrypt and decrypt the secret. 
-status | enum **Status**<br>Status of the secret. <ul><li>`CREATING`: The secret is being created.</li><li>`ACTIVE`: The secret is active and the secret payload can be accessed. Can be set to INACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li><li>`INACTIVE`: The secret is inactive and unusable. Can be set to ACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li><ul/>
-current_version | **[Version](#Version6)**<br>Current (i.e. the latest) version of the secret. 
+status | enum **Status**<br>Status of the secret. <ul><li>`CREATING`: The secret is being created.</li><li>`ACTIVE`: The secret is active and the secret payload can be accessed. <br>Can be set to INACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li><li>`INACTIVE`: The secret is inactive and unusable. <br>Can be set to ACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li><ul/>
+current_version | **[Version](#Version6)**<br>Current (i.e. the `latest`) version of the secret. 
 deletion_protection | **bool**<br>Flag that inhibits deletion of the secret. 
 
 
@@ -490,7 +490,7 @@ payload_entry_keys[] | **string**<br>Keys of the entries contained in the versio
 
 ## ListVersions {#ListVersions}
 
-Returns the list of versions of the specified secret.
+Retrieves the list of versions of the specified secret.
 
 **rpc ListVersions ([ListVersionsRequest](#ListVersionsRequest)) returns ([ListVersionsResponse](#ListVersionsResponse))**
 
@@ -632,7 +632,7 @@ Field | Description
 --- | ---
 secret_id | **string**<br>ID of the secret whose version is being scheduled for destruction. 
 version_id | **string**<br>ID of the version that is being scheduled for destruction. 
-destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the version is scheduled to be destroyed. 
+destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Destruction timestamp. 
 
 
 ### Version {#Version9}

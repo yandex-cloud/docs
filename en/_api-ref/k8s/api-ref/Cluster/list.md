@@ -121,6 +121,7 @@ filter | A filter expression that filters resources listed in the response. The 
       "kmsProvider": {
         "keyId": "string"
       },
+      "logGroupId": "string",
       "gatewayIpv4Address": "string"
     }
   ],
@@ -195,5 +196,6 @@ clusters[].<br>networkPolicy | **object**<br>
 clusters[].<br>networkPolicy.<br>provider | **string**<br>
 clusters[].<br>kmsProvider | **object**<br>KMS provider configuration.<br>
 clusters[].<br>kmsProvider.<br>keyId | **string**<br><p>KMS key ID for secrets encryption. To obtain a KMS key ID use a <a href="/docs/kms/api-ref/SymmetricKey/list">list</a> request.</p> 
+clusters[].<br>logGroupId | **string**<br><p>Log group where cluster stores cluster system logs, like audit, events, or controlplane logs.</p> 
 clusters[].<br>gatewayIpv4Address | **string**<br><p>Gateway IPv4 address.</p> <p>The maximum string length in characters is 15.</p> 
 nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/managed-kubernetes/api-ref/Cluster/list#query_params">pageSize</a>, use the <code>next_page_token</code> as the value for the <a href="/docs/managed-kubernetes/api-ref/Cluster/list#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own <code>next_page_token</code> to continue paging through the results.</p> 

@@ -33,4 +33,4 @@ entries[].<br>binaryValue | **string** (byte) <br>`entries[]` includes only one 
 ## Methods {#methods}
 Method | Description
 --- | ---
-[get](get.md) | Returns payload of the given secret
+[get](get.md) | Returns the payload of the specified secret.

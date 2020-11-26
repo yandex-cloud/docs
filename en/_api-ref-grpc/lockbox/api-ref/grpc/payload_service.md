@@ -8,13 +8,13 @@ Set of methods to access payload of secrets.
 
 | Call | Description |
 | --- | --- |
-| [Get](#Get) | Returns payload of the given secret |
+| [Get](#Get) | Returns the payload of the specified secret. |
 
 ## Calls PayloadService {#calls}
 
 ## Get {#Get}
 
-Returns payload of the given secret
+Returns the payload of the specified secret. <br>To get the list of all available secrets, make a [SecretService.List](./secret_service#List) request.
 
 **rpc Get ([GetPayloadRequest](#GetPayloadRequest)) returns ([Payload](#Payload))**
 
@@ -23,7 +23,7 @@ Returns payload of the given secret
 Field | Description
 --- | ---
 secret_id | **string**<br>Required. ID of the secret. The maximum string length in characters is 50.
-version_id | **string**<br>Optional ID of the version. Defaults to the current version if not specified The maximum string length in characters is 50.
+version_id | **string**<br>Optional ID of the version. The maximum string length in characters is 50.
 
 
 ### Payload {#Payload}

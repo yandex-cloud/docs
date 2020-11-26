@@ -8,4 +8,4 @@ This API reference is organized by resource. Actions are performed by sending HT
 Resource | Description
 --- | ---
 [Payload](Payload/index.md) | Set of methods to access payload of secrets.
-[Secret](Secret/index.md) | 
+[Secret](Secret/index.md) | A set of methods for managing secrets.

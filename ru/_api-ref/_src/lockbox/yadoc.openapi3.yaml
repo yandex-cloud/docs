@@ -1,0 +1,1344 @@
+openapi: "3.0"
+info:
+  title: Yandex Lockbox API
+  description: Методы справочника API сгруппированы по ресурсам. Чтобы выполнить операцию
+    над ресурсом, отправьте HTTP-запрос к соответствующему URL. Подробнее об архитектуре
+    API Яндекс.Облака, см. [Концепции API Яндекс.Облака](/docs/api-design-guide/).
+  version: v1
+  x-y-docUri: api-ref
+  x-y-baseUrl: https://lockbox.api.cloud.yandex.net
+paths:
+  /lockbox/v1/secrets/{secretId}/payload:
+    get:
+      tags:
+      - Payload
+      summary: Возвращает содержимое указанного секрета.
+      description: Чтобы получить список доступных секретов, выполните запрос [list](/docs/lockbox/api-ref/Secret/list).
+      operationId: PayloadGet
+      parameters:
+      - name: secretId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор секрета.
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: versionId
+        in: query
+        description: |-
+          (опционально) Идентификатор версии. Если не указан, возвращается содержимое текущей версии.
+
+          Максимальная длина строки в символах — 50.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Payload'
+      x-y-navtitle: get
+  /lockbox/v1/secrets/{secretId}:
+    get:
+      tags:
+      - Secret
+      summary: Возвращает указанный секрет.
+      description: Чтобы получить список доступных секретов, выполните запрос [list](/docs/lockbox/api-ref/Secret/list).
+        Чтобы получить содержимое версии, используйте запрос [get](/docs/lockbox/api-ref/Payload/get).
+      operationId: SecretGet
+      parameters:
+      - name: secretId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор возвращаемого секрета.
+
+          Чтобы получить идентификатор секрета, выполните запрос [List].
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Secret'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - Secret
+      summary: Удаляет указанный секрет.
+      operationId: SecretDelete
+      parameters:
+      - name: secretId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор секрета, подлежащего удалению.
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteSecretMetadata'
+      x-y-operation-response: '[Secret](/docs/lockbox/api-ref/Secret#representation)'
+    patch:
+      tags:
+      - Secret
+      summary: Обновляет указанный секрет.
+      operationId: SecretUpdate
+      parameters:
+      - name: secretId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор секрета для обновления.
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateSecretRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateSecretMetadata'
+      x-y-operation-response: '[Secret](/docs/lockbox/api-ref/Secret#representation)'
+  /lockbox/v1/secrets:
+    get:
+      tags:
+      - Secret
+      summary: Возвращает список секретов в указанном каталоге.
+      operationId: SecretList
+      parameters:
+      - name: folderId
+        in: query
+        description: |-
+          Обязательное поле.
+          Идентификатор каталога для получения списка секретов.
+
+          Максимальная длина строки в символах — 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на запрос. Если количество результатов
+          больше чем `page_size`, сервис вернет значение [ListSecretsRequest.next_page_token],
+          которое можно использовать для получения следующей страницы.
+          Значение по умолчанию: 100.
+
+          Максимальное значение — 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение `page_token` равным значению поля [ListSecretsRequest.next_page_token],
+          прошлого запроса, чтобы получить следующую страницу результатов.
+
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListSecretsResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - Secret
+      summary: Создает секрет в указанном каталоге.
+      operationId: SecretCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateSecretRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateSecretMetadata'
+      x-y-operation-response: '[Secret](/docs/lockbox/api-ref/Secret#representation)'
+  /lockbox/v1/secrets/{secretId}:activate:
+    post:
+      tags:
+      - Secret
+      summary: Активирует указанный секрет.
+      operationId: SecretActivate
+      parameters:
+      - name: secretId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор секрета для активации.
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: activate
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/ActivateSecretMetadata'
+      x-y-operation-response: '[Secret](/docs/lockbox/api-ref/Secret#representation)'
+  /lockbox/v1/secrets/{secretId}:deactivate:
+    post:
+      tags:
+      - Secret
+      summary: Деактивирует указанный секрет.
+      operationId: SecretDeactivate
+      parameters:
+      - name: secretId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор секрета для деактивации.
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: deactivate
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeactivateSecretMetadata'
+      x-y-operation-response: '[Secret](/docs/lockbox/api-ref/Secret#representation)'
+  /lockbox/v1/secrets/{secretId}/versions:
+    get:
+      tags:
+      - Secret
+      summary: Возвращает список версий указанного секрета.
+      operationId: SecretListVersions
+      parameters:
+      - name: secretId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор секрета для получения списка версий.
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на запрос. Если количество результатов
+          больше чем `page_size`, сервис вернет значение [ListVersionsRequest.next_page_token],
+          которое можно использовать для получения следующей страницы.
+          Значение по умолчанию: 100.
+
+          Максимальное значение — 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение `page_token` равным значению поля [ListVersionsRequest.next_page_toke],
+          прошлого запроса, чтобы получить следующую страницу результатов.
+
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListVersionsResponse'
+      x-y-navtitle: listVersions
+  /lockbox/v1/secrets/{secretId}:addVersion:
+    post:
+      tags:
+      - Secret
+      summary: Добавляет новую версию на основе предыдущей.
+      operationId: SecretAddVersion
+      parameters:
+      - name: secretId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор секрета.
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddVersionRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: addVersion
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/AddVersionMetadata'
+      x-y-operation-response: '`Version`'
+  /lockbox/v1/secrets/{secretId}:scheduleVersionDestruction:
+    post:
+      tags:
+      - Secret
+      summary: Планирует уничтожение указанной версии ключа.
+      description: Запланированное уничтожение может быть отменено с помощью запроса
+        [cancelVersionDestruction](/docs/lockbox/api-ref/Secret/cancelVersionDestruction).
+      operationId: SecretScheduleVersionDestruction
+      parameters:
+      - name: secretId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор ключа, для которого следует запланировать уничтожение версии.
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ScheduleVersionDestructionRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: scheduleVersionDestruction
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/ScheduleVersionDestructionMetadata'
+      x-y-operation-response: '`Version`'
+  /lockbox/v1/secrets/{secretId}:cancelVersionDestruction:
+    post:
+      tags:
+      - Secret
+      summary: Отменяет запланированное уничтожение версии, если версия еще не была
+        уничтожена.
+      operationId: SecretCancelVersionDestruction
+      parameters:
+      - name: secretId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор секрета, для которого следует отменить уничтожение версии.
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CancelVersionDestructionRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: cancelVersionDestruction
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CancelVersionDestructionMetadata'
+      x-y-operation-response: '`Version`'
+  /lockbox/v1/secrets/{secretId}/operations:
+    get:
+      tags:
+      - Secret
+      summary: Возвращает список операций для указанного секрета.
+      operationId: SecretListOperations
+      parameters:
+      - name: secretId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор секрета для получения операций.
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на запрос. Если количество результатов
+          больше чем `page_size`, сервис вернет значение [ListSecretOperationsRequest.next_page_token],
+          которое можно использовать для получения следующей страницы.
+          Значение по умолчанию: 100.
+
+          Максимальное значение — 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение `page_token` равным значению поля [ListSecretOperationsRequest.next_page_token],
+          прошлого запроса, чтобы получить следующую страницу результатов.
+
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListSecretOperationsResponse'
+      x-y-navtitle: listOperations
+  /lockbox/v1/secrets/{resourceId}:listAccessBindings:
+    get:
+      tags:
+      - Secret
+      summary: Возвращает список привязок прав доступа для указанного сертификата.
+      operationId: SecretListAccessBindings
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор ресурса, для которого запрашивается список привязок прав доступа.
+
+          Чтобы получить идентификатор ресурса, используйте соответствующий запрос List.
+          Например, используйте запрос [list](/docs/resource-manager/api-ref/Cloud/list) для получения
+          идентификатора ресурса Cloud.
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное число возвращаемых результатов на странице. Если количество
+          результатов больше чем pageSize , сервис вернет значение nextPageToken,
+          которое можно использовать для получения следующей страницы. Значение по умолчанию:
+          100.
+
+          Максимальное значение — 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение pageToken равным значению поля
+          nextPageToken прошлого запроса, чтобы получить следующую страницу
+          результатов.
+
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListAccessBindingsResponse'
+      x-y-navtitle: listAccessBindings
+  /lockbox/v1/secrets/{resourceId}:setAccessBindings:
+    post:
+      tags:
+      - Secret
+      summary: Устанавливает привязки прав доступа для секрета.
+      operationId: SecretSetAccessBindings
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор ресурса, для которого задается список привязок прав доступа.
+
+          Чтобы получить идентификатор ресурса, используйте соответствующий запрос List.
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SetAccessBindingsRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: setAccessBindings
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/SetAccessBindingsMetadata'
+      x-y-operation-response: Empty
+  /lockbox/v1/secrets/{resourceId}:updateAccessBindings:
+    post:
+      tags:
+      - Secret
+      summary: Обновляет привязки прав доступа для секрета.
+      operationId: SecretUpdateAccessBindings
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор ресурса, для которого обновляется список привязок прав доступа.
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateAccessBindingsRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: updateAccessBindings
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateAccessBindingsMetadata'
+      x-y-operation-response: Empty
+components:
+  schemas:
+    AccessBinding:
+      type: object
+      properties:
+        roleId:
+          description: |-
+            Обязательное поле.
+            Идентификатор ресурса [Role](/docs/iam/api-ref/Role#representation) который назначен для субъекта, указанного в
+            параметре `subject`.
+
+            Максимальная длина строки в символах — 50.
+          type: string
+        subject:
+          $ref: '#/components/schemas/Subject_in_AccessBinding_subject'
+    AccessBindingAction:
+      description: |2-
+         - ADD: Добавление новой привязки прав доступа.
+         - REMOVE: Удаление привязки прав доступа.
+      type: string
+      enum:
+      - ADD
+      - REMOVE
+    AccessBindingDelta:
+      type: object
+      properties:
+        action:
+          $ref: '#/components/schemas/AccessBindingAction_in_AccessBindingDelta_action'
+        accessBinding:
+          $ref: '#/components/schemas/AccessBinding_in_AccessBindingDelta_accessBinding'
+    ActivateSecretMetadata:
+      type: object
+      properties:
+        secretId:
+          description: Идентификатор активируемого секрета.
+          type: string
+    AddVersionMetadata:
+      type: object
+      properties:
+        secretId:
+          description: Идентификатор секрета.
+          type: string
+        versionId:
+          description: Идентификатор добавленной версии.
+          type: string
+    AddVersionRequest:
+      type: object
+      properties:
+        description:
+          description: |-
+            Описание версии.
+
+            Максимальная длина строки в символах — 1024.
+          type: string
+        payloadEntries:
+          description: |-
+            Описание изменения содержимого базовой версии в новой версии.
+
+            Максимальное количество элементов — 32.
+          type: array
+          items:
+            $ref: '#/components/schemas/PayloadEntryChange'
+        baseVersionId:
+          description: |-
+            (опционально) Идентификатор базовой версии. Если параметр не указан, по умолчанию используется текущая версия.
+
+            Максимальная длина строки в символах — 50.
+          type: string
+    CancelVersionDestructionMetadata:
+      type: object
+      properties:
+        secretId:
+          description: Идентификатор секрета, уничтожение версии которого отменяется.
+          type: string
+        versionId:
+          description: Идентификатор версии, запланированное уничтожение которой отменяется.
+          type: string
+    CancelVersionDestructionRequest:
+      type: object
+      properties:
+        versionId:
+          description: |-
+            Обязательное поле.
+            Идентификатор версии, запланированное уничтожение которой должно быть отменено.
+
+            Максимальная длина строки в символах — 50.
+          type: string
+    CreateSecretMetadata:
+      type: object
+      properties:
+        secretId:
+          description: Идентификатор создаваемого секрета.
+          type: string
+        versionId:
+          description: Идентификатор текущей версии создаваемого секрета.
+          type: string
+    CreateSecretRequest:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            Обязательное поле.
+            Идентификатор каталога, в котором создается секрет.
+
+            Максимальная длина строки в символах — 50.
+          type: string
+        name:
+          description: |-
+            Имя секрета.
+
+            Максимальная длина строки в символах — 100.
+          type: string
+        description:
+          description: |-
+            Описание секрета.
+
+            Максимальная длина строки в символах — 1024.
+          type: string
+        labels:
+          description: |-
+            Пользовательские метки для секрета в виде пар `key:value`. Максимум 64 на ключ. Например, `"project": "mvp"` или `"source": "dictionary"`.
+
+            Не более 64 на ресурс.
+            Максимальная длина строки в символах для каждого ключа — 63.
+            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
+            Максимальная длина строки в символах для каждого значения — 63.
+            Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+        kmsKeyId:
+          description: |-
+            (опционально) Идентификатор ключа KMS. Используется для шифрования и расшифровки секрета.
+
+            Максимальная длина строки в символах — 50.
+          type: string
+        versionDescription:
+          description: |-
+            Описание первой версии.
+
+            Максимальная длина строки в символах — 256.
+          type: string
+        versionPayloadEntries:
+          description: |-
+            Содержимое первой версии секрета.
+
+            Максимальное количество элементов — 32.
+          type: array
+          items:
+            $ref: '#/components/schemas/PayloadEntryChange'
+        deletionProtection:
+          description: Флаг, запрещающий удаление секрета.
+          type: boolean
+          format: boolean
+    DeactivateSecretMetadata:
+      type: object
+      properties:
+        secretId:
+          description: Идентификатор деактивируемого секрета.
+          type: string
+    DeleteSecretMetadata:
+      type: object
+      properties:
+        secretId:
+          description: Идентификатор удаляемого секрета.
+          type: string
+    Empty:
+      description: Пустой JSON объект `` {} ``.
+      type: object
+      maxProperties: 0
+    FieldMask:
+      description: |-
+        Имена всех обновляемых полей, разделенные запятыми.
+        Только значения указанных полей будут изменены. Остальные останутся нетронутыми.
+        Если поле указано в параметре `` updateMask `` и в запросе не было отправлено значение для этого поля,
+        значение поля будет сброшено на значение по умолчанию. Значение по умолчанию для большинства полей — null или 0.
+
+        Если в запросе не передается `` updateMask ``, значения всех полей будут обновлены.
+        Для полей, указанных в запросе, будут использованы переданные значения.
+        Значения остальных полей будут сброшены на значения по умолчанию.
+      type: string
+    ListAccessBindingsResponse:
+      type: object
+      properties:
+        accessBindings:
+          description: Список привязок прав доступа для указанного ресурса.
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessBinding'
+        nextPageToken:
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество
+            результатов больше чем pageSize, используйте nextPageToken в качестве
+            значения параметра pageToken в следующем запросе списка ресурсов. Все
+            последующие запросы будут получать свои значения nextPageToken для перебора страниц
+            результатов.
+          type: string
+    ListSecretOperationsResponse:
+      type: object
+      properties:
+        operations:
+          description: Список операций для указанного секрета.
+          type: array
+          items:
+            $ref: '#/components/schemas/Operation'
+        nextPageToken:
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество результатов
+            больше чем [ListSecretOperationsResponse.page_size], используйте `next_page_token` в качестве значения
+            параметра [ListSecretOperationsResponse.page_token] в следующем запросе списка ресурсов. Все последующие
+            запросы будут получать свои значения `next_page_token`, для перебора страниц результатов.
+          type: string
+    ListSecretsResponse:
+      type: object
+      properties:
+        secrets:
+          description: Возвращает список секретов в указанном каталоге.
+          type: array
+          items:
+            $ref: '#/components/schemas/Secret'
+        nextPageToken:
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество результатов
+            больше чем [pageSize](/docs/lockbox/api-ref/Secret/list#query_params), используйте `next_page_token` в качестве значения
+            параметра [pageToken](/docs/lockbox/api-ref/Secret/list#query_params) в следующем запросе списка ресурсов. Все последующие
+            запросы будут получать свои значения `next_page_token`, для перебора страниц результатов.
+          type: string
+    ListVersionsResponse:
+      type: object
+      properties:
+        versions:
+          description: Список версий для указанного секрета.
+          type: array
+          items:
+            $ref: '#/components/schemas/Version'
+        nextPageToken:
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество результатов
+            больше чем [pageSize](/docs/lockbox/api-ref/Secret/listVersions#query_params), используйте `next_page_token` в качестве значения
+            параметра [pageToken](/docs/lockbox/api-ref/Secret/listVersions#query_params) в следующем запросе списка ресурсов. Все последующие
+            запросы будут получать свои значения `next_page_token`, для перебора страниц результатов.
+          type: string
+    Operation:
+      description: |-
+        Ресурс Operation. Дополнительные сведения см. в разделе
+        [Объект Operation](/docs/api-design-guide/concepts/operation).
+      type: object
+      allOf:
+      - type: object
+        properties:
+          id:
+            description: Идентификатор операции.
+            type: string
+          description:
+            description: |-
+              Описание операции. Длина описания должна быть от 0 до 256
+              символов.
+            type: string
+          createdAt:
+            description: |-
+              Время создания ресурса в формате в
+              [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+
+              Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+            type: string
+            format: date-time
+          createdBy:
+            description: |-
+              Идентификатор пользователя или сервисного
+              аккаунта, инициировавшего операцию.
+            type: string
+          modifiedAt:
+            description: |-
+              Время, когда ресурс Operation последний раз
+              обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+
+              Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+            type: string
+            format: date-time
+          done:
+            description: |-
+              Если значение равно `false` — операция еще
+              выполняется. Если `true` — операция завершена, и задано значение
+              одного из полей `error` или `response`.
+            type: boolean
+            format: boolean
+          metadata:
+            description: |-
+              Метаданные операции. Обычно в поле содержится
+              идентификатор ресурса, над которым выполняется операция. Если
+              метод возвращает ресурс Operation, в описании метода приведена
+              структура соответствующего ему поля `metadata`.
+            type: object
+      - title: result
+        type: object
+        maxProperties: 1
+        properties:
+          error:
+            $ref: '#/components/schemas/rpcStatus'
+            description: Описание ошибки в случае сбоя или отмены операции.
+          response:
+            description: |-
+              Результат операции в случае успешного завершения. Если
+              исходный метод не возвращает никаких данных при успешном
+              завершении, например метод Delete, поле содержит объект
+              [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty). Если исходный метод — это стандартный метод Create
+              / Update, поле содержит целевой ресурс операции. Если метод
+              возвращает ресурс Operation, в описании метода приведена
+              структура соответствующего ему поля `response`.
+            type: object
+    Payload:
+      description: Содержимое версии.
+      type: object
+      properties:
+        versionId:
+          description: Идентификатор версии, которой принадлежит содержимое.
+          type: string
+        entries:
+          description: Записи содержимого версии.
+          type: array
+          items:
+            $ref: '#/components/schemas/PayloadEntry'
+    PayloadEntry:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          key:
+            description: Неконфиденциальный ключ содержимого версии.
+            type: string
+      - title: value
+        type: object
+        maxProperties: 1
+        properties:
+          textValue:
+            description: Текстовое значение.
+            type: string
+          binaryValue:
+            description: Двоичное значение.
+            type: string
+            format: byte
+    PayloadEntryChange:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          key:
+            description: |-
+              Обязательное поле.
+              Неконфиденциальный ключ содержимого версии.
+
+              Максимальная длина строки в символах — 256.
+              Значение должно соответствовать регулярному выражению `` [.-_0-9a-zA-Z]+ ``.
+            type: string
+      - title: value
+        type: object
+        maxProperties: 1
+        properties:
+          textValue:
+            description: |-
+              Используйте это поле для задания текстового значения.
+
+              Максимальная длина строки в символах — 65536.
+            type: string
+          binaryValue:
+            description: |-
+              Используйте это поле для установки двоичного значения.
+
+              Максимальная длина строки в символах — 65536.
+            type: string
+            format: byte
+    ScheduleVersionDestructionMetadata:
+      type: object
+      properties:
+        secretId:
+          description: Идентификатор ключа, версия которого планируется к уничтожению.
+          type: string
+        versionId:
+          description: Идентификатор версии, которую планируется уничтожить.
+          type: string
+        destroyAt:
+          description: |-
+            Время уничтожения.
+
+            Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+          type: string
+          format: date-time
+    ScheduleVersionDestructionRequest:
+      type: object
+      properties:
+        versionId:
+          description: |-
+            Обязательное поле.
+            Идентификатор версии, которую следует уничтожить.
+
+            Максимальная длина строки в символах — 50.
+          type: string
+        pendingPeriod:
+          description: |-
+            Интервал времени между запросом на уничтожение версии и ее фактическим уничтожением.
+            Значение по умолчанию: 7 дней.
+          type: string
+    Secret:
+      description: Секрет, который состоит из нескольких версий.
+      type: object
+      properties:
+        id:
+          description: Идентификатор секрета.
+          type: string
+        folderId:
+          description: Идентификатор каталога, которому принадлежит секрет.
+          type: string
+        createdAt:
+          description: |-
+            Время создания.
+
+            Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+          type: string
+          format: date-time
+        name:
+          description: Имя секрета.
+          type: string
+        description:
+          description: (опционально) Описание секрета.
+          type: string
+        labels:
+          description: Пользовательские метки для секрета в виде пар `key:value`.
+            Максимум 64 на ключ.
+          type: object
+          additionalProperties:
+            type: string
+        kmsKeyId:
+          description: |-
+            (опционально) Идентификатор пользовательского ключа KMS.
+            Если пользовательский ключ не указан, для шифрования и расшифровки используется системный ключ.
+          type: string
+        status:
+          $ref: '#/components/schemas/SecretStatus_in_Secret_status'
+        currentVersion:
+          $ref: '#/components/schemas/Version_in_Secret_currentVersion'
+        deletionProtection:
+          description: Флаг, запрещающий удаление секрета.
+          type: boolean
+          format: boolean
+    SecretStatus:
+      description: |2-
+         - CREATING: Секрет создается.
+         - ACTIVE: Секрет активен и к нему можно получить доступ.
+
+        Можно установить в INACTIVE с помощью метода [deactivate](/docs/lockbox/api-ref/Secret/deactivate).
+         - INACTIVE: Секрет неактивен и не может быть использован.
+
+        Можно установить в ACTIVE с помощью метода [activate](/docs/lockbox/api-ref/Secret/activate).
+      type: string
+      enum:
+      - CREATING
+      - ACTIVE
+      - INACTIVE
+    SetAccessBindingsMetadata:
+      type: object
+      properties:
+        resourceId:
+          description: Идентификатор ресурса, для которого задается список привязок
+            прав доступа.
+          type: string
+    SetAccessBindingsRequest:
+      type: object
+      properties:
+        accessBindings:
+          description: |-
+            Обязательное поле.
+            Привязки прав доступа, которые будут установлены. Дополнительные сведения см. в
+            разделе [Привязка прав доступа](/docs/iam/concepts/access-control/#access-bindings).
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessBinding'
+    Subject:
+      type: object
+      properties:
+        id:
+          description: |-
+            Обязательное поле.
+            Идентификатор субъекта.
+
+            Может иметь одно из значений:
+            * `allAuthenticatedUsers`: Специальный системный идентификатор, представляющий любого пользователя, прошедшего аутентификацию. Его можно использовать только если в параметре `type` указано `system`.
+            * `allUsers`: Специальный системный идентификатор, представляющий любого пользователя. Аутентификация не требуется. Например, при запросе через API не надо будет указывать IAM-токен.
+            * `<идентификатор пользователя в облаке>`: Идентификатор, представляющий учетную запись пользователя. Его можно использовать только если в параметре `type` передано одно из следующих значений: `userAccount`, `federatedUser` или `serviceAccount`.
+
+            Максимальная длина строки в символах — 50.
+          type: string
+        type:
+          description: |-
+            Обязательное поле.
+            Тип субъекта.
+
+            Может иметь одно из значений:
+            * `userAccount` — аккаунт на Яндексе или Яндекс.Коннекте, добавленный в Яндекс.Облако.
+            * `serviceAccount` — сервисный аккаунт. Этот тип представляет ресурс [ServiceAccount](/docs/iam/api-ref/ServiceAccount#representation).
+            * `federatedUser` — федеративный аккаунт. Этот тип представляет пользователя из федерации удостоверений, например Active Directory.
+            * `system` — системная группа. Представляет набор аккаунтов, который описывается общим системным идентификатором.
+
+            Дополнительные сведения см. в разделе [Субъект, которому назначается роль](/docs/iam/concepts/access-control/#subject).
+
+            Максимальная длина строки в символах — 100.
+          type: string
+    UpdateAccessBindingsMetadata:
+      type: object
+      properties:
+        resourceId:
+          description: Идентификатор ресурса, для которого обновляется список привязок
+            прав доступа.
+          type: string
+    UpdateAccessBindingsRequest:
+      type: object
+      properties:
+        accessBindingDeltas:
+          description: |-
+            Обязательное поле.
+            Изменения в список привязок прав доступа.
+
+            Должен содержать хотя бы один элемент.
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessBindingDelta'
+    UpdateSecretMetadata:
+      type: object
+      properties:
+        secretId:
+          description: |-
+            Обязательное поле.
+            Идентификатор обновляемого секрета.
+
+            Максимальная длина строки в символах — 50.
+          type: string
+    UpdateSecretRequest:
+      type: object
+      properties:
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateSecretRequest_updateMask'
+        name:
+          description: |-
+            Новое имя секрета.
+
+            Максимальная длина строки в символах — 100.
+          type: string
+        description:
+          description: |-
+            Новое описание секрета.
+
+            Максимальная длина строки в символах — 1024.
+          type: string
+        labels:
+          description: |-
+            Пользовательские метки для секрета в виде пар @b "key:value". Максимум 64 на ключ.
+
+            Не более 64 на ресурс.
+            Максимальная длина строки в символах для каждого ключа — 63.
+            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
+            Максимальная длина строки в символах для каждого значения — 63.
+            Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+        deletionProtection:
+          description: Флаг, запрещающий удаление секрета.
+          type: boolean
+          format: boolean
+    Version:
+      type: object
+      properties:
+        id:
+          description: Идентификатор версии.
+          type: string
+        secretId:
+          description: Идентификатор секрета, которому принадлежит версия.
+          type: string
+        createdAt:
+          description: |-
+            Время создания версии ключа.
+
+            Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+          type: string
+          format: date-time
+        destroyAt:
+          description: |-
+            Время, когда версия ключа будет уничтожена. Пустой, если статус `ACTIVE`.
+
+            Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+          type: string
+          format: date-time
+        description:
+          description: (опционально) Описание версии.
+          type: string
+        status:
+          $ref: '#/components/schemas/VersionStatus_in_Version_status'
+        payloadEntryKeys:
+          description: Ключи содержимого версии.
+          type: array
+          items:
+            type: string
+    VersionStatus:
+      description: |2-
+         - ACTIVE: Секрет активен и к нему можно получить доступ.
+         - SCHEDULED_FOR_DESTRUCTION: Версия запланирована к уничтожению. Время, когда она будет уничтожена, указано в поле `destroyAt`.
+         - DESTROYED: Версия уничтожена и не может быть восстановлена.
+      type: string
+      enum:
+      - ACTIVE
+      - SCHEDULED_FOR_DESTRUCTION
+      - DESTROYED
+    rpcStatus:
+      description: Описание ошибки в случае сбоя или отмены операции.
+      type: object
+      properties:
+        code:
+          description: Код ошибки. Значение из списка [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
+          type: integer
+          format: int32
+        message:
+          description: Текст ошибки.
+          type: string
+        details:
+          description: Список сообщений с подробными сведениями об ошибке.
+          type: array
+          items:
+            type: object
+    Subject_in_AccessBinding_subject:
+      description: |-
+        Обязательное поле.
+        Субъект, для которого создается привязка прав доступа. Может
+        представлять собой аккаунт с уникальным идентификатором в облаке или системную
+        группу с общим системным идентификатором.
+      type: object
+      properties:
+        id:
+          description: |-
+            Обязательное поле.
+            Идентификатор субъекта.
+
+            Может иметь одно из значений:
+            * `allAuthenticatedUsers`: Специальный системный идентификатор, представляющий любого пользователя, прошедшего аутентификацию. Его можно использовать только если в параметре `type` указано `system`.
+            * `allUsers`: Специальный системный идентификатор, представляющий любого пользователя. Аутентификация не требуется. Например, при запросе через API не надо будет указывать IAM-токен.
+            * `<идентификатор пользователя в облаке>`: Идентификатор, представляющий учетную запись пользователя. Его можно использовать только если в параметре `type` передано одно из следующих значений: `userAccount`, `federatedUser` или `serviceAccount`.
+
+            Максимальная длина строки в символах — 50.
+          type: string
+        type:
+          description: |-
+            Обязательное поле.
+            Тип субъекта.
+
+            Может иметь одно из значений:
+            * `userAccount` — аккаунт на Яндексе или Яндекс.Коннекте, добавленный в Яндекс.Облако.
+            * `serviceAccount` — сервисный аккаунт. Этот тип представляет ресурс [ServiceAccount](/docs/iam/api-ref/ServiceAccount#representation).
+            * `federatedUser` — федеративный аккаунт. Этот тип представляет пользователя из федерации удостоверений, например Active Directory.
+            * `system` — системная группа. Представляет набор аккаунтов, который описывается общим системным идентификатором.
+
+            Дополнительные сведения см. в разделе [Субъект, которому назначается роль](/docs/iam/concepts/access-control/#subject).
+
+            Максимальная длина строки в символах — 100.
+          type: string
+    AccessBindingAction_in_AccessBindingDelta_action:
+      description: |-
+        Обязательное поле.
+        Действие, которое надо выполнить с привязкой прав доступа.
+
+         - ADD: Добавление новой привязки прав доступа.
+         - REMOVE: Удаление привязки прав доступа.
+      type: string
+      enum:
+      - ADD
+      - REMOVE
+    AccessBinding_in_AccessBindingDelta_accessBinding:
+      description: |-
+        Обязательное поле.
+        Привязка прав доступа. Дополнительные сведения см. в разделе [Привязка прав доступа](/docs/iam/concepts/access-control/#access-bindings).
+      type: object
+      properties:
+        roleId:
+          description: |-
+            Обязательное поле.
+            Идентификатор ресурса [Role](/docs/iam/api-ref/Role#representation) который назначен для субъекта, указанного в
+            параметре `subject`.
+
+            Максимальная длина строки в символах — 50.
+          type: string
+        subject:
+          $ref: '#/components/schemas/Subject_in_AccessBinding_subject'
+    SecretStatus_in_Secret_status:
+      description: |-
+        Статус секрета.
+
+         - CREATING: Секрет создается.
+         - ACTIVE: Секрет активен и к нему можно получить доступ.
+
+        Можно установить в INACTIVE с помощью метода [deactivate](/docs/lockbox/api-ref/Secret/deactivate).
+         - INACTIVE: Секрет неактивен и не может быть использован.
+
+        Можно установить в ACTIVE с помощью метода [activate](/docs/lockbox/api-ref/Secret/activate).
+      type: string
+      enum:
+      - CREATING
+      - ACTIVE
+      - INACTIVE
+    Version_in_Secret_currentVersion:
+      description: Текущая версия секрета.
+      type: object
+      properties:
+        id:
+          description: Идентификатор версии.
+          type: string
+        secretId:
+          description: Идентификатор секрета, которому принадлежит версия.
+          type: string
+        createdAt:
+          description: |-
+            Время создания версии ключа.
+
+            Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+          type: string
+          format: date-time
+        destroyAt:
+          description: |-
+            Время, когда версия ключа будет уничтожена. Пустой, если статус `ACTIVE`.
+
+            Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+          type: string
+          format: date-time
+        description:
+          description: (опционально) Описание версии.
+          type: string
+        status:
+          $ref: '#/components/schemas/VersionStatus_in_Version_status'
+        payloadEntryKeys:
+          description: Ключи содержимого версии.
+          type: array
+          items:
+            type: string
+    FieldMask_in_UpdateSecretRequest_updateMask:
+      description: |-
+        Обязательное поле.
+        Маска, определяющая, какие поля указанного сертификата будут обновлены.
+
+        Имена всех обновляемых полей, разделенные запятыми.
+        Только значения указанных полей будут изменены. Остальные останутся нетронутыми.
+        Если поле указано в параметре `` updateMask `` и в запросе не было отправлено значение для этого поля,
+        значение поля будет сброшено на значение по умолчанию. Значение по умолчанию для большинства полей — null или 0.
+
+        Если в запросе не передается `` updateMask ``, значения всех полей будут обновлены.
+        Для полей, указанных в запросе, будут использованы переданные значения.
+        Значения остальных полей будут сброшены на значения по умолчанию.
+      type: string
+    VersionStatus_in_Version_status:
+      description: |-
+        Статус секрета.
+
+         - ACTIVE: Секрет активен и к нему можно получить доступ.
+         - SCHEDULED_FOR_DESTRUCTION: Версия запланирована к уничтожению. Время, когда она будет уничтожена, указано в поле `destroyAt`.
+         - DESTROYED: Версия уничтожена и не может быть восстановлена.
+      type: string
+      enum:
+      - ACTIVE
+      - SCHEDULED_FOR_DESTRUCTION
+      - DESTROYED
+tags:
+- name: Payload
+  description: Набор методов доступа к содержимому секретов.
+- name: Secret
+  description: Набор методов для управления секретами.

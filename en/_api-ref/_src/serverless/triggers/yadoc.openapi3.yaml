@@ -308,8 +308,8 @@ components:
       properties:
         size:
           description: |-
-            Batch size. Trigger will send the batch of messages to the associated function
-            when the number of messages in the queue reaches this value, or the `cutoff` time has passed.
+            Batch size. Trigger will send the batch of messages to the function
+            when the number of messages in the queue reaches `size`, or the `cutoff` time has passed.
 
             Acceptable values are 0 to 10, inclusive.
           type: string
@@ -317,24 +317,24 @@ components:
         cutoff:
           description: |-
             Required.
-            Maximum wait time. Trigger will send the batch of messages the time since the last batch
-            exceeds the `cutoff` value, regardless of the amount of messages in the queue.
+            Maximum wait time. Trigger will send the batch of messages to the function when
+            the number of messages in the queue reaches `size`, or the `cutoff` time has passed.
           type: string
     CloudLogsBatchSettings:
       type: object
       properties:
         size:
           description: |-
-            Batch size. Trigger will send the batch of messages to the associated function
-            when the number of log events reaches this value, or the `cutoff` time has passed.
+            Batch size. Trigger will send the batch of messages to the function
+            when the number of messages in the log group reaches `size`, or the `cutoff` time has passed.
 
             Acceptable values are 0 to 100, inclusive.
           type: string
           format: int64
         cutoff:
           description: |-
-            Maximum wait time. Trigger will send the batch of messages the time since the last batch
-            exceeds the `cutoff` value, regardless of the amount of log events.
+            Maximum wait time. Trigger will send the batch of messages to the function when
+            the number of messages in the log group reaches `size`, or the `cutoff` time has passed.
 
             Acceptable values are 1 seconds to 60 seconds, inclusive.
           type: string
@@ -416,7 +416,7 @@ components:
             The maximum string length in characters is 50.
           type: string
         functionTag:
-          description: Tag of the function version to execute.
+          description: Version tag of the function to execute.
           type: string
         serviceAccountId:
           description: ID of the service account that should be used to invoke the
@@ -434,7 +434,7 @@ components:
             The maximum string length in characters is 50.
           type: string
         functionTag:
-          description: Tag of the function version to execute.
+          description: Version tag of the function to execute.
           type: string
         serviceAccountId:
           description: ID of the service account which has permission to invoke the
@@ -553,7 +553,7 @@ components:
         serviceAccountId:
           description: |-
             Required.
-            SA which has write permission on the queue.
+            Service account which has write permission on the queue.
 
             The maximum string length in characters is 50.
           type: string
@@ -663,11 +663,13 @@ components:
             items:
               $ref: '#/components/schemas/TriggerContainerRegistryEventType'
           registryId:
+            description: ID of the registry.
             type: string
           imageName:
-            description: Filter, optional.
+            description: Docker-image name. Filter, optional.
             type: string
           tag:
+            description: Docker-image tag. Filter, optional.
             type: string
       - title: action
         type: object
@@ -757,11 +759,13 @@ components:
             items:
               $ref: '#/components/schemas/TriggerObjectStorageEventType'
           bucketId:
+            description: ID of the bucket.
             type: string
           prefix:
-            description: Filter, optional.
+            description: Prefix of the object key. Filter, optional.
             type: string
           suffix:
+            description: Suffix of the object key. Filter, optional.
             type: string
       - title: action
         type: object
@@ -929,7 +933,7 @@ components:
             Time in seconds to wait between individual retries.
           type: string
     PutQueueMessage_in_InvokeFunctionWithRetry_deadLetterQueue:
-      description: DLQ policy (no value means discarding a message)
+      description: DLQ policy (no value means discarding a message).
       type: object
       properties:
         queueId:
@@ -938,7 +942,7 @@ components:
         serviceAccountId:
           description: |-
             Required.
-            SA which has write permission on the queue.
+            Service account which has write permission on the queue.
 
             The maximum string length in characters is 50.
           type: string
@@ -970,7 +974,7 @@ components:
           cloudLogs:
             $ref: '#/components/schemas/TriggerCloudLogs'
     TriggerStatus_in_Trigger_status:
-      description: Trigger status
+      description: Trigger status.
       type: string
       enum:
       - ACTIVE

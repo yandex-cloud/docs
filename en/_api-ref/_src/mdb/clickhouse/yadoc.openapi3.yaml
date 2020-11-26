@@ -3216,6 +3216,11 @@ components:
           $ref: '#/components/schemas/MaintenanceWindow_in_Cluster_maintenanceWindow'
         plannedOperation:
           $ref: '#/components/schemas/MaintenanceOperation_in_Cluster_plannedOperation'
+        securityGroupIds:
+          description: User security groups
+          type: array
+          items:
+            type: string
     ClusterConfig:
       type: object
       properties:
@@ -3441,6 +3446,11 @@ components:
           description: ID of the service account used for access to Yandex Object
             Storage.
           type: string
+        securityGroupIds:
+          description: User security groups
+          type: array
+          items:
+            type: string
     CreateClusterShardGroupMetadata:
       type: object
       properties:
@@ -4322,6 +4332,11 @@ components:
           description: ID of the service account used for access to Yandex Object
             Storage.
           type: string
+        securityGroupIds:
+          description: User security groups
+          type: array
+          items:
+            type: string
     RevokeUserPermissionMetadata:
       type: object
       properties:
@@ -4536,6 +4551,11 @@ components:
           type: string
         maintenanceWindow:
           $ref: '#/components/schemas/MaintenanceWindow_in_UpdateClusterRequest_maintenanceWindow'
+        securityGroupIds:
+          description: User security groups
+          type: array
+          items:
+            type: string
     UpdateClusterShardGroupMetadata:
       type: object
       properties:

@@ -18,7 +18,7 @@ A set of methods for managing SQL Server clusters.
 | [Move](#Move) | Moves the specified SQL Server cluster to the specified folder. |
 | [Backup](#Backup) | Creates a backup for the specified SQL Server cluster. |
 | [Restore](#Restore) | Creates a new SQL Server cluster using the specified backup. |
-| [ListLogs](#ListLogs) | // Start a manual failover on the specified sqlserver cluster. |
+| [ListLogs](#ListLogs) | Retrieves logs for the specified SQL Server cluster. |
 | [ListOperations](#ListOperations) | Retrieves the list of operations for the specified SQL Server cluster. |
 | [ListBackups](#ListBackups) | Retrieves the list of available backups for the specified SQL Server cluster. |
 | [ListHosts](#ListHosts) | Retrieves a list of hosts for the specified SQL Server cluster. |
@@ -936,7 +936,7 @@ disk_type_id | **string**<br><ul><li>network-hdd — network HDD drive, </li><li
 
 ## ListLogs {#ListLogs}
 
-// Start a manual failover on the specified sqlserver cluster. rpc StartFailover (StartClusterFailoverRequest) returns (operation.Operation) {option (google.api.http) = {post: "/mdb/sqlserver/v1alpha/clusters/{cluster_id}:startFailover" body: "*"}; option (yandex.cloud.api.operation) = {metadata: "StartClusterFailoverMetadata" response: "Cluster" }; } Retrieves logs for the specified SQL Server cluster. <br>For more information about logs, see the [Logs](/docs/managed-sqlserver/operations/cluster-logs) section in the documentation.
+Retrieves logs for the specified SQL Server cluster. <br>For more information about logs, see the [Logs](/docs/managed-sqlserver/operations/cluster-logs) section in the documentation.
 
 **rpc ListLogs ([ListClusterLogsRequest](#ListClusterLogsRequest)) returns ([ListClusterLogsResponse](#ListClusterLogsResponse))**
 

@@ -45,6 +45,8 @@ components:
         sampleRateHertz:
           type: string
           format: int64
+        voice:
+          type: string
     AudioSpecAudioEncoding:
       description: ' - LINEAR16_PCM: 16-bit signed little-endian (Linear PCM)'
       type: string

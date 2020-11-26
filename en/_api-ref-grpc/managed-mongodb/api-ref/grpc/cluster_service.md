@@ -68,6 +68,7 @@ status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOW
 sharded | **bool**<br>Indicates current sharding status of the cluster. 
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow)**<br>Window of maintenance operations. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation)**<br>Maintenance operation planned at nearest maintenance_window. 
+security_group_ids[] | **string**<br>User security groups 
 
 
 ### Monitoring {#Monitoring}
@@ -346,6 +347,7 @@ status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOW
 sharded | **bool**<br>Indicates current sharding status of the cluster. 
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow1)**<br>Window of maintenance operations. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation1)**<br>Maintenance operation planned at nearest maintenance_window. 
+security_group_ids[] | **string**<br>User security groups 
 
 
 ### Monitoring {#Monitoring1}
@@ -605,6 +607,7 @@ database_specs[] | **[DatabaseSpec](#DatabaseSpec)**<br>Descriptions of database
 user_specs[] | **[UserSpec](#UserSpec)**<br>Descriptions of database users to be created in the MongoDB cluster. The number of elements must be greater than 0.
 host_specs[] | **[HostSpec](#HostSpec)**<br>Individual configurations for hosts that should be created for the MongoDB cluster. The number of elements must be greater than 0.
 network_id | **string**<br>Required. ID of the network to create the cluster in. The maximum string length in characters is 50.
+security_group_ids[] | **string**<br>User security groups 
 
 
 ### ConfigSpec {#ConfigSpec}
@@ -879,6 +882,7 @@ status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOW
 sharded | **bool**<br>Indicates current sharding status of the cluster. 
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow2)**<br>Window of maintenance operations. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation2)**<br>Maintenance operation planned at nearest maintenance_window. 
+security_group_ids[] | **string**<br>User security groups 
 
 
 ### Monitoring {#Monitoring2}
@@ -1135,6 +1139,7 @@ labels | **map<string,string>**<br>Custom labels for the MongoDB cluster as `` k
 config_spec | **[ConfigSpec](#ConfigSpec)**<br>New configuration and resources for hosts in the cluster. 
 name | **string**<br>New name for the cluster. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow3)**<br>Window of maintenance operations. 
+security_group_ids[] | **string**<br>User security groups 
 
 
 ### ConfigSpec {#ConfigSpec1}
@@ -1395,6 +1400,7 @@ status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOW
 sharded | **bool**<br>Indicates current sharding status of the cluster. 
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow4)**<br>Window of maintenance operations. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation3)**<br>Maintenance operation planned at nearest maintenance_window. 
+security_group_ids[] | **string**<br>User security groups 
 
 
 ### Monitoring {#Monitoring3}
@@ -1729,6 +1735,7 @@ status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOW
 sharded | **bool**<br>Indicates current sharding status of the cluster. 
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow5)**<br>Window of maintenance operations. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation4)**<br>Maintenance operation planned at nearest maintenance_window. 
+security_group_ids[] | **string**<br>User security groups 
 
 
 ### Monitoring {#Monitoring4}
@@ -2023,6 +2030,7 @@ status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOW
 sharded | **bool**<br>Indicates current sharding status of the cluster. 
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow6)**<br>Window of maintenance operations. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation5)**<br>Maintenance operation planned at nearest maintenance_window. 
+security_group_ids[] | **string**<br>User security groups 
 
 
 ### Monitoring {#Monitoring5}
@@ -2320,6 +2328,7 @@ status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOW
 sharded | **bool**<br>Indicates current sharding status of the cluster. 
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow7)**<br>Window of maintenance operations. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation6)**<br>Maintenance operation planned at nearest maintenance_window. 
+security_group_ids[] | **string**<br>User security groups 
 
 
 ### Monitoring {#Monitoring6}
@@ -2614,6 +2623,7 @@ status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOW
 sharded | **bool**<br>Indicates current sharding status of the cluster. 
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow8)**<br>Window of maintenance operations. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation7)**<br>Maintenance operation planned at nearest maintenance_window. 
+security_group_ids[] | **string**<br>User security groups 
 
 
 ### Monitoring {#Monitoring7}
@@ -2873,6 +2883,7 @@ host_specs[] | **[HostSpec](#HostSpec)**<br>Configurations for MongoDB hosts tha
 network_id | **string**<br>Required. ID of the network to create the MongoDB cluster in. The maximum string length in characters is 50.
 folder_id | **string**<br>Required. ID of the folder to create the MongoDB cluster in. The maximum string length in characters is 50.
 recovery_target_spec | **RecoveryTargetSpec**<br>Specification of the moment to which the MongoDB cluster should be restored. 
+security_group_ids[] | **string**<br>User security groups 
 
 
 ### RecoveryTargetSpec {#RecoveryTargetSpec}
@@ -3131,6 +3142,7 @@ status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOW
 sharded | **bool**<br>Indicates current sharding status of the cluster. 
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow9)**<br>Window of maintenance operations. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation8)**<br>Maintenance operation planned at nearest maintenance_window. 
+security_group_ids[] | **string**<br>User security groups 
 
 
 ### Monitoring {#Monitoring8}
@@ -3428,6 +3440,7 @@ status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOW
 sharded | **bool**<br>Indicates current sharding status of the cluster. 
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow10)**<br>Window of maintenance operations. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation9)**<br>Maintenance operation planned at nearest maintenance_window. 
+security_group_ids[] | **string**<br>User security groups 
 
 
 ### Monitoring {#Monitoring9}

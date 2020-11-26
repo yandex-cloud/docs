@@ -756,6 +756,10 @@ components:
           kmsProvider:
             $ref: '#/components/schemas/KMSProvider'
             description: KMS provider configuration.
+          logGroupId:
+            description: Log group where cluster stores cluster system logs, like
+              audit, events, or controlplane logs.
+            type: string
       - title: internet_gateway
         type: object
         maxProperties: 1

@@ -4,9 +4,9 @@ editable: false
 
 # Method get
 Returns the specified secret.
-Use [get](/docs/lockbox/api-ref/Payload/get) to get the payload (confidential data themselves) of the secret
  
-
+To get the list of all available secrets, make a [list](/docs/lockbox/api-ref/Secret/list) request.
+Use [get](/docs/lockbox/api-ref/Payload/get) to get the payload (confidential data themselves) of the secret.
  
 ## HTTP request {#https-request}
 ```
@@ -17,7 +17,7 @@ GET https://lockbox.api.cloud.yandex.net/lockbox/v1/secrets/{secretId}
  
 Parameter | Description
 --- | ---
-secretId | Required. ID of the secret to return.  The maximum string length in characters is 50.
+secretId | Required. ID of the secret to return.  To get a secret ID make a [List] request.  The maximum string length in characters is 50.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -52,13 +52,13 @@ Field | Description
 --- | ---
 id | **string**<br><p>ID of the secret.</p> 
 folderId | **string**<br><p>ID of the folder that the secret belongs to.</p> 
-createdAt | **string** (date-time)<br><p>Time when the secret was created.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 name | **string**<br><p>Name of the secret.</p> 
 description | **string**<br><p>Description of the secret.</p> 
 labels | **object**<br><p>Custom labels for the secret as <code>key:value</code> pairs. Maximum 64 per key.</p> 
 kmsKeyId | **string**<br><p>Optional ID of the KMS key will be used to encrypt and decrypt the secret.</p> 
-status | **string**<br><p>Status of the secret.</p> <ul> <li>CREATING: The secret is being created.</li> <li>ACTIVE: The secret is active and the secret payload can be accessed. Can be set to INACTIVE using the <a href="/docs/lockbox/api-ref/Secret/deactivate">deactivate</a> method.</li> <li>INACTIVE: The secret is inactive and unusable. Can be set to ACTIVE using the <a href="/docs/lockbox/api-ref/Secret/deactivate">deactivate</a> method.</li> </ul> 
-currentVersion | **object**<br><p>Current (i.e. the latest) version of the secret.</p> 
+status | **string**<br><p>Status of the secret.</p> <ul> <li>CREATING: The secret is being created.</li> <li>ACTIVE: The secret is active and the secret payload can be accessed.</li> </ul> <p>Can be set to INACTIVE using the <a href="/docs/lockbox/api-ref/Secret/deactivate">deactivate</a> method.</p> <ul> <li>INACTIVE: The secret is inactive and unusable.</li> </ul> <p>Can be set to ACTIVE using the <a href="/docs/lockbox/api-ref/Secret/deactivate">deactivate</a> method.</p> 
+currentVersion | **object**<br><p>Current (i.e. the <code>latest</code>) version of the secret.</p> 
 currentVersion.<br>id | **string**<br><p>ID of the version.</p> 
 currentVersion.<br>secretId | **string**<br><p>ID of the secret that the version belongs to.</p> 
 currentVersion.<br>createdAt | **string** (date-time)<br><p>Time when the version was created.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 

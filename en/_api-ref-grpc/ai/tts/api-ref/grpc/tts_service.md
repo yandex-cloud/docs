@@ -44,6 +44,7 @@ Field | Description
 --- | ---
 audio_encoding | enum **AudioEncoding**<br> <ul><li>`LINEAR16_PCM`: 16-bit signed little-endian (Linear PCM)</li><ul/>
 sample_rate_hertz | **int64**<br> 
+voice | **string**<br> 
 
 
 ### ReplacementUnit {#ReplacementUnit}
@@ -63,6 +64,7 @@ Field | Description
 --- | ---
 audio_encoding | enum **AudioEncoding**<br> <ul><li>`LINEAR16_PCM`: 16-bit signed little-endian (Linear PCM)</li><ul/>
 sample_rate_hertz | **int64**<br> 
+voice | **string**<br> 
 
 
 ### AdaptiveSynthesizeResponse {#AdaptiveSynthesizeResponse}

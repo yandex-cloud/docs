@@ -1390,7 +1390,10 @@ POST https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters
       }
     }
   ],
-  "networkId": "string"
+  "networkId": "string",
+  "securityGroupIds": [
+    "string"
+  ]
 }
 ```
 
@@ -2713,6 +2716,7 @@ hostSpecs[].<br>configSpec.<br>postgresqlConfig_12_1C.<br>timezone | **string**<
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_12_1C.<br>effectiveIoConcurrency | **integer** (int64)<br><p>Acceptable values are 0 to 1000, inclusive.</p> 
 hostSpecs[].<br>configSpec.<br>postgresqlConfig_12_1C.<br>effectiveCacheSize | **integer** (int64)<br><p>Acceptable values are 0 to 549755813888, inclusive.</p> 
 networkId | **string**<br><p>Required. ID of the network to create the cluster in.</p> <p>The maximum string length in characters is 50.</p> 
+securityGroupIds[] | **string**<br><p>User security groups</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

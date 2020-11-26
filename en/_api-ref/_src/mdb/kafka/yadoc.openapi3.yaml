@@ -1573,6 +1573,20 @@ components:
             This is the global cluster-level setting that can be overridden on a topic level by using the `retentionMs` setting.
           type: integer
           format: int64
+        logSegmentBytes:
+          description: |-
+            The maximum size of a single log file.
+
+            This is the global cluster-level setting that can be overridden on a topic level by using the `segmentBytes` setting.
+          type: integer
+          format: int64
+        logPreallocate:
+          description: |-
+            Should pre allocate file when create new segment?
+
+            This is the global cluster-level setting that can be overridden on a topic level by using the `preallocate` setting.
+          type: boolean
+          format: boolean
     KafkaConfig2_6:
       description: Kafka version 2.6 broker configuration.
       type: object
@@ -1629,6 +1643,20 @@ components:
             This is the global cluster-level setting that can be overridden on a topic level by using the `retentionMs` setting.
           type: integer
           format: int64
+        logSegmentBytes:
+          description: |-
+            The maximum size of a single log file.
+
+            This is the global cluster-level setting that can be overridden on a topic level by using the `segmentBytes` setting.
+          type: integer
+          format: int64
+        logPreallocate:
+          description: |-
+            Should pre allocate file when create new segment?
+
+            This is the global cluster-level setting that can be overridden on a topic level by using the `preallocate` setting.
+          type: boolean
+          format: boolean
     ListClusterHostsResponse:
       type: object
       properties:
@@ -2024,6 +2052,31 @@ components:
             This setting overrides the cluster-level `logRetentionMs` setting on the topic level.
           type: integer
           format: int64
+        maxMessageBytes:
+          description: The largest record batch size allowed in topic.
+          type: integer
+          format: int64
+        minInsyncReplicas:
+          description: |-
+            This configuration specifies the minimum number of replicas that must acknowledge a write to topic for the write
+            to be considered successful (when a producer sets acks to "all").
+          type: integer
+          format: int64
+        segmentBytes:
+          description: |-
+            This configuration controls the segment file size for the log. Retention and cleaning is always done a file
+            at a time so a larger segment size means fewer files but less granular control over retention.
+
+            This setting overrides the cluster-level `logSegmentBytes` setting on the topic level.
+          type: integer
+          format: int64
+        preallocate:
+          description: |-
+            True if we should preallocate the file on disk when creating a new log segment.
+
+            This setting overrides the cluster-level `logPreallocate` setting on the topic level.
+          type: boolean
+          format: boolean
     TopicConfig2_1CleanupPolicy:
       description: |2-
          - CLEANUP_POLICY_DELETE: this policy discards log segments when either their retention time or log size limit is reached. See also: `logRetentionMs` and other similar parameters.
@@ -2085,6 +2138,31 @@ components:
             This setting overrides the cluster-level `logRetentionMs` setting on the topic level.
           type: integer
           format: int64
+        maxMessageBytes:
+          description: The largest record batch size allowed in topic.
+          type: integer
+          format: int64
+        minInsyncReplicas:
+          description: |-
+            This configuration specifies the minimum number of replicas that must acknowledge a write to topic for the write
+            to be considered successful (when a producer sets acks to "all").
+          type: integer
+          format: int64
+        segmentBytes:
+          description: |-
+            This configuration controls the segment file size for the log. Retention and cleaning is always done a file
+            at a time so a larger segment size means fewer files but less granular control over retention.
+
+            This setting overrides the cluster-level `logSegmentBytes` setting on the topic level.
+          type: integer
+          format: int64
+        preallocate:
+          description: |-
+            True if we should preallocate the file on disk when creating a new log segment.
+
+            This setting overrides the cluster-level `logPreallocate` setting on the topic level.
+          type: boolean
+          format: boolean
     TopicConfig2_6CleanupPolicy:
       description: |2-
          - CLEANUP_POLICY_DELETE: this policy discards log segments when either their retention time or log size limit is reached. See also: `logRetentionMs` and other similar parameters.

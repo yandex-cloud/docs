@@ -239,9 +239,7 @@ components:
       properties:
         size:
           description: |-
-            Размер группы сообщений. Триггер отправит группу сообщений в соответствующую
-            функцию, когда число сообщений в очереди достигнет этого значения, или прошло `cutoff`
-            время.
+            Размер группы сообщений. Триггер отправит группу сообщений в функцию, когда число сообщений в очереди достигнет `size` или истечет `cutoff`.
 
             Допустимые значения — от 0 до 10 включительно.
           type: string
@@ -249,9 +247,23 @@ components:
         cutoff:
           description: |-
             Обязательное поле.
-            Максимальное время ожидания. Триггер отправит группу сообщений, если время с
-            момента последнего пакета превышает `cutoff` значение, независимо от количества
-            сообщений в очереди.
+            Максимальное время ожидания. Триггер отправит группу сообщений в функцию, когда число сообщений в очереди достигнет `size` или истечет `cutoff`.
+          type: string
+    CloudLogsBatchSettings:
+      type: object
+      properties:
+        size:
+          description: |-
+            Размер группы сообщений. Триггер отправит группу сообщений в функцию, когда число сообщений в лог-группе достигнет `size` или истечет `cutoff`.
+
+            Допустимые значения — от 0 до 100 включительно.
+          type: string
+          format: int64
+        cutoff:
+          description: |-
+            Максимальное время ожидания. Триггер отправит группу сообщений в функцию, когда число сообщений в лог-группе достигнет `size` или истечет `cutoff`.
+
+            Допустимые значения — от 1 seconds до 60 seconds включительно.
           type: string
     CreateTriggerMetadata:
       type: object
@@ -331,7 +343,7 @@ components:
             Максимальная длина строки в символах — 50.
           type: string
         functionTag:
-          description: Тег версии функции для выполнения.
+          description: Тег версии выполняемой функции.
           type: string
         serviceAccountId:
           description: Идентификатор сервисного аккаунта, от имени которого будет
@@ -349,13 +361,15 @@ components:
             Максимальная длина строки в символах — 50.
           type: string
         functionTag:
-          description: Тег версии функции для выполнения.
+          description: Тег версии выполняемой функции.
           type: string
         serviceAccountId:
-          description: Идентификатор сервисного аккаунта с ролью на вызов функции.
+          description: Идентификатор сервисного аккаунта с правами на вызов функции.
           type: string
         retrySettings:
           $ref: '#/components/schemas/RetrySettings_in_InvokeFunctionWithRetry_retrySettings'
+        deadLetterQueue:
+          $ref: '#/components/schemas/PutQueueMessage_in_InvokeFunctionWithRetry_deadLetterQueue'
     ListTriggerOperationsResponse:
       type: object
       properties:
@@ -446,7 +460,7 @@ components:
         maxProperties: 1
         properties:
           error:
-            $ref: '#/components/schemas/Status'
+            $ref: '#/components/schemas/rpcStatus'
             description: Описание ошибки в случае сбоя или отмены операции.
           response:
             description: |-
@@ -458,14 +472,26 @@ components:
               возвращает ресурс Operation, в описании метода приведена
               структура соответствующего ему поля `response`.
             type: object
+    PutQueueMessage:
+      type: object
+      properties:
+        queueId:
+          description: Идентификатор очереди.
+          type: string
+        serviceAccountId:
+          description: |-
+            Обязательное поле.
+            Сервисный аккаунт с правами на запись в очередь.
+
+            Максимальная длина строки в символах — 50.
+          type: string
     RetrySettings:
       description: Параметры повторной попытки вызова функции.
       type: object
       properties:
         retryAttempts:
           description: |-
-            Максимальное количество повторных попыток (дополнительных вызовов), прежде чем
-            действие будет считаться неудачным.
+            Максимальное количество повторных попыток (дополнительных вызовов), прежде чем действие будет считаться неудачным.
 
             Допустимые значения — от 1 до 5 включительно.
           type: string
@@ -475,30 +501,13 @@ components:
             Обязательное поле.
             Время ожидания между повторными попытками, в секундах.
           type: string
-    Status:
-      description: Описание ошибки в случае сбоя или отмены операции.
-      type: object
-      properties:
-        code:
-          description: Код ошибки. Значение из списка [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
-          type: integer
-          format: int32
-        message:
-          description: Текст ошибки.
-          type: string
-        details:
-          description: Список сообщений с подробными сведениями об ошибке.
-          type: array
-          items:
-            type: object
     Trigger:
-      description: |-
-        Триггер для вызова бессерверной функции. Дополнительные сведения см. в разделе
-        [Триггеры](/docs/functions/concepts/trigger).
+      description: Триггер для вызова бессерверной функции. Дополнительные сведения
+        см. в разделе [Triggers](/docs/functions/concepts/trigger).
       type: object
       properties:
         id:
-          description: Идентификатор триггера. Генерируется во время создания.
+          description: Идентификатор триггера. Генерируется при создании.
           type: string
         folderId:
           description: |-
@@ -533,6 +542,66 @@ components:
             type: string
         rule:
           $ref: '#/components/schemas/TriggerRule_in_Trigger_rule'
+        status:
+          $ref: '#/components/schemas/TriggerStatus_in_Trigger_status'
+    TriggerCloudLogs:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          logGroupId:
+            description: Идентификаторы групп журналов, по крайней мере, одно значение
+              обязательно.
+            type: array
+            items:
+              type: string
+          batchSettings:
+            $ref: '#/components/schemas/CloudLogsBatchSettings'
+            description: |-
+              Обязательное поле.
+              Пакетные настройки для обработки событий журнала.
+      - title: action
+        type: object
+        maxProperties: 1
+        properties:
+          invokeFunction:
+            $ref: '#/components/schemas/InvokeFunctionWithRetry'
+    TriggerContainerRegistry:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          eventType:
+            description: |-
+              Обязательное поле.
+              Тип (имя) событий, требуется хотя бы одно значение.
+
+              Должен содержать хотя бы один элемент.
+            type: array
+            items:
+              $ref: '#/components/schemas/TriggerContainerRegistryEventType'
+          registryId:
+            description: Идентификатор реестра.
+            type: string
+          imageName:
+            description: Имя Docker-образа. Фильтр, опционально.
+            type: string
+          tag:
+            description: Тег Docker-образа. Фильтр, опционально.
+            type: string
+      - title: action
+        type: object
+        maxProperties: 1
+        properties:
+          invokeFunction:
+            $ref: '#/components/schemas/InvokeFunctionWithRetry'
+    TriggerContainerRegistryEventType:
+      type: string
+      enum:
+      - CONTAINER_REGISTRY_EVENT_TYPE_CREATE_IMAGE
+      - CONTAINER_REGISTRY_EVENT_TYPE_DELETE_IMAGE
+      - CONTAINER_REGISTRY_EVENT_TYPE_CREATE_IMAGE_TAG
+      - CONTAINER_REGISTRY_EVENT_TYPE_DELETE_IMAGE_TAG
     TriggerIoTMessage:
       description: Правило для активации триггера Yandex IoT Core.
       type: object
@@ -593,7 +662,7 @@ components:
         properties:
           invokeFunction:
             $ref: '#/components/schemas/InvokeFunctionOnce'
-            description: Инструкции для вызова функции один раз.
+            description: Инструкции для единичного вызова функции.
     TriggerObjectStorage:
       type: object
       allOf:
@@ -609,11 +678,13 @@ components:
             items:
               $ref: '#/components/schemas/TriggerObjectStorageEventType'
           bucketId:
+            description: Идентификатор бакета.
             type: string
           prefix:
-            description: Фильтр, опционально.
+            description: Префикс ключа объекта. Фильтр, опционально.
             type: string
           suffix:
+            description: Суффикс ключа объекта. Фильтр, опционально.
             type: string
       - title: action
         type: object
@@ -646,8 +717,17 @@ components:
             description: Правило для триггера Yandex IoT Core.
           objectStorage:
             $ref: '#/components/schemas/TriggerObjectStorage'
+          containerRegistry:
+            $ref: '#/components/schemas/TriggerContainerRegistry'
+          cloudLogs:
+            $ref: '#/components/schemas/TriggerCloudLogs'
+    TriggerStatus:
+      type: string
+      enum:
+      - ACTIVE
+      - PAUSED
     TriggerTimer:
-      description: Правило активации для таймера.
+      description: Правило активации таймера.
       type: object
       allOf:
       - type: object
@@ -655,7 +735,7 @@ components:
           cronExpression:
             description: |-
               Обязательное поле.
-              Описание расписания в виде [cron-выражения](/docs/functions/concepts/trigger/timer).
+              Описание расписания в виде [cron expression](/docs/functions/concepts/trigger/timer).
 
               Максимальная длина строки в символах — 100.
             type: string
@@ -665,7 +745,9 @@ components:
         properties:
           invokeFunction:
             $ref: '#/components/schemas/InvokeFunctionOnce'
-            description: Инструкции для вызова функции один раз.
+            description: Инструкции для единичного вызова функции.
+          invokeFunctionWithRetry:
+            $ref: '#/components/schemas/InvokeFunctionWithRetry'
     UpdateTriggerMetadata:
       type: object
       properties:
@@ -707,6 +789,22 @@ components:
           type: object
           additionalProperties:
             type: string
+    rpcStatus:
+      description: Описание ошибки в случае сбоя или отмены операции.
+      type: object
+      properties:
+        code:
+          description: Код ошибки. Значение из списка [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
+          type: integer
+          format: int32
+        message:
+          description: Текст ошибки.
+          type: string
+        details:
+          description: Список сообщений с подробными сведениями об ошибке.
+          type: array
+          items:
+            type: object
     TriggerRule_in_CreateTriggerRequest_rule:
       description: |-
         Обязательное поле.
@@ -730,18 +828,20 @@ components:
             description: Правило для триггера Yandex IoT Core.
           objectStorage:
             $ref: '#/components/schemas/TriggerObjectStorage'
+          containerRegistry:
+            $ref: '#/components/schemas/TriggerContainerRegistry'
+          cloudLogs:
+            $ref: '#/components/schemas/TriggerCloudLogs'
     RetrySettings_in_InvokeFunctionWithRetry_retrySettings:
       description: |-
-        Политика повторных попыток. Если поле не указано или значение пусто, повторные
-        попытки не предпринимаются.
+        Политика повторных попыток. Если поле не указано или значение пусто, повторные попытки не предпринимаются.
 
         Параметры повторной попытки вызова функции.
       type: object
       properties:
         retryAttempts:
           description: |-
-            Максимальное количество повторных попыток (дополнительных вызовов), прежде чем
-            действие будет считаться неудачным.
+            Максимальное количество повторных попыток (дополнительных вызовов), прежде чем действие будет считаться неудачным.
 
             Допустимые значения — от 1 до 5 включительно.
           type: string
@@ -750,6 +850,20 @@ components:
           description: |-
             Обязательное поле.
             Время ожидания между повторными попытками, в секундах.
+          type: string
+    PutQueueMessage_in_InvokeFunctionWithRetry_deadLetterQueue:
+      description: Политика DLQ (отсутствие значения означает отказ от сообщения).
+      type: object
+      properties:
+        queueId:
+          description: Идентификатор очереди.
+          type: string
+        serviceAccountId:
+          description: |-
+            Обязательное поле.
+            Сервисный аккаунт с правами на запись в очередь.
+
+            Максимальная длина строки в символах — 50.
           type: string
     TriggerRule_in_Trigger_rule:
       description: |-
@@ -774,6 +888,16 @@ components:
             description: Правило для триггера Yandex IoT Core.
           objectStorage:
             $ref: '#/components/schemas/TriggerObjectStorage'
+          containerRegistry:
+            $ref: '#/components/schemas/TriggerContainerRegistry'
+          cloudLogs:
+            $ref: '#/components/schemas/TriggerCloudLogs'
+    TriggerStatus_in_Trigger_status:
+      description: Состояние триггера
+      type: string
+      enum:
+      - ACTIVE
+      - PAUSED
     FieldMask_in_UpdateTriggerRequest_updateMask:
       description: |-
         Маска поля, которая указывает, какие атрибуты триггера должны быть обновлены.
