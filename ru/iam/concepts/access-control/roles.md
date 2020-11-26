@@ -86,6 +86,12 @@ _Роль_ — это набор разрешений, который опре�
 
 {% include [roles-sa-user](../../../_includes/roles-sa-user.md) %}
 
+## {{ iot-name }} {#iot-roles}
+
+{% include [iot-devices-writer](../../../_includes/roles-iot-devices-writer.md) %}
+
+{% include [iot-registries-writer](../../../_includes/roles-iot-registries-writer.md) %}
+
 ## {{ load-balancer-name }} {#load-balancer-roles}
 
 {% include [roles-lb-viewer](../../../_includes/roles-lb-viewer.md) %}
