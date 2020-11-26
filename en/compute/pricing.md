@@ -323,7 +323,7 @@ For the following products, funds are debited once for the calendar month in adv
     Other computing resources | Rate for 1 hour, without VAT
     ----- | -----
     **Intel Cascade Lake** |
-    RAM (for 1 GB) | $1.267692
+    RAM | $1.267692
 
 - Prices in roubles
 

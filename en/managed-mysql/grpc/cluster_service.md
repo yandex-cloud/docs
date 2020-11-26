@@ -61,6 +61,7 @@ health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`:
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow)**<br>Window of maintenance operations. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation)**<br>Maintenance operation planned at nearest maintenance_window. 
+security_group_ids[] | **string**<br>User security groups 
 
 
 ### Monitoring {#Monitoring}
@@ -173,6 +174,7 @@ health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`:
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow1)**<br>Window of maintenance operations. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation1)**<br>Maintenance operation planned at nearest maintenance_window. 
+security_group_ids[] | **string**<br>User security groups 
 
 
 ### Monitoring {#Monitoring1}
@@ -267,6 +269,7 @@ database_specs[] | **[DatabaseSpec](#DatabaseSpec)**<br>Descriptions of database
 user_specs[] | **[UserSpec](#UserSpec)**<br>Descriptions of database users to be created in the MySQL cluster. 
 host_specs[] | **[HostSpec](#HostSpec)**<br>Individual configurations for hosts that should be created for the MySQL cluster. 
 network_id | **string**<br>ID of the network to create the cluster in. The maximum string length in characters is 50.
+security_group_ids[] | **string**<br>User security groups 
 
 
 ### ConfigSpec {#ConfigSpec}
@@ -386,6 +389,7 @@ health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`:
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow2)**<br>Window of maintenance operations. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation2)**<br>Maintenance operation planned at nearest maintenance_window. 
+security_group_ids[] | **string**<br>User security groups 
 
 
 ### Monitoring {#Monitoring2}
@@ -477,6 +481,7 @@ labels | **map<string,string>**<br>Custom labels for the MySQL cluster as `key:v
 config_spec | **[ConfigSpec](#ConfigSpec)**<br>New configuration and resources for hosts in the cluster. 
 name | **string**<br>New name for the cluster. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow3)**<br>Window of maintenance operations. 
+security_group_ids[] | **string**<br>User security groups 
 
 
 ### ConfigSpec {#ConfigSpec1}
@@ -571,6 +576,7 @@ health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`:
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow4)**<br>Window of maintenance operations. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation3)**<br>Maintenance operation planned at nearest maintenance_window. 
+security_group_ids[] | **string**<br>User security groups 
 
 
 ### Monitoring {#Monitoring3}
@@ -739,6 +745,7 @@ health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`:
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow5)**<br>Window of maintenance operations. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation4)**<br>Maintenance operation planned at nearest maintenance_window. 
+security_group_ids[] | **string**<br>User security groups 
 
 
 ### Monitoring {#Monitoring4}
@@ -867,6 +874,7 @@ health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`:
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow6)**<br>Window of maintenance operations. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation5)**<br>Maintenance operation planned at nearest maintenance_window. 
+security_group_ids[] | **string**<br>User security groups 
 
 
 ### Monitoring {#Monitoring5}
@@ -998,6 +1006,7 @@ health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`:
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow7)**<br>Window of maintenance operations. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation6)**<br>Maintenance operation planned at nearest maintenance_window. 
+security_group_ids[] | **string**<br>User security groups 
 
 
 ### Monitoring {#Monitoring6}
@@ -1126,6 +1135,7 @@ health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`:
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow8)**<br>Window of maintenance operations. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation7)**<br>Maintenance operation planned at nearest maintenance_window. 
+security_group_ids[] | **string**<br>User security groups 
 
 
 ### Monitoring {#Monitoring7}
@@ -1220,6 +1230,7 @@ config_spec | **[ConfigSpec](#ConfigSpec)**<br>Configuration for the MySQL clust
 host_specs[] | **[HostSpec](#HostSpec)**<br>Configurations for MySQL hosts that should be added to the cluster that is being created from the backup. 
 network_id | **string**<br>ID of the network to create the MySQL cluster in. The maximum string length in characters is 50.
 folder_id | **string**<br>ID of the folder to create the MySQL cluster in. The maximum string length in characters is 50.
+security_group_ids[] | **string**<br>User security groups 
 
 
 ### ConfigSpec {#ConfigSpec2}
@@ -1303,6 +1314,7 @@ health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`:
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow9)**<br>Window of maintenance operations. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation8)**<br>Maintenance operation planned at nearest maintenance_window. 
+security_group_ids[] | **string**<br>User security groups 
 
 
 ### Monitoring {#Monitoring8}
@@ -1434,6 +1446,7 @@ health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`:
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow10)**<br>Window of maintenance operations. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation9)**<br>Maintenance operation planned at nearest maintenance_window. 
+security_group_ids[] | **string**<br>User security groups 
 
 
 ### Monitoring {#Monitoring9}
@@ -1563,6 +1576,7 @@ health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`:
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow11)**<br>Window of maintenance operations. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation10)**<br>Maintenance operation planned at nearest maintenance_window. 
+security_group_ids[] | **string**<br>User security groups 
 
 
 ### Monitoring {#Monitoring10}

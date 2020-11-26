@@ -40,11 +40,23 @@ Data operations are charged according to the following policy:
 
 Prices are given for a 30-day month. For shorter months, the price is higher. For longer months, it's lower.
 
-| Service | Cost of 1 GB per month, with VAT |
-| ----- | ----- |
-| The first 1 GB in standart storage per month | Not charged |
-| Standard storage | 1.2610 ₽ |
-| Cold storage | 0.6712 ₽ |
+{% list tabs %}
+
+- Prices in USD
+  | Service | Cost of 1 GB per month, without VAT |
+  | ----- | ----- |
+  | The first 1 GB in standart storage per month | $0 |
+  | Standard storage | $0.016167 |
+  | Cold storage | $0.008605 |
+  
+- Prices in roubles
+  | Service | Cost of 1 GB per month, with VAT |
+  | ----- | ----- |
+  | The first 1 GB in standart storage per month | ₽0 |
+  | Standard storage | ₽1.2610 |
+  | Cold storage | ₽0.6712 |
+  
+{% endlist %}
 
 Example of a proportional calculation: let's say the user stores 15 GB of data for 11.5 hours during a 30-day month. The total cost of storage can be calculated using the formula:
 
@@ -54,16 +66,33 @@ Storage_cost = Cost_per_GB_per_month * 15 * 12 / 24 / 30
 
 ### Data operations {#prices-operations}
 
-| Service | Cost, rubles with VAT |
-| ----- | ----- |
-| **Standard storage** |
-| The first 10 000 PUT or POST operations per month | Not charged |
-| The first 100 000 GET or HEAD operations per month | Not charged |
-| 1000 PUT or POST operations | 0.3051 ₽ |
-| 10,000 GET or HEAD operations | 0.2441 ₽ |
-| **Cold storage** |
-| 1000 PUT or POST operations | 0.7424 ₽ |
-| 10,000 GET or HEAD operations | 0.6102 ₽ |
+{% list tabs %}
+
+- Prices in USD
+  | Service | Cost, without VAT |
+  | ----- | ----- |
+  | **Standard storage** |
+  | The first 10 000 PUT or POST operations per month | $0 |
+  | The first 100 000 GET or HEAD operations per month | $0 |
+  | 1000 PUT or POST operations | $0.003911 |
+  | 10,000 GET or HEAD operations | $0.003129 |
+  | **Cold storage** |
+  | 1000 PUT or POST operations | $0.009518 |
+  | 10,000 GET or HEAD operations | $0.007823 |
+  
+- Prices in roubles
+  | Service | Cost, with VAT |
+  | ----- | ----- |
+  | **Standard storage** |
+  | The first 10 000 PUT or POST operations per month | ₽0 |
+  | The first 100 000 GET or HEAD operations per month | ₽0 |
+  | 1000 PUT or POST operations | ₽0.3051 |
+  | 10,000 GET or HEAD operations | ₽0.2441 |
+  | **Cold storage** |
+  | 1000 PUT or POST operations | ₽0.7424 |
+  | 10,000 GET or HEAD operations | ₽0.6102 |
+  
+{% endlist %}
 
 {% note info %}
 
@@ -82,13 +111,26 @@ When using the service, you pay for traffic from the Cloud to the internet. Traf
 
 The minimum billable unit is 1 MB.
 
-| Resource category | Cost of 1 GB with VAT |
-| ----- | ----- |
-| Outgoing traffic, up to 10 GB per month | Free |
-| Outgoing traffic over 10 GB and up to 1 TB | 0.96 ₽ |
-| Outgoing traffic over 1 TB and up to 50 TB | 0.80 ₽ |
-| Outgoing traffic over 50 TB and up to 100 TB | 0.75 ₽ |
-| Outgoing traffic over 100 TB | 0.72 ₽ |
+{% list tabs %}
+
+- Prices in USD
+  | Resource category | Cost of 1 GB, without VAT |
+  | ----- | ----- |
+  | Outgoing traffic, up to 10 GB per month | $0 |
+  | Outgoing traffic over 10 GB and up to 1 TB | $0.012307 |
+  | Outgoing traffic over 1 TB and up to 50 TB | $0.010256 |
+  | Outgoing traffic over 50 TB and up to 100 TB | $0.009615 |
+  | Outgoing traffic over 100 TB | $0.009230 |
+  
+- Prices in roubles
+  | Resource category | Cost of 1 GB, with VAT |
+  | ----- | ----- |
+  | Outgoing traffic, up to 10 GB per month | ₽0 |
+  | Outgoing traffic over 10 GB and up to 1 TB | ₽0.9600 |
+  | Outgoing traffic over 1 TB and up to 50 TB | ₽0.8000 |
+  | Outgoing traffic over 50 TB and up to 100 TB | ₽0.7500 |
+  | Outgoing traffic over 100 TB | ₽0.7200 |
+  
+{% endlist %}
 
 The first 10 GB of outgoing traffic for {{ objstorage-name }} are accounted for independently of other services.
-

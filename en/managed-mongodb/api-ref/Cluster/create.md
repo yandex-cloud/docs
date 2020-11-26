@@ -444,7 +444,10 @@ POST https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters
       "shardName": "string"
     }
   ],
-  "networkId": "string"
+  "networkId": "string",
+  "securityGroupIds": [
+    "string"
+  ]
 }
 ```
 
@@ -727,6 +730,7 @@ hostSpecs[].<br>assignPublicIp | **boolean** (boolean)<br><p>Whether the host sh
 hostSpecs[].<br>type | **string**<br><p>Type of the host to be deployed.</p> <ul> <li>MONGOD: A mongod host.</li> <li>MONGOS: A mongos host.</li> <li>MONGOCFG: A mongocfg host.</li> <li>MONGOINFRA: A mongoinfra (mongos+mongocfg) host.</li> </ul> 
 hostSpecs[].<br>shardName | **string**<br><p>Name of the shard that the host belongs to.</p> <p>The maximum string length in characters is 63. Value must match the regular expression <code>[a-zA-Z0-9_-]*</code>.</p> 
 networkId | **string**<br><p>Required. ID of the network to create the cluster in.</p> <p>The maximum string length in characters is 50.</p> 
+securityGroupIds[] | **string**<br><p>User security groups</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

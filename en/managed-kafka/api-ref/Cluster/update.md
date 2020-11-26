@@ -43,7 +43,9 @@ clusterId | Required. ID of the Apache Kafka® cluster to update.  To get the Ap
         "logRetentionBytes": "integer",
         "logRetentionHours": "integer",
         "logRetentionMinutes": "integer",
-        "logRetentionMs": "integer"
+        "logRetentionMs": "integer",
+        "logSegmentBytes": "integer",
+        "logPreallocate": true
       },
       "kafkaConfig_2_6": {
         "compressionType": "string",
@@ -53,7 +55,9 @@ clusterId | Required. ID of the Apache Kafka® cluster to update.  To get the Ap
         "logRetentionBytes": "integer",
         "logRetentionHours": "integer",
         "logRetentionMinutes": "integer",
-        "logRetentionMs": "integer"
+        "logRetentionMs": "integer",
+        "logSegmentBytes": "integer",
+        "logPreallocate": true
       },
       // end of the list of possible fields`configSpec.kafka`
 
@@ -97,6 +101,8 @@ configSpec.<br>kafka.<br>kafkaConfig_2_1.<br>logRetentionBytes | **integer** (in
 configSpec.<br>kafka.<br>kafkaConfig_2_1.<br>logRetentionHours | **integer** (int64)<br><p>The number of hours to keep a log segment file before deleting it.</p> 
 configSpec.<br>kafka.<br>kafkaConfig_2_1.<br>logRetentionMinutes | **integer** (int64)<br><p>The number of minutes to keep a log segment file before deleting it.</p> <p>If not set, the value of <code>logRetentionHours</code> is used.</p> 
 configSpec.<br>kafka.<br>kafkaConfig_2_1.<br>logRetentionMs | **integer** (int64)<br><p>The number of milliseconds to keep a log segment file before deleting it.</p> <p>If not set, the value of <code>logRetentionMinutes</code> is used.</p> <p>This is the global cluster-level setting that can be overridden on a topic level by using the <code>retentionMs</code> setting.</p> 
+configSpec.<br>kafka.<br>kafkaConfig_2_1.<br>logSegmentBytes | **integer** (int64)<br><p>The maximum size of a single log file.</p> <p>This is the global cluster-level setting that can be overridden on a topic level by using the <code>segmentBytes</code> setting.</p> 
+configSpec.<br>kafka.<br>kafkaConfig_2_1.<br>logPreallocate | **boolean** (boolean)<br><p>Should pre allocate file when create new segment?</p> <p>This is the global cluster-level setting that can be overridden on a topic level by using the <code>preallocate</code> setting.</p> 
 configSpec.<br>kafka.<br>kafkaConfig_2_6 | **object** <br>`configSpec.kafka` includes only one of the fields `kafkaConfig_2_1`, `kafkaConfig_2_6`<br><br><p>Kafka version 2.6 broker configuration.</p> 
 configSpec.<br>kafka.<br>kafkaConfig_2_6.<br>compressionType | **string**<br><p>Сluster topics compression type.</p> <ul> <li>COMPRESSION_TYPE_UNCOMPRESSED: no codec (uncompressed).</li> <li>COMPRESSION_TYPE_ZSTD: Zstandard codec.</li> <li>COMPRESSION_TYPE_LZ4: LZ4 codec.</li> <li>COMPRESSION_TYPE_SNAPPY: Snappy codec.</li> <li>COMPRESSION_TYPE_GZIP: GZip codec.</li> <li>COMPRESSION_TYPE_PRODUCER: the codec to use is set by a producer (can be any of <code>ZSTD</code>, <code>LZ4</code>, <code>GZIP</code> or <code>SNAPPY</code> codecs).</li> </ul> 
 configSpec.<br>kafka.<br>kafkaConfig_2_6.<br>logFlushIntervalMessages | **integer** (int64)<br><p>The number of messages accumulated on a log partition before messages are flushed to disk.</p> <p>This is the global cluster-level setting that can be overridden on a topic level by using the <code>flushMessages</code> setting.</p> 
@@ -106,6 +112,8 @@ configSpec.<br>kafka.<br>kafkaConfig_2_6.<br>logRetentionBytes | **integer** (in
 configSpec.<br>kafka.<br>kafkaConfig_2_6.<br>logRetentionHours | **integer** (int64)<br><p>The number of hours to keep a log segment file before deleting it.</p> 
 configSpec.<br>kafka.<br>kafkaConfig_2_6.<br>logRetentionMinutes | **integer** (int64)<br><p>The number of minutes to keep a log segment file before deleting it.</p> <p>If not set, the value of <code>logRetentionHours</code> is used.</p> 
 configSpec.<br>kafka.<br>kafkaConfig_2_6.<br>logRetentionMs | **integer** (int64)<br><p>The number of milliseconds to keep a log segment file before deleting it.</p> <p>If not set, the value of <code>logRetentionMinutes</code> is used.</p> <p>This is the global cluster-level setting that can be overridden on a topic level by using the <code>retentionMs</code> setting.</p> 
+configSpec.<br>kafka.<br>kafkaConfig_2_6.<br>logSegmentBytes | **integer** (int64)<br><p>The maximum size of a single log file.</p> <p>This is the global cluster-level setting that can be overridden on a topic level by using the <code>segmentBytes</code> setting.</p> 
+configSpec.<br>kafka.<br>kafkaConfig_2_6.<br>logPreallocate | **boolean** (boolean)<br><p>Should pre allocate file when create new segment?</p> <p>This is the global cluster-level setting that can be overridden on a topic level by using the <code>preallocate</code> setting.</p> 
 configSpec.<br>zookeeper | **object**<br><p>Configuration and resource allocation for ZooKeeper hosts.</p> 
 configSpec.<br>zookeeper.<br>resources | **object**<br><p>Resources allocated to ZooKeeper hosts.</p> 
 configSpec.<br>zookeeper.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory, etc.). All available presets are listed in the <a href="/docs/managed-kafka/concepts/instance-types">documentation</a>.</p> 

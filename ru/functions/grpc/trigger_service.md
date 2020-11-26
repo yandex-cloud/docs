@@ -34,33 +34,37 @@ trigger_id | **string**<br>Обязательное поле. Идентифик
 
 Поле | Описание
 --- | ---
-id | **string**<br>Идентификатор триггера. Генерируется во время создания. 
+id | **string**<br>Идентификатор триггера. Генерируется при создании. 
 folder_id | **string**<br>Обязательное поле. Идентификатор каталога, в котором создается триггер. Максимальная длина строки в символах — 50.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания триггера. 
 name | **string**<br>Имя триггера. Длина строки в символах должна быть от 3 до 63.
 description | **string**<br>Описание триггера. Длина строки в символах должна быть от 0 до 256.
 labels | **map<string,string>**<br>Метки триггеров в виде пар `key:value` . 
 rule | **[Rule](#Rule)**<br>Обязательное поле. Правило активации триггера (всегда соответствует типу триггера). 
+status | enum **Status**<br>Состояние триггера <ul><ul/>
 
 
 ### Rule {#Rule}
 
 Поле | Описание
 --- | ---
-rule | **oneof:** `timer`, `message_queue`, `iot_message` или `object_storage`<br>
+rule | **oneof:** `timer`, `message_queue`, `iot_message`, `object_storage`, `container_registry` или `cloud_logs`<br>
 &nbsp;&nbsp;timer | **[Timer](#Timer)**<br>Правило для таймера. 
 &nbsp;&nbsp;message_queue | **[MessageQueue](#MessageQueue)**<br>Правило для триггера очереди сообщений. 
 &nbsp;&nbsp;iot_message | **[IoTMessage](#IoTMessage)**<br>Правило для триггера Yandex IoT Core. 
 &nbsp;&nbsp;object_storage | **[ObjectStorage](#ObjectStorage)**<br> 
+&nbsp;&nbsp;container_registry | **[ContainerRegistry](#ContainerRegistry)**<br> 
+&nbsp;&nbsp;cloud_logs | **[CloudLogs](#CloudLogs)**<br> 
 
 
 ### Timer {#Timer}
 
 Поле | Описание
 --- | ---
-cron_expression | **string**<br>Обязательное поле. Описание расписания в виде [cron-выражения](/docs/functions/concepts/trigger/timer). Максимальная длина строки в символах — 100.
-action | **oneof:** `invoke_function`<br>Действие, которое будет выполнено, когда текущее время совпадает с `cron_expression`.
-&nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](#InvokeFunctionOnce)**<br>Инструкции для вызова функции один раз. 
+cron_expression | **string**<br>Обязательное поле. Описание расписания в виде [cron expression](/docs/functions/concepts/trigger/timer). Максимальная длина строки в символах — 100.
+action | **oneof:** `invoke_function` или `invoke_function_with_retry`<br>Действие, которое будет выполнено, когда текущее время совпадает с `cron_expression`.
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](#InvokeFunctionOnce)**<br>Инструкции для единичного вызова функции. 
+&nbsp;&nbsp;invoke_function_with_retry | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Действие, которое будет выполнено, когда текущее время совпадает с `cron_expression`. 
 
 
 ### MessageQueue {#MessageQueue}
@@ -72,7 +76,7 @@ service_account_id | **string**<br>Обязательное поле. Идент
 batch_settings | **[BatchSettings](#BatchSettings)**<br>Обязательное поле. Настройки группы сообщений для обработки сообщений в очереди. 
 visibility_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Переопределение таймаута видимости очереди. Максимальное значение — 12h.
 action | **oneof:** `invoke_function`<br>Действие, которое будет выполнено, когда в очереди появится новое сообщение.
-&nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](#InvokeFunctionOnce)**<br>Инструкции для вызова функции один раз. 
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](#InvokeFunctionOnce)**<br>Инструкции для единичного вызова функции. 
 
 
 ### IoTMessage {#IoTMessage}
@@ -91,9 +95,31 @@ action | **oneof:** `invoke_function`<br>Действие, которое буд
 Поле | Описание
 --- | ---
 event_type[] | **ObjectStorageEventType**<br>Тип (имя) событий, требуется хотя бы одно значение. Количество элементов должно быть больше 0.
-bucket_id | **string**<br> 
-prefix | **string**<br>Фильтр, опционально. 
-suffix | **string**<br> 
+bucket_id | **string**<br>Идентификатор бакета. 
+prefix | **string**<br>Префикс ключа объекта. Фильтр, опционально. 
+suffix | **string**<br>Суффикс ключа объекта. Фильтр, опционально. 
+action | **oneof:** `invoke_function`<br>
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br> 
+
+
+### ContainerRegistry {#ContainerRegistry}
+
+Поле | Описание
+--- | ---
+event_type[] | **ContainerRegistryEventType**<br>Тип (имя) событий, требуется хотя бы одно значение. Количество элементов должно быть больше 0.
+registry_id | **string**<br>Идентификатор реестра. 
+image_name | **string**<br>Имя Docker-образа. Фильтр, опционально. 
+tag | **string**<br>Тег Docker-образа. Фильтр, опционально. 
+action | **oneof:** `invoke_function`<br>
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br> 
+
+
+### CloudLogs {#CloudLogs}
+
+Поле | Описание
+--- | ---
+log_group_id[] | **string**<br>Идентификаторы групп журналов, по крайней мере, одно значение обязательно. 
+batch_settings | **[CloudLogsBatchSettings](#CloudLogsBatchSettings)**<br>Обязательное поле. Пакетные настройки для обработки событий журнала. 
 action | **oneof:** `invoke_function`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br> 
 
@@ -126,33 +152,37 @@ next_page_token | **string**<br>Токен для получения следу�
 
 Поле | Описание
 --- | ---
-id | **string**<br>Идентификатор триггера. Генерируется во время создания. 
+id | **string**<br>Идентификатор триггера. Генерируется при создании. 
 folder_id | **string**<br>Обязательное поле. Идентификатор каталога, в котором создается триггер. Максимальная длина строки в символах — 50.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания триггера. 
 name | **string**<br>Имя триггера. Длина строки в символах должна быть от 3 до 63.
 description | **string**<br>Описание триггера. Длина строки в символах должна быть от 0 до 256.
 labels | **map<string,string>**<br>Метки триггеров в виде пар `key:value` . 
 rule | **[Rule](#Rule1)**<br>Обязательное поле. Правило активации триггера (всегда соответствует типу триггера). 
+status | enum **Status**<br>Состояние триггера <ul><ul/>
 
 
 ### Rule {#Rule1}
 
 Поле | Описание
 --- | ---
-rule | **oneof:** `timer`, `message_queue`, `iot_message` или `object_storage`<br>
+rule | **oneof:** `timer`, `message_queue`, `iot_message`, `object_storage`, `container_registry` или `cloud_logs`<br>
 &nbsp;&nbsp;timer | **[Timer](#Timer1)**<br>Правило для таймера. 
 &nbsp;&nbsp;message_queue | **[MessageQueue](#MessageQueue1)**<br>Правило для триггера очереди сообщений. 
 &nbsp;&nbsp;iot_message | **[IoTMessage](#IoTMessage1)**<br>Правило для триггера Yandex IoT Core. 
 &nbsp;&nbsp;object_storage | **[ObjectStorage](#ObjectStorage1)**<br> 
+&nbsp;&nbsp;container_registry | **[ContainerRegistry](#ContainerRegistry1)**<br> 
+&nbsp;&nbsp;cloud_logs | **[CloudLogs](#CloudLogs1)**<br> 
 
 
 ### Timer {#Timer1}
 
 Поле | Описание
 --- | ---
-cron_expression | **string**<br>Обязательное поле. Описание расписания в виде [cron-выражения](/docs/functions/concepts/trigger/timer). Максимальная длина строки в символах — 100.
-action | **oneof:** `invoke_function`<br>Действие, которое будет выполнено, когда текущее время совпадает с `cron_expression`.
-&nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](#InvokeFunctionOnce)**<br>Инструкции для вызова функции один раз. 
+cron_expression | **string**<br>Обязательное поле. Описание расписания в виде [cron expression](/docs/functions/concepts/trigger/timer). Максимальная длина строки в символах — 100.
+action | **oneof:** `invoke_function` или `invoke_function_with_retry`<br>Действие, которое будет выполнено, когда текущее время совпадает с `cron_expression`.
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](#InvokeFunctionOnce)**<br>Инструкции для единичного вызова функции. 
+&nbsp;&nbsp;invoke_function_with_retry | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Действие, которое будет выполнено, когда текущее время совпадает с `cron_expression`. 
 
 
 ### MessageQueue {#MessageQueue1}
@@ -164,7 +194,7 @@ service_account_id | **string**<br>Обязательное поле. Идент
 batch_settings | **[BatchSettings](#BatchSettings)**<br>Обязательное поле. Настройки группы сообщений для обработки сообщений в очереди. 
 visibility_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Переопределение таймаута видимости очереди. Максимальное значение — 12h.
 action | **oneof:** `invoke_function`<br>Действие, которое будет выполнено, когда в очереди появится новое сообщение.
-&nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](#InvokeFunctionOnce)**<br>Инструкции для вызова функции один раз. 
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](#InvokeFunctionOnce)**<br>Инструкции для единичного вызова функции. 
 
 
 ### IoTMessage {#IoTMessage1}
@@ -183,9 +213,31 @@ action | **oneof:** `invoke_function`<br>Действие, которое буд
 Поле | Описание
 --- | ---
 event_type[] | **ObjectStorageEventType**<br>Тип (имя) событий, требуется хотя бы одно значение. Количество элементов должно быть больше 0.
-bucket_id | **string**<br> 
-prefix | **string**<br>Фильтр, опционально. 
-suffix | **string**<br> 
+bucket_id | **string**<br>Идентификатор бакета. 
+prefix | **string**<br>Префикс ключа объекта. Фильтр, опционально. 
+suffix | **string**<br>Суффикс ключа объекта. Фильтр, опционально. 
+action | **oneof:** `invoke_function`<br>
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br> 
+
+
+### ContainerRegistry {#ContainerRegistry1}
+
+Поле | Описание
+--- | ---
+event_type[] | **ContainerRegistryEventType**<br>Тип (имя) событий, требуется хотя бы одно значение. Количество элементов должно быть больше 0.
+registry_id | **string**<br>Идентификатор реестра. 
+image_name | **string**<br>Имя Docker-образа. Фильтр, опционально. 
+tag | **string**<br>Тег Docker-образа. Фильтр, опционально. 
+action | **oneof:** `invoke_function`<br>
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br> 
+
+
+### CloudLogs {#CloudLogs1}
+
+Поле | Описание
+--- | ---
+log_group_id[] | **string**<br>Идентификаторы групп журналов, по крайней мере, одно значение обязательно. 
+batch_settings | **[CloudLogsBatchSettings](#CloudLogsBatchSettings)**<br>Обязательное поле. Пакетные настройки для обработки событий журнала. 
 action | **oneof:** `invoke_function`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br> 
 
@@ -238,33 +290,37 @@ trigger_id | **string**<br>Идентификатор создаваемого �
 
 Поле | Описание
 --- | ---
-id | **string**<br>Идентификатор триггера. Генерируется во время создания. 
+id | **string**<br>Идентификатор триггера. Генерируется при создании. 
 folder_id | **string**<br>Обязательное поле. Идентификатор каталога, в котором создается триггер. Максимальная длина строки в символах — 50.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания триггера. 
 name | **string**<br>Имя триггера. Длина строки в символах должна быть от 3 до 63.
 description | **string**<br>Описание триггера. Длина строки в символах должна быть от 0 до 256.
 labels | **map<string,string>**<br>Метки триггеров в виде пар `key:value` . 
 rule | **[Rule](#Rule2)**<br>Обязательное поле. Правило активации триггера (всегда соответствует типу триггера). 
+status | enum **Status**<br>Состояние триггера <ul><ul/>
 
 
 ### Rule {#Rule2}
 
 Поле | Описание
 --- | ---
-rule | **oneof:** `timer`, `message_queue`, `iot_message` или `object_storage`<br>
+rule | **oneof:** `timer`, `message_queue`, `iot_message`, `object_storage`, `container_registry` или `cloud_logs`<br>
 &nbsp;&nbsp;timer | **[Timer](#Timer2)**<br>Правило для таймера. 
 &nbsp;&nbsp;message_queue | **[MessageQueue](#MessageQueue2)**<br>Правило для триггера очереди сообщений. 
 &nbsp;&nbsp;iot_message | **[IoTMessage](#IoTMessage2)**<br>Правило для триггера Yandex IoT Core. 
 &nbsp;&nbsp;object_storage | **[ObjectStorage](#ObjectStorage2)**<br> 
+&nbsp;&nbsp;container_registry | **[ContainerRegistry](#ContainerRegistry2)**<br> 
+&nbsp;&nbsp;cloud_logs | **[CloudLogs](#CloudLogs2)**<br> 
 
 
 ### Timer {#Timer2}
 
 Поле | Описание
 --- | ---
-cron_expression | **string**<br>Обязательное поле. Описание расписания в виде [cron-выражения](/docs/functions/concepts/trigger/timer). Максимальная длина строки в символах — 100.
-action | **oneof:** `invoke_function`<br>Действие, которое будет выполнено, когда текущее время совпадает с `cron_expression`.
-&nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](#InvokeFunctionOnce)**<br>Инструкции для вызова функции один раз. 
+cron_expression | **string**<br>Обязательное поле. Описание расписания в виде [cron expression](/docs/functions/concepts/trigger/timer). Максимальная длина строки в символах — 100.
+action | **oneof:** `invoke_function` или `invoke_function_with_retry`<br>Действие, которое будет выполнено, когда текущее время совпадает с `cron_expression`.
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](#InvokeFunctionOnce)**<br>Инструкции для единичного вызова функции. 
+&nbsp;&nbsp;invoke_function_with_retry | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Действие, которое будет выполнено, когда текущее время совпадает с `cron_expression`. 
 
 
 ### MessageQueue {#MessageQueue2}
@@ -276,7 +332,7 @@ service_account_id | **string**<br>Обязательное поле. Идент
 batch_settings | **[BatchSettings](#BatchSettings)**<br>Обязательное поле. Настройки группы сообщений для обработки сообщений в очереди. 
 visibility_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Переопределение таймаута видимости очереди. Максимальное значение — 12h.
 action | **oneof:** `invoke_function`<br>Действие, которое будет выполнено, когда в очереди появится новое сообщение.
-&nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](#InvokeFunctionOnce)**<br>Инструкции для вызова функции один раз. 
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](#InvokeFunctionOnce)**<br>Инструкции для единичного вызова функции. 
 
 
 ### IoTMessage {#IoTMessage2}
@@ -295,9 +351,31 @@ action | **oneof:** `invoke_function`<br>Действие, которое буд
 Поле | Описание
 --- | ---
 event_type[] | **ObjectStorageEventType**<br>Тип (имя) событий, требуется хотя бы одно значение. Количество элементов должно быть больше 0.
-bucket_id | **string**<br> 
-prefix | **string**<br>Фильтр, опционально. 
-suffix | **string**<br> 
+bucket_id | **string**<br>Идентификатор бакета. 
+prefix | **string**<br>Префикс ключа объекта. Фильтр, опционально. 
+suffix | **string**<br>Суффикс ключа объекта. Фильтр, опционально. 
+action | **oneof:** `invoke_function`<br>
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br> 
+
+
+### ContainerRegistry {#ContainerRegistry2}
+
+Поле | Описание
+--- | ---
+event_type[] | **ContainerRegistryEventType**<br>Тип (имя) событий, требуется хотя бы одно значение. Количество элементов должно быть больше 0.
+registry_id | **string**<br>Идентификатор реестра. 
+image_name | **string**<br>Имя Docker-образа. Фильтр, опционально. 
+tag | **string**<br>Тег Docker-образа. Фильтр, опционально. 
+action | **oneof:** `invoke_function`<br>
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br> 
+
+
+### CloudLogs {#CloudLogs2}
+
+Поле | Описание
+--- | ---
+log_group_id[] | **string**<br>Идентификаторы групп журналов, по крайней мере, одно значение обязательно. 
+batch_settings | **[CloudLogsBatchSettings](#CloudLogsBatchSettings)**<br>Обязательное поле. Пакетные настройки для обработки событий журнала. 
 action | **oneof:** `invoke_function`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br> 
 
@@ -350,33 +428,37 @@ trigger_id | **string**<br>Обязательное поле. Идентифик
 
 Поле | Описание
 --- | ---
-id | **string**<br>Идентификатор триггера. Генерируется во время создания. 
+id | **string**<br>Идентификатор триггера. Генерируется при создании. 
 folder_id | **string**<br>Обязательное поле. Идентификатор каталога, в котором создается триггер. Максимальная длина строки в символах — 50.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания триггера. 
 name | **string**<br>Имя триггера. Длина строки в символах должна быть от 3 до 63.
 description | **string**<br>Описание триггера. Длина строки в символах должна быть от 0 до 256.
 labels | **map<string,string>**<br>Метки триггеров в виде пар `key:value` . 
 rule | **[Rule](#Rule3)**<br>Обязательное поле. Правило активации триггера (всегда соответствует типу триггера). 
+status | enum **Status**<br>Состояние триггера <ul><ul/>
 
 
 ### Rule {#Rule3}
 
 Поле | Описание
 --- | ---
-rule | **oneof:** `timer`, `message_queue`, `iot_message` или `object_storage`<br>
+rule | **oneof:** `timer`, `message_queue`, `iot_message`, `object_storage`, `container_registry` или `cloud_logs`<br>
 &nbsp;&nbsp;timer | **[Timer](#Timer3)**<br>Правило для таймера. 
 &nbsp;&nbsp;message_queue | **[MessageQueue](#MessageQueue3)**<br>Правило для триггера очереди сообщений. 
 &nbsp;&nbsp;iot_message | **[IoTMessage](#IoTMessage3)**<br>Правило для триггера Yandex IoT Core. 
 &nbsp;&nbsp;object_storage | **[ObjectStorage](#ObjectStorage3)**<br> 
+&nbsp;&nbsp;container_registry | **[ContainerRegistry](#ContainerRegistry3)**<br> 
+&nbsp;&nbsp;cloud_logs | **[CloudLogs](#CloudLogs3)**<br> 
 
 
 ### Timer {#Timer3}
 
 Поле | Описание
 --- | ---
-cron_expression | **string**<br>Обязательное поле. Описание расписания в виде [cron-выражения](/docs/functions/concepts/trigger/timer). Максимальная длина строки в символах — 100.
-action | **oneof:** `invoke_function`<br>Действие, которое будет выполнено, когда текущее время совпадает с `cron_expression`.
-&nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](#InvokeFunctionOnce)**<br>Инструкции для вызова функции один раз. 
+cron_expression | **string**<br>Обязательное поле. Описание расписания в виде [cron expression](/docs/functions/concepts/trigger/timer). Максимальная длина строки в символах — 100.
+action | **oneof:** `invoke_function` или `invoke_function_with_retry`<br>Действие, которое будет выполнено, когда текущее время совпадает с `cron_expression`.
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](#InvokeFunctionOnce)**<br>Инструкции для единичного вызова функции. 
+&nbsp;&nbsp;invoke_function_with_retry | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Действие, которое будет выполнено, когда текущее время совпадает с `cron_expression`. 
 
 
 ### MessageQueue {#MessageQueue3}
@@ -388,7 +470,7 @@ service_account_id | **string**<br>Обязательное поле. Идент
 batch_settings | **[BatchSettings](#BatchSettings)**<br>Обязательное поле. Настройки группы сообщений для обработки сообщений в очереди. 
 visibility_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Переопределение таймаута видимости очереди. Максимальное значение — 12h.
 action | **oneof:** `invoke_function`<br>Действие, которое будет выполнено, когда в очереди появится новое сообщение.
-&nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](#InvokeFunctionOnce)**<br>Инструкции для вызова функции один раз. 
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](#InvokeFunctionOnce)**<br>Инструкции для единичного вызова функции. 
 
 
 ### IoTMessage {#IoTMessage3}
@@ -407,9 +489,31 @@ action | **oneof:** `invoke_function`<br>Действие, которое буд
 Поле | Описание
 --- | ---
 event_type[] | **ObjectStorageEventType**<br>Тип (имя) событий, требуется хотя бы одно значение. Количество элементов должно быть больше 0.
-bucket_id | **string**<br> 
-prefix | **string**<br>Фильтр, опционально. 
-suffix | **string**<br> 
+bucket_id | **string**<br>Идентификатор бакета. 
+prefix | **string**<br>Префикс ключа объекта. Фильтр, опционально. 
+suffix | **string**<br>Суффикс ключа объекта. Фильтр, опционально. 
+action | **oneof:** `invoke_function`<br>
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br> 
+
+
+### ContainerRegistry {#ContainerRegistry3}
+
+Поле | Описание
+--- | ---
+event_type[] | **ContainerRegistryEventType**<br>Тип (имя) событий, требуется хотя бы одно значение. Количество элементов должно быть больше 0.
+registry_id | **string**<br>Идентификатор реестра. 
+image_name | **string**<br>Имя Docker-образа. Фильтр, опционально. 
+tag | **string**<br>Тег Docker-образа. Фильтр, опционально. 
+action | **oneof:** `invoke_function`<br>
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br> 
+
+
+### CloudLogs {#CloudLogs3}
+
+Поле | Описание
+--- | ---
+log_group_id[] | **string**<br>Идентификаторы групп журналов, по крайней мере, одно значение обязательно. 
+batch_settings | **[CloudLogsBatchSettings](#CloudLogsBatchSettings)**<br>Обязательное поле. Пакетные настройки для обработки событий журнала. 
 action | **oneof:** `invoke_function`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br> 
 

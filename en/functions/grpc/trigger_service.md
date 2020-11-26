@@ -43,7 +43,7 @@ name | **string**<br>Name of the trigger. The string length in characters must b
 description | **string**<br>Description of the trigger. The string length in characters must be 0-256.
 labels | **map<string,string>**<br>Trigger labels as `key:value` pairs. 
 rule | **[Rule](#Rule)**<br>Required. Rule for trigger activation (always consistent with the trigger type). 
-status | enum **Status**<br>Trigger status <ul><ul/>
+status | enum **Status**<br>Trigger status. <ul><ul/>
 
 
 ### Rule {#Rule}
@@ -97,9 +97,9 @@ action | **oneof:** `invoke_function`<br>Action to be executed when the there's 
 Field | Description
 --- | ---
 event_type[] | **ObjectStorageEventType**<br>Type (name) of events, at least one value is required. The number of elements must be greater than 0.
-bucket_id | **string**<br> 
-prefix | **string**<br>Filter, optional. 
-suffix | **string**<br> 
+bucket_id | **string**<br>ID of the bucket. 
+prefix | **string**<br>Prefix of the object key. Filter, optional. 
+suffix | **string**<br>Suffix of the object key. Filter, optional. 
 action | **oneof:** `invoke_function`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br> 
 
@@ -109,9 +109,9 @@ action | **oneof:** `invoke_function`<br>
 Field | Description
 --- | ---
 event_type[] | **ContainerRegistryEventType**<br>Type (name) of events, at least one value is required. The number of elements must be greater than 0.
-registry_id | **string**<br> 
-image_name | **string**<br>Filter, optional. 
-tag | **string**<br> 
+registry_id | **string**<br>ID of the registry. 
+image_name | **string**<br>Docker-image name. Filter, optional. 
+tag | **string**<br>Docker-image tag. Filter, optional. 
 action | **oneof:** `invoke_function`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br> 
 
@@ -161,7 +161,7 @@ name | **string**<br>Name of the trigger. The string length in characters must b
 description | **string**<br>Description of the trigger. The string length in characters must be 0-256.
 labels | **map<string,string>**<br>Trigger labels as `key:value` pairs. 
 rule | **[Rule](#Rule1)**<br>Required. Rule for trigger activation (always consistent with the trigger type). 
-status | enum **Status**<br>Trigger status <ul><ul/>
+status | enum **Status**<br>Trigger status. <ul><ul/>
 
 
 ### Rule {#Rule1}
@@ -215,9 +215,9 @@ action | **oneof:** `invoke_function`<br>Action to be executed when the there's 
 Field | Description
 --- | ---
 event_type[] | **ObjectStorageEventType**<br>Type (name) of events, at least one value is required. The number of elements must be greater than 0.
-bucket_id | **string**<br> 
-prefix | **string**<br>Filter, optional. 
-suffix | **string**<br> 
+bucket_id | **string**<br>ID of the bucket. 
+prefix | **string**<br>Prefix of the object key. Filter, optional. 
+suffix | **string**<br>Suffix of the object key. Filter, optional. 
 action | **oneof:** `invoke_function`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br> 
 
@@ -227,9 +227,9 @@ action | **oneof:** `invoke_function`<br>
 Field | Description
 --- | ---
 event_type[] | **ContainerRegistryEventType**<br>Type (name) of events, at least one value is required. The number of elements must be greater than 0.
-registry_id | **string**<br> 
-image_name | **string**<br>Filter, optional. 
-tag | **string**<br> 
+registry_id | **string**<br>ID of the registry. 
+image_name | **string**<br>Docker-image name. Filter, optional. 
+tag | **string**<br>Docker-image tag. Filter, optional. 
 action | **oneof:** `invoke_function`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br> 
 
@@ -299,7 +299,7 @@ name | **string**<br>Name of the trigger. The string length in characters must b
 description | **string**<br>Description of the trigger. The string length in characters must be 0-256.
 labels | **map<string,string>**<br>Trigger labels as `key:value` pairs. 
 rule | **[Rule](#Rule2)**<br>Required. Rule for trigger activation (always consistent with the trigger type). 
-status | enum **Status**<br>Trigger status <ul><ul/>
+status | enum **Status**<br>Trigger status. <ul><ul/>
 
 
 ### Rule {#Rule2}
@@ -353,9 +353,9 @@ action | **oneof:** `invoke_function`<br>Action to be executed when the there's 
 Field | Description
 --- | ---
 event_type[] | **ObjectStorageEventType**<br>Type (name) of events, at least one value is required. The number of elements must be greater than 0.
-bucket_id | **string**<br> 
-prefix | **string**<br>Filter, optional. 
-suffix | **string**<br> 
+bucket_id | **string**<br>ID of the bucket. 
+prefix | **string**<br>Prefix of the object key. Filter, optional. 
+suffix | **string**<br>Suffix of the object key. Filter, optional. 
 action | **oneof:** `invoke_function`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br> 
 
@@ -365,9 +365,9 @@ action | **oneof:** `invoke_function`<br>
 Field | Description
 --- | ---
 event_type[] | **ContainerRegistryEventType**<br>Type (name) of events, at least one value is required. The number of elements must be greater than 0.
-registry_id | **string**<br> 
-image_name | **string**<br>Filter, optional. 
-tag | **string**<br> 
+registry_id | **string**<br>ID of the registry. 
+image_name | **string**<br>Docker-image name. Filter, optional. 
+tag | **string**<br>Docker-image tag. Filter, optional. 
 action | **oneof:** `invoke_function`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br> 
 
@@ -437,7 +437,7 @@ name | **string**<br>Name of the trigger. The string length in characters must b
 description | **string**<br>Description of the trigger. The string length in characters must be 0-256.
 labels | **map<string,string>**<br>Trigger labels as `key:value` pairs. 
 rule | **[Rule](#Rule3)**<br>Required. Rule for trigger activation (always consistent with the trigger type). 
-status | enum **Status**<br>Trigger status <ul><ul/>
+status | enum **Status**<br>Trigger status. <ul><ul/>
 
 
 ### Rule {#Rule3}
@@ -491,9 +491,9 @@ action | **oneof:** `invoke_function`<br>Action to be executed when the there's 
 Field | Description
 --- | ---
 event_type[] | **ObjectStorageEventType**<br>Type (name) of events, at least one value is required. The number of elements must be greater than 0.
-bucket_id | **string**<br> 
-prefix | **string**<br>Filter, optional. 
-suffix | **string**<br> 
+bucket_id | **string**<br>ID of the bucket. 
+prefix | **string**<br>Prefix of the object key. Filter, optional. 
+suffix | **string**<br>Suffix of the object key. Filter, optional. 
 action | **oneof:** `invoke_function`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br> 
 
@@ -503,9 +503,9 @@ action | **oneof:** `invoke_function`<br>
 Field | Description
 --- | ---
 event_type[] | **ContainerRegistryEventType**<br>Type (name) of events, at least one value is required. The number of elements must be greater than 0.
-registry_id | **string**<br> 
-image_name | **string**<br>Filter, optional. 
-tag | **string**<br> 
+registry_id | **string**<br>ID of the registry. 
+image_name | **string**<br>Docker-image name. Filter, optional. 
+tag | **string**<br>Docker-image tag. Filter, optional. 
 action | **oneof:** `invoke_function`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br> 
 
@@ -611,7 +611,7 @@ name | **string**<br>Name of the trigger. The string length in characters must b
 description | **string**<br>Description of the trigger. The string length in characters must be 0-256.
 labels | **map<string,string>**<br>Trigger labels as `key:value` pairs. 
 rule | **[Rule](#Rule4)**<br>Required. Rule for trigger activation (always consistent with the trigger type). 
-status | enum **Status**<br>Trigger status <ul><ul/>
+status | enum **Status**<br>Trigger status. <ul><ul/>
 
 
 ### Rule {#Rule4}
@@ -665,9 +665,9 @@ action | **oneof:** `invoke_function`<br>Action to be executed when the there's 
 Field | Description
 --- | ---
 event_type[] | **ObjectStorageEventType**<br>Type (name) of events, at least one value is required. The number of elements must be greater than 0.
-bucket_id | **string**<br> 
-prefix | **string**<br>Filter, optional. 
-suffix | **string**<br> 
+bucket_id | **string**<br>ID of the bucket. 
+prefix | **string**<br>Prefix of the object key. Filter, optional. 
+suffix | **string**<br>Suffix of the object key. Filter, optional. 
 action | **oneof:** `invoke_function`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br> 
 
@@ -677,9 +677,9 @@ action | **oneof:** `invoke_function`<br>
 Field | Description
 --- | ---
 event_type[] | **ContainerRegistryEventType**<br>Type (name) of events, at least one value is required. The number of elements must be greater than 0.
-registry_id | **string**<br> 
-image_name | **string**<br>Filter, optional. 
-tag | **string**<br> 
+registry_id | **string**<br>ID of the registry. 
+image_name | **string**<br>Docker-image name. Filter, optional. 
+tag | **string**<br>Docker-image tag. Filter, optional. 
 action | **oneof:** `invoke_function`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br> 
 
@@ -745,7 +745,7 @@ name | **string**<br>Name of the trigger. The string length in characters must b
 description | **string**<br>Description of the trigger. The string length in characters must be 0-256.
 labels | **map<string,string>**<br>Trigger labels as `key:value` pairs. 
 rule | **[Rule](#Rule5)**<br>Required. Rule for trigger activation (always consistent with the trigger type). 
-status | enum **Status**<br>Trigger status <ul><ul/>
+status | enum **Status**<br>Trigger status. <ul><ul/>
 
 
 ### Rule {#Rule5}
@@ -799,9 +799,9 @@ action | **oneof:** `invoke_function`<br>Action to be executed when the there's 
 Field | Description
 --- | ---
 event_type[] | **ObjectStorageEventType**<br>Type (name) of events, at least one value is required. The number of elements must be greater than 0.
-bucket_id | **string**<br> 
-prefix | **string**<br>Filter, optional. 
-suffix | **string**<br> 
+bucket_id | **string**<br>ID of the bucket. 
+prefix | **string**<br>Prefix of the object key. Filter, optional. 
+suffix | **string**<br>Suffix of the object key. Filter, optional. 
 action | **oneof:** `invoke_function`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br> 
 
@@ -811,9 +811,9 @@ action | **oneof:** `invoke_function`<br>
 Field | Description
 --- | ---
 event_type[] | **ContainerRegistryEventType**<br>Type (name) of events, at least one value is required. The number of elements must be greater than 0.
-registry_id | **string**<br> 
-image_name | **string**<br>Filter, optional. 
-tag | **string**<br> 
+registry_id | **string**<br>ID of the registry. 
+image_name | **string**<br>Docker-image name. Filter, optional. 
+tag | **string**<br>Docker-image tag. Filter, optional. 
 action | **oneof:** `invoke_function`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br> 
 
