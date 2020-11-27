@@ -22,7 +22,7 @@
 
         {% note info %}
 
-        Обратите внимание, что настройки NTP не применяются к ВМ с ОС Windows.
+        Настройки NTP не применяются к ВМ с ОС Windows. Подробнее см. в разделе [Настройки NTP на ОС Windows](../concepts/dhcp-options.md#ntp-windows).
         
         {% endnote %}
       
