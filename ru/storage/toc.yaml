@@ -81,6 +81,8 @@ items:
         href: concepts/storage-class.md
       - name: Резервное копирование
         href: concepts/backup.md
+      - name: Протокол TLS
+        href: concepts/tls.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Инструменты

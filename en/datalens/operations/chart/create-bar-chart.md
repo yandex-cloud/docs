@@ -7,4 +7,3 @@ To create a bar chart:
 1. Select **Bar chart** as the chart type.
 1. Drag one or more dimensions from the dataset to the **Y** section. The values are displayed on the Y-axis.
 1. Drag one or more measures from the dataset to the **X** section.
-
