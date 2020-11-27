@@ -19,7 +19,7 @@ To create a VM on a dedicated host, follow these steps:
      ```bash
      yc compute host-type --help
      ```
-
+  
   1. See the list of available dedicated host types:
 
      ```bash
@@ -127,3 +127,4 @@ To create a VM on a dedicated host, follow these steps:
   1. Create a VM on a dedicated host using the [create](../../api-ref/Instance/create.md) method for the `Instance` resource.
 
 {% endlist %}
+
