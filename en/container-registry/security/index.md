@@ -16,19 +16,23 @@ You can assign a role for a [cloud](../../resource-manager/concepts/resources-hi
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}
 
-![image](service-roles-hierarchy.svg)
+![service-roles-hierarchy](../../_assets/container-registry/service-roles-hierarchy.svg)
 
-Active roles in the service:
+### Service roles
 
-* Service roles:
-    * {% include [container-registry.images.puller](../../_includes/iam/roles/short-descriptions/container-registry.images.puller.md) %}
-    * {% include [container-registry.images.pusher](../../_includes/iam/roles/short-descriptions/container-registry.images.pusher.md) %}
-    * {% include [resource-manager.clouds.owner](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.owner.md) %}
-    * {% include [resource-manager.clouds.member](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.member.md) %}
-* Primitive roles:
-    * {% include [viewer](../../_includes/iam/roles/short-descriptions/viewer.md) %}
-    * {% include [editor](../../_includes/iam/roles/short-descriptions/editor.md) %}
-    * {% include [admin](../../_includes/iam/roles/short-descriptions/admin.md) %}
+| Role | Permissions |
+| ----- | ----- |
+| `container-registry.admin` | Lets you create, edit, and delete [registries](../concepts/registry.md). |
+| `container-registry.images.puller` | Lets you download [Docker images](../concepts/docker-image.md) and view information about service resources (registries, Docker images, and repositories). |
+| `container-registry.images.pusher` | Lets you manage Docker images and view information about service resources (registries, Docker images, and repositories). |
+| `resource-manager.clouds.member` | The role required to access resources in the cloud for all users except [cloud owners](../../resource-manager/concepts/resources-hierarchy.md#owner) and [service accounts](../../iam/concepts/users/service-accounts.md). |
+| `resource-manager.clouds.owner` | Grants you full access to the cloud and the resources in it. You can assign this role only for a cloud. |
+
+For more information about service roles, see [{#T}](../../iam/concepts/access-control/roles.md) in the service documentation {{ iam-full-name }}.
+
+### Primitive roles
+
+{% include [roles-primitive](../../_includes/roles-primitive.md) %}
 
 ## What roles do I need {#choosing-roles}
 
