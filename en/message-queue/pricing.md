@@ -29,7 +29,7 @@ editable: false
 
 {% endlist %}
 
-Payment is made for the actual number of requests. For example, the cost per thousand requests is `₽0.03048`.
+Payment is made for the actual number of requests. For example, the cost per thousand requests is `$0.000390`.
 
 For pricing purposes, every 64 KB of request data is considered a separate request. For example, a 63 KB request is charged as one request, while a 65 KB request is charged as two requests (64 + 1).
 

@@ -53,16 +53,16 @@ Let's say you're writing 20 metrics to {{ monitoring-short-name }} with a freque
 
 >20 metrics * 1 value/min * 60 minutes * 24 hours * 30 days = 864,000 values = 0.864 million values
 
-So the cost of using the service for 30 days is `0.864 million values * ₽7 = ₽6.05`.
+So the cost of using the service for 30 days is `0.864 million values * $0.089744 = $0.077538`.
 
 If you write 20 metrics with a frequency of **1 value per second**, the following number of values will be written within 30 days:
 
 >20 metrics * 1 value/sec * 60 seconds * 60 minutes * 24 hours * 30 days = 51,840,000 values = 51.84 million values
 
-In this case, the cost of using the service for 30 days is `50 million values * ₽7 + (51.84 - 50) million values * ₽4 = ₽357.36`.
+In this case, the cost of using the service for 30 days is `50 million values * $0.089744 + (51.84 - 50) million values * $0.051282 = $4.581558`.
 
 For example, you set up the export of 100 metrics from {{ monitoring-short-name }} to your own Prometheus monitoring system installation with a collection period of **15 seconds**. Then the following number of values will be read within 30 days:
 
 > 100 metrics * 60 seconds / 15 seconds * 60 minutes * 24 hours * 30 days = 17,280,000 values = 17.28 million values
 
-In this case, the cost of using the service for 30 days is `17.28 million values * ₽5 = ₽86.4`.
+In this case, the cost of using the service for 30 days is `17.28 million values * $0.064103 = $1.107699`.

@@ -28,17 +28,17 @@ Example of calculating the cost of a function:
 
 Function cost calculation:
 
-> 3.42 × (512/1024) × (800/3600/1000) × 10,000,000 + 10 × (10,000,000/1,000,000)
-
-Total: ₽3900 
+> 0.043846 × (512 / 1024) × (800 / 3600 / 1000) × 10,000,000 + 0.128205 × (10,000,000 / 1,000,000)
+>  
+> Total: $49.99982
 
 Where:
 
-- 3.42 is the GB×hour function execution cost.
+- 0.043846 is the GB×hour function execution cost.
 - 512 / 1024 converts MB to GB, since execution time is calculated in GB×hour.
 - 800 / 3600 / 1000 converts milliseconds to hours, since execution time is calculated in GB×hour.
-- 10: Cost per 1 million functions invoked.
-- 10,000,000/1,000,000: Number of millions of functions invoked.
+- 0.128205 is the cost per 1 million function invokes.
+- 10,000,000 / 1,000,000 is the number of millions of invokes.
 
 ## Using triggers {#triggers}
 
