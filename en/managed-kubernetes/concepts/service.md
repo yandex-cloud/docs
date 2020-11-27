@@ -1,6 +1,6 @@
 # Service
 
-Each pod in the {{ k8s }} cluster is assigned an internal IP address. Since pods are created and deleted and their IP addresses change, it doesn't make sense to use IP addresses for pods directly. Use a service to get permanent access to the pods and stop using internal IP addresses.
+Each pod in the {{ k8s }} cluster is assigned an internal IP address. Since pods are created and deleted and their IP addresses change, it doesn't make sense to use IP addresses for pods directly. Use a _service_ to get permanent access to the pods and stop using internal IP addresses.
 
 _A service_ is a {{ k8s }} API object ([Service](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.15/#service-v1-core)) designed to provide access to an app running as a set of pods in a {{ k8s }} cluster.
 
@@ -14,21 +14,21 @@ Depending on your task, you can use [different types](#type) of services.
 
 You can use various types of services in your {{ k8s }} clusters, including:
 
-- `ClusterIP`
-    - The service is accessible only within the {{ k8s }} cluster network via an internal IP address.
-    - It doesn't require any additional cloud resources.
-- `NodePort` is a `ClusterIP` extensions.
-    - It provides access to the service via internal or public {{ k8s }} cluster node IP addresses.
-    - It doesn't require any additional cloud resources.
-- `LoadBalancer` is a `NodePort` extension.
-    - It provides access to the service via the created cloud load balancer.
-    - It requires an additional cloud resource (load balancer).
+* `ClusterIP`
+  * The service is accessible only within the {{ k8s }} cluster network via an internal IP address.
+  * It doesn't require any additional cloud resources.
+* `NodePort` is a `ClusterIP` extensions.
+  * It provides access to the service via internal or public {{ k8s }} cluster node IP addresses.
+  * It doesn't require any additional cloud resources.
+* `LoadBalancer` is a `NodePort` extension.
+  * It provides access to the service via the created cloud load balancer.
+  * It requires an additional cloud resource (load balancer).
 
 Learn more about service types in the [{{ k8s }} documentation](https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types).
 
-{{ managed-k8s-name }} It lets you use `LoadBalancer` services with a public IP address based on a [network load balancer](../../load-balancer/concepts/index.md) from {{ load-balancer-full-name }}.
+{{ managed-k8s-name }} lets you use `LoadBalancer` services based on a [network load balancer](../../load-balancer/concepts/index.md) created in {{ load-balancer-full-name }} with a public or internal IP address.
 
 #### See also {#see-also}
 
-- [{#T}](../operations/create-load-balancer.md).
+* [{#T}](../operations/create-load-balancer.md).
 
