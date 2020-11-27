@@ -27,4 +27,4 @@
 
 Время операции декомиссии складывается из таймаута на декомиссию и времени операций по модификации кластера. Максимальное время таймаута декомиссии - 24 часа. Максимальное время операций над кластером - 1 час.
 
-Более подробно о декомиссиии кластеров YARN можно ознакомиться на странице [Graceful Decommission of YARN Nodes](http://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/GracefulDecommission.html}) в документации для Apache Hadoop.
+Более подробно о декомиссиии кластеров YARN можно ознакомиться на странице [Graceful Decommission of YARN Nodes](http://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/GracefulDecommission.html) в документации для Apache Hadoop.
