@@ -19,7 +19,7 @@ A public IP address can be in one of the following two states:
 
 1. **Inactive**: When a _static_ public IP address isn't linked to a cloud resource or is linked to a stopped resource. The price of an inactive public static address is calculated by adding the price of a public IP address to the price for reserving an inactive public static IP address:
 
-   > 0.1524 + 0.1980 = ₽0.3504 per hour, with VAT
+   > $0.001953 + $0.002538 = $0.004491 per hour, without VAT
 
 {% list tabs %}
 
