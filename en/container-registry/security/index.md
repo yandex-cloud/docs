@@ -14,7 +14,7 @@ You can assign a role for a [cloud](../../resource-manager/concepts/resources-hi
 
 ## What roles exist in the service {#roles-list}
 
-The diagram shows which roles are available in the service and how they inherit each other's permissions. For example, the `editor` role includes all `viewer` role permissions. A description of each role is given under the diagram.
+{% include [roles-intro](../../_includes/roles-intro.md) %}
 
 ![image](service-roles-hierarchy.svg)
 
@@ -57,4 +57,5 @@ The table below lists the roles needed to perform a given action. You can always
 * [How to assign a role](../../iam/operations/roles/grant.md).
 * [How to revoke a role](../../iam/operations/roles/revoke.md).
 * [Learn more about access management in {{ yandex-cloud }}](../../iam/concepts/access-control/index.md).
-* [More about role inheritance](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
+* [For more information about role inheritance](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
+

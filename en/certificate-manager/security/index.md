@@ -10,7 +10,7 @@ In this section, you'll learn:
 
 ## What resources you can assign roles to. {#resources}
 
-You can assign a role for a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) or [certificate](../concepts/index). These roles also apply to nested resources.
+{% include [roles-intro](../../_includes/roles-intro.md) %}
 
 ## What roles exist in the service {#roles-list}
 
@@ -55,5 +55,5 @@ The table below lists the roles needed to perform a given action. You can always
 * [How to assign a role](../../iam/operations/roles/grant.md).
 * [How to revoke a role](../../iam/operations/roles/revoke.md).
 * [Learn more about access management in {{ yandex-cloud }}](../../iam/concepts/access-control/index.md).
-* [More about role inheritance](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
+* [For more information about role inheritance](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
 

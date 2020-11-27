@@ -13,7 +13,7 @@ In this section, you'll learn:
 
 ## What roles exist in the service {#roles-list}
 
-The diagram shows which roles are available in the service and how they inherit each other's permissions. For example, the `editor` role includes all `viewer` role permissions. A description of each role is given under the diagram.
+{% include [roles-intro](../../_includes/roles-intro.md) %}
 
 ![image](service-roles-hierarchy.svg)
 
@@ -32,15 +32,12 @@ For more information about service roles, see [{#T}](../../iam/concepts/access-c
 
 ### Primitive roles
 
-| Role | Permissions |
-| ----- | ----- |
-| `admin` | Lets you manage your resources and access to them. |
-| `editor` | Lets you manage resources (create, edit, and delete). |
-| `viewer` | Lets you only view information about resources. |
+{% include [roles-primitive](../../_includes/roles-primitive.md) %}
 
 #### What's next {#what-is-next}
 
 * [How to assign a role](../../iam/operations/roles/grant.md).
 * [How to revoke a role](../../iam/operations/roles/revoke.md).
 * [Learn more about access management in {{ yandex-cloud }}](../../iam/concepts/access-control/index.md).
-* [More information about role inheritance](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
+* [For more information about role inheritance](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
+
