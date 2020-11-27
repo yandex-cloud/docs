@@ -9,7 +9,7 @@ editable: false
  
 ## HTTP-запрос {#https-request}
 ```
-GET https://lockbox.api.cloud.yandex.net/lockbox/v1/secrets/{secretId}/payload
+GET https://payload.lockbox.api.cloud.yandex.net/lockbox/v1/secrets/{secretId}/payload
 ```
  
 ## Path-параметры {#path_params}
