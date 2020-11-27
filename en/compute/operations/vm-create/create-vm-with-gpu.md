@@ -2,7 +2,9 @@
 
 This section provides guidelines for creating VMs with a GPU. For more information about VM configurations, see [{#T}](../../concepts/gpus.md).
 
-By default, the cloud now has a zero quota for creating virtual machines with GPUs. To change the quota, contact [technical support](https://cloud.yandex.com/support).
+By default, the cloud has a [zero quota](../../concepts/limits.md#quotas) for creating virtual machines with GPUs. To change the quota, contact [technical support]({{ link-console-support }}).
+
+VMs with GPUs are available in availability zones `ru‑central1‑a` and `ru‑central1‑b`.
 
 {% list tabs %}
 
@@ -181,7 +183,7 @@ By default, the cloud now has a zero quota for creating virtual machines with GP
 
      2. Confirm that you want to create the resources.
 
-     Afterwards, all the necessary resources are created in the specified folder. You can check resource availability and their settings in [management console]({{ link-console-main }}).
+     Afterwards, all the necessary resources are created in the specified folder. You can check resource availability and their settings in the [management console]({{ link-console-main }}).
 
 {% endlist %}
 
@@ -190,3 +192,4 @@ By default, the cloud now has a zero quota for creating virtual machines with GP
 #### See also {#see-also}
 
 - Learn how to [change the VM configuration](../vm-control/vm-update-resources.md).
+

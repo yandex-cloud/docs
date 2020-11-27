@@ -63,19 +63,19 @@ Both VMs have been running for 30 days.
 
 VM cost with 5% vCPU:
 
-> 5% vCPU = ₽0.1932/hour * 30 days * 24 hours = ₽139.1040
+> 5% vCPU = $0.002476/hour * 30 days * 24 hours = $1.782720
 >
-> 1 GB RAM = ₽0.2441/hour * 30 days * 24 hours = ₽175.7520
+> 1 GB RAM = $0.003129/hour * 30 days * 24 hours = $2.252880
 >
-> Total: ₽314.8560
+> Total: $4.035600
 
 VM Cost with 100% vCPU:
 
-> 1 vCPU = ₽0.7017/hour * 30 days * 24 hours = ₽505.2240
+> 1 vCPU = $0.008996/hour * 30 days * 24 hours = $6.477120
 >
-> 1 GB RAM = ₽0.2441/hour * 30 days * 24 hours = ₽175.7520
+> 1 GB RAM = $0.003129/hour * 30 days * 24 hours = $2.252880
 >
-> Total: ₽680.9760
+> Total: $8.730000
 
 As you can see, the cost of the VM using 5% vCPU is about half as much as that of the VM using 100% vCPU.
 
