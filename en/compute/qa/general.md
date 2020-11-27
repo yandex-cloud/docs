@@ -54,9 +54,7 @@ Linux and Windows operating systems are supported.
 
 Public boot disk images that have been tested in Yandex.Cloud are available for popular distributions of these systems.
 
-
 {% include [qa-fz-152.md](../../_includes/qa-fz-152.md) %}
-
 
 #### How do I contact technical support? {#support-channels}
 
@@ -64,3 +62,4 @@ You can contact technical support using any of these methods:
 
 {% include [support-channels](../../_includes/support-channels.md) %}
 
+{% include [qa-logs.md](../../_includes/qa-logs.md) %}

@@ -69,3 +69,5 @@ items:
         include:
           repo: docs
           path: en/_api-ref/kms/toc.yaml
+  - name: Questions and answers
+    href: qa/index.md

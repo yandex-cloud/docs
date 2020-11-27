@@ -70,3 +70,5 @@ items:
         include:
           repo: docs
           path: en/_api-ref/ai/vision/toc.yaml
+  - name: Questions and answers
+    href: qa/index.md

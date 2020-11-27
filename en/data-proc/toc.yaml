@@ -60,3 +60,5 @@ items:
         include:
           repo: docs
           path: en/_api-ref/dataproc/toc.yaml
+  - name: Questions and answers
+    href: qa/index.md
