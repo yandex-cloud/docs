@@ -4,184 +4,200 @@
 
 {% include [sa.md](sa.md) %}
 
-Чтобы создать группу виртуальных машин на базе {{ coi }}:
+Чтобы создать группу ВМ на базе {{ coi }}:
 
 1. {% include [cli-install.md](../cli-install.md) %}
 
 1. {% include [default-catalogue.md](../default-catalogue.md) %}
 
-1. Посмотрите описание команды CLI для создания группы виртуальных машин:
-    ```
-    $ {{ yc-compute-ig }} create --help
-    ```
+1. Посмотрите описание команды CLI для создания группы ВМ:
+
+   {% list tabs %}
+
+   - CLI
+
+     ```bash
+     {{ yc-compute-ig }} create --help
+     ```
+
+   {% endlist %}
 
 1. Проверьте, есть ли в каталоге сети:
-    ```
-    $ yc vpc network list
-    ```
 
-    Если ни одной сети нет, [создайте ее](../../vpc/operations/network-create.md).
+   {% list tabs %}
+
+   - CLI
+
+     ```bash
+     yc vpc network list
+     ```
+
+   {% endlist %}
+
+   Если нет ни одной сети, [создайте ее](../../vpc/operations/network-create.md).
 
 1. Создайте YAML-файл с именем, например, `specification.yaml`.
 
 1. Выберите последнюю версию образа {{ coi }} из [публичных образов](../../compute/operations/images-with-pre-installed-software/get-list.md).
 
-    Чтобы узнать идентификатор последней версии образа {{ coi }}, выполните следующую команду:
+   Узнайте идентификатор последней версии образа {{ coi }}:
 
-    ```
-    $ yc compute image get-latest-from-family container-optimized-image --folder-id standard-images
-    id: <ID образа>
-    folder_id: standard-images
-    ...
-    ```
+   {% list tabs %}
+
+   - CLI
+
+     ```bash
+     yc compute image get-latest-from-family container-optimized-image --folder-id standard-images
+     id: <ID образа>
+     folder_id: standard-images
+     ...
+     ```
+
+   {% endlist %}
 
 1. Опишите в YAML-файле `specification.yaml`, который вы создали:
-    - Общую информацию о группе:
 
-        ```
-        name: container-optimized-group
-        service_account_id: aje3932acd8avp6edhbt
-        description: "This instance group was created from YAML config."
-        ```
+   - Общую информацию о группе:
 
-        Ключи:
+     ```yaml
+     name: container-optimized-group
+     service_account_id: aje3932acd8avp6edhbt
+     description: "This instance group was created from YAML config."
+     ```
 
-        Ключ | Значение
-        ----- | -----
-        `name` | Произвольное имя группы виртуальных машин. Имя должно быть уникальным в рамках каталога. Имя может содержать строчные буквы латинского алфавита, цифры и дефисы. Первый символ должен быть буквой. Последний символ не может быть дефисом. Максимальная длина имени — 63 символа.
-        `service_account_id` | Идентификатор сервисного аккаунта.
-        `description` | Произвольное описание группы виртуальных машин.
+     Где:
+     * `name` — произвольное имя группы ВМ. Имя должно быть уникальным в рамках каталога. Имя может содержать строчные буквы латинского алфавита, цифры и дефисы. Первый символ должен быть буквой. Последний символ не может быть дефисом. Максимальная длина имени — 63 символа.
+     * `service_account_id` — идентификатор сервисного аккаунта.
+     * `description` — произвольное описание группы ВМ.
 
-    - [Шаблон виртуальной машины](../../compute/concepts/instance-groups/instance-template.md):
+   - [Шаблон ВМ](../../compute/concepts/instance-groups/instance-template.md):
 
-        ```
-        instance_template:
-            platform_id: standard-v1
-            resources_spec:
-                memory: 2G
-                cores: 2
-            boot_disk_spec:
-                mode: READ_WRITE
-                disk_spec:
-                    image_id: fd81a49qficqvt0dthu8
-                    type_id: network-hdd
-                    size: 32G
-            network_interface_specs:
-                - network_id: c64mknqgnd8avp6edhbt
-                  primary_v4_address_spec: {}
-            metadata:
-                docker-container-declaration: |-
-                    spec:
-                        containers:
-                            - name: nginx
-                              image: cr.yandex/mirror/nginx:1.17.4-alpine
-                              securityContext:
-                                privileged: false
-                              tty: false
-                              stdin: false
-        ```
+     ```yaml
+     instance_template:
+       platform_id: standard-v1
+       resources_spec:
+         memory: 2G
+         cores: 2
+       boot_disk_spec:
+         mode: READ_WRITE
+         disk_spec:
+           image_id: fd81a49qficqvt0dthu8
+           type_id: network-hdd
+           size: 32G
+       network_interface_specs:
+         - network_id: c64mknqgnd8avp6edhbt
+           primary_v4_address_spec: {}
+       metadata:
+         docker-container-declaration: |-
+           spec:
+             containers:
+               - name: nginx
+                 image: cr.yandex/mirror/nginx:1.17.4-alpine
+                 securityContext:
+                   privileged: false
+                 tty: false
+                 stdin: false
+     ```
 
-        {% include [default-unit-size](default-unit-size.md) %}
+     {% include [default-unit-size](default-unit-size.md) %}
 
-        Ключи: 
+     Где:
+     * `platform_id` — идентификатор платформы.
+     * `memory` — количество памяти (RAM).
+     * `cores` — количество ядер процессора (vCPU).
+     * `mode` — режим доступа к диску.<br>- `READ_ONLY` — доступ на чтение.<br>- `READ_WRITE` — доступ на чтение и запись.
+     * `image_id` — идентификатор публичного образа {{ coi }}.
+     * `type_id` — тип диска.
+     * `size` — размер диска.
+     * `network_id` — идентификатор сети `default-net`.
+     * `primary_v4_address_spec` — спецификация версии интернет протокола IPv4. На данный момент доступен только протокол IPv4. Вы можете [предоставить публичный доступ к ВМ группы](../../compute/concepts/instance-groups/instance-template.md#instance-template), указав версию IP для публичного IP-адреса.
+     * `metadata` — значения, которые будут переданы в метаданные ВМ.
+     * `docker-container-declaration` — ключ в метаданных ВМ, при котором используется [COI спецификация Docker-контейнера](../../cos/concepts/index.md#coi-specifications). Вы можете использовать в метаданных [Docker Compose спецификацию](../../cos/concepts/index.md#compose-spec), для этого вместо ключа `docker-container-declaration` укажите ключ `docker-compose`.
 
-        Ключ | Значение
-        ----- | -----
-        `platform_id` | Идентификатор платформы.
-        `memory` | Количество памяти (RAM).
-        `cores` | Количество ядер процессора (vCPU).
-        `mode` | Режим доступа к диску.</br>- `READ_ONLY` — доступ на чтение.</br>- `READ_WRITE` — доступ на чтение и запись.
-        `image_id` | Идентификатор публичного образа {{ coi }}.
-        `type_id` | Тип диска.
-        `size` | Размер диска.
-        `network_id` | Идентификатор сети `default-net`.
-        `primary_v4_address_spec` | Спецификация версии интернет протокола IPv4. На данный момент доступен только протокол IPv4. Вы можете предоставить публичный доступ к виртуальным машинам группы, указав версию IP для публичного IP-адреса. Подробнее читайте в разделе [{#T}](../../compute/concepts/instance-groups/instance-template.md#instance-template).
-        `metadata` | Значения, которые будут переданы в метаданные виртуальной машины.
-        `docker-container-declaration` | Ключ в метаданных виртуальной машины, при котором используется [COI спецификация Docker-контейнера](../../cos/concepts/index.md#coi-specifications). Вы можете использовать в метаданных [Docker Compose спецификацию](../../cos/concepts/index.md#compose-spec), для этого вместо ключа `docker-container-declaration` укажите ключ `docker-compose`.
+   - [Политики](../../compute/concepts/instance-groups/policies/index.md):
 
-    - [Политики](../../compute/concepts/instance-groups/policies/index.md):
+     ```yaml
+     deploy_policy:
+       max_unavailable: 1
+       max_expansion: 0
+     scale_policy:
+       fixed_scale:
+         size: 3
+     allocation_policy:
+       zones:
+         - zone_id: ru-central1-a
+     ```
 
-        ```
-        deploy_policy:
-            max_unavailable: 1
-            max_expansion: 0
-        scale_policy:
-            fixed_scale:
-                size: 3
-        allocation_policy:
-            zones:
-                - zone_id: ru-central1-a
-        ```
+     Где:
+     * `deploy_policy` — политика развертывания ВМ в группе.
+     * `scale_policy` — политика масштабирования ВМ в группе.
+     * `allocation_policy` — политика распределения ВМ по зонам и регионам.
 
-        Ключи:
+     Полный код файла `specification.yaml`:
 
-        Ключ | Значение
-        ----- | -----
-        `deploy_policy` | Политика развертывания виртуальных машин в группе.
-        `scale_policy` | Политика масштабирования виртуальных машин в группе.
-        `allocation_policy` | Политика распределения виртуальных машин по зонам и регионам.
+     ```yaml
+     name: container-optimized-group
+     service_account_id: aje3932acd8avp6edhbt
+     description: "This instance group was created from YAML config."
+     instance_template:
+       service_account_id: aje3932acd8avp6edhbt # Идентификатор сервисного аккаунта для доступа к приватным Docker-образам.
+       platform_id: standard-v1
+       resources_spec:
+         memory: 2G
+         cores: 2
+       boot_disk_spec:
+         mode: READ_WRITE
+         disk_spec:
+           image_id: fd81a49qficqvt0dthu8
+           type_id: network-hdd
+           size: 32G
+       network_interface_specs:
+         - network_id: c64mknqgnd8avp6edhbt
+           primary_v4_address_spec: {}
+       metadata:
+         docker-container-declaration: |-
+           spec:
+             containers:
+               - name: nginx
+                 image: cr.yandex/mirror/nginx:1.17.4-alpine
+                 securityContext:
+                   privileged: false
+                 tty: false
+                 stdin: false
+     deploy_policy:
+       max_unavailable: 1
+       max_expansion: 0
+     scale_policy:
+       fixed_scale:
+         size: 3
+     allocation_policy:
+       zones:
+         - zone_id: ru-central1-a
+     ```
 
-        Полный код файла `specification.yaml`:
-
-        ```
-        name: container-optimized-group
-        service_account_id: aje3932acd8avp6edhbt
-        description: "This instance group was created from YAML config."
-        instance_template:
-            service_account_id: aje3932acd8avp6edhbt # Идентификатор сервисного аккаунта для доступа к приватным Docker-образам.
-            platform_id: standard-v1
-            resources_spec:
-                memory: 2G
-                cores: 2
-            boot_disk_spec:
-                mode: READ_WRITE
-                disk_spec:
-                    image_id: fd81a49qficqvt0dthu8
-                    type_id: network-hdd
-                    size: 32G
-            network_interface_specs:
-                - network_id: c64mknqgnd8avp6edhbt
-                  primary_v4_address_spec: {}
-            metadata:
-                docker-container-declaration: |-
-                    spec:
-                        containers:
-                            - name: nginx
-                              image: cr.yandex/mirror/nginx:1.17.4-alpine
-                              securityContext:
-                                privileged: false
-                              tty: false
-                              stdin: false
-        deploy_policy:
-            max_unavailable: 1
-            max_expansion: 0
-        scale_policy:
-            fixed_scale:
-                size: 3
-        allocation_policy:
-            zones:
-                - zone_id: ru-central1-a
-        ```
-
-        {% note info %}
+     {% note info %}
         
-        Чтобы использовать в `specification.yaml` [Docker Compose спецификацию](../../cos/concepts/index.md#compose-spec),  вместо ключа `docker-container-declaration` укажите ключ `docker-compose`.
-        
-        {% endnote %}
+     Чтобы использовать в `specification.yaml` [Docker Compose спецификацию](../../cos/concepts/index.md#compose-spec),  вместо ключа `docker-container-declaration` укажите ключ `docker-compose`.
 
+     {% endnote %}
 
-1. Создайте группу виртуальных машин в каталоге по умолчанию:
+1. Создайте группу ВМ в каталоге по умолчанию:
 
-    ```
-    $ {{ yc-compute-ig }} create --file specification.yaml
-    ```
+   {% list tabs %}
 
-    Данная команда создаст группу из трех однотипных виртуальных машин со следующими характеристиками:
+   - CLI
 
-    - С именем `container-optimized-group`.
-    - Из последней версии публичного образа {{ coi }}.
-    - С запущенным Docker-контейнером на основе `cr.yandex/mirror/nginx:1.17.4-alpine`.
-    - В сети `default-net`.
-    - В зоне доступности `ru-central1-a`.
-    - С 2 vCPU и 2 ГБ RAM.
-    - С сетевым HDD-диском объемом 32 ГБ.
+     ```bash
+     {{ yc-compute-ig }} create --file specification.yaml
+     ```
+
+     Команда создаст группу из трех однотипных ВМ со следующими характеристиками:
+     * С именем `container-optimized-group`.
+     * Из последней версии публичного образа {{ coi }}.
+     *  С запущенным Docker-контейнером на основе `cr.yandex/mirror/nginx:1.17.4-alpine`.
+     *  В сети `default-net`.
+     *  В зоне доступности `ru-central1-a`.
+     *  С 2 vCPU и 2 ГБ RAM.
+     *  С сетевым HDD-диском объемом 32 ГБ.
+
+   {% endlist %}
