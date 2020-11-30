@@ -1,5 +1,6 @@
 title: "Yandex Database"
 href: index.yaml
+stage: preview
 items:
   - name: Оглавление
     href: index.md
@@ -395,11 +396,13 @@ items:
       - name: Резервное копирование
         href: maintenance/backup_and_recovery.md
       - name: Мониторинг
-        when: audience != "external"
         href: maintenance/monitoring.md
+        when: audience != "external"
   - name: Безопасность
     when: audience == "tech"
     items:
+    - name: Сценарии взаимодействия компонентов
+      href: security/usecases.md
     - name: Шифрование данных
       href: security/data_encryption.md
   - name: Архитектура
@@ -572,4 +575,10 @@ items:
         href: faq.md
   - name: Публичные материалы
     href: public_talks.md
-
+  - name: Правила тарификации
+    when: audience == "external"
+    items:
+      - name: Yandex Database Serverless
+        href: pricing/serverless.md
+      - name: Yandex Database
+        href: pricing/dedicated.md

@@ -20,7 +20,7 @@
 
 {% note info %}
 
-Поля с типами Timestamp и Interval при запросах через СlickHouse over YDB будут представлены типами Uint64 и Int64 (микросекунды) соответственно.
+Поля с типами `Timestamp` и `Interval` при запросах через СlickHouse over YDB будут представлены типами `Uint64` и `Int64` (микросекунды) соответственно.
 
 {% endnote %}
 
@@ -85,7 +85,7 @@ LIMIT 5
 ```sql
 SELECT
     Path,
-    COUNT() as Partitions,
+    COUNT(*) as Partitions,
     SUM(RowCount) as Rows,
     SUM(DataSize) as Size,
     SUM(CPUCores) as CPU
@@ -116,7 +116,7 @@ GROUP BY Path
   --!syntax_v1
   SELECT
       Path,
-      COUNT() as Partitions,
+      COUNT(*) as Partitions,
       SUM(RowCount) as Rows,
       SUM(DataSize) as Size,
       SUM(CPUCores) as CPU
@@ -141,7 +141,7 @@ GROUP BY Path
   ```sql
   SELECT
       Path,
-      COUNT() as Partitions,
+      COUNT(*) as Partitions,
       SUM(RowCount) as Rows,
       SUM(DataSize) as Size,
       SUM(CPUCores) as CPU
