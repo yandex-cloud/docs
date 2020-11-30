@@ -2,6 +2,20 @@
 
 Вы можете добавлять и удалять пользователей, а также управлять их индивидуальными настройками.
 
+Вы можете управлять пользователями кластера одним из двух способов:
+
+- С помощью стандартных интерфейсов {{ yandex-cloud }} (CLI, API, консоль управления). Способ подходит, если вы хотите воспользоваться всеми возможностями managed-сервиса {{ yandex-cloud }}.
+- С помощью SQL-запросов к кластеру. Способ подходит, если вы хотите использовать уже существующее у вас решение для создания и управления пользователями или если вам требуется поддержка [RBAC](https://ru.wikipedia.org/wiki/Управление_доступом_на_основе_ролей).
+
+## Управление пользователями с помощью SQL {#sql-user-management}
+
+Чтобы управлять пользователями с помощью SQL, [создайте кластер через API](cluster-create.md) с включенной настройкой **sqlUserManagement**. В таком кластере:
+- Пользователями можно управлять только с помощью SQL.
+- Невозможно включить управление с помощью стандартных интерфейсов {{ yandex-cloud }} (CLI, API, консоль управления).
+- Управление осуществляется с помощью учетной записи `admin`. Пароль для нее задается при создании кластера.
+
+Подробнее об управлении пользователями с помощью SQL см. в [документации {{ CH }}](https://clickhouse.tech/docs/ru/operations/access-rights).
+
 ## Получить список пользователей {#list-users}
 
 {% list tabs %}
@@ -25,7 +39,16 @@
   ```
   
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
-  
+
+- SQL
+
+  1. [Подключитесь](connect.md) к кластеру, используя [учетную запись `admin`](#sql-user-management).
+  1. Получите список пользователей:
+
+      ```sql
+      SHOW USERS;
+      ```
+
 {% endlist %}
 
 ## Добавить пользователя {#adduser}
@@ -86,9 +109,19 @@
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
   
   См. также: [пример создания пользователя с правами «только чтение»](#example-create-readonly-user).
-  
-{% endlist %}
 
+- SQL
+
+  1. [Подключитесь](connect.md) к кластеру, используя [учетную запись `admin`](#sql-user-management).
+  1. Создайте пользователя:
+
+      ```sql
+      CREATE USER <имя пользователя> IDENTIFIED WITH sha256_password BY '<пароль пользователя>';
+      ```
+
+  Подробнее о создании пользователей см. [в документации {{ CH }}](https://clickhouse.tech/docs/ru/sql-reference/statements/create/user/).
+
+{% endlist %}
 
 ## Изменить пароль {#updateuser}
 
@@ -118,8 +151,18 @@
   
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
    
-{% endlist %}
+- SQL
 
+  1. [Подключитесь](connect.md) к кластеру, используя [учетную запись `admin`](#sql-user-management).
+  1. Измените пароль пользователя:
+
+      ```sql
+      ALTER USER <имя пользователя> IDENTIFIED BY '<новый пароль>';
+      ```
+
+  Подробнее об изменении пользователей см. [в документации {{ CH }}](https://clickhouse.tech/docs/ru/sql-reference/statements/alter/user/).
+
+{% endlist %}
 
 ## Изменить настройки пользователя {#update-settings}
 
@@ -199,7 +242,28 @@
      Команда изменит только те настройки, которые явно указаны в параметре `--settings`. Например, команда с параметром `--settings="readonly=1"` изменит только настройку `readonly` и не сбросит значения остальных. Этим изменение настроек {{ CH }} отличается от изменения настроек квот.
      
      С помощью этой команды невозможно удалить сделанную настройку, допустимо только явно присвоить ей значение по умолчанию (оно указано для [каждой настройки](#clickhouse-settings)).
-     
+
+- SQL
+
+  1. [Подключитесь](connect.md) к кластеру, используя [учетную запись `admin`](#sql-user-management).
+  1. Чтобы изменить набор привилегий и ролей пользователя, используйте запросы [GRANT](https://clickhouse.tech/docs/ru/sql-reference/statements/grant/) и [REVOKE](https://clickhouse.tech/docs/ru/sql-reference/statements/revoke/). Например, выдайте пользователю права на чтение всех объектов в определенной базе данных:
+
+      ```sql
+      GRANT SELECT ON <имя базы данных>.* TO <имя пользователя>;
+      ```
+
+  1. Чтобы изменить [настройки квот](#quota-settings) для пользователя, используйте запросы [CREATE QUOTA](https://clickhouse.tech/docs/en/sql-reference/statements/create/quota/#create-quota-statement), [ALTER QUOTA](https://clickhouse.tech/docs/en/sql-reference/statements/alter/quota/#alter-quota-statement) и [DROP QUOTA](https://clickhouse.tech/docs/en/sql-reference/statements/drop/#drop-quota-statement). Например, ограничьте суммарное количество запросов пользователя за период 15 месяцев:
+
+      ```sql
+      CREATE QUOTA <название квоты> FOR INTERVAL 15 MONTH MAX QUERIES 100 TO <имя пользователя>;
+      ```
+
+  1. Чтобы изменить учетную запись пользователя, используйте запрос [ALTER USER](https://clickhouse.tech/docs/ru/sql-reference/statements/alter/user/). Например для изменения [настроек {{ CH }}](#clickhouse-settings) выполните следующую команду, перечислив настройки подлежащие изменению:
+
+      ```sql
+      ALTER USER <имя пользователя> SETTINGS <список настроек {{ CH }}>;
+      ```
+
 {% endlist %}
 
 ## Удалить пользователя {#removeuser}
@@ -226,9 +290,19 @@
   ```
   
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
-  
-{% endlist %}
 
+- SQL
+
+  1. [Подключитесь](connect.md) к кластеру, используя [учетную запись `admin`](#sql-user-management).
+  1. Удалите пользователя:
+
+      ```sql
+      DROP USER <имя пользователя>;
+      ```
+
+  Подробнее об удалении объектов см. [в документации {{ CH }}](https://clickhouse.tech/docs/ru/sql-reference/statements/drop/).
+
+{% endlist %}
 
 ## Примеры
 
@@ -276,7 +350,22 @@
        ```
        DB::Exception: Cannot modify 'readonly' setting in readonly mode.
        ```
-  
+
+- SQL
+
+  1. [Подключитесь](connect.md) к кластеру `mych`, используя [учетную запись `admin`](#sql-user-management).
+  1. Создайте пользователя:
+
+      ```sql
+      CREATE USER ro-user IDENTIFIED WITH sha256_password BY 'Passw0rd';
+      ```
+
+  1. Выдайте пользователю права на чтение всех объектов базы данных `db1`:
+
+      ```sql
+      GRANT SELECT ON db1.* TO ro-user;
+      ```
+
 {% endlist %}
 
 
@@ -356,6 +445,45 @@
   - **`result-rows`** — ограничивает суммарное число строк в результатах запроса. 
       
     Минимальное значение — `0` (нет ограничений). 
+
+- SQL
+
+  Полный синтаксис команды создания новой квоты:
+
+  ```
+  CREATE QUOTA [IF NOT EXISTS | OR REPLACE] name
+      [KEYED BY {'none' | 'user name' | 'ip address' | 'client key' | 'client key or user name' | 'client key or ip address'}]
+      [FOR [RANDOMIZED] INTERVAL number {SECOND | MINUTE | HOUR | DAY | WEEK | MONTH | QUARTER | YEAR}
+          {MAX { {QUERIES | ERRORS | RESULT ROWS | RESULT BYTES | READ ROWS | READ BYTES | EXECUTION TIME} = number } [,...] |
+           NO LIMITS | TRACKING ONLY} [,...]]
+      [TO {role [,...] | ALL | ALL EXCEPT role [,...]}]
+  ```
+
+  - **`INTERVAL`** — задает интервал для квоты. После указания значения необходимо указать единицы измерения.
+
+    Минимальное значение — одна секунда.
+
+  - **`ERRORS`** — ограничивает суммарное количество запросов, которые завершились с ошибкой.
+
+    Минимальное значение — `0` (нет ограничений).
+
+  - **`EXECUTION TIME`** — ограничивает суммарное время выполнения запросов в секундах.
+
+    Минимальное значение — `0` (нет ограничений).
+
+  - **`QUERIES`** — ограничивает суммарное количество запросов.
+
+    Минимальное значение — `0` (нет ограничений).
+
+  - **`READ ROWS`** — ограничивает суммарное число исходных строк, считанных из таблиц для выполнения запросов (включая строки, считанные на удаленных серверах).
+
+    Минимальное значение — `0` (нет ограничений).
+
+  - **`RESULT ROWS`** — ограничивает суммарное число строк в результатах запроса.
+
+    Минимальное значение — `0` (нет ограничений).
+
+  Подробнее см. [в документации {{ CH }}](https://clickhouse.tech/docs/en/operations/access-rights/#quotas-management).
 
 {% endlist %}
 
@@ -858,5 +986,9 @@
     Подробнее см. [в документации {{ CH }}](https://clickhouse.tech/docs/ru/operations/settings/permissions-for-queries/#settings_readonly). 
   
     См. также: [пример создания пользователя с правами «только чтение»](#example-create-readonly-user).
-  
+
+- SQL
+
+  Полный список доступных настроек см. [в документации {{ CH }}](https://clickhouse.tech/docs/ru/operations/settings/settings/).
+
 {% endlist %}
