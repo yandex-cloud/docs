@@ -55,6 +55,8 @@ items:
         href: operations/data-migration.md
       - name: Шардирование таблиц
         href: tutorials/sharding.md
+      - name: Получение данных из Managed Service for Apache Kafka®
+        href: tutorials/fetch-data-from-mkf.md      
   - name: Концепции
     items:
     - name: Взаимосвязь ресурсов сервиса

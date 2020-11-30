@@ -22,7 +22,11 @@ items:
     - name: Управление учетными записями Kafka
       href: operations/cluster-accounts.md
     - name: Удаление кластера
-      href: operations/cluster-delete.md
+      href: operations/cluster-delete.md      
+  - name: Сценарии использования
+    items:
+    - name: Поставка данных в Managed Service for ClickHouse
+      href: tutorials/send-data-to-mch.md
   - name: Концепции
     items:
     - name: Взаимосвязь ресурсов сервиса
