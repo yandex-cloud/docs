@@ -25,6 +25,8 @@ items:
       href: operations/internal-dictionaries.md
     - name: Подключение моделей машинного обучения
       href: operations/ml-models.md
+    - name: Управление схемами формата данных
+      href: operations/format-schemas.md    
     - name: Подключение к DataLens
       href: operations/datalens-connect.md    
     - name: Изменение версии ClickHouse
