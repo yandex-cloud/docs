@@ -23,7 +23,7 @@ items:
             href: operations/vm-create/create-windows-vm.md
           - name: Создать ВМ из набора дисков
             href: operations/vm-create/create-from-disks.md
-          - name: Создать ВМ из набора снимков
+          - name: Создать ВМ с дисками из снимков
             href: operations/vm-create/create-from-snapshots.md
           - name: Создать ВМ из пользовательского образа
             href: operations/vm-create/create-from-user-image.md
@@ -35,33 +35,33 @@ items:
         items:
           - name: Обзор
             href: operations/dsvm/index.md
-          - name: Создание и подключение к ВМ
+          - name: Создать ВМ из публичного образа DSVM
             href: operations/dsvm/quickstart.md
       - name: Группы размещения
         items:
-          - name: Создание группы размещения
+          - name: Создать группу размещения
             href: operations/placement-groups/create.md
-          - name: Удаление группы размещения
+          - name: Удалить группу размещения
             href: operations/placement-groups/delete.md
-          - name: Создание ВМ в группе размещения
+          - name: Создать ВМ в группе размещения
             href: operations/placement-groups/create-vm-in-pg.md
-          - name: Добавление ВМ в группу размещения
+          - name: Добавить ВМ в группу размещения
             href: operations/placement-groups/add-vm.md
-          - name: Исключение ВМ из группы размещения
+          - name: Исключить ВМ из группы размещения
             href: operations/placement-groups/delete-vm.md
       - name: Образы с предустановленным ПО
         items:
-          - name: Создать ВМ
+          - name: Создать ВМ из публичного образа
             href: operations/images-with-pre-installed-software/create.md
           - name: Настроить ПО
             href: operations/images-with-pre-installed-software/setup.md
-          - name: Работать с ВМ
+          - name: Работа с ВМ на базе публичного образа
             href: operations/images-with-pre-installed-software/operate.md
-          - name: Получить список образов
+          - name: Получить список публичных образов
             href: operations/images-with-pre-installed-software/get-list.md
       - name: Получение информации о виртуальной машине
         items:
-          - name: Получить основную информацию и метаданные
+          - name: Получить информацию о ВМ
             href: operations/vm-info/get-info.md
           - name: Получить вывод последовательного порта
             href: operations/vm-info/get-serial-port-output.md
@@ -73,13 +73,13 @@ items:
             href: operations/vm-control/vm-attach-disk.md
           - name: Отключить диск от ВМ
             href: operations/vm-control/vm-detach-disk.md
-          - name: Изменить зону доступности ВМ
+          - name: Перенести ВМ в другую зону доступности
             href: operations/vm-control/vm-change-zone.md
           - name: Сделать публичный IP-адрес ВМ статическим
             href: operations/vm-control/vm-set-static-ip.md
           - name: Изменить ВМ
             href: operations/vm-control/vm-update.md
-          - name: Изменить конфигурацию ВМ
+          - name: Изменить вычислительные ресурсы ВМ
             href: operations/vm-control/vm-update-resources.md
           - name: Удалить ВМ
             href: operations/vm-control/vm-delete.md
@@ -91,7 +91,7 @@ items:
             href: operations/vm-connect/rdp.md
           - name: Работа с Yandex.Cloud изнутри ВМ
             href: operations/vm-connect/auth-inside-vm.md
-          - name: Установка NVIDIA-драйверов
+          - name: Установить NVIDIA-драйверы
             href: operations/vm-operate/install-nvidia-drivers.md
       - name: Создание нового диска
         items:
@@ -99,7 +99,7 @@ items:
             href: operations/disk-create/empty.md
       - name: Управление диском
         items:
-          - name: Сделать снимок диска
+          - name: Создать снимок диска
             href: operations/disk-control/create-snapshot.md
           - name: Изменить диск
             href: operations/disk-control/update.md
@@ -139,15 +139,15 @@ items:
             href: operations/instance-groups/create-with-coi
       - name: Получение информации о группе виртуальных машин
         items:
-          - name: Получить список групп
+          - name: Получить список групп ВМ
             href: operations/instance-groups/get-list.md
-          - name: Получить основную информацию и метаданные
+          - name: Получить информацию о группе ВМ
             href: operations/instance-groups/get-info.md
           - name: Получить список ВМ в группе
             href: operations/instance-groups/get-list-instances.md
       - name: Управление группой виртуальных машин
         items:
-          - name: Изменить группу
+          - name: Изменить группу ВМ
             href: operations/instance-groups/update.md
           - name: Настроить проверку состояния приложения на ВМ
             href: operations/instance-groups/enable-autohealing.md
@@ -157,17 +157,17 @@ items:
                 href: operations/instance-groups/deploy/rolling-update.md
               - name: Обновление без простоя
                 href: operations/instance-groups/deploy/zero-downtime.md
-          - name: Остановить группу
+          - name: Остановить группу ВМ
             href: operations/instance-groups/stop.md
-          - name: Запустить группу
+          - name: Запустить группу ВМ
             href: operations/instance-groups/start.md
-          - name: Удалить группу
+          - name: Удалить группу ВМ
             href: operations/instance-groups/delete.md
       - name: Выделенные хосты
         items:
-          - name: Создание ВМ в группе выделенных хостов
+          - name: Создать ВМ в группе выделенных хостов
             href: operations/dedicated-host/running-host-group-vms.md
-          - name: Создание ВМ на выделенном хосте
+          - name: Создать ВМ на выделенном хосте
             href: operations/dedicated-host/running-host-vms.md
   - name: Yandex Container Solution
     href: ../cos/

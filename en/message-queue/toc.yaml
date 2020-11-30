@@ -113,3 +113,5 @@ items:
             href: api-ref/data-types/SendMessageBatchResultEntry.md
       - name: Common errors
         href: api-ref/common-errors.md
+  - name: Questions and answers
+    href: qa/index.md

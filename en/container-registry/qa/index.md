@@ -24,3 +24,4 @@ Don't assign the `container-registry.images.pusher`, `editor` or `admin` roles t
 
 See [{#T}](../error/index.md). It lists common errors and ways to solve them.
 
+{% include [qa-logs.md](../../_includes/qa-logs.md) %}

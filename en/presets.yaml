@@ -110,6 +110,7 @@ default:
   data-transfer-short-name: Data Transfer
   api-gw-short-name: API Gateway
   price-per-hour-count-per-second: Prices are shown for 1 hour of use. Billing occurs per second.
+  roles-cr-admin: container-registry.admin
   roles-cr-puller: container-registry.images.puller
   roles-cr-pusher: container-registry.images.pusher
   roles-datasphere-admin: datasphere.admin
@@ -159,6 +160,9 @@ default:
   PG: PostgreSQL
   CH: ClickHouse
   MG: MongoDB
+  mmg-backup-retention: 7
+  mmg-backup-retention-min: 7
+  mmg-backup-retention-max: 35
   MY: MySQL
   RD: Redis
   KF: Apache Kafka<sup>®</sup>
@@ -207,8 +211,8 @@ default:
   s2-large: 's2.large (12 vCPU, 48 GB)'
   s2-xlarge: 's2.xlarge (16 vCPU, 64 GB)'
   s2-2xlarge: 's2.2xlarge (24 vCPU, 96 GB)'
-  s2-3xlarge: 's2.3xlarge (32 vCPU, 128 GB)'
-  s2-4xlarge: 's2.4xlarge (40 vCPU, 160 GB)'
+  s2-3xlarge: 's2.3xlarge(32 vCPU, 128 GB)'
+  s2-4xlarge: 's2.4xlarge(40 vCPU, 160 GB)'
   s2-5xlarge: 's2.5xlarge (48 vCPU, 192 GB)'
   s2-6xlarge: 's2.6xlarge (64 vCPU, 256 GB)'
   mch-backup-retention: 7

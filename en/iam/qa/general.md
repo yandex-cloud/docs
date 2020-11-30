@@ -23,3 +23,4 @@ See [{#T}](../quickstart.md) to learn how to add a new user to your cloud and as
 
 The {{ iam-short-name }} service can be used free of charge.
 
+{% include [qa-logs.md](../../_includes/qa-logs.md) %}

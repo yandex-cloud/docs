@@ -51,3 +51,5 @@ items:
         items:
           - name: 'Policy before January 1, 2019'
             href: pricing-archive/pricing-01012019.md
+  - name: Questions and answers
+    href: qa/index.md

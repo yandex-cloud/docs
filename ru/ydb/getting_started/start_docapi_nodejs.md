@@ -1,18 +1,16 @@
 # Разработка на NodeJS с использованием Document API
 
-## Перед началом работы
+[Создайте serverless базу данных](../quickstart/create-db.md) в {{ yandex-cloud }}.
 
-1. [Создайте serverless базу данных](../quickstart/create-db.md) в {{ yandex-cloud }}.
+
 1. Для аутентификации в базе данных [создайте сервисный аккаунт](../../iam/operations/sa/create) и [назначьте](../../iam/operations/sa/assign-role-for-sa.md) ему роли `viewer` и `editor`.
-1. [Создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm.md) в {{ yandex-cloud }}. При создании в разделе "Доступ" выберите созданный сервисный аккаунт.
-1. Сохраните публичный IP-адрес виртуальной машины. Для этого перейдите в свойства виртуальной машины или [воспользуйтесь интерфейсом командной строки](../../compute/operations/vm-info/get-info#outside-instance) .
-1. [Подключитесь к виртуальной машине по SSH](../../compute/operations/vm-connect/ssh.md).
-1. Выполните команду:
-    ```
-    npm install yandex-cloud
-    ```
+1. [Создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm) в {{ yandex-cloud }}. При создании в разделе "Доступ" выберите созданный сервисный аккаунт.
 
-## Создание таблицы
+1. Сохраните публичный IP-адрес виртуальной машины. Для этого перейдите в свойства виртуальной машины или [воспользуйтесь интерфейсом командной строки](../../compute/operations/vm-info/get-info#outside-instance) .
+1. Подключитесь к виртуальной машине по ssh
+1. Выполните `npm install yandex-cloud`
+
+### Создание таблицы
 
 ```javascript
 const { DocAPIService } = require('yandex-cloud/lib/slydb/docapi/docapi')
@@ -50,7 +48,7 @@ var params =
 docapi.createTable(params).then(res => { console.log(res); }).catch(err => { console.log(err); });
 ```
 
-## Сохранение записи
+### Сохранение записи
 
 ```javascript
 const { DocAPIService } = require('yandex-cloud/lib/slydb/docapi/docapi')
@@ -73,7 +71,7 @@ var params =
 docapi.putItem(params).then(res => { console.log(res); }).catch(err => { console.log(err); });
 ```
 
-## Чтение записи
+### Чтение записи
 
 ```javascript
 const { DocAPIService } = require('yandex-cloud/lib/slydb/docapi/docapi')

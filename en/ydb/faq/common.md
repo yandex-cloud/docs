@@ -1,20 +1,20 @@
 # General questions
 
-## What's {{ ydb-short-name }}? {#what-is-ydb}
+#### What's {{ ydb-short-name }}? {#what-is-ydb}
 
 {{ ydb-short-name }} — is a distributed fault-tolerant NewSQL DBMS. YDB provides high availability and scalability while simultaneously ensuring strict consistency and ACID transaction support. Queries are made using an SQL dialect (YQL).
 
 {{ ydb-short-name }} is a fully managed database. DB instances are created through the {{ ydb-short-name }} database management service.
 
-## What features does {{ ydb-short-name }} provide? {#ydb-features}
+#### What features does {{ ydb-short-name }} provide? {#ydb-features}
 
 {{ ydb-short-name }} provides high availability and data security through synchronous replication in three availability zones. {{ ydb-short-name }} also ensures even load distribution across available hardware resources. This means that you don't need to order resources, Yandex Database automatically allocates and releases resources based on the user load.
 
-## What consistency model does YDB use? {#ydb-consistency}
+#### What consistency model does YDB use? {#ydb-consistency}
 
 To read data, {{ ydb-short-name }} uses a model of strict data consistency.
 
-## How do I design a primary key? {#create-pk}
+#### How do I design a primary key? {#create-pk}
 
 To design the primary key properly, follow the rules given below.
 
@@ -28,7 +28,7 @@ To design the primary key properly, follow the rules given below.
 
 For more information, see [{#T}](../best_practices/schema_design.md).
 
-## How do I evenly distribute the load across table partitions? {#balance-shard-load}
+#### How do I evenly distribute the load across table partitions? {#balance-shard-load}
 
 You can use the following techniques to evenly distribute the load across table partitions and increase overall DB performance.
 
@@ -40,31 +40,31 @@ You can use the following techniques to evenly distribute the load across table 
 
 For more information, see [{#T}](../best_practices/schema_design.md#balance-shard-load).
 
-## Can I use NULL in a key column? {#null}
+#### Can I use NULL in a key column? {#null}
 
 In {{ ydb-short-name }}, all columns, including key ones, may contain a `NULL` value, but we don't recommend using ` NULL` as values in key columns.
 
 According to the SQL standard (ISO/IEC 9075), you can't compare `NULL` with other values. Therefore, the use of concise SQL statements with simple comparison operators may lead to skipping rows containing NULL during filtering, for example.
 
-## Is there an optimal size of a database row? {#string-size}
+#### Is there an optimal size of a database row? {#string-size}
 
 To achieve high performance, we don't recommend writing rows larger than 8 MB and key columns larger than 2 KB to the DB.
 
 For more information about limits, see [{#T}](../api/limits.md).
 
-## How are secondary indexes used in {{ ydb-short-name }}? {#secondary_indexes}
+#### How are secondary indexes used in {{ ydb-short-name }}? {#secondary_indexes}
 
 Secondary indexes in {{ ydb-short-name }} are global and can be non-unique.
 
 For more information, see [{#T}](../concepts/secondary_indexes.md).
 
-## How is paginated output performed? {#paging}
+#### How is paginated output performed? {#paging}
 
 To organize paginated output, we recommend selecting data sorted by primary key sequentially, limiting the number of rows with the `LIMIT` keyword. We do not recommend using the `OFFSET` keyword to solve this problem.
 
 For more information, see [{#T}](../best_practices/paging.md).
 
-## How do I effectively upload large amounts of data to {{ ydb-short-name }}? {#batch_upload}
+#### How do I effectively upload large amounts of data to {{ ydb-short-name }}? {#batch_upload}
 
 To speed up uploading large amounts of data, follow these recommendations:
 
@@ -78,7 +78,8 @@ To speed up uploading large amounts of data, follow these recommendations:
 
 For more information, see [{#T}](../best_practices/batch_upload.md).
 
-## How do I delete expired data? {#ttl}
+#### How do I delete expired data? {#ttl}
 
 To effectively remove expired data, we recommend using [{#T}](../concepts/ttl.md).
 
+{% include [qa-logs.md](../../_includes/qa-logs.md) %}

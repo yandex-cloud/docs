@@ -61,6 +61,8 @@ items:
         href: concepts/repository.md
       - name: Policies for automatically deleting Docker images
         href: concepts/lifecycle-policy.md
+      - name: Backups
+        href: concepts/backup.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Use cases

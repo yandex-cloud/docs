@@ -1,6 +1,6 @@
-# Creating a VM from a {{ coi }} and multiple Docker containers using a docker-compose.yaml file
+# Creating a VM from a {{ coi }} with multiple Docker containers
 
-In this tutorial, you'll create a VM that contains multiple Docker containers from a [{{ coi }}](../concepts/index.md) using a file named [docker-compose.yaml](https://docs.docker.com/compose/).
+In this tutorial, you'll create a VM that contains multiple Docker containers from a [{{ coi }}](../concepts/index.md). A VM is created based on the [Docker Compose specification](../concepts/index.md#compose-spec).
 
 ## Before you start {#before-you-begin}
 
@@ -21,7 +21,7 @@ If the required Docker image is pushed to {{ container-registry-name }}, create 
     1. View a description of the CLI command to create a VM from a {{ coi }}:
 
         ```
-        $ yc compute instance create-with-container --help
+        yc compute instance create-with-container --help
         ```
 
     1. Create a Docker container specification. Save the following data to a file named `docker-compose.yaml`:
@@ -56,7 +56,7 @@ If the required Docker image is pushed to {{ container-registry-name }}, create 
         Where:
         - `--name`: VM name.
         - `--zone`: Availability zone.
-        - `--ssh-key`: Contents of the [public key file](../../compute/quickstart/quick-create-linux.md#create-ssh).
+        - `--ssh-key`: Contents of the [public key file](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
         - `--network-interface`: VM network settings.
         - `--service-account-name`: Service account name.
         - `--docker-compose-file`: YAML file with the container specification.
@@ -75,4 +75,3 @@ If the required Docker image is pushed to {{ container-registry-name }}, create 
         ```
 
 {% endlist %}
-

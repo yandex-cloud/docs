@@ -1,6 +1,5 @@
 title: Yandex Database
 description:
-- "<em>Yandex Database is at the Preview stage and become public on September 25, 2020.</em>"
 - "<i>Yandex Database</i> (YDB) is a distributed fault-tolerant NewSQL DBMS. YDB provides high availability and scalability while simultaneously ensuring strict consistency and ACID transaction support. Queries are made using an SQL dialect (<a href=\"/docs/ydb/yql/reference/overview\">YQL</a>)."
 - "YDB can be used in two modes: 
 <ul> 

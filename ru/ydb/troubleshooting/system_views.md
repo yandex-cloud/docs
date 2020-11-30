@@ -67,7 +67,7 @@ LIMIT 5
 ```sql
 SELECT
     Path,
-    COUNT() as Partitions,
+    COUNT(*) as Partitions,
     SUM(RowCount) as Rows,
     SUM(DataSize) as Size,
     SUM(CPUCores) as CPU

@@ -8,6 +8,7 @@
 * [{#T}](vm-create/create-from-snapshots.md)
 * [{#T}](vm-create/create-from-user-image.md)
 * [{#T}](vm-create/create-preemptible-vm.md)
+* [{#T}](vm-create/create-vm-with-gpu.md)
 
 ## DSVM {#dsvm}
 
@@ -39,8 +40,8 @@
 * [{#T}](vm-control/vm-stop-and-start.md)
 * [{#T}](vm-control/vm-attach-disk.md)
 * [{#T}](vm-control/vm-detach-disk.md)
-* [{#T}](vm-control/vm-set-static-ip.md)
 * [{#T}](vm-control/vm-change-zone.md)
+* [{#T}](vm-control/vm-set-static-ip.md)
 * [{#T}](vm-control/vm-update.md)
 * [{#T}](vm-control/vm-update-resources.md)
 * [{#T}](vm-control/vm-delete.md)
@@ -50,6 +51,7 @@
 * [{#T}](vm-connect/ssh.md)
 * [{#T}](vm-connect/rdp.md)
 * [{#T}](vm-connect/auth-inside-vm.md)
+* [{#T}](vm-operate/install-nvidia-drivers.md)
 
 ## Создание нового диска {#disk-create}
 
@@ -73,16 +75,17 @@
 ## Управление серийной консолью {#serial-console}
 
 * [{#T}](serial-console/index.md)
-* [{#T}](serial-console/connect-cli.md)
 * [{#T}](serial-console/connect-ssh.md)
+* [{#T}](serial-console/connect-cli.md)
 * [{#T}](serial-console/windows-sac.md)
 * [{#T}](serial-console/disable.md)
 
 ## Создание группы виртуальных машин {#ig-create}
 
 * [{#T}](instance-groups/create-fixed-group.md)
-* [{#T}](instance-groups/create-autoscaled-group.md)
 * [{#T}](instance-groups/create-with-balancer.md)
+* [{#T}](instance-groups/create-autoscaled-group.md)
+* [{#T}](instance-groups/create-with-coi.md)
 
 ## Получение информации о группе виртуальных машин {#ig-info}
 
@@ -93,8 +96,12 @@
 ## Управление группой виртуальных машин {#ig-control}
 
 * [{#T}](instance-groups/update.md)
-* [{#T}](instance-groups/delete.md)
 * [{#T}](instance-groups/enable-autohealing.md)
+* [{#T}](instance-groups/deploy/rolling-update.md)
+* [{#T}](instance-groups/deploy/zero-downtime.md)
+* [{#T}](instance-groups/stop.md)
+* [{#T}](instance-groups/start.md)
+* [{#T}](instance-groups/delete.md)
 
 ## Выделенные хосты {#dedicated-host}
 

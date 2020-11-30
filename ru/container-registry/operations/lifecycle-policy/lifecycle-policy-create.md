@@ -1,6 +1,6 @@
 # Создать политику удаления
 
-Для создания политики удаления необходимо указать [идентификатор репозитория](../repository/repository-list.md#repository-get-by-name).
+Для создания политики удаления необходимо указать [идентификатор репозитория](../repository/repository-list.md#repository-get).
 
 {% list tabs %}
   

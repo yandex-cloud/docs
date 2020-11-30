@@ -193,4 +193,31 @@
       Released session ydb://session/...= on endpoint vm-xxxxx.ydb.mdb.yandexcloud.net:2135.
       ```
 
+- Java
+
+  1. Соберите тестовое приложение.
+
+      ```bash
+      git clone https://github.com/yandex-cloud/ydb-nodejs-sdk.git
+      cd ydb-java-sdk/examples/maven-project
+      mvn package
+      ```
+
+  1. Для запуска тестового приложения вне облака получите свой OAUTH-токен [по ссылке](https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb),
+     установите переменную окружения
+
+      ```bash
+      export OAUTH_TOKEN=<your oauth token>
+      ```
+      для запуска в виртуальной машине - создайте виртуальную машину с созданным ранее сервисным аккаунтом. В этом случае
+      OAUTH_TOKEN не требуется, авторизация будет проходить от имени сервисного аккаунта.
+
+  1. Запустите тестовое приложение:
+
+      ```bash
+      cd target/release
+      java -jar example.jar <эндпойнт базы данных> <база данных YDB>
+      ```
+      Для запуска в виртуальной машине скопируйте весь каталог target/release на виртуальную машину.
+
 {% endlist %}

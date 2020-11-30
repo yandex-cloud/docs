@@ -86,41 +86,55 @@ To attach a disk to a VM:
 
 ## Mounting a disk created from a snapshot or image {#mount-disk-and-fix-uuid}
 
-After attaching the disk to the Linux VM, mount it:
+To use the attached disk:
 
-1. [Connect to the VM](../vm-connect/ssh.md).
+{% list tabs %}
 
-1. Run the `blkid` command and make sure that there are no partitions with duplicate UUIDs:
+- Linux
 
-    ```bash
-    $ sudo blkid
-    /dev/vda2: UUID="0d6dfef0-542d-47ba-b55b-18ab5f5f9210" TYPE="ext4" PARTUUID="752aa845-94ee-4850-9188-71c2f919ee7b"
-    /dev/vdb2: UUID="0d6dfef0-542d-47ba-b55b-18ab5f5f9210" TYPE="ext4" PARTUUID="752aa845-94ee-4850-9188-71c2f919ee7b"
-    ...
-    ```
+  Mount the disk:
 
-1. If there are, generate a new UUID for the duplicates that come last in the `blkid` command output. In the example from the previous step, you need to generate a UUID for the `/dev/vdb2` partition:
+  1. Connect to the VM [via SSH](../vm-connect/ssh.md).
 
-    ```bash
-    $ sudo e2fsck -f /dev/vdb2
-    $ sudo tune2fs -U $(uuidgen) /dev/vdb2
-    ```
+  1. Run the `blkid` command and make sure that there are no partitions with duplicate UUIDs:
 
-    This method works for partitions with `ext2`, `ext3`, and `ext4` file systems. The latter is used in the Linux images provided by {{ yandex-cloud }}. The file system type is returned by the `blkid` command in the `TYPE` parameter.
+      ```bash
+      $ sudo blkid
+      /dev/vda2: UUID="0d6dfef0-542d-47ba-b55b-18ab5f5f9210" TYPE="ext4" PARTUUID="752aa845-94ee-4850-9188-71c2f919ee7b"
+      /dev/vdb2: UUID="0d6dfef0-542d-47ba-b55b-18ab5f5f9210" TYPE="ext4" PARTUUID="752aa845-94ee-4850-9188-71c2f919ee7b"
+      ...
+      ```
 
-    To see if the UUID changed, run the `blkid` command again:
+  1. If there are, generate a new UUID for the duplicates that come last in the `blkid` command output. In the example from the previous step, you need to generate a UUID for the `/dev/vdb2` partition:
 
-    ```bash
-    $ sudo blkid
-    /dev/vda2: UUID="0d6dfef0-542d-47ba-b55b-18ab5f5f9210" TYPE="ext4" PARTUUID="752aa845-94ee-4850-9188-71c2f919ee7b"
-    /dev/vdb2: UUID="ea004485-07fb-4128-b20d-e408db1e8ae8" TYPE="ext4" PARTUUID="752aa845-94ee-4850-9188-71c2f919ee7b"
-    ```
+      ```bash
+      $ sudo e2fsck -f /dev/vdb2
+      $ sudo tune2fs -U $(uuidgen) /dev/vdb2
+      ```
 
-    {% include [include](../../../_includes/compute/duplicated-uuid-note.md) %}
+      This method works for partitions with `ext2`, `ext3`, and `ext4` file systems. The latter is used in the Linux images provided by {{ yandex-cloud }}. The file system type is returned by the `blkid` command in the `TYPE` parameter.
 
-1. {% include [include](../../../_includes/compute/mount-disk.md) %}
+      To see if the UUID changed, run the `blkid` command again:
 
-1. Run the `df` command to check the state of the file system.
+      ```bash
+      $ sudo blkid
+      /dev/vda2: UUID="0d6dfef0-542d-47ba-b55b-18ab5f5f9210" TYPE="ext4" PARTUUID="752aa845-94ee-4850-9188-71c2f919ee7b"
+      /dev/vdb2: UUID="ea004485-07fb-4128-b20d-e408db1e8ae8" TYPE="ext4" PARTUUID="752aa845-94ee-4850-9188-71c2f919ee7b"
+      ```
+
+      {% include [include](../../../_includes/compute/duplicated-uuid-note.md) %}
+
+  1. {% include [include](../../../_includes/compute/mount-disk.md) %}
+
+  1. Run the `df` command to check the state of the file system.
+
+- Windows
+
+  1. Connect to the VM [via RDP](../vm-connect/rdp.md).
+  
+  1. Assign a letter to the attached disk. For information about how to do this, see the [Microsoft documentation](https://docs.microsoft.com/en-us/windows-server/storage/disk-management/change-a-drive-letter).
+
+{% endlist %}
 
 ## Partition and mount an empty disk on Linux {#mount}
 
@@ -133,3 +147,4 @@ To partition and mount an empty disk yourself:
 1. {% include [include](../../../_includes/compute/mount-disk.md) %}
 
 1. Run the `df` command to check the state of the file system.
+

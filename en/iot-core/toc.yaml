@@ -187,3 +187,5 @@ items:
                 href: api-ref/RegistryData/index.md
               - name: publish
                 href: api-ref/RegistryData/publish.md
+  - name: Questions and answers
+    href: qa/index.md
