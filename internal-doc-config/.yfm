@@ -1,0 +1,22 @@
+allowHTML: true
+langs: ['ru', 'en']
+
+ignore:
+  - "en/_api-ref/*"
+  - "en/_api-ref-grpc/*"
+  - "ru/_api-ref/*"
+  - "ru/_api-ref-grpc/*"
+
+docs-viewer:
+  project-name: cloud
+  langs: ['ru', 'en']
+  show-revision: false
+  show-toc-header: true
+  releasers:
+    - elenbaskakova
+    - achegodaev
+  index-page:
+    title: Yandex Cloud
+
+apply-presets: true
+varsPreset: 'internal'

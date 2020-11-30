@@ -1,0 +1,30 @@
+title: "Yandex.Cloud Documentation"
+meta:
+  title: "Yandex.Cloud"
+links:
+  - title: "Yandex Datalens"
+    href: "datalens/"
+links:
+  - title: "Yandex Managed Service for ClickHouse"
+    href: "managed-clickhouse/"
+links:
+  - title: "Yandex Managed Service for Elasticsearch"
+    href: "managed-elasticsearch/"
+links:
+  - title: "Yandex Managed Service for Apache Kafka"
+    href: "managed-kafka/"
+links:
+  - title: "Yandex Managed Service for MongoDB"
+    href: "managed-mongodb/"
+links:
+  - title: "Yandex Managed Service for MySQL"
+    href: "managed-mysql/"
+links:
+  - title: "Yandex Managed Service for PostgreSQL"
+    href: "managed-postgresql/"
+links:
+  - title: "Yandex Managed Service for Redis"
+    href: "managed-redis/"
+links:
+  - title: "Yandex Managed Service for SQL Server"
+    href: "managed-sqlserver/"

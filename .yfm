@@ -5,3 +5,5 @@ ignore:
   - "en/_api-ref-grpc/*"
   - "ru/_api-ref/*"
   - "ru/_api-ref-grpc/*"
+  - "ru/toc.yaml"
+  - "en/toc.yaml"

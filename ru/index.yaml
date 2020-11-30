@@ -1,0 +1,39 @@
+title: "Документация Yandex.Cloud"
+meta:
+  title: "Yandex.Cloud"
+links:
+  - title: "Yandex Datalens"
+    description: "Визуализация и анализ данных"
+    href: "datalens/"
+links:
+  - title: "Yandex Managed Service for ClickHouse"
+    description: "Управление базой данных ClickHouse"
+    href: "managed-clickhouse/"
+links:
+  - title: "Yandex Managed Service for Elasticsearch"
+    description: "Управление базой данных Elasticsearch"
+    href: "managed-elasticsearch/"
+links:
+  - title: "Yandex Managed Service for Apache Kafka"
+    description: "Управление кластерами Apache Kafka®"
+    href: "managed-kafka/"
+links:
+  - title: "Yandex Managed Service for MongoDB"
+    description: "Управление базой данных MongoDB"
+    href: "managed-mongodb/"
+links:
+  - title: "Yandex Managed Service for MySQL"
+    description: "Управление базой данных MySQL"
+    href: "managed-mysql/"
+links:
+  - title: "Yandex Managed Service for PostgreSQL"
+    description: "Управление базой данных PostgreSQL"
+    href: "managed-postgresql/"
+links:
+  - title: "Yandex Managed Service for Redis"
+    description: "Управление базой данных Redis"
+    href: "managed-redis/"
+links:
+  - title: "Yandex Managed Service for SQL Server"
+    description: "Управление базой данных SQL Server"
+    href: "managed-sqlserver/"
