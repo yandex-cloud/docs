@@ -126,3 +126,4 @@ To create a VM that is linked to a group of dedicated hosts, follow these steps:
   1. Create a VM that is linked to a group of dedicated hosts using the [create](../../api-ref/Instance/create.md) method for the `Instance` resource.
 
 {% endlist %}
+

@@ -51,12 +51,6 @@ For example, the `{{ roles-admin }}` role lets you perform the following operati
 
 {% include [roles-certificate-manager-certificates-downloader](../../../_includes/roles-certificate-manager-certificates-downloader.md) %}
 
-## {{ certificate-manager-name }} {#certificate-manager-roles}
-
-{% include [roles-certificate-manager-admin](../../../_includes/roles-certificate-manager-admin.md) %}
-
-{% include [roles-certificate-manager-certificates-downloader](../../../_includes/roles-certificate-manager-certificates-downloader.md) %}
-
 ## {{ compute-name }} {#compute-roles}
 
 {% include [roles-compute-admin](../../../_includes/roles-compute-admin.md) %}
@@ -66,6 +60,8 @@ For example, the `{{ roles-admin }}` role lets you perform the following operati
 {% include [roles-images-user](../../../_includes/roles-images-user.md) %}
 
 ## {{ container-registry-name }} {#cr-roles}
+
+{% include [container-registry-admin](../../../_includes/roles-container-registry-admin.md) %}
 
 {% include [container-registry-puller](../../../_includes/roles-container-registry-puller.md) %}
 
@@ -86,18 +82,6 @@ For example, the `{{ roles-admin }}` role lets you perform the following operati
 {% include [datasphere-user](../../../_includes/roles-datasphere-user.md) %}
 
 {% include [datasphere-admin](../../../_includes/roles-datasphere-admin.md) %}
-
-## {{ ml-platform-name }} {#datasphere-roles}
-
-{% include [datasphere-user](../../../_includes/roles-datasphere-user.md)%}
-
-{% include [datasphere-admin](../../../_includes/roles-datasphere-admin.md)%}
-
-## {{ ml-platform-name }} {#datasphere-roles}
-
-{% include [datasphere-user](../../../_includes/roles-datasphere-user.md)%}
-
-{% include [datasphere-admin](../../../_includes/roles-datasphere-admin.md)%}
 
 ## {{ sf-short-name }} {#functions-roles}
 
@@ -144,3 +128,4 @@ For example, the `{{ roles-admin }}` role lets you perform the following operati
 {% include [roles-vpc-sg-admin](../../../_includes/roles-vpc-sg-admin.md) %}
 
 {% include [roles-vpc-admin](../../../_includes/roles-vpc-admin.md) %}
+

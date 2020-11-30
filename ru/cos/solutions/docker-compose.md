@@ -20,7 +20,7 @@
     1. Посмотрите описание команды CLI для создания ВМ на базе образа {{ coi }}:
 
         ```
-        $ yc compute instance create-with-container --help
+        yc compute instance create-with-container --help
         ```
     1. Подготовьте спецификацию Docker-контейнеров. Сохраните следующие данные в файл `docker-compose.yaml`:
     

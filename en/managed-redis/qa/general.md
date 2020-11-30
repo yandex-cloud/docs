@@ -132,3 +132,4 @@ Monitoring can be performed with a minimum granularity of 5 seconds.
 
 {% include [qa-fz-152.md](../../_includes/qa-fz-152.md) %}
 
+{% include [qa-logs.md](../../_includes/qa-logs.md) %}

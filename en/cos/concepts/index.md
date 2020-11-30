@@ -18,7 +18,7 @@ Learn more about working with a {{ coi }} in [{#T}](../solutions/vm-create.md).
 ## Specifics of working with the network {#network}
 
 * In {{ coi }}, Docker containers are run using a host's network interface.
-   All ports opened in a Docker container will also be opened on the host.
+  All ports opened in a Docker container will also be opened on the host.
 * All host ports have access to the internet. This lets you automatically access the ports of a running Docker container.
 
 ## Docker image {#docker-image}

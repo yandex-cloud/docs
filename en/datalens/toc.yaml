@@ -471,3 +471,5 @@ items:
             href: function-ref/RSUM.md
       - name: Function Availability
         href: function-ref/availability.md
+  - name: Questions and answers
+    href: qa/index.md

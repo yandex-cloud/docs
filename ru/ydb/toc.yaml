@@ -1,5 +1,6 @@
 title: Yandex Database
 href: index.yaml
+stage: preview
 items:
   - name: Начало работы
     items:
@@ -273,3 +274,9 @@ items:
         href: faq.md
   - name: Публичные материалы
     href: public_talks.md
+  - name: Правила тарификации
+    items:
+      - name: Yandex Database Serverless
+        href: pricing/serverless.md
+      - name: Yandex Database
+        href: pricing/dedicated.md

@@ -19,7 +19,7 @@
     1. Посмотрите описание команды CLI для создания ВМ:
 
         ```
-        $ yc compute instance create-with-container --help
+        yc compute instance create-with-container --help
         ```
 
     1. Подготовьте [Docker Compose спецификацию](../concepts/index.md#compose-spec). Сохраните следующие данные в файл `docker-compose.yaml`:
@@ -61,7 +61,7 @@
         - `--public-ip` — выделение публичного IP-адреса для ВМ.
         - `--create-boot-disk` — параметры диска виртуальной машины.
         - `--ssh-key` — содержимое файла [открытого ключа](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
-        - `--docker-compose-file` — YAML-файл со спецификацией контенера.
+        - `--docker-compose-file` — YAML-файл со спецификацией контейнера.
             
         После создания виртуальная машина появится в списке ВМ в разделе **{{ compute-name }}** в [консоли управления]({{ link-console-main }}).
             
@@ -79,13 +79,13 @@
         1. Подключитесь к запущенному Docker-контейнеру:
         
             ```
-            $ sudo docker exec -it 1f71192ded4c bash
+            sudo docker exec -it 1f71192ded4c bash
             ```
            
         1. Посмотрите список подключенных дисков. Обратите внимание на смонтированный диск `/dev/vdb 11G 24M 9.9G 1% /data`:
         
             ```
-            $ df -H
+            df -H
             Filesystem      Size  Used Avail Use% Mounted on
             overlay          11G  3.1G  7.0G  31% /
             tmpfs            68M     0   68M   0% /dev

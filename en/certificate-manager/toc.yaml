@@ -118,3 +118,5 @@ items:
                 href: api-ref/CertificateContent/index.md
               - name: get
                 href: api-ref/CertificateContent/get.md
+  - name: Questions and answers
+    href: qa/index.md

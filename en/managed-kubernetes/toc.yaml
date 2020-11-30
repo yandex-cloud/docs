@@ -161,3 +161,5 @@ items:
                 href: api-ref/Version/index.md
               - name: list
                 href: api-ref/Version/list.md
+  - name: Questions and answers
+    href: qa/index.md

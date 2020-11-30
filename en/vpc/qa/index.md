@@ -32,5 +32,6 @@ You can [make a public IP address static](../operations/set-static-ip.md) using 
 
 Subnets can only use private addresses from IPv4 ranges defined by [RFC 1918](https://tools.ietf.org/html/rfc1918).
 
-
 {% include [qa-fz-152.md](../../_includes/qa-fz-152.md) %}
+
+{% include [qa-logs.md](../../_includes/qa-logs.md) %}

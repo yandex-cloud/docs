@@ -23,11 +23,11 @@ items:
             href: operations/vm-create/create-windows-vm.md
           - name: Creating a VM from a set of disks
             href: operations/vm-create/create-from-disks.md
-          - name: Creating a VM from a set of snapshots
+          - name: Create a VM with disks restored from snapshots
             href: operations/vm-create/create-from-snapshots.md
           - name: Creating a VM from a custom image
             href: operations/vm-create/create-from-user-image.md
-          - name: Creating a preemptible instance
+          - name: Creating a preemptible VM
             href: operations/vm-create/create-preemptible-vm.md
           - name: Creating a VM with a GPU
             href: operations/vm-create/create-vm-with-gpu.md
@@ -35,7 +35,7 @@ items:
         items:
           - name: Overview
             href: operations/dsvm/index.md
-          - name: Creating an instance and connecting to it
+          - name: Creating a VM from a public DSVM image
             href: operations/dsvm/quickstart.md
       - name: Placement groups
         items:
@@ -45,23 +45,23 @@ items:
             href: operations/placement-groups/delete.md
           - name: Creating a VM instance in a placement group
             href: operations/placement-groups/create-vm-in-pg.md
-          - name: Adding a VM instance to a placement group
+          - name: Adding a VM to a placement group
             href: operations/placement-groups/add-vm.md
           - name: Removing a VM instance from a placement group
             href: operations/placement-groups/delete-vm.md
       - name: Images with pre-installed software
         items:
-          - name: Creating a VM
+          - name: Creating a VM from a public image
             href: operations/images-with-pre-installed-software/create.md
           - name: Configuring software
             href: operations/images-with-pre-installed-software/setup.md
-          - name: Using a VM
+          - name: Working with a VM based on a public image
             href: operations/images-with-pre-installed-software/operate.md
-          - name: Getting a list of images
+          - name: Getting a list of public images
             href: operations/images-with-pre-installed-software/get-list.md
       - name: Getting information about a VM
         items:
-          - name: Getting basic information and metadata
+          - name: Getting information about a VM
             href: operations/vm-info/get-info.md
           - name: Viewing serial port output
             href: operations/vm-info/get-serial-port-output.md
@@ -73,13 +73,13 @@ items:
             href: operations/vm-control/vm-attach-disk.md
           - name: Detaching a disk from a VM
             href: operations/vm-control/vm-detach-disk.md
-          - name: Changing a VM's availability zone
+          - name: Moving a VM to a different availability zone
             href: operations/vm-control/vm-change-zone.md
           - name: Making a VM's public IP address static
             href: operations/vm-control/vm-set-static-ip.md
           - name: Updating a VM
             href: operations/vm-control/vm-update.md
-          - name: Changing a VM's configuration
+          - name: Changing VM computing resources
             href: operations/vm-control/vm-update-resources.md
           - name: Deleting a VM
             href: operations/vm-control/vm-delete.md
@@ -89,7 +89,7 @@ items:
             href: operations/vm-connect/ssh.md
           - name: Connecting to a VM via RDP
             href: operations/vm-connect/rdp.md
-          - name: Working with Yandex.Cloud from inside an instance
+          - name: Working with Yandex.Cloud from inside a VM
             href: operations/vm-connect/auth-inside-vm.md
           - name: Installing NVIDIA drivers
             href: operations/vm-operate/install-nvidia-drivers.md
@@ -113,7 +113,7 @@ items:
             href: operations/image-create/upload.md
       - name: Managing images
         items:
-          - name: Removing an image
+          - name: Deleting a disk image
             href: operations/image-control/delete.md
       - name: Managing the serial console
         items:
@@ -121,15 +121,15 @@ items:
             href: operations/serial-console/index.md
           - name: Connecting to a serial console via SSH
             href: operations/serial-console/connect-ssh.md
-          - name: Connecting to a serial console via the CLI
+          - name: Connecting to a serial console via CLI
             href: operations/serial-console/connect-cli.md
           - name: Disabling access to the serial console
             href: operations/serial-console/disable.md
       - name: Creating instance groups
         items:
-          - name: Create a fixed-size instance group
+          - name: Creating a fixed-size instance group
             href: operations/instance-groups/create-fixed-group.md
-          - name: Create a fixed-size instance group with a load balancer
+          - name: Creating a fixed-size instance group with a load balancer
             href: operations/instance-groups/create-with-balancer.md
           - name: Creating an automatically scaled instance group
             href: operations/instance-groups/create-autoscaled-group.md
@@ -139,13 +139,13 @@ items:
         items:
           - name: Getting a list of groups
             href: operations/instance-groups/get-list.md
-          - name: Getting basic information and metadata
+          - name: Getting information about a group
             href: operations/instance-groups/get-info.md
           - name: Getting a list of instances in a group
             href: operations/instance-groups/get-list-instances.md
       - name: Managing instance groups
         items:
-          - name: Edit a group
+          - name: Update a group
             href: operations/instance-groups/update.md
           - name: Configure application health check on the VM
             href: operations/instance-groups/enable-autohealing.md

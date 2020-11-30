@@ -15,7 +15,7 @@ SELECT * FROM
 my_table
 WHERE value % 2 == 0;
 
-COMMIT:
+COMMIT;
 
 DISCARD SELECT Ensure(
     0, -- will discard result anyway
