@@ -12,4 +12,5 @@
 - [{#T}](db-settings.md)
 - [{#T}](datalens-connect.md)
 - [{#T}](cluster-users.md)
+- [{#T}](grant.md)
 - [{#T}](cluster-delete.md)

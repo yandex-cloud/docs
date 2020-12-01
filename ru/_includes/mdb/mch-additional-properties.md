@@ -55,6 +55,29 @@
          * **Age** — минимальный возраст данных в секундах.
          * **Precision** — точность определения возраста данных в секундах. Должен быть делителем для 86400 (количество секунд в сутках).
 
+* **Kafka** — глобальные настройки аутентификации для [интеграции с {{ KF }}](https://clickhouse.tech/docs/ru/engines/table-engines/integrations/kafka/):
+  * **Sasl mechanism** — механизм аутентификации SASL:
+    - `GSSAPI` — аутентификация c [использованием Kerberos](https://kafka.apache.org/documentation/#security_sasl_kerberos).
+    - `PLAIN` — аутентификация с [использованием пары «логин-пароль» в виде открытого текста](https://kafka.apache.org/documentation/#security_sasl_plain).
+    - `SCRAM-SHA-256` и `SCRAM-SHA-512` — аутентификация с [использованием механизмов семейства SCRAM](https://kafka.apache.org/documentation/#security_sasl_scram).
+  * **Sasl password** — пароль учетной записи {{ KF }}.
+  * **Sasl username** — имя учетной записи {{ KF }}.
+  * **Security protocol** — протокол безопасности для использования при аутентификации:
+    * `PLAINTEXT` — данные для аутентификации передаются в открытом виде.
+    * `SSL` — данные для аутентификации передаются в зашифрованном виде с помощью SSL.
+    * `SASL_PLAINTEXT` — данные для аутентификации передаются в открытом виде, в качестве транспорта используется SASL.
+    * `SASL_SSL` — данные для аутентификации передаются в зашифрованном виде с помощью SSL, в качестве транспорта используется SASL.
+  
+  Подробнее см. в [документации {{ KF }}](https://kafka.apache.org/documentation/#security).
+    
+* **Kafka topics** — настройки аутентификации на уровне [топиков](../../managed-kafka/concepts/topics.md) для [интеграции с {{ KF }}](https://clickhouse.tech/docs/ru/engines/table-engines/integrations/kafka/):
+  * **Name** — имя топика {{ KF }}.
+  * **Settings** — настройки аутентификации для топика, аналогичные глобальным настройкам аутентификации в секции **Kafka**.
+
+  Если для таблицы на [движке Kafka](https://clickhouse.tech/docs/ru/engines/table-engines/integrations/kafka/) не будут найдены данные аутентификации для топика, то будут использованы глобальные настройки из секции **Kafka**.
+
+  Подробнее см. в [документации {{ KF }}](https://kafka.apache.org/documentation/#security).
+
 * **Merge tree** — конфигурация движка MergeTree. Подробнее см. в [документации {{ CH }}](https://clickhouse.tech/docs/ru/operations/server-configuration-parameters/settings/#server_configuration_parameters-merge_tree)
    * **Max bytes to merge at min space in pool** — максимальный общий размер [куска данных](https://clickhouse.yandex/docs/ru/operations/table_engines/mergetree/#mergetree-data-storage) для слияния, когда в фоновом пуле минимум свободных потоков.
    * **Max replicated merges in queue** — максимальное число задач слияния, которые могут одновременно находиться в очереди `ReplicatedMergeTree`.

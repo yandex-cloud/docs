@@ -29,7 +29,7 @@ items:
         href: operations/cluster-extensions.md
       - name: Управление пользователями БД
         href: operations/cluster-users.md
-      - name: Назначение прав и ролей
+      - name: Назначение привилегий и ролей
         href: operations/grant.md
       - name: Управление резервными копиями
         href: operations/cluster-backups.md
