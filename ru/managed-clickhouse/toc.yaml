@@ -25,6 +25,8 @@ items:
         href: operations/internal-dictionaries.md
       - name: Подключение моделей машинного обучения
         href: operations/ml-models.md
+      - name: Управление схемами формата данных
+        href: operations/format-schemas.md
       - name: Подключение к DataLens
         href: operations/datalens-connect.md
       - name: Изменение версии ClickHouse
@@ -53,6 +55,10 @@ items:
         href: operations/data-migration.md
       - name: Шардирование таблиц
         href: tutorials/sharding.md
+      - name: Использование гибридного хранилища
+        href: tutorials/hybrid-storage.md
+      - name: Получение данных из Managed Service for Apache Kafka®
+        href: tutorials/fetch-data-from-mkf.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса
