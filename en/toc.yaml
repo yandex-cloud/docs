@@ -3,27 +3,19 @@ href: index.yaml
 items:
   - name: Datalens
     href: datalens/
-items:
   - name: Yandex Managed Service for ClickHouse
     href: managed-clickhouse/
-items:
   - name: Yandex Managed Service for Elasticsearch
     href: managed-elasticsearch/
-items:
   - name: Yandex Managed Service for Apache Kafka
     href: managed-kafka/
-items:
   - name: Yandex Managed Service for MongoDB
     href: managed-mongodb/
-items:
   - name: Yandex Managed Service for MySQL
     href: managed-mysql/
-items:
   - name: Yandex Managed Service for PostgreSQL
     href: managed-postgresql/
-items:
   - name: Yandex Managed Service for Redis
     href: managed-redis/
-items:
   - name: Yandex Managed Service for SQL Server
     href: managed-sqlserver/
