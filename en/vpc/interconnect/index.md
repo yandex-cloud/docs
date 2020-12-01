@@ -4,7 +4,14 @@
 
 ## Trunk link {#trunk-link}
 
-The core {{ interconnect-name }} solution is a trunk link with bandwidth from 100 Mbps to 10 Gbps or more. Dedicated connections are created on top of trunk links.
+The core {{ interconnect-name }} solution is a trunk link with bandwidth from 100 Mbps to 10 Gbps or more. Trunk links are provided using a 10GE LR-LC optical joint with the {{ yandex-cloud }} equipment. Dedicated connections are created on top of trunk links.
+
+{{ yandex-cloud }} points of presence:
+
+* MMTS-9, ul. Butlerova 7, Moscow, Russia
+* StoreData, ul. Nizhegorodskaya, 32-A, Moscow, Russia
+* Dataline NORD, Korovinskoe shosse, 41, Moscow, Russia
+* Dataline OST, ul. Borovaya, 7, str. 10, Moscow, Russia
 
 ## Private connection {#private-connection}
 
@@ -12,7 +19,16 @@ A private connection is set up on top of the trunk link to provide connectivity 
 
 To isolate two dedicated connections inside a trunk link, traffic is tagged by a VLAN.
 
-To exchange routing information and start passing traffic, you need to configure [BGP](https://en.wikipedia.org/wiki/Border_Gateway_Protocol).
+To exchange routing information and start passing traffic, you need to configure [BGP](https://en.wikipedia.org/wiki/Border_Gateway_Protocol). The number of prefixes that can be accepted is limited: you can announce a maximum of 500 routes. If the threshold is exceeded, a BGP session is reset and reinitialized.
+
+When setting up a private connection, it's recommended to ensure the trunk link redundancy through several points of presence. There's neither redundancy support for VPC access through a single site nor support for router failover protocols (such as CARP, HSRP, or VRRP), since these methods don't increase reliability compared to a single private channel.
+
+Within a single site, you can use:
+
+* Link aggregation methods (LACP), including in active/passive mode.
+* Switch stacking on the user side, provided that the switches are combined in a single logical unit.
+
+You can create [two](../concepts/limits.md#yandex-cloud-interconnect) private connections on top of a single trunk link.
 
 ### Setting up a private connection {#set-up-private-connection}
 
@@ -27,7 +43,7 @@ For the connection to run, set up a connection between your local network infras
    * On your side:
      * Cloud ID.
      * Virtual network ID.
-     * CIDR of the peering subnet from the link-local address range `169.254.x. x` with the prefix length of `/30` or `/31`.
+     * CIDR of a peer-to-peer subnet from the [RFC1918](https://tools.ietf.org/html/rfc1918) range of private addresses.
      * IP addresses of the BGP peers on the user and {{ yandex-cloud }} side.
      * BGP ASN.
    * On the {{ yandex-cloud }} side:
