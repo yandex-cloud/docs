@@ -38,6 +38,7 @@ default:
   certificate-manager-full-name: Yandex Certificate Manager
   data-transfer-full-name: Yandex Data Transfer
   api-gw-full-name: Yandex API Gateway
+  lockbox-full-name: Yandex Lockbox
 
   # Полные имена сервисов без Yandex
   iam-name: Identity and Access Management
@@ -78,6 +79,7 @@ default:
   marketplace-name: Cloud Marketplace
   data-transfer-name: Data Transfer
   api-gw-name: API Gateway
+  lockbox-name: Lockbox
 
   # Короткие имена
   iam-short-name: IAM
@@ -115,6 +117,7 @@ default:
   certificate-manager-short-name: Certificate Manager
   data-transfer-short-name: Data Transfer
   api-gw-short-name: API Gateway
+  lockbox-short-name: Lockbox
 
   # Тарифы
   price-per-hour-count-per-second: Цена указывается за 1 час использования. Тарификация посекундная.
@@ -138,6 +141,10 @@ default:
   roles-lb-viewer: load-balancer.viewer
   roles-lb-private-admin: load-balancer.privateAdmin
   roles-lb-admin: load-balancer.admin
+  roles-lockbox-admin: lockbox.admin
+  roles-lockbox-editor: lockbox.editor
+  roles-lockbox-viewer: lockbox.viewer
+  roles-lockbox-payloadviewer: lockbox.payloadViewer
   roles-cloud-owner: resource-manager.clouds.owner
   roles-cloud-member: resource-manager.clouds.member
   roles-admin: admin
