@@ -2,7 +2,7 @@
 
 You can change the [name](function-update.md#update-name) and [description](function-update.md#update-description) of a function as well as [manage function labels](function-update.md#manage-label). To change the code or operation parameters of a function, [create a new version of the function](version-manage.md#version-create).
 
-{% include [yc-function-list](../../../_includes/functions/function-list.md) %}
+{% include [function-list-note](../../../_includes/functions/function-list-note.md) %}
 
 ## Changing the name of a function {#update-name}
 
@@ -24,8 +24,12 @@ You can change the [name](function-update.md#update-name) and [description](func
     Change the function name:
 
     ```
-    $ yc serverless function update my-function --new-name my-beta-function
-    
+    $ yc serverless function update <function name> --new-name <new function name>
+    ```
+
+    Result:
+
+    ```
     id: b097d9ous3gep99khe83
     folder_id: aoek49ghmknnpj1ll45e
     created_at: "2019-06-06T11:36:48.688Z"
@@ -33,7 +37,8 @@ You can change the [name](function-update.md#update-name) and [description](func
     labels:
      test: test
     log_group_id: eolv6578frac08uh5h6s
-    http_invoke_url: https://functions.yandexcloud.net/b097d9ous3gep99khe83 
+    http_invoke_url: https://functions.yandexcloud.net/b097d9ous3gep99khe83
+    status: ACTIVE
     ```
 
 {% endlist %}
@@ -58,8 +63,12 @@ You can change the [name](function-update.md#update-name) and [description](func
     Update the function description:
 
     ```
-    $ yc serverless function update my-beta-function --description "My beta function."
-    
+    $ yc serverless function update <function name> --description "<function description>"
+    ```
+
+    Result:
+
+    ```
     id: b097d9ous3gep99khe83
     folder_id: aoek49ghmknnpj1ll45e
     created_at: "2019-06-06T11:36:48.688Z"
@@ -69,6 +78,7 @@ You can change the [name](function-update.md#update-name) and [description](func
       test: test
     log_group_id: eolv6578frac08uh5h6s
     http_invoke_url: https://functions.yandexcloud.net/b097d9ous3gep99khe83
+    status: ACTIVE
     ```
 
 {% endlist %}
@@ -77,9 +87,9 @@ You can change the [name](function-update.md#update-name) and [description](func
 
 You can perform the following actions with function labels:
 
-- [Add a label](#add-label)
-- [Update a label](#update-label)
-- [Delete a label](#remove-label)
+- [Add a label](#add-label).
+- [Update a label](#update-label).
+- [Delete a label](#remove-label).
 
 ### Adding a label {#add-label}
 
@@ -92,8 +102,12 @@ You can perform the following actions with function labels:
     Add a label to a function:
 
     ```
-    $ yc serverless function add-labels my-beta-function --labels version=beta
-    
+    $ yc serverless function add-labels <function name> --labels <key>=<value>
+    ```
+
+    Result:
+
+    ```
     id: b097d9ous3gep99khe83
     folder_id: aoek49ghmknnpj1ll45e
     created_at: "2019-06-06T11:36:48.688Z"
@@ -104,6 +118,7 @@ You can perform the following actions with function labels:
       version: beta
     log_group_id: eolv6578frac08uh5h6s
     http_invoke_url: https://functions.yandexcloud.net/b097d9ous3gep99khe83
+    status: ACTIVE
     ```
 
 {% endlist %}
@@ -125,8 +140,12 @@ You can perform the following actions with function labels:
     {% endnote %}
 
     ```
-    $ yc serverless function update my-beta-function --labels new_labels=my-beta-function
-    
+    $ yc serverless function update <function name> --labels <key>=<value>
+    ```
+
+    Result:
+
+    ```
     id: b097d9ous3gep99khe83
     folder_id: aoek49ghmknnpj1ll45e
     created_at: "2019-06-06T11:36:48.688Z"
@@ -151,8 +170,12 @@ You can perform the following actions with function labels:
     Delete a function label:
 
     ```
-    $ yc serverless function remove-labels my-beta-function --labels test
-    
+    $ yc serverless function remove-labels <function name> --labels <key>
+    ```
+
+    Result:
+
+    ```
     id: b097d9ous3gep99khe83
     folder_id: aoek49ghmknnpj1ll45e
     created_at: "2019-06-06T11:36:48.688Z"
@@ -162,7 +185,7 @@ You can perform the following actions with function labels:
       version: beta
     log_group_id: eolv6578frac08uh5h6s
     http_invoke_url: https://functions.yandexcloud.net/b097d9ous3gep99khe83
+    status: ACTIVE
     ```
 
 {% endlist %}
-

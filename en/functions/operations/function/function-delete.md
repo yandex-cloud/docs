@@ -1,6 +1,8 @@
 # Deleting a function
 
-{% include [yc-function-list](../../../_includes/functions/function-list.md) %}
+{% include [function-list-note](../../../_includes/functions/function-list-note.md) %}
+
+## Deleting a function
 
 {% list tabs %}
 
@@ -19,15 +21,44 @@
     Delete the function:
 
     ```
-    $ yc serverless function delete my-functions
-    
+    $ yc serverless function delete <function name>
+    ```
+
+    Result:
+
+    ```
+    done (1s)    
     id: b09kk2ujb8js23f73b06
     folder_id: aoek49ghmknnpj1ll45e
     created_at: "2019-06-13T13:21:40.022Z"
     name: my-functions
     log_group_id: eolq9ac97486t34iut5q
-    http_invoke_url: https://functions.cloud-preprod.yandex.net/b09kk2ujb8js23f73b06
+    http_invoke_url: https://functions.yandexcloud.net/b09kk2ujb8js23f73b06
+    status: DELETING
     ```
 
-{% endlist %}
+- Terraform
 
+    {% include [terraform-definition](../../../solutions/_solutions_includes/terraform-definition.md) %}
+
+    Read more about Terraform in the [documentation](../../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+    If you created a function using Terraform, you can delete it:
+
+    1. In the command line, go to the directory with the Terraform configuration file.
+
+    2. Delete resources using the command:
+
+       ```
+       $ terraform destroy
+       ```
+
+       {% note alert %}
+
+       Terraform deletes all the resources that you created in the current configuration, such as clusters, networks, subnets, and VMs.
+
+       {% endnote %}
+
+    3. Confirm the deletion of resources.
+
+{% endlist %}
