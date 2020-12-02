@@ -133,3 +133,5 @@ items:
         href: iot/index.md
       - name: Мониторинг состояния географически распределенных устройств
         href: iot/datalens.md
+      - name: Мониторинг показаний датчиков и уведомления о событиях
+        href: iot/monitoring.md
