@@ -120,8 +120,7 @@
 ## Запустите вычислительную операцию на кластере {{ dataproc-name }} {#run-code}
 
 Чтобы запустить вычисления на кластере, созданном из интерфейса ноутбука: 
-1. {% include [include](../../_includes/datasphere/first-step.md) %}
-1. Нажмите значок ![image](../../_assets/options.svg) в строке проекта, в котором необходимо запустить вычисления.
+1. Откройте проект, для которого вы создали кластер Data Proc.
 1. В ячейку вставьте код для вычисления, например:
 
     ```
@@ -132,7 +131,7 @@
         x, y = random.random(), random.random()
         return x*x + y*y < 1
     
-    NUM_SAMPLES = 1_000_009
+    NUM_SAMPLES = 1_000_000
     
     count = sc.parallelize(range(0, NUM_SAMPLES)) \
                  .filter(inside).count()

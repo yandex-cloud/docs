@@ -1,24 +1,26 @@
 # Managing function versions
 
-For function versioning, you need to know the name or unique ID of the function that the version belongs to.
-
-{% include [yc-function-list](../../../_includes/functions/function-list.md) %}
-
 With function versioning, you can:
 
-- [Create a version](version-manage.md#func-version-create)
-- [Get information about a function version](version-manage.md#version-info)
-    - [Get a list of function versions](version-manage.md#version-list)
-    - [Get detailed information about a function's version](version-manage.md#version-get)
-- [Manage version tags](function-update.md#manage-tags)
+- [Create a version](version-manage.md#func-version-create).
+- [Get information about a function version](version-manage.md#version-info).
+    - [Get a list of function versions](version-manage.md#version-list).
+    - [Get detailed information about a function's version](version-manage.md#version-get).
+- [Manage version tags](function-update.md#manage-tags).
 
-You can also change the function code using the [Code editor](function-editor.md).
+You can change the function code using the [Code editor](function-editor.md).
 
 {% note info %}
 
 To ensure the integrity of version links, you can't update or delete function versions. For more information about relationships between resources, see [{#T}](../../concepts/function.md).
 
 {% endnote %}
+
+## Getting a list of functions {#function-list}
+
+For function versioning, you need to know the name or unique ID of the function that the version belongs to. To find them out, get a list of functions.
+
+{% include [function-list](../../../_includes/functions/function-list.md) %}
 
 ## Creating a function version {#func-version-create}
 
@@ -45,7 +47,7 @@ To ensure the integrity of version links, you can't update or delete function ve
     };
     ```
 
-1. Add the `index.js` file to the `hello-js.zip` archive.
+1. Add `index.js` to the `hello-js.zip` archive.
 
 ### Creating a function version {#version-create}
 
@@ -87,7 +89,26 @@ When creating a version, set the following parameters:
     --entrypoint index.handler \ The handler, specified in <function file name>.<handler name> format.
     --memory 128m \ # Amount of RAM.
     --execution-timeout 5s \ # The maximum function execution time before the timeout is reached.
-    --source-path ./hello-js.zip # ZIP archive with the function code and all required dependencies.
+    --source-path ./hello-js.zip # ZIP archive with the function code and all required dependencies.    
+    ```
+
+    Result:
+
+    ```
+    done (1s)
+    id: d4evvn8obisajd51plaq
+    function_id: d4elpv8pft639ku7k0u6
+    created_at: "2020-08-01T19:09:19.531Z"
+    runtime: nodejs12
+    entrypoint: index.handler
+    resources:
+    memory: "134217728"
+    execution_timeout: 5s
+    image_size: "4096"
+    status: ACTIVE
+    tags:
+    - $latest
+    log_group_id: ckg3qh8h363p40gmr9gn
     ```
 
 {% endlist %}
@@ -96,106 +117,41 @@ When creating a version, set the following parameters:
 
 ### Getting a list of function versions {#version-list}
 
-{% list tabs %}
-
-- Management console
-
-    Get the list of versions for the function:
-    1. Open **{{ sf-name }}** in the folder containing the function that you need to get the list of versions for.
-    1. Select the function to get a list of versions for.
-    1. Under **Version history**, you can find the list of function versions and their details.
-
-- CLI
-
-    {% include [cli-install](../../../_includes/cli-install.md) %}
-
-    Get the list of versions for the function:
-
-    ```
-    $ yc serverless function version list --function-name my-beta-function
-    +----------------------+----------------------+----------+--------------+---------+---------------------+
-    |          ID          |     FUNCTION ID      | RUNTIME  |  ENTRYPOINT  |  TAGS   |     CREATED AT      |
-    +----------------------+----------------------+----------+--------------+---------+---------------------+
-    | b09u830mb1n32a7rj0n8 | b097d9ous3gep99khe83 | python37 | test.handler | $latest | 2019-06-13 09:23:23 |
-    | b09ch6pmpohfc9sogj5f | b097d9ous3gep99khe83 | python37 | test.handler | beta    | 2019-06-13 09:12:38 |
-    +----------------------+----------------------+----------+--------------+---------+---------------------+
-    ```
-
-{% endlist %}
+{% include [version-list](../../../_includes/functions/version-list.md) %}
 
 ### Getting detailed information about a function version {#version-get}
 
-{% list tabs %}
+{% include [version-get](../../../_includes/functions/version-get.md) %}
 
-- Management console
+## Adding environment variables {#version-env}
 
-    Get details of the function version:
-    1. Open **{{ sf-name }}** in the folder containing the function that you need to get the list of versions for.
-    1. Select the function to get a list of versions for.
-    1. Under **Version history**, you can find the list of function versions and their details.
-
-- CLI
-
-    {% include [cli-install](../../../_includes/cli-install.md) %}
-
-    To access the version, use the `ID` or `TAGS` parameters from the [previous](version-manage.md#version-list) section.
-
-    - Get details of a version using its **unique ID**:
-
-        ```
-        $ yc serverless function version get b09u830mb1n32a7rj0n8
-        
-        id: b09u830mb1n32a7rj0n8
-        function_id: b097d9ous3gep99khe83
-        description: test2
-        created_at: "2019-06-13T09:23:23.383Z"
-        runtime: python37
-        entrypoint: test.handler
-        resources:
-          memory: "134217728"
-        execution_timeout: 5s
-        image_size: "4096"
-        status: ACTIVE
-        tags:
-        - $latest
-        log_group_id: eolv6578frac08uh5h6s
-        
-        
-    - Get details of a version using its **tag**:
-
-        ````
-        $ yc serverless function version get-by-tag --function-name my-beta-function --tag beta
-        
-        id: b09ch6pmpohfc9sogj5f
-        function_id: b097d9ous3gep99khe83
-        created_at: "2019-06-13T09:12:38.464Z"
-        runtime: python37
-        entrypoint: test.handler
-        resources:
-          memory: "134217728"
-        execution_timeout: 5s
-        image_size: "4096"
-        status: ACTIVE
-        tags:
-        - beta
-        log_group_id: eolv6578frac08uh5h6s
-        ```
-        
-
-{% endlist %}
-
-## Add the environment variable {#version-env}
+When you add environment variables, a new version of the function is created. You can't add variables to an existing version.
 
 {% list tabs %}
 
 - Management console
-
-    Add the environment variable:
-    1.  Select **Cloud Functions** in the [management console](https://console.cloud.yandex.com/).
+    1. Select **{{ sf-name }}** in [management console]({{ link-console-main }}).
     1. Click ![image](../../../_assets/vertical-ellipsis.svg) in the row of the function whose version you want to add an environment variable for.
     1. Open the **Editor** section.
     1. In the window that opens, under **Parameters**, add an environment variable in the **Environment variables** field and click **Add environment variable**. You can add multiple variables.
     1. Click **Create version** in the upper-right corner. A new version of the function with the specified environment variables is created.
+
+- CLI
+
+    Run the command:
+
+    ```
+    $ yc serverless function version create \
+    --function-name=<function name> \ # Name of the function.
+    --runtime <runtime environment> \ # Runtime environment.
+    --entrypoint <handler> \ # The handler specified in <function file name>.<handler name> format.
+    --memory 128m \ # Amount of RAM.
+    --execution-timeout 5s \ # The maximum function execution time before the timeout is reached.
+    --source-version-id <version ID> \ # ID of the version to copy executable code from.
+    --environment <environment variables> # Environment variables in key=value format. You can specify multiple pairs separated by commas.
+    ```
+
+    If the previous version contained environment variables, this command overwrites them.
 
 {% end list %}
 
@@ -216,8 +172,12 @@ To access the function version, use its unique ID. For information about how to 
     Add a version tag:
 
     ```
-    $ yc serverless function version set-tag --id b09ch6pmpohfc9sogj5f --tag first
-    
+    $ yc serverless function version set-tag --id <version ID> --tag <tag>
+    ```
+
+    Result:
+
+    ```
     id: b09ch6pmpohfc9sogj5f
     function_id: b097d9ous3gep99khe83
     created_at: "2019-06-13T09:12:38.464Z"
@@ -247,8 +207,12 @@ To access the function version, use its unique ID. For information about how to 
     Remove a version tag:
 
     ```
-    $ yc serverless function version remove-tag --id b09ch6pmpohfc9sogj5f --tag first
-    
+    $ yc serverless function version remove-tag --id <version ID> --tag <tag>
+    ```
+
+    Result:
+
+    ```
     id: b09ch6pmpohfc9sogj5f
     function_id: b097d9ous3gep99khe83
     created_at: "2019-06-13T09:12:38.464Z"
@@ -265,4 +229,3 @@ To access the function version, use its unique ID. For information about how to 
     ```
 
 {% endlist %}
-
