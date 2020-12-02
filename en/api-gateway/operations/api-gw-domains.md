@@ -14,39 +14,42 @@ To connect a domain to an API gateway:
 
 - Management console
 
-1. Host a CNAME record with your DNS provider or on your own DNS server:
+	1. Host a CNAME record with your DNS provider or on your own DNS server:
 
-    ```
-    <domain> IN CNAME <API gateway service domain>
-    ```
+	    ```
+	    <domain> IN CNAME <API gateway service domain>
+	    ```
 
-{% cut "How to find your API gateway service domain" %}
-1. Go to the [management console]({{ link-console-main }}).
-2. Select the folder where the API gateway is located and in the list of services, **API Gateway**
-3. Select the API gateway.
-4. In the window that opens, go to **Overview**. You can see the service domain under **General information**.
+		{% cut "How to find your API gateway service domain" %}
+		
+		1. Go to the [management console]({{ link-console-main }}).
+		1. Select the folder where the API gateway is located and in the list of services, **API Gateway**
+		1. Select the API gateway.
+		1. In the window that opens, go to **Overview**. You can see the service domain under **General information**.
 
-{% endcut %}
+		{% endcut %}
 
-2. In the [management console]({{ link-console-main }}), select the folder where the API gateway is located.
+	1. In the [management console]({{ link-console-main }}), select the folder where the API gateway is located.
 
-3. In the list of services, select **Certificate Manager** and:
-1. [Create](../../certificate-manager/operations/managed/cert-create.md) a certificate from Let's Encrypt<sup>®</sup>.
-2. [Confirm](../../certificate-manager/operations/managed/cert-validate.md) the rights for the domain.
-3. When the certificate status changes to `Issued`, [create](../../certificate-manager/operations/domain/domain-create.md) a domain. In the **Certificate** field, select the certificate that you created in Step 3.1.
+	1. In the list of services, select **Certificate Manager** and:
 
-{% note info %}
+		1. [Create](../../certificate-manager/operations/managed/cert-create.md) a certificate from Let's Encrypt<sup>®</sup>.
+		1. [Confirm](../../certificate-manager/operations/managed/cert-validate.md) the rights for the domain.
+		1. When the certificate status changes to `Issued`, [create](../../certificate-manager/operations/domain/domain-create.md) a domain. In the **Certificate** field, select the certificate that you created in Step 3.1.
 
-The Let's Encrypt<sup>®</sup> certificate is valid for 90 days. You need to [update](../../certificate-manager/concepts/managed-certificate.md#renew) it on time. In some cases, domain rights checks are performed [automatically](../../certificate-manager/concepts/challenges.md#auto).
+		{% note info %}
 
-{% endnote %}
+		The Let's Encrypt<sup>®</sup> certificate is valid for 90 days. You need to [update](../../certificate-manager/concepts/managed-certificate.md#renew) it on time. In some cases, domain rights checks are performed [automatically](../../certificate-manager/concepts/challenges.md#auto).
 
-4. Go back to the folder page.
+		{% endnote %}
 
-5. In the list of services, select **API Gateway** and:
-1. Select the API gateway.
-2. In the window that opens, go to **Domains**.
-3. Click **Connect** and select the domain.
+	1. Go back to the folder page.
 
-{% endlist %}
+	1. In the list of services, select **API Gateway** and:
+
+		1. Select the API gateway.
+		1. In the window that opens, go to **Domains**.
+		1. Click **Connect** and select the domain.
+
+	{% endlist %}
 

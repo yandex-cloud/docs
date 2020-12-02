@@ -9,7 +9,7 @@ items:
         href: quickstart/function-quickstart.md
       - name: Creating a timer
         href: quickstart/timer-quickstart.md
-      - name: Creating a trigger for Message Queue
+      - name: Creating a trigger for Yandex Message Queue
         href: quickstart/ymq-trigger-quickstart.md
       - name: Creating a trigger for Object Storage
         href: quickstart/os-trigger-quickstart.md
@@ -17,7 +17,7 @@ items:
         href: quickstart/cr-trigger-quickstart.md
       - name: Creating a trigger for Cloud Logs
         href: quickstart/cloudlogs-trigger-quickstart.md
-      - name: Creating a trigger for Yandex IoT Core
+      - name: Creating a trigger for IoT Core
         href: quickstart/iot-core-trigger-quickstart.md
   - name: Step-by-step instructions
     items:
@@ -39,7 +39,7 @@ items:
             href: operations/function/function-invoke.md
           - name: Updating a function
             href: operations/function/function-update.md
-          - name: View monitoring charts
+          - name: Viewing monitoring charts
             href: operations/function/function-monitoring.md
           - name: Viewing the execution log
             href: operations/function/function-logs.md
@@ -103,6 +103,8 @@ items:
         href: concepts/log-group.md
       - name: Monitoring
         href: concepts/monitoring.md
+      - name: Backups
+        href: concepts/backup.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Developing in Node.js
@@ -111,7 +113,7 @@ items:
         href: lang/nodejs/index.md
       - name: Managing dependencies
         href: lang/nodejs/dependencies.md
-      - name: Request handler
+      - name: Request handlers
         href: lang/nodejs/handler.md
       - name: Invocation context
         href: lang/nodejs/context.md
@@ -127,7 +129,7 @@ items:
         href: lang/golang/index.md
       - name: Managing dependencies
         href: lang/golang/dependencies.md
-      - name: Request handler
+      - name: Request handlers
         href: lang/golang/handler.md
       - name: Invocation context
         href: lang/golang/context.md
@@ -143,7 +145,7 @@ items:
         href: lang/php/index.md
       - name: Managing dependencies
         href: lang/php/dependencies.md
-      - name: Request handler
+      - name: Request handlers
         href: lang/php/handler.md
       - name: Invocation context
         href: lang/php/context.md
@@ -155,7 +157,7 @@ items:
     items:
       - name: Overview
         href: lang/bash/index.md
-      - name: Request handler
+      - name: Request handlers
         href: lang/bash/handler.md
       - name: Logging
         href: lang/bash/logging.md
