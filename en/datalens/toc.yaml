@@ -37,7 +37,7 @@ items:
             href: operations/connection/create-postgresql.md
           - name: Creating an MS SQL Server connection
             href: operations/connection/create-mssql-server.md
-          - name: Creating a Metrica API connection
+          - name: Creating a Yandex.Metrica API connection
             href: operations/connection/create-metrica-api.md
           - name: Creating a Yandex.Metrica Logs API connection
             href: operations/connection/create-metrica-logs-api.md
@@ -47,13 +47,15 @@ items:
             href: operations/connection/manage-access.md
       - name: Working with datasets
         items:
-          - name: Creating a dataset
+          - name: Create dataset
             href: operations/dataset/create.md
           - name: Creating a data field
             href: operations/dataset/create-field.md
           - name: Creating a calculated data field
             href: operations/dataset/create-calculated-field.md
-          - name: Materializing a dataset
+          - name: Updating fields in datasets
+            href: operations/dataset/update-field.md
+          - name: Dataset materialization
             href: operations/dataset/materialize.md
           - name: Managing dataset access
             href: operations/dataset/manage-access.md
@@ -135,7 +137,7 @@ items:
     items:
       - name: Managing access to DataLens
         href: security/index.md
-      - name: Managing access at the data row level (RLS)
+      - name: Managing access at the data row level
         href: security/row-level-security.md
   - name: Pricing policy
     href: pricing.md
