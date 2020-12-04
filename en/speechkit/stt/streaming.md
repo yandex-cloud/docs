@@ -47,7 +47,6 @@ After receiving the message with the recognition settings, the service starts a 
     For example, send 400 ms of audio for recognition every 400 ms.
 
 * Maximum duration of transmitted audio for the entire session: {{ stt-streaming-audioLength }}.
-
 * Maximum size of transmitted audio data: {{ stt-streaming-fileSize }}.
 
 If messages aren't sent to the service within 5 seconds or the data duration or size limit is reached, the session is terminated. To continue speech recognition, reconnect and send a new message with the speech recognition settings.
@@ -94,9 +93,7 @@ If speech fragment recognition is successful, you will receive a message contain
 * `alternatives[]`: List of recognized text alternatives. Each alternative contains the following fields:
     * `text`: Recognized text.
     * `confidence`: This field currently isn't supported. Don't use it.
-
 * `final`: Flag that indicates that this recognition result is final and will not change anymore. If the value is `false`, it means that the recognition result is intermediate and may change as the following speech fragments are recognized.
-
 * `endOfUtterance`: Flag that indicates that this result contains the end of the utterance. If the value is `true`, the new utterance will start with the next result obtained.
 
    {% note info %}
@@ -114,6 +111,7 @@ List of possible gRPC errors returned by the service:
 | Code | Status | Description |
 | ----- | ----- | ----- |
 | 3 | `INVALID_ARGUMENT` | Incorrect request parameters specified. Details are provided in the `details` field. |
+| 9 | `RESOURCE_EXHAUSTED` | A client exceeded a quota. |
 | 16 | `UNAUTHENTICATED` | The operation requires authentication. Check the IAM token and the folder ID that you passed. |
 | 13 | `INTERNAL` | Internal server error. This error means that the operation cannot be performed due to a server-side technical problem. For example, due to insufficient computing resources. |
 
@@ -126,8 +124,9 @@ To try the examples in this section:
     ```
     git clone https://github.com/yandex-cloud/cloudapi
     ```
+
 1. [Get the ID of the folder](../../resource-manager/operations/folder/get-id.md) your account has been granted access to.
-1. For authentication, the examples use an [IAM token](../../iam/concepts/authorization/iam-token) ([see other authentication methods](../concepts/auth.md)). Get an IAM token:
+1. For authentication, the examples use an [IAM token](../../iam/concepts/authorization/iam-token.md) ([see other authentication methods](../concepts/auth.md)). Get an IAM token:
     * [Instructions](../../iam/operations/iam-token/create.md) for a Yandex account.
     * [Instructions](../../iam/operations/iam-token/create-for-sa.md) for a service account.
 1. Download a [sample](https://storage.yandexcloud.net/speechkit/speech.pcm) audio file for recognition. The audio file is in [LPCM](https://en.wikipedia.org/wiki/Pulse-code_modulation) format with a sampling rate of 8000.
@@ -258,7 +257,6 @@ Then proceed to creating a client app.
       ```
 
   1. Download a gRPC [public key certificate](https://github.com/grpc/grpc/blob/master/etc/roots.pem) from the official repository and save it in the root of the `src` directory.
-
   1. Create a file, for example `index.js`, in the root of the `src` directory and add the following code to it:
 
       ```js
