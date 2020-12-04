@@ -1,2 +1,1 @@
-Click **Create account** on the **List of accounts** page.
-
+On the **Account list** page, click **Create an account**.
