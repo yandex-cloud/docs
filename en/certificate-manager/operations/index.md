@@ -24,3 +24,6 @@
 - [{#T}](domain/domain-modify.md)
 - [{#T}](domain/domain-delete.md)
 
+## Backups
+
+- [Save and restore a certificate](cert-backup.md)
