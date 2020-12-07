@@ -298,8 +298,11 @@ default:
   link-app-android: https://play.google.com/store/apps/details?id=ru.yandex.cloud
   link-app-ios: https://apps.apple.com/ru/app/yandex-cloud/id1515465314
 
-  # Cloud specific 
-  yandex-cloud: Yandex.Cloud 
+  # Terraform cloud id
+  tf-cloud-id: b1gq90dgh25bebiu75o
+
+  # Cloud specific
+  yandex-cloud: Yandex.Cloud
 
 internal:
   audience: internal
@@ -341,6 +344,10 @@ internal:
   link-passport-login: https://passport.yandex.ru/auth
   link-cloud-oauth: https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb
   link-cloud-partners: https://partners.cloud.yandex.ru/
+
+  # Terraform cloud id
+  tf-cloud-id: b1gq90dgh25bebiu75o
+
 external:
   audience: external
   console-link: console.cloud.yandex.ru
@@ -359,3 +366,6 @@ external:
   link-passport-login: https://passport.yandex.ru/auth
   link-cloud-oauth: https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb
   link-cloud-partners: https://partners.cloud.yandex.ru/
+
+  # Terraform cloud id
+  tf-cloud-id: b1gq90dgh25bebiu75o

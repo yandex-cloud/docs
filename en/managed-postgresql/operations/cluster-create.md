@@ -262,7 +262,7 @@ By default, {{ mpg-short-name }} limits the maximum number of connections to eac
   - Named `mypg`.
   - Version `12`.
   - In the `PRESTABLE` environment.
-  - In the cloud with ID `b1gq90dgh25иuebiu75o`.
+  - In the cloud with ID `{{ tf-cloud-id }}`.
   - In a folder named `myfolder`.
   - In a new network named `mynet`.
   - With 1 `{{ host-class }}` class host in the new `mysubnet` subnet and `{{ zone-id }}` availability zone. The `mysubnet` subnet will have a range of `10.5.0.0/24`.
@@ -275,7 +275,7 @@ By default, {{ mpg-short-name }} limits the maximum number of connections to eac
   ```
   provider "yandex" {
     token = "<OAuth or static key of service account>"
-    cloud_id  = "b1gq90dgh25иuebiu75o"
+    cloud_id  = "{{ tf-cloud-id }}"
     folder_id = "${data.yandex_resourcemanager_folder.myfolder.id}"
     zone      = "{{ zone-id }}"
   }
