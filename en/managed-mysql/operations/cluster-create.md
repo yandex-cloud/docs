@@ -170,7 +170,7 @@ If database storage is 95% full, the cluster switches to read-only mode. Increas
   - Named `my-mysql`.
   - Version `8.0`.
   - In the `PRESTABLE` environment.
-  - In the cloud with ID `b1gq90dgh25иuebiu75o`.
+  - In the cloud with ID `{{ tf-cloud-id }}`.
   - In a folder named `myfolder`.
   - Network: `mynet`.
   - 1 `{{ host-class }}` class host in the new `mysubnet` subnet and `{{ zone-id }}` availability zone. The `mysubnet` subnet will have a range of `10.5.0.0/24`.
@@ -183,7 +183,7 @@ If database storage is 95% full, the cluster switches to read-only mode. Increas
   ```yaml
   provider "yandex" {
     token = "<OAuth or static key of service account>"
-    cloud_id  = "b1gq90dgh25иuebiu75o"
+    cloud_id  = "b1gq90dgh25bebiu75o"
     folder_id = "${data.yandex_resourcemanager_folder.myfolder.id}"
     zone      = "ru-central1-c"
   }

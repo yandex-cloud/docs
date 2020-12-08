@@ -232,7 +232,7 @@ The number of hosts that can be created with a {{ CH }} cluster depends on the s
   Let's say we need to create a {{ CH }} cluster and a network for it with the following characteristics:
     - Named `mych`.
     - In the `PRESTABLE` environment.
-    - In the cloud with ID `b1gq90dgh25иebiu75o`.
+    - In the cloud with ID `{{ tf-cloud-id }}`.
     - In a folder named `myfolder`.
     - In a new network named `mynet`.
     - With a single `{{ host-class }}` class host in the new subnet named `mysubnet` and the `ru-central1-c` availability zone. The `mysubnet` subnet will have a range of `10.5.0.0/24`.
@@ -245,7 +245,7 @@ The number of hosts that can be created with a {{ CH }} cluster depends on the s
   ```
   provider "yandex" {
     token = "<OAuth or static key of service account>"
-    cloud_id  = "b1gq90dgh25иebiu75o"
+    cloud_id  = "b1gq90dgh25bebiu75o"
     folder_id = "${data.yandex_resourcemanager_folder.myfolder.id}"
     zone      = "ru-central1-c"
   }

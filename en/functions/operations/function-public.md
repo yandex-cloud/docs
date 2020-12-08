@@ -4,7 +4,7 @@ You can make a function [public](#public) or [private](#private), as well as [vi
 
 ## Make your function public {#public}
 
-To allow any user to call the function, you must make it public, meaning enable the function call over HTTPS without passing the authorization header.
+To let any user invoke the function, you must make it public. To do this, enable invoking the function over HTTP without passing the authorization header.
 
 {% list tabs %}
 
@@ -20,7 +20,12 @@ To allow any user to call the function, you must make it public, meaning enable 
     Make the function public:
 
     ```
-    $ yc serverless function allow-unauthenticated-invoke my-function
+    $ yc serverless function allow-unauthenticated-invoke <function name>
+    ```
+
+    Result:
+
+    ```
     done (1s)    
     ```
 
@@ -37,7 +42,12 @@ To allow any user to call the function, you must make it public, meaning enable 
     View the roles assigned to the function:
 
     ```
-    $ yc serverless function list-access-bindings my-function
+    $ yc serverless function list-access-bindings <function name>
+    ```
+
+    Result:
+
+    ```
     +------------------------------+--------------+------------+
     |           ROLE ID            | SUBJECT TYPE | SUBJECT ID |
     +------------------------------+--------------+------------+
@@ -48,6 +58,8 @@ To allow any user to call the function, you must make it public, meaning enable 
 {% endlist %}
 
 ## Make the function private {#private}
+
+To invoke a private function via HTTP, you must [authenticate](./function/function-invoke.md).
 
 {% list tabs %}
 
@@ -63,7 +75,12 @@ To allow any user to call the function, you must make it public, meaning enable 
     Make the function private:
 
     ```
-    $ yc serverless function deny-unauthenticated-invoke my-function
+    $ yc serverless function deny-unauthenticated-invoke <function name>
+    ```
+
+    Result:
+
+    ```
     done (1s)   
     ```
 
@@ -72,4 +89,3 @@ To allow any user to call the function, you must make it public, meaning enable 
 {% endlist %}
 
 For more information about access rights, see [{#T}](../security/index.md).
-

@@ -192,7 +192,7 @@ The number of hosts that can be created with a {{ MG }} cluster depends on the s
   - Named `mymg`.
   - Version `4.2`.
   - In the `PRODUCTION` environment.
-  - In the cloud with ID `b1gq90dgh25иuebiu75o`.
+  - In the cloud with ID `{{ tf-cloud-id }}`.
   - In a folder named `myfolder`.
   - In a new network named `mynet`.
   - With 1 `{{ host-class }}` class host in the new `mysubnet` subnet and `{{ zone-id }}` availability zone. The `mysubnet` subnet will have the range `10.5.0.0/24`.
@@ -205,7 +205,7 @@ The number of hosts that can be created with a {{ MG }} cluster depends on the s
   ```
   provider "yandex" {
     token     = "<OAuth or static key of service account>"
-    cloud_id  = "b1gq90dgh25иuebiu75o"
+    cloud_id  = "b1gq90dgh25bebiu75o"
     folder_id = "${data.yandex_resourcemanager_folder.myfolder.id}"
     zone      = "ru-central1-c"
   }

@@ -29,6 +29,8 @@
 [putBucketEncryption](bucket/putbucketencryption.md) | Добавляет шифрование бакету.
 [putBucketVersioning](bucket/putBucketVersioning.md) | Включает или приостанавливает версионирование бакета.
 [getBucketVersioning](bucket/getBucketVersioning.md) | Возвращает состояние опции версионирования.
+[putBucketLogging](bucket/putBucketLogging.md) | Включает и выключает механизм логирования действий с бакетом.
+[getBucketLogging](bucket/getBucketLogging.md) | Возвращает настройки логирования действий с бакетом.
 [listObjectVersions](bucket/listObjectVersions.md) | Возвращает метаданные обо всех версиях объектов в бакете.
 
 ### Сервис Object {#object-service}

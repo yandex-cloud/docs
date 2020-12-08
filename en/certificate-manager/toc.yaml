@@ -1,6 +1,5 @@
 title: Yandex Certificate Manager
 href: index.yaml
-stage: preview
 items:
   - name: Getting started
     href: quickstart/index.md
@@ -44,6 +43,8 @@ items:
             href: operations/domain/domain-modify.md
           - name: Delete a domain
             href: operations/domain/domain-delete.md
+      - name: Backups
+        href: operations/cert-backup.md
   - name: Concepts
     items:
       - name: Overview

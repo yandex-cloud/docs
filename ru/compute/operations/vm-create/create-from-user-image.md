@@ -54,13 +54,13 @@
   1. Посмотрите описание команды CLI для создания виртуальной машины:
 
       ```
-      $ yc compute instance create --help
+      yc compute instance create --help
       ```
 
   1. Получите список образов в каталоге по умолчанию:
 
       ```
-      $ yc compute image list
+      yc compute image list
       +----------------------+-------------------+--------+-------------+--------+
       |          ID          |       NAME        | FAMILY | PRODUCT IDS | STATUS |
       +----------------------+-------------------+--------+-------------+--------+
@@ -74,7 +74,7 @@
   1. Создайте виртуальную машину в каталоге по умолчанию:
 
       ```
-      $ yc compute instance create \
+      yc compute instance create \
         --name test-vm-from-image \
         --zone ru-central1-a \
         --create-boot-disk name=disk1,size=5,image-id=fd8gkcd3l6ov84aon8s1 \
@@ -167,7 +167,7 @@
      2. Выполните проверку с помощью команды:
 
         ```
-        $ terraform plan
+        terraform plan
         ```
 
      Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет. 
@@ -177,7 +177,7 @@
      1. Если в конфигурации нет ошибок, выполните команду:
 
         ```
-        $ terraform apply
+        terraform apply
         ```
 
      2. Подтвердите создание ресурсов.
