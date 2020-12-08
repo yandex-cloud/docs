@@ -1,87 +1,100 @@
-# Getting started with Billing
+# Registering an account in {{ yandex-cloud }}
 
-{% include [yandex-account](../_includes/yandex-account.md) %}
+To use {{ yandex-cloud }} services, create a billing account.
 
-To start using the Billing service:
+A billing account is required even if you plan to use only free services. When creating a billing account, you need to enter payer details, but {{ yandex-cloud }} doesn't debit funds from your bank card and doesn't invoice you until you switch to the [paid version](../operations/activate-commercial.md).
 
-- [Create a billing account](#create_billing_account)
-- [Start exploring Yandex.Cloud](#start)
+Under one Yandex account, all payers must be either residents of the Russian Federation or non-residents. Learn more about [billing accounts](../concepts/billing-account.md).
 
-### Create a billing account {#create_billing_account}
+{% list tabs %}
 
-To create a [billing account](../concepts/billing-account.md):
+- Applying as an individual
 
-1. Open [management console]({{ link-console-main }}) of Yandex.Cloud.
+   To create a billing account:
 
-1. Log in to Yandex:
-    - If you are already logged in to Yandex or Yandex.Connect with your username and password, go to step 4.
-    - If you are logged in to Yandex through a social network profile, [create a username and password](https://passport.yandex.com/passport?mode=postregistration&create_login=1) for your account, and then go to step 4.
-    - If you are not logged in to Yandex or Yandex.Connect, click **Log in**. Enter your username and password and click **Log in**.
+   1. Open the {{ yandex-cloud }} [management console]({{ link-console-main }}).
 
-1. Read and agree to the terms and conditions of the [Privacy Policy](https://yandex.ru/legal/confidential/?lang=en) and [Terms of Use](https://yandex.ru/legal/cloud_termsofuse/?lang=en).
+   1. Log in to your Yandex or Yandex.Connect account. If you don't have an account yet, sign up.
+      - Your phone number must be linked to this account. For detailed instructions, see Help for [Yandex.Passport](https://yandex.com/support/passport/authorization/registration.html) and [Yandex.Connect](https://yandex.com/support/connect/personal.html#personal__section_aq5_hcq_23b).
+      - If you use a social network profile to log in to Yandex, [create a username and password](https://passport.yandex.com/passport?mode=postregistration&create_login=1).
 
-1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
+   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
 
-1. {% include [create-account-button-step](../_includes/create-account-button-step.md) %}
+   1. On the **Account list** page, click **Create an account**. Fill in your information:
 
-1. {% include [choose-country-step](../_includes/choose-country-step.md) %}
+      - Select the payer's country.
+      - Enter the name of the billing account. The name is displayed in the list of your billing accounts and helps you select the one you need.
 
-   {% include [billing-account-payers](../_includes/billing-account-payers.md) %}
+   1. If in the **Payers** section you see a list of available payers, you can select one of them or add a new one.
 
-1. {% include [choose-balance-payer](../_includes/choose-balance-payer.md) %}
+      To add a payer:
+      
+      - Select the payer type: **Individual**.
+      - Enter your first, last, and middle name.
 
-1. {% include [choose-name-step](../_includes/choose-name-step.md) %}
-
-1. {% include [choose-type-step](../_includes/choose-type-step.md) %}
-
-1. Fill in the form:
-
-   {% list tabs %}
-
-    - Applying as an individual
-
-       Enter your full name and link your bank card:
-
-         {% include [pin-card-data](../_includes/pin-card-data.md) %}
+        {% include [pin-card-data](../_includes/pin-card-data.md) %}
 
         {% include [payment-card-types](../_includes/payment-card-types.md) %}
-
-        {% include [pin-card-note-2](../_includes/pin-card-note-2.md) %}
 
         {% include [payment-card-validation](../_includes/payment-card-validation.md) %}
 
-    - Business
+   1. Click **Activate**.
 
-      10.1. Select a payment method (bank card or bank transfer):
+- Legal entity, individual entrepreneur or non-resident of Russia
 
-      - **Bank card**
-<br/>Link your corporate bank card:
+   To create a billing account:
 
-         {% include [pin-card-data](../_includes/pin-card-data.md) %}
+   1. Open the {{ yandex-cloud }} [management console]({{ link-console-main }}).
 
-        {% include [payment-card-types](../_includes/payment-card-types.md) %}
+   1. Log in to your Yandex or Yandex.Connect account. If you don't have an account yet, sign up.
+   
+      - Your phone number must be linked to this account. For detailed instructions, see Help for [Yandex.Passport](https://yandex.com/support/passport/authorization/registration.html) and [Yandex.Connect](https://yandex.com/support/connect/personal.html#personal__section_aq5_hcq_23b).
+      - If you use a social network profile to log in to Yandex, [create a username and password](https://passport.yandex.com/passport?mode=postregistration&create_login=1).
 
-        {% include [pin-card-note](../_includes/pin-card-note.md) %}
+   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
 
-        {% include [yandex-account](../_includes/payment-card-validation.md) %}
+   1. On the **Account list** page, click **Create an account**. Fill in your information:
 
-      - **Bank transfer**
+      - Select the payer's country.
+      - Enter the name of the billing account. The name is displayed in the list of your billing accounts and helps you select the one you need.
 
-      10.2. Enter the legal details of your organization.
+   1. If in the **Payers** section you see a list of available payers, you can select one of them or add a new one.
 
-   {% endlist %}
+      To add a payer:
 
-   {% include [contacts-note](../_includes/contacts-note.md) %}
+        - Select the payer type: **Business or entrepreneur**.
 
-1. {% include [contract-step](../_includes/contract-step.md) %}
+          If the payer is a non-resident of Russia, only one payer type is available: **Business (non-resident of Russia)**.
 
-1. {% include [activate-button-step](../_includes/activate-button-step.md) %}
+        - Select a payment method: **Bank card** or **Bank transfer**. You can [change your payment method](../operations/change-payment-method.md) any time after creating a billing account.
 
-    {% include [account-roles](../_includes/account-roles.md) %}
+        - Enter the legal information of your organization.
 
-### Get started {#start}
+          {% include [contacts-note](../_includes/contacts-note.md) %}
 
-To start working with Yandex.Cloud:
+        - If you select the **Bank card** payment method, link your corporate bank card:
+
+          {% include [pin-card-data](../_includes/pin-card-data.md) %}
+	    
+            - Confirm that the card is corporate and you are authorized to use it.
+
+              {% include [payment-card-types](../_includes/payment-card-types.md) %}
+
+              {% include [yandex-account](../_includes/payment-card-validation.md) %}
+
+   1. Click **Activate**.
+
+      If you select the **Bank transfer** payment method or if the payer is a non-resident of Russia, you receive an email with further instructions at the email address specified in your Yandex or Yandex.Connect account. In this case, it may take up to three business days to activate your billing account.
+
+{% endlist %}
+
+{% include [account-roles](../_includes/account-roles.md) %}
+
+### Learn more
+
+- [Billing account](../concepts/billing-account.md).
+- [Trial period](../../free-trial/concepts/quickstart.md).
+
+### Get started with {{ yandex-cloud }} {#start}
 
    {% include [quickstart-all-no-billing](../../_includes/quickstart-all-no-billing.md) %}
-

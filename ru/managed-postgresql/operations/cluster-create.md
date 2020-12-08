@@ -222,7 +222,7 @@
   - С именем `mypg`.
   - Версии `12`.
   - В окружении `PRESTABLE`.
-  - В облаке с идентификатором `b1gq90dgh25иuebiu75o`.
+  - В облаке с идентификатором `{{ tf-cloud-id }}`.
   - В каталоге `myfolder`.
   - В новой сети `mynet`.
   - С одним хостом класса `{{ host-class }}` в новой подсети `mysubnet`, в зоне доступности `{{ zone-id }}`. Подсеть `mysubnet` будет иметь диапазон `10.5.0.0/24`.
@@ -235,7 +235,7 @@
   ```
   provider "yandex" {
     token     = "<OAuth или статический ключ сервисного аккаунта>"
-    cloud_id  = "b1gq90dgh25иuebiu75o"
+    cloud_id  = "b1gq90dgh25bebiu75o"
     folder_id = "${data.yandex_resourcemanager_folder.myfolder.id}"
     zone      = "ru-central1-c"
   }

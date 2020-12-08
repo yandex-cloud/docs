@@ -1,6 +1,6 @@
-# Create a Let's Encrypt certificate
+# Create a Let's Encrypt<sup>®</sup> certificate
 
-To create a new Let's Encrypt<sup>®</sup> certificate:
+To create a new Let's Encrypt certificate:
 
 {% list tabs %}
 

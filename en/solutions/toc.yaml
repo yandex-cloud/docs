@@ -1,4 +1,4 @@
-title: Solutions
+title: Use cases
 href: index.yaml
 items:
   - name: Web service
@@ -17,7 +17,7 @@ items:
         href: web/joomla-postgresql.md
       - name: WordPress website
         href: web/wordpress.md
-      - name: WordPress website on a MySQL database
+      - name: WordPress website on a MySQL cluster
         href: web/wordpress-mysql.md
       - name: 1C-Bitrix website
         href: web/bitrix-website.md
@@ -57,17 +57,17 @@ items:
         href: testing/ci-for-snapshots.md
       - name: High-performance computing on preemptible VMs
         href: testing/hpc-on-preemptible.md
-  - name: Performing infrastructure management
+  - name: Infrastructure management
     items:
       - name: All tutorials
         href: infrastructure-management/index.md
       - name: Getting started with Terraform
         href: infrastructure-management/terraform-quickstart.md
-      - name: Storing Terraform states in Object Storage
+      - name: Uploading Terraform states to Object Storage
         href: infrastructure-management/terraform-state-storage.md
       - name: Getting started with Packer
         href: infrastructure-management/packer-quickstart.md
-      - name: VM images building automation using Jenkins
+      - name: Automating image builds using Jenkins and Packer
         href: infrastructure-management/jenkins.md
       - name: Continuous deployment of containerized applications using GitLab
         href: infrastructure-management/gitlab-containers.md
@@ -81,6 +81,8 @@ items:
         href: infrastructure-management/hystax-migration.md
       - name: Emergency recovery to Yandex.Cloud using Hystax Acura
         href: infrastructure-management/hystax-disaster-recovery.md
+      - name: Configuring a fault-tolerant architecture in Yandex.Cloud
+        href: infrastructure-management/fault-tolerance.md
   - name: Windows in Yandex.Cloud
     items:
       - name: All tutorials
@@ -111,7 +113,7 @@ items:
         href: routing/mikrotik.md
       - name: Creating a VPN connection using OpenVPN
         href: routing/openvpn.md
-  - name: DataLens
+  - name: Data visualization and analytics
     items:
       - name: All tutorials
         href: datalens/index.md
@@ -123,9 +125,15 @@ items:
         href: datalens/data-from-metrica-visualization.md
       - name: Visualizing data from Yandex.Metrica Logs API
         href: datalens/data-from-metrica-logsapi-visualization.md
-      - name: Publishing a chart with a map from a CSV file to DataLens Public
+      - name: Publishing a chart with a map based on a CSV file to DataLens Public
         href: datalens/data-from-csv-to-public-visualization.md
       - name: Visualizing data from AppMetrica
         href: datalens/data-from-appmetrica-visualization.md
       - name: Visualizing geodata from a CSV file
         href: datalens/data-from-csv-geo-visualization.md
+  - name: Internet of things
+    items:
+      - name: Use cases for the internet of things
+        href: iot/index.md
+      - name: Monitoring the status of geographically distributed devices
+        href: iot/datalens.md

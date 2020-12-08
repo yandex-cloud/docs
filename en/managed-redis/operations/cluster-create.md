@@ -203,7 +203,7 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
   Let's say we need to create a {{ RD }} cluster and a network for it with the following characteristics:
     - Named `myredis`.
     - In the `production` environment.
-    - In the cloud with ID `b1gq90dgh25иuebiu75o`.
+    - In the cloud with ID `{{ tf-cloud-id }}`.
     - In a folder named `myfolder`.
     - In a new network named `mynet`.
     - With a single host of the `hm1.nano` class in the new `mysubnet` subnet and the `{{ zone-id }}` availability zone. The `mysubnet` subnet will have a range of `10.5.0.0/24`.
@@ -215,7 +215,7 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
   ```
   provider "yandex" {
     token = "<OAuth or static key of service account>"
-    cloud_id  = "b1gq90dgh25иuebiu75o"
+    cloud_id  = "b1gq90dgh25bebiu75o"
     folder_id = "${data.yandex_resourcemanager_folder.myfolder.id}"
     zone      = "ru-central1-c"
   }

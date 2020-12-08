@@ -2,7 +2,7 @@
 
 ## Let's Encrypt<sup>®</sup> certificate {#managed-certificate}
 
-- [{#T}](managed/cert-create.md)
+- [Create a Let's Encrypt® certificate](managed/cert-create.md)
 - [{#T}](managed/cert-get-content.md)
 - [{#T}](managed/cert-validate.md)
 - [{#T}](managed/cert-update.md)
@@ -24,3 +24,6 @@
 - [{#T}](domain/domain-modify.md)
 - [{#T}](domain/domain-delete.md)
 
+## Backups
+
+- [{#T}](cert-backup.md)

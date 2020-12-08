@@ -15,15 +15,21 @@ For example, a subnet with CIDR `10.1.0.0/24` has a linked route table with the 
 | `another-network` | `192.168.0.0/16` | `10.1.0.5` |
 | `internet` | `0.0.0.0/0` | `10.1.0.10` |
 
-In this case, all traffic to subnet `192.168.0.0/16`, which is located in a different virtual network, is routed through the VM with the address `10.1.0.5`. All other traffic is routed through the VM with the address `10.1.0.10`. Note that overriding the route for prefix `0.0.0.0/0` may [affect](#internet-routes) the external availability of the VM from the subnet with the table that contains this route.
+In this case, all traffic to subnet `192.168.0.0/16` in a different virtual network will be routed through the VM with the address `10.1.0.5`, provided that the VM has an interface in that virtual network. All other traffic is routed through the VM with the address `10.1.0.10`. Note that overriding the route for prefix `0.0.0.0/0` may [affect](#internet-routes) the external availability of the VM from the subnet with the table that contains this route.
 
-You currently can't use prefixes from address ranges that are allocated to subnets within a virtual network. Only destination prefixes outside the virtual network are supported, such as subnet prefixes from another Yandex.Cloud network or your local network.
+{% note alert %}
 
-When creating a route, you can set an unused internal IP that isn't linked to a VM as the next hop. In this case, the route is only used after you run a VM with the appropriate IP address.
+Static routes can be used for routing between networks only if the next-hop interface is a VM that is simultaneously connected to subnets in two cloud networks and has two interfaces, each in its own network. Or if a VM has a VPN connection to a VM in another network.
 
-The two main uses of static route in Yandex.Cloud:
+{% endnote %}
 
-1. Building a network route to the appropriate subnet through a single VM. The internal IP address is used as the VM ID. For more information about building network routes in Yandex.Cloud and other virtual or local networks, see the tutorials [{#T}](../../solutions/routing/nat-instance.md) and [{#T}](../../solutions/routing/ipsec-vpn.md).
+You currently can't use prefixes from address ranges that are allocated to subnets within a virtual network. Only destination prefixes outside the virtual network are supported, such as subnet prefixes from another {{ yandex-cloud }} network or your local network.
+
+When creating a route, you can set an unused internal IP that isn't linked to any VM as the next hop. In this case, the route is only used after you run a VM with the appropriate IP address.
+
+The two main uses of static routes in {{ yandex-cloud }}:
+
+1. Building a network route to the appropriate prefix through a single VM. The internal IP address is used as the VM ID. For more information about building network routes in {{ yandex-cloud }} and other virtual or local networks, see the tutorials [{#T}](../../solutions/routing/nat-instance.md) and [{#T}](../../solutions/routing/ipsec-vpn.md).
 1. A fail-safe routing scheme with routes in multiple availability zones. You can create VMs in different availability zones and route them to the same destination subnet. Note that different route tables should be linked to subnets in different availability zones, since you can't place routes to the same prefixes in the same table. If a VM in one of the availability zones fails, VMs from the other zones will remain linked to the destination subnet.
 
 ## Rerouting traffic to the internet {#internet-routes}
@@ -35,5 +41,5 @@ For example, let's say there's a VM named `vm-1` with a public IP address connec
 To keep cloud resources available from a public address, you can:
 
 * Move resources with public IPs to a separate subnet.
-* Instead of configuring a route to the internet, enable internet access for the subnet via a NAT. The feature is at the [preview stage](../../overview/concepts/launch-stages.md) and can be provided by technical support upon request.
+* Instead of configuring a route to the internet, enable [internet access for the subnet via a NAT instance](../operations/enable-nat.md). The feature is at the [Preview stage](../../overview/concepts/launch-stages.md) and can be provided by technical support upon request.
 

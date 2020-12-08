@@ -28,3 +28,6 @@ links:
 - title: "Data visualization and analytics"
   description: "Collect, visualize, and analyze data from various sources"
   href: "datalens/"
+- title: "Internet of things"
+  description: "Manage your smart devices using the Yandex IoT Core service"
+  href: "iot/"

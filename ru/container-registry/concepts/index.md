@@ -1,13 +1,13 @@
 # Концепции {{ container-registry-full-name }}
 
-Yandex Container Registry — сервис для хранения и распространения Docker-образов.
+{{ container-registry-name }} — сервис для хранения и распространения [Docker-образов](docker-image.md).
 
 Сервис позволяет управлять следующими объектами:
 * [Docker-образ](docker-image.md)
 * [Реестр](registry.md)
 * [Репозиторий](repository.md)
 
-Для работы с {{ container-registry-short-name }} требуется доступ в интернет.
+Для работы с {{ container-registry-name }} требуется доступ в интернет.
 
 Предоставить доступ в интернет можно следующими способами:
 * Назначить виртуальной машине [публичный IP-адрес](../../vpc/concepts/address.md#public-addresses).

@@ -25,6 +25,8 @@ items:
             href: operations/buckets/cors.md
           - name: Редактирование ACL бакета
             href: operations/buckets/edit-acl.md
+          - name: Включение механизма логированния
+            href: operations/buckets/enable-logging.md
       - name: Объекты
         items:
           - name: Загрузка объекта
@@ -79,6 +81,8 @@ items:
         href: concepts/presigned-post-forms.md
       - name: Класс хранилища
         href: concepts/storage-class.md
+      - name: Механизм логирования действий с бакетом
+        href: concepts/server-logs.md
       - name: Резервное копирование
         href: concepts/backup.md
       - name: Протокол TLS
@@ -147,6 +151,10 @@ items:
                 href: s3/api-ref/bucket/putBucketVersioning.md
               - name: getBucketVersioning
                 href: s3/api-ref/bucket/getBucketVersioning.md
+              - name: putBucketLogging
+                href: s3/api-ref/bucket/putBucketLogging.md
+              - name: getBucketLogging
+                href: s3/api-ref/bucket/getBucketLogging.md
               - name: listObjectVersions
                 href: s3/api-ref/bucket/listObjectVersions.md
           - name: Object

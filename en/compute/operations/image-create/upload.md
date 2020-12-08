@@ -162,4 +162,8 @@ After being created, the image will have the `CREATING` status. Wait until the i
 
 If the image was created successfully, you can [delete the image file](../../../storage/operations/objects/delete.md) from {{ objstorage-name }}. You can also [delete the bucket](../../../storage/operations/buckets/delete.md) if there are no objects left in it.
 
+## Create a VM from the prepared image {#create-vm-from-user-image}
+
+{% include notitle [Creating a VM from the prepared image](../../operations/vm-create/create-from-user-image.md#create-vm-from-image) %}
+
 For information about {{ objstorage-name }} pricing, see [{#T}](../../../storage/pricing.md).

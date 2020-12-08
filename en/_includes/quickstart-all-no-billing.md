@@ -2,12 +2,12 @@
   - [Linux](../compute/quickstart/quick-create-linux.md).
   - [Windows](../compute/quickstart/quick-create-windows.md).
   - [Instance groups](../compute/quickstart/ig.md).
-- Use services for storage:
-  - [Host files in {{ objstorage-name }}](../storage/quickstart.md).
+- Use the services for storage:
+  - [Add files to {{ objstorage-name }}](../storage/quickstart.md).
   - [Upload a Docker image to a registry in {{ container-registry-name }}](../container-registry/quickstart/index.md).
 - Configure networks:
   - [Create a cloud network in {{ vpc-name }}](../vpc/quickstart.md).
-  - [Set up a load balancer in {{ load-balancer-name }}](../load-balancer/quickstart.md).
+  - [Configure a load balancer in {{ load-balancer-name }}](../load-balancer/quickstart.md).
 - Manage access:
   - [Add users and assign roles in {{ iam-short-name }}](../iam/quickstart.md).
   - [Create a new folder in the cloud and grant access to it in {{ resmgr-name }}](../resource-manager/quickstart.md).
@@ -15,14 +15,13 @@
   - [ClickHouse](../managed-clickhouse/quickstart.md).
   - [MongoDB](../managed-mongodb/quickstart.md).
   - [MySQL](../managed-mysql/quickstart.md).
-  - [Redis](../managed-redis/quickstart.md)
+  - [Redis](../managed-redis/quickstart.md).
   - [PostgreSQL](../managed-postgresql/quickstart.md).
 - Use machine learning:
-  - [Convert text to speech and recognize speech in {{ speechkit-name }}](../speechkit/quickstart.md).
+  - [Convert text to speech and vice versa using {{ speechkit-name }}](../speechkit/quickstart.md).
   - [Translate text in {{ translate-name }}](../translate/quickstart.md).
   - [Analyze an image using computer vision in {{ vision-name }}](../vision/quickstart.md).
 - Other:
   - [Create a {{ k8s }} cluster](../managed-kubernetes/quickstart.md).
   - [Configure message exchange between applications in {{ message-queue-name }}](../message-queue/quickstart.md).
   - [Visualize data in {{ datalens-name }}](../datalens/).
-
