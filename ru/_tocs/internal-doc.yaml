@@ -2,7 +2,7 @@ title: "Внутренняя документация"
 href: index.yaml
 items:
     - doc: mdb
-      toc: mdb/toc-internal.yaml
+      toc: mdb/toc.yaml
     - doc: cli
       toc: cli/toc-internal.yaml
     - doc: datalens

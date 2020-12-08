@@ -7,3 +7,5 @@ ignore:
   - "ru/_api-ref-grpc/*"
   - "ru/toc.yaml"
   - "en/toc.yaml"
+  - "ru/mdb/*"
+  - "en/mdb/*"

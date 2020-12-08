@@ -73,6 +73,9 @@ items:
       href: concepts/supported-clients.md
   - name: Управление доступом
     href: security/index.md
+  - name: Ресурсы и квоты
+    href: quotas.md
+    when: audience == "internal"
   - name: Правила тарификации
     items:
       - name: Действующие правила

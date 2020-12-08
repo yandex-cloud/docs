@@ -22,7 +22,7 @@ To work with MDB, you need to use the external Yandex.Cloud CLI:
    Please enter the OAuth token: <OAuth token obtained>
    ```
 
-1. Select a cloud from the [list of available clouds](../mdb/access.md):
+1. Select a cloud from the [list of available clouds](../../../mdb/access.md):
 
    ```bash
     Please select cloud to use:
@@ -51,7 +51,7 @@ To work with MDB, you need to use the external Yandex.Cloud CLI:
     Do you want to configure a default Compute zone? [Y/n] n
     ```
 
-1. If you need to switch the CLI profile to a different folder, [find the folder ID](../mdb/access.md#find-id) and then run the command:
+1. If you need to switch the CLI profile to a different folder, [find the folder ID](../../../mdb/access.md#find-id) and then run the command:
 
    ```bash
    yc config set folder-id <folder ID>

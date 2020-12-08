@@ -63,6 +63,9 @@ items:
       href: concepts/supported-clients.md
   - name: Access management
     href: security/index.md
+  - name: Resources and quotas
+    href: quotas.md
+    when: audience == "internal"
   - name: Pricing policy
     items:
       - name: Current pricing policy
