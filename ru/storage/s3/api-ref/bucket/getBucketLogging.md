@@ -1,6 +1,6 @@
 # Метод getBucketLogging
 
-Возвращает настройки логирования действий с бакетом.
+Возвращает настройки [логирования действий с бакетом](../../../concepts/server-logs.md). 
 
 ## Запрос {#request}
 
@@ -11,13 +11,13 @@ GET /{bucket}?logging HTTP/1.1
 ### Path-параметры {#path-parameters}
 
 Параметр | Описание
------ | -----
+--- | ---
 `bucket` | Имя [бакета](../../../concepts/bucket.md).
 
 ### Query-параметры {#request-params}
 
 Параметр | Описание
------ | -----
+--- | ---
 `logging` | Обязательный параметр для обозначения типа операции.
 
 ### Заголовки {#request-headers}
@@ -38,7 +38,7 @@ GET /{bucket}?logging HTTP/1.1
 
 ### Схема данных {#structure}
 
-Ответ в случае, если логирование действий с бакетом не настроено:
+Ответ, если логирование действий с бакетом не настроено:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -47,7 +47,7 @@ GET /{bucket}?logging HTTP/1.1
 </BucketLoggingStatus>
 ```
 
-Ответ в случае, если логирование действий с бакетом настроено:
+Ответ, если логирование действий с бакетом настроено:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -60,7 +60,7 @@ GET /{bucket}?logging HTTP/1.1
 ```
 
 Элемент | Описание
------ | -----
+--- | ---
 `BucketLoggingStatus` | Корневой элемент.
-`TargetBucket` | Имя целевого бакета, в который сохраняются объекты с логами.<br/><br/>Путь:`/BucketLoggingStatus/LoggingEnabled/TargetBucket`<br/>Тип: String
-`TargetPrefix` | Префикс ключа объекта с логами.<br/><br/>Путь:`/BucketLoggingStatus/LoggingEnabled/TargetPrefix`<br/>Тип: String
+`TargetBucket` | Имя целевого бакета, в который сохраняются [объекты](../../../concepts/object.md) с логами.<br>Путь: `/BucketLoggingStatus/LoggingEnabled/TargetBucket`.<br>Тип: String.
+`TargetPrefix` | [Префикс ключа объекта](../../../concepts/server-logs.md#key-prefix) с логами.<br>Путь: `/BucketLoggingStatus/LoggingEnabled/TargetPrefix`.<br>Тип: String.
