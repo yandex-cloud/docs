@@ -155,7 +155,6 @@ Field | Description
 handler | **oneof:** `http_handler`<br>
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler1)**<br> 
 certificate_ids[] | **string**<br>Certificate IDs in the Certificate Manager. Multiple TLS certificates can be associated with the same context to allow both RSA and ECDSA certificates. Only the first certificate of each type will be used. The number of elements must be greater than 0.
-tls_options | **[TlsOptions](#TlsOptions)**<br> 
 
 
 ### HttpHandler {#HttpHandler1}
@@ -175,16 +174,6 @@ Field | Description
 max_concurrent_streams | **int64**<br> 
 
 
-### TlsOptions {#TlsOptions}
-
-Field | Description
---- | ---
-tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
-tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
-cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
-ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
-
-
 ### SniMatch {#SniMatch}
 
 Field | Description
@@ -201,7 +190,6 @@ Field | Description
 handler | **oneof:** `http_handler`<br>
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler2)**<br> 
 certificate_ids[] | **string**<br>Certificate IDs in the Certificate Manager. Multiple TLS certificates can be associated with the same context to allow both RSA and ECDSA certificates. Only the first certificate of each type will be used. The number of elements must be greater than 0.
-tls_options | **[TlsOptions](#TlsOptions1)**<br> 
 
 
 ### HttpHandler {#HttpHandler2}
@@ -219,16 +207,6 @@ protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>
 Field | Description
 --- | ---
 max_concurrent_streams | **int64**<br> 
-
-
-### TlsOptions {#TlsOptions1}
-
-Field | Description
---- | ---
-tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
-tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
-cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
-ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
 
 
 ### AllocationPolicy {#AllocationPolicy}
@@ -387,7 +365,6 @@ Field | Description
 handler | **oneof:** `http_handler`<br>
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler4)**<br> 
 certificate_ids[] | **string**<br>Certificate IDs in the Certificate Manager. Multiple TLS certificates can be associated with the same context to allow both RSA and ECDSA certificates. Only the first certificate of each type will be used. The number of elements must be greater than 0.
-tls_options | **[TlsOptions](#TlsOptions2)**<br> 
 
 
 ### HttpHandler {#HttpHandler4}
@@ -407,16 +384,6 @@ Field | Description
 max_concurrent_streams | **int64**<br> 
 
 
-### TlsOptions {#TlsOptions2}
-
-Field | Description
---- | ---
-tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
-tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
-cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
-ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
-
-
 ### SniMatch {#SniMatch1}
 
 Field | Description
@@ -433,7 +400,6 @@ Field | Description
 handler | **oneof:** `http_handler`<br>
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler5)**<br> 
 certificate_ids[] | **string**<br>Certificate IDs in the Certificate Manager. Multiple TLS certificates can be associated with the same context to allow both RSA and ECDSA certificates. Only the first certificate of each type will be used. The number of elements must be greater than 0.
-tls_options | **[TlsOptions](#TlsOptions3)**<br> 
 
 
 ### HttpHandler {#HttpHandler5}
@@ -451,16 +417,6 @@ protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>
 Field | Description
 --- | ---
 max_concurrent_streams | **int64**<br> 
-
-
-### TlsOptions {#TlsOptions3}
-
-Field | Description
---- | ---
-tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
-tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
-cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
-ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
 
 
 ### AllocationPolicy {#AllocationPolicy1}
@@ -602,7 +558,6 @@ Field | Description
 handler | **oneof:** `http_handler`<br>
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler7)**<br> 
 certificate_ids[] | **string**<br>Certificate IDs in the Certificate Manager. Multiple TLS certificates can be associated with the same context to allow both RSA and ECDSA certificates. Only the first certificate of each type will be used. The number of elements must be greater than 0.
-tls_options | **[TlsOptions](#TlsOptions4)**<br> 
 
 
 ### HttpHandler {#HttpHandler7}
@@ -622,16 +577,6 @@ Field | Description
 max_concurrent_streams | **int64**<br> 
 
 
-### TlsOptions {#TlsOptions4}
-
-Field | Description
---- | ---
-tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
-tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
-cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
-ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
-
-
 ### SniMatch {#SniMatch2}
 
 Field | Description
@@ -648,7 +593,6 @@ Field | Description
 handler | **oneof:** `http_handler`<br>
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler8)**<br> 
 certificate_ids[] | **string**<br>Certificate IDs in the Certificate Manager. Multiple TLS certificates can be associated with the same context to allow both RSA and ECDSA certificates. Only the first certificate of each type will be used. The number of elements must be greater than 0.
-tls_options | **[TlsOptions](#TlsOptions5)**<br> 
 
 
 ### HttpHandler {#HttpHandler8}
@@ -666,16 +610,6 @@ protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>
 Field | Description
 --- | ---
 max_concurrent_streams | **int64**<br> 
-
-
-### TlsOptions {#TlsOptions5}
-
-Field | Description
---- | ---
-tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
-tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
-cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
-ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
 
 
 ### AllocationPolicy {#AllocationPolicy2}
@@ -833,7 +767,6 @@ Field | Description
 handler | **oneof:** `http_handler`<br>
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler10)**<br> 
 certificate_ids[] | **string**<br>Certificate IDs in the Certificate Manager. Multiple TLS certificates can be associated with the same context to allow both RSA and ECDSA certificates. Only the first certificate of each type will be used. The number of elements must be greater than 0.
-tls_options | **[TlsOptions](#TlsOptions6)**<br> 
 
 
 ### HttpHandler {#HttpHandler10}
@@ -853,16 +786,6 @@ Field | Description
 max_concurrent_streams | **int64**<br> 
 
 
-### TlsOptions {#TlsOptions6}
-
-Field | Description
---- | ---
-tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
-tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
-cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
-ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
-
-
 ### SniMatch {#SniMatch3}
 
 Field | Description
@@ -879,7 +802,6 @@ Field | Description
 handler | **oneof:** `http_handler`<br>
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler11)**<br> 
 certificate_ids[] | **string**<br>Certificate IDs in the Certificate Manager. Multiple TLS certificates can be associated with the same context to allow both RSA and ECDSA certificates. Only the first certificate of each type will be used. The number of elements must be greater than 0.
-tls_options | **[TlsOptions](#TlsOptions7)**<br> 
 
 
 ### HttpHandler {#HttpHandler11}
@@ -897,16 +819,6 @@ protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>
 Field | Description
 --- | ---
 max_concurrent_streams | **int64**<br> 
-
-
-### TlsOptions {#TlsOptions7}
-
-Field | Description
---- | ---
-tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
-tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
-cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
-ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
 
 
 ### AllocationPolicy {#AllocationPolicy3}
@@ -1047,7 +959,6 @@ Field | Description
 handler | **oneof:** `http_handler`<br>
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler13)**<br> 
 certificate_ids[] | **string**<br>Certificate IDs in the Certificate Manager. Multiple TLS certificates can be associated with the same context to allow both RSA and ECDSA certificates. Only the first certificate of each type will be used. The number of elements must be greater than 0.
-tls_options | **[TlsOptions](#TlsOptions8)**<br> 
 
 
 ### HttpHandler {#HttpHandler13}
@@ -1067,16 +978,6 @@ Field | Description
 max_concurrent_streams | **int64**<br> 
 
 
-### TlsOptions {#TlsOptions8}
-
-Field | Description
---- | ---
-tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
-tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
-cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
-ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
-
-
 ### SniMatch {#SniMatch4}
 
 Field | Description
@@ -1093,7 +994,6 @@ Field | Description
 handler | **oneof:** `http_handler`<br>
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler14)**<br> 
 certificate_ids[] | **string**<br>Certificate IDs in the Certificate Manager. Multiple TLS certificates can be associated with the same context to allow both RSA and ECDSA certificates. Only the first certificate of each type will be used. The number of elements must be greater than 0.
-tls_options | **[TlsOptions](#TlsOptions9)**<br> 
 
 
 ### HttpHandler {#HttpHandler14}
@@ -1111,16 +1011,6 @@ protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>
 Field | Description
 --- | ---
 max_concurrent_streams | **int64**<br> 
-
-
-### TlsOptions {#TlsOptions9}
-
-Field | Description
---- | ---
-tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
-tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
-cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
-ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
 
 
 ### AllocationPolicy {#AllocationPolicy4}
@@ -1278,7 +1168,6 @@ Field | Description
 handler | **oneof:** `http_handler`<br>
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler16)**<br> 
 certificate_ids[] | **string**<br>Certificate IDs in the Certificate Manager. Multiple TLS certificates can be associated with the same context to allow both RSA and ECDSA certificates. Only the first certificate of each type will be used. The number of elements must be greater than 0.
-tls_options | **[TlsOptions](#TlsOptions10)**<br> 
 
 
 ### HttpHandler {#HttpHandler16}
@@ -1298,16 +1187,6 @@ Field | Description
 max_concurrent_streams | **int64**<br> 
 
 
-### TlsOptions {#TlsOptions10}
-
-Field | Description
---- | ---
-tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
-tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
-cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
-ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
-
-
 ### SniMatch {#SniMatch5}
 
 Field | Description
@@ -1324,7 +1203,6 @@ Field | Description
 handler | **oneof:** `http_handler`<br>
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler17)**<br> 
 certificate_ids[] | **string**<br>Certificate IDs in the Certificate Manager. Multiple TLS certificates can be associated with the same context to allow both RSA and ECDSA certificates. Only the first certificate of each type will be used. The number of elements must be greater than 0.
-tls_options | **[TlsOptions](#TlsOptions11)**<br> 
 
 
 ### HttpHandler {#HttpHandler17}
@@ -1342,16 +1220,6 @@ protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>
 Field | Description
 --- | ---
 max_concurrent_streams | **int64**<br> 
-
-
-### TlsOptions {#TlsOptions11}
-
-Field | Description
---- | ---
-tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
-tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
-cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
-ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
 
 
 ### AllocationPolicy {#AllocationPolicy5}
@@ -1566,7 +1434,6 @@ Field | Description
 handler | **oneof:** `http_handler`<br>
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler19)**<br> 
 certificate_ids[] | **string**<br>Certificate IDs in the Certificate Manager. Multiple TLS certificates can be associated with the same context to allow both RSA and ECDSA certificates. Only the first certificate of each type will be used. The number of elements must be greater than 0.
-tls_options | **[TlsOptions](#TlsOptions12)**<br> 
 
 
 ### HttpHandler {#HttpHandler19}
@@ -1586,16 +1453,6 @@ Field | Description
 max_concurrent_streams | **int64**<br> 
 
 
-### TlsOptions {#TlsOptions12}
-
-Field | Description
---- | ---
-tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
-tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
-cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
-ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
-
-
 ### SniMatch {#SniMatch6}
 
 Field | Description
@@ -1612,7 +1469,6 @@ Field | Description
 handler | **oneof:** `http_handler`<br>
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler20)**<br> 
 certificate_ids[] | **string**<br>Certificate IDs in the Certificate Manager. Multiple TLS certificates can be associated with the same context to allow both RSA and ECDSA certificates. Only the first certificate of each type will be used. The number of elements must be greater than 0.
-tls_options | **[TlsOptions](#TlsOptions13)**<br> 
 
 
 ### HttpHandler {#HttpHandler20}
@@ -1630,16 +1486,6 @@ protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>
 Field | Description
 --- | ---
 max_concurrent_streams | **int64**<br> 
-
-
-### TlsOptions {#TlsOptions13}
-
-Field | Description
---- | ---
-tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
-tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
-cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
-ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
 
 
 ### AllocationPolicy {#AllocationPolicy6}
@@ -1814,7 +1660,6 @@ Field | Description
 handler | **oneof:** `http_handler`<br>
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler22)**<br> 
 certificate_ids[] | **string**<br>Certificate IDs in the Certificate Manager. Multiple TLS certificates can be associated with the same context to allow both RSA and ECDSA certificates. Only the first certificate of each type will be used. The number of elements must be greater than 0.
-tls_options | **[TlsOptions](#TlsOptions14)**<br> 
 
 
 ### HttpHandler {#HttpHandler22}
@@ -1834,16 +1679,6 @@ Field | Description
 max_concurrent_streams | **int64**<br> 
 
 
-### TlsOptions {#TlsOptions14}
-
-Field | Description
---- | ---
-tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
-tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
-cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
-ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
-
-
 ### SniMatch {#SniMatch7}
 
 Field | Description
@@ -1860,7 +1695,6 @@ Field | Description
 handler | **oneof:** `http_handler`<br>
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler23)**<br> 
 certificate_ids[] | **string**<br>Certificate IDs in the Certificate Manager. Multiple TLS certificates can be associated with the same context to allow both RSA and ECDSA certificates. Only the first certificate of each type will be used. The number of elements must be greater than 0.
-tls_options | **[TlsOptions](#TlsOptions15)**<br> 
 
 
 ### HttpHandler {#HttpHandler23}
@@ -1878,16 +1712,6 @@ protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>
 Field | Description
 --- | ---
 max_concurrent_streams | **int64**<br> 
-
-
-### TlsOptions {#TlsOptions15}
-
-Field | Description
---- | ---
-tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
-tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
-cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
-ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
 
 
 ### AllocationPolicy {#AllocationPolicy7}
@@ -2022,7 +1846,6 @@ Field | Description
 handler | **oneof:** `http_handler`<br>
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler25)**<br> 
 certificate_ids[] | **string**<br>Certificate IDs in the Certificate Manager. Multiple TLS certificates can be associated with the same context to allow both RSA and ECDSA certificates. Only the first certificate of each type will be used. The number of elements must be greater than 0.
-tls_options | **[TlsOptions](#TlsOptions16)**<br> 
 
 
 ### HttpHandler {#HttpHandler25}
@@ -2042,16 +1865,6 @@ Field | Description
 max_concurrent_streams | **int64**<br> 
 
 
-### TlsOptions {#TlsOptions16}
-
-Field | Description
---- | ---
-tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
-tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
-cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
-ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
-
-
 ### SniMatch {#SniMatch8}
 
 Field | Description
@@ -2068,7 +1881,6 @@ Field | Description
 handler | **oneof:** `http_handler`<br>
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler26)**<br> 
 certificate_ids[] | **string**<br>Certificate IDs in the Certificate Manager. Multiple TLS certificates can be associated with the same context to allow both RSA and ECDSA certificates. Only the first certificate of each type will be used. The number of elements must be greater than 0.
-tls_options | **[TlsOptions](#TlsOptions17)**<br> 
 
 
 ### HttpHandler {#HttpHandler26}
@@ -2086,16 +1898,6 @@ protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>
 Field | Description
 --- | ---
 max_concurrent_streams | **int64**<br> 
-
-
-### TlsOptions {#TlsOptions17}
-
-Field | Description
---- | ---
-tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
-tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
-cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
-ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
 
 
 ### Operation {#Operation5}
@@ -2238,7 +2040,6 @@ Field | Description
 handler | **oneof:** `http_handler`<br>
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler28)**<br> 
 certificate_ids[] | **string**<br>Certificate IDs in the Certificate Manager. Multiple TLS certificates can be associated with the same context to allow both RSA and ECDSA certificates. Only the first certificate of each type will be used. The number of elements must be greater than 0.
-tls_options | **[TlsOptions](#TlsOptions18)**<br> 
 
 
 ### HttpHandler {#HttpHandler28}
@@ -2258,16 +2059,6 @@ Field | Description
 max_concurrent_streams | **int64**<br> 
 
 
-### TlsOptions {#TlsOptions18}
-
-Field | Description
---- | ---
-tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
-tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
-cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
-ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
-
-
 ### SniMatch {#SniMatch9}
 
 Field | Description
@@ -2284,7 +2075,6 @@ Field | Description
 handler | **oneof:** `http_handler`<br>
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler29)**<br> 
 certificate_ids[] | **string**<br>Certificate IDs in the Certificate Manager. Multiple TLS certificates can be associated with the same context to allow both RSA and ECDSA certificates. Only the first certificate of each type will be used. The number of elements must be greater than 0.
-tls_options | **[TlsOptions](#TlsOptions19)**<br> 
 
 
 ### HttpHandler {#HttpHandler29}
@@ -2302,16 +2092,6 @@ protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>
 Field | Description
 --- | ---
 max_concurrent_streams | **int64**<br> 
-
-
-### TlsOptions {#TlsOptions19}
-
-Field | Description
---- | ---
-tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
-tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
-cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
-ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
 
 
 ### AllocationPolicy {#AllocationPolicy8}
@@ -2488,7 +2268,6 @@ Field | Description
 handler | **oneof:** `http_handler`<br>
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler31)**<br> 
 certificate_ids[] | **string**<br>Certificate IDs in the Certificate Manager. Multiple TLS certificates can be associated with the same context to allow both RSA and ECDSA certificates. Only the first certificate of each type will be used. The number of elements must be greater than 0.
-tls_options | **[TlsOptions](#TlsOptions20)**<br> 
 
 
 ### HttpHandler {#HttpHandler31}
@@ -2508,16 +2287,6 @@ Field | Description
 max_concurrent_streams | **int64**<br> 
 
 
-### TlsOptions {#TlsOptions20}
-
-Field | Description
---- | ---
-tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
-tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
-cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
-ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
-
-
 ### SniMatch {#SniMatch10}
 
 Field | Description
@@ -2534,7 +2303,6 @@ Field | Description
 handler | **oneof:** `http_handler`<br>
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler32)**<br> 
 certificate_ids[] | **string**<br>Certificate IDs in the Certificate Manager. Multiple TLS certificates can be associated with the same context to allow both RSA and ECDSA certificates. Only the first certificate of each type will be used. The number of elements must be greater than 0.
-tls_options | **[TlsOptions](#TlsOptions21)**<br> 
 
 
 ### HttpHandler {#HttpHandler32}
@@ -2552,16 +2320,6 @@ protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>
 Field | Description
 --- | ---
 max_concurrent_streams | **int64**<br> 
-
-
-### TlsOptions {#TlsOptions21}
-
-Field | Description
---- | ---
-tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
-tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
-cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
-ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
 
 
 ### AllocationPolicy {#AllocationPolicy9}
@@ -2697,7 +2455,6 @@ Field | Description
 handler | **oneof:** `http_handler`<br>
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler34)**<br> 
 certificate_ids[] | **string**<br>Certificate IDs in the Certificate Manager. Multiple TLS certificates can be associated with the same context to allow both RSA and ECDSA certificates. Only the first certificate of each type will be used. The number of elements must be greater than 0.
-tls_options | **[TlsOptions](#TlsOptions22)**<br> 
 
 
 ### HttpHandler {#HttpHandler34}
@@ -2717,16 +2474,6 @@ Field | Description
 max_concurrent_streams | **int64**<br> 
 
 
-### TlsOptions {#TlsOptions22}
-
-Field | Description
---- | ---
-tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
-tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
-cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
-ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
-
-
 ### SniMatch {#SniMatch11}
 
 Field | Description
@@ -2743,7 +2490,6 @@ Field | Description
 handler | **oneof:** `http_handler`<br>
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler35)**<br> 
 certificate_ids[] | **string**<br>Certificate IDs in the Certificate Manager. Multiple TLS certificates can be associated with the same context to allow both RSA and ECDSA certificates. Only the first certificate of each type will be used. The number of elements must be greater than 0.
-tls_options | **[TlsOptions](#TlsOptions23)**<br> 
 
 
 ### HttpHandler {#HttpHandler35}
@@ -2761,16 +2507,6 @@ protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>
 Field | Description
 --- | ---
 max_concurrent_streams | **int64**<br> 
-
-
-### TlsOptions {#TlsOptions23}
-
-Field | Description
---- | ---
-tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
-tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
-cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
-ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
 
 
 ### Operation {#Operation7}
@@ -2913,7 +2649,6 @@ Field | Description
 handler | **oneof:** `http_handler`<br>
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler37)**<br> 
 certificate_ids[] | **string**<br>Certificate IDs in the Certificate Manager. Multiple TLS certificates can be associated with the same context to allow both RSA and ECDSA certificates. Only the first certificate of each type will be used. The number of elements must be greater than 0.
-tls_options | **[TlsOptions](#TlsOptions24)**<br> 
 
 
 ### HttpHandler {#HttpHandler37}
@@ -2933,16 +2668,6 @@ Field | Description
 max_concurrent_streams | **int64**<br> 
 
 
-### TlsOptions {#TlsOptions24}
-
-Field | Description
---- | ---
-tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
-tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
-cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
-ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
-
-
 ### SniMatch {#SniMatch12}
 
 Field | Description
@@ -2959,7 +2684,6 @@ Field | Description
 handler | **oneof:** `http_handler`<br>
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler38)**<br> 
 certificate_ids[] | **string**<br>Certificate IDs in the Certificate Manager. Multiple TLS certificates can be associated with the same context to allow both RSA and ECDSA certificates. Only the first certificate of each type will be used. The number of elements must be greater than 0.
-tls_options | **[TlsOptions](#TlsOptions25)**<br> 
 
 
 ### HttpHandler {#HttpHandler38}
@@ -2977,16 +2701,6 @@ protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>
 Field | Description
 --- | ---
 max_concurrent_streams | **int64**<br> 
-
-
-### TlsOptions {#TlsOptions25}
-
-Field | Description
---- | ---
-tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
-tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
-cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
-ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
 
 
 ### AllocationPolicy {#AllocationPolicy10}
@@ -3033,7 +2747,6 @@ Field | Description
 handler | **oneof:** `http_handler`<br>
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler39)**<br> 
 certificate_ids[] | **string**<br>Certificate IDs in the Certificate Manager. Multiple TLS certificates can be associated with the same context to allow both RSA and ECDSA certificates. Only the first certificate of each type will be used. The number of elements must be greater than 0.
-tls_options | **[TlsOptions](#TlsOptions26)**<br> 
 
 
 ### HttpHandler {#HttpHandler39}
@@ -3051,16 +2764,6 @@ protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>
 Field | Description
 --- | ---
 max_concurrent_streams | **int64**<br> 
-
-
-### TlsOptions {#TlsOptions26}
-
-Field | Description
---- | ---
-tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
-tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
-cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
-ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
 
 
 ### Operation {#Operation8}
@@ -3117,7 +2820,6 @@ Field | Description
 handler | **oneof:** `http_handler`<br>
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler40)**<br> 
 certificate_ids[] | **string**<br>Certificate IDs in the Certificate Manager. Multiple TLS certificates can be associated with the same context to allow both RSA and ECDSA certificates. Only the first certificate of each type will be used. The number of elements must be greater than 0.
-tls_options | **[TlsOptions](#TlsOptions27)**<br> 
 
 
 ### HttpHandler {#HttpHandler40}
@@ -3135,16 +2837,6 @@ protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>
 Field | Description
 --- | ---
 max_concurrent_streams | **int64**<br> 
-
-
-### TlsOptions {#TlsOptions27}
-
-Field | Description
---- | ---
-tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
-tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
-cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
-ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
 
 
 ### Operation {#Operation9}
@@ -3268,7 +2960,6 @@ Field | Description
 --- | ---
 address_type | **oneof:** `ip_address`<br>
 &nbsp;&nbsp;ip_address | **string**<br> 
-port | **int64**<br>Endpoint port. Takes priority over Backend::port setting. Acceptable values are 0 to 65535, inclusive.
 subnet_id | **string**<br>ID of the subnet that target connected to. 
 
 

@@ -1494,26 +1494,8 @@ components:
         sni:
           description: SNI string for TLS connections.
           type: string
-        tlsOptions:
-          $ref: '#/components/schemas/TlsOptions_in_BackendTls_tlsOptions'
         validationContext:
           $ref: '#/components/schemas/ValidationContext_in_BackendTls_validationContext'
-    CipherSuite:
-      type: string
-      enum:
-      - ECDHE_ECDSA_AES128_GCM_SHA256
-      - ECDHE_RSA_AES128_GCM_SHA256
-      - ECDHE_ECDSA_AES128_SHA
-      - ECDHE_RSA_AES128_SHA
-      - AES128_GCM_SHA256
-      - AES128_SHA
-      - ECDHE_ECDSA_AES256_GCM_SHA384
-      - ECDHE_RSA_AES256_GCM_SHA384
-      - ECDHE_ECDSA_AES256_SHA
-      - ECDHE_RSA_AES256_SHA
-      - AES256_GCM_SHA384
-      - AES256_SHA
-      default: ECDHE_ECDSA_AES128_GCM_SHA256
     CreateBackendGroupMetadata:
       type: object
       properties:
@@ -1687,11 +1669,6 @@ components:
           type: array
           items:
             type: string
-        ports:
-          type: array
-          items:
-            type: string
-            format: int64
         routes:
           type: array
           items:
@@ -1745,12 +1722,6 @@ components:
           format: int64
         body:
           $ref: '#/components/schemas/Payload_in_DirectResponseAction_body'
-    EcdhCurve:
-      type: string
-      enum:
-      - X25519
-      - P256
-      default: X25519
     Empty:
       description: Empty JSON object `` {} ``.
       type: object
@@ -1844,7 +1815,10 @@ components:
           backendWeight:
             description: |-
               Traffic will be split between backends of the same BackendGroup according to
-              their weights. If not set, backend will be disabled.
+              their weights.
+              If set to zero, backend will be disabled.
+              If not set in all backends, they all will have equal weights.
+              Must either set or unset in all backeds of the group.
             type: integer
             format: int64
           loadBalancingConfig:
@@ -1909,6 +1883,13 @@ components:
             description: |-
               Lower timeout may be specified by the client (using grpc-timeout header).
               If not set, default is 60 seconds.
+            type: string
+          idleTimeout:
+            description: |-
+              Specifies the idle timeout (time without any data transfer for the active request) for the route.
+              It is useful for streaming scenarios - one should set idle_timeout to something meaningful
+              and max_timeout to the maximum time the stream is allowed to be alive.
+              If not specified, there is no per-route idle timeout.
             type: string
       - title: host_rewrite_specifier
         type: object
@@ -2069,7 +2050,10 @@ components:
           backendWeight:
             description: |-
               Traffic will be split between backends of the same BackendGroup according to
-              their weights. If not set, backend will be disabled.
+              their weights.
+              If set to zero, backend will be disabled.
+              If not set in all backends, they all will have equal weights.
+              Must either set or unset in all backeds of the group.
             type: integer
             format: int64
           loadBalancingConfig:
@@ -2164,16 +2148,27 @@ components:
               Backend group to route requests.
             type: string
           timeout:
-            description: If not set, default is 60 seconds.
+            description: |-
+              Specifies the request timeout (overall time request processing is allowed to take) for the route.
+              If not set, default is 60 seconds.
+            type: string
+          idleTimeout:
+            description: |-
+              Specifies the idle timeout (time without any data transfer for the active request) for the route.
+              It is useful for streaming scenarios (i.e. long-polling, server-sent events) - one should set
+              idle_timeout to something meaningful and timeout to the maximum time the stream is allowed to be alive.
+              If not specified, there is no per-route idle timeout.
             type: string
           prefixRewrite:
             description: If not empty, matched path prefix will be replaced by this
               value.
             type: string
-          supportWebsockets:
-            description: Allows websocket upgrades.
-            type: boolean
-            format: boolean
+          upgradeTypes:
+            description: Only specified upgrade types will be allowed. For example,
+              "websocket".
+            type: array
+            items:
+              type: string
       - title: host_rewrite_specifier
         type: object
         maxProperties: 1
@@ -2468,6 +2463,12 @@ components:
             Acceptable values are 0 to 100, inclusive.
           type: string
           format: int64
+        strictLocality:
+          description: |-
+            If set, will route requests only to the same availability zone.
+            Balancer won't know about endpoints in other zones.
+          type: boolean
+          format: boolean
     Location:
       type: object
       properties:
@@ -2553,15 +2554,44 @@ components:
             type: string
     RedirectAction:
       type: object
-      properties:
-        replaceScheme:
-          description: |-
-            Replaces scheme.
-            If the original scheme is `http` or `https`,
-            will also remove the 80 or 443 port, if present.
-          type: string
-        responseCode:
-          $ref: '#/components/schemas/RedirectActionRedirectResponseCode_in_RedirectAction_responseCode'
+      allOf:
+      - type: object
+        properties:
+          replaceScheme:
+            description: |-
+              Replaces scheme.
+              If the original scheme is `http` or `https`,
+              will also remove the 80 or 443 port, if present.
+            type: string
+          replaceHost:
+            description: Replaces hostname.
+            type: string
+          replacePort:
+            description: Replaces port.
+            type: string
+            format: int64
+          removeQuery:
+            description: Remove query part.
+            type: boolean
+            format: boolean
+          responseCode:
+            $ref: '#/components/schemas/RedirectActionRedirectResponseCode'
+            description: The HTTP status code to use in the redirect response.
+      - title: path
+        type: object
+        maxProperties: 1
+        properties:
+          replacePath:
+            description: Replace path.
+            type: string
+          replacePrefix:
+            description: |-
+              Replace only matched prefix.
+              Example:
+                 match:    { prefix_match: "/some" }
+                 redirect: { replace_prefix: "/other" }
+              will redirect "/something" to "/otherthing"
+            type: string
     RedirectActionRedirectResponseCode:
       description: |2-
          - MOVED_PERMANENTLY: Moved Permanently HTTP Status Code - 301.
@@ -2715,13 +2745,6 @@ components:
       allOf:
       - type: object
         properties:
-          port:
-            description: |-
-              Endpoint port. Takes priority over Backend::port setting.
-
-              Acceptable values are 0 to 65535, inclusive.
-            type: string
-            format: int64
           subnetId:
             description: ID of the subnet that target connected to.
             type: string
@@ -2819,8 +2842,6 @@ components:
             type: array
             items:
               type: string
-          tlsOptions:
-            $ref: '#/components/schemas/TlsOptions'
       - title: handler
         type: object
         maxProperties: 1
@@ -2836,37 +2857,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SniMatch'
-    TlsOptions:
-      type: object
-      properties:
-        tlsMinVersion:
-          $ref: '#/components/schemas/TlsVersion_in_TlsOptions_tlsMinVersion'
-        tlsMaxVersion:
-          $ref: '#/components/schemas/TlsVersion_in_TlsOptions_tlsMaxVersion'
-        cipherSuites:
-          description: |-
-            If specified, the TLS listener will only support the specified cipher list
-            when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not
-            specified, the default list will be used.
-          type: array
-          items:
-            $ref: '#/components/schemas/CipherSuite'
-        ecdhCurves:
-          description: |-
-            If specified, the TLS connection will only support the specified ECDH
-            curves. If not specified, the default curves will be used.
-          type: array
-          items:
-            $ref: '#/components/schemas/EcdhCurve'
-    TlsVersion:
-      type: string
-      enum:
-      - TLS_AUTO
-      - TLS_V1_0
-      - TLS_V1_1
-      - TLS_V1_2
-      - TLS_V1_3
-      default: TLS_AUTO
     UpdateBackendGroupMetadata:
       type: object
       properties:
@@ -3120,11 +3110,6 @@ components:
           type: array
           items:
             type: string
-        ports:
-          type: array
-          items:
-            type: string
-            format: int64
         routes:
           type: array
           items:
@@ -3242,37 +3227,12 @@ components:
             type: array
             items:
               type: string
-          tlsOptions:
-            $ref: '#/components/schemas/TlsOptions'
       - title: handler
         type: object
         maxProperties: 1
         properties:
           httpHandler:
             $ref: '#/components/schemas/HttpHandler'
-    TlsOptions_in_BackendTls_tlsOptions:
-      description: Common TLS options used for backend TLS connections.
-      type: object
-      properties:
-        tlsMinVersion:
-          $ref: '#/components/schemas/TlsVersion_in_TlsOptions_tlsMinVersion'
-        tlsMaxVersion:
-          $ref: '#/components/schemas/TlsVersion_in_TlsOptions_tlsMaxVersion'
-        cipherSuites:
-          description: |-
-            If specified, the TLS listener will only support the specified cipher list
-            when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not
-            specified, the default list will be used.
-          type: array
-          items:
-            $ref: '#/components/schemas/CipherSuite'
-        ecdhCurves:
-          description: |-
-            If specified, the TLS connection will only support the specified ECDH
-            curves. If not specified, the default curves will be used.
-          type: array
-          items:
-            $ref: '#/components/schemas/EcdhCurve'
     ValidationContext_in_BackendTls_validationContext:
       description: Validation context for backend TLS connections.
       type: object
@@ -3435,23 +3395,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Location'
-    RedirectActionRedirectResponseCode_in_RedirectAction_responseCode:
-      description: |-
-        The HTTP status code to use in the redirect response.
-
-         - MOVED_PERMANENTLY: Moved Permanently HTTP Status Code - 301.
-         - FOUND: Found HTTP Status Code - 302.
-         - SEE_OTHER: See Other HTTP Status Code - 303.
-         - TEMPORARY_REDIRECT: Temporary Redirect HTTP Status Code - 307.
-         - PERMANENT_REDIRECT: Permanent Redirect HTTP Status Code - 308.
-      type: string
-      enum:
-      - MOVED_PERMANENTLY
-      - FOUND
-      - SEE_OTHER
-      - TEMPORARY_REDIRECT
-      - PERMANENT_REDIRECT
-      default: MOVED_PERMANENTLY
     TlsHandler_in_SniMatch_handler:
       description: Required.
       type: object
@@ -3470,8 +3413,6 @@ components:
             type: array
             items:
               type: string
-          tlsOptions:
-            $ref: '#/components/schemas/TlsOptions'
       - title: handler
         type: object
         maxProperties: 1
@@ -3492,13 +3433,6 @@ components:
       allOf:
       - type: object
         properties:
-          port:
-            description: |-
-              Endpoint port. Takes priority over Backend::port setting.
-
-              Acceptable values are 0 to 65535, inclusive.
-            type: string
-            format: int64
           subnetId:
             description: ID of the subnet that target connected to.
             type: string
@@ -3535,34 +3469,12 @@ components:
             type: array
             items:
               type: string
-          tlsOptions:
-            $ref: '#/components/schemas/TlsOptions'
       - title: handler
         type: object
         maxProperties: 1
         properties:
           httpHandler:
             $ref: '#/components/schemas/HttpHandler'
-    TlsVersion_in_TlsOptions_tlsMinVersion:
-      description: Minimum TLS protocol version.
-      type: string
-      enum:
-      - TLS_AUTO
-      - TLS_V1_0
-      - TLS_V1_1
-      - TLS_V1_2
-      - TLS_V1_3
-      default: TLS_AUTO
-    TlsVersion_in_TlsOptions_tlsMaxVersion:
-      description: Maximum TLS protocol version.
-      type: string
-      enum:
-      - TLS_AUTO
-      - TLS_V1_0
-      - TLS_V1_1
-      - TLS_V1_2
-      - TLS_V1_3
-      default: TLS_AUTO
     FieldMask_in_UpdateHttpRouterRequest_updateMask:
       description: |-
         A comma-separated names off ALL fields to be updated.
@@ -3661,8 +3573,6 @@ components:
             type: array
             items:
               type: string
-          tlsOptions:
-            $ref: '#/components/schemas/TlsOptions'
       - title: handler
         type: object
         maxProperties: 1

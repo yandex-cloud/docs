@@ -54,6 +54,7 @@ config | **[ClusterConfig](#ClusterConfig)**<br>Configuration of the SQL Server 
 network_id | **string**<br>ID of the network the cluster belongs to. 
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is in degraded state ([Host.health](#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li><ul/>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+security_group_ids[] | **string**<br>User security groups 
 
 
 ### Monitoring {#Monitoring}
@@ -70,8 +71,9 @@ link | **string**<br>Link to the monitoring system charts for the SQL Server clu
 Field | Description
 --- | ---
 version | **string**<br>Version of the SQL Server. 
-sqlserver_config | **oneof:** `sqlserver_config_2016sp2`<br>Configuration of the SQL Server instances in the cluster.
-&nbsp;&nbsp;sqlserver_config_2016sp2 | **[config.SQLServerConfigSet2016sp2](#SQLServerConfigSet2016sp2)**<br>Configuration of the SQL Server 2016sp2 instance. 
+sqlserver_config | **oneof:** `sqlserver_config_2016sp2std` or `sqlserver_config_2016sp2ent`<br>Configuration of the SQL Server instances in the cluster.
+&nbsp;&nbsp;sqlserver_config_2016sp2std | **[config.SQLServerConfigSet2016sp2std](#SQLServerConfigSet2016sp2std)**<br>Configuration of the SQL Server 2016sp2 standard edition instance. 
+&nbsp;&nbsp;sqlserver_config_2016sp2ent | **[config.SQLServerConfigSet2016sp2ent](#SQLServerConfigSet2016sp2ent)**<br>Configuration of the SQL Server 2016sp2 enterprise edition instance. 
 resources | **[Resources](#Resources)**<br>Resources allocated to SQL Server hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Start time for the daily backup in UTC timezone 
 
@@ -125,6 +127,7 @@ config | **[ClusterConfig](#ClusterConfig1)**<br>Configuration of the SQL Server
 network_id | **string**<br>ID of the network the cluster belongs to. 
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is in degraded state ([Host.health](#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li><ul/>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+security_group_ids[] | **string**<br>User security groups 
 
 
 ### Monitoring {#Monitoring1}
@@ -141,8 +144,9 @@ link | **string**<br>Link to the monitoring system charts for the SQL Server clu
 Field | Description
 --- | ---
 version | **string**<br>Version of the SQL Server. 
-sqlserver_config | **oneof:** `sqlserver_config_2016sp2`<br>Configuration of the SQL Server instances in the cluster.
-&nbsp;&nbsp;sqlserver_config_2016sp2 | **[config.SQLServerConfigSet2016sp2](#SQLServerConfigSet2016sp2)**<br>Configuration of the SQL Server 2016sp2 instance. 
+sqlserver_config | **oneof:** `sqlserver_config_2016sp2std` or `sqlserver_config_2016sp2ent`<br>Configuration of the SQL Server instances in the cluster.
+&nbsp;&nbsp;sqlserver_config_2016sp2std | **[config.SQLServerConfigSet2016sp2std](#SQLServerConfigSet2016sp2std)**<br>Configuration of the SQL Server 2016sp2 standard edition instance. 
+&nbsp;&nbsp;sqlserver_config_2016sp2ent | **[config.SQLServerConfigSet2016sp2ent](#SQLServerConfigSet2016sp2ent)**<br>Configuration of the SQL Server 2016sp2 enterprise edition instance. 
 resources | **[Resources](#Resources1)**<br>Resources allocated to SQL Server hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Start time for the daily backup in UTC timezone 
 
@@ -180,6 +184,7 @@ database_specs[] | **[DatabaseSpec](#DatabaseSpec)**<br>One or more configuratio
 user_specs[] | **[UserSpec](#UserSpec)**<br>One or more configurations of database users to be created in the SQL Server cluster. 
 host_specs[] | **[HostSpec](#HostSpec)**<br>One or more configurations of hosts to be created in the SQL Server cluster. 
 network_id | **string**<br>ID of the network to create the SQL Server cluster in. The maximum string length in characters is 50.
+security_group_ids[] | **string**<br>User security groups 
 
 
 ### ConfigSpec {#ConfigSpec}
@@ -187,8 +192,9 @@ network_id | **string**<br>ID of the network to create the SQL Server cluster in
 Field | Description
 --- | ---
 version | **string**<br><ul><li>2016sp2</li></ul> 
-sqlserver_config | **oneof:** `sqlserver_config_2016sp2`<br>Configuration of an SQL Server cluster.
-&nbsp;&nbsp;sqlserver_config_2016sp2 | **[config.SQLServerConfig2016sp2](#SQLServerConfig2016sp2)**<br>Configuration for an SQL Server 2016 SP2 cluster. 
+sqlserver_config | **oneof:** `sqlserver_config_2016sp2std` or `sqlserver_config_2016sp2ent`<br>Configuration of an SQL Server cluster.
+&nbsp;&nbsp;sqlserver_config_2016sp2std | **[config.SQLServerConfig2016sp2std](#SQLServerConfig2016sp2std)**<br>Configuration for an SQL Server 2016 SP2 Standard edition cluster. 
+&nbsp;&nbsp;sqlserver_config_2016sp2ent | **[config.SQLServerConfig2016sp2ent](#SQLServerConfig2016sp2ent)**<br>Configuration for an SQL Server 2016 SP2 Enterprise edition cluster. 
 resources | **[Resources](#Resources2)**<br>Resources allocated to SQL Server hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Start time for the daily backup in UTC timezone 
 
@@ -274,6 +280,7 @@ config | **[ClusterConfig](#ClusterConfig2)**<br>Configuration of the SQL Server
 network_id | **string**<br>ID of the network the cluster belongs to. 
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is in degraded state ([Host.health](#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li><ul/>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+security_group_ids[] | **string**<br>User security groups 
 
 
 ### Monitoring {#Monitoring2}
@@ -290,8 +297,9 @@ link | **string**<br>Link to the monitoring system charts for the SQL Server clu
 Field | Description
 --- | ---
 version | **string**<br>Version of the SQL Server. 
-sqlserver_config | **oneof:** `sqlserver_config_2016sp2`<br>Configuration of the SQL Server instances in the cluster.
-&nbsp;&nbsp;sqlserver_config_2016sp2 | **[config.SQLServerConfigSet2016sp2](#SQLServerConfigSet2016sp2)**<br>Configuration of the SQL Server 2016sp2 instance. 
+sqlserver_config | **oneof:** `sqlserver_config_2016sp2std` or `sqlserver_config_2016sp2ent`<br>Configuration of the SQL Server instances in the cluster.
+&nbsp;&nbsp;sqlserver_config_2016sp2std | **[config.SQLServerConfigSet2016sp2std](#SQLServerConfigSet2016sp2std)**<br>Configuration of the SQL Server 2016sp2 standard edition instance. 
+&nbsp;&nbsp;sqlserver_config_2016sp2ent | **[config.SQLServerConfigSet2016sp2ent](#SQLServerConfigSet2016sp2ent)**<br>Configuration of the SQL Server 2016sp2 enterprise edition instance. 
 resources | **[Resources](#Resources3)**<br>Resources allocated to SQL Server hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Start time for the daily backup in UTC timezone 
 
@@ -325,6 +333,7 @@ description | **string**<br>New description of the SQL Server cluster. The maxim
 labels | **map<string,string>**<br>Custom labels for the SQL Server cluster as `key:value` pairs. Maximum 64 per resource. <br>For example, "project": "mvp" or "source": "dictionary". <br>The new set of labels will completely replace the old ones. To add a label, request the current set with the [ClusterService.Get](#Get) method, then send an [ClusterService.Update](#Update) request with the new label added to the set. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 config_spec | **[ConfigSpec](#ConfigSpec)**<br>New configuration and resources for hosts in the SQL Server cluster. 
 name | **string**<br>New name for the SQL Server cluster. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+security_group_ids[] | **string**<br>User security groups 
 
 
 ### ConfigSpec {#ConfigSpec1}
@@ -332,8 +341,9 @@ name | **string**<br>New name for the SQL Server cluster. The maximum string len
 Field | Description
 --- | ---
 version | **string**<br><ul><li>2016sp2</li></ul> 
-sqlserver_config | **oneof:** `sqlserver_config_2016sp2`<br>Configuration of an SQL Server cluster.
-&nbsp;&nbsp;sqlserver_config_2016sp2 | **[config.SQLServerConfig2016sp2](#SQLServerConfig2016sp2)**<br>Configuration for an SQL Server 2016 SP2 cluster. 
+sqlserver_config | **oneof:** `sqlserver_config_2016sp2std` or `sqlserver_config_2016sp2ent`<br>Configuration of an SQL Server cluster.
+&nbsp;&nbsp;sqlserver_config_2016sp2std | **[config.SQLServerConfig2016sp2std](#SQLServerConfig2016sp2std)**<br>Configuration for an SQL Server 2016 SP2 Standard edition cluster. 
+&nbsp;&nbsp;sqlserver_config_2016sp2ent | **[config.SQLServerConfig2016sp2ent](#SQLServerConfig2016sp2ent)**<br>Configuration for an SQL Server 2016 SP2 Enterprise edition cluster. 
 resources | **[Resources](#Resources4)**<br>Resources allocated to SQL Server hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Start time for the daily backup in UTC timezone 
 
@@ -386,6 +396,7 @@ config | **[ClusterConfig](#ClusterConfig3)**<br>Configuration of the SQL Server
 network_id | **string**<br>ID of the network the cluster belongs to. 
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is in degraded state ([Host.health](#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li><ul/>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+security_group_ids[] | **string**<br>User security groups 
 
 
 ### Monitoring {#Monitoring3}
@@ -402,8 +413,9 @@ link | **string**<br>Link to the monitoring system charts for the SQL Server clu
 Field | Description
 --- | ---
 version | **string**<br>Version of the SQL Server. 
-sqlserver_config | **oneof:** `sqlserver_config_2016sp2`<br>Configuration of the SQL Server instances in the cluster.
-&nbsp;&nbsp;sqlserver_config_2016sp2 | **[config.SQLServerConfigSet2016sp2](#SQLServerConfigSet2016sp2)**<br>Configuration of the SQL Server 2016sp2 instance. 
+sqlserver_config | **oneof:** `sqlserver_config_2016sp2std` or `sqlserver_config_2016sp2ent`<br>Configuration of the SQL Server instances in the cluster.
+&nbsp;&nbsp;sqlserver_config_2016sp2std | **[config.SQLServerConfigSet2016sp2std](#SQLServerConfigSet2016sp2std)**<br>Configuration of the SQL Server 2016sp2 standard edition instance. 
+&nbsp;&nbsp;sqlserver_config_2016sp2ent | **[config.SQLServerConfigSet2016sp2ent](#SQLServerConfigSet2016sp2ent)**<br>Configuration of the SQL Server 2016sp2 enterprise edition instance. 
 resources | **[Resources](#Resources5)**<br>Resources allocated to SQL Server hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Start time for the daily backup in UTC timezone 
 
@@ -513,6 +525,7 @@ config | **[ClusterConfig](#ClusterConfig4)**<br>Configuration of the SQL Server
 network_id | **string**<br>ID of the network the cluster belongs to. 
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is in degraded state ([Host.health](#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li><ul/>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+security_group_ids[] | **string**<br>User security groups 
 
 
 ### Monitoring {#Monitoring4}
@@ -529,8 +542,9 @@ link | **string**<br>Link to the monitoring system charts for the SQL Server clu
 Field | Description
 --- | ---
 version | **string**<br>Version of the SQL Server. 
-sqlserver_config | **oneof:** `sqlserver_config_2016sp2`<br>Configuration of the SQL Server instances in the cluster.
-&nbsp;&nbsp;sqlserver_config_2016sp2 | **[config.SQLServerConfigSet2016sp2](#SQLServerConfigSet2016sp2)**<br>Configuration of the SQL Server 2016sp2 instance. 
+sqlserver_config | **oneof:** `sqlserver_config_2016sp2std` or `sqlserver_config_2016sp2ent`<br>Configuration of the SQL Server instances in the cluster.
+&nbsp;&nbsp;sqlserver_config_2016sp2std | **[config.SQLServerConfigSet2016sp2std](#SQLServerConfigSet2016sp2std)**<br>Configuration of the SQL Server 2016sp2 standard edition instance. 
+&nbsp;&nbsp;sqlserver_config_2016sp2ent | **[config.SQLServerConfigSet2016sp2ent](#SQLServerConfigSet2016sp2ent)**<br>Configuration of the SQL Server 2016sp2 enterprise edition instance. 
 resources | **[Resources](#Resources6)**<br>Resources allocated to SQL Server hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Start time for the daily backup in UTC timezone 
 
@@ -600,6 +614,7 @@ config | **[ClusterConfig](#ClusterConfig5)**<br>Configuration of the SQL Server
 network_id | **string**<br>ID of the network the cluster belongs to. 
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is in degraded state ([Host.health](#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li><ul/>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+security_group_ids[] | **string**<br>User security groups 
 
 
 ### Monitoring {#Monitoring5}
@@ -616,8 +631,9 @@ link | **string**<br>Link to the monitoring system charts for the SQL Server clu
 Field | Description
 --- | ---
 version | **string**<br>Version of the SQL Server. 
-sqlserver_config | **oneof:** `sqlserver_config_2016sp2`<br>Configuration of the SQL Server instances in the cluster.
-&nbsp;&nbsp;sqlserver_config_2016sp2 | **[config.SQLServerConfigSet2016sp2](#SQLServerConfigSet2016sp2)**<br>Configuration of the SQL Server 2016sp2 instance. 
+sqlserver_config | **oneof:** `sqlserver_config_2016sp2std` or `sqlserver_config_2016sp2ent`<br>Configuration of the SQL Server instances in the cluster.
+&nbsp;&nbsp;sqlserver_config_2016sp2std | **[config.SQLServerConfigSet2016sp2std](#SQLServerConfigSet2016sp2std)**<br>Configuration of the SQL Server 2016sp2 standard edition instance. 
+&nbsp;&nbsp;sqlserver_config_2016sp2ent | **[config.SQLServerConfigSet2016sp2ent](#SQLServerConfigSet2016sp2ent)**<br>Configuration of the SQL Server 2016sp2 enterprise edition instance. 
 resources | **[Resources](#Resources7)**<br>Resources allocated to SQL Server hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Start time for the daily backup in UTC timezone 
 
@@ -690,6 +706,7 @@ config | **[ClusterConfig](#ClusterConfig6)**<br>Configuration of the SQL Server
 network_id | **string**<br>ID of the network the cluster belongs to. 
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is in degraded state ([Host.health](#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li><ul/>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+security_group_ids[] | **string**<br>User security groups 
 
 
 ### Monitoring {#Monitoring6}
@@ -706,8 +723,9 @@ link | **string**<br>Link to the monitoring system charts for the SQL Server clu
 Field | Description
 --- | ---
 version | **string**<br>Version of the SQL Server. 
-sqlserver_config | **oneof:** `sqlserver_config_2016sp2`<br>Configuration of the SQL Server instances in the cluster.
-&nbsp;&nbsp;sqlserver_config_2016sp2 | **[config.SQLServerConfigSet2016sp2](#SQLServerConfigSet2016sp2)**<br>Configuration of the SQL Server 2016sp2 instance. 
+sqlserver_config | **oneof:** `sqlserver_config_2016sp2std` or `sqlserver_config_2016sp2ent`<br>Configuration of the SQL Server instances in the cluster.
+&nbsp;&nbsp;sqlserver_config_2016sp2std | **[config.SQLServerConfigSet2016sp2std](#SQLServerConfigSet2016sp2std)**<br>Configuration of the SQL Server 2016sp2 standard edition instance. 
+&nbsp;&nbsp;sqlserver_config_2016sp2ent | **[config.SQLServerConfigSet2016sp2ent](#SQLServerConfigSet2016sp2ent)**<br>Configuration of the SQL Server 2016sp2 enterprise edition instance. 
 resources | **[Resources](#Resources8)**<br>Resources allocated to SQL Server hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Start time for the daily backup in UTC timezone 
 
@@ -777,6 +795,7 @@ config | **[ClusterConfig](#ClusterConfig7)**<br>Configuration of the SQL Server
 network_id | **string**<br>ID of the network the cluster belongs to. 
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is in degraded state ([Host.health](#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li><ul/>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+security_group_ids[] | **string**<br>User security groups 
 
 
 ### Monitoring {#Monitoring7}
@@ -793,8 +812,9 @@ link | **string**<br>Link to the monitoring system charts for the SQL Server clu
 Field | Description
 --- | ---
 version | **string**<br>Version of the SQL Server. 
-sqlserver_config | **oneof:** `sqlserver_config_2016sp2`<br>Configuration of the SQL Server instances in the cluster.
-&nbsp;&nbsp;sqlserver_config_2016sp2 | **[config.SQLServerConfigSet2016sp2](#SQLServerConfigSet2016sp2)**<br>Configuration of the SQL Server 2016sp2 instance. 
+sqlserver_config | **oneof:** `sqlserver_config_2016sp2std` or `sqlserver_config_2016sp2ent`<br>Configuration of the SQL Server instances in the cluster.
+&nbsp;&nbsp;sqlserver_config_2016sp2std | **[config.SQLServerConfigSet2016sp2std](#SQLServerConfigSet2016sp2std)**<br>Configuration of the SQL Server 2016sp2 standard edition instance. 
+&nbsp;&nbsp;sqlserver_config_2016sp2ent | **[config.SQLServerConfigSet2016sp2ent](#SQLServerConfigSet2016sp2ent)**<br>Configuration of the SQL Server 2016sp2 enterprise edition instance. 
 resources | **[Resources](#Resources9)**<br>Resources allocated to SQL Server hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Start time for the daily backup in UTC timezone 
 
@@ -832,6 +852,7 @@ config_spec | **[ConfigSpec](#ConfigSpec)**<br>Configuration for the new SQL Ser
 host_specs[] | **[HostSpec](#HostSpec)**<br>Configurations for SQL Server hosts that should be added to the cluster being created from the backup. 
 network_id | **string**<br>ID of the network to create the SQL Server cluster in. The maximum string length in characters is 50.
 folder_id | **string**<br>ID of the folder to create the SQL Server cluster in. <br>To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. The maximum string length in characters is 50.
+security_group_ids[] | **string**<br>User security groups 
 
 
 ### ConfigSpec {#ConfigSpec2}
@@ -839,8 +860,9 @@ folder_id | **string**<br>ID of the folder to create the SQL Server cluster in. 
 Field | Description
 --- | ---
 version | **string**<br><ul><li>2016sp2</li></ul> 
-sqlserver_config | **oneof:** `sqlserver_config_2016sp2`<br>Configuration of an SQL Server cluster.
-&nbsp;&nbsp;sqlserver_config_2016sp2 | **[config.SQLServerConfig2016sp2](#SQLServerConfig2016sp2)**<br>Configuration for an SQL Server 2016 SP2 cluster. 
+sqlserver_config | **oneof:** `sqlserver_config_2016sp2std` or `sqlserver_config_2016sp2ent`<br>Configuration of an SQL Server cluster.
+&nbsp;&nbsp;sqlserver_config_2016sp2std | **[config.SQLServerConfig2016sp2std](#SQLServerConfig2016sp2std)**<br>Configuration for an SQL Server 2016 SP2 Standard edition cluster. 
+&nbsp;&nbsp;sqlserver_config_2016sp2ent | **[config.SQLServerConfig2016sp2ent](#SQLServerConfig2016sp2ent)**<br>Configuration for an SQL Server 2016 SP2 Enterprise edition cluster. 
 resources | **[Resources](#Resources10)**<br>Resources allocated to SQL Server hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Start time for the daily backup in UTC timezone 
 
@@ -903,6 +925,7 @@ config | **[ClusterConfig](#ClusterConfig8)**<br>Configuration of the SQL Server
 network_id | **string**<br>ID of the network the cluster belongs to. 
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is in degraded state ([Host.health](#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li><ul/>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+security_group_ids[] | **string**<br>User security groups 
 
 
 ### Monitoring {#Monitoring8}
@@ -919,8 +942,9 @@ link | **string**<br>Link to the monitoring system charts for the SQL Server clu
 Field | Description
 --- | ---
 version | **string**<br>Version of the SQL Server. 
-sqlserver_config | **oneof:** `sqlserver_config_2016sp2`<br>Configuration of the SQL Server instances in the cluster.
-&nbsp;&nbsp;sqlserver_config_2016sp2 | **[config.SQLServerConfigSet2016sp2](#SQLServerConfigSet2016sp2)**<br>Configuration of the SQL Server 2016sp2 instance. 
+sqlserver_config | **oneof:** `sqlserver_config_2016sp2std` or `sqlserver_config_2016sp2ent`<br>Configuration of the SQL Server instances in the cluster.
+&nbsp;&nbsp;sqlserver_config_2016sp2std | **[config.SQLServerConfigSet2016sp2std](#SQLServerConfigSet2016sp2std)**<br>Configuration of the SQL Server 2016sp2 standard edition instance. 
+&nbsp;&nbsp;sqlserver_config_2016sp2ent | **[config.SQLServerConfigSet2016sp2ent](#SQLServerConfigSet2016sp2ent)**<br>Configuration of the SQL Server 2016sp2 enterprise edition instance. 
 resources | **[Resources](#Resources11)**<br>Resources allocated to SQL Server hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Start time for the daily backup in UTC timezone 
 

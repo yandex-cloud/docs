@@ -1200,6 +1200,11 @@ components:
           $ref: '#/components/schemas/ClusterHealth_in_Cluster_health'
         status:
           $ref: '#/components/schemas/ClusterStatus_in_Cluster_status'
+        securityGroupIds:
+          description: User security groups
+          type: array
+          items:
+            type: string
     ClusterEnvironment:
       description: |2-
          - PRODUCTION: stable environment with a conservative update policy when only hotfixes are applied during regular maintenance.
@@ -1375,6 +1380,11 @@ components:
           type: string
         subnetId:
           description: IDs of subnets to create brokers in.
+          type: array
+          items:
+            type: string
+        securityGroupIds:
+          description: User security groups
           type: array
           items:
             type: string
@@ -2240,6 +2250,11 @@ components:
             The maximum string length in characters is 63.
             Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
           type: string
+        securityGroupIds:
+          description: User security groups
+          type: array
+          items:
+            type: string
     UpdateTopicMetadata:
       type: object
       properties:

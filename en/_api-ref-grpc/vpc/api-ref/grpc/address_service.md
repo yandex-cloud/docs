@@ -4,23 +4,23 @@ editable: false
 
 # AddressService
 
-
+A set of methods for managing Address resources.
 
 | Call | Description |
 | --- | --- |
-| [Get](#Get) |  |
-| [GetByValue](#GetByValue) |  |
-| [List](#List) |  |
-| [Create](#Create) |  |
-| [Update](#Update) |  |
-| [Delete](#Delete) |  |
-| [ListOperations](#ListOperations) |  |
+| [Get](#Get) | Returns the specified Address resource. |
+| [GetByValue](#GetByValue) | Returns the specified Address resource by a given value. |
+| [List](#List) | Retrieves the list of Address resources in the specified folder. |
+| [Create](#Create) | Creates an address in the specified folder and network. |
+| [Update](#Update) | Updates the specified address. |
+| [Delete](#Delete) | Deletes the specified address. |
+| [ListOperations](#ListOperations) | List operations for the specified address. |
 
 ## Calls AddressService {#calls}
 
 ## Get {#Get}
 
-
+Returns the specified Address resource. <br>To get the list of all available Address resources, make a [List](#List) request.
 
 **rpc Get ([GetAddressRequest](#GetAddressRequest)) returns ([Address](#Address))**
 
@@ -28,45 +28,45 @@ editable: false
 
 Field | Description
 --- | ---
-address_id | **string**<br> 
+address_id | **string**<br>Required. ID of the Address resource to return. <br>To get Address resource ID make a [AddressService.List](#List) request. The maximum string length in characters is 50.
 
 
 ### Address {#Address}
 
 Field | Description
 --- | ---
-id | **string**<br> 
-folder_id | **string**<br> 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
-name | **string**<br> 
-description | **string**<br> 
-labels | **map<string,string>**<br> 
-address | **oneof:** `external_ipv4_address`<br>
-&nbsp;&nbsp;external_ipv4_address | **[ExternalIpv4Address](#ExternalIpv4Address)**<br> 
-reserved | **bool**<br> 
-used | **bool**<br> 
+id | **string**<br>ID of the address. Generated at creation time. 
+folder_id | **string**<br>ID of the folder that the address belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+name | **string**<br>Name of the address. The name is unique within the folder. 
+description | **string**<br>Description of the address. 
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
+address | **oneof:** `external_ipv4_address`<br>External ipv4 address specification.
+&nbsp;&nbsp;external_ipv4_address | **[ExternalIpv4Address](#ExternalIpv4Address)**<br>External ipv4 address specification. 
+reserved | **bool**<br>Specifies if address is reserved or not. 
+used | **bool**<br>Specifies if address is used or not. 
 
 
 ### ExternalIpv4Address {#ExternalIpv4Address}
 
 Field | Description
 --- | ---
-address | **string**<br> 
-zone_id | **string**<br> 
-requirements | **[AddressRequirements](#AddressRequirements)**<br> 
+address | **string**<br>Value of address. 
+zone_id | **string**<br>Availability zone from which the address will be allocated. 
+requirements | **[AddressRequirements](#AddressRequirements)**<br>Parameters of the allocated address, for example DDoS Protection. 
 
 
 ### AddressRequirements {#AddressRequirements}
 
 Field | Description
 --- | ---
-ddos_protection_provider | **string**<br> 
-outgoing_smtp_capability | **string**<br> 
+ddos_protection_provider | **string**<br>DDoS protection provider ID. 
+outgoing_smtp_capability | **string**<br>Capability to send SMTP traffic. 
 
 
 ## GetByValue {#GetByValue}
 
-
+Returns the specified Address resource by a given value. <br>To get the list of all available Address resources, make a [List](#List) request.
 
 **rpc GetByValue ([GetAddressByValueRequest](#GetAddressByValueRequest)) returns ([Address](#Address1))**
 
@@ -74,46 +74,46 @@ outgoing_smtp_capability | **string**<br>
 
 Field | Description
 --- | ---
-address | **oneof:** `external_ipv4_address`<br>
-&nbsp;&nbsp;external_ipv4_address | **string**<br> 
+address | **oneof:** `external_ipv4_address`<br>External ipv4 address specification.
+&nbsp;&nbsp;external_ipv4_address | **string**<br>External ipv4 address specification. 
 
 
 ### Address {#Address1}
 
 Field | Description
 --- | ---
-id | **string**<br> 
-folder_id | **string**<br> 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
-name | **string**<br> 
-description | **string**<br> 
-labels | **map<string,string>**<br> 
-address | **oneof:** `external_ipv4_address`<br>
-&nbsp;&nbsp;external_ipv4_address | **[ExternalIpv4Address](#ExternalIpv4Address1)**<br> 
-reserved | **bool**<br> 
-used | **bool**<br> 
+id | **string**<br>ID of the address. Generated at creation time. 
+folder_id | **string**<br>ID of the folder that the address belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+name | **string**<br>Name of the address. The name is unique within the folder. 
+description | **string**<br>Description of the address. 
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
+address | **oneof:** `external_ipv4_address`<br>External ipv4 address specification.
+&nbsp;&nbsp;external_ipv4_address | **[ExternalIpv4Address](#ExternalIpv4Address1)**<br>External ipv4 address specification. 
+reserved | **bool**<br>Specifies if address is reserved or not. 
+used | **bool**<br>Specifies if address is used or not. 
 
 
 ### ExternalIpv4Address {#ExternalIpv4Address1}
 
 Field | Description
 --- | ---
-address | **string**<br> 
-zone_id | **string**<br> 
-requirements | **[AddressRequirements](#AddressRequirements1)**<br> 
+address | **string**<br>Value of address. 
+zone_id | **string**<br>Availability zone from which the address will be allocated. 
+requirements | **[AddressRequirements](#AddressRequirements1)**<br>Parameters of the allocated address, for example DDoS Protection. 
 
 
 ### AddressRequirements {#AddressRequirements1}
 
 Field | Description
 --- | ---
-ddos_protection_provider | **string**<br> 
-outgoing_smtp_capability | **string**<br> 
+ddos_protection_provider | **string**<br>DDoS protection provider ID. 
+outgoing_smtp_capability | **string**<br>Capability to send SMTP traffic. 
 
 
 ## List {#List}
 
-
+Retrieves the list of Address resources in the specified folder.
 
 **rpc List ([ListAddressesRequest](#ListAddressesRequest)) returns ([ListAddressesResponse](#ListAddressesResponse))**
 
@@ -121,56 +121,56 @@ outgoing_smtp_capability | **string**<br>
 
 Field | Description
 --- | ---
-folder_id | **string**<br> 
-page_size | **int64**<br> 
-page_token | **string**<br> 
-filter | **string**<br> 
+folder_id | **string**<br>Required. ID of the folder to list addresses in. <br>To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. The maximum string length in characters is 50.
+page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListAddressesResponse.next_page_token](#ListAddressesResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListAddressesResponse.next_page_token](#ListAddressesResponse) returned by a previous list request. The maximum string length in characters is 100.
+filter | **string**<br><ol><li>The field name. Currently you can use filtering only on [Address.name](#Address2) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol> 
 
 
 ### ListAddressesResponse {#ListAddressesResponse}
 
 Field | Description
 --- | ---
-addresses[] | **[Address](#Address2)**<br> 
-next_page_token | **string**<br> 
+addresses[] | **[Address](#Address2)**<br>List of addresses. 
+next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListAddressesRequest.page_size](#ListAddressesRequest), use `next_page_token` as the value for the [ListAddressesRequest.page_token](#ListAddressesRequest) parameter in the next list request. <br>Each subsequent page will have its own `next_page_token` to continue paging through the results. 
 
 
 ### Address {#Address2}
 
 Field | Description
 --- | ---
-id | **string**<br> 
-folder_id | **string**<br> 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
-name | **string**<br> 
-description | **string**<br> 
-labels | **map<string,string>**<br> 
-address | **oneof:** `external_ipv4_address`<br>
-&nbsp;&nbsp;external_ipv4_address | **[ExternalIpv4Address](#ExternalIpv4Address2)**<br> 
-reserved | **bool**<br> 
-used | **bool**<br> 
+id | **string**<br>ID of the address. Generated at creation time. 
+folder_id | **string**<br>ID of the folder that the address belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+name | **string**<br>Name of the address. The name is unique within the folder. 
+description | **string**<br>Description of the address. 
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
+address | **oneof:** `external_ipv4_address`<br>External ipv4 address specification.
+&nbsp;&nbsp;external_ipv4_address | **[ExternalIpv4Address](#ExternalIpv4Address2)**<br>External ipv4 address specification. 
+reserved | **bool**<br>Specifies if address is reserved or not. 
+used | **bool**<br>Specifies if address is used or not. 
 
 
 ### ExternalIpv4Address {#ExternalIpv4Address2}
 
 Field | Description
 --- | ---
-address | **string**<br> 
-zone_id | **string**<br> 
-requirements | **[AddressRequirements](#AddressRequirements2)**<br> 
+address | **string**<br>Value of address. 
+zone_id | **string**<br>Availability zone from which the address will be allocated. 
+requirements | **[AddressRequirements](#AddressRequirements2)**<br>Parameters of the allocated address, for example DDoS Protection. 
 
 
 ### AddressRequirements {#AddressRequirements2}
 
 Field | Description
 --- | ---
-ddos_protection_provider | **string**<br> 
-outgoing_smtp_capability | **string**<br> 
+ddos_protection_provider | **string**<br>DDoS protection provider ID. 
+outgoing_smtp_capability | **string**<br>Capability to send SMTP traffic. 
 
 
 ## Create {#Create}
 
-
+Creates an address in the specified folder and network.
 
 **rpc Create ([CreateAddressRequest](#CreateAddressRequest)) returns ([operation.Operation](#Operation))**
 
@@ -182,29 +182,29 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-folder_id | **string**<br> 
-name | **string**<br> 
-description | **string**<br> 
-labels | **map<string,string>**<br> 
-address_spec | **oneof:** `external_ipv4_address_spec`<br>
-&nbsp;&nbsp;external_ipv4_address_spec | **[ExternalIpv4AddressSpec](#ExternalIpv4AddressSpec)**<br> 
+folder_id | **string**<br>Required. ID of the folder to create a address in. <br>To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/grpc/folder_service#List) request. The maximum string length in characters is 50.
+name | **string**<br>Name of the address. The name must be unique within the folder. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+description | **string**<br>Description of the address. The maximum string length in characters is 256.
+labels | **map<string,string>**<br>Address labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+address_spec | **oneof:** `external_ipv4_address_spec`<br>External ipv4 address specification.
+&nbsp;&nbsp;external_ipv4_address_spec | **[ExternalIpv4AddressSpec](#ExternalIpv4AddressSpec)**<br>External ipv4 address specification. 
 
 
 ### ExternalIpv4AddressSpec {#ExternalIpv4AddressSpec}
 
 Field | Description
 --- | ---
-address | **string**<br> 
-zone_id | **string**<br> 
-requirements | **[AddressRequirements](#AddressRequirements3)**<br> 
+address | **string**<br>Value of address. 
+zone_id | **string**<br>Availability zone from which the address will be allocated. 
+requirements | **[AddressRequirements](#AddressRequirements3)**<br>Parameters of the allocated address, for example DDoS Protection. 
 
 
 ### AddressRequirements {#AddressRequirements3}
 
 Field | Description
 --- | ---
-ddos_protection_provider | **string**<br> 
-outgoing_smtp_capability | **string**<br> 
+ddos_protection_provider | **string**<br>DDoS protection provider ID. 
+outgoing_smtp_capability | **string**<br>Capability to send SMTP traffic. 
 
 
 ### Operation {#Operation}
@@ -227,45 +227,45 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-address_id | **string**<br> 
+address_id | **string**<br>ID of the address that is being created. 
 
 
 ### Address {#Address3}
 
 Field | Description
 --- | ---
-id | **string**<br> 
-folder_id | **string**<br> 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
-name | **string**<br> 
-description | **string**<br> 
-labels | **map<string,string>**<br> 
-address | **oneof:** `external_ipv4_address`<br>
-&nbsp;&nbsp;external_ipv4_address | **[ExternalIpv4Address](#ExternalIpv4Address3)**<br> 
-reserved | **bool**<br> 
-used | **bool**<br> 
+id | **string**<br>ID of the address. Generated at creation time. 
+folder_id | **string**<br>ID of the folder that the address belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+name | **string**<br>Name of the address. The name is unique within the folder. 
+description | **string**<br>Description of the address. 
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
+address | **oneof:** `external_ipv4_address`<br>External ipv4 address specification.
+&nbsp;&nbsp;external_ipv4_address | **[ExternalIpv4Address](#ExternalIpv4Address3)**<br>External ipv4 address specification. 
+reserved | **bool**<br>Specifies if address is reserved or not. 
+used | **bool**<br>Specifies if address is used or not. 
 
 
 ### ExternalIpv4Address {#ExternalIpv4Address3}
 
 Field | Description
 --- | ---
-address | **string**<br> 
-zone_id | **string**<br> 
-requirements | **[AddressRequirements](#AddressRequirements4)**<br> 
+address | **string**<br>Value of address. 
+zone_id | **string**<br>Availability zone from which the address will be allocated. 
+requirements | **[AddressRequirements](#AddressRequirements4)**<br>Parameters of the allocated address, for example DDoS Protection. 
 
 
 ### AddressRequirements {#AddressRequirements4}
 
 Field | Description
 --- | ---
-ddos_protection_provider | **string**<br> 
-outgoing_smtp_capability | **string**<br> 
+ddos_protection_provider | **string**<br>DDoS protection provider ID. 
+outgoing_smtp_capability | **string**<br>Capability to send SMTP traffic. 
 
 
 ## Update {#Update}
 
-
+Updates the specified address.
 
 **rpc Update ([UpdateAddressRequest](#UpdateAddressRequest)) returns ([operation.Operation](#Operation1))**
 
@@ -277,12 +277,12 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-address_id | **string**<br> 
-update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br> 
-name | **string**<br> 
-description | **string**<br> 
-labels | **map<string,string>**<br> 
-reserved | **bool**<br> 
+address_id | **string**<br>Required. ID of the address to update. <br>To get the address ID make a [AddressService.List](#List) request. The maximum string length in characters is 50.
+update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which attributes of the Address should be updated. 
+name | **string**<br>New name for the address. The name must be unique within the folder. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+description | **string**<br>New description of the address. The maximum string length in characters is 256.
+labels | **map<string,string>**<br><ol><li>Get the current set of labels with a [AddressService.Get](#Get) request. </li><li>Add or remove a label in this set. </li><li>Send the new set in this field.</li></ol> No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+reserved | **bool**<br>Specifies if address is reserved or not. 
 
 
 ### Operation {#Operation1}
@@ -305,45 +305,45 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-address_id | **string**<br> 
+address_id | **string**<br>ID of the Address that is being updated. 
 
 
 ### Address {#Address4}
 
 Field | Description
 --- | ---
-id | **string**<br> 
-folder_id | **string**<br> 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
-name | **string**<br> 
-description | **string**<br> 
-labels | **map<string,string>**<br> 
-address | **oneof:** `external_ipv4_address`<br>
-&nbsp;&nbsp;external_ipv4_address | **[ExternalIpv4Address](#ExternalIpv4Address4)**<br> 
-reserved | **bool**<br> 
-used | **bool**<br> 
+id | **string**<br>ID of the address. Generated at creation time. 
+folder_id | **string**<br>ID of the folder that the address belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+name | **string**<br>Name of the address. The name is unique within the folder. 
+description | **string**<br>Description of the address. 
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
+address | **oneof:** `external_ipv4_address`<br>External ipv4 address specification.
+&nbsp;&nbsp;external_ipv4_address | **[ExternalIpv4Address](#ExternalIpv4Address4)**<br>External ipv4 address specification. 
+reserved | **bool**<br>Specifies if address is reserved or not. 
+used | **bool**<br>Specifies if address is used or not. 
 
 
 ### ExternalIpv4Address {#ExternalIpv4Address4}
 
 Field | Description
 --- | ---
-address | **string**<br> 
-zone_id | **string**<br> 
-requirements | **[AddressRequirements](#AddressRequirements5)**<br> 
+address | **string**<br>Value of address. 
+zone_id | **string**<br>Availability zone from which the address will be allocated. 
+requirements | **[AddressRequirements](#AddressRequirements5)**<br>Parameters of the allocated address, for example DDoS Protection. 
 
 
 ### AddressRequirements {#AddressRequirements5}
 
 Field | Description
 --- | ---
-ddos_protection_provider | **string**<br> 
-outgoing_smtp_capability | **string**<br> 
+ddos_protection_provider | **string**<br>DDoS protection provider ID. 
+outgoing_smtp_capability | **string**<br>Capability to send SMTP traffic. 
 
 
 ## Delete {#Delete}
 
-
+Deletes the specified address.
 
 **rpc Delete ([DeleteAddressRequest](#DeleteAddressRequest)) returns ([operation.Operation](#Operation2))**
 
@@ -355,7 +355,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-address_id | **string**<br> 
+address_id | **string**<br>Required. ID of the address to delete. <br>To get a address ID make a [AddressService.List](#List) request. The maximum string length in characters is 50.
 
 
 ### Operation {#Operation2}
@@ -378,12 +378,12 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-address_id | **string**<br> 
+address_id | **string**<br>ID of the address that is being deleted. 
 
 
 ## ListOperations {#ListOperations}
 
-
+List operations for the specified address.
 
 **rpc ListOperations ([ListAddressOperationsRequest](#ListAddressOperationsRequest)) returns ([ListAddressOperationsResponse](#ListAddressOperationsResponse))**
 
@@ -391,17 +391,17 @@ address_id | **string**<br>
 
 Field | Description
 --- | ---
-address_id | **string**<br> 
-page_size | **int64**<br> 
-page_token | **string**<br> 
+address_id | **string**<br>Required. ID of the address to list operations for. <br>To get a address ID make a [tAddressService.List] request. The maximum string length in characters is 50.
+page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListAddressOperationsResponse.next_page_token](#ListAddressOperationsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListAddressOperationsResponse.next_page_token](#ListAddressOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
 
 ### ListAddressOperationsResponse {#ListAddressOperationsResponse}
 
 Field | Description
 --- | ---
-operations[] | **[operation.Operation](#Operation3)**<br> 
-next_page_token | **string**<br> 
+operations[] | **[operation.Operation](#Operation3)**<br>List of operations for the specified address. 
+next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListAddressOperationsRequest.page_size](#ListAddressOperationsRequest), use `next_page_token` as the value for the [ListAddressOperationsRequest.page_token](#ListAddressOperationsRequest) parameter in the next list request. <br>Each subsequent page will have its own `next_page_token` to continue paging through the results. 
 
 
 ### Operation {#Operation3}

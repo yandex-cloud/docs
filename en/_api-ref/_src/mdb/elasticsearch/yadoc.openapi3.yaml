@@ -991,6 +991,11 @@ components:
           $ref: '#/components/schemas/ClusterHealth_in_Cluster_health'
         status:
           $ref: '#/components/schemas/ClusterStatus_in_Cluster_status'
+        securityGroupIds:
+          description: User security groups
+          type: array
+          items:
+            type: string
     ClusterConfig:
       type: object
       properties:
@@ -1122,6 +1127,11 @@ components:
 
             The maximum string length in characters is 50.
           type: string
+        securityGroupIds:
+          description: User security groups
+          type: array
+          items:
+            type: string
     CreateUserMetadata:
       type: object
       properties:
@@ -1708,6 +1718,11 @@ components:
             The maximum string length in characters is 63.
             Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
           type: string
+        securityGroupIds:
+          description: User security groups
+          type: array
+          items:
+            type: string
     UpdateUserMetadata:
       type: object
       properties:

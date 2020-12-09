@@ -38,7 +38,6 @@ targetGroupId | Required.
         ]
       },
       "target": {
-        "port": "string",
         "subnetId": "string",
         "ipAddress": "string"
       }
@@ -57,6 +56,5 @@ targetStates[].<br>status.<br>zoneStatuses[].<br>zoneId | **string**<br><p>Requi
 targetStates[].<br>status.<br>zoneStatuses[].<br>status | **string**<br><p>Healthcheck status of target for the specific zone.</p> 
 targetStates[].<br>status.<br>zoneStatuses[].<br>failedActiveHc | **boolean** (boolean)<br><p>Whether UNHEALTHY status was set due to failed active checks or not.</p> 
 targetStates[].<br>target | **object**<br><p>Required.</p> 
-targetStates[].<br>target.<br>port | **string** (int64)<br><p>Endpoint port. Takes priority over Backend::port setting.</p> <p>Acceptable values are 0 to 65535, inclusive.</p> 
 targetStates[].<br>target.<br>subnetId | **string**<br><p>ID of the subnet that target connected to.</p> 
 targetStates[].<br>target.<br>ipAddress | **string**<br>

@@ -50,7 +50,6 @@ Field | Description
 --- | ---
 address_type | **oneof:** `ip_address`<br>
 &nbsp;&nbsp;ip_address | **string**<br> 
-port | **int64**<br>Endpoint port. Takes priority over Backend::port setting. Acceptable values are 0 to 65535, inclusive.
 subnet_id | **string**<br>ID of the subnet that target connected to. 
 
 
@@ -96,7 +95,6 @@ Field | Description
 --- | ---
 address_type | **oneof:** `ip_address`<br>
 &nbsp;&nbsp;ip_address | **string**<br> 
-port | **int64**<br>Endpoint port. Takes priority over Backend::port setting. Acceptable values are 0 to 65535, inclusive.
 subnet_id | **string**<br>ID of the subnet that target connected to. 
 
 
@@ -127,7 +125,6 @@ Field | Description
 --- | ---
 address_type | **oneof:** `ip_address`<br>
 &nbsp;&nbsp;ip_address | **string**<br> 
-port | **int64**<br>Endpoint port. Takes priority over Backend::port setting. Acceptable values are 0 to 65535, inclusive.
 subnet_id | **string**<br>ID of the subnet that target connected to. 
 
 
@@ -172,7 +169,6 @@ Field | Description
 --- | ---
 address_type | **oneof:** `ip_address`<br>
 &nbsp;&nbsp;ip_address | **string**<br> 
-port | **int64**<br>Endpoint port. Takes priority over Backend::port setting. Acceptable values are 0 to 65535, inclusive.
 subnet_id | **string**<br>ID of the subnet that target connected to. 
 
 
@@ -204,7 +200,6 @@ Field | Description
 --- | ---
 address_type | **oneof:** `ip_address`<br>
 &nbsp;&nbsp;ip_address | **string**<br> 
-port | **int64**<br>Endpoint port. Takes priority over Backend::port setting. Acceptable values are 0 to 65535, inclusive.
 subnet_id | **string**<br>ID of the subnet that target connected to. 
 
 
@@ -249,7 +244,6 @@ Field | Description
 --- | ---
 address_type | **oneof:** `ip_address`<br>
 &nbsp;&nbsp;ip_address | **string**<br> 
-port | **int64**<br>Endpoint port. Takes priority over Backend::port setting. Acceptable values are 0 to 65535, inclusive.
 subnet_id | **string**<br>ID of the subnet that target connected to. 
 
 
@@ -317,7 +311,6 @@ Field | Description
 --- | ---
 address_type | **oneof:** `ip_address`<br>
 &nbsp;&nbsp;ip_address | **string**<br> 
-port | **int64**<br>Endpoint port. Takes priority over Backend::port setting. Acceptable values are 0 to 65535, inclusive.
 subnet_id | **string**<br>ID of the subnet that target connected to. 
 
 
@@ -362,7 +355,6 @@ Field | Description
 --- | ---
 address_type | **oneof:** `ip_address`<br>
 &nbsp;&nbsp;ip_address | **string**<br> 
-port | **int64**<br>Endpoint port. Takes priority over Backend::port setting. Acceptable values are 0 to 65535, inclusive.
 subnet_id | **string**<br>ID of the subnet that target connected to. 
 
 
@@ -390,7 +382,6 @@ Field | Description
 --- | ---
 address_type | **oneof:** `ip_address`<br>
 &nbsp;&nbsp;ip_address | **string**<br> 
-port | **int64**<br>Endpoint port. Takes priority over Backend::port setting. Acceptable values are 0 to 65535, inclusive.
 subnet_id | **string**<br>ID of the subnet that target connected to. 
 
 
@@ -435,7 +426,6 @@ Field | Description
 --- | ---
 address_type | **oneof:** `ip_address`<br>
 &nbsp;&nbsp;ip_address | **string**<br> 
-port | **int64**<br>Endpoint port. Takes priority over Backend::port setting. Acceptable values are 0 to 65535, inclusive.
 subnet_id | **string**<br>ID of the subnet that target connected to. 
 
 

@@ -35,8 +35,11 @@ A set of methods for managing virtual hosts of HTTP Router resource.
         "route": {
           "backendGroupId": "string",
           "timeout": "string",
+          "idleTimeout": "string",
           "prefixRewrite": "string",
-          "supportWebsockets": true,
+          "upgradeTypes": [
+            "string"
+          ],
 
           // `routes[].http.route` includes only one of the fields `hostRewrite`, `autoHostRewrite`
           "hostRewrite": "string",
@@ -46,7 +49,16 @@ A set of methods for managing virtual hosts of HTTP Router resource.
         },
         "redirect": {
           "replaceScheme": "string",
-          "responseCode": "string"
+          "replaceHost": "string",
+          "replacePort": "string",
+          "removeQuery": true,
+          "responseCode": "string",
+
+          // `routes[].http.redirect` includes only one of the fields `replacePath`, `replacePrefix`
+          "replacePath": "string",
+          "replacePrefix": "string",
+          // end of the list of possible fields`routes[].http.redirect`
+
         },
         "directResponse": {
           "status": "string",
@@ -73,6 +85,7 @@ A set of methods for managing virtual hosts of HTTP Router resource.
         "route": {
           "backendGroupId": "string",
           "maxTimeout": "string",
+          "idleTimeout": "string",
 
           // `routes[].grpc.route` includes only one of the fields `hostRewrite`, `autoHostRewrite`
           "hostRewrite": "string",
@@ -133,14 +146,20 @@ routes[].<br>http.<br>match.<br>path.<br>exactMatch | **string** <br>`routes[].h
 routes[].<br>http.<br>match.<br>path.<br>prefixMatch | **string** <br>`routes[].http.match.path` includes only one of the fields `exactMatch`, `prefixMatch`<br><br>
 routes[].<br>http.<br>route | **object** <br>`routes[].http` includes only one of the fields `route`, `redirect`, `directResponse`<br><br>
 routes[].<br>http.<br>route.<br>backendGroupId | **string**<br><p>Required. Backend group to route requests.</p> 
-routes[].<br>http.<br>route.<br>timeout | **string**<br><p>If not set, default is 60 seconds.</p> 
+routes[].<br>http.<br>route.<br>timeout | **string**<br><p>Specifies the request timeout (overall time request processing is allowed to take) for the route. If not set, default is 60 seconds.</p> 
+routes[].<br>http.<br>route.<br>idleTimeout | **string**<br><p>Specifies the idle timeout (time without any data transfer for the active request) for the route. It is useful for streaming scenarios (i.e. long-polling, server-sent events) - one should set idle_timeout to something meaningful and timeout to the maximum time the stream is allowed to be alive. If not specified, there is no per-route idle timeout.</p> 
 routes[].<br>http.<br>route.<br>prefixRewrite | **string**<br><p>If not empty, matched path prefix will be replaced by this value.</p> 
-routes[].<br>http.<br>route.<br>supportWebsockets | **boolean** (boolean)<br><p>Allows websocket upgrades.</p> 
+routes[].<br>http.<br>route.<br>upgradeTypes[] | **string**<br><p>Only specified upgrade types will be allowed. For example, &quot;websocket&quot;.</p> 
 routes[].<br>http.<br>route.<br>hostRewrite | **string** <br>`routes[].http.route` includes only one of the fields `hostRewrite`, `autoHostRewrite`<br><br>
 routes[].<br>http.<br>route.<br>autoHostRewrite | **boolean** (boolean) <br>`routes[].http.route` includes only one of the fields `hostRewrite`, `autoHostRewrite`<br><br>
 routes[].<br>http.<br>redirect | **object** <br>`routes[].http` includes only one of the fields `route`, `redirect`, `directResponse`<br><br>
-routes[].<br>http.<br>redirect.<br>replaceScheme | **string**<br><p>Replaces scheme. If the original scheme is <code>http</code> or <code>https</code>, will also remove the 80 or 443 port, if present.</p> 
-routes[].<br>http.<br>redirect.<br>responseCode | **string**<br><p>The HTTP status code to use in the redirect response.</p> <ul> <li>MOVED_PERMANENTLY: Moved Permanently HTTP Status Code - 301.</li> <li>FOUND: Found HTTP Status Code - 302.</li> <li>SEE_OTHER: See Other HTTP Status Code - 303.</li> <li>TEMPORARY_REDIRECT: Temporary Redirect HTTP Status Code - 307.</li> <li>PERMANENT_REDIRECT: Permanent Redirect HTTP Status Code - 308.</li> </ul> 
+routes[].<br>http.<br>redirect.<br>replaceScheme | **string**<br><p>Replaces scheme. If the original scheme is `http` or `https`, will also remove the 80 or 443 port, if present.</p> 
+routes[].<br>http.<br>redirect.<br>replaceHost | **string**<br><p>Replaces hostname.</p> 
+routes[].<br>http.<br>redirect.<br>replacePort | **string** (int64)<br><p>Replaces port.</p> 
+routes[].<br>http.<br>redirect.<br>removeQuery | **boolean** (boolean)<br><p>Remove query part.</p> 
+routes[].<br>http.<br>redirect.<br>responseCode | **string**<br>The HTTP status code to use in the redirect response.<br><ul> <li>MOVED_PERMANENTLY: Moved Permanently HTTP Status Code - 301.</li> <li>FOUND: Found HTTP Status Code - 302.</li> <li>SEE_OTHER: See Other HTTP Status Code - 303.</li> <li>TEMPORARY_REDIRECT: Temporary Redirect HTTP Status Code - 307.</li> <li>PERMANENT_REDIRECT: Permanent Redirect HTTP Status Code - 308.</li> </ul> 
+routes[].<br>http.<br>redirect.<br>replacePath | **string** <br>`routes[].http.redirect` includes only one of the fields `replacePath`, `replacePrefix`<br><br><p>Replace path.</p> 
+routes[].<br>http.<br>redirect.<br>replacePrefix | **string** <br>`routes[].http.redirect` includes only one of the fields `replacePath`, `replacePrefix`<br><br><p>Replace only matched prefix. Example: match:    { prefix_match: &quot;/some&quot; } redirect: { replace_prefix: &quot;/other&quot; } will redirect &quot;/something&quot; to &quot;/otherthing&quot;</p> 
 routes[].<br>http.<br>directResponse | **object** <br>`routes[].http` includes only one of the fields `route`, `redirect`, `directResponse`<br><br>
 routes[].<br>http.<br>directResponse.<br>status | **string** (int64)<br><p>HTTP response status.</p> <p>Acceptable values are 100 to 599, inclusive.</p> 
 routes[].<br>http.<br>directResponse.<br>body | **object**<br><p>Optional response body.</p> 
@@ -153,6 +172,7 @@ routes[].<br>grpc.<br>match.<br>fqmn.<br>prefixMatch | **string** <br>`routes[].
 routes[].<br>grpc.<br>route | **object** <br>`routes[].grpc` includes only one of the fields `route`, `statusResponse`<br><br>
 routes[].<br>grpc.<br>route.<br>backendGroupId | **string**<br><p>Required. Backend group to route requests.</p> 
 routes[].<br>grpc.<br>route.<br>maxTimeout | **string**<br><p>Lower timeout may be specified by the client (using grpc-timeout header). If not set, default is 60 seconds.</p> 
+routes[].<br>grpc.<br>route.<br>idleTimeout | **string**<br><p>Specifies the idle timeout (time without any data transfer for the active request) for the route. It is useful for streaming scenarios - one should set idle_timeout to something meaningful and max_timeout to the maximum time the stream is allowed to be alive. If not specified, there is no per-route idle timeout.</p> 
 routes[].<br>grpc.<br>route.<br>hostRewrite | **string** <br>`routes[].grpc.route` includes only one of the fields `hostRewrite`, `autoHostRewrite`<br><br>
 routes[].<br>grpc.<br>route.<br>autoHostRewrite | **boolean** (boolean) <br>`routes[].grpc.route` includes only one of the fields `hostRewrite`, `autoHostRewrite`<br><br>
 routes[].<br>grpc.<br>statusResponse | **object** <br>`routes[].grpc` includes only one of the fields `route`, `statusResponse`<br><br>

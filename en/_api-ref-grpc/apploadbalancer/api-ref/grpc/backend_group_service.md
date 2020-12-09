@@ -59,7 +59,7 @@ backends[] | **[HttpBackend](#HttpBackend)**<br>
 Field | Description
 --- | ---
 name | **string**<br>Required. Name. 
-backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If not set, backend will be disabled. 
+backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If set to zero, backend will be disabled. If not set in all backends, they all will have equal weights. Must either set or unset in all backeds of the group. 
 load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig)**<br> 
 port | **int64**<br>Port for all targets from target group. Acceptable values are 0 to 65535, inclusive.
 backend_type | **oneof:** `target_groups`<br>
@@ -75,6 +75,7 @@ Field | Description
 --- | ---
 panic_threshold | **int64**<br>If percentage of healthy hosts in the backend is lower than panic_threshold, traffic will be routed to all backends no matter what the health status is. This helps to avoid healthy backends overloading  when everything is bad. zero means no panic threshold. Acceptable values are 0 to 100, inclusive.
 locality_aware_routing_percent | **int64**<br>Percent of traffic to be sent to the same availability zone. The rest will be equally divided between other zones. Acceptable values are 0 to 100, inclusive.
+strict_locality | **bool**<br>If set, will route requests only to the same availability zone. Balancer won't know about endpoints in other zones. 
 
 
 ### TargetGroupsBackend {#TargetGroupsBackend}
@@ -129,18 +130,7 @@ service_name | **string**<br>Optional service name for grpc.health.v1.HealthChec
 Field | Description
 --- | ---
 sni | **string**<br>SNI string for TLS connections. 
-tls_options | **[TlsOptions](#TlsOptions)**<br>Common TLS options used for backend TLS connections. 
 validation_context | **[ValidationContext](#ValidationContext)**<br>Validation context for backend TLS connections. 
-
-
-### TlsOptions {#TlsOptions}
-
-Field | Description
---- | ---
-tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
-tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
-cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
-ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
 
 
 ### ValidationContext {#ValidationContext}
@@ -164,7 +154,7 @@ backends[] | **[GrpcBackend](#GrpcBackend)**<br>
 Field | Description
 --- | ---
 name | **string**<br>Required. Name. 
-backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If not set, backend will be disabled. 
+backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If set to zero, backend will be disabled. If not set in all backends, they all will have equal weights. Must either set or unset in all backeds of the group. 
 load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig1)**<br> 
 port | **int64**<br>Port for all targets from target group. Acceptable values are 0 to 65535, inclusive.
 backend_type | **oneof:** `target_groups`<br>
@@ -179,6 +169,7 @@ Field | Description
 --- | ---
 panic_threshold | **int64**<br>If percentage of healthy hosts in the backend is lower than panic_threshold, traffic will be routed to all backends no matter what the health status is. This helps to avoid healthy backends overloading  when everything is bad. zero means no panic threshold. Acceptable values are 0 to 100, inclusive.
 locality_aware_routing_percent | **int64**<br>Percent of traffic to be sent to the same availability zone. The rest will be equally divided between other zones. Acceptable values are 0 to 100, inclusive.
+strict_locality | **bool**<br>If set, will route requests only to the same availability zone. Balancer won't know about endpoints in other zones. 
 
 
 ### TargetGroupsBackend {#TargetGroupsBackend1}
@@ -233,18 +224,7 @@ service_name | **string**<br>Optional service name for grpc.health.v1.HealthChec
 Field | Description
 --- | ---
 sni | **string**<br>SNI string for TLS connections. 
-tls_options | **[TlsOptions](#TlsOptions1)**<br>Common TLS options used for backend TLS connections. 
 validation_context | **[ValidationContext](#ValidationContext1)**<br>Validation context for backend TLS connections. 
-
-
-### TlsOptions {#TlsOptions1}
-
-Field | Description
---- | ---
-tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
-tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
-cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
-ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
 
 
 ### ValidationContext {#ValidationContext1}
@@ -306,7 +286,7 @@ backends[] | **[HttpBackend](#HttpBackend1)**<br>
 Field | Description
 --- | ---
 name | **string**<br>Required. Name. 
-backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If not set, backend will be disabled. 
+backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If set to zero, backend will be disabled. If not set in all backends, they all will have equal weights. Must either set or unset in all backeds of the group. 
 load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig2)**<br> 
 port | **int64**<br>Port for all targets from target group. Acceptable values are 0 to 65535, inclusive.
 backend_type | **oneof:** `target_groups`<br>
@@ -322,6 +302,7 @@ Field | Description
 --- | ---
 panic_threshold | **int64**<br>If percentage of healthy hosts in the backend is lower than panic_threshold, traffic will be routed to all backends no matter what the health status is. This helps to avoid healthy backends overloading  when everything is bad. zero means no panic threshold. Acceptable values are 0 to 100, inclusive.
 locality_aware_routing_percent | **int64**<br>Percent of traffic to be sent to the same availability zone. The rest will be equally divided between other zones. Acceptable values are 0 to 100, inclusive.
+strict_locality | **bool**<br>If set, will route requests only to the same availability zone. Balancer won't know about endpoints in other zones. 
 
 
 ### TargetGroupsBackend {#TargetGroupsBackend2}
@@ -376,18 +357,7 @@ service_name | **string**<br>Optional service name for grpc.health.v1.HealthChec
 Field | Description
 --- | ---
 sni | **string**<br>SNI string for TLS connections. 
-tls_options | **[TlsOptions](#TlsOptions2)**<br>Common TLS options used for backend TLS connections. 
 validation_context | **[ValidationContext](#ValidationContext2)**<br>Validation context for backend TLS connections. 
-
-
-### TlsOptions {#TlsOptions2}
-
-Field | Description
---- | ---
-tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
-tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
-cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
-ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
 
 
 ### ValidationContext {#ValidationContext2}
@@ -411,7 +381,7 @@ backends[] | **[GrpcBackend](#GrpcBackend1)**<br>
 Field | Description
 --- | ---
 name | **string**<br>Required. Name. 
-backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If not set, backend will be disabled. 
+backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If set to zero, backend will be disabled. If not set in all backends, they all will have equal weights. Must either set or unset in all backeds of the group. 
 load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig3)**<br> 
 port | **int64**<br>Port for all targets from target group. Acceptable values are 0 to 65535, inclusive.
 backend_type | **oneof:** `target_groups`<br>
@@ -426,6 +396,7 @@ Field | Description
 --- | ---
 panic_threshold | **int64**<br>If percentage of healthy hosts in the backend is lower than panic_threshold, traffic will be routed to all backends no matter what the health status is. This helps to avoid healthy backends overloading  when everything is bad. zero means no panic threshold. Acceptable values are 0 to 100, inclusive.
 locality_aware_routing_percent | **int64**<br>Percent of traffic to be sent to the same availability zone. The rest will be equally divided between other zones. Acceptable values are 0 to 100, inclusive.
+strict_locality | **bool**<br>If set, will route requests only to the same availability zone. Balancer won't know about endpoints in other zones. 
 
 
 ### TargetGroupsBackend {#TargetGroupsBackend3}
@@ -480,18 +451,7 @@ service_name | **string**<br>Optional service name for grpc.health.v1.HealthChec
 Field | Description
 --- | ---
 sni | **string**<br>SNI string for TLS connections. 
-tls_options | **[TlsOptions](#TlsOptions3)**<br>Common TLS options used for backend TLS connections. 
 validation_context | **[ValidationContext](#ValidationContext3)**<br>Validation context for backend TLS connections. 
-
-
-### TlsOptions {#TlsOptions3}
-
-Field | Description
---- | ---
-tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
-tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
-cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
-ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
 
 
 ### ValidationContext {#ValidationContext3}
@@ -538,7 +498,7 @@ backends[] | **[HttpBackend](#HttpBackend2)**<br>
 Field | Description
 --- | ---
 name | **string**<br>Required. Name. 
-backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If not set, backend will be disabled. 
+backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If set to zero, backend will be disabled. If not set in all backends, they all will have equal weights. Must either set or unset in all backeds of the group. 
 load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig4)**<br> 
 port | **int64**<br>Port for all targets from target group. Acceptable values are 0 to 65535, inclusive.
 backend_type | **oneof:** `target_groups`<br>
@@ -554,6 +514,7 @@ Field | Description
 --- | ---
 panic_threshold | **int64**<br>If percentage of healthy hosts in the backend is lower than panic_threshold, traffic will be routed to all backends no matter what the health status is. This helps to avoid healthy backends overloading  when everything is bad. zero means no panic threshold. Acceptable values are 0 to 100, inclusive.
 locality_aware_routing_percent | **int64**<br>Percent of traffic to be sent to the same availability zone. The rest will be equally divided between other zones. Acceptable values are 0 to 100, inclusive.
+strict_locality | **bool**<br>If set, will route requests only to the same availability zone. Balancer won't know about endpoints in other zones. 
 
 
 ### TargetGroupsBackend {#TargetGroupsBackend4}
@@ -608,18 +569,7 @@ service_name | **string**<br>Optional service name for grpc.health.v1.HealthChec
 Field | Description
 --- | ---
 sni | **string**<br>SNI string for TLS connections. 
-tls_options | **[TlsOptions](#TlsOptions4)**<br>Common TLS options used for backend TLS connections. 
 validation_context | **[ValidationContext](#ValidationContext4)**<br>Validation context for backend TLS connections. 
-
-
-### TlsOptions {#TlsOptions4}
-
-Field | Description
---- | ---
-tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
-tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
-cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
-ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
 
 
 ### ValidationContext {#ValidationContext4}
@@ -643,7 +593,7 @@ backends[] | **[GrpcBackend](#GrpcBackend2)**<br>
 Field | Description
 --- | ---
 name | **string**<br>Required. Name. 
-backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If not set, backend will be disabled. 
+backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If set to zero, backend will be disabled. If not set in all backends, they all will have equal weights. Must either set or unset in all backeds of the group. 
 load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig5)**<br> 
 port | **int64**<br>Port for all targets from target group. Acceptable values are 0 to 65535, inclusive.
 backend_type | **oneof:** `target_groups`<br>
@@ -658,6 +608,7 @@ Field | Description
 --- | ---
 panic_threshold | **int64**<br>If percentage of healthy hosts in the backend is lower than panic_threshold, traffic will be routed to all backends no matter what the health status is. This helps to avoid healthy backends overloading  when everything is bad. zero means no panic threshold. Acceptable values are 0 to 100, inclusive.
 locality_aware_routing_percent | **int64**<br>Percent of traffic to be sent to the same availability zone. The rest will be equally divided between other zones. Acceptable values are 0 to 100, inclusive.
+strict_locality | **bool**<br>If set, will route requests only to the same availability zone. Balancer won't know about endpoints in other zones. 
 
 
 ### TargetGroupsBackend {#TargetGroupsBackend5}
@@ -712,18 +663,7 @@ service_name | **string**<br>Optional service name for grpc.health.v1.HealthChec
 Field | Description
 --- | ---
 sni | **string**<br>SNI string for TLS connections. 
-tls_options | **[TlsOptions](#TlsOptions5)**<br>Common TLS options used for backend TLS connections. 
 validation_context | **[ValidationContext](#ValidationContext5)**<br>Validation context for backend TLS connections. 
-
-
-### TlsOptions {#TlsOptions5}
-
-Field | Description
---- | ---
-tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
-tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
-cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
-ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
 
 
 ### ValidationContext {#ValidationContext5}
@@ -784,7 +724,7 @@ backends[] | **[HttpBackend](#HttpBackend3)**<br>
 Field | Description
 --- | ---
 name | **string**<br>Required. Name. 
-backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If not set, backend will be disabled. 
+backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If set to zero, backend will be disabled. If not set in all backends, they all will have equal weights. Must either set or unset in all backeds of the group. 
 load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig6)**<br> 
 port | **int64**<br>Port for all targets from target group. Acceptable values are 0 to 65535, inclusive.
 backend_type | **oneof:** `target_groups`<br>
@@ -800,6 +740,7 @@ Field | Description
 --- | ---
 panic_threshold | **int64**<br>If percentage of healthy hosts in the backend is lower than panic_threshold, traffic will be routed to all backends no matter what the health status is. This helps to avoid healthy backends overloading  when everything is bad. zero means no panic threshold. Acceptable values are 0 to 100, inclusive.
 locality_aware_routing_percent | **int64**<br>Percent of traffic to be sent to the same availability zone. The rest will be equally divided between other zones. Acceptable values are 0 to 100, inclusive.
+strict_locality | **bool**<br>If set, will route requests only to the same availability zone. Balancer won't know about endpoints in other zones. 
 
 
 ### TargetGroupsBackend {#TargetGroupsBackend6}
@@ -854,18 +795,7 @@ service_name | **string**<br>Optional service name for grpc.health.v1.HealthChec
 Field | Description
 --- | ---
 sni | **string**<br>SNI string for TLS connections. 
-tls_options | **[TlsOptions](#TlsOptions6)**<br>Common TLS options used for backend TLS connections. 
 validation_context | **[ValidationContext](#ValidationContext6)**<br>Validation context for backend TLS connections. 
-
-
-### TlsOptions {#TlsOptions6}
-
-Field | Description
---- | ---
-tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
-tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
-cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
-ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
 
 
 ### ValidationContext {#ValidationContext6}
@@ -889,7 +819,7 @@ backends[] | **[GrpcBackend](#GrpcBackend3)**<br>
 Field | Description
 --- | ---
 name | **string**<br>Required. Name. 
-backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If not set, backend will be disabled. 
+backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If set to zero, backend will be disabled. If not set in all backends, they all will have equal weights. Must either set or unset in all backeds of the group. 
 load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig7)**<br> 
 port | **int64**<br>Port for all targets from target group. Acceptable values are 0 to 65535, inclusive.
 backend_type | **oneof:** `target_groups`<br>
@@ -904,6 +834,7 @@ Field | Description
 --- | ---
 panic_threshold | **int64**<br>If percentage of healthy hosts in the backend is lower than panic_threshold, traffic will be routed to all backends no matter what the health status is. This helps to avoid healthy backends overloading  when everything is bad. zero means no panic threshold. Acceptable values are 0 to 100, inclusive.
 locality_aware_routing_percent | **int64**<br>Percent of traffic to be sent to the same availability zone. The rest will be equally divided between other zones. Acceptable values are 0 to 100, inclusive.
+strict_locality | **bool**<br>If set, will route requests only to the same availability zone. Balancer won't know about endpoints in other zones. 
 
 
 ### TargetGroupsBackend {#TargetGroupsBackend7}
@@ -958,18 +889,7 @@ service_name | **string**<br>Optional service name for grpc.health.v1.HealthChec
 Field | Description
 --- | ---
 sni | **string**<br>SNI string for TLS connections. 
-tls_options | **[TlsOptions](#TlsOptions7)**<br>Common TLS options used for backend TLS connections. 
 validation_context | **[ValidationContext](#ValidationContext7)**<br>Validation context for backend TLS connections. 
-
-
-### TlsOptions {#TlsOptions7}
-
-Field | Description
---- | ---
-tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
-tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
-cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
-ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
 
 
 ### ValidationContext {#ValidationContext7}
@@ -1017,7 +937,7 @@ backends[] | **[HttpBackend](#HttpBackend4)**<br>
 Field | Description
 --- | ---
 name | **string**<br>Required. Name. 
-backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If not set, backend will be disabled. 
+backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If set to zero, backend will be disabled. If not set in all backends, they all will have equal weights. Must either set or unset in all backeds of the group. 
 load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig8)**<br> 
 port | **int64**<br>Port for all targets from target group. Acceptable values are 0 to 65535, inclusive.
 backend_type | **oneof:** `target_groups`<br>
@@ -1033,6 +953,7 @@ Field | Description
 --- | ---
 panic_threshold | **int64**<br>If percentage of healthy hosts in the backend is lower than panic_threshold, traffic will be routed to all backends no matter what the health status is. This helps to avoid healthy backends overloading  when everything is bad. zero means no panic threshold. Acceptable values are 0 to 100, inclusive.
 locality_aware_routing_percent | **int64**<br>Percent of traffic to be sent to the same availability zone. The rest will be equally divided between other zones. Acceptable values are 0 to 100, inclusive.
+strict_locality | **bool**<br>If set, will route requests only to the same availability zone. Balancer won't know about endpoints in other zones. 
 
 
 ### TargetGroupsBackend {#TargetGroupsBackend8}
@@ -1087,18 +1008,7 @@ service_name | **string**<br>Optional service name for grpc.health.v1.HealthChec
 Field | Description
 --- | ---
 sni | **string**<br>SNI string for TLS connections. 
-tls_options | **[TlsOptions](#TlsOptions8)**<br>Common TLS options used for backend TLS connections. 
 validation_context | **[ValidationContext](#ValidationContext8)**<br>Validation context for backend TLS connections. 
-
-
-### TlsOptions {#TlsOptions8}
-
-Field | Description
---- | ---
-tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
-tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
-cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
-ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
 
 
 ### ValidationContext {#ValidationContext8}
@@ -1122,7 +1032,7 @@ backends[] | **[GrpcBackend](#GrpcBackend4)**<br>
 Field | Description
 --- | ---
 name | **string**<br>Required. Name. 
-backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If not set, backend will be disabled. 
+backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If set to zero, backend will be disabled. If not set in all backends, they all will have equal weights. Must either set or unset in all backeds of the group. 
 load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig9)**<br> 
 port | **int64**<br>Port for all targets from target group. Acceptable values are 0 to 65535, inclusive.
 backend_type | **oneof:** `target_groups`<br>
@@ -1137,6 +1047,7 @@ Field | Description
 --- | ---
 panic_threshold | **int64**<br>If percentage of healthy hosts in the backend is lower than panic_threshold, traffic will be routed to all backends no matter what the health status is. This helps to avoid healthy backends overloading  when everything is bad. zero means no panic threshold. Acceptable values are 0 to 100, inclusive.
 locality_aware_routing_percent | **int64**<br>Percent of traffic to be sent to the same availability zone. The rest will be equally divided between other zones. Acceptable values are 0 to 100, inclusive.
+strict_locality | **bool**<br>If set, will route requests only to the same availability zone. Balancer won't know about endpoints in other zones. 
 
 
 ### TargetGroupsBackend {#TargetGroupsBackend9}
@@ -1191,18 +1102,7 @@ service_name | **string**<br>Optional service name for grpc.health.v1.HealthChec
 Field | Description
 --- | ---
 sni | **string**<br>SNI string for TLS connections. 
-tls_options | **[TlsOptions](#TlsOptions9)**<br>Common TLS options used for backend TLS connections. 
 validation_context | **[ValidationContext](#ValidationContext9)**<br>Validation context for backend TLS connections. 
-
-
-### TlsOptions {#TlsOptions9}
-
-Field | Description
---- | ---
-tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
-tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
-cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
-ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
 
 
 ### ValidationContext {#ValidationContext9}
@@ -1263,7 +1163,7 @@ backends[] | **[HttpBackend](#HttpBackend5)**<br>
 Field | Description
 --- | ---
 name | **string**<br>Required. Name. 
-backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If not set, backend will be disabled. 
+backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If set to zero, backend will be disabled. If not set in all backends, they all will have equal weights. Must either set or unset in all backeds of the group. 
 load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig10)**<br> 
 port | **int64**<br>Port for all targets from target group. Acceptable values are 0 to 65535, inclusive.
 backend_type | **oneof:** `target_groups`<br>
@@ -1279,6 +1179,7 @@ Field | Description
 --- | ---
 panic_threshold | **int64**<br>If percentage of healthy hosts in the backend is lower than panic_threshold, traffic will be routed to all backends no matter what the health status is. This helps to avoid healthy backends overloading  when everything is bad. zero means no panic threshold. Acceptable values are 0 to 100, inclusive.
 locality_aware_routing_percent | **int64**<br>Percent of traffic to be sent to the same availability zone. The rest will be equally divided between other zones. Acceptable values are 0 to 100, inclusive.
+strict_locality | **bool**<br>If set, will route requests only to the same availability zone. Balancer won't know about endpoints in other zones. 
 
 
 ### TargetGroupsBackend {#TargetGroupsBackend10}
@@ -1333,18 +1234,7 @@ service_name | **string**<br>Optional service name for grpc.health.v1.HealthChec
 Field | Description
 --- | ---
 sni | **string**<br>SNI string for TLS connections. 
-tls_options | **[TlsOptions](#TlsOptions10)**<br>Common TLS options used for backend TLS connections. 
 validation_context | **[ValidationContext](#ValidationContext10)**<br>Validation context for backend TLS connections. 
-
-
-### TlsOptions {#TlsOptions10}
-
-Field | Description
---- | ---
-tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
-tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
-cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
-ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
 
 
 ### ValidationContext {#ValidationContext10}
@@ -1368,7 +1258,7 @@ backends[] | **[GrpcBackend](#GrpcBackend5)**<br>
 Field | Description
 --- | ---
 name | **string**<br>Required. Name. 
-backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If not set, backend will be disabled. 
+backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If set to zero, backend will be disabled. If not set in all backends, they all will have equal weights. Must either set or unset in all backeds of the group. 
 load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig11)**<br> 
 port | **int64**<br>Port for all targets from target group. Acceptable values are 0 to 65535, inclusive.
 backend_type | **oneof:** `target_groups`<br>
@@ -1383,6 +1273,7 @@ Field | Description
 --- | ---
 panic_threshold | **int64**<br>If percentage of healthy hosts in the backend is lower than panic_threshold, traffic will be routed to all backends no matter what the health status is. This helps to avoid healthy backends overloading  when everything is bad. zero means no panic threshold. Acceptable values are 0 to 100, inclusive.
 locality_aware_routing_percent | **int64**<br>Percent of traffic to be sent to the same availability zone. The rest will be equally divided between other zones. Acceptable values are 0 to 100, inclusive.
+strict_locality | **bool**<br>If set, will route requests only to the same availability zone. Balancer won't know about endpoints in other zones. 
 
 
 ### TargetGroupsBackend {#TargetGroupsBackend11}
@@ -1437,18 +1328,7 @@ service_name | **string**<br>Optional service name for grpc.health.v1.HealthChec
 Field | Description
 --- | ---
 sni | **string**<br>SNI string for TLS connections. 
-tls_options | **[TlsOptions](#TlsOptions11)**<br>Common TLS options used for backend TLS connections. 
 validation_context | **[ValidationContext](#ValidationContext11)**<br>Validation context for backend TLS connections. 
-
-
-### TlsOptions {#TlsOptions11}
-
-Field | Description
---- | ---
-tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
-tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
-cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
-ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
 
 
 ### ValidationContext {#ValidationContext11}
@@ -1525,7 +1405,7 @@ backend | **oneof:** `http` or `grpc`<br>
 Field | Description
 --- | ---
 name | **string**<br>Required. Name. 
-backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If not set, backend will be disabled. 
+backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If set to zero, backend will be disabled. If not set in all backends, they all will have equal weights. Must either set or unset in all backeds of the group. 
 load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig12)**<br> 
 port | **int64**<br>Port for all targets from target group. Acceptable values are 0 to 65535, inclusive.
 backend_type | **oneof:** `target_groups`<br>
@@ -1541,6 +1421,7 @@ Field | Description
 --- | ---
 panic_threshold | **int64**<br>If percentage of healthy hosts in the backend is lower than panic_threshold, traffic will be routed to all backends no matter what the health status is. This helps to avoid healthy backends overloading  when everything is bad. zero means no panic threshold. Acceptable values are 0 to 100, inclusive.
 locality_aware_routing_percent | **int64**<br>Percent of traffic to be sent to the same availability zone. The rest will be equally divided between other zones. Acceptable values are 0 to 100, inclusive.
+strict_locality | **bool**<br>If set, will route requests only to the same availability zone. Balancer won't know about endpoints in other zones. 
 
 
 ### TargetGroupsBackend {#TargetGroupsBackend12}
@@ -1595,18 +1476,7 @@ service_name | **string**<br>Optional service name for grpc.health.v1.HealthChec
 Field | Description
 --- | ---
 sni | **string**<br>SNI string for TLS connections. 
-tls_options | **[TlsOptions](#TlsOptions12)**<br>Common TLS options used for backend TLS connections. 
 validation_context | **[ValidationContext](#ValidationContext12)**<br>Validation context for backend TLS connections. 
-
-
-### TlsOptions {#TlsOptions12}
-
-Field | Description
---- | ---
-tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
-tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
-cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
-ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
 
 
 ### ValidationContext {#ValidationContext12}
@@ -1623,7 +1493,7 @@ trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>
 Field | Description
 --- | ---
 name | **string**<br>Required. Name. 
-backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If not set, backend will be disabled. 
+backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If set to zero, backend will be disabled. If not set in all backends, they all will have equal weights. Must either set or unset in all backeds of the group. 
 load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig13)**<br> 
 port | **int64**<br>Port for all targets from target group. Acceptable values are 0 to 65535, inclusive.
 backend_type | **oneof:** `target_groups`<br>
@@ -1638,6 +1508,7 @@ Field | Description
 --- | ---
 panic_threshold | **int64**<br>If percentage of healthy hosts in the backend is lower than panic_threshold, traffic will be routed to all backends no matter what the health status is. This helps to avoid healthy backends overloading  when everything is bad. zero means no panic threshold. Acceptable values are 0 to 100, inclusive.
 locality_aware_routing_percent | **int64**<br>Percent of traffic to be sent to the same availability zone. The rest will be equally divided between other zones. Acceptable values are 0 to 100, inclusive.
+strict_locality | **bool**<br>If set, will route requests only to the same availability zone. Balancer won't know about endpoints in other zones. 
 
 
 ### TargetGroupsBackend {#TargetGroupsBackend13}
@@ -1692,18 +1563,7 @@ service_name | **string**<br>Optional service name for grpc.health.v1.HealthChec
 Field | Description
 --- | ---
 sni | **string**<br>SNI string for TLS connections. 
-tls_options | **[TlsOptions](#TlsOptions13)**<br>Common TLS options used for backend TLS connections. 
 validation_context | **[ValidationContext](#ValidationContext13)**<br>Validation context for backend TLS connections. 
-
-
-### TlsOptions {#TlsOptions13}
-
-Field | Description
---- | ---
-tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
-tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
-cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
-ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
 
 
 ### ValidationContext {#ValidationContext13}
@@ -1765,7 +1625,7 @@ backends[] | **[HttpBackend](#HttpBackend7)**<br>
 Field | Description
 --- | ---
 name | **string**<br>Required. Name. 
-backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If not set, backend will be disabled. 
+backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If set to zero, backend will be disabled. If not set in all backends, they all will have equal weights. Must either set or unset in all backeds of the group. 
 load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig14)**<br> 
 port | **int64**<br>Port for all targets from target group. Acceptable values are 0 to 65535, inclusive.
 backend_type | **oneof:** `target_groups`<br>
@@ -1781,6 +1641,7 @@ Field | Description
 --- | ---
 panic_threshold | **int64**<br>If percentage of healthy hosts in the backend is lower than panic_threshold, traffic will be routed to all backends no matter what the health status is. This helps to avoid healthy backends overloading  when everything is bad. zero means no panic threshold. Acceptable values are 0 to 100, inclusive.
 locality_aware_routing_percent | **int64**<br>Percent of traffic to be sent to the same availability zone. The rest will be equally divided between other zones. Acceptable values are 0 to 100, inclusive.
+strict_locality | **bool**<br>If set, will route requests only to the same availability zone. Balancer won't know about endpoints in other zones. 
 
 
 ### TargetGroupsBackend {#TargetGroupsBackend14}
@@ -1835,18 +1696,7 @@ service_name | **string**<br>Optional service name for grpc.health.v1.HealthChec
 Field | Description
 --- | ---
 sni | **string**<br>SNI string for TLS connections. 
-tls_options | **[TlsOptions](#TlsOptions14)**<br>Common TLS options used for backend TLS connections. 
 validation_context | **[ValidationContext](#ValidationContext14)**<br>Validation context for backend TLS connections. 
-
-
-### TlsOptions {#TlsOptions14}
-
-Field | Description
---- | ---
-tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
-tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
-cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
-ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
 
 
 ### ValidationContext {#ValidationContext14}
@@ -1870,7 +1720,7 @@ backends[] | **[GrpcBackend](#GrpcBackend7)**<br>
 Field | Description
 --- | ---
 name | **string**<br>Required. Name. 
-backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If not set, backend will be disabled. 
+backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If set to zero, backend will be disabled. If not set in all backends, they all will have equal weights. Must either set or unset in all backeds of the group. 
 load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig15)**<br> 
 port | **int64**<br>Port for all targets from target group. Acceptable values are 0 to 65535, inclusive.
 backend_type | **oneof:** `target_groups`<br>
@@ -1885,6 +1735,7 @@ Field | Description
 --- | ---
 panic_threshold | **int64**<br>If percentage of healthy hosts in the backend is lower than panic_threshold, traffic will be routed to all backends no matter what the health status is. This helps to avoid healthy backends overloading  when everything is bad. zero means no panic threshold. Acceptable values are 0 to 100, inclusive.
 locality_aware_routing_percent | **int64**<br>Percent of traffic to be sent to the same availability zone. The rest will be equally divided between other zones. Acceptable values are 0 to 100, inclusive.
+strict_locality | **bool**<br>If set, will route requests only to the same availability zone. Balancer won't know about endpoints in other zones. 
 
 
 ### TargetGroupsBackend {#TargetGroupsBackend15}
@@ -1939,18 +1790,7 @@ service_name | **string**<br>Optional service name for grpc.health.v1.HealthChec
 Field | Description
 --- | ---
 sni | **string**<br>SNI string for TLS connections. 
-tls_options | **[TlsOptions](#TlsOptions15)**<br>Common TLS options used for backend TLS connections. 
 validation_context | **[ValidationContext](#ValidationContext15)**<br>Validation context for backend TLS connections. 
-
-
-### TlsOptions {#TlsOptions15}
-
-Field | Description
---- | ---
-tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
-tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
-cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
-ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
 
 
 ### ValidationContext {#ValidationContext15}
@@ -2030,7 +1870,7 @@ backends[] | **[HttpBackend](#HttpBackend8)**<br>
 Field | Description
 --- | ---
 name | **string**<br>Required. Name. 
-backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If not set, backend will be disabled. 
+backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If set to zero, backend will be disabled. If not set in all backends, they all will have equal weights. Must either set or unset in all backeds of the group. 
 load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig16)**<br> 
 port | **int64**<br>Port for all targets from target group. Acceptable values are 0 to 65535, inclusive.
 backend_type | **oneof:** `target_groups`<br>
@@ -2046,6 +1886,7 @@ Field | Description
 --- | ---
 panic_threshold | **int64**<br>If percentage of healthy hosts in the backend is lower than panic_threshold, traffic will be routed to all backends no matter what the health status is. This helps to avoid healthy backends overloading  when everything is bad. zero means no panic threshold. Acceptable values are 0 to 100, inclusive.
 locality_aware_routing_percent | **int64**<br>Percent of traffic to be sent to the same availability zone. The rest will be equally divided between other zones. Acceptable values are 0 to 100, inclusive.
+strict_locality | **bool**<br>If set, will route requests only to the same availability zone. Balancer won't know about endpoints in other zones. 
 
 
 ### TargetGroupsBackend {#TargetGroupsBackend16}
@@ -2100,18 +1941,7 @@ service_name | **string**<br>Optional service name for grpc.health.v1.HealthChec
 Field | Description
 --- | ---
 sni | **string**<br>SNI string for TLS connections. 
-tls_options | **[TlsOptions](#TlsOptions16)**<br>Common TLS options used for backend TLS connections. 
 validation_context | **[ValidationContext](#ValidationContext16)**<br>Validation context for backend TLS connections. 
-
-
-### TlsOptions {#TlsOptions16}
-
-Field | Description
---- | ---
-tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
-tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
-cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
-ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
 
 
 ### ValidationContext {#ValidationContext16}
@@ -2135,7 +1965,7 @@ backends[] | **[GrpcBackend](#GrpcBackend8)**<br>
 Field | Description
 --- | ---
 name | **string**<br>Required. Name. 
-backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If not set, backend will be disabled. 
+backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If set to zero, backend will be disabled. If not set in all backends, they all will have equal weights. Must either set or unset in all backeds of the group. 
 load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig17)**<br> 
 port | **int64**<br>Port for all targets from target group. Acceptable values are 0 to 65535, inclusive.
 backend_type | **oneof:** `target_groups`<br>
@@ -2150,6 +1980,7 @@ Field | Description
 --- | ---
 panic_threshold | **int64**<br>If percentage of healthy hosts in the backend is lower than panic_threshold, traffic will be routed to all backends no matter what the health status is. This helps to avoid healthy backends overloading  when everything is bad. zero means no panic threshold. Acceptable values are 0 to 100, inclusive.
 locality_aware_routing_percent | **int64**<br>Percent of traffic to be sent to the same availability zone. The rest will be equally divided between other zones. Acceptable values are 0 to 100, inclusive.
+strict_locality | **bool**<br>If set, will route requests only to the same availability zone. Balancer won't know about endpoints in other zones. 
 
 
 ### TargetGroupsBackend {#TargetGroupsBackend17}
@@ -2204,18 +2035,7 @@ service_name | **string**<br>Optional service name for grpc.health.v1.HealthChec
 Field | Description
 --- | ---
 sni | **string**<br>SNI string for TLS connections. 
-tls_options | **[TlsOptions](#TlsOptions17)**<br>Common TLS options used for backend TLS connections. 
 validation_context | **[ValidationContext](#ValidationContext17)**<br>Validation context for backend TLS connections. 
-
-
-### TlsOptions {#TlsOptions17}
-
-Field | Description
---- | ---
-tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
-tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
-cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
-ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
 
 
 ### ValidationContext {#ValidationContext17}
@@ -2253,7 +2073,7 @@ backend | **oneof:** `http` or `grpc`<br>
 Field | Description
 --- | ---
 name | **string**<br>Required. Name. 
-backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If not set, backend will be disabled. 
+backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If set to zero, backend will be disabled. If not set in all backends, they all will have equal weights. Must either set or unset in all backeds of the group. 
 load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig18)**<br> 
 port | **int64**<br>Port for all targets from target group. Acceptable values are 0 to 65535, inclusive.
 backend_type | **oneof:** `target_groups`<br>
@@ -2269,6 +2089,7 @@ Field | Description
 --- | ---
 panic_threshold | **int64**<br>If percentage of healthy hosts in the backend is lower than panic_threshold, traffic will be routed to all backends no matter what the health status is. This helps to avoid healthy backends overloading  when everything is bad. zero means no panic threshold. Acceptable values are 0 to 100, inclusive.
 locality_aware_routing_percent | **int64**<br>Percent of traffic to be sent to the same availability zone. The rest will be equally divided between other zones. Acceptable values are 0 to 100, inclusive.
+strict_locality | **bool**<br>If set, will route requests only to the same availability zone. Balancer won't know about endpoints in other zones. 
 
 
 ### TargetGroupsBackend {#TargetGroupsBackend18}
@@ -2323,18 +2144,7 @@ service_name | **string**<br>Optional service name for grpc.health.v1.HealthChec
 Field | Description
 --- | ---
 sni | **string**<br>SNI string for TLS connections. 
-tls_options | **[TlsOptions](#TlsOptions18)**<br>Common TLS options used for backend TLS connections. 
 validation_context | **[ValidationContext](#ValidationContext18)**<br>Validation context for backend TLS connections. 
-
-
-### TlsOptions {#TlsOptions18}
-
-Field | Description
---- | ---
-tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
-tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
-cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
-ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
 
 
 ### ValidationContext {#ValidationContext18}
@@ -2351,7 +2161,7 @@ trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>
 Field | Description
 --- | ---
 name | **string**<br>Required. Name. 
-backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If not set, backend will be disabled. 
+backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If set to zero, backend will be disabled. If not set in all backends, they all will have equal weights. Must either set or unset in all backeds of the group. 
 load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig19)**<br> 
 port | **int64**<br>Port for all targets from target group. Acceptable values are 0 to 65535, inclusive.
 backend_type | **oneof:** `target_groups`<br>
@@ -2366,6 +2176,7 @@ Field | Description
 --- | ---
 panic_threshold | **int64**<br>If percentage of healthy hosts in the backend is lower than panic_threshold, traffic will be routed to all backends no matter what the health status is. This helps to avoid healthy backends overloading  when everything is bad. zero means no panic threshold. Acceptable values are 0 to 100, inclusive.
 locality_aware_routing_percent | **int64**<br>Percent of traffic to be sent to the same availability zone. The rest will be equally divided between other zones. Acceptable values are 0 to 100, inclusive.
+strict_locality | **bool**<br>If set, will route requests only to the same availability zone. Balancer won't know about endpoints in other zones. 
 
 
 ### TargetGroupsBackend {#TargetGroupsBackend19}
@@ -2420,18 +2231,7 @@ service_name | **string**<br>Optional service name for grpc.health.v1.HealthChec
 Field | Description
 --- | ---
 sni | **string**<br>SNI string for TLS connections. 
-tls_options | **[TlsOptions](#TlsOptions19)**<br>Common TLS options used for backend TLS connections. 
 validation_context | **[ValidationContext](#ValidationContext19)**<br>Validation context for backend TLS connections. 
-
-
-### TlsOptions {#TlsOptions19}
-
-Field | Description
---- | ---
-tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
-tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
-cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
-ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
 
 
 ### ValidationContext {#ValidationContext19}
@@ -2493,7 +2293,7 @@ backends[] | **[HttpBackend](#HttpBackend10)**<br>
 Field | Description
 --- | ---
 name | **string**<br>Required. Name. 
-backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If not set, backend will be disabled. 
+backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If set to zero, backend will be disabled. If not set in all backends, they all will have equal weights. Must either set or unset in all backeds of the group. 
 load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig20)**<br> 
 port | **int64**<br>Port for all targets from target group. Acceptable values are 0 to 65535, inclusive.
 backend_type | **oneof:** `target_groups`<br>
@@ -2509,6 +2309,7 @@ Field | Description
 --- | ---
 panic_threshold | **int64**<br>If percentage of healthy hosts in the backend is lower than panic_threshold, traffic will be routed to all backends no matter what the health status is. This helps to avoid healthy backends overloading  when everything is bad. zero means no panic threshold. Acceptable values are 0 to 100, inclusive.
 locality_aware_routing_percent | **int64**<br>Percent of traffic to be sent to the same availability zone. The rest will be equally divided between other zones. Acceptable values are 0 to 100, inclusive.
+strict_locality | **bool**<br>If set, will route requests only to the same availability zone. Balancer won't know about endpoints in other zones. 
 
 
 ### TargetGroupsBackend {#TargetGroupsBackend20}
@@ -2563,18 +2364,7 @@ service_name | **string**<br>Optional service name for grpc.health.v1.HealthChec
 Field | Description
 --- | ---
 sni | **string**<br>SNI string for TLS connections. 
-tls_options | **[TlsOptions](#TlsOptions20)**<br>Common TLS options used for backend TLS connections. 
 validation_context | **[ValidationContext](#ValidationContext20)**<br>Validation context for backend TLS connections. 
-
-
-### TlsOptions {#TlsOptions20}
-
-Field | Description
---- | ---
-tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
-tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
-cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
-ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
 
 
 ### ValidationContext {#ValidationContext20}
@@ -2598,7 +2388,7 @@ backends[] | **[GrpcBackend](#GrpcBackend10)**<br>
 Field | Description
 --- | ---
 name | **string**<br>Required. Name. 
-backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If not set, backend will be disabled. 
+backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Traffic will be split between backends of the same BackendGroup according to their weights. If set to zero, backend will be disabled. If not set in all backends, they all will have equal weights. Must either set or unset in all backeds of the group. 
 load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig21)**<br> 
 port | **int64**<br>Port for all targets from target group. Acceptable values are 0 to 65535, inclusive.
 backend_type | **oneof:** `target_groups`<br>
@@ -2613,6 +2403,7 @@ Field | Description
 --- | ---
 panic_threshold | **int64**<br>If percentage of healthy hosts in the backend is lower than panic_threshold, traffic will be routed to all backends no matter what the health status is. This helps to avoid healthy backends overloading  when everything is bad. zero means no panic threshold. Acceptable values are 0 to 100, inclusive.
 locality_aware_routing_percent | **int64**<br>Percent of traffic to be sent to the same availability zone. The rest will be equally divided between other zones. Acceptable values are 0 to 100, inclusive.
+strict_locality | **bool**<br>If set, will route requests only to the same availability zone. Balancer won't know about endpoints in other zones. 
 
 
 ### TargetGroupsBackend {#TargetGroupsBackend21}
@@ -2667,18 +2458,7 @@ service_name | **string**<br>Optional service name for grpc.health.v1.HealthChec
 Field | Description
 --- | ---
 sni | **string**<br>SNI string for TLS connections. 
-tls_options | **[TlsOptions](#TlsOptions21)**<br>Common TLS options used for backend TLS connections. 
 validation_context | **[ValidationContext](#ValidationContext21)**<br>Validation context for backend TLS connections. 
-
-
-### TlsOptions {#TlsOptions21}
-
-Field | Description
---- | ---
-tls_min_version | enum **TlsVersion**<br>Minimum TLS protocol version. <ul><ul/>
-tls_max_version | enum **TlsVersion**<br>Maximum TLS protocol version. <ul><ul/>
-cipher_suites[] | enum **CipherSuite**<br>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used. <ul><ul/>
-ecdh_curves[] | enum **EcdhCurve**<br>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used. <ul><ul/>
 
 
 ### ValidationContext {#ValidationContext21}

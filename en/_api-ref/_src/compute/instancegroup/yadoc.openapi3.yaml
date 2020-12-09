@@ -1186,6 +1186,8 @@ components:
 
             The maximum string length in characters is 128.
           type: string
+        placementPolicy:
+          $ref: '#/components/schemas/PlacementPolicy_in_InstanceTemplate_placementPolicy'
     IpVersion:
       description: |2-
          - IPV4: IPv4 address, for example 192.168.0.0.
@@ -1460,6 +1462,9 @@ components:
       properties:
         ipVersion:
           $ref: '#/components/schemas/IpVersion_in_OneToOneNatSpec_ipVersion'
+        address:
+          description: Manual set static public IP. To set use variables. (optional)
+          type: string
     Operation:
       description: An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
       type: object
@@ -1517,6 +1522,12 @@ components:
               the response should be the target resource of the operation.
               Any method that returns a long-running operation should document the response type, if any.
             type: object
+    PlacementPolicy:
+      type: object
+      properties:
+        placementGroupId:
+          description: Identifier of placement group
+          type: string
     PrimaryAddress:
       type: object
       properties:
@@ -1683,6 +1694,18 @@ components:
             Value must be greater than 0.
           type: number
           format: double
+        folderId:
+          description: |-
+            Folder id of custom metric in Yandex Monitoring that should be used for scaling.
+
+            The maximum string length in characters is 50.
+          type: string
+        service:
+          description: |-
+            Service of custom metric in Yandex Monitoring that should be used for scaling.
+
+            The maximum string length in characters is 200.
+          type: string
     ScalePolicyCustomRuleMetricType:
       description: |2-
          - GAUGE: This type is used for metrics that show the metric value at a certain point in time,
@@ -1790,7 +1813,7 @@ components:
             Type of the subject.
 
             It can contain one of the following values:
-            * `userAccount`: An account on Yandex or [Yandex.Connect](https://connect.yandex.com), added to Yandex.Cloud.
+            * `userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud.
             * `serviceAccount`: A service account. This type represents the [ServiceAccount](/docs/iam/api-ref/ServiceAccount#representation) resource.
             * `federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory.
             * `system`: System group. This type represents several accounts with a common system identifier.
@@ -1974,7 +1997,7 @@ components:
             Type of the subject.
 
             It can contain one of the following values:
-            * `userAccount`: An account on Yandex or [Yandex.Connect](https://connect.yandex.com), added to Yandex.Cloud.
+            * `userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud.
             * `serviceAccount`: A service account. This type represents the [ServiceAccount](/docs/iam/api-ref/ServiceAccount#representation) resource.
             * `federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory.
             * `system`: System group. This type represents several accounts with a common system identifier.
@@ -2186,6 +2209,8 @@ components:
 
             The maximum string length in characters is 128.
           type: string
+        placementPolicy:
+          $ref: '#/components/schemas/PlacementPolicy_in_InstanceTemplate_placementPolicy'
     ScalePolicy_in_CreateInstanceGroupRequest_scalePolicy:
       description: |-
         Required.
@@ -2426,6 +2451,8 @@ components:
 
             The maximum string length in characters is 128.
           type: string
+        placementPolicy:
+          $ref: '#/components/schemas/PlacementPolicy_in_InstanceTemplate_placementPolicy'
     ScalePolicy_in_InstanceGroup_scalePolicy:
       description: '[Scaling policy](/docs/compute/concepts/instance-groups/scale)
         of the instance group.'
@@ -2667,6 +2694,13 @@ components:
       properties:
         type:
           $ref: '#/components/schemas/NetworkSettingsType_in_NetworkSettings_type'
+    PlacementPolicy_in_InstanceTemplate_placementPolicy:
+      description: Placement Group
+      type: object
+      properties:
+        placementGroupId:
+          description: Identifier of placement group
+          type: string
     TargetGroupSpec_in_LoadBalancerSpec_targetGroupSpec:
       description: Specification of the target group that the instance group will
         be added to. For more information, see [Target groups and resources](/docs/load-balancer/concepts/target-resources).
@@ -2815,6 +2849,9 @@ components:
       properties:
         ipVersion:
           $ref: '#/components/schemas/IpVersion_in_OneToOneNatSpec_ipVersion'
+        address:
+          description: Manual set static public IP. To set use variables. (optional)
+          type: string
     ScalePolicyCpuUtilizationRule_in_ScalePolicyAutoScale_cpuUtilizationRule:
       description: Defines an autoscaling rule based on the average CPU utilization
         of the instance group.
@@ -2992,6 +3029,8 @@ components:
 
             The maximum string length in characters is 128.
           type: string
+        placementPolicy:
+          $ref: '#/components/schemas/PlacementPolicy_in_InstanceTemplate_placementPolicy'
     ScalePolicy_in_UpdateInstanceGroupRequest_scalePolicy:
       description: |-
         Required.

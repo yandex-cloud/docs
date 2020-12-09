@@ -83,6 +83,7 @@ service_account_id | **string**<br>Service account ID for the instance.
 network_settings | **[NetworkSettings](#NetworkSettings)**<br>Network settings for the instance. 
 name | **string**<br>Name of the instance. In order to be unique it must contain at least on of instance unique placeholders: {instance.short_id} {instance.index} combination of {instance.zone_id} and {instance.index_in_zone} Example: my-instance-{instance.index} If not set, default is used: {instance_group.id}-{instance.short_id} It may also contain another placeholders, see metadata doc for full list. The maximum string length in characters is 128.
 hostname | **string**<br>Host name for the instance. This field is used to generate the `yandex.cloud.compute.v1.Instance.fqdn` value. The host name must be unique within the network and region. If not specified, the host name will be equal to `yandex.cloud.compute.v1.Instance.id` of the instance and FQDN will be `<id>.auto.internal`. Otherwise FQDN will be `<hostname>.<region_id>.internal`. <br>In order to be unique it must contain at least on of instance unique placeholders: {instance.short_id} {instance.index} combination of {instance.zone_id} and {instance.index_in_zone} Example: my-instance-{instance.index} If not set, `name` value will be used It may also contain another placeholders, see metadata doc for full list. The maximum string length in characters is 128.
+placement_policy | **[PlacementPolicy](#PlacementPolicy)**<br>Placement Group 
 
 
 ### ResourcesSpec {#ResourcesSpec}
@@ -141,6 +142,7 @@ one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec)**<br>An external IP 
 Field | Description
 --- | ---
 ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
+address | **string**<br>Manual set static public IP. To set use variables. (optional) 
 
 
 ### SchedulingPolicy {#SchedulingPolicy}
@@ -155,6 +157,13 @@ preemptible | **bool**<br>Preemptible instances are stopped at least once every 
 Field | Description
 --- | ---
 type | enum **[Type](./disk_type#undefined)**<br>Type of instance network. <ul><ul/>
+
+
+### PlacementPolicy {#PlacementPolicy}
+
+Field | Description
+--- | ---
+placement_group_id | **string**<br>Identifier of placement group 
 
 
 ### ScalePolicy {#ScalePolicy}
@@ -197,6 +206,8 @@ metric_type | enum **MetricType**<br>Required. Type of custom metric. This field
 metric_name | **string**<br>Required. Name of custom metric in Yandex Monitoring that should be used for scaling. Value must match the regular expression ` [a-zA-Z0-9./@_][0-9a-zA-Z./@_,:;()\\[\\]<>-]{0,198} `.
 labels | **map<string,string>**<br>Labels of custom metric in Yandex Monitoring that should be used for scaling. Each value must match the regular expression ` [a-zA-Z0-9./@_][0-9a-zA-Z./@_,:;()\\[\\]<>-]{0,198} `. Each key must match the regular expression ` ^[a-zA-Z][0-9a-zA-Z_]{0,31}$ `.
 target | **double**<br>Target value for the custom metric. Instance Groups maintains this level for each availability zone. Value must be greater than 0.
+folder_id | **string**<br>Folder id of custom metric in Yandex Monitoring that should be used for scaling. The maximum string length in characters is 50.
+service | **string**<br>Service of custom metric in Yandex Monitoring that should be used for scaling. The maximum string length in characters is 200.
 
 
 ### FixedScale {#FixedScale}
@@ -391,6 +402,7 @@ service_account_id | **string**<br>Service account ID for the instance.
 network_settings | **[NetworkSettings](#NetworkSettings1)**<br>Network settings for the instance. 
 name | **string**<br>Name of the instance. In order to be unique it must contain at least on of instance unique placeholders: {instance.short_id} {instance.index} combination of {instance.zone_id} and {instance.index_in_zone} Example: my-instance-{instance.index} If not set, default is used: {instance_group.id}-{instance.short_id} It may also contain another placeholders, see metadata doc for full list. The maximum string length in characters is 128.
 hostname | **string**<br>Host name for the instance. This field is used to generate the `yandex.cloud.compute.v1.Instance.fqdn` value. The host name must be unique within the network and region. If not specified, the host name will be equal to `yandex.cloud.compute.v1.Instance.id` of the instance and FQDN will be `<id>.auto.internal`. Otherwise FQDN will be `<hostname>.<region_id>.internal`. <br>In order to be unique it must contain at least on of instance unique placeholders: {instance.short_id} {instance.index} combination of {instance.zone_id} and {instance.index_in_zone} Example: my-instance-{instance.index} If not set, `name` value will be used It may also contain another placeholders, see metadata doc for full list. The maximum string length in characters is 128.
+placement_policy | **[PlacementPolicy](#PlacementPolicy1)**<br>Placement Group 
 
 
 ### ResourcesSpec {#ResourcesSpec1}
@@ -449,6 +461,7 @@ one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec1)**<br>An external IP
 Field | Description
 --- | ---
 ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
+address | **string**<br>Manual set static public IP. To set use variables. (optional) 
 
 
 ### SchedulingPolicy {#SchedulingPolicy1}
@@ -463,6 +476,13 @@ preemptible | **bool**<br>Preemptible instances are stopped at least once every 
 Field | Description
 --- | ---
 type | enum **[Type](./disk_type#undefined)**<br>Type of instance network. <ul><ul/>
+
+
+### PlacementPolicy {#PlacementPolicy1}
+
+Field | Description
+--- | ---
+placement_group_id | **string**<br>Identifier of placement group 
 
 
 ### ScalePolicy {#ScalePolicy1}
@@ -505,6 +525,8 @@ metric_type | enum **MetricType**<br>Required. Type of custom metric. This field
 metric_name | **string**<br>Required. Name of custom metric in Yandex Monitoring that should be used for scaling. Value must match the regular expression ` [a-zA-Z0-9./@_][0-9a-zA-Z./@_,:;()\\[\\]<>-]{0,198} `.
 labels | **map<string,string>**<br>Labels of custom metric in Yandex Monitoring that should be used for scaling. Each value must match the regular expression ` [a-zA-Z0-9./@_][0-9a-zA-Z./@_,:;()\\[\\]<>-]{0,198} `. Each key must match the regular expression ` ^[a-zA-Z][0-9a-zA-Z_]{0,31}$ `.
 target | **double**<br>Target value for the custom metric. Instance Groups maintains this level for each availability zone. Value must be greater than 0.
+folder_id | **string**<br>Folder id of custom metric in Yandex Monitoring that should be used for scaling. The maximum string length in characters is 50.
+service | **string**<br>Service of custom metric in Yandex Monitoring that should be used for scaling. The maximum string length in characters is 200.
 
 
 ### FixedScale {#FixedScale1}
@@ -679,6 +701,7 @@ service_account_id | **string**<br>Service account ID for the instance.
 network_settings | **[NetworkSettings](#NetworkSettings2)**<br>Network settings for the instance. 
 name | **string**<br>Name of the instance. In order to be unique it must contain at least on of instance unique placeholders: {instance.short_id} {instance.index} combination of {instance.zone_id} and {instance.index_in_zone} Example: my-instance-{instance.index} If not set, default is used: {instance_group.id}-{instance.short_id} It may also contain another placeholders, see metadata doc for full list. The maximum string length in characters is 128.
 hostname | **string**<br>Host name for the instance. This field is used to generate the `yandex.cloud.compute.v1.Instance.fqdn` value. The host name must be unique within the network and region. If not specified, the host name will be equal to `yandex.cloud.compute.v1.Instance.id` of the instance and FQDN will be `<id>.auto.internal`. Otherwise FQDN will be `<hostname>.<region_id>.internal`. <br>In order to be unique it must contain at least on of instance unique placeholders: {instance.short_id} {instance.index} combination of {instance.zone_id} and {instance.index_in_zone} Example: my-instance-{instance.index} If not set, `name` value will be used It may also contain another placeholders, see metadata doc for full list. The maximum string length in characters is 128.
+placement_policy | **[PlacementPolicy](#PlacementPolicy2)**<br>Placement Group 
 
 
 ### ResourcesSpec {#ResourcesSpec2}
@@ -737,6 +760,7 @@ one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec2)**<br>An external IP
 Field | Description
 --- | ---
 ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
+address | **string**<br>Manual set static public IP. To set use variables. (optional) 
 
 
 ### SchedulingPolicy {#SchedulingPolicy2}
@@ -751,6 +775,13 @@ preemptible | **bool**<br>Preemptible instances are stopped at least once every 
 Field | Description
 --- | ---
 type | enum **[Type](./disk_type#undefined)**<br>Type of instance network. <ul><ul/>
+
+
+### PlacementPolicy {#PlacementPolicy2}
+
+Field | Description
+--- | ---
+placement_group_id | **string**<br>Identifier of placement group 
 
 
 ### ScalePolicy {#ScalePolicy2}
@@ -793,6 +824,8 @@ metric_type | enum **MetricType**<br>Required. Type of custom metric. This field
 metric_name | **string**<br>Required. Name of custom metric in Yandex Monitoring that should be used for scaling. Value must match the regular expression ` [a-zA-Z0-9./@_][0-9a-zA-Z./@_,:;()\\[\\]<>-]{0,198} `.
 labels | **map<string,string>**<br>Labels of custom metric in Yandex Monitoring that should be used for scaling. Each value must match the regular expression ` [a-zA-Z0-9./@_][0-9a-zA-Z./@_,:;()\\[\\]<>-]{0,198} `. Each key must match the regular expression ` ^[a-zA-Z][0-9a-zA-Z_]{0,31}$ `.
 target | **double**<br>Target value for the custom metric. Instance Groups maintains this level for each availability zone. Value must be greater than 0.
+folder_id | **string**<br>Folder id of custom metric in Yandex Monitoring that should be used for scaling. The maximum string length in characters is 50.
+service | **string**<br>Service of custom metric in Yandex Monitoring that should be used for scaling. The maximum string length in characters is 200.
 
 
 ### FixedScale {#FixedScale2}
@@ -951,6 +984,7 @@ service_account_id | **string**<br>Service account ID for the instance.
 network_settings | **[NetworkSettings](#NetworkSettings3)**<br>Network settings for the instance. 
 name | **string**<br>Name of the instance. In order to be unique it must contain at least on of instance unique placeholders: {instance.short_id} {instance.index} combination of {instance.zone_id} and {instance.index_in_zone} Example: my-instance-{instance.index} If not set, default is used: {instance_group.id}-{instance.short_id} It may also contain another placeholders, see metadata doc for full list. The maximum string length in characters is 128.
 hostname | **string**<br>Host name for the instance. This field is used to generate the `yandex.cloud.compute.v1.Instance.fqdn` value. The host name must be unique within the network and region. If not specified, the host name will be equal to `yandex.cloud.compute.v1.Instance.id` of the instance and FQDN will be `<id>.auto.internal`. Otherwise FQDN will be `<hostname>.<region_id>.internal`. <br>In order to be unique it must contain at least on of instance unique placeholders: {instance.short_id} {instance.index} combination of {instance.zone_id} and {instance.index_in_zone} Example: my-instance-{instance.index} If not set, `name` value will be used It may also contain another placeholders, see metadata doc for full list. The maximum string length in characters is 128.
+placement_policy | **[PlacementPolicy](#PlacementPolicy3)**<br>Placement Group 
 
 
 ### ResourcesSpec {#ResourcesSpec3}
@@ -1009,6 +1043,7 @@ one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec3)**<br>An external IP
 Field | Description
 --- | ---
 ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
+address | **string**<br>Manual set static public IP. To set use variables. (optional) 
 
 
 ### SchedulingPolicy {#SchedulingPolicy3}
@@ -1023,6 +1058,13 @@ preemptible | **bool**<br>Preemptible instances are stopped at least once every 
 Field | Description
 --- | ---
 type | enum **[Type](./disk_type#undefined)**<br>Type of instance network. <ul><ul/>
+
+
+### PlacementPolicy {#PlacementPolicy3}
+
+Field | Description
+--- | ---
+placement_group_id | **string**<br>Identifier of placement group 
 
 
 ### ScalePolicy {#ScalePolicy3}
@@ -1065,6 +1107,8 @@ metric_type | enum **MetricType**<br>Required. Type of custom metric. This field
 metric_name | **string**<br>Required. Name of custom metric in Yandex Monitoring that should be used for scaling. Value must match the regular expression ` [a-zA-Z0-9./@_][0-9a-zA-Z./@_,:;()\\[\\]<>-]{0,198} `.
 labels | **map<string,string>**<br>Labels of custom metric in Yandex Monitoring that should be used for scaling. Each value must match the regular expression ` [a-zA-Z0-9./@_][0-9a-zA-Z./@_,:;()\\[\\]<>-]{0,198} `. Each key must match the regular expression ` ^[a-zA-Z][0-9a-zA-Z_]{0,31}$ `.
 target | **double**<br>Target value for the custom metric. Instance Groups maintains this level for each availability zone. Value must be greater than 0.
+folder_id | **string**<br>Folder id of custom metric in Yandex Monitoring that should be used for scaling. The maximum string length in characters is 50.
+service | **string**<br>Service of custom metric in Yandex Monitoring that should be used for scaling. The maximum string length in characters is 200.
 
 
 ### FixedScale {#FixedScale3}
@@ -1275,6 +1319,7 @@ service_account_id | **string**<br>Service account ID for the instance.
 network_settings | **[NetworkSettings](#NetworkSettings4)**<br>Network settings for the instance. 
 name | **string**<br>Name of the instance. In order to be unique it must contain at least on of instance unique placeholders: {instance.short_id} {instance.index} combination of {instance.zone_id} and {instance.index_in_zone} Example: my-instance-{instance.index} If not set, default is used: {instance_group.id}-{instance.short_id} It may also contain another placeholders, see metadata doc for full list. The maximum string length in characters is 128.
 hostname | **string**<br>Host name for the instance. This field is used to generate the `yandex.cloud.compute.v1.Instance.fqdn` value. The host name must be unique within the network and region. If not specified, the host name will be equal to `yandex.cloud.compute.v1.Instance.id` of the instance and FQDN will be `<id>.auto.internal`. Otherwise FQDN will be `<hostname>.<region_id>.internal`. <br>In order to be unique it must contain at least on of instance unique placeholders: {instance.short_id} {instance.index} combination of {instance.zone_id} and {instance.index_in_zone} Example: my-instance-{instance.index} If not set, `name` value will be used It may also contain another placeholders, see metadata doc for full list. The maximum string length in characters is 128.
+placement_policy | **[PlacementPolicy](#PlacementPolicy4)**<br>Placement Group 
 
 
 ### ResourcesSpec {#ResourcesSpec4}
@@ -1333,6 +1378,7 @@ one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec4)**<br>An external IP
 Field | Description
 --- | ---
 ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
+address | **string**<br>Manual set static public IP. To set use variables. (optional) 
 
 
 ### SchedulingPolicy {#SchedulingPolicy4}
@@ -1347,6 +1393,13 @@ preemptible | **bool**<br>Preemptible instances are stopped at least once every 
 Field | Description
 --- | ---
 type | enum **[Type](./disk_type#undefined)**<br>Type of instance network. <ul><ul/>
+
+
+### PlacementPolicy {#PlacementPolicy4}
+
+Field | Description
+--- | ---
+placement_group_id | **string**<br>Identifier of placement group 
 
 
 ### ScalePolicy {#ScalePolicy4}
@@ -1389,6 +1442,8 @@ metric_type | enum **MetricType**<br>Required. Type of custom metric. This field
 metric_name | **string**<br>Required. Name of custom metric in Yandex Monitoring that should be used for scaling. Value must match the regular expression ` [a-zA-Z0-9./@_][0-9a-zA-Z./@_,:;()\\[\\]<>-]{0,198} `.
 labels | **map<string,string>**<br>Labels of custom metric in Yandex Monitoring that should be used for scaling. Each value must match the regular expression ` [a-zA-Z0-9./@_][0-9a-zA-Z./@_,:;()\\[\\]<>-]{0,198} `. Each key must match the regular expression ` ^[a-zA-Z][0-9a-zA-Z_]{0,31}$ `.
 target | **double**<br>Target value for the custom metric. Instance Groups maintains this level for each availability zone. Value must be greater than 0.
+folder_id | **string**<br>Folder id of custom metric in Yandex Monitoring that should be used for scaling. The maximum string length in characters is 50.
+service | **string**<br>Service of custom metric in Yandex Monitoring that should be used for scaling. The maximum string length in characters is 200.
 
 
 ### FixedScale {#FixedScale4}
@@ -1564,6 +1619,7 @@ service_account_id | **string**<br>Service account ID for the instance.
 network_settings | **[NetworkSettings](#NetworkSettings5)**<br>Network settings for the instance. 
 name | **string**<br>Name of the instance. In order to be unique it must contain at least on of instance unique placeholders: {instance.short_id} {instance.index} combination of {instance.zone_id} and {instance.index_in_zone} Example: my-instance-{instance.index} If not set, default is used: {instance_group.id}-{instance.short_id} It may also contain another placeholders, see metadata doc for full list. The maximum string length in characters is 128.
 hostname | **string**<br>Host name for the instance. This field is used to generate the `yandex.cloud.compute.v1.Instance.fqdn` value. The host name must be unique within the network and region. If not specified, the host name will be equal to `yandex.cloud.compute.v1.Instance.id` of the instance and FQDN will be `<id>.auto.internal`. Otherwise FQDN will be `<hostname>.<region_id>.internal`. <br>In order to be unique it must contain at least on of instance unique placeholders: {instance.short_id} {instance.index} combination of {instance.zone_id} and {instance.index_in_zone} Example: my-instance-{instance.index} If not set, `name` value will be used It may also contain another placeholders, see metadata doc for full list. The maximum string length in characters is 128.
+placement_policy | **[PlacementPolicy](#PlacementPolicy5)**<br>Placement Group 
 
 
 ### ResourcesSpec {#ResourcesSpec5}
@@ -1622,6 +1678,7 @@ one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec5)**<br>An external IP
 Field | Description
 --- | ---
 ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
+address | **string**<br>Manual set static public IP. To set use variables. (optional) 
 
 
 ### SchedulingPolicy {#SchedulingPolicy5}
@@ -1636,6 +1693,13 @@ preemptible | **bool**<br>Preemptible instances are stopped at least once every 
 Field | Description
 --- | ---
 type | enum **[Type](./disk_type#undefined)**<br>Type of instance network. <ul><ul/>
+
+
+### PlacementPolicy {#PlacementPolicy5}
+
+Field | Description
+--- | ---
+placement_group_id | **string**<br>Identifier of placement group 
 
 
 ### ScalePolicy {#ScalePolicy5}
@@ -1678,6 +1742,8 @@ metric_type | enum **MetricType**<br>Required. Type of custom metric. This field
 metric_name | **string**<br>Required. Name of custom metric in Yandex Monitoring that should be used for scaling. Value must match the regular expression ` [a-zA-Z0-9./@_][0-9a-zA-Z./@_,:;()\\[\\]<>-]{0,198} `.
 labels | **map<string,string>**<br>Labels of custom metric in Yandex Monitoring that should be used for scaling. Each value must match the regular expression ` [a-zA-Z0-9./@_][0-9a-zA-Z./@_,:;()\\[\\]<>-]{0,198} `. Each key must match the regular expression ` ^[a-zA-Z][0-9a-zA-Z_]{0,31}$ `.
 target | **double**<br>Target value for the custom metric. Instance Groups maintains this level for each availability zone. Value must be greater than 0.
+folder_id | **string**<br>Folder id of custom metric in Yandex Monitoring that should be used for scaling. The maximum string length in characters is 50.
+service | **string**<br>Service of custom metric in Yandex Monitoring that should be used for scaling. The maximum string length in characters is 200.
 
 
 ### FixedScale {#FixedScale5}
@@ -1836,6 +1902,7 @@ service_account_id | **string**<br>Service account ID for the instance.
 network_settings | **[NetworkSettings](#NetworkSettings6)**<br>Network settings for the instance. 
 name | **string**<br>Name of the instance. In order to be unique it must contain at least on of instance unique placeholders: {instance.short_id} {instance.index} combination of {instance.zone_id} and {instance.index_in_zone} Example: my-instance-{instance.index} If not set, default is used: {instance_group.id}-{instance.short_id} It may also contain another placeholders, see metadata doc for full list. The maximum string length in characters is 128.
 hostname | **string**<br>Host name for the instance. This field is used to generate the `yandex.cloud.compute.v1.Instance.fqdn` value. The host name must be unique within the network and region. If not specified, the host name will be equal to `yandex.cloud.compute.v1.Instance.id` of the instance and FQDN will be `<id>.auto.internal`. Otherwise FQDN will be `<hostname>.<region_id>.internal`. <br>In order to be unique it must contain at least on of instance unique placeholders: {instance.short_id} {instance.index} combination of {instance.zone_id} and {instance.index_in_zone} Example: my-instance-{instance.index} If not set, `name` value will be used It may also contain another placeholders, see metadata doc for full list. The maximum string length in characters is 128.
+placement_policy | **[PlacementPolicy](#PlacementPolicy6)**<br>Placement Group 
 
 
 ### ResourcesSpec {#ResourcesSpec6}
@@ -1894,6 +1961,7 @@ one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec6)**<br>An external IP
 Field | Description
 --- | ---
 ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
+address | **string**<br>Manual set static public IP. To set use variables. (optional) 
 
 
 ### SchedulingPolicy {#SchedulingPolicy6}
@@ -1908,6 +1976,13 @@ preemptible | **bool**<br>Preemptible instances are stopped at least once every 
 Field | Description
 --- | ---
 type | enum **[Type](./disk_type#undefined)**<br>Type of instance network. <ul><ul/>
+
+
+### PlacementPolicy {#PlacementPolicy6}
+
+Field | Description
+--- | ---
+placement_group_id | **string**<br>Identifier of placement group 
 
 
 ### ScalePolicy {#ScalePolicy6}
@@ -1950,6 +2025,8 @@ metric_type | enum **MetricType**<br>Required. Type of custom metric. This field
 metric_name | **string**<br>Required. Name of custom metric in Yandex Monitoring that should be used for scaling. Value must match the regular expression ` [a-zA-Z0-9./@_][0-9a-zA-Z./@_,:;()\\[\\]<>-]{0,198} `.
 labels | **map<string,string>**<br>Labels of custom metric in Yandex Monitoring that should be used for scaling. Each value must match the regular expression ` [a-zA-Z0-9./@_][0-9a-zA-Z./@_,:;()\\[\\]<>-]{0,198} `. Each key must match the regular expression ` ^[a-zA-Z][0-9a-zA-Z_]{0,31}$ `.
 target | **double**<br>Target value for the custom metric. Instance Groups maintains this level for each availability zone. Value must be greater than 0.
+folder_id | **string**<br>Folder id of custom metric in Yandex Monitoring that should be used for scaling. The maximum string length in characters is 50.
+service | **string**<br>Service of custom metric in Yandex Monitoring that should be used for scaling. The maximum string length in characters is 200.
 
 
 ### FixedScale {#FixedScale6}
@@ -2160,6 +2237,7 @@ service_account_id | **string**<br>Service account ID for the instance.
 network_settings | **[NetworkSettings](#NetworkSettings7)**<br>Network settings for the instance. 
 name | **string**<br>Name of the instance. In order to be unique it must contain at least on of instance unique placeholders: {instance.short_id} {instance.index} combination of {instance.zone_id} and {instance.index_in_zone} Example: my-instance-{instance.index} If not set, default is used: {instance_group.id}-{instance.short_id} It may also contain another placeholders, see metadata doc for full list. The maximum string length in characters is 128.
 hostname | **string**<br>Host name for the instance. This field is used to generate the `yandex.cloud.compute.v1.Instance.fqdn` value. The host name must be unique within the network and region. If not specified, the host name will be equal to `yandex.cloud.compute.v1.Instance.id` of the instance and FQDN will be `<id>.auto.internal`. Otherwise FQDN will be `<hostname>.<region_id>.internal`. <br>In order to be unique it must contain at least on of instance unique placeholders: {instance.short_id} {instance.index} combination of {instance.zone_id} and {instance.index_in_zone} Example: my-instance-{instance.index} If not set, `name` value will be used It may also contain another placeholders, see metadata doc for full list. The maximum string length in characters is 128.
+placement_policy | **[PlacementPolicy](#PlacementPolicy7)**<br>Placement Group 
 
 
 ### ResourcesSpec {#ResourcesSpec7}
@@ -2218,6 +2296,7 @@ one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec7)**<br>An external IP
 Field | Description
 --- | ---
 ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
+address | **string**<br>Manual set static public IP. To set use variables. (optional) 
 
 
 ### SchedulingPolicy {#SchedulingPolicy7}
@@ -2232,6 +2311,13 @@ preemptible | **bool**<br>Preemptible instances are stopped at least once every 
 Field | Description
 --- | ---
 type | enum **[Type](./disk_type#undefined)**<br>Type of instance network. <ul><ul/>
+
+
+### PlacementPolicy {#PlacementPolicy7}
+
+Field | Description
+--- | ---
+placement_group_id | **string**<br>Identifier of placement group 
 
 
 ### ScalePolicy {#ScalePolicy7}
@@ -2274,6 +2360,8 @@ metric_type | enum **MetricType**<br>Required. Type of custom metric. This field
 metric_name | **string**<br>Required. Name of custom metric in Yandex Monitoring that should be used for scaling. Value must match the regular expression ` [a-zA-Z0-9./@_][0-9a-zA-Z./@_,:;()\\[\\]<>-]{0,198} `.
 labels | **map<string,string>**<br>Labels of custom metric in Yandex Monitoring that should be used for scaling. Each value must match the regular expression ` [a-zA-Z0-9./@_][0-9a-zA-Z./@_,:;()\\[\\]<>-]{0,198} `. Each key must match the regular expression ` ^[a-zA-Z][0-9a-zA-Z_]{0,31}$ `.
 target | **double**<br>Target value for the custom metric. Instance Groups maintains this level for each availability zone. Value must be greater than 0.
+folder_id | **string**<br>Folder id of custom metric in Yandex Monitoring that should be used for scaling. The maximum string length in characters is 50.
+service | **string**<br>Service of custom metric in Yandex Monitoring that should be used for scaling. The maximum string length in characters is 200.
 
 
 ### FixedScale {#FixedScale7}
@@ -2483,6 +2571,7 @@ service_account_id | **string**<br>Service account ID for the instance.
 network_settings | **[NetworkSettings](#NetworkSettings8)**<br>Network settings for the instance. 
 name | **string**<br>Name of the instance. In order to be unique it must contain at least on of instance unique placeholders: {instance.short_id} {instance.index} combination of {instance.zone_id} and {instance.index_in_zone} Example: my-instance-{instance.index} If not set, default is used: {instance_group.id}-{instance.short_id} It may also contain another placeholders, see metadata doc for full list. The maximum string length in characters is 128.
 hostname | **string**<br>Host name for the instance. This field is used to generate the `yandex.cloud.compute.v1.Instance.fqdn` value. The host name must be unique within the network and region. If not specified, the host name will be equal to `yandex.cloud.compute.v1.Instance.id` of the instance and FQDN will be `<id>.auto.internal`. Otherwise FQDN will be `<hostname>.<region_id>.internal`. <br>In order to be unique it must contain at least on of instance unique placeholders: {instance.short_id} {instance.index} combination of {instance.zone_id} and {instance.index_in_zone} Example: my-instance-{instance.index} If not set, `name` value will be used It may also contain another placeholders, see metadata doc for full list. The maximum string length in characters is 128.
+placement_policy | **[PlacementPolicy](#PlacementPolicy8)**<br>Placement Group 
 
 
 ### ResourcesSpec {#ResourcesSpec8}
@@ -2541,6 +2630,7 @@ one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec8)**<br>An external IP
 Field | Description
 --- | ---
 ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
+address | **string**<br>Manual set static public IP. To set use variables. (optional) 
 
 
 ### SchedulingPolicy {#SchedulingPolicy8}
@@ -2555,6 +2645,13 @@ preemptible | **bool**<br>Preemptible instances are stopped at least once every 
 Field | Description
 --- | ---
 type | enum **[Type](./disk_type#undefined)**<br>Type of instance network. <ul><ul/>
+
+
+### PlacementPolicy {#PlacementPolicy8}
+
+Field | Description
+--- | ---
+placement_group_id | **string**<br>Identifier of placement group 
 
 
 ### ScalePolicy {#ScalePolicy8}
@@ -2597,6 +2694,8 @@ metric_type | enum **MetricType**<br>Required. Type of custom metric. This field
 metric_name | **string**<br>Required. Name of custom metric in Yandex Monitoring that should be used for scaling. Value must match the regular expression ` [a-zA-Z0-9./@_][0-9a-zA-Z./@_,:;()\\[\\]<>-]{0,198} `.
 labels | **map<string,string>**<br>Labels of custom metric in Yandex Monitoring that should be used for scaling. Each value must match the regular expression ` [a-zA-Z0-9./@_][0-9a-zA-Z./@_,:;()\\[\\]<>-]{0,198} `. Each key must match the regular expression ` ^[a-zA-Z][0-9a-zA-Z_]{0,31}$ `.
 target | **double**<br>Target value for the custom metric. Instance Groups maintains this level for each availability zone. Value must be greater than 0.
+folder_id | **string**<br>Folder id of custom metric in Yandex Monitoring that should be used for scaling. The maximum string length in characters is 50.
+service | **string**<br>Service of custom metric in Yandex Monitoring that should be used for scaling. The maximum string length in characters is 200.
 
 
 ### FixedScale {#FixedScale8}
@@ -2806,6 +2905,7 @@ service_account_id | **string**<br>Service account ID for the instance.
 network_settings | **[NetworkSettings](#NetworkSettings9)**<br>Network settings for the instance. 
 name | **string**<br>Name of the instance. In order to be unique it must contain at least on of instance unique placeholders: {instance.short_id} {instance.index} combination of {instance.zone_id} and {instance.index_in_zone} Example: my-instance-{instance.index} If not set, default is used: {instance_group.id}-{instance.short_id} It may also contain another placeholders, see metadata doc for full list. The maximum string length in characters is 128.
 hostname | **string**<br>Host name for the instance. This field is used to generate the `yandex.cloud.compute.v1.Instance.fqdn` value. The host name must be unique within the network and region. If not specified, the host name will be equal to `yandex.cloud.compute.v1.Instance.id` of the instance and FQDN will be `<id>.auto.internal`. Otherwise FQDN will be `<hostname>.<region_id>.internal`. <br>In order to be unique it must contain at least on of instance unique placeholders: {instance.short_id} {instance.index} combination of {instance.zone_id} and {instance.index_in_zone} Example: my-instance-{instance.index} If not set, `name` value will be used It may also contain another placeholders, see metadata doc for full list. The maximum string length in characters is 128.
+placement_policy | **[PlacementPolicy](#PlacementPolicy9)**<br>Placement Group 
 
 
 ### ResourcesSpec {#ResourcesSpec9}
@@ -2864,6 +2964,7 @@ one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec9)**<br>An external IP
 Field | Description
 --- | ---
 ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
+address | **string**<br>Manual set static public IP. To set use variables. (optional) 
 
 
 ### SchedulingPolicy {#SchedulingPolicy9}
@@ -2878,6 +2979,13 @@ preemptible | **bool**<br>Preemptible instances are stopped at least once every 
 Field | Description
 --- | ---
 type | enum **[Type](./disk_type#undefined)**<br>Type of instance network. <ul><ul/>
+
+
+### PlacementPolicy {#PlacementPolicy9}
+
+Field | Description
+--- | ---
+placement_group_id | **string**<br>Identifier of placement group 
 
 
 ### ScalePolicy {#ScalePolicy9}
@@ -2920,6 +3028,8 @@ metric_type | enum **MetricType**<br>Required. Type of custom metric. This field
 metric_name | **string**<br>Required. Name of custom metric in Yandex Monitoring that should be used for scaling. Value must match the regular expression ` [a-zA-Z0-9./@_][0-9a-zA-Z./@_,:;()\\[\\]<>-]{0,198} `.
 labels | **map<string,string>**<br>Labels of custom metric in Yandex Monitoring that should be used for scaling. Each value must match the regular expression ` [a-zA-Z0-9./@_][0-9a-zA-Z./@_,:;()\\[\\]<>-]{0,198} `. Each key must match the regular expression ` ^[a-zA-Z][0-9a-zA-Z_]{0,31}$ `.
 target | **double**<br>Target value for the custom metric. Instance Groups maintains this level for each availability zone. Value must be greater than 0.
+folder_id | **string**<br>Folder id of custom metric in Yandex Monitoring that should be used for scaling. The maximum string length in characters is 50.
+service | **string**<br>Service of custom metric in Yandex Monitoring that should be used for scaling. The maximum string length in characters is 200.
 
 
 ### FixedScale {#FixedScale9}
@@ -3237,6 +3347,7 @@ service_account_id | **string**<br>Service account ID for the instance.
 network_settings | **[NetworkSettings](#NetworkSettings10)**<br>Network settings for the instance. 
 name | **string**<br>Name of the instance. In order to be unique it must contain at least on of instance unique placeholders: {instance.short_id} {instance.index} combination of {instance.zone_id} and {instance.index_in_zone} Example: my-instance-{instance.index} If not set, default is used: {instance_group.id}-{instance.short_id} It may also contain another placeholders, see metadata doc for full list. The maximum string length in characters is 128.
 hostname | **string**<br>Host name for the instance. This field is used to generate the `yandex.cloud.compute.v1.Instance.fqdn` value. The host name must be unique within the network and region. If not specified, the host name will be equal to `yandex.cloud.compute.v1.Instance.id` of the instance and FQDN will be `<id>.auto.internal`. Otherwise FQDN will be `<hostname>.<region_id>.internal`. <br>In order to be unique it must contain at least on of instance unique placeholders: {instance.short_id} {instance.index} combination of {instance.zone_id} and {instance.index_in_zone} Example: my-instance-{instance.index} If not set, `name` value will be used It may also contain another placeholders, see metadata doc for full list. The maximum string length in characters is 128.
+placement_policy | **[PlacementPolicy](#PlacementPolicy10)**<br>Placement Group 
 
 
 ### ResourcesSpec {#ResourcesSpec10}
@@ -3295,6 +3406,7 @@ one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec10)**<br>An external I
 Field | Description
 --- | ---
 ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
+address | **string**<br>Manual set static public IP. To set use variables. (optional) 
 
 
 ### SchedulingPolicy {#SchedulingPolicy10}
@@ -3309,6 +3421,13 @@ preemptible | **bool**<br>Preemptible instances are stopped at least once every 
 Field | Description
 --- | ---
 type | enum **[Type](./disk_type#undefined)**<br>Type of instance network. <ul><ul/>
+
+
+### PlacementPolicy {#PlacementPolicy10}
+
+Field | Description
+--- | ---
+placement_group_id | **string**<br>Identifier of placement group 
 
 
 ### ScalePolicy {#ScalePolicy10}
@@ -3351,6 +3470,8 @@ metric_type | enum **MetricType**<br>Required. Type of custom metric. This field
 metric_name | **string**<br>Required. Name of custom metric in Yandex Monitoring that should be used for scaling. Value must match the regular expression ` [a-zA-Z0-9./@_][0-9a-zA-Z./@_,:;()\\[\\]<>-]{0,198} `.
 labels | **map<string,string>**<br>Labels of custom metric in Yandex Monitoring that should be used for scaling. Each value must match the regular expression ` [a-zA-Z0-9./@_][0-9a-zA-Z./@_,:;()\\[\\]<>-]{0,198} `. Each key must match the regular expression ` ^[a-zA-Z][0-9a-zA-Z_]{0,31}$ `.
 target | **double**<br>Target value for the custom metric. Instance Groups maintains this level for each availability zone. Value must be greater than 0.
+folder_id | **string**<br>Folder id of custom metric in Yandex Monitoring that should be used for scaling. The maximum string length in characters is 50.
+service | **string**<br>Service of custom metric in Yandex Monitoring that should be used for scaling. The maximum string length in characters is 200.
 
 
 ### FixedScale {#FixedScale10}
@@ -3561,6 +3682,7 @@ service_account_id | **string**<br>Service account ID for the instance.
 network_settings | **[NetworkSettings](#NetworkSettings11)**<br>Network settings for the instance. 
 name | **string**<br>Name of the instance. In order to be unique it must contain at least on of instance unique placeholders: {instance.short_id} {instance.index} combination of {instance.zone_id} and {instance.index_in_zone} Example: my-instance-{instance.index} If not set, default is used: {instance_group.id}-{instance.short_id} It may also contain another placeholders, see metadata doc for full list. The maximum string length in characters is 128.
 hostname | **string**<br>Host name for the instance. This field is used to generate the `yandex.cloud.compute.v1.Instance.fqdn` value. The host name must be unique within the network and region. If not specified, the host name will be equal to `yandex.cloud.compute.v1.Instance.id` of the instance and FQDN will be `<id>.auto.internal`. Otherwise FQDN will be `<hostname>.<region_id>.internal`. <br>In order to be unique it must contain at least on of instance unique placeholders: {instance.short_id} {instance.index} combination of {instance.zone_id} and {instance.index_in_zone} Example: my-instance-{instance.index} If not set, `name` value will be used It may also contain another placeholders, see metadata doc for full list. The maximum string length in characters is 128.
+placement_policy | **[PlacementPolicy](#PlacementPolicy11)**<br>Placement Group 
 
 
 ### ResourcesSpec {#ResourcesSpec11}
@@ -3619,6 +3741,7 @@ one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec11)**<br>An external I
 Field | Description
 --- | ---
 ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
+address | **string**<br>Manual set static public IP. To set use variables. (optional) 
 
 
 ### SchedulingPolicy {#SchedulingPolicy11}
@@ -3633,6 +3756,13 @@ preemptible | **bool**<br>Preemptible instances are stopped at least once every 
 Field | Description
 --- | ---
 type | enum **[Type](./disk_type#undefined)**<br>Type of instance network. <ul><ul/>
+
+
+### PlacementPolicy {#PlacementPolicy11}
+
+Field | Description
+--- | ---
+placement_group_id | **string**<br>Identifier of placement group 
 
 
 ### ScalePolicy {#ScalePolicy11}
@@ -3675,6 +3805,8 @@ metric_type | enum **MetricType**<br>Required. Type of custom metric. This field
 metric_name | **string**<br>Required. Name of custom metric in Yandex Monitoring that should be used for scaling. Value must match the regular expression ` [a-zA-Z0-9./@_][0-9a-zA-Z./@_,:;()\\[\\]<>-]{0,198} `.
 labels | **map<string,string>**<br>Labels of custom metric in Yandex Monitoring that should be used for scaling. Each value must match the regular expression ` [a-zA-Z0-9./@_][0-9a-zA-Z./@_,:;()\\[\\]<>-]{0,198} `. Each key must match the regular expression ` ^[a-zA-Z][0-9a-zA-Z_]{0,31}$ `.
 target | **double**<br>Target value for the custom metric. Instance Groups maintains this level for each availability zone. Value must be greater than 0.
+folder_id | **string**<br>Folder id of custom metric in Yandex Monitoring that should be used for scaling. The maximum string length in characters is 50.
+service | **string**<br>Service of custom metric in Yandex Monitoring that should be used for scaling. The maximum string length in characters is 200.
 
 
 ### FixedScale {#FixedScale11}

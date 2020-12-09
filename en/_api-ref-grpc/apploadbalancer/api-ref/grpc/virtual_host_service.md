@@ -86,12 +86,13 @@ match | **oneof:** `exact_match` or `prefix_match`<br>
 Field | Description
 --- | ---
 backend_group_id | **string**<br>Required. Backend group to route requests. 
-timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>If not set, default is 60 seconds. 
+timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Specifies the request timeout (overall time request processing is allowed to take) for the route. If not set, default is 60 seconds. 
+idle_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Specifies the idle timeout (time without any data transfer for the active request) for the route. It is useful for streaming scenarios (i.e. long-polling, server-sent events) - one should set idle_timeout to something meaningful and timeout to the maximum time the stream is allowed to be alive. If not specified, there is no per-route idle timeout. 
 host_rewrite_specifier | **oneof:** `host_rewrite` or `auto_host_rewrite`<br>
 &nbsp;&nbsp;host_rewrite | **string**<br> 
 &nbsp;&nbsp;auto_host_rewrite | **bool**<br> 
 prefix_rewrite | **string**<br>If not empty, matched path prefix will be replaced by this value. 
-support_websockets | **bool**<br>Allows websocket upgrades. 
+upgrade_types[] | **string**<br>Only specified upgrade types will be allowed. For example, "websocket". 
 
 
 ### RedirectAction {#RedirectAction}
@@ -99,6 +100,12 @@ support_websockets | **bool**<br>Allows websocket upgrades.
 Field | Description
 --- | ---
 replace_scheme | **string**<br>Replaces scheme. If the original scheme is `http` or `https`, will also remove the 80 or 443 port, if present. 
+replace_host | **string**<br>Replaces hostname. 
+replace_port | **int64**<br>Replaces port. 
+path | **oneof:** `replace_path` or `replace_prefix`<br>
+&nbsp;&nbsp;replace_path | **string**<br>Replace path. 
+&nbsp;&nbsp;replace_prefix | **string**<br>Replace only matched prefix. Example: match:    {prefix_match: "/some"} redirect: {replace_prefix: "/other"} will redirect "/something" to "/otherthing" 
+remove_query | **bool**<br>Remove query part. 
 response_code | enum **RedirectResponseCode**<br>The HTTP status code to use in the redirect response. <ul><li>`MOVED_PERMANENTLY`: Moved Permanently HTTP Status Code - 301.</li><li>`FOUND`: Found HTTP Status Code - 302.</li><li>`SEE_OTHER`: See Other HTTP Status Code - 303.</li><li>`TEMPORARY_REDIRECT`: Temporary Redirect HTTP Status Code - 307.</li><li>`PERMANENT_REDIRECT`: Permanent Redirect HTTP Status Code - 308.</li><ul/>
 
 
@@ -150,6 +157,7 @@ Field | Description
 --- | ---
 backend_group_id | **string**<br>Required. Backend group to route requests. 
 max_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Lower timeout may be specified by the client (using grpc-timeout header). If not set, default is 60 seconds. 
+idle_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Specifies the idle timeout (time without any data transfer for the active request) for the route. It is useful for streaming scenarios - one should set idle_timeout to something meaningful and max_timeout to the maximum time the stream is allowed to be alive. If not specified, there is no per-route idle timeout. 
 host_rewrite_specifier | **oneof:** `host_rewrite` or `auto_host_rewrite`<br>
 &nbsp;&nbsp;host_rewrite | **string**<br> 
 &nbsp;&nbsp;auto_host_rewrite | **bool**<br> 
@@ -251,12 +259,13 @@ match | **oneof:** `exact_match` or `prefix_match`<br>
 Field | Description
 --- | ---
 backend_group_id | **string**<br>Required. Backend group to route requests. 
-timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>If not set, default is 60 seconds. 
+timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Specifies the request timeout (overall time request processing is allowed to take) for the route. If not set, default is 60 seconds. 
+idle_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Specifies the idle timeout (time without any data transfer for the active request) for the route. It is useful for streaming scenarios (i.e. long-polling, server-sent events) - one should set idle_timeout to something meaningful and timeout to the maximum time the stream is allowed to be alive. If not specified, there is no per-route idle timeout. 
 host_rewrite_specifier | **oneof:** `host_rewrite` or `auto_host_rewrite`<br>
 &nbsp;&nbsp;host_rewrite | **string**<br> 
 &nbsp;&nbsp;auto_host_rewrite | **bool**<br> 
 prefix_rewrite | **string**<br>If not empty, matched path prefix will be replaced by this value. 
-support_websockets | **bool**<br>Allows websocket upgrades. 
+upgrade_types[] | **string**<br>Only specified upgrade types will be allowed. For example, "websocket". 
 
 
 ### RedirectAction {#RedirectAction1}
@@ -264,6 +273,12 @@ support_websockets | **bool**<br>Allows websocket upgrades.
 Field | Description
 --- | ---
 replace_scheme | **string**<br>Replaces scheme. If the original scheme is `http` or `https`, will also remove the 80 or 443 port, if present. 
+replace_host | **string**<br>Replaces hostname. 
+replace_port | **int64**<br>Replaces port. 
+path | **oneof:** `replace_path` or `replace_prefix`<br>
+&nbsp;&nbsp;replace_path | **string**<br>Replace path. 
+&nbsp;&nbsp;replace_prefix | **string**<br>Replace only matched prefix. Example: match:    {prefix_match: "/some"} redirect: {replace_prefix: "/other"} will redirect "/something" to "/otherthing" 
+remove_query | **bool**<br>Remove query part. 
 response_code | enum **RedirectResponseCode**<br>The HTTP status code to use in the redirect response. <ul><li>`MOVED_PERMANENTLY`: Moved Permanently HTTP Status Code - 301.</li><li>`FOUND`: Found HTTP Status Code - 302.</li><li>`SEE_OTHER`: See Other HTTP Status Code - 303.</li><li>`TEMPORARY_REDIRECT`: Temporary Redirect HTTP Status Code - 307.</li><li>`PERMANENT_REDIRECT`: Permanent Redirect HTTP Status Code - 308.</li><ul/>
 
 
@@ -315,6 +330,7 @@ Field | Description
 --- | ---
 backend_group_id | **string**<br>Required. Backend group to route requests. 
 max_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Lower timeout may be specified by the client (using grpc-timeout header). If not set, default is 60 seconds. 
+idle_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Specifies the idle timeout (time without any data transfer for the active request) for the route. It is useful for streaming scenarios - one should set idle_timeout to something meaningful and max_timeout to the maximum time the stream is allowed to be alive. If not specified, there is no per-route idle timeout. 
 host_rewrite_specifier | **oneof:** `host_rewrite` or `auto_host_rewrite`<br>
 &nbsp;&nbsp;host_rewrite | **string**<br> 
 &nbsp;&nbsp;auto_host_rewrite | **bool**<br> 
@@ -356,7 +372,6 @@ Field | Description
 http_router_id | **string**<br>Required. ID of the HTTP Router that the virtual host belongs to. 
 name | **string**<br>Configuration of the virtual host to create. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 authority[] | **string**<br> 
-ports[] | **int64**<br> 
 routes[] | **[Route](#Route2)**<br> 
 modify_request_headers[] | **[HeaderModification](#HeaderModification2)**<br> 
 modify_response_headers[] | **[HeaderModification](#HeaderModification2)**<br> 
@@ -405,12 +420,13 @@ match | **oneof:** `exact_match` or `prefix_match`<br>
 Field | Description
 --- | ---
 backend_group_id | **string**<br>Required. Backend group to route requests. 
-timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>If not set, default is 60 seconds. 
+timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Specifies the request timeout (overall time request processing is allowed to take) for the route. If not set, default is 60 seconds. 
+idle_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Specifies the idle timeout (time without any data transfer for the active request) for the route. It is useful for streaming scenarios (i.e. long-polling, server-sent events) - one should set idle_timeout to something meaningful and timeout to the maximum time the stream is allowed to be alive. If not specified, there is no per-route idle timeout. 
 host_rewrite_specifier | **oneof:** `host_rewrite` or `auto_host_rewrite`<br>
 &nbsp;&nbsp;host_rewrite | **string**<br> 
 &nbsp;&nbsp;auto_host_rewrite | **bool**<br> 
 prefix_rewrite | **string**<br>If not empty, matched path prefix will be replaced by this value. 
-support_websockets | **bool**<br>Allows websocket upgrades. 
+upgrade_types[] | **string**<br>Only specified upgrade types will be allowed. For example, "websocket". 
 
 
 ### RedirectAction {#RedirectAction2}
@@ -418,6 +434,12 @@ support_websockets | **bool**<br>Allows websocket upgrades.
 Field | Description
 --- | ---
 replace_scheme | **string**<br>Replaces scheme. If the original scheme is `http` or `https`, will also remove the 80 or 443 port, if present. 
+replace_host | **string**<br>Replaces hostname. 
+replace_port | **int64**<br>Replaces port. 
+path | **oneof:** `replace_path` or `replace_prefix`<br>
+&nbsp;&nbsp;replace_path | **string**<br>Replace path. 
+&nbsp;&nbsp;replace_prefix | **string**<br>Replace only matched prefix. Example: match:    {prefix_match: "/some"} redirect: {replace_prefix: "/other"} will redirect "/something" to "/otherthing" 
+remove_query | **bool**<br>Remove query part. 
 response_code | enum **RedirectResponseCode**<br>The HTTP status code to use in the redirect response. <ul><li>`MOVED_PERMANENTLY`: Moved Permanently HTTP Status Code - 301.</li><li>`FOUND`: Found HTTP Status Code - 302.</li><li>`SEE_OTHER`: See Other HTTP Status Code - 303.</li><li>`TEMPORARY_REDIRECT`: Temporary Redirect HTTP Status Code - 307.</li><li>`PERMANENT_REDIRECT`: Permanent Redirect HTTP Status Code - 308.</li><ul/>
 
 
@@ -469,6 +491,7 @@ Field | Description
 --- | ---
 backend_group_id | **string**<br>Required. Backend group to route requests. 
 max_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Lower timeout may be specified by the client (using grpc-timeout header). If not set, default is 60 seconds. 
+idle_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Specifies the idle timeout (time without any data transfer for the active request) for the route. It is useful for streaming scenarios - one should set idle_timeout to something meaningful and max_timeout to the maximum time the stream is allowed to be alive. If not specified, there is no per-route idle timeout. 
 host_rewrite_specifier | **oneof:** `host_rewrite` or `auto_host_rewrite`<br>
 &nbsp;&nbsp;host_rewrite | **string**<br> 
 &nbsp;&nbsp;auto_host_rewrite | **bool**<br> 
@@ -571,12 +594,13 @@ match | **oneof:** `exact_match` or `prefix_match`<br>
 Field | Description
 --- | ---
 backend_group_id | **string**<br>Required. Backend group to route requests. 
-timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>If not set, default is 60 seconds. 
+timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Specifies the request timeout (overall time request processing is allowed to take) for the route. If not set, default is 60 seconds. 
+idle_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Specifies the idle timeout (time without any data transfer for the active request) for the route. It is useful for streaming scenarios (i.e. long-polling, server-sent events) - one should set idle_timeout to something meaningful and timeout to the maximum time the stream is allowed to be alive. If not specified, there is no per-route idle timeout. 
 host_rewrite_specifier | **oneof:** `host_rewrite` or `auto_host_rewrite`<br>
 &nbsp;&nbsp;host_rewrite | **string**<br> 
 &nbsp;&nbsp;auto_host_rewrite | **bool**<br> 
 prefix_rewrite | **string**<br>If not empty, matched path prefix will be replaced by this value. 
-support_websockets | **bool**<br>Allows websocket upgrades. 
+upgrade_types[] | **string**<br>Only specified upgrade types will be allowed. For example, "websocket". 
 
 
 ### RedirectAction {#RedirectAction3}
@@ -584,6 +608,12 @@ support_websockets | **bool**<br>Allows websocket upgrades.
 Field | Description
 --- | ---
 replace_scheme | **string**<br>Replaces scheme. If the original scheme is `http` or `https`, will also remove the 80 or 443 port, if present. 
+replace_host | **string**<br>Replaces hostname. 
+replace_port | **int64**<br>Replaces port. 
+path | **oneof:** `replace_path` or `replace_prefix`<br>
+&nbsp;&nbsp;replace_path | **string**<br>Replace path. 
+&nbsp;&nbsp;replace_prefix | **string**<br>Replace only matched prefix. Example: match:    {prefix_match: "/some"} redirect: {replace_prefix: "/other"} will redirect "/something" to "/otherthing" 
+remove_query | **bool**<br>Remove query part. 
 response_code | enum **RedirectResponseCode**<br>The HTTP status code to use in the redirect response. <ul><li>`MOVED_PERMANENTLY`: Moved Permanently HTTP Status Code - 301.</li><li>`FOUND`: Found HTTP Status Code - 302.</li><li>`SEE_OTHER`: See Other HTTP Status Code - 303.</li><li>`TEMPORARY_REDIRECT`: Temporary Redirect HTTP Status Code - 307.</li><li>`PERMANENT_REDIRECT`: Permanent Redirect HTTP Status Code - 308.</li><ul/>
 
 
@@ -635,6 +665,7 @@ Field | Description
 --- | ---
 backend_group_id | **string**<br>Required. Backend group to route requests. 
 max_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Lower timeout may be specified by the client (using grpc-timeout header). If not set, default is 60 seconds. 
+idle_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Specifies the idle timeout (time without any data transfer for the active request) for the route. It is useful for streaming scenarios - one should set idle_timeout to something meaningful and max_timeout to the maximum time the stream is allowed to be alive. If not specified, there is no per-route idle timeout. 
 host_rewrite_specifier | **oneof:** `host_rewrite` or `auto_host_rewrite`<br>
 &nbsp;&nbsp;host_rewrite | **string**<br> 
 &nbsp;&nbsp;auto_host_rewrite | **bool**<br> 
@@ -677,7 +708,6 @@ http_router_id | **string**<br>Required. ID of the HTTP Router that the virtual 
 virtual_host_name | **string**<br>Required.  
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br> 
 authority[] | **string**<br>Fields of the virtual host to update. Except name, that field used to address virtual host within the http router and cannot be changed after creation. 
-ports[] | **int64**<br> 
 routes[] | **[Route](#Route4)**<br> 
 modify_request_headers[] | **[HeaderModification](#HeaderModification4)**<br> 
 modify_response_headers[] | **[HeaderModification](#HeaderModification4)**<br> 
@@ -726,12 +756,13 @@ match | **oneof:** `exact_match` or `prefix_match`<br>
 Field | Description
 --- | ---
 backend_group_id | **string**<br>Required. Backend group to route requests. 
-timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>If not set, default is 60 seconds. 
+timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Specifies the request timeout (overall time request processing is allowed to take) for the route. If not set, default is 60 seconds. 
+idle_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Specifies the idle timeout (time without any data transfer for the active request) for the route. It is useful for streaming scenarios (i.e. long-polling, server-sent events) - one should set idle_timeout to something meaningful and timeout to the maximum time the stream is allowed to be alive. If not specified, there is no per-route idle timeout. 
 host_rewrite_specifier | **oneof:** `host_rewrite` or `auto_host_rewrite`<br>
 &nbsp;&nbsp;host_rewrite | **string**<br> 
 &nbsp;&nbsp;auto_host_rewrite | **bool**<br> 
 prefix_rewrite | **string**<br>If not empty, matched path prefix will be replaced by this value. 
-support_websockets | **bool**<br>Allows websocket upgrades. 
+upgrade_types[] | **string**<br>Only specified upgrade types will be allowed. For example, "websocket". 
 
 
 ### RedirectAction {#RedirectAction4}
@@ -739,6 +770,12 @@ support_websockets | **bool**<br>Allows websocket upgrades.
 Field | Description
 --- | ---
 replace_scheme | **string**<br>Replaces scheme. If the original scheme is `http` or `https`, will also remove the 80 or 443 port, if present. 
+replace_host | **string**<br>Replaces hostname. 
+replace_port | **int64**<br>Replaces port. 
+path | **oneof:** `replace_path` or `replace_prefix`<br>
+&nbsp;&nbsp;replace_path | **string**<br>Replace path. 
+&nbsp;&nbsp;replace_prefix | **string**<br>Replace only matched prefix. Example: match:    {prefix_match: "/some"} redirect: {replace_prefix: "/other"} will redirect "/something" to "/otherthing" 
+remove_query | **bool**<br>Remove query part. 
 response_code | enum **RedirectResponseCode**<br>The HTTP status code to use in the redirect response. <ul><li>`MOVED_PERMANENTLY`: Moved Permanently HTTP Status Code - 301.</li><li>`FOUND`: Found HTTP Status Code - 302.</li><li>`SEE_OTHER`: See Other HTTP Status Code - 303.</li><li>`TEMPORARY_REDIRECT`: Temporary Redirect HTTP Status Code - 307.</li><li>`PERMANENT_REDIRECT`: Permanent Redirect HTTP Status Code - 308.</li><ul/>
 
 
@@ -790,6 +827,7 @@ Field | Description
 --- | ---
 backend_group_id | **string**<br>Required. Backend group to route requests. 
 max_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Lower timeout may be specified by the client (using grpc-timeout header). If not set, default is 60 seconds. 
+idle_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Specifies the idle timeout (time without any data transfer for the active request) for the route. It is useful for streaming scenarios - one should set idle_timeout to something meaningful and max_timeout to the maximum time the stream is allowed to be alive. If not specified, there is no per-route idle timeout. 
 host_rewrite_specifier | **oneof:** `host_rewrite` or `auto_host_rewrite`<br>
 &nbsp;&nbsp;host_rewrite | **string**<br> 
 &nbsp;&nbsp;auto_host_rewrite | **bool**<br> 
@@ -892,12 +930,13 @@ match | **oneof:** `exact_match` or `prefix_match`<br>
 Field | Description
 --- | ---
 backend_group_id | **string**<br>Required. Backend group to route requests. 
-timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>If not set, default is 60 seconds. 
+timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Specifies the request timeout (overall time request processing is allowed to take) for the route. If not set, default is 60 seconds. 
+idle_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Specifies the idle timeout (time without any data transfer for the active request) for the route. It is useful for streaming scenarios (i.e. long-polling, server-sent events) - one should set idle_timeout to something meaningful and timeout to the maximum time the stream is allowed to be alive. If not specified, there is no per-route idle timeout. 
 host_rewrite_specifier | **oneof:** `host_rewrite` or `auto_host_rewrite`<br>
 &nbsp;&nbsp;host_rewrite | **string**<br> 
 &nbsp;&nbsp;auto_host_rewrite | **bool**<br> 
 prefix_rewrite | **string**<br>If not empty, matched path prefix will be replaced by this value. 
-support_websockets | **bool**<br>Allows websocket upgrades. 
+upgrade_types[] | **string**<br>Only specified upgrade types will be allowed. For example, "websocket". 
 
 
 ### RedirectAction {#RedirectAction5}
@@ -905,6 +944,12 @@ support_websockets | **bool**<br>Allows websocket upgrades.
 Field | Description
 --- | ---
 replace_scheme | **string**<br>Replaces scheme. If the original scheme is `http` or `https`, will also remove the 80 or 443 port, if present. 
+replace_host | **string**<br>Replaces hostname. 
+replace_port | **int64**<br>Replaces port. 
+path | **oneof:** `replace_path` or `replace_prefix`<br>
+&nbsp;&nbsp;replace_path | **string**<br>Replace path. 
+&nbsp;&nbsp;replace_prefix | **string**<br>Replace only matched prefix. Example: match:    {prefix_match: "/some"} redirect: {replace_prefix: "/other"} will redirect "/something" to "/otherthing" 
+remove_query | **bool**<br>Remove query part. 
 response_code | enum **RedirectResponseCode**<br>The HTTP status code to use in the redirect response. <ul><li>`MOVED_PERMANENTLY`: Moved Permanently HTTP Status Code - 301.</li><li>`FOUND`: Found HTTP Status Code - 302.</li><li>`SEE_OTHER`: See Other HTTP Status Code - 303.</li><li>`TEMPORARY_REDIRECT`: Temporary Redirect HTTP Status Code - 307.</li><li>`PERMANENT_REDIRECT`: Permanent Redirect HTTP Status Code - 308.</li><ul/>
 
 
@@ -956,6 +1001,7 @@ Field | Description
 --- | ---
 backend_group_id | **string**<br>Required. Backend group to route requests. 
 max_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Lower timeout may be specified by the client (using grpc-timeout header). If not set, default is 60 seconds. 
+idle_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Specifies the idle timeout (time without any data transfer for the active request) for the route. It is useful for streaming scenarios - one should set idle_timeout to something meaningful and max_timeout to the maximum time the stream is allowed to be alive. If not specified, there is no per-route idle timeout. 
 host_rewrite_specifier | **oneof:** `host_rewrite` or `auto_host_rewrite`<br>
 &nbsp;&nbsp;host_rewrite | **string**<br> 
 &nbsp;&nbsp;auto_host_rewrite | **bool**<br> 
@@ -1120,12 +1166,13 @@ match | **oneof:** `exact_match` or `prefix_match`<br>
 Field | Description
 --- | ---
 backend_group_id | **string**<br>Required. Backend group to route requests. 
-timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>If not set, default is 60 seconds. 
+timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Specifies the request timeout (overall time request processing is allowed to take) for the route. If not set, default is 60 seconds. 
+idle_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Specifies the idle timeout (time without any data transfer for the active request) for the route. It is useful for streaming scenarios (i.e. long-polling, server-sent events) - one should set idle_timeout to something meaningful and timeout to the maximum time the stream is allowed to be alive. If not specified, there is no per-route idle timeout. 
 host_rewrite_specifier | **oneof:** `host_rewrite` or `auto_host_rewrite`<br>
 &nbsp;&nbsp;host_rewrite | **string**<br> 
 &nbsp;&nbsp;auto_host_rewrite | **bool**<br> 
 prefix_rewrite | **string**<br>If not empty, matched path prefix will be replaced by this value. 
-support_websockets | **bool**<br>Allows websocket upgrades. 
+upgrade_types[] | **string**<br>Only specified upgrade types will be allowed. For example, "websocket". 
 
 
 ### RedirectAction {#RedirectAction6}
@@ -1133,6 +1180,12 @@ support_websockets | **bool**<br>Allows websocket upgrades.
 Field | Description
 --- | ---
 replace_scheme | **string**<br>Replaces scheme. If the original scheme is `http` or `https`, will also remove the 80 or 443 port, if present. 
+replace_host | **string**<br>Replaces hostname. 
+replace_port | **int64**<br>Replaces port. 
+path | **oneof:** `replace_path` or `replace_prefix`<br>
+&nbsp;&nbsp;replace_path | **string**<br>Replace path. 
+&nbsp;&nbsp;replace_prefix | **string**<br>Replace only matched prefix. Example: match:    {prefix_match: "/some"} redirect: {replace_prefix: "/other"} will redirect "/something" to "/otherthing" 
+remove_query | **bool**<br>Remove query part. 
 response_code | enum **RedirectResponseCode**<br>The HTTP status code to use in the redirect response. <ul><li>`MOVED_PERMANENTLY`: Moved Permanently HTTP Status Code - 301.</li><li>`FOUND`: Found HTTP Status Code - 302.</li><li>`SEE_OTHER`: See Other HTTP Status Code - 303.</li><li>`TEMPORARY_REDIRECT`: Temporary Redirect HTTP Status Code - 307.</li><li>`PERMANENT_REDIRECT`: Permanent Redirect HTTP Status Code - 308.</li><ul/>
 
 
@@ -1184,6 +1237,7 @@ Field | Description
 --- | ---
 backend_group_id | **string**<br>Required. Backend group to route requests. 
 max_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Lower timeout may be specified by the client (using grpc-timeout header). If not set, default is 60 seconds. 
+idle_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Specifies the idle timeout (time without any data transfer for the active request) for the route. It is useful for streaming scenarios - one should set idle_timeout to something meaningful and max_timeout to the maximum time the stream is allowed to be alive. If not specified, there is no per-route idle timeout. 
 host_rewrite_specifier | **oneof:** `host_rewrite` or `auto_host_rewrite`<br>
 &nbsp;&nbsp;host_rewrite | **string**<br> 
 &nbsp;&nbsp;auto_host_rewrite | **bool**<br> 
@@ -1264,12 +1318,13 @@ match | **oneof:** `exact_match` or `prefix_match`<br>
 Field | Description
 --- | ---
 backend_group_id | **string**<br>Required. Backend group to route requests. 
-timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>If not set, default is 60 seconds. 
+timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Specifies the request timeout (overall time request processing is allowed to take) for the route. If not set, default is 60 seconds. 
+idle_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Specifies the idle timeout (time without any data transfer for the active request) for the route. It is useful for streaming scenarios (i.e. long-polling, server-sent events) - one should set idle_timeout to something meaningful and timeout to the maximum time the stream is allowed to be alive. If not specified, there is no per-route idle timeout. 
 host_rewrite_specifier | **oneof:** `host_rewrite` or `auto_host_rewrite`<br>
 &nbsp;&nbsp;host_rewrite | **string**<br> 
 &nbsp;&nbsp;auto_host_rewrite | **bool**<br> 
 prefix_rewrite | **string**<br>If not empty, matched path prefix will be replaced by this value. 
-support_websockets | **bool**<br>Allows websocket upgrades. 
+upgrade_types[] | **string**<br>Only specified upgrade types will be allowed. For example, "websocket". 
 
 
 ### RedirectAction {#RedirectAction7}
@@ -1277,6 +1332,12 @@ support_websockets | **bool**<br>Allows websocket upgrades.
 Field | Description
 --- | ---
 replace_scheme | **string**<br>Replaces scheme. If the original scheme is `http` or `https`, will also remove the 80 or 443 port, if present. 
+replace_host | **string**<br>Replaces hostname. 
+replace_port | **int64**<br>Replaces port. 
+path | **oneof:** `replace_path` or `replace_prefix`<br>
+&nbsp;&nbsp;replace_path | **string**<br>Replace path. 
+&nbsp;&nbsp;replace_prefix | **string**<br>Replace only matched prefix. Example: match:    {prefix_match: "/some"} redirect: {replace_prefix: "/other"} will redirect "/something" to "/otherthing" 
+remove_query | **bool**<br>Remove query part. 
 response_code | enum **RedirectResponseCode**<br>The HTTP status code to use in the redirect response. <ul><li>`MOVED_PERMANENTLY`: Moved Permanently HTTP Status Code - 301.</li><li>`FOUND`: Found HTTP Status Code - 302.</li><li>`SEE_OTHER`: See Other HTTP Status Code - 303.</li><li>`TEMPORARY_REDIRECT`: Temporary Redirect HTTP Status Code - 307.</li><li>`PERMANENT_REDIRECT`: Permanent Redirect HTTP Status Code - 308.</li><ul/>
 
 
@@ -1328,6 +1389,7 @@ Field | Description
 --- | ---
 backend_group_id | **string**<br>Required. Backend group to route requests. 
 max_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Lower timeout may be specified by the client (using grpc-timeout header). If not set, default is 60 seconds. 
+idle_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Specifies the idle timeout (time without any data transfer for the active request) for the route. It is useful for streaming scenarios - one should set idle_timeout to something meaningful and max_timeout to the maximum time the stream is allowed to be alive. If not specified, there is no per-route idle timeout. 
 host_rewrite_specifier | **oneof:** `host_rewrite` or `auto_host_rewrite`<br>
 &nbsp;&nbsp;host_rewrite | **string**<br> 
 &nbsp;&nbsp;auto_host_rewrite | **bool**<br> 
@@ -1419,12 +1481,13 @@ match | **oneof:** `exact_match` or `prefix_match`<br>
 Field | Description
 --- | ---
 backend_group_id | **string**<br>Required. Backend group to route requests. 
-timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>If not set, default is 60 seconds. 
+timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Specifies the request timeout (overall time request processing is allowed to take) for the route. If not set, default is 60 seconds. 
+idle_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Specifies the idle timeout (time without any data transfer for the active request) for the route. It is useful for streaming scenarios (i.e. long-polling, server-sent events) - one should set idle_timeout to something meaningful and timeout to the maximum time the stream is allowed to be alive. If not specified, there is no per-route idle timeout. 
 host_rewrite_specifier | **oneof:** `host_rewrite` or `auto_host_rewrite`<br>
 &nbsp;&nbsp;host_rewrite | **string**<br> 
 &nbsp;&nbsp;auto_host_rewrite | **bool**<br> 
 prefix_rewrite | **string**<br>If not empty, matched path prefix will be replaced by this value. 
-support_websockets | **bool**<br>Allows websocket upgrades. 
+upgrade_types[] | **string**<br>Only specified upgrade types will be allowed. For example, "websocket". 
 
 
 ### RedirectAction {#RedirectAction8}
@@ -1432,6 +1495,12 @@ support_websockets | **bool**<br>Allows websocket upgrades.
 Field | Description
 --- | ---
 replace_scheme | **string**<br>Replaces scheme. If the original scheme is `http` or `https`, will also remove the 80 or 443 port, if present. 
+replace_host | **string**<br>Replaces hostname. 
+replace_port | **int64**<br>Replaces port. 
+path | **oneof:** `replace_path` or `replace_prefix`<br>
+&nbsp;&nbsp;replace_path | **string**<br>Replace path. 
+&nbsp;&nbsp;replace_prefix | **string**<br>Replace only matched prefix. Example: match:    {prefix_match: "/some"} redirect: {replace_prefix: "/other"} will redirect "/something" to "/otherthing" 
+remove_query | **bool**<br>Remove query part. 
 response_code | enum **RedirectResponseCode**<br>The HTTP status code to use in the redirect response. <ul><li>`MOVED_PERMANENTLY`: Moved Permanently HTTP Status Code - 301.</li><li>`FOUND`: Found HTTP Status Code - 302.</li><li>`SEE_OTHER`: See Other HTTP Status Code - 303.</li><li>`TEMPORARY_REDIRECT`: Temporary Redirect HTTP Status Code - 307.</li><li>`PERMANENT_REDIRECT`: Permanent Redirect HTTP Status Code - 308.</li><ul/>
 
 
@@ -1483,6 +1552,7 @@ Field | Description
 --- | ---
 backend_group_id | **string**<br>Required. Backend group to route requests. 
 max_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Lower timeout may be specified by the client (using grpc-timeout header). If not set, default is 60 seconds. 
+idle_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Specifies the idle timeout (time without any data transfer for the active request) for the route. It is useful for streaming scenarios - one should set idle_timeout to something meaningful and max_timeout to the maximum time the stream is allowed to be alive. If not specified, there is no per-route idle timeout. 
 host_rewrite_specifier | **oneof:** `host_rewrite` or `auto_host_rewrite`<br>
 &nbsp;&nbsp;host_rewrite | **string**<br> 
 &nbsp;&nbsp;auto_host_rewrite | **bool**<br> 

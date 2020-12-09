@@ -37,7 +37,8 @@ backendGroupId | Required.
         "backendWeight": "integer",
         "loadBalancingConfig": {
           "panicThreshold": "string",
-          "localityAwareRoutingPercent": "string"
+          "localityAwareRoutingPercent": "string",
+          "strictLocality": true
         },
         "port": "string",
         "healthchecks": [
@@ -72,16 +73,6 @@ backendGroupId | Required.
         ],
         "tls": {
           "sni": "string",
-          "tlsOptions": {
-            "tlsMinVersion": "string",
-            "tlsMaxVersion": "string",
-            "cipherSuites": [
-              "string"
-            ],
-            "ecdhCurves": [
-              "string"
-            ]
-          },
           "validationContext": {
 
             // `http.backends[].tls.validationContext` includes only one of the fields `trustedCaId`, `trustedCaBytes`
@@ -107,7 +98,8 @@ backendGroupId | Required.
         "backendWeight": "integer",
         "loadBalancingConfig": {
           "panicThreshold": "string",
-          "localityAwareRoutingPercent": "string"
+          "localityAwareRoutingPercent": "string",
+          "strictLocality": true
         },
         "port": "string",
         "healthchecks": [
@@ -142,16 +134,6 @@ backendGroupId | Required.
         ],
         "tls": {
           "sni": "string",
-          "tlsOptions": {
-            "tlsMinVersion": "string",
-            "tlsMaxVersion": "string",
-            "cipherSuites": [
-              "string"
-            ],
-            "ecdhCurves": [
-              "string"
-            ]
-          },
           "validationContext": {
 
             // `grpc.backends[].tls.validationContext` includes only one of the fields `trustedCaId`, `trustedCaBytes`
@@ -181,14 +163,15 @@ id | **string**<br><p>Output only. ID of the backend group.</p>
 name | **string**<br><p>The name is unique within the folder. 3-63 characters long.</p> 
 description | **string**<br><p>Description of the backend group. 0-256 characters long.</p> 
 folderId | **string**<br><p>ID of the folder that the backend group belongs to.</p> 
-labels | **object**<br><p>Resource labels as <code>key:value</code> pairs. Maximum of 64 per resource.</p> 
+labels | **object**<br><p>Resource labels as `key:value` pairs. Maximum of 64 per resource.</p> 
 http | **object** <br> includes only one of the fields `http`, `grpc`<br><br>
 http.<br>backends[] | **object**<br>
 http.<br>backends[].<br>name | **string**<br><p>Required. Name.</p> 
-http.<br>backends[].<br>backendWeight | **integer** (int64)<br><p>Traffic will be split between backends of the same BackendGroup according to their weights. If not set, backend will be disabled.</p> 
+http.<br>backends[].<br>backendWeight | **integer** (int64)<br><p>Traffic will be split between backends of the same BackendGroup according to their weights. If set to zero, backend will be disabled. If not set in all backends, they all will have equal weights. Must either set or unset in all backeds of the group.</p> 
 http.<br>backends[].<br>loadBalancingConfig | **object**<br>
 http.<br>backends[].<br>loadBalancingConfig.<br>panicThreshold | **string** (int64)<br><p>If percentage of healthy hosts in the backend is lower than panic_threshold, traffic will be routed to all backends no matter what the health status is. This helps to avoid healthy backends overloading  when everything is bad. zero means no panic threshold.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
 http.<br>backends[].<br>loadBalancingConfig.<br>localityAwareRoutingPercent | **string** (int64)<br><p>Percent of traffic to be sent to the same availability zone. The rest will be equally divided between other zones.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+http.<br>backends[].<br>loadBalancingConfig.<br>strictLocality | **boolean** (boolean)<br><p>If set, will route requests only to the same availability zone. Balancer won't know about endpoints in other zones.</p> 
 http.<br>backends[].<br>port | **string** (int64)<br><p>Port for all targets from target group.</p> <p>Acceptable values are 0 to 65535, inclusive.</p> 
 http.<br>backends[].<br>healthchecks[] | **object**<br><p>Active health check.</p> 
 http.<br>backends[].<br>healthchecks[].<br>timeout | **string**<br><p>Required. Time to wait for a health check response.</p> 
@@ -210,11 +193,6 @@ http.<br>backends[].<br>healthchecks[].<br>grpc | **object** <br>`http.backends[
 http.<br>backends[].<br>healthchecks[].<br>grpc.<br>serviceName | **string**<br><p>Optional service name for grpc.health.v1.HealthCheckRequest message.</p> 
 http.<br>backends[].<br>tls | **object**<br>TLS settings for the upstream.<br>
 http.<br>backends[].<br>tls.<br>sni | **string**<br><p>SNI string for TLS connections.</p> 
-http.<br>backends[].<br>tls.<br>tlsOptions | **object**<br><p>Common TLS options used for backend TLS connections.</p> 
-http.<br>backends[].<br>tls.<br>tlsOptions.<br>tlsMinVersion | **string**<br><p>Minimum TLS protocol version.</p> 
-http.<br>backends[].<br>tls.<br>tlsOptions.<br>tlsMaxVersion | **string**<br><p>Maximum TLS protocol version.</p> 
-http.<br>backends[].<br>tls.<br>tlsOptions.<br>cipherSuites[] | **string**<br><p>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used.</p> 
-http.<br>backends[].<br>tls.<br>tlsOptions.<br>ecdhCurves[] | **string**<br><p>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used.</p> 
 http.<br>backends[].<br>tls.<br>validationContext | **object**<br><p>Validation context for backend TLS connections.</p> 
 http.<br>backends[].<br>tls.<br>validationContext.<br>trustedCaId | **string** <br>`http.backends[].tls.validationContext` includes only one of the fields `trustedCaId`, `trustedCaBytes`<br><br><p>Trusted CA certificate ID in the Certificate Manager.</p> 
 http.<br>backends[].<br>tls.<br>validationContext.<br>trustedCaBytes | **string** <br>`http.backends[].tls.validationContext` includes only one of the fields `trustedCaId`, `trustedCaBytes`<br><br><p>Trusted CA blob.</p> 
@@ -224,10 +202,11 @@ http.<br>backends[].<br>targetGroups.<br>targetGroupIds[] | **string**<br><p>Req
 grpc | **object** <br> includes only one of the fields `http`, `grpc`<br><br>
 grpc.<br>backends[] | **object**<br>
 grpc.<br>backends[].<br>name | **string**<br><p>Required. Name.</p> 
-grpc.<br>backends[].<br>backendWeight | **integer** (int64)<br><p>Traffic will be split between backends of the same BackendGroup according to their weights. If not set, backend will be disabled.</p> 
+grpc.<br>backends[].<br>backendWeight | **integer** (int64)<br><p>Traffic will be split between backends of the same BackendGroup according to their weights. If set to zero, backend will be disabled. If not set in all backends, they all will have equal weights. Must either set or unset in all backeds of the group.</p> 
 grpc.<br>backends[].<br>loadBalancingConfig | **object**<br>
 grpc.<br>backends[].<br>loadBalancingConfig.<br>panicThreshold | **string** (int64)<br><p>If percentage of healthy hosts in the backend is lower than panic_threshold, traffic will be routed to all backends no matter what the health status is. This helps to avoid healthy backends overloading  when everything is bad. zero means no panic threshold.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
 grpc.<br>backends[].<br>loadBalancingConfig.<br>localityAwareRoutingPercent | **string** (int64)<br><p>Percent of traffic to be sent to the same availability zone. The rest will be equally divided between other zones.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+grpc.<br>backends[].<br>loadBalancingConfig.<br>strictLocality | **boolean** (boolean)<br><p>If set, will route requests only to the same availability zone. Balancer won't know about endpoints in other zones.</p> 
 grpc.<br>backends[].<br>port | **string** (int64)<br><p>Port for all targets from target group.</p> <p>Acceptable values are 0 to 65535, inclusive.</p> 
 grpc.<br>backends[].<br>healthchecks[] | **object**<br><p>Active health check.</p> 
 grpc.<br>backends[].<br>healthchecks[].<br>timeout | **string**<br><p>Required. Time to wait for a health check response.</p> 
@@ -249,11 +228,6 @@ grpc.<br>backends[].<br>healthchecks[].<br>grpc | **object** <br>`grpc.backends[
 grpc.<br>backends[].<br>healthchecks[].<br>grpc.<br>serviceName | **string**<br><p>Optional service name for grpc.health.v1.HealthCheckRequest message.</p> 
 grpc.<br>backends[].<br>tls | **object**<br>TLS settings for the upstream.<br>
 grpc.<br>backends[].<br>tls.<br>sni | **string**<br><p>SNI string for TLS connections.</p> 
-grpc.<br>backends[].<br>tls.<br>tlsOptions | **object**<br><p>Common TLS options used for backend TLS connections.</p> 
-grpc.<br>backends[].<br>tls.<br>tlsOptions.<br>tlsMinVersion | **string**<br><p>Minimum TLS protocol version.</p> 
-grpc.<br>backends[].<br>tls.<br>tlsOptions.<br>tlsMaxVersion | **string**<br><p>Maximum TLS protocol version.</p> 
-grpc.<br>backends[].<br>tls.<br>tlsOptions.<br>cipherSuites[] | **string**<br><p>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used.</p> 
-grpc.<br>backends[].<br>tls.<br>tlsOptions.<br>ecdhCurves[] | **string**<br><p>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used.</p> 
 grpc.<br>backends[].<br>tls.<br>validationContext | **object**<br><p>Validation context for backend TLS connections.</p> 
 grpc.<br>backends[].<br>tls.<br>validationContext.<br>trustedCaId | **string** <br>`grpc.backends[].tls.validationContext` includes only one of the fields `trustedCaId`, `trustedCaBytes`<br><br><p>Trusted CA certificate ID in the Certificate Manager.</p> 
 grpc.<br>backends[].<br>tls.<br>validationContext.<br>trustedCaBytes | **string** <br>`grpc.backends[].tls.validationContext` includes only one of the fields `trustedCaId`, `trustedCaBytes`<br><br><p>Trusted CA blob.</p> 

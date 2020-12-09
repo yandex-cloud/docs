@@ -14,7 +14,6 @@ editable: false
   "labels": "object",
   "targets": [
     {
-      "port": "string",
       "subnetId": "string",
       "ipAddress": "string"
     }
@@ -28,9 +27,8 @@ id | **string**<br><p>Output only. ID of the target group.</p>
 name | **string**<br><p>The name is unique within the folder. 3-63 characters long.</p> 
 description | **string**<br><p>Description of the target group. 0-256 characters long.</p> 
 folderId | **string**<br><p>ID of the folder that the target group belongs to.</p> 
-labels | **object**<br><p>Resource labels as <code>key:value</code> pairs. Maximum of 64 per resource.</p> 
+labels | **object**<br><p>Resource labels as `key:value` pairs. Maximum of 64 per resource.</p> 
 targets[] | **object**<br><p>NOTE: all endpoints must use the same address_type - either ip or hostname.</p> 
-targets[].<br>port | **string** (int64)<br><p>Endpoint port. Takes priority over Backend::port setting.</p> <p>Acceptable values are 0 to 65535, inclusive.</p> 
 targets[].<br>subnetId | **string**<br><p>ID of the subnet that target connected to.</p> 
 targets[].<br>ipAddress | **string**<br>
 

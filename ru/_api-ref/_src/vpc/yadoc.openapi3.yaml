@@ -8,6 +8,242 @@ info:
   x-y-docUri: api-ref
   x-y-baseUrl: https://vpc.api.cloud.yandex.net
 paths:
+  /vpc/v1/addresses/{addressId}:
+    get:
+      tags:
+      - Address
+      summary: Возвращает информацию об указанном адресе.
+      description: Чтобы получить список доступных адресов, используйте запрос [list](/docs/vpc/api-ref/Address/list).
+      operationId: AddressGet
+      parameters:
+      - name: addressId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор возвращаемого адреса.
+
+          Чтобы получить идентификатор адреса, используйте запрос [list](/docs/vpc/api-ref/Address/list).
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Address'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - Address
+      summary: Удаляет указанный адрес.
+      operationId: AddressDelete
+      parameters:
+      - name: addressId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор адреса, который следует удалить.
+
+          Чтобы получить идентификатор адреса, используйте запрос [list](/docs/vpc/api-ref/Address/list).
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteAddressMetadata'
+      x-y-operation-response: Empty
+    patch:
+      tags:
+      - Address
+      summary: Обновляет параметры указанного адреса.
+      operationId: AddressUpdate
+      parameters:
+      - name: addressId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор обновляемого адреса.
+
+          Для получения идентификатора адреса используйте запрос [list](/docs/vpc/api-ref/Address/list).
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateAddressRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateAddressMetadata'
+      x-y-operation-response: '[Address](/docs/vpc/api-ref/Address#representation)'
+  /vpc/v1/addresses:byValue:
+    get:
+      tags:
+      - Address
+      summary: Возвращает информацию об указанном адресе по его значению.
+      description: Чтобы получить список доступных адресов, используйте запрос [list](/docs/vpc/api-ref/Address/list).
+      operationId: AddressGetByValue
+      parameters:
+      - name: externalIpv4Address
+        in: query
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Address'
+      x-y-navtitle: getByValue
+  /vpc/v1/addresses:
+    get:
+      tags:
+      - Address
+      summary: Возвращает список доступных адресов в указанном каталоге.
+      operationId: AddressList
+      parameters:
+      - name: folderId
+        in: query
+        description: |-
+          Обязательное поле.
+          Идентификатор каталога, которому принадлежит адрес.
+
+          Чтобы получить идентификатор каталога, используйте запрос [list](/docs/resource-manager/api-ref/Folder/list).
+
+          Максимальная длина строки в символах — 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: "Максимальное количество результатов на странице ответа на запрос.
+          Если количество результатов \nбольше чем `page_size`, сервис вернет значение
+          [nextPageToken](/docs/vpc/api-ref/Address/list#responses),\nкоторое можно
+          использовать для получения следующей страницы.\nЗначение по умолчанию: 100.\n\nМаксимальное
+          значение — 1000."
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение `page_token` равным значению поля [nextPageToken](/docs/vpc/api-ref/Address/list#responses)
+          предыдущего запроса, чтобы получить следующую страницу результатов.
+
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: "Параметры фильтрации адресов в ответе.\n\nВ параметрах фильтрации
+          указываются: \n1. Имя поля. В настоящее время фильтрация осуществляется
+          только по полю [Address.name](/docs/vpc/api-ref/Address#representation).
+          \n2. Оператор. Поддерживаются операторы `=` и `!=` для одиночных значений,
+          `IN` и `NOT IN` для списков значений.\n3. Значение. Значение длиной от 3
+          до 63 символов, совпадающее с регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]`.
+          \nПример фильтра: \"name=my-address\"."
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListAddressesResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - Address
+      summary: Создает адрес в указанном каталоге и сети.
+      operationId: AddressCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateAddressRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateAddressMetadata'
+      x-y-operation-response: '[Address](/docs/vpc/api-ref/Address#representation)'
+  /vpc/v1/addresses/{addressId}/operations:
+    get:
+      tags:
+      - Address
+      summary: Возвращает список операций указанного адреса.
+      operationId: AddressListOperations
+      parameters:
+      - name: addressId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор адреса для которого запрашивается список операций.
+
+          Чтобы получить идентификатор адреса, используйте запрос [list](/docs/vpc/api-ref/Address/list).
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: "Максимальное количество результатов на странице ответа на запрос.
+          Если количество результатов \nбольше чем [pageSize](/docs/vpc/api-ref/Address/listOperations#query_params),
+          сервис вернет значение [nextPageToken](/docs/vpc/api-ref/Address/listOperations#responses),\nкоторое
+          можно использовать для получения следующей страницы.\nЗначение по умолчанию:
+          100.\n\nМаксимальное значение — 1000."
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение [pageToken](/docs/vpc/api-ref/Address/listOperations#query_params) равным значению поля [nextPageToken](/docs/vpc/api-ref/Address/listOperations#responses)
+          предыдущего запроса, чтобы получить следующую страницу результатов.
+
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListAddressOperationsResponse'
+      x-y-navtitle: listOperations
   /vpc/v1/networks/{networkId}:
     get:
       tags:
@@ -684,6 +920,110 @@ paths:
       x-y-navtitle: listOperations
 components:
   schemas:
+    Address:
+      description: Ресурс Адрес. Подробнее см. [документацию](/docs/vpc/concepts/address).
+      type: object
+      allOf:
+      - type: object
+        properties:
+          id:
+            description: Идентификатор адреса. Генерируется при создании.
+            type: string
+          folderId:
+            description: Идентификатор каталога, которому принадлежит адрес.
+            type: string
+          createdAt:
+            description: |-
+              Время создания ресурса.
+
+              Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+            type: string
+            format: date-time
+          name:
+            description: |-
+              Имя адреса.
+              Имя должно быть уникальным в каталоге.
+            type: string
+          description:
+            description: Описание адреса.
+            type: string
+          labels:
+            description: Метки адреса в формате `ключ:значение`.
+            type: object
+            additionalProperties:
+              type: string
+          reserved:
+            description: Определяет, зарезервирован ли адрес (статический ли он).
+            type: boolean
+            format: boolean
+          used:
+            description: Определяет, используется ли адрес.
+            type: boolean
+            format: boolean
+      - title: address
+        type: object
+        maxProperties: 1
+        properties:
+          externalIpv4Address:
+            $ref: '#/components/schemas/ExternalIpv4Address'
+    AddressRequirements:
+      type: object
+      properties:
+        ddosProtectionProvider:
+          description: Идентификатор провайдера защиты от DDoS-атак.
+          type: string
+        outgoingSmtpCapability:
+          description: Возможность отправки SMTP-трафика.
+          type: string
+    CreateAddressMetadata:
+      type: object
+      properties:
+        addressId:
+          description: Идентификатор создаваемого адреса.
+          type: string
+    CreateAddressRequest:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          folderId:
+            description: |-
+              Обязательное поле.
+              Идентификатор каталога, в котором создается адрес.
+
+              Чтобы получить идентификатор каталога, используйте запрос [list](/docs/resource-manager/api-ref/Folder/list).
+
+              Максимальная длина строки в символах — 50.
+            type: string
+          name:
+            description: "Имя адреса. \nИмя должно быть уникальным в каталоге.\n\nЗначение
+              должно соответствовать регулярному выражению `` |[a-z][-a-z0-9]{1,61}[a-z0-9]
+              ``."
+            type: string
+          description:
+            description: |-
+              Описание адреса.
+
+              Максимальная длина строки в символах — 256.
+            type: string
+          labels:
+            description: |-
+              Метки адресов в формате `ключ:значение`.
+
+              Не более 64 на ресурс.
+              Длина строки в символах для каждого ключа должна быть от 1 до 63.
+              Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
+              Максимальная длина строки в символах для каждого значения — 63.
+              Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.
+            type: object
+            additionalProperties:
+              type: string
+      - title: address_spec
+        type: object
+        maxProperties: 1
+        properties:
+          externalIpv4AddressSpec:
+            $ref: '#/components/schemas/ExternalIpv4AddressSpec'
     CreateNetworkMetadata:
       type: object
       properties:
@@ -850,6 +1190,12 @@ components:
 
             Максимальная длина строки в символах — 50.
           type: string
+    DeleteAddressMetadata:
+      type: object
+      properties:
+        addressId:
+          description: Идентификатор удаляемого адреса.
+          type: string
     DeleteNetworkMetadata:
       type: object
       properties:
@@ -872,6 +1218,28 @@ components:
       description: Пустой JSON объект `` {} ``.
       type: object
       maxProperties: 0
+    ExternalIpv4Address:
+      type: object
+      properties:
+        address:
+          description: Значение адреса.
+          type: string
+        zoneId:
+          description: Зона доступности, из которой будет выделен адрес.
+          type: string
+        requirements:
+          $ref: '#/components/schemas/AddressRequirements_in_ExternalIpv4Address_requirements'
+    ExternalIpv4AddressSpec:
+      type: object
+      properties:
+        address:
+          description: Значение адреса.
+          type: string
+        zoneId:
+          description: Зона доступности, из которой будет выделен адрес.
+          type: string
+        requirements:
+          $ref: '#/components/schemas/AddressRequirements_in_ExternalIpv4AddressSpec_requirements'
     FieldMask:
       description: |-
         Имена всех обновляемых полей, разделенные запятыми.
@@ -883,6 +1251,37 @@ components:
         Для полей, указанных в запросе, будут использованы переданные значения.
         Значения остальных полей будут сброшены на значения по умолчанию.
       type: string
+    ListAddressOperationsResponse:
+      type: object
+      properties:
+        operations:
+          description: Возвращает список операций для указанного адреса.
+          type: array
+          items:
+            $ref: '#/components/schemas/Operation'
+        nextPageToken:
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество результатов
+            больше чем [pageSize](/docs/vpc/api-ref/Address/listOperations#query_params), используйте `next_page_token` в качестве значения
+            параметра [pageToken](/docs/vpc/api-ref/Address/listOperations#query_params) в следующем запросе списка ресурсов.
+
+            Каждая следующая страница будет иметь свой `next_page_token` для продолжения перебора страниц результатов.
+          type: string
+    ListAddressesResponse:
+      type: object
+      properties:
+        addresses:
+          description: Список адресов.
+          type: array
+          items:
+            $ref: '#/components/schemas/Address'
+        nextPageToken:
+          description: "Токен для получения следующей страницы результатов в ответе.
+            Если количество результатов \nбольше чем [pageSize](/docs/vpc/api-ref/Address/list#query_params),
+            используйте `next_page_token` в качестве значения\nпараметра [pageToken](/docs/vpc/api-ref/Address/list#query_params)
+            в следующем запросе списка ресурсов.\n\nКаждая следующая страница будет
+            иметь свой `next_page_token` для продолжения перебора страниц результатов."
+          type: string
     ListNetworkOperationsResponse:
       type: object
       properties:
@@ -1228,6 +1627,50 @@ components:
           type: array
           items:
             type: string
+    UpdateAddressMetadata:
+      type: object
+      properties:
+        addressId:
+          description: Идентификатор обновляемого адреса.
+          type: string
+    UpdateAddressRequest:
+      type: object
+      properties:
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateAddressRequest_updateMask'
+        name:
+          description: "Новое имя для адреса. \nИмя должно быть уникальным в каталоге.\n\nЗначение
+            должно соответствовать регулярному выражению `` |[a-z][-a-z0-9]{1,61}[a-z0-9]
+            ``."
+          type: string
+        description:
+          description: |-
+            Новое описание адреса.
+
+            Максимальная длина строки в символах — 256.
+          type: string
+        labels:
+          description: |-
+            Метки адресов в формате `ключ:значение`.
+
+            Имеющийся набор меток полностью перезаписывается переданным набором, поэтому если вы просто хотите
+            добавить или удалить метку:
+            1. Запросите текущий набор меток с помощью запроса [get](/docs/vpc/api-ref/Address/get).
+            2. Добавьте или удалите метку в этом наборе.
+            3. Отправьте новый набор в этом поле.
+
+            Не более 64 на ресурс.
+            Длина строки в символах для каждого ключа должна быть от 1 до 63.
+            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
+            Максимальная длина строки в символах для каждого значения — 63.
+            Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+        reserved:
+          description: Определяет, зарезервирован ли адрес (статический ли он).
+          type: boolean
+          format: boolean
     UpdateNetworkMetadata:
       type: object
       properties:
@@ -1344,6 +1787,39 @@ components:
 
             Максимальная длина строки в символах — 50.
           type: string
+    AddressRequirements_in_ExternalIpv4Address_requirements:
+      description: Параметры выделяемого адреса, например защита от DDoS-атак.
+      type: object
+      properties:
+        ddosProtectionProvider:
+          description: Идентификатор провайдера защиты от DDoS-атак.
+          type: string
+        outgoingSmtpCapability:
+          description: Возможность отправки SMTP-трафика.
+          type: string
+    AddressRequirements_in_ExternalIpv4AddressSpec_requirements:
+      description: Параметры выделяемого адреса, например защита от DDoS-атак.
+      type: object
+      properties:
+        ddosProtectionProvider:
+          description: Идентификатор провайдера защиты от DDoS-атак.
+          type: string
+        outgoingSmtpCapability:
+          description: Возможность отправки SMTP-трафика.
+          type: string
+    FieldMask_in_UpdateAddressRequest_updateMask:
+      description: |-
+        Маска, определяющая, какие атрибуты адреса должны быть обновлены.
+
+        Имена всех обновляемых полей, разделенные запятыми.
+        Только значения указанных полей будут изменены. Остальные останутся нетронутыми.
+        Если поле указано в параметре `` updateMask `` и в запросе не было отправлено значение для этого поля,
+        значение поля будет сброшено на значение по умолчанию. Значение по умолчанию для большинства полей — null или 0.
+
+        Если в запросе не передается `` updateMask ``, значения всех полей будут обновлены.
+        Для полей, указанных в запросе, будут использованы переданные значения.
+        Значения остальных полей будут сброшены на значения по умолчанию.
+      type: string
     FieldMask_in_UpdateNetworkRequest_updateMask:
       description: |-
         Маска, определяющая, какие поля облачной сети будут обновлены.
@@ -1384,6 +1860,8 @@ components:
         Значения остальных полей будут сброшены на значения по умолчанию.
       type: string
 tags:
+- name: Address
+  description: Набор методов для управления адресами.
 - name: Network
   description: Набор методов для управления облачными сетями.
 - name: RouteTable

@@ -35,7 +35,8 @@ backendGroupId | Required.
         "backendWeight": "integer",
         "loadBalancingConfig": {
           "panicThreshold": "string",
-          "localityAwareRoutingPercent": "string"
+          "localityAwareRoutingPercent": "string",
+          "strictLocality": true
         },
         "port": "string",
         "healthchecks": [
@@ -70,16 +71,6 @@ backendGroupId | Required.
         ],
         "tls": {
           "sni": "string",
-          "tlsOptions": {
-            "tlsMinVersion": "string",
-            "tlsMaxVersion": "string",
-            "cipherSuites": [
-              "string"
-            ],
-            "ecdhCurves": [
-              "string"
-            ]
-          },
           "validationContext": {
 
             // `http.backends[].tls.validationContext` includes only one of the fields `trustedCaId`, `trustedCaBytes`
@@ -105,7 +96,8 @@ backendGroupId | Required.
         "backendWeight": "integer",
         "loadBalancingConfig": {
           "panicThreshold": "string",
-          "localityAwareRoutingPercent": "string"
+          "localityAwareRoutingPercent": "string",
+          "strictLocality": true
         },
         "port": "string",
         "healthchecks": [
@@ -140,16 +132,6 @@ backendGroupId | Required.
         ],
         "tls": {
           "sni": "string",
-          "tlsOptions": {
-            "tlsMinVersion": "string",
-            "tlsMaxVersion": "string",
-            "cipherSuites": [
-              "string"
-            ],
-            "ecdhCurves": [
-              "string"
-            ]
-          },
           "validationContext": {
 
             // `grpc.backends[].tls.validationContext` includes only one of the fields `trustedCaId`, `trustedCaBytes`
@@ -175,17 +157,18 @@ backendGroupId | Required.
  
 Field | Description
 --- | ---
-updateMask | **string**<br><p>A comma-separated names off ALL fields to be updated. Оnly the specified fields will be changed. The others will be left untouched. If the field is specified in <code>updateMask</code> and no value for that field was sent in the request, the field's value will be reset to the default. The default value for most fields is null or 0.</p> <p>If <code>updateMask</code> is not sent in the request, all fields' values will be updated. Fields specified in the request will be updated to provided values. The rest of the fields will be reset to the default.</p> 
-name | **string**<br><p>Value must match the regular expression <code>\|[a-z]([-a-z0-9]{0,61}[a-z0-9])?</code>.</p> 
+updateMask | **string**<br><p>A comma-separated names off ALL fields to be updated. Оnly the specified fields will be changed. The others will be left untouched. If the field is specified in `` updateMask `` and no value for that field was sent in the request, the field's value will be reset to the default. The default value for most fields is null or 0.</p> <p>If `` updateMask `` is not sent in the request, all fields' values will be updated. Fields specified in the request will be updated to provided values. The rest of the fields will be reset to the default.</p> 
+name | **string**<br><p>Value must match the regular expression `` \|<a href="%5B-a-z0-9%5D%7B0,61%7D%5Ba-z0-9%5D">a-z</a>? ``.</p> 
 description | **string**<br><p>The maximum string length in characters is 256.</p> 
-labels | **object**<br><p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression <code>[a-z][-_./\@0-9a-z]*</code>. The maximum string length in characters for each value is 63. Each value must match the regular expression <code>[-_./\@0-9a-z]*</code>.</p> 
+labels | **object**<br><p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression `` [a-z][-<em>./@0-9a-z]* ``. The maximum string length in characters for each value is 63. Each value must match the regular expression `` [-</em>./@0-9a-z]* ``.</p> 
 http | **object** <br> includes only one of the fields `http`, `grpc`<br><br>
 http.<br>backends[] | **object**<br>
 http.<br>backends[].<br>name | **string**<br><p>Required. Name.</p> 
-http.<br>backends[].<br>backendWeight | **integer** (int64)<br><p>Traffic will be split between backends of the same BackendGroup according to their weights. If not set, backend will be disabled.</p> 
+http.<br>backends[].<br>backendWeight | **integer** (int64)<br><p>Traffic will be split between backends of the same BackendGroup according to their weights. If set to zero, backend will be disabled. If not set in all backends, they all will have equal weights. Must either set or unset in all backeds of the group.</p> 
 http.<br>backends[].<br>loadBalancingConfig | **object**<br>
 http.<br>backends[].<br>loadBalancingConfig.<br>panicThreshold | **string** (int64)<br><p>If percentage of healthy hosts in the backend is lower than panic_threshold, traffic will be routed to all backends no matter what the health status is. This helps to avoid healthy backends overloading  when everything is bad. zero means no panic threshold.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
 http.<br>backends[].<br>loadBalancingConfig.<br>localityAwareRoutingPercent | **string** (int64)<br><p>Percent of traffic to be sent to the same availability zone. The rest will be equally divided between other zones.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+http.<br>backends[].<br>loadBalancingConfig.<br>strictLocality | **boolean** (boolean)<br><p>If set, will route requests only to the same availability zone. Balancer won't know about endpoints in other zones.</p> 
 http.<br>backends[].<br>port | **string** (int64)<br><p>Port for all targets from target group.</p> <p>Acceptable values are 0 to 65535, inclusive.</p> 
 http.<br>backends[].<br>healthchecks[] | **object**<br><p>Active health check.</p> 
 http.<br>backends[].<br>healthchecks[].<br>timeout | **string**<br><p>Required. Time to wait for a health check response.</p> 
@@ -207,11 +190,6 @@ http.<br>backends[].<br>healthchecks[].<br>grpc | **object** <br>`http.backends[
 http.<br>backends[].<br>healthchecks[].<br>grpc.<br>serviceName | **string**<br><p>Optional service name for grpc.health.v1.HealthCheckRequest message.</p> 
 http.<br>backends[].<br>tls | **object**<br>TLS settings for the upstream.<br>
 http.<br>backends[].<br>tls.<br>sni | **string**<br><p>SNI string for TLS connections.</p> 
-http.<br>backends[].<br>tls.<br>tlsOptions | **object**<br><p>Common TLS options used for backend TLS connections.</p> 
-http.<br>backends[].<br>tls.<br>tlsOptions.<br>tlsMinVersion | **string**<br><p>Minimum TLS protocol version.</p> 
-http.<br>backends[].<br>tls.<br>tlsOptions.<br>tlsMaxVersion | **string**<br><p>Maximum TLS protocol version.</p> 
-http.<br>backends[].<br>tls.<br>tlsOptions.<br>cipherSuites[] | **string**<br><p>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used.</p> 
-http.<br>backends[].<br>tls.<br>tlsOptions.<br>ecdhCurves[] | **string**<br><p>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used.</p> 
 http.<br>backends[].<br>tls.<br>validationContext | **object**<br><p>Validation context for backend TLS connections.</p> 
 http.<br>backends[].<br>tls.<br>validationContext.<br>trustedCaId | **string** <br>`http.backends[].tls.validationContext` includes only one of the fields `trustedCaId`, `trustedCaBytes`<br><br><p>Trusted CA certificate ID in the Certificate Manager.</p> 
 http.<br>backends[].<br>tls.<br>validationContext.<br>trustedCaBytes | **string** <br>`http.backends[].tls.validationContext` includes only one of the fields `trustedCaId`, `trustedCaBytes`<br><br><p>Trusted CA blob.</p> 
@@ -221,10 +199,11 @@ http.<br>backends[].<br>targetGroups.<br>targetGroupIds[] | **string**<br><p>Req
 grpc | **object** <br> includes only one of the fields `http`, `grpc`<br><br>
 grpc.<br>backends[] | **object**<br>
 grpc.<br>backends[].<br>name | **string**<br><p>Required. Name.</p> 
-grpc.<br>backends[].<br>backendWeight | **integer** (int64)<br><p>Traffic will be split between backends of the same BackendGroup according to their weights. If not set, backend will be disabled.</p> 
+grpc.<br>backends[].<br>backendWeight | **integer** (int64)<br><p>Traffic will be split between backends of the same BackendGroup according to their weights. If set to zero, backend will be disabled. If not set in all backends, they all will have equal weights. Must either set or unset in all backeds of the group.</p> 
 grpc.<br>backends[].<br>loadBalancingConfig | **object**<br>
 grpc.<br>backends[].<br>loadBalancingConfig.<br>panicThreshold | **string** (int64)<br><p>If percentage of healthy hosts in the backend is lower than panic_threshold, traffic will be routed to all backends no matter what the health status is. This helps to avoid healthy backends overloading  when everything is bad. zero means no panic threshold.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
 grpc.<br>backends[].<br>loadBalancingConfig.<br>localityAwareRoutingPercent | **string** (int64)<br><p>Percent of traffic to be sent to the same availability zone. The rest will be equally divided between other zones.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+grpc.<br>backends[].<br>loadBalancingConfig.<br>strictLocality | **boolean** (boolean)<br><p>If set, will route requests only to the same availability zone. Balancer won't know about endpoints in other zones.</p> 
 grpc.<br>backends[].<br>port | **string** (int64)<br><p>Port for all targets from target group.</p> <p>Acceptable values are 0 to 65535, inclusive.</p> 
 grpc.<br>backends[].<br>healthchecks[] | **object**<br><p>Active health check.</p> 
 grpc.<br>backends[].<br>healthchecks[].<br>timeout | **string**<br><p>Required. Time to wait for a health check response.</p> 
@@ -246,11 +225,6 @@ grpc.<br>backends[].<br>healthchecks[].<br>grpc | **object** <br>`grpc.backends[
 grpc.<br>backends[].<br>healthchecks[].<br>grpc.<br>serviceName | **string**<br><p>Optional service name for grpc.health.v1.HealthCheckRequest message.</p> 
 grpc.<br>backends[].<br>tls | **object**<br>TLS settings for the upstream.<br>
 grpc.<br>backends[].<br>tls.<br>sni | **string**<br><p>SNI string for TLS connections.</p> 
-grpc.<br>backends[].<br>tls.<br>tlsOptions | **object**<br><p>Common TLS options used for backend TLS connections.</p> 
-grpc.<br>backends[].<br>tls.<br>tlsOptions.<br>tlsMinVersion | **string**<br><p>Minimum TLS protocol version.</p> 
-grpc.<br>backends[].<br>tls.<br>tlsOptions.<br>tlsMaxVersion | **string**<br><p>Maximum TLS protocol version.</p> 
-grpc.<br>backends[].<br>tls.<br>tlsOptions.<br>cipherSuites[] | **string**<br><p>If specified, the TLS listener will only support the specified cipher list when negotiating TLS 1.0-1.2 (this setting has no effect when negotiating TLS 1.3). If not specified, the default list will be used.</p> 
-grpc.<br>backends[].<br>tls.<br>tlsOptions.<br>ecdhCurves[] | **string**<br><p>If specified, the TLS connection will only support the specified ECDH curves. If not specified, the default curves will be used.</p> 
 grpc.<br>backends[].<br>tls.<br>validationContext | **object**<br><p>Validation context for backend TLS connections.</p> 
 grpc.<br>backends[].<br>tls.<br>validationContext.<br>trustedCaId | **string** <br>`grpc.backends[].tls.validationContext` includes only one of the fields `trustedCaId`, `trustedCaBytes`<br><br><p>Trusted CA certificate ID in the Certificate Manager.</p> 
 grpc.<br>backends[].<br>tls.<br>validationContext.<br>trustedCaBytes | **string** <br>`grpc.backends[].tls.validationContext` includes only one of the fields `trustedCaId`, `trustedCaBytes`<br><br><p>Trusted CA blob.</p> 
@@ -292,7 +266,7 @@ description | **string**<br><p>Description of the operation. 0-256 characters lo
 createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 createdBy | **string**<br><p>ID of the user or service account who initiated the operation.</p> 
 modifiedAt | **string** (date-time)<br><p>The time when the Operation resource was last modified.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
-done | **boolean** (boolean)<br><p>If the value is <code>false</code>, it means the operation is still in progress. If <code>true</code>, the operation is completed, and either <code>error</code> or <code>response</code> is available.</p> 
+done | **boolean** (boolean)<br><p>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available.</p> 
 metadata | **object**<br><p>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any.</p> 
 error | **object**<br>The error result of the operation in case of failure or cancellation. <br> includes only one of the fields `error`, `response`<br><br><p>The error result of the operation in case of failure or cancellation.</p> 
 error.<br>code | **integer** (int32)<br><p>Error code. An enum value of <a href="https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto">google.rpc.Code</a>.</p> 

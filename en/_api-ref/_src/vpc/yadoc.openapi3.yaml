@@ -12,10 +12,20 @@ paths:
     get:
       tags:
       - Address
+      summary: Returns the specified Address resource.
+      description: To get the list of all available Address resources, make a [list](/docs/vpc/api-ref/Address/list)
+        request.
       operationId: AddressGet
       parameters:
       - name: addressId
         in: path
+        description: |-
+          Required.
+          ID of the Address resource to return.
+
+          To get Address resource ID make a [list](/docs/vpc/api-ref/Address/list) request.
+
+          The maximum string length in characters is 50.
         required: true
         schema:
           type: string
@@ -30,10 +40,18 @@ paths:
     delete:
       tags:
       - Address
+      summary: Deletes the specified address.
       operationId: AddressDelete
       parameters:
       - name: addressId
         in: path
+        description: |-
+          Required.
+          ID of the address to delete.
+
+          To get a address ID make a [list](/docs/vpc/api-ref/Address/list) request.
+
+          The maximum string length in characters is 50.
         required: true
         schema:
           type: string
@@ -51,10 +69,14 @@ paths:
     patch:
       tags:
       - Address
+      summary: Updates the specified address.
       operationId: AddressUpdate
       parameters:
       - name: addressId
         in: path
+        description: "Required.\nID of the address to update.\n \nTo get the address
+          ID make a [list](/docs/vpc/api-ref/Address/list) request.\n\nThe maximum
+          string length in characters is 50."
         required: true
         schema:
           type: string
@@ -79,6 +101,9 @@ paths:
     get:
       tags:
       - Address
+      summary: Returns the specified Address resource by a given value.
+      description: To get the list of all available Address resources, make a [list](/docs/vpc/api-ref/Address/list)
+        request.
       operationId: AddressGetByValue
       parameters:
       - name: externalIpv4Address
@@ -97,23 +122,49 @@ paths:
     get:
       tags:
       - Address
+      summary: Retrieves the list of Address resources in the specified folder.
       operationId: AddressList
       parameters:
       - name: folderId
         in: query
+        description: |-
+          Required.
+          ID of the folder to list addresses in.
+
+          To get the folder ID use a [list](/docs/resource-manager/api-ref/Folder/list) request.
+
+          The maximum string length in characters is 50.
         schema:
           type: string
       - name: pageSize
         in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than `page_size`, the service returns a [nextPageToken](/docs/vpc/api-ref/Address/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
+
+          The maximum value is 1000.
         schema:
           type: string
           format: int64
       - name: pageToken
         in: query
+        description: "Page token. To get the next page of results, set `page_token`
+          to the \n[nextPageToken](/docs/vpc/api-ref/Address/list#responses) returned
+          by a previous list request.\n\nThe maximum string length in characters is
+          100."
         schema:
           type: string
       - name: filter
         in: query
+        description: "A filter expression that filters Address listed in the response.\n\nThe
+          expression must specify: \n1. The field name. Currently you can use filtering
+          only on [Address.name](/docs/vpc/api-ref/Address#representation) field.
+          \n2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT
+          IN` for lists of values.\n3. The value. Must be 3-63 characters long and
+          match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]`.\nExample of
+          a filter: `name=my-address`."
         schema:
           type: string
       responses:
@@ -127,6 +178,7 @@ paths:
     post:
       tags:
       - Address
+      summary: Creates an address in the specified folder and network.
       operationId: AddressCreate
       requestBody:
         content:
@@ -149,20 +201,39 @@ paths:
     get:
       tags:
       - Address
+      summary: List operations for the specified address.
       operationId: AddressListOperations
       parameters:
       - name: addressId
         in: path
+        description: |-
+          Required.
+          ID of the address to list operations for.
+
+          To get a address ID make a [tAddressService.List] request.
+
+          The maximum string length in characters is 50.
         required: true
         schema:
           type: string
       - name: pageSize
         in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/vpc/api-ref/Address/listOperations#query_params), the service returns a [nextPageToken](/docs/vpc/api-ref/Address/listOperations#responses)
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
+
+          The maximum value is 1000.
         schema:
           type: string
           format: int64
       - name: pageToken
         in: query
+        description: "Page token. To get the next page of results, set [pageToken](/docs/vpc/api-ref/Address/listOperations#query_params)
+          to the \n[nextPageToken](/docs/vpc/api-ref/Address/listOperations#responses)
+          returned by a previous list request.\n\nThe maximum string length in characters
+          is 100."
         schema:
           type: string
       responses:
@@ -980,31 +1051,43 @@ paths:
 components:
   schemas:
     Address:
+      description: An Address resource. For more information, see [Address](/docs/vpc/concepts/address).
       type: object
       allOf:
       - type: object
         properties:
           id:
+            description: ID of the address. Generated at creation time.
             type: string
           folderId:
+            description: ID of the folder that the address belongs to.
             type: string
           createdAt:
-            description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
-              text format.
+            description: |-
+              Creation timestamp.
+
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
             type: string
             format: date-time
           name:
+            description: |-
+              Name of the address.
+              The name is unique within the folder.
             type: string
           description:
+            description: Description of the address.
             type: string
           labels:
+            description: Resource labels as `key:value` pairs.
             type: object
             additionalProperties:
               type: string
           reserved:
+            description: Specifies if address is reserved or not.
             type: boolean
             format: boolean
           used:
+            description: Specifies if address is used or not.
             type: boolean
             format: boolean
       - title: address
@@ -1017,8 +1100,10 @@ components:
       type: object
       properties:
         ddosProtectionProvider:
+          description: DDoS protection provider ID.
           type: string
         outgoingSmtpCapability:
+          description: Capability to send SMTP traffic.
           type: string
     CidrBlocks:
       type: object
@@ -1035,6 +1120,7 @@ components:
       type: object
       properties:
         addressId:
+          description: ID of the address that is being created.
           type: string
     CreateAddressRequest:
       type: object
@@ -1042,12 +1128,34 @@ components:
       - type: object
         properties:
           folderId:
+            description: |-
+              Required.
+              ID of the folder to create a address in.
+
+              To get a folder ID make a [list](/docs/resource-manager/api-ref/Folder/list) request.
+
+              The maximum string length in characters is 50.
             type: string
           name:
+            description: "Name of the address. \nThe name must be unique within the
+              folder.\n\nValue must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9]
+              ``."
             type: string
           description:
+            description: |-
+              Description of the address.
+
+              The maximum string length in characters is 256.
             type: string
           labels:
+            description: |-
+              Address labels as `key:value` pairs.
+
+              No more than 64 per resource.
+              The string length in characters for each key must be 1-63.
+              Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+              The maximum string length in characters for each value is 63.
+              Each value must match the regular expression `` [-_0-9a-z]* ``.
             type: object
             additionalProperties:
               type: string
@@ -1238,6 +1346,7 @@ components:
       type: object
       properties:
         addressId:
+          description: ID of the address that is being deleted.
           type: string
     DeleteNetworkMetadata:
       type: object
@@ -1283,8 +1392,10 @@ components:
       type: object
       properties:
         address:
+          description: Value of address.
           type: string
         zoneId:
+          description: Availability zone from which the address will be allocated.
           type: string
         requirements:
           $ref: '#/components/schemas/AddressRequirements_in_ExternalIpv4Address_requirements'
@@ -1292,8 +1403,10 @@ components:
       type: object
       properties:
         address:
+          description: Value of address.
           type: string
         zoneId:
+          description: Availability zone from which the address will be allocated.
           type: string
         requirements:
           $ref: '#/components/schemas/AddressRequirements_in_ExternalIpv4AddressSpec_requirements'
@@ -1317,19 +1430,33 @@ components:
       type: object
       properties:
         operations:
+          description: List of operations for the specified address.
           type: array
           items:
             $ref: '#/components/schemas/Operation'
         nextPageToken:
+          description: |-
+            Token for getting the next page of the list. If the number of results is greater than
+            the specified [pageSize](/docs/vpc/api-ref/Address/listOperations#query_params), use `next_page_token` as the value
+            for the [pageToken](/docs/vpc/api-ref/Address/listOperations#query_params) parameter in the next list request.
+
+            Each subsequent page will have its own `next_page_token` to continue paging through the results.
           type: string
     ListAddressesResponse:
       type: object
       properties:
         addresses:
+          description: List of addresses.
           type: array
           items:
             $ref: '#/components/schemas/Address'
         nextPageToken:
+          description: |-
+            Token for getting the next page of the list. If the number of results is greater than
+            the specified [pageSize](/docs/vpc/api-ref/Address/list#query_params), use `next_page_token` as the value
+            for the [pageToken](/docs/vpc/api-ref/Address/list#query_params) parameter in the next list request.
+
+            Each subsequent page will have its own `next_page_token` to continue paging through the results.
           type: string
     ListNetworkOperationsResponse:
       type: object
@@ -1892,6 +2019,7 @@ components:
       type: object
       properties:
         addressId:
+          description: ID of the Address that is being updated.
           type: string
     UpdateAddressRequest:
       type: object
@@ -1899,14 +2027,36 @@ components:
         updateMask:
           $ref: '#/components/schemas/FieldMask_in_UpdateAddressRequest_updateMask'
         name:
+          description: "New name for the address. \nThe name must be unique within
+            the folder.\n\nValue must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9]
+            ``."
           type: string
         description:
+          description: |-
+            New description of the address.
+
+            The maximum string length in characters is 256.
           type: string
         labels:
+          description: |-
+            Address labels as `key:value` pairs.
+
+            Existing set of labels is completely replaced by the provided set, so if you just want
+            to add or remove a label:
+            1. Get the current set of labels with a [get](/docs/vpc/api-ref/Address/get) request.
+            2. Add or remove a label in this set.
+            3. Send the new set in this field.
+
+            No more than 64 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `` [-_0-9a-z]* ``.
           type: object
           additionalProperties:
             type: string
         reserved:
+          description: Specifies if address is reserved or not.
           type: boolean
           format: boolean
     UpdateNetworkMetadata:
@@ -2083,18 +2233,24 @@ components:
           items:
             type: string
     AddressRequirements_in_ExternalIpv4Address_requirements:
+      description: Parameters of the allocated address, for example DDoS Protection.
       type: object
       properties:
         ddosProtectionProvider:
+          description: DDoS protection provider ID.
           type: string
         outgoingSmtpCapability:
+          description: Capability to send SMTP traffic.
           type: string
     AddressRequirements_in_ExternalIpv4AddressSpec_requirements:
+      description: Parameters of the allocated address, for example DDoS Protection.
       type: object
       properties:
         ddosProtectionProvider:
+          description: DDoS protection provider ID.
           type: string
         outgoingSmtpCapability:
+          description: Capability to send SMTP traffic.
           type: string
     Referrer_in_Reference_referrer:
       type: object
@@ -2138,6 +2294,8 @@ components:
             type: string
     FieldMask_in_UpdateAddressRequest_updateMask:
       description: |-
+        Field mask that specifies which attributes of the Address should be updated.
+
         A comma-separated names off ALL fields to be updated.
         Оnly the specified fields will be changed. The others will be left untouched.
         If the field is specified in `` updateMask `` and no value for that field was sent in the request,
@@ -2206,6 +2364,7 @@ components:
       - IPV6
 tags:
 - name: Address
+  description: A set of methods for managing Address resources.
 - name: Network
   description: A set of methods for managing Network resources.
 - name: RouteTable
