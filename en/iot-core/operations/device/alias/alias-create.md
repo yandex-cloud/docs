@@ -2,6 +2,8 @@
 
 Aliases are linked to specific devices. To create an alias, you need [the device ID or name](../device-list.md).
 
+{% include [monitoring-topic](../../../../_includes/iot-core/monitoring-topic.md) %}
+
 {% list tabs %}
 
 - Management console
@@ -27,7 +29,7 @@ Aliases are linked to specific devices. To create an alias, you need [the device
     Create an alias:
 
     ```
-    $ yc iot device add-topic-aliases arenak5ciqss6pbas6js
+    yc iot device add-topic-aliases arenak5ciqss6pbas6js
     --topic-aliases commands='$devices/arenak5ciqss6pbas6js/commands'
     
     id: arenak5ciqss6pbas6js
@@ -41,11 +43,10 @@ Aliases are linked to specific devices. To create an alias, you need [the device
     You can also add an alias when [creating a device](../device-create.md). To do this, instead of a unique ID, specify the `{id}` in the device topic, since the unique ID is not yet known:
 
     ```
-    $ yc iot device create 
+    yc iot device create 
     --registry-name <registry name> 
     --name <device name> 
     --topic-aliases <alias name>='$devices/{id}/<events, state, commands, or config>'
     ```
 
 {% endlist %}
-
