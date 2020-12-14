@@ -101,7 +101,6 @@ GROUP BY Path
 
   Топ-5 самых загруженных партиций среди всех таблиц базы данных
   ```sql
-  --!syntax_v1
   SELECT
       Path,
       PartIdx,
@@ -113,7 +112,6 @@ GROUP BY Path
 
   Список таблиц базы с размерами и нагрузкой в моменте
   ```sql
-  --!syntax_v1
   SELECT
       Path,
       COUNT(*) as Partitions,
@@ -251,7 +249,6 @@ WHERE Rank = 1
   Топ запросов по времени выполнения за последнюю минуту, когда случались запросы
 
   ```sql
-  --!syntax_v1
   $last = (
       SELECT
           MAX(IntervalEnd)
@@ -269,7 +266,6 @@ WHERE Rank = 1
   Запросы, прочитавшие больше всего байт, в разбивке по минутам
 
   ```sql
-  --!syntax_v1
   SELECT
       IntervalEnd,
       QueryText,
@@ -401,7 +397,6 @@ LIMIT 100
   Топ-10 запросов за последние 6 часов по общему количеству записанных строк в минутном интервале
 
   ```sql
-  --!syntax_v1
   SELECT
       SumUpdateRows,
       Count,
@@ -414,7 +409,6 @@ LIMIT 100
   Недавние запросы, прочитавшие больше всего байт за минуту:
 
   ```sql
-  --!syntax_v1
   SELECT
       IntervalEnd,
       SumReadBytes,
