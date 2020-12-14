@@ -1,7 +1,7 @@
 - Создайте виртуальную машину в {{ compute-name }}:
   - [Linux](../compute/quickstart/quick-create-linux.md).
   - [Windows](../compute/quickstart/quick-create-windows.md).
-  - [группу виртуальных машин](../compute/quickstart/ig.md).
+  - [Группу виртуальных машин](../compute/quickstart/ig.md).
 - Используйте сервисы для хранения:
   - [Разместите файлы в {{ objstorage-name }}](../storage/quickstart.md).
   - [Загрузите Docker-образ в реестр в {{ container-registry-name }}](../container-registry/quickstart/index.md).
