@@ -103,7 +103,7 @@ Created: Mon, 19 Jan 1970 10:05:24 MSK
 
 ### Выполнение запроса к базе
 ```bash
-$ {{ ydb-cli }} -e ydb-ru.yandex.net:2135 -d /ru/tutorial/home/testdb table query execute -q "SELECT season_id, episode_id, title FROM [/ru/tutorial/home/testdb/cli_demo/episodes] WHERE series_id = 1 AND season_id > 1 ORDER BY season_id, episode_id LIMIT 3"
+$ {{ ydb-cli }} -e ydb-ru.yandex.net:2135 -d /ru/tutorial/home/testdb table query execute -q "SELECT season_id, episode_id, title FROM `/ru/tutorial/home/testdb/cli_demo/episodes` WHERE series_id = 1 AND season_id > 1 ORDER BY season_id, episode_id LIMIT 3"
 ┌───────────┬────────────┬────────────────────────────────┐
 | season_id | episode_id | title                          |
 ├───────────┼────────────┼────────────────────────────────┤
@@ -146,7 +146,7 @@ $ {{ ydb-cli }} -e ydb-ru.yandex.net:2135 -d /ru/tutorial/home/testdb table read
 
 ### Получение плана запроса и AST {#explain_plan}
 ```bash
-$ {{ ydb-cli }} -e ydb-ru.yandex.net:2135 -d /ru/tutorial/home/testdb table query explain -q "SELECT season_id, episode_id, title FROM [/ru/tutorial/home/testdb/cli_demo/episodes] WHERE series_id = 1 AND season_id > 1 ORDER BY season_id, episode_id LIMIT 3" --ast
+$ {{ ydb-cli }} -e ydb-ru.yandex.net:2135 -d /ru/tutorial/home/testdb table query explain -q "SELECT season_id, episode_id, title FROM `/ru/tutorial/home/testdb/cli_demo/episodes` WHERE series_id = 1 AND season_id > 1 ORDER BY season_id, episode_id LIMIT 3" --ast
 Query plan:
 {
     meta : {
@@ -216,7 +216,7 @@ Query AST:
 Рассмотрим еще один пример. Допустим, необходимо получить только первые сезоны всех сериалов.
 
 ```bash
-$ {{ ydb-cli }} -e ydb-ru.yandex.net:2135 -d /ru/tutorial/home/testdb table query explain -q "SELECT sa.title AS season_title, sr.title AS series_title, sr.series_id, sa.season_id FROM [/ru/tutorial/home/testdb/cli_demo/seasons] AS sa INNER JOIN [/ru/tutorial/home/testdb/cli_demo/series] AS sr ON sa.series_id = sr.series_id WHERE sa.season_id = 1"
+$ {{ ydb-cli }} -e ydb-ru.yandex.net:2135 -d /ru/tutorial/home/testdb table query explain -q "SELECT sa.title AS season_title, sr.title AS series_title, sr.series_id, sa.season_id FROM `/ru/tutorial/home/testdb/cli_demo/seasons` AS sa INNER JOIN `/ru/tutorial/home/testdb/cli_demo/series` AS sr ON sa.series_id = sr.series_id WHERE sa.season_id = 1"
 Query plan:
 {
     meta : {

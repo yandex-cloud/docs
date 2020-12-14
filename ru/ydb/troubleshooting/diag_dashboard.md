@@ -44,8 +44,6 @@ _Шард_ спроектирован для однопоточной обраб
 
 Текст шаблона YQL запроса показан на листинге 1.
 ```sql
---!syntax_v1
-
 /**
 * Change $database parameter value to full path to your database
 */

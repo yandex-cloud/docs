@@ -2,7 +2,7 @@
 
 В этом разделе описана работа со схемой YDB при помощи языка [YQL](https://yql.yandex-team.ru/docs/ydb/). Вы узнаете как создавать и модифицировать таблицы в базе данных, а также как работать с директориями. Так как этот раздел является введением в использование языка [YQL](https://yql.yandex-team.ru/docs/ydb/), в нем используются только базовые конструкции и малая часть параметров.
 
-YQL запросы могут быть отправлены для выполнения в YDB следующими способами: 
+YQL запросы могут быть отправлены для выполнения в YDB следующими способами:
 
 * из приложения, написанного с использованием YDB SDK для [C++](start_cpp.md), [Java](start_java.md), [Python](start_python.md);
 * при помощи [YQL](https://yql.yandex-team.ru/) интерфейса;
@@ -18,7 +18,7 @@ YQL запросы могут быть отправлены для выполн�
 
 {% endnote %}
 
-## Предварительные требования 
+## Предварительные требования
 Для выполнения запросов из этого раздела понадобится база данных. Подробно о создании и управлении базой данных написано в разделе ["Базы данных - создание и управление"](create_manage_database.md).
 
 ## Создание таблицы
@@ -83,7 +83,6 @@ CREATE TABLE episodes (
 <small>Листинг 2</small>
 
 ```sql
---!syntax_v1
 CREATE TABLE series_with_families (
     series_id Uint64,
     title Utf8,
@@ -110,7 +109,6 @@ CREATE TABLE series_with_families (
 <small>Листинг 3</small>
 
 ```sql
---!syntax_v1
 CREATE TABLE table_name (...)
 WITH (
     key1 = value1,
@@ -126,7 +124,6 @@ WITH (
 <small>Листинг 4</small>
 
 ```sql
---!syntax_v1
 CREATE TABLE series_partitionable (
     series_id Uint64,
     title Utf8,
@@ -165,7 +162,6 @@ WITH (
 <small>Листинг 5</small>
 
 ```sql
---!syntax_v1
 ALTER TABLE table_name action1, action2, ..., actionN;
 ```
 
@@ -175,12 +171,11 @@ ALTER TABLE table_name action1, action2, ..., actionN;
 
 YDB поддерживает возможность добавлять столбцы в таблицу, а также удалять неключевые колонки из таблицы.
 
-```ADD COLUMN``` — добавляет столбец с указанными именем и типом. Приведенный ниже код добавит к таблице ```episodes``` столбец ```is_deleted``` с типом данных ```Bool```. 
+```ADD COLUMN``` — добавляет столбец с указанными именем и типом. Приведенный ниже код добавит к таблице ```episodes``` столбец ```is_deleted``` с типом данных ```Bool```.
 
 <small>Листинг 6</small>
 
 ```sql
---!syntax_v1
 ALTER TABLE episodes ADD COLUMN is_deleted Bool;
 ```
 
@@ -189,7 +184,6 @@ ALTER TABLE episodes ADD COLUMN is_deleted Bool;
 <small>Листинг 7</small>
 
 ```sql
---!syntax_v1
 ALTER TABLE episodes DROP column is_deleted;
 ```
 
@@ -200,7 +194,6 @@ ALTER TABLE episodes DROP column is_deleted;
 <small>Листинг 8</small>
 
 ```sql
---!syntax_v1
 ALTER TABLE series_with_families ADD FAMILY family_small (
     DATA = "ssd",
     COMPRESSION = "off"
@@ -212,7 +205,6 @@ ALTER TABLE series_with_families ADD FAMILY family_small (
 <small>Листинг 9</small>
 
 ```sql
---!syntax_v1
 ALTER TABLE series_with_families ALTER COLUMN release_date SET FAMILY family_small;
 ```
 
@@ -221,7 +213,6 @@ ALTER TABLE series_with_families ALTER COLUMN release_date SET FAMILY family_sma
 <small>Листинг 10</small>
 
 ```sql
---!syntax_v1
 ALTER TABLE series_with_families
 	ADD FAMILY family_small (
     	DATA = "ssd",
@@ -235,7 +226,6 @@ ALTER TABLE series_with_families
 <small>Листинг 11</small>
 
 ```sql
---!syntax_v1
 ALTER TABLE series_with_families ALTER FAMILY default SET DATA "hdd";
 ```
 
@@ -248,7 +238,6 @@ ALTER TABLE series_with_families ALTER FAMILY default SET DATA "hdd";
 <small>Листинг 12</small>
 
 ```sql
---!syntax_v1
 ALTER TABLE table_name SET key value;
 ```
 
@@ -259,7 +248,6 @@ ALTER TABLE table_name SET key value;
 <small>Листинг 13</small>
 
 ```sql
---!syntax_v1
 ALTER TABLE series SET AUTO_PARTITIONING_BY_SIZE DISABLED;
 ```
 
@@ -293,5 +281,3 @@ DROP TABLE actors;
 | Удаление директории | ```TClient::RemoveDirectory``` | ```SchemeClient.removeDirectory``` | ```scheme_client.remove_directory``` |
 | Просмотр информации о директории  | ```TClient::DescribePath``` | ```SchemeClient.describePath``` | ```scheme_client.describe_path``` |
 | Листинг директории  | ```TClient::ListDirectory``` | ```SchemeClient.listDirectory``` | ```scheme_client.list_directory``` |
-
-
