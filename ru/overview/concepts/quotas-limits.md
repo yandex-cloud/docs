@@ -108,7 +108,6 @@
 {% include [ymq-limits.md](../../_includes/message-queue/ymq-limits.md) %}
 
 
-
 ### {{ sf-full-name }} {#sf}
 
 {% include [functions-limits.md](../../_includes/functions-limits.md) %}
@@ -134,12 +133,41 @@
 {% include [ml-platform-limits.md](../../_includes/datasphere-limits.md) %}
 
 
-
 ### {{ datalens-full-name }} {#datalens}
 
 {% include [compute-limits.md](../../_includes/datalens/datalens-limits.md) %}
 
 
-### {{  iot-full-name }} {#iot}
+### {{ iot-full-name }} {#iot}
 
 {% include [iot-limits.md](../../_includes/iot-limits.md) %}
+
+
+### {{ interconnect-full-name }} {#interconnect}
+
+{% include [interconnect-limits.md](../../_includes/interconnect-limits.md) %}
+
+
+### {{ ydb-full-name }} {#ydb}
+
+{% include [ydb-limits.md](../../ydb/_includes/ydb-limits.md) %}
+
+
+### {{ mms-full-name }} {#mms}
+
+{% include [mms-limits.md](../../_includes/mdb/mms-limits.md) %}
+
+
+### {{ mkf-full-name }} {#mkf}
+
+{% include [mkf-limits.md](../../_includes/mdb/mkf-limits.md) %}
+
+
+### {{ mes-full-name }} {#mes}
+
+{% include [mes-limits.md](../../_includes/mdb/mes-limits.md) %}
+
+
+### {{ api-gw-full-name }} {#api-gw}
+
+{% include [api-gateway-limits.md](../../_includes/api-gateway/api-gateway-limits.md) %}

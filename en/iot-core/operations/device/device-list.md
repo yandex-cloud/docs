@@ -1,6 +1,6 @@
 # Getting information about devices
 
-To find a device's `ID` or `NAME`, get a list of devices in a registry or detailed information about the device.
+To find a device's `ID` or `NAME`, get a list of devices in a registry.
 
 ## Getting a list of devices in a registry {#device-list}
 
@@ -13,3 +13,5 @@ If you don't know the unique ID or name of the registry where your device is loc
 To access the device, use the `ID` or `NAME` parameters from the [previous](#device-list) item.
 
 {% include [device-get](../../../_includes/iot-core/device-get.md) %}
+
+Device monitoring data is updated when accessing the device via gRPCS and MQTT. QoS: At most once.

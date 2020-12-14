@@ -5,6 +5,7 @@
 
 Сервис | Описание
 --- | ---
+[AddressService](./address_service.md) | Набор методов для управления адресами.
 [NetworkService](./network_service.md) | Набор методов для управления облачными сетями.
 [RouteTableService](./route_table_service.md) | Набор методов для управления таблицами маршрутизации.
 [SubnetService](./subnet_service.md) | Набор методов для управления подсетями.

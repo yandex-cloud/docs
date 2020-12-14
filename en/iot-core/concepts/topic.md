@@ -22,13 +22,17 @@ Device topics available in the service:
 
 - `$devices/<device ID>/state` — A permanent topic for sending telemetry data.
 
-   The device can write data to these topics and the registry can read the data from them. Registries subscribed to these topics will know which device sent the data, because the topic contains a unique device ID.
+   The device can write data to these topics and the registry can read the data from them. Registries subscribed to these topics will know which device sent the data, because the topic contains the device ID.
 
 - `$devices/<device ID>/commands` — A topic for receiving commands.
 
 - `$devices/<device ID>/config` — A permanent topic for receiving commands.
 
    The registry can write data to these topics and the device can read data from them. The registry sends commands for a specific device to these topics.
+
+- `$monitoring/<device ID>/json` — A topic for receiving monitoring data in JSON format.
+
+   The device automatically writes data to this topic and other devices and the registry can read the data from it. The device and registry that are subscribed to this topic will receive up-to-date monitoring data for the device whose ID is specified in the topic.
 
 ### Registry topics {#registries-topic}
 
@@ -40,13 +44,13 @@ Registry topics available in the service:
 
 - `$registries/<registry ID>/state` — A permanent topic for receiving telemetry data.
 
-    The device can write data to these topics and the registry can read the data from them. Registries subscribed to these topics won't know which device sent the data, as the topic doesn't contain a unique device ID.
+   The device can write data to these topics and the registry can read the data from them. Registries subscribed to these topics won't know which device sent the data, as the topic doesn't contain a unique device ID.
 
 - `$registries/<registry ID>/commands` — A topic for sending commands.
 
 - `$registries/<registry ID>/config` — A permanent topic for sending commands.
 
-    The registry can write data to these topics and the device can read data from them. The registry sends commands for all devices to these topics.
+   The registry can write data to these topics and the device can read data from them. The registry sends commands for all devices to these topics.
 
 ### Subtopic {#subtopic}
 
@@ -81,10 +85,17 @@ The table below describes actions that devices and registries can perform using 
 | `$devices/<device ID>/commands` <br/><br/>`$devices/<device ID>/config` | Receives commands. | Sends commands to a specific device. |
 | `$registries/<registry ID>/events` <br/><br/>`$registries/<registry ID>/state` | Sends telemetry data. | Receives telemetry data from all devices in the registry.<br/>The device is unknown. |
 | `$registries/<registry ID>/commands` <br/><br/>`$registries/<registry ID>/config` | Receives commands. | Sends commands to all devices in the registry. |
+| `$monitoring/<device ID>/json` | Receives another device's monitoring data in JSON format. | Receives device monitoring data in JSON format. |
 
 ### Using topic aliases {#aliases}
 
 _An alias_ is an alternate name of a [device topic](#devices-topic) assigned by the user. Aliases can be assigned to standard topics that are already implemented in the service and topics with arbitrary subtopics.
+
+{% note warning %}
+
+ You can only use the `$me` system alias for the `$monitoring/<device ID>/json` topic.
+
+{% endnote %}
 
 An alias is set in the key-value format:
 
@@ -116,6 +127,7 @@ To avoid entering the ID of the device on whose behalf an MQTT session is establ
 | `$me/device/config` | `$devices/<device ID>/config` |
 | `$me/registry/commands` | `$registries/<device ID>/commands` |
 | `$me/registry/config` | `$registries/<device ID>/config` |
+| `$me/monitoring/json` | `$monitoring/<device ID>/json` |
 
 When sending messages and subscribing to messages, $me topics are converted to topics with a <device ID> at the MQTT level.
 If you subscribe to a $me topic, you'll receive data in the $me topic, too.
@@ -178,4 +190,3 @@ _Triggers_ are conditions that automatically launch a specific function when met
 {% include [iot-core](../../_includes/functions/iot-core-trigger-description.md) %}
 
 Read more about triggers in the [{{ sf-name }} documentation](../../functions/concepts/trigger/index.md).
-

@@ -30,6 +30,7 @@
 | Maximum number of GPUs connected to a single VM | 4 |
 | Maximum number of vCPUs for VMs with GPUs | 32 |
 | Maximum RAM for VMs with GPUs | 384 |
+| Maximum number of security groups per interface | 5 |
 
 #### Disk limits {#limits-disks}
 
@@ -78,4 +79,3 @@ To achieve maximum IOPS, we recommend performing read and write operations that 
 ##### ** {#max_bandwidth}
 
 To achieve the maximum possible bandwidth, we recommend performing 4 MB reads and writes.
-

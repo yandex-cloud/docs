@@ -40,4 +40,4 @@ pageToken | Page token. To get the next page of results, set `page_token` to the
 Field | Description
 --- | ---
 content | **string**<br><p>Requested part of Data Proc Job log.</p> 
-nextPageToken | **string**<br><p>This token allows you to get the next page of results for ListLog requests, if the number of results is larger than <code>page_size</code> specified in the request. To get the next page, specify the value of <code>next_page_token</code> as a value for the <code>page_token</code> parameter in the next ListLog request. Subsequent ListLog requests will have their own <code>next_page_token</code> to continue paging through the results.</p> 
+nextPageToken | **string**<br><p>This token allows you to get the next page of results for ListLog requests, if the number of results is larger than `page_size` specified in the request. To get the next page, specify the value of `next_page_token` as a value for the `page_token` parameter in the next ListLog request. Subsequent ListLog requests will have their own `next_page_token` to continue paging through the results.</p> 
