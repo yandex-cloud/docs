@@ -1,6 +1,5 @@
 title: Yandex Database
 href: index.yaml
-stage: preview
 items:
   - name: Начало работы
     items:
@@ -14,6 +13,8 @@ items:
         href: quickstart/examples-ydb-cli.md
       - name: Запуск тестового приложения
         href: quickstart/launch-test-app.md
+      - name: Использование AWS CLI и AWS SDK
+        href: getting_started/start_docapi_aws.md
       - name: Document API
         href: getting_started/start_docapi_rest.md
       - name: Разработка на NodeJS с Document API
@@ -274,9 +275,3 @@ items:
         href: faq.md
   - name: Публичные материалы
     href: public_talks.md
-  - name: Правила тарификации
-    items:
-      - name: Yandex Database Serverless
-        href: pricing/serverless.md
-      - name: Yandex Database
-        href: pricing/dedicated.md

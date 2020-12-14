@@ -16,22 +16,39 @@
 
 <small>Листинг 1 — запрос для организации постраничного вывода</small>
 ```sql
+--  Table `schools`:
+-- ┌─────────┬─────────┬─────┐
+-- | Name    | Type    | Key |
+-- ├─────────┼─────────┼─────┤
+-- | city    | Utf8?   | K0  |
+-- | number  | Uint32? | K1  |
+-- | address | Utf8?   |     |
+-- └─────────┴─────────┴─────┘
+
 DECLARE $limit AS Uint64;
 DECLARE $lastCity AS Utf8;
 DECLARE $lastNumber AS Uint32;
 
-$Data = (
+$part1 = (
     SELECT * FROM schools
     WHERE city = $lastCity AND number > $lastNumber
     ORDER BY city, number LIMIT $limit
+);
 
-    UNION ALL
-
+$part2 = (
     SELECT * FROM schools
     WHERE city > $lastCity
     ORDER BY city, number LIMIT $limit
 );
-SELECT * FROM $Data ORDER BY city, number LIMIT $limit;
+
+$union = (
+    SELECT * FROM $part1
+    UNION ALL
+    SELECT * FROM $part2
+);
+
+SELECT * FROM $union
+ORDER BY city, number LIMIT $limit;
 ```
 
 {% note warning "Значение NULL в ключевой колонке" %}

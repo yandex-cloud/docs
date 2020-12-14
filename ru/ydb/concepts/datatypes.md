@@ -61,6 +61,12 @@
 
 {% endnote %}
 
+{% note warning "Хранение чисел в JsonDocument " %}
+
+Для хранении чисел (JSON Number) в `JsonDocument`, а также для арифметических операций над ними в [JSON API](../yql/reference/builtins/json.md), используется тип [double](https://en.wikipedia.org/wiki/Double-precision_floating-point_format). Возможна потеря точности при использовании нестандартных представлений чисел в исходном JSON документе.
+
+{% endnote %}
+
 ## Дата и время
 
 <small>Таблица 3. Возможности использования типов данных даты и времени YQL в {{ ydb-short-name }}</small>

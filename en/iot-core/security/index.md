@@ -1,41 +1,31 @@
 # Access management
 
-{{ yandex-cloud }} users can only perform operations on resources that are allowed by the roles assigned to them.
-If a user doesn't have any roles assigned, almost all operations are forbidden.
+In this section, you'll learn:
 
-To allow access to {{ iot-short-name }} resources (registers and devices), assign users applicable roles from the list below. For now, a role can only be assigned for a parent resource (folder or cloud), and roles are inherited by nested resources.
+* [What resources you can assign roles to](#resources).
+* [What roles exist in the service](#roles-list).
 
-{% note info %}
+{% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-For more information about role inheritance, see [{#T}](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) in the {{ resmgr-full-name }} documentation.
+## What resources you can assign roles to {#resources}
 
-{% endnote %}
+You can assign roles for a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) and [folder](../../resource-manager/concepts/resources-hierarchy.md#folder). These roles also apply to nested resources.
 
-## Assigning roles {#grant-roles}
-
-To assign a user a role:
-
-{% include [grant-role-console](../../_includes/grant-role-console.md) %}
-
-## Roles {#roles}
+## What roles exist in the service {#roles-list}
 
 The list below shows all roles that are considered when verifying access rights in the {{ iot-short-name }} service.
 
-{% include [cloud-roles](../../_includes/cloud-roles.md) %}
+### Service roles
 
-### {{ roles-viewer }} {#viewer}
+| Role | Permissions |
+| ----- | ----- |
+| `resource-manager.clouds.member` | The role required to access resources in the cloud for all users except [cloud owners](../../resource-manager/concepts/resources-hierarchy.md#owner) and [service accounts](../../iam/concepts/users/service-accounts.md). |
+| `resource-manager.clouds.owner` | Grants you full access to a cloud and the resources in it. You can only assign this role for a cloud. |
+| `iot.devices.writer` | The role required to send gRPC messages to {{ iot-short-name }} on behalf of a device. |
+| `iot.registries.writer` | The role required to send gRPC messages to {{ iot-short-name }} on behalf of a registry. |
 
-Users with the `{{ roles-viewer }}` role can view information about resources, for example, a list of devices and their certificates.
+For more information about service roles, see [{#T}](../../iam/concepts/access-control/roles.md) in the {{ iam-full-name }} documentation.
 
-### {{ roles-editor }} {#editor}
+### Primitive roles
 
-Users with the `{{ roles-editor }}` role can manage devices, such as creating registries and devices or adding and deleting certificates.
-
-The `{{ roles-editor }}` role also includes all `{{ roles-viewer }}` role permissions.
-
-### {{ roles-admin }} {#admin}
-
-Users with the `{{ roles-admin }}` role can manage resource access rights, such as allowing other users to view devices.
-
-The `{{ roles-admin }}` role also includes all `{{ roles-editor }}` role permissions.
-
+{% include [roles-primitive](../../_includes/roles-primitive.md) %}
