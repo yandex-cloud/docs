@@ -38,7 +38,7 @@ Data operations are charged according to the following policy:
 
 ### Data storage {#prices-storage}
 
-Prices are given for a 30-day month. For shorter months, the price is higher. For longer months, it's lower.
+The cost of 1 GB per month is fixed and doesn't depend on the number of days in the month.
 
 {% list tabs %}
 
@@ -57,6 +57,8 @@ Prices are given for a 30-day month. For shorter months, the price is higher. Fo
   | Cold storage | ₽0.6712 |
   
 {% endlist %}
+
+The daily cost of data storage service is calculated as `Cost_of_1_GB_per_month / number_of_days_in_the_month`. For shorter months, the storage cost per day is higher. For longer months, it's lower.
 
 Example of a proportional calculation: let's say the user stores 15 GB of data for 11.5 hours during a 30-day month. The total cost of storage can be calculated using the formula:
 
@@ -107,7 +109,7 @@ Prices for standard storage are applied when calculating costs.
 
 ### Outgoing traffic {#prices-traffic}
 
-When using the service, you pay for traffic from the Cloud to the internet. Traffic between Yandex.Cloud services and incoming internet traffic are free.
+When using the service, you pay for traffic from {{ yandex-cloud }} to the internet. Traffic between {{ yandex-cloud }} services and incoming internet traffic are free.
 
 The minimum billable unit is 1 MB.
 
