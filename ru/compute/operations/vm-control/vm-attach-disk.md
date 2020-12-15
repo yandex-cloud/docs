@@ -132,13 +132,67 @@
 
 {% endlist %}
 
-## Разметить и смонтировать пустой диск в Linux {#mount}
+## Разметить и смонтировать пустой диск {#mount}
 
 Чтобы самостоятельно разметить и смонтировать пустой диск:
 
-1. Выполните команду `lsblk`, чтобы проверить, подключен ли диск как устройство и узнать его путь в системе.  Обычно, пустой диск имеет метку вида `/dev/vdb`.
+{% list tabs %}
 
-1. Разметьте диск. Для этого, создайте на нем [разделы](https://help.ubuntu.ru/wiki/%D1%80%D0%B0%D0%B7%D0%B4%D0%B5%D0%BB%D1%8B_%D0%B8_%D1%84%D0%B0%D0%B9%D0%BB%D0%BE%D0%B2%D1%8B%D0%B5_%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D1%8B_linux) с помощью утилит [cfdisk](https://www.alv.me/utility-razmetki-cfdisk/), `fdisk`, или `parted`. Отформатируйте диск в нужную файловую систему, например, с помощью утилиты [mkfs](https://www.opennet.ru/man.shtml?topic=mkfs&category=8&russian=0).
+- Linux
 
-1. {% include [include](../../../_includes/compute/mount-disk.md) %}
-1. Выполните команду `df`, чтобы проверить состояние файловой системы.
+  1. Проверьте, подключен ли диск как устройство и узнайте его путь в системе:
+
+      ```bash
+      lsblk
+      ```
+
+      Результат выполнения команды:
+
+      ```
+      NAME   MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
+      vda    252:0    0  13G  0 disk
+      ├─vda1 252:1    0   1M  0 part
+      └─vda2 252:2    0  13G  0 part /
+      vdb    252:16   0   1G  0 disk
+      ```
+
+      Обычно пустой диск имеет метку вида /dev/vdb.
+
+  1. Разметьте диск. Для этого создайте на нем [разделы](https://help.ubuntu.ru/wiki/%D1%80%D0%B0%D0%B7%D0%B4%D0%B5%D0%BB%D1%8B_%D0%B8_%D1%84%D0%B0%D0%B9%D0%BB%D0%BE%D0%B2%D1%8B%D0%B5_%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D1%8B_linux) с помощью утилит [cfdisk](https://www.opennet.ru/man.shtml?topic=cfdisk&category=8&russian=2), [fdisk](https://www.opennet.ru/man.shtml?topic=fdisk&russian=2&category=&submit=%F0%CF%CB%C1%DA%C1%D4%D8+man), или [parted](https://www.opennet.ru/man.shtml?topic=parted&russian=2&category=&submit=%F0%CF%CB%C1%DA%C1%D4%D8+man). 
+  
+  1. Отформатируйте диск в нужную файловую систему, например, с помощью утилиты [mkfs](https://www.opennet.ru/man.shtml?topic=mkfs&category=8&russian=0).
+
+  1. {% include [include](../../../_includes/compute/mount-disk.md) %}
+  1. Проверьте состояние файловой системы:
+
+      ```bash
+      df
+      ```
+
+      Результат выполнения команды:
+
+      ```
+      Filesystem     1K-blocks    Used Available Use% Mounted on
+      udev              989424       0    989424   0% /dev
+      tmpfs             203524     816    202708   1% /run
+      /dev/vda2       13354932 2754792  10015688  22% /
+      tmpfs            1017608       0   1017608   0% /dev/shm
+      tmpfs               5120       0      5120   0% /run/lock
+      tmpfs            1017608       0   1017608   0% /sys/fs/cgroup
+      tmpfs             203520       0    203520   0% /run/user/1000
+      /dev/vdb2         523260    3080    520180   1% /mnt
+      ```
+
+- Windows
+
+  1. Запустите приложение **Управление компьютером** с правами администратора.
+
+  1. В меню **Запоминающие устройства** выберите **Управление дисками**.
+
+  1. Инициализируйте диск. Для этого нажмите правой кнопкой мыши на пустой диск и выберите пункт **Инициализировать диск**. Откроется окно **Инициализация диска**.
+
+  1. Выберите [стиль разделов](https://docs.microsoft.com/ru-ru/windows-server/storage/disk-management/initialize-new-disks#about-partition-styles---gpt-and-mbr) и нажмите **ОК**.
+
+  1. Создайте разделы на диске. Для этого нажмите правой кнопкой мыши на пустой диск и выберите пункт **Создать простой том**. 
+
+  1. С помощью **Мастера создания простых томов** задайте размер раздела, [назначьте букву](https://docs.microsoft.com/ru-ru/windows-server/storage/disk-management/change-a-drive-letter) диска и укажите файловую систему.
