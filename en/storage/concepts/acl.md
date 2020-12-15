@@ -58,7 +58,7 @@ Permissions correspond to user roles in {{ iam-name }}.
 | Permission | IAM role | Description |
 | -------------------- | ------------ | -------- |
 | `READ` | `viewer` | For buckets: permission to retrieve a list of objects in the bucket, read various bucket settings (lifecycle, CORS, static hosting), and read all objects in the bucket.<br/><br/>For objects: read permission. |
-| `WRITE` | `editor` | For buckets: permission to write objects to the bucket.<br/>It must be used along with `READ`. You cannot specify `WRITE` separately.<br/><br/>For objects: this permission is meaningless, as permission is checked for the bucket when writing an object. |
+| `WRITE` | `editor` | For buckets: permission to write objects to the bucket, rewrite and delete them from there.<br/>It must be used along with `READ`. You cannot specify `WRITE` separately.<br/><br/>For objects: this permission is meaningless, as permission is checked for the bucket when writing an object. |
 | `FULL_CONTROL` | `admin` | Full access to objects and buckets. |
 | `READ_ACP` | `viewer` | ACL read permission. For objects only. |
 | `WRITE_ACP` | `editor` | ACL write permission. For objects only. |
