@@ -1,2 +1,1 @@
 For VMs with GPUs, special images of Windows (2016 Datacenter GPU, `windows-2016-gvlk-gpu`) and Ubuntu (16.04 lts GPU, `ubuntu-1604-lts-gpu`) are available with NVIDIA drivers installed. To use other images, [install the necessary drivers](../../compute/operations/vm-operate/install-nvidia-drivers.md) on your own.
-

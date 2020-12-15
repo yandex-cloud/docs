@@ -1,7 +1,7 @@
-   ```
+```
    #cloud-config
    users:
-     - name: <user name>
+     - name: <username>
        groups: sudo
        shell: /bin/bash
        sudo: ['ALL=(ALL) NOPASSWD:ALL']
