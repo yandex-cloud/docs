@@ -49,6 +49,8 @@ The cost of using integration with the {{ dataproc-name}} service takes into acc
     These resources are created for integration with the {{ dataproc-name}} cluster and are charged while the cluster is being calculated.
 * The entire lifetime of the cluster {{ dataproc-name }} according to [pricing rules {{ dataproc-full-name }}](../data-proc/pricing.md).
 
+Learn more about [integration with {{ dataproc-name }}](concepts/data-proc.md).
+
 ### Storing data in the project {#storage}
 
 Data storage inside {{ ml-platform-name }} is not charged within the established [quotas and limits](concepts/limits.md).
