@@ -30,18 +30,24 @@ items:
         href: operations/cluster-delete.md
   - name: Concepts
     items:
-    - name: Data Proc overview
-      href: concepts/index.md
-    - name: Host classes
-      href: concepts/instance-types.md
-    - name: Network in Data Proc
-      href: concepts/network.md
-    - name: Quotas and limits
-      href: concepts/limits.md
-    - name: Hadoop and component versions
-      href: concepts/environment.md
-    - name: Component interfaces and ports
-      href: concepts/interfaces.md
+      - name: Data Proc overview
+        href: concepts/index.md
+      - name: Host classes
+        href: concepts/instance-types.md
+      - name: Hadoop and component versions
+        href: concepts/environment.md
+      - name: Component interfaces and ports
+        href: concepts/interfaces.md
+      - name: Component web interfaces
+        href: concepts/ui-proxy.md
+      - name: Auto scaling
+        href: concepts/autoscaling.md
+      - name: Decommissioning subclusters and hosts
+        href: concepts/decommission.md
+      - name: Network in Data Proc
+        href: concepts/network.md
+      - name: Quotas and limits
+        href: concepts/limits.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy
@@ -60,5 +66,14 @@ items:
         include:
           repo: docs
           path: en/_api-ref/dataproc/toc.yaml
+#  - name: Use cases
+#    href: scenarios/index.md
+#  - name: API reference
+#    items:
+#    - name: Authentication in the API
+#      href: api-ref/authentication.md
+#    include:
+#      repo: docs-api
+#      path: ru/data-proc/toc.yaml
   - name: Questions and answers
     href: qa/index.md

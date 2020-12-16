@@ -1,4 +1,4 @@
-# Managing subclusters {{ dataproc-name }}
+# Managing {{ dataproc-name }} subclusters
 
 In addition to [updating the settings](subcluster-update.md) of a particular subcluster, you can create new and delete existing subclusters.
 
