@@ -151,7 +151,7 @@ To run computations on a cluster created from the notebook interface:
         x, y = random.random(), random.random()
         return x*x + y*y < 1
     
-    NUM_SAMPLES = 1_000_009
+    NUM_SAMPLES = 1_000_000
     
     count = sc.parallelize(range(0, NUM_SAMPLES)) \
                  .filter(inside).count()
