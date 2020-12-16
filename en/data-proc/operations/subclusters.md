@@ -76,10 +76,10 @@ You can't delete `DATANODE` subclusters.
     1. In [management console]({{ link-console-main }}), select the required folder.
     1. Select {{ dataproc-name }} and the desired cluster.
     1. Go to **Subclusters**.
+    1. Optionally specify the [decommissioning](../concepts/decommission.md) timeout.
     1. Click ![image](../../_assets/options.svg) for the appropriate subcluster and select **Delete**.
     1. Confirm the deletion.
 
     {{ dataproc-name }} runs the delete subcluster operation.
 
 {% endlist %}
-

@@ -62,7 +62,7 @@
 
   1. For `Compute` subclusters, you can specify the [auto scaling](../concepts/autoscaling.md) parameters.
 
-  1. Once you have configured all of the subclusters you need, click **Create cluster**.
+  1. After you configure all the subclusters you need, click **Create cluster**.
 
 {% endlist %}
 
