@@ -1,0 +1,68 @@
+title: "Yandex Managed Service for SQL Server™"
+href: index.yaml
+items:
+  - name: Getting started
+    href: quickstart.md
+  - name: Step-by-step instructions
+    items:
+    - name: All instructions
+      href: operations/index.md
+    - name: Information about existing clusters
+      href: operations/cluster-list.md
+    - name: Creating clusters
+      href: operations/cluster-create.md
+    - name: Connecting to databases
+      href: operations/connect.md
+    - name: Stopping and starting clusters
+      href: operations/cluster-stop.md
+    - name: Changing cluster and database settings
+      href: operations/update.md
+    - name: Managing SQL Server hosts
+      href: operations/hosts.md
+    - name: Managing databases
+      href: operations/databases.md
+    - name: Managing users
+      href: operations/cluster-users.md
+    - name: Granting permissions and roles
+      href: operations/grant.md
+    - name: Managing backups
+      href: operations/cluster-backups.md
+    - name: Deleting clusters
+      href: operations/cluster-delete.md
+  - name: Concepts
+    items:
+    - name: Relationship between service resources
+      href: concepts/index.md
+    - name: Host classes
+      href: concepts/instance-types.md
+    - name: Networks in Managed Service for SQL Server
+      href: concepts/network.md
+    - name: Quotas and limits
+      href: concepts/limits.md
+    - name: Storage types
+      href: concepts/storage.md
+    - name: Backups
+      href: concepts/backup.md
+  - name: Access management
+    href: security/index.md
+  - name: Pricing policy
+    href: pricing.md
+  - name: API reference
+    items:
+      - name: Authentication in the API
+        href: api-ref/authentication.md
+      - name: gRPC
+        items:
+        include:
+          repo: docs
+          path: en/_api-ref-grpc/managed-sqlserver/api-ref/toc.yaml
+      - name: REST
+        items:
+        include:
+          repo: docs
+          path: en/_api-ref/mdb/sqlserver/toc.yaml
+  - name: Questions and answers
+    items:
+    - name: General questions
+      href: qa/general.md
+
