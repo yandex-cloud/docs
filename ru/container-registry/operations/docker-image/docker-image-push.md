@@ -8,7 +8,6 @@
 
 {% endnote %}
 
-
 {% list tabs %}
 
 - CLI
@@ -17,11 +16,24 @@
   
       ```
       $ docker image list
-      REPOSITORY                                                        TAG                 IMAGE ID            CREATED             SIZE
+      REPOSITORY                              TAG                 IMAGE ID            CREATED             SIZE
       cr.yandex/crpd50616s9a2t7gr8mi/ubuntu   hello               50ff4b0e5783        23 hours ago        86.7MB
-      ubuntu                                                            latest              1d9c17228a9e        2 weeks ago         86.7MB
+      ubuntu                                  latest              1d9c17228a9e        2 weeks ago         86.7MB
       ```
   
+  1. (опционально) Присвойте Docker-образу тег вида `cr.yandex/<ID реестра>/<имя Docker-образа>:<тег>`:
+
+      ```
+      $ docker tag ubuntu \
+      cr.yandex/crpd50616s9a2t7gr8mi/ubuntu:example
+      ```
+
+      {% note info %}
+
+      Загрузить в {{ container-registry-name }} можно только Docker-образы с тегом вида `cr.yandex/<ID реестра>/<имя Docker-образа>:<тег>`.
+
+      {% endnote %}
+
   1. Загрузите необходимый Docker-образ в реестр:
   
       ```

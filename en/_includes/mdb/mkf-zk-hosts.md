@@ -1,9 +1,6 @@
 {% note warning %}
 
-{{ mkf-name }} uses ZooKeeper for storing cluster statuses and configurations.
-ZooKeeper is automatically installed on the same hosts as [brokers](../../managed-kafka/concepts/brokers.md) {{ KF }} when creating a cluster.
-
-ZooKeeper doesn't require separate hosts or additional configuration.
+If you create a cluster with more than one host, three dedicated {{ ZK }} hosts will be added to the cluster. For more information, see [{#T}](../../managed-kafka/concepts/index.md).
 
 {% endnote %}
 

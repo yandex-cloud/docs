@@ -1,11 +1,11 @@
-#### Quotas
+#### Quotas {#quotas}
 
 | Type of limit | Value |
 | ----- | ----- |
 | Storage volume in a cloud | 5 TB |
 | Number of buckets per cloud | 25 |
 
-#### Limits
+#### Limits {#limits}
 
 | Type of limit | Value |
 | ----- | ----- |
@@ -15,4 +15,3 @@
 | Maximum size of data to be uploaded per request | 5 GB |
 | Minimum size of data parts for multipart uploading, except the last one | 5 MB |
 | Maximum number of parts in multi-part uploading | 10,000 |
-

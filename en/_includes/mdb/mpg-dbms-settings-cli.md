@@ -3,7 +3,7 @@ You can use the following settings:
 - **`--сonn-limit`**: The maximum number of connections per user.
 
   In session pooling, this setting limits the number of user connections to each host in a {{ PG }} cluster.
-When using this type of pooling, make sure the setting value is not less than the sum of all connections that can be opened by the service backends using {{ PG }}. Note that each open server connection slows {{ PG }} down a little for the OLTP (Online Transaction Processing) workload.
+  When using this type of pooling, make sure the setting value is not less than the sum of all connections that can be opened by the service backends using {{ PG }}. Note that each open server connection slows {{ PG }} down a little for the OLTP (Online Transaction Processing) workload.
 
   In transaction pooling, this setting limits the number of simultaneous user connections per transaction. When using this type of pooling, the user can open thousands of connections, but only `N` connections can run concurrently (where `N` is the setting value).
 
@@ -11,7 +11,7 @@ When using this type of pooling, make sure the setting value is not less than th
   - When adding a user, {{ mpg-name }} reserves 50 connections per host in a {{ PG }} cluster by default. The minimum number of connections per user is 10.
   - The total number of connections reserved for users must not exceed the `max_connections` parameter value that was specified [when creating the cluster](../../managed-postgresql/operations/cluster-create.md). Keep in mind that {{ mpg-name }} reserves 15 connections for service users per {{ PG }} host. For example, if the cluster has the setting `"max_connections": 100`, you can reserve a maximum of 85 connections per cluster host for users.
   - We recommend distributing different services that use {{ PG }} among different users and setting the desired value for each user.
-This way, if problems occur in a certain service when a large number of connections start being created, it won't affect other services and they will be able to create connections to {{ PG }}.
+  This way, if problems occur in a certain service when a large number of connections start being created, it won't affect other services and they will be able to create connections to {{ PG }}.
 
 - **`--default-transaction-isolation`**: The isolation level is set for each transaction in SQL. This setting determines the default isolation level to set for new SQL transactions.
 
@@ -25,7 +25,7 @@ This way, if problems occur in a certain service when a large number of connecti
 
   - `transaction-isolation-serializable`: The strictest isolation level of all those mentioned.
 
-    All queries in the current transaction only see the strings that were committed before the first query to select and update data that was executed in this transaction. If the overlap of read and write operations of parallel serializable transactions can lead to a situation that is impossible when executed sequentially, one of the transactions is rolled back with the "serialization failure" error.
+  All queries in the current transaction only see the strings that were committed before the first query to select and update data that was executed in this transaction. If the overlap of read and write operations of parallel serializable transactions can lead to a situation that is impossible when executed sequentially, one of the transactions is rolled back with the "serialization failure" error.
 
   For more information about isolation levels, see the [documentation for {{ PG }}](https://www.postgresql.org/docs/current/transaction-iso.html).
 

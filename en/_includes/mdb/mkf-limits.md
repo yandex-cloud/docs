@@ -11,7 +11,7 @@
 
 | Type of limit | Value |
 | ----- | ----- |
-| Lowest host class | b1.micro ([20%](../../compute/concepts/performance-levels.md) × 2 vCPU Intel Broadwell, 2 GB RAM) |
+| Lowest host class | b2.medium ([50%](../../compute/concepts/performance-levels.md) × 2 vCPU Intel Cascade Lake, 4 GB RAM) |
 | Highest host class | m2.8xlarge (64 vCPU Intel Cascade Lake, 512 GB RAM) |
 | Maximum number of brokers per availability zone | 7 |
 | Maximum amount of data when using network storage | 2048 GB |

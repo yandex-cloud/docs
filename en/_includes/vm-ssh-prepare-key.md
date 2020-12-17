@@ -9,7 +9,7 @@ Prepare the keys for use with your virtual machines. To do this:
   1. Use the `ssh-keygen` command to create a new key:
   
      ```
-     $ ssh-keygen -t rsa -b 2048
+     ssh-keygen -t rsa -b 2048
      ```
   
      After the command runs, you will be asked to specify the names of files where the keys will be saved and enter the password for the private key. The default name is `id_rsa`. Keys are created in the `~./ssh` directory.
@@ -23,7 +23,7 @@ Prepare the keys for use with your virtual machines. To do this:
   1. Use the `ssh-keygen` command to create a new key. Run the command:
   
      ```
-     $ ssh-keygen -t rsa -b 2048
+     ssh-keygen -t rsa -b 2048
      ```
   
      After the command runs, you will be asked to specify the names of files where the keys will be saved and enter the password for the private key. The default name is `id_rsa`. Keys are created in the `C:\Users\<user name>\.ssh\` directory.

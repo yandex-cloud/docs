@@ -1,10 +1,10 @@
-# Creating clusters {{ dataproc-name }}
+# Creating {{ dataproc-name }} clusters
 
 {% list tabs %}
 
 - Management console
 
-  1. In [management console]({{ link-console-main }}), select the folder where you want to create a cluster.
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to create a cluster.
 
   1. Click **Create resource** and select **{{ dataproc-name }} cluster** from the drop-down list.
 
@@ -48,9 +48,11 @@
 
   1. Select or create a network for the cluster.
 
+  1. Enable the **UI Proxy** option to access the [web interfaces of the components](../concepts/ui-proxy.md) {{ dataproc-name }}.
+
   1. Configure subclusters: no more than one main subcluster with a **Master** host and subclusters for data storage or computing.
 
-     `COMPUTENODE` and `DATANODE` subcluster roles are different: you can deploy data storage components on `DATANODE` subclusters and data processing components on `COMPUTENODE` subclusters. Storage on a `COMPUTENODE` subcluster is only used to temporarily store processed files.
+     The roles of the `Compute` and `Data` subclusters are different: you can deploy data storage components on `Data` and data processing components on `Compute` subclusters. Storage on a `Compute` subcluster is only used to temporarily store processed files.
 
   1. For each subcluster, you can configure:
      * The number of hosts.
@@ -58,9 +60,10 @@
      * Storage size and type.
      * The subnet of the network where the cluster is located.
 
-  1. Once you have configured all of the subclusters you need, click **Create cluster**.
+  1. For `Compute` subclusters, you can specify the [auto scaling](../concepts/autoscaling.md) parameters.
+
+  1. After you configure all the subclusters you need, click **Create cluster**.
 
 {% endlist %}
 
 {{ dataproc-name }} runs the create cluster operation. After the cluster status changes to **Running**, you can [connect](connect.md) to any active subcluster using the specified SSH key.
-

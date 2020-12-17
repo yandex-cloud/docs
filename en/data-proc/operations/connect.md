@@ -1,4 +1,4 @@
-# Connecting to clusters {{ dataproc-name }}
+# Connecting to {{ dataproc-name }} clusters
 
 After you create a {{ dataproc-name }} cluster, you can connect to the host of the main subcluster.
 

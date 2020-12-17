@@ -1,12 +1,11 @@
 # Authentication in {{ container-registry-short-name }}
 
-Before you start using {{ container-registry-short-name }} through the Docker CLI, you need to authenticate.
+Before you start using {{ container-registry-short-name }}, you need to authenticate for the corresponding interface:
 
-{% note info %}
+* In the **Management console**, the minimum required folder role is `viewer`.
+* In the **Docker CLI**, the minimum required role for the [registry](../concepts/registry.md) or [repository](../concepts/repository.md) is `container-registry.images.puller`.
 
-The required folder role is `viewer`. For more information about roles, see [{#T}](../security/index.md).
-
-{% endnote %}
+For more information about roles, see [{#T}](../security/index.md).
 
 You can authenticate as a user or service account. Read about [authentication methods](#method) and choose the appropriate one.
 
@@ -25,10 +24,10 @@ You can authenticate:
 The authentication command looks like this:
 
 ```
-$ docker login \
-         --username <token type> \
-         --password <token> \
-         cr.yandex
+docker login \
+       --username <token type> \
+       --password <token> \
+       cr.yandex
 ```
 
 - Pass the token type in `<token type>` to the `username` parameter. Acceptable values: `oauth`, `iam`, or `json_key`.
@@ -50,9 +49,9 @@ $ docker login \
 1. Run the command:
 
     ```
-    $ docker login \
-             --username oauth \
-             --password <OAuth token> \
+    docker login \
+           --username oauth \
+           --password <OAuth token> \
              cr.yandex
     ```
 
@@ -69,9 +68,9 @@ $ docker login \
 1. Run the command:
 
     ```
-    $ docker login \
-             --username iam \
-             --password <IAM token> \
+    docker login \
+           --username iam \
+           --password <IAM token> \
              cr.yandex
     ```
 
@@ -90,7 +89,7 @@ Using a [service account](../../iam/concepts/users/service-accounts.md), your pr
 1. Get [authorized keys](../../iam/concepts/users/service-accounts.md#sa-key) for your service account:
 
     ```
-    $ yc iam key create --service-account-name default-sa -o key.json
+    yc iam key create --service-account-name default-sa -o key.json
     id: aje8a87g4e...
     service_account_id: aje3932acd...
     created_at: "2019-05-31T16:56:47Z"
@@ -100,13 +99,14 @@ Using a [service account](../../iam/concepts/users/service-accounts.md), your pr
 1. Run the command:
 
     ```
-    $ cat key.json | docker login \
+    cat key.json | docker login \
     --username json_key \
     --password-stdin \
     cr.yandex
     
     Login Succeeded
     ```
+
     - The `cat key.json` command writes the contents of the key file to the output stream.
     - The `--password-stdin` flag allows the password to be read from the input stream.
 
@@ -123,10 +123,10 @@ Using a [service account](../../iam/concepts/users/service-accounts.md), your pr
 1. Run the command:
 
     ```
-    $ docker login \
-             --username iam \
-             --password <IAM token> \
-             cr.yandex
+    docker login \
+           --username iam \
+           --password <IAM token> \
+           cr.yandex
     ```
 
 ## Authenticate using a Docker Credential helper {#cred-helper}
@@ -144,7 +144,7 @@ You don't need to install the `docker-credential-yc` separately: just install th
 1. Configure Docker to use `docker-credential-yc`:
 
     ```bash
-    $ yc container registry configure-docker
+    yc container registry configure-docker
     Credential helper is configured in '/home/<user>/.docker/config.json'
     ```
 
@@ -173,7 +173,7 @@ You don't need to install the `docker-credential-yc` separately: just install th
 You can use the Credential helper for another profile, without switching from the current one, by running the following command:
 
 ```
-$ yc container registry configure-docker --profile <profile name>
+yc container registry configure-docker --profile <profile name>
 ```
 
 For more information about YC CLI profile management, see the [step-by-step instructions](../../cli/operations/index.md#profile).

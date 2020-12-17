@@ -1,6 +1,6 @@
 # Connecting to a Linux VM via SSH
 
-The recommended method for connecting to a virtual machine over SSH is based on using a key pair: the open key is placed on the virtual machine, and the private key is stored on the user's device. Connecting with a key pair is more secure than connecting with a username and password.
+The recommended method for connecting to a virtual machine over SSH is based on using a key pair: the public key is placed on the virtual machine, and the private key is stored on the user's device. Connecting with a key pair is more secure than connecting with a username and password.
 
 {% include [vm-connect-ssh-linux-note](../../../_includes/vm-connect-ssh-linux-note.md) %}
 
@@ -14,7 +14,7 @@ You can connect to a VM using the SSH protocol when it is running (the VM's stat
 
 To connect to the VM, specify its public address. You can find out the public IP address in the management console. On the VM's page, go to the **Network** section and find the **Public IPv4** field. If you created a VM with only an internal address, you need to create a new VM with a public address to make it accessible over the internet.
 
-You can also use the internal IP addresses and FQDNs to establish an SSH connection between the VMs on a single {{ yandex-cloud }} cloud network .
+You can also use the internal IP addresses and FQDNs to establish an SSH connection between the VMs on a single {{ yandex-cloud }} cloud network.
 
 {% list tabs %}
 
@@ -55,12 +55,6 @@ You can also use the internal IP addresses and FQDNs to establish an SSH connect
   ```powershell
   ssh -i <key_path\key_file_name> <username>@<VM_public_IP_address>
   ```
-
-  {% note warning %}
-
-  Commands must be executed on behalf of an administrator. To launch the command prompt as an administrator, click **Search** in the lower-left corner of the screen and type **command prompt**. Right-click the command prompt icon and select **Run as an administrator**.
-
-  {% endnote %}
 
   If this is the first time you connect to a VM, you'll see a warning about an unknown host:
 
@@ -177,4 +171,3 @@ You can add SSH keys for another VM user. To do this, create a new user and add 
 #### What's next {#what-is-next}
 
 * [Learn how to work with {{ yandex-cloud }} from inside a VM](auth-inside-vm.md)
-

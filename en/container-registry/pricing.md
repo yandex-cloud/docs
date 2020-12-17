@@ -28,7 +28,7 @@ If multiple Docker images in the same registry use the same layers, reused layer
 
 ### Data storage {#prices-storage}
 
-Prices are specified for a 30-day month. For shorter months, the price is higher. For longer months, it is lower.
+The cost of 1 GB per month is fixed and doesn't depend on the number of days in the month. The storage cost per day is higher for shorter months and lower for longer months.
 
 {% list tabs %}
 

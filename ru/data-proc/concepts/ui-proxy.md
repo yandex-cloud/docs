@@ -12,7 +12,7 @@
 
 UI Proxy по умолчанию отключен. Чтобы воспользоваться UI Proxy, включите его при создании или настройка кластера.
 
-Интрефейсы:
+Интерфейсы:
 | Сервис | URL |
 | ----- | ----- |
 | HDFS Name Node | https://cluster-{cluster_id}.dataproc-ui.yandexcloud.net/gateway/default-topology/hdfs/ |

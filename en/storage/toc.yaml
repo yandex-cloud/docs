@@ -75,6 +75,8 @@ items:
         href: concepts/storage-class.md
       - name: Backups
         href: concepts/backup.md
+      - name: TLS protocol
+        href: concepts/tls.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Tools

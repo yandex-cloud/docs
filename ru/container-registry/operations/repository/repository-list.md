@@ -24,10 +24,35 @@
          yc container repository list
          ```
 
+         Результат выполнения команды:
+
+         ```bash
+         +----------------------+-----------------------------+
+         |          ID          |            NAME             |
+         +----------------------+-----------------------------+
+         | crp8bu81b5afogqjrg92 | crp0pmf1n68tt345tf02/ubuntu |
+         | crps9c63eviioaehqsif | crpl3738e9v1qb3besp7/ubuntu |
+         +----------------------+-----------------------------+
+         ```
+
       * Чтобы получить список всех репозиториев определенного реестра, выполните команду:
 
          ```bash
-         yc container repository list --registry-id <ID_реестра>
+         yc container repository list --registry-id crp0pmf1n68tt345tf02
+         ```
+
+         Где:
+
+         * `--registry-id` — идентификатор реестра.
+
+         Результат выполнения команды:
+
+         ```bash
+         +----------------------+-----------------------------+
+         |          ID          |            NAME             |
+         +----------------------+-----------------------------+
+         | crp8bu81b5afogqjrg92 | crp0pmf1n68tt345tf02/ubuntu |
+         +----------------------+-----------------------------+
          ```
 
 - API
@@ -57,15 +82,37 @@
       * По ID репозитория:
 
          ```bash
-         yc container repository get --id <ID_репозитория>
+         yc container repository get --id  crp8bu81b5afogqjrg92
+         ```
+
+         Где:
+
+         * `--id` — идентификатор репозитория.
+
+         Результат выполнения команды:
+
+         ```bash
+         name: crp0pmf1n68tt345tf02/ubuntu
+         id: crp8bu81b5afogqjrg92
          ```
 
       * По имени репозитория:
 
          ```bash
-         yc container repository get --name <имя_репозитория>
+         yc container repository get --name crp0pmf1n68tt345tf02/ubuntu
          ```
 
-         Можно указать не только полное имя Docker-образа, но и префиксы. Например, информацию о репозитории `crtckchkc60enhftkbsk/nginx/test` можно получить, указав `crtckchkc20enhfskbtf/nginx/test`, `crtckchkc20enhfskbtf/nginx` или `crtckchkc20enhfskbtf`.
+         Где:
+
+         * `--name` — имя репозитория.
+
+         Результат выполнения команды:
+
+         ```bash
+         name: crp0pmf1n68tt345tf02/ubuntu
+         id: crp8bu81b5afogqjrg92
+         ```
+
+         Можно указать не только полное имя Docker-образа, но и префиксы. Например, информацию о репозитории `crpvplula8p3nn86jtnb/myproject/myservice` можно получить, указав `crpvplula8p3nn86jtnb/myproject/myservice`, `crpvplula8p3nn86jtnb/myproject` или `crpvplula8p3nn86jtnb`.
 
 {% endlist %}

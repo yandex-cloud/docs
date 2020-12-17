@@ -52,14 +52,14 @@
     $ docker pull ubuntu
     ```
 
-1. Присвойте Docker-образу тег:
+1. Присвойте скачанному Docker-образу тег вида `cr.yandex/<ID реестра>/<имя Docker-образа>:<тег>`:
 
     ```
-    $ docker tag <ID Docker-образа> \
+    $ docker tag ubuntu \
     cr.yandex/crpc9qeoft236r8tfalm/ubuntu:hello
     ```
 
-1. Загрузите Docker-образ в репозиторий:
+1. Загрузите Docker-образ в репозиторий {{ container-registry-short-name }}:
 
     ```
     $ docker push \

@@ -34,14 +34,20 @@ items:
         href: concepts/index.md
       - name: Host classes
         href: concepts/instance-types.md
-      - name: Network in Data Proc
-        href: concepts/network.md
-      - name: Quotas and limits
-        href: concepts/limits.md
       - name: Hadoop and component versions
         href: concepts/environment.md
       - name: Component interfaces and ports
         href: concepts/interfaces.md
+      - name: Component web interfaces
+        href: concepts/ui-proxy.md
+      - name: Auto scaling
+        href: concepts/autoscaling.md
+      - name: Decommissioning subclusters and hosts
+        href: concepts/decommission.md
+      - name: Network in Data Proc
+        href: concepts/network.md
+      - name: Quotas and limits
+        href: concepts/limits.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy
