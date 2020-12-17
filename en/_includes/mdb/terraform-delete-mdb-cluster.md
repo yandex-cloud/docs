@@ -6,7 +6,7 @@ Clusters created using Terraform can be deleted:
 
 1. In the command line, go to the folder with the Terraform configuration file.
 
-2. Delete resources using the command:
+1. Delete resources using the command:
 
     ```
     terraform destroy
@@ -18,5 +18,5 @@ Clusters created using Terraform can be deleted:
 
     {% endnote %}
 
-  3. Confirm the deletion of resources.
+1. Confirm the deletion of resources.
 

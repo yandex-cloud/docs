@@ -14,15 +14,19 @@ items:
           volume for a Docker container
         href: solutions/vm-create-with-second-disk.md
       - name: >-
-          Creating a VM from a Container Optimized Image and multiple Docker
-          containers using a docker-compose.yaml file
+          Creating a VM from a Container Optimized Image with multiple Docker
+          containers
         href: solutions/docker-compose.md
-      - name: Creating an instance group from Container Optimized Image
+      - name: Creating an instance group from a Container Optimized Image
         href: solutions/ig-create.md
       - name: Editing a VM with Container Optimized Image
         href: solutions/vm-update.md
       - name: Configuring data output from a Docker container to a serial port
         href: solutions/serial-port.md
+      - name: >-
+          Creating a VM and an instance group from a Container Optimized Image
+          using Terraform
+        href: solutions/coi-with-terraform.md
   - name: Concepts
     items:
       - name: Container Optimized Image

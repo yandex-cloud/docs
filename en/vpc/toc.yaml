@@ -66,6 +66,8 @@ items:
         href: concepts/security-groups.md
       - name: MTU and MSS
         href: concepts/mtu-mss.md
+      - name: DHCP settings
+        href: concepts/dhcp-options.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: DDoS Protection

@@ -12,8 +12,6 @@ Create a Windows [virtual machine](../concepts/vm.md) using {{ compute-short-nam
 
 {% include [create-instance-via-console-windows](../_includes_service/create-instance-via-console-windows.md) %}
 
-{% include [initialization-windows-vm](../../_includes/initialization-windows-vm.md) %}
-
 ## Connecting to VMs {#connect-rdp}
 
 {% include [vm-connect-rdp](../../_includes/vm-connect-rdp.md) %}

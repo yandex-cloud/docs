@@ -20,6 +20,9 @@ _Пользовательская переменная_ — значение, к
 * `instance_template.boot_disk_spec.disk_spec.image_id` — идентификатор образа загрузочного диска.
 * `instance_template.boot_disk_spec.disk_spec.snapshot_id` — идентификатор снимка загрузочного диска.
 * `instance_template.boot_disk_spec.disk_spec.type_id` — тип загрузочного диска.
+* `instance_template.network_interface_specs.primary_v4_address_spec.one_to_one_nat_spec.address` — конфигурация внешнего IP-адреса версии IPv4.
+* `instance_template.network_interface_specs.primary_v6_address_spec.one_to_one_nat_spec.address` — конфигурация внешнего IP-адреса версии IPv6.
+* `instance_template.placement_policy.placement_group_id` — идентификатор [группы размещения](../placement-groups.md).
 * `instance_template.secondary_disk_specs.disk_id` — идентификатор дополнительного диска.
 * `instance_template.secondary_disk_specs.disk_spec.description` — описание дополнительного диска.
 * `instance_template.secondary_disk_specs.disk_spec.image_id` — идентификатор образа дополнительного диска.

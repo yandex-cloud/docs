@@ -67,6 +67,8 @@ items:
         href: concepts/index.md
       - name: Параметры подключения MQTT-брокера
         href: concepts/mqtt-properties.md
+      - name: Отправка сообщений MQTT-брокеру через gRPC
+        href: concepts/mqtt-grpc.md
       - name: Топик
         href: concepts/topic.md
       - name: Резервное копирование

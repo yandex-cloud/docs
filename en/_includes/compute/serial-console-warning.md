@@ -1,7 +1,5 @@
 {% note warning %}
 
-The serial console is not available to [federated users](../../iam/concepts/users/identity-federations.md). They can only connect to a VM via [CLI](../../cli/quickstart.md) or [SSH](../../compute/operations/vm-connect/ssh.md).
-
 Assess the risk of enabling access via the serial console considering the following:
 
 * The user will be able to manage the VM from the internet even if there is no external IP address.
@@ -10,14 +8,13 @@ Assess the risk of enabling access via the serial console considering the follow
 
 * The session will be simultaneously shared by all users who have access to the serial console.
 
-    In other words, users will be able to see each other's actions when they're watching the serial console's output.
+    Users will be able to see each other's actions when they're watching the serial console's output.
 
 * A valid session can be exploited by another user.
 
 We recommend using the serial console only when absolutely necessary, grant access to a narrow group of people, and use strong VM passwords.
 Make sure you [disable access](../../compute/operations/serial-console/disable.md) when you finish working with the serial console.
 
-[Federated users](../../iam/concepts/users/identity-federations.md) can only connect to the serial console using the [CLI](../../cli/) or over [SSH](../../compute/operations/vm-connect/ssh.md). These users can't access the serial console from the {{ yandex-cloud }} management console.
+[Federated users](../../iam/concepts/users/identity-federations.md) can only connect to the serial console using the [CLI](../../cli/) or [SSH](../../compute/operations/vm-connect/ssh.md). These users can't access the serial console from the {{ yandex-cloud }} management console.
 
 {% endnote %}
-

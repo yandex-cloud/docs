@@ -17,4 +17,7 @@
 | Maximum number of hosts per shard | 7 |
 | Maximum number of hosts per cluster | 70 (10 shards × 7 hosts) |
 | Maximum storage capacity for a cluster | 512 GB |
+| Maximum number of simultaneous connections to a single cluster host | Depends on the total amount of RAM on the host, see below |
+
+{% include [mmg-conn-limits](mmg-conn-limits.md) %}
 

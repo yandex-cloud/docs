@@ -1,1 +1,1 @@
-In public Windows Server images provided by Yandex.Cloud, the password expiration option of the `Administrator` user is disabled by default.
+In Windows Server images from {{ yandex-cloud }}, the `Administrator` user's password expiration is disabled by default.

@@ -1,2 +1,1 @@
-When you create a VM, you choose its vCPU performance level. This determines the required number and performance of cores (vCPUs). You can choose the computing resources that are appropriate for the expected load.
-
+When creating a VM, you select its vCPU performance level. This determines the required number and performance of cores (vCPUs). You can choose the computing resources that are appropriate for the expected load.
