@@ -63,6 +63,20 @@ items:
         href: concepts/ttl.md
       - name: Квоты и лимиты
         href: concepts/limits.md
+  - name: Передача метрик
+    items:
+      - name: Агент для поставки метрик
+        items:
+        - name: Обзор
+          href: data-collection/agent/index.md
+        - name: Быстрый старт
+          href: data-collection/agent/quickstart.md
+        - name: Установка
+          href: data-collection/agent/installation.md
+        - name: Конфигурирование
+          href: data-collection/agent/configuration.md
+        - name: Примечания к выпускам
+          href: data-collection/agent/release-notes.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
