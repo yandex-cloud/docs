@@ -1,8 +1,10 @@
 ## CLI setup {#cli-setup}
 
-To work with MDB, you need to use the external Yandex.Cloud CLI:
+Use the public YC CLI to access MDB:
 
 1. [Install the CLI](../../../cli/quickstart.md).
+
+1. Make sure that you have [YandexInternalRootCA.crt](https://crls.yandex.net/YandexInternalRootCA.crt) installed. For Windows and Mac OS, the certificate must be pre-installed when issuing the equipment. For Linux, you can use the following [instructions](https://wiki.yandex-team.ru/security/ssl/sslclientfix/#vcli-utilitax).
 
 1. [Get an OAuth token](https://oauth.yandex-team.ru/authorize?response_type=token&client_id=8cdb2f6a0dca48398c6880312ee2f78d) to enable CLI access to the internal MDB.
 
