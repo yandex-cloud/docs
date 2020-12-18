@@ -1,6 +1,7 @@
 ---
 editable: false
 ---
+
 {% if audience != "internal" %}
 
 # Quotas and limits
@@ -23,4 +24,3 @@ editable: false
 | Maximum storage capacity for a cluster {{ KF }} | 4096 GB |
 
 {% endif %}
-
