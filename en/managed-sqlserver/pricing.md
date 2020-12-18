@@ -4,12 +4,6 @@ editable: false
 
 # Pricing for {{ mms-name }}
 
-{% note info %}
-
-Until December 17, 2020, {{  mms-full-name }} is at the [Preview](../overview/concepts/launch-stages.md) stage and can be used free of charge. Pricing described on this page will be effective starting December 18, 2020.
-
-{% endnote %}
-
 ## Cluster status {#running-stopped}
 
 Pricing is applied differently depending on the cluster status:
