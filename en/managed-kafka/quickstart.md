@@ -9,13 +9,16 @@ To get started with the service:
 
 ## Before you start {#before-you-begin}
 
-1. Go to the [management console]({{ link-console-main }}). Then log in to Yandex.Cloud or sign up if you don't have an account.
+1. Go to the [management console]({{ link-console-main }}). Then log in to {{ yandex-cloud }} or sign up if you don't have an account yet.
 
 1. If you don't have a folder yet, create one:
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
-You can only connect to a cluster from inside Yandex.Cloud. To do this, create a VM in the same network as the cluster (with [Linux](../compute/quickstart/quick-create-linux.md) or [Windows](../compute/quickstart/quick-create-windows.md)).
+You can connect to an {{ KF }} cluster from both inside and outside {{ yandex-cloud }}:
+
+- To connect from inside {{ yandex-cloud }}, you need to use a [Linux](../compute/quickstart/quick-create-linux.md) or [Windows](../compute/quickstart/quick-create-windows.md)-based virtual machine, which must be in the same network as the cluster.
+- To connect to a cluster from the internet, enable public access to the cluster when [creating](operations/cluster-create.md) it.
 
 ## Create a cluster {#cluster-create}
 
@@ -62,28 +65,40 @@ Then connect to the cluster using this account.
 
 ## Connect to the cluster {#connect}
 
-You can connect producers and consumers to clusters using accounts. Both the producer and consumer will only be able to work with the topics that they are allowed to access within a specific account.
+You can connect producers and consumers to clusters using one account. Both the producer and consumer will only be able to work with the topics that they are allowed to access within a specific account.
 
-1. [Create a Linux VM](../compute/quickstart/quick-create-linux.md) in the same [virtual network](../vpc/concepts/network.md) as the cluster.
+To connect to a cluster:
 
+1. [Create a Linux VM](../compute/quickstart/quick-create-linux.md) in the same [cloud network](../vpc/concepts/network.md) as the cluster.
 1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM via SSH.
-
-1. On the VM, install the kafkacat utility, an open source application that can work as a universal data producer or consumer:
+1. On the VM, install the `kafkacat` utility, an open source application that can work as a universal data producer or consumer:
 
    ```bash
-   apt-get install kafkacat
+   $ sudo apt-get install kafkacat
    ```
+
+1. Install an SSL certificate on the VM:
+
+   
+   ```
+   $ sudo mkdir -p /usr/local/share/ca-certificates/Yandex
+   $ sudo wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" -O /usr/local/share/ca-certificates/Yandex/YandexCA.crt
+   $ sudo chmod 655 /usr/local/share/ca-certificates/Yandex/YandexCA.crt
+   ```
+
+  
 
 1. To send a message to a topic, run the command:
 
    ```bash
-   echo "test message" | kafkacat -P  \
-         -b <broker FQDN> \
+   $ echo "test message" | kafkacat -P  \
+         -b <broker FQDN>:9091 \
          -t <topic name> \
-         -X security.protocol=SASL_PLAINTEXT \
+         -X security.protocol=SASL_SSL \
          -X sasl.mechanisms=SCRAM-SHA-512 \
          -X sasl.username=<producer username> \
-         -X sasl.password=<producer password> -Z -K:
+         -X sasl.password=<producer password> \
+         -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexCA.crt  -Z -K:
    ```
 
    In the command, specify the broker FQDN, the topic name, and the username and password of the {{ KF }} account that you created in the previous step.
@@ -93,13 +108,14 @@ You can connect producers and consumers to clusters using accounts. Both the pro
 1. To get messages from a topic, run the command:
 
    ```bash
-   kafkacat -C \
-         -b <broker FQDN> \
+   $ kafkacat -C \
+         -b <broker FQDN>:9091 \
          -t <topic name> \
-         -X security.protocol=SASL_PLAINTEXT \
+         -X security.protocol=SASL_SSL \
          -X sasl.mechanisms=SCRAM-SHA-512 \
          -X sasl.username=<consumer username> \
-         -X sasl.password=<consumer password>
+         -X sasl.password=<consumer password> \
+         -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexCA.crt -Z -K:
    ```
 
    In the command, specify the broker FQDN, the topic name, and the username and password of the {{ KF }} account that you created in the previous step.

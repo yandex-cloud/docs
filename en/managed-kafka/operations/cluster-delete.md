@@ -5,7 +5,7 @@ You can delete an {{ KF }} cluster if you no longer need it. All data in the clu
 {% list tabs %}
 
 - Management console
-  1. In the management console, select the folder you want to delete a cluster from.
+  1. In the [management console]({{ link-console-main }}), select the folder you want to delete a cluster from.
   1. Select **{{ mkf-name }}**.
   1. Click ![image](../../_assets/options.svg) for the cluster and select **Delete cluster**.
   1. Read the warning displayed. Confirm cluster deletion and click **Delete**.

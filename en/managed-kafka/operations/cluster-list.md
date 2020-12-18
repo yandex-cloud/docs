@@ -25,6 +25,7 @@ You can request detailed information about each {{ mkf-name }} cluster you creat
 {% list tabs %}
 
 - Management console
+
   1. Go to the folder page and select **{{ mkf-name }}**.
   1. Click on the name of the cluster you need.
 
@@ -40,14 +41,14 @@ You can request detailed information about each {{ mkf-name }} cluster you creat
 
 ## Viewing a list of operations in a cluster {#list-operations}
 
-{% include [list-operations-about](../../_includes/mdb/list-operations-about.md) %}
+{% include [list-operations-about](../../_includes/mdb/mkf-list-operations-about.md) %}
 
 {% list tabs %}
 
 - Management console
+
   1. Go to the folder page and select **{{ mkf-name }}**.
   1. Click on the name of the cluster you need.
-
   1. Go to the **Operations** tab.
 
 

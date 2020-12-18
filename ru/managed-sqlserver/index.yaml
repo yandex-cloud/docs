@@ -1,8 +1,6 @@
 # Заголовок и описание на странице
 title: "Yandex Managed Service for SQL Server™"
-stage: preview
 description:
-  - "<em>Сервис Managed Service for SQL Server™ находится на <a href=\"/docs/overview/concepts/launch-stages\">стадии Preview</a> и не тарифицируется</em>."
   - "Managed Service for SQL Server помогает разворачивать и поддерживать кластеры серверов SQL Server в инфраструктуре Yandex.Cloud. Сервис поддерживает SQL Server 2016 SP2."
   - "Инфраструктура Yandex.Cloud <a href=\"https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf\">защищена</a> в соответствии с ФЗ-152."
   - "SQL Server является зарегистрированным товарным знаком Microsoft Corporation в США и/или других странах."

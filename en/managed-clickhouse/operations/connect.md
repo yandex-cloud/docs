@@ -1,74 +1,42 @@
-# Connecting to a database in a cluster {{ CH }}
+# Connecting to a database in a {{ CH }} cluster
 
 
-In Yandex.Cloud, you can only connect to a DB cluster from a VM that's in the same subnet as the cluster.
+In {{ yandex-cloud }}, you can only connect to a DB cluster from a VM that is in the same subnet as the cluster.
 
 
-A {{ CH }} cluster can be accessed using the [command-line client](https://clickhouse.yandex/docs/en/interfaces/cli/) (port 9440) or [HTTP interface](https://clickhouse.tech/docs/en/interfaces/http/) (port 8443). All connections to DB clusters are encrypted.
+A {{ CH }} cluster can be accessed using the [command-line client](https://clickhouse.yandex/docs/en/interfaces/cli/) (port 9440) or [HTTP interface](https://clickhouse.yandex/docs/en/interfaces/http_interface/) (port 8443). All connections to DB clusters are encrypted.
 
-## Get an SSL certificate {#get-ssl-cert}
+## Getting an SSL certificate {#get-ssl-cert}
 
-To use an encrypted connection, you should get an SSL certificate:
+To use an encrypted connection, you should prepare an SSL certificate, for example, like this:
 
 
 ```bash
-wget "https://storage.yandexcloud.net/cloud-certs/CA.pem"
+sudo mkdir -p /usr/local/share/ca-certificates/Yandex && \
+sudo wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" -O /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt && \
+sudo chmod 655 /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt
 ```
 
 
-## How to connect via {{ CH }} CLI {#cli}
+## Sample connection strings {#connection-string}
 
-To connect to a cluster using the command-line client, specify the path to the SSL certificate in the [configuration file](https://clickhouse.yandex/docs/en/interfaces/cli/#interfaces_cli_configuration) in the `<caConfig>` element:
+{% include [conn-strings-environment](../../_includes/mdb/mdb-conn-strings-env.md) %}
 
-```xml
-<config>
-  <openSSL>
-    <client>
-      <loadDefaultCAFile>true</loadDefaultCAFile>
-      <caConfig>[path to the SSL certificate]</caConfig>
-      <cacheSessions>true</cacheSessions>
-      <disableProtocols>sslv2,sslv3</disableProtocols>
-      <preferServerCiphers>true</preferServerCiphers>
-      <invalidCertificateHandler>
-        <name>RejectCertificateHandler</name>
-      </invalidCertificateHandler>
-    </client>
-  </openSSL>
-</config>
-```
+You can only connect to a {{ CH }} cluster using an SSL certificate. Before connecting to clusters, [prepare a certificate](#get-ssl-cert).
 
-Then run the ClickHouse CLI with the following parameters:
-
-```bash
-clickhouse-client --host <host FQDN> \
-                  -s \
-                  --user <DB user name> \
-                  --password <DB user password> \
-                  -q "<DB query>"
-                  --port 9440
-```
+In the examples below, it is assumed that the `YandexInternalRootCA.crt` certificate is located in the `/usr/local/share/ca-certificates/Yandex/` directory.
 
 {% include [see-fqdn-in-console](../../_includes/mdb/see-fqdn-in-console.md) %}
 
-## Connecting via HTTP {#http}
+{% include [mch-connection-strings](../../_includes/mdb/mch-conn-strings.md) %}
 
-Send a request specifying the path to the received SSL certificate, database attributes, and the request text in urlencoded format:
+If the connection to the cluster and the test query are successful, the {{ CH }} version is output.
 
-```bash
-curl --cacert <path to the SSL certificate> \
-     -H "X-ClickHouse-User: <DB user name>" \
-     -H "X-ClickHouse-Key: <DB user password>" \
-     'https://<host FQDN>:8443/?database=<DB name>&query=SELECT%20now ()'
-```
+## Selecting an available host automatically {#auto}
 
-When using the HTTP GET method, only read operations are allowed. A GET request for a write operation will always cause an error, like when using the`readonly=1` connection parameter.
-Always use the POST method for write operations:
+If you don't want to manually connect to another host in case the current one becomes unavailable, use an address like this:
 
-```bash
-curl -X POST \
-     --cacert <path to the SSL certificate> \
-     -H "X-ClickHouse-User: <DB user name>" \
-     -H "X-ClickHouse-Key: <DB user password>" \
-     'https://<host FQDN>:8443/?database=<DB name>&query=INSERT%20INTO%20Customers%20%28CustomerName%2C%20Address%29%20VALUES%20%28%27Example%20Exampleson%27%2C%20%27Moscow%2C%20Lva%20Tolstogo%2C%2016%27%29%3B'
-```
+* `c-<cluster ID>.rw.mdb.yandexcloud.net` to connect to the cluster master host.
+* `<shard name>.c-<cluster ID>.rw.mdb.yandexcloud.net` to connect to the [shard](../concepts/sharding.md) master host.
 
+If the host that this address points to becomes unavailable, there may be a slight delay before the address starts pointing to another available host.

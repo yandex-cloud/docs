@@ -9,7 +9,7 @@ In this section, you'll learn:
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-## What resources you can assign roles to. {#resources}
+## What resources you can assign roles to {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
@@ -24,12 +24,12 @@ The diagram shows which roles are available in the service and how they inherit 
 Active roles in the service:
 
 * Service roles:
-  * {% include [resource-manager.clouds.owner](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.owner.md) %}
-  * {% include [resource-manager.clouds.member](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.member.md) %}
+    * {% include [resource-manager.clouds.owner](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.owner.md) %}
+    * {% include [resource-manager.clouds.member](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.member.md) %}
 * Primitive roles:
-  * {% include [viewer](../../_includes/iam/roles/short-descriptions/viewer.md) %}
-  * {% include [editor](../../_includes/iam/roles/short-descriptions/editor.md) %}
-  * {% include [admin](../../_includes/iam/roles/short-descriptions/admin.md) %}
+    * {% include [viewer](../../_includes/iam/roles/short-descriptions/viewer.md) %}
+    * {% include [editor](../../_includes/iam/roles/short-descriptions/editor.md) %}
+    * {% include [admin](../../_includes/iam/roles/short-descriptions/admin.md) %}
 
 ## What roles do I need {#required-roles}
 
@@ -50,6 +50,6 @@ The table below lists the roles needed to perform a given action. You can always
 
 * [How to assign a role](../../iam/operations/roles/grant.md).
 * [How to revoke a role](../../iam/operations/roles/revoke.md).
-* [Read more about access management in Yandex.Cloud](../../iam/concepts/access-control/index.md).
-* [More about role inheritance](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
+* [Learn more about access management in {{ yandex-cloud }}](../../iam/concepts/access-control/index.md).
+* [For more information about role inheritance](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
 

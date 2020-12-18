@@ -22,7 +22,7 @@ After [creating a {{ KF }} cluster](cluster-create.md), you can:
 
   To create an account in a cluster:
   1. Go to the folder page and select **{{ mkf-name }}**.
-  1. Click on the name of the cluster you need and select the tab **Users**.
+  1. Click the name of the cluster and go to the **Users** tab.
   1. Click **Add**.
   1. Enter a name for the account (username) and password (from 8 to 128 characters).
   1. [Grant permissions](#grant-permission) to the necessary topics.
@@ -51,7 +51,7 @@ After [creating a {{ KF }} cluster](cluster-create.md), you can:
 
   To change the account password:
   1. Go to the folder page and select **{{ mkf-name }}**.
-  1. Click on the name of the cluster you need and select the tab **Users**.
+  1. Click the name of the cluster and go to the **Users** tab.
   1. Click ![image](../../_assets/horizontal-ellipsis.svg) for the desired account and select **Change password**.
   1. Set a new password and click **Edit**.
 
@@ -61,6 +61,7 @@ After [creating a {{ KF }} cluster](cluster-create.md), you can:
   Use the [update](../api-ref/User/update.md) API method and pass the following in the request:
   - The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
   - The account name in the `userName` parameter. To find out the name, [get a list of accounts in the cluster](#list-accounts).
+  - The name of the `password` setting in the `updateMask` parameter. If this parameter is omitted, the API method resets any account settings that aren't explicitly specified in the request to their default values.
   - The new password for the account in the `password` parameter.
 
 
@@ -74,7 +75,7 @@ After [creating a {{ KF }} cluster](cluster-create.md), you can:
 
   To change the account settings in the cluster:
   1. Go to the folder page and select **{{ mkf-name }}**.
-  1. Click on the name of the cluster you need and select the tab **Users**.
+  1. Click the name of the cluster and go to the **Users** tab.
   1. Click ![image](../../_assets/horizontal-ellipsis.svg) for the desired account and select **Configure**.
   1. [Grant](#grant-permission) or [revoke](#revoke-permission) permissions to topics, if necessary.
   1. Click **Save**.
@@ -85,13 +86,15 @@ After [creating a {{ KF }} cluster](cluster-create.md), you can:
   Use the [update](../api-ref/User/update.md) API method and pass the following in the request:
   - The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
   - The account name in the `userName` parameter. To find out the name, [get a list of accounts in the cluster](#list-accounts).
+  - In the `updateMask` parameter, a list of settings to update (in a single line, comma-separated). If this parameter is omitted, the API method resets any account settings that aren't explicitly specified in the request to their default values.
   - A new set of permissions to topics (one or more `permissions` parameters, one for each topic).
-  - In the `updateMask` parameter, a list of permissions to update (in a single line, separated by commas). If this parameter is omitted, the API method removes any permissions that aren't explicitly specified in the `topicSpec` parameter.
 
 
 {% endlist %}
 
 ## Grant account permissions {#grant-permission}
+
+{% include [mkf-deleted-topic-permissions-note](../../_includes/mdb/mkf-deleted-topic-permissions-note.md) %}
 
 {% list tabs %}
 
@@ -107,7 +110,7 @@ After [creating a {{ KF }} cluster](cluster-create.md), you can:
      1. Click **+ Add topic**. If there is no such button, it means that all existing cluster topics are added to this account.
      1. Select the desired topic from the drop-down list.
 
-  1. Click ![image](../../_assets/plus.svg) in the **Roles** column for the topic and select
+  1. Click ![image](../../_assets/plus.svg) in the **Roles** column for the topic and select:
      - `ACCESS_ROLE_CONSUMER`: Consumers who use this account will be granted access to the topic.
      - `ACCESS_ROLE_PRODUCER`: Producers who use this account will be granted access to the topic.
 
@@ -115,7 +118,7 @@ After [creating a {{ KF }} cluster](cluster-create.md), you can:
 
   1. To grant permissions to other topics, repeat the steps.
 
-  1. If you granted permissions to a topic by mistake, [revoke them](#revoke-permission).
+  1. (optional) If you granted permissions to a topic by mistake, [revoke them](#revoke-permission).
 
 
 - API
@@ -138,8 +141,7 @@ After [creating a {{ KF }} cluster](cluster-create.md), you can:
 
   To revoke topic permissions:
   1. Find the desired topic in the list of topics.
-  1. Delete the role that you no longer need by clicking ![image](../../_assets/cross.svg) next to the role name.
-  1. To revoke all permissions to a topic, delete it from the list: hover over the topic name and click ![image](../../_assets/cross.svg) at the end of the line.
+  1. Delete the role that you no longer need by clicking ![image](../../_assets/cross.svg) next to the role name. To revoke all permissions to a topic, delete it from the list: hover over the topic name and click ![image](../../_assets/cross.svg) at the end of the line.
 
 
 - API
@@ -160,7 +162,7 @@ After [creating a {{ KF }} cluster](cluster-create.md), you can:
 
   To delete an account:
   1. Go to the folder page and select **{{ mkf-name }}**.
-  1. Click on the name of the cluster you need and select the tab **Users**.
+  1. Click the name of the cluster and go to the **Users** tab.
   1. Click ![image](../../_assets/horizontal-ellipsis.svg) for the account and select **Delete**.
   1. Confirm deletion and click **Delete**.
 
@@ -182,14 +184,14 @@ After [creating a {{ KF }} cluster](cluster-create.md), you can:
 
   To get a list of accounts:
   1. Go to the folder page and select **{{ mkf-name }}**.
-  1. Click on the name of the cluster you need and select the tab **Users**.
+  1. Click the name of the cluster and go to the **Users** tab.
 
 
 - API
 
   Use the [list](../api-ref/User/list.md) API method: pass the ID of the required cluster in the `clusterId` request parameter.
 
-  To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+  To find out the cluster ID, [get a list of clusters in the folder](#list-clusters).
 
 
 {% endlist %}

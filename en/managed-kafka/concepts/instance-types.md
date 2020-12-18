@@ -13,29 +13,11 @@ Hosts in {{ mkf-name }} clusters are deployed on {{ compute-full-name }} VMs. Yo
 
 The full list of possible host configurations on each platform is provided below.
 
-{% include [instance-types-code](../../_includes/mdb/instance-types-code.md) %}
+{% include [instance-types-code](../../_includes/mdb/mkf-instance-types-code.md) %}
 
 | Host class name | Number of vCPUs | Guaranteed vCPU performance | RAM, GB |
 | ----- | ----- | ----- | ----- |
-| **Intel Broadwell** |  |
-| b1.micro | 2 | 20% | 2 |
-| b1.medium | 2 | 50% | 4 |
-| m1.micro | 2 | 100% | 16 |
-| m1.small | 4 | 100% | 32 |
-| m1.medium | 6 | 100% | 48 |
-| m1.large | 8 | 100% | 64 |
-| m1.xlarge | 12 | 100% | 96 |
-| m1.2xlarge | 16 | 100% | 128 |
-| m1.3xlarge | 24 | 100% | 192 |
-| m1.4xlarge | 32 | 100% | 256 |
-| s1.nano | 1 | 100% | 4 |
-| s1.micro | 2 | 100% | 8 |
-| s1.small | 4 | 100% | 16 |
-| s1.medium | 8 | 100% | 32 |
-| s1.large | 16 | 100% | 64 |
-| s1.xlarge | 32 | 100% | 128 |
 | **Intel Cascade Lake** |  |  |
-| b2.micro | 2 | 20% | 2 |
 | b2.medium | 2 | 50% | 4 |
 | m2.micro | 2 | 100% | 16 |
 | m2.small | 4 | 100% | 32 |
