@@ -129,6 +129,8 @@ items:
         href: concepts/datalens-public.md
       - name: Вычисляемые поля
         href: concepts/calculations.md
+      - name: Marketplace
+        href: concepts/marketplace.md
       - name: Резервное копирование в DataLens
         href: concepts/backup.md
       - name: Квоты и лимиты

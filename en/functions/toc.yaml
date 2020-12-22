@@ -123,6 +123,22 @@ items:
         href: lang/nodejs/errors.md
       - name: Using the SDK
         href: lang/nodejs/sdk.md
+  - name: Developing in Python
+    items:
+      - name: Overview
+        href: lang/python/index.md
+      - name: Managing dependencies
+        href: lang/python/dependencies.md
+      - name: Request handlers
+        href: lang/python/handler.md
+      - name: Invocation context
+        href: lang/python/context.md
+      - name: Logging
+        href: lang/python/logging.md
+      - name: Handling errors
+        href: lang/python/errors.md
+      - name: Using the SDK
+        href: lang/python/sdk.md
   - name: Developing in Go
     items:
       - name: Overview
@@ -165,6 +181,74 @@ items:
         href: lang/bash/errors.md
       - name: Using the SDK
         href: lang/bash/sdk.md
+  - name: Developing in Java
+    items:
+      - name: Overview
+        href: lang/java/index.md
+      - name: Java programming model
+        items:
+          - name: Overview
+            href: lang/java/model/index.md
+          - name: Using the Function interface to set a handler function
+            href: lang/java/model/jdk-function.md
+          - name: Using the YcFunction interface to set a handler function
+            href: lang/java/model/yc-function.md
+          - name: Using the HttpServlet class to set a handler
+            href: lang/java/model/servlet-api.md
+          - name: Using the SpringBootApplication annotation to set a handler
+            href: lang/java/model/spring-boot.md
+      - name: Managing dependencies
+        href: lang/java/dependencies.md
+      - name: Request handler
+        href: lang/java/handler.md
+      - name: Invocation context
+        href: lang/java/context.md
+      - name: Logging
+        href: lang/java/logging.md
+      - name: Handling errors
+        href: lang/java/errors.md
+      - name: Using the SDK
+        href: lang/java/sdk.md
+  - name: Developing in R
+    items:
+      - name: Overview
+        href: lang/r/index.md
+      - name: R programming model
+        href: lang/r/model/index.md
+      - name: Building and managing dependencies
+        href: lang/r/dependencies.md
+      - name: Request handler
+        href: lang/r/handler.md
+      - name: context.md
+        href: lang/r/context.md
+      - name: Logging
+        href: lang/r/logging.md
+      - name: Handling errors
+        href: lang/r/errors.md
+  - name: Developing in C#
+    items:
+      - name: Overview
+        href: lang/csharp/index.md
+      - name: C# programming model
+        items:
+          - name: Overview
+            href: lang/csharp/model/index.md
+          - name: Using the Function interface to set a handler function
+            href: lang/csharp/model/independent-function.md
+          - name: Using the YcFunction interface to set a handler function
+            href: lang/csharp/model/yc-function.md
+      - name: Building and managing dependencies
+        href: lang/csharp/dependencies.md
+      - name: Request handler
+        href: lang/csharp/handler.md
+      - name: Invocation context
+        href: lang/csharp/context.md
+      - name: Logging
+        href: lang/csharp/logging.md
+      - name: Handling errors
+        href: lang/csharp/errors.md
+      - name: Using the SDK
+        href: lang/csharp/sdk.md
   - name: Use cases
     items:
       - name: Creating skills for Alice
