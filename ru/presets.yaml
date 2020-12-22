@@ -188,7 +188,7 @@ default:
   disk-type-example: network-ssd
   PG: PostgreSQL
   CH: ClickHouse
-  mch-hs-version: 20.6
+  mch-hs-version: 20.10
   MG: MongoDB
   mmg-backup-retention: 7
   mmg-backup-retention-min: 7
@@ -316,7 +316,7 @@ internal:
   disk-type-example: local-ssd
   PG: PostgreSQL
   CH: ClickHouse
-  mch-hs-version: 20.6
+  mch-hs-version: 20.10
   MG: MongoDB
   mmg-backup-retention: 7
   mmg-backup-retention-min: 7
