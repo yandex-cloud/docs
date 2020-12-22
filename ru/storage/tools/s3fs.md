@@ -35,14 +35,14 @@ chmod 600  ~/.passwd-s3fs
 2. Выполните команду вида:
 
     ```
-    s3fs <имя бакета> /mount/<путь к папке> -o passwd_file=~/.passwd-s3fs \
+    s3fs <имя бакета> /mount/<путь к папке> -o passwd_file=/etc/.passwd-s3fs \
         -o url=http://storage.yandexcloud.net -o use_path_request_style
     ```
 
 Можно настроить монтирование бакета при запуске системы, для этого добавьте в файл `/etc/fstab` строку вида:
 
 ```
-s3fs#<имя бакета> /mount/<путь к папке> fuse _netdev,allow_other,use_path_request_style,url=http://storage.yandexcloud.net 0 0
+s3fs#<имя бакета> /mount/<путь к папке> fuse _netdev,allow_other,use_path_request_style,url=http://storage.yandexcloud.net,passwd_file=/etc/.passwd-s3fs 0 0
 ```
 
 Описание всех параметров s3fs смотрите в [вики проекта](https://github.com/s3fs-fuse/s3fs-fuse/wiki/Fuse-Over-Amazon) на GitHub.
