@@ -91,6 +91,7 @@ The minimum billable amount is 15 seconds for every pair of channels. Audio with
   | ----- | ----- |
   | [Short audio recognition](#rules-stt-short) | $0.001953 |
   | [Long audio recognition](#rules-stt-long) | $0.000128 |
+  | [Long audio recognition](#rules-stt-long) by the [deferred-general](stt/models.md#new-versions) model | $0.000032 |
 
 - Prices in roubles
 
@@ -98,5 +99,6 @@ The minimum billable amount is 15 seconds for every pair of channels. Audio with
   | ----- | ----- |
   | [Short audio recognition](#rules-stt-short) | ₽0.1524 |
   | [Long audio recognition](#rules-stt-long) | ₽0.01 |
+  | [Long audio recognition](#rules-stt-long) by the [deferred-general](stt/models.md#new-versions) model | ₽0,0025 |
 
 {% endlist %}

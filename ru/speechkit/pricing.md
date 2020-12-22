@@ -74,3 +74,4 @@ editable: false
 ----- | -----
 [Распознавание коротких аудио](#rules-stt-short) | 0,1524 ₽
 [Распознавание длинных аудио](#rules-stt-long) | 0,01 ₽
+[Распознавание длинных аудио](#rules-stt-long) моделью [deferred-general](stt/models#new-versions) | 0,0025 ₽
