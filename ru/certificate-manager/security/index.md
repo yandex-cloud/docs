@@ -9,11 +9,11 @@
 
 ## На какие ресурсы можно назначить роль {#resources}
 
-{% include [roles-intro](../../_includes/roles-intro.md) %}
+Вы можете назначить роль на [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud), [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) или [сертификат](../concepts/index). Эти роли будут действовать и на вложенные ресурсы.
 
 ## Какие роли действуют в сервисе {#roles-list}
 
-На диаграмме показано, какие роли есть в сервисе и как они наследуют разрешения друг друга. Например, в `editor` входят все разрешения `viewer`. После диаграммы дано описание каждой роли.
+{% include [roles-intro](../../_includes/roles-intro.md) %}
 
 ![image](../../_assets/certificate-manager/service-roles-hierarchy-with-admin.svg)
 

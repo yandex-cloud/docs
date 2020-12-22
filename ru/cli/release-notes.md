@@ -1,20 +1,64 @@
 # Релизы YC CLI
 
-## Версия 0.69.0 (02.12.20) {#latest-release}
+## Версия 0.70.0 (22.12.20) {#latest-release}
+
+### Изменения в CLI {#cli}
+
+**Улучшено**
+
+* Команда `yc container registry configure-docker`.
+
+  Добавлен флаг `--disable`, позволяющий отключить интеграцию с Docker Credential Helper.
 
 ### Изменения в сервисах {{ yandex-cloud }}
 
-#### {{ managed-k8s-name }} {#k8s}
+#### {{ iam-name }} {#iam}
 
-* Исправлен парсинг флага `ipv6-address` для сетевой спецификации групп узлов.   
+Добавлена команда `yc iam federation list-user-accounts` для листинга пользователей федерации.
 
 #### Сервисы управляемых баз данных {#managed-db}
 
+**{{ mmy-name }}, {{ mpg-name }}, {{ mch-name }}, {{ mrd-name }}, {{ mmg-name }}, {{ mkf-name }}**
+
+- Команды `yc <имя сервиса управляемой БД> cluster create`, `yc <имя сервиса управляемой БД> cluster update` и `yc <имя сервиса управляемой БД> cluster restore`.
+
+    Флаг `--security-group-ids` позволяет установить для кластера набор групп безопасности.
+
 **{{ mkf-name }}**
 
-Добавлена первичная поддержка сервиса {{ mkf-name }}: 
-* Команды группы `yc managed-kafka cluster` позволяют управлять кластерами. 
-* Команды группы `yc managed-kafka topic` позволяют управлять топиками. 
+* Команды `yc managed-kafka cluster create` и `yc managed-kafka cluster update`.
+  
+  Добавлены флаги для задания и изменения конфигурационных настроек Kafka брокеров: `--compression-type`, `--log-flush-interval-messages`, `--log-flush-interval-ms`, `--log-flush-scheduler-interval-ms`, `--log-retention-bytes`, `--log-retention-hours`, `--log-retention-minutes`, `--log-retention-ms`, `--log-segment-bytes`, `--log-preallocate`.
+
+
+* Команды `yc managed-kafka topic create` и `yc managed-kafka topic update`.
+  
+  Добавлены флаги для задания и изменения настроек топика: `--cleanup-policy`, `--compression-type`, `--delete-retention-ms`, `--file-delete-delay-ms`, `--flush-messages`, `--flush-ms`, `--min-compaction-lag-ms`, `--retention-bytes`, `--retention-ms`, `--max-message-bytes`, `--min-insync-replicas`, `--segment-bytes`, `--preallocate`.
+
+
+**{{ mes-name }}**
+
+Добавлена первичная поддержка сервиса {{ mes-name }}:
+* Команды группы `yc managed-elasticsearch cluster` позволяют управлять кластерами.
+* Команды группы `yc managed-elasticsearch user` позволяют управлять пользователями.
+
+## Предыдущие релизы {#previous-releases}
+
+### Версия 0.69.0 (02.12.20) {#version0.69.0}
+
+#### Изменения в сервисах {{ yandex-cloud }}
+
+##### {{ managed-k8s-name }} {#k8s}
+
+* Исправлен парсинг флага `ipv6-address` для сетевой спецификации групп узлов.
+
+##### Сервисы управляемых баз данных {#managed-db}
+
+**{{ mkf-name }}**
+
+Добавлена первичная поддержка сервиса {{ mkf-name }}:
+* Команды группы `yc managed-kafka cluster` позволяют управлять кластерами.
+* Команды группы `yc managed-kafka topic` позволяют управлять топиками.
 * Команды группы `yc managed-kafka user` позволяют управлять пользователями.
 
 **{{ mmy-name }}**
@@ -28,8 +72,6 @@
 - Команда `yc <имя сервиса управляемой БД> cluster update`.
 
     Добавлен флаг `--websql-access` для управления доступом из [консоли управления]({{ link-console-main }}).
-
-## Предыдущие релизы {#previous-releases}
 
 ### Версия 0.68.0 (03.11.20) {#version0.68.0}
 
@@ -99,7 +141,7 @@
 * Добавлена команда `yc compute host-type`, позволяющая управлять типами выделенных хостов.
 
 * Добавлена команда `yc compute disk-placement-group`, позволяющая управлять группами нереплицированных дисков.
- 
+
 #### Сервисы управляемых баз данных {#managed-db}
 
 **{{ mmg-name }}**
@@ -140,8 +182,8 @@
 
 * Команда `{{ yc-mdb-mg }} cluster list-logs`.
 
-    Добавлен параметр `filter` позволяющий фильтровать запрашиваемые записи. 
-    
+    Добавлен параметр `filter` позволяющий фильтровать запрашиваемые записи.
+
     Если задан параметр `follow`, то значение по умолчанию для параметра `limit` игнорируется. При этом явное указание параметра `limit` ограничивает количество выводимых записей.
 
 ### Версия 0.64.0 (08.09.20) {#version0.64.0}
@@ -153,10 +195,10 @@
 * Команда `yc compute instance-group`.
     - Добавлена возможность устанавливать и просматривать список ролей для группы виртуальных машин: `list-access-bindings`, `set-access-bindings`, `add-access-binding` и `remove-access-binding`.
     - Добавлены команды для удаления и остановки ВМ в группе виртуальных машин: `stop-instances`, `delete-instances`.
-    
+
 #### Сервисы управляемых баз данных {#managed-db}
 
-* Команда `yc <имя сервиса управляемой БД> cluster list-logs` для всех управляемы БД использует новые методы API `StreamLogs` для стриминга логов. 
+* Команда `yc <имя сервиса управляемой БД> cluster list-logs` для всех управляемы БД использует новые методы API `StreamLogs` для стриминга логов.
 
     Всем командам добавлен флаг `--follow`, позволяющий получать новые записи логов по мере их появления.
 
@@ -218,17 +260,17 @@
     Флаг `--global-permissions` позволяет выдать привилегию `PROCESS`.
 
 **{{ mch-name }}, {{ mmy-name }}, {{ mpg-name }}, {{ mrd-name }}, {{ mmg-name }}**
- 
+
 * Команда `yc <имя сервиса управляемой БД> cluster update`.
 
     Добавлены флаги `--maintenance-window-anytime` и `--maintenance-window-weekly` для указания параметров окон обслуживания. Они будут использованы для планирования времени работ с кластером.
-    
+
 * Добавлена команда `yc <имя сервиса управляемой БД> cluster reschedule-maintenance` для управления запланированной задачей по обслуживанию кластера.
 
 **{{ mmg-name }}**
 
 * Команда `yc managed-mongodb cluster restore`.
-    
+
     Добавлен флаг `--recovery-target-timestamp` для указания точки восстановления резервной копии.
 
 ### Версия 0.61.0 (03.08.20) {#version0.61.0}

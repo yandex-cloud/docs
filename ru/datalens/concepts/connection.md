@@ -20,6 +20,8 @@ _Коннектор_ — это драйвер для подключения и 
 - **Metrica** (в режиме прямого доступа и через API)
 - **AppMetrica** (в режиме прямого доступа и через API)
 
+Вы можете добавить дополнительные коннекторы из списка доступных в [{{ datalens-short-name }} Marketplace](marketplace.md).
+
 {% include [connection-note](../../_includes/datalens/datalens-connection-note.md) %}
 
 ## Управление доступом {#access-management}

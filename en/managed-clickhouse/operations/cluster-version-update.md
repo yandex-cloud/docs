@@ -34,7 +34,7 @@ You can change the {{ CH }} version that the cluster uses.
 
 {% note warning %}
 
-If the cluster uses [hybrid storage](../concepts/storage.md#hybrid-storage-features), the minimum version number you can change the cluster to is 20.6.
+If the cluster uses [hybrid storage](../concepts/storage.md#hybrid-storage-features), the minimum version number you can change the cluster to is {{ mch-hs-version }}.
 
 {% endnote %}
 
