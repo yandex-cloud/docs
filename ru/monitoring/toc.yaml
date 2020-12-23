@@ -70,13 +70,21 @@ items:
         - name: Обзор
           href: data-collection/agent/index.md
         - name: Начало работы
-          href: data-collection/agent/quickstart.md
+          items:
+            - name: Поставка системных метрик Linux
+              href: data-collection/agent/quickstart/linux_metrics.md
+            - name: Поставка метрик пользовательского приложения
+              href: data-collection/agent/quickstart/pull_prometheus.md
+            - name: Поставка метрик nginx
+              href: data-collection/agent/quickstart/nginx.md
+            - name: Поставка метрик с хостов вне Яндекс.Облака
+              href: data-collection/agent/quickstart/non-yc.md
         - name: Установка
           href: data-collection/agent/installation.md
         - name: Конфигурирование
           href: data-collection/agent/configuration.md
         - name: Рекомендации по использованию агента
-          href: data-collection/agent/best_practices.md
+          href: data-collection/agent/best-practices.md
         - name: Часто задаваемые вопросы
           href: data-collection/agent/faq.md
         - name: Примечания к выпускам
