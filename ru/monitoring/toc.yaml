@@ -69,12 +69,16 @@ items:
         items:
         - name: Обзор
           href: data-collection/agent/index.md
-        - name: Быстрый старт
+        - name: Начало работы
           href: data-collection/agent/quickstart.md
         - name: Установка
           href: data-collection/agent/installation.md
         - name: Конфигурирование
           href: data-collection/agent/configuration.md
+        - name: Рекомендации по использованию агента
+          href: data-collection/agent/best_practices.md
+        - name: Часто задаваемые вопросы
+          href: data-collection/agent/faq.md
         - name: Примечания к выпускам
           href: data-collection/agent/release-notes.md
   - name: Управление доступом
