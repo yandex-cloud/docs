@@ -1,4 +1,5 @@
 title: "Yandex Managed Database Services"
+href: index.yaml
 items:
   - name: MDB, он же DBaaS, он же PGaaS
     href: index.md

@@ -1,0 +1,6 @@
+default:
+  audience: external
+internal:
+  audience: internal
+external:
+  audience: external
