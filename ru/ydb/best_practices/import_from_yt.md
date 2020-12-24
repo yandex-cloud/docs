@@ -50,8 +50,8 @@ $ydb_oauth_token = AsTuple("token", SecureParam("token:default_ydb"));
 -- During import process data is being upserted in YDB table in batches.
 -- $ydb_batch_size_rows defines maximum number of rows in a batch.
 -- If both $ydb_batch_size_bytes and $ydb_batch_size_rows are passed batch size would be chosen to satisfy both parameters
--- Optional parameter, default value: 1048576
-$ydb_batch_size_rows = 1048576;
+-- Optional parameter, default value: 10000
+$ydb_batch_size_rows = 10000;
 
 -- PushData uses YQL UPSERT statement to import data into YDB table. Every UPSERT statement contains batch of rows.
 -- Some UPSERT queries might fail. PushData handles errors and retries failed requests when error is retriable.

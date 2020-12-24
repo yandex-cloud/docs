@@ -257,6 +257,12 @@ items:
                 href: docapi/api-ref/actions/updateItem.md
           - name: Общие ошибки
             href: docapi/api-ref/common-errors.md
+          - name: Рецепты
+            when: audience == "internal"
+            items:
+              - name: Обеспечение уникальности атрибутов
+                href: docapi/uniqueConstraint.md
+
   - name: Справочник YQL
     when: audience == "external"
     items:
