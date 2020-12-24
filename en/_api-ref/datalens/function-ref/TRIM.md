@@ -4,7 +4,7 @@ editable: false
 
 # TRIM
 
-_String functions_
+
 
 #### Syntax {#syntax}
 

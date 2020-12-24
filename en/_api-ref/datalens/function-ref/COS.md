@@ -4,7 +4,7 @@ editable: false
 
 # COS
 
-_Mathematical functions_
+
 
 #### Syntax {#syntax}
 

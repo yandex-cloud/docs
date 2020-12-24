@@ -4,7 +4,7 @@ editable: false
 
 # GEOINFO
 
-_Географические функции_
+
 
 #### Синтаксис {#syntax}
 

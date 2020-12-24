@@ -4,7 +4,7 @@ editable: false
 
 # SQUARE
 
-_Mathematical functions_
+
 
 #### Syntax {#syntax}
 

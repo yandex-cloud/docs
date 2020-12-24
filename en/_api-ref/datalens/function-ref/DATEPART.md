@@ -4,7 +4,7 @@ editable: false
 
 # DATEPART
 
-_Date/Time functions_
+
 
 #### Syntax {#syntax}
 

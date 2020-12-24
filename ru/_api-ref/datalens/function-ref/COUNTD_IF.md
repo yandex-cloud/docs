@@ -4,7 +4,7 @@ editable: false
 
 # COUNTD_IF
 
-_Агрегатные функции_
+
 
 #### Синтаксис {#syntax}
 

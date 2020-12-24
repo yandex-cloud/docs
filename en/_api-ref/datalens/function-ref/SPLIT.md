@@ -4,7 +4,7 @@ editable: false
 
 # SPLIT
 
-_String functions_
+
 
 #### Syntax {#syntax}
 

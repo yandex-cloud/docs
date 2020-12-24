@@ -4,7 +4,7 @@ editable: false
 
 # ANY
 
-_Aggregate functions_
+
 
 #### Syntax {#syntax}
 

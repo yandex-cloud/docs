@@ -2,15 +2,15 @@
 editable: false
 ---
 
-# RMAX
+# RMAX (оконная)
 
-_Оконные функции_
+
 
 #### Синтаксис {#syntax}
 
 
 ```
-RMAX( value [ , direction ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] [ ORDER BY ... ] )
+RMAX( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )
 ```
 
 #### Описание {#description}

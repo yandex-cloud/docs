@@ -4,7 +4,7 @@ editable: false
 
 # SIN
 
-_Mathematical functions_
+
 
 #### Syntax {#syntax}
 

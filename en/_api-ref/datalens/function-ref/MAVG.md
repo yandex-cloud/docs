@@ -2,15 +2,15 @@
 editable: false
 ---
 
-# MAVG
+# MAVG (window)
 
-_Window functions_
+
 
 #### Syntax {#syntax}
 
 
 ```
-MAVG( value, rows_1 [ , rows_2 ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] [ ORDER BY ... ] )
+MAVG( value, rows_1 [ , rows_2 ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )
 ```
 
 #### Description {#description}

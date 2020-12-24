@@ -4,7 +4,7 @@ editable: false
 
 # BETWEEN
 
-_Операторы_
+
 
 #### Синтаксис {#syntax}
 

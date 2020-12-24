@@ -4,7 +4,7 @@ editable: false
 
 # ALL_CONCAT
 
-_Агрегатные функции_
+
 
 #### Синтаксис {#syntax}
 

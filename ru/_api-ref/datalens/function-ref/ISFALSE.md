@@ -4,7 +4,7 @@ editable: false
 
 # IS FALSE
 
-_Операторы_
+
 
 #### Синтаксис {#syntax}
 

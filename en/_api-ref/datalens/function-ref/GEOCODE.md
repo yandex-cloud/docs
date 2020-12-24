@@ -4,7 +4,7 @@ editable: false
 
 # GEOCODE
 
-_Geographical functions_
+
 
 #### Syntax {#syntax}
 

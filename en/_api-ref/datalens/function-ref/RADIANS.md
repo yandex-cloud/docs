@@ -4,7 +4,7 @@ editable: false
 
 # RADIANS
 
-_Mathematical functions_
+
 
 #### Syntax {#syntax}
 

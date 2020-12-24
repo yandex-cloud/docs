@@ -217,9 +217,25 @@ END`<br/>или<br/>`IF(
 
 
 
+## [AVG (оконная)](AVG_WINDOW.md)
+
+**Синтаксис:**`AVG( value [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )`
+
+Возвращает среднее арифметическое значений выражения. Работает только с числовыми типами данных.
+
+
+
 ## [AVG_IF](AVG_IF.md)
 
 **Синтаксис:**`AVG_IF( expression, condition )`
+
+Возвращает среднее для всех значений, которые удовлетворяют условию `condition`. Если значения отсутствуют, то возвращается `NULL`. Работает только с числовыми типами данных.
+
+
+
+## [AVG_IF (оконная)](AVG_IF_WINDOW.md)
+
+**Синтаксис:**`AVG_IF( expression, condition [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )`
 
 Возвращает среднее для всех значений, которые удовлетворяют условию `condition`. Если значения отсутствуют, то возвращается `NULL`. Работает только с числовыми типами данных.
 
@@ -314,11 +330,27 @@ END`<br/>или<br/>`IF(
 
 
 
+## [COUNT (оконная)](COUNT_WINDOW.md)
+
+**Синтаксис:**`COUNT(  [ value ] [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )`
+
+Возвращает количество элементов в заданном окне.
+
+
+
 ## [COUNT_IF](COUNT_IF.md)
 
 **Синтаксис:**`COUNT_IF( condition )`
 
 Возвращает количество элементов в группе, которые удовлетворяют условию `condition`.
+
+
+
+## [COUNT_IF (оконная)](COUNT_IF_WINDOW.md)
+
+**Синтаксис:**`COUNT_IF( expression, condition [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )`
+
+Возвращает количество элементов в заданном окне, которые удовлетворяют условию `expression`.
 
 
 
@@ -372,7 +404,7 @@ END`<br/>или<br/>`IF(
 
 ## [DATEADD](DATEADD.md)
 
-**Синтаксис:**`DATEADD( datetime, unit, number )`
+**Синтаксис:**`DATEADD( datetime [ , unit [ , number ] ] )`
 
 Возвращает дату, полученную в результате добавления `unit` в количестве `number` к указанной дате `datetime`.
 
@@ -823,9 +855,9 @@ END`<br/>или<br/>`IF(
 
 
 
-## [MAVG](MAVG.md)
+## [MAVG (оконная)](MAVG.md)
 
-**Синтаксис:**`MAVG( value, rows_1 [ , rows_2 ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] [ ORDER BY ... ] )`
+**Синтаксис:**`MAVG( value, rows_1 [ , rows_2 ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )`
 
 Возвращает скользящее среднее значений по окну записей. Значение определяется порядком сортировки и аргументами:
 
@@ -857,9 +889,23 @@ END`<br/>или<br/>`IF(
 
 
 
-## [MCOUNT](MCOUNT.md)
+## [MAX (оконная)](MAX_WINDOW.md)
 
-**Синтаксис:**`MCOUNT( value, rows_1 [ , rows_2 ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] [ ORDER BY ... ] )`
+**Синтаксис:**`MAX( value [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )`
+
+Возвращает максимальное значение.
+
+Если `value`:
+- число — возвращает наибольшее число;
+- дата — возвращает самую позднюю дату;
+- строка — возвращает последнее значение в алфавитном порядке.
+
+
+
+
+## [MCOUNT (оконная)](MCOUNT.md)
+
+**Синтаксис:**`MCOUNT( value, rows_1 [ , rows_2 ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )`
 
 Возвращает количество значений (не равных `NULL`) по окну записей, которое определяется порядком сортировки и аргументами:
 
@@ -899,6 +945,20 @@ END`<br/>или<br/>`IF(
 
 
 
+## [MIN (оконная)](MIN_WINDOW.md)
+
+**Синтаксис:**`MIN( value [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )`
+
+Возвращает минимальное значение.
+
+Если `value`:
+- число — возвращает наименьшее число;
+- дата — возвращает самую раннюю дату;
+- строка — возвращает первое значение в алфавитном порядке.
+
+
+
+
 ## [MINUTE](MINUTE.md)
 
 **Синтаксис:**`MINUTE( datetime )`
@@ -907,9 +967,9 @@ END`<br/>или<br/>`IF(
 
 
 
-## [MMAX](MMAX.md)
+## [MMAX (оконная)](MMAX.md)
 
-**Синтаксис:**`MMAX( value, rows_1 [ , rows_2 ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] [ ORDER BY ... ] )`
+**Синтаксис:**`MMAX( value, rows_1 [ , rows_2 ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )`
 
 Возвращает скользящий максимум значений по окну записей. Значение определяется порядком сортировки и аргументами:
 
@@ -927,9 +987,9 @@ END`<br/>или<br/>`IF(
 
 
 
-## [MMIN](MMIN.md)
+## [MMIN (оконная)](MMIN.md)
 
-**Синтаксис:**`MMIN( value, rows_1 [ , rows_2 ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] [ ORDER BY ... ] )`
+**Синтаксис:**`MMIN( value, rows_1 [ , rows_2 ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )`
 
 Возвращает скользящий минимум значений по окну записей, определяемому порядком сортировки и аргументами:
 
@@ -955,9 +1015,9 @@ END`<br/>или<br/>`IF(
 
 
 
-## [MSUM](MSUM.md)
+## [MSUM (оконная)](MSUM.md)
 
-**Синтаксис:**`MSUM( value, rows_1 [ , rows_2 ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] [ ORDER BY ... ] )`
+**Синтаксис:**`MSUM( value, rows_1 [ , rows_2 ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )`
 
 Возвращает скользящую сумму значений по окну записей, которое определяется порядком сортировки и аргументами:
 
@@ -1050,9 +1110,9 @@ END`<br/>или<br/>`IF(
 
 
 
-## [RANK](RANK.md)
+## [RANK (оконная)](RANK.md)
 
-**Синтаксис:**`RANK( value [ , direction ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] )`
+**Синтаксис:**`RANK( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )`
 
 Выполняет ранжирование значений с пропусками: возвращает порядковый номер строки при сортировке по `value`. Строки, которые соответствуют одному и тому же значению `value`, имеют одно и то же значение ранга. Если первые две строки получают ранг `1`, то ранг следующей строки (если значение `value` не совпадает) будет равен `3`. Значение `2` в этом случае пропускается.
 
@@ -1062,9 +1122,9 @@ END`<br/>или<br/>`IF(
 
 
 
-## [RANK_DENSE](RANK_DENSE.md)
+## [RANK_DENSE (оконная)](RANK_DENSE.md)
 
-**Синтаксис:**`RANK_DENSE( value [ , direction ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] )`
+**Синтаксис:**`RANK_DENSE( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )`
 
 Выполняет ранжирование значений без пропусков: возвращает порядковый номер строки при сортировке по `value`. Строки, которые соответствуют одному и тому же значению `value`, имеют одно и то же значение ранга. Если первые две строки получают ранг `1`, то ранг следующей строки (если значение `value` не совпадает) будет равен `2`. Значения ранга не пропускаются.
 
@@ -1074,9 +1134,9 @@ END`<br/>или<br/>`IF(
 
 
 
-## [RANK_PERCENTILE](RANK_PERCENTILE.md)
+## [RANK_PERCENTILE (оконная)](RANK_PERCENTILE.md)
 
-**Синтаксис:**`RANK_PERCENTILE( value [ , direction ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] )`
+**Синтаксис:**`RANK_PERCENTILE( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )`
 
 Выполняет относительное ранжирование. Возвращает дробный ранг (от `0` до `1`). Расчитывается как `(RANK(...) - 1) / (количество строк)`.
 
@@ -1086,9 +1146,9 @@ END`<br/>или<br/>`IF(
 
 
 
-## [RANK_UNIQUE](RANK_UNIQUE.md)
+## [RANK_UNIQUE (оконная)](RANK_UNIQUE.md)
 
-**Синтаксис:**`RANK_UNIQUE( value [ , direction ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] )`
+**Синтаксис:**`RANK_UNIQUE( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )`
 
 Выполняет уникальное ранжирование. Возвращает порядковый номер строки при сортировке по `value`. Строки, которые соответствуют одному и тому же значению `value`, имеют разные значения ранга. Ни для каких двух строк значения не совпадают. Принимает все значения от `1` до значения, которое равно количеству строк.
 
@@ -1098,9 +1158,9 @@ END`<br/>или<br/>`IF(
 
 
 
-## [RAVG](RAVG.md)
+## [RAVG (оконная)](RAVG.md)
 
-**Синтаксис:**`RAVG( value [ , direction ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] [ ORDER BY ... ] )`
+**Синтаксис:**`RAVG( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )`
 
 Возвращает среднее арифметическое значений в рамках окна записей, определяемого аргументом `direction`:
 
@@ -1118,9 +1178,9 @@ END`<br/>или<br/>`IF(
 
 
 
-## [RCOUNT](RCOUNT.md)
+## [RCOUNT (оконная)](RCOUNT.md)
 
-**Синтаксис:**`RCOUNT( value [ , direction ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] [ ORDER BY ... ] )`
+**Синтаксис:**`RCOUNT( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )`
 
 Возвращает количество значений в рамках окна записей, определяемого порядком сортировки и значением аргумента `direction`:
 
@@ -1190,9 +1250,9 @@ END`<br/>или<br/>`IF(
 
 
 
-## [RMAX](RMAX.md)
+## [RMAX (оконная)](RMAX.md)
 
-**Синтаксис:**`RMAX( value [ , direction ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] [ ORDER BY ... ] )`
+**Синтаксис:**`RMAX( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )`
 
 Возвращает максимальное из значений в рамках окна записей, определяемого порядком сортировки и значением аргумента `direction`:
 
@@ -1210,9 +1270,9 @@ END`<br/>или<br/>`IF(
 
 
 
-## [RMIN](RMIN.md)
+## [RMIN (оконная)](RMIN.md)
 
-**Синтаксис:**`RMIN( value [ , direction ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] [ ORDER BY ... ] )`
+**Синтаксис:**`RMIN( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )`
 
 Возвращает минимальное из значений в рамках окна записей, определяемого порядком сортировки и значением аргумента `direction`:
 
@@ -1239,9 +1299,9 @@ END`<br/>или<br/>`IF(
 
 
 
-## [RSUM](RSUM.md)
+## [RSUM (оконная)](RSUM.md)
 
-**Синтаксис:**`RSUM( value [ , direction ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] [ ORDER BY ... ] )`
+**Синтаксис:**`RSUM( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )`
 
 Возвращает сумму значений в рамках окна записей, определяемого порядком сортировки и значением аргумента `direction`:
 
@@ -1376,9 +1436,25 @@ END`<br/>или<br/>`IF(
 
 
 
+## [SUM (оконная)](SUM_WINDOW.md)
+
+**Синтаксис:**`SUM( value [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )`
+
+Возвращает сумму всех значений выражения. Работает только с числовыми типами данных.
+
+
+
 ## [SUM_IF](SUM_IF.md)
 
 **Синтаксис:**`SUM_IF( expression, condition )`
+
+Возвращает сумму всех значений выражения, которые удовлетворяют условию `condition`. Работает только с числовыми типами данных.
+
+
+
+## [SUM_IF (оконная)](SUM_IF_WINDOW.md)
+
+**Синтаксис:**`SUM_IF( expression, condition [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )`
 
 Возвращает сумму всех значений выражения, которые удовлетворяют условию `condition`. Работает только с числовыми типами данных.
 

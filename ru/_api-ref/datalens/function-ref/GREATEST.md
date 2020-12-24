@@ -4,7 +4,7 @@ editable: false
 
 # GREATEST
 
-_Математические функции_
+
 
 #### Синтаксис {#syntax}
 

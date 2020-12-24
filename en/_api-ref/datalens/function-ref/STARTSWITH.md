@@ -4,7 +4,7 @@ editable: false
 
 # STARTSWITH
 
-_String functions_
+
 
 #### Syntax {#syntax}
 

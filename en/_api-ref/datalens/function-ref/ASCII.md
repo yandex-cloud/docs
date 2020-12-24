@@ -4,7 +4,7 @@ editable: false
 
 # ASCII
 
-_String functions_
+
 
 #### Syntax {#syntax}
 

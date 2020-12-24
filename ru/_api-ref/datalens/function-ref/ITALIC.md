@@ -4,7 +4,7 @@ editable: false
 
 # ITALIC
 
-_Функции разметки_
+
 
 #### Синтаксис {#syntax}
 

@@ -2,15 +2,15 @@
 editable: false
 ---
 
-# RANK
+# RANK (оконная)
 
-_Оконные функции_
+
 
 #### Синтаксис {#syntax}
 
 
 ```
-RANK( value [ , direction ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] )
+RANK( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )
 ```
 
 #### Описание {#description}

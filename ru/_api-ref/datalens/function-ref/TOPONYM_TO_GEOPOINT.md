@@ -4,7 +4,7 @@ editable: false
 
 # TOPONYM_TO_GEOPOINT
 
-_Географические функции_
+
 
 #### Синтаксис {#syntax}
 

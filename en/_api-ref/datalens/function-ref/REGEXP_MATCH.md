@@ -4,7 +4,7 @@ editable: false
 
 # REGEXP_MATCH
 
-_String functions_
+
 
 #### Syntax {#syntax}
 

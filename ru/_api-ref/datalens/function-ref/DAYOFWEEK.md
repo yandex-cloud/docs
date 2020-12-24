@@ -4,7 +4,7 @@ editable: false
 
 # DAYOFWEEK
 
-_Функции даты и времени_
+
 
 #### Синтаксис {#syntax}
 

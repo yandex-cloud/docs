@@ -4,7 +4,7 @@ editable: false
 
 # DIV
 
-_Mathematical functions_
+
 
 #### Syntax {#syntax}
 

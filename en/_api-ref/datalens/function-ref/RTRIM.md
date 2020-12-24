@@ -4,7 +4,7 @@ editable: false
 
 # RTRIM
 
-_String functions_
+
 
 #### Syntax {#syntax}
 

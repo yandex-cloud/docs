@@ -4,7 +4,7 @@ editable: false
 
 # LEAST
 
-_Mathematical functions_
+
 
 #### Syntax {#syntax}
 

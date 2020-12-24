@@ -4,7 +4,7 @@ editable: false
 
 # ALL_CONCAT
 
-_Aggregate functions_
+
 
 #### Syntax {#syntax}
 

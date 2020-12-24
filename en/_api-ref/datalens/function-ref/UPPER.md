@@ -4,7 +4,7 @@ editable: false
 
 # UPPER
 
-_String functions_
+
 
 #### Syntax {#syntax}
 

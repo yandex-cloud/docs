@@ -91,13 +91,13 @@ editable: false
 
 Следующие агрегатные функции могут быть использованы как оконные:
 
-| Агрегации         | Условные агрегации      |
-|:------------------|:------------------------|
-| [SUM](SUM.md)     | [SUM_IF](SUM_IF.md)     |
-| [COUNT](COUNT.md) | [COUNT_IF](COUNT_IF.md) |
-| [AVG](AVG.md)     | [AVG_IF](AVG_IF.md)     |
-| [MAX](MAX.md)     |                         |
-| [MIN](MIN.md)     |                         |
+| Агрегации                | Условные агрегации             |
+|:-------------------------|:-------------------------------|
+| [SUM](SUM_WINDOW.md)     | [SUM_IF](SUM_IF_WINDOW.md)     |
+| [COUNT](COUNT_WINDOW.md) | [COUNT_IF](COUNT_IF_WINDOW.md) |
+| [AVG](AVG_WINDOW.md)     | [AVG_IF](AVG_IF_WINDOW.md)     |
+| [MAX](MAX_WINDOW.md)     |                                |
+| [MIN](MIN_WINDOW.md)     |                                |
 
 Для использования их окнных вариантов необходимо явно указывать группировку (в отличие от остальных оконных функций, где она опциональна).
 
@@ -108,41 +108,41 @@ editable: false
 
 
 
-## [AVG](AVG.md)
+## [AVG](AVG_WINDOW.md)
 
-**Синтаксис:**`AVG( value )`
+**Синтаксис:**`AVG( value [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )`
 
-Возвращает среднее для всех значений. Работает с числовыми типами данных и с типами `Дата | Дата и время`.
+Возвращает среднее арифметическое значений выражения. Работает только с числовыми типами данных.
 
 
 
-## [AVG_IF](AVG_IF.md)
+## [AVG_IF](AVG_IF_WINDOW.md)
 
-**Синтаксис:**`AVG_IF( expression, condition )`
+**Синтаксис:**`AVG_IF( expression, condition [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )`
 
 Возвращает среднее для всех значений, которые удовлетворяют условию `condition`. Если значения отсутствуют, то возвращается `NULL`. Работает только с числовыми типами данных.
 
 
 
-## [COUNT](COUNT.md)
+## [COUNT](COUNT_WINDOW.md)
 
-**Синтаксис:**`COUNT(  [ value ] )`
+**Синтаксис:**`COUNT(  [ value ] [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )`
 
-Возвращает количество элементов в группе.
+Возвращает количество элементов в заданном окне.
 
 
 
-## [COUNT_IF](COUNT_IF.md)
+## [COUNT_IF](COUNT_IF_WINDOW.md)
 
-**Синтаксис:**`COUNT_IF( condition )`
+**Синтаксис:**`COUNT_IF( expression, condition [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )`
 
-Возвращает количество элементов в группе, которые удовлетворяют условию `condition`.
+Возвращает количество элементов в заданном окне, которые удовлетворяют условию `expression`.
 
 
 
 ## [MAVG](MAVG.md)
 
-**Синтаксис:**`MAVG( value, rows_1 [ , rows_2 ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] [ ORDER BY ... ] )`
+**Синтаксис:**`MAVG( value, rows_1 [ , rows_2 ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )`
 
 Возвращает скользящее среднее значений по окну записей. Значение определяется порядком сортировки и аргументами:
 
@@ -160,9 +160,9 @@ editable: false
 
 
 
-## [MAX](MAX.md)
+## [MAX](MAX_WINDOW.md)
 
-**Синтаксис:**`MAX( value )`
+**Синтаксис:**`MAX( value [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )`
 
 Возвращает максимальное значение.
 
@@ -176,7 +176,7 @@ editable: false
 
 ## [MCOUNT](MCOUNT.md)
 
-**Синтаксис:**`MCOUNT( value, rows_1 [ , rows_2 ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] [ ORDER BY ... ] )`
+**Синтаксис:**`MCOUNT( value, rows_1 [ , rows_2 ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )`
 
 Возвращает количество значений (не равных `NULL`) по окну записей, которое определяется порядком сортировки и аргументами:
 
@@ -194,9 +194,9 @@ editable: false
 
 
 
-## [MIN](MIN.md)
+## [MIN](MIN_WINDOW.md)
 
-**Синтаксис:**`MIN( value )`
+**Синтаксис:**`MIN( value [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )`
 
 Возвращает минимальное значение.
 
@@ -210,7 +210,7 @@ editable: false
 
 ## [MMAX](MMAX.md)
 
-**Синтаксис:**`MMAX( value, rows_1 [ , rows_2 ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] [ ORDER BY ... ] )`
+**Синтаксис:**`MMAX( value, rows_1 [ , rows_2 ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )`
 
 Возвращает скользящий максимум значений по окну записей. Значение определяется порядком сортировки и аргументами:
 
@@ -230,7 +230,7 @@ editable: false
 
 ## [MMIN](MMIN.md)
 
-**Синтаксис:**`MMIN( value, rows_1 [ , rows_2 ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] [ ORDER BY ... ] )`
+**Синтаксис:**`MMIN( value, rows_1 [ , rows_2 ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )`
 
 Возвращает скользящий минимум значений по окну записей, определяемому порядком сортировки и аргументами:
 
@@ -250,7 +250,7 @@ editable: false
 
 ## [MSUM](MSUM.md)
 
-**Синтаксис:**`MSUM( value, rows_1 [ , rows_2 ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] [ ORDER BY ... ] )`
+**Синтаксис:**`MSUM( value, rows_1 [ , rows_2 ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )`
 
 Возвращает скользящую сумму значений по окну записей, которое определяется порядком сортировки и аргументами:
 
@@ -270,7 +270,7 @@ editable: false
 
 ## [RANK](RANK.md)
 
-**Синтаксис:**`RANK( value [ , direction ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] )`
+**Синтаксис:**`RANK( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )`
 
 Выполняет ранжирование значений с пропусками: возвращает порядковый номер строки при сортировке по `value`. Строки, которые соответствуют одному и тому же значению `value`, имеют одно и то же значение ранга. Если первые две строки получают ранг `1`, то ранг следующей строки (если значение `value` не совпадает) будет равен `3`. Значение `2` в этом случае пропускается.
 
@@ -282,7 +282,7 @@ editable: false
 
 ## [RANK_DENSE](RANK_DENSE.md)
 
-**Синтаксис:**`RANK_DENSE( value [ , direction ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] )`
+**Синтаксис:**`RANK_DENSE( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )`
 
 Выполняет ранжирование значений без пропусков: возвращает порядковый номер строки при сортировке по `value`. Строки, которые соответствуют одному и тому же значению `value`, имеют одно и то же значение ранга. Если первые две строки получают ранг `1`, то ранг следующей строки (если значение `value` не совпадает) будет равен `2`. Значения ранга не пропускаются.
 
@@ -294,7 +294,7 @@ editable: false
 
 ## [RANK_PERCENTILE](RANK_PERCENTILE.md)
 
-**Синтаксис:**`RANK_PERCENTILE( value [ , direction ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] )`
+**Синтаксис:**`RANK_PERCENTILE( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )`
 
 Выполняет относительное ранжирование. Возвращает дробный ранг (от `0` до `1`). Расчитывается как `(RANK(...) - 1) / (количество строк)`.
 
@@ -306,7 +306,7 @@ editable: false
 
 ## [RANK_UNIQUE](RANK_UNIQUE.md)
 
-**Синтаксис:**`RANK_UNIQUE( value [ , direction ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] )`
+**Синтаксис:**`RANK_UNIQUE( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )`
 
 Выполняет уникальное ранжирование. Возвращает порядковый номер строки при сортировке по `value`. Строки, которые соответствуют одному и тому же значению `value`, имеют разные значения ранга. Ни для каких двух строк значения не совпадают. Принимает все значения от `1` до значения, которое равно количеству строк.
 
@@ -318,7 +318,7 @@ editable: false
 
 ## [RAVG](RAVG.md)
 
-**Синтаксис:**`RAVG( value [ , direction ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] [ ORDER BY ... ] )`
+**Синтаксис:**`RAVG( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )`
 
 Возвращает среднее арифметическое значений в рамках окна записей, определяемого аргументом `direction`:
 
@@ -338,7 +338,7 @@ editable: false
 
 ## [RCOUNT](RCOUNT.md)
 
-**Синтаксис:**`RCOUNT( value [ , direction ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] [ ORDER BY ... ] )`
+**Синтаксис:**`RCOUNT( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )`
 
 Возвращает количество значений в рамках окна записей, определяемого порядком сортировки и значением аргумента `direction`:
 
@@ -358,7 +358,7 @@ editable: false
 
 ## [RMAX](RMAX.md)
 
-**Синтаксис:**`RMAX( value [ , direction ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] [ ORDER BY ... ] )`
+**Синтаксис:**`RMAX( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )`
 
 Возвращает максимальное из значений в рамках окна записей, определяемого порядком сортировки и значением аргумента `direction`:
 
@@ -378,7 +378,7 @@ editable: false
 
 ## [RMIN](RMIN.md)
 
-**Синтаксис:**`RMIN( value [ , direction ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] [ ORDER BY ... ] )`
+**Синтаксис:**`RMIN( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )`
 
 Возвращает минимальное из значений в рамках окна записей, определяемого порядком сортировки и значением аргумента `direction`:
 
@@ -398,7 +398,7 @@ editable: false
 
 ## [RSUM](RSUM.md)
 
-**Синтаксис:**`RSUM( value [ , direction ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] [ ORDER BY ... ] )`
+**Синтаксис:**`RSUM( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )`
 
 Возвращает сумму значений в рамках окна записей, определяемого порядком сортировки и значением аргумента `direction`:
 
@@ -416,17 +416,17 @@ editable: false
 
 
 
-## [SUM](SUM.md)
+## [SUM](SUM_WINDOW.md)
 
-**Синтаксис:**`SUM( value )`
+**Синтаксис:**`SUM( value [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )`
 
 Возвращает сумму всех значений выражения. Работает только с числовыми типами данных.
 
 
 
-## [SUM_IF](SUM_IF.md)
+## [SUM_IF](SUM_IF_WINDOW.md)
 
-**Синтаксис:**`SUM_IF( expression, condition )`
+**Синтаксис:**`SUM_IF( expression, condition [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )`
 
 Возвращает сумму всех значений выражения, которые удовлетворяют условию `condition`. Работает только с числовыми типами данных.
 

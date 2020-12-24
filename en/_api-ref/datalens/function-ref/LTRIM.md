@@ -4,7 +4,7 @@ editable: false
 
 # LTRIM
 
-_String functions_
+
 
 #### Syntax {#syntax}
 

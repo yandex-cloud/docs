@@ -4,7 +4,7 @@ editable: false
 
 # ENDSWITH
 
-_String functions_
+
 
 #### Syntax {#syntax}
 

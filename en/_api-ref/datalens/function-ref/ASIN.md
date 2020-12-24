@@ -4,7 +4,7 @@ editable: false
 
 # ASIN
 
-_Mathematical functions_
+
 
 #### Syntax {#syntax}
 

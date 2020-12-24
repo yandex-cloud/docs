@@ -4,7 +4,7 @@ editable: false
 
 # Comparison
 
-_Operators_
+
 
 #### Syntax {#syntax}
 

@@ -4,7 +4,7 @@ editable: false
 
 # LEN
 
-_String functions_
+
 
 #### Syntax {#syntax}
 

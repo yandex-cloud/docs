@@ -4,7 +4,7 @@ editable: false
 
 # SUBSTR
 
-_String functions_
+
 
 #### Syntax {#syntax}
 

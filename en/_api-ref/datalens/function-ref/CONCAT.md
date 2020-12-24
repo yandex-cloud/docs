@@ -4,7 +4,7 @@ editable: false
 
 # CONCAT
 
-_String functions_
+
 
 #### Syntax {#syntax}
 

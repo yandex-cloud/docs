@@ -4,7 +4,7 @@ editable: false
 
 # WEEK
 
-_Date/Time functions_
+
 
 #### Syntax {#syntax}
 
