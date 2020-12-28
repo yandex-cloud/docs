@@ -111,7 +111,7 @@ Prices for standard storage are applied when calculating costs.
 
 When using the service, you pay for traffic from {{ yandex-cloud }} to the internet. Traffic between {{ yandex-cloud }} services and incoming internet traffic are free.
 
-The minimum billable unit is 1 MB.
+The minimum billable unit is 1 MB. The billing period is a calendar month.
 
 {% list tabs %}
 
@@ -135,4 +135,4 @@ The minimum billable unit is 1 MB.
   
 {% endlist %}
 
-The first 10 GB of outgoing traffic for {{ objstorage-name }} are accounted for independently of other services.
+The first 10 GB of outgoing traffic for {{ objstorage-name }} is accounted for independently of other services each month.
