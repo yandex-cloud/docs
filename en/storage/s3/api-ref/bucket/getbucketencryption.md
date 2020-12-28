@@ -49,6 +49,5 @@ A successful response contains additional data in XML format with the schema des
 | `ApplyServerSideEncryptionByDefault` | Sets default encryption for the object, if other encryption parameters are omitted in the request.<br/><br/>Path: `ServerSideEncryptionConfiguration\Rule\ApplyServerSideEncryptionByDefault`. |
 | `KMSMasterKeyID` | ID of the [{{ kms-short-name }} key](../../../../kms/concepts/key.md).<br/><br/>Path: `ServerSideEncryptionConfiguration\Rule\ApplyServerSideEncryptionByDefault\KMSMasterKeyID`. |
 | `Rule` | Encryption policy on the server side.<br>Encryption is defined by the elements `KMSMasterKeyID` and `SSEAlgorithm`.<br>Path: `ServerSideEncryptionConfiguration\Rule`. |
-| `ServerSideEncryptionConfiguration` | Encryption configuration used for new objects in the bucket by default.<br/><br/>Path: `ServerSideEncryptionConfiguration`. |
-| `SSEAlgorithm` | The encryption algorithm. Available values: `aws:kms`.<br/><br/>Path: `ServerSideEncryptionConfiguration\Rule\ApplyServerSideEncryptionByDefault\SSEAlgorithm`. |
-
+| `ServerSideEncryptionConfiguration` | Encryption configuration used for new objects in the bucket by default.<br>Path: `ServerSideEncryptionConfiguration`. |
+| `SSEAlgorithm` | The encryption algorithm. Available values: `aws:kms`.<br>Path: `ServerSideEncryptionConfiguration\Rule\ApplyServerSideEncryptionByDefault\SSEAlgorithm`. |
