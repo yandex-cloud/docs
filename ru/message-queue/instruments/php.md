@@ -35,6 +35,7 @@ $ export AWS_SECRET_ACCESS_KEY="<секретный ключ>"
 require __DIR__ . '/vendor/autoload.php';
 
 use Aws\Sqs\SqsClient;
+use Aws\Exception\AwsException;
 
 $ymq = new SqsClient([
     'version' => 'latest',

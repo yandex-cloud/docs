@@ -2,7 +2,7 @@
 
 {% note info %}
 
-This section describes the functionality that is only available in the `nodejs-preview` runtime environment.
+This section describes the functionality that is only available in the `nodejs12-preview` runtime environment.
 
 {% endnote %}
 
