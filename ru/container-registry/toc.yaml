@@ -47,6 +47,14 @@ items:
             href: operations/lifecycle-policy/lifecycle-policy-dry-run.md
           - name: Удалить политику удаления
             href: operations/lifecycle-policy/lifecycle-policy-delete.md
+      - name: Работа с ролями
+        items:
+          - name: Назначить роль
+            href: operations/roles/grant.md
+          - name: Просмотреть назначенные роли
+            href: operations/roles/get-assigned-roles.md
+          - name: Отозвать роль
+            href: operations/roles/revoke.md
   - name: Yandex Container Solution
     href: ../cos/
   - name: Сценарии использования
