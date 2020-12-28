@@ -4,21 +4,21 @@ Returns the bucket versioning status.
 
 ## Request {#request}
 
-```
+```http
 GET /{bucket}?versioning HTTP/1.1
 ```
 
 ### Path parameters {#path-parameters}
 
-| Parameter | Description |
-| ----- | ----- |
-| `bucket` | Bucket name. |
+Parameter | Description
+--- | ---
+`bucket` | Bucket name.
 
 ### Query parameters {#request-params}
 
-| Parameter | Description |
-| ----- | ----- |
-| `versioning` | Required parameter that indicates the type of operation. |
+Parameter | Description
+--- | ---
+`versioning` | Required parameter that indicates the type of operation.
 
 ### Headers {#request-headers}
 
@@ -45,8 +45,7 @@ A successful response contains additional data in XML format with the schema des
 </VersioningConfiguration>
 ```
 
-| Element | Description |
-| ----- | ----- |
-| `VersioningConfiguration` | Root element. |
-| `Status` | Status of the bucket versioning option.<br/><br/>Path:`/VersioningConfiguration/Status`<br/>Type: String<br/>Possible values: `Enabled | Suspended` |
-
+Element | Description
+--- | ---
+`VersioningConfiguration` | Root element.
+`Status` | Status of the bucket versioning option.<br>Path:`/VersioningConfiguration/Status`.<br>Type: String.<br>Possible values: `Enabled | Suspended`.

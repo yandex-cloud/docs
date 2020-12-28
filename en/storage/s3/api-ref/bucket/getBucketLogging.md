@@ -10,15 +10,15 @@ GET /{bucket}?logging HTTP/1.1
 
 ### Path parameters {#path-parameters}
 
-| Parameter | Description |
-| --- | --- |
-| `bucket` | Name of the [bucket](../../concepts/bucket.md/..). |
+Parameter | Description
+--- | ---
+`bucket` | Name of the [bucket](../../../concepts/bucket.md).
 
 ### Query parameters {#request-params}
 
-| Parameter | Description |
-| --- | --- |
-| `logging` | Required parameter that indicates the type of operation. |
+Parameter | Description
+--- | ---
+`logging` | Required parameter that indicates the type of operation.
 
 ### Headers {#request-headers}
 
@@ -59,8 +59,8 @@ Response when logging actions with the bucket is set up:
 </BucketLoggingStatus>
 ```
 
-| Element | Description |
-| --- | --- |
-| `BucketLoggingStatus` | Root element. |
-| `TargetBucket` | The name of the target bucket where the [objects](../../../concepts/object.md) with logs are saved.<br>Path: `/BucketLoggingStatus/LoggingEnabled/TargetBucket`.<br>Type: String. |
-| `TargetPrefix` | [Object key prefix](../../../concepts/server-logs.md#key-prefix) with logs.<br>Path: `/BucketLoggingStatus/LoggingEnabled/TargetPrefix`.<br>Type: String. |
+Element | Description
+--- | ---
+`BucketLoggingStatus` | Root element.
+`TargetBucket` | The name of the target bucket where the [objects](../../../concepts/object.md) with logs are saved.<br>Path: `/BucketLoggingStatus/LoggingEnabled/TargetBucket`.<br>Type: String.
+`TargetPrefix` | [Object key prefix](../../../concepts/server-logs.md#key-prefix) with logs.<br>Path: `/BucketLoggingStatus/LoggingEnabled/TargetPrefix`.<br>Type: String.

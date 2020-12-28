@@ -4,15 +4,15 @@ Removes encryption from the bucket. For more information about bucket encryption
 
 ## Request {#request}
 
-```
+```http
 DELETE /{bucket}?encryption HTTP/1.1
 ```
 
 ### Path parameters {#path-parameters}
 
-| Parameter | Description |
-| ----- | ----- |
-| `bucket` | Bucket name. |
+Parameter | Description
+--- | ---
+`bucket` | Bucket name.
 
 ### Headers {#request-headers}
 

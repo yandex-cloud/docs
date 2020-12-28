@@ -71,6 +71,7 @@ To get your logs, download the object with the `logs/` prefix from the `bucket-l
 {% list tabs %}
 
 - Management console
+
   1. In the management console, select the folder where the `bucket-logs` bucket is located.
   1. Select **Object Storage**.
   1. Click on the `bucket-logs` bucket name.
@@ -94,4 +95,3 @@ To disable logging, follow these steps:
   ```xml
   <BucketLoggingStatus xmlns="http://doc.s3.amazonaws.com/2006-03-01" />
   ```
-

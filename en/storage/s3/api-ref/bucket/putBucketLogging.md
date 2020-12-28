@@ -10,15 +10,15 @@ PUT /{bucket}?logging HTTP/1.1
 
 ### Path parameters {#path-parameters}
 
-| Parameter | Description |
-| --- | --- |
-| `bucket` | Name of the [bucket](../../concepts/bucket.md/..). |
+Parameter | Description
+--- | ---
+`bucket` | Name of the [bucket](../../../concepts/bucket.md).
 
 ### Query parameters {#request-params}
 
-| Parameter | Description |
-| --- | --- |
-| `logging` | Required parameter that indicates the type of operation. |
+Parameter | Description
+--- | ---
+`logging` | Required parameter that indicates the type of operation.
 
 ### Data schema {#request-scheme}
 
@@ -34,11 +34,11 @@ PUT /{bucket}?logging HTTP/1.1
 </BucketLoggingStatus>
 ```
 
-| Element | Description |
-| --- | --- |
-| `BucketLoggingStatus` | Root element. |
-| `TargetBucket` | The name of the target bucket where the [objects](../../../concepts/object.md) are saved with logs.<br>Type: String. |
-| `TargetPrefix` | [Object key prefix](../../../concepts/server-logs.md#key-prefix) with logs.<br>Type: String. |
+Element | Description
+--- | ---
+`BucketLoggingStatus` | Root element.
+`TargetBucket` | The name of the target bucket where the [objects](../../../concepts/object.md) are saved with logs.<br>Type: String.
+`TargetPrefix` | [Object key prefix](../../../concepts/server-logs.md#key-prefix) with logs.<br>Type: String.
 
 **To disable logging of actions with the bucket:**
 

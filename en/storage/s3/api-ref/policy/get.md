@@ -4,21 +4,21 @@ Returns the access policy for the specified bucket.
 
 ## Request {#request}
 
-```bash
+```http
 GET /{bucket}?policy HTTP/1.1
 ```
 
 ### Path parameters {#path-parameters}
 
-| Parameter | Description |
-| ----- | ----- |
-| `bucket` | Bucket name. |
+Parameter | Description
+--- | ---
+`bucket` | Bucket name.
 
 ### Query parameters {#request-params}
 
-| Parameter | Description |
-| ----- | ----- |
-| `policy` | Required parameter that indicates the type of operation. |
+Parameter | Description
+--- | ---
+`policy` | Required parameter that indicates the type of operation.
 
 ### Headings {#request-headers}
 
