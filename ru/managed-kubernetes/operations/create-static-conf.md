@@ -188,20 +188,33 @@
     - Убирает лишние кавычки из содержимого.
     - Записывает IP-адрес в переменную `MASTER_ENDPOINT`.
     
+    Для подключения к API кластера Kubernetes из интернета (вне Облака).
     ```
     MASTER_ENDPOINT=$(yc managed-kubernetes cluster get --id $CLUSTER_ID \
         --format json | \
         jq -r .master.endpoints.external_v4_endpoint)
     ```
 
+    Для подключения к API кластера Kubernetes для подключения к мастеру из облачных сетей.
+    ```
+    MASTER_ENDPOINT=$(yc managed-kubernetes cluster get --id $CLUSTER_ID \
+        --format json | \
+        jq -r .master.endpoints.internal_v4_endpoint)
+    ```
+
 - PowerShell
 
-    Выполните команду:
+    Выполните команду для подключения к API кластера Kubernetes из интернета (вне Облака):
     
     ```
     $MASTER_ENDPOINT = $CLUSTER.master.endpoints.external_v4_endpoint
     ```
 
+    Для подключения к API кластера Kubernetes из облачных сетей выполните команду:
+    
+    ```
+    $MASTER_ENDPOINT = $CLUSTER.master.endpoints.internal_v4_endpoint
+    ```
 {% endlist %}
 
 
