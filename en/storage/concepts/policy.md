@@ -14,7 +14,6 @@ Access is verified at three levels: IAM service checks, bucket policy, and acces
 1. If the request failed the IAM or bucket policy check, access verification is performed based on an object's ACL.
 
 The bucket policy consists of the following basic elements:
-
 - Resource: A bucket (`arn:aws:s3:::samplebucket`), an object in the bucket (`arn:aws:s3:::samplebucket/some/key`), or a prefix (`arn:aws:s3:::samplebucket/some/path/*`).
 - Action: A set of resource operations that the policy either prohibits or allows. For more information, see [Actions](../s3/api-ref/policy/actions.md).
 - The result is denying or allowing the requested action. First, the request is checked against the `Deny` action filter. If matched, the request is rejected and no further checks are performed. If it meets the `Allow` action filter criteria, the request is allowed. If the request doesn't meet any of the filters, it's rejected.
@@ -102,4 +101,3 @@ A JSON-like language is used to describe policy rules.
   ]
 }
 ```
-

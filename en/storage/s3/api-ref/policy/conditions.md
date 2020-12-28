@@ -92,12 +92,10 @@ String operators let you create conditions for matching the key against a string
 
 ### IfExists operator {#ifexists}
 
-You can add `IfExists` to the end of any operator name (except the [Null](#null) condition). For example, `BoolIfExists`.  Using this operator in the condition element means:
-
+You can add `IfExists` to the end of any operator name (except the [Null](#null) condition). For example, `BoolIfExists`. Using this operator in the condition element means:
 - If the policy key is present in the request context, process the key as specified in the policy.
 - If the key is missing, evaluate the condition element as `true`.
 
 ### Null operator {#null}
 
 The result of a `Null` operator is `true` if a condition key is not present in the request at the time of authorization. If the key exists and its value is not null, then `false`.
-
