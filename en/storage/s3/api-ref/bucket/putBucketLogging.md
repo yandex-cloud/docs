@@ -1,6 +1,6 @@
 # putBucketLogging method
 
-Enables and disables logging of actions with the bucket.
+Enables and disables the [mechanism for logging actions with the bucket](../../../concepts/server-logs.md).
 
 ## Request {#request}
 
@@ -11,18 +11,18 @@ PUT /{bucket}?logging HTTP/1.1
 ### Path parameters {#path-parameters}
 
 | Parameter | Description |
-| ----- | ----- |
+| --- | --- |
 | `bucket` | Name of the [bucket](../../concepts/bucket.md/..). |
 
 ### Query parameters {#request-params}
 
 | Parameter | Description |
-| ----- | ----- |
+| --- | --- |
 | `logging` | Required parameter that indicates the type of operation. |
 
 ### Data schema {#request-scheme}
 
-**To enable logging actions with the bucket:**
+**To enable logging of actions with the bucket:**
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -35,12 +35,12 @@ PUT /{bucket}?logging HTTP/1.1
 ```
 
 | Element | Description |
-| ----- | ----- |
+| --- | --- |
 | `BucketLoggingStatus` | Root element. |
-| `TargetBucket` | The name of the target bucket where the log objects are saved.<br/>Type: String |
-| `TargetPrefix` | Prefix of the key for the log object.<br>Type: String |
+| `TargetBucket` | The name of the target bucket where the [objects](../../../concepts/object.md) are saved with logs.<br>Type: String. |
+| `TargetPrefix` | [Object key prefix](../../../concepts/server-logs.md#key-prefix) with logs.<br>Type: String. |
 
-**To disable logging actions with the bucket:**
+**To disable logging of actions with the bucket:**
 
 ```xml
 <BucketLoggingStatus xmlns="http://doc.s3.amazonaws.com/2006-03-01" />
@@ -61,4 +61,3 @@ Responses can only contain [common response headers](../common-response-headers.
 For a list of possible responses, see [{#T}](../response-codes.md).
 
 A successful response does not contain any additional data.
-
