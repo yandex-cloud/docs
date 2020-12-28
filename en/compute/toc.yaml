@@ -123,6 +123,8 @@ items:
             href: operations/serial-console/connect-ssh.md
           - name: Connecting to a serial console via CLI
             href: operations/serial-console/connect-cli.md
+          - name: Start your terminal in the Windows SAC
+            href: operations/serial-console/windows-sac.md
           - name: Disabling access to the serial console
             href: operations/serial-console/disable.md
       - name: Creating instance groups
