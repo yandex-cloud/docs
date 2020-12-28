@@ -24,7 +24,7 @@ To make local debugging easier and reduce the volume of the function code to upl
   "name": "my-app",
   "version": "1.0.0",
   "devDependencies": {
-    "yandex-cloud": "^1.1.1"
+    "yandex-cloud": "^1.4"
   }
 }
 ```

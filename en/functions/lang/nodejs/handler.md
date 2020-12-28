@@ -81,11 +81,15 @@ The function makes a request to `https://cloud.yandex.com/` and returns the HTTP
 const fetch = require("node-fetch");
 
 module.exports.handler = async function (event) {
-    const resp = await fetch("https://cloud.yandex.com/");
+    
+    const response = await fetch('https://cloud.yandex.com/');
+    const body     = await response.text();
+    
     return {
-        code: resp.status,
-        body: resp.text()
+        code: response.status,
+        body: body
     };
+    
 };
 ```
 
