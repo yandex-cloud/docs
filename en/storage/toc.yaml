@@ -17,12 +17,16 @@ items:
             href: operations/buckets/limit-max-volume.md
           - name: Allowing public access to a bucket
             href: operations/buckets/bucket-availability.md
+          - name: Bucket encryption
+            href: operations/buckets/encrypt.md
           - name: Managing object lifecycles
             href: operations/buckets/lifecycles.md
           - name: Managing CORS configurations
             href: operations/buckets/cors.md
           - name: Editing a bucket ACL
             href: operations/buckets/edit-acl.md
+          - name: Logging actions with the bucket
+            href: operations/buckets/enable-logging.md
       - name: Objects
         items:
           - name: Uploading an object
@@ -57,6 +61,8 @@ items:
         href: concepts/bucket.md
       - name: Objects
         href: concepts/object.md
+      - name: Bucket versioning
+        href: concepts/versioning.md
       - name: Object lifecycles
         href: concepts/lifecycles.md
       - name: CORS
@@ -75,6 +81,8 @@ items:
         href: concepts/presigned-post-forms.md
       - name: Storage class
         href: concepts/storage-class.md
+      - name: Logging actions with a bucket
+        href: concepts/server-logs.md
       - name: Backups
         href: concepts/backup.md
       - name: TLS protocol
@@ -125,6 +133,8 @@ items:
                 href: s3/api-ref/bucket.md
               - name: create
                 href: s3/api-ref/bucket/create.md
+              - name: getBucketEncryption
+                href: s3/api-ref/bucket/getbucketencryption.md
               - name: getMeta
                 href: s3/api-ref/bucket/getmeta.md
               - name: listObjects
@@ -133,6 +143,20 @@ items:
                 href: s3/api-ref/bucket/list.md
               - name: deleteBucket
                 href: s3/api-ref/bucket/delete.md
+              - name: deleteBucketEncryption
+                href: s3/api-ref/bucket/deletebucketencryption.md
+              - name: putBucketEncryption
+                href: s3/api-ref/bucket/putbucketencryption.md
+              - name: putBucketVersioning
+                href: s3/api-ref/bucket/putBucketVersioning.md
+              - name: getBucketVersioning
+                href: s3/api-ref/bucket/getBucketVersioning.md
+              - name: putBucketLogging
+                href: s3/api-ref/bucket/putBucketLogging.md
+              - name: getBucketLogging
+                href: s3/api-ref/bucket/getBucketLogging.md
+              - name: listObjectVersions
+                href: s3/api-ref/bucket/listObjectVersions.md
           - name: Object
             items:
               - name: All methods
@@ -221,6 +245,22 @@ items:
                 href: s3/api-ref/acl/bucketput.md
           - name: Bucket Policy
             items:
+              - name: Conditions
+                href: s3/api-ref/policy/conditions.md
+          - name: Bucket Policy
+            items:
+              - name: All methods
+                href: s3/api-ref/policy.md
+              - name: GetBucketPolicy
+                href: s3/api-ref/policy/get.md
+              - name: PutBucketPolicy
+                href: s3/api-ref/policy/put.md
+              - name: DeleteBucketPolicy
+                href: s3/api-ref/policy/delete.md
+              - name: Data schema
+                href: s3/api-ref/policy/scheme.md
+              - name: Actions
+                href: s3/api-ref/policy/actions.md
               - name: Conditions
                 href: s3/api-ref/policy/conditions.md
           - name: Common request headers
