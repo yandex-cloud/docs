@@ -77,11 +77,15 @@ module.exports.handler = function (event, context) {
 const fetch = require("node-fetch");
 
 module.exports.handler = async function (event) {
-    const resp = await fetch("https://cloud.yandex.ru/");
+    
+    const response = await fetch('https://cloud.yandex.ru/');
+    const body     = await response.text();
+    
     return {
-        code: resp.status,
-        body: resp.text()
+        code: response.status,
+        body: body
     };
+    
 };
 ```
 
