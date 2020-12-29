@@ -4,7 +4,7 @@ editable: false
 
 # CEILING
 
-_Mathematical functions_
+
 
 #### Syntax {#syntax}
 

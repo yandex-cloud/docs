@@ -4,7 +4,7 @@ editable: false
 
 # GEOINFO
 
-_Geographical functions_
+
 
 #### Syntax {#syntax}
 

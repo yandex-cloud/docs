@@ -4,7 +4,7 @@ editable: false
 
 # ARG_MIN
 
-_Агрегатные функции_
+
 
 #### Синтаксис {#syntax}
 

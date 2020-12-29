@@ -4,7 +4,7 @@ editable: false
 
 # ASCII
 
-_Строковые функции_
+
 
 #### Синтаксис {#syntax}
 

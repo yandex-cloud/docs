@@ -4,7 +4,7 @@ editable: false
 
 # SIGN
 
-_Mathematical functions_
+
 
 #### Syntax {#syntax}
 

@@ -4,7 +4,7 @@ editable: false
 
 # SUBSTR
 
-_Строковые функции_
+
 
 #### Синтаксис {#syntax}
 

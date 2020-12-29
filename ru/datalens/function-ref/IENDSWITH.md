@@ -4,7 +4,7 @@ editable: false
 
 # IENDSWITH
 
-_Строковые функции_
+
 
 #### Синтаксис {#syntax}
 

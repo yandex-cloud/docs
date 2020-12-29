@@ -4,7 +4,7 @@ editable: false
 
 # COT
 
-_Mathematical functions_
+
 
 #### Syntax {#syntax}
 

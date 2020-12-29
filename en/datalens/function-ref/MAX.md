@@ -4,7 +4,7 @@ editable: false
 
 # MAX
 
-_Aggregate functions_
+_Function `MAX` is also available as a [window function](MAX_WINDOW.md)._
 
 #### Syntax {#syntax}
 
@@ -38,27 +38,3 @@ MAX([Profit])
 #### Data source support {#data-source-support}
 
 `Materialized Dataset`, `ClickHouse 1.1`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`.
-
-### As Window Function {#as-window-function}
-
-Function `MAX` is also available as a window function.
-#### Syntax {#window-syntax}
-
-
-```
-MAX( value [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] )
-```
-
-#### Examples {#window-examples}
-
-```
-MAX([Profit] TOTAL)
-```
-
-```
-MAX([Profit] WITHIN [Date])
-```
-
-```
-MAX([Profit] AMONG [Date])
-```

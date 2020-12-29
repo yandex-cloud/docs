@@ -4,7 +4,7 @@ editable: false
 
 # MARKUP
 
-_Функции разметки_
+
 
 #### Синтаксис {#syntax}
 

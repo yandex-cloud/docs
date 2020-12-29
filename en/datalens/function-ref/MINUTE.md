@@ -4,7 +4,7 @@ editable: false
 
 # MINUTE
 
-_Date/Time functions_
+
 
 #### Syntax {#syntax}
 

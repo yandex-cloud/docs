@@ -2,15 +2,15 @@
 editable: false
 ---
 
-# RANK_PERCENTILE
+# RANK_PERCENTILE (оконная)
 
-_Оконные функции_
+
 
 #### Синтаксис {#syntax}
 
 
 ```
-RANK_PERCENTILE( value [ , direction ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] )
+RANK_PERCENTILE( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )
 ```
 
 #### Описание {#description}

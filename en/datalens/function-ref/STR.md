@@ -4,7 +4,7 @@ editable: false
 
 # STR
 
-_Type conversion functions_
+
 
 #### Syntax {#syntax}
 

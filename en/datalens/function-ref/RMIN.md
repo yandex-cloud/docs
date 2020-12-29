@@ -2,15 +2,15 @@
 editable: false
 ---
 
-# RMIN
+# RMIN (window)
 
-_Window functions_
+
 
 #### Syntax {#syntax}
 
 
 ```
-RMIN( value [ , direction ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] [ ORDER BY ... ] )
+RMIN( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )
 ```
 
 #### Description {#description}

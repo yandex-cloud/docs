@@ -4,7 +4,7 @@ editable: false
 
 # FLOOR
 
-_Mathematical functions_
+
 
 #### Syntax {#syntax}
 

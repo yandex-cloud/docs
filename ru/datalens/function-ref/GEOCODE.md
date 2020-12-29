@@ -4,7 +4,7 @@ editable: false
 
 # GEOCODE
 
-_Географические функции_
+
 
 #### Синтаксис {#syntax}
 

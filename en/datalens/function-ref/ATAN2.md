@@ -4,7 +4,7 @@ editable: false
 
 # ATAN2
 
-_Mathematical functions_
+
 
 #### Syntax {#syntax}
 

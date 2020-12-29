@@ -4,7 +4,7 @@ editable: false
 
 # REGEXP_EXTRACT_NTH
 
-_String functions_
+
 
 #### Syntax {#syntax}
 

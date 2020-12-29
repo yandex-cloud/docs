@@ -4,7 +4,7 @@ editable: false
 
 # DAYOFWEEK
 
-_Date/Time functions_
+
 
 #### Syntax {#syntax}
 

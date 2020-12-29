@@ -4,7 +4,7 @@ editable: false
 
 # BETWEEN
 
-_Operators_
+
 
 #### Syntax {#syntax}
 

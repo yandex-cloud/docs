@@ -4,7 +4,7 @@ editable: false
 
 # TOPONYM_TO_GEOPOLYGON
 
-_Географические функции_
+
 
 #### Синтаксис {#syntax}
 

@@ -18,7 +18,7 @@ PUT /{bucket} HTTP/1.1
 
 Use [common request headers](../common-request-headers.md) in requests.
 
-By using the headers listed below, you can set the [ACL](../../../concepts/acl.md) of a bucket to be created by using the headers listed below.
+By using the headers listed below, you can set the [ACL](../../../concepts/acl.md) of the bucket being created.
 
 {% include [storage-acl-headers](../../../_includes_service/storage-acl-bucket-headers.md) %}
 

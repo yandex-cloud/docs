@@ -4,7 +4,7 @@ editable: false
 
 # HOUR
 
-_Date/Time functions_
+
 
 #### Syntax {#syntax}
 

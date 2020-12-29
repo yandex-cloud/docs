@@ -4,7 +4,7 @@ editable: false
 
 # DEGREES
 
-_Mathematical functions_
+
 
 #### Syntax {#syntax}
 

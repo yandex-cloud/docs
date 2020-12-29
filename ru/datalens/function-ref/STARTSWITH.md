@@ -4,7 +4,7 @@ editable: false
 
 # STARTSWITH
 
-_Строковые функции_
+
 
 #### Синтаксис {#syntax}
 

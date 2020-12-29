@@ -1,6 +1,6 @@
 # Создание триггера для {{ message-queue-full-name }}
 
-{% include [ymq](../../_includes/functions/ymq-trigger-create.md) %}
+{% include [yymq-trigger-create](../../_includes/functions/ymq-trigger-create.md) %}
 
 ## Что дальше {#what-is-next}
 

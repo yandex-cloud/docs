@@ -91,13 +91,13 @@ Do not use conflicting `BEFORE FILTER BY` clauses:
 
 The following aggregations can also be used as window functions:
 
-| Aggregations      | Conditional Aggregations   |
-|:------------------|:---------------------------|
-| [SUM](SUM.md)     | [SUM_IF](SUM_IF.md)        |
-| [COUNT](COUNT.md) | [COUNT_IF](COUNT_IF.md)    |
-| [AVG](AVG.md)     | [AVG_IF](AVG_IF.md)        |
-| [MAX](MAX.md)     |                            |
-| [MIN](MIN.md)     |                            |
+| Aggregations             | Conditional Aggregations       |
+|:-------------------------|:-------------------------------|
+| [SUM](SUM_WINDOW.md)     | [SUM_IF](SUM_IF_WINDOW.md)     |
+| [COUNT](COUNT_WINDOW.md) | [COUNT_IF](COUNT_IF_WINDOW.md) |
+| [AVG](AVG_WINDOW.md)     | [AVG_IF](AVG_IF_WINDOW.md)     |
+| [MAX](MAX_WINDOW.md)     |                                |
+| [MIN](MIN_WINDOW.md)     |                                |
 
 To use the window version of the aggregate functions, you must explicitly specify the grouping (unlike other window functions, where it is optional).
 
@@ -108,41 +108,41 @@ Example:
 
 
 
-## [AVG](AVG.md)
+## [AVG](AVG_WINDOW.md)
 
-**Syntax:**`AVG( value )`
+**Syntax:**`AVG( value [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )`
 
-Returns the average of all values. Applicable to numeric data types as well as `Date | Datetime`.
+Returns the average of all values. Applicable to numeric data types.
 
 
 
-## [AVG_IF](AVG_IF.md)
+## [AVG_IF](AVG_IF_WINDOW.md)
 
-**Syntax:**`AVG_IF( expression, condition )`
+**Syntax:**`AVG_IF( expression, condition [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )`
 
 Returns the average of all values that meet the `condition` condition. If the values don't exist, it returns `NULL`. Applicable to numeric data types only.
 
 
 
-## [COUNT](COUNT.md)
+## [COUNT](COUNT_WINDOW.md)
 
-**Syntax:**`COUNT(  [ value ] )`
+**Syntax:**`COUNT(  [ value ] [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )`
 
-Returns the number of items in the group.
+Returns the number of items in the specified window.
 
 
 
-## [COUNT_IF](COUNT_IF.md)
+## [COUNT_IF](COUNT_IF_WINDOW.md)
 
-**Syntax:**`COUNT_IF( condition )`
+**Syntax:**`COUNT_IF( expression, condition [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )`
 
-Returns the number of items in the group meeting the `condition` condition.
+Returns the number of items in the specified window meeting the `expression` condition.
 
 
 
 ## [MAVG](MAVG.md)
 
-**Syntax:**`MAVG( value, rows_1 [ , rows_2 ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] [ ORDER BY ... ] )`
+**Syntax:**`MAVG( value, rows_1 [ , rows_2 ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )`
 
 Returns the moving average of values in a fixed-size window defined by the sort order and arguments:
 
@@ -159,9 +159,9 @@ See also [AVG](AVG.md), [RAVG](RAVG.md).
 
 
 
-## [MAX](MAX.md)
+## [MAX](MAX_WINDOW.md)
 
-**Syntax:**`MAX( value )`
+**Syntax:**`MAX( value [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )`
 
 Returns the maximum value.
 
@@ -175,7 +175,7 @@ If `value`:
 
 ## [MCOUNT](MCOUNT.md)
 
-**Syntax:**`MCOUNT( value, rows_1 [ , rows_2 ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] [ ORDER BY ... ] )`
+**Syntax:**`MCOUNT( value, rows_1 [ , rows_2 ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )`
 
 Returns the moving count of (non-`NULL`) values in a fixed-size window defined by the sort order and arguments:
 
@@ -192,9 +192,9 @@ See also [COUNT](COUNT.md), [RCOUNT](RCOUNT.md).
 
 
 
-## [MIN](MIN.md)
+## [MIN](MIN_WINDOW.md)
 
-**Syntax:**`MIN( value )`
+**Syntax:**`MIN( value [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )`
 
 Returns the minimum value.
 
@@ -208,7 +208,7 @@ If `value`:
 
 ## [MMAX](MMAX.md)
 
-**Syntax:**`MMAX( value, rows_1 [ , rows_2 ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] [ ORDER BY ... ] )`
+**Syntax:**`MMAX( value, rows_1 [ , rows_2 ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )`
 
 Returns the moving maximum of values in a fixed-size window defined by the sort order and arguments:
 
@@ -227,7 +227,7 @@ See also [MAX](MAX.md), [RMAX](RMAX.md).
 
 ## [MMIN](MMIN.md)
 
-**Syntax:**`MMIN( value, rows_1 [ , rows_2 ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] [ ORDER BY ... ] )`
+**Syntax:**`MMIN( value, rows_1 [ , rows_2 ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )`
 
 Returns the moving minimum of values in a fixed-size window defined by the sort order and arguments:
 
@@ -246,7 +246,7 @@ See also [MIN](MIN.md), [RMIN](RMIN.md).
 
 ## [MSUM](MSUM.md)
 
-**Syntax:**`MSUM( value, rows_1 [ , rows_2 ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] [ ORDER BY ... ] )`
+**Syntax:**`MSUM( value, rows_1 [ , rows_2 ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )`
 
 Returns the moving sum of values in a fixed-size window defined by the sort order and arguments:
 
@@ -265,7 +265,7 @@ See also [SUM](SUM.md), [RSUM](RSUM.md).
 
 ## [RANK](RANK.md)
 
-**Syntax:**`RANK( value [ , direction ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] )`
+**Syntax:**`RANK( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )`
 
 Returns the rank of the current row if ordered by the given argument. Rows corresponding to the same value used for sorting have the same rank. If the first two rows both have rank of `1`, then the next row (if it features a different value) will have rank `3`, so, in effect, it is rank with gaps.
 
@@ -277,7 +277,7 @@ See also [RANK_DENSE](RANK_DENSE.md), [RANK_UNIQUE](RANK_UNIQUE.md), [RANK_PERCE
 
 ## [RANK_DENSE](RANK_DENSE.md)
 
-**Syntax:**`RANK_DENSE( value [ , direction ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] )`
+**Syntax:**`RANK_DENSE( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )`
 
 Returns the rank of the current row if ordered by the given argument. Rows corresponding to the same value used for sorting have the same rank. If the first two rows both have rank of `1`, then the next row (if it features a different value) will have rank `2`, (rank without gaps).
 
@@ -289,7 +289,7 @@ See also [RANK](RANK.md), [RANK_UNIQUE](RANK_UNIQUE.md), [RANK_PERCENTILE](RANK_
 
 ## [RANK_PERCENTILE](RANK_PERCENTILE.md)
 
-**Syntax:**`RANK_PERCENTILE( value [ , direction ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] )`
+**Syntax:**`RANK_PERCENTILE( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )`
 
 Returns the relative rank (from `0` to `1`) of the current row if ordered by the given argument. Calculated as `(RANK(...) - 1) / (row count) `.
 
@@ -301,7 +301,7 @@ See also [RANK](RANK.md), [RANK_DENSE](RANK_DENSE.md), [RANK_UNIQUE](RANK_UNIQUE
 
 ## [RANK_UNIQUE](RANK_UNIQUE.md)
 
-**Syntax:**`RANK_UNIQUE( value [ , direction ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] )`
+**Syntax:**`RANK_UNIQUE( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )`
 
 Returns the rank of the current row if ordered by the given argument. Rows corresponding to the same value have different rank values. This means that rank values are sequential and different for all rows, always increasing by `1` for the next row.
 
@@ -313,7 +313,7 @@ See also [RANK](RANK.md), [RANK_DENSE](RANK_DENSE.md), [RANK_PERCENTILE](RANK_PE
 
 ## [RAVG](RAVG.md)
 
-**Syntax:**`RAVG( value [ , direction ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] [ ORDER BY ... ] )`
+**Syntax:**`RAVG( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )`
 
 Returns the average of all values in a growing (or shrinking) window defined by the sort order and the value of `direction`:
 
@@ -333,7 +333,7 @@ See also [AVG](AVG.md), [MAVG](MAVG.md).
 
 ## [RCOUNT](RCOUNT.md)
 
-**Syntax:**`RCOUNT( value [ , direction ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] [ ORDER BY ... ] )`
+**Syntax:**`RCOUNT( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )`
 
 Returns the count of all values in a growing (or shrinking) window defined by the sort order and the value of `direction`:
 
@@ -353,7 +353,7 @@ See also [COUNT](COUNT.md), [MCOUNT](MCOUNT.md).
 
 ## [RMAX](RMAX.md)
 
-**Syntax:**`RMAX( value [ , direction ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] [ ORDER BY ... ] )`
+**Syntax:**`RMAX( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )`
 
 Returns the maximum of all values in a growing (or shrinking) window defined by the sort order and the value of `direction`:
 
@@ -373,7 +373,7 @@ See also [MAX](MAX.md), [MMAX](MMAX.md).
 
 ## [RMIN](RMIN.md)
 
-**Syntax:**`RMIN( value [ , direction ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] [ ORDER BY ... ] )`
+**Syntax:**`RMIN( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )`
 
 Returns the minimum of all values in a growing (or shrinking) window defined by the sort order and the value of `direction`:
 
@@ -393,7 +393,7 @@ See also [MIN](MIN.md), [MMIN](MMIN.md).
 
 ## [RSUM](RSUM.md)
 
-**Syntax:**`RSUM( value [ , direction ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] [ ORDER BY ... ] )`
+**Syntax:**`RSUM( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )`
 
 Returns the sum of all values in a growing (or shrinking) window defined by the sort order and the value of `direction`:
 
@@ -411,17 +411,17 @@ See also [SUM](SUM.md), [MSUM](MSUM.md).
 
 
 
-## [SUM](SUM.md)
+## [SUM](SUM_WINDOW.md)
 
-**Syntax:**`SUM( value )`
+**Syntax:**`SUM( value [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )`
 
 Returns the sum of all expression values. Applicable to numeric data types only.
 
 
 
-## [SUM_IF](SUM_IF.md)
+## [SUM_IF](SUM_IF_WINDOW.md)
 
-**Syntax:**`SUM_IF( expression, condition )`
+**Syntax:**`SUM_IF( expression, condition [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )`
 
 Returns the sum of all the expression values that meet the `condition` condition. Applicable to numeric data types only.
 

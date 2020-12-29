@@ -4,7 +4,7 @@ editable: false
 
 # TAN
 
-_Mathematical functions_
+
 
 #### Syntax {#syntax}
 

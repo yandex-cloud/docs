@@ -4,7 +4,7 @@ editable: false
 
 # QUANTILE_APPROX
 
-_Агрегатные функции_
+
 
 #### Синтаксис {#syntax}
 

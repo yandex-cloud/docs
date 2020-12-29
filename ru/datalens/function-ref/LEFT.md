@@ -4,7 +4,7 @@ editable: false
 
 # LEFT
 
-_Строковые функции_
+
 
 #### Синтаксис {#syntax}
 

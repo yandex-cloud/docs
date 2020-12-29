@@ -4,7 +4,7 @@ editable: false
 
 # DATEPART
 
-_Функции даты и времени_
+
 
 #### Синтаксис {#syntax}
 

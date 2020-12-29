@@ -4,7 +4,7 @@ editable: false
 
 # CONCAT
 
-_Строковые функции_
+
 
 #### Синтаксис {#syntax}
 

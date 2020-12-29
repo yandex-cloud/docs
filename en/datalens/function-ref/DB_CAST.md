@@ -4,7 +4,7 @@ editable: false
 
 # DB_CAST
 
-_Type conversion functions_
+
 
 #### Syntax {#syntax}
 

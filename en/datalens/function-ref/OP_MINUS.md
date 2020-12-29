@@ -4,7 +4,7 @@ editable: false
 
 # Subtraction (-)
 
-_Operators_
+
 
 #### Syntax {#syntax}
 

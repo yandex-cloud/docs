@@ -4,7 +4,7 @@ editable: false
 
 # Modulo (%)
 
-_Operators_
+
 
 #### Syntax {#syntax}
 

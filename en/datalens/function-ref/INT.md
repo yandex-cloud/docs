@@ -4,7 +4,7 @@ editable: false
 
 # INT
 
-_Type conversion functions_
+
 
 #### Syntax {#syntax}
 

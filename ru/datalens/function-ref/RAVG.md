@@ -2,15 +2,15 @@
 editable: false
 ---
 
-# RAVG
+# RAVG (оконная)
 
-_Оконные функции_
+
 
 #### Синтаксис {#syntax}
 
 
 ```
-RAVG( value [ , direction ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] [ ORDER BY ... ] )
+RAVG( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )
 ```
 
 #### Описание {#description}

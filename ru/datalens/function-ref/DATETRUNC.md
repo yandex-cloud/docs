@@ -4,7 +4,7 @@ editable: false
 
 # DATETRUNC
 
-_Функции даты и времени_
+
 
 #### Синтаксис {#syntax}
 

@@ -1,12 +1,18 @@
 # Удаление триггера
 
-{% include [triggers-preview](../../../_includes/functions/triggers-preview-stage.md) %}
-
 {% include [trigger-list-note](../../../_includes/functions/trigger-list-note.md) %}
 
 ## Удалить триггер
 
 {% list tabs %}
+
+- Консоль управления
+
+    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится триггер.
+    1. Откройте сервис **{{ sf-name }}**.
+    1. Перейдите на вкладку **Триггеры**.
+    1. Выберите триггер, который хотите удалить.
+    1. В правом верхнем углу страницы нажмите **Удалить**.
 
 - CLI
   
@@ -17,9 +23,11 @@
     Удалите триггер:
     
     ```
-    $ yc serverless trigger delete <имя триггера>
+    yc serverless trigger delete <имя триггера>
     ```
+
     Результат:
+    
     ```
     id: dd0gj5tsj2pq9at8ja8i
     folder_id: aoek49ghmknnpj1ll45e
@@ -39,5 +47,9 @@
           service_account_id: bfbqqeo6jkpls2tse5o6
     status: PAUSED
     ```
+
+- API
+
+  Удалить триггер можно с помощью метода API [delete](../../triggers/api-ref/Trigger/delete.md).
 
 {% endlist %}

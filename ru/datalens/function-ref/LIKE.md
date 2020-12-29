@@ -4,7 +4,7 @@ editable: false
 
 # LIKE
 
-_Операторы_
+
 
 #### Синтаксис {#syntax}
 

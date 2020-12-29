@@ -4,7 +4,7 @@ editable: false
 
 # REGEXP_EXTRACT_NTH
 
-_Строковые функции_
+
 
 #### Синтаксис {#syntax}
 

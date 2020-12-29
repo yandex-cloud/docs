@@ -4,7 +4,7 @@ editable: false
 
 # GEOPOINT
 
-_Функции преобразования типов_
+
 
 #### Синтаксис {#syntax}
 

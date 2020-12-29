@@ -4,7 +4,7 @@ editable: false
 
 # IS TRUE
 
-_Operators_
+
 
 #### Syntax {#syntax}
 

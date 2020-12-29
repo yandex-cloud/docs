@@ -4,7 +4,7 @@ editable: false
 
 # QUANTILE
 
-_Aggregate functions_
+
 
 #### Syntax {#syntax}
 

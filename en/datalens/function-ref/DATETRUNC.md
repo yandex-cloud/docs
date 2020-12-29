@@ -4,7 +4,7 @@ editable: false
 
 # DATETRUNC
 
-_Date/Time functions_
+
 
 #### Syntax {#syntax}
 

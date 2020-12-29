@@ -4,7 +4,7 @@ editable: false
 
 # ITALIC
 
-_Text markup functions_
+
 
 #### Syntax {#syntax}
 

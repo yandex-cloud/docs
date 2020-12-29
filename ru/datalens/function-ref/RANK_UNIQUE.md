@@ -2,15 +2,15 @@
 editable: false
 ---
 
-# RANK_UNIQUE
+# RANK_UNIQUE (оконная)
 
-_Оконные функции_
+
 
 #### Синтаксис {#syntax}
 
 
 ```
-RANK_UNIQUE( value [ , direction ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] )
+RANK_UNIQUE( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )
 ```
 
 #### Описание {#description}

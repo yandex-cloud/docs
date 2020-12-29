@@ -4,7 +4,7 @@ editable: false
 
 # GEOPOLYGON
 
-_Функции преобразования типов_
+
 
 #### Синтаксис {#syntax}
 

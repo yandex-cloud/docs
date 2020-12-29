@@ -4,7 +4,7 @@ editable: false
 
 # DATE_PARSE
 
-_Функции преобразования типов_
+
 
 #### Синтаксис {#syntax}
 

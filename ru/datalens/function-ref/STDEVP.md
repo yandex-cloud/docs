@@ -4,7 +4,7 @@ editable: false
 
 # STDEVP
 
-_Агрегатные функции_
+
 
 #### Синтаксис {#syntax}
 

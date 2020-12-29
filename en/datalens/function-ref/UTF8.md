@@ -4,7 +4,7 @@ editable: false
 
 # UTF8
 
-_String functions_
+
 
 #### Syntax {#syntax}
 

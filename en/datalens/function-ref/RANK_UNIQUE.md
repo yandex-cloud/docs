@@ -2,15 +2,15 @@
 editable: false
 ---
 
-# RANK_UNIQUE
+# RANK_UNIQUE (window)
 
-_Window functions_
+
 
 #### Syntax {#syntax}
 
 
 ```
-RANK_UNIQUE( value [ , direction ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] )
+RANK_UNIQUE( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )
 ```
 
 #### Description {#description}

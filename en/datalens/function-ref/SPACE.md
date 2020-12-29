@@ -4,7 +4,7 @@ editable: false
 
 # SPACE
 
-_String functions_
+
 
 #### Syntax {#syntax}
 

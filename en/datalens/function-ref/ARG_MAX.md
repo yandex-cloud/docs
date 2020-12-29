@@ -4,7 +4,7 @@ editable: false
 
 # ARG_MAX
 
-_Aggregate functions_
+
 
 #### Syntax {#syntax}
 

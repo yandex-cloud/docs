@@ -4,7 +4,7 @@ editable: false
 
 # STDEV
 
-_Aggregate functions_
+
 
 #### Syntax {#syntax}
 

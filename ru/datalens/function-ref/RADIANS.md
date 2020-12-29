@@ -4,7 +4,7 @@ editable: false
 
 # RADIANS
 
-_Математические функции_
+
 
 #### Синтаксис {#syntax}
 

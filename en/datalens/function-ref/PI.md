@@ -4,7 +4,7 @@ editable: false
 
 # PI
 
-_Mathematical functions_
+
 
 #### Syntax {#syntax}
 

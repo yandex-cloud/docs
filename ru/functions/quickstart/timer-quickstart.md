@@ -1,29 +1,6 @@
 # Создание таймера
 
-{% include [triggers-preview](../../_includes/functions/triggers-preview-stage.md) %}
-
-Создайте [таймер](../concepts/trigger/timer.md) и запускайте функции по расписанию.
-
-{% include [before-begin](../../_includes/functions/os-timer-before-begin.md) %}
-
-## Создайте таймер {#trigger-create}
-
-{% include [trigger-time](../../_includes/functions/trigger-time.md) %}
-
-Чтобы создать таймер:
-1. Откройте раздел **{{ sf-name }}** в каталоге, где требуется создать таймер.
-1. Перейдите во вкладку **Триггеры**.
-1. Нажмите кнопку **Создать триггер**.
-1. В блоке **Базовые параметры**:
-    * Введите имя и описание триггера.
-    * В поле **Тип** выберите **Таймер**.
-1. В блоке **Настройки таймера**:
-    * В поле **Cron-выражение** введите [cron-выражение](../concepts/trigger/timer.md#cron-expression).
-1. В блоке **Настройки функции**:
-    * Выберите функцию, которая будет вызываться по таймеру.
-    * Укажите [тег версии функции](../concepts/function.md#tag).
-    * Укажите сервисный аккаунт, от имени которого будет вызываться функция. 
-1. Нажмите кнопку **Создать триггер**.
+{% include [timer-create](../../_includes/functions/timer-create.md) %}
 
 ## Что дальше {#what-is-next}
 

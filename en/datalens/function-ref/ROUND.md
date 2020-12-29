@@ -4,7 +4,7 @@ editable: false
 
 # ROUND
 
-_Mathematical functions_
+
 
 #### Syntax {#syntax}
 

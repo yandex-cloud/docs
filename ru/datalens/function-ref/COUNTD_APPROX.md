@@ -4,7 +4,7 @@ editable: false
 
 # COUNTD_APPROX
 
-_Агрегатные функции_
+
 
 #### Синтаксис {#syntax}
 

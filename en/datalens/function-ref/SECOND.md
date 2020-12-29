@@ -4,7 +4,7 @@ editable: false
 
 # SECOND
 
-_Date/Time functions_
+
 
 #### Syntax {#syntax}
 

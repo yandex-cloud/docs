@@ -4,7 +4,7 @@ editable: false
 
 # REGEXP_REPLACE
 
-_Строковые функции_
+
 
 #### Синтаксис {#syntax}
 

@@ -4,7 +4,7 @@ editable: false
 
 # REPLACE
 
-_Строковые функции_
+
 
 #### Синтаксис {#syntax}
 

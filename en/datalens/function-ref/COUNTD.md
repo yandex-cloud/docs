@@ -4,7 +4,7 @@ editable: false
 
 # COUNTD
 
-_Aggregate functions_
+
 
 #### Syntax {#syntax}
 

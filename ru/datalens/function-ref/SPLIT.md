@@ -4,7 +4,7 @@ editable: false
 
 # SPLIT
 
-_Строковые функции_
+
 
 #### Синтаксис {#syntax}
 

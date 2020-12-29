@@ -10,7 +10,7 @@ To create a VM:
 
    - Enter a name and description for the VM.
 
-       {% include [name-fqdn](../name-fqdn.md) %}
+     {% include [name-fqdn](../name-fqdn.md) %}
 
    - (optional) Select or create a [service account](../../../iam/concepts/users/service-accounts.md). By using a service account, you can flexibly configure access rights for your resources.
 
@@ -23,7 +23,7 @@ To create a VM:
 1. (optional) Configure the boot disk under **Disks**:
    - Specify the necessary disk size.
    - Select the [disk type](../../../compute/concepts/disk.md#disks_types).
-   If you want to create an instance from an existing disk, go to **Disks** [add a disk](../../../compute/operations/vm-create/create-from-disks.md).
+     If you want to create an instance from an existing disk, go to **Disks** [add a disk](../../../compute/operations/vm-create/create-from-disks.md).
 
 1. Under **Computing resources**:
    - Choose the [platform](../../../compute/concepts/vm-platforms.md#gpu-platforms) Intel Broadwell with NVIDIA® Tesla® v100.

@@ -4,7 +4,7 @@ editable: false
 
 # YEAR
 
-_Date/Time functions_
+
 
 #### Syntax {#syntax}
 

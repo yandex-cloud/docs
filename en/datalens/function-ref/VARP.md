@@ -4,7 +4,7 @@ editable: false
 
 # VARP
 
-_Aggregate functions_
+
 
 #### Syntax {#syntax}
 

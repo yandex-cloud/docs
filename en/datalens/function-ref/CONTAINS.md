@@ -4,7 +4,7 @@ editable: false
 
 # CONTAINS
 
-_String functions_
+
 
 #### Syntax {#syntax}
 

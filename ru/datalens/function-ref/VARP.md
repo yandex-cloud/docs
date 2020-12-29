@@ -4,7 +4,7 @@ editable: false
 
 # VARP
 
-_Агрегатные функции_
+
 
 #### Синтаксис {#syntax}
 

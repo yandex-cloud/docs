@@ -4,7 +4,7 @@ editable: false
 
 # ISTARTSWITH
 
-_String functions_
+
 
 #### Syntax {#syntax}
 

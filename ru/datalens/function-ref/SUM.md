@@ -4,7 +4,7 @@ editable: false
 
 # SUM
 
-_Агрегатные функции_
+_Функция `SUM` также доступна как [оконная](SUM_WINDOW.md)._
 
 #### Синтаксис {#syntax}
 
@@ -32,27 +32,3 @@ SUM([Profit])
 #### Поддержка источников данных {#data-source-support}
 
 `Материализованный датасет`, `ClickHouse 1.1`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`.
-
-### Как оконная функция {#as-window-function}
-
-Функция `SUM` также доступна в качестве оконной.
-#### Синтаксис {#window-syntax}
-
-
-```
-SUM( value [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] )
-```
-
-#### Примеры {#window-examples}
-
-```
-SUM([Profit] TOTAL)
-```
-
-```
-SUM([Profit] WITHIN [Date])
-```
-
-```
-SUM([Profit] AMONG [Date])
-```

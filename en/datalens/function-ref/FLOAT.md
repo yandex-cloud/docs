@@ -4,7 +4,7 @@ editable: false
 
 # FLOAT
 
-_Type conversion functions_
+
 
 #### Syntax {#syntax}
 

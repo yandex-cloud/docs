@@ -4,7 +4,7 @@ editable: false
 
 # Negation (-)
 
-_Operators_
+
 
 #### Syntax {#syntax}
 

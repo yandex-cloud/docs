@@ -2,15 +2,15 @@
 editable: false
 ---
 
-# RANK_DENSE
+# RANK_DENSE (window)
 
-_Window functions_
+
 
 #### Syntax {#syntax}
 
 
 ```
-RANK_DENSE( value [ , direction ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] )
+RANK_DENSE( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )
 ```
 
 #### Description {#description}

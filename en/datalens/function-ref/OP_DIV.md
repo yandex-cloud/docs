@@ -4,7 +4,7 @@ editable: false
 
 # Division (/)
 
-_Operators_
+
 
 #### Syntax {#syntax}
 

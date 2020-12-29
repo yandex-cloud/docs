@@ -4,7 +4,7 @@ editable: false
 
 # URL
 
-_Text markup functions_
+
 
 #### Syntax {#syntax}
 

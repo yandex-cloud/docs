@@ -4,7 +4,7 @@ editable: false
 
 # BOLD
 
-_Функции разметки_
+
 
 #### Синтаксис {#syntax}
 

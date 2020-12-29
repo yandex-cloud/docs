@@ -2,6 +2,16 @@
 
 This page lists security recommendations given by Yandex.Cloud experts.
 
+## 24.12.2020 — CVE-2020-25695 - privilege escalation in PostgreSQL
+
+### Description
+
+A privilege escalation [vulnerability](https://nvd.nist.gov/vuln/detail/CVE-2020-25695) was found in PostgreSQL. The vulnerability allowed unprivileged users to perform SQL queries with identity of superuser under certain conditions.
+
+###  Impact on Yandex.Cloud services
+
+All PostgreSQL database management systems used in the Yandex Managed Service for PostgreSQL have been [updated](https://www.postgresql.org/about/news/postgresql-131-125-1110-1015-9620-and-9524-released-2111/). All new clusters are created with a patched version of PostgreSQL.
+
 ## 19.11.2020: Deprecation of outdated TLS protocols
 
 ### Description

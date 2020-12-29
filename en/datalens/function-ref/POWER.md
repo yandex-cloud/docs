@@ -4,7 +4,7 @@ editable: false
 
 # POWER
 
-_Mathematical functions_
+
 
 #### Syntax {#syntax}
 

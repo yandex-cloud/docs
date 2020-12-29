@@ -2,15 +2,15 @@
 editable: false
 ---
 
-# RANK_PERCENTILE
+# RANK_PERCENTILE (window)
 
-_Window functions_
+
 
 #### Syntax {#syntax}
 
 
 ```
-RANK_PERCENTILE( value [ , direction ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] )
+RANK_PERCENTILE( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )
 ```
 
 #### Description {#description}

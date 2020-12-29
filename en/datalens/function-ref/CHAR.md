@@ -4,7 +4,7 @@ editable: false
 
 # CHAR
 
-_String functions_
+
 
 #### Syntax {#syntax}
 

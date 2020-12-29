@@ -4,13 +4,13 @@ editable: false
 
 # DATEADD
 
-_Date/Time functions_
+
 
 #### Syntax {#syntax}
 
 
 ```
-DATEADD( datetime, unit, number )
+DATEADD( datetime [ , unit [ , number ] ] )
 ```
 
 #### Description {#description}
@@ -27,7 +27,7 @@ The `unit` argument takes the following values:
 
 **Argument types:**
 - `datetime` — `Date | Datetime`
-- `unit` — `String`
+- `unit` — `Number (whole) | String`
 - `number` — `Number (whole)`
 
 
@@ -87,4 +87,4 @@ DATEADD(#2018-01-12 01:02:03#, "year", 6) = #2024-01-12 01:02:03#
 
 #### Data source support {#data-source-support}
 
-`Materialized Dataset`, `ClickHouse 1.1`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`.
+`Materialized Dataset`, `ClickHouse 1.1`, `Yandex.Metrica`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`.

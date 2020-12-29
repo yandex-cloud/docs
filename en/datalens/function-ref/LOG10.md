@@ -4,7 +4,7 @@ editable: false
 
 # LOG10
 
-_Mathematical functions_
+
 
 #### Syntax {#syntax}
 

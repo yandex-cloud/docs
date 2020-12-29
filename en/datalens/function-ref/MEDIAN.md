@@ -4,7 +4,7 @@ editable: false
 
 # MEDIAN
 
-_Aggregate functions_
+
 
 #### Syntax {#syntax}
 

@@ -4,7 +4,7 @@ editable: false
 
 # BOLD
 
-_Text markup functions_
+
 
 #### Syntax {#syntax}
 

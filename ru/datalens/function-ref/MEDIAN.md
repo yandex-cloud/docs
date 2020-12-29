@@ -4,7 +4,7 @@ editable: false
 
 # MEDIAN
 
-_Агрегатные функции_
+
 
 #### Синтаксис {#syntax}
 

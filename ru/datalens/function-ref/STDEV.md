@@ -4,7 +4,7 @@ editable: false
 
 # STDEV
 
-_Агрегатные функции_
+
 
 #### Синтаксис {#syntax}
 

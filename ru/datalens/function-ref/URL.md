@@ -4,7 +4,7 @@ editable: false
 
 # URL
 
-_Функции разметки_
+
 
 #### Синтаксис {#syntax}
 

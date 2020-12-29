@@ -1,16 +1,6 @@
 # Создание триггера для {{ objstorage-full-name }}
 
-{% include [triggers-preview](../../_includes/functions/triggers-preview-stage.md) %}
-
-Создайте [триггер для {{ objstorage-name }}](../concepts/trigger/os-trigger.md), который запускает вашу функцию при создании, перемещении или удалении [объекта](../../storage/concepts/object.md) в бакете.
-
-{% include [before-begin](../../_includes/functions/os-timer-before-begin.md) %}
-
-## Создайте триггер {#trigger-create}
-
-{% include [trigger-time](../../_includes/functions/trigger-time.md) %}
-
-{% include [os-create-ui](../../_includes/functions/os-create-ui.md) %}
+{% include [os-trigger-create](../../_includes/functions/os-trigger-create.md) %}
 
 ## Что дальше {#what-is-next}
 

@@ -7,7 +7,7 @@ editable: false
 
 ## [DATEADD](DATEADD.md)
 
-**Синтаксис:**`DATEADD( datetime, unit, number )`
+**Синтаксис:**`DATEADD( datetime [ , unit [ , number ] ] )`
 
 Возвращает дату, полученную в результате добавления `unit` в количестве `number` к указанной дате `datetime`.
 

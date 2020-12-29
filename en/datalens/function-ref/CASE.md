@@ -4,7 +4,7 @@ editable: false
 
 # CASE
 
-_Logical functions_
+
 
 #### Syntax {#syntax}
 

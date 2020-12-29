@@ -99,6 +99,8 @@ items:
             href: concepts/trigger/cloudlogs-trigger.md
           - name: Триггер для Yandex IoT Core
             href: concepts/trigger/iot-core-trigger.md
+      - name: Dead Letter Queue
+        href: concepts/dlq.md
       - name: Лог-группы
         href: concepts/log-group.md
       - name: Мониторинг

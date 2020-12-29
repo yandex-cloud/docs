@@ -4,7 +4,7 @@ editable: false
 
 # REPLACE
 
-_String functions_
+
 
 #### Syntax {#syntax}
 

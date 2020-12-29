@@ -4,7 +4,7 @@ editable: false
 
 # ARG_MAX
 
-_Агрегатные функции_
+
 
 #### Синтаксис {#syntax}
 
