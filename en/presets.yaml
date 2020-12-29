@@ -38,6 +38,7 @@ default:
   certificate-manager-full-name: Yandex Certificate Manager
   data-transfer-full-name: Yandex Data Transfer
   api-gw-full-name: Yandex API Gateway
+  tracker-full-name: Yandex Tracker
 
   # Полные имена сервисов без Yandex
   iam-name: Identity and Access Management
@@ -78,6 +79,7 @@ default:
   marketplace-name: Cloud Marketplace
   data-transfer-name: Data Transfer
   api-gw-name: API Gateway
+  tracker-name: Tracker
 
   # Короткие имена
   iam-short-name: IAM
@@ -115,6 +117,7 @@ default:
   certificate-manager-short-name: Certificate Manager
   data-transfer-short-name: Data Transfer
   api-gw-short-name: API Gateway
+  tracker-short-name: Tracker
 
   # Тарифы
   price-per-hour-count-per-second: Prices are shown for 1 hour of use. Billing occurs per second.
