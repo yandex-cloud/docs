@@ -6,7 +6,7 @@ Versioning is enabled at the bucket level and applied to every object in the buc
 
 You can enable versioning, for example, using `AWS CLI`:
 
-```
+```http
 aws --endpoint https://{{ s3-storage-host }} \
   s3api put-bucket-versioning \
   --bucket your-bucket-name \
@@ -15,11 +15,8 @@ aws --endpoint https://{{ s3-storage-host }} \
 
 * After you enable this feature, the `version_id` parameter is added to each uploaded object. It lets you manage specific object versions.
 * Before versioning is enabled, each bucket object is assigned a version ID (`version_id`) equal to `null`.
-
   When versioning is paused, the `version_id` of existing objects no longer changes. Each new object is assigned a version ID of `null`. If a `null` version already exists, it's overwritten.
-
 * When you overwrite an object version, a new object with the same ID and a randomly generated `version_id` is created.
-
   To access a previous version of the object, use the object ID and the desired `version_id`.
 
 {% note info %}
