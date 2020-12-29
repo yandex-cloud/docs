@@ -1,3 +1,3 @@
 # Создание триггера для {{ message-queue-short-name }}
 
-{% include [iot-core](../../../_includes/functions/ymq-trigger-create.md) %}
+{% include [ymq-trigger-create](../../../_includes/functions/ymq-trigger-create.md) %}

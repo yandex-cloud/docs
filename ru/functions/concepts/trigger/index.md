@@ -1,18 +1,16 @@
 # Обзор
 
-{% include [triggers-preview](../../../_includes/functions/triggers-preview-stage.md) %}
-
-_Триггер_ — условие, при выполнении которого автоматически запускается определенная функция. Триггеры позволяют автоматизировать работу с другими сервисами {{ yandex-cloud }}, например: {{ sf-full-name }}, {{message-queue-full-name}} и {{ iot-full-name }}. 
+_Триггер_ — условие, при выполнении которого автоматически запускается определенная функция. Триггеры позволяют автоматизировать работу с другими сервисами {{ yandex-cloud }}, например: {{ objstorage-full-name }}, {{ message-queue-full-name }} и {{ iot-full-name }}. 
 
 {% include [trigger-time](../../../_includes/functions/trigger-time.md) %}
 
-На стадии Preview доступны следующие типы триггеров: 
-* [{#T}](timer.md).
-* [{#T}](ymq-trigger.md).
-* [{#T}](os-trigger.md).
-* [{#T}](iot-core-trigger.md).
-* [{#T}](cr-trigger.md).
-* [{#T}](cloudlogs-trigger.md).
+В {{ sf-name }} доступны следующие типы триггеров: 
+* [таймер](timer.md);
+* [триггер для {{ message-queue-name }}](ymq-trigger.md);
+* [триггер для {{ objstorage-name }}](os-trigger.md);
+* [триггер для {{ iot-name }}](iot-core-trigger.md);
+* [триггер для {{ container-registry-name }}](cr-trigger.md);
+* [триггер для {{ cloud-logs-name }}](cloudlogs-trigger.md).
 
 ## Особенности вызова функции триггером {#invoke}
 
