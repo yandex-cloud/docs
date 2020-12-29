@@ -49,6 +49,10 @@ You can:
 
 - Download a [CORS configuration](cors.md) for a bucket.
 
+- Enable [bucket encryption](../operations/buckets/encrypt.md).
+
+    By default, the objects added to the bucket are encrypted with the specified [{{ kms-short-name }} key](../../kms/concepts/key.md).
+
 - Set up [object lifecycles](lifecycles.md).
 
 ## Bucket access {#bucket-access}
@@ -69,7 +73,7 @@ If necessary, you can configure permissions to the buckets and objects they cont
 
 - You can only delete an empty bucket.
 
-- It may take some time after deleting a bucket before you can create a new bucket with the same name. There is also a risk that another Yandex.Cloud user will create a bucket with the name you've released before you claim it again. Don't delete buckets without a reason.
+- It may take some time after deleting a bucket before you can create a new bucket with the same name. There is also a risk that another {{ yandex-cloud }} user might create a bucket with the name you've released before you claim it again. Don't delete buckets without a reason.
 
 - When objects are uploaded in quick succession, the maximum specified bucket size can be exceeded.
 
@@ -80,4 +84,3 @@ If necessary, you can configure permissions to the buckets and objects they cont
   If you limit the maximum size of a bucket, it may remain unavailable for writes for some time, even if you free up enough space for new objects.
 
   {% endnote %}
-

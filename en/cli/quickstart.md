@@ -130,6 +130,7 @@ The following steps describe how to create a cloud network, subnet, and virtual 
       $ yc compute instance create \
           --name my-yc-instance \
           --network-interface subnet-name=my-yc-subnet-b,nat-ip-version=ipv4 \
+          --zone ru-central1-b \
           --ssh-key ~/.ssh/id_rsa.pub
       ```
 

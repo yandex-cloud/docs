@@ -4,7 +4,7 @@ editable: false
 
 # Multiplication (*)
 
-_Operators_
+
 
 #### Syntax {#syntax}
 

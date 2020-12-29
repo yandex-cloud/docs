@@ -4,7 +4,7 @@ editable: false
 
 # REGEXP_REPLACE
 
-_String functions_
+
 
 #### Syntax {#syntax}
 

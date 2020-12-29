@@ -2,15 +2,15 @@
 editable: false
 ---
 
-# RSUM
+# RSUM (window)
 
-_Window functions_
+
 
 #### Syntax {#syntax}
 
 
 ```
-RSUM( value [ , direction ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] [ ORDER BY ... ] )
+RSUM( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )
 ```
 
 #### Description {#description}

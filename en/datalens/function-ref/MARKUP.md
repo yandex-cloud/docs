@@ -4,7 +4,7 @@ editable: false
 
 # MARKUP
 
-_Text markup functions_
+
 
 #### Syntax {#syntax}
 

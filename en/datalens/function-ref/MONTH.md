@@ -4,7 +4,7 @@ editable: false
 
 # MONTH
 
-_Date/Time functions_
+
 
 #### Syntax {#syntax}
 

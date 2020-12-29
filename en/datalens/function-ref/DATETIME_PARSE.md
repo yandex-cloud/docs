@@ -4,7 +4,7 @@ editable: false
 
 # DATETIME_PARSE
 
-_Type conversion functions_
+
 
 #### Syntax {#syntax}
 

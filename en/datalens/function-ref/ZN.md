@@ -4,7 +4,7 @@ editable: false
 
 # ZN
 
-_Logical functions_
+
 
 #### Syntax {#syntax}
 

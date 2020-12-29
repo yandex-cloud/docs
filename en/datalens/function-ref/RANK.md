@@ -2,15 +2,15 @@
 editable: false
 ---
 
-# RANK
+# RANK (window)
 
-_Window functions_
+
 
 #### Syntax {#syntax}
 
 
 ```
-RANK( value [ , direction ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] )
+RANK( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )
 ```
 
 #### Description {#description}

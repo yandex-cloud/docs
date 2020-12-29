@@ -4,7 +4,7 @@ editable: false
 
 # CASE
 
-_Логические функции_
+
 
 #### Синтаксис {#syntax}
 

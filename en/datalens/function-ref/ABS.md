@@ -4,7 +4,7 @@ editable: false
 
 # ABS
 
-_Mathematical functions_
+
 
 #### Syntax {#syntax}
 

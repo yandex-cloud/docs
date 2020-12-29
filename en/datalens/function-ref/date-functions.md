@@ -7,7 +7,7 @@ editable: false
 
 ## [DATEADD](DATEADD.md)
 
-**Syntax:**`DATEADD( datetime, unit, number )`
+**Syntax:**`DATEADD( datetime [ , unit [ , number ] ] )`
 
 Returns the date obtained by adding `unit` in the amount of `number` to the specified date `datetime`.
 

@@ -4,7 +4,7 @@ editable: false
 
 # GEOPOINT
 
-_Type conversion functions_
+
 
 #### Syntax {#syntax}
 

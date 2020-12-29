@@ -4,7 +4,7 @@ editable: false
 
 # RTRIM
 
-_Строковые функции_
+
 
 #### Синтаксис {#syntax}
 

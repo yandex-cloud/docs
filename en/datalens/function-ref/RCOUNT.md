@@ -2,15 +2,15 @@
 editable: false
 ---
 
-# RCOUNT
+# RCOUNT (window)
 
-_Window functions_
+
 
 #### Syntax {#syntax}
 
 
 ```
-RCOUNT( value [ , direction ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] [ ORDER BY ... ] )
+RCOUNT( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )
 ```
 
 #### Description {#description}

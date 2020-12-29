@@ -2,15 +2,15 @@
 editable: false
 ---
 
-# MMAX
+# MMAX (window)
 
-_Window functions_
+
 
 #### Syntax {#syntax}
 
 
 ```
-MMAX( value, rows_1 [ , rows_2 ] [ TOTAL | WITHIN [ dim1, ... ] | AMONG [ dim1, ... ] ] [ ORDER BY ... ] )
+MMAX( value, rows_1 [ , rows_2 ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )
 ```
 
 #### Description {#description}

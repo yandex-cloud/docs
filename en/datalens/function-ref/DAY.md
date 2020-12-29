@@ -4,7 +4,7 @@ editable: false
 
 # DAY
 
-_Date/Time functions_
+
 
 #### Syntax {#syntax}
 

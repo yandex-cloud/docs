@@ -4,7 +4,7 @@ editable: false
 
 # IFNULL
 
-_Logical functions_
+
 
 #### Syntax {#syntax}
 

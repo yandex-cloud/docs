@@ -1,7 +1,6 @@
 # Управление доступом
 
 В этом разделе вы узнаете:
-
 * [на какие ресурсы можно назначить роль](#resources);
 * [какие роли действуют в сервисе](#roles-list);
 * [какие роли необходимы](#choosing-roles) для того или иного действия.
@@ -21,7 +20,7 @@
 ### Сервисные роли
 
 Роль | Разрешения
------ | -----
+--- | ---
 `container-registry.admin` | Разрешает создавать, изменять и удалять [реестры](../concepts/registry.md).
 `container-registry.images.puller` | Позволяет скачивать [Docker-образы](../concepts/docker-image.md), а также просматривать информацию о ресурсах сервиса (реестрах, Docker-образах, репозиториях).
 `container-registry.images.pusher` | Позволяет управлять Docker-образами и просматривать информацию о ресурсах сервиса (реестрах, Docker-образах, репозиториях).
@@ -39,7 +38,7 @@
 В таблице ниже перечислено, какие роли нужны для выполнения указанного действия. Вы всегда можете назначить роль, которая дает более широкие разрешения, нежели указанная. Например, назначить `editor` вместо `viewer`.
 
 Действие | Методы | Необходимые роли
------ | ----- | -----
+--- | --- | ---
 **Просмотр информации** | |
 Получение списка [реестров](../operations/registry/registry-list.md)| `list` | `container-registry.images.puller` на каталог
 Получение информации о реестрах, [Docker-образах](../operations/docker-image/docker-image-list.md) и [репозиториях](../operations/repository/repository-list.md) | `get`, `list` | `container-registry.images.puller` на реестр с указанным ресурсом
@@ -58,7 +57,8 @@
 
 #### Что дальше {what-is-next}
 
-* [Как назначить роль](../../iam/operations/roles/grant.md).
-* [Как отозвать роль](../../iam/operations/roles/revoke.md).
+* [Назначить роль](../operations/roles/grant.md).
+* [Посмотреть назначенные роли](../operations/roles/get-assigned-roles.md).
+* [Отозвать роль](../operations/roles/revoke.md).
 * [Подробнее об управлении доступом в {{ yandex-cloud }}](../../iam/concepts/access-control/index.md).
 * [Подробнее о наследовании ролей](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).

@@ -4,7 +4,7 @@ editable: false
 
 # FIND
 
-_String functions_
+
 
 #### Syntax {#syntax}
 

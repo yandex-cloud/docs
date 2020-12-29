@@ -47,8 +47,24 @@ items:
             href: operations/lifecycle-policy/lifecycle-policy-dry-run.md
           - name: Удалить политику удаления
             href: operations/lifecycle-policy/lifecycle-policy-delete.md
+      - name: Работа с ролями
+        items:
+          - name: Назначить роль
+            href: operations/roles/grant.md
+          - name: Просмотреть назначенные роли
+            href: operations/roles/get-assigned-roles.md
+          - name: Отозвать роль
+            href: operations/roles/revoke.md
   - name: Yandex Container Solution
     href: ../cos/
+  - name: Сценарии использования
+    items:
+      - name: Все сценарии
+        href: solutions/index.md
+      - name: Запуск Docker-образа на виртуальной машине
+        href: solutions/run-docker-on-vm.md
+      - name: Создание триггера с помощью Yandex Cloud Functions
+        href: solutions/trigger-create.md
   - name: Концепции
     items:
       - name: Обзор
@@ -61,16 +77,12 @@ items:
         href: concepts/repository.md
       - name: Политика автоматического удаления Docker-образов
         href: concepts/lifecycle-policy.md
+      - name: Триггер Yandex Cloud Functions
+        href: concepts/trigger.md
       - name: Резервное копирование
         href: concepts/backup.md
       - name: Квоты и лимиты
         href: concepts/limits.md
-  - name: Сценарии использования
-    items:
-      - name: Все сценарии
-        href: solutions/index.md
-      - name: Запуск Docker-образа на виртуальной машине
-        href: solutions/run-docker-on-vm.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

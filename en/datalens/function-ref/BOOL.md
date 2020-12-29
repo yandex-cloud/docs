@@ -4,7 +4,7 @@ editable: false
 
 # BOOL
 
-_Type conversion functions_
+
 
 #### Syntax {#syntax}
 

@@ -4,7 +4,7 @@ editable: false
 
 # LN
 
-_Mathematical functions_
+
 
 #### Syntax {#syntax}
 

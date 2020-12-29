@@ -4,7 +4,7 @@ editable: false
 
 # ARG_MIN
 
-_Aggregate functions_
+
 
 #### Syntax {#syntax}
 

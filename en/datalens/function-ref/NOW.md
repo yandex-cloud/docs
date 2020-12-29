@@ -4,7 +4,7 @@ editable: false
 
 # NOW
 
-_Date/Time functions_
+
 
 #### Syntax {#syntax}
 

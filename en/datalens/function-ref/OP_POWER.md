@@ -4,7 +4,7 @@ editable: false
 
 # Power (^)
 
-_Operators_
+
 
 #### Syntax {#syntax}
 

@@ -4,7 +4,7 @@ editable: false
 
 # DATE
 
-_Type conversion functions_
+
 
 #### Syntax {#syntax}
 

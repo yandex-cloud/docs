@@ -4,7 +4,7 @@ editable: false
 
 # ACOS
 
-_Mathematical functions_
+
 
 #### Syntax {#syntax}
 

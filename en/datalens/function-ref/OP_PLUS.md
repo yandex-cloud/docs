@@ -4,7 +4,7 @@ editable: false
 
 # Addition and concatenation (+)
 
-_Operators_
+
 
 #### Syntax {#syntax}
 

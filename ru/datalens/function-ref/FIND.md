@@ -4,7 +4,7 @@ editable: false
 
 # FIND
 
-_Строковые функции_
+
 
 #### Синтаксис {#syntax}
 

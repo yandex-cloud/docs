@@ -4,7 +4,7 @@ editable: false
 
 # AND
 
-_Операторы_
+
 
 #### Синтаксис {#syntax}
 

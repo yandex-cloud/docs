@@ -4,7 +4,7 @@ editable: false
 
 # QUANTILE
 
-_Агрегатные функции_
+
 
 #### Синтаксис {#syntax}
 

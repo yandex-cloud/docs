@@ -4,7 +4,7 @@ editable: false
 
 # CEILING
 
-_Математические функции_
+
 
 #### Синтаксис {#syntax}
 

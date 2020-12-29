@@ -4,7 +4,7 @@ editable: false
 
 # ICONTAINS
 
-_Строковые функции_
+
 
 #### Синтаксис {#syntax}
 

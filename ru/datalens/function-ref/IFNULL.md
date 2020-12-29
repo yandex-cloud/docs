@@ -4,7 +4,7 @@ editable: false
 
 # IFNULL
 
-_Логические функции_
+
 
 #### Синтаксис {#syntax}
 

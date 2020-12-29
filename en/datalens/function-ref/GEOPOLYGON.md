@@ -4,7 +4,7 @@ editable: false
 
 # GEOPOLYGON
 
-_Type conversion functions_
+
 
 #### Syntax {#syntax}
 

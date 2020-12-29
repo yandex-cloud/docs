@@ -37,6 +37,7 @@ default:
   data-transfer-full-name: Yandex Data Transfer
   api-gw-full-name: Yandex API Gateway
   lockbox-full-name: Yandex Lockbox
+  tracker-full-name: Yandex Tracker
   iam-name: Identity and Access Management
   ig-name: Instance Groups
   resmgr-name: Resource Manager
@@ -76,6 +77,7 @@ default:
   data-transfer-name: Data Transfer
   api-gw-name: API Gateway
   lockbox-name: Lockbox
+  tracker-name: Tracker
   iam-short-name: IAM
   resmgr-short-name: Resource Manager
   compute-short-name: Compute Cloud
@@ -112,6 +114,7 @@ default:
   data-transfer-short-name: Data Transfer
   api-gw-short-name: API Gateway
   lockbox-short-name: Lockbox
+  tracker-short-name: Tracker
   price-per-hour-count-per-second: Цена указывается за 1 час использования. Тарификация посекундная.
   roles-cr-admin: container-registry.admin
   roles-cr-puller: container-registry.images.puller

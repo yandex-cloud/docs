@@ -4,7 +4,7 @@ editable: false
 
 # DATETIME
 
-_Функции преобразования типов_
+
 
 #### Синтаксис {#syntax}
 

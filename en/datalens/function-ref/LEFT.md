@@ -4,7 +4,7 @@ editable: false
 
 # LEFT
 
-_String functions_
+
 
 #### Syntax {#syntax}
 
