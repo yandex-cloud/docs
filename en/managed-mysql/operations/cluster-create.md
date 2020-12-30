@@ -19,7 +19,7 @@ If database storage is 95% full, the cluster switches to read-only mode. Increas
 
 {% endnote %}
 
-## How to create a cluster {{ MY }} {#create-cluster}
+## How to create a {{ MY }} cluster {#create-cluster}
 
 {% list tabs %}
 
@@ -31,11 +31,11 @@ If database storage is 95% full, the cluster switches to read-only mode. Increas
 
   1. Click **Create cluster**.
 
-  1. Enter the cluster name in the **Cluster name** field. The cluster name must be unique within the Cloud.
+  1. Enter the cluster name in the **Cluster name** field. The cluster name must be unique within {{ yandex-cloud }}.
 
   1. Select the environment where you want to create the cluster (you can't change the environment once the cluster is created):
-      - `PRODUCTION`: for stable versions of your apps.
-      - `PRESTABLE`: for testing, including the {{ mmy-short-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
+      - `PRODUCTION`: For stable versions of your apps.
+      - `PRESTABLE`: For testing, including the {{ mmy-short-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
 
   1. Select the DBMS version.
 
@@ -51,6 +51,14 @@ If database storage is 95% full, the cluster switches to read-only mode. Increas
       - User password (from 8 to 128 characters).
 
   1. Under **Hosts**, select parameters for the database hosts created with the cluster (keep in mind that if you use SSDs when creating a {{ MY }} cluster, you can set at least three hosts). If you open **Advanced settings**, you can choose specific subnets for each host. By default, each host is created in a separate subnet.
+
+  1. If necessary, configure additional cluster settings:
+
+     {% include [mmy-extra-settings](../../_includes/mdb/mmy-extra-settings-web-console.md) %}
+
+  1. If necessary, configure the DBMS settings:
+
+     {% include [mmy-dbms-settings](../../_includes/mdb/mmy-dbms-settings.md) %}
 
   1. Click **Create cluster**.
 
@@ -80,7 +88,7 @@ If database storage is 95% full, the cluster switches to read-only mode. Increas
 
      ```
      $ {{ yc-mdb-my }} cluster create \
-        --cluster-name <cluster name> \
+        --name=<cluster name> \
         --environment <prestable or production> \
         --network-name <network name> \
         --host zone-id=<availability zone>,subnet-id=<subnet ID> \
@@ -106,7 +114,7 @@ If database storage is 95% full, the cluster switches to read-only mode. Increas
 
      Example configuration file structure:
 
-     ```yaml
+     ```
      resource "yandex_mdb_mysql_cluster" "<cluster name>" {
        name        = "<cluster name>"
        environment = "<PRESTABLE or PRODUCTION>"
@@ -127,7 +135,7 @@ If database storage is 95% full, the cluster switches to read-only mode. Increas
          name     = "<user name>"
          password = "<user password>"
          permission {
-           database_name = "<DB name>"
+           database_name = "<database name>"
            roles         = ["ALL"]
          } 
        }
@@ -175,14 +183,14 @@ If database storage is 95% full, the cluster switches to read-only mode. Increas
   - In the cloud with ID `{{ tf-cloud-id }}`.
   - In a folder named `myfolder`.
   - Network: `mynet`.
-  - 1 `{{ host-class }}` class host in the new `mysubnet` subnet and `{{ zone-id }}` availability zone. The `mysubnet` subnet will have a range of `10.5.0.0/24`.
+  - With 1 `{{ host-class }}` class host in the new `mysubnet` subnet and `{{ zone-id }}` availability zone. The `mysubnet` subnet will have the range `10.5.0.0/24`.
   - With 20 GB fast network storage (`{{ disk-type-example }}`).
   - With one user (`user1`) with the password `user1user1`.
   - With 1 `db1` database, in which `user1` has full rights (the same as `GRANT ALL PRIVILEGES on db1.*`).
 
   The configuration file for the cluster looks like this:
 
-  ```yaml
+  ```
   provider "yandex" {
     token = "<OAuth or static key of service account>"
     cloud_id  = "{{ tf-cloud-id }}"
@@ -230,3 +238,4 @@ If database storage is 95% full, the cluster switches to read-only mode. Increas
     v4_cidr_blocks = ["10.5.0.0/24"]
   }
   ```
+
