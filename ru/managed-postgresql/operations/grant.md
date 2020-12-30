@@ -44,37 +44,10 @@
 1. [Подключитесь](connect.md) к базе данных с помощью учетной записи владельца базы данных.
 2. Выполните команду `GRANT`. Подробное описание синтаксиса команды смотрите в [документации {{ PG }}](https://www.postgresql.org/docs/current/sql-grant.html).
 
-**Примеры:**
-
-1. Выдать пользователю `user2` права на чтение таблицы `Products` в схеме по умолчанию `public`:
-
-    ```postgresql
-    GRANT SELECT ON public.Products TO user2;
-    ```
-
-1. Выдать пользователю `user2` права на чтение всех таблиц схемы `myschema`:
-
-    ```postgresql
-    GRANT SELECT ON ALL TABLES IN SCHEMA myschema TO user2;
-    GRANT USAGE ON SCHEMA myschema TO user2;
-    ```
 
 ## Отозвать привилегию у пользователя {#revoke-privilege}
 
 1. [Подключитесь](connect.md) к базе данных с помощью учетной записи владельца базы данных.
 2. Выполните команду `REVOKE`. Подробное описание синтаксиса команды смотрите в [документации {{ PG }}](https://www.postgresql.org/docs/current/sql-revoke.html).
 
-**Примеры:**
-
-1. Отозвать у пользователя `user2` права на чтение таблицы `Products` в схеме по умолчанию `public`:
-
-    ```postgresql
-    REVOKE SELECT ON public.Products FROM user2;
-    ```
-
-1. Отозвать у пользователя `user2` права на чтение всех таблиц схемы `myschema` и права доступа ко всем объектам схемы `myschema`:
-
-    ```postgresql
-    REVOKE SELECT ON ALL TABLES IN SCHEMA myschema FROM user2;
-    REVOKE USAGE ON SCHEMA myschema FROM user2;
-    ```
+{% include [user-ro](../../_includes/mdb/mpg-user-examples.md) %}
