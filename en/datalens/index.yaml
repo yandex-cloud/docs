@@ -18,7 +18,7 @@ links:
   href: "concepts/"
 - title: "Use cases"
   description: "Use DataLens to perform common tasks for visualizing data"
-  href: "solutions/"
+  href: "../solutions/datalens"
 - title: "Quotas and limits"
   description: "Technical and organizational limitations of the service"
   href: "concepts/limits"

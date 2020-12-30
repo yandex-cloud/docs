@@ -18,7 +18,7 @@ links:
   href: "concepts/"
 - title: "Сценарии использования"
   description: "Решайте типовые задачи по визуализации данных с помощью DataLens"
-  href: "solutions/"
+  href: "../solutions/datalens"
 - title: "Квоты и лимиты"
   description: "Технические и организационные ограничения сервиса"
   href: "concepts/limits"
