@@ -22,9 +22,9 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
 
    To add a device certificate:
 
-   1. In the [management console]({{ link-console-main }}), select the folder to add the device certificate to.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to add a device certificate.
 
-   1. Select the **{{ iot-name }}**.
+   1. Select **{{ iot-name }}**.
 
    1. Click on the name of the registry.
 

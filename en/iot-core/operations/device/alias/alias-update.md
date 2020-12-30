@@ -7,7 +7,7 @@ Aliases are linked to specific devices. To update an alias, you need [the device
 - Management console
 
    To update an alias:
-   1. In the [management console]({{ link-console-main }}), select the folder to update the alias in.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to update the alias.
    1. Select **{{ iot-name }}**.
    1. Select the desired registry from the list.
    1. In the left part of the window, select **Devices**.
@@ -41,4 +41,3 @@ Aliases are linked to specific devices. To update an alias, you need [the device
     ```
 
 {% endlist %}
-

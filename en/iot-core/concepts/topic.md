@@ -93,7 +93,7 @@ _An alias_ is an alternate name of a [device topic](#devices-topic) assigned by 
 
 {% note warning %}
 
- You can only use the `$me` system alias for the `$monitoring/<device ID>/json` topic.
+You can only use the `$me` system alias for the `$monitoring/<device ID>/json` topic.
 
 {% endnote %}
 
@@ -138,7 +138,7 @@ You can use special wildcard characters, such as `#` and `+`, to filter subscrip
 
 If a filter starts with `$devices/`, it includes device topics. If it starts with `$registries/`, it contains registry topics. In other cases, only aliases are included in filters.
 
-#### # {#sharp}
+#### # character {#sharp}
 
 Substitutes one or more parts of a topic and an empty string. This character is always the last in a filter.
 
@@ -150,7 +150,7 @@ Examples of using **#**:
 - `$devices/<device ID>/events/#` — Subscribe to all topics with telemetry data of a specific device.
 - `$devices/<device ID>/state/#` — Subscribe to all permanent topics with telemetry data of the device with the specified unique ID.
 
-#### + {#plus}
+#### + character {#plus}
 
 Substitutes a part of a topic between two `/` or at the end after a single `/`.
 
