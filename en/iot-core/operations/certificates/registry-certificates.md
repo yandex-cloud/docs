@@ -22,9 +22,9 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
 
    To add a certificate to a registry:
 
-   1. In the [management console]({{ link-console-main }}), select the folder to add the registry certificate to.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to add a registry certificate.
 
-   1. Select the **{{ iot-name }}**.
+   1. Select **{{ iot-name }}**.
 
    1. Select the desired registry from the list.
 
@@ -71,7 +71,7 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
 
    To delete a registry certificate:
    1. In the [management console]({{ link-console-main }}), select the folder to delete the registry certificate from.
-   1. Select the **{{ iot-name }}**.
+   1. Select **{{ iot-name }}**.
    1. Select the desired registry from the list.
    1. On the **Overview** page, go to the **Certificates** section.
    1. In the line with the appropriate certificate, click ![image](../../../_assets/horizontal-ellipsis.svg), and select **Delete** from the drop-down list.

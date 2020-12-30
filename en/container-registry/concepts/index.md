@@ -1,6 +1,6 @@
 # Concepts {{ container-registry-full-name }}
 
-Yandex Container Registry is a service for storing and distributing Docker images.
+{{ container-registry-name }} is a service for storing and distributing Docker images.
 
 It allows you to manage the following objects:
 
@@ -8,7 +8,7 @@ It allows you to manage the following objects:
 * [Registry](registry.md)
 * [Repository](repository.md)
 
-To work with {{ container-registry-short-name }}, internet access is required.
+To work with {{ container-registry-name }}, internet access is required.
 
 Internet access can be provided in the following ways:
 
@@ -17,4 +17,3 @@ Internet access can be provided in the following ways:
 * [Enabling NAT to the internet](../../vpc/operations/enable-nat.md).
 
 The service supports [Docker Registry HTTP API V2](https://docs.docker.com/registry/spec/api/), so you can run commands available in the Docker CLI.
-

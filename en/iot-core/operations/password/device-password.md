@@ -14,7 +14,7 @@ You can add a password to an already created device or set it when creating a de
 
 {% include [read-pass](../../../_includes/iot-core/read-pass.md) %}
 
-### Adding a password to an already created device {#add}
+### Adding a password to an existing device {#add}
 
 {% list tabs %}
 
@@ -27,7 +27,7 @@ You can add a password to an already created device or set it when creating a de
    1. In the left part of the window, select **Devices**.
    1. Select the desired device from the list.
    1. Under **Passwords**, click **Add password**.
-   1. In the **Password** field, set a password that you'll use to access the device.<br/>To do this, you can use a [password generator](https://passwordsgenerator.net/).<br/>Don't forget to save your password, you'll need it.
+   1. In the **Password** field, set a password that you'll use to access the device.<br/>To do this, you can use a [password generator](https://passwordsgenerator.net/).<br/>Don't forget to save your password because you'll need it later.
    1. Click **Add**.
 
 - CLI
@@ -105,7 +105,7 @@ You can add a password to an already created device or set it when creating a de
 - Management console
 
    To view the list of device passwords:
-   1. In the [management console]({{ link-console-main }}), select the folder to get the list of device passwords in.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to get a list of device passwords.
    1. Select **{{ iot-name }}**.
    1. Select the registry with the desired device from the list.
    1. In the left part of the window, select **Devices**.
@@ -155,7 +155,7 @@ You can add a password to an already created device or set it when creating a de
 - Management console
 
    To delete a device password:
-   1. In the [management console]({{ link-console-main }}), select the folder to delete the device password from.
+   1. In the [management console]({{ link-console-main }}), select the folder to delete a device password from.
    1. Select **{{ iot-name }}**.
    1. Select the registry with the desired device from the list.
    1. In the left part of the window, select **Devices**.
@@ -199,4 +199,3 @@ You can add a password to an already created device or set it when creating a de
         ```
 
 {% endlist %}
-

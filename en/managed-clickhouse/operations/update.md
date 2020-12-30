@@ -6,9 +6,11 @@ After creating a cluster, you can:
 
 * [Increase the storage size](#change-disk-size) (available only for network storage, `network-hdd`, and `network-ssd`).
 
-* [Configure servers](#change-clickhouse-config) {{ CH }} according to the [{{ CH }} documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/).
+* [Configure {{ CH }} servers](#change-clickhouse-config) according to the [{{ CH }} documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/).
 
-## Changing the host class {#change-resource-preset}
+* [Change additional cluster settings](#change-additional-settings).
+
+## Change the host class {#change-resource-preset}
 
 {% list tabs %}
 
@@ -35,8 +37,6 @@ After creating a cluster, you can:
      +-----------+--------------------------------+-------+----------+
      |    ID     |            ZONE IDS            | CORES |  MEMORY  |
      +-----------+--------------------------------+-------+----------+
-     | s1.nano   | ru-central1-a, ru-central1-b,  |     1 | 4.0 GB   |
-     |           | ru-central1-c                  |       |          |
      | s1.micro  | ru-central1-a, ru-central1-b,  |     2 | 8.0 GB   |
      |           | ru-central1-c                  |       |          |
      | ...                                                           |
@@ -88,7 +88,7 @@ After creating a cluster, you can:
      config:
        clickhouse:
          resources:
-           resource_preset_id: s1.nano
+           resource_preset_id: s1.micro
            disk_size: "21474836480"
            disk_type_id: network-ssd
      ...
@@ -111,7 +111,7 @@ After creating a cluster, you can:
           --clickhouse-disk-size <storage size in GB>
      ```
 
-     If all these conditions are met, {{ mch-short-name }}  launches the operation to increase storage space.
+     If all these conditions are met, {{ mch-short-name }} launches the operation to increase storage space.
 
      You can change the storage size for ZooKeeper by using the same parameter, `--zookeeper-disk-size`.
 
@@ -123,9 +123,31 @@ After creating a cluster, you can:
 
 {% endlist %}
 
-## Changing settings {{ CH }} {#change-clickhouse-config}
+## Changing {{ CH }} settings {#change-clickhouse-config}
 
-You can change cluster and DBMS settings.
+{% list tabs %}
+
+- Management console
+
+  1. Go to the folder page and select **{{ mch-name }}**.
+
+  1. Select the cluster and click **Edit cluster** in the top panel.
+
+  1. Change the {{ CH }} settings by clicking **Configure** under **DBMS settings**:
+
+     {% include [mch-additional-properties](../../_includes/mdb/mch-additional-properties.md) %}
+
+  1. Click **Save changes**.
+
+- API
+
+  Use the [update](../api-ref/Cluster/update.md) API method and pass the required values in the `configSpec.clickhouse.config` request parameter.
+
+  All supported settings are described [in the API reference](../api-ref/Cluster/update.md).
+
+{% endlist %}
+
+## Changing additional cluster settings {#change-additional-settings}
 
 {% list tabs %}
 
@@ -137,17 +159,15 @@ You can change cluster and DBMS settings.
 
   1. Change additional cluster settings:
 
-  {% include [mch-extra-settings](../../_includes/mdb/mch-extra-settings-web-console.md) %}
-
-  1. Change the DBMS settings by clicking **Configure** under **DBMS settings**:
-
-     {% include [mch-additional-properties](../../_includes/mdb/mch-additional-properties.md) %}
+     {% include [mch-extra-settings](../../_includes/mdb/mch-extra-settings-web-console.md) %}
 
   1. Click **Save changes**.
 
 - API
 
-  You can change the DBMS settings for a cluster using the API [update](../api-ref/Cluster/update.md) method: pass the appropriate values in the request parameter `configSpec.clickhouse.config`. All supported settings are described in the [API reference](../api-ref/Cluster/update.md).
+  Use the [update](../api-ref/Cluster/update.md) API method and pass the required values in the `configSpec.access` and `configSpec.backupWindowStart` request parameters.
+
+  All supported settings are described [in the API reference](../api-ref/Cluster/update.md).
 
 {% endlist %}
 

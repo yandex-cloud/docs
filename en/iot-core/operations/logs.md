@@ -1,6 +1,6 @@
 # Viewing the connection log
 
-The log contains information about connecting/disconnecting devices and errors. You can view connection logs for the[registry](#registry) and a [device](#device). The log uses Coordinated Universal Time, [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time).
+The log contains information about connecting/disconnecting devices and errors. You can view connection logs for the[registry](#registry) and [devices](#device). The log uses Coordinated Universal Time, [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time).
 
 ## View the registry connection log {#registry}
 
@@ -10,9 +10,9 @@ The registry connection log contains information about operations performed with
 
 - Management console
 
-    1. In the [management console]({{ link-console-main }}), select the folder to view the registry connection log in.
+    1. In the [management console]({{ link-console-main }}), select the folder where you want to view the registry connection log.
 
-    2. Select the **{{ iot-name }}**.
+    2. Select **{{ iot-name }}**.
 
     3. Select the registry with the desired device from the list.
 
@@ -57,9 +57,9 @@ The device connection log contains information about operations performed with t
 
 - Management console
 
-    1. In the [management console]({{ link-console-main }}), select the folder to view the device connection log in.
+    1. In the [management console]({{ link-console-main }}), select the folder where you want to view the device connection log.
 
-    2. Select the **{{ iot-name }}**.
+    2. Select **{{ iot-name }}**.
 
     3. Select the registry with the desired device from the list.
 

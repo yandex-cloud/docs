@@ -53,7 +53,7 @@ Devices and registries interact using X.509 certificates:
    1. Specify **basic parameters** for the registry:
       - Enter the registry **Name**. For example, `my-registry`.
       - (optional) Add a **Description** with additional information about the registry.
-      - Set a **Password** that you'll use to access the registry.<br/>To do this, you can use a [password generator](https://passwordsgenerator.net/).<br/>Don't forget to save your password, you'll need it.
+      - Set a **Password** that you'll use to access the registry.<br/>To do this, you can use a [password generator](https://passwordsgenerator.net/).<br/>Don't forget to save your password because you'll need it later.
       - (optional) To assign a label to the registry, fill in the **Key** and **Value** fields and click **Add label**.
    1. (optional) Add [certificates](operations/certificates/create-certificates.md):
       - To add a file:
@@ -117,9 +117,9 @@ Devices and registries interact using X.509 certificates:
    1. In the left part of the window, select **Devices**.
    1. Click **Add device**.
    1. Specify **basic parameters** for the device:
-      - Enter the device **Name**. For example, `my-device`.
+      - Enter a device **Name**. For example, `my-device`.
       - (optional) Add a **Description** with additional information about the device.
-      - Set a **Password** that you'll use to access the device.<br/>To do this, you can use the [password generator](https://passwordsgenerator.net/).<br/>Don't forget to save your password, you'll need it.
+      - Set a **Password** that you'll use to access the device.<br/>To do this, you can use the [password generator](https://passwordsgenerator.net/).<br/>Don't forget to save your password because you'll need it later.
    1. (optional) Add [aliases](concepts/topic.md#aliases):
       1. Click **Add alias**.
       1. Fill in the fields: enter an alias (for example, `events`) and the topic type after `$devices/<deviceID>` (for example, `events`).<br/>You can use the `events` alias instead of the `$devices/<deviceID>/events` topic.

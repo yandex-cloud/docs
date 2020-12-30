@@ -6,11 +6,13 @@ After creating a cluster, you can:
 
 * [Increase the storage size](#change-disk-size) (available only for network storage, `network-hdd`, and `network-ssd`).
 
-* [Configure servers](#change-postgresql-config) {{ PG }} according to the [documentation {{ PG }}](https://www.postgresql.org/docs/current/runtime-config.html).
+* [Configure {{ PG }} servers](#change-postgresql-config) according to the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config.html).
+
+* [Change additional cluster settings](#change-additional-settings).
 
 * [Set the operation mode for the connection pooler](#change-pgbouncer-config).
 
-## Changing the host class {#change-resource-preset}
+## Change the host class {#change-resource-preset}
 
 {% list tabs %}
 
@@ -37,8 +39,6 @@ After creating a cluster, you can:
      +-----------+--------------------------------+-------+----------+
      |    ID     |            ZONE IDS            | CORES |  MEMORY  |
      +-----------+--------------------------------+-------+----------+
-     | s1.nano   | ru-central1-a, ru-central1-b,  |     1 | 4.0 GB   |
-     |           | ru-central1-c                  |       |          |
      | s1.micro  | ru-central1-a, ru-central1-b,  |     2 | 8.0 GB   |
      |           | ru-central1-c                  |       |          |
      | ...                                                           |
@@ -88,7 +88,7 @@ After creating a cluster, you can:
       config:
         ...
         resources:
-          resource_preset_id: s1.nano
+          resource_preset_id: s1.micro
           disk_size: "10737418240"
           disk_type_id: network-ssd
       ...
@@ -121,7 +121,7 @@ After creating a cluster, you can:
 
 {% endlist %}
 
-## Changing settings {{ PG }} {#change-postgresql-config}
+## Changing {{ PG }} settings {#change-postgresql-config}
 
 You can change the DBMS settings for the hosts in your cluster, both the default ones and those changing with the host class.
 
@@ -135,7 +135,7 @@ When [the host class changes](#change-resource-preset), {{ mpg-short-name }} aut
 - `autovacuum_vacuum_cost_delay`
 - `autovacuum_vacuum_cost_limit`
 
-The settings you set manually will no longer change automatically. Exceptions may occur if the set value doesn't become invalid when changing the host class: for example, you can't set `max_connections` to 800 and then change the cluster host class to `s2.micro` (for more information about the maximum number of connections, see [{#T}](cluster-create.md).
+The settings you set manually will no longer change automatically. Exceptions may occur if the set value becomes invalid when changing the host class: for example, you can't set `max_connections` to 800 and then change the cluster host class to `s2.micro` (for more information about the maximum number of connections, see [{#T}](cluster-create.md).
 
 {% list tabs %}
 
@@ -168,7 +168,7 @@ The settings you set manually will no longer change automatically. Exceptions ma
            --set log_min_duration_statement=100,<parameter name>=<value>,...
       ```
 
-      {{ mpg-short-name }} will run the operation for changing the cluster settings.
+      {{ mpg-short-name }} runs the update cluster settings operation.
 
 - API
 
@@ -176,7 +176,27 @@ The settings you set manually will no longer change automatically. Exceptions ma
 
 {% endlist %}
 
-## Set the operation mode for the connection pooler {#change-pgbouncer-config}
+## Changing additional cluster settings {#change-additional-settings}
+
+{% list tabs %}
+
+- Management console
+
+  1. Go to the folder page and select **{{ mpg-name }}**.
+
+  1. Select the cluster and click **Edit cluster** in the top panel.
+
+  1. Change additional cluster settings:
+
+     {% include [mpg-extra-settings](../../_includes/mdb/mpg-extra-settings-web-console.md) %}
+
+- API
+
+  Use the [update](../api-ref/Cluster/update.md) API method and pass the required values in the `configSpec.access` and `configSpec.backupWindowStart` request parameters.
+
+{% endlist %}
+
+## Setting the operation mode for the connection pooler {#change-pgbouncer-config}
 
 You can set one of the modes described in the [PgBouncer documentation](https://pgbouncer.github.io/usage).
 
@@ -203,7 +223,7 @@ You can set one of the modes described in the [PgBouncer documentation](https://
            --connection-pooling-mode <SESSION, TRANSACTION or STATEMENT>
       ```
 
-      {{ mpg-short-name }} runs the operation for changing the connection pooler mode.
+      {{ mpg-short-name }} runs the operation to change the connection pooler mode.
 
 - API
 

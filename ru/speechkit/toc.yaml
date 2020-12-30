@@ -3,6 +3,8 @@ href: index.yaml
 items:
   - name: Начало работы
     href: quickstart.md
+  - name: Релизы
+    href: release-notes.md
   - name: Распознавание речи
     items:
       - name: О технологии

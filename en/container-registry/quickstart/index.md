@@ -4,7 +4,7 @@ Using these instructions, you will create your first [registry](../concepts/regi
 
 ## Before you start {#before-you-begin}
 
-To create a registry, you'll need a folder in {{ yandex-cloud }}. If you don't have any folders yet, create a new folder before creating a registry:
+To create a registry, you'll need a folder in {{ yandex-cloud }}. If you don't have any folders yet, create a new folder:
 
 {% include [create-folder](../../_includes/create-folder.md) %}
 
@@ -15,7 +15,7 @@ You'll also need the [Yandex CLI](../../cli/quickstart.md) and [Docker](https://
 1. Create a registry in {{ container-registry-short-name }}:
 
     ```
-    $ yc container registry create --name my-first-registry
+    yc container registry create --name my-first-registry
     ..done
     id: crpc9qeoft236r8tfalm
     folder_id: b1g0itj57rbjk9thrinv
@@ -31,7 +31,7 @@ You'll also need the [Yandex CLI](../../cli/quickstart.md) and [Docker](https://
     1. Configure Docker to use `docker-credential-yc`:
 
         ```
-        $ yc container registry configure-docker
+        yc container registry configure-docker
         Credential helper is configured in '/home/<user>/.docker/config.json'
         ```
 
@@ -48,35 +48,35 @@ You'll also need the [Yandex CLI](../../cli/quickstart.md) and [Docker](https://
 1. Pull a Docker image from the [Docker Hub](https://hub.docker.com) repository:
 
     ```
-    $ docker pull ubuntu
+    docker pull ubuntu
     ```
 
-1. Assign a tag to the Docker image:
+1. Assign a tag like `cr.yandex/<registry ID>/<Docker image name>:<tag>` to the Docker image pulled:
 
     ```
-    $ docker tag <Docker image ID> \
+    docker tag ubuntu \
     cr.yandex/crpc9qeoft236r8tfalm/ubuntu:hello
     ```
 
-1. Push the Docker image to the repository:
+1. Push the Docker image to the repository {{ container-registry-short-name }}:
 
     ```
-    $ docker push \
+    docker push \
     cr.yandex/crpc9qeoft236r8tfalm/ubuntu:hello
     ```
 
 1. Run the Docker image:
 
     ```
-    $ docker run \
+    docker run \
     cr.yandex/crpc9qeoft236r8tfalm/ubuntu:hello
     ```
 
 #### See also {#see-also}
 
-* [Creating a registry](../operations/registry/registry-create.md)
-* [Authentication in {{ container-registry-short-name }}](../operations/authentication.md)
-* [Creating a Docker image](../operations/docker-image/docker-image-create.md)
-* [Pushing a Docker image](../operations/docker-image/docker-image-push.md)
-* [Pull a Docker image](../operations/docker-image/docker-image-pull.md)
-* [Running a Docker image on a VM](../solutions/index.md)
+- [Creating a registry](../operations/registry/registry-create.md)
+- [Authentication in {{ container-registry-short-name }}](../operations/authentication.md)
+- [Creating a Docker image](../operations/docker-image/docker-image-create.md)
+- [Pushing a Docker image](../operations/docker-image/docker-image-push.md)
+- [Pull a Docker image](../operations/docker-image/docker-image-pull.md)
+- [Running a Docker image on a VM](../solutions/index.md)

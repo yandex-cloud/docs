@@ -5,13 +5,13 @@
 - Management console
 
    To create a registry:
-   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your registry.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a registry.
    1. Select **{{ iot-name }}**.
    1. Click **Create registry**.
    1. Specify **basic parameters** for the registry:
       - Enter the registry **Name**. For example, `my-registry`.
       - (optional) Add a **Description** with additional information about the registry.
-      - Set a **Password** that you'll use to access the registry.<br/>To do this, you can use a [password generator](https://passwordsgenerator.net/).<br/>Don't forget to save your password, you'll need it.
+      - Set a **Password** that you'll use to access the registry.<br/>To do this, you can use a [password generator](https://passwordsgenerator.net/).<br/>Don't forget to save your password because you'll need it later.
       - (optional) To assign a label to the registry, fill in the **Key** and **Value** fields and click **Add label**.
    1. (optional) Add [certificates](../../operations/certificates/create-certificates.md):
       - To add a file:
@@ -123,7 +123,6 @@
          ```
       2. Confirm that you want to create the resources.
 
-      Afterwards, all the necessary resources are created in the specified folder. You can check resource availability and their settings In the [management console]({{ link-console-main }}).
+      Afterwards, all the necessary resources are created in the specified folder. You can check resource availability and their settings in [management console]({{ link-console-main }}).
 
 {% endlist %}
-

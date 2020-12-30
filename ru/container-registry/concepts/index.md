@@ -1,6 +1,6 @@
 # Концепции {{ container-registry-full-name }}
 
-{{ container-registry-name }} — сервис для хранения и распространения [Docker-образов](docker-image.md).
+{{ container-registry-name }} — сервис для хранения и распространения Docker-образов.
 
 Сервис позволяет управлять следующими объектами:
 * [Docker-образ](docker-image.md)

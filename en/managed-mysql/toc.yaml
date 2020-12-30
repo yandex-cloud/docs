@@ -17,6 +17,8 @@ items:
         href: operations/cluster-stop.md
       - name: Changing clusters
         href: operations/update.md
+      - name: Connecting to DataLens
+        href: operations/datalens-connect.md
       - name: How to manage MySQL hosts
         href: operations/hosts.md
       - name: Database management

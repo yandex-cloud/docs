@@ -32,14 +32,15 @@ By default, {{ mpg-short-name }} limits the maximum number of connections to eac
 
   1. Click **Create cluster**.
 
-  1. Enter the cluster name in the **Cluster name** field. The cluster name must be unique within the Cloud.
+  1. Enter the cluster name in the **Cluster name** field. The cluster name must be unique within {{ yandex-cloud }}.
 
   1. Select the environment where you want to create the cluster (you can't change the environment once the cluster is created):
       - `PRODUCTION`: For stable versions of your apps.
-      - `PRESTABLE`: For testing, including the {{ mpg-short-name }} service itself. The Prestable environment is sooner updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
+      - `PRESTABLE`: For testing, including the {{ mpg-short-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
 
   1. Select the DBMS version.
-{% note info %}
+
+     {% note info %}
 
      When using version `10-1c` ({{ PG }} 10 for 1C), to comfortably host 50 users, we recommend selecting the `s2.medium` host class. For 30 users and less, the `s2.small` class is probably going to be enough.
 
@@ -49,7 +50,7 @@ By default, {{ mpg-short-name }} limits the maximum number of connections to eac
 
   1. Under **Storage size**:
 
-      Select the type of storage, either a more flexible network storage (**network-hdd** or **network-ssd**) or faster local SSD storage (**local-ssd**). The size of the local storage can only be changed in 100 GB increments.
+      - Select the type of storage, either more flexible network storage (**network-hdd** or **network-ssd**) or faster local SSD storage (**local-ssd**). The size of local storage can only be changed in 100 GB increments.
       - Select the size to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
 
   1. Under **Database**, specify the database attributes:
@@ -60,6 +61,10 @@ By default, {{ mpg-short-name }} limits the maximum number of connections to eac
       For the database created with the cluster, the character set and collate settings are specified as `LC_CTYPE=C` and `LC_COLLATE=C`. You can't change these settings after the database is created, but you can [create a new database](databases.md#add-the db) with the right settings.
 
   1. Under **Hosts**, select parameters for the database hosts created with the cluster (keep in mind that if you use SSDs when creating a {{ PG }} cluster, you must set at least three hosts). If you open **Advanced settings**, you can choose specific subnets for each host. By default, each host is created in a separate subnet.
+
+  1. If necessary, configure additional cluster settings:
+
+     {% include [mpg-extra-settings](../../_includes/mdb/mpg-extra-settings-web-console.md) %}
 
   1. Click **Create cluster**.
 
@@ -90,14 +95,14 @@ By default, {{ mpg-short-name }} limits the maximum number of connections to eac
       
       ```bash
       $ yc managed-postgresql cluster create \
-         --cluster-name <cluster name>
-         --environment <prestable or production> \
-         --network-name <network name> \
-         --host zone-id=<availability zone>,subnet-id=<subnet ID> \
-         --resource-preset <host class> \
-         --user name=<username>,password=<user password> \
-         --database name=<database name>,owner=<database owner name> \
-         --disk-size <storage size in GB>
+           --name <cluster name> \
+           --environment <prestable or production> \
+           --network-name <network name> \
+           --host zone-id=<availability zone>,subnet-id=<subnet ID> \
+           --resource-preset <host class> \
+           --user name=<username>,password=<user password> \
+           --database name=<database name>,owner=<database owner name> \
+           --disk-size <storage size in GB>
       ```
 
       The subnet ID `subnet-id` should be specified if the selected availability zone contains two or more subnets.
@@ -201,7 +206,7 @@ By default, {{ mpg-short-name }} limits the maximum number of connections to eac
   
   ```
   $ yc managed-postgresql cluster create \
-       --cluster-name mypg \
+       --name mypg \
        --environment production \
        --network-name default \
        --resource-preset s2.micro \
@@ -222,8 +227,8 @@ By default, {{ mpg-short-name }} limits the maximum number of connections to eac
   - In the `PRESTABLE` environment.
   - In the cloud with ID `{{ tf-cloud-id }}`.
   - In a folder named `myfolder`.
-  - In a new network named `mynet`.
-  - With 1 `{{ host-class }}` class host in the new `mysubnet` subnet and `{{ zone-id }}` availability zone. The `mysubnet` subnet will have a range of `10.5.0.0/24`.
+  - Network: `mynet`.
+  - With 1 `{{ host-class }}` class host in the new `mysubnet` subnet and `{{ zone-id }}` availability zone.The `mysubnet` subnet will have the range `10.5.0.0/24`.
   - With 20 GB fast network storage (`{{ disk-type-example }}`).
   - With one user (`user1`) with the password `user1user1`.
   - With one `db1` database owned by the user `user1`.

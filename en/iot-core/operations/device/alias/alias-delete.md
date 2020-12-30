@@ -32,4 +32,3 @@ Aliases are linked to specific devices. To delete an alias, you need [the device
     ```
 
 {% endlist %}
-

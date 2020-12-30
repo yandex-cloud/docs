@@ -175,6 +175,8 @@ items:
     items:
       - name: Configuring NTP time synchronization
         href: solutions/ntp.md
+      - name: Running instance groups with auto scaling
+        href: solutions/vm-autoscale.md
   - name: Concepts
     items:
       - name: Relationship between resources

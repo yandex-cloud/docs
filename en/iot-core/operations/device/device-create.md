@@ -5,15 +5,15 @@
 - Management console
 
    To create a device:
-   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your device.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a device.
    1. Select **{{ iot-name }}**.
    1. Select the desired registry from the list.
    1. In the left part of the window, select **Devices**.
    1. Click **Add device**.
    1. Specify **basic parameters** for the device:
-      - Enter the device **Name**. For example, `my-device`.
+      - Enter a device **Name**. For example, `my-device`.
       - (optional) Add a **Description** with additional information about the device.
-      - Set a **Password** that you'll use to access the device.<br/>To do this, you can use the [password generator](https://passwordsgenerator.net/).<br/>Don't forget to save your password, you'll need it.
+      - Set a **Password** that you'll use to access the device.<br/>To do this, you can use the [password generator](https://passwordsgenerator.net/).<br/>Don't forget to save your password because you'll need it later.
    1. (optional) Add [aliases](../../concepts/topic.md#aliases):
       1. Click **Add alias**.
       1. Fill in the fields: enter an alias (for example, `events`) and the topic type after `$devices/<deviceID>` (for example, `events`).<br/>You can use the `events` alias instead of the `$devices/<deviceID>/events` topic.
@@ -127,7 +127,7 @@
          ```
       2. Confirm that you want to create the resources.
 
-      Afterwards, all the necessary resources are created in the specified folder. You can check resource availability and their settings In the [management console]({{ link-console-main }}).
+      Afterwards, all the necessary resources are created in the specified folder. You can check resource availability and their settings in [management console]({{ link-console-main }}).
 
 {% endlist %}
 

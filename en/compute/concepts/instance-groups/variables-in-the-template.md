@@ -20,6 +20,9 @@ The instance template is described in a YAML file using the `instance_template` 
 * `instance_template.boot_disk_spec.disk_spec.image_id`: Boot disk image ID.
 * `instance_template.boot_disk_spec.disk_spec.snapshot_id`: Boot disk snapshot ID.
 * `instance_template.boot_disk_spec.disk_spec.type_id`: Boot disk type.
+* `instance_template.network_interface_specs.primary_v4_address_spec.one_to_one_nat_spec.address`: Configuration of the external IPv4 address.
+* `instance_template.network_interface_specs.primary_v6_address_spec.one_to_one_nat_spec.address`: Configuration of the external IPv6 address.
+* `instance_template.placement_policy.placement_group_id`: [Placement group](../placement-groups.md) ID.
 * `instance_template.secondary_disk_specs.disk_id`: Secondary disk ID.
 * `instance_template.secondary_disk_specs.disk_spec.description`: Secondary disk description.
 * `instance_template.secondary_disk_specs.disk_spec.image_id`: Secondary disk image ID.

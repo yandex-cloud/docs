@@ -1,6 +1,6 @@
 # Backups
 
-Data in {{ iot-name }} is stored securely and replicated in the {{ yandex-cloud }} infrastructure. You can view:
+Data in {{ iot-name }} is stored securely and replicated within the {{ yandex-cloud }} infrastructure. You can view:
 
 * [Lists of registries](#registry-list).
 * [Information about registries](#registry-get).

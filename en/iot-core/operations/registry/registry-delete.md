@@ -63,4 +63,3 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
     3. Confirm the deletion of resources.
 
 {% endlist %}
-

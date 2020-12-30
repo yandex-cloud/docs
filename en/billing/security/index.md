@@ -62,6 +62,7 @@ A list of operations available to each role is given in the table below.
 The billing account owner can add any Yandex.Cloud user to the **Users** list. To add a user:
 
 1. In the [management console](https://console.cloud.yandex.com/billing), click ![image](../../_assets/ugly-sandwich.svg) and go to **Billing**.
+1. Select the account on the **List of accounts** page.
 1. Go to **Access management**.
 1. Click **Add user**.
 1. Enter a Yandex.Passport or Yandex.Connect username. <br/>Usernames that match the search are displayed in the list. Select the appropriate one.

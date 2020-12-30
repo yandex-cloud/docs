@@ -1,4 +1,4 @@
-{% note alert %}
+{% note alert "Limit" %}
 
 You can only create one {{ datalens-name }} instance in the cloud.
 

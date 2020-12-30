@@ -25,7 +25,7 @@ You can add a password to an existing registry or set it when creating a registr
    1. Select **{{ iot-name }}**.
    1. Select the desired registry from the list.
    1. Under **Passwords**, click **Add password**.
-   1. In the **Password** field, set a password that you'll use to access the registry.<br/>To do this, you can use a [password generator](https://passwordsgenerator.net/).<br/>Don't forget to save your password, you'll need it.
+   1. In the **Password** field, set a password that you'll use to access the registry.<br/>To do this, you can use a [password generator](https://passwordsgenerator.net/).<br/>Don't forget to save your password because you'll need it later.
    1. Click **Add**.
 
 - CLI
@@ -92,7 +92,7 @@ You can add a password to an existing registry or set it when creating a registr
 - Management console
 
    To view the list of registry passwords:
-   1. In the [management console]({{ link-console-main }}), select the folder to get the list of registry passwords in.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to get a list of registry passwords.
    1. Select **{{ iot-name }}**.
    1. Select the desired registry from the list.
    1. On the **Overview** page, go to the **Passwords** section.
@@ -137,7 +137,7 @@ You can add a password to an existing registry or set it when creating a registr
 - Management console
 
    To delete a registry password:
-   1. In the [management console]({{ link-console-main }}), select the folder to delete the registry password from.
+   1. In the [management console]({{ link-console-main }}), select the folder to delete a registry password from.
    1. Select **{{ iot-name }}**.
    1. Select the desired registry from the list.
    1. To the right of the password to delete, click ![image](../../../_assets/horizontal-ellipsis.svg), and select **Delete** from the drop-down list.
@@ -179,4 +179,3 @@ You can add a password to an existing registry or set it when creating a registr
         ```
 
 {% endlist %}
-

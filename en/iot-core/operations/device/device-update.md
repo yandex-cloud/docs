@@ -11,7 +11,7 @@ To access a device, use its unique ID or name. For information about how to get 
 - Management console
 
    To update the name of a device:
-   1. In the [management console]({{ link-console-main }}), select the folder to update the device name in.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to update the device name.
    1. Select **{{ iot-name }}**.
    1. Select the desired registry from the list.
    1. In the left part of the window, select **Devices**.
@@ -43,7 +43,7 @@ To access a device, use its unique ID or name. For information about how to get 
 - Management console
 
    To update the description of a device:
-   1. In the [management console]({{ link-console-main }}), select the folder to update the device description in.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to update the device description.
    1. Select **{{ iot-name }}**.
    1. Select the desired registry from the list.
    1. In the left part of the window, select **Devices**.
@@ -68,4 +68,3 @@ To access a device, use its unique ID or name. For information about how to get 
   ```
 
 {% endlist %}
-
