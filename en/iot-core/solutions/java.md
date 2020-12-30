@@ -33,7 +33,7 @@ To connect to {{ iot-full-name }} and start messaging:
 1. If you don't have the {{ yandex-cloud }} command line interface yet, [install and initialize it](../../cli/quickstart.md#install).
 1. Download and install the [Java Development Kit](https://www.oracle.com/java/technologies/javase-downloads.html).
 
-## Create the necessary resources {{ iot-full-name }} {#resources}
+## Create the necessary {{ iot-full-name }} resources{#resources}
 
 ### Create a registry and add a certificate to it {#registry}
 

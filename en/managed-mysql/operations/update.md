@@ -6,9 +6,11 @@ After creating a cluster, you can:
 
 * [Increase the storage size](#change-disk-size) (available only for network storage, `network-hdd`, and `network-ssd`).
 
-* [Configure the servers](#change-mysql-config) {{ MY }}.
+* [Configure the {{ MY }} servers](#change-mysql-config).
 
-## Changing the host class {#change-resource-preset}
+* [Change additional cluster settings](#change-additional-settings).
+
+## Change the host class {#change-resource-preset}
 
 {% list tabs %}
 
@@ -35,8 +37,6 @@ After creating a cluster, you can:
      +-----------+--------------------------------+-------+----------+
      |    ID     |            ZONE IDS            | CORES |  MEMORY  |
      +-----------+--------------------------------+-------+----------+
-     | s1.nano   | ru-central1-a, ru-central1-b,  |     1 | 4.0 GB   |
-     |           | ru-central1-c                  |       |          |
      | s1.micro  | ru-central1-a, ru-central1-b,  |     2 | 8.0 GB   |
      |           | ru-central1-c                  |       |          |
      | ...                                                           |
@@ -56,7 +56,7 @@ After creating a cluster, you can:
 
 - API
 
-  You can change the [host class](../concepts/instance-types.md) using the [update](../api-ref/Cluster/update.md) API method: pass the necessary value in the request parameter `configSpec.resources.resourcePresetId`.
+  You can change the [host class](../concepts/instance-types.md) using the API [update](../api-ref/Cluster/update.md) method: pass the necessary value in the request parameter `configSpec.resources.resourcePresetId`.
 
   To request a list of supported values, use the [list](../api-ref/ResourcePreset/list.md) method for the `ResourcePreset` resources.
 
@@ -86,13 +86,14 @@ After creating a cluster, you can:
 
       ```
       $ yc managed-mysql cluster get <cluster name>
+      
       id: c7qkvr3u78qiopj3u4k2
       folder_id: b1g0ftj57rrjk9thribv
       ...
       config:
         ...
         resources:
-          resource_preset_id: s1.nano
+          resource_preset_id: s1.micro
           disk_size: "10737418240"
           disk_type_id: network-ssd
       ...
@@ -105,7 +106,7 @@ After creating a cluster, you can:
            --disk-size <storage size in GB>
       ```
 
-      If all these conditions are met, {{ mmy-short-name }}  launches the operation to increase storage space.
+      If all these conditions are met, {{ mmy-short-name }} launches the operation to increase storage space.
 
 - API
 
@@ -115,11 +116,23 @@ After creating a cluster, you can:
 
 {% endlist %}
 
-## Changing settings {{ MY }} {#change-mysql-config}
-
-You can change the DBMS settings of the hosts in your cluster. All supported settings are described [in the API reference](../api-ref/Cluster/update.md).
+## Changing {{ MY }} settings {#change-mysql-config}
 
 {% list tabs %}
+
+- Management console
+
+  1. Go to the folder page and select **{{ mmy-name }}**.
+
+  1. Select the cluster and click **Edit cluster** in the top panel.
+
+  1. Change the {{ MY }} settings by clicking **Configure** under **DBMS settings**:
+
+     {% include [mmy-dbms-settings](../../_includes/mdb/mmy-dbms-settings.md) %}
+
+  1. Click **Save**.
+
+  1. Click **Save changes**.
 
 - CLI
 
@@ -144,11 +157,31 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
           --set log_min_duration_statement=100,<parameter name>=<value>,...
      ```
 
-     {{ mmy-short-name }} will run the operation for changing the cluster settings.
+     {{ mmy-short-name }} runs the update cluster settings operation.
 
 - API
 
   You can change the DBMS settings for a cluster using the API [update](../api-ref/Cluster/update.md) method: pass the appropriate values in the request parameter `configSpec.mysql_config_5_7`.
+
+{% endlist %}
+
+## Changing additional cluster settings {#change-additional-settings}
+
+{% list tabs %}
+
+- Management console
+
+  1. Go to the folder page and select **{{ mmy-name }}**.
+
+  1. Select the cluster and click **Edit cluster** in the top panel.
+
+  1. Change additional cluster settings:
+
+     {% include [mmy-extra-settings](../../_includes/mdb/mmy-extra-settings-web-console.md) %}
+
+- API
+
+  Use the [update](../api-ref/Cluster/update.md) API method and pass the required values in the `configSpec.access` and `configSpec.backupWindowStart` request parameters.
 
 {% endlist %}
 

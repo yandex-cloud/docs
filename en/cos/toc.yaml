@@ -35,3 +35,5 @@ items:
         href: concepts/limits.md
   - name: Pricing policy
     href: pricing.md
+  - name: Questions and answers
+    href: qa/index.md

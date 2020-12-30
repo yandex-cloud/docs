@@ -19,6 +19,8 @@ items:
         href: operations/web-sql-query.md
       - name: Changing cluster and database settings
         href: operations/update.md
+      - name: Connecting to DataLens
+        href: operations/datalens-connect.md
       - name: Managing PostgreSQL hosts
         href: operations/hosts.md
       - name: Database management

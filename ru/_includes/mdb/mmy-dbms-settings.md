@@ -142,6 +142,7 @@
   Подробнее см. в [документации {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_numa_interleave).
 
 - **Innodb print all deadlocks** — включает или выключает вывод всей информации о [взаимных блокировках](https://dev.mysql.com/doc/refman/8.0/en/innodb-deadlocks.html) в лог ошибок. Если эта настройка выключена, то при выполнении команды `SHOW ENGINE INNODB STATUS` будет выведена информация только о последней блокировке.
+
   По умолчанию вывод всей информации о взаимных блокировках выключен.
 
   Подробнее см. в [документации {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_print_all_deadlocks).
@@ -231,15 +232,15 @@
   
   Подробнее см. в [документации {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_regexp_time_limit).
 
-- **Rpl semi sync master wait for slave count** — количество реплик, от которых мастер ожидает ответа при полу-синхронной репликации, прежде чем подтвердить транзакцию (`COMMIT`).
+- **Rpl semi sync master wait for slave count** — количество реплик, от которых мастер ожидает ответа при полусинхронной репликации, прежде чем подтвердить транзакцию (`COMMIT`).
 
   Минимальное значение — `1`, максимальное значение — `2`, по умолчанию — `1`.
 
   Подробнее см. в [документации {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/replication-options-source.html#sysvar_rpl_semi_sync_master_wait_for_slave_count).
 
 - **Slave parallel type** — политика для определения того, какие транзакции могут выполняться параллельно на реплике при включенной многопоточной репликации (такая репликация включается настройкой [Slave parallel workers](#setting-slave-parallel-workers)):
-  - `DATABASE` (по умолчанию) — транзакции, являющиеся частью группового коммита для одного и того же бинарного лога на источнике, выполняются параллельно на реплике. 
-  - `LOGICAL_CLOCK` — транзакции, которые изменяют разные базы данных, выполняются параллельно.
+  - `LOGICAL_CLOCK` — транзакции, являющиеся частью группового коммита для одного и того же бинарного лога на источнике, выполняются параллельно на реплике. 
+  - `DATABASE` (по умолчанию) — транзакции, которые изменяют разные базы данных, выполняются параллельно.
 
   Подробнее см. в [документации {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#sysvar_slave_parallel_type).
 
@@ -256,7 +257,7 @@
   Подробнее см. в [документации {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_sort_buffer_size).
 
 - **Sql mode** — режимы SQL для сервера {{ MY }}:
-  - [ALLOW_INVALID_DATES](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_allow_invalid_dates) — не выполнять полную проверку корректности дат. В этом режиме проверяется, что месяц находится в диапазоне от 1 до 12, и день в диапазоне от 1 до 31. Некорректные даты (например, `2004-04-31`) преобразуются в `0000-00-00` с выдачей предупреждения (warning). 
+  - [ALLOW_INVALID_DATES](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_allow_invalid_dates) — не выполнять полную проверку корректности дат. В этом режиме проверяется, что месяц находится в диапазоне от 1 до 12, а день в диапазоне от 1 до 31. Некорректные даты (например, `2004-04-31`) преобразуются в `0000-00-00` с выдачей предупреждения (warning). 
   - [ANSI_QUOTES](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_ansi_quotes) — воспринимать кавычки `"` как кавычки для идентификаторов, но не для строк. В этом режиме для строк следует использовать одинарные кавычки `'` вместо двойных кавычек `"`.
   - [ERROR_FOR_DIVISION_BY_ZERO](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_error_for_division_by_zero) — операция деления на ноль возвращает `NULL` с выдачей предупреждения (warning). Этот режим SQL является устаревшим (deprecated).
   - [HIGH_NOT_PRECEDENCE](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_high_not_precedence) — повышает приоритет операции отрицания (`NOT`) при разборе логических выражений. В этом режиме выражение `NOT a BETWEEN b AND c` будет интерпретировано как `(NOT a) BETWEEN b AND c` вместо `NOT (a BETWEEN b AND c)`.
@@ -363,6 +364,6 @@
 - **Transaction isolation** — уровень изоляции транзакций по умолчанию:
   - `READ-COMMITTED` — запрос видит только те строки, которые были зафиксированы до начала его выполнения.
   - `REPEATABLE-READ` — все запросы в текущей транзакции видят только те строки, которые были зафиксированы перед первым выполненным в этой транзакции запросом на выборку или изменение данных.
-  - `SERIALIZABLE` — уровень аналогичен `REPEATABLE-READ`, за исключением того, что InnoDB неявно конвертирует `SELECT` в `SELECT ... FOR SHARE` если [autocommit](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_autocommit) выключен. Если autocommit включен, то `SELECT` находится в своей собственной транзакции в режиме `read only` и может быть сериализован. 
+  - `SERIALIZABLE` — уровень аналогичен `REPEATABLE-READ`, за исключением того, что InnoDB неявно конвертирует `SELECT` в `SELECT ... FOR SHARE`, если [autocommit](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_autocommit) выключен. Если autocommit включен, то `SELECT` находится в своей собственной транзакции в режиме `read only` и может быть сериализован. 
 
   Подробнее см. в [документации {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_transaction_isolation).    

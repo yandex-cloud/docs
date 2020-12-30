@@ -22,9 +22,9 @@ To enable {{ datalens-name }} to connect to your cluster and work with its data,
 
 - Management console
 
-  1. Make sure that **{{ datalens-name }}** is [activated](#activate-datalens) in the appropriate folder and [allowed](#allow-access) to access the cluster.
+  1. Make sure that the {{ datalens-name }} service is [activated](#activate-datalens) in the appropriate folder and [allowed](#allow-access) to access the cluster.
 
-  1. Go to the folder page and select **{{ mch-name }}**.
+  1. Go to the folder page and select **{{ mpg-name }}**.
 
   1. Click on the name of the cluster and select the **DataLens** tab.
 
@@ -32,7 +32,7 @@ To enable {{ datalens-name }} to connect to your cluster and work with its data,
 
      {% cut "I don't have the "Create connection" button" %}
 
-     If instead of the **Create connection** button you see a message saying "{{ datalens-name }} not activated", it means that you either haven't activated {{ datalens-name }} or connected it in a different folder. To connect your cluster to a {{ datalens-name }} instance from another folder, follow the [instructions](../../datalens/operations/connection/create-clickhouse.md) in the {{ datalens-name }} documentation.
+     If instead of the **Create connection** button you see a message saying "{{ datalens-name }} not activated", it means that you either haven't activated {{ datalens-name }} or connected it in a different folder. To connect your cluster to a {{ datalens-name }} instance from another folder, follow the [instructions](../../datalens/operations/connection/create-postgresql.md) in the {{ datalens-name }} documentation.
 
      {% endcut %}
 
@@ -54,14 +54,12 @@ Once the connection is created, you can:
 - [Create datasets](../../datalens/concepts/dataset/index.md) with the cluster data using the connection.
 - Visualize the datasets using [charts](../../datalens/concepts/chart.md) and [dashboards](../../datalens/concepts/dashboard.md).
 
-See an [example of data visualization from {{ CH }}](../../solutions/datalens/data-from-ch-visualization.md).
-
 ## Viewing a list of cluster connections {#connectors-list}
 
 {% list tabs %}
 
 - Management console
-  1. Go to the folder page and select **{{ mch-name }}**.
+  1. Go to the folder page and select **{{ mpg-name }}**.
   1. Click on the name of the cluster and select the **DataLens** tab.
 
 {% endlist %}
@@ -71,7 +69,7 @@ See an [example of data visualization from {{ CH }}](../../solutions/datalens/da
 {% list tabs %}
 
 - Management console
-  1. Go to the folder page and select **{{ mch-name }}**.
+  1. Go to the folder page and select **{{ mpg-name }}**.
   1. Click on the name of the cluster and select the **DataLens** tab.
   1. Select a connection from the list.
   1. Change the connection [settings](#connector-settings) and scope.
@@ -85,7 +83,7 @@ See an [example of data visualization from {{ CH }}](../../solutions/datalens/da
 {% list tabs %}
 
 - Management console
-  1. Go to the folder page and select **{{ mch-name }}**.
+  1. Go to the folder page and select **{{ mpg-name }}**.
   1. Click on the name of the cluster and select the **DataLens** tab.
   1. Select a connection from the list.
   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) at the top of the page and select **Delete**.
@@ -104,12 +102,9 @@ See an [example of data visualization from {{ CH }}](../../solutions/datalens/da
       1. Select the cluster and its host from the drop-down lists or [create a new cluster](cluster-create.md) in the folder with {{ datalens-name }} by clicking **Create new**.
       1. Select a user from the drop-down list.
       1. Enter this user's password.
-   1. If the cluster and {{ datalens-name }} are in different folders, use the settings from the [instructions](../../datalens/operations/connection/create-clickhouse.md) in the {{ datalens-name }} documentation.
+   1. If the cluster and {{ datalens-name }} are in different folders, use the settings from the [instructions](../../datalens/operations/connection/create-postgresql.md) in the {{ datalens-name }} documentation.
 
-   Leave the **HTTP interface port** and **HTTPS** setting values unchanged.
+   Leave the **Port** setting value unchanged.
 
 {% endlist %}
-
-If the [**Read only** setting](cluster-users.md#setting-readonly) is selected for the user, make sure its value is `0` or `2`.
-Otherwise, the connection won't work.
 
