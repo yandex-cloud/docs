@@ -35,7 +35,7 @@ chmod 600  ~/.passwd-s3fs
 2. Выполните команду вида:
 
     ```
-    s3fs <имя бакета> /mount/<путь к папке> -o passwd_file=~/.passwd-s3fs \
+    s3fs <имя бакета> /mount/<путь к папке> -o passwd_file=$HOME/.passwd-s3fs \
         -o url=http://storage.yandexcloud.net -o use_path_request_style
     ```
 
