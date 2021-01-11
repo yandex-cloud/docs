@@ -87,8 +87,6 @@ items:
           href: data-collection/agent/best-practices.md
         - name: Часто задаваемые вопросы
           href: data-collection/agent/faq.md
-        - name: Примечания к выпускам
-          href: data-collection/agent/release-notes.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

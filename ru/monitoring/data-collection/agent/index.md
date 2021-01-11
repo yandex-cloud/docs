@@ -1,5 +1,7 @@
 # Обзор
 
+!!! TODO: Добавить в index.yaml Мониторинга ссылки на страницы агента !!!
+
 Для поставки пользовательских метрик в Яндекс.Мониторинг предоставляется Yandex Unified Agent — агент для поставки метрик виртуальных машин и пользовательских приложений. Агент собирает метрики в формате Prometheus и отправляет их в Яндекс.
 
 Начать поставлять метрики виртуальной машины Яндекс.Облака при помощи Unified Agent очень просто:
@@ -11,9 +13,7 @@ routes:
   - input:
       plugin: linux_metrics
       config:
-        poll_period: 15s
-        resources:
-          memory: basic
+        namespace: sys
     channel:
       pipe:
         - filter:
@@ -25,8 +25,8 @@ routes:
         - filter:
             plugin: convert_metrics
             config:
-              target_format:
-                cloud_json:
+              format:
+                json:
                   indentation: 4
                   metric_name_label: sensor
       output:
@@ -40,6 +40,7 @@ routes:
             Content-Type: application/json
           iam:
             cloud_meta: {}
+
 ```
 
 2. Запустите агент:
