@@ -15,6 +15,7 @@ default:
   vpc-full-name: Yandex Virtual Private Cloud
   ddos-protection-full-name: Yandex DDoS Protection
   monitoring-full-name: Yandex Monitoring
+  unified-agent-full-name: Yandex Unified Agent
   dsvm-full-name: Yandex Data Science Virtual Machine
   speechkit-full-name: Yandex SpeechKit
   translate-full-name: Yandex Translate
@@ -92,6 +93,7 @@ default:
   mms-short-name: Managed Service for SQL Server
   mes-short-name: Managed Service for Elasticsearch
   monitoring-short-name: Monitoring
+  unified-agent-short-name: Unified Agent
   vpc-short-name: VPC
   ddos-protection-short-name: DDoS Protection
   dsvm-short-name: DSVM
