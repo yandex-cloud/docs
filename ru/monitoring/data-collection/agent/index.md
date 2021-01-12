@@ -9,50 +9,50 @@
 
 1. Создайте файл конфигурации *example.yml*, указав в нём идентификатор своего каталога в Облаке в параметре folderId:
 
-  **example.yml**:
-  ```yaml
-  routes:
+    **example.yml:**
+    ```yaml
+    routes:
     - input:
         plugin: linux_metrics
         config:
-          namespace: sys
-      channel:
+            namespace: sys
+        channel:
         pipe:
-          - filter:
-              plugin: transform_metric_label
-              config:
+            - filter:
+                plugin: transform_metric_label
+                config:
                 label: path
                 rename_to: sensor
                 add_value_prefix: sys
-          - filter:
-              plugin: convert_metrics
-              config:
+            - filter:
+                plugin: convert_metrics
+                config:
                 format:
-                  json:
+                    json:
                     indentation: 4
                     metric_name_label: sensor
         output:
-          plugin: http
-          config:
+            plugin: http
+            config:
             url: "https://monitoring.api.cloud.yandex.net/monitoring/v2/data/write"
             query:
-              folderId: <YOUR FOLDER ID>
-              service: custom
+                folderId: <YOUR FOLDER ID>
+                service: custom
             headers:
-              Content-Type: application/json
+                Content-Type: application/json
             iam:
-              cloud_meta: {}
-  ```
+                cloud_meta: {}
+    ```
 
 2. Запустите агент выполнив следующую команду:
 
-  ```bash
-  docker run docker run -d --name yandex-unified-agent \
-  -v example.yml:/etc/yandex/unified-agent/example.yml
-  -e UNIFIED_AGENT_CONFIG=/etc/yandex/unified-agent/example.yml \
-  -v /proc/:/host/proc/:ro -v /sys/fs/cgroup/:/host/sys/fs/cgroup:ro \
-  cr.yandex/yc/yandex-unified-agent:latest
-  ```
+    ```bash
+    docker run docker run -d --name yandex-unified-agent \
+    -v example.yml:/etc/yandex/unified-agent/example.yml
+    -e UNIFIED_AGENT_CONFIG=/etc/yandex/unified-agent/example.yml \
+    -v /proc/:/host/proc/:ro -v /sys/fs/cgroup/:/host/sys/fs/cgroup:ro \
+    cr.yandex/yc/yandex-unified-agent:latest
+    ```
 
 Больше инструкций для быстрого начала работы доступны в разделе ["Начало работы"](./quickstart.md). Подробные инструкции по установке и конфигурированию доступны в разделах ["Установка"](installation.md) и ["Конфигурирование"](configuration.md) соответственно.
 
