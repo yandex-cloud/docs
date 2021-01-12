@@ -3,10 +3,13 @@
 Для поставки пользовательских метрик используется вход `http`, который периодически собирает метрики из приложения по протоколу HTTP в формате Prometheus или в формате Яндекс.Мониторинга. TODO: добавить ссылку на формат Яндекс.Мониторинга
 
 В качесте приложения в данном примере используется приложение из https://github.com/prometheus/client_python):
-```
-$ pip install prometheus_client
 
-$ cat example.py
+```bash
+pip install prometheus_client
+```
+
+**example.py:**
+```python
 from prometheus_client import start_http_server, Summary
 import random
 import time
@@ -29,10 +32,10 @@ if __name__ == '__main__':
 ```
 
 Пример конфигурационного файла, собирающего метрики из приложения-примера:
-```
-$ cat /etc/yandex/unified-agent/conf.d/pull.yml
 
-
+**/etc/yandex/unified-agent/conf.d/pull.yml**:
+```yaml
+Здесь будет конфиг
 ```
 
 Команда для запуска Unified Agent:

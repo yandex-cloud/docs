@@ -12,36 +12,36 @@
     **example.yml:**
     ```yaml
     routes:
-    - input:
-        plugin: linux_metrics
-        config:
+      - input:
+          plugin: linux_metrics
+          config:
             namespace: sys
         channel:
-        pipe:
-            - filter:
-                plugin: transform_metric_label
-                config:
-                label: path
-                rename_to: sensor
-                add_value_prefix: sys
-            - filter:
-                plugin: convert_metrics
-                config:
-                format:
+            pipe:
+              - filter:
+                  plugin: transform_metric_label
+                  config:
+                    label: path
+                    rename_to: sensor
+                    add_value_prefix: sys
+              - filter:
+                  plugin: convert_metrics
+                  config:
+                  format:
                     json:
                     indentation: 4
                     metric_name_label: sensor
-        output:
-            plugin: http
-            config:
-            url: "https://monitoring.api.cloud.yandex.net/monitoring/v2/data/write"
-            query:
-                folderId: <YOUR FOLDER ID>
-                service: custom
-            headers:
-                Content-Type: application/json
-            iam:
-                cloud_meta: {}
+            output:
+              plugin: http
+              config:
+                url: "https://monitoring.api.cloud.yandex.net/monitoring/v2/data/write"
+                query:
+                  folderId: <YOUR FOLDER ID>
+                  service: custom
+                headers:
+                  Content-Type: application/json
+                iam:
+                  cloud_meta: {}
     ```
 
 2. Запустите агент выполнив следующую команду:
