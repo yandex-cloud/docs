@@ -1,9 +1,10 @@
 ### vpc.publicAdmin {#vpc-public-admin}
 
 Роль `{{ roles-vpc-public-admin }}` позволяет управлять внешней связностью:
-- создавать [статические публичные IP-адреса](../vpc/concepts/address.md);
+- создавать и удалять [статические публичные IP-адреса](../vpc/concepts/address.md);
 - включать и выключать функцию <q>NAT в интернет</q>.
+Также она включает все разрешения роли `{{ vpc.viewer }}`.
 
 Наличие роли `{{ roles-vpc-public-admin }}` также необходимо для создания ресурсов с публичными IP-адресами, например: виртуальных машин или кластеров управляемых баз данных.
 
-{% include [roles-restriction-only-parents](iam/roles-restriction-only-parents.md) %}
+{% include [roles-restriction-only-parents](iam/roles-restriction-only-parents.md) %} Важно: если сеть и подсеть находятся в разных каталогах, то наличие роли `{{ roles-vpc-public-admin }}` проверяется на том каталоге, в котором находится _сеть_.

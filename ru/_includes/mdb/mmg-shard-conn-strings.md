@@ -7,39 +7,39 @@
   Актуальные версии Mongo Shell можно найти [в разделе загрузок](https://www.mongodb.com/try/download/community) на сайте MongoDB.
 
   **Подключение с использованием SSL-соединения для `mongo` версии 4.2 и выше:**
-  
+
   ```bash
   mongo --norc \
         --tls \
         --tlsCAFile /home/<домашняя директория>/.mongodb/root.crt \
-        --host '<имя набора реплик>/<FQDN хоста 1 MongoDB>:27018,...,FQDN хоста N MongoDB>:27018' \
+        --host '<имя набора реплик>/<FQDN хоста 1 MONGOINFRA или MONGOS>:27017,...,FQDN хоста N MONGOINFRA или MONGOS>:27017' \
         -u <имя пользователя БД> \
         <имя БД>
   ```
-  
+
   **Подключение с использованием SSL-соединения для более старых версий `mongo`:**
-  
+
   ```
   mongo --norc \
         --ssl \
         --sslCAFile /home/<домашняя директория>/.mongodb/root.crt \
-        --host '<имя набора реплик>/<FQDN хоста 1 MongoDB>:27018,...,FQDN хоста N MongoDB>:27018' \
+        --host '<имя набора реплик>/<FQDN хоста 1 MONGOINFRA или MONGOS>:27017,...,FQDN хоста N MONGOINFRA или MONGOS>:27017' \
         -u <имя пользователя БД> \
         <имя БД>
   ```
-  
+
   **Подключение без использования SSL-соединения:**
 
   ```
   mongo --norc \
-        --host '<FQDN хоста 1 MongoDB>:27018,...,FQDN хоста N MongoDB>:27018' \
+        --host '<FQDN хоста 1 MONGOINFRA или MONGOS>:27017,...,FQDN хоста N MONGOINFRA или MONGOS>:27017' \
         -u <имя пользователя БД> \
         <имя БД>
   ```
-  
+
   После выполнения любой из команд введите пароль пользователя для завершения процедуры подключения.
-  
-  После подключения к СУБД выполните команду `db`. 
+
+  После подключения к СУБД выполните команду `db`.
 
 - Python
 
@@ -62,9 +62,9 @@
   DB_RS = '<имя набора реплик>'
   DB_NAME = '<имя БД>'
   DB_HOSTS =','.join([
-        '<FQDN хоста 1 MongoDB>:27018',
+        '<FQDN хоста 1 MONGOINFRA или MONGOS>:27017',
         ...,
-        '<FQDN хоста N MongoDB>:27018'
+        '<FQDN хоста N MONGOINFRA или MONGOS>:27017'
       ])
   DB_USER = '<имя пользователя БД>'
   DB_PASS = '<пароль пользователя БД>'
@@ -98,9 +98,9 @@
   DB_RS = '<имя набора реплик>'
   DB_NAME = '<имя БД>'
   DB_HOSTS =','.join([
-        '<FQDN хоста 1 MongoDB>:27018',
+        '<FQDN хоста 1 MONGOINFRA или MONGOS>:27017',
         ...,
-        '<FQDN хоста N MongoDB>:27018'
+        '<FQDN хоста N MONGOINFRA или MONGOS>:27017'
       ])
   DB_USER = '<имя пользователя БД>'
   DB_PASS = '<пароль пользователя БД>'
@@ -141,7 +141,7 @@
   <?php
     $DB_RS    = '<имя набора реплик>';
     $DB_NAME  = '<имя БД>';
-    $DB_HOSTS = '<FQDN хоста 1 MongoDB>:27018,...,<FQDN хоста N MongoDB>:27018'; 
+    $DB_HOSTS = '<FQDN хоста 1 MONGOINFRA или MONGOS>:27017,...,<FQDN хоста N MONGOINFRA или MONGOS>:27017'; 
     $DB_USER  = '<имя пользователя БД>';
     $DB_PASS  = '<пароль пользователя БД>';
     $CACERT   = '/home/<домашняя директория>/.mongodb/root.crt';
@@ -177,7 +177,7 @@
   <?php
     $DB_RS    = '<имя набора реплик>';
     $DB_NAME  = '<имя БД>';
-    $DB_HOSTS = '<FQDN хоста 1 MongoDB>:27018,...,<FQDN хоста N MongoDB>:27018'; 
+    $DB_HOSTS = '<FQDN хоста 1 MONGOINFRA или MONGOS>:27017,...,<FQDN хоста N MONGOINFRA или MONGOS>:27017'; 
     $DB_USER  = '<имя пользователя БД>';
     $DB_PASS  = '<пароль пользователя БД>';
 
@@ -331,12 +331,12 @@
       System.setProperty("javax.net.ssl.trustStore", "/home/<домашняя директория>/.mongodb/YATrustStore");
       System.setProperty("javax.net.ssl.trustStorePassword", "<пароль хранилища сертификатов>");
 
-      final Integer DB_PORT = 27018;
+      final Integer DB_PORT = 27017;
 
       List DB_HOSTS = new ArrayList<ServerAddress>();
-      DB_HOSTS.add(new ServerAddress("<FQDN хоста 1 MongoDB>", DB_PORT));
+      DB_HOSTS.add(new ServerAddress("<FQDN хоста 1 MONGOINFRA или MONGOS>", DB_PORT));
       ...
-      DB_HOSTS.add(new ServerAddress("<FQDN хоста N MongoDB>", DB_PORT));
+      DB_HOSTS.add(new ServerAddress("<FQDN хоста N MONGOINFRA или MONGOS>", DB_PORT));
   
       final String DB_NAME = "<имя БД>";
       final String DB_USER = "<имя пользователя БД>";
@@ -369,12 +369,12 @@
   public class App {
     public static void main(String[] args) {
 
-      final Integer DB_PORT = 27018;
+      final Integer DB_PORT = 27017;
 
       List DB_HOSTS = new ArrayList<ServerAddress>();
-      DB_HOSTS.add(new ServerAddress("<FQDN хоста 1 MongoDB>", DB_PORT));
+      DB_HOSTS.add(new ServerAddress("<FQDN хоста 1 MONGOINFRA или MONGOS>", DB_PORT));
       ...
-      DB_HOSTS.add(new ServerAddress("<FQDN хоста N MongoDB>", DB_PORT));
+      DB_HOSTS.add(new ServerAddress("<FQDN хоста N MONGOINFRA или MONGOS>", DB_PORT));
   
       final String DB_NAME = "<имя БД>";
       final String DB_USER = "<имя пользователя БД>";
@@ -416,9 +416,9 @@
 
   const DB_RS = '<имя набора реплик>'
   const DB_NAME = '<имя БД>'
-  const DB_HOSTS = ['<FQDN хоста 1 MongoDB>:27018',
+  const DB_HOSTS = ['<FQDN хоста 1 MONGOINFRA или MONGOS>:27017',
                     ... 
-                    '<FQDN хоста N MongoDB>:27018']
+                    '<FQDN хоста N MONGOINFRA или MONGOS>:27017']
   const DB_USER  = '<имя пользователя БД>'
   const DB_PASS  = '<пароль пользователя БД>'
   const CACERT   = '/home/<домашняя директория>/.mongodb/root.crt'
@@ -453,9 +453,9 @@
 
   const DB_RS = '<имя набора реплик>'
   const DB_NAME = '<имя БД>'
-  const DB_HOSTS = ['<FQDN хоста 1 MongoDB>:27018',
+  const DB_HOSTS = ['<FQDN хоста 1 MONGOINFRA или MONGOS>:27018',
                     ... 
-                    '<FQDN хоста N MongoDB>:27018']
+                    '<FQDN хоста N MONGOINFRA или MONGOS>:27018']
   const DB_USER  = '<имя пользователя БД>'
   const DB_PASS  = '<пароль пользователя БД>'
 
@@ -483,7 +483,7 @@
   ```bash
   node app.js
   ```
-  
+
 - Go
   
   **Перед подключением установите зависимости:**
@@ -511,9 +511,9 @@
 
         const DB_RS = "<имя набора реплик>"
         const DB_NAME = "<имя БД>"
-        DB_HOSTS := []string {"<FQDN хоста 1 MongoDB>:27018",
+        DB_HOSTS := []string {"<FQDN хоста 1 MONGOINFRA или MONGOS>:27017",
                               ... 
-                              "<FQDN хоста N MongoDB>:27018"}
+                              "<FQDN хоста N MONGOINFRA или MONGOS>:27017"}
         const DB_USER = "<имя пользователя БД>"
         const DB_PASS = "<пароль пользователя БД>"
 
@@ -556,9 +556,9 @@
 
         const DB_RS = "<имя набора реплик>"
         const DB_NAME = "<имя БД>"
-        DB_HOSTS := []string {"<FQDN хоста 1 MongoDB>:27018",
+        DB_HOSTS := []string {"<FQDN хоста 1 MONGOINFRA или MONGOS>:27017",
                               ... 
-                              "<FQDN хоста N MongoDB>:27018"}
+                              "<FQDN хоста N MONGOINFRA или MONGOS>:27017"}
         const DB_USER = "<имя пользователя БД>"
         const DB_PASS = "<пароль пользователя БД>"
 

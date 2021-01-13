@@ -1,0 +1,21 @@
+title: Документация Yandex.Cloud
+href: index.yaml
+items:
+  - name: Datalens
+    href: datalens/
+  - name: Yandex Managed Service for ClickHouse
+    href: managed-clickhouse/
+  - name: Yandex Managed Service for Elasticsearch
+    href: managed-elasticsearch/
+  - name: Yandex Managed Service for Apache Kafka
+    href: managed-kafka/
+  - name: Yandex Managed Service for MongoDB
+    href: managed-mongodb/
+  - name: Yandex Managed Service for MySQL
+    href: managed-mysql/
+  - name: Yandex Managed Service for PostgreSQL
+    href: managed-postgresql/
+  - name: Yandex Managed Service for Redis
+    href: managed-redis/
+  - name: Yandex Managed Service for SQL Server
+    href: managed-sqlserver/

@@ -31,9 +31,9 @@
       - Пароль пользователя. Минимум 8 символов.
   1. В блоке **Хосты** выберите параметры хостов БД, создаваемых вместе с кластером (помните, что используя SSD-диски при создании {{ MG }}-кластера можно задать не меньше 3 хостов). Открыв блок **Расширенные настройки**, вы можете выбрать конкретные подсети для каждого хоста — по умолчанию каждый хост создается в отдельной подсети.
   1. При необходимости задайте дополнительные настройки кластера:
-     
+
      {% include [mmg-extra-settings](../../_includes/mdb/mmg-extra-settings-web-console.md) %}
-     
+
   1. Нажмите кнопку **Создать кластер**.
 
 - CLI
@@ -82,12 +82,6 @@
 
 - Terraform
 
-  {% note info %}
-  
-  С помощью Terraform можно создать кластер с {{ MG }} версии 3.6, 4.0 или 4.2.
-  
-  {% endnote %}  
-
   {% include [terraform-definition](../../solutions/_solutions_includes/terraform-definition.md) %}
 
   Если у вас ещё нет Terraform, [установите его и настройте провайдер](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
@@ -99,7 +93,7 @@
      {% include [terraform-create-cluster-step-1](../../_includes/mdb/terraform-create-cluster-step-1.md) %}
 
      Пример структуры конфигурационного файла:
-       
+
      ```
      resource "yandex_mdb_mongodb_cluster" "<имя кластера>" {
        name        = "<имя кластера>"
@@ -107,7 +101,7 @@
        network_id  = "<идентификатор сети>"
 
        cluster_config {
-         version = "версия MongoDB: 3.6, 4.0 или 4.2"
+         version = "версия MongoDB: 3.6, 4.0, 4.2 или 4.4"
        }
 
        database {
@@ -137,19 +131,19 @@
      resource "yandex_vpc_network" "<имя сети>" { name = "<имя сети>" }
 
      resource "yandex_vpc_subnet" "<имя подсети>" {
-       name           = "<имя подсети>" 
+       name           = "<имя подсети>"
        zone           = "<зона доступности>"
        network_id     = "<идентификатор сети>"
        v4_cidr_blocks = ["<диапазон>"]
      }
      ```
-       
+
      Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](https://www.terraform.io/docs/providers/yandex/r/mdb_mongodb_cluster.html).
-   
+
   1. Проверьте корректность конфигурационных файлов.
 
-     {% include [terraform-create-cluster-step-2](../../_includes/mdb/terraform-create-cluster-step-2.md) %} 
-   
+     {% include [terraform-create-cluster-step-2](../../_includes/mdb/terraform-create-cluster-step-2.md) %}
+
   1. Создайте кластер.
 
      {% include [terraform-create-cluster-step-3](../../_includes/mdb/terraform-create-cluster-step-3.md) %}
@@ -169,7 +163,7 @@
 
   Допустим, нужно создать {{ MG }}-кластер со следующими характеристиками:
 
-    
+  
   - С именем `mymg`.
   - В окружении `production`.
   - В сети `{{ network-name }}`.
@@ -202,7 +196,7 @@
 
   Допустим, нужно создать {{ MG }}-кластер и сеть для него со следующими характеристиками:
   - С именем `mymg`.
-  - Версии `4.2`.
+  - Версии `4.4`.
   - В окружении `PRODUCTION`.
   - В облаке с идентификатором `{{ tf-cloud-id }}`.
   - В каталоге `myfolder`.
@@ -213,7 +207,7 @@
   - С одной базой данных, `db1`.
 
   Конфигурационный файл для такого кластера выглядит так:
-  
+
   ```
   provider "yandex" {
     token     = "<OAuth или статический ключ сервисного аккаунта>"
@@ -221,14 +215,14 @@
     folder_id = "${data.yandex_resourcemanager_folder.myfolder.id}"
     zone      = "ru-central1-c"
   }
-  
+
   resource "yandex_mdb_mongodb_cluster" "mymg" {
     name        = "mymg"
     environment = "PRODUCTION"
     network_id  = "${yandex_vpc_network.mynet.id}"
 
     cluster_config {
-      version = "4.2"
+      version = "4.4"
     }
 
     database {
@@ -264,5 +258,5 @@
     v4_cidr_blocks = ["10.5.0.0/24"]
   }
   ```
-  
+
 {% endlist %}
