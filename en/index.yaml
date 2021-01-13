@@ -3,6 +3,7 @@ description:
   - "Internal Cloud documentation"
 meta:
   title: "Yandex.Cloud"
+  noIndex: true
 links:
   - title: "Yandex Datalens"
     description: ""
