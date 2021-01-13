@@ -1,6 +1,7 @@
 title: "Документация Yandex.Cloud"
 meta:
   title: "Yandex.Cloud"
+  noIndex: true
 links:
   - title: "Yandex Datalens"
     description: "Визуализация и анализ данных"
