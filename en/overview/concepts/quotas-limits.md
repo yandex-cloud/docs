@@ -1,18 +1,19 @@
 # Quotas and limits
 
-Yandex.Cloud services can be subject to quotas and limits:
+{{ yandex-cloud }} services can be subject to quotas and limits:
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
 
-When designing your infrastructure in Yandex.Cloud, consider the limits as the boundary of opportunities that Yandex Cloud can provide to you. Quotas are changeable restrictions that can potentially be increased to the values of limits.
+When designing your infrastructure in {{ yandex-cloud }}, plan for the limits as the maximum that {{ yandex-cloud }} can provide you with. Quotas are restrictions that can potentially be increased up to their limit.
 
 ## Why quotas are needed {#quotas}
 
-Quotas serve as a soft restriction for requesting resources, and allow Yandex Cloud to guarantee the stability of the service: new users cannot take up too much resources for testing purposes. If you are ready to use more resources, contact the [technical support](https://console.cloud.yandex.com/support) and tell us exactly which quotas you need to increase, and how.
+Quotas serve as a soft restriction for requesting resources and let {{ yandex-cloud }} guarantee service stability because new users can't take up too many resources for testing purposes. If you're willing to use more resources, you can increase them in the following ways:
 
-Technical support decides whether or not to increase quotas on an individual basis.
+* [Submit an increase request]({{ link-console-quotas }});
+* Contact the [technical support]({{ link-console-support }}) and tell us which consumed quotas you need to increase and by how much.
 
-## Quotas and limits defaults for Yandex.Cloud services
+## Default quotas and limits for services {{ yandex-cloud }}
 
 Quotas are listed with default values that match the quotas of the [trial period](../../free-trial/).
 
@@ -36,6 +37,9 @@ Quotas are listed with default values that match the quotas of the [trial period
 
 {% include [resource-manager-limits.md](../../_includes/resource-manager-limits.md) %}
 
+### {{ certificate-manager-full-name }} {#certificate-manager}
+
+{% include [certificate-manager-limits.md](../../_includes/certificate-manager/certificate-manager-limits.md) %}
 
 ### {{ kms-full-name }} {#kms}
 
@@ -45,11 +49,9 @@ Quotas are listed with default values that match the quotas of the [trial period
 
 {% include [load-balancer-limits.md](../../_includes/load-balancer-limits.md) %}
 
-
 ### {{ container-registry-full-name }} {#container-registry}
 
 {% include [container-registry-limits.md](../../_includes/container-registry-limits.md) %}
-
 
 ### {{ managed-k8s-full-name }} {#managed-k8s}
 
@@ -83,8 +85,6 @@ Quotas are listed with default values that match the quotas of the [trial period
 
 {% include[dataproc-limits.md](../../_includes/data-proc/dataproc-limits.md) %}
 
-
-
 ### {{ message-queue-full-name }} {#mq}
 
 {% include [ymq-limits.md](../../_includes/message-queue/ymq-limits.md) %}
@@ -105,10 +105,39 @@ Quotas are listed with default values that match the quotas of the [trial period
 
 {% include [vision-limits](../../_includes/vision-limits.md) %}
 
+### {{ ml-platform-full-name }} {#ml-platform}
+
+{% include [ml-platform-limits.md](../../_includes/datasphere-limits.md) %}
+
 ### {{ datalens-full-name }} {#datalens}
 
 {% include [compute-limits.md](../../_includes/datalens/datalens-limits.md) %}
 
-### {{  iot-full-name }} {#iot}
+### {{ iot-full-name }} {#iot}
 
 {% include [iot-limits.md](../../_includes/iot-limits.md) %}
+
+### {{ interconnect-full-name }} {#interconnect}
+
+{% include [interconnect-limits.md](../../_includes/interconnect-limits.md) %}
+
+### {{ ydb-full-name }} {#ydb}
+
+{% include [ydb-limits.md](../../ydb/_includes/ydb-limits.md) %}
+
+### {{ mms-full-name }} {#mms}
+
+{% include [mms-limits.md](../../_includes/mdb/mms-limits.md) %}
+
+### {{ mkf-full-name }} {#mkf}
+
+{% include [mkf-limits.md](../../_includes/mdb/mkf-limits.md) %}
+
+### {{ mes-full-name }} {#mes}
+
+{% include [mes-limits.md](../../_includes/mdb/mes-limits.md) %}
+
+### {{ api-gw-full-name }} {#api-gw}
+
+{% include [api-gateway-limits.md](../../_includes/api-gateway/api-gateway-limits.md) %}
+

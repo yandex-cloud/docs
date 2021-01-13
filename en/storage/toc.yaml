@@ -245,10 +245,6 @@ items:
                 href: s3/api-ref/acl/bucketput.md
           - name: Bucket Policy
             items:
-              - name: Conditions
-                href: s3/api-ref/policy/conditions.md
-          - name: Bucket Policy
-            items:
               - name: All methods
                 href: s3/api-ref/policy.md
               - name: GetBucketPolicy

@@ -3,26 +3,27 @@
 Enables or pauses versioning of the bucket.
 
 Versioning can be set to one of two statuses:
-* `Enabled`: Turn on version management for objects in the bucket. All new objects added to the bucket get a unique version ID.
-* `Suspended`: Suspends version management for objects in the bucket. All new objects added to the bucket get `null` as the version ID.
+
+- `Enabled`: Turn on version management for objects in the bucket. All new objects added to the bucket get a unique version ID.
+- `Suspended`: Suspends version management for objects in the bucket. All new objects added to the bucket get `null` as the version ID.
 
 ## Request {#request}
 
-```http
+```
 PUT /{bucket}?versioning HTTP/1.1
 ```
 
 ### Path parameters {#path-parameters}
 
-Parameter | Description
---- | ---
-`bucket` | Bucket name.
+| Parameter | Description |
+| ----- | ----- |
+| `bucket` | Bucket name. |
 
 ### Query parameters {#request-params}
 
-Parameter | Description
---- | ---
-`versioning` | Required parameter that indicates the type of operation.
+| Parameter | Description |
+| ----- | ----- |
+| `versioning` | Required parameter that indicates the type of operation. |
 
 ### Data schema {#request-scheme}
 
@@ -33,9 +34,9 @@ Parameter | Description
 </VersioningConfiguration>
 ```
 
-Element | Description
---- | ---
-`Status` | Status of the bucket versioning option.<br>Type: String.<br>Possible values: `Enabled | Suspended`.
+| Element | Description |
+| ----- | ----- |
+| `Status` | Status of the bucket versioning option.<br/><br/>Type: String<br/>Possible values: `Enabled | Suspended` |
 
 ### Headers {#request-headers}
 
@@ -52,3 +53,4 @@ Responses can only contain [common response headers](../common-response-headers.
 For a list of possible responses, see [{#T}](../response-codes.md).
 
 A successful response does not contain any additional data.
+

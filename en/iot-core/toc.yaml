@@ -67,6 +67,8 @@ items:
         href: concepts/index.md
       - name: MQTT broker connection parameters
         href: concepts/mqtt-properties.md
+      - name: Sending messages to an MQTT broker via gRPC
+        href: concepts/mqtt-grpc.md
       - name: Topic
         href: concepts/topic.md
       - name: Backups

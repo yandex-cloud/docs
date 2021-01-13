@@ -2,13 +2,7 @@
 
 - Bash
 
-  **Перед подключением установите зависимости:**
-  
-  ```bash
-  cd ~/ && \
-  wget https://repo.mongodb.org/apt/ubuntu/dists/focal/mongodb-org/4.4/multiverse/binary-amd64/mongodb-org-shell_4.4.1_amd64.deb && \
-  sudo dpkg -i mongodb-org-shell_4.4.1_amd64.deb
-  ```
+  **Перед подключением установите [утилиту Mongo Shell](https://docs.mongodb.com/manual/mongo/#download-the-mongo-shell)**.
 
   Актуальные версии Mongo Shell можно найти [в разделе загрузок](https://www.mongodb.com/try/download/community) на сайте MongoDB.
 
@@ -216,7 +210,7 @@
   ```bash
   php connect.php
   ```
-
+  
 - Java
 
   **Перед подключением:**
@@ -405,7 +399,7 @@
   mvn clean package && \
   java -jar target/app-0.1.0-jar-with-dependencies.jar
   ```
-  
+
 - Node.js
 
   ```bash
@@ -489,7 +483,7 @@
   ```bash
   node app.js
   ```
-
+  
 - Go
   
   **Перед подключением установите зависимости:**
