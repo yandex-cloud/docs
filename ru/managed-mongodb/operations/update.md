@@ -6,7 +6,7 @@
 
 * [Увеличить размер хранилища](#change-disk-size) (доступно только для сетевого хранилища, `network-hdd` и `network-ssd`).
 
-* [Настроить серверы](#change-mongod-config) {{ MG }} согласно [документации {{ MG }}](https://docs.mongodb.com/v3.6/reference/configuration-options/).
+* [Настроить серверы](#change-mongod-config) {{ MG }} согласно [документации {{ MG }}](https://docs.mongodb.com/manual/reference/configuration-options/).
 
 * [Изменить дополнительные настройки кластера](#change-additional-settings).
 
@@ -74,7 +74,7 @@
 
 - API
 
-  Изменить [класс хостов](../concepts/instance-types.md) кластера можно с помощью метода API [update](../api-ref/Cluster/update.md): передайте в запросе нужные значения в параметре `configSpec.mongodbSpec_3_6.mongod.config.resourcePresetId`.
+  Изменить [класс хостов](../concepts/instance-types.md) кластера можно с помощью метода API [update](../api-ref/Cluster/update.md): передайте в запросе нужные значения в параметре `configSpec.mongodbSpec_4_2.mongod.resources.resourcePresetId`.
 
   Список поддерживаемых значений запрашивайте методом [list](../api-ref/ResourcePreset/list.md) для ресурсов `ResourcePreset`.
 
@@ -117,7 +117,7 @@
       folder_id: b1g0ftj57rrjk9thribv
       ...
       config:
-        mongodb_3_6:
+        mongodb_4_4:
           mongod:
             config:
               user_config: {}
@@ -139,7 +139,7 @@
 
 - API
 
-  Изменить размер хранилища для кластера можно с помощью метода API [update](../api-ref/Cluster/update.md): передайте в запросе нужные значения в параметре `configSpec.mongodbSpec_3_6.mongod.resources.diskSize`.
+  Изменить размер хранилища для кластера можно с помощью метода API [update](../api-ref/Cluster/update.md): передайте в запросе нужные значения в параметре `configSpec.mongodbSpec_4_2.mongod.resources.diskSize`.
 
   Проверьте, что в облаке хватает квоты на увеличение хранилища: откройте страницу [Квоты]({{ link-console-quotas }}) для вашего облака и проверьте, что в секции {{ mmg-full-name }} не исчерпано место в строке **space**.
 
@@ -163,7 +163,7 @@
   $ {{ yc-mdb-mg }} cluster update-config
   ```
 
-  Например, для установки значения параметра [net.maxIncomingConnections](https://docs.mongodb.com/v4.0/reference/configuration-options/#net.maxIncomingConnections) в `4096`, выполните следующую команду:
+  Например, для установки значения параметра [net.maxIncomingConnections](https://docs.mongodb.com/manual/reference/configuration-options/#net.maxIncomingConnections) в `4096`, выполните следующую команду:
 
   ```
   $ {{ yc-mdb-mg }} cluster update-config <имя кластера>
@@ -174,7 +174,7 @@
 
 - API
 
-  Изменить настройки СУБД для кластера можно с помощью метода API [update](../api-ref/Cluster/update.md): передайте в запросе нужные значения в параметре `configSpec.mongodbSpec_3_6.mongod.config.resourcePresetId`.
+  Изменить настройки СУБД для кластера можно с помощью метода API [update](../api-ref/Cluster/update.md): передайте в запросе нужные значения в параметре `configSpec.mongodbSpec_4_2.mongod.config`.
 
 {% endlist %}
 
