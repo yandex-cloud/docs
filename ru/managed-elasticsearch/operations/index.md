@@ -5,5 +5,4 @@
 - [{#T}](cluster-connect.md)
 - [{#T}](cluster-stop.md)
 - [{#T}](cluster-hosts.md)
-- [{#T}](cluster-logs.md)
 - [{#T}](cluster-delete.md)
