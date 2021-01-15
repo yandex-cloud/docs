@@ -5,7 +5,7 @@ To support companies in a difficult situation, we increased the amount of the in
   - Are a resident of the Russian Federation.
   - Have never purchased Yandex.Cloud services.
   - Have not activated the free trial before.
-  - Created your first billing account between April 1 and May 31, 2020, and selected the **Business or individual entrepreneur** payer type.
+  - Selected the **Business or individual entrepreneur** payer type in your billing account.
 
 {% endnote %}
 
