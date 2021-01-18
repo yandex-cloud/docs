@@ -10,22 +10,25 @@
 
 - Консоль управления
 
-    Чтобы изменить имя [функции](../../concepts/function.md):
-    1. Откройте раздел **{{ sf-name }}** в каталоге, где требуется изменить функцию.
-    1. В списке функций выберите функцию, которую необходимо изменить.
-    1. В открывшемся окне нажмите кнопку **Редактировать**.
+    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите изменить имя [функции](../../concepts/function.md).
+    1. Откройте сервис **{{ sf-name }}**.
+    1. Выберите функцию.
+    1. В правом верхнем углу нажмите кнопку **Редактировать**.
     1. В открывшемся окне укажите нужное имя функции.
     1. Нажмите кнопку **Сохранить**.
 
 - CLI
   
     {% include [cli-install](../../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
     
-    Измените имя функции:
-    
+    Чтобы изменить имя функции, выполните команду:
+
     ```
-    $ yc serverless function update <имя функции> --new-name <новое имя функции>
+    yc serverless function update <имя функции> --new-name <новое имя функции>
     ```
+
     Результат:
     ```    
     id: b097d9ous3gep99khe83
@@ -38,7 +41,11 @@
     http_invoke_url: https://functions.yandexcloud.net/b097d9ous3gep99khe83
     status: ACTIVE
   ```
-  
+
+- API
+
+    Изменить имя функции можно с помощью метода API [update](../../functions/api-ref/Function/update.md).
+
 {% endlist %}
 
 
@@ -48,23 +55,27 @@
 
 - Консоль управления
 
-    Чтобы изменить имя [функции](../../concepts/function.md):
-    1. Откройте раздел **{{ sf-name }}** в каталоге, где требуется изменить функцию.
-    1. В списке функций выберите функцию, которую необходимо изменить.
-    1. В открывшемся окне нажмите кнопку **Редактировать**.
+    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите изменить описание [функции](../../concepts/function.md).
+    1. Откройте сервис **{{ sf-name }}**.
+    1. Выберите функцию.
+    1. В правом верхнем углу нажмите кнопку **Редактировать**.
     1. В открывшемся окне укажите нужное описание функции.
     1. Нажмите кнопку **Сохранить**.        
     
 - CLI
   
     {% include [cli-install](../../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
     
-    Измените описание функции:
-    
+    Чтобы изменить описание функции, выполните команду:
+
     ```
-    $ yc serverless function update <имя функции> --description "<описание функции>"
+    yc serverless function update <имя функции> --description "<описание функции>"
     ```
+
     Результат:
+
     ```       
     id: b097d9ous3gep99khe83
     folder_id: aoek49ghmknnpj1ll45e
@@ -76,8 +87,12 @@
     log_group_id: eolv6578frac08uh5h6s
     http_invoke_url: https://functions.yandexcloud.net/b097d9ous3gep99khe83
     status: ACTIVE
-    ```
-  
+   ```
+
+- API
+
+    Изменить описание функции можно с помощью метода API [update](../../functions/api-ref/Function/update.md).
+
 {% endlist %}
 
 ## Управлять метками функции {#manage-label}
@@ -95,13 +110,17 @@
 - CLI
   
     {% include [cli-install](../../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
     
-    Добавьте метку функции:
-    
+    Чтобы добавить метку функции, выполните команду:
+
     ```
-    $ yc serverless function add-labels <имя функции> --labels <ключ>=<значение>
+    yc serverless function add-labels <имя функции> --labels <ключ>=<значение>
     ```
+
     Результат:
+
     ```     
     id: b097d9ous3gep99khe83
     folder_id: aoek49ghmknnpj1ll45e
@@ -116,6 +135,10 @@
     status: ACTIVE
     ```
 
+- API
+
+    Добавить метку функции можно с помощью метода API [update](../../functions/api-ref/Function/update.md).
+
 {% endlist %}
 
 ### Изменить метку {#update-label}
@@ -125,19 +148,23 @@
 - CLI
   
     {% include [cli-install](../../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
     
-    Измените метку функции:
+    Чтобы измените метку функции, выполните команду:
   
     {% note warning %}
     
     Существующий набор `labels` полностью перезаписывается набором, переданным в запросе.
     
     {% endnote %}
-  
+
     ```
-    $ yc serverless function update <имя функции> --labels <ключ>=<значение>
+    yc serverless function update <имя функции> --labels <ключ>=<значение>
     ```
+
     Результат:
+
     ```
     id: b097d9ous3gep99khe83
     folder_id: aoek49ghmknnpj1ll45e
@@ -149,7 +176,11 @@
     log_group_id: eolv6578frac08uh5h6s
     http_invoke_url: https://functions.yandexcloud.net/b097d9ous3gep99khe83
     ```
-  
+
+- API
+
+    Изменить метки функции можно с помощью метода API [update](../../functions/api-ref/Function/update.md).
+
 {% endlist %}
 
 ### Удалить метку {#remove-label}
@@ -159,13 +190,17 @@
 - CLI
   
     {% include [cli-install](../../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
     
-    Удалите метку функции:
-    
+    Чтобы удалить метку функции, выполните команду:
+
     ```
-    $ yc serverless function remove-labels <имя функции> --labels <ключ>
+    yc serverless function remove-labels <имя функции> --labels <ключ>
     ```
+
     Результат:
+
     ```
     id: b097d9ous3gep99khe83
     folder_id: aoek49ghmknnpj1ll45e
@@ -178,5 +213,9 @@
     http_invoke_url: https://functions.yandexcloud.net/b097d9ous3gep99khe83
     status: ACTIVE
     ```
-  
+
+- API
+
+    Удалить метку функции можно с помощью метода API [update](../../functions/api-ref/Function/update.md).
+
 {% endlist %}
