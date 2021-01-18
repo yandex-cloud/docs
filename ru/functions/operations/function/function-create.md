@@ -4,25 +4,29 @@
 
 - Консоль управления
 
-    1. В консоли управления выберите каталог, в котором будет создана функция.
-    1. Нажмите кнопку **Создать ресурс**.
-    1. Выберите **Функция**.
-    1. Введите имя функции.
-    
-        {% include [name-format](../../../_includes/name-format.md) %}
-    
-    1. Нажмите кнопку **Создать**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать функцию.
+  1. Откройте сервис **{{ sf-name }}**
+  1. Нажмите кнопку **Создать функцию**.
+  1. Введите имя и описание функции. Формат имени:
+
+      {% include [name-format](../../../_includes/name-format.md) %}
+
+  1. Нажмите кнопку **Создать**.
 
 - CLI
 
-    {% include [cli-install](../../../_includes/cli-install.md) %}    
+    {% include [cli-install](../../../_includes/cli-install.md) %}
 
-    Создайте функцию:
+    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+    Чтобы создать функцию, выполните команду:
 
     ```
-    $ yc serverless function create --name=<имя функции>
+    yc serverless function create --name=<имя функции>
     ```
+
     Результат:
+
     ```
     id: b09bhaokchn9pnbrlseb
     folder_id: aoek49ghmknnpj1ll45e
@@ -32,6 +36,10 @@
     http_invoke_url: https://functions.yandexcloud.net/b09bhaokchn9pnbrlseb
     status: ACTIVE
     ```
+
+- API
+
+    Создать функцию можно с помощью метода API [create](../../functions/api-ref/Function/create.md).
 
 - Terraform
 

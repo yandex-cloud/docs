@@ -23,10 +23,10 @@
 
 - Консоль управления
 
-  1. В консоли управления выберите каталог, в котором будет создана функция.
-  1. Нажмите кнопку **Создать ресурс**.
-  1. Выберите **Функция**.
-  1. Введите имя функции.
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать функцию.
+  1. Откройте сервис **{{ sf-name }}**
+  1. Нажмите кнопку **Создать функцию**.
+  1. Введите имя и описание функции. Формат имени:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
@@ -34,10 +34,19 @@
 
 - CLI
 
-  Создайте функцию с помощью команды:
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Чтобы создать функцию, выполните команду:
 
   ```
-  $ yc serverless function create --name=my-python-function
+  yc serverless function create --name=my-python-function
+  ```
+
+  Результат:
+
+  ```
   .done
   id: b09bhaokchn9pnbrlseb
   folder_id: aoek49ghmknnpj1ll45e
@@ -46,6 +55,10 @@
   log_group_id: eolm8aoq9vcppsieej6h
   http_invoke_url: https://functions.yandexcloud.net/b09bhaokchn9pnbrlseb
   ```
+
+- API
+
+  Создать функцию можно с помощью метода API [create](../functions/api-ref/Function/create.md).
 
 {% endlist %}
 
@@ -72,17 +85,17 @@
             'body': 'Hello, {}!'.format(name)
         }
     ```
+1. Добавьте файл `main.py` в ZIP-архив `hello-py.zip`.
 
 #### Создайте версию функции {#create-py-version}
-
-1. Добавьте файл `main.py` в ZIP-архив `hello-py.zip`.
 
 {% list tabs %}
 
 - Консоль управления
 
-  1. Откройте **{{ sf-name }}** в каталоге, где требуется создать [версию](../concepts/function.md#version) функции.
-  1. Выберите функцию, для которой необходимо создать версию.
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится функция.
+  1. Откройте сервис **{{ sf-name }}**
+  1. Выберите функцию, версию которой хотите создать.
   1. В разделе **Последняя версия** нажмите кнопку **Создать в редакторе**.
   1. Задайте параметры версии:
       - **Среда выполнения:** `python37`.
@@ -97,17 +110,34 @@
 
 - CLI
 
-  Создайте версию функции:
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Чтобы создайть версию функции, выполните команду:
 
   ```
-  $ yc serverless function version create \
-  --function-name=my-python-function \ # Имя функции.
-  --runtime python37 \ # Среда выполнения.
-  --entrypoint main.handler \ # Обработчик, указывается в формате <имя файла с функцией>.<имя обработчика>.
-  --memory 128m \ # Объем RAM.
-  --execution-timeout 5s \ # Максимальное время выполнения функции до таймаута.
-  --source-path ./hello-py.zip # ZIP-архив c кодом функции и всеми необходимыми зависимостями.
+  yc serverless function version create \
+  --function-name=my-python-function \
+  --runtime python37 \
+  --entrypoint main.handler \
+  --memory 128m \
+  --execution-timeout 5s \
+  --source-path ./hello-py.zip
   ```
+
+  где:
+
+  `--function-name` — имя функции.
+  `--runtime` — среда выполнения.
+  `--entrypoint` — точка входа, указывается в формате <имя файла с функцией>.<имя обработчика>.
+  `--memory` — объем RAM.
+  `--execution-timeout` — максимальное время выполнения функции до таймаута.
+  `--source-path` — ZIP-архив c кодом функции и необходимыми зависимостями.
+
+- API
+
+  Создать версию функции можно с помощью метода API [createVersion](../functions/api-ref/Function/createVersion.md).
 
 {% endlist %}
 
@@ -117,10 +147,10 @@
 
 - Консоль управления
 
-  1. В консоли управления выберите каталог, в котором будет создана функция.
-  1. Нажмите кнопку **Создать ресурс**.
-  1. Выберите **Функция**.
-  1. Введите имя функции.
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать функцию.
+  1. Откройте сервис **{{ sf-name }}**
+  1. Нажмите кнопку **Создать функцию**.
+  1. Введите имя и описание функции. Формат имени:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
@@ -128,10 +158,19 @@
 
 - CLI
 
-  Создайте функцию с помощью команды:
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Чтобы создать функцию, выполните команду:
 
   ```
-  $ yc serverless function create --name=my-nodejs-function
+  yc serverless function create --name=my-nodejs-function
+  ```
+
+  Результат:
+
+  ```
   ..........done
   id: b09hnm3nucbm1tk8dops
   folder_id: aoek49ghmknnpj1ll45e
@@ -141,6 +180,10 @@
   http_invoke_url: https://functions.yandexcloud.net/b09hnm3nucbm1tk8dops
   ```
 
+- API
+
+  Создать функцию можно с помощью метода API [create](../functions/api-ref/Function/create.md).
+
 {% endlist %}
 
 ### Создайте первую версию функции {#create-js-version}
@@ -149,27 +192,7 @@
 
 #### Подготовьте ZIP-архив с кодом функции {#create-js-zip}
 
-1. Сохраните следующий код в файл с названием `index.js`:
-
-    ```
-    exports.handler = async function (event, context) {
-        let name = 'World';
-        if (event.queryStringParameters && event.queryStringParameters.name) {
-            name = event.queryStringParameters.name
-        }
-        return {
-            'statusCode': 200,
-            'headers': {
-                'Content-Type': 'text/plain'
-            },
-            'isBase64Encoded': false,
-            'body': `Hello, ${name}!`
-        }
-    };
-
-    ```
-
-1. Добавьте файл `index.js` в ZIP-архив `hello-js.zip`.
+{% include [create-js-zip](../../_includes/functions/create-js-zip.md) %}
 
 #### Создайте версию функции {#create-js-func}
 
@@ -177,33 +200,70 @@
 
 - Консоль управления
 
-  1. Откройте **{{ sf-name }}** в каталоге, где требуется создать версию функции.
-  1. Выберите функцию, для которой необходимо создать версию.
-  1. В разделе **Последняя версия** нажмите кнопку **Создать в редакторе**.
-  1. Задайте параметры версии:
-      - **Среда выполнения:** `nodejs12`.
-      - **Таймаут, секунды:** 5.
-      - **Память:** 128 МБ.
-      - **Сервисный аккаунт:** Не выбрано.
-  1. Подготовьте код функции:
-      - **Способ:** ZIP-архив.
-      - **Файл:** `hello-js.zip`.
-      - **Точка входа:** `index.handler`.
-  1. Нажмите кнопку **Создать версию**.
+    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится функция.
+    1. Откройте сервис **{{ sf-name }}**.
+    1. Выберите функцию, версию которой хотите создать.
+    1. В разделе **Последняя версия** нажмите кнопку **Создать в редакторе**.
+    1. Задайте параметры версии:
+       - Среда выполнения: `nodejs`.
+       - Таймаут, с: 5.
+       - Память: 128 МБ.
+       - Сервисный аккаунт: Не выбрано.
+    1. Подготовьте код функции:
+       - Способ: ZIP-архив.
+       - Файл: `hello-js.zip`.
+       - Точка входа: `index.handler`.
+    1. Нажмите кнопку **Создать версию**.
 
 - CLI
 
-  Создайте версию функции:
+    {% include [cli-install](../../_includes/cli-install.md) %}
 
-  ```
-  $ yc serverless function version create \
-  --function-name=my-nodejs-function \ # Имя функции.
-  --runtime nodejs12 \ # Среда выполенения.
-  --entrypoint index.handler \ # Обработчик, указывается в формате <имя файла с функцией>.<имя обработчика>.
-  --memory 128m \ # Объем RAM.
-  --execution-timeout 5s \ # Максимальное время выполнения функции до таймаута.
-  --source-path ./hello-js.zip # ZIP-архив c кодом функции и всеми необходимыми зависимостями.
-  ```
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы создать версию функции, выполните команду:
+
+    ```
+    yc serverless function version create \
+    --function-name=my-nodejs-function \
+    --runtime nodejs12 \
+    --entrypoint index.handler \
+    --memory 128m \
+    --execution-timeout 5s \
+    --source-path ./hello-js.zip
+    ```
+
+    где:
+
+    `--function-name` — имя функции, версию которой вы хотите создать.
+    `--runtime` — среда выполенения.
+    `--entrypoint` — точка входа, указывается в формате <имя файла с функцией>.<имя обработчика>.
+    `--memory` — объем RAM.
+    `--execution-timeout` — максимальное время выполнения функции до таймаута.
+    `--source-path` — ZIP-архив c кодом функции и необходимыми зависимостями.
+
+    Результат:
+
+    ```
+    done (1s)
+    id: d4evvn8obisajd51plaq
+    function_id: d4elpv8pft639ku7k0u6
+    created_at: "2020-08-01T19:09:19.531Z"
+    runtime: nodejs12
+    entrypoint: index.handler
+    resources:
+    memory: "134217728"
+    execution_timeout: 5s
+    image_size: "4096"
+    status: ACTIVE
+    tags:
+    - $latest
+    log_group_id: ckg3qh8h363p40gmr9gn
+    ```
+
+- API
+
+    Создать версию функции можно с помощью метода API [createVersion](../../functions/functions/api-ref/Function/createVersion.md).
 
 {% endlist %}
 
@@ -215,10 +275,15 @@
 
 {% endnote %}
 
-Для обращения к функции используйте ее имя или уникальный идентификатор, которые можно узнать с помощью команды:
+Для обращения к функции используйте ее имя или уникальный идентификатор. Чтобы узнать их, выполните команду:
 
 ```
-$ yc serverless function list
+yc serverless function list
+```
+
+Результат:
+
+```
 +----------------------+--------------------+----------------------+
 |          ID          |        NAME        |      FOLDER ID       |
 +----------------------+--------------------+----------------------+
@@ -266,10 +331,14 @@ $ yc serverless function list
 
 - CLI
 
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
     Вызовите функцию, указав в параметре имя для приветствия:
 
     ```
-    $ yc serverless function invoke my-python-function -d '{"queryStringParameters": {"name": "Username"}}'
+    yc serverless function invoke my-python-function -d '{"queryStringParameters": {"name": "Username"}}'
     {"statusCode":200,"isBase64Encoded":false,"body":"{\"message\":\"Hello, Username!\"}"}
     ```
 
