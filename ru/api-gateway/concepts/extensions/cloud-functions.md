@@ -1,6 +1,6 @@
 # Расширение x-yc-apigateway-integration:cloud_functions
 
-Расширение `x-yc-apigateway-integration:cloud_functions` вызывает указанную функцию. В качестве входных данных функция получает информацию о HTTP-запросе, на выходе клиенту возвращается результат выполнения функции. Информация о запросе передается в том же формате, что и в текущей версии [HTTP-интеграции](../../../functions/concepts/function-invoke.md#http) при вызове функции с указанием параметра строки запроса `integration=raw`, который по большей части совместим с форматом AWS API Gateway.
+Расширение `x-yc-apigateway-integration:cloud_functions` вызывает указанную функцию. В качестве входных данных функция получает информацию о HTTP-запросе и значения параметров, указанных в спецификации, на выходе клиенту возвращается результат выполнения функции. Информация о запросе передается в том же формате, что и в текущей версии [HTTP-интеграции](../../../functions/concepts/function-invoke.md#http) при вызове функции с указанием параметра строки запроса `integration=raw`, который по большей части совместим с форматом AWS API Gateway. Значения параметров, указанных в спецификации, передаются в поле `params` параметра `data`.
 
 ## Поддерживаемые параметры {#parameters}
 
@@ -16,10 +16,37 @@
 
 Пример спецификации: 
 
-```(json)
-x-yc-apigateway-integration:
-  type: cloud_functions
-  function_id: b095c95icnvbuf4v755l
-  tag: stable
-  service_account_id: ajehfe41hhliq4n93q1g
+```
+/example/{ID}:
+    get:
+      summary: Get ID
+      operationId: getID
+      tags:
+        - example
+      parameters:
+        - name: ID
+          in: path
+          description: Return ID
+          required: true
+          schema:
+            type: string
+      x-yc-apigateway-integration:
+        type: cloud_functions
+        function_id: b095c95icnvbuf4v755l
+        tag: "$latest"
+        service_account_id: ajehfe41hhliq4n93q1g
+```
+
+Пример функции:
+
+```js
+exports.handler= async function (data, context) {
+    return {
+        'statusCode': 200,
+        'isBase64Encoded': false,
+        'body': JSON.stringify({
+            'petId': data.params.ID
+        }),
+    }
+};
 ```
