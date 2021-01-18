@@ -12,10 +12,25 @@
 
     {% include [create-folder](../_includes/create-folder.md) %}
 
-Подключаться к кластерам БД можно как изнутри, так и извне {{ yandex-cloud }}:
+1. Подключаться к кластерам БД можно как изнутри, так и извне {{ yandex-cloud }}:
+   - Чтобы подключиться изнутри {{ yandex-cloud }}, создайте виртуальную машину на основе [Linux](../compute/quickstart/quick-create-linux.md) или [Windows](../compute/quickstart/quick-create-windows.md) в той же сети, что и кластер БД.
+   - Чтобы подключиться к кластеру из интернета, запросите публичный доступ к хостам при создании кластера.
 
-1. Чтобы подключаться изнутри {{ yandex-cloud }}, создайте виртуальную машину в той же сети, что и кластер БД (на основе [Linux](../compute/quickstart/quick-create-linux.md) или [Windows](../compute/quickstart/quick-create-windows.md)).
-1. Чтобы подключаться к кластеру из интернета, запросите публичный доступ к хостам при создании кластера.
+   {% note info %}
+
+   Следующий шаг предполагает, что подключение к кластеру производится с ВМ на основе [Linux](../compute/quickstart/quick-create-linux.md).
+
+   {% endnote %}
+
+1. [Подключитесь](../compute/operations/vm-connect/ssh.md) к виртуальной машине по SSH.
+1. Установите зависимости и клиентское приложение `mssql-cli`:
+
+   ```bash
+   sudo apt update && \
+   sudo apt install python3-pip python-is-python3 && \
+   pip3 install mssql-cli && \
+   source ~/.profile
+   ```
 
 ## Создайте кластер {#cluster-create}
 
@@ -27,25 +42,38 @@
 
 ## Подключитесь к БД {#connect}
 
-1. [Создайте виртуальную машину Linux](../compute/quickstart/quick-create-linux.md) в той же [виртуальной сети](../vpc/concepts/network.md), что и кластер.
-1. [Подключитесь](../compute/operations/vm-connect/ssh.md) к виртуальной машине по SSH.
-1. Установите зависимости и клиентское приложение `mssql-cli`:
+1.  Для подключения к серверу БД получите SSL-сертификат:
 
-   ```bash
-   $ sudo apt update
-   $ sudo apt install python3-pip python-is-python3
-   $ pip3 install mssql-cli
-   $ source ~/.profile
-   ```
+      
+      1. Создайте каталог:
 
-1. Подключитесь к базе данных:
+         ```bash
+         $ mkdir ~/.mysql
+         ```
+
+      1. Получите сертификат:
+
+         ```bash
+         $ wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" -O ~/.mysql/root.crt
+         ```
+      
+      1. Настройте права доступа к сертификату:
+
+         ```
+         $ chmod 0600 ~/.mysql/root.crt
+         ```
+
+     
+
+1. Используйте для подключения команду `mssql-cli`:
 
    ```bash
    $ mssql-cli -U <имя пользователя> \
              -d <имя базы данных> \
              -S <FQDN хоста>,1433
    ```
-   После выполнения команды введите пароль пользователя для завершения процедуры подключения.
+
+1. После выполнения команды введите пароль пользователя для завершения процедуры подключения.
 
 ## Что дальше
 

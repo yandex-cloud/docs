@@ -17,6 +17,7 @@ _Коннектор_ — это драйвер для подключения и 
 - **MySQL**
 - **CSV-файл**
 - **MS SQL Server**
+- **Oracle Database**
 - **Metrica** (в режиме прямого доступа и через API)
 - **AppMetrica** (в режиме прямого доступа и через API)
 
@@ -34,6 +35,7 @@ _Коннектор_ — это драйвер для подключения и 
 - [{#T}](../operations/connection/create-mysql.md)
 - [{#T}](../operations/connection/create-postgresql.md)
 - [{#T}](../operations/connection/create-mssql-server.md)
+- [{#T}](../operations/connection/create-oracle.md)
 - [{#T}](../operations/connection/create-metrica-api.md)
 - [{#T}](../operations/connection/create-metrica-logs-api.md)
 - [{#T}](../operations/connection/create-appmetrica.md)

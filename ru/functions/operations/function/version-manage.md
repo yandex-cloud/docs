@@ -6,7 +6,8 @@
 - [Получить информацию о версии функции](version-manage.md#version-info)
     - [Получить список версий функции](version-manage.md#version-list)
     - [Получить подробную информацию о версии функции](version-manage.md#version-get)
-- [Управлять тегами версии](function-update.md#manage-tags)
+- [Добавить переменную окружения](version-manage.md#version-env)
+- [Управлять тегами версии](version-manage.md#manage-tags)
 
 Вы можете изменить код функции с помощью [редактора кода](function-editor.md).
 
@@ -28,41 +29,22 @@
 
 ### Подготовить ZIP-архив с кодом функции {#zip-archive}
 
-1. Сохраните следующий код в файл с названием `index.js`:
-
-    ```
-    exports.handler = async function (event, context) {
-        let name = 'World';
-        if (event.queryStringParameters && event.queryStringParameters.name) {
-            name = event.queryStringParameters.name
-        }
-        return {
-            'statusCode': 200,
-            'headers': {
-                'Content-Type': 'text/plain'
-            },
-            'isBase64Encoded': false,
-            'body': `Hello, ${name}!`
-        }
-    };
-    ```
-
-1. Добавьте файл `index.js` в ZIP-архив `hello-js.zip`.
+{% include [create-js-zip](../../../_includes/functions/create-js-zip.md) %}
 
 ### Создать версию функции {#version-create}
 
 При создании версии необходимо задать следующие параметры:
 - _Среда выполнения_ — предоставляет дополнительные библиотеки и переменные окружения, к которым можно получить доступ из кода функции. Соответствует языку программирования, на котором написана ваша функция.
-- _Точка входа_ — имя функции, которая будет вызываться в качестве обработчика. Подробнее об обработчике читайте в разделе [Модель программирования](../../concepts/function.md#programming-model).
+- _Точка входа_ — функция, которая будет вызываться в качестве обработчика. Подробнее об обработчике читайте в разделе [Модель программирования](../../concepts/function.md#programming-model).
 - _Таймаут_ — максимальное время выполнения функции, после которого сервис прервет выполнение, не дожидаясь ответа. Включает в себя время начальной инициализации при первом запуске.
 
 {% list tabs %}
 
 - Консоль управления
-    
-    Создайте версию функции: 
-    1. Откройте **{{ sf-name }}** в каталоге, где требуется создать версию функции.
-    1. Выберите функцию, для которой необходимо создать версию.
+
+    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится функция.
+    1. Откройте сервис **{{ sf-name }}**.
+    1. Выберите функцию, версию которой хотите создать.
     1. В разделе **Последняя версия** нажмите кнопку **Создать в редакторе**.
     1. Задайте параметры версии:
        - Среда выполнения: `nodejs`.
@@ -78,19 +60,32 @@
 - CLI
 
     {% include [cli-install](../../../_includes/cli-install.md) %}
-    
-    Создайте версию функции:
-    
+
+    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+    Чтобы создать версию функции, выполните команду:
+
     ```
-    $ yc serverless function version create \
-    --function-name=my-nodejs-function \ # Имя функции.
-    --runtime nodejs12 \ # Среда выполенения.
-    --entrypoint index.handler \ # Обработчик, указывается в формате <имя файла с функцией>.<имя обработчика>.
-    --memory 128m \ # Объем RAM.
-    --execution-timeout 5s \ # Максимальное время выполнения функции до таймаута.
-    --source-path ./hello-js.zip # ZIP-архив c кодом функции и всеми необходимыми зависимостями.    
+    yc serverless function version create \
+    --function-name=my-nodejs-function \
+    --runtime nodejs12 \
+    --entrypoint index.handler \
+    --memory 128m \
+    --execution-timeout 5s \
+    --source-path ./hello-js.zip
     ```
+
+    где:
+
+    `--function-name` — имя функции, версию которой вы хотите создать.
+    `--runtime` — среда выполенения.
+    `--entrypoint` — точка входа, указывается в формате <имя файла с функцией>.<имя обработчика>.
+    `--memory` — объем RAM.
+    `--execution-timeout` — максимальное время выполнения функции до таймаута.
+    `--source-path` — ZIP-архив c кодом функции и необходимыми зависимостями.
+
     Результат:
+
     ```
     done (1s)
     id: d4evvn8obisajd51plaq
@@ -107,6 +102,10 @@
     - $latest
     log_group_id: ckg3qh8h363p40gmr9gn
     ```
+
+- API
+
+    Создать версию функции можно с помощью метода API [createVersion](../../functions/api-ref/Function/createVersion.md).
 
 {% endlist %}
 
@@ -128,35 +127,59 @@
 
 - Консоль управления
     
-    1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ sf-name }}**.
-    1. Нажмите значок ![image](../../../_assets/vertical-ellipsis.svg) в строке функции, для версии которой вы хотите добавить переменную окружения.
-    1. Откройте раздел **Редактор**. 
-    1. В открывшемся окне в блоке **Параметры** добавьте переменную окружения в поле **Переменные окружения** и нажмите **Добавить переменную окружения**. Можно добавить несколько переменных.
-    1. Нажмите кнопку **Создать версию** в верхнем правом углу. Будет создана новая версия функции с указанными переменными окружения. 
+    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится функция.
+    1. Откройте сервис **{{ sf-name }}**.
+    1. Выберите функцию, для версии которой хотите добавить переменную окружения.
+    1. Перейдите на вкладку **Редактор**.
+    1. В открывшемся окне, в блоке **Параметры**, укажите переменную окружения и нажмите **Добавить переменную окружения**. Можно добавить несколько переменных окружения.
+    1. Нажмите кнопку **Создать версию**. Будет создана новая версия функции с указанными переменными окружения.
     
 - CLI
 
-    Выполните команду:
+    {% include [cli-install](../../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+    Чтобы добавить переменные окружения, выполните команду:
+
+    {% note warning %}
+
+    Если в прошлой версии уже были переменные окружения, они перезапишутся.
+
+    {% endnote %}
 
     ```
-    $ yc serverless function version create \
-    --function-name=<имя функции> \ # Имя функции.
-    --runtime <среда выполнения> \ # Среда выполнения.
-    --entrypoint <обработчик> \ # Обработчик, указывается в формате <имя файла с функцией>.<имя обработчика>.
-    --memory 128m \ # Объем RAM.
-    --execution-timeout 5s \ # Максимальное время выполнения функции до таймаута.
-    --source-version-id <идентификатор версии> \ # id версии, с которой копируем исполняемый код
-    --environment <переменные окружения> # Переменные окружения в формате key=value. Можно указать несколько пар через запятую
-    ```   
-    Если в прошлой версии уже были переменные окружения, эта команда их перезапишет.
+    yc serverless function version create \
+    --function-name=<имя функции> \
+    --runtime <среда выполнения> \
+    --entrypoint <точка входа> \
+    --memory 128m \
+    --execution-timeout 5s \
+    --source-version-id <идентификатор версии> \
+    --environment <переменные окружения>
+    ```
+
+    где:
+
+    `--function-name` — имя функции.
+    `--runtime` — среда выполнения.
+    `--entrypoint` — точка входа, указывается в формате <имя файла с функцией>.<имя обработчика>.
+    `--memory` — объем RAM.
+    `--execution-timeout` — максимальное время выполнения функции до таймаута.
+    `--source-version-id` — ID версии функции, код которой вы хотите скопировать.
+    `--environment` — переменные окружения в формате key=value. Можно указать несколько пар через запятую.
+
+- API
+
+    Добавить переменные окружения можно с помощью метода API [createVersion](../../functions/api-ref/Function/createVersion.md).
 
 {% end list %}
 
 ## Управлять тегами версии {#manage-tags}
 
-При создании новой версии, ей присваивается [тег](../../concepts/function.md#) по умолчанию — `$latest`. Вы можете [добавить](version-manage.md#set-tag) или [удалить](version-manage.md#remove-tag) тег версии.
+При создании новой версии ей присваивается [тег](../../concepts/function.md#) по умолчанию — `$latest`. Вы можете [добавить](version-manage.md#set-tag) или [удалить](version-manage.md#remove-tag) тег версии.
 
-Для обращения к версии функции используйте ее уникальный идентификатор. Как узнать уникальный идентификатор версии, читайте в пункте [Получить список версий функции](version-manage.md#version-list).
+Для обращения к версии функции используйте ее уникальный идентификатор. Как узнать уникальный идентификатор версии, читайте в разделе [Получить список версий функции](version-manage.md#version-list).
 
 ### Добавить тег {#set-tag}
 
@@ -166,12 +189,16 @@
 
     {% include [cli-install](../../../_includes/cli-install.md) %}
 
-    Добавьте тег версии:
+    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+    Чтобы добавить тег версии, выполните команду:
 
     ```
-    $ yc serverless function version set-tag --id <идентификатор версии> --tag <тег>
+    yc serverless function version set-tag --id <идентификатор версии> --tag <тег>
     ```
+
     Результат:
+
     ```
     id: b09ch6pmpohfc9sogj5f
     function_id: b097d9ous3gep99khe83
@@ -189,6 +216,10 @@
     log_group_id: eolv6578frac08uh5h6s
     ```
 
+- API
+
+    Добавить тег можно с помощью метода API [setTag](../../functions/api-ref/Function/setTag.md).
+
 {% endlist %}
 
 ### Удалить тег {#remove-tag}
@@ -199,12 +230,16 @@
 
     {% include [cli-install](../../../_includes/cli-install.md) %}
 
-    Удалите тег версии:
+    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+    Чтобы удалить тег версии, выполните команду:
 
     ```
-    $ yc serverless function version remove-tag --id <идентификатор версии> --tag <тег>
+    yc serverless function version remove-tag --id <идентификатор версии> --tag <тег>
     ```
+
     Результат:
+
     ```
     id: b09ch6pmpohfc9sogj5f
     function_id: b097d9ous3gep99khe83
@@ -220,5 +255,9 @@
     - beta
     log_group_id: eolv6578frac08uh5h6s
     ```
+
+- API
+
+    Удалить тег можно с помощью метода API [removeTag](../../functions/api-ref/Function/removeTag.md).
 
 {% endlist %}

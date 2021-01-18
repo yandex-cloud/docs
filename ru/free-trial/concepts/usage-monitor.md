@@ -2,8 +2,6 @@
 
 {% include [grant-amount](../_includes/grant-amount.md) %}
 
-{% include [extended-grant](../_includes/extended-grant.md) %}
-
 
 Вы можете использовать грант для оплаты услуг сервисов {{ yandex-cloud }}. [Условия использования гранта](usage-grant.md) различаются для личных и бизнес-аккаунтов.
 

@@ -20,7 +20,7 @@ Users can also request permission on their own via the request form. For more in
 Let you define user permissions in a {{ datalens-short-name }} instance:
 
 - `{{ roles-datalens-instances-user }}` — A {{ datalens-short-name }} user with the rights to create, read, and update objects based on [object permissions](#permissions).
-- `{{ roles-datalens-instances-admin }}` — The {{ datalens-short-name }} instance administrator. The role is automatically assigned to the instance creator. The administrator has `{{ roles-datalens-instances-user }}` permissions and can also change the pricing plan and purchase paid content in the Cloud Marketplace.
+- `{{ roles-datalens-instances-admin }}` — The {{ datalens-short-name }} instance administrator. The role is automatically assigned to the instance creator. The administrator has the `{{ roles-datalens-instances-user }}` rights and can also change the service plan and pay for the paid content in {{ marketplace-name }}.
 
 User roles are assigned in the {{ yandex-cloud }} console.
 
@@ -148,3 +148,4 @@ To get logs, you can contact [technical support]({{ link-console-support }}).
 - [{#T}](../operations/permission/revoke.md)
 - [{#T}](../operations/permission/request.md)
 - [{#T}](../operations/dataset/manage-row-level-security.md)
+

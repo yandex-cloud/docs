@@ -4,7 +4,7 @@
 
 {% note info %}
 
-{{ datalens-short-name }} Marketplace доступен на [специальной странице в {{ datalens-short-name }}]((https://datalens.yandex.ru/marketplace/)) и на странице [Yandex {{ marketplace-name }}](https://cloud.yandex.ru/marketplace?type=datalens) во вкладке **Анализ данных**.
+{{ datalens-short-name }} Marketplace доступен на [специальной странице в {{ datalens-short-name }}](https://datalens.yandex.ru/marketplace/) и на странице [Yandex {{ marketplace-name }}](https://cloud.yandex.ru/marketplace?type=datalens) во вкладке **Анализ данных**.
 
 {% endnote %} 
 

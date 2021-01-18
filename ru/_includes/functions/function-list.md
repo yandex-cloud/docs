@@ -12,7 +12,7 @@
 
     {% include [default-catalogue](../default-catalogue.md) %}
 
-	Получите список функций:
+	Чтобы получить список функций, выполните команду:
 
 	```
 	yc serverless function list

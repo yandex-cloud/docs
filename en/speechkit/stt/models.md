@@ -16,15 +16,108 @@ A recognition model is a model that is trained to recognize speech in a specific
     * The experimental version is available by the `general:rc` tag.
     * The previous version is available by the `general:deprecated` tag.
 
-    We recommend testing model versions using the `general:rc` tag and share your feedback with our support team.
-
     {% note info %}
 
     Versions available by the `general:deprecated` tag stop being supported when new models are released: we guarantee two weeks of support for the previous version after updating the version by the `general` tag.
 
     {% endnote %}
 
+    We recommend testing model versions using the `general:rc` tag and share your feedback with our support team.
+
+    For [long audio fragment recognition](transcribation.md), the following models are also available:
+    * The experimental improved model is available under the `hqa` tag.
+    * The delayed transcription model is available at a [special price](../pricing.md#prices-stt) under the `deferred-general` tag. This model assumes that audio is queued with a lower priority and processed at the least busy time, but within 24 hours.
+
+    {% note info %}
+
+    For recognition by the `deferred-general` tag, the same version of the model that is available under the `general` tag is used.
+
+    {% endnote %}
+
     ### Releases {#releases}
+
+    #### Release 14.12.20 {#1412}
+
+    Introducing a new version of the _Amati_ `hqa` model available now in transcription. The new model has fixed issues when silence was recognized instead of speech. In addition, text recognition from news and medicine subject domains has been improved.
+
+    The following models and versions are now available by tags.
+
+    In transcription:
+    * `hqa`: The _Amati_ version.
+    * `general:rc`: The _Zeno_ version.
+    * `general`: The _Zeno_ version.
+    * `general:deprecated`: The _Anaximander_ version.
+
+    In streaming and short audio recognition:
+    * `general:rc`: The _Zeno_ version.
+    * `general`: The _Zeno_ version.
+    * `general:deprecated`: The _Anaximander_ version.
+
+    #### Release 01.12.20 {#0112}
+
+    In streaming, transcription, and short audio recognition by the `general:rc` tag, a new version of the _Galen_ model is now available. The new version provides a significantly better basic quality of recognition and improved recognition of words related to COVID-19.
+
+    We invite you to join testing of the version. We'll be grateful for your feedback and comments.
+
+    The following models and versions are now available by tags.
+
+    In transcription:
+    * `hqa`: The _Stradivarius_ version.
+    * `general:rc`: The _Galen_ version.
+    * `general`: The _Zeno_ version.
+    * `general:deprecated`: The _Anaximander_ version.
+
+    In streaming and short audio recognition:
+    * `general:rc`: The _Galen_ version.
+    * `general`: The _Zeno_ version.
+    * `general:deprecated`: The _Anaximander_ version.
+
+    #### Release 24.11.20 {2411}
+
+    After successful testing, the _Zeno_ version becomes the main released version of the `general` model in streaming, transcription, and short audio recognition.
+
+    The following models and versions are now available by tags.
+
+    In transcription:
+    * `hqa`: The _Stradivarius_ version.
+    * `general:rc`: The _Zeno_ version.
+    * `general`: The _Zeno_ version.
+    * `general:deprecated`: The _Anaximander_ version.
+
+    In streaming and short audio recognition:
+    * `general:rc`: The _Zeno_ version.
+    * `general`: The _Zeno_ version.
+    * `general:deprecated`: The _Anaximander_ version.
+
+    #### Release 17.11.20 {#1711}
+
+    Updates in speech synthesis. A new version of the premium voice `alena` is available under the `alena` tag.
+
+    Major changes in this release: numerous corrections in the pronunciation of individual words.
+
+    #### Release 26.10.20 {#2610}
+
+    Introducing a new generation of recognition models. The new model is called `hqa` and so far available in transcription only. This model has a noticeably richer vocabulary, so recognition results are much better and more understandable to readers. The difference is especially noticeable with long audio fragment recognition.
+
+    The following versions are now available in transcription by tags:
+    * `hqa`: The _Stradivarius_ version.
+    * `general:rc`: The _Zeno_ version.
+    * `general`: The _Anaximander_ version.
+    * `general:deprecated`: The _Marcus Aurelius_.
+
+    The set of tags and versions for streaming and short audio recognition is the same as previously:
+    * `general:rc`: The _Zeno_ version.
+    * `general`: The _Anaximander_ version.
+    * `general:deprecated`: The _Marcus Aurelius_.
+
+    #### Release 12.10.20 {#1210}
+
+    New versions of the `general` model are now available for testing in streaming, transcription, and short audio recognition. The new version provides a significantly better basic quality of recognition.
+
+    The following versions are now available by tags:
+    * `general:rc`: The _Zeno_ version.
+    * `general`: The _Anaximander_ version.
+    * `general:deprecated`: The _Marcus Aurelius_.
 
     #### Release 18.08.20 {#1808}
 
@@ -36,7 +129,7 @@ A recognition model is a model that is trained to recognize speech in a specific
     The acoustic and language properties of the model have not changed.
 
     The list of available versions of the `general` model:
-    * `general:rc`: The _Anaximander_  version (updated).
+    * `general:rc`: The _Anaximander_ version (updated).
     * `general`: The _Anaximander_ version.
     * `general:deprecated`: The _Marcus Aurelius_ version.
 
@@ -56,7 +149,7 @@ A recognition model is a model that is trained to recognize speech in a specific
     New versions of the `general` model are now available in transcription and short audio recognition. For those types of recognition, the following versions are available with the tags:
     * `general:rc`: The _Anaximander_ version.
     * `general`: The _Marcus Aurelius_ version.
-    * `general:deprecated`: _Marcus Aurelius_.
+    * `general:deprecated`: The _Marcus Aurelius_.
 
     Three versions of the model are available for streaming speech recognition:
     * `general:rc`: The _Anaximander_ version.
@@ -120,3 +213,4 @@ A recognition model is a model that is trained to recognize speech in a specific
       * <q>Atatürk Bulvarı'na git</q>
 
 {% endlist %}
+

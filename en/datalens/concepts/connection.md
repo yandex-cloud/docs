@@ -20,6 +20,8 @@ The following types of connectors are available in {{ datalens-short-name }}:
 - **Metrica** (in direct or API access mode)
 - **AppMetrica** (in direct or API access mode)
 
+You can add additional connectors from the list of available ones in the [{{datalens-short-name }} Marketplace](marketplace.md).
+
 {% include [connection-note](../../_includes/datalens/datalens-connection-note.md) %}
 
 ## Access management {#access-management}

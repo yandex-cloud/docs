@@ -13,10 +13,37 @@
 
     {% include [create-folder](../_includes/create-folder.md) %}
 
-Подключаться к кластерам БД можно как изнутри, так и извне {{ yandex-cloud }}:
+1. Подключаться к кластерам БД можно как изнутри, так и извне {{ yandex-cloud }}:
+   - Чтобы подключиться изнутри {{ yandex-cloud }}, создайте виртуальную машину на основе [Linux](../compute/quickstart/quick-create-linux.md) или [Windows](../compute/quickstart/quick-create-windows.md) в той же сети, что и кластер БД.
+   - Чтобы подключиться к кластеру из интернета, запросите публичный доступ к хостам при создании кластера.
 
-1. Чтобы подключаться изнутри {{ yandex-cloud }}, создайте виртуальную машину в той же сети, что и кластер БД (на основе [Linux](../compute/quickstart/quick-create-linux.md) или [Windows](../compute/quickstart/quick-create-windows.md))
-1. Чтобы подключаться к кластеру из интернета, запросите публичный доступ к хостам при создании кластера.
+   {% note info %}
+
+   Следующие шаги предполагают, что подключение к кластеру производится с ВМ на основе [Linux](../compute/quickstart/quick-create-linux.md).
+
+   {% endnote %}
+
+1. [Подключитесь](../compute/operations/vm-connect/ssh.md) к виртуальной машине по SSH.
+1. Подключите [DEB-репозиторий](https://clickhouse.tech/docs/ru/getting-started/install/#install-from-deb-packages) {{ CH }}:
+
+   ```bash
+   sudo apt update && sudo apt install -y apt-transport-https ca-certificates dirmngr && \
+   sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv E0C56BD4 && \
+   echo "deb https://repo.clickhouse.tech/deb/stable/ main/" | sudo tee \
+   /etc/apt/sources.list.d/clickhouse.list
+   ```
+
+1. Установите зависимости и клиентское приложение `clickhouse-client`:
+     
+   ```bash
+   sudo apt update && sudo apt install -y clickhouse-client
+   ```
+
+1. Загрузите файл конфигурации для `clickhouse-client`:
+    
+   ```bash
+   mkdir -p ~/.clickhouse-client && wget "https://storage.yandexcloud.net/mdb/clickhouse-client.conf.example" -O ~/.clickhouse-client/config.xml
+   ```
 
 
 ## Создайте кластер {#cluster-create}

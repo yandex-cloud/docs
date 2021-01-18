@@ -25,16 +25,16 @@
   1. Посмотрите описание команд CLI для создания дисков:
   
       ```
-      $ yc compute disk create --help
+      yc compute disk create --help
       ```
   
   1. Создайте диск в каталоге по умолчанию:
   
       ```
-      $ yc compute disk create \
-          --name first-disk \
-          --size 10 \
-          --description "my first disk via yc"
+      yc compute disk create \
+         --name first-disk \
+         --size 10 \
+         --description "my first disk via yc"
       ```
   
       Данная команда создаст диск размером 10 ГБ с именем `first-disk` и описанием `my first disk via yc`.
@@ -48,7 +48,7 @@
       Получите тот же список c большим количеством деталей в формате YAML:
   
       ```
-      $ yc compute disk list --format yaml
+      yc compute disk list --format yaml
   
       - id: fhm4aq4hvq5g3nepvt9b
           folder_id: b1gm3og7ei7aegv8i73m

@@ -8,7 +8,7 @@ In this section, you'll learn:
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-## What resources you can assign roles to. {#resources}
+## What resources you can assign roles to {#resources}
 
 You can assign a role for a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), [folder](../../resource-manager/concepts/resources-hierarchy.md#folder), [registry](../concepts/registry.md), or [repository](../concepts/repository.md). These roles also apply to nested resources.
 
@@ -56,10 +56,11 @@ The table below lists the roles needed to perform a given action. You can always
 | **Manage resource access** |  |
 | [Assign](../../iam/operations/roles/grant.md), [revoke](../../iam/operations/roles/revoke.md), and view roles granted for the folder, cloud, or registry | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `admin` for the resource |
 
-#### What's next {what-is-next}
+#### What's next {#what-is-next}
 
-* [How to assign a role](../../iam/operations/roles/grant.md).
-* [How to revoke a role](../../iam/operations/roles/revoke.md).
+* [Assigning a role](../operations/roles/grant.md).
+* [Viewing assigned roles](../operations/roles/get-assigned-roles.md).
+* [Revoking a role](../operations/roles/revoke.md).
 * [Learn more about access management in {{ yandex-cloud }}](../../iam/concepts/access-control/index.md).
 * [For more information about role inheritance](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
 

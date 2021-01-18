@@ -107,7 +107,7 @@
 #### {{ managed-k8s-name }} {#k8s}
 
 * Команда `yc managed-kubernetes cluster create`.
-  Добавлены флаги `--cluster-ipv6-range`, `--dual-stack` и `--service-ipv6-range`, которые позволяют создавать кластера {{ k8s }} с параллельным использование IPv4 и IPv6.
+  Добавлены флаги `--cluster-ipv6-range`, `--dual-stack` и `--service-ipv6-range`, которые позволяют создавать кластеры {{ k8s }} с параллельным использованием IPv4 и IPv6.
 
 * Команды `yc managed-kubernetes cluster create` и `yc managed-kubernetes cluster update`.
   Добавлен флаг `--security-group-ids`, который устанавливает для кластера группу безопасности.
@@ -198,7 +198,7 @@
 
 #### Сервисы управляемых баз данных {#managed-db}
 
-* Команда `yc <имя сервиса управляемой БД> cluster list-logs` для всех управляемы БД использует новые методы API `StreamLogs` для стриминга логов.
+* Команда `yc <имя сервиса управляемой БД> cluster list-logs` для всех управляемых БД использует новые методы API `StreamLogs` для стриминга логов.
 
     Всем командам добавлен флаг `--follow`, позволяющий получать новые записи логов по мере их появления.
 

@@ -13,10 +13,24 @@
 
     {% include [create-folder](../_includes/create-folder.md) %}
 
-Подключаться к кластерам БД можно как изнутри, так и извне {{ yandex-cloud }}:
+1. Подключаться к кластерам БД можно как изнутри, так и извне {{ yandex-cloud }}:
+   - Чтобы подключиться изнутри {{ yandex-cloud }}, создайте виртуальную машину на основе [Linux](../compute/quickstart/quick-create-linux.md) или [Windows](../compute/quickstart/quick-create-windows.md) в той же сети, что и кластер БД.
+   - Чтобы подключиться к кластеру из интернета, запросите публичный доступ к хостам при создании кластера.
 
-1. Чтобы подключаться изнутри {{ yandex-cloud }}, создайте виртуальную машину в той же сети, что и кластер БД (на основе [Linux](../compute/quickstart/quick-create-linux.md) или [Windows](../compute/quickstart/quick-create-windows.md))
-1. Чтобы подключаться к кластеру из интернета, запросите публичный доступ к хостам при создании кластера.
+   {% note info %}
+
+   Следующий шаг предполагает, что подключение к кластеру производится с ВМ на основе [Linux](../compute/quickstart/quick-create-linux.md).
+
+   {% endnote %}
+
+1. [Подключитесь](../compute/operations/vm-connect/ssh.md) к виртуальной машине по SSH.
+1. Установите MongoDB Shell:
+
+   ```bash
+   cd ~/ && \
+   wget https://repo.mongodb.org/apt/ubuntu/dists/focal/mongodb-org/4.4/multiverse/binary-amd64/mongodb-org-shell_4.4.1_amd64.deb && \
+   sudo dpkg -i mongodb-org-shell_4.4.1_amd64.deb
+   ```
 
 
 ## Создайте кластер {#cluster-create}

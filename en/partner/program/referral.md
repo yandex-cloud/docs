@@ -1,11 +1,5 @@
 # Referral program
 
-{% note alert %}
-
-The official launch of the referral program is October 1, 2020.
-
-{% endnote %}
-
 _A referral program_ is a program for attracting new {{ yandex-cloud }} customers by distributing referral links. These links contain a unique sequence of characters to identify a partner. The partner who attracted a customer receives a percentage of the amount that the customer pays for resource consumption.
 
 Program participants:
@@ -49,13 +43,19 @@ To get the status of referral partner, make sure your billing account meets the 
 The following users are considered under the referral program:
 
 * New users.
-A user is considered new if they had not previously signed up for {{ yandex-cloud }}.
+  A user is considered new if they had not previously signed up for {{ yandex-cloud }}.
 * Users who have been inactive for more than 32 days.
-A user is considered inactive if their account status was `SUSPENDED` and they didn't consume any service resources for more than 32 days.
+  A user is considered inactive if their account status was `SUSPENDED` and they didn't consume any service resources for more than 32 days.
 
 A referrer will get a bonus, provided that a referral:
 
 1. Follows the referral link and signs up for {{ yandex-cloud }}.
+
+    Specifics of signup by referral link:
+    * If the user closes the browser and then re-opens the same link, the signup is accepted. However, if the user opens the URL without using the referral link, the signup isn't accepted.
+    * If the user leaves out some information during registration (a phone number or email address in Yandex.Passport), the signup will be accepted only after the user has entered the missing information and resumes registration in {{ yandex-cloud }}.
+    * If the user closes the tab and opens the console without using the referral link (for example, https://console.cloud.yandex.com/), the signup isn't accepted.
+
 1. Gives their consent to show information about their consumption of resources to the referrer within 12 months.
 The referrer only sees the total consumption of the referral. This is necessary to ensure the transparency of awarding bonuses.
 
@@ -79,8 +79,9 @@ A bonus is awarded once a month when {{ yandex-cloud }} receives payment for res
 
 The minimum amount to withdraw a bonus is ₽500. There are two ways to get your bonus:
 
-1. Transfer the bonus amount to your account.
-This service is subject to VAT, and you'll receive the required documents at the end of each month. You can withdraw your bonus as many times as you like and whenever you like. Closing documents will be issued at the end of the month for the entire amount of funds withdrawn.
+1. A reward is defined as 10% the sales amount to referrals, including VAT.
+   If you apply the general tax system, the calculated reward will include VAT at the rate of 20%. You'll be given an invoice and a report with the VAT amount as a separate item so that you pay VAT to the budget.
+   If you apply the simplified tax system, the reward isn't subject to VAT.
 1. Transfer the bonus amount to a [grant](../../billing/concepts/bonus-account.md) and use it to pay for {{ yandex-cloud }} services.
 
 You can choose how to receive your bonus in the [partner portal]({{ link-cloud-partners }}).

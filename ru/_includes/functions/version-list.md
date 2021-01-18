@@ -14,7 +14,7 @@
 
     {% include [default-catalogue](../default-catalogue.md) %}
 
-    Получите список версий функции:
+    Чтобы получить список версий функции, выполните команду:
 
     ```
     yc serverless function version list --function-name <имя функции>

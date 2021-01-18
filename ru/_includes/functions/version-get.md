@@ -14,9 +14,9 @@
 
     {% include [default-catalogue](../default-catalogue.md) %}
 
-    Получите подробную информацию о версии функции по:
+    Чтобы получить подробную информацию о версии функции по:
 
-    * `ID`:
+    * `ID`, выполните команду:
         ```
         yc serverless function version get <идентификатор версии>
         ```
@@ -37,7 +37,7 @@
         log_group_id: eolv6578frac08uh5h6s
         ```
 
-    * `TAGS`:
+    * `TAGS`, выполните команду:
         ```
         yc serverless function version get-by-tag --function-name <имя функции> --tag <тег>
         ```

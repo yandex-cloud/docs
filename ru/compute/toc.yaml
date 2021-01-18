@@ -97,6 +97,8 @@ items:
         items:
           - name: Создать пустой диcк
             href: operations/disk-create/empty.md
+          - name: Создать пустой диск с блоком большого размера
+            href: operations/disk-create/empty-disk-blocksize.md
       - name: Управление диском
         items:
           - name: Создать снимок диска

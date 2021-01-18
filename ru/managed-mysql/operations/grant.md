@@ -118,6 +118,7 @@
   - `INDEX` — позволяет создавать и удалять индексы у существующих в базе данных таблиц.
   - `INSERT` — позволяет вставлять записи в пользовательские таблицы в базе данных.
   - `LOCK_TABLES` — позволяет явно использовать оператор `LOCK_TABLES` для создания блокировок на таблицы в базе данных.
+  - `PROCESS` — позволяет использовать оператор `SHOW PROCESSLIST` и просматривать статус систем хранения данных (например, `SHOW ENGINE INNODB STATUS`). Кроме того, в {{ mmy-name }} эта роль предоставляет право на чтение таблиц системных баз данных [mysql](https://dev.mysql.com/doc/refman/8.0/en/system-schema.html), [performance_schema](https://dev.mysql.com/doc/refman/8.0/en/performance-schema.html), [sys](https://dev.mysql.com/doc/refman/8.0/en/sys-schema.html).
   - `SELECT` — позволяет читать данные из таблиц в базе данных.
   - `SHOW_VIEW` — позволяет использовать оператор `SHOW CREATE VIEW`.
   - `TRIGGER` — позволяет создавать, удалять, исполнять или отображать триггеры у существующих в базе данных таблиц.

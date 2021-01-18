@@ -198,7 +198,7 @@ func Greet(ctx context.Context, request []byte) (*Response, error) {
     return nil, fmt.Errorf("an error has occurred when parsing request: %v", err)
   }
 
-  // В журнале будет напечатано название HTTP-метода, с помощью которого осуществлен запрос, а так же тело запроса
+  // В журнале будет напечатано название HTTP-метода, с помощью которого осуществлен запрос, а также тело запроса
   fmt.Println(requestBody.HttpMethod, string(requestBody.Body))
 
   req := &Request{}

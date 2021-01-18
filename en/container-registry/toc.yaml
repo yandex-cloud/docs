@@ -47,8 +47,22 @@ items:
             href: operations/lifecycle-policy/lifecycle-policy-dry-run.md
           - name: Deleting a lifecycle policy
             href: operations/lifecycle-policy/lifecycle-policy-delete.md
+      - name: Working with roles
+        items:
+          - name: Assign a role
+            href: operations/roles/grant.md
+          - name: Viewing assigned roles
+            href: operations/roles/get-assigned-roles.md
+          - name: Revoke a role
+            href: operations/roles/revoke.md
   - name: Yandex Container Solution
     href: ../cos/
+  - name: Use cases
+    items:
+      - name: All use cases
+        href: solutions/index.md
+      - name: Running a Docker image on a VM
+        href: solutions/run-docker-on-vm.md
   - name: Concepts
     items:
       - name: Overview
@@ -65,12 +79,6 @@ items:
         href: concepts/backup.md
       - name: Quotas and limits
         href: concepts/limits.md
-  - name: Use cases
-    items:
-      - name: All use cases
-        href: solutions/index.md
-      - name: Running a Docker image on a VM
-        href: solutions/run-docker-on-vm.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy
