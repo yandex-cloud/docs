@@ -4,8 +4,6 @@
 
 Starting September 2, 2019, the initial grant terms of use differ for individual and business accounts.
 
-{% include [extended-grant](../_includes/extended-grant.md) %}
-
 ## Individual account
 
 The grant is provisionally divided into two parts and distributed among services as follows:
