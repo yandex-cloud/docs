@@ -12,7 +12,7 @@
   mongo --norc \
         --tls \
         --tlsCAFile /home/<домашняя директория>/.mongodb/root.crt \
-        --host '<имя набора реплик>/<FQDN хоста 1 MONGOINFRA или MONGOS>:27017,...,FQDN хоста N MONGOINFRA или MONGOS>:27017' \
+        --host '<FQDN хоста 1 MONGOINFRA или MONGOS>:27017,...,FQDN хоста N MONGOINFRA или MONGOS>:27017' \
         -u <имя пользователя БД> \
         <имя БД>
   ```
@@ -23,7 +23,7 @@
   mongo --norc \
         --ssl \
         --sslCAFile /home/<домашняя директория>/.mongodb/root.crt \
-        --host '<имя набора реплик>/<FQDN хоста 1 MONGOINFRA или MONGOS>:27017,...,FQDN хоста N MONGOINFRA или MONGOS>:27017' \
+        --host '<FQDN хоста 1 MONGOINFRA или MONGOS>:27017,...,FQDN хоста N MONGOINFRA или MONGOS>:27017' \
         -u <имя пользователя БД> \
         <имя БД>
   ```
@@ -59,7 +59,6 @@
   from urllib.parse import quote_plus as quote
 
   CACERT = '/home/<домашняя директория>/.mongodb/root.crt'
-  DB_RS = '<имя набора реплик>'
   DB_NAME = '<имя БД>'
   DB_HOSTS =','.join([
         '<FQDN хоста 1 MONGOINFRA или MONGOS>:27017',
@@ -69,10 +68,9 @@
   DB_USER = '<имя пользователя БД>'
   DB_PASS = '<пароль пользователя БД>'
 
-  url = 'mongodb://{user}:{pw}@{hosts}/?replicaSet={rs}&authSource={auth_src}'.format(
+  url = 'mongodb://{user}:{pw}@{hosts}/?authSource={auth_src}'.format(
             user = quote(DB_USER),
             pw = quote(DB_PASS),
-            rs = DB_RS,
             hosts = DB_HOSTS,
             auth_src = DB_NAME)
 
@@ -95,7 +93,6 @@
   import pymongo
   from urllib.parse import quote_plus as quote
 
-  DB_RS = '<имя набора реплик>'
   DB_NAME = '<имя БД>'
   DB_HOSTS =','.join([
         '<FQDN хоста 1 MONGOINFRA или MONGOS>:27017',
@@ -105,10 +102,9 @@
   DB_USER = '<имя пользователя БД>'
   DB_PASS = '<пароль пользователя БД>'
 
-  url = 'mongodb://{user}:{pw}@{hosts}/?replicaSet={rs}&authSource={auth_src}'.format(
+  url = 'mongodb://{user}:{pw}@{hosts}/?authSource={auth_src}'.format(
             user = quote(DB_USER),
             pw = quote(DB_PASS),
-            rs = DB_RS,
             hosts = DB_HOSTS,
             auth_src = DB_NAME)
 
@@ -139,7 +135,6 @@
   `connect.php`
   ```php
   <?php
-    $DB_RS    = '<имя набора реплик>';
     $DB_NAME  = '<имя БД>';
     $DB_HOSTS = '<FQDN хоста 1 MONGOINFRA или MONGOS>:27017,...,<FQDN хоста N MONGOINFRA или MONGOS>:27017'; 
     $DB_USER  = '<имя пользователя БД>';
@@ -147,12 +142,11 @@
     $CACERT   = '/home/<домашняя директория>/.mongodb/root.crt';
 
     $uri = sprintf(
-        'mongodb://%s:%s@%s/%s?replicaSet=%s',
+        'mongodb://%s:%s@%s/%s',
         $DB_USER,
         $DB_PASS,
         $DB_HOSTS,
-        $DB_NAME,
-        $DB_RS
+        $DB_NAME
     );
 
     $conn = new \MongoDB\Driver\Manager($uri, ["tls" => "true", "tlsCAFile" => $CACERT], []);
@@ -162,7 +156,7 @@
         $cursor = $conn->executeCommand($DB_NAME, $command);
           $response = $cursor->toArray()[0];
     } catch(MongoDB\Driver\Exception $ex) {
-        echo $ex->getMessage()";
+        echo "$ex->getMessage()";
         exit;
     }
 
@@ -175,19 +169,17 @@
   `connect.php`
   ```php
   <?php
-    $DB_RS    = '<имя набора реплик>';
     $DB_NAME  = '<имя БД>';
     $DB_HOSTS = '<FQDN хоста 1 MONGOINFRA или MONGOS>:27017,...,<FQDN хоста N MONGOINFRA или MONGOS>:27017'; 
     $DB_USER  = '<имя пользователя БД>';
     $DB_PASS  = '<пароль пользователя БД>';
 
     $uri = sprintf(
-        'mongodb://%s:%s@%s/%s?replicaSet=%s',
+        'mongodb://%s:%s@%s/%s',
         $DB_USER,
         $DB_PASS,
         $DB_HOSTS,
-        $DB_NAME,
-        $DB_RS
+        $DB_NAME
     );
 
     $conn = new \MongoDB\Driver\Manager($uri);
@@ -197,7 +189,7 @@
         $cursor = $conn->executeCommand($DB_NAME, $command);
         $response = $cursor->toArray()[0];
     } catch(MongoDB\Driver\Exception $ex) {
-        echo $ex->getMessage()";
+        echo "$ex->getMessage()";
         exit;
     }
 
@@ -414,7 +406,6 @@
   const util = require('util');
   const MongoClient = require('mongodb').MongoClient;
 
-  const DB_RS = '<имя набора реплик>'
   const DB_NAME = '<имя БД>'
   const DB_HOSTS = ['<FQDN хоста 1 MONGOINFRA или MONGOS>:27017',
                     ... 
@@ -430,7 +421,6 @@
     useUnifiedTopology: true,
     tls: true,
     tlsCAFile: CACERT,
-    replicaSet: DB_RS,
     authSource: DB_NAME
   }
 
@@ -451,7 +441,6 @@
   const util = require('util');
   const MongoClient = require('mongodb').MongoClient;
 
-  const DB_RS = '<имя набора реплик>'
   const DB_NAME = '<имя БД>'
   const DB_HOSTS = ['<FQDN хоста 1 MONGOINFRA или MONGOS>:27018',
                     ... 
@@ -464,7 +453,6 @@
   const options = {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    replicaSet: DB_RS,
     authSource: DB_NAME
   }
 
@@ -509,7 +497,6 @@
 
   func main() {
 
-        const DB_RS = "<имя набора реплик>"
         const DB_NAME = "<имя БД>"
         DB_HOSTS := []string {"<FQDN хоста 1 MONGOINFRA или MONGOS>:27017",
                               ... 
@@ -519,12 +506,11 @@
 
         const CACERT = "/home/<домашняя директория>/.mongodb/root.crt"
 
-        url := fmt.Sprintf("mongodb://%s:%s@%s/%s?replicaSet=%s&tls=true&tlsCaFile=%s",
+        url := fmt.Sprintf("mongodb://%s:%s@%s/%s?tls=true&tlsCaFile=%s",
                 DB_USER,
                 DB_PASS,
                 strings.Join(DB_HOSTS, ","),
                 DB_NAME,
-                DB_RS,
                 CACERT)
 
         conn, err := mongo.Connect(context.Background(), options.Client().ApplyURI(url))
@@ -554,7 +540,6 @@
 
   func main() {
 
-        const DB_RS = "<имя набора реплик>"
         const DB_NAME = "<имя БД>"
         DB_HOSTS := []string {"<FQDN хоста 1 MONGOINFRA или MONGOS>:27017",
                               ... 
@@ -562,12 +547,11 @@
         const DB_USER = "<имя пользователя БД>"
         const DB_PASS = "<пароль пользователя БД>"
 
-        url := fmt.Sprintf("mongodb://%s:%s@%s/%s?replicaSet=%s&tls=false",
+        url := fmt.Sprintf("mongodb://%s:%s@%s/%s?tls=false",
                 DB_USER,
                 DB_PASS,
                 strings.Join(DB_HOSTS, ","),
-                DB_NAME,
-                DB_RS)
+                DB_NAME)
 
         conn, err := mongo.Connect(context.Background(), options.Client().ApplyURI(url))
         if err != nil {

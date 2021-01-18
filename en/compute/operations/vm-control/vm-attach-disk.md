@@ -136,15 +136,70 @@ To use the attached disk:
 
 {% endlist %}
 
-## Partition and mount an empty disk on Linux {#mount}
+## Partitioning and mounting an empty disk {#mount}
 
 To partition and mount an empty disk yourself:
 
-1. Run the `lsblk` command to check whether the disk is connected as a device and get its path in the system.  An empty disk is usually labeled `/dev/vdb`.
+{% list tabs %}
 
-1. Partition your disk. To do this, create [partitions](https://help.ubuntu.com/stable/ubuntu-help/disk-partitions.html.en) on the disk using the [cfdisk](https://manpages.ubuntu.com/manpages/xenial/en/man8/cfdisk.8.html), `fdisk`, or `parted` utilities. Format the disk for the appropriate file system. For example, you can use the [mkfs](https://manpages.ubuntu.com/manpages/xenial/man8/mkfs.8.html) utility.
+- Linux
 
-1. {% include [include](../../../_includes/compute/mount-disk.md) %}
+  1. Check if the disk is attached as a device and get its path in the system:
 
-1. Run the `df` command to check the state of the file system.
+      ```bash
+      lsblk
+      ```
 
+      Command execution result:
+
+      ```
+      NAME   MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
+      vda    252:0    0  13G  0 disk
+      ├─vda1 252:1    0   1M  0 part
+      └─vda2 252:2    0  13G  0 part /
+      vdb    252:16   0   1G  0 disk
+      ```
+
+      An empty disk is usually labeled /dev/vdb.
+
+  1. Partition your disk. To do  this, create [partitions](https://help.ubuntu.com/stable/ubuntu-help/disk-partitions.html.en) using [cfdisk](https://manpages.ubuntu.com/manpages/xenial/en/man8/cfdisk.8.html), [fdisk](https://manpages.ubuntu.com/manpages/xenial/en/man8/fdisk.8.html), or [parted](https://manpages.ubuntu.com/manpages/xenial/en/man8/parted.8.html).
+
+  1. Format the disk for the appropriate file system. For example, you can use the [mkfs](https://manpages.ubuntu.com/manpages/xenial/en/man8/mkfs.8.html) utility.
+
+  1. {% include [include](../../../_includes/compute/mount-disk.md) %}
+
+  1. Check the file system status:
+
+      ```bash
+      df
+      ```
+
+      Command execution result:
+
+      ```
+      Filesystem     1K-blocks    Used Available Use% Mounted on
+      udev              989424       0    989424   0% /dev
+      tmpfs             203524     816    202708   1% /run
+      /dev/vda2       13354932 2754792  10015688  22% /
+      tmpfs            1017608       0   1017608   0% /dev/shm
+      tmpfs               5120       0      5120   0% /run/lock
+      tmpfs            1017608       0   1017608   0% /sys/fs/cgroup
+      tmpfs             203520       0    203520   0% /run/user/1000
+      /dev/vdb2         523260    3080    520180   1% /mnt
+      ```
+
+- Windows
+
+  1. Run the **Computer Management** tool as an administrator.
+
+  1. Under **Storage**, select **Disk Management**.
+
+  1. Initialize the disk. To do this, right-click on the empty disk and select **Initialize Disk**. This opens the **Initialize Disk** dialog.
+
+  1. Select a [partition style](https://docs.microsoft.com/en-us/windows-server/storage/disk-management/initialize-new-disks#about-partition-styles---gpt-and-mbr) and click **ОК**.
+
+  1. Create partitions on the disk. To do this, right-click on the empty disk and select **New Simple Volume**.
+
+  1. Use the **New Simple Volume Wizard** to set the desired partition size, [assign a drive letter](https://docs.microsoft.com/windows-server/storage/disk-management/change-a-drive-letter), and specify the file system type.
+
+{% endlist %}

@@ -6,19 +6,21 @@
 
 {% list tabs %}
 
+  
+
 - CLI
 
   {% include [cli-install](../../_includes/cli-install.md) %}
-  
+
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-  
+
   Чтобы получить список групп шардов в кластере, выполните команду:
-  
+
   ```
   $ yc managed-clickhouse shard-groups list
        --cluster-name=<имя кластера>
   ```
-  
+
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 - API
@@ -29,19 +31,20 @@
 
 {% endlist %}
 
-
 ## Получить детальную информацию о группе шардов {#get-shard-group}
 
 {% list tabs %}
 
+  
+
 - CLI
 
   {% include [cli-install](../../_includes/cli-install.md) %}
-  
+
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-  
+
   Чтобы получить детальную информацию о группе шардов в кластере, выполните команду:
-  
+
   ```
   $ yc managed-clickhouse shard-groups get
        --cluster-name=<имя кластера>
@@ -58,19 +61,20 @@
 
 {% endlist %}
 
-
 ## Создать группу шардов {#create-shard-group}
 
 {% list tabs %}
 
+  
+
 - CLI
 
   {% include [cli-install](../../_includes/cli-install.md) %}
-  
+
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-  
+
   Чтобы создать группу шардов в кластере, выполните команду:
-  
+
   ```
   $ yc managed-clickhouse shard-groups create
        --cluster-name=<имя кластера>
@@ -78,7 +82,7 @@
        --description=<описание группы шардов>
        --shards=<список имен шардов, которые нужно включить в группу>
   ```
-  
+
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
   Имена шардов можно запросить со [списком шардов в кластере](shards.md#list-shards).
@@ -93,17 +97,18 @@
 
 {% endlist %}
 
-
 ## Изменить группу шардов {#update-shard-group}
 
 {% list tabs %}
 
+  
+
 - CLI
 
   {% include [cli-install](../../_includes/cli-install.md) %}
-  
+
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-  
+
   Чтобы изменить группу шардов в кластере, выполните команду:
 
   ```
@@ -117,9 +122,9 @@
   Эта команда заменяет существующий список шардов в группе новым, который был передан команде в параметре `--shards`. Перед выполнением команды убедитесь, что вы включили в новый список все необходимые шарды.
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
-  
+
   Имя группы шардов можно запросить со [списком групп шардов в кластере](#list-shard-groups).
-  
+
   Имена шардов можно запросить со [списком шардов в кластере](shards.md#list-shards).
 
 - API
@@ -136,17 +141,19 @@
 ## Удалить группу шардов {#delete-shard-group}
 
 Удаление группы шардов не затрагивает входящие в нее шарды — они остаются в кластере.
-  
+
 Таблицы, созданные поверх удаляемой группы, остаются, но становятся неработоспособными: попытки выполнить запрос к ним приведут к ошибкам. Однако такие таблицы можно удалить до или после удаления группы шардов.
 
 {% list tabs %}
 
+  
+
 - CLI
 
   {% include [cli-install](../../_includes/cli-install.md) %}
-  
+
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-  
+
   Чтобы удалить группу шардов в кластере, выполните команду:
 
   ```
@@ -155,9 +162,9 @@
        --name=<имя группы шардов>
   ```
 
-  Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters). 
+  Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-  Имя группы шардов можно запросить со [списком групп шардов в кластере](#list-shard-groups).  
+  Имя группы шардов можно запросить со [списком групп шардов в кластере](#list-shard-groups).
 
 - API
 

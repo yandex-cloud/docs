@@ -11,8 +11,14 @@
 1. Если у вас еще нет каталога, создайте его:
 
    {% include [create-folder](../_includes/create-folder.md) %}
-   
-Подключаться к кластеру можно только изнутри {{ yandex-cloud }} — для подключения нужно использовать виртуальную машину на основе [Linux](../compute/quickstart/quick-create-linux.md), которая находится в той же сети, что и кластер.
+
+1. Подключиться к кластеру можно только изнутри {{ yandex-cloud }}. Для подключения создайте виртуальную машину на основе [Linux](../compute/quickstart/quick-create-linux.md) в той же сети, что и кластер.
+1. [Подключитесь](../compute/operations/vm-connect/ssh.md) к виртуальной машине по SSH.
+1. Установите на виртуальную машину утилиту [redis-cli](https://redis.io/topics/rediscli), например, так (для Ubuntu 20.04 LTS): 
+
+   ```bash
+   sudo apt install redis-tools
+   ```
 
 
 ## Создайте кластер {#cluster-create}
@@ -24,14 +30,6 @@
 1. Дождитесь, когда кластер будет готов к работе: его статус на панели {{ mrd-short-name }} сменится на `Running`, а состояние - на `Alive`. Это может занять некоторое время.
 
 ## Подключитесь к кластеру {#connect}
-
-1. [Создайте виртуальную машину Linux](../compute/quickstart/quick-create-linux.md) в той же [виртуальной сети](../vpc/concepts/network.md), что и кластер.
-1. [Подключитесь](../compute/operations/vm-connect/ssh.md) к виртуальной машине по SSH.
-1. Установите на виртуальную машину утилиту [redis-cli](https://redis.io/topics/rediscli), например, так (для Ubuntu 20.04 LTS): 
-
-   ```bash
-   sudo apt install redis-tools
-   ```
 
 1. Подключитесь к хосту-мастеру кластера {{ RD }}, используя `redis-cli`.
 
