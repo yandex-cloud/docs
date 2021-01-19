@@ -1,1 +1,1 @@
-Эти разрешения также входят в роли `editor`, `admin` и `resource-manager.cloud.owner`.
+Эти разрешения также входят в роли `editor`, `admin` и `resource-manager.clouds.owner`.

@@ -66,6 +66,10 @@ _Роль_ — это набор разрешений, который опре�
 
 {% include [mdb.dataproc.agent](../../../_includes/roles-dataproc-agent.md) %}
 
+## {{ data-transfer-name }} {#data-transfer-roles}
+
+{% include [data-transfer-viewer](../../../_includes/roles-data-transfer-viewer.md)%}
+
 ## {{ datalens-name }} {#datalens-roles}
 
 {% include [datalens-instances-user](../../../_includes/roles-datalens-user.md)%}
@@ -91,6 +95,12 @@ _Роль_ — это набор разрешений, который опре�
 {% include [iot-devices-writer](../../../_includes/roles-iot-devices-writer.md) %}
 
 {% include [iot-registries-writer](../../../_includes/roles-iot-registries-writer.md) %}
+
+## {{ kms-name }} {#kms-roles}
+
+{% include [kms-admin](../../../_includes/roles-kms-admin.md)%}
+
+{% include [kms-keys-encrypterdecrypter](../../../_includes/roles-kms-keys-encrypterdecrypter.md)%}
 
 ## {{ load-balancer-name }} {#load-balancer-roles}
 
