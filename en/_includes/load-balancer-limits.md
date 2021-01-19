@@ -1,11 +1,11 @@
-#### Quotas {#quotas}
+#### Quotas {#load-balancer-quotas}
 
 | Type of limit | Value |
 | ----- | ----- |
 | Number of load balancers per cloud | 2 |
 | Number of target groups per cloud | 2 |
 
-#### Limits {#limits}
+#### Limits {#load-balancer-limits}
 
 | Type of limit | Value |
 | ----- | ----- |
@@ -14,7 +14,7 @@
 | Number of health checks per attached target group | 1 |
 | Status check protocol | TCP, HTTP |
 
-#### Other restrictions {#other-restrictions}
+#### Other restrictions {#load-balancer-other-restrictions}
 
 A particular target group can only contain target resources from a single cloud network.
 

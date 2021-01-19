@@ -1,4 +1,4 @@
-#### Quotas {#quotas}
+#### Quotas {#vpc-quotas}
 
 | Type of limit | Value |
 | ----- | ----- |
@@ -10,7 +10,7 @@
 | Number of static routes per cloud | 256 |
 | Maximum number of security groups | 10 |
 
-#### Limits {#limits}
+#### Limits {#vpc-limits}
 
 | Type of limit | Value |
 | ----- | ----- |
@@ -23,6 +23,6 @@
 | Maximum number of CIDRs per rule | 50 |
 | Size of the DNS server IP address list | 100 characters |
 
-#### Outgoing traffic filtering {#egress-traffic-filter}
+#### Outgoing traffic filtering {#vpc-egress-traffic-filter}
 
 {% include [port-25.md](vpc/port-25.md) %}
