@@ -1,0 +1,26 @@
+title: "Yandex Lockbox"
+stage: tech-preview
+href: index.yaml
+items:
+  - name: Getting started
+    href: quickstart.md
+  - name: Quotas and limits
+    href: concepts/limits.md
+  - name: Access management
+    href: security/index.md
+  - name: Pricing policy
+    href: pricing.md
+  - name: API reference
+    items:
+      - name: Authentication in the API
+        href: api-ref/authentication.md
+      - name: gRPC
+        items:
+        include:
+          repo: docs
+          path: en/_api-ref-grpc/lockbox/api-ref/toc.yaml
+      - name: REST
+        items:
+        include:
+          repo: docs
+          path: en/_api-ref/lockbox/toc.yaml

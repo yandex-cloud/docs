@@ -1,0 +1,25 @@
+# Yandex c
+title: "Yandex Lockbox"
+description:
+- "<em>Lockbox is currently in the <a href=\"/docs/overview/concepts/launch-stages\">Preview stage</a></em>."
+- "Yandex Lockbox is a service for storing secrets."
+# Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
+meta:
+  title: "Yandex Lockbox"
+# Блок со ссылками
+links:
+- title: "Getting started"
+  description: "Create your first secret"
+  href: "quickstart"
+#- title: "Справочник API"
+#  description: "Описание методов HTTP API"
+#  href: "api-ref/"
+- title: "Quotas and limits"
+  description: "Technical and organizational limitations of the service"
+  href: "concepts/limits"
+- title: "Access management"
+  description: "Configure access rights to work with the service"
+  href: "security/"
+- title: "Pricing policy"
+  description: "Prices and rules for calculating the service cost"
+  href: "pricing"
