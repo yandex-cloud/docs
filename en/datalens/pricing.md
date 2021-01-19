@@ -3,6 +3,12 @@ editable: false
 ---
 # Pricing for {{ datalens-full-name }}
 
+{% note warning %}
+
+Starting February 1, 2021, [new pricing](#prices-after-1-2021) takes effect for {{ datalens-short-name }}.
+
+{% endnote %}
+
 In {{ datalens-short-name }}, you pay for:
 
 * The number of ten-minute sessions to the data source. The session considers requests from charts and dashboards.
@@ -14,13 +20,15 @@ You can choose one of the following plans: **Free** or **Standard**.
 
 The plan applies to [the folder](../resource-manager/concepts/resources-hierarchy.md#folder) where the {{ datalens-short-name }} instance is located.
 
-{% note warning %}
+{% note info %}
 
 Additional {{ datalens-short-name }} features that are available in {{ marketplace-short-name }} don't affect the selected plan and are paid separately.
 
 {% endnote %}
 
 ## Prices and features {#prices}
+
+### Pricing plans valid until February 1, 2021 {#prices-before-1-2021}
 
 {% list tabs %}
 
@@ -50,6 +58,43 @@ Additional {{ datalens-short-name }} features that are available in {{ marketpla
 
 \* Geocoding functions: [GEOCODE](function-ref/GEOCODE.md) and [GEOINFO](function-ref/GEOINFO.md).
 
+### Pricing effective as of February 1, 2021 {#prices-after-1-2021}
+
+{% list tabs %}
+
+- Prices in USD
+
+  | Service | Free | Standard |
+  | ----- | ----- | ----- |
+  | Monthly price, without VAT | Free | $24.358974 |
+  | [Internal sessions](#session-types) per month | No limits | No limits |
+  | [External sessions](#session-types) per month | 100 | 1000 |
+  | One additional<br/> external session, with VAT | - | $0.024358 |
+  | Database size for materialized data, GB | 0.5 | 10 |
+  | Geocoding* | - | ✔ |
+
+- Prices in roubles
+
+  | Service | Free | Standard |
+  | ----- | ----- | ----- |
+  | Monthly price, with VAT | Free | ₽1900 |
+  | [Internal sessions](#session-types) per month | No limits | No limits |
+  | [External sessions](#session-types) per month | 100 | 1000 |
+  | One additional<br/> external session, with VAT | - | ₽1.90 |
+  | Database size for materialized data, GB | 0.5 | 10 |
+  | Geocoding* | - | ✔ |
+
+{% endlist %}
+
+\* Geocoding functions: [GEOCODE](function-ref/GEOCODE.md) and [GEOINFO](function-ref/GEOINFO.md).
+
+For users who had a {{ datalens-short-name }} instance that was created before February 1, 2021, the new pricing policy will come into effect at the start of the new billing period in February.
+
+> For example, a user activated {{ datalens-short-name }} on December 15, 2020.
+The new billing period starts on January 15, 2021 with the [old pricing plan](#prices-before-1-2021), and ends on February 14, 2021.
+The [new plan](#prices-after-1-2021) takes effect on February 15, 2021, when the next billing period starts.
+
+You can check the billing period of your {{ datalens-short-name }} instance in your [billing account](https://datalens.yandex.com/billing).
 
 ## Session {#sessions}
 
@@ -70,13 +115,12 @@ In {{ datalens-short-name }}, sessions are categorized as internal or external:
 | Session type | Data source |
 | ----- | ----- |
 | Internal | Materialized datasets<br/>CSV connections<br/>Metrica<br/>Metrica Logs API<br/>AppMetrica<br/>AppMetrica Logs API<br/>Yandex.Cloud Managed Databases:<br/> - [Managed Service for ClickHouse](../managed-clickhouse)<br/> - [Managed Service for PostgreSQL](../managed-postgresql)<br/> - [Managed Service for MySQL<sup>®</sup>](../managed-mysql) |
-| External | Any data source that is not related to Yandex or Yandex.Cloud. |
+| External | Any external data source that is not related to Yandex or Yandex.Cloud. |
 
 ### How sessions are calculated {#how-sessions-counted}
 
-Each plan determines the number of internal sessions available. If a session has at least one request to an external data source, the whole session is considered external.
-
-External sessions are calculated using the **x 10** multiplier. This means that each external session is counted as ten internal sessions.
+Each pricing plan determines the number of external sessions available. There is no limit to the number of internal sessions or requests, regardless of the pricing plan.
+If a session has at least one request to an external data source, the whole session is considered external.
 
 > For instance, a dashboard contains some charts that request a materialized dataset and a single chart that requests an external data source.
 
@@ -92,13 +136,9 @@ The session doesn't consider requests from:
 A materialized data quota is available for each {{ datalens-short-name }} instance.
 
 The quota includes:
-
 * Dataset preview data.
-
 * Materialized dataset data.
-
 * Materialized connection data.
-
 * Geocoding result caching data.
 
   {% note info %}
@@ -131,17 +171,21 @@ Automatic payment isn't available in the **Free** plan. If you reach the session
 
 ## Blocks {#locks}
 
-If you reach a limit under your plan, {{ datalens-short-name }} automatically blocks the instance.
+### Blocking when the external sessions limit is reached {#locks-sessions}
 
-When an instance is blocked, you can't:
+If you reach the limit on the number of external sessions, {{ datalens-short-name }} automatically disables requests from your charts and dashboards to external sources. Other {{ datalens-short-name }} features remain accessible.
+The {{ datalens-short-name }} homepage will display a message saying that the limit is reached.
 
-* Create new connections or datasets.
-* Request data from a dataset.
-* Request data from a wizard or dashboard.
-* Materialize dataset data.
-* Use geocoding.
+To unblock your resources, do one of the following:
 
-However, you can view object settings and create new charts and dashboards.
+* Switch from the **Free** plan to the **Standard** plan.
+* Enable [automatic payment for additional sessions](#autoprolongation) for the **Standard** plan.
+* Wait for the start of the new billing period (for any plan).
 
-If Yandex.Cloud can't withdraw the amount to pay for your plan, it blocks access to your {{ datalens-short-name }} instance.
+### Cloud suspension {#locks-cloud}
 
+Your cloud may be suspended if there are arrears on your account, if your trial period is over, or if you are in violation of the [{{ yandex-cloud }} Terms of Use](https://yandex.com/legal/cloud_termsofuse/).
+
+When a cloud is suspended, your {{ datalens-short-name }} instance will be unavailable. You won't be able to use {{ datalens-short-name }} until access to the cloud is restored.
+
+Learn more in [Automatic cloud suspension](../overview/concepts/data-deletion.md#block).
