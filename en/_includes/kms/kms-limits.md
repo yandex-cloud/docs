@@ -1,10 +1,10 @@
-#### Quotas {#quotas}
+#### Quotas {#kms-quotas}
 
 | Type of limit | Value |
 | ----- | ----- |
 | Number of keys per cloud | 100 |
 
-#### Limits {#limits}
+#### Limits {#kms-limits}
 
 | Type of limit | Value |
 | ----- | ----- |

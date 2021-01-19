@@ -1,4 +1,4 @@
-# Триггер для {{ cloud-logs-name }}
+# Triggers for {{ cloud-logs-name }}
 
 [Triggers](index.md) for {{ cloud-logs-name }} run a function when certain [log group](../../../functions/concepts/log-group.md) receives message. The trigger must be in the same folder as the log groups it's subscribed to.
 

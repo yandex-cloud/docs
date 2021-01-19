@@ -15,7 +15,6 @@
 
 Если этих правил не хватает, запросите доступ к макросу `_PGAASINTERNALNETS_`. Для подключения к кластерам {{ PG }} нужен доступ к порту 6432.
 
-
 {% include [cli-setup](../_includes/mdb/internal/cli-setup.md) %}
 
    Если все сделано правильно, должен заработать запрос списка кластеров:
@@ -33,10 +32,22 @@
 
     {% include [create-folder](../_includes/create-folder.md) %}
 
-Подключаться к кластерам БД можно как изнутри, так и извне {{ yandex-cloud }}:
+1. Подключаться к кластерам БД можно как изнутри, так и извне {{ yandex-cloud }}:
+   - Чтобы подключиться изнутри {{ yandex-cloud }}, создайте виртуальную машину на основе [Linux](../compute/quickstart/quick-create-linux.md) или [Windows](../compute/quickstart/quick-create-windows.md) в той же сети, что и кластер БД.
+   - Чтобы подключиться к кластеру из интернета, запросите публичный доступ к хостам при создании кластера.
 
-1. Чтобы подключаться изнутри {{ yandex-cloud }}, создайте виртуальную машину в той же сети, что и кластер БД (на основе [Linux](../compute/quickstart/quick-create-linux.md) или [Windows](../compute/quickstart/quick-create-windows.md)).
-1. Чтобы подключаться к кластеру из интернета, запросите публичный доступ к хостам при создании кластера.
+   {% note info %}
+
+   Следующий шаг предполагает, что подключение к кластеру производится с ВМ на основе [Linux](../compute/quickstart/quick-create-linux.md).
+
+   {% endnote %}
+
+1. [Подключитесь](../compute/operations/vm-connect/ssh.md) к виртуальной машине по SSH.
+1. Установите необходимые зависимости и клиент PostgreSQL:
+
+   ```bash
+   sudo apt update && sudo apt install -y postgresql-client
+   ```
 
 {% endif %}
 

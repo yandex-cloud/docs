@@ -1,6 +1,6 @@
-#### Quotas
+#### Quotas {#ymq-quotas}
 
-##### Messages
+##### Messages {#ymq-quotas-messages}
 
 | Type of limit | Value |
 | ----- | ----- |
@@ -13,9 +13,9 @@
 | Number of other request calls per cloud | 100 calls per second |
 | Number of queues per cloud | 10 |
 
-#### Limits
+#### Limits {#ymq-limits}
 
-##### Queues
+##### Queues {#ymq-limits-queues}
 
 | Type of limit | Value |
 | ----- | ----- |
@@ -25,7 +25,7 @@
 | Number of messages being processed per FIFO queue | 20,000 |
 | Queue name | Maximum of 80 characters, including numbers, small and capital Latin letters, hyphens, and underscores. The name of a FIFO queue must end with the `.fifo` suffix. |
 
-##### Messages
+##### Messages {#ymq-limits-messages}
 
 | Type of limit | Value |
 | ----- | ----- |

@@ -1,4 +1,4 @@
-#### Quotas {#quotas}
+#### Quotas {#compute-quotas}
 
 | Type of limit | Value |
 | ----- | ----- |
@@ -20,7 +20,7 @@
 
 \* To create a VM with a GPU or a dedicated host, contact [technical support]({{ link-console-support }}).
 
-#### VM limits {#limits-vm}
+#### VM limits {#compute-limits-vm}
 
 | Type of limit | Value |
 | ----- | ----- |
@@ -32,7 +32,7 @@
 | Maximum RAM for VMs with GPUs | 384 |
 | Maximum number of security groups per interface | 5 |
 
-#### Disk limits {#limits-disks}
+#### Disk limits {#compute-limits-disks}
 
 {% list tabs %}
 

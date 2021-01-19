@@ -13,7 +13,7 @@ _Шардирование_ — стратегия горизонтального
  * [по хэшу](https://docs.mongodb.com/manual/core/hashed-sharding/) (ключ шардирования на базе хэша);
  * [по диапазону значений](https://docs.mongodb.com/manual/core/ranged-sharding/) (ranged sharding).
 
-Более подробно шардирование баз {{ MG }} рассмотрено в [документации {{ MG }}](https://docs.mongodb.com/v4.0/sharding/#sharded-cluster).
+Более подробно шардирование баз {{ MG }} рассмотрено в [документации {{ MG }}](https://docs.mongodb.com/manual/sharding/#sharded-cluster).
 
 ## Преимущества шардирования {#advantages}
 

@@ -15,17 +15,15 @@ items:
     - name: Подключение к кластеру
       href: operations/cluster-connect.md
     - name: Остановка и запуск кластера
-      href: operations/cluster-stop.md    
+      href: operations/cluster-stop.md
     - name: Управление хостами Elasticsearch
       href: operations/cluster-hosts.md
-    - name: Просмотр логов кластера
-      href: operations/cluster-logs.md
     - name: Удаление кластера
       href: operations/cluster-delete.md
   - name: Концепции
     items:
     - name: Взаимосвязь ресурсов сервиса
-      href: concepts/index.md 
+      href: concepts/index.md
     - name: Индексы
       href: concepts/indexing.md
     - name: Поиск с помощью Elasticsearch

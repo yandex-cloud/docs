@@ -52,6 +52,10 @@ items:
         items:
           - name: Enable protection from DDoS attacks
             href: operations/enable-ddos-protection.md
+  - name: Use cases
+    items:
+      - name: Architecture and protection of a basic internet service
+        href: solutions/web-service.md
   - name: Concepts
     items:
       - name: Relationship between service resources

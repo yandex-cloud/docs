@@ -1,4 +1,4 @@
-#### Limits {#limits}
+#### Limits {#iot-limits}
 
 | Type of limit | Value |
 | ----- | ----- |
@@ -13,7 +13,7 @@ Message delivery is not guaranteed if the limits are exceeded.
 
 {% endnote %}
 
-#### Other restrictions {#other-restrictions}
+#### Other restrictions {#iot-other-restrictions}
 
 - The `Retain` flag is not supported. When using it, the MQTT broker saves the flagged message and sends it the next time you subscribe a device or registry to a topic.
 - Persistent Sessions, when the MQTT broker saves information about a client (device or registry) to reconnect faster, aren't supported.

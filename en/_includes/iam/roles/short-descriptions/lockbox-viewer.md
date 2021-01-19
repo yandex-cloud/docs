@@ -1,0 +1,1 @@
+`{{ roles-lockbox-viewer }}`: Lets you read the metadata of the secret.

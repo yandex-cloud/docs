@@ -162,7 +162,7 @@
         $cursor = $conn->executeCommand($DB_NAME, $command);
           $response = $cursor->toArray()[0];
     } catch(MongoDB\Driver\Exception $ex) {
-        echo $ex->getMessage()";
+        echo "$ex->getMessage()";
         exit;
     }
 
@@ -197,7 +197,7 @@
         $cursor = $conn->executeCommand($DB_NAME, $command);
         $response = $cursor->toArray()[0];
     } catch(MongoDB\Driver\Exception $ex) {
-        echo $ex->getMessage()";
+        echo "$ex->getMessage()";
         exit;
     }
 
