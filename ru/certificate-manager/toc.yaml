@@ -45,6 +45,8 @@ items:
             href: operations/domain/domain-delete.md
       - name: Резервное копирование
         href: operations/cert-backup.md
+      - name: Добавление алерта для сертификата
+        href: operations/alert.md
   - name: Концепции
     items:
       - name: Обзор
