@@ -1,9 +1,11 @@
-# Установка
+# Установка и запуск
 
-Unified Agent распространяется в виде:
-- docker-образа;
+{{unified-agent-full-name}} распространяется в виде:
+- Docker-образа;
 - deb-пакета;
 - бинарного исполняемого файла, собранного под архитектуру x86-64 / amd64.
+
+Чтобы установить {{unified-agent-short-name}} выполните следующие шаги:
 
 {% list tabs %}
 
@@ -16,7 +18,7 @@ Unified Agent распространяется в виде:
   docker run --name ua-agent -v /proc/:/host/proc/:ro -v /sys:/host/sys:ro -v config.yml:/etc/yandex/unified_agent/conf.d/config.yml unified_agent:latest
   ```
 
-- Deb-пакет
+- deb-пакет
 
   Deb-пакет Unified Agent расположен в репозитории TBD.
 
