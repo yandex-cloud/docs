@@ -1,3 +1,7 @@
   ```bash
-  docker run --name ua-agent -v /proc/:/host/proc/:ro -v /sys:/host/sys:ro -v config.yml:/etc/yandex/unified_agent/conf.d/config.yml unified_agent:latest
+    docker run -d --name yandex-unified-agent \
+    -v example.yml:/etc/yandex/unified-agent/example.yml
+    -e UNIFIED_AGENT_CONFIG=/etc/yandex/unified-agent/example.yml \
+    -v /proc/:/host/proc/:ro -v /sys/fs/cgroup/:/host/sys/fs/cgroup:ro \
+    cr.yandex/yc/yandex-unified-agent:latest
   ```

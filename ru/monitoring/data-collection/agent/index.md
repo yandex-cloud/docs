@@ -7,7 +7,7 @@
 Начать поставлять метрики виртуальной машины {{yandex-cloud}} при помощи {{unified-agent-short-name}} очень просто:
 
 
-1. Создайте файл конфигурации *example.yml*, указав в нём идентификатор своего каталога в Облаке в параметре folderId:
+1. Создайте файл конфигурации *example.yml*, указав в нем идентификатор своего каталога в Облаке в параметре folderId:
 
     **example.yml:**
     ```yaml
@@ -46,15 +46,9 @@
 
 2. Запустите агент выполнив следующую команду:
 
-    ```bash
-    docker run docker run -d --name yandex-unified-agent \
-    -v example.yml:/etc/yandex/unified-agent/example.yml
-    -e UNIFIED_AGENT_CONFIG=/etc/yandex/unified-agent/example.yml \
-    -v /proc/:/host/proc/:ro -v /sys/fs/cgroup/:/host/sys/fs/cgroup:ro \
-    cr.yandex/yc/yandex-unified-agent:latest
-    ```
+    {% include [ua-docker-install](../../../../_includes/monitoring/ua-docker-install.md) %}
 
-Больше инструкций для быстрого начала работы доступны в разделе ["Начало работы"](quickstart/index.md). Подробные инструкции по установке и конфигурированию доступны в разделах ["Установка"](installation.md) и ["Конфигурирование"](configuration.md) соответственно.
+Больше инструкций для быстрого начала работы доступны в разделе [{#T}](quickstart/index.md). Подробные инструкции по установке и конфигурированию доступны в разделах [{#T}](installation.md) и [#T](configuration.md) соответственно.
 
 {% note warning %}
 
