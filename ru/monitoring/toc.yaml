@@ -71,6 +71,8 @@ items:
           href: data-collection/agent/index.md
         - name: Начало работы
           items:
+            - name: Все инструкции
+              href: data-collection/agent/quickstart/index.md
             - name: Поставка системных метрик Linux
               href: data-collection/agent/quickstart/linux_metrics.md
             - name: Поставка метрик пользовательского приложения
