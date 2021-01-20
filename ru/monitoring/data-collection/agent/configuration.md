@@ -10,10 +10,7 @@
 - channels — описание [именованных каналов](concepts.md#channels);
 - pipes — описание [именованных преобразований](concepts.md#pipes);
 - storages — описание [хранилищ](concepts.md#storages);
-- monitoring — описание настроек [мониторинга](operations.md#monitoring);
-- status — описание настроек [статуса](operations.md#status);
 - main_thread_pool — настройки системного пула потоков.
-- services — настройки различных вспомогательных сервисов.
 
 Также конфигурационный файл может содержать директиву `import` для [импорта других файлов конфигурации](#import).
 
@@ -315,7 +312,7 @@ TODO: сослаться на внешние ресурсы, описать от
         kernel: advanced  # необязательный, по умолчанию – basic
 ```
 
-### Фильтры
+### Фильтры { #filters }
 
 #### assign { #assign_filter }
 
@@ -722,7 +719,7 @@ storages:  # необязательный
     unacknowledged_eviction_log_priority: ERROR  # необязательный, по умолчанию ERROR
 ```
 
-### Выходы
+### Выходы { #outputs }
 
 #### debug { #debug_output }
 
@@ -827,5 +824,3 @@ output:
 ## Примеры { #examples }
 
 Примеры конфигураций. Больше инструкций приведено в [быстром старте](./quickstart.md).
-
-###

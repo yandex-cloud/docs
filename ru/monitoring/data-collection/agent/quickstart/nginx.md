@@ -1,4 +1,4 @@
-# Поставка 3 party-метрик
+# Поставка метрик nginx
 
 - https://prometheus.io/docs/instrumenting/exporters/
 - https://github.com/prometheus/mysqld_exporter
