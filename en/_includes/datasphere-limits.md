@@ -1,10 +1,10 @@
-#### Quotas {#quotas}
+#### Quotas {#datasphere-quotas}
 
 | Type of limit | Value |
 | ----- | ----- |
 | Number of projects per cloud | 5 |
 
-#### Limits {#limits}
+#### Limits {#datasphere-limits}
 
 | Type of limit | Value |
 ----- | -----

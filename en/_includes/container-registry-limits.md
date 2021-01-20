@@ -1,10 +1,10 @@
-#### Quotas {#quotas}
+#### Quotas {#container-registry-quotas}
 
 | Type of limit | Value |
 | ----- | ----- |
 | Maximum number of registries per cloud | 10 |
 
-#### Limits {#limits}
+#### Limits {#container-registry-limits}
 
 | Type of limit | Value |
 | ----- | ----- |

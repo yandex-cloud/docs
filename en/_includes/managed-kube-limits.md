@@ -1,4 +1,4 @@
-#### Quotas {#quotas}
+#### Quotas {#managed-k8s-quotas}
 
 | Type of limit | Value |
 | ----- | ----- |
@@ -11,7 +11,7 @@
 | Maximum number of node groups per Kubernetes cluster | 6 |
 | Maximum number of nodes per Kubernetes cluster | 10 |
 
-#### VM limits {#limits}
+#### VM limits {#managed-k8s-limits}
 
 | Type of limit | Value |
 | ----- | ----- |

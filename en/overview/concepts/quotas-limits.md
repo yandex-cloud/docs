@@ -13,7 +13,7 @@ Quotas serve as a soft restriction for requesting resources and let {{ yandex-cl
 * [Submit an increase request]({{ link-console-quotas }});
 * Contact the [technical support]({{ link-console-support }}) and tell us which consumed quotas you need to increase and by how much.
 
-## Default quotas and limits for services {{ yandex-cloud }}
+## Default quotas and limits for services {{ yandex-cloud }} {#quotas-limits-default}
 
 Quotas are listed with default values that match the quotas of the [trial period](../../free-trial/).
 

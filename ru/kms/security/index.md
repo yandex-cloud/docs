@@ -49,7 +49,7 @@
 
 Действие | Методы | Необходимые роли
 ----- | ----- | -----
-**KMS** | | 
+**{{ kms-short-name }}** | | 
 Получение информации о ключах и версиях | `get`, `listVersions` | `kms.keys.encrypterDecrypter` на ключ
 Операции [шифрования и расшифровки](../api-ref/SymmetricCrypto/) | `encrypt`, `decrypt`, `reEncrypt`, `generateDataKey` | `kms.keys.encrypterDecrypter` на ключ
 Получение списка ключей в каталоге | `list` | `kms.admin` на ключ

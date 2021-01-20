@@ -1,10 +1,10 @@
-#### Quotas {#quotas}
+#### Quotas {#interconnect-quotas}
 
 | Type of limit | Value |
 | ----- | ----- |
 | Number of private connections on a single trunk link | 2 |
 
-#### Limits {#limits}
+#### Limits {#interconnect-limits}
 
 | Type of limit | Value |
 | ----- | ----- |
