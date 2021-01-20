@@ -35,13 +35,17 @@ items:
             href: command-tree/manage-services/iam.md
           - name: yc resource-manager
             href: command-tree/manage-services/resource-manager.md
-          - name: yc compute
-            href: command-tree/manage-services/compute.md
-          - name: yc vpc
-            href: command-tree/manage-services/vpc.md
           - name: yc managed-clickhouse
             href: command-tree/manage-services/managed-clickhouse.md
+          - name: yc managed-elasticsearch
+            href: command-tree/manage-services/managed-elasticsearch.md
+          - name: yc managed-kafka
+            href: command-tree/manage-services/managed-kafka.md
           - name: yc managed-mongodb
             href: command-tree/manage-services/managed-mongodb.md
+          - name: yc managed-mysql
+            href: command-tree/manage-services/managed-mysql.md
           - name: yc managed-postgresql
             href: command-tree/manage-services/managed-postgresql.md
+          - name: yc managed-redis
+            href: command-tree/manage-services/managed-redis.md
