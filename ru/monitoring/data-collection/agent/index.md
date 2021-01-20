@@ -46,7 +46,7 @@
 
 2. Запустите агент выполнив следующую команду:
 
-    {% include [ua-docker-install](../../../../_includes/monitoring/ua-docker-install.md) %}
+    {% include [ua-docker-install](../../../_includes/monitoring/ua-docker-install.md) %}
 
 Больше инструкций для быстрого начала работы доступны в разделе [{#T}](quickstart/index.md). Подробные инструкции по установке и конфигурированию доступны в разделах [{#T}](installation.md) и [#T](configuration.md) соответственно.
 
