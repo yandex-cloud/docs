@@ -14,9 +14,8 @@
   Docker-образ расположен в репозитории cr.yandex с названием `unified_agent`, тег `latest`.
 
   Пример команды для запуска:
-  ```bash
-  docker run --name ua-agent -v /proc/:/host/proc/:ro -v /sys:/host/sys:ro -v config.yml:/etc/yandex/unified_agent/conf.d/config.yml unified_agent:latest
-  ```
+
+  {% include [ua-docker-install](../../../../_includes/monitoring/ua-docker-install.md) %}
 
 - deb-пакет
 
