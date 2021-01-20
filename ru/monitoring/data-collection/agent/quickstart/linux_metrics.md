@@ -10,11 +10,15 @@
 
 {% endnote %}
 
+Чтобы настроить {{unified-agent-full-name}} для сбора системных метрик с виртуальной машины Яндекс.Облака, выполните следующие шаги:
+
 1. Установите {{unified-agent-short-name}} в свою виртуальную машину, выполнив в домашнем каталоге следующую команду:
 
     {% include [ua-docker-install](../../../../_includes/monitoring/ua-docker-install.md) %}
 
-1. Создайте сервисный аккаунт с ролью `editor` в каталоге, в который будут записываться метрики. Подробнее необходимые шагия для этого описаны в разделах [{#T}](../../../../iam/operations/sa/create.md) и [{#T}](../../../../iam/operations/sa/assign-role-for-sa.md).
+    Другие способы установки агента описаны в разделе [{#T}](../installation.md).
+
+1. Создайте сервисный аккаунт с ролью `editor` в каталоге, в который будут записываться метрики. Подробнее необходимые для этого шаги описаны в разделах [{#T}](../../../../iam/operations/sa/create.md) и [{#T}](../../../../iam/operations/sa/assign-role-for-sa.md).
 
 1. Привявяжите сервисный аккаунт к виртуальной машине, на которой установлен {{unified-agent-short-name}}. Подробнее шаги для этого описаны в разделе [{#T}](../../../../compute/operations/vm-connect/auth-inside-vm.md#link-sa-with-instance).
 
@@ -22,6 +26,8 @@
 
     **config.yml:**
     ```yaml
+    status:
+      port: 16241
     routes:
       - input:
           plugin: linux_metrics
