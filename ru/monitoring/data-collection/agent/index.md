@@ -11,6 +11,8 @@
 
     **example.yml:**
     ```yaml
+    status:
+      port: 16241
     routes:
       - input:
           plugin: linux_metrics
@@ -48,7 +50,7 @@
 
     {% include [ua-docker-install](../../../_includes/monitoring/ua-docker-install.md) %}
 
-Больше инструкций для быстрого начала работы доступны в разделе [{#T}](quickstart/index.md). Подробные инструкции по установке и конфигурированию доступны в разделах [{#T}](installation.md) и [#T](configuration.md) соответственно.
+Больше инструкций для быстрого начала работы доступны в разделе [{#T}](quickstart/index.md). Подробные инструкции по установке и конфигурированию доступны в разделах [{#T}](installation.md) и [{#T}](configuration.md) соответственно.
 
 {% note warning %}
 
