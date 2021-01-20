@@ -79,7 +79,9 @@ items:
               href: data-collection/agent/quickstart/nginx.md
             - name: Поставка метрик с хостов вне Яндекс.Облака
               href: data-collection/agent/quickstart/non-yc.md
-        - name: Установка
+        - name: Основные понятия
+          href: data-collection/agent/concepts.md
+        - name: Установка и запуск
           href: data-collection/agent/installation.md
         - name: Конфигурирование
           href: data-collection/agent/configuration.md
