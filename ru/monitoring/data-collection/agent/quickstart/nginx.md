@@ -4,8 +4,8 @@
 - https://github.com/prometheus/mysqld_exporter
 - написать явно, чтобы голосовали за нужные модули (форма!)
 
-## Что дальше
+## Что дальше {#next-steps}
 
-Изучите концепции Unified Agent
-Узнайте подробнее о конфигурировании Unified Agent
-Ознакомьтесь с рекомендациями по эксплуатации Unified Agent
+- [Изучите концепции Unified Agent](../concepts.md)
+- [Узнайте подробнее о конфигурировании Unified Agent](../configuration.md)
+- [Ознакомьтесь с рекомендациями по эксплуатации Unified Agent](../best-practices.md)
