@@ -29,6 +29,6 @@
 
 ## Что дальше {#next-steps}
 
-- [Изучите концепции Unified Agent](../concepts.md)
-- [Узнайте подробнее о конфигурировании Unified Agent](../configuration.md)
-- [Ознакомьтесь с рекомендациями по эксплуатации Unified Agent](../best-practices.md)
+- [Изучите концепции Unified Agent](concepts.md)
+- [Узнайте подробнее о конфигурировании Unified Agent](configuration.md)
+- [Ознакомьтесь с рекомендациями по эксплуатации Unified Agent](best-practices.md)
