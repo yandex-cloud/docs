@@ -3,7 +3,7 @@
 {{unified-agent-full-name}} распространяется в виде:
 - Docker-образа;
 - deb-пакета;
-- бинарного исполняемого файла, собранного под архитектуру x86-64 / amd64.
+- бинарного исполняемого файла, собранного под архитектуру x86-64 / amd64 для Linux-совместимых операционных систем.
 
 Чтобы установить {{unified-agent-short-name}} выполните следующие шаги:
 
@@ -15,7 +15,7 @@
 
   Пример команды для запуска:
 
-  {% include [ua-docker-install](../../../../_includes/monitoring/ua-docker-install.md) %}
+  {% include [ua-docker-install](../../../_includes/monitoring/ua-docker-install.md) %}
 
 - deb-пакет
 
