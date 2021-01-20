@@ -1,4 +1,4 @@
-#### Quotas {#quotas}
+#### Quotas {#mes-quotas}
 
 | Type of limit | Value |
 | ----- | ----- |
@@ -7,7 +7,7 @@
 | Total virtual memory for all hosts per cloud | 512 GB |
 | Total storage capacity for all clusters per cloud | 4096 GB |
 
-#### Limits {#limits}
+#### Limits {#mes-limits}
 
 | Type of limit | Value |
 | ----- | ----- |

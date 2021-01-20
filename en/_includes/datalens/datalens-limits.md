@@ -1,4 +1,4 @@
-#### Quotas {#quotas}
+#### Quotas {#datalens-quotas}
 
 | Type of limit | Value |
 | ----- | ----- |
@@ -7,7 +7,7 @@
 
 \* Geocoding functions: [GEOCODE](../../datalens/function-ref/GEOCODE.md) and [GEOINFO](../../datalens/function-ref/GEOINFO.md).
 
-#### General limits {#common-limits}
+#### General limits {#datalens-common-limits}
 
 | Type of limit | Value |
 | ----- | ----- |
@@ -15,7 +15,7 @@
 | Maximum CSV file size | 200 MB |
 | Maximum number of rows of persisted data<br>per dataset | 100,000,000 |
 
-#### Chart data limits {#chart-data-limits}
+#### Chart data limits {#datalens-chart-data-limits}
 
 Each chart has a limit on the amount of data it can display.
 

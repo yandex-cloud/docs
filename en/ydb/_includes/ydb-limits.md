@@ -1,4 +1,4 @@
-#### Quotas
+#### Quotas {#ydb-quotas}
 
 **Dedicated instance operation mode**
 

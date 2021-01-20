@@ -79,3 +79,4 @@
 - Изучите [концепции сервиса](./concepts/index.md).
 - Узнайте подробнее о [создании кластера](./operations/cluster-create.md) и [подключении к БД](./operations/connect.md).
 - Ознакомьтесь с [вопросами и ответами](./qa/general.md).
+

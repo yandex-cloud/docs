@@ -1,8 +1,8 @@
-#### Quotas {#quotas}
+#### Quotas {#dataproc-quotas}
 
 VMs that make up {{ dataproc-name }} service clusters utilize your {{ compute-full-name }} cloud quotas.
 
-#### Limits {#limits}
+#### Limits {#dataproc-limits}
 
 | Type of limit | Value |
 | ----- | ----- |

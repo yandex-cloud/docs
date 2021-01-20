@@ -14,8 +14,8 @@
     ```json
     {
         "query": "cpu_usage{service=\"compute\", resource_id=\"epdpfhoh1r83vdmdnjuf\"}",
-        "fromTime": "1563926400000",
-        "toTime": "1564531200000",
+        "fromTime": "2021-07-24T00:00:00Z",
+        "toTime": "2021-07-31T00:00:00Z",
         "downsampling": {
             "maxPoints": 10
         }
