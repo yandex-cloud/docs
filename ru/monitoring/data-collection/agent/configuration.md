@@ -286,7 +286,7 @@ messages_lost
     http_method: GET  # необязательный, по умолчанию GET
 ```
 
-#### system_metrics { #system_metrics_input }
+#### linux_metrics { #linux_metrics_input }
 
 TODO: сослаться на внешние ресурсы, описать откуда берутся
 
