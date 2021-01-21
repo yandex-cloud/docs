@@ -77,7 +77,7 @@ items:
               href: data-collection/agent/quickstart/linux_metrics.md
             - name: Поставка метрик пользовательского приложения
               href: data-collection/agent/quickstart/pull_prometheus.md
-            - name: Поставка метрик nginx
+            - name: Поставка метрик nginx и других сторонних приложений
               href: data-collection/agent/quickstart/nginx.md
             - name: Поставка метрик с хостов вне Яндекс.Облака
               href: data-collection/agent/quickstart/non-yc.md
