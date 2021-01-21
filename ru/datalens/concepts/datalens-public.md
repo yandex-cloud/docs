@@ -14,6 +14,22 @@
 
 - Выдать права публикации на связанные датасеты и подключения. Для этого вам необходимо иметь права доступа `{{ permission-admin }}` на эти объекты.
 
+## Как опубликовать объект {#how-to-publish}
+
+Вы можете предоставить публичный доступ к дашборду или чарту.
+
+{% list tabs %}
+
+- Дашборд
+
+  {% include [datalens-public-dashboard](../../_includes/datalens/operations/datalens-public-dashboard.md) %}
+
+- Чарт
+
+  {% include [datalens-public-chart](../../_includes/datalens/operations/datalens-public-chart.md) %}
+
+{% endlist %}
+
 ## Встраивание публичных чартов {#embedded-public-chart}
 
 Вы можете встроить опубликованные чарты на сайт или в приложение с помощью элемента `iframe`.
@@ -35,18 +51,16 @@
 <iframe src="https://datalens.yandex/oxxbqilhotpgk?_embedded=1&_theme=dark"></iframe>
 ```
 
-## Как опубликовать объект {#how-to-publish}
+Вы можете применить фильтрацию к встроенным чартам. Для этого передайте параметр фильтрации в ссылке на чарт.
+Чтобы задать параметр фильтрации:
 
-Вы можете предоставить публичный доступ к дашборду или чарту.
+1. Добавьте чарт и селекторы на дашборд.
+1. [Опубликуйте](#how-to-publish) дашборд.
+1. Выберите нужный селектор.
+1. Перейдите к редактированию чарта на дашборде. Нажмите значок ![image](../../_assets/datalens/horizontal-ellipsis-black.svg) и выберите **Код для вставки**.
 
-{% list tabs %}
+Параметр фильтрации добавляется к адресу чарта после знака вопроса `?`.
 
-- Дашборд
-
-  {% include [datalens-public-dashboard](../../_includes/datalens/operations/datalens-public-dashboard.md) %}
-
-- Чарт
-
-  {% include [datalens-public-chart](../../_includes/datalens/operations/datalens-public-chart.md) %}
-
-{% endlist %}
+```
+<iframe src="https://datalens.yandex/oxxbqilhotpgk?e16d1014-7135-4af5-9169-1b8ab88bdb4e=East&_embedded=1&_theme=dark"></iframe>
+```
