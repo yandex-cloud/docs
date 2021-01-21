@@ -2,7 +2,7 @@
 
 {% note info %}
 
-This section describes the functionality that is only available in the `python37-preview` runtime environment.
+This section describes the functionality that is only available in the `python37-preview` and `python38` runtime environment.
 
 {% endnote %}
 

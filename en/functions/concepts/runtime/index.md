@@ -28,6 +28,7 @@ Runtime environments available in {{ sf-name }}.
 | **PHP** |  |
 | PHP 7.4 | `php74` |
 | **Python** |  |
+| Python 3.8 | `python38` |
 | Python 3.7 Preview | `python37-preview` |
 | Python 3.7 | `python37` |
 | Python 2.7 | `python27` |
