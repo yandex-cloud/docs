@@ -3,12 +3,12 @@ meta:
   title: "Yandex.Cloud"
   noIndex: true
 links:
-  - title: "DataLens"
-    description: "Визуализация и анализ данных"
-    href: "datalens/"
   - title: "CLI"
     description: "Интерфейс командной строки"
     href: "cli/"
+  - title: "DataLens"
+    description: "Визуализация и анализ данных"
+    href: "datalens/"
   - title: "Yandex MDB"
     description: "Управляемые базы данных в целом"
     href: "mdb/"

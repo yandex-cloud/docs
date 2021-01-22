@@ -1,6 +1,8 @@
 title: "Документация Yandex.Cloud"
 href: index.yaml
 items:
+  - name: CLI
+    href: cli/
   - name: Datalens
     href: datalens/
   - name: MDB

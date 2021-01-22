@@ -49,7 +49,7 @@
 
 {% endlist%}
 
-# Сетевые доступы {#network-access}
+## Сетевые доступы {#network-access}
 
 В [Панчере](https://puncher.yandex-team.ru/) уже сделаны правила для доступа к кластерам MDB:
 

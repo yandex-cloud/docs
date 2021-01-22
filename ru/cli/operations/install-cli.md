@@ -21,7 +21,7 @@
     Выполните команду: 
     
     ```
-    $ curl https://storage.yandexcloud.net/yandexcloud-yc/install.sh | bash -s -- -h
+    $ curl https://{{ s3-storage-host }}{{ yc-install-path }} | bash -s -- -h
     Usage: install [options...]
     Options:
      -i [INSTALL_DIR]    Installs to specified dir.
@@ -35,13 +35,13 @@
     - Установка CLI в `/opt/yandex-cloud`, без изменений в файле `.bashrc`:
     
         ```
-        curl https://storage.yandexcloud.net/yandexcloud-yc/install.sh | \
+        curl https://{{ s3-storage-host }}{{ yc-install-path }} | \
             bash -s -- -i /opt/yandex-cloud -n
         ```
     - Установка CLI в директорию по умолчанию, в файл `.bashrc` добавляются `completion` и `PATH`:  
         
         ```
-        curl https://storage.yandexcloud.net/yandexcloud-yc/install.sh | \
+        curl https://{{ s3-storage-host }}{{ yc-install-path }} | \
             bash -s -- -a
         ``` 
 
