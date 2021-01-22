@@ -19,9 +19,13 @@
         * In the **Message batch size** field, enter 5.
     1. Under **Function settings**:
         * Select the function for the trigger to call.
+
           {% note alert %}
+
           Attention! If you select the function which is in the trigger log sources, its invocation can entail the exponential growth of invokes.
+
           {% endnote %}
+
         * Specify [the function version tag](../../functions/concepts/function.md#tag).
         * Specify the service account that will be used to call the function.
     1. Click **Create trigger**.

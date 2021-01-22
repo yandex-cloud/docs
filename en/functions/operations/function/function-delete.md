@@ -62,3 +62,4 @@
     3. Confirm the deletion of resources.
 
 {% endlist %}
+

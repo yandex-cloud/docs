@@ -16,12 +16,12 @@ When calling the handler, the runtime environment may pass the following argumen
 1. The invocation context (the `context` parameter).
 
     The context contains the necessary information about the function version. The structure of this object is described in [{#T}](context.md).
-If the second argument (HTTP request body) is present, the invocation context must be the first in the list of arguments.
+    If the second argument (HTTP request body) is present, the invocation context must be the first in the list of arguments.
 
 1. The HTTP request body (the `request` parameter).
 
     The body can be represented by an array of bytes, a string, a custom type, or a pointer to it. In the first two cases, the view reflects the HTTP request in its pure form: either as a byte array or as a string.
-If the handler argument has a custom type and the request body is a JSON document, it's converted to an object of this type using the `json.Unmarshal` method.
+    If the handler argument has a custom type and the request body is a JSON document, it's converted to an object of this type using the `json.Unmarshal` method.
 
 All the above arguments are **optional**.
 If the argument responsible for the request body is missing, any function input data is **ignored**.
@@ -42,13 +42,19 @@ The runtime environment returns the function execution result as a data set:
 
 The following function receives a request with two fields (a string message and a number) as an input, outputs the request structure and invocation context to the execution log, and returns a string entry of a JSON document containing information about the context and request:
 
+{% note warning %}
+
+Invoke the function using the [YC CLI](../../concepts/function-invoke.md) or an HTTP request with the `integration=raw` parameter.
+
+{% endnote %}
+
 ```golang
 package main
 
 import (
   "context"
-  "fmt"
   "encoding/json"
+  "fmt"
 )
 
 // The input JSON document is automatically converted to this type of object
@@ -57,18 +63,12 @@ type Request struct {
   Number  int    `json:"number"`
 }
 
-// The result is returned as an array of bytes
-type Response struct {
-	StatusCode int         `json:"statusCode"`
-	Body       interface{} `json:"body"`
-}
-
 type ResponseBody struct {
   Context context.Context `json:"context"`
   Request interface{}     `json:"request"`
 }
 
-func Handler (ctx context.Context, request *Request) (*Response, error) {
+func Handler(ctx context.Context, request *Request) ([]byte, error) {
   // The function logs contain the values of the invocation context and request body
   fmt.Println("context", ctx)
   fmt.Println("request", request)
@@ -83,12 +83,8 @@ func Handler (ctx context.Context, request *Request) (*Response, error) {
     return nil, err
   }
 
-  // The response body is a valid JSON document, the Body content is displayed
-  return &Response{
-    StatusCode: 200,
-    // The byte array is returned as a string
-    Body: string(body),
-  }, nil
+  // The response body must be returned as an array of bytes
+  return body, nil
 }
 ```
 
@@ -105,7 +101,7 @@ The log will contain the following:
 
 ```
 context {context.Background map[lambdaRuntimeFunctionName:b09ks558ute7l8agve8t lambdaRuntimeFunctionVersion:b09ebrsp6jbam10vrvs2 lambdaRuntimeLogGroupName:eolitpnj15jrgmsnqloh lambdaRuntimeLogStreamName:b09ebrsp6jbam10vrvs2 lambdaRuntimeMemoryLimit:512 lambdaRuntimeRequestID:58fc90cc-97b9-4c2b-95db-9dd0e961e8ae]}
-request &{Hello 24}
+request &{Hello, world 24}
 ```
 
 JSON document returned:
@@ -160,5 +156,89 @@ Otherwise:
 
 ```
 "Lucky one!"
+```
+
+### Parsing an HTTP request
+
+The function is called using an HTTP request with the username, logs the request method and body, and returns a greeting.
+
+{% note warning %}
+
+Don't use the `integration=raw` parameter to invoke this function. If you do, the function won't get any data about the original request's methods, headers, or parameters.
+
+{% endnote %}
+
+```golang
+package main
+
+import (
+  "context"
+  "encoding/json"
+  "fmt"
+)
+
+// The request structure (see https://cloud.yandex.com/docs/functions/concepts/function-invoke#request)
+// The other fields aren't used anywhere in this example, so you can do without them
+type RequestBody struct {
+  HttpMethod string `json:"httpMethod"`
+  Body       []byte `json:"body"`
+}
+
+// We convert the body field of the RequestBody object
+type Request struct {
+  Name string `json:"name"`
+}
+
+type Response struct {
+  StatusCode int         `json:"statusCode"`
+  Body       interface{} `json:"body"`
+}
+
+func Greet(ctx context.Context, request []byte) (*Response, error) {
+  requestBody := &RequestBody{}
+  // The array of bytes with the request body is converted to the corresponding object
+  err := json.Unmarshal(request, &requestBody)
+  if err != nil {
+    return nil, fmt.Errorf("an error has occurred when parsing request: %v", err)
+  }
+
+  // The log will show the name of the HTTP method used to make the request and the request body
+  fmt.Println(requestBody.HttpMethod, string(requestBody.Body))
+
+  req := &Request{}
+  // The request's body field is converted to a Request object to get the passed name
+  err = json.Unmarshal(requestBody.Body, &req)
+  if err != nil {
+    return nil, fmt.Errorf("an error has occurred when parsing body: %v", err)
+  }
+
+  name := req.Name
+  // The response body must be returned as a structure that is automatically converted to a JSON document
+  // that will be displayed on the screen
+  return &Response{
+    StatusCode: 200,
+    Body:       fmt.Sprintf("Hello, %s", name),
+  }, nil
+}
+```
+
+Example of input data (the POST method):
+
+```json
+{
+  "name": "Anonymous"
+}
+```
+
+The log will contain the following:
+
+```
+POST { "name": "Anonymous" }
+```
+
+Response returned:
+
+```
+Hello, Anonymous
 ```
 

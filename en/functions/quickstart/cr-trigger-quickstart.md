@@ -2,7 +2,7 @@
 
 {% include [triggers-preview](../../_includes/functions/triggers-preview-stage.md) %}
 
-Create a [trigger for {{ container-registry-name }}](../concepts/trigger/cr-trigger.md), that will run your function when you perform operations with [docker images](../../container-registry/concepts/docker-image.md).
+Create a [trigger for {{ container-registry-name }}](../concepts/trigger/cr-trigger.md) that will run your function when performing operations with [Docker images](../../container-registry/concepts/docker-image.md).
 
 {% include [before-begin](../../_includes/functions/os-timer-before-begin.md) %}
 
@@ -14,6 +14,7 @@ Create a [trigger for {{ container-registry-name }}](../concepts/trigger/cr-trig
 
 ## What's next {#what-is-next}
 
-- Read about the [concept of trigger](../concepts/trigger/index.md).
+- Read about the [concept of triggers](../concepts/trigger/index.md).
 - Read more about the [trigger for {{ container-registry-name }}](../concepts/trigger/cr-trigger.md).
 - For information about what you can do with triggers, see our [step-by-step instructions](../operations/index.md).
+

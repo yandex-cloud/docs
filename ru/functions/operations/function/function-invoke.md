@@ -8,7 +8,7 @@
 
 {% include [function-list-note](../../../_includes/functions/function-list-note.md) %}
 
-## Вызвать функцию
+## Вызвать функцию {#invoking-function}
 
 Для примера используется функция, описанная в разделе [{#T}](version-manage.md#func-version-create).
 

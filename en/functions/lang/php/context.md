@@ -8,13 +8,13 @@ The invocation context is an object that provides additional information about f
 * `getFunctionVersionId()`: Returns the string ID of the function version.
 * `getMemoryLimitInMB()`: Returns the amount of memory specified when creating the version, MB.
 * `getRequestId()`: Returns the ID of the request being handled.
-* `getToken()`: Returns the parameters required for authentication in the Yandex.Cloud API.
+* `getToken()`: Returns the parameters required for authentication in the {{ yandex-cloud }} API.
 
 ## Using the invocation context {#use}
 
-You can use the invocation context to authenticate in the Yandex.Cloud API.
+You can use the invocation context to authenticate in the {{ yandex-cloud }} API.
 
-### Authentication in the Yandex.Cloud API {#token}
+### Authentication in the {{ yandex-cloud }} API {#token}
 
 If a function has a specified service account, the `getToken()` method returns a structure that contains information for authentication on behalf of this service account and provides the following set of methods to get this information:
 

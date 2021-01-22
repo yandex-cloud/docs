@@ -10,7 +10,7 @@ The following function receives the `folderId` as an input, authorizes in the SD
 
 {% note warning %}
 
-Call the function using the [YC CLI](../../concepts/function-invoke.md) or an HTTP request with the `integration=raw` parameter.
+Invoke the function using the [YC CLI](../../concepts/function-invoke.md) or an HTTP request with the `integration=raw` parameter.
 
 {% endnote %}
 
@@ -51,3 +51,4 @@ public class Handler implements Function<String, String> {
   }
 }
 ```
+

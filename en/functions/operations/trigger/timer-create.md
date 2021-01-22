@@ -27,7 +27,7 @@ Create a [timer](../../concepts/trigger/timer.md) to call your function on a sch
         * Select the function to be called by the timer.
         * Specify [the function version tag](../../concepts/function.md#tag).
         * Specify the service account that will be used to call the function.
-    1. Click**Create trigger**.
+    1. Click **Create trigger**.
 
 - CLI
 
@@ -43,10 +43,15 @@ Create a [timer](../../concepts/trigger/timer.md) to call your function on a sch
 
     ```
     $ yc serverless trigger create timer \
-        --name my-timer \
-        --cron-expression '5 12 * * ? *' \
-        --invoke-function-id d4eofc7n0m03lmudse8l \
-        --invoke-function-service-account-id aje3932acd0c5ur7dagp
+        --name <timer name> \
+        --cron-expression '<cron expression>' \
+        --invoke-function-id <function ID> \
+        --invoke-function-service-account-id <service account ID> \
+    ```
+
+    Result:
+
+    ```
     id: a1sfe084v4se4morbu2i
     folder_id: b1g88tflru0ek1omtsu0
     created_at: "2019-12-04T08:45:31.131391Z"
@@ -54,10 +59,14 @@ Create a [timer](../../concepts/trigger/timer.md) to call your function on a sch
     rule:
       timer:
         cron_expression: 5 12 * * ? *
-        invoke_function:
+        invoke_function_with_retry:
           function_id: d4eofc7n0m03lmudse8l
           function_tag: $latest
           service_account_id: aje3932acd0c5ur7dagp
+          retry_settings:
+            retry_attempts: "1"
+            interval: 10s
+    status: ACTIVE
     ```
 
 {% endlist %}

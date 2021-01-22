@@ -8,7 +8,7 @@ To allow any user to invoke (call) a function, [make it public](../function-publ
 
 {% include [function-list-note](../../../_includes/functions/function-list-note.md) %}
 
-## Invoking a function
+## Invoking a function {#invoking-function}
 
 As an example, we'll use the function described in [{#T}](version-manage.md#func-version-create).
 
@@ -130,3 +130,4 @@ To invoke a private function via HTTP, you must authenticate. To do this, get:
     ```
 
     API keys do not expire. This means that this authentication method is simpler, but less secure. Use it if you can't request an IAM token automatically.
+

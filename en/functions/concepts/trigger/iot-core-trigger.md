@@ -11,7 +11,7 @@ Learn more about [access management](../../security/index.md).
 
 ## Trigger message format {{ iot-short-name }} {#iot-format}
 
-Before a message copy to a function, the trigger converts it to the following format:
+Before the message is copied to a function, the trigger converts it to the following format:
 
 ```json
 {

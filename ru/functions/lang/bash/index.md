@@ -7,7 +7,7 @@
 | Название | Назначение | 
 |----|----|
 |[jq](https://stedolan.github.io/jq/)| Для работы с JSON. | 
-|[YC CLI](https://cloud.yandex.ru/docs/cli/)| Для работы с API {{ yandex-cloud }}. | 
+|[YC CLI](../../../cli)| Для работы с API {{ yandex-cloud }}. | 
 |[AWS CLI version 2](https://docs.aws.amazon.com/cli/index.html)| Для работы с совместимыми сервисами. |
 
 Подробнее о способах использования SDK читайте в разделе [Использование SDK](sdk.md).
