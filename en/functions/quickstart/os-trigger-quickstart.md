@@ -1,4 +1,4 @@
-# Creating a trigger for {{ objstorage-name }}
+# Creating a trigger for {{ objstorage-full-name }}
 
 {% include [triggers-preview](../../_includes/functions/triggers-preview-stage.md) %}
 
@@ -14,7 +14,7 @@ Create a [trigger for {{ objstorage-name }}](../concepts/trigger/os-trigger.md) 
 
 ## What's next {#what-is-next}
 
-- Read about the [concept of trigger](../concepts/trigger/index.md).
+- Read about the [concept of triggers](../concepts/trigger/index.md).
 - Read more about the [trigger for {{ objstorage-name }}](../concepts/trigger/os-trigger.md).
 - For information about what you can do with triggers, see our [step-by-step instructions](../operations/index.md).
 

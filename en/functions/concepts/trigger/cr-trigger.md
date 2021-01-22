@@ -6,28 +6,27 @@ A trigger for {{ container-registry-name }} needs a [service account](../../../i
 
 ## Events for setting up a trigger {#event}
 
-Events with Docker-images that can be trucked using the trigger:
-- [Pushing a Docker-image](../../../container-registry/operations/docker-image/docker-image-push.md).
-- [Deleting a Docker-image](../../../container-registry/operations/docker-image/docker-image-delete.md).
-- Creating a Docker-image tag.
-- Deleting a Docker-image tag.
+Events with Docker images that can be tracked using a trigger:
 
-Docker-image is always pushed with some tag (even if you push it without any tags Docker creates 'latest' tag automatically). It means that CreateImage event always occurs with CreateImageTag event simultaneously. You can add as many tags as you want for Docker-image by pushing the same Docker-image with different tags. In this case only CreateImageTag events will occur.
+- [Creating a Docker image](../../../container-registry/operations/docker-image/docker-image-push.md).
+- [Deleting a Docker image](../../../container-registry/operations/docker-image/docker-image-delete.md).
+- Creating a Docker image tag.
+- Deleting a Docker image tag.
 
-There can be situation when tag is moving from one Docker-image to another. It occurs when you push new Docker-image with tag used by the old one. In this case CreateImage event will occur for the new Docker-image and tag changing will entail DeleteImageTag (for the old Docker-image) and CreateImageTag (for the new one) events.
+A Docker image is always pushed with a tag (if no tag is specified, Docker automatically inserts the `latest` tag). Therefore the `CreateImage` event is always paired with `CreateImageTag`. You can add an arbitrary number of tags to a Docker image by pushing the same image with other tags. In this case, only the `CreateImageTag` event will occur, without `CreateImage`.
 
-When you delete the Docker-image all tags are being deleted too. It means that deleting the Docker-image will entail one DeleteImage event and as many DeleteImageTag events as tags Docker-image had at the time of deleting.
+A tag can go from one Docker image to another. This happens when pushing a new Docker image with a tag that is already used in another Docker image. In this case, the `CreateImage` event will occur for the new Docker image, while changing the tag will trigger two events: `DeleteImageTag` (removing the tag from the old Docker image) and `CreateImageTag` (assigning the tag to the new Docker image).
 
-### Filtering events by Docker-image {#filter}
+When you delete a Docker image, all its tags are deleted. This is why deleting a Docker image always triggers the `DeleteImage` event and as many `DeleteImageTag` events as the Docker image had tags at the time of deletion.
 
-Events are filtering using tags and names of [Docker-images](../../../container-registry/concepts/docker-image.md) you push into registry.
+### Filtering events {#filter}
 
-When using a tag and name at the same time, filtering is done based on the logical `AND`: for the trigger to work, the image must match both the name and tag.
+Events are filtered using tags and names of Docker images that you push. When using a name and tag at the same time, filtering is done based on the logical `AND`: for the trigger to work, the image must match both the name and tag.
 
 ## Roles required for the proper operation of a trigger for {{ container-registry-name }} {#roles}
 
 - To create a trigger, you need a permission for a service account that runs the trigger executing the operation. This permission is included in the roles [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles.md#sa-user), [editor](../../../iam/concepts/access-control/roles.md#editor), and higher.
-- Also you need a permission to the registry whose events trigger should be subscribed to: this permission is granted by `{{ roles-cr-puller }}` role for the registry.
+- To create a trigger, you'll also need the `{{ roles-cr-puller }}` role for the registry whose events the trigger will handle.
 - To run a trigger, the service account needs the `{{ roles-functions-ivoker }}` role for the folder containing the function called by the trigger.
 
 Learn more about [access management](../../security/index.md).

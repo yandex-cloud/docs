@@ -413,27 +413,11 @@ items:
       href: security/usecases.md
     - name: Шифрование данных
       href: security/data_encryption.md
-  - name: Архитектура
+  - name: Техническая документация
     when: audience == "tech"
     items:
-    - name: Обзор
-      href: architecture/overview.md
-  - name: Импорт и бэкап данных
-    when: audience == "tech"
-    items:
-    - name: Импорт данных
-      href: maintenance/import.md
-    - name: Восстановление данных
-      href: maintenance/restore.md
-    - name: Экспорт Схемы или Данных
-      href: maintenance/dump_schema.md
-    - name: Просмотр деталей версии
-      href: maintenance/version_details.md
-    - name: Диагностические отчеты
-      href: maintenance/diag_report.md
-  - name: Internals
-    when: audience == "tech"
-    items:
+    - name: Архитектура системы
+      href: internals/architecture.md
     - name: Глоссарий
       href: internals/glossary.md
     - name: Configuration and Deployment
@@ -450,10 +434,10 @@ items:
       href: internals/errors_in_api_requests.md
     - name: YDB Core
       items:
-      - name: Interconnect
-        href: internals/interconnect.md
       - name: Actorlib
         href: internals/actors.md
+      - name: Interconnect
+        href: internals/interconnect.md
       - name: NALF-allocator
         href: internals/nalf.md
       - name: Инфраструктура таблеток

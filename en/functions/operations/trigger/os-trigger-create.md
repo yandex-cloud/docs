@@ -26,13 +26,18 @@ Create a [trigger for {{ objstorage-name }}](../../concepts/trigger/os-trigger.m
 
     ```
     $ yc serverless trigger create object-storage \
-        --name s3-trigger \
-        --bucket-id s3-for-trigger \
-        --prefix 'dev' \
-        --suffix '12.jpg' \
+    --name <trigger name> \
+        --bucket-id <bucket name> \
+        --prefix '<prefix>' \
+        --suffix '<suffix>' \
         --events 'create-object','delete-object','update-object' \
-        --invoke-function-id d4eofc7n0m03lmudsk7y \
-        --invoke-function-service-account-id aje3932acd0c5ur7drte
+        --invoke-function-id <function ID> \
+        --invoke-function-service-account-id <service account ID> \
+    ```
+
+    Result:
+
+    ```
     id: a1s92agr8mpgeo3kjt48
     folder_id: b1g88tflru0ek1omtsu0
     created_at: "2019-12-18T09:47:50.079103Z"
@@ -53,6 +58,7 @@ Create a [trigger for {{ objstorage-name }}](../../concepts/trigger/os-trigger.m
           retry_settings:
             retry_attempts: "1"
             interval: 10s
+    status: ACTIVE
     ```
 
     Where:

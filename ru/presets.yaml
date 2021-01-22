@@ -309,7 +309,12 @@ default:
 
 internal:
   audience: internal
-  console-link: yc.yandex-team.ru
+  console-link: https://yc.yandex-team.ru
+
+  # CLI specific
+  s3-storage-host: s3.mds.yandex.net
+  yc-install-path: /mcdev/yandex-cli/install.sh
+  yc-windows-path: /mcdev/yandex-cli/install.ps1
 
   # MDB specific
   pem-path: https://crls.yandex.net/allCAs.pem
@@ -337,15 +342,15 @@ internal:
   mch-dedup-retention: 30
 
   # links
-  link-console-billing: https://console.cloud.yandex.ru/billing
-  link-console-main: https://console.cloud.yandex.ru/
-  link-console-quotas: https://console.cloud.yandex.ru/cloud?section=quotas
-  link-console-access-management: https://console.cloud.yandex.ru/iam
-  link-console-support: https://console.cloud.yandex.ru/support
+  link-console-billing: https://yc.yandex-team.ru/billing
+  link-console-main: https://yc.yandex-team.ru/
+  link-console-quotas: https://yc.yandex-team.ru/cloud?section=quotas
+  link-console-access-management: https://yc.yandex-team.ru/iam
+  link-console-support: https://yc.yandex-team.ru/support
   link-cloud-calculator: https://cloud.yandex.ru/prices#calculator
   link-yandex-connect: https://connect.yandex.ru
-  link-passport-login: https://passport.yandex.ru/auth
-  link-cloud-oauth: https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb
+  link-passport-login: https://passport.yandex-team.ru/auth
+  link-cloud-oauth: https://oauth.yandex-team.ru/authorize?response_type=token&client_id=8cdb2f6a0dca48398c6880312ee2f78d
   link-cloud-partners: https://partners.cloud.yandex.ru/
 
   # Terraform cloud id
@@ -353,7 +358,7 @@ internal:
 
 external:
   audience: external
-  console-link: console.cloud.yandex.ru
+  console-link: https://console.cloud.yandex.ru
   host-class: s2.micro
   network-name: default-net
   zone-id: ru-central1-c

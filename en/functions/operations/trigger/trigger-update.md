@@ -87,9 +87,9 @@ You can change the [name](#update-name) and [description](#update-description) o
 
 You can perform the following actions with trigger labels:
 
-- [Add a label](#add-label).
-- [Update a label](#update-label).
-- [Delete a label](#remove-label).
+- [Add a label](#add-label)
+- [Update a label](#update-label)
+- [Delete a label](#remove-label)
 
 ### Adding a label {#add-label}
 
@@ -214,3 +214,4 @@ You can perform the following actions with trigger labels:
     ```
 
 {% endlist %}
+

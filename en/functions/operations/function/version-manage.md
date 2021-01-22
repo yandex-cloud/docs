@@ -5,7 +5,7 @@ With function versioning, you can:
 - [Create a version](version-manage.md#func-version-create).
 - [Get information about a function version](version-manage.md#version-info).
     - [Get a list of function versions](version-manage.md#version-list).
-    - [Get detailed information about a function's version](version-manage.md#version-get).
+    - [Get detailed information about a function version](version-manage.md#version-get).
 - [Manage version tags](function-update.md#manage-tags).
 
 You can change the function code using the [Code editor](function-editor.md).
@@ -89,7 +89,7 @@ When creating a version, set the following parameters:
     --entrypoint index.handler \ The handler, specified in <function file name>.<handler name> format.
     --memory 128m \ # Amount of RAM.
     --execution-timeout 5s \ # The maximum function execution time before the timeout is reached.
-    --source-path ./hello-js.zip # ZIP archive with the function code and all required dependencies.    
+    --source-path ./hello-js.zip # ZIP archive with the function code and all required dependencies.
     ```
 
     Result:
@@ -229,3 +229,4 @@ To access the function version, use its unique ID. For information about how to 
     ```
 
 {% endlist %}
+

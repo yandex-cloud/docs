@@ -15,8 +15,6 @@ items:
       href: operations/connect.md
     - name: Изменение настроек кластера и базы данных
       href: operations/update.md
-    - name: Подключение к DataLens
-      href: operations/datalens-connect.md  
     - name: Управление хостами PostgreSQL
       href: operations/hosts.md
     - name: Управление базами данных
@@ -31,8 +29,6 @@ items:
       href: operations/cluster-backups.md
     - name: Удаление кластера
       href: operations/cluster-delete.md
-    - name: Миграция базы данных в Yandex.Cloud
-      href: operations/data-migration.md
   - name: Концепции
     items:
     - name: Взаимосвязь ресурсов сервиса

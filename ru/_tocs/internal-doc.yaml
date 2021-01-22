@@ -17,3 +17,7 @@ items:
       toc: managed-redis/toc-internal.yaml
     - doc: managed-mongodb
       toc: managed-mongodb/toc-internal.yaml
+    - doc: managed-elasticsearch
+      toc: managed-elasticsearch/toc-internal.yaml
+    - doc: managed-kafka
+      toc: managed-kafka/toc-internal.yaml

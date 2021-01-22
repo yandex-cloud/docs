@@ -88,7 +88,7 @@ Choose the programming language and create a [version of the function](../concep
 
 1. Open the **Settings** tab.
 
-1. Under **Backend**, select **Function in Yandex.Cloud**.
+1. Under **Backend**, select **Function in {{ yandex-cloud }}**.
 
 1. Select the desired function from the drop-down list.
 

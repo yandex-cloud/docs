@@ -186,6 +186,210 @@
   python3 consumer.py
   ```
 
+- Node.js
+
+  **Перед подключением установите зависимости:**
+
+  ```bash
+  sudo apt update && sudo apt install -y nodejs npm && \
+  npm install node-rdkafka
+  ```
+
+  **Пример кода для отправки сообщений в топик:**
+  
+  `producer.js`
+  ```js
+  "use strict"
+  const Kafka = require('node-rdkafka');
+
+  const MSG_COUNT = 5;
+
+  const HOST = "<FQDN брокера>:9092";
+  const TOPIC = "<имя топика>";
+  const USER = "<имя производителя>";
+  const PASS = "<пароль производителя>";
+
+  const producer = new Kafka.Producer({
+      'bootstrap.servers': HOST,
+      'sasl.username': USER,
+      'sasl.password': PASS,
+      'security.protocol': "SASL_PLAINTEXT",
+      'sasl.mechanisms': "SCRAM-SHA-512"
+    });
+
+  producer.connect();
+
+  producer.on('ready', function() {
+    try {
+      for (let i = 0; i < MSG_COUNT; ++i) {
+        producer.produce(TOPIC, -1, Buffer.from("test message"), "key");
+        console.log("Produced: test message");
+      }
+
+      producer.flush(10000, () => {
+          producer.disconnect();
+        });
+    } catch (err) {
+      console.error('Error');
+      console.error(err);
+    }
+  });
+  ```
+
+  **Пример кода для получения сообщений из топика:**
+  
+  `consumer.js`
+  ```js
+  "use strict"
+  const Kafka = require('node-rdkafka');
+
+  const MSG_COUNT = 5;
+
+  const HOST = "<FQDN брокера>:9092";
+  const TOPIC = "<имя топика>";
+  const USER = "<имя потребителя>";
+  const PASS = "<пароль потребителя>";
+
+  const consumer = new Kafka.Consumer({
+      'bootstrap.servers': HOST,
+      'sasl.username': USER,
+      'sasl.password': PASS,
+      'security.protocol': "SASL_PLAINTEXT",
+      'sasl.mechanisms': "SCRAM-SHA-512",
+    'group.id': "demo"
+  });
+
+  consumer.connect();
+
+  consumer
+    .on('ready', function() {
+      consumer.subscribe([TOPIC]);
+      consumer.consume();
+    })
+    .on('data', function(data) {
+      console.log(data.value.toString());
+    });
+
+  process.on('SIGINT', () => {
+      console.log('\nDisconnecting consumer ...');
+      consumer.disconnect();
+  });
+  ``` 
+
+  **Запуск приложений:**
+  
+  ```bash
+  node producer.js
+  ```
+
+  ```bash
+  node consumer.js
+  ``` 
+
+- Node.js (SSL)
+
+  **Перед подключением установите зависимости:**
+
+  ```bash
+  sudo apt update && sudo apt install -y nodejs npm && \
+  npm install node-rdkafka
+  ```
+
+  **Пример кода для отправки сообщений в топик:**
+  
+  `producer.js`
+  ```js
+  "use strict"
+  const Kafka = require('node-rdkafka');
+
+  const MSG_COUNT = 5;
+
+  const HOST = "<FQDN брокера>:9091";
+  const TOPIC = "<имя топика>";
+  const USER = "<имя производителя>";
+  const PASS = "<пароль производителя>";
+  const CA_FILE = "/usr/local/share/ca-certificates/Yandex/YandexCA.crt";
+
+  const producer = new Kafka.Producer({
+      'bootstrap.servers': HOST,
+      'sasl.username': USER,
+      'sasl.password': PASS,
+      'security.protocol': "SASL_SSL",
+      'ssl.ca.location': CA_FILE, 
+      'sasl.mechanisms': "SCRAM-SHA-512"
+    });
+
+  producer.connect();
+
+  producer.on('ready', function() {
+    try {
+      for (let i = 0; i < MSG_COUNT; ++i) {
+        producer.produce(TOPIC, -1, Buffer.from("test message"), "key");
+        console.log("Produced: test message");
+      }
+
+      producer.flush(10000, () => {
+          producer.disconnect();
+        });
+    } catch (err) {
+      console.error('Error');
+      console.error(err);
+    }
+  });
+  ```
+
+  **Пример кода для получения сообщений из топика:**
+  
+  `consumer.js`
+  ```js
+  "use strict"
+  const Kafka = require('node-rdkafka');
+
+  const MSG_COUNT = 5;
+
+  const HOST = "<FQDN брокера>:9091";
+  const TOPIC = "<имя топика>";
+  const USER = "<имя потребителя>";
+  const PASS = "<пароль потребителя>";
+  const CA_FILE = "/usr/local/share/ca-certificates/Yandex/YandexCA.crt";
+
+  const consumer = new Kafka.Consumer({
+      'bootstrap.servers': HOST,
+      'sasl.username': USER,
+      'sasl.password': PASS,
+      'security.protocol': "SASL_SSL",
+      'ssl.ca.location': CA_FILE, 
+      'sasl.mechanisms': "SCRAM-SHA-512",
+    'group.id': "demo"
+  });
+
+  consumer.connect();
+
+  consumer
+    .on('ready', function() {
+      consumer.subscribe([TOPIC]);
+      consumer.consume();
+    })
+    .on('data', function(data) {
+      console.log(data.value.toString());
+    });
+
+  process.on('SIGINT', () => {
+      console.log('\nDisconnecting consumer ...');
+      consumer.disconnect();
+  });
+  ``` 
+
+  **Запуск приложений:**
+  
+  ```bash
+  node producer.js
+  ```
+
+  ```bash
+  node consumer.js
+  ```
+
 - Java
 
   **Перед подключением:** 
@@ -1120,5 +1324,334 @@
   ```bash
   ~/go-project/consumer/consumer
   ```  
+
+- C#
+
+  **Перед подключением:** 
+  
+  1. Установите зависимости:
+  
+     ```bash
+     wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb && \
+     sudo dpkg -i packages-microsoft-prod.deb && \
+     sudo apt update && \
+     sudo apt-get install -y apt-transport-https dotnet-sdk-5.0
+     ```
+  
+  1. Создайте директорию для проекта:
+     
+     ```bash
+     cd ~/ && mkdir cs-project && cd cs-project && mkdir -p consumer producer && cd ~/cs-project
+     ```
+     
+  1. Создайте конфигурационный файл:
+  
+     `App.csproj`
+     ```csharp
+     <Project Sdk="Microsoft.NET.Sdk">
+        <PropertyGroup>
+          <OutputType>Exe</OutputType>
+          <TargetFramework>netcoreapp5.0</TargetFramework>
+        </PropertyGroup>
+
+        <ItemGroup>
+           <PackageReference Include="Confluent.Kafka" Version="1.4.2" />
+        </ItemGroup>
+     </Project>
+     ```   
+
+  1. Скопируйте `App.csproj` в директории приложения-производителя и приложения-потребителя:
+   
+      ```bash
+      cp App.csproj producer/App.csproj && cp App.csproj consumer/App.csproj
+      ```  
+  
+  **Пример кода для отправки сообщений в топик:**
+  
+  `cs-project/producer/Program.cs`
+  ```csharp
+  using Confluent.Kafka;
+  using System;
+  using System.Collections.Generic;
+
+  namespace App
+  {
+      class Program
+      {
+          public static void Main(string[] args)
+          {
+              int MSG_COUNT = 5;
+
+              string HOST = "<FQDN хоста-брокера>:9092";
+              string TOPIC = "<имя топика>";
+              string USER = "<имя производителя>";
+              string PASS = "<пароль производителя>";
+
+              var producerConfig = new ProducerConfig(
+                   new Dictionary<string,string>{
+                       {"bootstrap.servers", HOST},
+                       {"security.protocol", "SASL_PLAINTEXT"},
+                       {"sasl.mechanisms", "SCRAM-SHA-512"},
+                       {"sasl.username", USER},
+                       {"sasl.password", PASS}
+                   }
+               );
+
+               var producer = new ProducerBuilder<string, string>(producerConfig).Build();
+
+               for(int i=0; i<MSG_COUNT; i++)
+               {
+                   producer.Produce(TOPIC, new Message<string, string> { Key = "key", Value = "test message" },
+                   (deliveryReport) =>
+                       {
+                           if (deliveryReport.Error.Code != ErrorCode.NoError)
+                           {
+                               Console.WriteLine($"Failed to deliver message: {deliveryReport.Error.Reason}");
+                           }
+                           else
+                           {
+                               Console.WriteLine($"Produced message to: {deliveryReport.TopicPartitionOffset}");
+                           }
+                       });
+               }
+
+               producer.Flush(TimeSpan.FromSeconds(10));
+          }
+      } 
+  }
+  ```
+
+  **Пример кода для получения сообщений из топика:**
+  
+  `cs-project/consumer/Program.cs` 
+  ```csharp
+  using Confluent.Kafka;
+  using System;
+  using System.Collections.Generic;
+
+  namespace CCloud
+  {
+      class Program
+      {
+          public static void Main(string[] args)
+          {
+              string HOST = "<FQDN хоста-брокера>:9092";
+              string TOPIC = "<имя топика>";
+              string USER = "<имя потребителя>";
+              string PASS = "<пароль потребителя>";
+  
+              var consumerConfig = new ConsumerConfig(
+                        new Dictionary<string,string>{
+                                {"bootstrap.servers", HOST},
+                                {"security.protocol", "SASL_PLAINTEXT"},
+                                {"sasl.mechanisms", "SCRAM-SHA-512"},
+                                {"sasl.username", USER},
+                                {"sasl.password", PASS},
+                                {"group.id", "demo"}
+                        }
+                );
+
+               var consumer = new ConsumerBuilder<string, string>(consumerConfig).Build();
+               consumer.Subscribe(TOPIC);
+               try
+               {
+                  while (true)
+                  {
+                        var cr = consumer.Consume();
+                        Console.WriteLine(cr.Message.Value);
+                  }
+                }
+                catch (OperationCanceledException)
+                {
+                    // Ctrl-C was pressed.
+                }
+                finally
+                {
+                    consumer.Close();
+                }
+            }
+
+        }
+  }
+
+  ```
+
+  **Сборка и запуск приложений:**
+  
+  ```bash
+  cd ~/cs-project/producer && dotnet build && \
+  dotnet run bin/Debug/netcoreapp5.0/App.dll 
+  ```
+
+  ```bash
+  cd ~/cs-project/consumer && dotnet build && \
+  dotnet run bin/Debug/netcoreapp5.0/App.dll  
+  ``` 
+  
+- C# (SSL)
+
+  **Перед подключением:** 
+  
+  1. Установите зависимости:
+  
+     ```bash
+     wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb && \
+     sudo dpkg -i packages-microsoft-prod.deb && \
+     sudo apt update && \
+     sudo apt-get install -y apt-transport-https dotnet-sdk-5.0
+     ```
+  
+  1. Создайте директорию для проекта:
+     
+     ```bash
+     cd ~/ && mkdir cs-project && cd cs-project && mkdir -p consumer producer && cd ~/cs-project
+     ```
+     
+  1. Создайте конфигурационный файл:
+  
+     `App.csproj`
+     ```csharp
+     <Project Sdk="Microsoft.NET.Sdk">
+        <PropertyGroup>
+          <OutputType>Exe</OutputType>
+          <TargetFramework>netcoreapp5.0</TargetFramework>
+        </PropertyGroup>
+
+        <ItemGroup>
+           <PackageReference Include="Confluent.Kafka" Version="1.4.2" />
+        </ItemGroup>
+     </Project>
+     ```   
+
+  1. Скопируйте `App.csproj` в директории приложения-производителя и приложения-потребителя:
+   
+      ```bash
+      cp App.csproj producer/App.csproj && cp App.csproj consumer/App.csproj
+      ```  
+  
+  **Пример кода для отправки сообщений в топик:**
+  
+  `cs-project/producer/Program.cs`
+  ```csharp
+  using Confluent.Kafka;
+  using System;
+  using System.Collections.Generic;
+
+  namespace App
+  {
+      class Program
+      {
+          public static void Main(string[] args)
+          {
+              int MSG_COUNT = 5;
+
+              string HOST = "<FQDN хоста-брокера>:9091";
+              string TOPIC = "<имя топика>";
+              string USER = "<имя производителя>";
+              string PASS = "<пароль производителя>";
+              string CA_FILE = "/usr/local/share/ca-certificates/Yandex/YandexCA.crt";
+
+              var producerConfig = new ProducerConfig(
+                   new Dictionary<string,string>{
+                       {"bootstrap.servers", HOST},
+                       {"security.protocol", "SASL_SSL"},
+                       {"ssl.ca.location", CA_FILE}, 
+                       {"sasl.mechanisms", "SCRAM-SHA-512"},
+                       {"sasl.username", USER},
+                       {"sasl.password", PASS}
+                   }
+               );
+
+               var producer = new ProducerBuilder<string, string>(producerConfig).Build();
+
+               for(int i=0; i<MSG_COUNT; i++)
+               {
+                   producer.Produce(TOPIC, new Message<string, string> { Key = "key", Value = "test message" },
+                   (deliveryReport) =>
+                       {
+                           if (deliveryReport.Error.Code != ErrorCode.NoError)
+                           {
+                               Console.WriteLine($"Failed to deliver message: {deliveryReport.Error.Reason}");
+                           }
+                           else
+                           {
+                               Console.WriteLine($"Produced message to: {deliveryReport.TopicPartitionOffset}");
+                           }
+                       });
+               }
+
+               producer.Flush(TimeSpan.FromSeconds(10));
+          }
+      } 
+  }
+  ```
+
+  **Пример кода для получения сообщений из топика:**
+  
+  `cs-project/consumer/Program.cs` 
+  ```csharp
+  using Confluent.Kafka;
+  using System;
+  using System.Collections.Generic;
+
+  namespace CCloud
+  {
+      class Program
+      {
+          public static void Main(string[] args)
+          {
+              string HOST = "<FQDN хоста-брокера>:9091";
+              string TOPIC = "<имя топика>";
+              string USER = "<имя потребителя>";
+              string PASS = "<пароль потребителя>";
+              string CA_FILE = "/usr/local/share/ca-certificates/Yandex/YandexCA.crt";
+  
+              var consumerConfig = new ConsumerConfig(
+                        new Dictionary<string,string>{
+                                {"bootstrap.servers", HOST},
+                                {"security.protocol", "SASL_SSL"},
+                                {"ssl.ca.location", CA_FILE}, 
+                                {"sasl.mechanisms", "SCRAM-SHA-512"},
+                                {"sasl.username", USER},
+                                {"sasl.password", PASS},
+                                {"group.id", "demo"}
+                        }
+                );
+
+               var consumer = new ConsumerBuilder<string, string>(consumerConfig).Build();
+               consumer.Subscribe(TOPIC);
+               try
+               {
+                  while (true)
+                  {
+                        var cr = consumer.Consume();
+                        Console.WriteLine(cr.Message.Value);
+                  }
+                }
+                catch (OperationCanceledException)
+                {
+                    // Ctrl-C was pressed.
+                }
+                finally
+                {
+                    consumer.Close();
+                }
+            }
+
+        }
+  }
+  ```
+
+  **Сборка и запуск приложений:**
+  
+  ```bash
+  cd ~/cs-project/producer && dotnet build && \
+  dotnet run bin/Debug/netcoreapp5.0/App.dll 
+  ```
+
+  ```bash
+  cd ~/cs-project/consumer && dotnet build && \
+  dotnet run bin/Debug/netcoreapp5.0/App.dll  
+  ```   
 
 {% endlist %}

@@ -87,9 +87,9 @@ You can change the [name](function-update.md#update-name) and [description](func
 
 You can perform the following actions with function labels:
 
-- [Add a label](#add-label).
-- [Update a label](#update-label).
-- [Delete a label](#remove-label).
+- [Add a label](#add-label)
+- [Update a label](#update-label)
+- [Delete a label](#remove-label)
 
 ### Adding a label {#add-label}
 
@@ -189,3 +189,4 @@ You can perform the following actions with function labels:
     ```
 
 {% endlist %}
+

@@ -8,9 +8,10 @@ Regardless of the selected model, a project is uploaded in one of the following 
 
 1. It must be public.
 1. It must have a public constructor with no arguments.
-By default, it is present. But if you created your own constructor that accepts arguments, you should also create a constructor that doesn't accept any arguments.
+   By default, it is present. But if you created your own constructor that accepts arguments, you should also create a constructor that doesn't accept any arguments.
 1. It shouldn't be [generic](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/generics/).
 
 Regardless of the selected model, the handler can be an [async method](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/async/) that returns a `Task` or `Task<T>`. For the option with the independent class, the `async void` value can be returned.
 
 In this case, there are two separate types: `byte[]` and `String`. Using them is slightly different from using other types. If you use them as the handler function argument type, the runtime doesn't convert an incoming request to a `JSON` interpretation for these types and passes it directly to the user handler function. The exception is when the parameter [integration=raw](../../../concepts/function-invoke.md#http) is used.
+

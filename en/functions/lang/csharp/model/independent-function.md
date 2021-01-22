@@ -90,7 +90,7 @@ The function is invoked using an HTTP request with the username, logs the reques
 
 {% note warning %}
 
-Don't use the `integration=raw` parameter to invoke this function. If you do, the function won't get any data about the original request's methods, headers, or parameters.
+Don't use the `integration=raw` parameter to invoke this function. If you do, the function won't get any data about the original request's methods, headers, and parameters.
 
 {% endnote %}
 
@@ -132,7 +132,7 @@ public class Handler {
     using var jsonDoc = JsonDocument.Parse(body);
     var root = jsonDoc.RootElement;
 
-    // here, the "name" parameter is obtained from the request body
+    // here the "name" parameter is obtained from the request body
     // if you don't pass it, an error is thrown
     var name = root.GetProperty("name").GetString(); 
     return new Response(200, $"Hello, {name}");
@@ -159,3 +159,4 @@ Response returned:
 ```
 Hello, Anonymous
 ```
+

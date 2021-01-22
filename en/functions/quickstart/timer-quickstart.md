@@ -24,11 +24,11 @@ To create a timer:
     * Select the function to be called by the timer.
     * Specify [the function version tag](../concepts/function.md#tag).
     * Specify the service account that will be used to call the function.
-1. Click**Create trigger**.
+1. Click **Create trigger**.
 
 ## What's next {#what-is-next}
 
-- Read about the [concept of trigger](../concepts/trigger/index.md).
+- Read about the [concept of triggers](../concepts/trigger/index.md).
 - Read more about the [timer](../concepts/trigger/timer.md).
 - For information about what you can do with triggers, see our [step-by-step instructions](../operations/index.md).
 

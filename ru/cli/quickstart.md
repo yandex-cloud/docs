@@ -8,11 +8,13 @@ _Интерфейс командной строки {{ yandex-cloud }} (CLI)_ �
 
 Внутри Яндекса CLI (command-line interface) {{ yandex-cloud }} позволяет использовать:
 
-- Managed Service for ClickHouse
-- Managed Service for MongoDB
-- Managed Service for MySQL
-- Managed Service for Redis
-- Managed Service for PostgreSQL
+- [{{mch-name}}](../managed-clickhouse/)
+- [{{mes-name}}](../managed-elasticsearch/)
+- [{{mkf-name}}](../managed-kafka/)
+- [{{mmg-name}}](../managed-mongodb/)
+- [{{mmy-name}}](../managed-mysql/)
+- [{{mpg-name}}](../managed-postgresql/)
+- [{{mrd-name}}](../managed-redis/)
 
 {% endif %}
 
@@ -25,14 +27,15 @@ _Интерфейс командной строки {{ yandex-cloud }} (CLI)_ �
 
 {% if audience == "internal" %}
 
-О том, как правильно инициализировать CLI, читайте в документации соответствующего сервиса:
+{% note warning %}
 
-- [Managed Service for {{ CH }}](../managed-clickhouse/quickstart.md#setup)
-- [Managed Service for {{ MG }}](../managed-mongodb/quickstart.md#setup)
-- [Managed Service for {{ RD }}](../managed-redis/quickstart.md#setup)
-- [Managed Service for {{ PG }}](../managed-postgresql/quickstart.md#setup)
+Приведённая ниже инстукция будет работать в случае установки внутренней сборки CLI (из s3.mds.yandex.net), а не внешней (из storage.yandexcloud.net). В случае, если у вас используется внешняя сборка CLI, следуйте [этой инструкции](../mdb/cli.md).
 
-{% else %}
+Если у вас уже установлен CLI, вы можете понять, какая сборка у вас используется с помощью команды `yc version`. Если в версии присутствует `+yandex`, то сборка внутренняя. В противном случае сборка внешняя.
+
+{% endnote %}
+
+{% endif %}
 
   1. Получите OAuth-токен в сервисе Яндекс.OAuth. Для этого перейдите по [ссылке]({{ link-cloud-oauth }}) и нажмите **Разрешить**.
   1. Запустите команду `yc init`, чтобы выполнить настройку вашего профиля CLI.
@@ -60,6 +63,12 @@ _Интерфейс командной строки {{ yandex-cloud }} (CLI)_ �
       [3] Create a new folder
      Please enter your numeric choice: 1
      ```
+{% if audience == "internal" %}
+  1. Откажитесь от выбора зоны доступности по умолчанию для сервиса {{ compute-full-name }}:
+     ```
+     Do you want to configure a default {{ compute-full-name }} availability zone? [Y/n] N
+     ```
+{% else %}
   1. Выберите зону доступности по умолчанию для сервиса {{ compute-full-name }}:
      ```
      Do you want to configure a default {{ compute-full-name }} availability zone? [Y/n] Y
@@ -70,10 +79,13 @@ _Интерфейс командной строки {{ yandex-cloud }} (CLI)_ �
       [4] Don't set default zone
      Please enter your numeric choice: 2
      ```
+{% endif %}
   1. Проверьте настройки вашего профиля CLI:
      ```
      $ yc config list
      ```
+
+{% if audience != "internal" %}
 
 ## Примеры команд {#example}
 

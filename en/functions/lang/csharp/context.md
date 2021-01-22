@@ -7,3 +7,4 @@ _Invocation context_ is an object that is optionally accepted by the [request ha
 * `MemoryLimitInMB`: Returns the amount of memory specified when creating the version, MB.
 * `RequestId`: Returns the ID of the request being handled.
 * `TokenJson`: Returns the parameters required for authentication in the {{ yandex-cloud }} API.
+

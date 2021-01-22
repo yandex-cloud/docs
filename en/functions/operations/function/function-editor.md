@@ -1,6 +1,7 @@
 # Working in the code editor
 
 To work with your function code in the code editor:
+
 1. Select **{{ sf-name }}** in the [management console]({{ link-console-main }}).
 1. Click ![image](../../../_assets/vertical-ellipsis.svg) in the row of the function you want to edit.
 1. In the window that opens, go to **Editor**.
