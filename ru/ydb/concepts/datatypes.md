@@ -44,7 +44,7 @@
 | `Json`         | валидный [JSON](https://en.wikipedia.org/wiki/JSON) в текстовом представлении | Да | Да | Нет | Нет |
 | `JsonDocument` | валидный [JSON](https://en.wikipedia.org/wiki/JSON) в бинарном индексированном представлении | Да | Да | Нет | Нет |
 {% if audience != "external" %}
-| `Yson`         | валидный [YSON](https://wiki.yandex-team.ru/yt/userdoc/yson/) в текстовом или бинарном представлении | Да | Да | Нет | Нет |
+| `Yson`         | валидный [YSON](https://yt.yandex-team.ru/docs/description/common/yson.html) в текстовом или бинарном представлении | Да | Да | Нет | Нет |
 {% endif %}
 | `Uuid`         | универсальный идентификатор [UUID](https://tools.ietf.org/html/rfc4122) | Да | Нет | Нет | Да |
 
