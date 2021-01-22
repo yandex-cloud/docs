@@ -291,7 +291,7 @@
 
 * Команды `yc compute instance create-with-container` и `yc compute instance update-container`.
 
-   Добавлен флаг `--coi-spec-file` для передачи [спецификации образа](https://cloud.yandex.ru/docs/cos/concepts/#spec-example).
+   Добавлен флаг `--coi-spec-file` для передачи [спецификации образа](../cos/concepts/index.md#coi-spec-example).
 
 ##### {{ vpc-name }} {#vpc}
 
