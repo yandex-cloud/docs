@@ -30,6 +30,8 @@ items:
             href: operations/connection/create-postgresql.md
           - name: Creating an MS SQL Server connection
             href: operations/connection/create-mssql-server.md
+          - name: Creating an Oracle Database connection
+            href: operations/connection/create-oracle.md
           - name: Creating a Metrica API connection
             href: operations/connection/create-metrica-api.md
           - name: Creating a Yandex.Metrica Logs API connection
@@ -92,3 +94,6 @@ items:
     items:
     - name: Authentication in the API
       href: api-ref/authentication.md
+    include:
+      repo: docs
+      path: en/_api-ref/datalens/toc.yaml

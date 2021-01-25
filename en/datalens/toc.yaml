@@ -37,6 +37,8 @@ items:
             href: operations/connection/create-postgresql.md
           - name: Creating an MS SQL Server connection
             href: operations/connection/create-mssql-server.md
+          - name: Creating an Oracle Database connection
+            href: operations/connection/create-oracle.md
           - name: Creating a Yandex.Metrica API connection
             href: operations/connection/create-metrica-api.md
           - name: Creating a Yandex.Metrica Logs API connection

@@ -69,7 +69,7 @@ items:
             href: operations/chart/create-line-chart.md
           - name: Создание диаграммы с областями
             href: operations/chart/create-area-chart.md
-          - name: Создания круговой диаграммы
+          - name: Создание круговой диаграммы
             href: operations/chart/create-pie-chart.md
           - name: Создание столбчатой диаграммы
             href: operations/chart/create-column-chart.md
