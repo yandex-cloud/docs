@@ -235,6 +235,15 @@ routes:
 
 {% code '/logbroker/unified_agent/examples/all.yml' lines='[BEGIN system]-[END system]' lang='yaml' %}
 
+### Секция flow_control { #flow_control }
+Секция содержит конфигурацию механизма работы с сессиями. Настройки позволяют сконфигурировать различные ограничения сессий и поведение при достижении этих ограничений.
+
+Секцию flow_control можно указывать для входов и для ссылок на хранилища (storage_ref).
+
+Описание параметров:
+
+{% code '/logbroker/unified_agent/examples/all.yml' lines='[BEGIN flow_control]-[END flow_control]' lang='yaml' %}
+
 ### Входы { #inputs }
 
 #### agent_metrics { #agent_metrics_input }
