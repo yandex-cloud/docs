@@ -25,7 +25,7 @@
     - `delete` — [удалить указанный сервисный аккаунт](../../../iam/operations/sa/delete.md).
     - `list-access-bindings` — получить список ролей указанного сервисного аккаунта.
     - `add-access-binding` — [назначить роль для доступа к указанному сервисному аккаунту, как к ресурсу](../../../iam/operations/sa/set-access-bindings.md).
-    - `set-access-bindings` — [назначить роли для доступа к указанному сервисному аккаунту, как к ресурсу](../../../iam/operations/sa/set-access-bindings.md#multiple-roles) и удаление всех существующих ролей, если они были.
+    - `set-access-bindings` — [назначить роли для доступа к указанному сервисному аккаунту, как к ресурсу](../../../iam/operations/sa/set-access-bindings.md#multiple-roles) с удалением всех существующих ролей, если они были.
     - `remove-access-binding` — удалить роль для доступа к указанному сервисному аккаунту, как к ресурсу.
     - `list-operations` — получить список операций для указанного сервисного аккаунта.
 - `yc iam key` — управление [авторизованными ключами](../../../iam/concepts/authorization/key.md).
