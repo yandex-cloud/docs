@@ -3,7 +3,7 @@ href: index.yaml
 items:
   - name: CLI
     href: cli/
-  - name: Datalens
+  - name: DataLens
     href: datalens/
   - name: MDB
     href: mdb/

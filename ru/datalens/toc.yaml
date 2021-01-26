@@ -2,7 +2,11 @@ title: "Yandex DataLens"
 href: index.yaml
 items:
   - name: Начало работы
+    when: audience == "external"
     href: quickstart.md
+  - name: О сервисе Yandex.DataLens
+    when: audience == "internal"
+    href: overview.md
   - name: Сценарии использования
     items:
       - name: Все сценарии
@@ -10,14 +14,22 @@ items:
       - name: Визуализация данных из CSV-файла
         href: ../solutions/datalens/data-from-csv-visualization.md
       - name: Визуализация данных из базы данных ClickHouse
+        when: audience == "external"
         href: ../solutions/datalens/data-from-ch-visualization.md
+      - name: Визуализация данных из ClickHouse over YT (CHYT)
+        when: audience == "internal"
+        href: ../solutions/datalens/data-from-ch-over-yt.md
       - name: Визуализация данных из Metriсa
+        when: audience == "external"
         href: ../solutions/datalens/data-from-metrica-visualization.md
       - name: Визуализация данных из Metriсa Logs API
+        when: audience == "external"
         href: ../solutions/datalens/data-from-metrica-logsapi-visualization.md
       - name: Публикация в DataLens Public диаграммы с картой на основе CSV-файла
+        when: audience == "external"
         href: ../solutions/datalens/data-from-csv-to-public-visualization.md
       - name: Визуализация данных из AppMetrica
+        when: audience == "external"
         href: ../solutions/datalens/data-from-appmetrica-visualization.md
       - name: Визуализация геоданных из CSV-файла
         href: ../solutions/datalens/data-from-csv-geo-visualization.md
@@ -28,6 +40,7 @@ items:
       - name: Работа с подключениями
         items:
           - name: Создание подключения к ClickHouse
+            when: audience == "external"
             href: operations/connection/create-clickhouse.md
           - name: Создание подключения к файлу CSV
             href: operations/connection/create-csv.md
@@ -46,6 +59,7 @@ items:
           - name: Создание подключения к AppMetrica
             href: operations/connection/create-appmetrica.md
           - name: Управление доступом к подключению
+            when: audience == "external"
             href: operations/connection/manage-access.md
       - name: Работа с датасетами
         items:
@@ -60,6 +74,7 @@ items:
           - name: Материализация датасета
             href: operations/dataset/materialize.md
           - name: Управление доступом к датасету
+            when: audience == "external"
             href: operations/dataset/manage-access.md
           - name: Управление доступом к строкам данных
             href: operations/dataset/manage-row-level-security.md
@@ -82,6 +97,7 @@ items:
           - name: Создание сводной таблицы
             href: operations/chart/create-pivot-table.md
           - name: Публикация чарта
+            when: audience == "external"
             href: operations/chart/publish.md
           - name: Управление доступом к чарту
             href: operations/chart/manage-access.md
@@ -94,10 +110,12 @@ items:
           - name: Добавление селектора на дашборд
             href: operations/dashboard/add-selector.md
           - name: Публикация дашборда
+            when: audience == "external"
             href: operations/dashboard/publish.md
           - name: Управление доступом к дашборду
             href: operations/dashboard/manage-access.md
       - name: Работа с правами доступа
+        when: audience == "external"
         items:
           - name: Назначение прав доступа
             href: operations/permission/grant.md
@@ -128,27 +146,173 @@ items:
       - name: Использование Markdown в DataLens
         href: concepts/markdown.md
       - name: DataLens Public
+        when: audience == "external"
         href: concepts/datalens-public.md
       - name: Вычисляемые поля
         href: concepts/calculations.md
       - name: Marketplace
+        when: audience == "external"
         href: concepts/marketplace.md
       - name: Резервное копирование в DataLens
         href: concepts/backup.md
       - name: Квоты и лимиты
+        when: audience == "external"
         href: concepts/limits.md
   - name: Управление доступом
     items:
       - name: Управление доступом к DataLens
+        when: audience == "external"
         href: security/index.md
       - name: Управление доступом на уровне строк данных
         href: security/row-level-security.md
   - name: Правила тарификации
+    when: audience == "external"
     href: pricing.md
+  - name: ChartEditor
+    when: audience == "internal"
+    items:
+      - name: Быстрый старт
+        href: editor/index.md
+      - name: Архитектура
+        items:
+          - name: Обзор
+            href: editor/architecture.md
+          - name: Версионирование
+            href: editor/versioning.md
+          - name: Параметризация
+            href: editor/params.md
+          - name: Модули
+            href: editor/modules.md
+          - name: Контролы
+            items:
+              - name: Обзор
+                href: editor/controls/index.md
+              - name: Список контролов
+                href: editor/controls/elements.md
+      - name: Источники данных
+        items:
+          - name: Обзор
+            href: editor/sources/index.md
+          - name: Датасеты
+            href: editor/sources/dataset.md
+          - name: Статистика
+            href: editor/sources/stat.md
+          - name: Метрика
+            href: editor/sources/metrika.md
+          - name: Мобильная
+            href: editor/sources/appmetrika.md
+          - name: ClickHouse
+            href: editor/sources/clickhouse.md
+          - name: Графит
+            href: editor/sources/graphite.md
+          - name: Metrics
+            href: editor/sources/metrics.md
+          - name: Соломон
+            href: editor/sources/solomon.md
+          - name: Разладки
+            href: editor/sources/razladki.md
+          - name: YQL
+            href: editor/sources/yql.md
+          - name: YT
+            href: editor/sources/yt.md
+          - name: CHYT
+            href: editor/sources/chyt.md
+      - name: Виды чартов
+        items:
+          - name: График
+            items:
+              - name: Обзор
+                href: editor/widgets/chart/index.md
+              - name: Комментарии
+                href: editor/widgets/chart/comments.md
+          - name: Таблица
+            href: editor/widgets/table/index.md
+          - name: Яндекс.Карта
+            href: editor/widgets/yandex-map/index.md
+          - name: Показатель
+            href: editor/widgets/metric/index.md
+          - name: Markdown
+            href: editor/widgets/markdown/index.md
+          - name: Селектор
+            items:
+              - name: Обзор
+                href: editor/widgets/selector/index.md
+              - name: Внешний селектор
+                href: editor/widgets/selector/external.md
+          - name: Карта
+            href: editor/widgets/map/index.md
+          - name: Модуль
+            href: editor/widgets/module/index.md
+      - name: Секретница
+        href: editor/yav.md
+  - name: Миграции
+    when: audience == "internal"
+    items:
+      - name: Миграция на Node.js
+        href: editor/node-migration.md
+      - name: Миграция дашбордов
+        href: dash/migration.md
+      - name: Конвертация Wizard
+        href: editor/wizard-conversion.md
+  - name: API
+    when: audience == "internal"
+    items:
+      - name: Обзор
+        href: api/index.md
+      - name: TLS/SSL сертификат
+        href: api/certificate.md
+      - name: Аутентификация
+        href: api/auth.md
+      - name: Идентификация
+        href: api/identification.md
+      - name: Данные
+        href: api/data.md
+      - name: Скриншоты
+        href: api/scr.md
+      - name: Комментарии
+        href: api/comments/index.md
+      - name: Дашборды
+        items:
+          - name: Обзор
+            href: api/dash/index.md
+          - name: Схема
+            href: api/dash/scheme.md
+      - name: Чарты
+        href: api/charts/index.md
+  - name: Charts PDF
+    when: audience == "internal"
+    items:
+      - name: Обзор
+        href: charts-pdf/index.md
+      - name: Шаблоны и слайды
+        href: charts-pdf/templates.md
+      - name: API
+        href: charts-pdf/api.md
+  - name: ChartKit
+    when: audience == "internal"
+    items:
+      - name: Обзор
+        href: chartkit/index.md
+      - name: История изменений
+        href: chartkit/changelog.md
+      - name: Предыдущие версии
+        items:
+          - name: v2
+            href: chartkit/readme-v2.md
+          - name: v3
+            href: chartkit/readme-v3.md
+          - name: v4
+            href: chartkit/readme-v4.md
+          - name: v5v6
+            href: chartkit/readme-v5v6.md
   - name: Справочник функций
     items:
     include:
       repo: docs
       path: ru/_api-ref/datalens/toc.yaml
   - name: Вопросы и ответы
+    when: audience == "external"
     href: qa/index.md
+  - name: FAQ
+    when: audience == "internal"
+    href: qa/faq.md

@@ -1,5 +1,13 @@
 # Управление доступом к DataLens
 
+{% if audience == "internal" %} 
+
+У всех штатных сотрудников есть доступ к DataLens по умолчанию. Чтобы предоставить доступ внешним сотрудникам, воспользуйтесь [инструкцией](https://wiki.yandex-team.ru/Statbox/Dostup-k-Statistike-dlja-Outstaff/).
+
+{% endif %}
+
+{% if audience != "internal" %} 
+
 Доступ к сервису {{ datalens-full-name }} регулируется через консоль {{ yandex-cloud }}.
 Чтобы предоставить доступ, назначьте пользователю одну из ролей {{ datalens-short-name }}.
 
@@ -141,3 +149,5 @@
 - [{#T}](../operations/permission/revoke.md)
 - [{#T}](../operations/permission/request.md)
 - [{#T}](../operations/dataset/manage-row-level-security.md)
+
+{% endif %}

@@ -1,5 +1,6 @@
 default:
   service-name: DataLens
+  audience: external
 
   # Полные имена сервисов
   resmgr-full-name: Yandex Resource Manager
@@ -10,7 +11,7 @@ default:
   managed-mysql-full-name: Yandex Managed Service for MySQL<sup>®</sup>
   managed-mongodb-full-name: Yandex Managed Service for MongoDB
 
-  # Короткие именя сервиса
+  # Короткие имена сервиса
   marketplace-short-name: Marketplace
 
   # Роли
@@ -26,3 +27,9 @@ default:
 
   # Feature names
   datalens-public: DataLens Public
+
+internal:
+  audience: internal
+external:
+  audience: external
+

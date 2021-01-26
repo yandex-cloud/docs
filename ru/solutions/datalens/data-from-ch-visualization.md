@@ -3,12 +3,22 @@
 В качестве источника будет использована демонстрационная базы данных ClickHouse с информацией о продажах товаров в сети московских магазинов. 
 Подключение к этой базе автоматически создается при создании экземпляра {{ datalens-short-name }}. 
 
+{% if audience == "internal" %} 
+
+В качестве подключения используется демонстрационное подключение **Sample ClickHouse**.
+
+{% endif %}
+
 С помощью {{ datalens-short-name }} в данном примере будут визуализированы:
 * Динамика продаж по дням и месяцам.
 * Продажи по продуктовым категориям.
 * Тепловая карта заказов.
 
-В качестве подлючение используется демонстрационное подключение **Sample ClickHouse**.
+{% if audience != "internal" %} 
+
+В качестве подключения используется демонстрационное подключение **Sample ClickHouse**.
+
+{% endif %}
 
 Для визуализации и исследования данных [подготовьте облако к работе](#before-you-begin), затем выполните следующие шаги:
 
@@ -24,14 +34,17 @@
 
 Создайте [подключение](../../datalens/concepts/connection.md) к базе данных ClickHouse, в которой хранится таблица.
 
+{% if audience != "internal" %} 
+
 ## Подготовьте облако к работе {#before-you-begin}
 
 {% include [before-you-begin](../_solutions_includes/before-you-begin-datalens.md) %}
 
+{% endif %}
 
 ## Шаг 1. Определите источник данных датасета {#step1}
 
-Создайте [датасет](../../datalens/concepts/dataset/index.md) на основе [подключения](../../datalens/concepts/connection.md) **Sample ClickHouse** соданным на основе базы данных ClickHouse.
+Создайте [датасет](../../datalens/concepts/dataset/index.md) на основе [подключения](../../datalens/concepts/connection.md) **Sample ClickHouse** созданным на основе базы данных ClickHouse.
 
 1. Перейдите в [{{ datalens-short-name }}](https://datalens.yandex.ru).
 1. Нажмите кнопку **Создать датасет**.

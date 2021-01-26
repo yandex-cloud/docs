@@ -2,7 +2,7 @@
 
 ## Создание подключения {#creating-connection}
 
-- [{#T}](connection/create-clickhouse.md)
+{% if audience != "internal" %} - [{#T}](connection/create-clickhouse.md) {% endif %}
 - [{#T}](connection/create-csv.md)
 - [{#T}](connection/create-mysql.md)
 - [{#T}](connection/create-postgresql.md)
@@ -11,7 +11,7 @@
 - [{#T}](connection/create-metrica-api.md)
 - [{#T}](connection/create-metrica-logs-api.md)
 - [{#T}](connection/create-appmetrica.md)
-- [{#T}](connection/manage-access.md)
+{% if audience != "internal" %} - [{#T}](connection/manage-access.md) {% endif %}
 
 ## Работа с датасетом {#working-with-datasets}
 
@@ -21,7 +21,7 @@
 - [{#T}](dataset/update-field.md)
 - [{#T}](dataset/materialize.md)
 - [{#T}](dataset/manage-row-level-security.md)
-- [{#T}](dataset/manage-access.md)
+{% if audience != "internal" %} - [{#T}](dataset/manage-access.md) {% endif %}
 
 ## Создание и настройка чартов {#creating-and-configuring-charts}
 
@@ -33,13 +33,13 @@
 - [{#T}](chart/create-map-chart.md)
 - [{#T}](chart/create-table.md)
 - [{#T}](chart/create-pivot-table.md)
-- [{#T}](chart/publish.md)
-- [{#T}](chart/manage-access.md)
+{% if audience != "internal" %} - [{#T}](chart/publish.md) {% endif %}
+- [{#T}](chart/manage-access.md) 
 
 ## Работа с дашбордами {#working-with-dashboards}
 
 - [{#T}](dashboard/create.md)
 - [{#T}](dashboard/add-chart.md)
 - [{#T}](dashboard/add-selector.md)
-- [{#T}](dashboard/publish.md)
-- [{#T}](dashboard/manage-access.md)
+{% if audience != "internal" %} - [{#T}](dashboard/publish.md) {% endif %}
+- [{#T}](dashboard/manage-access.md) 

@@ -1,5 +1,6 @@
 default:
   service-name: DataLens
+  audience: external
 
   # Роли
   permission-admin: Администрирование
@@ -13,3 +14,8 @@ default:
   datalens-api-short-name: DataLens Partner API
   datalens-full-name: Yandex DataLens
   datalens-short-name: DataLens
+
+internal:
+  audience: internal
+external:
+  audience: external

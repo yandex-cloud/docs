@@ -28,7 +28,7 @@
   
      {% cut "У меня нет кнопки «Создать подключение»" %}
      
-     Если вместо кнопки **Создать подключение** вы видите сообщение «{{ datalens-name }} ещё не активирован», значит вы либо ещё не активировали {{ datalens-name }}, либо подключили его в другом каталоге. Чтобы подключить кластер к экземпляру {{ datalens-name }} из другого каталога, воспользуйтесь [инструкцией](../../datalens/operations/connection/create-clickhouse.md) в документации {{ datalens-name }}.
+     Если вместо кнопки **Создать подключение** вы видите сообщение «{{ datalens-name }} ещё не активирован», значит вы либо ещё не активировали {{ datalens-name }}, либо подключили его в другом каталоге. {% if audience != "internal" %} Чтобы подключить кластер к экземпляру {{ datalens-name }} из другого каталога, воспользуйтесь [инструкцией](../../datalens/operations/connection/create-clickhouse.md) в документации {{ datalens-name }}. {% endif %}
      
      {% endcut %} 
   
@@ -46,7 +46,7 @@
 - [Создавать датасеты](../../datalens/concepts/dataset/index.md) с данными кластера, используя это подключение. 
 - Визуализировать датасеты с помощью [чартов](../../datalens/concepts/chart.md) и [дашбордов](../../datalens/concepts/dashboard.md).
 
-См. также: [пример визуализации данных из {{ CH }}](../../solutions/datalens/data-from-ch-visualization.md).
+{% if audience != "internal" %} См. также: [пример визуализации данных из {{ CH }}](../../solutions/datalens/data-from-ch-visualization.md). {% endif %}
 
 ## Просмотреть список подключений кластера {#connectors-list}
 
@@ -100,7 +100,7 @@
       1. Выберите кластер и его хост из выпадающих списков, либо [создайте новый кластер](cluster-create.md) в каталоге с {{ datalens-name }}, нажав на кнопку **Создать новый**.  
       1. Выберите пользователя из выпадающего списка.
       1. Введите пароль этого пользователя.
-   1. Если кластер и {{ datalens-name }} находятся в разных каталогах, используйте настройки из [инструкции](../../datalens/operations/connection/create-clickhouse.md) в документации {{ datalens-name }}.
+{% if audience != "internal" %} 1. Если кластер и {{ datalens-name }} находятся в разных каталогах, используйте настройки из [инструкции](../../datalens/operations/connection/create-clickhouse.md) в документации {{ datalens-name }}. {% endif %}
  
    Значения настроек **Порт HTTP-интерфейса** и **HTTPS** нужно оставить без изменений.
  

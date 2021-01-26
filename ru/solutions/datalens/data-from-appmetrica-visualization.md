@@ -9,11 +9,13 @@
 1. [Создайте подключение и стандартный дашборд](data-from-appmetrica-visualization.md#create-dashboard).
 1. [Измените стандартный дашборд](data-from-appmetrica-visualization.md#edit-dashboard).
 
+{% if audience != "internal" %} 
 
 ## Подготовьте облако к работе {#before-you-begin}
 
 {% include [before-you-begin](../_solutions_includes/before-you-begin-datalens.md) %}
 
+{% endif %}
 
 ## Создайте подключение и стандартный дашборд {#create-dashboard}
 

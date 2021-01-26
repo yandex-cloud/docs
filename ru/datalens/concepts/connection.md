@@ -21,16 +21,16 @@ _Коннектор_ — это драйвер для подключения и 
 - **Metrica** (в режиме прямого доступа и через API)
 - **AppMetrica** (в режиме прямого доступа и через API)
 
-Вы можете добавить дополнительные коннекторы из списка доступных в [{{ datalens-short-name }} Marketplace](marketplace.md).
+{% if audience != "internal" %} Вы можете добавить дополнительные коннекторы из списка доступных в [{{ datalens-short-name }} Marketplace](marketplace.md). {% endif %}
 
 {% include [connection-note](../../_includes/datalens/datalens-connection-note.md) %}
 
 ## Управление доступом {#access-management}
 
-Вы можете настроить права доступа к подключению. Подробнее в разделе [{#T}](../security/index.md).
+Вы можете настроить права доступа к подключению. {% if audience != "internal" %} Подробнее в разделе [{#T}](../security/index.md). {% endif %}
 
 #### См. также {#see-also}
-- [{#T}](../operations/connection/create-clickhouse.md)
+{% if audience != "internal" %} - [{#T}](../operations/connection/create-clickhouse.md) {% endif %}
 - [{#T}](../operations/connection/create-csv.md)
 - [{#T}](../operations/connection/create-mysql.md)
 - [{#T}](../operations/connection/create-postgresql.md)
