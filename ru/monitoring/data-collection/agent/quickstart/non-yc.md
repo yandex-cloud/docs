@@ -16,12 +16,12 @@
 
        Подробнее создание авторизованных ключей описано в разделе [{#T}](../../../../iam/operations/authorized-key/create.md).
 
-   1. Доставьте файл **jwt_params.json** с параметрами авторизованного ключа на хост, где уставнолен {unified-agent-short-name}}.
+   1. Доставьте файл **jwt_params.json** с параметрами авторизованного ключа на хост, где уставнолен {{unified-agent-short-name}}.
 
        Пример файла **jwt_params.json**:
        ```json
        {
-           "id": "aje...",
+           "id": "ajt...",
            "service_account_id": "aje...",
            "created_at": "2021-01-14T13:18:51.070026Z",
            "key_algorithm": "RSA_2048",
