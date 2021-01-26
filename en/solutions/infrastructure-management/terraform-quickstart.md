@@ -63,6 +63,14 @@ To access the VM via SSH, [generate an SSH key pair](../../compute/operations/vm
 Resource configurations are specified immediately after the provider's configuration:
 
 ```hcl
+terraform {
+  required_providers {
+    yandex = {
+      source = "yandex-cloud/yandex"
+    }
+  }
+}
+
 provider "yandex" {
   token     = "OAuth_token"
   cloud_id  = "cloud-id"
