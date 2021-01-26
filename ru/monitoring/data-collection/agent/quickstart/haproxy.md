@@ -1,8 +1,10 @@
 # Поставка метрик HAProxy и других сторонних приложений
 
-Для поставки в {{ monitoring-full-name }} метрик стронних приложений, например, [HAProxy](https://www.haproxy.org), используется вход `prometheus_pull`, который периодически опрашивает по HTTP Prometheus-экспортер. Подробнее работа этого входа описана в разделе [{#T}](../configuration.md#prometheus_pull_input).
+{{unified-agent-full-name}} поддерживает сбор метрик в формате Prometheus и конвертацию метрик в формат {{ monitoring-full-name }}. Таким образом, при помощи {{unified-agent-short-name}} можно собирать метрики любых приложений, предоставляющих метрики в формате Prometheus.
 
-Для примера рассмотрим поставку в {{ monitoring-full-name }} метрик HAProxy. Описанная методика может также применяться для отправки метрик любых сторонних приложений, для которых существуют [интеграция с Prometheus](https://prometheus.io/docs/instrumenting/exporters/).
+Для поставки в {{ monitoring-full-name }} метрик сторонних приложений используется вход `prometheus_pull`, который периодически опрашивает непосредственно стороннее приложение (если оно поддерживает метрики в формате Prometheus) или специальное приложение-экспортер, реализующее интеграцию стороннего приложения с Prometheus. Подробнее работа этого входа описана в разделе [{#T}](../configuration.md#prometheus_pull_input).
+
+Для примера рассмотрим поставку в {{ monitoring-full-name }} метрик [HAProxy](https://www.haproxy.org). Описанная методика может также применяться для отправки метрик любых сторонних приложений, для которых существует [интеграция с Prometheus](https://prometheus.io/docs/instrumenting/exporters/).
 
 1. Установите [HAProxy](https://www.haproxy.org) и [HAProxy Exporter for Prometheus](https://github.com/prometheus/haproxy_exporter).
 
@@ -12,7 +14,7 @@
       sudo apt-get install haproxy prometheus-haproxy-exporter
       ```
 
-    1. Убедитесь, что приложение предоставляет метрики, выполнив команду `curl http://localhost:9101/metrics`. Пример работы команды:
+   1. Убедитесь, что приложение предоставляет метрики, выполнив команду `curl http://localhost:9101/metrics`. Пример работы команды:
 
       ```bash
       $ curl http://localhost:9101/metrics
