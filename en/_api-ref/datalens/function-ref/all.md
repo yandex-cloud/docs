@@ -135,6 +135,27 @@ Returns the arccosine of `number` in radians.
 
 
 
+## [AGO](AGO.md)
+
+**Syntax:**`AGO( measure, date_dimension [ , unit [ , number ] ] )`
+
+Re-evaluate `measure` for a date/time with a given offset.
+The `date_dimension` argument is the dimension along which the offset is made.
+The `number` argument is an integer. It can be negative.
+The `unit` argument takes the following values:
+- `"year"`;
+- `"month"`;
+- `"day"`;
+- `"hour"`;
+- `"minute"`;
+- `"second"`.
+
+Can also be used as `AGO(measure, date_dimension, number)`. In this case, the third argument is interpreted as the number of days.
+
+This non-window function does not support window options such as `BEFORE FILTER BY`. For an alternative among window functions see [LAG](LAG.md).
+
+
+
 ## [ALL_CONCAT](ALL_CONCAT.md)
 
 **Syntax:**`ALL_CONCAT( expression [ , separator ] )`
@@ -757,6 +778,22 @@ The `value IS NOT TRUE` option returns the opposite value.
 **Syntax:**`ITALIC( text )`
 
 Stylizes the passed text in cursive font.
+
+
+
+## [LAG (window)](LAG.md)
+
+**Syntax:**`LAG( value [ , offset [ , default ] ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )`
+
+Returns `value` re-evaluated against the row that is offset from the current row by `offset` within the specified window:
+- Positive `offset` seeks among preceding rows.
+- Negative `offset` seeks among following rows.
+
+By default `offset` is `1`.
+
+If there is no available value (`offset` reaches before the first row or after the last one), then `default` is returned. If `default` is not specified, then `NULL` is used.
+
+See also [AGO](AGO.md) for a non-window function alternative.
 
 
 

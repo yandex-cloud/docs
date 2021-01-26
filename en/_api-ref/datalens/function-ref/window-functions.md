@@ -52,13 +52,13 @@ The grouping clause is optional. `TOTAL` is used by default.
 
 After the grouping comes the ordering clause. It is only supported for order-dependent functions:
 
-| `M*`                | `R*`                |
-|:--------------------|:--------------------|
-| [MAVG](MAVG.md)     | [RAVG](RAVG.md)     |
-| [MCOUNT](MCOUNT.md) | [RCOUNT](RCOUNT.md) |
-| [MMAX](MMAX.md)     | [RMAX](RMAX.md)     |
-| [MMIN](MMIN.md)     | [RMIN](RMIN.md)     |
-| [MSUM](MSUM.md)     | [RSUM](RSUM.md)     |
+| `M*`                | `R*`                | Positional functions   |
+|:--------------------|:--------------------|:-----------------------|
+| [MAVG](MAVG.md)     | [RAVG](RAVG.md)     | [LAG](LAG.md)          |
+| [MCOUNT](MCOUNT.md) | [RCOUNT](RCOUNT.md) |                        |
+| [MMAX](MMAX.md)     | [RMAX](RMAX.md)     |                        |
+| [MMIN](MMIN.md)     | [RMIN](RMIN.md)     |                        |
+| [MSUM](MSUM.md)     | [RSUM](RSUM.md)     |                        |
 
 The ordering clause is optional for these functions.
 
@@ -137,6 +137,22 @@ Returns the number of items in the specified window.
 **Syntax:**`COUNT_IF( expression, condition [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )`
 
 Returns the number of items in the specified window meeting the `expression` condition.
+
+
+
+## [LAG](LAG.md)
+
+**Syntax:**`LAG( value [ , offset [ , default ] ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )`
+
+Returns `value` re-evaluated against the row that is offset from the current row by `offset` within the specified window:
+- Positive `offset` seeks among preceding rows.
+- Negative `offset` seeks among following rows.
+
+By default `offset` is `1`.
+
+If there is no available value (`offset` reaches before the first row or after the last one), then `default` is returned. If `default` is not specified, then `NULL` is used.
+
+See also [AGO](AGO.md) for a non-window function alternative.
 
 
 

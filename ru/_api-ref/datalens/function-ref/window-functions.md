@@ -52,13 +52,13 @@ editable: false
 
 За группировкой следует сортировка (`ORDER BY`). Она поддерживается только для функций, зависящих от порядка сортировки:
 
-| `M*`                | `R*`                |
-|:--------------------|:--------------------|
-| [MAVG](MAVG.md)     | [RAVG](RAVG.md)     |
-| [MCOUNT](MCOUNT.md) | [RCOUNT](RCOUNT.md) |
-| [MMAX](MMAX.md)     | [RMAX](RMAX.md)     |
-| [MMIN](MMIN.md)     | [RMIN](RMIN.md)     |
-| [MSUM](MSUM.md)     | [RSUM](RSUM.md)     |
+| `M*`                | `R*`                | Позиционные функции   |
+|:--------------------|:--------------------|:----------------------|
+| [MAVG](MAVG.md)     | [RAVG](RAVG.md)     | [LAG](LAG.md)         |
+| [MCOUNT](MCOUNT.md) | [RCOUNT](RCOUNT.md) |                       |
+| [MMAX](MMAX.md)     | [RMAX](RMAX.md)     |                       |
+| [MMIN](MMIN.md)     | [RMIN](RMIN.md)     |                       |
+| [MSUM](MSUM.md)     | [RSUM](RSUM.md)     |                       |
 
 Сортировка для этих функций опциональна.
 
@@ -137,6 +137,22 @@ editable: false
 **Синтаксис:**`COUNT_IF( expression, condition [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )`
 
 Возвращает количество элементов в заданном окне, которые удовлетворяют условию `expression`.
+
+
+
+## [LAG](LAG.md)
+
+**Синтаксис:**`LAG( value [ , offset [ , default ] ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )`
+
+Возвращает значение `value` из строки со смещением `offset` относительно текущей в рамках заданного окна:
+- положительное значение `offset` делает смещение назад;
+- отрицательное значение `offset` делает смещение вперед.
+
+По умолчанию `offset` равно `1`.
+
+Если значение отсутствует (`offset` ссылается на строку до первой или после последней), то возвращается значение `default` в качестве результата. Если `default` не задано, то используется `NULL`.
+
+См. также [AGO](AGO.md) в качестве неоконной альтернативы.
 
 
 
