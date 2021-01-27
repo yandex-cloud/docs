@@ -202,6 +202,7 @@ default:
   ES: Elasticsearch
   ZK: ZooKeeper
   MS: SQL Server
+  RMQ: RabbitMQ
   zone-id: ru-central1-c
   host-class: s2.micro
 
@@ -335,6 +336,7 @@ internal:
   ES: Elasticsearch
   ZK: ZooKeeper
   MS: Microsoft SQL Server
+  RMQ: RabbitMQ
   zone-id: vla
   host-class: db1.micro
 
