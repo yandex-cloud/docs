@@ -14,7 +14,7 @@
       sudo apt install haproxy prometheus-haproxy-exporter
       ```
 
-   1. Убедитесь, что приложение предоставляет метрики, выполнив команду `curl http://localhost:9101/metrics`. Пример работы команды:
+   1. Убедитесь, что экспортер запущен и предоставляет метрики, выполнив команду `curl http://localhost:9101/metrics`. Пример работы команды:
 
       ```bash
       $ curl http://localhost:9101/metrics
