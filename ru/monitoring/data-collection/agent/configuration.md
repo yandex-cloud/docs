@@ -116,7 +116,16 @@ storages:
 
 Пример цепочки обработки, использующей хранилище:
 
-{% code '/logbroker/unified_agent/examples/all.yml' lines='[BEGIN storage_ref_example]-[END storage_ref_example]' lang='yaml' %}
+```yaml
+pipe:
+  - storage_ref:
+      # Имя хранилища.
+      name: main  # обязательный
+
+      # Конфигурация инфраструктуры работы с сессиями.
+      flow_control:
+        new_sessions_rate_limit: null  # необязательный, по умолчанию не задан
+```
 
 ### Секция routes { #routes }
 Секция содержит список [маршрутов доставки](concepts.md#routes).
@@ -137,7 +146,7 @@ storages:
 - `pipe` — цепочка обработки;
 - один из элементов `output`, `channel_ref`, `case` или `fanout` — `output` содержит конфигурацию выхода, `channel_ref` — ссылку на именованный канал, `case` — разветвитель, направляющий входной поток в один или несколько дочерних каналов по условию, `fanout` — разветвитель, безусловно направляющий входной поток во все дочерние каналы.
 
-Пример секции routes:
+Пример секции `routes`:
 
 ```yaml
 routes:
@@ -182,58 +191,162 @@ routes:
             ...
         - channel:
             ...
-
-
-
 ```
 
 Пример использования элемента `case`:
 
-{% code '/logbroker/unified_agent/examples/all.yml' lines='[BEGIN case_example]-[END case_example]' lang='yaml' %}
+```yaml
+- input:
+    plugin: console
+  channel:
+    # case направляет входной поток в первый дочерний канал, подходящий по условию when.
+    # Сообщение будет отброшено, если для него не удалось найти подходящий channel.
+    # Этот факт будет учтен в health-счетчиках (Errors) и pipeline-счетчиках (DroppedMessages/DroppedBytes),
+    # так же в лог агента будет сделана соответствующая запись с уровнем ERROR.
+    # Иными словами, эта ситуация рассматривается как нештатная. Ее можно избежать,
+    # если добавить в case последним элементом catch all channel без фильтра when.
+    case:
+      # Внутри when можно описать условия на соответствие метаданных сообщения и сессии, аналогично фильтру match.
+      - when:
+          message:
+            message-key: v1
+          session:
+            session-key: v2
+        channel:
+          output:
+            plugin: dev_null
+
+      # Внутри when любой из элементов message и session может отсутствовать.
+      # Поддерживается свойство continue - не останавливать поиск подходящего канала, если условие when выполнено.
+      # Таким образом можно направить вхоящие сообщения в несколько подоходящих каналов.
+      - when:
+          message:
+            message-key: v1
+        channel:
+          output:
+            plugin: dev_null
+        continue: true
+
+      # Элемент when может отсутствовать, в этом случае входной поток будет безусловно направлен в этот канал,
+      # если для него удалось создать сессию - никакой вложенный в него фильтр не отклонил создание сессии.
+      - channel:
+          output:
+            plugin: dev_null
+```
 
 ### Секция channels { #channels }
 Секция содержит список именованных [каналов](concepts.md#channels). Перечисленные в этой секции каналы можно использовать в маршрутах доставки, обращаясь к ним по имени.
 
-Пример секции channels:
+Пример секции `channels`:
 
-{% code '/logbroker/unified_agent/examples/all.yml' lines='[BEGIN channels]-[END channels]' lang='yaml' %}
+```yaml
+channels:
+  - name: named_channel
+    channel:
+      # Именованные каналы могут ссылаться на другие именованные каналы.
+      channel_ref:
+        name: other_named_channel
+
+  - name: other_named_channel
+    channel:
+      output:
+        plugin: dev_null
+
+        # Любой плагин можно снабдить явным идентификатором — вход, выход, хранилище и фильтр.
+        # Этот идентификатор будет подставляться в метку plugin_id в мониторинге.
+        # Также этим идентификатором будут помечаться соответствующие плагину записи в логе агента.
+        id: my_dev_null_output
+```
 
 Пример маршрута доставки, использующий именованный канал:
 
-{% code '/logbroker/unified_agent/examples/all.yml' lines='[BEGIN channel_ref_example]-[END channel_ref_example]' lang='yaml' %}
-
+```yaml
+- input:
+    plugin: console
+  channel:
+    channel_ref:
+      name: named_channel
+```
 
 ### Секция pipes { #pipes }
 Секция содержит список именованных [цепочек обработки](concepts.md#pipes). Перечисленные в этой секции цепочки можно использовать в каналах, обращаясь к ним по имени.
 
-Пример секции pipes:
+Пример секции `pipes`:
 
-{% code '/logbroker/unified_agent/examples/all.yml' lines='[BEGIN pipes]-[END pipes]' lang='yaml' %}
+```yaml
+pipes:
+  - name: named_pipe
+    pipe:
+      - filter:
+          plugin: batch
+          config:
+              limit:
+                bytes: 100kb
+      - filter:
+            plugin: assign
+            config:
+              message:
+                - _payload: "{_timestamp:%b %d %H:%M:%S} {_payload}"
+```
 
 Пример маршрута доставки, использующий именованную цепочку обработки:
 
-{% code '/logbroker/unified_agent/examples/all.yml' lines='[BEGIN pipe_ref_example]-[END pipe_ref_example]' lang='yaml' %}
+```yaml
+- input:
+    plugin: console
+  channel:
+    pipe:
+      pipe_ref:
+        name: named_pipe
+    output:
+      plugin: debug
+```
 
 ### Секция main_thread_pool { #main_thread_pool }
 Секция содержит конфигурацию потоков выполнения.
 
 Описание параметров:
 
-{% code '/logbroker/unified_agent/examples/all.yml' lines='[BEGIN main_thread_pool]-[END main_thread_pool]' lang='yaml' %}
+```yaml
+main_thread_pool:  # необязательно
+  # Число потоков.
+  threads: 1  # необязательный, по умолчанию 1
+```
 
 ### Секция agent_log { #agent_log }
 Секция содержит настройки логов самого агента. Могут быть переопределены через параметры командной строки.
 
 Описание параметров:
 
-{% code '/logbroker/unified_agent/examples/all.yml' lines='[BEGIN agent_log]-[END agent_log]' lang='yaml' %}
+```yaml
+agent_log:  # необязательно
+  # Уровень логирования.
+  # Возможные значения: EMERG, ALERT, CRITICAL_INFO, ERROR, WARNING, NOTICE, INFO, DEBUG, RESOURCES
+  priority: NOTICE  # необязательный, по умолчанию NOTICE
+
+  # Писать логи в указанный файл.
+  file: cerr  # необязательный, по умолчанию cerr (стандартный поток ошибок)
+
+  # Ограничить скорость записи логов указанным значением.
+  # Превышение будет отбрасываться, число отброшенных таким образом байт отражается
+  # в счетчике DroppedBytes в группе agent-log.
+  rate_limit_bytes: null  # необязательно, по умолчанию не задан
+```
 
 ### Секция system { #system }
 Разные системные настройки.
 
 Описание параметров:
 
-{% code '/logbroker/unified_agent/examples/all.yml' lines='[BEGIN system]-[END system]' lang='yaml' %}
+```yaml
+system:  # необязательный
+  # Заблокировать вытеснение из памяти исполняемого кода агента с помощью системного вызова mlock.
+  # Может помочь уменьшить задержки, так как при исполнение не будет major page faults для подгрузки кода с диска.
+  lock_executable_in_memory: false  # необязательный, по умолчанию false
+
+  # Установить лимит на объем используемой памяти с помощью системного вызова setrlimit.
+  memory_limit: null  # необязательный, по умолчанию не задан
+```
 
 ### Секция flow_control { #flow_control }
 Секция содержит конфигурацию механизма работы с сессиями. Настройки позволяют сконфигурировать различные ограничения сессий и поведение при достижении этих ограничений.
@@ -242,7 +355,31 @@ routes:
 
 Описание параметров:
 
-{% code '/logbroker/unified_agent/examples/all.yml' lines='[BEGIN flow_control]-[END flow_control]' lang='yaml' %}
+```yaml
+flow_control:  # необязательный
+  # Настройки буфера сессии.
+  # Ограничение может быть выражено в байтах и в штуках сообщений.
+  # При превышении любого из них срабатывает логика, заданная в атрибуте action.
+  # Ограничение в штуках может быть полезно, когда на вход поступает много мелких сообщений,
+  # каждое из которых приводит к созданию большого выходного сообщения.
+  inflight:
+    # Размер буфера в байтах.
+    limit: 10mb  # необязательный, по умолчанию 10mb
+
+    # Размер буфера в штуках сообщений.
+    limit_messages: null  # необязательный, по умолчанию не задан
+
+    # Поведение при заполнении буфера:
+    #   * backpressure - приостановить прием новых сообщений до освобождения буфера
+    #   * drop - отбрасывать новые сообщения, если они не помещаются в буфер
+    action: backpressure  # необязательный, по умолчанию backpressure
+
+  # Ограничение на частоту создания новых сессий, в штуках новых сессий в секунду.
+  # При превышении ограничения метод StartSession вернет TStartSessionResult::Throttled в поле Status.
+  # Для хранилищ значение по умолчанию: отсутствует.
+  # Для входов значение по умолчанию: 5.
+  new_sessions_rate_limit: 5 # необязательный, по умолчанию 5 для input-ов, не поддерживается для storage_ref
+```
 
 ### Входы { #inputs }
 
@@ -255,7 +392,7 @@ messages_lost
 
 #### prometheus_pull { #prometheus_pull_input }
 
-Вход опрашивает заданный url с некоторой периодичностью и парсит из ответа метрики в формате Prometheus.
+Вход опрашивает заданный URL с некоторой периодичностью и парсит из ответа метрики в формате Prometheus.
 
 Описание параметров:
 
@@ -351,7 +488,7 @@ TODO: сослаться на внешние ресурсы, описать от
 - `_payload` - тело сообщения;
 - `key` - метаданные с ключем key
 
-В разделе `message`, если ключ метаданных не найден на уровне сообщения, попробуем найти его в метаданных сессии. Если не найден на уровне сессии — подставим значение по умолчанию ({_host|default_host}), либо пустую строку, если значение по умолчанию не указано.
+В разделе `message`, если ключ метаданных не найден на уровне сообщения, попробуем найти его в метаданных сессии. Если не найден на уровне сессии — подставим значение по умолчанию `({_host|default_host})`, либо пустую строку, если значение по умолчанию не указано.
 
 Так же в качестве значения `key` можно указывать макросы:
 - `$host_name` - локальное имя машины
