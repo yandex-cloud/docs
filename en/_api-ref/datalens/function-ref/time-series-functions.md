@@ -3,9 +3,10 @@ editable: false
 ---
 
 # Time series functions
-Time series functions provide various ways to look up values corresponding to a specific time or offset along a given time axis. In a certain way this functionality is similar to the window function [LAG](LAG.md).
+Time series functions provide various ways to look up values corresponding to a specific time or offset along a given time axis.
 
-The main difference is that `LAG` is indifferent to the actual values of the dimensions being used, and operates over positional offsets specified in _rows_, while time series functions use specific values and value offsets in date/time units like days, hours or seconds. This makes them sensitive to "holes" in data, i.e. when values for a certain date are missing. As a result of this `AGO(SUM([Sales]), [Date], "year")` will return `NULL` if the same-date row for the previous year is missing.
+In a certain way this functionality is similar to the window function [LAG](LAG.md).
+The main difference is that `LAG` is indifferent to the actual values of the dimensions being used, and operates over positional offsets specified in _rows_, while time series functions use specific values and value offsets in date/time units like days, hours or seconds. This makes them sensitive to missing values in data. As a result of this `AGO(SUM([Sales]), [Date], "year")` will return `NULL` if the same-date row for the previous year is missing.
 
 
 ## [AGO](AGO.md)
