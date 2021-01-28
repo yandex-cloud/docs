@@ -12,7 +12,19 @@
   1. Перейдите на страницу каталога и выберите сервис **{{ mkf-name }}**.
   1. Найдите нужный кластер в списке, нажмите значок ![options](../../_assets/horizontal-ellipsis.svg) и выберите пункт **Остановить кластер**.
   1. В открывшемся диалоге подтвердите остановку кластера и нажмите кнопку **Остановить**.
-  
+
+- CLI
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Чтобы остановить кластер, выполните команду:
+
+  ```
+  {{ yc-mdb-kf }} cluster stop <имя или идентификатор кластера>
+  ```
+
 {% if api != "noshow" %}
 
 - API
@@ -37,6 +49,18 @@
   1. Перейдите на страницу каталога и выберите сервис **{{ mkf-name }}**.
   1. Найдите нужный остановленный кластер в списке, нажмите значок ![options](../../_assets/horizontal-ellipsis.svg) и выберите пункт **Запустить кластер**.
   1. В открывшемся диалоге нажмите кнопку **Запустить**.
+
+- CLI
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Чтобы запустить кластер, выполните команду:
+
+  ```
+  {{ yc-mdb-kf }} cluster start <имя или идентификатор кластера>
+  ```
 
 {% if api != "noshow" %}
 

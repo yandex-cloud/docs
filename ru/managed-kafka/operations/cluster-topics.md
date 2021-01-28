@@ -26,6 +26,29 @@
   1. В блоке **Настройки топика** задайте [настройки топика](#topic-extra-settings).
   1. Нажмите кнопку **Создать**.
 
+- CLI
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Чтобы создать топик:
+  
+  1. Посмотрите описание команды CLI для создания топиков:
+
+     ```
+     {{ yc-mdb-kf }} topic create --help
+     ```
+     
+  1. Создайте топик:
+  
+     ```
+     {{ yc-mdb-kf }} topic create <имя топика> \
+     --cluster-name <имя кластера> \
+     --partitions <количество разделов> \
+     --replication-factor <фактор репликации>
+     ```
+     
 {% if api != "noshow" %}
 
 - API
@@ -62,6 +85,29 @@
   1. Измените [настройки топика](#topic-extra-settings).
   1. Нажмите кнопку **Сохранить**.
 
+- CLI
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Чтобы изменить настройки топика:
+  
+  1. Посмотрите описание команды CLI для изменения топиков:
+
+     ```
+     {{ yc-mdb-kf }} topic update --help
+     ```
+     
+  1. Измените настройки топика:
+  
+     ```
+     {{ yc-mdb-kf }} topic update <имя топика> \
+     --cluster-name <имя кластера> \
+     --partitions <количество разделов> \
+     --replication-factor <фактор репликации>
+     ```
+
 {% if api != "noshow" %}
 
 - API
@@ -90,6 +136,26 @@
   1. Нажмите значок ![image](../../_assets/options.svg) для нужного топика и выберите пункт **Удалить топик**.
   1. Подтвердите удаление топика и нажмите кнопку **Удалить**.
 
+- CLI
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Чтобы удалить топик:
+  
+  1. Посмотрите описание команды CLI для изменения топиков:
+
+     ```
+     {{ yc-mdb-kf }} topic delete --help
+     ```
+     
+  1. Удалите топик:
+  
+     ```
+     {{ yc-mdb-kf }} topic delete <имя топика> --cluster-name <имя кластера>
+     ```
+
 {% if api != "noshow" %}
 
 - API
@@ -111,6 +177,18 @@
   Чтобы получить список топиков, выполните следующие действия:
   1. Перейдите на страницу каталога и выберите сервис **{{ mkf-name }}**.
   1. Нажмите на имя нужного кластера и перейдите на вкладку **Топики**.
+
+- CLI
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Чтобы получить список топиков, выполните следующую команду:
+  
+  ```
+  {{ yc-mdb-kf }} topic list --cluster-name <имя кластера>
+  ```
 
 {% if api != "noshow" %}
 
@@ -134,6 +212,18 @@
   1. Перейдите на страницу каталога и выберите сервис **{{ mkf-name }}**.
   1. Нажмите на имя нужного кластера и перейдите на вкладку **Топики**.
   1. Нажмите на имя нужного топика.
+
+- CLI
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Чтобы получить детальную информацию о топике, выполните следующую команду:
+  
+  ```
+  {{ yc-mdb-kf }} topic get <имя топика> --cluster-name <имя кластера>
+  ```
 
 {% if api != "noshow" %}
 
