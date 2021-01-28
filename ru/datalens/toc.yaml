@@ -161,7 +161,6 @@ items:
   - name: Управление доступом
     items:
       - name: Управление доступом к DataLens
-        when: audience == "external"
         href: security/index.md
       - name: Управление доступом на уровне строк данных
         href: security/row-level-security.md

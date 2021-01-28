@@ -643,7 +643,29 @@
   - **Insert quorum timeout**{#setting-insert-quorum-timeout} — задает время ожидания [кворумной записи](#setting-insert-quorum) в миллисекундах. Если время прошло, а запись так не состоялась, то {{ CH }} прервет выполнение `INSERT`-запроса, вернет ошибку, и клиент должен повторить запрос на запись того же блока на эту же или любую другую реплику. 
   
     Минимальное значение — `1000` (1 секунда), по умолчанию — `60000` (1 минута).
-     
+  
+  - **Join use nulls**{#setting-join-use-nulls} — устанавливает тип поведения `JOIN`. При объединении таблиц могут появляться пустые ячейки. Если опция включена, то тип присоединяемого поля преобразуется в `Nullable`, а пустая ячейка заполняется значением `NULL`. В противном случае, пустая ячейка заполняется значением по умолчанию для данного типа поля.
+    
+    По умолчанию опция выключена.
+    
+    Подробнее см. [в документации {{ CH }}](https://clickhouse.tech/docs/ru/operations/settings/settings/#join_use_nulls).
+
+  - **Joined subquery requires alias**{#setting-joined-subquery-requires-alias} — требует наличия псевдонимов для подзапросов при выполнении операции `JOIN`.
+
+    При включенной настройке подобный запрос не будет выполнен:
+
+    ```sql
+    SELECT col1, col2 FROM table1 JOIN (SELECT col3 FROM table2)
+    ```
+
+    При этом запрос с заданным псевдонимом будет выполнен успешно:
+
+    ```sql
+    SELECT col1, col2 FROM table1 JOIN (SELECT col3 FROM table2) AS MyQuery
+    ```
+    
+    По умолчанию опция выключена.
+    
   - **Low cardinality allow in native format**{#setting-low-cardinality-allow-in-native-format} — определяет, использовать ли тип LowCardinality в native-формате: 
     - опция включена — да, использовать.
     - опция выключена — конвертировать столбцы LowCardinality в обычные столбцы для запроса `SELECT`, и конвертировать обычные столбцы в требуемый LowCardinality-столбец для запроса `INSERT`.
@@ -951,6 +973,12 @@
   - **Transfer overflow mode**{#setting-transfer-overflow-mode} — определяет поведение {{ CH }} в ситуации, когда количество данных для передачи на другой сервер [превысило одно из ограничений](https://clickhouse.tech/docs/ru/operations/settings/query-complexity/#ogranicheniia-na-slozhnost-zaprosa) — `throw` (прервать выполнение, вернуть ошибку) или `break` (вернуть неполный результат).
   
     Значение по умолчанию — не выбрано (эквивалентно `throw`).
+  
+  - **Transform null in**{#setting-transform-null-in} - при включенной опции сравнение `NULL = NULL` вернет `true` в операторе `IN`.
+  
+    По умолчанию опция выключена (это сравнение вернет `false` в операторе `IN`).
+    
+    Подробнее см. [в документации {{ CH }}](https://clickhouse.tech/docs/ru/operations/settings/settings/#transform_null_in).
   
   - **Use uncompressed cache**{#setting-use-uncompressed-cache} — определяет, использовать ли кэш разжатых блоков. Использование кэша несжатых блоков (только для таблиц семейства MergeTree) может существенно сократить задержку и увеличить пропускную способность при работе с большим количеством коротких запросов. Включите эту настройку для пользователей, от которых идут частые короткие запросы.
     

@@ -8,11 +8,27 @@ With {{ datalens-public }}, you can grant public access to created charts and da
 
 To publish a chart or dashboard, make sure you meet the following conditions:
 
-- [Materializing a dataset](../operations/dataset/materialize.md). After the materialization, {{datalens-short-name}} has guaranteed access to data. 
+- [Materializing a dataset](../operations/dataset/materialize.md). After the materialization, {{datalens-short-name}} has guaranteed access to data.
 
     {% include [datalens-materialization](../../_includes/datalens/datalens-materialization.md) %}
 
 - Grant permissions to publish related datasets and connections. To do this, you need to have `{{ permission-admin }}` permission to these objects.
+
+## How to publish an object {#how-to-publish}
+
+You can grant public access to a dashboard or chart.
+
+{% list tabs %}
+
+- Dashboards
+
+  {% include [datalens-public-dashboard](../../_includes/datalens/operations/datalens-public-dashboard.md) %}
+
+- Charts
+
+  {% include [datalens-public-chart](../../_includes/datalens/operations/datalens-public-chart.md) %}
+
+{% endlist %}
 
 ## Embedding public charts {#embedded-public-chart}
 
@@ -38,19 +54,17 @@ For example:
 <iframe src="https://datalens.yandex/oxxbqilhotpgk?_embedded=1&_theme=dark"></iframe>
 ```
 
-## How to publish an object {#how-to-publish}
+You can apply filtering to embedded charts. To do this, pass the filter parameter in the chart link.
+To set the filter parameter:
 
-You can grant public access to a dashboard or chart.
+1. Add the chart and selectors to the dashboard.
+1. [Publish](#how-to-publish) the dashboard.
+1. Select the desired selector.
+1. Proceed to edit the chart on the dashboard. Click ![image](../../_assets/datalens/horizontal-ellipsis-black.svg) and select **Embed code**.
 
-{% list tabs %}
+The filter parameter is added to the chart URL following the question mark (`?`).
 
-- Dashboards
-
-  {% include [datalens-public-dashboard](../../_includes/datalens/operations/datalens-public-dashboard.md) %}
-
-- Charts
-
-  {% include [datalens-public-chart](../../_includes/datalens/operations/datalens-public-chart.md) %}
-
-{% endlist %}
+```
+<iframe src="https://datalens.yandex/oxxbqilhotpgk?e16d1014-7135-4af5-9169-1b8ab88bdb4e=East&_embedded=1&_theme=dark"></iframe>
+```
 

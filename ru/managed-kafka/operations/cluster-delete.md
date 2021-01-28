@@ -11,6 +11,18 @@
   1. Нажмите значок ![image](../../_assets/options.svg) для нужного кластера и выберите пункт **Удалить кластер**.
   1. Прочитайте предупреждение. Подтвердите удаление кластера и нажмите кнопку **Удалить**.
 
+- CLI
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Чтобы удалить кластер, выполните команду:
+  
+  ```
+  {{ yc-mdb-kf }} cluster delete <имя или идентификатор кластера>
+  ```
+
 {% if api != "noshow" %}
 
 - API

@@ -143,7 +143,7 @@ After creating a cluster, you can:
   1. View a description of the CLI's update cluster command:
 
      ```
-     $ {{ yc-mdb-ch }} cluster update --help
+     $ {{ yc-mdb-rd }} cluster update --help
      ```
 
   1. Make sure the cloud quota is sufficient to increase the disk size: open the [Quotas]({{ link-console-quotas }}) page for your cloud and check that the **Managed Databases** section still has space available in the **hddSpace** line.
@@ -151,7 +151,7 @@ After creating a cluster, you can:
   1. Specify the disk size in GB in the update cluster command. The new size must be bigger than the previous one.
 
      ```
-     $ {{ yc-mdb-ch }} cluster update <cluster name>
+     $ {{ yc-mdb-rd }} cluster update <cluster name>
           --disk-size <disk size in GB>
      ```
 

@@ -16,7 +16,13 @@ docs-viewer:
     - elenbaskakova
     - achegodaev
   index-page:
+    hidden: false
     title: Yandex Cloud
+    description: Документация Yandex.Cloud
+    service-url: https://yc.yandex-team.ru/
+    url:
+      testing: https://docs.yandex-team.ru/cloud/
+      production: https://docs.yandex-team.ru/cloud/
 
 apply-presets: true
 varsPreset: 'internal'
