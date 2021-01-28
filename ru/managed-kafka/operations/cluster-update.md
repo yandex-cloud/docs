@@ -96,8 +96,6 @@
 
 {% endlist %}
 
-{% if api != "noshow" %}
-
 ## Изменить настройки хранилища {#change-disk-size}
 
 {% note warning %}
