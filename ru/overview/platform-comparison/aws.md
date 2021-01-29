@@ -37,9 +37,9 @@
 | Amazon Elasticsearch Service | [{{ mes-full-name }}](../../managed-elasticsearch/) |
 | Amazon QuickSight | [{{ datalens-full-name }}](../../datalens/) |
 
-## Cloud-native {#cloud-native}
+## Serverless {#serverless}
 
-{% include [cloud-native](../../_includes/overview/cloud-native.md) %}
+{% include [cloud-native](../../_includes/overview/serverless.md) %}
 
 | Amazon Web Services | {{ yandex-cloud }} |
 |----|----|

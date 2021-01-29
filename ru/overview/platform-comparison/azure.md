@@ -37,9 +37,9 @@
 | Elastic on Azure | [{{ mes-full-name }}](../../managed-elasticsearch/) |
 | Microsoft Power BI | [{{ datalens-full-name }}](../../datalens/) |
 
-## Cloud-native {#cloud-native}
+## Serverless {#serverless}
 
-{% include [cloud-native](../../_includes/overview/cloud-native.md) %}
+{% include [cloud-native](../../_includes/overview/serverless.md) %}
 
 | Microsoft Azure | {{ yandex-cloud }} |
 |----|----|

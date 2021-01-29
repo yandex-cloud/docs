@@ -36,6 +36,7 @@ default:
   certificate-manager-full-name: Yandex Certificate Manager
   data-transfer-full-name: Yandex Data Transfer
   api-gw-full-name: Yandex API Gateway
+  ig-full-name: Yandex Instance Groups
   lockbox-full-name: Yandex Lockbox
   tracker-full-name: Yandex Tracker
   iam-name: Identity and Access Management
