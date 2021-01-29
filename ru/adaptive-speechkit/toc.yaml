@@ -1,0 +1,7 @@
+title: "Синтез переменных в Yandex SpeechKit"
+stage: tech-preview
+href: index.yaml
+editable: false
+items:
+- name: Синтез переменных
+  href: adaptive.md
