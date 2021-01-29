@@ -48,6 +48,7 @@
 1. Создайте файл спецификации облака `cloud_config.yaml` в директории `~/yandex-cloud-terraform`. Опишите спецификацию:
 
    ```yaml
+   #cloud-config
    ssh_pwauth: no
    users:
      - name: yc-user
