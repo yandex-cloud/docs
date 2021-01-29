@@ -18,6 +18,8 @@ items:
         href: operations/cluster-stop.md
       - name: Управление хостами Elasticsearch
         href: operations/cluster-hosts.md
+      - name: Управление пользователями Elasticsearch
+        href: operations/cluster-users.md
       - name: Удаление кластера
         href: operations/cluster-delete.md
   - name: Концепции
