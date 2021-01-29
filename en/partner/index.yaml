@@ -1,16 +1,15 @@
-# Заголовок и описание на странице
-title: "Yandex.Cloud partner program"
+title: Yandex.Cloud partner program
 description:
-  - "On the <a href=\"https://partners.cloud.yandex.ru\">partner portal</a>, you can:"
-  - "- Register customers who use Yandex.Cloud with your help."
-  - "- Manage customer resources and monitor how they use Yandex.Cloud services."
-  - "- Manage your employees' access to your partner profile."
-  - "- Keep track of how your partner bonus is calculated and how it grows."
-# Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
+  - >-
+    On the <a href="https://partners.cloud.yandex.ru">partner portal</a>, you
+    can:
+  - '- Register customers who use Yandex.Cloud with your help.'
+  - '- Manage customer resources and monitor how they use Yandex.Cloud services.'
+  - '- Manage your employees'' access to your partner profile.'
+  - '- Keep track of how your partner bonus is calculated and how it grows.'
 meta:
-  title: "Partner program"
-# Блок с ссылками
+  title: Partner program
 links:
-- title: "Referral program"
-  description: "Learn how to attract customers via referral links"
-  href: "program/referral"
+  - title: Referral program
+    description: Learn how to attract customers via referral links
+    href: program/referral

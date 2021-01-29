@@ -1,62 +1,62 @@
-title: "Use cases"
+title: Use cases
 href: index.yaml
 items:
   - name: Web service
     items:
-    - name: All use cases
-      href: web/index.md
-    - name: Static website in Object Storage
-      href: web/static.md
-    - name: Website on LAMP or LEMP stack
-      href: web/lamp-lemp.md
-    - name: Fault-tolerant website with load balancing from Yandex Load Balancer
-      href: web/load-balancer-website.md
-    - name: Fault-tolerant website using DNS load balancing
-      href: web/dns-load-balancer.md
-    - name: Joomla-based website with PostgreSQL
-      href: web/joomla-postgresql.md
-    - name: WordPress website
-      href: web/wordpress.md
-    - name: WordPress website on a MySQL database
-      href: web/wordpress-mysql.md
-    - name: 1C-Bitrix website
-      href: web/bitrix-website.md
+      - name: All use cases
+        href: web/index.md
+      - name: Static website in Object Storage
+        href: web/static.md
+      - name: Website on LAMP or LEMP stack
+        href: web/lamp-lemp.md
+      - name: Fault-tolerant website with load balancing from Yandex Load Balancer
+        href: web/load-balancer-website.md
+      - name: Fault-tolerant website using DNS load balancing
+        href: web/dns-load-balancer.md
+      - name: Joomla-based website with PostgreSQL
+        href: web/joomla-postgresql.md
+      - name: WordPress website
+        href: web/wordpress.md
+      - name: WordPress website on a MySQL database
+        href: web/wordpress-mysql.md
+      - name: 1C-Bitrix website
+        href: web/bitrix-website.md
   - name: Online stores
     items:
-    - name: All use cases
-      href: internet-store/index.md
-    - name: 1C-Bitrix online store
-      href: internet-store/bitrix-shop.md
-    - name: Opencart online store
-      href: internet-store/opencart.md
+      - name: All use cases
+        href: internet-store/index.md
+      - name: 1C-Bitrix online store
+        href: internet-store/bitrix-shop.md
+      - name: Opencart online store
+        href: internet-store/opencart.md
   - name: Data archive
     items:
-    - name: All use cases
-      href: archive/index.md
-    - name: Single-node file server
-      href: archive/single-node-file-server.md
-    - name: Configuring an SFTP server on Centos 7
-      href: archive/backup-and-archive-to-sftp.md
-    - name: Backup to Object Storage via Acronis Backup
-      href: archive/object-storage-acronis.md
-    - name: Backup to Object Storage via CloudBerry Desktop Backup
-      href: archive/object-storage-cloudberry.md
-    - name: Backup to Object Storage via Duplicati
-      href: archive/object-storage-duplicati.md
-    - name: Backup to Object Storage via Bacula
-      href: archive/backup-with-bacula.md
-    - name: Digitizing archives in Yandex Vision
-      href: archive/archive-from-vision-to-object-storage.md
+      - name: All use cases
+        href: archive/index.md
+      - name: Single-node file server
+        href: archive/single-node-file-server.md
+      - name: Configuring an SFTP server on Centos 7
+        href: archive/backup-and-archive-to-sftp.md
+      - name: Backup to Object Storage via Acronis Backup
+        href: archive/object-storage-acronis.md
+      - name: Backup to Object Storage via CloudBerry Desktop Backup
+        href: archive/object-storage-cloudberry.md
+      - name: Backup to Object Storage via Duplicati
+        href: archive/object-storage-duplicati.md
+      - name: Backup to Object Storage via Bacula
+        href: archive/backup-with-bacula.md
+      - name: Digitizing archives in Yandex Vision
+        href: archive/archive-from-vision-to-object-storage.md
   - name: Test environment
     items:
-    - name: All use cases
-      href: testing/index.md
-    - name: Testing applications with GitLab
-      href: testing/gitlab.md
-    - name: Creating test VMs using GitLab CI
-      href: testing/ci-for-snapshots.md
-    - name: High-performance computing on preemptible VMs
-      href: testing/hpc-on-preemptible.md
+      - name: All use cases
+        href: testing/index.md
+      - name: Testing applications with GitLab
+        href: testing/gitlab.md
+      - name: Creating test VMs using GitLab CI
+        href: testing/ci-for-snapshots.md
+      - name: High-performance computing on preemptible VMs
+        href: testing/hpc-on-preemptible.md
   - name: Infrastructure management
     items:
       - name: All use cases
@@ -71,7 +71,9 @@ items:
         href: infrastructure-management/jenkins.md
       - name: Continuous deployment of containerized applications using GitLab
         href: infrastructure-management/gitlab-containers.md
-      - name: Creating a cluster of 1C:Enterprise Linux servers with a Managed Service for PostgreSQL cluster
+      - name: >-
+          Creating a cluster of 1C:Enterprise Linux servers with a Managed
+          Service for PostgreSQL cluster
         href: infrastructure-management/1c-postgresql-linux.md
       - name: Creating a cluster of 1C:Enterprise Windows servers with MS SQL Server
         href: infrastructure-management/1c-mssql-windows.md
@@ -93,7 +95,9 @@ items:
         href: windows/rds.md
       - name: Deploying an Always On availability group
         href: windows/mssql-alwayson.md
-      - name: Deploying an Always On availability group with an internal load balancer
+      - name: >-
+          Deploying an Always On availability group with an internal load
+          balancer
         href: windows/mssql-alwayson-lb.md
   - name: Network routing
     items:

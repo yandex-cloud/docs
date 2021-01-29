@@ -1,4 +1,4 @@
-title: "Yandex IoT Core"
+title: Yandex IoT Core
 href: index.yaml
 items:
   - name: Getting started
@@ -17,14 +17,14 @@ items:
         href: operations/trigger-create.md
       - name: Managing registries
         items:
-        - name: Getting information about registries
-          href: operations/registry/registry-list.md
-        - name: Creating a registry
-          href: operations/registry/registry-create.md
-        - name: Updating a registry
-          href: operations/registry/registry-update.md
-        - name: Deleting a registry
-          href: operations/registry/registry-delete.md
+          - name: Getting information about registries
+            href: operations/registry/registry-list.md
+          - name: Creating a registry
+            href: operations/registry/registry-create.md
+          - name: Updating a registry
+            href: operations/registry/registry-update.md
+          - name: Deleting a registry
+            href: operations/registry/registry-delete.md
       - name: Managing devices
         items:
           - name: Managing topic aliases
@@ -61,20 +61,20 @@ items:
             href: operations/password/device-password.md
   - name: Concepts
     items:
-        - name: Authorization
-          href: concepts/authorization.md
-        - name: Relationship between service resources
-          href: concepts/index.md
-        - name: MQTT broker connection parameters
-          href: concepts/mqtt-properties.md
-        - name: Sending messages to an MQTT broker via gRPC
-          href: concepts/mqtt-grpc.md
-        - name: Topic
-          href: concepts/topic.md
-        - name: Backups
-          href: concepts/backup.md
-        - name: Quotas and limits
-          href: concepts/limits.md
+      - name: Authorization
+        href: concepts/authorization.md
+      - name: Relationship between service resources
+        href: concepts/index.md
+      - name: MQTT broker connection parameters
+        href: concepts/mqtt-properties.md
+      - name: Sending messages to an MQTT broker via gRPC
+        href: concepts/mqtt-grpc.md
+      - name: Topic
+        href: concepts/topic.md
+      - name: Backups
+        href: concepts/backup.md
+      - name: Quotas and limits
+        href: concepts/limits.md
   - name: Use cases
     items:
       - name: All use cases
@@ -102,12 +102,12 @@ items:
       - name: Authentication in the API
         href: api-ref/authentication.md
       - name: gRPC
-        items:
+        items: null
         include:
           repo: docs
           path: en/_api-ref-grpc/iot-core/api-ref/toc.yaml
       - name: REST
-        items:
+        items: null
         include:
           repo: docs
           path: en/_api-ref/iot/devices/toc.yaml

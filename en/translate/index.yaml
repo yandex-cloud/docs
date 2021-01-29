@@ -1,33 +1,42 @@
-# Заголовок и описание на странице
-title: "Yandex Translate"
+title: Yandex Translate
 description:
-  - "Use this service to integrate <a href=\"https://translate.yandex.com/\">Yandex.Translate</a> algorithms into end-user applications or web projects. Yandex.Translate supports more than 90 languages and can translate individual words and complete texts."
-  - "To access the service, use the HTTP API."
-  - "The Yandex.Cloud infrastructure <a href=\"https://storage.yandexcloud.net/yc-compliance/conformance_en_pdp.pdf\">fully complies</a> with the Russian Federal Law on Personal Data (No. 152-FZ)."  
-  - "The service is subject to the <a href=\"https://yandex.com/legal/cloud_sla\">Service Level Agreement</a>. The service level is defined in the <a href=\"https://yandex.com/legal/cloud_sla_translate\">Service Level for Yandex Translate</a>."
-# Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
+  - >-
+    Use this service to integrate <a
+    href="https://translate.yandex.com/">Yandex.Translate</a> algorithms into
+    end-user applications or web projects. Yandex.Translate supports more than
+    90 languages and can translate individual words and complete texts.
+  - To access the service, use the HTTP API.
+  - >-
+    The Yandex.Cloud infrastructure <a
+    href="https://storage.yandexcloud.net/yc-compliance/conformance_en_pdp.pdf">fully
+    complies</a> with the Russian Federal Law on Personal Data (No. 152-FZ).
+  - >-
+    The service is subject to the <a
+    href="https://yandex.com/legal/cloud_sla">Service Level Agreement</a>. The
+    service level is defined in the <a
+    href="https://yandex.com/legal/cloud_sla_translate">Service Level for Yandex
+    Translate</a>.
 meta:
-  title: "Yandex Translate"
-# Блок со ссылками
+  title: Yandex Translate
 links:
-- title: "Getting started"
-  description: "Translate your text"
-  href: "quickstart"
-- title: "Step-by-step instructions"
-  description: "Instructions on how to perform routine operations"
-  href: "operations/index"
-- title: "Concepts"
-  description: "Learn more about the concepts of the service"
-  href: "concepts/"
-- title: "API reference"
-  description: "HTTP API method descriptions"
-  href: "api-ref/Translation/"
-- title: "Quotas and limits"
-  description: "Technical and organizational limitations of the service"
-  href: "concepts/limits"
-- title: "Access management"
-  description: "Configure access rights to work with the service"
-  href: "security/"
-- title: "Pricing policy"
-  description: "Prices and rules for calculating the service cost"
-  href: "pricing"
+  - title: Getting started
+    description: Translate your text
+    href: quickstart
+  - title: Step-by-step instructions
+    description: Instructions on how to perform routine operations
+    href: operations/index
+  - title: Concepts
+    description: Learn more about the concepts of the service
+    href: concepts/
+  - title: API reference
+    description: HTTP API method descriptions
+    href: api-ref/Translation/
+  - title: Quotas and limits
+    description: Technical and organizational limitations of the service
+    href: concepts/limits
+  - title: Access management
+    description: Configure access rights to work with the service
+    href: security/
+  - title: Pricing policy
+    description: Prices and rules for calculating the service cost
+    href: pricing

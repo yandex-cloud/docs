@@ -1,4 +1,4 @@
-title: "Yandex DataLens"
+title: Yandex DataLens
 href: index.yaml
 items:
   - name: Начало работы
@@ -305,7 +305,7 @@ items:
           - name: v5v6
             href: chartkit/readme-v5v6.md
   - name: Справочник функций
-    items:
+    items: null
     include:
       repo: docs
       path: ru/_api-ref/datalens/toc.yaml

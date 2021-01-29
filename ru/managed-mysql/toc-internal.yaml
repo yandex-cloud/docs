@@ -1,4 +1,4 @@
-title: "Yandex Managed Service for MySQL"
+title: Yandex Managed Service for MySQL
 href: index.yaml
 items:
   - name: Начало работы
@@ -14,7 +14,7 @@ items:
       - name: Подключение к базе данных
         href: operations/connect.md
       - name: SQL-запросы в консоли управления
-        href: operations/web-sql-query.md      
+        href: operations/web-sql-query.md
       - name: Изменение кластера
         href: operations/update.md
       - name: Подключение к DataLens

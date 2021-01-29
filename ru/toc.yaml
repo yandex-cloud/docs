@@ -1,4 +1,4 @@
-title: "Документация Yandex.Cloud"
+title: Документация Yandex.Cloud
 href: index.yaml
 items:
   - name: CLI
@@ -21,4 +21,3 @@ items:
     href: managed-postgresql/
   - name: Managed Redis
     href: managed-redis/
-

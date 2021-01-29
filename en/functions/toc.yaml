@@ -262,12 +262,12 @@ items:
       - name: Authentication in the API
         href: api-ref/functions/authentication.md
       - name: gRPC
-        items:
+        items: null
         include:
           repo: docs
           path: en/_api-ref-grpc/functions/functions/api-ref/toc.yaml
       - name: REST
-        items:
+        items: null
         include:
           repo: docs
           path: en/_api-ref/serverless/functions/toc.yaml
@@ -276,12 +276,12 @@ items:
       - name: Authentication in the API
         href: api-ref/triggers/authentication.md
       - name: gRPC
-        items:
+        items: null
         include:
           repo: docs
           path: en/_api-ref-grpc/functions/triggers/api-ref/toc.yaml
       - name: REST
-        items:
+        items: null
         include:
           repo: docs
           path: en/_api-ref/serverless/triggers/toc.yaml

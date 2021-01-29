@@ -5,20 +5,20 @@ items:
     href: quickstart/index.md
   - name: Пошаговые инструкции
     items:
-        - name: Все инструкции
-          href: operations/index.md
-        - name: Создание API-шлюза
-          href: operations/api-gw-create.md
-        - name: Изменение API-шлюза и его спецификации
-          href: operations/api-gw-update.md
-        - name: Подключение домена
-          href: operations/api-gw-domains.md
-        - name: Удаление API-шлюза
-          href: operations/api-gw-delete.md
-        - name: Просмотр графика мониторинга
-          href: operations/api-gw-monitoring.md
-        - name: Просмотр журнала выполнения
-          href: operations/api-gw-logs.md
+      - name: Все инструкции
+        href: operations/index.md
+      - name: Создание API-шлюза
+        href: operations/api-gw-create.md
+      - name: Изменение API-шлюза и его спецификации
+        href: operations/api-gw-update.md
+      - name: Подключение домена
+        href: operations/api-gw-domains.md
+      - name: Удаление API-шлюза
+        href: operations/api-gw-delete.md
+      - name: Просмотр графика мониторинга
+        href: operations/api-gw-monitoring.md
+      - name: Просмотр журнала выполнения
+        href: operations/api-gw-logs.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса
@@ -46,12 +46,12 @@ items:
       - name: Аутентификация в API
         href: api-ref/authentication.md
       - name: gRPC
-        items:
+        items: null
         include:
           repo: docs
           path: ru/_api-ref-grpc/api-gateway/api-ref/toc.yaml
       - name: REST
-        items:
+        items: null
         include:
           repo: docs
           path: ru/_api-ref/serverless/apigateway/toc.yaml

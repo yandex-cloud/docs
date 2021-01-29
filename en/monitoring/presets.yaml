@@ -1,7 +1,5 @@
 default:
   service-name: Monitoring
-
-  # Полные имена сервисов
   resmgr-full-name: Yandex Resource Manager
   compute-full-name: Yandex Compute Cloud
   managed-postgresql-full-name: Yandex Managed Service for PostgreSQL
@@ -9,14 +7,10 @@ default:
   managed-clickhouse-full-name: Yandex Managed Service for ClickHouse
   managed-mysql-full-name: Yandex Managed Service for MySQL<sup>®</sup>
   managed-mongodb-full-name: Yandex Managed Service for MongoDB
-
-  # Роли
   roles-owner: owner
   roles-admin: admin
   roles-editor: editor
   roles-viewer: viewer
-
-  # Monitoring
   monitoring-full-name: Yandex Monitoring
   monitoring-name: Monitoring
   monitoring-short-name: Monitoring

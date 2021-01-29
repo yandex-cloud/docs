@@ -1,4 +1,4 @@
-title: "Yandex Database"
+title: Yandex Database
 href: index.yaml
 items:
   - name: Оглавление
@@ -13,109 +13,109 @@ items:
   - name: Основные понятия
     when: audience != "external"
     items:
-    - name: Термины и определения
-      href: concepts/databases.md
-    - name: Модель данных и схема
-      href: concepts/datamodel.md
-    - name: Кластеры
-      href: concepts/clusters.md
-    - name: Типы данных
-      href: concepts/datatypes.md
-    - name: Транзакции и запросы к YDB
-      href: concepts/transactions.md
-    - name: Порядок выполнения транзакций
-      href: concepts/out_of_order.md
-    - name: Вторичные индексы
-      href: concepts/secondary_indexes.md
-    - name: Time to Live (TTL)
-      href: concepts/ttl.md
-    - name: Разграничение прав доступа
-      href: concepts/iam.md
-    - name: Квоты и лимиты
-      href: concepts/quotas_and_limits.md
-    - name: YDB в сравнении
-      href: concepts/comparision.md
-      when: audience == "tech"
-    - name: OLAP сценарии
-      href: concepts/olap.md
-      when: audience == "tech"
-    - name: Использование ролей
-      href: howto/apply_iam.md
-      when: audience == "tech"
-    - name: Сессии
-      href: concepts/sessions.md
-      when: audience == "tech"
+      - name: Термины и определения
+        href: concepts/databases.md
+      - name: Модель данных и схема
+        href: concepts/datamodel.md
+      - name: Кластеры
+        href: concepts/clusters.md
+      - name: Типы данных
+        href: concepts/datatypes.md
+      - name: Транзакции и запросы к YDB
+        href: concepts/transactions.md
+      - name: Порядок выполнения транзакций
+        href: concepts/out_of_order.md
+      - name: Вторичные индексы
+        href: concepts/secondary_indexes.md
+      - name: Time to Live (TTL)
+        href: concepts/ttl.md
+      - name: Разграничение прав доступа
+        href: concepts/iam.md
+      - name: Квоты и лимиты
+        href: concepts/quotas_and_limits.md
+      - name: YDB в сравнении
+        href: concepts/comparision.md
+        when: audience == "tech"
+      - name: OLAP сценарии
+        href: concepts/olap.md
+        when: audience == "tech"
+      - name: Использование ролей
+        href: howto/apply_iam.md
+        when: audience == "tech"
+      - name: Сессии
+        href: concepts/sessions.md
+        when: audience == "tech"
   - name: Начало работы
     items:
-    - name: Обзор
-      href: quickstart/index.md
-      when: audience == "external"
-    - name: Создание базы данных
-      href: quickstart/create-db.md
-      when: audience == "external"
-    - name: Примеры YQL-запросов
-      href: quickstart/examples-yql.md
-      when: audience == "external"
-    - name: Примеры работы с YDB CLI
-      href: quickstart/examples-ydb-cli.md
-      when: audience == "external"
-    - name: Запуск тестового приложения
-      href: quickstart/launch-test-app.md
-      when: audience == "external"
-    - name: Базы данных — создание и управление
-      href: getting_started/create_manage_database.md
-      when: audience != "external"
-    - name: Настройка сетевого доступа к базе данных
-      href: getting_started/setup_network_access.md
-      when: audience != "external"
-    - name: Разграничение прав доступа
-      href: getting_started/start_auth.md
-      when: audience != "external"
-    - name: Где взять
-      href: getting_started/get_cluster.md
-      when: audience == "tech"
-    - name: Старт локального кластера
-      href: getting_started/start_local_cluster.md
-      when: audience == "tech"
-    - name: Использование консольного клиента YDB
-      href: getting_started/ydb_cli.md
-      when: audience != "external"
-    - name: Работа со схемой
-      href: getting_started/start_scheme.md
-      when: audience != "external"
-    - name: Работа с данными
-      href: getting_started/crud.md
-      when: audience != "external"
-    - name: Разработка на C++
-      href: getting_started/start_cpp.md
-      when: audience != "external"
-    - name: Разработка на Java
-      href: getting_started/start_java.md
-      when: audience != "external"
-    - name: Разработка на Python
-      href: getting_started/start_python.md
-      when: audience != "external"
-    - name: Использование рецепта YDB
-      href: getting_started/ydb_recipe.md
-      when: audience != "external"
-    - name: Использование Docker контейнера YDB
-      href: getting_started/ydb_docker.md
-      when: audience != "external"
-    - name: ClickHouse over YDB
-      href: getting_started/start_chydb.md
-      when: audience != "external"
-    - name: REST API
-      href: getting_started/start_rest.md
-      when: audience == "tech"
-    - name: Использование AWS CLI и AWS SDK
-      href: getting_started/start_docapi_aws.md
-      when: audience == "external"
-    - name: Document API
-      href: getting_started/start_docapi_rest.md
-      when: audience == "external"
-    - name: Разработка на NodeJS с Document API
-      href: getting_started/start_docapi_nodejs.md
-      when: audience == "external"
+      - name: Обзор
+        href: quickstart/index.md
+        when: audience == "external"
+      - name: Создание базы данных
+        href: quickstart/create-db.md
+        when: audience == "external"
+      - name: Примеры YQL-запросов
+        href: quickstart/examples-yql.md
+        when: audience == "external"
+      - name: Примеры работы с YDB CLI
+        href: quickstart/examples-ydb-cli.md
+        when: audience == "external"
+      - name: Запуск тестового приложения
+        href: quickstart/launch-test-app.md
+        when: audience == "external"
+      - name: Базы данных — создание и управление
+        href: getting_started/create_manage_database.md
+        when: audience != "external"
+      - name: Настройка сетевого доступа к базе данных
+        href: getting_started/setup_network_access.md
+        when: audience != "external"
+      - name: Разграничение прав доступа
+        href: getting_started/start_auth.md
+        when: audience != "external"
+      - name: Где взять
+        href: getting_started/get_cluster.md
+        when: audience == "tech"
+      - name: Старт локального кластера
+        href: getting_started/start_local_cluster.md
+        when: audience == "tech"
+      - name: Использование консольного клиента YDB
+        href: getting_started/ydb_cli.md
+        when: audience != "external"
+      - name: Работа со схемой
+        href: getting_started/start_scheme.md
+        when: audience != "external"
+      - name: Работа с данными
+        href: getting_started/crud.md
+        when: audience != "external"
+      - name: Разработка на C++
+        href: getting_started/start_cpp.md
+        when: audience != "external"
+      - name: Разработка на Java
+        href: getting_started/start_java.md
+        when: audience != "external"
+      - name: Разработка на Python
+        href: getting_started/start_python.md
+        when: audience != "external"
+      - name: Использование рецепта YDB
+        href: getting_started/ydb_recipe.md
+        when: audience != "external"
+      - name: Использование Docker контейнера YDB
+        href: getting_started/ydb_docker.md
+        when: audience != "external"
+      - name: ClickHouse over YDB
+        href: getting_started/start_chydb.md
+        when: audience != "external"
+      - name: REST API
+        href: getting_started/start_rest.md
+        when: audience == "tech"
+      - name: Использование AWS CLI и AWS SDK
+        href: getting_started/start_docapi_aws.md
+        when: audience == "external"
+      - name: Document API
+        href: getting_started/start_docapi_rest.md
+        when: audience == "external"
+      - name: Разработка на NodeJS с Document API
+        href: getting_started/start_docapi_nodejs.md
+        when: audience == "external"
   - name: Пошаговые инструкции
     when: audience == "external"
     items:
@@ -136,24 +136,24 @@ items:
   - name: Концепции
     when: audience == "external"
     items:
-    - name: Обзор
-      href: concepts/index.md
-    - name: Модель данных и схема
-      href: concepts/datamodel.md
-    - name: Режимы работы Serverless и Dedicated
-      href: concepts/serverless_and_dedicated.md
-    - name: Типы данных
-      href: concepts/datatypes.md
-    - name: Транзакции
-      href: concepts/transactions.md
-    - name: Вторичные индексы
-      href: concepts/secondary_indexes.md
-    - name: Time to Live (TTL)
-      href: concepts/ttl.md
-    - name: Термины и определения
-      href: concepts/databases.md
-    - name: Квоты и лимиты
-      href: concepts/limits.md
+      - name: Обзор
+        href: concepts/index.md
+      - name: Модель данных и схема
+        href: concepts/datamodel.md
+      - name: Режимы работы Serverless и Dedicated
+        href: concepts/serverless_and_dedicated.md
+      - name: Типы данных
+        href: concepts/datatypes.md
+      - name: Транзакции
+        href: concepts/transactions.md
+      - name: Вторичные индексы
+        href: concepts/secondary_indexes.md
+      - name: Time to Live (TTL)
+        href: concepts/ttl.md
+      - name: Термины и определения
+        href: concepts/databases.md
+      - name: Квоты и лимиты
+        href: concepts/limits.md
   - name: Управление доступом
     href: operations/start_auth.md
     when: audience == "external"
@@ -173,51 +173,51 @@ items:
         when: audience != "external"
   - name: Рекомендации
     items:
-    - name: Проектирование схемы
-      href: best_practices/schema_design.md
-    - name: Партицирование таблиц
-      href: best_practices/table_sharding.md
-    - name: Вторичные индексы
-      href: best_practices/secondary_indexes.md
-    - name: Постраничный вывод
-      href: best_practices/paging.md
-    - name: Загрузка больших объемов данных
-      href: best_practices/batch_upload.md
-    - name: Удаление устаревших данных с помощью вспомогательных таблиц
-      href: best_practices/ttl.md
-      when: audience != "external"
-    - name: Загрузка данных из YT
-      href: best_practices/import_from_yt.md
-      when: audience != "external"
-    - name: Настройка групп колонок
-      href: best_practices/column_families.md
-      when: audience == "tech"
-    - name: Использование таймаутов
-      href: best_practices/timeouts.md
+      - name: Проектирование схемы
+        href: best_practices/schema_design.md
+      - name: Партицирование таблиц
+        href: best_practices/table_sharding.md
+      - name: Вторичные индексы
+        href: best_practices/secondary_indexes.md
+      - name: Постраничный вывод
+        href: best_practices/paging.md
+      - name: Загрузка больших объемов данных
+        href: best_practices/batch_upload.md
+      - name: Удаление устаревших данных с помощью вспомогательных таблиц
+        href: best_practices/ttl.md
+        when: audience != "external"
+      - name: Загрузка данных из YT
+        href: best_practices/import_from_yt.md
+        when: audience != "external"
+      - name: Настройка групп колонок
+        href: best_practices/column_families.md
+        when: audience == "tech"
+      - name: Использование таймаутов
+        href: best_practices/timeouts.md
   - name: YDB API и справочник
     items:
-    - name: REST
-      href: api/rest.md
-      when: audience == "tech"
-    - name: Консольный клиент
-      href: api/cli.md
-      when: audience == "tech"
-    - name: miniKQL
-      when: audience == "tech"
-      items:
-      - name: Модель языка транзакции miniKQL
-        href: api/minikql.md
-      - name: miniKQL в AST YQL
-        href: api/minikql_ast.md
-      - name: Текстовое представление языка miniKQL
-        href: api/minikql_text.md
-    - name: Prepared Statements
-      href: api/yql_prepared_statements.md
-      when: audience == "tech"
-    - name: Ограничения базы данных
-      href: api/limits.md
-    - name: Обработка ошибок в API
-      href: api/error_handling.md
+      - name: REST
+        href: api/rest.md
+        when: audience == "tech"
+      - name: Консольный клиент
+        href: api/cli.md
+        when: audience == "tech"
+      - name: miniKQL
+        when: audience == "tech"
+        items:
+          - name: Модель языка транзакции miniKQL
+            href: api/minikql.md
+          - name: miniKQL в AST YQL
+            href: api/minikql_ast.md
+          - name: Текстовое представление языка miniKQL
+            href: api/minikql_text.md
+      - name: Prepared Statements
+        href: api/yql_prepared_statements.md
+        when: audience == "tech"
+      - name: Ограничения базы данных
+        href: api/limits.md
+      - name: Обработка ошибок в API
+        href: api/error_handling.md
   - name: HTTP API, совместимый с Amazon DynamoDB
     when: audience == "external"
     items:
@@ -262,143 +262,142 @@ items:
             items:
               - name: Обеспечение уникальности атрибутов
                 href: docapi/uniqueConstraint.md
-
   - name: Справочник YQL
     when: audience == "external"
     items:
-    - name: Обзор
-      href: yql/reference/overview.md
-    - name: Типы данных
-      items:
-      - name: Простые
-        href: yql/reference/types/primitive.md
-      - name: Опциональные
-        href: yql/reference/types/optional.md
-      - name: Контейнеры
-        href: yql/reference/types/containers.md
-      - name: Специальные
-        href: yql/reference/types/special.md
-    - name: Синтаксис
-      items:
-      - name: Неподдерживаемые конструкции
-        href: yql/reference/misc/not_yet_supported.md
+      - name: Обзор
+        href: yql/reference/overview.md
+      - name: Типы данных
+        items:
+          - name: Простые
+            href: yql/reference/types/primitive.md
+          - name: Опциональные
+            href: yql/reference/types/optional.md
+          - name: Контейнеры
+            href: yql/reference/types/containers.md
+          - name: Специальные
+            href: yql/reference/types/special.md
+      - name: Синтаксис
+        items:
+          - name: Неподдерживаемые конструкции
+            href: yql/reference/misc/not_yet_supported.md
+          - name: Работа с текстовым представлением типов данных
+            href: yql/reference/misc/type_string.md
+          - name: Выражения
+            href: yql/reference/syntax/expressions.md
+          - name: CREATE TABLE
+            href: yql/reference/syntax/create_table.md
+          - name: DROP TABLE
+            href: yql/reference/syntax/drop_table.md
+          - name: INSERT INTO
+            href: yql/reference/syntax/insert_into.md
+          - name: UPSERT INTO
+            href: yql/reference/syntax/upsert_into.md
+          - name: REPLACE INTO
+            href: yql/reference/syntax/replace_into.md
+          - name: UPDATE
+            href: yql/reference/syntax/update.md
+          - name: DELETE
+            href: yql/reference/syntax/delete.md
+          - name: SELECT
+            href: yql/reference/syntax/select.md
+          - name: GROUP BY
+            href: yql/reference/syntax/group_by.md
+          - name: JOIN
+            href: yql/reference/syntax/join.md
+          - name: FLATTEN
+            href: yql/reference/syntax/flatten.md
+          - name: ACTION
+            href: yql/reference/syntax/action.md
+          - name: DISCARD
+            href: yql/reference/syntax/discard.md
+          - name: PRAGMA
+            href: yql/reference/syntax/pragma.md
+          - name: DECLARE
+            href: yql/reference/syntax/declare.md
+          - name: OVER, PARTITION BY и WINDOW
+            href: yql/reference/syntax/window.md
+      - name: Встроенные функции
+        items:
+          - name: Базовые
+            href: yql/reference/builtins/basic.md
+          - name: Агрегатные
+            href: yql/reference/builtins/aggregation.md
+          - name: Оконные
+            href: yql/reference/builtins/window.md
+          - name: Для работы со списками
+            href: yql/reference/builtins/list.md
+          - name: Для работы со словарями
+            href: yql/reference/builtins/dict.md
+          - name: Для работы с JSON
+            href: yql/reference/builtins/json.md
+          - name: Для работы со структурами
+            href: yql/reference/builtins/struct.md
+          - name: Для работы с типами
+            href: yql/reference/builtins/types.md
+      - name: Предустановленные пользовательские функции
+        items:
+          - name: HyperScan
+            href: yql/reference/udf/list/hyperscan.md
+          - name: Pcre
+            href: yql/reference/udf/list/pcre.md
+          - name: Pire
+            href: yql/reference/udf/list/pire.md
+          - name: Re2
+            href: yql/reference/udf/list/re2.md
+          - name: String
+            href: yql/reference/udf/list/string.md
+          - name: Unicode
+            href: yql/reference/udf/list/unicode.md
+          - name: Datetime
+            href: yql/reference/udf/list/datetime.md
+          - name: Url
+            href: yql/reference/udf/list/url.md
+          - name: Ip
+            href: yql/reference/udf/list/ip.md
+          - name: Digest
+            href: yql/reference/udf/list/digest.md
+          - name: Math
+            href: yql/reference/udf/list/math.md
+          - name: Histogram
+            href: yql/reference/udf/list/histogram.md
       - name: Работа с текстовым представлением типов данных
-        href: yql/reference/misc/type_string.md
-      - name: Выражения
-        href: yql/reference/syntax/expressions.md
-      - name: CREATE TABLE
-        href: yql/reference/syntax/create_table.md
-      - name: DROP TABLE
-        href: yql/reference/syntax/drop_table.md
-      - name: INSERT INTO
-        href: yql/reference/syntax/insert_into.md
-      - name: UPSERT INTO
-        href: yql/reference/syntax/upsert_into.md
-      - name: REPLACE INTO
-        href: yql/reference/syntax/replace_into.md
-      - name: UPDATE
-        href: yql/reference/syntax/update.md
-      - name: DELETE
-        href: yql/reference/syntax/delete.md
-      - name: SELECT
-        href: yql/reference/syntax/select.md
-      - name: GROUP BY
-        href: yql/reference/syntax/group_by.md
-      - name: JOIN
-        href: yql/reference/syntax/join.md
-      - name: FLATTEN
-        href: yql/reference/syntax/flatten.md
-      - name: ACTION
-        href: yql/reference/syntax/action.md
-      - name: DISCARD
-        href: yql/reference/syntax/discard.md
-      - name: PRAGMA
-        href: yql/reference/syntax/pragma.md
-      - name: DECLARE
-        href: yql/reference/syntax/declare.md
-      - name: OVER, PARTITION BY и WINDOW
-        href: yql/reference/syntax/window.md
-    - name: Встроенные функции
-      items:
-      - name: Базовые
-        href: yql/reference/builtins/basic.md
-      - name: Агрегатные
-        href: yql/reference/builtins/aggregation.md
-      - name: Оконные
-        href: yql/reference/builtins/window.md
-      - name: Для работы со списками
-        href: yql/reference/builtins/list.md
-      - name: Для работы со словарями
-        href: yql/reference/builtins/dict.md
-      - name: Для работы с JSON
-        href: yql/reference/builtins/json.md
-      - name: Для работы со структурами
-        href: yql/reference/builtins/struct.md
-      - name: Для работы с типами
-        href: yql/reference/builtins/types.md
-    - name: Предустановленные пользовательские функции
-      items:
-      - name: HyperScan
-        href: yql/reference/udf/list/hyperscan.md
-      - name: Pcre
-        href: yql/reference/udf/list/pcre.md
-      - name: Pire
-        href: yql/reference/udf/list/pire.md
-      - name: Re2
-        href: yql/reference/udf/list/re2.md
-      - name: String
-        href: yql/reference/udf/list/string.md
-      - name: Unicode
-        href: yql/reference/udf/list/unicode.md
-      - name: Datetime
-        href: yql/reference/udf/list/datetime.md
-      - name: Url
-        href: yql/reference/udf/list/url.md
-      - name: Ip
-        href: yql/reference/udf/list/ip.md
-      - name: Digest
-        href: yql/reference/udf/list/digest.md
-      - name: Math
-        href: yql/reference/udf/list/math.md
-      - name: Histogram
-        href: yql/reference/udf/list/histogram.md
-    - name: Работа с текстовым представлением типов данных
-      href: yql/reference/types/text.md
+        href: yql/reference/types/text.md
   - name: Туториал YQL
     when: audience == "external"
     items:
-    - name: Обзор
-      href: yql/tutorial/index.md
-    - name: Создание таблицы
-      href: yql/tutorial/create_demo_tables.md
-    - name: Добавление данных в таблицу
-      href: yql/tutorial/fill_tables_with_data.md
-    - name: Выборка данных из всех колонок
-      href: yql/tutorial/select_all_columns.md
-    - name: Выборка данных из определенных колонок
-      href: yql/tutorial/select_specific_columns.md
-    - name: Сортировка и фильтрация
-      href: yql/tutorial/basic_filter_and_sort.md
-    - name: Агрегирование данных
-      href: yql/tutorial/basic_aggregation.md
-    - name: Дополнительные условия выборки
-      href: yql/tutorial/conditional_values.md
-    - name: Объединение таблиц с помощью JOIN
-      href: yql/tutorial/join_tables.md
-    - name: Вставка и модификация данных с помощью REPLACE
-      href: yql/tutorial/replace_into.md
-    - name: Вставка и модификация данных с помощью UPSERT
-      href: yql/tutorial/upsert_into.md
-    - name: Вставка данных с помощью INSERT
-      href: yql/tutorial/insert_into.md
-    - name: Обновление данных с помощью UPDATE
-      href: yql/tutorial/update.md
-    - name: Удаление данных
-      href: yql/tutorial/delete.md
-    - name: Добавление и удаление колонок
-      href: yql/tutorial/alter_table.md
-    - name: Удаление таблицы
-      href: yql/tutorial/delete_table.md
+      - name: Обзор
+        href: yql/tutorial/index.md
+      - name: Создание таблицы
+        href: yql/tutorial/create_demo_tables.md
+      - name: Добавление данных в таблицу
+        href: yql/tutorial/fill_tables_with_data.md
+      - name: Выборка данных из всех колонок
+        href: yql/tutorial/select_all_columns.md
+      - name: Выборка данных из определенных колонок
+        href: yql/tutorial/select_specific_columns.md
+      - name: Сортировка и фильтрация
+        href: yql/tutorial/basic_filter_and_sort.md
+      - name: Агрегирование данных
+        href: yql/tutorial/basic_aggregation.md
+      - name: Дополнительные условия выборки
+        href: yql/tutorial/conditional_values.md
+      - name: Объединение таблиц с помощью JOIN
+        href: yql/tutorial/join_tables.md
+      - name: Вставка и модификация данных с помощью REPLACE
+        href: yql/tutorial/replace_into.md
+      - name: Вставка и модификация данных с помощью UPSERT
+        href: yql/tutorial/upsert_into.md
+      - name: Вставка данных с помощью INSERT
+        href: yql/tutorial/insert_into.md
+      - name: Обновление данных с помощью UPDATE
+        href: yql/tutorial/update.md
+      - name: Удаление данных
+        href: yql/tutorial/delete.md
+      - name: Добавление и удаление колонок
+        href: yql/tutorial/alter_table.md
+      - name: Удаление таблицы
+        href: yql/tutorial/delete_table.md
   - name: Обслуживание
     items:
       - name: Резервное копирование
@@ -409,149 +408,149 @@ items:
   - name: Безопасность
     when: audience == "tech"
     items:
-    - name: Сценарии взаимодействия компонентов
-      href: security/usecases.md
-    - name: Шифрование данных
-      href: security/data_encryption.md
+      - name: Сценарии взаимодействия компонентов
+        href: security/usecases.md
+      - name: Шифрование данных
+        href: security/data_encryption.md
   - name: Техническая документация
     when: audience == "tech"
     items:
-    - name: Архитектура системы
-      href: internals/architecture.md
-    - name: Глоссарий
-      href: internals/glossary.md
-    - name: Configuration and Deployment
-      items:
-      - name: Настройка KiKiMR кластера
-        href: internals/configuration.md
-      - name: Deploy to Developer Slices
-        href: internals/slicedeploy.md
-      - name: Using CMS for cluster configuration
-        href: internals/dynamicconfiguration.md
-    - name: Внешние Прокси и Порты
-      href: internals/external_proxies.md
-    - name: Обработка ошибок в результатах запросов
-      href: internals/errors_in_api_requests.md
-    - name: YDB Core
-      items:
-      - name: Actorlib
-        href: internals/actors.md
-      - name: Interconnect
-        href: internals/interconnect.md
-      - name: NALF-allocator
-        href: internals/nalf.md
-      - name: Инфраструктура таблеток
+      - name: Архитектура системы
+        href: internals/architecture.md
+      - name: Глоссарий
+        href: internals/glossary.md
+      - name: Configuration and Deployment
         items:
-        - name: Обзор таблеток
-          href: internals/tablets.md
-        - name: Resource Broker
-          href: internals/resource_broker.md
-        - name: State storage
-          href: internals/tablet_state_storage.md
-        - name: Blobstorage
-          items:
-          - name: Blobstorage обзор
-            href: internals/tablet_blobstorage_overview.md
-          - name: Erasure Coding
-            href: internals/erasure.md
-          - name: Distributed Storage Proxy
-            href: internals/tablet_dsproxy.md
-          - name: PDisk
-            href: internals/pdisk.md
-          - name: VDisk
-            href: internals/vdisk.md
-          - name: VDisk replication
-            href: internals/vdisk_replication.md
-        - name: Tablet
-          items:
-          - name: Tablet slaves
-            href: internals/tablet_slaves.md
-          - name: Tablet pipes
-            href: internals/tablet_pipes.md
-          - name: Tablet Leader Election и Log Commit Protocol
-            href: internals/tablet_election.md
-      - name: Local Database
-        href: internals/localdatabase.md
-      - name: Local Database C++ Interface (NIceDb)
-        href: api/nicedb.md
-      - name: Transaction processing
+          - name: Настройка KiKiMR кластера
+            href: internals/configuration.md
+          - name: Deploy to Developer Slices
+            href: internals/slicedeploy.md
+          - name: Using CMS for cluster configuration
+            href: internals/dynamicconfiguration.md
+      - name: Внешние Прокси и Порты
+        href: internals/external_proxies.md
+      - name: Обработка ошибок в результатах запросов
+        href: internals/errors_in_api_requests.md
+      - name: YDB Core
         items:
-        - name: Transaction processing
-          href: internals/tx_processing.md
-        - name: Deterministic Transactions
-          href: internals/tx_deterministic.md
-        - name: Transaction processing implementation
-          href: internals/tx_processing_graph.md
-      - name: Типы таблеток
-        items:
-        - name: Hive
-          href: internals/tablet_hive.md
-        - name: Hive balancer
-          href: internals/tablet_hive_balancer.md
-        - name: Blobstorage Controller
-          href: internals/tablet_blobstorage_controller.md
-        - name: KeyValue tablet
-          href: internals/tablet_key_value.md
-        - name: Persistent queue tablet
-          href: internals/tablet_pq.md
-        - name: SchemeShard
-          href: internals/tablet_schemeshard.md
-        - name: DataShard
-          items:
-          - name: DataShard
-            href: internals/tablet_datashard.md
-          - name: Concurrency control
-            href: internals/tablet_datashard_cc.md
-          - name: Тест изоляции транзакций SmallBank
-            href: internals/tablet_datashard_smallbank.md
-          - name: Выполнение транзакций Out-of-order
-            href: internals/tablet_datashard_ooo.md
-          - name: SoftUpdates
-            href: internals/tablet_datashard_soft_updates.md
-        - name: Coordinator
-          href: internals/tablet_coordinator.md
-        - name: Mediator
-          href: internals/tablet_mediator.md
-        - name: Transaction Proxy (TxProxy)
-          href: internals/tablet_txproxy.md
-      - name: Features
-        items:
-        - name: Автоматическое шардирование
-          href: internals/datashard_autosplit.md
-        - name: МежДЦ
-          href: internals/crossdc.md
-      - name: Multitenancy
-        href: internals/multitenancy.md
-      - name: Domains
-        href: internals/domains.md
-      - name: SubDomains
-        href: internals/subdomains.md
-    - name: Конфигурация и развертывание
-      href: getting_started/confdeploy.md
-    - name: Мониторинг с помощью Solomon
-      href: howto/monitoring_solomon.md
+          - name: Actorlib
+            href: internals/actors.md
+          - name: Interconnect
+            href: internals/interconnect.md
+          - name: NALF-allocator
+            href: internals/nalf.md
+          - name: Инфраструктура таблеток
+            items:
+              - name: Обзор таблеток
+                href: internals/tablets.md
+              - name: Resource Broker
+                href: internals/resource_broker.md
+              - name: State storage
+                href: internals/tablet_state_storage.md
+              - name: Blobstorage
+                items:
+                  - name: Blobstorage обзор
+                    href: internals/tablet_blobstorage_overview.md
+                  - name: Erasure Coding
+                    href: internals/erasure.md
+                  - name: Distributed Storage Proxy
+                    href: internals/tablet_dsproxy.md
+                  - name: PDisk
+                    href: internals/pdisk.md
+                  - name: VDisk
+                    href: internals/vdisk.md
+                  - name: VDisk replication
+                    href: internals/vdisk_replication.md
+              - name: Tablet
+                items:
+                  - name: Tablet slaves
+                    href: internals/tablet_slaves.md
+                  - name: Tablet pipes
+                    href: internals/tablet_pipes.md
+                  - name: Tablet Leader Election и Log Commit Protocol
+                    href: internals/tablet_election.md
+          - name: Local Database
+            href: internals/localdatabase.md
+          - name: Local Database C++ Interface (NIceDb)
+            href: api/nicedb.md
+          - name: Transaction processing
+            items:
+              - name: Transaction processing
+                href: internals/tx_processing.md
+              - name: Deterministic Transactions
+                href: internals/tx_deterministic.md
+              - name: Transaction processing implementation
+                href: internals/tx_processing_graph.md
+          - name: Типы таблеток
+            items:
+              - name: Hive
+                href: internals/tablet_hive.md
+              - name: Hive balancer
+                href: internals/tablet_hive_balancer.md
+              - name: Blobstorage Controller
+                href: internals/tablet_blobstorage_controller.md
+              - name: KeyValue tablet
+                href: internals/tablet_key_value.md
+              - name: Persistent queue tablet
+                href: internals/tablet_pq.md
+              - name: SchemeShard
+                href: internals/tablet_schemeshard.md
+              - name: DataShard
+                items:
+                  - name: DataShard
+                    href: internals/tablet_datashard.md
+                  - name: Concurrency control
+                    href: internals/tablet_datashard_cc.md
+                  - name: Тест изоляции транзакций SmallBank
+                    href: internals/tablet_datashard_smallbank.md
+                  - name: Выполнение транзакций Out-of-order
+                    href: internals/tablet_datashard_ooo.md
+                  - name: SoftUpdates
+                    href: internals/tablet_datashard_soft_updates.md
+              - name: Coordinator
+                href: internals/tablet_coordinator.md
+              - name: Mediator
+                href: internals/tablet_mediator.md
+              - name: Transaction Proxy (TxProxy)
+                href: internals/tablet_txproxy.md
+          - name: Features
+            items:
+              - name: Автоматическое шардирование
+                href: internals/datashard_autosplit.md
+              - name: МежДЦ
+                href: internals/crossdc.md
+          - name: Multitenancy
+            href: internals/multitenancy.md
+          - name: Domains
+            href: internals/domains.md
+          - name: SubDomains
+            href: internals/subdomains.md
+      - name: Конфигурация и развертывание
+        href: getting_started/confdeploy.md
+      - name: Мониторинг с помощью Solomon
+        href: howto/monitoring_solomon.md
   - name: Диагностика
     items:
-    - name: Обзор
-      href: troubleshooting/overview.md
-      when: audience == "tech"
-    - name: Использование диагностического дашборда
-      href: troubleshooting/diag_dashboard.md
-      when: audience != "external"
-    - name: Общие (частые) ошибки
-      href: troubleshooting/common_errors.md
-      when: audience == "tech"
-    - name: Диагностика поведения запроса
-      href: troubleshooting/query_behavior.md
-      when: audience == "tech"
-    - name: Системные таблицы
-      href: troubleshooting/system_views.md
-    - name: Как анализировать отладочные логи
-      href: troubleshooting/understand_debug_logs.md
-      when: audience == "tech"
-    - name: Сбор отладочной информации
-      href: troubleshooting/collect_db_debug_info.md
-      when: audience == "tech"
+      - name: Обзор
+        href: troubleshooting/overview.md
+        when: audience == "tech"
+      - name: Использование диагностического дашборда
+        href: troubleshooting/diag_dashboard.md
+        when: audience != "external"
+      - name: Общие (частые) ошибки
+        href: troubleshooting/common_errors.md
+        when: audience == "tech"
+      - name: Диагностика поведения запроса
+        href: troubleshooting/query_behavior.md
+        when: audience == "tech"
+      - name: Системные таблицы
+        href: troubleshooting/system_views.md
+      - name: Как анализировать отладочные логи
+        href: troubleshooting/understand_debug_logs.md
+        when: audience == "tech"
+      - name: Сбор отладочной информации
+        href: troubleshooting/collect_db_debug_info.md
+        when: audience == "tech"
   - name: YQL
     href: yql.md
     when: audience != "external"

@@ -1,64 +1,64 @@
-title: "Yandex Managed Service for MongoDB"
+title: Yandex Managed Service for MongoDB
 href: index.yaml
 items:
   - name: Getting started
     href: quickstart.md
   - name: Step-by-step instructions
     items:
-    - name: All instructions
-      href: operations/index.md
-    - name: Information about existing clusters
-      href: operations/cluster-list.md
-    - name: Creating clusters
-      href: operations/cluster-create.md
-    - name: Database migration to Yandex.Cloud
-      href: operations/data-migration.md
-    - name: Connecting to databases
-      href: operations/connect.md
-    - name: Stop and start the cluster
-      href: operations/cluster-stop.md
-    - name: Changing cluster and database settings
-      href: operations/update.md
-    - name: MongoDB version upgrade
-      href: operations/cluster-version-update.md
-    - name: Database management
-      href: operations/databases.md
-    - name: Managing hosts in a cluster
-      href: operations/hosts.md
-    - name: Managing database users
-      href: operations/cluster-users.md
-    - name: Managing backups
-      href: operations/cluster-backups.md
-    - name: How to manage shards
-      href: operations/shards.md
-    - name: Deleting clusters
-      href: operations/cluster-delete.md
+      - name: All instructions
+        href: operations/index.md
+      - name: Information about existing clusters
+        href: operations/cluster-list.md
+      - name: Creating clusters
+        href: operations/cluster-create.md
+      - name: Database migration to Yandex.Cloud
+        href: operations/data-migration.md
+      - name: Connecting to databases
+        href: operations/connect.md
+      - name: Stop and start the cluster
+        href: operations/cluster-stop.md
+      - name: Changing cluster and database settings
+        href: operations/update.md
+      - name: MongoDB version upgrade
+        href: operations/cluster-version-update.md
+      - name: Database management
+        href: operations/databases.md
+      - name: Managing hosts in a cluster
+        href: operations/hosts.md
+      - name: Managing database users
+        href: operations/cluster-users.md
+      - name: Managing backups
+        href: operations/cluster-backups.md
+      - name: How to manage shards
+        href: operations/shards.md
+      - name: Deleting clusters
+        href: operations/cluster-delete.md
   - name: Solutions
     items:
-    - name: Sharding collections
-      href: tutorials/sharding.md
+      - name: Sharding collections
+        href: tutorials/sharding.md
   - name: Concepts
     items:
-    - name: Relationship between service resources
-      href: concepts/index.md
-    - name: Host classes
-      href: concepts/instance-types.md
-    - name: Network in Yandex Managed Service for MongoDB
-      href: concepts/network.md
-    - name: Quotas and limits
-      href: concepts/limits.md
-    - name: Storage types
-      href: concepts/storage.md
-    - name: Backups
-      href: concepts/backup.md
-    - name: Replication
-      href: concepts/replication.md
-    - name: Sharding
-      href: concepts/sharding.md
-    - name: Users and roles
-      href: concepts/users-and-roles.md
-    - name: Supported clients
-      href: concepts/supported-clients.md
+      - name: Relationship between service resources
+        href: concepts/index.md
+      - name: Host classes
+        href: concepts/instance-types.md
+      - name: Network in Yandex Managed Service for MongoDB
+        href: concepts/network.md
+      - name: Quotas and limits
+        href: concepts/limits.md
+      - name: Storage types
+        href: concepts/storage.md
+      - name: Backups
+        href: concepts/backup.md
+      - name: Replication
+        href: concepts/replication.md
+      - name: Sharding
+        href: concepts/sharding.md
+      - name: Users and roles
+        href: concepts/users-and-roles.md
+      - name: Supported clients
+        href: concepts/supported-clients.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy
@@ -78,20 +78,20 @@ items:
       - name: Authentication in the API
         href: api-ref/authentication.md
       - name: gRPC
-        items:
+        items: null
         include:
           repo: docs
           path: ru/_api-ref-grpc/managed-mongodb/api-ref/toc.yaml
       - name: REST
-        items:
+        items: null
         include:
           repo: docs
           path: en/_api-ref/mdb/mongodb/toc.yaml
   - name: Questions and answers
     items:
-    - name: General questions
-      href: qa/general.md
-    - name: Questions about MongoDB
-      href: qa/mongodb.md
-    - name: All questions on the same page
-      href: qa/all.md
+      - name: General questions
+        href: qa/general.md
+      - name: Questions about MongoDB
+        href: qa/mongodb.md
+      - name: All questions on the same page
+        href: qa/all.md

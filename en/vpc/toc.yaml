@@ -1,4 +1,4 @@
-title: "Yandex Virtual Private Cloud"
+title: Yandex Virtual Private Cloud
 href: index.yaml
 items:
   - name: Getting started
@@ -41,7 +41,7 @@ items:
           - name: Enabling NAT to the internet
             href: operations/enable-nat.md
       - name: Security groups
-        items: 
+        items:
           - name: Create a security group
             href: operations/security-group-create.md
           - name: Update a security group and rules
@@ -93,12 +93,12 @@ items:
       - name: Authentication in the API
         href: api-ref/authentication.md
       - name: gRPC
-        items:
+        items: null
         include:
           repo: docs
           path: en/_api-ref-grpc/vpc/api-ref/toc.yaml
       - name: REST
-        items:
+        items: null
         include:
           repo: docs
           path: en/_api-ref/vpc/toc.yaml

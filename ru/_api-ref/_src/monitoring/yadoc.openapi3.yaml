@@ -1,9 +1,11 @@
-openapi: "3.0"
+openapi: '3.0'
 info:
   title: Yandex Monitoring API
-  description: Методы справочника API сгруппированы по ресурсам. Чтобы выполнить операцию
-    над ресурсом, отправьте HTTP-запрос к соответствующему URL или выполните RPC-вызов.
-    Подробнее об архитектуре API Яндекс.Облака, см. [Концепции API Яндекс.Облака](/docs/api-design-guide/).
+  description: >-
+    Методы справочника API сгруппированы по ресурсам. Чтобы выполнить операцию
+    над ресурсом, отправьте HTTP-запрос к соответствующему URL или выполните
+    RPC-вызов. Подробнее об архитектуре API Яндекс.Облака, см. [Концепции API
+    Яндекс.Облака](/docs/api-design-guide/).
   version: Version not set.
   x-y-docUri: api-ref
   x-y-baseUrl: https://monitoring.api.cloud.yandex.net
@@ -11,28 +13,28 @@ paths:
   /monitoring/v1/data/read:
     post:
       tags:
-      - MetricsData
+        - MetricsData
       summary: Возвращает данные метрик.
       operationId: MetricsDataRead
       parameters:
-      - name: cloudId
-        in: query
-        description: |-
-          Обязательное поле.
-          Идентификатор облака, которому принадлежит метрика.
+        - name: cloudId
+          in: query
+          description: |-
+            Обязательное поле.
+            Идентификатор облака, которому принадлежит метрика.
 
-          Максимальная длина строки в символах — 50.
-        schema:
-          type: string
-      - name: folderId
-        in: query
-        description: |-
-          Обязательное поле.
-          Идентификатор каталога, которому принадлежит метрика.
+            Максимальная длина строки в символах — 50.
+          schema:
+            type: string
+        - name: folderId
+          in: query
+          description: |-
+            Обязательное поле.
+            Идентификатор каталога, которому принадлежит метрика.
 
-          Максимальная длина строки в символах — 50.
-        schema:
-          type: string
+            Максимальная длина строки в символах — 50.
+          schema:
+            type: string
       requestBody:
         description: |-
           Обязательное поле.
@@ -43,7 +45,7 @@ paths:
               $ref: '#/components/schemas/DataQuery'
         required: true
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -53,35 +55,37 @@ paths:
   /monitoring/v1/data/write:
     post:
       tags:
-      - MetricsData
+        - MetricsData
       summary: Записывает данные метрик.
       operationId: MetricsDataWrite
       parameters:
-      - name: cloudId
-        in: query
-        description: |-
-          Обязательное поле.
-          Идентификатор облака, которому принадлежит метрика.
+        - name: cloudId
+          in: query
+          description: |-
+            Обязательное поле.
+            Идентификатор облака, которому принадлежит метрика.
 
-          Максимальная длина строки в символах — 50.
-        schema:
-          type: string
-      - name: folderId
-        in: query
-        description: |-
-          Обязательное поле.
-          Идентификатор каталога, которому принадлежит метрика.
+            Максимальная длина строки в символах — 50.
+          schema:
+            type: string
+        - name: folderId
+          in: query
+          description: |-
+            Обязательное поле.
+            Идентификатор каталога, которому принадлежит метрика.
 
-          Максимальная длина строки в символах — 50.
-        schema:
-          type: string
-      - name: service
-        in: query
-        description: |-
-          Обязательное поле.
-          Идентификатор сервиса, которому принадлежит метрика. Для пользовательских метрик `service=custom`.
-        schema:
-          type: string
+            Максимальная длина строки в символах — 50.
+          schema:
+            type: string
+        - name: service
+          in: query
+          description: >-
+            Обязательное поле.
+
+            Идентификатор сервиса, которому принадлежит метрика. Для
+            пользовательских метрик `service=custom`.
+          schema:
+            type: string
       requestBody:
         description: |-
           Обязательное поле.
@@ -92,7 +96,7 @@ paths:
               $ref: '#/components/schemas/JsonFormat'
         required: true
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -102,42 +106,42 @@ paths:
   /monitoring/v1/metrics:
     get:
       tags:
-      - MetricsMeta
+        - MetricsMeta
       summary: Возвращает список метрик.
       operationId: MetricsMetaListMetrics
       parameters:
-      - name: cloudId
-        in: query
-        description: |-
-          Обязательное поле.
-          Идентификатор облака, которому принадлежит метрика.
+        - name: cloudId
+          in: query
+          description: |-
+            Обязательное поле.
+            Идентификатор облака, которому принадлежит метрика.
 
-          Максимальная длина строки в символах — 50.
-        schema:
-          type: string
-      - name: folderId
-        in: query
-        description: |-
-          Обязательное поле.
-          Идентификатор каталога, которому принадлежит метрика.
+            Максимальная длина строки в символах — 50.
+          schema:
+            type: string
+        - name: folderId
+          in: query
+          description: |-
+            Обязательное поле.
+            Идентификатор каталога, которому принадлежит метрика.
 
-          Максимальная длина строки в символах — 50.
-        schema:
-          type: string
-      - name: page
-        in: query
-        description: Номер страницы.
-        schema:
-          type: string
-          format: int64
-      - name: pageSize
-        in: query
-        description: Количество метрик в одной странице ответа.
-        schema:
-          type: string
-          format: int64
+            Максимальная длина строки в символах — 50.
+          schema:
+            type: string
+        - name: page
+          in: query
+          description: Номер страницы.
+          schema:
+            type: string
+            format: int64
+        - name: pageSize
+          in: query
+          description: Количество метрик в одной странице ответа.
+          schema:
+            type: string
+            format: int64
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -155,15 +159,19 @@ components:
             Текст запроса.
           type: string
         fromTime:
-          description: |-
+          description: >-
             Обязательное поле.
-            Начальная точка интервала. Строка в формате [ISO8601](https://ru.wikipedia.org/wiki/ISO_8601).
+
+            Начальная точка интервала. Строка в формате
+            [ISO8601](https://ru.wikipedia.org/wiki/ISO_8601).
           type: string
           format: int64
         toTime:
-          description: |-
+          description: >-
             Обязательное поле.
-            Конечная точка интервала. Строка в формате [ISO8601](https://ru.wikipedia.org/wiki/ISO_8601).
+
+            Конечная точка интервала. Строка в формате
+            [ISO8601](https://ru.wikipedia.org/wiki/ISO_8601).
           type: string
           format: int64
         downsampling:
@@ -172,22 +180,28 @@ components:
       type: object
       properties:
         maxPoints:
-          description: |-
-            Максимальное количество точек, которое будет получено в ответе на запрос.
+          description: >-
+            Максимальное количество точек, которое будет получено в ответе на
+            запрос.
+
 
             Допустимые значения — от 10 до 10000 включительно.
           type: string
           format: int64
         gridMillis:
-          description: |-
-            Ширина временного окна (сетка) в миллисекундах. Используется для прореживания.
+          description: >-
+            Ширина временного окна (сетка) в миллисекундах. Используется для
+            прореживания.
+
             Точки внутри окна объединяются в одну при помощи функции агрегации.
+
 
             Значение должно быть больше 0.
           type: string
           format: int64
         aggregation:
-          $ref: '#/components/schemas/GridAggregation_in_DataQueryDownsampling_aggregation'
+          $ref: >-
+            #/components/schemas/GridAggregation_in_DataQueryDownsampling_aggregation
         fill:
           $ref: '#/components/schemas/FillGap_in_DataQueryDownsampling_fill'
     FillGap:
@@ -197,9 +211,9 @@ components:
          - PREVIOUS: Возвращает значение из предыдущей временной точки.
       type: string
       enum:
-      - "NULL"
-      - NONE
-      - PREVIOUS
+        - 'NULL'
+        - NONE
+        - PREVIOUS
     GridAggregation:
       description: |-
         Список доступных агрегирующий функций, используемых при прореживании.
@@ -212,12 +226,12 @@ components:
          - COUNT: Количество точек.
       type: string
       enum:
-      - MAX
-      - MIN
-      - SUM
-      - AVG
-      - LAST
-      - COUNT
+        - MAX
+        - MIN
+        - SUM
+        - AVG
+        - LAST
+        - COUNT
     JsonFormat:
       type: object
       properties:
@@ -226,7 +240,9 @@ components:
           type: string
           format: int64
         labels:
-          description: Список меток общих для всех передаваемых метрик в формате `ключ:значение`.
+          description: >-
+            Список меток общих для всех передаваемых метрик в формате
+            `ключ:значение`.
           type: object
           additionalProperties:
             type: string
@@ -251,7 +267,8 @@ components:
         kind:
           $ref: '#/components/schemas/MetricKind_in_JsonFormatMetric_kind'
         ts:
-          description: Временная метка в формате `timestamp`. Если не указано, будет
+          description: >-
+            Временная метка в формате `timestamp`. Если не указано, будет
             использовано текущее время.
           type: string
           format: int64
@@ -295,10 +312,10 @@ components:
          - RATE: Производная.
       type: string
       enum:
-      - DGAUGE
-      - IGAUGE
-      - COUNTER
-      - RATE
+        - DGAUGE
+        - IGAUGE
+        - COUNTER
+        - RATE
     MetricMeta:
       type: object
       properties:
@@ -313,7 +330,8 @@ components:
         kind:
           $ref: '#/components/schemas/MetricKind_in_MetricMeta_kind'
         createdAt:
-          description: Время создания (записи первой точки) метрики. Строка в формате
+          description: >-
+            Время создания (записи первой точки) метрики. Строка в формате
             [ISO8601](https://ru.wikipedia.org/wiki/ISO_8601).
           type: string
           format: int64
@@ -384,22 +402,28 @@ components:
       type: object
       properties:
         maxPoints:
-          description: |-
-            Максимальное количество точек, которое будет получено в ответе на запрос.
+          description: >-
+            Максимальное количество точек, которое будет получено в ответе на
+            запрос.
+
 
             Допустимые значения — от 10 до 10000 включительно.
           type: string
           format: int64
         gridMillis:
-          description: |-
-            Ширина временного окна (сетка) в миллисекундах. Используется для прореживания.
+          description: >-
+            Ширина временного окна (сетка) в миллисекундах. Используется для
+            прореживания.
+
             Точки внутри окна объединяются в одну при помощи функции агрегации.
+
 
             Значение должно быть больше 0.
           type: string
           format: int64
         aggregation:
-          $ref: '#/components/schemas/GridAggregation_in_DataQueryDownsampling_aggregation'
+          $ref: >-
+            #/components/schemas/GridAggregation_in_DataQueryDownsampling_aggregation
         fill:
           $ref: '#/components/schemas/FillGap_in_DataQueryDownsampling_fill'
     GridAggregation_in_DataQueryDownsampling_aggregation:
@@ -416,12 +440,12 @@ components:
          - COUNT: Количество точек.
       type: string
       enum:
-      - MAX
-      - MIN
-      - SUM
-      - AVG
-      - LAST
-      - COUNT
+        - MAX
+        - MIN
+        - SUM
+        - AVG
+        - LAST
+        - COUNT
     FillGap_in_DataQueryDownsampling_fill:
       description: |-
         Параметры заполнения пропусков в данных.
@@ -431,9 +455,9 @@ components:
          - PREVIOUS: Возвращает значение из предыдущей временной точки.
       type: string
       enum:
-      - "NULL"
-      - NONE
-      - PREVIOUS
+        - 'NULL'
+        - NONE
+        - PREVIOUS
     MetricKind_in_JsonFormatMetric_kind:
       description: |-
         Тип метрики. Значение по умолчанию — `DGAUGE`.
@@ -444,10 +468,10 @@ components:
          - RATE: Производная.
       type: string
       enum:
-      - DGAUGE
-      - IGAUGE
-      - COUNTER
-      - RATE
+        - DGAUGE
+        - IGAUGE
+        - COUNTER
+        - RATE
     PageOptions_in_ListMetricsResponse_page:
       description: Параметры пагинации.
       type: object
@@ -478,10 +502,10 @@ components:
          - RATE: Производная.
       type: string
       enum:
-      - DGAUGE
-      - IGAUGE
-      - COUNTER
-      - RATE
+        - DGAUGE
+        - IGAUGE
+        - COUNTER
+        - RATE
     MetricKind_in_Timeseries_kind:
       description: |-
         Тип метрики.
@@ -492,12 +516,12 @@ components:
          - RATE: Производная.
       type: string
       enum:
-      - DGAUGE
-      - IGAUGE
-      - COUNTER
-      - RATE
+        - DGAUGE
+        - IGAUGE
+        - COUNTER
+        - RATE
 tags:
-- name: MetricsData
-  description: Набор методов для управления данными метрик.
-- name: MetricsMeta
-  description: Набор методов для получения информации о метаданных метрик.
+  - name: MetricsData
+    description: Набор методов для управления данными метрик.
+  - name: MetricsMeta
+    description: Набор методов для получения информации о метаданных метрик.

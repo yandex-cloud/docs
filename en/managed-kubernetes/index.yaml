@@ -1,30 +1,27 @@
-# Заголовок и описание на странице
-title: "Managed Service for Kubernetes"
+title: Managed Service for Kubernetes
 description:
-  - "Managed Service for Kubernetes provides an environment for easy management of containerized applications using Kubernetes based on the Yandex.Cloud infrastructure."
-# Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
+  - >-
+    Managed Service for Kubernetes provides an environment for easy management
+    of containerized applications using Kubernetes based on the Yandex.Cloud
+    infrastructure.
 meta:
-  title: "Managed Service for Kubernetes"
-# Блок со ссылками
+  title: Managed Service for Kubernetes
 links:
-- title: "Getting started"
-  description: "Create your first Kubernetes cluster"
-  href: "quickstart"
-#- title: "Пошаговые инструкции"
-#  description: "Инструкции по выполнению рутинных операций"
-#  href: "operations/"
-- title: "Concepts"
-  description: "Overview of how the service works"
-  href: "concepts/"
-- title: "API reference"
-  description: "HTTP API method descriptions"
-  href: "api-ref/"
-- title: "Quotas and limits"
-  description: "Technical and organizational limitations of the service"
-  href: "concepts/limits"
-- title: "Access management"
-  description: "Set up access rights to work with the service"
-  href: "security/"
-- title: "Pricing policy"
-  description: "Pricing and cost calculation for services"
-  href: "pricing"
+  - title: Getting started
+    description: Create your first Kubernetes cluster
+    href: quickstart
+  - title: Concepts
+    description: Overview of how the service works
+    href: concepts/
+  - title: API reference
+    description: HTTP API method descriptions
+    href: api-ref/
+  - title: Quotas and limits
+    description: Technical and organizational limitations of the service
+    href: concepts/limits
+  - title: Access management
+    description: Set up access rights to work with the service
+    href: security/
+  - title: Pricing policy
+    description: Pricing and cost calculation for services
+    href: pricing

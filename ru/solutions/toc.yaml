@@ -1,62 +1,64 @@
-title: "Сценарии использования"
+title: Сценарии использования
 href: index.yaml
 items:
   - name: Веб-сервис
     items:
-    - name: Все сценарии
-      href: web/index.md
-    - name: Cтатический сайт в Object Storage
-      href: web/static.md
-    - name: Cайт на LAMP- или LEMP-стеке
-      href: web/lamp-lemp.md
-    - name: Отказоустойчивый сайт с балансировкой нагрузки через Yandex Load Balancer
-      href: web/load-balancer-website.md
-    - name: Отказоустойчивый сайт с использованием DNS-балансировки
-      href: web/dns-load-balancer.md
-    - name: Сайт на базе Joomla с БД PostgreSQL
-      href: web/joomla-postgresql.md
-    - name: Сайт на WordPress
-      href: web/wordpress.md
-    - name: Сайт на WordPress с БД MySQL
-      href: web/wordpress-mysql.md
-    - name: Веб-сайт на базе 1С-Битрикс
-      href: web/bitrix-website.md
+      - name: Все сценарии
+        href: web/index.md
+      - name: Cтатический сайт в Object Storage
+        href: web/static.md
+      - name: Cайт на LAMP- или LEMP-стеке
+        href: web/lamp-lemp.md
+      - name: >-
+          Отказоустойчивый сайт с балансировкой нагрузки через Yandex Load
+          Balancer
+        href: web/load-balancer-website.md
+      - name: Отказоустойчивый сайт с использованием DNS-балансировки
+        href: web/dns-load-balancer.md
+      - name: Сайт на базе Joomla с БД PostgreSQL
+        href: web/joomla-postgresql.md
+      - name: Сайт на WordPress
+        href: web/wordpress.md
+      - name: Сайт на WordPress с БД MySQL
+        href: web/wordpress-mysql.md
+      - name: Веб-сайт на базе 1С-Битрикс
+        href: web/bitrix-website.md
   - name: Интернет-магазины
     items:
-    - name: Все сценарии
-      href: internet-store/index.md
-    - name: Интернет-магазин на 1С-Битрикс
-      href: internet-store/bitrix-shop.md
-    - name: Интернет-магазин на Opencart
-      href: internet-store/opencart.md
+      - name: Все сценарии
+        href: internet-store/index.md
+      - name: Интернет-магазин на 1С-Битрикс
+        href: internet-store/bitrix-shop.md
+      - name: Интернет-магазин на Opencart
+        href: internet-store/opencart.md
   - name: Архив данных
     items:
-    - name: Все сценарии
-      href: archive/index.md
-    - name: Однонодовый файловый сервер
-      href: archive/single-node-file-server.md
-    - name: Настройка SFTP-сервера на Centos 7
-      href: archive/backup-and-archive-to-sftp.md
-    - name: Резервное копирование в Object Storage через Acronis
-      href: archive/object-storage-acronis.md
-    - name: Резервное копирование в Object Storage через CloudBerry Desktop Backup
-      href: archive/object-storage-cloudberry.md
-    - name: Резервное копирование в Object Storage через Duplicati
-      href: archive/object-storage-duplicati.md
-    - name: Резервное копирование в Object Storage через Bacula
-      href: archive/backup-with-bacula.md
-    - name: Оцифровка архива в Yandex Vision
-      href: archive/archive-from-vision-to-object-storage.md
+      - name: Все сценарии
+        href: archive/index.md
+      - name: Однонодовый файловый сервер
+        href: archive/single-node-file-server.md
+      - name: Настройка SFTP-сервера на Centos 7
+        href: archive/backup-and-archive-to-sftp.md
+      - name: Резервное копирование в Object Storage через Acronis
+        href: archive/object-storage-acronis.md
+      - name: Резервное копирование в Object Storage через CloudBerry Desktop Backup
+        href: archive/object-storage-cloudberry.md
+      - name: Резервное копирование в Object Storage через Duplicati
+        href: archive/object-storage-duplicati.md
+      - name: Резервное копирование в Object Storage через Bacula
+        href: archive/backup-with-bacula.md
+      - name: Оцифровка архива в Yandex Vision
+        href: archive/archive-from-vision-to-object-storage.md
   - name: Тестовая среда
     items:
-    - name: Все сценарии
-      href: testing/index.md
-    - name: Тестирование приложений с помощью GitLab
-      href: testing/gitlab.md
-    - name: Создание тестовых ВМ через GitLab CI
-      href: testing/ci-for-snapshots.md
-    - name: Высокопроизводительные вычисления на прерываемых виртуальных машинах
-      href: testing/hpc-on-preemptible.md
+      - name: Все сценарии
+        href: testing/index.md
+      - name: Тестирование приложений с помощью GitLab
+        href: testing/gitlab.md
+      - name: Создание тестовых ВМ через GitLab CI
+        href: testing/ci-for-snapshots.md
+      - name: Высокопроизводительные вычисления на прерываемых виртуальных машинах
+        href: testing/hpc-on-preemptible.md
   - name: Управление инфраструктурой
     items:
       - name: Все сценарии
@@ -69,11 +71,17 @@ items:
         href: infrastructure-management/packer-quickstart.md
       - name: Автоматизация сборки образов ВМ с помощью Jenkins
         href: infrastructure-management/jenkins.md
-      - name: Непрерывное развертывание контейнеризованных приложений с помощью GitLab
+      - name: >-
+          Непрерывное развертывание контейнеризованных приложений с помощью
+          GitLab
         href: infrastructure-management/gitlab-containers.md
-      - name: Создание кластера Linux-серверов «1С:Предприятия» с кластером Managed Service for PostgreSQL 
+      - name: >-
+          Создание кластера Linux-серверов «1С:Предприятия» с кластером Managed
+          Service for PostgreSQL
         href: infrastructure-management/1c-postgresql-linux.md
-      - name: Создание кластера Windows-серверов «1С:Предприятия» с базой данных MS SQL Server 
+      - name: >-
+          Создание кластера Windows-серверов «1С:Предприятия» с базой данных MS
+          SQL Server
         href: infrastructure-management/1c-mssql-windows.md
       - name: Миграция в Yandex.Cloud с помощью Hystax Acura
         href: infrastructure-management/hystax-migration.md
@@ -93,7 +101,9 @@ items:
         href: windows/rds.md
       - name: Развертывание группы доступности Always On
         href: windows/mssql-alwayson.md
-      - name: Развертывание группы доступности Always On с внутренним балансировщиком
+      - name: >-
+          Развертывание группы доступности Always On с внутренним
+          балансировщиком
         href: windows/mssql-alwayson-lb.md
   - name: Сетевая маршрутизация
     items:

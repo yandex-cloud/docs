@@ -13,7 +13,9 @@ items:
         href: operations/create-static-conf.md
       - name: Сетевые сценарии
         items:
-          - name: Обеспечение доступа к приложению, запущенному в кластере Kubernetes
+          - name: >-
+              Обеспечение доступа к приложению, запущенному в кластере
+              Kubernetes
             href: operations/create-load-balancer.md
           - name: Работа с сетевыми политиками кластера Kubernetes
             href: operations/running-network-policy.md
@@ -33,7 +35,9 @@ items:
             href: operations/volumes/mode-block.md
       - name: Управление кластером Kubernetes
         items:
-          - name: Добавление учетных данных кластера Kubernetes в конфигурационный файл kubectl
+          - name: >-
+              Добавление учетных данных кластера Kubernetes в конфигурационный
+              файл kubectl
             href: operations/kubernetes-cluster/kubernetes-cluster-get-credetials.md
           - name: Получение информации о кластере Kubernetes
             href: operations/kubernetes-cluster/kubernetes-cluster-list.md
@@ -96,12 +100,12 @@ items:
       - name: Аутентификация в API
         href: api-ref/authentication.md
       - name: gRPC
-        items:
+        items: null
         include:
           repo: docs
           path: ru/_api-ref-grpc/managed-kubernetes/api-ref/toc.yaml
       - name: REST
-        items:
+        items: null
         include:
           repo: docs
           path: ru/_api-ref/k8s/toc.yaml

@@ -1,8 +1,6 @@
 default:
   ydb-cli: ydb
   deploy: yfm
-
-  # Полные имена сервисов
   iam-full-name: Yandex Identity and Access Management
   resmgr-full-name: Yandex Resource Manager
   compute-full-name: Yandex Compute Cloud
@@ -36,8 +34,6 @@ default:
   certificate-manager-full-name: Yandex Certificate Manager
   data-transfer-full-name: Yandex Data Transfer
   api-gw-full-name: Yandex API Gateway
-
-  # Полные имена сервисов без Yandex
   iam-name: Identity and Access Management
   ig-name: Instance Groups
   resmgr-name: Resource Manager
@@ -73,8 +69,6 @@ default:
   marketplace-name: Cloud Marketplace
   data-transfer-name: Data Transfer
   api-gw-name: API Gateway
-
-  # Короткие имена
   iam-short-name: IAM
   resmgr-short-name: Resource Manager
   compute-short-name: Compute Cloud
@@ -107,17 +101,9 @@ default:
   certificate-manager-short-name: Certificate Manager
   data-transfer-short-name: Data Transfer
   api-gw-short-name: API Gateway
-
-  # Cloud specific
   yandex-cloud: Yandex.Cloud
-
-  # Адреса сервисов
-
   s3-storage-host: storage.yandexcloud.net
-
-  # Команды CLI
   yc-ydb: yc ydb
-
 tech:
   audience: tech
   ydb-cli: ya ydb

@@ -1,4 +1,4 @@
-openapi: "3.0"
+openapi: '3.0'
 info:
   title: Yandex Microcosm Service
   description: Description not set.
@@ -7,19 +7,19 @@ paths:
   /microcosm/v1/deployments/{deploymentId}:
     get:
       tags:
-      - Deployment
+        - Deployment
       operationId: DeploymentGet
       parameters:
-      - name: deploymentId
-        in: path
-        description: |-
-          Обязательное поле.
-          Максимальная длина строки в символах — 50.
-        required: true
-        schema:
-          type: string
+        - name: deploymentId
+          in: path
+          description: |-
+            Обязательное поле.
+            Максимальная длина строки в символах — 50.
+          required: true
+          schema:
+            type: string
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -29,8 +29,9 @@ paths:
   /microcosm/v1/deployments:
     post:
       tags:
-      - Deployment
-      summary: Starts a new [Deployment](/Deployment#representation) of the specified
+        - Deployment
+      summary: >-
+        Starts a new [Deployment](/Deployment#representation) of the specified
         [Infrastructure](/Infrastructure#representation).
       operationId: DeploymentCreate
       requestBody:
@@ -40,7 +41,7 @@ paths:
               $ref: '#/components/schemas/CreateDeploymentRequest'
         required: true
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -53,7 +54,7 @@ paths:
   /microcosm/v1/deployments:validate:
     post:
       tags:
-      - Deployment
+        - Deployment
       summary: Checks that given `CreateDeploymentRequest` is valid
       operationId: DeploymentValidate
       requestBody:
@@ -63,7 +64,7 @@ paths:
               $ref: '#/components/schemas/CreateDeploymentRequest'
         required: true
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -73,20 +74,20 @@ paths:
   /microcosm/v1/deployments/{deploymentId}:stop:
     post:
       tags:
-      - Deployment
+        - Deployment
       summary: Gracefully stops the specified [Deployment](/Deployment#representation).
       operationId: DeploymentStop
       parameters:
-      - name: deploymentId
-        in: path
-        description: |-
-          Обязательное поле.
-          Максимальная длина строки в символах — 50.
-        required: true
-        schema:
-          type: string
+        - name: deploymentId
+          in: path
+          description: |-
+            Обязательное поле.
+            Максимальная длина строки в символах — 50.
+          required: true
+          schema:
+            type: string
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -99,35 +100,35 @@ paths:
   /microcosm/v1/deployments/{deploymentId}/operations:
     get:
       tags:
-      - Deployment
+        - Deployment
       operationId: DeploymentListOperations
       parameters:
-      - name: deploymentId
-        in: path
-        description: |-
-          Обязательное поле.
-          Максимальная длина строки в символах — 50.
-        required: true
-        schema:
-          type: string
-      - name: pageSize
-        in: query
-        description: Максимальное значение — 1000.
-        schema:
-          type: string
-          format: int64
-      - name: pageToken
-        in: query
-        description: Максимальная длина строки в символах — 100.
-        schema:
-          type: string
-      - name: filter
-        in: query
-        description: Максимальная длина строки в символах — 1000.
-        schema:
-          type: string
+        - name: deploymentId
+          in: path
+          description: |-
+            Обязательное поле.
+            Максимальная длина строки в символах — 50.
+          required: true
+          schema:
+            type: string
+        - name: pageSize
+          in: query
+          description: Максимальное значение — 1000.
+          schema:
+            type: string
+            format: int64
+        - name: pageToken
+          in: query
+          description: Максимальная длина строки в символах — 100.
+          schema:
+            type: string
+        - name: filter
+          in: query
+          description: Максимальная длина строки в символах — 1000.
+          schema:
+            type: string
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -137,19 +138,19 @@ paths:
   /microcosm/v1/deploymentTemplates/{deploymentTemplateId}:
     get:
       tags:
-      - DeploymentTemplate
+        - DeploymentTemplate
       operationId: DeploymentTemplateGet
       parameters:
-      - name: deploymentTemplateId
-        in: path
-        description: |-
-          Обязательное поле.
-          Максимальная длина строки в символах — 50.
-        required: true
-        schema:
-          type: string
+        - name: deploymentTemplateId
+          in: path
+          description: |-
+            Обязательное поле.
+            Максимальная длина строки в символах — 50.
+          required: true
+          schema:
+            type: string
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -158,20 +159,20 @@ paths:
       x-y-navtitle: get
     delete:
       tags:
-      - DeploymentTemplate
+        - DeploymentTemplate
       summary: Deletes [DeploymentTemplate](/DeploymentTemplate#representation).
       operationId: DeploymentTemplateDelete
       parameters:
-      - name: deploymentTemplateId
-        in: path
-        description: |-
-          Обязательное поле.
-          Максимальная длина строки в символах — 50.
-        required: true
-        schema:
-          type: string
+        - name: deploymentTemplateId
+          in: path
+          description: |-
+            Обязательное поле.
+            Максимальная длина строки в символах — 50.
+          required: true
+          schema:
+            type: string
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -184,7 +185,7 @@ paths:
   /microcosm/v1/deploymentTemplates:
     post:
       tags:
-      - DeploymentTemplate
+        - DeploymentTemplate
       summary: Creates a new [DeploymentTemplate](/DeploymentTemplate#representation).
       operationId: DeploymentTemplateCreate
       requestBody:
@@ -194,7 +195,7 @@ paths:
               $ref: '#/components/schemas/CreateDeploymentTemplateRequest'
         required: true
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -207,9 +208,11 @@ paths:
   /microcosm/v1/deploymentTemplates/tags:
     post:
       tags:
-      - DeploymentTemplate
-      summary: Set specified tag to [DeploymentTemplate](/DeploymentTemplate#representation)
-        and remove from another DeploymentTemplate if it used.
+        - DeploymentTemplate
+      summary: >-
+        Set specified tag to
+        [DeploymentTemplate](/DeploymentTemplate#representation) and remove from
+        another DeploymentTemplate if it used.
       operationId: DeploymentTemplateSetTag
       requestBody:
         content:
@@ -218,7 +221,7 @@ paths:
               $ref: '#/components/schemas/SetTagRequest'
         required: true
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -231,35 +234,35 @@ paths:
   /microcosm/v1/deploymentTemplates/{deploymentTemplateId}/operations:
     get:
       tags:
-      - DeploymentTemplate
+        - DeploymentTemplate
       operationId: DeploymentTemplateListOperations
       parameters:
-      - name: deploymentTemplateId
-        in: path
-        description: |-
-          Обязательное поле.
-          Максимальная длина строки в символах — 50.
-        required: true
-        schema:
-          type: string
-      - name: pageSize
-        in: query
-        description: Максимальное значение — 1000.
-        schema:
-          type: string
-          format: int64
-      - name: pageToken
-        in: query
-        description: Максимальная длина строки в символах — 100.
-        schema:
-          type: string
-      - name: filter
-        in: query
-        description: Максимальная длина строки в символах — 1000.
-        schema:
-          type: string
+        - name: deploymentTemplateId
+          in: path
+          description: |-
+            Обязательное поле.
+            Максимальная длина строки в символах — 50.
+          required: true
+          schema:
+            type: string
+        - name: pageSize
+          in: query
+          description: Максимальное значение — 1000.
+          schema:
+            type: string
+            format: int64
+        - name: pageToken
+          in: query
+          description: Максимальная длина строки в символах — 100.
+          schema:
+            type: string
+        - name: filter
+          in: query
+          description: Максимальная длина строки в символах — 1000.
+          schema:
+            type: string
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -269,19 +272,19 @@ paths:
   /microcosm/v1/infrastructures/{infrastructureId}:
     get:
       tags:
-      - Infrastructure
+        - Infrastructure
       operationId: InfrastructureGet
       parameters:
-      - name: infrastructureId
-        in: path
-        description: |-
-          Обязательное поле.
-          Максимальная длина строки в символах — 50.
-        required: true
-        schema:
-          type: string
+        - name: infrastructureId
+          in: path
+          description: |-
+            Обязательное поле.
+            Максимальная длина строки в символах — 50.
+          required: true
+          schema:
+            type: string
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -290,20 +293,20 @@ paths:
       x-y-navtitle: get
     delete:
       tags:
-      - Infrastructure
+        - Infrastructure
       summary: Deletes an EMPTY [Infrastructure](/Infrastructure#representation).
       operationId: InfrastructureDelete
       parameters:
-      - name: infrastructureId
-        in: path
-        description: |-
-          Обязательное поле.
-          Максимальная длина строки в символах — 50.
-        required: true
-        schema:
-          type: string
+        - name: infrastructureId
+          in: path
+          description: |-
+            Обязательное поле.
+            Максимальная длина строки в символах — 50.
+          required: true
+          schema:
+            type: string
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -315,18 +318,18 @@ paths:
       x-y-operation-response: Empty
     patch:
       tags:
-      - Infrastructure
+        - Infrastructure
       summary: Update [Infrastructure](/Infrastructure#representation).
       operationId: InfrastructureUpdate
       parameters:
-      - name: infrastructureId
-        in: path
-        description: |-
-          Обязательное поле.
-          Максимальная длина строки в символах — 50.
-        required: true
-        schema:
-          type: string
+        - name: infrastructureId
+          in: path
+          description: |-
+            Обязательное поле.
+            Максимальная длина строки в символах — 50.
+          required: true
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -334,7 +337,7 @@ paths:
               $ref: '#/components/schemas/UpdateInfrastructureRequest'
         required: true
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -347,34 +350,34 @@ paths:
   /microcosm/v1/infrastructures:
     get:
       tags:
-      - Infrastructure
+        - Infrastructure
       operationId: InfrastructureList
       parameters:
-      - name: folderId
-        in: query
-        description: |-
-          Обязательное поле.
-          Максимальная длина строки в символах — 50.
-        schema:
-          type: string
-      - name: pageSize
-        in: query
-        description: Максимальное значение — 1000.
-        schema:
-          type: string
-          format: int64
-      - name: pageToken
-        in: query
-        description: Максимальная длина строки в символах — 100.
-        schema:
-          type: string
-      - name: filter
-        in: query
-        description: Максимальная длина строки в символах — 1000.
-        schema:
-          type: string
+        - name: folderId
+          in: query
+          description: |-
+            Обязательное поле.
+            Максимальная длина строки в символах — 50.
+          schema:
+            type: string
+        - name: pageSize
+          in: query
+          description: Максимальное значение — 1000.
+          schema:
+            type: string
+            format: int64
+        - name: pageToken
+          in: query
+          description: Максимальная длина строки в символах — 100.
+          schema:
+            type: string
+        - name: filter
+          in: query
+          description: Максимальная длина строки в символах — 1000.
+          schema:
+            type: string
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -383,7 +386,7 @@ paths:
       x-y-navtitle: list
     post:
       tags:
-      - Infrastructure
+        - Infrastructure
       summary: Creates a new, empty [Infrastructure](/Infrastructure#representation).
       operationId: InfrastructureCreate
       requestBody:
@@ -393,7 +396,7 @@ paths:
               $ref: '#/components/schemas/CreateInfrastructureRequest'
         required: true
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -406,35 +409,35 @@ paths:
   /microcosm/v1/infrastructures/{infrastructureId}/deployments:
     get:
       tags:
-      - Infrastructure
+        - Infrastructure
       operationId: InfrastructureListDeployments
       parameters:
-      - name: infrastructureId
-        in: path
-        description: |-
-          Обязательное поле.
-          Максимальная длина строки в символах — 50.
-        required: true
-        schema:
-          type: string
-      - name: pageSize
-        in: query
-        description: Максимальное значение — 1000.
-        schema:
-          type: string
-          format: int64
-      - name: pageToken
-        in: query
-        description: Максимальная длина строки в символах — 100.
-        schema:
-          type: string
-      - name: filter
-        in: query
-        description: Максимальная длина строки в символах — 1000.
-        schema:
-          type: string
+        - name: infrastructureId
+          in: path
+          description: |-
+            Обязательное поле.
+            Максимальная длина строки в символах — 50.
+          required: true
+          schema:
+            type: string
+        - name: pageSize
+          in: query
+          description: Максимальное значение — 1000.
+          schema:
+            type: string
+            format: int64
+        - name: pageToken
+          in: query
+          description: Максимальная длина строки в символах — 100.
+          schema:
+            type: string
+        - name: filter
+          in: query
+          description: Максимальная длина строки в символах — 1000.
+          schema:
+            type: string
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -444,35 +447,35 @@ paths:
   /microcosm/v1/infrastructures/{infrastructureId}/resources:
     get:
       tags:
-      - Infrastructure
+        - Infrastructure
       operationId: InfrastructureListResources
       parameters:
-      - name: infrastructureId
-        in: path
-        description: |-
-          Обязательное поле.
-          Максимальная длина строки в символах — 50.
-        required: true
-        schema:
-          type: string
-      - name: pageSize
-        in: query
-        description: Максимальное значение — 1000.
-        schema:
-          type: string
-          format: int64
-      - name: pageToken
-        in: query
-        description: Максимальная длина строки в символах — 100.
-        schema:
-          type: string
-      - name: filter
-        in: query
-        description: Максимальная длина строки в символах — 1000.
-        schema:
-          type: string
+        - name: infrastructureId
+          in: path
+          description: |-
+            Обязательное поле.
+            Максимальная длина строки в символах — 50.
+          required: true
+          schema:
+            type: string
+        - name: pageSize
+          in: query
+          description: Максимальное значение — 1000.
+          schema:
+            type: string
+            format: int64
+        - name: pageToken
+          in: query
+          description: Максимальная длина строки в символах — 100.
+          schema:
+            type: string
+        - name: filter
+          in: query
+          description: Максимальная длина строки в символах — 1000.
+          schema:
+            type: string
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -482,35 +485,35 @@ paths:
   /microcosm/v1/infrastructures/{infrastructureId}/operations:
     get:
       tags:
-      - Infrastructure
+        - Infrastructure
       operationId: InfrastructureListOperations
       parameters:
-      - name: infrastructureId
-        in: path
-        description: |-
-          Обязательное поле.
-          Максимальная длина строки в символах — 50.
-        required: true
-        schema:
-          type: string
-      - name: pageSize
-        in: query
-        description: Максимальное значение — 1000.
-        schema:
-          type: string
-          format: int64
-      - name: pageToken
-        in: query
-        description: Максимальная длина строки в символах — 100.
-        schema:
-          type: string
-      - name: filter
-        in: query
-        description: Максимальная длина строки в символах — 1000.
-        schema:
-          type: string
+        - name: infrastructureId
+          in: path
+          description: |-
+            Обязательное поле.
+            Максимальная длина строки в символах — 50.
+          required: true
+          schema:
+            type: string
+        - name: pageSize
+          in: query
+          description: Максимальное значение — 1000.
+          schema:
+            type: string
+            format: int64
+        - name: pageToken
+          in: query
+          description: Максимальная длина строки в символах — 100.
+          schema:
+            type: string
+        - name: filter
+          in: query
+          description: Максимальная длина строки в символах — 1000.
+          schema:
+            type: string
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -520,19 +523,19 @@ paths:
   /microcosm/v1/infrastructureTemplates/{infrastructureTemplateId}:
     get:
       tags:
-      - InfrastructureTemplate
+        - InfrastructureTemplate
       operationId: InfrastructureTemplateGet
       parameters:
-      - name: infrastructureTemplateId
-        in: path
-        description: |-
-          Обязательное поле.
-          Максимальная длина строки в символах — 50.
-        required: true
-        schema:
-          type: string
+        - name: infrastructureTemplateId
+          in: path
+          description: |-
+            Обязательное поле.
+            Максимальная длина строки в символах — 50.
+          required: true
+          schema:
+            type: string
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -541,20 +544,22 @@ paths:
       x-y-navtitle: get
     delete:
       tags:
-      - InfrastructureTemplate
-      summary: Deletes an EMPTY [InfrastructureTemplate](/InfrastructureTemplate#representation).
+        - InfrastructureTemplate
+      summary: >-
+        Deletes an EMPTY
+        [InfrastructureTemplate](/InfrastructureTemplate#representation).
       operationId: InfrastructureTemplateDelete
       parameters:
-      - name: infrastructureTemplateId
-        in: path
-        description: |-
-          Обязательное поле.
-          Максимальная длина строки в символах — 50.
-        required: true
-        schema:
-          type: string
+        - name: infrastructureTemplateId
+          in: path
+          description: |-
+            Обязательное поле.
+            Максимальная длина строки в символах — 50.
+          required: true
+          schema:
+            type: string
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -566,18 +571,18 @@ paths:
       x-y-operation-response: Empty
     patch:
       tags:
-      - InfrastructureTemplate
+        - InfrastructureTemplate
       summary: Update [InfrastructureTemplate](/InfrastructureTemplate#representation).
       operationId: InfrastructureTemplateUpdate
       parameters:
-      - name: infrastructureTemplateId
-        in: path
-        description: |-
-          Обязательное поле.
-          Максимальная длина строки в символах — 50.
-        required: true
-        schema:
-          type: string
+        - name: infrastructureTemplateId
+          in: path
+          description: |-
+            Обязательное поле.
+            Максимальная длина строки в символах — 50.
+          required: true
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -585,7 +590,7 @@ paths:
               $ref: '#/components/schemas/UpdateInfrastructureTemplateRequest'
         required: true
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -598,34 +603,34 @@ paths:
   /microcosm/v1/infrastructureTemplates:
     get:
       tags:
-      - InfrastructureTemplate
+        - InfrastructureTemplate
       operationId: InfrastructureTemplateList
       parameters:
-      - name: folderId
-        in: query
-        description: |-
-          Обязательное поле.
-          Максимальная длина строки в символах — 50.
-        schema:
-          type: string
-      - name: pageSize
-        in: query
-        description: Максимальное значение — 1000.
-        schema:
-          type: string
-          format: int64
-      - name: pageToken
-        in: query
-        description: Максимальная длина строки в символах — 100.
-        schema:
-          type: string
-      - name: filter
-        in: query
-        description: Максимальная длина строки в символах — 1000.
-        schema:
-          type: string
+        - name: folderId
+          in: query
+          description: |-
+            Обязательное поле.
+            Максимальная длина строки в символах — 50.
+          schema:
+            type: string
+        - name: pageSize
+          in: query
+          description: Максимальное значение — 1000.
+          schema:
+            type: string
+            format: int64
+        - name: pageToken
+          in: query
+          description: Максимальная длина строки в символах — 100.
+          schema:
+            type: string
+        - name: filter
+          in: query
+          description: Максимальная длина строки в символах — 1000.
+          schema:
+            type: string
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -634,8 +639,10 @@ paths:
       x-y-navtitle: list
     post:
       tags:
-      - InfrastructureTemplate
-      summary: Creates a new, empty [InfrastructureTemplate](/InfrastructureTemplate#representation).
+        - InfrastructureTemplate
+      summary: >-
+        Creates a new, empty
+        [InfrastructureTemplate](/InfrastructureTemplate#representation).
       operationId: InfrastructureTemplateCreate
       requestBody:
         content:
@@ -644,7 +651,7 @@ paths:
               $ref: '#/components/schemas/CreateInfrastructureTemplateRequest'
         required: true
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -657,35 +664,35 @@ paths:
   /microcosm/v1/infrastructureTemplates/{infrastructureTemplateId}/deployments:
     get:
       tags:
-      - InfrastructureTemplate
+        - InfrastructureTemplate
       operationId: InfrastructureTemplateListDeploymentTemplates
       parameters:
-      - name: infrastructureTemplateId
-        in: path
-        description: |-
-          Обязательное поле.
-          Максимальная длина строки в символах — 50.
-        required: true
-        schema:
-          type: string
-      - name: pageSize
-        in: query
-        description: Максимальное значение — 1000.
-        schema:
-          type: string
-          format: int64
-      - name: pageToken
-        in: query
-        description: Максимальная длина строки в символах — 100.
-        schema:
-          type: string
-      - name: filter
-        in: query
-        description: Максимальная длина строки в символах — 1000.
-        schema:
-          type: string
+        - name: infrastructureTemplateId
+          in: path
+          description: |-
+            Обязательное поле.
+            Максимальная длина строки в символах — 50.
+          required: true
+          schema:
+            type: string
+        - name: pageSize
+          in: query
+          description: Максимальное значение — 1000.
+          schema:
+            type: string
+            format: int64
+        - name: pageToken
+          in: query
+          description: Максимальная длина строки в символах — 100.
+          schema:
+            type: string
+        - name: filter
+          in: query
+          description: Максимальная длина строки в символах — 1000.
+          schema:
+            type: string
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -695,40 +702,41 @@ paths:
   /microcosm/v1/infrastructureTemplates/{infrastructureTemplateId}/operations:
     get:
       tags:
-      - InfrastructureTemplate
+        - InfrastructureTemplate
       operationId: InfrastructureTemplateListOperations
       parameters:
-      - name: infrastructureTemplateId
-        in: path
-        description: |-
-          Обязательное поле.
-          Максимальная длина строки в символах — 50.
-        required: true
-        schema:
-          type: string
-      - name: pageSize
-        in: query
-        description: Максимальное значение — 1000.
-        schema:
-          type: string
-          format: int64
-      - name: pageToken
-        in: query
-        description: Максимальная длина строки в символах — 100.
-        schema:
-          type: string
-      - name: filter
-        in: query
-        description: Максимальная длина строки в символах — 1000.
-        schema:
-          type: string
+        - name: infrastructureTemplateId
+          in: path
+          description: |-
+            Обязательное поле.
+            Максимальная длина строки в символах — 50.
+          required: true
+          schema:
+            type: string
+        - name: pageSize
+          in: query
+          description: Максимальное значение — 1000.
+          schema:
+            type: string
+            format: int64
+        - name: pageToken
+          in: query
+          description: Максимальная длина строки в символах — 100.
+          schema:
+            type: string
+        - name: filter
+          in: query
+          description: Максимальная длина строки в символах — 1000.
+          schema:
+            type: string
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ListInfrastructureTemplateOperationsResponse'
+                $ref: >-
+                  #/components/schemas/ListInfrastructureTemplateOperationsResponse
       x-y-navtitle: listOperations
 components:
   schemas:
@@ -767,24 +775,24 @@ components:
     AttachedDiskSpecDiskSpec:
       type: object
       allOf:
-      - type: object
-        properties:
-          name:
-            type: string
-          description:
-            type: string
-          typeId:
-            type: string
-          size:
-            type: string
-      - title: source_oneof
-        type: object
-        maxProperties: 1
-        properties:
-          imageId:
-            type: string
-          snapshotId:
-            type: string
+        - type: object
+          properties:
+            name:
+              type: string
+            description:
+              type: string
+            typeId:
+              type: string
+            size:
+              type: string
+        - title: source_oneof
+          type: object
+          maxProperties: 1
+          properties:
+            imageId:
+              type: string
+            snapshotId:
+              type: string
     CreateDeploymentMetadata:
       type: object
       properties:
@@ -793,28 +801,28 @@ components:
     CreateDeploymentRequest:
       type: object
       allOf:
-      - type: object
-        properties:
-          infrastructureId:
-            description: |-
-              Обязательное поле.
-              Максимальная длина строки в символах — 50.
-            type: string
-      - title: source
-        type: object
-        maxProperties: 1
-        properties:
-          deploymentSpec:
-            $ref: '#/components/schemas/DeploymentSpec'
-          deploymentYaml:
-            description: Максимальная длина строки в символах — 262144.
-            type: string
-          deploymentTemplateId:
-            description: Максимальная длина строки в символах — 50.
-            type: string
-          deploymentTemplateTag:
-            description: Максимальная длина строки в символах — 32.
-            type: string
+        - type: object
+          properties:
+            infrastructureId:
+              description: |-
+                Обязательное поле.
+                Максимальная длина строки в символах — 50.
+              type: string
+        - title: source
+          type: object
+          maxProperties: 1
+          properties:
+            deploymentSpec:
+              $ref: '#/components/schemas/DeploymentSpec'
+            deploymentYaml:
+              description: Максимальная длина строки в символах — 262144.
+              type: string
+            deploymentTemplateId:
+              description: Максимальная длина строки в символах — 50.
+              type: string
+            deploymentTemplateTag:
+              description: Максимальная длина строки в символах — 32.
+              type: string
     CreateDeploymentTemplateMetadata:
       type: object
       properties:
@@ -823,40 +831,40 @@ components:
     CreateDeploymentTemplateRequest:
       type: object
       allOf:
-      - type: object
-        properties:
-          infrastructureTemplateId:
-            description: |-
-              Обязательное поле.
-              Максимальная длина строки в символах — 50.
-            type: string
-          version:
-            description: |-
-              Обязательное поле.
-              Максимальная длина строки в символах — 32.
-            type: string
-          tags:
-            description: |-
-              Максимальное количество элементов — 32.
-              Максимальная длина строки в символах для каждого значения — 32.
-            type: array
-            items:
+        - type: object
+          properties:
+            infrastructureTemplateId:
+              description: |-
+                Обязательное поле.
+                Максимальная длина строки в символах — 50.
               type: string
-          upgradableFrom:
-            description: |-
-              Максимальное количество элементов — 32.
-              Максимальная длина строки в символах для каждого значения — 32.
-            type: array
-            items:
+            version:
+              description: |-
+                Обязательное поле.
+                Максимальная длина строки в символах — 32.
               type: string
-      - title: source
-        type: object
-        maxProperties: 1
-        properties:
-          deploymentSpec:
-            $ref: '#/components/schemas/DeploymentSpec'
-          deploymentYaml:
-            type: string
+            tags:
+              description: |-
+                Максимальное количество элементов — 32.
+                Максимальная длина строки в символах для каждого значения — 32.
+              type: array
+              items:
+                type: string
+            upgradableFrom:
+              description: |-
+                Максимальное количество элементов — 32.
+                Максимальная длина строки в символах для каждого значения — 32.
+              type: array
+              items:
+                type: string
+        - title: source
+          type: object
+          maxProperties: 1
+          properties:
+            deploymentSpec:
+              $ref: '#/components/schemas/DeploymentSpec'
+            deploymentYaml:
+              type: string
     CreateInfrastructureMetadata:
       type: object
       properties:
@@ -866,9 +874,11 @@ components:
       type: object
       properties:
         name:
-          description: |-
+          description: >-
             Обязательное поле.
-            Значение должно соответствовать регулярному выражению `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+
+            Значение должно соответствовать регулярному выражению ``
+            |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
           type: string
         folderId:
           description: |-
@@ -876,20 +886,30 @@ components:
             Максимальная длина строки в символах — 50.
           type: string
         labels:
-          description: |-
+          description: >-
             Не более 64 на ресурс.
+
             Длина строки в символах для каждого ключа должна быть от 1 до 63.
-            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
+
+            Каждый ключ должен соответствовать регулярному выражению ``
+            [a-z][-_0-9a-z]* ``.
+
             Максимальная длина строки в символах для каждого значения — 63.
-            Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.
+
+            Каждое значение должно соответствовать регулярному выражению ``
+            [-_0-9a-z]* ``.
           type: object
           additionalProperties:
             type: string
         variables:
-          description: |-
+          description: >-
             Не более 128 на ресурс.
+
             Длина строки в символах для каждого ключа должна быть от 1 до 63.
-            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
+
+            Каждый ключ должен соответствовать регулярному выражению ``
+            [a-z][-_0-9a-z]* ``.
+
             Максимальная длина строки в символах для каждого значения — 262144.
           type: object
           additionalProperties:
@@ -906,9 +926,11 @@ components:
       type: object
       properties:
         name:
-          description: |-
+          description: >-
             Обязательное поле.
-            Значение должно соответствовать регулярному выражению `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+
+            Значение должно соответствовать регулярному выражению ``
+            |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
           type: string
         folderId:
           description: |-
@@ -916,12 +938,18 @@ components:
             Максимальная длина строки в символах — 50.
           type: string
         labels:
-          description: |-
+          description: >-
             Не более 64 на ресурс.
+
             Длина строки в символах для каждого ключа должна быть от 1 до 63.
-            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
+
+            Каждый ключ должен соответствовать регулярному выражению ``
+            [a-z][-_0-9a-z]* ``.
+
             Максимальная длина строки в символах для каждого значения — 63.
-            Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.
+
+            Каждое значение должно соответствовать регулярному выражению ``
+            [-_0-9a-z]* ``.
           type: object
           additionalProperties:
             type: string
@@ -944,35 +972,50 @@ components:
       type: object
       properties:
         maxUnavailable:
-          description: |-
-            How many instances can be unavailable at the same time during update process.
-            If expansion is not specified or set to zero, max_unavailable must be set to non-zero value.
+          description: >-
+            How many instances can be unavailable at the same time during update
+            process.
+
+            If expansion is not specified or set to zero, max_unavailable must
+            be set to non-zero value.
           type: string
         maxDeleting:
-          description: |-
-            How many instances can be in DELETING state at the same time during update process.
+          description: >-
+            How many instances can be in DELETING state at the same time during
+            update process.
+
             0 means unlimited
           type: string
         maxCreating:
-          description: |-
-            How many instances can be in DEPLOYING state at the same time during update process.
+          description: >-
+            How many instances can be in DEPLOYING state at the same time during
+            update process.
+
             0 means unlimited
           type: string
         expansion:
-          description: |-
+          description: >-
             How many temporary instances can be created during update process.
-            If max_unavailable is not specified or set to zero, expansion must be set to non-zero value.
+
+            If max_unavailable is not specified or set to zero, expansion must
+            be set to non-zero value.
           type: string
         zoneByZone:
-          description: |-
+          description: >-
             Experimental. Internal use only!
-            True - next zone is deployed strictly after previous zone is completely deployed.
+
+            True - next zone is deployed strictly after previous zone is
+            completely deployed.
+
             False - all zones are deployed at the same time.
           type: string
         startingDuration:
-          description: |-
-            Just deployed instance will be in STARTING state at leaast this time.
-            It may last longer if a health-check present and not healthy at the end of this duration.
+          description: >-
+            Just deployed instance will be in STARTING state at leaast this
+            time.
+
+            It may last longer if a health-check present and not healthy at the
+            end of this duration.
           type: string
     Deployment:
       type: object
@@ -1009,12 +1052,12 @@ components:
     DeploymentStatus:
       type: string
       enum:
-      - DEPLOYING
-      - DEPLOYED
-      - STOPPING
-      - STOPPED
-      - FAILING
-      - FAILED
+        - DEPLOYING
+        - DEPLOYED
+        - STOPPING
+        - STOPPED
+        - FAILING
+        - FAILED
     DeploymentTemplate:
       type: object
       properties:
@@ -1033,44 +1076,52 @@ components:
           items:
             type: string
         deploymentSpec:
-          $ref: '#/components/schemas/DeploymentSpec_in_DeploymentTemplate_deploymentSpec'
+          $ref: >-
+            #/components/schemas/DeploymentSpec_in_DeploymentTemplate_deploymentSpec
         deploymentYaml:
           type: string
     Disk:
       type: object
       allOf:
-      - type: object
-        properties:
-          name:
-            type: string
-          description:
-            type: string
-          typeId:
-            description: Обязательное поле.
-            type: string
-          zoneId:
-            type: string
-          size:
-            description: Обязательное поле.
-            type: string
-          labels:
-            description: |-
-              Не более 64 на ресурс.
-              Длина строки в символах для каждого ключа должна быть от 1 до 63.
-              Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
-              Максимальная длина строки в символах для каждого значения — 63.
-              Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.
-            type: object
-            additionalProperties:
+        - type: object
+          properties:
+            name:
               type: string
-      - title: source
-        type: object
-        maxProperties: 1
-        properties:
-          sourceImageId:
-            type: string
-          sourceSnapshotId:
-            type: string
+            description:
+              type: string
+            typeId:
+              description: Обязательное поле.
+              type: string
+            zoneId:
+              type: string
+            size:
+              description: Обязательное поле.
+              type: string
+            labels:
+              description: >-
+                Не более 64 на ресурс.
+
+                Длина строки в символах для каждого ключа должна быть от 1 до
+                63.
+
+                Каждый ключ должен соответствовать регулярному выражению ``
+                [a-z][-_0-9a-z]* ``.
+
+                Максимальная длина строки в символах для каждого значения — 63.
+
+                Каждое значение должно соответствовать регулярному выражению ``
+                [-_0-9a-z]* ``.
+              type: object
+              additionalProperties:
+                type: string
+        - title: source
+          type: object
+          maxProperties: 1
+          properties:
+            sourceImageId:
+              type: string
+            sourceSnapshotId:
+              type: string
     Empty:
       description: Пустой JSON объект `` {} ``.
       type: object
@@ -1078,37 +1129,44 @@ components:
     Image:
       type: object
       allOf:
-      - type: object
-        properties:
-          name:
-            type: string
-          description:
-            description: Максимальная длина строки в символах — 256.
-            type: string
-          family:
-            type: string
-          minDiskSize:
-            type: string
-          labels:
-            description: |-
-              Не более 64 на ресурс.
-              Длина строки в символах для каждого ключа должна быть от 1 до 63.
-              Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
-              Максимальная длина строки в символах для каждого значения — 63.
-              Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.
-            type: object
-            additionalProperties:
+        - type: object
+          properties:
+            name:
               type: string
-      - title: source
-        type: object
-        maxProperties: 1
-        properties:
-          sourceDiskId:
-            type: string
-          sourceSnapshotId:
-            type: string
-          sourceUri:
-            type: string
+            description:
+              description: Максимальная длина строки в символах — 256.
+              type: string
+            family:
+              type: string
+            minDiskSize:
+              type: string
+            labels:
+              description: >-
+                Не более 64 на ресурс.
+
+                Длина строки в символах для каждого ключа должна быть от 1 до
+                63.
+
+                Каждый ключ должен соответствовать регулярному выражению ``
+                [a-z][-_0-9a-z]* ``.
+
+                Максимальная длина строки в символах для каждого значения — 63.
+
+                Каждое значение должно соответствовать регулярному выражению ``
+                [-_0-9a-z]* ``.
+              type: object
+              additionalProperties:
+                type: string
+        - title: source
+          type: object
+          maxProperties: 1
+          properties:
+            sourceDiskId:
+              type: string
+            sourceSnapshotId:
+              type: string
+            sourceUri:
+              type: string
     Infrastructure:
       type: object
       properties:
@@ -1137,10 +1195,10 @@ components:
     InfrastructureStatus:
       type: string
       enum:
-      - EMPTY
-      - DEPLOYING
-      - IN_SYNC
-      - OUT_OF_SYNC
+        - EMPTY
+        - DEPLOYING
+        - IN_SYNC
+        - OUT_OF_SYNC
     InfrastructureTemplate:
       type: object
       properties:
@@ -1158,20 +1216,28 @@ components:
       type: object
       properties:
         name:
-          description: |-
+          description: >-
             Обязательное поле.
-            Значение должно соответствовать регулярному выражению `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+
+            Значение должно соответствовать регулярному выражению ``
+            |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
           type: string
         description:
           description: Максимальная длина строки в символах — 256.
           type: string
         labels:
-          description: |-
+          description: >-
             Не более 64 на ресурс.
+
             Длина строки в символах для каждого ключа должна быть от 1 до 63.
-            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
+
+            Каждый ключ должен соответствовать регулярному выражению ``
+            [a-z][-_0-9a-z]* ``.
+
             Максимальная длина строки в символах для каждого значения — 63.
-            Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.
+
+            Каждое значение должно соответствовать регулярному выражению ``
+            [-_0-9a-z]* ``.
           type: object
           additionalProperties:
             type: string
@@ -1184,10 +1250,14 @@ components:
         resources:
           $ref: '#/components/schemas/v1ResourcesSpec_in_Instance_resources'
         metadata:
-          description: |-
+          description: >-
             Не более 128 на ресурс.
+
             Длина строки в символах для каждого ключа должна быть от 1 до 63.
-            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
+
+            Каждый ключ должен соответствовать регулярному выражению ``
+            [a-z][-_0-9a-z]* ``.
+
             Максимальная длина строки в символах для каждого значения — 262144.
           type: object
           additionalProperties:
@@ -1221,23 +1291,31 @@ components:
           description: Максимальная длина строки в символах — 10000.
           type: string
         labels:
-          description: |-
+          description: >-
             Не более 64 на ресурс.
+
             Длина строки в символах для каждого ключа должна быть от 1 до 63.
-            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
+
+            Каждый ключ должен соответствовать регулярному выражению ``
+            [a-z][-_0-9a-z]* ``.
+
             Максимальная длина строки в символах для каждого значения — 63.
-            Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.
+
+            Каждое значение должно соответствовать регулярному выражению ``
+            [-_0-9a-z]* ``.
           type: object
           additionalProperties:
             type: string
         instanceTemplate:
-          $ref: '#/components/schemas/InstanceTemplate_in_InstanceGroup_instanceTemplate'
+          $ref: >-
+            #/components/schemas/InstanceTemplate_in_InstanceGroup_instanceTemplate
         scalePolicy:
           $ref: '#/components/schemas/ScalePolicy_in_InstanceGroup_scalePolicy'
         deployPolicy:
           $ref: '#/components/schemas/DeployPolicy_in_InstanceGroup_deployPolicy'
         allocationPolicy:
-          $ref: '#/components/schemas/AllocationPolicy_in_InstanceGroup_allocationPolicy'
+          $ref: >-
+            #/components/schemas/AllocationPolicy_in_InstanceGroup_allocationPolicy
     InstanceTemplate:
       type: object
       properties:
@@ -1250,13 +1328,15 @@ components:
         platformId:
           type: string
         resourcesSpec:
-          $ref: '#/components/schemas/instancegroupResourcesSpec_in_InstanceTemplate_resourcesSpec'
+          $ref: >-
+            #/components/schemas/instancegroupResourcesSpec_in_InstanceTemplate_resourcesSpec
         metadata:
           type: object
           additionalProperties:
             type: string
         bootDiskSpec:
-          $ref: '#/components/schemas/instancegroupAttachedDiskSpec_in_InstanceTemplate_bootDiskSpec'
+          $ref: >-
+            #/components/schemas/instancegroupAttachedDiskSpec_in_InstanceTemplate_bootDiskSpec
         secondaryDiskSpecs:
           type: array
           items:
@@ -1366,122 +1446,136 @@ components:
     ManagedResourceStatus:
       type: string
       enum:
-      - PENDING
-      - DEPLOYING
-      - IN_SYNC
-      - OUT_OF_SYNC
-      - DELETING
-      - FAILED
+        - PENDING
+        - DEPLOYING
+        - IN_SYNC
+        - OUT_OF_SYNC
+        - DELETING
+        - FAILED
     Operation:
       description: |-
         Ресурс Operation. Дополнительные сведения см. в разделе
         [Объект Operation](/docs/api-design-guide/concepts/operation).
       type: object
       allOf:
-      - type: object
-        properties:
-          id:
-            description: Идентификатор операции.
-            type: string
-          description:
-            description: |-
-              Описание операции. Длина описания должна быть от 0 до 256
-              символов.
-            type: string
-          createdAt:
-            description: |-
-              Время создания ресурса в формате в
-              [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+        - type: object
+          properties:
+            id:
+              description: Идентификатор операции.
+              type: string
+            description:
+              description: |-
+                Описание операции. Длина описания должна быть от 0 до 256
+                символов.
+              type: string
+            createdAt:
+              description: >-
+                Время создания ресурса в формате в
 
-              Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-            type: string
-            format: date-time
-          createdBy:
-            description: |-
-              Идентификатор пользователя или сервисного
-              аккаунта, инициировавшего операцию.
-            type: string
-          modifiedAt:
-            description: |-
-              Время, когда ресурс Operation последний раз
-              обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+                [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
 
-              Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-            type: string
-            format: date-time
-          done:
-            description: |-
-              Если значение равно `false` — операция еще
-              выполняется. Если `true` — операция завершена, и задано значение
-              одного из полей `error` или `response`.
-            type: boolean
-            format: boolean
-          metadata:
-            description: |-
-              Метаданные операции. Обычно в поле содержится
-              идентификатор ресурса, над которым выполняется операция. Если
-              метод возвращает ресурс Operation, в описании метода приведена
-              структура соответствующего ему поля `metadata`.
-            type: object
-      - title: result
-        type: object
-        maxProperties: 1
-        properties:
-          error:
-            $ref: '#/components/schemas/rpcStatus'
-            description: Описание ошибки в случае сбоя или отмены операции.
-          response:
-            description: |-
-              Результат операции в случае успешного завершения. Если
-              исходный метод не возвращает никаких данных при успешном
-              завершении, например метод Delete, поле содержит объект
-              [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty). Если исходный метод — это стандартный метод Create
-              / Update, поле содержит целевой ресурс операции. Если метод
-              возвращает ресурс Operation, в описании метода приведена
-              структура соответствующего ему поля `response`.
-            type: object
+
+                Строка в формате
+                [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+              type: string
+              format: date-time
+            createdBy:
+              description: |-
+                Идентификатор пользователя или сервисного
+                аккаунта, инициировавшего операцию.
+              type: string
+            modifiedAt:
+              description: >-
+                Время, когда ресурс Operation последний раз
+
+                обновлялся. Значение в формате
+                [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+
+
+                Строка в формате
+                [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+              type: string
+              format: date-time
+            done:
+              description: |-
+                Если значение равно `false` — операция еще
+                выполняется. Если `true` — операция завершена, и задано значение
+                одного из полей `error` или `response`.
+              type: boolean
+              format: boolean
+            metadata:
+              description: |-
+                Метаданные операции. Обычно в поле содержится
+                идентификатор ресурса, над которым выполняется операция. Если
+                метод возвращает ресурс Operation, в описании метода приведена
+                структура соответствующего ему поля `metadata`.
+              type: object
+        - title: result
+          type: object
+          maxProperties: 1
+          properties:
+            error:
+              $ref: '#/components/schemas/rpcStatus'
+              description: Описание ошибки в случае сбоя или отмены операции.
+            response:
+              description: >-
+                Результат операции в случае успешного завершения. Если
+
+                исходный метод не возвращает никаких данных при успешном
+
+                завершении, например метод Delete, поле содержит объект
+
+                [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty).
+                Если исходный метод — это стандартный метод Create
+
+                / Update, поле содержит целевой ресурс операции. Если метод
+
+                возвращает ресурс Operation, в описании метода приведена
+
+                структура соответствующего ему поля `response`.
+              type: object
     ResourceSpec:
       type: object
       allOf:
-      - type: object
-        properties:
-          name:
-            description: Обязательное поле.
-            type: string
-          dependsOn:
-            type: array
-            items:
+        - type: object
+          properties:
+            name:
+              description: Обязательное поле.
               type: string
-      - title: resource
-        type: object
-        maxProperties: 1
-        properties:
-          computeV1Instance:
-            $ref: '#/components/schemas/Instance'
-          computeV1Disk:
-            $ref: '#/components/schemas/Disk'
-          computeV1Image:
-            $ref: '#/components/schemas/Image'
-          computeV1InstanceGroup:
-            $ref: '#/components/schemas/InstanceGroup'
+            dependsOn:
+              type: array
+              items:
+                type: string
+        - title: resource
+          type: object
+          maxProperties: 1
+          properties:
+            computeV1Instance:
+              $ref: '#/components/schemas/Instance'
+            computeV1Disk:
+              $ref: '#/components/schemas/Disk'
+            computeV1Image:
+              $ref: '#/components/schemas/Image'
+            computeV1InstanceGroup:
+              $ref: '#/components/schemas/InstanceGroup'
     ResourceType:
       type: string
       enum:
-      - COMPUTE_INSTANCE
-      - COMPUTE_DISK
-      - COMPUTE_IMAGE
-      - MICROCOSM_INSTANCE_GROUP
+        - COMPUTE_INSTANCE
+        - COMPUTE_DISK
+        - COMPUTE_IMAGE
+        - MICROCOSM_INSTANCE_GROUP
     ScalePolicy:
       type: object
       allOf:
-      - title: scale_type
-        type: object
-        maxProperties: 1
-        properties:
-          fixedScale:
-            $ref: '#/components/schemas/ScalePolicyFixedScale'
-          autoScale:
-            $ref: '#/components/schemas/ScalePolicyAutoScale'
+        - title: scale_type
+          type: object
+          maxProperties: 1
+          properties:
+            fixedScale:
+              $ref: '#/components/schemas/ScalePolicyFixedScale'
+            autoScale:
+              $ref: '#/components/schemas/ScalePolicyAutoScale'
     ScalePolicyAutoScale:
       type: object
       properties:
@@ -1498,7 +1592,8 @@ components:
           description: Обязательное поле.
           type: string
         cpuUtilizationRule:
-          $ref: '#/components/schemas/ScalePolicyCpuUtilizationRule_in_ScalePolicyAutoScale_cpuUtilizationRule'
+          $ref: >-
+            #/components/schemas/ScalePolicyCpuUtilizationRule_in_ScalePolicyAutoScale_cpuUtilizationRule
     ScalePolicyCpuUtilizationRule:
       type: object
       properties:
@@ -1517,8 +1612,8 @@ components:
          - REGION: Autoscaling works for each region independently, allocation_policy regions weights can be violated, zones' weights are preserved.
       type: string
       enum:
-      - ZONE
-      - REGION
+        - ZONE
+        - REGION
     SetTagMetadata:
       type: object
       properties:
@@ -1549,25 +1644,37 @@ components:
       type: object
       properties:
         name:
-          description: |-
+          description: >-
             Обязательное поле.
-            Значение должно соответствовать регулярному выражению `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+
+            Значение должно соответствовать регулярному выражению ``
+            |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
           type: string
         labels:
-          description: |-
+          description: >-
             Не более 64 на ресурс.
+
             Длина строки в символах для каждого ключа должна быть от 1 до 63.
-            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
+
+            Каждый ключ должен соответствовать регулярному выражению ``
+            [a-z][-_0-9a-z]* ``.
+
             Максимальная длина строки в символах для каждого значения — 63.
-            Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.
+
+            Каждое значение должно соответствовать регулярному выражению ``
+            [-_0-9a-z]* ``.
           type: object
           additionalProperties:
             type: string
         variables:
-          description: |-
+          description: >-
             Не более 128 на ресурс.
+
             Длина строки в символах для каждого ключа должна быть от 1 до 63.
-            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
+
+            Каждый ключ должен соответствовать регулярному выражению ``
+            [a-z][-_0-9a-z]* ``.
+
             Максимальная длина строки в символах для каждого значения — 262144.
           type: object
           additionalProperties:
@@ -1581,9 +1688,11 @@ components:
       type: object
       properties:
         name:
-          description: |-
+          description: >-
             Обязательное поле.
-            Значение должно соответствовать регулярному выражению `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+
+            Значение должно соответствовать регулярному выражению ``
+            |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
           type: string
         folderId:
           description: |-
@@ -1591,12 +1700,18 @@ components:
             Максимальная длина строки в символах — 50.
           type: string
         labels:
-          description: |-
+          description: >-
             Не более 64 на ресурс.
+
             Длина строки в символах для каждого ключа должна быть от 1 до 63.
-            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
+
+            Каждый ключ должен соответствовать регулярному выражению ``
+            [a-z][-_0-9a-z]* ``.
+
             Максимальная длина строки в символах для каждого значения — 63.
-            Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.
+
+            Каждое значение должно соответствовать регулярному выражению ``
+            [-_0-9a-z]* ``.
           type: object
           additionalProperties:
             type: string
@@ -1615,55 +1730,59 @@ components:
     instancegroupAttachedDiskSpec:
       type: object
       allOf:
-      - type: object
-        properties:
-          mode:
-            $ref: '#/components/schemas/instancegroupAttachedDiskSpecMode'
-            description: Обязательное поле.
-          deviceName:
-            type: string
-          autoDelete:
-            type: boolean
-            format: boolean
-      - title: disk_oneof
-        type: object
-        maxProperties: 1
-        properties:
-          diskSpec:
-            $ref: '#/components/schemas/AttachedDiskSpecDiskSpec'
-          diskId:
-            type: string
+        - type: object
+          properties:
+            mode:
+              $ref: '#/components/schemas/instancegroupAttachedDiskSpecMode'
+              description: Обязательное поле.
+            deviceName:
+              type: string
+            autoDelete:
+              type: boolean
+              format: boolean
+        - title: disk_oneof
+          type: object
+          maxProperties: 1
+          properties:
+            diskSpec:
+              $ref: '#/components/schemas/AttachedDiskSpecDiskSpec'
+            diskId:
+              type: string
     instancegroupAttachedDiskSpecMode:
       type: string
       enum:
-      - READ_ONLY
-      - READ_WRITE
+        - READ_ONLY
+        - READ_WRITE
     instancegroupIpVersion:
       type: string
       enum:
-      - IPV4
-      - IPV6
+        - IPV4
+        - IPV6
     instancegroupNetworkInterfaceSpec:
       type: object
       properties:
         subnetId:
           type: string
         primaryV4AddressSpec:
-          $ref: '#/components/schemas/instancegroupPrimaryAddressSpec_in_instancegroupNetworkInterfaceSpec_primaryV4AddressSpec'
+          $ref: >-
+            #/components/schemas/instancegroupPrimaryAddressSpec_in_instancegroupNetworkInterfaceSpec_primaryV4AddressSpec
         primaryV6AddressSpec:
-          $ref: '#/components/schemas/instancegroupPrimaryAddressSpec_in_instancegroupNetworkInterfaceSpec_primaryV6AddressSpec'
+          $ref: >-
+            #/components/schemas/instancegroupPrimaryAddressSpec_in_instancegroupNetworkInterfaceSpec_primaryV6AddressSpec
     instancegroupOneToOneNatSpec:
       type: object
       properties:
         ipVersion:
-          $ref: '#/components/schemas/instancegroupIpVersion_in_instancegroupOneToOneNatSpec_ipVersion'
+          $ref: >-
+            #/components/schemas/instancegroupIpVersion_in_instancegroupOneToOneNatSpec_ipVersion
     instancegroupPrimaryAddressSpec:
       type: object
       properties:
         address:
           type: string
         oneToOneNatSpec:
-          $ref: '#/components/schemas/instancegroupOneToOneNatSpec_in_instancegroupPrimaryAddressSpec_oneToOneNatSpec'
+          $ref: >-
+            #/components/schemas/instancegroupOneToOneNatSpec_in_instancegroupPrimaryAddressSpec_oneToOneNatSpec
     instancegroupResourcesSpec:
       type: object
       properties:
@@ -1678,7 +1797,9 @@ components:
       type: object
       properties:
         code:
-          description: Код ошибки. Значение из списка [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
+          description: >-
+            Код ошибки. Значение из списка
+            [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
           type: integer
           format: int32
         message:
@@ -1692,41 +1813,42 @@ components:
     v1AttachedDiskSpec:
       type: object
       allOf:
-      - type: object
-        properties:
-          mode:
-            $ref: '#/components/schemas/v1AttachedDiskSpecMode'
-            description: Обязательное поле.
-          deviceName:
-            type: string
-          autoDelete:
-            type: boolean
-            format: boolean
-      - title: disk
-        type: object
-        maxProperties: 1
-        properties:
-          diskSpec:
-            $ref: '#/components/schemas/Disk'
-          diskId:
-            type: string
+        - type: object
+          properties:
+            mode:
+              $ref: '#/components/schemas/v1AttachedDiskSpecMode'
+              description: Обязательное поле.
+            deviceName:
+              type: string
+            autoDelete:
+              type: boolean
+              format: boolean
+        - title: disk
+          type: object
+          maxProperties: 1
+          properties:
+            diskSpec:
+              $ref: '#/components/schemas/Disk'
+            diskId:
+              type: string
     v1AttachedDiskSpecMode:
       type: string
       enum:
-      - READ_ONLY
-      - READ_WRITE
+        - READ_ONLY
+        - READ_WRITE
     v1IpVersion:
       type: string
       enum:
-      - IPV4
-      - IPV6
+        - IPV4
+        - IPV6
     v1NetworkInterfaceSpec:
       type: object
       properties:
         subnetId:
           type: string
         primaryV4AddressSpec:
-          $ref: '#/components/schemas/v1PrimaryAddressSpec_in_v1NetworkInterfaceSpec_primaryV4AddressSpec'
+          $ref: >-
+            #/components/schemas/v1PrimaryAddressSpec_in_v1NetworkInterfaceSpec_primaryV4AddressSpec
     v1OneToOneNatSpec:
       type: object
       properties:
@@ -1742,7 +1864,8 @@ components:
         ipVersion:
           $ref: '#/components/schemas/v1IpVersion_in_v1PrimaryAddressSpec_ipVersion'
         natSpec:
-          $ref: '#/components/schemas/v1OneToOneNatSpec_in_v1PrimaryAddressSpec_natSpec'
+          $ref: >-
+            #/components/schemas/v1OneToOneNatSpec_in_v1PrimaryAddressSpec_natSpec
     v1ResourcesSpec:
       type: object
       properties:
@@ -1755,12 +1878,12 @@ components:
     DeploymentStatus_in_Deployment_status:
       type: string
       enum:
-      - DEPLOYING
-      - DEPLOYED
-      - STOPPING
-      - STOPPED
-      - FAILING
-      - FAILED
+        - DEPLOYING
+        - DEPLOYED
+        - STOPPING
+        - STOPPED
+        - FAILING
+        - FAILED
     DeploymentSpec_in_Deployment_deploymentSpec:
       type: object
       properties:
@@ -1786,10 +1909,10 @@ components:
     InfrastructureStatus_in_Infrastructure_status:
       type: string
       enum:
-      - EMPTY
-      - DEPLOYING
-      - IN_SYNC
-      - OUT_OF_SYNC
+        - EMPTY
+        - DEPLOYING
+        - IN_SYNC
+        - OUT_OF_SYNC
     v1ResourcesSpec_in_Instance_resources:
       description: Обязательное поле.
       type: object
@@ -1804,24 +1927,24 @@ components:
       description: Обязательное поле.
       type: object
       allOf:
-      - type: object
-        properties:
-          mode:
-            $ref: '#/components/schemas/v1AttachedDiskSpecMode'
-            description: Обязательное поле.
-          deviceName:
-            type: string
-          autoDelete:
-            type: boolean
-            format: boolean
-      - title: disk
-        type: object
-        maxProperties: 1
-        properties:
-          diskSpec:
-            $ref: '#/components/schemas/Disk'
-          diskId:
-            type: string
+        - type: object
+          properties:
+            mode:
+              $ref: '#/components/schemas/v1AttachedDiskSpecMode'
+              description: Обязательное поле.
+            deviceName:
+              type: string
+            autoDelete:
+              type: boolean
+              format: boolean
+        - title: disk
+          type: object
+          maxProperties: 1
+          properties:
+            diskSpec:
+              $ref: '#/components/schemas/Disk'
+            diskId:
+              type: string
     InstanceTemplate_in_InstanceGroup_instanceTemplate:
       description: Обязательное поле.
       type: object
@@ -1835,13 +1958,15 @@ components:
         platformId:
           type: string
         resourcesSpec:
-          $ref: '#/components/schemas/instancegroupResourcesSpec_in_InstanceTemplate_resourcesSpec'
+          $ref: >-
+            #/components/schemas/instancegroupResourcesSpec_in_InstanceTemplate_resourcesSpec
         metadata:
           type: object
           additionalProperties:
             type: string
         bootDiskSpec:
-          $ref: '#/components/schemas/instancegroupAttachedDiskSpec_in_InstanceTemplate_bootDiskSpec'
+          $ref: >-
+            #/components/schemas/instancegroupAttachedDiskSpec_in_InstanceTemplate_bootDiskSpec
         secondaryDiskSpecs:
           type: array
           items:
@@ -1854,48 +1979,63 @@ components:
       description: Обязательное поле.
       type: object
       allOf:
-      - title: scale_type
-        type: object
-        maxProperties: 1
-        properties:
-          fixedScale:
-            $ref: '#/components/schemas/ScalePolicyFixedScale'
-          autoScale:
-            $ref: '#/components/schemas/ScalePolicyAutoScale'
+        - title: scale_type
+          type: object
+          maxProperties: 1
+          properties:
+            fixedScale:
+              $ref: '#/components/schemas/ScalePolicyFixedScale'
+            autoScale:
+              $ref: '#/components/schemas/ScalePolicyAutoScale'
     DeployPolicy_in_InstanceGroup_deployPolicy:
       description: Обязательное поле.
       type: object
       properties:
         maxUnavailable:
-          description: |-
-            How many instances can be unavailable at the same time during update process.
-            If expansion is not specified or set to zero, max_unavailable must be set to non-zero value.
+          description: >-
+            How many instances can be unavailable at the same time during update
+            process.
+
+            If expansion is not specified or set to zero, max_unavailable must
+            be set to non-zero value.
           type: string
         maxDeleting:
-          description: |-
-            How many instances can be in DELETING state at the same time during update process.
+          description: >-
+            How many instances can be in DELETING state at the same time during
+            update process.
+
             0 means unlimited
           type: string
         maxCreating:
-          description: |-
-            How many instances can be in DEPLOYING state at the same time during update process.
+          description: >-
+            How many instances can be in DEPLOYING state at the same time during
+            update process.
+
             0 means unlimited
           type: string
         expansion:
-          description: |-
+          description: >-
             How many temporary instances can be created during update process.
-            If max_unavailable is not specified or set to zero, expansion must be set to non-zero value.
+
+            If max_unavailable is not specified or set to zero, expansion must
+            be set to non-zero value.
           type: string
         zoneByZone:
-          description: |-
+          description: >-
             Experimental. Internal use only!
-            True - next zone is deployed strictly after previous zone is completely deployed.
+
+            True - next zone is deployed strictly after previous zone is
+            completely deployed.
+
             False - all zones are deployed at the same time.
           type: string
         startingDuration:
-          description: |-
-            Just deployed instance will be in STARTING state at leaast this time.
-            It may last longer if a health-check present and not healthy at the end of this duration.
+          description: >-
+            Just deployed instance will be in STARTING state at leaast this
+            time.
+
+            It may last longer if a health-check present and not healthy at the
+            end of this duration.
           type: string
     AllocationPolicy_in_InstanceGroup_allocationPolicy:
       description: Обязательное поле.
@@ -1928,40 +2068,40 @@ components:
     instancegroupAttachedDiskSpec_in_InstanceTemplate_bootDiskSpec:
       type: object
       allOf:
-      - type: object
-        properties:
-          mode:
-            $ref: '#/components/schemas/instancegroupAttachedDiskSpecMode'
-            description: Обязательное поле.
-          deviceName:
-            type: string
-          autoDelete:
-            type: boolean
-            format: boolean
-      - title: disk_oneof
-        type: object
-        maxProperties: 1
-        properties:
-          diskSpec:
-            $ref: '#/components/schemas/AttachedDiskSpecDiskSpec'
-          diskId:
-            type: string
+        - type: object
+          properties:
+            mode:
+              $ref: '#/components/schemas/instancegroupAttachedDiskSpecMode'
+              description: Обязательное поле.
+            deviceName:
+              type: string
+            autoDelete:
+              type: boolean
+              format: boolean
+        - title: disk_oneof
+          type: object
+          maxProperties: 1
+          properties:
+            diskSpec:
+              $ref: '#/components/schemas/AttachedDiskSpecDiskSpec'
+            diskId:
+              type: string
     ResourceType_in_ManagedResource_type:
       type: string
       enum:
-      - COMPUTE_INSTANCE
-      - COMPUTE_DISK
-      - COMPUTE_IMAGE
-      - MICROCOSM_INSTANCE_GROUP
+        - COMPUTE_INSTANCE
+        - COMPUTE_DISK
+        - COMPUTE_IMAGE
+        - MICROCOSM_INSTANCE_GROUP
     ManagedResourceStatus_in_ManagedResource_status:
       type: string
       enum:
-      - PENDING
-      - DEPLOYING
-      - IN_SYNC
-      - OUT_OF_SYNC
-      - DELETING
-      - FAILED
+        - PENDING
+        - DEPLOYING
+        - IN_SYNC
+        - OUT_OF_SYNC
+        - DELETING
+        - FAILED
     ScalePolicyScope_in_ScalePolicyAutoScale_scope:
       description: |-
         Обязательное поле.
@@ -1970,8 +2110,8 @@ components:
          - REGION: Autoscaling works for each region independently, allocation_policy regions weights can be violated, zones' weights are preserved.
       type: string
       enum:
-      - ZONE
-      - REGION
+        - ZONE
+        - REGION
     ScalePolicyCpuUtilizationRule_in_ScalePolicyAutoScale_cpuUtilizationRule:
       type: object
       properties:
@@ -1984,24 +2124,27 @@ components:
         address:
           type: string
         oneToOneNatSpec:
-          $ref: '#/components/schemas/instancegroupOneToOneNatSpec_in_instancegroupPrimaryAddressSpec_oneToOneNatSpec'
+          $ref: >-
+            #/components/schemas/instancegroupOneToOneNatSpec_in_instancegroupPrimaryAddressSpec_oneToOneNatSpec
     instancegroupPrimaryAddressSpec_in_instancegroupNetworkInterfaceSpec_primaryV6AddressSpec:
       type: object
       properties:
         address:
           type: string
         oneToOneNatSpec:
-          $ref: '#/components/schemas/instancegroupOneToOneNatSpec_in_instancegroupPrimaryAddressSpec_oneToOneNatSpec'
+          $ref: >-
+            #/components/schemas/instancegroupOneToOneNatSpec_in_instancegroupPrimaryAddressSpec_oneToOneNatSpec
     instancegroupIpVersion_in_instancegroupOneToOneNatSpec_ipVersion:
       type: string
       enum:
-      - IPV4
-      - IPV6
+        - IPV4
+        - IPV6
     instancegroupOneToOneNatSpec_in_instancegroupPrimaryAddressSpec_oneToOneNatSpec:
       type: object
       properties:
         ipVersion:
-          $ref: '#/components/schemas/instancegroupIpVersion_in_instancegroupOneToOneNatSpec_ipVersion'
+          $ref: >-
+            #/components/schemas/instancegroupIpVersion_in_instancegroupOneToOneNatSpec_ipVersion
     v1PrimaryAddressSpec_in_v1NetworkInterfaceSpec_primaryV4AddressSpec:
       type: object
       properties:
@@ -2010,17 +2153,18 @@ components:
         ipVersion:
           $ref: '#/components/schemas/v1IpVersion_in_v1PrimaryAddressSpec_ipVersion'
         natSpec:
-          $ref: '#/components/schemas/v1OneToOneNatSpec_in_v1PrimaryAddressSpec_natSpec'
+          $ref: >-
+            #/components/schemas/v1OneToOneNatSpec_in_v1PrimaryAddressSpec_natSpec
     v1IpVersion_in_v1OneToOneNatSpec_ipVersion:
       type: string
       enum:
-      - IPV4
-      - IPV6
+        - IPV4
+        - IPV6
     v1IpVersion_in_v1PrimaryAddressSpec_ipVersion:
       type: string
       enum:
-      - IPV4
-      - IPV6
+        - IPV4
+        - IPV6
     v1OneToOneNatSpec_in_v1PrimaryAddressSpec_natSpec:
       type: object
       properties:
@@ -2029,7 +2173,7 @@ components:
         ipVersion:
           $ref: '#/components/schemas/v1IpVersion_in_v1OneToOneNatSpec_ipVersion'
 tags:
-- name: Deployment
-- name: DeploymentTemplate
-- name: Infrastructure
-- name: InfrastructureTemplate
+  - name: Deployment
+  - name: DeploymentTemplate
+  - name: Infrastructure
+  - name: InfrastructureTemplate

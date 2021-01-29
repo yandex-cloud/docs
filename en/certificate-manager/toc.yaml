@@ -1,4 +1,4 @@
-title: "Yandex Certificate Manager"
+title: Yandex Certificate Manager
 href: index.yaml
 items:
   - name: Getting started
@@ -63,7 +63,9 @@ items:
         items:
           - name: Overview
             href: concepts/domains/index.md
-          - name: Integration of the domain management system with services from Yandex.Cloud
+          - name: >-
+              Integration of the domain management system with services from
+              Yandex.Cloud
             href: concepts/domains/services.md
   - name: Access management
     href: security/index.md
@@ -74,12 +76,12 @@ items:
       - name: Authentication in the API
         href: api-ref/authentication.md
       - name: gRPC
-        items:
+        items: null
         include:
           repo: docs
           path: en/_api-ref-grpc/certificate-manager/api-ref/toc.yaml
       - name: REST
-        items:
+        items: null
         include:
           repo: docs
           path: en/_api-ref/certificatemanager/toc.yaml
