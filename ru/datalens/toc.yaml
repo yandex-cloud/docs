@@ -7,6 +7,9 @@ items:
   - name: О сервисе Yandex.DataLens
     when: audience == "internal"
     href: overview.md
+  - name: FAQ
+    when: audience == "internal"
+    href: faq.md
   - name: Сценарии использования
     items:
       - name: Все сценарии
@@ -312,6 +315,3 @@ items:
   - name: Вопросы и ответы
     when: audience == "external"
     href: qa/index.md
-  - name: FAQ
-    when: audience == "internal"
-    href: qa/faq.md
