@@ -180,7 +180,7 @@
 
 ## Примеры {#examples}
 
-### Создание кластера с одним хостом {#Creating-single-host-cluster}
+### Создание кластера с одним хостом {#creating-a-single-host-cluster}
 
 {% list tabs %}
 
