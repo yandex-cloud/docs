@@ -10,7 +10,7 @@
 
 * [Изменить дополнительные настройки кластера](#change-additional-settings).
 
-* [Установить режим работы менеджера подключений](#change-pgbouncer-config).
+* [Установить режим работы менеджера соединений](#change-pooler-config).
 
 * [Вручную переключать мастер в кластере](#start-manual-failover).
 
@@ -227,9 +227,9 @@
 
 {% endlist %}
 
-## Установить режим работы менеджера подключений {#change-pgbouncer-config}
+## Установить режим работы менеджера соединений {#change-pooler-config}
 
-Вы можете установить один из режимов работы, описанных в [документации PgBouncer](https://pgbouncer.github.io/usage).
+Для менеджера соединений можно установить сессионный или транзакционный режим работы. Подробнее см. в разделе [{#T}](../concepts/pooling.md).
 
 {% list tabs %}
 
@@ -239,7 +239,7 @@
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  Чтобы изменить режим работы PgBouncer:
+  Чтобы изменить режим работы менеджера соединений:
 
   1. Посмотрите описание команды CLI для изменения кластера:
 
@@ -251,14 +251,14 @@
 
       ```
       $ {{ yc-mdb-pg }} cluster update <имя кластера>
-           --connection-pooling-mode <SESSION, TRANSACTION или STATEMENT>
+           --connection-pooling-mode <SESSION или TRANSACTION>
       ```
 
-      {{ mpg-short-name }} запустит операцию по изменению режима работы менеджера подключений.
+      {{ mpg-short-name }} запустит операцию по изменению режима работы менеджера соединений.
 
 - API
 
-  Изменить режим работы менеджера подключений для кластера можно с помощью метода API [update](../api-ref/Cluster/update.md): передайте в запросе нужное значение в параметре `configSpec.poolerConfig.poolingMode`.
+  Изменить режим работы менеджера соединений для кластера можно с помощью метода API [update](../api-ref/Cluster/update.md): передайте в запросе нужное значение в параметре `configSpec.poolerConfig.poolingMode`.
 
 {% endlist %}
 
