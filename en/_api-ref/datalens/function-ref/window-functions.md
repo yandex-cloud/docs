@@ -11,7 +11,7 @@ Aggregate functions are calculated from groups of values that are determined by 
 1. Window functions can take as arguments only dimensions or aggregations (or more complex expressions composed of both). At least one of the arguments must be an aggregate expression.
 
     Examples:
-    - Valid: `RANK(MAX([Profit]) TOTAL)`
+    - Valid: `RANK(MAX([Profit]) TOTAL)`.
     - Not valid: `MAX(RANK([Profit] TOTAL))`.
     - Not valid: `RANK([Profit] TOTAL)`, where `[Profit]` is not an aggregate expression.
 
@@ -78,7 +78,7 @@ If any fields are listed in `BEFORE FILTER BY`, then this window function is cal
 
 `BEFORE FILTER BY` applies to all nested window functions too.
 Example:
-- Formula — `MAVG(RSUM([Sales] BEFORE FILTER BY [Date]), 10)'
+- Formula — `MAVG(RSUM([Sales] BEFORE FILTER BY [Date]), 10)`.
 - Equivalent — `MAVG(RSUM([Sales] BEFORE FILTER BY [Date]), 10 BEFORE FILTER BY [Date])`.
 
 Do not use conflicting `BEFORE FILTER BY` clauses:

@@ -17,13 +17,13 @@ DATEPART( datetime, unit [ , firstday ] )
 Возвращает часть даты в виде целого числа.
 
 В зависимости от аргумента `unit` возвращает следующие значения:
-- `"year"` — номер года (см. [YEAR](YEAR.md)),
-- `"month"` — номер месяца в году (см. [MONTH](MONTH.md)),
-- `"week"` — номер недели в году по [ISO 8601](https://ru.wikipedia.org/wiki/ISO_8601) (см. [WEEK](WEEK.md)),
-- `"dayofweek"`, `"dow"` — номер дня недели (см. [DAYOFWEEK](DAYOFWEEK.md)),
-- `"day"` — номер дня в месяце (см. [DAY](DAY.md)),
-- `"hour"` — номер часа в дне (см. [HOUR](HOUR.md)),
-- `"minute"` — номер минуты в часе (см. [MINUTE](MINUTE.md)),
+- `"year"` — номер года (см. [YEAR](YEAR.md));
+- `"month"` — номер месяца в году (см. [MONTH](MONTH.md));
+- `"week"` — номер недели в году по [ISO 8601](https://ru.wikipedia.org/wiki/ISO_8601) (см. [WEEK](WEEK.md));
+- `"dayofweek"`, `"dow"` — номер дня недели (см. [DAYOFWEEK](DAYOFWEEK.md));
+- `"day"` — номер дня в месяце (см. [DAY](DAY.md));
+- `"hour"` — номер часа в дне (см. [HOUR](HOUR.md));
+- `"minute"` — номер минуты в часе (см. [MINUTE](MINUTE.md));
 - `"second"` — номер секунды в минуте (см. [SECOND](SECOND.md)).
 
 Если выбран "`dayofweek`", то дополнительным параметром `firstday` можно задать, какой день недели считать первым — по умолчанию это понедельник. Более подробно об этом параметре смотрите в описании функции [DAYOFWEEK](DAYOFWEEK.md).
