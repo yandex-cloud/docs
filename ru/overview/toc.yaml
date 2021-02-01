@@ -1,4 +1,4 @@
-title: "Обзор платформы"
+title: Обзор платформы
 href: index.yaml
 items:
   - name: Сервисы Yandex.Cloud
@@ -41,7 +41,7 @@ items:
         href: security/principles.md
       - name: Разделение ответственности за обеспечение безопасности
         href: security/respons.md
-      - name: Меры безопасности на стороне Yandex.Cloud 
+      - name: Меры безопасности на стороне Yandex.Cloud
         href: security/standarts.md
       - name: Соответствие требованиям
         href: security/conform.md
@@ -50,7 +50,7 @@ items:
       - name: Бюллетени безопасности
         href: security-bulletins/index.md
       - name: Правила проведения внешних сканирований безопасности
-        href: compliance/pentest.md  
+        href: compliance/pentest.md
   - name: Удаление данных пользователей
     href: concepts/data-deletion.md
   - name: SLA

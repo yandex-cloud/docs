@@ -1,4 +1,4 @@
-title: "Yandex DataLens"
+title: Yandex DataLens
 href: index.yaml
 items:
   - name: Getting started
@@ -146,7 +146,7 @@ items:
   - name: Pricing policy
     href: pricing.md
   - name: Function reference
-    items:
+    items: null
     include:
       repo: docs
       path: en/_api-ref/datalens/toc.yaml

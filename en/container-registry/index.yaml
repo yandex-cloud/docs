@@ -1,34 +1,40 @@
-# Yandex Container Registry
-title: "Yandex Container Registry"
+title: Yandex Container Registry
 description:
-  - "Yandex Container Registry is a service for storing and distributing Docker images."
-  - "The service is subject to the <a href=\"https://yandex.com/legal/cloud_sla\">Service Level Agreement</a>. The Service Level is defined in the <a href=\"https://yandex.com/legal/cloud_sla_ycr\">Yandex Container Registry Service Level Agreement</a>."
-# Meta-information title, description, keywords и т.п. (title tab и other SEO-tags)
+  - >-
+    Yandex Container Registry is a service for storing and distributing Docker
+    images.
+  - >-
+    The service is subject to the <a
+    href="https://yandex.com/legal/cloud_sla">Service Level Agreement</a>. The
+    Service Level is defined in the <a
+    href="https://yandex.com/legal/cloud_sla_ycr">Yandex Container Registry
+    Service Level Agreement</a>.
 meta:
-  title: "Yandex Container Registry"
-# Block of links
+  title: Yandex Container Registry
 links:
-- title: "Getting started"
-  description: "Create the first registry"
-  href: "quickstart/"
-- title: "Step-by-step instructions"
-  description: "Instructions on how to perform routine operations"
-  href: "operations/"
-- title: "Concepts"
-  description: "Learn about the concepts and resources of the service"
-  href: "concepts/"
-- title: "API reference"
-  description: "HTTP API method descriptions"
-  href: "api-ref/"
-- title: "Use cases"
-  description: "Use Yandex Container Registry to perform common tasks for managing Docker images"
-  href: "solutions/"
-- title: "Quotas and limits"
-  description: "Technical and organizational limitations of the service"
-  href: "concepts/limits"
-- title: "Access management"
-  description: "Configure access rights to work with the service"
-  href: "security/"
-- title: "Pricing policy"
-  description: "Service pricing and cost calculations"
-  href: "pricing"
+  - title: Getting started
+    description: Create the first registry
+    href: quickstart/
+  - title: Step-by-step instructions
+    description: Instructions on how to perform routine operations
+    href: operations/
+  - title: Concepts
+    description: Learn about the concepts and resources of the service
+    href: concepts/
+  - title: API reference
+    description: HTTP API method descriptions
+    href: api-ref/
+  - title: Use cases
+    description: >-
+      Use Yandex Container Registry to perform common tasks for managing Docker
+      images
+    href: solutions/
+  - title: Quotas and limits
+    description: Technical and organizational limitations of the service
+    href: concepts/limits
+  - title: Access management
+    description: Configure access rights to work with the service
+    href: security/
+  - title: Pricing policy
+    description: Service pricing and cost calculations
+    href: pricing

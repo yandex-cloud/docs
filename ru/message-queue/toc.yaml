@@ -1,28 +1,28 @@
-title: "Yandex Message Queue"
+title: Yandex Message Queue
 href: index.yaml
 items:
   - name: Начало работы
     items:
-    - name: Быстрый старт
-      href: quickstart.md
-    - name: Поддерживаемые инструменты
-      href: instruments/index.md
-    - name: Примеры кода
-      items:
-        - name: Python
-          href: instruments/python.md
-        - name: Node.js
-          href: instruments/node.md
-        - name: PHP
-          href: instruments/php.md
-        - name: Celery
-          href: instruments/celery.md
-        - name: JMS
-          href: instruments/jms.md
-        - name: Laravel
-          href: instruments/laravel.md
-        - name: Terraform
-          href: instruments/terraform.md
+      - name: Быстрый старт
+        href: quickstart.md
+      - name: Поддерживаемые инструменты
+        href: instruments/index.md
+      - name: Примеры кода
+        items:
+          - name: Python
+            href: instruments/python.md
+          - name: Node.js
+            href: instruments/node.md
+          - name: PHP
+            href: instruments/php.md
+          - name: Celery
+            href: instruments/celery.md
+          - name: JMS
+            href: instruments/jms.md
+          - name: Laravel
+            href: instruments/laravel.md
+          - name: Terraform
+            href: instruments/terraform.md
   - name: Пошаговые инструкции
     items:
       - name: Обзор

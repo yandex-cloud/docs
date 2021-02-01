@@ -1,0 +1,15 @@
+# Заголовок и описание на странице
+title: "Синтез переменных"
+description:
+  - "Сервис Yandex SpeechKit позволяет разработчикам приложений использовать речевые технологии Яндекса: распознавание речи (Speech-to-Text) и синтез речи (Text-to-Speech)."
+  - "Для доступа к Adaptive TTS SpeechKit используйте gRPC API."
+  - "Инфраструктура Yandex.Cloud <a href=\"https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf\">защищена</a> в соответствии с ФЗ-152."
+  - "Для сервиса действует <a href=\"https://yandex.ru/legal/cloud_sla\">соглашение об уровне обслуживания</a>. Уровень обслуживания сервиса определен в документе <a href=\"https://yandex.ru/legal/cloud_sla_speechkit\">Уровень обслуживания Yandex SpeechKit</a>."
+# Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
+meta:
+  title: "Yandex SpeechKit"
+# Блок со ссылками
+links:
+- title: "Синтез переменных"
+  description: "Преобразуйте текст в речь с использованием синтеза переменных"
+  href: "adaptive"

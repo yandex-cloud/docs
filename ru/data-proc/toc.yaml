@@ -1,4 +1,4 @@
-title: "Yandex Data Proc"
+title: Yandex Data Proc
 stage: new
 href: index.yaml
 items:
@@ -57,24 +57,14 @@ items:
       - name: Аутентификация в API
         href: api-ref/authentication.md
       - name: gRPC
-        items:
+        items: null
         include:
           repo: docs
           path: ru/_api-ref-grpc/data-proc/api-ref/toc.yaml
       - name: REST
-        items:
+        items: null
         include:
           repo: docs
           path: ru/_api-ref/dataproc/toc.yaml
-#  - name: Сценарии использования
-#    href: scenarios/index.md
-#  - name: Справочник API
-#    items:
-#    - name: Аутентификация в API
-#      href: api-ref/authentication.md
-#    include:
-#      repo: docs-api
-#      path: ru/data-proc/toc.yaml
   - name: Вопросы и ответы
     href: qa/index.md
-

@@ -1,4 +1,4 @@
-title: "Yandex Identity and Access Management"
+title: Yandex Identity and Access Management
 href: index.yaml
 items:
   - name: Начало работы
@@ -83,7 +83,6 @@ items:
             href: concepts/access-control/system-group.md
           - name: Ресурсы, на которые можно назначать роли
             href: concepts/access-control/resources-with-access-control.md
-
       - name: Авторизация
         items:
           - name: Обзор
@@ -115,12 +114,12 @@ items:
       - name: Аутентификация в API
         href: api-ref/authentication.md
       - name: gRPC
-        items:
+        items: null
         include:
           repo: docs
           path: ru/_api-ref-grpc/iam/api-ref/toc.yaml
       - name: REST
-        items:
+        items: null
         include:
           repo: docs
           path: ru/_api-ref/iam/toc.yaml

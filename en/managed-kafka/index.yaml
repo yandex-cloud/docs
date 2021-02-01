@@ -1,33 +1,41 @@
-# Заголовок и описание на странице
-title: "Yandex Managed Service for Apache Kafka<sup>®</sup>"
+title: Yandex Managed Service for Apache Kafka<sup>®</sup>
 description:
-  - "Yandex Managed Service for Apache Kafka<sup>®</sup> helps you deploy and maintain Apache Kafka<sup>®</sup> server clusters in the Yandex.Cloud infrastructure."
-  - "The Yandex.Cloud infrastructure <a href=\"https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf\">fully complies</a> with the Russian Federal Law on Personal Data (No. 152-FZ)."
-  - "The service is subject to the <a href=\"https://yandex.com/legal/cloud_sla\">Service Level Agreement</a>. The service level is defined in the <a href=\"https://yandex.com/legal/cloud_sla_kfk/\">Service Level for Yandex Managed Service for Apache Kafka<sup>®</sup></a>."
-  - "<em>Apache<sup>®</sup> and Apache Kafka<sup>®</sup> are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries.</em>"
-  # Мета-информация title, description, keywords и т.п.
+  - >-
+    Yandex Managed Service for Apache Kafka<sup>®</sup> helps you deploy and
+    maintain Apache Kafka<sup>®</sup> server clusters in the Yandex.Cloud
+    infrastructure.
+  - >-
+    The Yandex.Cloud infrastructure <a
+    href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">fully
+    complies</a> with the Russian Federal Law on Personal Data (No. 152-FZ).
+  - >-
+    The service is subject to the <a
+    href="https://yandex.com/legal/cloud_sla">Service Level Agreement</a>. The
+    service level is defined in the <a
+    href="https://yandex.com/legal/cloud_sla_kfk/">Service Level for Yandex
+    Managed Service for Apache Kafka<sup>®</sup></a>.
+  - >-
+    <em>Apache<sup>®</sup> and Apache Kafka<sup>®</sup> are either registered
+    trademarks or trademarks of the Apache Software Foundation in the United
+    States and/or other countries.</em>
 meta:
-  title: "Yandex Managed Service for Apache Kafka®"
-# Блок со ссылками
+  title: Yandex Managed Service for Apache Kafka®
 links:
-- title: "Getting started"
-  description: "Create your first cluster"
-  href: "quickstart"
-- title: "Step-by-step instructions"
-  description: "Instructions on how to perform routine operations"
-  href: "operations/"
-- title: "Concepts"
-  description: "Learn about basic concepts and how the service works"
-  href: "concepts/"
-# - title: "Справочник API"
-#   description: "Описание методов HTTP API"
-#   href: "api-ref/"
-- title: "Quotas and limits"
-  description: "Technical and organizational limitations of the service"
-  href: "concepts/limits"
-- title: "Access management"
-  description: "Configure access rights to work with the service"
-  href: "security/"
-- title: "Pricing policy"
-  description: "Service pricing and cost calculations"
-  href: "pricing"
+  - title: Getting started
+    description: Create your first cluster
+    href: quickstart
+  - title: Step-by-step instructions
+    description: Instructions on how to perform routine operations
+    href: operations/
+  - title: Concepts
+    description: Learn about basic concepts and how the service works
+    href: concepts/
+  - title: Quotas and limits
+    description: Technical and organizational limitations of the service
+    href: concepts/limits
+  - title: Access management
+    description: Configure access rights to work with the service
+    href: security/
+  - title: Pricing policy
+    description: Service pricing and cost calculations
+    href: pricing

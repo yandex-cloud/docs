@@ -1,4 +1,4 @@
-title: "Yandex DataLens"
+title: Yandex DataLens
 stage: preview
 href: index.yaml
 items:
@@ -92,8 +92,8 @@ items:
     href: security/index.md
   - name: Справочник функций
     items:
-    - name: Аутентификация в API
-      href: api-ref/authentication.md
+      - name: Аутентификация в API
+        href: api-ref/authentication.md
     include:
       repo: docs
       path: ru/_api-ref/datalens/toc.yaml

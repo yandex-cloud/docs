@@ -1,4 +1,4 @@
-title: "Yandex Vision"
+title: Yandex Vision
 href: index.yaml
 items:
   - name: Getting started
@@ -57,7 +57,7 @@ items:
       - name: Authentication in the API
         href: api-ref/authentication.md
       - name: gRPC
-        items:
+        items: null
         include:
           repo: docs
           path: ru/_api-ref-grpc/vision/api-ref/toc.yaml

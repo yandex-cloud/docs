@@ -1,4 +1,4 @@
-title: "Yandex Key Management Service"
+title: Yandex Key Management Service
 href: index.yaml
 items:
   - name: Начало работы
@@ -60,12 +60,12 @@ items:
       - name: Аутентификация в API
         href: api-ref/authentication.md
       - name: gRPC
-        items:
+        items: null
         include:
           repo: docs
           path: ru/_api-ref-grpc/kms/api-ref/toc.yaml
       - name: REST
-        items:
+        items: null
         include:
           repo: docs
           path: ru/_api-ref/kms/toc.yaml

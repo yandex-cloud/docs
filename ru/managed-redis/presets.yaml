@@ -1,5 +1,4 @@
 default:
-  # Intel Broadwell
   b1-nano: b1.nano (2 vCPU × 5%, 2 ГБ)
   b1-small: b1.small (2 vCPU × 50%, 4 ГБ)
   hm1-nano: hm1.nano (2 vCPU, 8 ГБ)
@@ -16,8 +15,6 @@ default:
   hm1-7xlarge: hm1.7xlarge (8 vCPU, 192 ГБ)
   hm1-8xlarge: hm1.8xlarge (8 vCPU, 224 ГБ)
   hm1-9xlarge: hm1.9xlarge (8 vCPU, 256 ГБ)
-
-  # Intel Cascade Lake
   b2-nano: b2.nano (2 vCPU × 5%, 2 ГБ)
   b2-medium: b2.medium (2 vCPU × 50%, 4 ГБ)
   hm2-nano: hm2.nano (2 vCPU, 8 ГБ)

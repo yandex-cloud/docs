@@ -1,5 +1,4 @@
-# Заголовок оглавления для всех страниц в разделе
-title: "Yandex SpeechKit"
+title: Yandex SpeechKit
 href: index.yaml
 items:
   - name: Getting started

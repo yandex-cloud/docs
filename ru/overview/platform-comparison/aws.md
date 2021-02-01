@@ -36,10 +36,11 @@
 | Amazon MSK | [{{ mkf-full-name }}](../../managed-kafka/) |
 | Amazon Elasticsearch Service | [{{ mes-full-name }}](../../managed-elasticsearch/) |
 | Amazon QuickSight | [{{ datalens-full-name }}](../../datalens/) |
+| AWS Database Migration Service | [{{ data-transfer-full-name }}](../../data-transfer/) |
 
-## Cloud-native {#cloud-native}
+## Serverless {#serverless}
 
-{% include [cloud-native](../../_includes/overview/cloud-native.md) %}
+{% include [cloud-native](../../_includes/overview/serverless.md) %}
 
 | Amazon Web Services | {{ yandex-cloud }} |
 |----|----|

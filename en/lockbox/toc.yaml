@@ -1,4 +1,4 @@
-title: "Yandex Lockbox"
+title: Yandex Lockbox
 stage: tech-preview
 href: index.yaml
 items:
@@ -15,12 +15,12 @@ items:
       - name: Authentication in the API
         href: api-ref/authentication.md
       - name: gRPC
-        items:
+        items: null
         include:
           repo: docs
           path: en/_api-ref-grpc/lockbox/api-ref/toc.yaml
       - name: REST
-        items:
+        items: null
         include:
           repo: docs
           path: en/_api-ref/lockbox/toc.yaml

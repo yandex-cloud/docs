@@ -6,12 +6,8 @@
 
 Количество хостов, которые можно создать вместе с {{ MY }}-кластером, зависит от выбранного варианта хранилища:
 
-  - При использовании сетевых дисков вы можете запросить любое количество хостов (от 1 до пределов текущей [квоты](../concepts/limits.md)).
-  - При использовании SSD-дисков вместе с кластером можно создать не меньше 3 реплик (минимум 3 реплики необходимо, чтобы обеспечить отказоустойчивость). Если после создания кластера [доступных ресурсов каталога](../concepts/limits.md) останется достаточно, вы можете добавить дополнительные реплики.
-
-{% endif %}
-
-По умолчанию {{ mmy-short-name }} выставляет ограничение на количество подключений к каждому хосту {{ MY }}-кластера как `200 × <количество vCPU на хосте>`. Например, для хоста [класса s1.micro](../concepts/instance-types.md) значение параметра `max_connections` по умолчанию равно 400.
+- при использовании сетевых дисков доступное количество хостов ограничено текущей [квотой](../concepts/limits.md);
+- при использовании SSD-дисков вместе с кластером создаются минимум 3 реплики, чтобы обеспечить отказоустойчивость.
 
 {% note info %}
 
@@ -19,6 +15,7 @@
 
 {% endnote %}
 
+{% endif %}
 
 ## Как создать кластер {{ MY }} {#create-cluster}
 
@@ -45,15 +42,15 @@
       - Пароль пользователя, от 8 до 128 символов.
 
   1. В блоке **Хосты** выберите параметры хостов БД, создаваемых вместе с кластером (помните, что используя SSD-диски при создании {{ MY }}-кластера можно задать не меньше 3 хостов). Открыв блок **Расширенные настройки**, вы можете выбрать конкретные подсети для каждого хоста — по умолчанию каждый хост создается в отдельной подсети.
-  
+
   1. При необходимости задайте дополнительные настройки кластера:
-  
+
      {% include [mmy-extra-settings](../../_includes/mdb/mmy-extra-settings-web-console.md) %}
-     
+
   1. При необходимости задайте настройки СУБД:
 
      {% include [mmy-dbms-settings](../../_includes/mdb/mmy-dbms-settings.md) %}
-  
+
   1. Нажмите кнопку **Создать кластер**.
 
 - CLI
@@ -97,7 +94,7 @@
 - Terraform
 
   {% include [terraform-definition](../../solutions/_solutions_includes/terraform-definition.md) %}
-  
+
   Если у вас ещё нет Terraform, [установите его и настройте провайдер](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   Чтобы создать кластер:
@@ -105,9 +102,9 @@
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
      {% include [terraform-create-cluster-step-1](../../_includes/mdb/terraform-create-cluster-step-1.md) %}
-     
+
      Пример структуры конфигурационного файла:
-     
+
      ```
      resource "yandex_mdb_mysql_cluster" "<имя кластера>" {
        name        = "<имя кластера>"
@@ -131,7 +128,7 @@
          permission {
            database_name = "<имя базы данных>"
            roles         = ["ALL"]
-         } 
+         }
        }
 
        host {
@@ -149,16 +146,16 @@
        v4_cidr_blocks = ["<диапазон>"]
      }
      ```
-     
+
      Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](https://www.terraform.io/docs/providers/yandex/r/mdb_mysql_cluster.html).
-     
+
   1. Проверьте корректность конфигурационных файлов.
 
-     {% include [terraform-create-cluster-step-2](../../_includes/mdb/terraform-create-cluster-step-2.md) %} 
-   
+     {% include [terraform-create-cluster-step-2](../../_includes/mdb/terraform-create-cluster-step-2.md) %}
+
   1. Создайте кластер.
 
-     {% include [terraform-create-cluster-step-3](../../_includes/mdb/terraform-create-cluster-step-3.md) %}     
+     {% include [terraform-create-cluster-step-3](../../_includes/mdb/terraform-create-cluster-step-3.md) %}
 
 {% endlist %}
 
@@ -182,9 +179,9 @@
   - С быстрым сетевым хранилищем (`{{ disk-type-example }}`) объемом 20 ГБ.
   - С одним пользователем (`user1`), с паролем `user1user1`.
   - С одной базой данных `db1`, в которой пользователь `user1` имеет полные права (эквивалент `GRANT ALL PRIVILEGES on db1.*`).
-  
+
   Конфигурационный файл для такого кластера выглядит так:
-  
+
   ```
   provider "yandex" {
     token     = "<OAuth или статический ключ сервисного аккаунта>"
@@ -192,7 +189,7 @@
     folder_id = "${data.yandex_resourcemanager_folder.myfolder.id}"
     zone      = "{{ zone-id }}"
   }
-  
+
   resource "yandex_mdb_mysql_cluster" "my-mysql" {
     name        = "my-mysql"
     environment = "PRESTABLE"
@@ -215,7 +212,7 @@
       permission {
         database_name = "db1"
         roles         = ["ALL"]
-      } 
+      }
     }
 
     host {

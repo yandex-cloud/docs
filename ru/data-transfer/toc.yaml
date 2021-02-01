@@ -1,4 +1,4 @@
-title: "Yandex Data Transfer"
+title: Yandex Data Transfer
 href: index.yaml
 items:
   - name: Начало работы
@@ -8,29 +8,29 @@ items:
       - name: Все инструкции
         href: operations/index.md
       - name: Управление эндпоинтом источника
-        items: 
-        - name: Создание эндпоинта источника
-          href: operations/source/create-endpoint.md
-        - name: Изменение эндпоинта источника
-          href: operations/source/update-endpoint.md
-        - name: Удаление эндпоинта источника
-          href: operations/source/delete-endpoint.md
+        items:
+          - name: Создание эндпоинта источника
+            href: operations/source/create-endpoint.md
+          - name: Изменение эндпоинта источника
+            href: operations/source/update-endpoint.md
+          - name: Удаление эндпоинта источника
+            href: operations/source/delete-endpoint.md
       - name: Управление эндпоинтом приемника
-        items: 
-        - name: Создание эндпоинта приемника
-          href: operations/target/create-endpoint.md
-        - name: Изменение эндпоинта приемника
-          href: operations/target/update-endpoint.md
-        - name: Удаление эндпоинта приемника
-          href: operations/target/delete-endpoint.md
+        items:
+          - name: Создание эндпоинта приемника
+            href: operations/target/create-endpoint.md
+          - name: Изменение эндпоинта приемника
+            href: operations/target/update-endpoint.md
+          - name: Удаление эндпоинта приемника
+            href: operations/target/delete-endpoint.md
       - name: Управление трансфером
-        items: 
-        - name: Создание трансфера
-          href: operations/transfer/create-transfer.md
-        - name: Изменение трансфера
-          href: operations/transfer/update-transfer.md
-        - name: Удаление трансфера
-          href: operations/transfer/delete-transfer.md
+        items:
+          - name: Создание трансфера
+            href: operations/transfer/create-transfer.md
+          - name: Изменение трансфера
+            href: operations/transfer/update-transfer.md
+          - name: Удаление трансфера
+            href: operations/transfer/delete-transfer.md
     href: quickstart.md
   - name: Концепции
     items:

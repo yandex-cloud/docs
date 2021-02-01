@@ -1,4 +1,4 @@
-title: "Yandex Managed Service for MySQL"
+title: Yandex Managed Service for MySQL
 href: index.yaml
 items:
   - name: Getting started
@@ -64,12 +64,12 @@ items:
       - name: Authentication in the API
         href: api-ref/authentication.md
       - name: gRPC
-        items:
+        items: null
         include:
           repo: docs
           path: en/_api-ref-grpc/managed-mysql/api-ref/toc.yaml
       - name: REST
-        items:
+        items: null
         include:
           repo: docs
           path: en/_api-ref/mdb/mysql/toc.yaml

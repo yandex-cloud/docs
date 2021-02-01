@@ -1,32 +1,38 @@
-# Заголовок и описание на странице
-title: "Yandex Managed Service for Redis"
+title: Yandex Managed Service for Redis
 description:
-  - "Yandex Managed Service for Redis помогает разворачивать и поддерживать кластеры серверов Redis 5 и 6 в инфраструктуре Yandex.Cloud."
-  - "Инфраструктура Yandex.Cloud <a href=\"https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf\">защищена</a> в соответствии с ФЗ-152."
-  - "Для сервиса действует <a href=\"https://yandex.ru/legal/cloud_sla\">соглашение об уровне обслуживания</a>. Уровень обслуживания сервиса определен в документе <a href=\"https://yandex.ru/legal/cloud_sla_mdb\">Уровень обслуживания Yandex Managed Databases</a>."
-# Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
+  - >-
+    Yandex Managed Service for Redis помогает разворачивать и поддерживать
+    кластеры серверов Redis 5 и 6 в инфраструктуре Yandex.Cloud.
+  - >-
+    Инфраструктура Yandex.Cloud <a
+    href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">защищена</a>
+    в соответствии с ФЗ-152.
+  - >-
+    Для сервиса действует <a href="https://yandex.ru/legal/cloud_sla">соглашение
+    об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
+    документе <a href="https://yandex.ru/legal/cloud_sla_mdb">Уровень
+    обслуживания Yandex Managed Databases</a>.
 meta:
-  title: "Yandex Managed Service for Redis"
-# Блок со ссылками
+  title: Yandex Managed Service for Redis
 links:
-- title: "Начало работы"
-  description: "Создайте первый кластер баз данных"
-  href: "quickstart"
-- title: "Пошаговые инструкции"
-  description: "Инструкции по выполнению рутинных операций"
-  href: "operations/"
-- title: "Концепции"
-  description: "Узнайте про концепции и общее устройство сервиса"
-  href: "concepts/"
-- title: "Справочник API"
-  description: "Описание методов HTTP API"
-  href: "api-ref/"
-- title: "Квоты и лимиты"
-  description: "Технические и организационные ограничения сервиса"
-  href: "concepts/limits"
-- title: "Управление доступом"
-  description: "Настройте права доступа для работы с сервисом"
-  href: "security/"
-- title: "Правила тарификации"
-  description: "Цены и правила расчета стоимости услуг сервиса"
-  href: "pricing"
+  - title: Начало работы
+    description: Создайте первый кластер баз данных
+    href: quickstart
+  - title: Пошаговые инструкции
+    description: Инструкции по выполнению рутинных операций
+    href: operations/
+  - title: Концепции
+    description: Узнайте про концепции и общее устройство сервиса
+    href: concepts/
+  - title: Справочник API
+    description: Описание методов HTTP API
+    href: api-ref/
+  - title: Квоты и лимиты
+    description: Технические и организационные ограничения сервиса
+    href: concepts/limits
+  - title: Управление доступом
+    description: Настройте права доступа для работы с сервисом
+    href: security/
+  - title: Правила тарификации
+    description: Цены и правила расчета стоимости услуг сервиса
+    href: pricing

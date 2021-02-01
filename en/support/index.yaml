@@ -1,23 +1,20 @@
-# Заголовок и описание на странице
-title: "Yandex.Cloud Technical Support"
+title: Yandex.Cloud Technical Support
 description: "Technical support for Yandex.Cloud is provided in accordance with the <a href=\"https://yandex.ru/legal/cloud_technicalregulations\">\rMaintenance Regulations</a>"
-# Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
 meta:
-  title: "Yandex.Cloud technical support"
-# Блок со ссылками
+  title: Yandex.Cloud technical support
 links:
-- title: "Requesting technical support"
-  description: "How to contact technical support"
-  href: "overview"
-- title: "Notifications from Yandex.Cloud support"
-  description: "What events technical support notifies you about and how"
-  href: "notify"
-- title: "Data requests"
-  description: "What data can be requested from technical support"
-  href: "request"
-- title: "Pricing policy"
-  description: "Technical support pricing and cost calculations"
-  href: "pricing"
-- title: "Questions and answers"
-  description: "Frequently asked questions about technical support"
-  href: "qa"
+  - title: Requesting technical support
+    description: How to contact technical support
+    href: overview
+  - title: Notifications from Yandex.Cloud support
+    description: What events technical support notifies you about and how
+    href: notify
+  - title: Data requests
+    description: What data can be requested from technical support
+    href: request
+  - title: Pricing policy
+    description: Technical support pricing and cost calculations
+    href: pricing
+  - title: Questions and answers
+    description: Frequently asked questions about technical support
+    href: qa

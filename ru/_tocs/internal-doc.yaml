@@ -1,23 +1,23 @@
-title: "Внутренняя документация"
+title: Внутренняя документация
 href: index.yaml
 items:
-    - doc: mdb
-      toc: mdb/toc.yaml
-    - doc: cli
-      toc: cli/toc-internal.yaml
-    - doc: datalens
-      toc: datalens/toc-internal.yaml
-    - doc: managed-clickhouse
-      toc: managed-clickhouse/toc-internal.yaml
-    - doc: managed-postgresql
-      toc: managed-postgresql/toc-internal.yaml
-    - doc: managed-mysql
-      toc: managed-mysql/toc-internal.yaml
-    - doc: managed-redis
-      toc: managed-redis/toc-internal.yaml
-    - doc: managed-mongodb
-      toc: managed-mongodb/toc-internal.yaml
-    - doc: managed-elasticsearch
-      toc: managed-elasticsearch/toc-internal.yaml
-    - doc: managed-kafka
-      toc: managed-kafka/toc-internal.yaml
+  - doc: mdb
+    toc: mdb/toc.yaml
+  - doc: cli
+    toc: cli/toc-internal.yaml
+  - doc: datalens
+    toc: datalens/toc-internal.yaml
+  - doc: managed-clickhouse
+    toc: managed-clickhouse/toc-internal.yaml
+  - doc: managed-postgresql
+    toc: managed-postgresql/toc-internal.yaml
+  - doc: managed-mysql
+    toc: managed-mysql/toc-internal.yaml
+  - doc: managed-redis
+    toc: managed-redis/toc-internal.yaml
+  - doc: managed-mongodb
+    toc: managed-mongodb/toc-internal.yaml
+  - doc: managed-elasticsearch
+    toc: managed-elasticsearch/toc-internal.yaml
+  - doc: managed-kafka
+    toc: managed-kafka/toc-internal.yaml

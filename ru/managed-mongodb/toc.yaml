@@ -1,72 +1,72 @@
-title: "Yandex Managed Service for MongoDB"
+title: Yandex Managed Service for MongoDB
 href: index.yaml
 items:
   - name: Начало работы
     href: quickstart.md
   - name: Пошаговые инструкции
     items:
-    - name: Все инструкции
-      href: operations/index.md
-    - name: Информация об имеющихся кластерах
-      href: operations/cluster-list.md
-    - name: Создание кластера
-      href: operations/cluster-create.md
-    - name: Миграция базы данных в Yandex.Cloud
-      href: operations/data-migration.md      
-    - name: Подключение к базе данных
-      href: operations/connect.md
-    - name: Остановка и запуск кластера
-      href: operations/cluster-stop.md
-    - name: Изменение настроек кластера и базы данных
-      href: operations/update.md
-    - name: Обновление версии MongoDB
-      href: operations/cluster-version-update.md
-    - name: Управление базами данных
-      href: operations/databases.md
-    - name: Управление хостами кластера
-      href: operations/hosts.md
-    - name: Управление пользователями БД
-      href: operations/cluster-users.md
-    - name: Управление резервными копиями
-      href: operations/cluster-backups.md
-    - name: Управление шардами
-      href: operations/shards.md
-    - name: Удаление кластера
-      href: operations/cluster-delete.md
+      - name: Все инструкции
+        href: operations/index.md
+      - name: Информация об имеющихся кластерах
+        href: operations/cluster-list.md
+      - name: Создание кластера
+        href: operations/cluster-create.md
+      - name: Миграция базы данных в Yandex.Cloud
+        href: operations/data-migration.md
+      - name: Подключение к базе данных
+        href: operations/connect.md
+      - name: Остановка и запуск кластера
+        href: operations/cluster-stop.md
+      - name: Изменение настроек кластера и базы данных
+        href: operations/update.md
+      - name: Обновление версии MongoDB
+        href: operations/cluster-version-update.md
+      - name: Управление базами данных
+        href: operations/databases.md
+      - name: Управление хостами кластера
+        href: operations/hosts.md
+      - name: Управление пользователями БД
+        href: operations/cluster-users.md
+      - name: Управление резервными копиями
+        href: operations/cluster-backups.md
+      - name: Управление шардами
+        href: operations/shards.md
+      - name: Удаление кластера
+        href: operations/cluster-delete.md
   - name: Сценарии использования
     items:
-    - name: Шардирование коллекций
-      href: tutorials/sharding.md
+      - name: Шардирование коллекций
+        href: tutorials/sharding.md
   - name: Концепции
     items:
-    - name: Взаимосвязь ресурсов сервиса
-      href: concepts/index.md
-    - name: Классы хостов
-      items:
-        - name: Действующие классы хостов
-          href: concepts/instance-types.md
-        - name: Архив
-          items:
-            - name: До 1 июня 2020 года
-              href: concepts/instance-types-archive/instance-types-01062020.md
-        - name: Использование устаревших классов хостов
-          href: concepts/using-deprecated-instances.md       
-    - name: Сеть в Managed Service for MongoDB
-      href: concepts/network.md
-    - name: Квоты и лимиты
-      href: concepts/limits.md
-    - name: Типы хранилища
-      href: concepts/storage.md
-    - name: Резервные копии
-      href: concepts/backup.md
-    - name: Репликация
-      href: concepts/replication.md
-    - name: Шардирование
-      href: concepts/sharding.md
-    - name: Пользователи и роли
-      href: concepts/users-and-roles.md
-    - name: Поддерживаемые клиенты
-      href: concepts/supported-clients.md
+      - name: Взаимосвязь ресурсов сервиса
+        href: concepts/index.md
+      - name: Классы хостов
+        items:
+          - name: Действующие классы хостов
+            href: concepts/instance-types.md
+          - name: Архив
+            items:
+              - name: До 1 июня 2020 года
+                href: concepts/instance-types-archive/instance-types-01062020.md
+          - name: Использование устаревших классов хостов
+            href: concepts/using-deprecated-instances.md
+      - name: Сеть в Managed Service for MongoDB
+        href: concepts/network.md
+      - name: Квоты и лимиты
+        href: concepts/limits.md
+      - name: Типы хранилища
+        href: concepts/storage.md
+      - name: Резервные копии
+        href: concepts/backup.md
+      - name: Репликация
+        href: concepts/replication.md
+      - name: Шардирование
+        href: concepts/sharding.md
+      - name: Пользователи и роли
+        href: concepts/users-and-roles.md
+      - name: Поддерживаемые клиенты
+        href: concepts/supported-clients.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
@@ -86,20 +86,20 @@ items:
       - name: Аутентификация в API
         href: api-ref/authentication.md
       - name: gRPC
-        items:
+        items: null
         include:
           repo: docs
           path: ru/_api-ref-grpc/managed-mongodb/api-ref/toc.yaml
       - name: REST
-        items:
+        items: null
         include:
           repo: docs
           path: ru/_api-ref/mdb/mongodb/toc.yaml
   - name: Вопросы и ответы
     items:
-    - name: Общие вопросы
-      href: qa/general.md
-    - name: Вопросы о MongoDB
-      href: qa/mongodb.md
-    - name: Все вопросы на одной странице
-      href: qa/all.md
+      - name: Общие вопросы
+        href: qa/general.md
+      - name: Вопросы о MongoDB
+        href: qa/mongodb.md
+      - name: Все вопросы на одной странице
+        href: qa/all.md

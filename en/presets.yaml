@@ -1,7 +1,5 @@
 default:
   audience: external
-
-  # Полные имена сервисов
   iam-full-name: Yandex Identity and Access Management
   resmgr-full-name: Yandex Resource Manager
   compute-full-name: Yandex Compute Cloud
@@ -40,8 +38,6 @@ default:
   api-gw-full-name: Yandex API Gateway
   lockbox-full-name: Yandex Lockbox
   tracker-full-name: Yandex Tracker
-
-  # Полные имена сервисов без Yandex
   iam-name: Identity and Access Management
   ig-name: Instance Groups
   resmgr-name: Resource Manager
@@ -82,8 +78,6 @@ default:
   api-gw-name: API Gateway
   lockbox-name: Lockbox
   tracker-name: Tracker
-
-  # Короткие имена
   iam-short-name: IAM
   resmgr-short-name: Resource Manager
   compute-short-name: Compute Cloud
@@ -121,11 +115,7 @@ default:
   api-gw-short-name: API Gateway
   lockbox-short-name: Lockbox
   tracker-short-name: Tracker
-
-  # Тарифы
   price-per-hour-count-per-second: Prices are shown for 1 hour of use. Billing occurs per second.
-
-  # Роли
   roles-cr-admin: container-registry.admin
   roles-cr-puller: container-registry.images.puller
   roles-cr-pusher: container-registry.images.pusher
@@ -154,16 +144,10 @@ default:
   roles-owner: owner
   roles-editor: editor
   roles-viewer: viewer
-
-  # Системные субъекты
   subjects-allUsers: allUsers
   subjects-allAuthenticatedUsers: allAuthenticatedUsers
-
-  # Хосты
   s3-storage-host: storage.yandexcloud.net
   s3-web-host: website.yandexcloud.net
-
-  # Команды CLI
   yc-mdb-mg: yc managed-mongodb
   yc-mdb-ch: yc managed-clickhouse
   yc-mdb-pg: yc managed-postgresql
@@ -176,22 +160,16 @@ default:
   yc-compute: yc compute
   yc-compute-instance: yc compute instance
   yc-ydb: yc ydb
-
-  # Compute specific
   max-gpus: 4
-
-  # IAM specific
   iam-token-lifetime: 12 hours
-
-  # MDB specific
-  pem-path: '/cloud-certs/CA.pem'
+  pem-path: /cloud-certs/CA.pem
   dns-zone: mdb.yandexcloud.net
   network-name: default
   host-net-example: zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch63
   disk-type-example: network-ssd
   PG: PostgreSQL
   CH: ClickHouse
-  mch-hs-version: 20.10
+  mch-hs-version: 20.1
   MG: MongoDB
   mmg-backup-retention: 7
   mmg-backup-retention-min: 7
@@ -204,7 +182,6 @@ default:
   MS: SQL Server
   zone-id: ru-central1-c
   host-class: s2.micro
-
   b1-nano: b1.nano (2 vCPU × 5%, 2 GB)
   b1-micro: b1.micro (2 vCPU × 20%, 2 GB)
   b1-small: b1.small (2 vCPU × 20%, 4 GB)
@@ -223,7 +200,6 @@ default:
   s1-medium: s1.medium (8 vCPU, 32 GB)
   s1-large: s1.large (16 vCPU, 64 GB)
   s1-xlarge: s1.xlarge (32 vCPU, 128 GB)
-
   b2-nano: b2.nano (2 vCPU × 5%, 2 GB)
   b2-micro: b2.micro (2 vCPU × 20%, 2 GB)
   b2-small: b2.small (2 vCPU × 20%, 4 GB)
@@ -250,11 +226,8 @@ default:
   s2-4xlarge: s2.4xlarge(40 vCPU, 160 GB)
   s2-5xlarge: s2.5xlarge (48 vCPU, 192 GB)
   s2-6xlarge: s2.6xlarge (64 vCPU, 256 GB)
-
   mch-backup-retention: 7
   mch-dedup-retention: 30
-
-  # SpeechKit specific
   stt-short-fileSize: 1 MB
   stt-short-audioLength: 30 seconds
   stt-short-channelsCount: 1
@@ -263,30 +236,16 @@ default:
   stt-long-audioLength: 4 hours
   stt-streaming-fileSize: 10 MB
   stt-streaming-audioLength: 5 minutes
-
-  # YDB specific
   yql-full-name: Yandex Query Language
   yql-short-name: YQL
-
-  # K8s specific
   k8s: Kubernetes
-
-  # IoT specific
   ca-address: https://storage.yandexcloud.net/mqtt/rootCA.crt
   mqtt-broker-address: mqtt.cloud.yandex.net
   mqtt-broker-port: 8883
-
-  # Serverless Functions specific
   sf-url: https://functions.yandexcloud.net
-
-  # Container Registry specific
   coi: Container Optimized Image
-
-  # CLI specific
   yc-install-path: /yandexcloud-yc/install.sh
   yc-windows-path: /yandexcloud-yc/install.ps1
-
-  # links
   link-console-billing: https://console.cloud.yandex.com/billing
   link-console-main: https://console.cloud.yandex.com/
   link-console-quotas: https://console.cloud.yandex.com/cloud?section=quotas
@@ -296,22 +255,16 @@ default:
   link-cloud-services: https://cloud.yandex.com/services
   link-yandex-connect: https://connect.yandex.com
   link-passport-login: https://passport.yandex.com/auth
-  link-cloud-oauth: https://oauth.yandex.com/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb
+  link-cloud-oauth: >-
+    https://oauth.yandex.com/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb
   link-cloud-partners: https://partners.cloud.yandex.ru/
   link-app-android: https://play.google.com/store/apps/details?id=ru.yandex.cloud
   link-app-ios: https://apps.apple.com/ru/app/yandex-cloud/id1515465314
-
-  # Terraform cloud id
   tf-cloud-id: b1gq90dgh25bebiu75o
-
-  # Cloud specific
   yandex-cloud: Yandex.Cloud
-
 internal:
   audience: internal
   console-link: yc.yandex-team.ru
-
-  # MDB specific
   pem-path: https://crls.yandex.net/allCAs.pem
   dns-zone: db.yandex.net
   network-name: ' '
@@ -319,7 +272,7 @@ internal:
   disk-type-example: local-ssd
   PG: PostgreSQL
   CH: ClickHouse
-  mch-hs-version: 20.10
+  mch-hs-version: 20.1
   MG: MongoDB
   mmg-backup-retention: 7
   mmg-backup-retention-min: 7
@@ -332,11 +285,8 @@ internal:
   MS: Microsoft SQL Server
   zone-id: vla
   host-class: db1.micro
-
   mch-backup-retention: 7
   mch-dedup-retention: 30
-
-  # links
   link-console-billing: https://console.cloud.yandex.com/billing
   link-console-main: https://console.cloud.yandex.com/
   link-console-quotas: https://console.cloud.yandex.com/cloud?section=quotas
@@ -345,10 +295,9 @@ internal:
   link-cloud-calculator: https://cloud.yandex.com/prices#calculator
   link-yandex-connect: https://connect.yandex.com
   link-passport-login: https://passport.yandex.com/auth
-  link-cloud-oauth: https://oauth.yandex.com/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb
+  link-cloud-oauth: >-
+    https://oauth.yandex.com/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb
   link-cloud-partners: https://partners.cloud.yandex.ru/
-
-  # Terraform cloud id
   tf-cloud-id: b1gq90dgh25bebiu75o
 external:
   audience: external
@@ -356,8 +305,6 @@ external:
   host-class: s2.micro
   network-name: default-net
   zone-id: ru-central1-c
-
-  # links
   link-console-billing: https://console.cloud.yandex.com/billing
   link-console-main: https://console.cloud.yandex.com/
   link-console-quotas: https://console.cloud.yandex.com/cloud?section=quotas
@@ -366,8 +313,7 @@ external:
   link-cloud-calculator: https://cloud.yandex.com/prices#calculator
   link-yandex-connect: https://connect.yandex.com
   link-passport-login: https://passport.yandex.com/auth
-  link-cloud-oauth: https://oauth.yandex.com/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb
+  link-cloud-oauth: >-
+    https://oauth.yandex.com/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb
   link-cloud-partners: https://partners.cloud.yandex.ru/
-
-  # Terraform cloud id
   tf-cloud-id: b1gq90dgh25bebiu75o

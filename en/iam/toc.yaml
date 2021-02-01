@@ -1,4 +1,4 @@
-title: "Yandex Identity and Access Management"
+title: Yandex Identity and Access Management
 href: index.yaml
 items:
   - name: Getting started
@@ -114,12 +114,12 @@ items:
       - name: Authentication in the API
         href: api-ref/authentication.md
       - name: gRPC
-        items:
+        items: null
         include:
           repo: docs
           path: en/_api-ref-grpc/iam/api-ref/toc.yaml
       - name: REST
-        items:
+        items: null
         include:
           repo: docs
           path: en/_api-ref/iam/toc.yaml

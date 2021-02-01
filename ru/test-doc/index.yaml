@@ -1,12 +1,9 @@
-# Заголовок и описание на странице
-title: "MDB, он же DBaaS, он же PGaaS"
+title: MDB, он же DBaaS, он же PGaaS
 description:
-  - "<p>Тестовый документ</p>"
-# Мета-информация title, description, keywords и т.п.
+  - <p>Тестовый документ</p>
 meta:
-  title: "test"
+  title: test
 links:
-  - title: "index"
-    description: ""
-    href: "index.md"
-
+  - title: index
+    description: ''
+    href: index.md

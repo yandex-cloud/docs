@@ -1,4 +1,4 @@
-title: "Yandex Virtual Private Cloud"
+title: Yandex Virtual Private Cloud
 href: index.yaml
 items:
   - name: Начало работы
@@ -35,13 +35,13 @@ items:
             href: operations/address-delete.md
       - name: Статическая маршрутизация
         stage: new
-        items: 
+        items:
           - name: Создать статический маршрут
             href: operations/static-route-create.md
           - name: Включить NAT в интернет
             href: operations/enable-nat.md
       - name: Группы безопасности
-        items: 
+        items:
           - name: Создать группу безопасности
             href: operations/security-group-create.md
           - name: Изменить группу безопасности и правила
@@ -93,12 +93,12 @@ items:
       - name: Аутентификация в API
         href: api-ref/authentication.md
       - name: REST
-        items:
+        items: null
         include:
           repo: docs
           path: ru/_api-ref/vpc/toc.yaml
       - name: gRPC
-        items:
+        items: null
         include:
           repo: docs
           path: ru/_api-ref-grpc/vpc/api-ref/toc.yaml
