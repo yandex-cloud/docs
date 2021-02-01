@@ -1,0 +1,51 @@
+title: "Yandex Cloud organization"
+stage: tech-preview
+href: index.yaml
+items:
+- name: Начало работы
+  href: quick-start.md
+#- name: Переезд из Яндекс.Коннекта
+#  href: migration.md
+#- name: Подключение сервисов
+#  href: services.md
+#  items:
+#    - name: Трекер
+#      href: tracker-settings.md
+#      items:
+#        - name: Тарифы Трекера
+#          href: pricing.md
+#    - name: Оплата
+#      href: billing.md
+- name: Управление организациями
+  items:
+    - name: Создать организацию
+      href: enable-org.md
+    - name: Изменить данные организации
+      href: org-profile.md
+#    - name: Добавить или удалить администратора
+#      href: administrators.md
+#    - name: Изменить владельца организации
+#      href: edit-owner.md
+    - name: Переключиться на другую организацию
+      href: manage-organizations.md
+#    - name: Удалить организацию
+#      href: delete-organisation.md
+- name: Управление пользователями
+  items:
+    - name: Обзор
+      href: manage-users.md
+    - name: Добавить пользователей Яндекса
+      href: add-account.md
+    - name: Настроить федерацию удостоверений
+      href: add-federation.md
+    - name: Изменить или удалить аккаунт пользователя
+      href: edit-account.md
+#    - name: Карточка сотрудника
+#      href: personal.md
+#    - name: Отделы
+#      href: manage-departments.md
+#    - name: Команды
+#      href: teams.md
+
+#- name: API Yandex Cloud Organization
+#  href: org-api.md
