@@ -1,13 +1,13 @@
 # Triggers for {{ cloud-logs-name }}
 
-[Triggers](index.md) for {{ cloud-logs-name }} run a function when certain [log group](../../../functions/concepts/log-group.md) receives message. The trigger must be in the same folder as the log groups it's subscribed to.
+A trigger for {{ cloud-logs-name }} runs a function when messages are received in a [log group](../../../functions/concepts/log-group.md). The trigger must be in the same folder as the log groups it is subscribed to.
 
 A trigger for {{ cloud-logs-name }} needs a [service account](../../../iam/concepts/users/service-accounts.md) to invoke the function.
 
 ## Batching {#batching}
 
 Batching can be used to send several messages to the function simultaneously. Batch options set an upper limit for message group size and accumulation time.
-For example if you set the batch size as 3, function could receive message groups of size from 1 to 3.
+For example, if you set the batch size as 3, function could receive message groups of size from 1 to 3.
 
 ## Roles required for the proper operation of a trigger for {{ cloud-logs-name }} {#roles}
 
@@ -52,3 +52,5 @@ After the trigger is activated, it sends the following message to the function:
     }
   ]
 }
+
+

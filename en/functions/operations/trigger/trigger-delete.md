@@ -1,12 +1,17 @@
 # Deleting a trigger
 
-{% include [triggers-preview](../../../_includes/functions/triggers-preview-stage.md) %}
-
 {% include [trigger-list-note](../../../_includes/functions/trigger-list-note.md) %}
 
 ## Deleting a trigger
 
 {% list tabs %}
+
+- Management console
+    1. In the [management console]({{ link-console-main }}), go to the folder where the trigger is located.
+    1. Open **{{ sf-name }}**.
+    1. Go to the **Triggers** tab.
+    1. Select the trigger you want to delete.
+    1. In the upper-right corner of the page, click **Delete**.
 
 - CLI
 
@@ -17,7 +22,7 @@
     Delete the trigger:
 
     ```
-    $ yc serverless trigger delete <trigger name>
+    yc serverless trigger delete <trigger name>
     ```
 
     Result:
@@ -41,6 +46,10 @@
           service_account_id: bfbqqeo6jkpls2tse5o6
     status: PAUSED
     ```
+
+- API
+
+  You can delete a trigger using the [delete](../../triggers/api-ref/Trigger/delete.md) API method.
 
 {% endlist %}
 

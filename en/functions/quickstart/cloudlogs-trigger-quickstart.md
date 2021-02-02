@@ -1,15 +1,5 @@
 # Creating a trigger for {{ cloud-logs-full-name }}
 
-{% include [triggers-preview](../../_includes/functions/triggers-preview-stage.md) %}
-
-Create a [trigger for {{ cloud-logs-name }}](../concepts/trigger/cloudlogs-trigger.md) that will run your function when messages are received in a [log group](../../functions/concepts/log-group.md).
-
-{% include [before-begin](../../_includes/functions/os-timer-before-begin.md) %}
-
-## Create a trigger {#trigger-create}
-
-{% include [trigger-time](../../_includes/functions/trigger-time.md) %}
-
 {% include [cloudlogs-create-ui](../../_includes/functions/cloudlogs-trigger-create.md) %}
 
 ## What's next {#what-is-next}
