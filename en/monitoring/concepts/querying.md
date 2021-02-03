@@ -434,7 +434,7 @@ Truncates the real part of the point value.
 
 **alias**(*source: timeseries_vector*, *arg1: string*): *timeseries_vector*
 
-Renames metrics. As an argument, you can use [mustache templates](https://mustache.github.io/) in the `{{label}}` format to substitute the label value in the new metric name.
+Renames metrics. As an argument, you can use [mustache templates](https://mustache.github.io/) in the `not_var{{label}}` format to substitute the label value in the new metric name.
 
 #### drop_empty_series
 

@@ -397,7 +397,7 @@ SELECT * FROM episodes;
   func selectSimple(ctx context.Context, sp *table.SessionPool, prefix string) (err error) {
   	query := render(
   		template.Must(template.New("").Parse(`
-  			PRAGMA TablePathPrefix("{{ .TablePathPrefix }}");
+  			PRAGMA TablePathPrefix("not_var{{ .TablePathPrefix }}");
   			DECLARE $seriesID AS Uint64;
   			$format = DateTime::Format("%Y-%m-%d");
   			SELECT
