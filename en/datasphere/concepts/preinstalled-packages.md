@@ -1,6 +1,6 @@
-# List of pre-installed software and available commands
+# List of pre-installed software
 
-{{ ml-platform-short-name }} already has pre-installed packages for data analysis and machine learning. If you are missing a package, you can [install it](../operations/projects/install-dependencies.md) right from the notebook cell.
+Packages for data analysis and machine learning are pre-installed in {{ ml-platform-short-name }}. If you are missing a package, you can [install it](../operations/projects/install-dependencies.md) right from the notebook cell.
 
 ## List of pre-installed packages {#preinstalled-packages}
 
@@ -50,15 +50,54 @@
 
 ## Package versions {#versions}
 
-To view the version of the installed package, in the notebook cell run the command:
+To view the version of the installed package, in the notebook cell, run the command:
+
 ```js
 %pip show <Package name>
 ```
 
-To view the list of installed packages and their versions, in the notebook cell run the command:
+To view the list of installed packages and their versions, in the notebook cell, run the command:
+
 ```js
 %pip list
 ```
+
+## Updating {#update}
+
+You can both upgrade any pre-installed package to a later version or roll it back to an earlier version.
+Upgraded versions are preserved when you change environments or restart your project.
+
+To upgrade a library to the latest version, run the following command in the notebook cell:
+
+```js
+%pip install <library name> - U
+```
+
+For example, to upgrade TensorFlow to its latest version, run the command:
+
+```js
+%pip install tensorflow -U
+```
+
+To upgrade a library to a specific version, run the following command in the notebook cell:
+
+```js
+%pip install <library name>==<version>
+```
+
+For example:
+
+```js
+%pip install tensorflow==2.3.1
+```
+
+Note that TensorFlow version 1.15 is still installed by default.
+
+{% note warning %}
+
+Updating a pre-installed library may introduce new data types that are not supported in {{ ml-platform-short-name }} and not versioned. You'll see a warning when you run cells with such types. In this case, please notify technical support about the libraries upgraded and non-supported data types. To be sure that versioning works correctly, roll back the library version.
+
+{% endnote %}
 
 #### See also {#see-also}
 
