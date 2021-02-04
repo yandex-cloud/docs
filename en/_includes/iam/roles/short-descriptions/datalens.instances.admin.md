@@ -1,0 +1,1 @@
+[`datalens.instances.admin`](../../../../iam/concepts/access-control/roles.md#datalens-instances-admin): Provides access to {{ datalens-name }}. This role doesn't let you perform operations with other {{ yandex-cloud }} resources.

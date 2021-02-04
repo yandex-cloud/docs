@@ -1,1 +1,1 @@
-`{{ roles-lockbox-editor }}`: Lets you manage a secret and change its content.
+`{{ roles-lockbox-editor }}`: Lets you manage a secret and change its contents.

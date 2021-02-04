@@ -1,1 +1,1 @@
-`{{ roles-lockbox-payloadviewer }}`: Designed for service accounts and lets you get access to the content of the secret.
+`{{ roles-lockbox-payloadviewer }}`: The role designed for service accounts that lets you access the contents of the secret.
