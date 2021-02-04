@@ -4,10 +4,10 @@ Using these instructions, you'll create and test different types of extensions: 
 
 ## Before you start {#before-you-begin}
 
-To start working with Yandex.Cloud:
+To get started in {{ yandex-cloud }}:
 
 1. Log in to [management console]({{ link-console-main }}). If you aren't registered, go to the management console and follow the instructions.
-1. [On the billing page]({{ link-console-billing }}) make sure that you enabled a [billing account](../../billing/concepts/billing-account.md), and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you don't have a billing account, [create one](../../billing/quickstart/index.md#create_billing_account).
+1. [On the billing page]({{ link-console-billing }}) make sure that you enabled a [billing account](../../billing/concepts/billing-account.md) and that it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you don't have a billing account, [create one](../../billing/quickstart/index.md#create_billing_account).
 1. If you don't have a folder, [create one](../../resource-manager/operations/folder/create.md).
 
 ## Create an API gateway {#create-api-gw}
@@ -21,15 +21,10 @@ Create an API gateway and access it.
     To create an API gateway:
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create an API gateway.
-
     1. In the list of services, select **{{ api-gw-name }}**.
-
     1. Click **Create API gateway**.
-
     1. In the **Name** field, enter `numbers`.
-
     1. (optional) In the **Description** field, enter a description.
-
     1. In the **Specification** section, add a specification:
 
         ```
@@ -67,11 +62,8 @@ Create an API gateway and access it.
         ```
 
     1. Click **Create**.
-
     1. Access the API gateway.
-
         1. In the window that opens, click on the created API gateway.
-
         1. Copy the **Domain** field value and create a link like: `https://<domain>/hello?user=API`. The resulting link should look like this:
 
             ```
@@ -87,7 +79,7 @@ Create an API gateway and access it.
 
 {% endlist %}
 
-## Add an integration with a function {#functions}
+## Add an integration with the function {#functions}
 
 ### Create a function {#function}
 
@@ -98,25 +90,22 @@ Create a function to get a list of numbers. Read more about functions in the doc
 - Management console
 
     To create a function:
+    
     1. Create a function:
         1. In [management console]({{ link-console-main }}), select the folder where you want to create your function.
         1. Click **Create resource**.
         1. Choose **Function**.
         1. In the **Name** field, specify `list`.
         1. Click **Create**.
+        1. [Make](../../functions/operations/function-public.md#public) the function public.
     1. Create the function version:
         1. In the window that opens, select the function you created.
-
         1. Under **Latest version**, click **Create in editor**.
-
         1. In the window that opens, in the **Runtime environment** field, choose `nodejs12`.
-
         1. In the **Method** field, select the code editor.
-
         1. Click **Create file** in the editor below.
             1. In the window that opens, enter the `index.js` file name.
             1. Click **Create**.
-
         1. Paste the following code in the `index.js` file:
 
             ```
@@ -129,8 +118,7 @@ Create a function to get a list of numbers. Read more about functions in the doc
             };
             ```
 
-        1. In the **Entry point** field, specify `index.handler`.
-
+        1. In the **Entry point** field, enter `index.handler`.
         1. Click **Create version**.
 
 {% endlist %}
@@ -146,16 +134,15 @@ Add function information to the API gateway specification.
     To update an API gateway specification:
 
     1. In the [management console]({{ link-console-main }}), select the folder to update the API gateway in.
-
     1. In the window that opens, select the API gateway and click ![image](../../_assets/options.svg).
-
     1. In the menu that opens, click **Edit**.
+    1. Under **Specification**, add an extended version of the specification.
 
-    1. Under **Specification**, add an extended version of the specification
-
-        Added the `/numbers` method which uses the `x-yc-apigateway-integration` extension like `cloud_functions` to invoke a function by ID.
+        Added the `/numbers` method that uses the `x-yc-apigateway-integration` extension of the `cloud-functions` type to invoke a function by ID.
 
         To ensure that the API gateway works properly, in the `function_id` parameter, specify the ID of the function to invoke.
+
+        To let the API gateway access a private function, in the parameter `service_account_id` specify a service account that has the rights to invoke the function.
 
         ```
         openapi: "3.0.0"
@@ -205,16 +192,23 @@ Add function information to the API gateway specification.
               x-yc-apigateway-integration:
                 type: cloud_functions
                 function_id: <function ID>
+                service_account_id: <service account ID>
         ```
 
 {% endlist %}
 
 ### Access the function via the API gateway {#api-gw}
 
+{% note info %}
+
+To let the API gateway access the function, [make](../../functions/operations/function-public.md#public) it public or [add](../concepts/extensions/cloud-functions.md) to the specification a service account that has the rights to invoke the function.
+
+{% endnote %}
+
 Access the API gateway:
 
-```
-curl https://falrnjna8r5vj88ero6a.apigw.yandexcloud.net/user_ids
+```bash
+curl https://falrnjna8r5vj88ero6a.apigw.yandexcloud.net/numbers
 [0, 1, 2]
 ```
 
@@ -222,4 +216,3 @@ curl https://falrnjna8r5vj88ero6a.apigw.yandexcloud.net/user_ids
 
 * [Concepts for using the service](../concepts/index.md).
 * [Step-by-step instructions for managing API gateways](../operations/index.md).
-

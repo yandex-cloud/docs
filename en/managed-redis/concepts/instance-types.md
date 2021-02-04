@@ -59,4 +59,3 @@ Configuration types:
 | hm2.448xlarge | 28 | 448 | 100% | 896 - 2048 |
 | hm2.512xlarge | 32 | 512 | 100% | 1024 - 2048 |
 
-

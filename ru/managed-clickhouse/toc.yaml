@@ -277,3 +277,4 @@ items:
         href: qa/clickhouse.md
       - name: Все вопросы на одной странице
         href: qa/all.md
+base: ru/managed-clickhouse

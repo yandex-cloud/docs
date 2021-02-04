@@ -19,7 +19,7 @@ You can add and remove users, as well as manage their individual settings.
   To get a list of cluster users, run the command:
 
   ```
-  $ yc managed-mysql user list
+  $ {{ yc-mdb-my }} user list
        --cluster-name=<cluster name>
   ```
 
@@ -55,7 +55,7 @@ Assign roles to users via the management console or API. Roles assigned by the `
   To create a user in a cluster, run the command:
 
   ```
-  $ yc managed-mysql user create <username>
+  $ {{ yc-mdb-my }} user create <username>
        --cluster-name=<cluster name>
        --password=<user password>
        --permissions=<list of DBs the user will get access to>
@@ -91,7 +91,7 @@ For the user, you can change:
   To change the user's password or the list of databases available to the user, run:
 
   ```
-  $ yc managed-mysql user update <username>
+  $ {{ yc-mdb-my }} user update <username>
        --cluster-name=<cluster name>
        --password=<user password>
        --permissions=<list of DBs the user can access>
@@ -119,7 +119,7 @@ For the user, you can change:
   To remove a user, run:
 
   ```
-  $ yc managed-mysql user delete <username>
+  $ {{ yc-mdb-my }} user delete <username>
        --cluster-name=<cluster name>
   ```
 

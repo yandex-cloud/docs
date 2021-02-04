@@ -23,7 +23,7 @@
   1. Посмотрите описание команды CLI для создания группы виртуальных машин:
 
       ```
-      yc compute instance-group create --help
+      {{ yc-compute-ig }} create --help
       ```
 
   1. Проверьте, есть ли в каталоге сети:
@@ -152,7 +152,7 @@
   1. Создайте группу виртуальных машин в каталоге по умолчанию:
 
       ```
-      yc compute instance-group create --file specification.yaml
+      {{ yc-compute-ig }} create --file specification.yaml
       ```
 
       Данная команда создаст группу из трех однотипных виртуальных машин со следующими характеристиками:

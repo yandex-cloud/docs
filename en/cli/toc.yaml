@@ -69,3 +69,4 @@ items:
             href: command-tree/manage-services/managed-mongodb.md
           - name: yc managed-postgresql
             href: command-tree/manage-services/managed-postgresql.md
+base: en/cli

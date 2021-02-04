@@ -16,7 +16,6 @@
 
 {% endnote %}
 
-
 {% list tabs %}
 
 - Консоль управления
@@ -52,7 +51,7 @@
 
   Чтобы создать кластер:
 
-    1. Проверьте, есть ли в каталоге подсети для хостов кластера:
+  1. Проверьте, есть ли в каталоге подсети для хостов кластера:
 
      ```
      $ yc vpc subnet list
@@ -60,19 +59,17 @@
 
      Если ни одной подсети в каталоге нет, [создайте нужные подсети](../../vpc/operations/subnet-create.md) в сервисе {{ vpc-short-name }}.
 
- 
-
   1. Посмотрите описание команды CLI для создания кластера:
 
       ```
-      $ yc managed-mongodb cluster create --help
+      $ {{ yc-mdb-mg }} cluster create --help
       ```
 
   1. Укажите параметры кластера в команде создания (в примере приведены только обязательные флаги):
 
-      
+
       ```
-      $ yc managed-mongodb cluster create \
+      $ {{ yc-mdb-mg }} cluster create \
          --name <имя кластера> \
          --environment=<окружение, prestable или production> \
          --network-name <имя сети> \
@@ -85,8 +82,6 @@
       ```
 
       Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.
-
-     
 
 - Terraform
 
@@ -161,7 +156,7 @@
 
 ## Примеры {#examples}
 
-### Создание кластера с одним хостом {#Creating-single-host-cluster}
+### Создание кластера с одним хостом {#creating-a-single-host-cluster}
 
 {% list tabs %}
 
@@ -171,7 +166,7 @@
 
   Допустим, нужно создать {{ MG }}-кластер со следующими характеристиками:
 
-  
+
   - С именем `mymg`.
   - В окружении `production`.
   - В сети `{{ network-name }}`.
@@ -180,25 +175,21 @@
   - С одним пользователем, `user1`, с паролем `user1user1`.
   - С одной базой данных, `db1`.
 
- 
-
   Запустите следующую команду:
 
-  
+
   ```
-  $ yc managed-mongodb cluster create \
+  $ {{ yc-mdb-mg }} cluster create \
        --name mymg \
        --environment production \
-       --network-name default \
-       --mongod-resource-preset s2.micro \
-       --host zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch64 \
+       --network-name {{ network-name }} \
+       --mongod-resource-preset {{ host-class }} \
+       --host zone-id={{ zone-id }},subnet-id=b0rcctk2rvtr8efcch64 \
        --mongod-disk-size 20 \
-       --mongod-disk-type network-ssd \
+       --mongod-disk-type {{ disk-type-example }} \
        --user name=user1,password=user1user1 \
        --database name=db1
   ```
-
- 
 
 - Terraform
 
@@ -219,9 +210,9 @@
   ```
   provider "yandex" {
     token     = "<OAuth или статический ключ сервисного аккаунта>"
-    cloud_id  = "b1gq90dgh25bebiu75o"
+    cloud_id  = "{{ tf-cloud-id }}"
     folder_id = "${data.yandex_resourcemanager_folder.myfolder.id}"
-    zone      = "ru-central1-c"
+    zone      = "{{ zone-id }}"
   }
 
   resource "yandex_mdb_mongodb_cluster" "mymg" {
@@ -246,13 +237,13 @@
     }
 
     resources {
-      resource_preset_id = "s2.micro"
-      disk_type_id       = "network-ssd"    
+      resource_preset_id = "{{ host-class }}"
+      disk_type_id       = "{{ disk-type-example }}"    
       disk_size          = 20
     }
 
     host {
-      zone_id   = "ru-central1-c"
+      zone_id   = "{{ zone-id }}"
       subnet_id = "${yandex_vpc_subnet.mysubnet.id}"
     }
   }
@@ -261,7 +252,7 @@
 
   resource "yandex_vpc_subnet" "mysubnet" {
     name           = "mysubnet"
-    zone           = "ru-central1-c"
+    zone           = "{{ zone-id }}"
     network_id     = "${yandex_vpc_network.mynet.id}"
     v4_cidr_blocks = ["10.5.0.0/24"]
   }

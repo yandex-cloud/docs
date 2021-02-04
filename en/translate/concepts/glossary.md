@@ -20,6 +20,7 @@ This currently works for the following language pairs:
 
 * Only add words and phrases to the glossary that have a single translation. The bigger the glossary, the greater the risk that the text may contain a word from the glossary with a different meaning.
 * Glossaries are good for translating names, such as brands and products.
+* Use glossaries taking into account the limits described in [Quotas and limits](../../translate/concepts/limits#translate-limits).
 
 ## Restrictions in the current version {#restrictions-in-the-current-version}
 

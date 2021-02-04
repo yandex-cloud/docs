@@ -1,6 +1,7 @@
 # Backups
 
 Data in {{ sf-name }} is stored securely and replicated within the {{ yandex-cloud }} infrastructure. You can get:
+
 * [Lists of functions](#function-list).
 * [Lists of function versions](#version-list).
 * [Information about function versions](#version-get).
@@ -32,3 +33,4 @@ There is no backup of function code. We recommend saving it on your own.
 ## Getting information about a trigger {#trigger-get}
 
 {% include [version-list](../../_includes/functions/trigger-get.md) %}
+

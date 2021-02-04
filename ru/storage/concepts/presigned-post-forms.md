@@ -37,7 +37,7 @@
     </head>
     <body>
         ...
-        <form action="https://storage.yandexcloud.net/{bucket-name}" method="post" enctype="multipart/form-data">
+        <form action="https://{{ s3-storage-host }}/{bucket-name}" method="post" enctype="multipart/form-data">
             ...
             <input .../>
             ...
@@ -78,7 +78,7 @@ HTML-форма описывается тегом `<form>` и состоит и�
 - AWS Signature V4
 
      ```html
-     <form action="https://storage.yandexcloud.net/{bucket-name}" method="post" enctype="multipart/form-data">
+     <form action="https://{{ s3-storage-host }}/{bucket-name}" method="post" enctype="multipart/form-data">
         Ключ в хранилище:
         <input type="input" name="key" value="object_key" /><br />
         <!-- Свойства запроса -->
@@ -100,7 +100,7 @@ HTML-форма описывается тегом `<form>` и состоит и�
 - AWS Signature V2
 
   ```html
-   <form action="https://storage.yandexcloud.net/{bucket-name}" method="post" enctype="multipart/form-data">
+   <form action="https://{{ s3-storage-host }}/{bucket-name}" method="post" enctype="multipart/form-data">
         Ключ в хранилище:
         <input type="input" name="key" value="object_key" />
         <!-- Свойства запроса -->

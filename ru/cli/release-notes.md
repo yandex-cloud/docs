@@ -1,8 +1,51 @@
 # Релизы YC CLI
 
-## Версия 0.70.0 (22.12.20) {#latest-release}
+## Версия 0.71.0 (03.02.21) {#latest-release}
 
-### Изменения в CLI {#cli}
+### Изменения в сервисах {{ yandex-cloud }}
+
+#### {{ managed-k8s-name }} {#k8s}
+
+* Команда `yc managed-kubernetes node-group create`. 
+
+    Добавлен флаг `--placement-group` позволяющий указать `placement policy group` для группы узлов при создании.
+
+#### Сервисы управляемых баз данных {#managed-db}
+
+**{{ mpg-name }}**
+
+* Команды `yc managed-postgresql cluster create`, `yc managed-postgresql cluster update` и `yc managed-postgresql cluster restore`.
+
+  Для флага `--postgresql-version string` добавлено значение `13` для создания кластера {{ PG }} версии 13.
+
+**{{ mmy-name }}**
+
+* Команда `yc managed-mysql cluster update`.
+
+  Добавлен флаг `--mysql-version`, позволяющий обновить версию MySQL-сервера.
+
+**{{ mes-name }}**
+
+* Добавлены команды `yc managed-elasticsearch hosts create` и `yc managed-elasticsearch hosts delete` для добавления и удаления хостов.
+
+**{{ mms-name }}**
+
+Добавлена первичная поддержка сервиса {{ mms-name }}: 
+* Команды группы `yc managed-sqlserver cluster` позволяют управлять кластерами. 
+* Команды группы `yc managed-sqlserver database` позволяют управлять базами данных. 
+* Команды группы `yc managed-sqlserver user` позволяют управлять пользователями.
+
+**{{ mch-name }}**
+
+* Команды `yc managed-clickhouse host add` и `yc managed-clickhouse shards add`.
+
+    Добавлен флаг `--copy-schema`, который позволяет скопировать схему с других хостов {{ CH }}.
+
+## Предыдущие релизы {#previous-releases} 
+
+### Версия 0.70.0 (22.12.20) {#version0.70.0}
+
+#### Изменения в CLI {#cli}
 
 **Улучшено**
 
@@ -10,7 +53,7 @@
 
   Добавлен флаг `--disable`, позволяющий отключить интеграцию с Docker Credential Helper.
 
-### Изменения в сервисах {{ yandex-cloud }}
+#### Изменения в сервисах {{ yandex-cloud }}
 
 #### {{ iam-name }} {#iam}
 
@@ -42,17 +85,16 @@
 * Команды группы `yc managed-elasticsearch cluster` позволяют управлять кластерами.
 * Команды группы `yc managed-elasticsearch user` позволяют управлять пользователями.
 
-## Предыдущие релизы {#previous-releases}
 
 ### Версия 0.69.0 (02.12.20) {#version0.69.0}
 
 #### Изменения в сервисах {{ yandex-cloud }}
 
-##### {{ managed-k8s-name }} {#k8s}
+#### {{ managed-k8s-name }} {#k8s}
 
 * Исправлен парсинг флага `ipv6-address` для сетевой спецификации групп узлов.
 
-##### Сервисы управляемых баз данных {#managed-db}
+#### Сервисы управляемых баз данных {#managed-db}
 
 **{{ mkf-name }}**
 
@@ -291,7 +333,7 @@
 
 * Команды `yc compute instance create-with-container` и `yc compute instance update-container`.
 
-   Добавлен флаг `--coi-spec-file` для передачи [спецификации образа](https://cloud.yandex.ru/docs/cos/concepts/#spec-example).
+   Добавлен флаг `--coi-spec-file` для передачи [спецификации образа](../cos/concepts/index.md#coi-spec-example).
 
 ##### {{ vpc-name }} {#vpc}
 

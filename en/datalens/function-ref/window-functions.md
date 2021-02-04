@@ -11,7 +11,7 @@ Aggregate functions are calculated from groups of values that are determined by 
 1. Window functions can take as arguments only dimensions or aggregations (or more complex expressions composed of both). At least one of the arguments must be an aggregate expression.
 
     Examples:
-    - Valid: `RANK(MAX([Profit]) TOTAL)`
+    - Valid: `RANK(MAX([Profit]) TOTAL)`.
     - Not valid: `MAX(RANK([Profit] TOTAL))`.
     - Not valid: `RANK([Profit] TOTAL)`, where `[Profit]` is not an aggregate expression.
 
@@ -52,13 +52,13 @@ The grouping clause is optional. `TOTAL` is used by default.
 
 After the grouping comes the ordering clause. It is only supported for order-dependent functions:
 
-| `M*`                | `R*`                |
-|:--------------------|:--------------------|
-| [MAVG](MAVG.md)     | [RAVG](RAVG.md)     |
-| [MCOUNT](MCOUNT.md) | [RCOUNT](RCOUNT.md) |
-| [MMAX](MMAX.md)     | [RMAX](RMAX.md)     |
-| [MMIN](MMIN.md)     | [RMIN](RMIN.md)     |
-| [MSUM](MSUM.md)     | [RSUM](RSUM.md)     |
+| `M*`                | `R*`                | Positional functions   |
+|:--------------------|:--------------------|:-----------------------|
+| [MAVG](MAVG.md)     | [RAVG](RAVG.md)     | [LAG](LAG.md)          |
+| [MCOUNT](MCOUNT.md) | [RCOUNT](RCOUNT.md) |                        |
+| [MMAX](MMAX.md)     | [RMAX](RMAX.md)     |                        |
+| [MMIN](MMIN.md)     | [RMIN](RMIN.md)     |                        |
+| [MSUM](MSUM.md)     | [RSUM](RSUM.md)     |                        |
 
 The ordering clause is optional for these functions.
 
@@ -78,7 +78,7 @@ If any fields are listed in `BEFORE FILTER BY`, then this window function is cal
 
 `BEFORE FILTER BY` applies to all nested window functions too.
 Example:
-- Formula — `MAVG(RSUM([Sales] BEFORE FILTER BY [Date]), 10)'
+- Formula — `MAVG(RSUM([Sales] BEFORE FILTER BY [Date]), 10)`.
 - Equivalent — `MAVG(RSUM([Sales] BEFORE FILTER BY [Date]), 10 BEFORE FILTER BY [Date])`.
 
 Do not use conflicting `BEFORE FILTER BY` clauses:
@@ -137,6 +137,22 @@ Returns the number of items in the specified window.
 **Syntax:**`COUNT_IF( expression, condition [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )`
 
 Returns the number of items in the specified window meeting the `expression` condition.
+
+
+
+## [LAG](LAG.md)
+
+**Syntax:**`LAG( value [ , offset [ , default ] ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )`
+
+Returns `value` re-evaluated against the row that is offset from the current row by `offset` within the specified window:
+- Positive `offset` seeks among preceding rows.
+- Negative `offset` seeks among following rows.
+
+By default `offset` is `1`.
+
+If there is no available value (`offset` reaches before the first row or after the last one), then `default` is returned. If `default` is not specified, then `NULL` is used.
+
+See also [AGO](AGO.md) for a non-window function alternative.
 
 
 

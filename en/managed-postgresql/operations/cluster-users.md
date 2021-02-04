@@ -19,7 +19,7 @@ You can add and remove users, as well as manage their individual settings.
   To get a list of cluster users, run the command:
 
   ```
-  $ yc managed-postgresql user list
+  $ {{ yc-mdb-pg }} user list
        --cluster-name=<cluster name>
   ```
 
@@ -53,7 +53,7 @@ You can add and remove users, as well as manage their individual settings.
   To create a user in a cluster, run the command:
 
   ```
-  $ yc managed-postgresql user create <username>
+  $ {{ yc-mdb-pg }} user create <username>
        --cluster-name=<cluster name>
        --password=<DB user password>
        --permissions=<list of DBs the user can access>
@@ -95,7 +95,7 @@ When created, the user only gets the `CONNECT` privilege for the selected databa
   To change the user's password, run the command:
 
   ```
-  $ yc managed-postgresql user update <update>
+  $ {{ yc-mdb-pg }} user update <update>
        --cluster-name=<cluster name>
        --password=<new password>
   ```
@@ -142,7 +142,7 @@ For information on setting up user privileges and roles, see [{#T}](grant.md).
   1. To set up the user's access rights to certain databases, run the following command, listing the database names in the `--permissions` parameter:
 
      ```
-     $ yc managed-postgresql user update <update>
+     $ {{ yc-mdb-pg }} user update <update>
           --cluster-name=<cluster name>
           --permissions=<list of DBs the user can access>
      ```
@@ -156,7 +156,7 @@ For information on setting up user privileges and roles, see [{#T}](grant.md).
   1. To change the [{{ PG }} settings](#dbms-settings) for the user, pass their parameters in the command:
 
      ```
-     $ yc managed-postgresql user update <update>
+     $ {{ yc-mdb-pg }} user update <update>
           --cluster-name=<cluster name>
           --<setting 1>=<value 1>
           --<setting 2>=<value 2>
@@ -186,7 +186,7 @@ For information on setting up user privileges and roles, see [{#T}](grant.md).
   To remove a user, run:
 
   ```
-  $ yc managed-postgresql user delete <username>
+  $ {{ yc-mdb-pg }} user delete <username>
        --cluster-name <cluster name>
   ```
 

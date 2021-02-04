@@ -45,7 +45,6 @@
    mkdir -p ~/.clickhouse-client && wget "https://storage.yandexcloud.net/mdb/clickhouse-client.conf.example" -O ~/.clickhouse-client/config.xml
    ```
 
-
 ## Создайте кластер {#cluster-create}
 
 1. В консоли управления выберите каталог, в котором нужно создать кластер БД.
@@ -58,7 +57,7 @@
 
 1. Для подключения к серверу БД получите SSL-сертификат:
 
-        
+    
     1. Создайте каталог:
 
         ```bash
@@ -68,7 +67,7 @@
     1. Получите сертификат:
         
         ```bash
-        $ wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" -O ~/.clickhouse/root.crt
+        $ wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.clickhouse/root.crt
         ```
 
     1. Настройте права доступа к сертификату:
@@ -76,8 +75,6 @@
         ```bash
         $ chmod 0600 ~/.clickhouse/root.crt
         ```
-
-   
 
 1. Используйте для подключения ClickHouse CLI:
 

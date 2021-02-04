@@ -3,7 +3,6 @@
 
 In {{ yandex-cloud }}, you can only connect to a DB cluster from a VM that is in the same subnet as the cluster.
 
-
 A {{ CH }} cluster can be accessed using the [command-line client](https://clickhouse.yandex/docs/en/interfaces/cli/) (port 9440) or [HTTP interface](https://clickhouse.yandex/docs/en/interfaces/http_interface/) (port 8443). All connections to DB clusters are encrypted.
 
 ## Getting an SSL certificate {#get-ssl-cert}
@@ -13,10 +12,9 @@ To use an encrypted connection, you should prepare an SSL certificate, for examp
 
 ```bash
 sudo mkdir -p /usr/local/share/ca-certificates/Yandex && \
-sudo wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" -O /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt && \
+sudo wget "https://{{ s3-storage-host }}{{ pem-path }}" -O /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt && \
 sudo chmod 655 /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt
 ```
-
 
 ## Sample connection strings {#connection-string}
 

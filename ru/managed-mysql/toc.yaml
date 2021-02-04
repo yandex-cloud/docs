@@ -189,3 +189,4 @@ items:
         href: qa/mysql.md
       - name: Все вопросы на одной странице
         href: qa/all.md
+base: ru/managed-mysql

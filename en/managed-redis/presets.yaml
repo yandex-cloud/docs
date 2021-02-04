@@ -1,37 +1,37 @@
 default:
-  b1-nano: 'b1.nano (2 vCPU × 5%, 2 GB)'
-  b1-small: 'b1.small (2 vCPU × 50%, 4 GB)'
-  hm1-nano: 'hm1.nano (2 vCPU, 8 GB)'
-  hm1-micro: 'hm1.micro (2 vCPU, 12 GB)'
-  hm1-small: 'hm1.small (2 vCPU, 16 GB)'
-  hm1-medium: 'hm1.medium (4 vCPU, 24 GB)'
-  hm1-large: 'hm1.large (4 vCPU, 32 GB)'
-  hm1-xlarge: 'hm1.xlarge (4 vCPU, 48 GB)'
-  hm1-2xlarge: 'hm1.2xlarge (4 vCPU, 64 GB)'
-  hm1-3xlarge: 'hm1.3xlarge (4 vCPU, 80 GB)'
-  hm1-4xlarge: 'hm1.4xlarge (8 vCPU, 96 GB)'
-  hm1-5xlarge: 'hm1.5xlarge (8 vCPU, 128 GB)'
-  hm1-6xlarge: 'hm1.6xlarge (8 vCPU, 160 GB)'
-  hm1-7xlarge: 'hm1.7xlarge (8 vCPU, 192 GB)'
-  hm1-8xlarge: 'hm1.8xlarge (8 vCPU, 224 GB)'
-  hm1-9xlarge: 'hm1.9xlarge (8 vCPU, 256 GB)'
-  b2-nano: 'b2.nano (2 vCPU × 5%, 2 GB)'
-  b2-medium: 'b2.medium (2 vCPU × 50%, 4 GB)'
-  hm2-nano: 'hm2.nano (2 vCPU, 8 GB)'
-  hm2-micro: 'hm2.micro (2 vCPU, 12 GB)'
-  hm2-small: 'hm2.small (4 vCPU, 16 GB)'
-  hm2-medium: 'hm2.medium (4 vCPU, 24 GB)'
-  hm2-large: 'hm2.large (4 vCPU, 32 GB)'
-  hm2-xlarge: 'hm2.xlarge (4 vCPU, 48 GB)'
-  hm2-60xlarge: 'hm2.60xlarge (6 vCPU, 60 GB)'
-  hm2-78xlarge: 'hm2.78xlarge (6 vCPU, 78 GB)'
-  hm2-96xlarge: 'hm2.96xlarge (6 vCPU, 96 GB)'
-  hm2-128xlarge: 'hm2.128xlarge (8 vCPU, 128 GB)'
-  hm2-160xlarge: 'hm2.160xlarge (10 vCPU, 160 GB)'
-  hm2-192xlarge: 'hm2.192xlarge (12 vCPU, 192 GB)'
-  hm2-224xlarge: 'hm2.224xlarge (14 vCPU, 224 GB)'
-  hm2-256xlarge: 'hm2.256xlarge (16 vCPU, 256 GB)'
-  hm2-320xlarge: 'hm2.320xlarge (20 vCPU, 320 GB)'
-  hm2-384xlarge: 'hm2.384xlarge (24 vCPU, 384 GB)'
-  hm2-448xlarge: 'hm2.448xlarge (28 vCPU, 448 GB)'
-  hm2-512xlarge: 'hm2.512xlarge (32 vCPU, 512 GB)'
+  b1-nano: b1.nano (2 vCPU × 5%, 2 GB)
+  b1-small: b1.small (2 vCPU × 50%, 4 GB)
+  hm1-nano: hm1.nano (2 vCPU, 8 GB)
+  hm1-micro: hm1.micro (2 vCPU, 12 GB)
+  hm1-small: hm1.small (2 vCPU, 16 GB)
+  hm1-medium: hm1.medium (4 vCPU, 24 GB)
+  hm1-large: hm1.large (4 vCPU, 32 GB)
+  hm1-xlarge: hm1.xlarge (4 vCPU, 48 GB)
+  hm1-2xlarge: hm1.2xlarge (4 vCPU, 64 GB)
+  hm1-3xlarge: hm1.3xlarge (4 vCPU, 80 GB)
+  hm1-4xlarge: hm1.4xlarge (8 vCPU, 96 GB)
+  hm1-5xlarge: hm1.5xlarge (8 vCPU, 128 GB)
+  hm1-6xlarge: hm1.6xlarge (8 vCPU, 160 GB)
+  hm1-7xlarge: hm1.7xlarge (8 vCPU, 192 GB)
+  hm1-8xlarge: hm1.8xlarge (8 vCPU, 224 GB)
+  hm1-9xlarge: hm1.9xlarge (8 vCPU, 256 GB)
+  b2-nano: b2.nano (2 vCPU × 5%, 2 GB)
+  b2-medium: b2.medium (2 vCPU × 50%, 4 GB)
+  hm2-nano: hm2.nano (2 vCPU, 8 GB)
+  hm2-micro: hm2.micro (2 vCPU, 12 GB)
+  hm2-small: hm2.small (4 vCPU, 16 GB)
+  hm2-medium: hm2.medium (4 vCPU, 24 GB)
+  hm2-large: hm2.large (4 vCPU, 32 GB)
+  hm2-xlarge: hm2.xlarge (4 vCPU, 48 GB)
+  hm2-60xlarge: hm2.60xlarge (6 vCPU, 60 GB)
+  hm2-78xlarge: hm2.78xlarge (6 vCPU, 78 GB)
+  hm2-96xlarge: hm2.96xlarge (6 vCPU, 96 GB)
+  hm2-128xlarge: hm2.128xlarge (8 vCPU, 128 GB)
+  hm2-160xlarge: hm2.160xlarge (10 vCPU, 160 GB)
+  hm2-192xlarge: hm2.192xlarge (12 vCPU, 192 GB)
+  hm2-224xlarge: hm2.224xlarge (14 vCPU, 224 GB)
+  hm2-256xlarge: hm2.256xlarge (16 vCPU, 256 GB)
+  hm2-320xlarge: hm2.320xlarge (20 vCPU, 320 GB)
+  hm2-384xlarge: hm2.384xlarge (24 vCPU, 384 GB)
+  hm2-448xlarge: hm2.448xlarge (28 vCPU, 448 GB)
+  hm2-512xlarge: hm2.512xlarge (32 vCPU, 512 GB)

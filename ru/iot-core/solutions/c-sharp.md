@@ -122,10 +122,10 @@ IMqttClient mqttClient = factory.CreateMqttClient();
 // Подключение обработчика события о получении данных
 mqttClient.UseApplicationMessageReceivedHandler(DataHandler);
 
-// Подключение обработчика события о соединении с Yandex IoT Core
+// Подключение обработчика события о соединении с {{ iot-full-name }}
 mqttClient.UseConnectedHandler(ConnectedHandler);
 
-// Подключение обработчика события о потери связи с Yandex IoT Core
+// Подключение обработчика события о потери связи с {{ iot-full-name }}
 mqttClient.UseDisconnectedHandler(DisconnectedHandler);
 ```
 

@@ -1,7 +1,5 @@
 # Updating a trigger
 
-{% include [triggers-preview](../../../_includes/functions/triggers-preview-stage.md) %}
-
 You can change the [name](#update-name) and [description](#update-description) of a trigger and [manage trigger labels](#manage-label).
 
 {% include [trigger-list-note](../../../_includes/functions/trigger-list-note.md) %}
@@ -10,14 +8,23 @@ You can change the [name](#update-name) and [description](#update-description) o
 
 {% list tabs %}
 
+- Management console
+    1. In the [management console]({{ link-console-main }}), go to the folder where the trigger is located.
+    1. Open **{{ sf-name }}**.
+    1. Go to the **Triggers** tab.
+    1. Select the trigger you want to update.
+    1. In the upper-right corner of the page, click **Edit**.
+
 - CLI
 
     {% include [cli-install](../../../_includes/cli-install.md) %}
 
-    Change the trigger name:
+    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+    To change the trigger name, run the command:
 
     ```
-    $ yc serverless trigger update <trigger name> --new-name <new trigger name>
+    yc serverless trigger update <trigger name> --new-name <new trigger name>
     ```
 
     Result:
@@ -41,11 +48,22 @@ You can change the [name](#update-name) and [description](#update-description) o
     status: ACTIVE
     ```
 
+- API
+
+    You can change the trigger name using the [update](../../triggers/api-ref/Trigger/update.md) API method.
+
 {% endlist %}
 
 ## Updating the description of a trigger {#update-description}
 
 {% list tabs %}
+
+- Management console
+    1. In the [management console]({{ link-console-main }}), go to the folder where the trigger is located.
+    1. Open **{{ sf-name }}**.
+    1. Go to the **Triggers** tab.
+    1. Select the trigger you want to update.
+    1. In the upper-right corner of the page, click **Edit**.
 
 - CLI
 
@@ -53,10 +71,10 @@ You can change the [name](#update-name) and [description](#update-description) o
 
     {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-    Update the trigger description:
+    To update the trigger description, run the command:
 
     ```
-    $ yc serverless trigger update <trigger name> --description "<trigger description>"
+    yc serverless trigger update <trigger name> --description "<trigger description>"
     ```
 
     Result:
@@ -81,15 +99,19 @@ You can change the [name](#update-name) and [description](#update-description) o
     status: ACTIVE
     ```
 
+- API
+
+    You can update the trigger description using the [update](../../triggers/api-ref/Trigger/update.md) API method.
+
 {% endlist %}
 
 ## Managing trigger labels {#manage-label}
 
 You can perform the following actions with trigger labels:
 
-- [Add a label](#add-label).
-- [Update a label](#update-label).
-- [Delete a label](#remove-label).
+* [Add a label](#add-label)
+* [Update a label](#update-label)
+* [Delete a label](#remove-label)
 
 ### Adding a label {#add-label}
 
@@ -99,10 +121,12 @@ You can perform the following actions with trigger labels:
 
     {% include [cli-install](../../../_includes/cli-install.md) %}
 
-    Add a label to a trigger:
+    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+    To add a label to a trigger, run the command:
 
     ```
-    $ yc serverless trigger add-labels <trigger name> --labels <key>=<value>
+    yc serverless trigger add-labels <trigger name> --labels <key>=<value>
     ```
 
     Result:
@@ -129,6 +153,10 @@ You can perform the following actions with trigger labels:
     status: ACTIVE
     ```
 
+- API
+
+    You can add a trigger label using the [update](../../triggers/api-ref/Trigger/update.md) API method.
+
 {% endlist %}
 
 ### Updating a label {#update-label}
@@ -139,7 +167,9 @@ You can perform the following actions with trigger labels:
 
     {% include [cli-install](../../../_includes/cli-install.md) %}
 
-    Update a trigger label:
+    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+    To update a trigger label, run the command:
 
     {% note warning %}
 
@@ -148,7 +178,7 @@ You can perform the following actions with trigger labels:
     {% endnote %}
 
     ```
-    $ yc serverless trigger update <trigger name> --labels <key>=<value>
+    yc serverless trigger update <trigger name> --labels <key>=<value>
     ```
 
     Result:
@@ -175,6 +205,10 @@ You can perform the following actions with trigger labels:
     status: ACTIVE
     ```
 
+- API
+
+    You can update a trigger label using the [update](../../triggers/api-ref/Trigger/update.md) API method.
+
 {% endlist %}
 
 ### Deleting a label {#remove-label}
@@ -185,10 +219,12 @@ You can perform the following actions with trigger labels:
 
     {% include [cli-install](../../../_includes/cli-install.md) %}
 
-    Delete a trigger label:
+    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+    To delete a trigger label, run the command:
 
     ```
-    $ yc serverless trigger remove-labels <trigger name> --labels <key>
+    yc serverless trigger remove-labels <trigger name> --labels <key>
     ```
 
     Result:
@@ -213,4 +249,9 @@ You can perform the following actions with trigger labels:
     status: ACTIVE
     ```
 
+- API
+
+    You can delete a trigger label using the [update](../../triggers/api-ref/Trigger/update.md) API method.
+
 {% endlist %}
+

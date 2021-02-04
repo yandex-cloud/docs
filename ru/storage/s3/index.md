@@ -14,7 +14,7 @@
 
 ```
 {GET|HEAD|PUT|DELETE} /<bucket>/<key> HTTP/1.1
-Host: storage.yandexcloud.net
+Host: {{ s3-storage-host }}
 Content-Length: length
 Date: date
 Authorization: authorization string (AWS Signature Version 4)
@@ -26,7 +26,7 @@ Request_body
 
 ```
 {GET|HEAD|PUT|DELETE} /<key>} HTTP/1.1
-Host: <bucket>.storage.yandexcloud.net
+Host: <bucket>.{{ s3-storage-host }}
 ...
 ```
 

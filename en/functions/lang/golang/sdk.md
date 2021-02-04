@@ -1,12 +1,18 @@
 # Using the SDK
 
-The runtime doesn't have a pre-installed library that lets you access the [Yandex.Cloud API](../../../api-design-guide/). To use the library, add a [dependency](dependencies.md) to your application. You can find the source code of the library on [GitHub](https://github.com/yandex-cloud/go-sdk).
+The runtime doesn't have a pre-installed library that lets you access the [{{ yandex-cloud }} API](../../../api-design-guide/).To use the library, add a [dependency](dependencies.md) to your application. You can find the source code of the library on [GitHub](https://github.com/yandex-cloud/go-sdk).
 
-[Software development kits (SDK)](https://en.wikipedia.org/wiki/SDK) let you interact with Yandex.Cloud services using the [service account](../../operations/function-sa.md) specified in the function.
+[Software development kits (SDK)](https://en.wikipedia.org/wiki/SDK) let you interact with {{ yandex-cloud }} services using the [service account](../../operations/function-sa.md) specified in the function.
 
 ### Example:
 
 The following function receives a request with two fields (`FolderId` and `Tag`) as an input, authorizes in the SDK, gets a list of all {{ compute-name }} instances in the specified folder, filters them by the specified tag, and restarts the stopped instances. As a result, it returns a message with the number of running instances.
+
+{% note warning %}
+
+Invoke the function using the [YC CLI](../../concepts/function-invoke.md) or an HTTP request with the `integration=raw` parameter.
+
+{% endnote %}
 
 ```golang
 package main
@@ -36,7 +42,7 @@ type Response struct {
   Body       interface{} `json:"body"`
 }
 
-func StartComputeInstances(ctx context.Context, request Request) (*Response, error) {
+func StartComputeInstances(ctx context.Context, request *Request) (*Response, error) {
   // Authorization in the SDK using a service account
   sdk, err := ycsdk.Build(ctx, ycsdk.Config{
     // Calling the InstanceServiceAccount method automatically requests an IAM token and generates

@@ -75,7 +75,7 @@ items:
           Creating a cluster of 1C:Enterprise Linux servers with a Managed
           Service for PostgreSQL cluster
         href: infrastructure-management/1c-postgresql-linux.md
-      - name: 'Creating a cluster of 1C:Enterprise Windows servers with MS SQL Server'
+      - name: Creating a cluster of 1C:Enterprise Windows servers with MS SQL Server
         href: infrastructure-management/1c-mssql-windows.md
       - name: Migrating to Yandex.Cloud using Hystax Acura
         href: infrastructure-management/hystax-migration.md
@@ -139,3 +139,4 @@ items:
         href: iot/datalens.md
       - name: Monitoring sensor readings and event notifications
         href: iot/monitoring.md
+base: en/solutions

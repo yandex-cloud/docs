@@ -28,7 +28,7 @@
   **Connecting via SSL:**
 
   ```bash
-  clickhouse-client --host <FQDN of any ClickHouse host> \
+  clickhouse-client --host <FQDN of any {{ CH }} host> \
                     --secure \
                     --user <username> \
                     --database <database name> \
@@ -48,7 +48,7 @@
   curl --cacert /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt \
        -H "X-ClickHouse-User: <DB user name>" \
        -H "X-ClickHouse-Key: <DB user password>" \
-       'https://<FQDN of any ClickHouse host>:8443/?database=<DB name>&query=SELECT%20version()'
+       'https://<FQDN of any {{ CH }} host>:8443/?database=<DB name>&query=SELECT%20version()'
   ```
 
 - Python
@@ -68,7 +68,7 @@
   import requests
   
   url = 'https://{host}:8443/?database={db}&query={query}'.format(
-          host='<FQDN of any ClickHouse host>',
+          host='<FQDN of any {{ CH }} host>',
           db='<DB name>',
           query='SELECT version()')
   
@@ -120,7 +120,7 @@
 
   ```php
   <?php
-    $host = '<FQDN of any ClickHouse host>';
+    $host = '<FQDN of any {{ CH }} host>';
     $db = '<DB name>';
     $query = 'SELECT version()';
   
@@ -268,7 +268,7 @@
   
   public class App {
     public static void main(String[] args) {
-      String DB_HOST    = "<FQDN of any ClickHouse host>";
+      String DB_HOST    = "<FQDN of any {{ CH }} host>";
       String DB_NAME    = "<DB name>";
       String DB_USER    = "<DB username>";
       String DB_PASS    = "<DB user password>";
@@ -317,7 +317,7 @@
   const querystring = require('querystring');
   const fs = require('fs');
   
-  const DB_HOST = "<FQDN of any ClickHouse host>";
+  const DB_HOST = "<FQDN of any {{ CH }} host>";
   const DB_NAME = "<DB name>";
   const DB_USER = "<DB username>";
   const DB_PASS = "<DB user password>";
@@ -380,7 +380,7 @@
   
   func main() {
   
-      const DB_HOST = "<FQDN of any ClickHouse host>"
+      const DB_HOST = "<FQDN of any {{ CH }} host>"
       const DB_NAME = "<DB name>"
       const DB_USER = "<DB username>"
       const DB_PASS = "<DB user password>"
@@ -446,7 +446,7 @@
   require "openssl"
   require "uri"
   
-  DB_HOST = "<FQDN of any ClickHouse host>"
+  DB_HOST = "<FQDN of any {{ CH }} host>"
   DB_NAME = "<DB name>"
   DB_USER = "<DB username>"
   DB_PASS = "<DB user password>"
@@ -534,7 +534,7 @@
   ```ini
   [ClickHouse]
   Driver = ClickHouse ODBC Driver (Unicode)
-  Server = <FQDN of any ClickHouse host>
+  Server = <FQDN of any {{ CH }} host>
   Database = <DB name>
   UID = <DB username>
   PWD = <DB user password>

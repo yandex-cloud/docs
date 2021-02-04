@@ -30,7 +30,6 @@
    sudo apt update && sudo apt install -y postgresql-client
    ```
 
-
 ## Создайте кластер {#cluster-create}
 
 1. В консоли управления выберите каталог, в котором нужно создать кластер БД.
@@ -43,7 +42,7 @@
 
 1. Для подключения к серверу БД получите SSL-сертификат:
 
-        
+    
     1. Создайте каталог:
 
         ```bash
@@ -53,7 +52,7 @@
     1. Получите сертификат:
         
         ```bash
-        $ wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" -O ~/.postgresql/root.crt
+        $ wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.postgresql/root.crt
         ```
 
     1. Настройте права доступа к сертификату:
@@ -61,8 +60,6 @@
         ```bash
         $ chmod 0600 ~/.postgresql/root.crt
         ```
-
-   
 
 1. Используйте для подключения команду `psql`:
 

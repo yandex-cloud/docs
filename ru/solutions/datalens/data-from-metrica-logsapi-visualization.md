@@ -19,10 +19,11 @@
 1. [Измените стандартный дашборд](data-from-metrica-logsapi-visualization#step2).
 1. [Измените чарт](data-from-metrica-logsapi-visualization#step3).
 
+
+
 ## Подготовьте облако к работе {#before-you-begin}
 
 {% include [before-you-begin](../_solutions_includes/before-you-begin-datalens.md) %}
-
 
 ## Шаг 1. Создайте подключение и стандартный дашборд {#step1}
 

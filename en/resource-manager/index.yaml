@@ -1,27 +1,30 @@
-title: "Yandex Resource Manager"
-description: 
-  - "The Yandex Resource Manager service defines the Yandex.Cloud resource model and allows you to structure your resources using folders."
-  - "Yandex.Cloud <a href=\"https://storage.yandexcloud.net/yc-compliance/conformance_en_pdp.pdf\">complies</a> with the law No. 152-FZ of the Russian Federation \"On Personal Data\"."
-# Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
+title: Yandex Resource Manager
+description:
+  - >-
+    The Yandex Resource Manager service defines the Yandex.Cloud resource model
+    and allows you to structure your resources using folders.
+  - >-
+    Yandex.Cloud <a
+    href="https://storage.yandexcloud.net/yc-compliance/conformance_en_pdp.pdf">complies</a>
+    with the law No. 152-FZ of the Russian Federation "On Personal Data".
 meta:
-  title: "Yandex Resource Manager"
-# Блок со ссылками
+  title: Yandex Resource Manager
 links:
-- title: "Getting started"
-  description: "Create the first folder"
-  href: "quickstart"
-- title: "Step-by-step instructions"
-  description: "Instructions on how to perform routine operations"
-  href: "operations/"
-- title: "Concepts"
-  description: "Learn about the Yandex.Cloud resource model"
-  href: "concepts/resources-hierarchy"
-- title: "API reference"
-  description: "HTTP API method descriptions"
-  href: "api-ref/"
-- title: "Quotas and limits"
-  description: "Technical and organizational limitations of the service"
-  href: "concepts/limits"
-- title: "Access management"
-  description: "Configure access rights to work with the service"
-  href: "security/"
+  - title: Getting started
+    description: Create the first folder
+    href: quickstart
+  - title: Step-by-step instructions
+    description: Instructions on how to perform routine operations
+    href: operations/
+  - title: Concepts
+    description: Learn about the Yandex.Cloud resource model
+    href: concepts/resources-hierarchy
+  - title: API reference
+    description: HTTP API method descriptions
+    href: api-ref/
+  - title: Quotas and limits
+    description: Technical and organizational limitations of the service
+    href: concepts/limits
+  - title: Access management
+    description: Configure access rights to work with the service
+    href: security/

@@ -151,7 +151,7 @@
 
     {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
     
-    Чтобы измените метку функции, выполните команду:
+    Чтобы изменить метку функции, выполните команду:
   
     {% note warning %}
     

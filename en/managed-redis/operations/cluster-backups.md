@@ -33,13 +33,13 @@ When you restore a cluster from a backup, you create a new cluster with the data
   1. View the description of the CLI's restore cluster command {{ RD }}:
 
       ```
-      $ yc managed-redis cluster restore --help
+      $ {{ yc-mdb-rd }} cluster restore --help
       ```
 
   1. Getting a list of available {{ RD }} cluster backups:
 
       ```
-      $ yc managed-redis backup list
+      $ {{ yc-mdb-rd }} backup list
       
       +--------------------------+----------------------+----------------------+----------------------+
       |            ID            |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
@@ -52,7 +52,7 @@ When you restore a cluster from a backup, you create a new cluster with the data
   1. Request creation of a cluster from a backup:
 
       ```
-      $ yc managed-redis cluster restore \
+      $ {{ yc-mdb-rd }} cluster restore \
            --backup-id c9q287aqv5rf11isjeql:20181113T133617 \
            --cluster-name mynewrd \
            --environment=PRODUCTION \
@@ -94,13 +94,13 @@ When you restore a cluster from a backup, you create a new cluster with the data
   1. View a description of the CLI create {{ RD }} backup command:
 
       ```
-      $ yc managed-redis cluster backup --help
+      $ {{ yc-mdb-rd }} cluster backup --help
       ```
 
   1. Request creation of a backup specifying the cluster name or ID:
 
       ```
-      $ yc managed-redis cluster backup my-rd-cluster
+      $ {{ yc-mdb-rd }} cluster backup my-rd-cluster
       ```
 
       The cluster name and ID can be retrieved with the [list of clusters](cluster-list.md#list-clusters).
@@ -126,7 +126,7 @@ When you restore a cluster from a backup, you create a new cluster with the data
   To get a list of {{ MG }} cluster backups available in the default folder, run the command:
 
   ```
-  $ yc managed-redis backup list
+  $ {{ yc-mdb-rd }} backup list
   
   +----------+----------------------+----------------------+----------------------+
   |    ID    |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
@@ -157,7 +157,7 @@ When you restore a cluster from a backup, you create a new cluster with the data
   To get information about a {{ RD }} cluster backup, run the command:
 
   ```
-  $ yc yc managed-redis backup get <backup ID>
+  $ yc {{ yc-mdb-rd }} backup get <backup ID>
   ```
 
   The backup ID can be retrieved with the [list of backups](#list-backups) .
@@ -177,7 +177,7 @@ When you restore a cluster from a backup, you create a new cluster with the data
   To set the backup start time, use the `-- backup-window-start` flag. Time is given in ``HH:MM:SS`` format.
 
   ```
-  $ yc yc managed-redis cluster create \
+  $ yc {{ yc-mdb-rd }} cluster create \
      --cluster-name <cluster name>
      --environment <prestable or production> \
      --network-name <network name> \
@@ -188,7 +188,7 @@ When you restore a cluster from a backup, you create a new cluster with the data
   To change the backup start time in an existing cluster, use the `update` command:
 
   ```
-  $ yc yc managed-redis cluster update \
+  $ yc {{ yc-mdb-rd }} cluster update \
      --cluster-name <cluster name>
      --backup-window-start 11:25:00
   ```

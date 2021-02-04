@@ -19,7 +19,7 @@ You can add and remove databases, as well as view information about them.
   To get a list of databases in a cluster, run the command:
 
   ```
-  $ yc managed-postgresql database list
+  $ {{ yc-mdb-pg }} database list
        --cluster-name=<cluster name>
   ```
 
@@ -70,13 +70,13 @@ specific tables. Learn more in the [{{ PG }} documentation](https://www.postgres
   1. See the description of the CLI's create database command:
 
      ```
-     $ yc managed-postgresql database create --help
+     $ {{ yc-mdb-pg }} database create --help
      ```
 
   1. Request a list of cluster users to select the owner of the new database:
 
      ```
-     $ yc managed-postgresql user list
+     $ {{ yc-mdb-pg }} user list
           --cluster-name <cluster name>
      ```
 
@@ -85,7 +85,7 @@ specific tables. Learn more in the [{{ PG }} documentation](https://www.postgres
   1. Run the create database command. If needed, specify the character collation and sorting settings (default settings are `LC_COLLATE=C` and `LC_CTYPE=C`):
 
      ```
-     $ yc managed-postgresql database create <database name>
+     $ {{ yc-mdb-pg }} database create <database name>
           --cluster-name <cluster name>
           --owner <username of the DB owner>
           --lc-collate ru_RU.UTF-8
@@ -120,7 +120,7 @@ specific tables. Learn more in the [{{ PG }} documentation](https://www.postgres
   To delete a database, run the command:
 
   ```
-  $ yc managed-postgresql database delete <database name>
+  $ {{ yc-mdb-pg }} database delete <database name>
        --cluster-name=<cluster name>
   ```
 

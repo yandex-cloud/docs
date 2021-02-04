@@ -10,10 +10,10 @@
 1. [Измените стандартный дашборд](data-from-appmetrica-visualization.md#edit-dashboard).
 
 
+
 ## Подготовьте облако к работе {#before-you-begin}
 
 {% include [before-you-begin](../_solutions_includes/before-you-begin-datalens.md) %}
-
 
 ## Создайте подключение и стандартный дашборд {#create-dashboard}
 

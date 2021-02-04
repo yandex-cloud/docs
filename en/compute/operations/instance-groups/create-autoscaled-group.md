@@ -23,7 +23,7 @@ To create an automatically scaled instance group
   1. View a description of the create instance group command in the CLI:
 
       ```
-      yc compute instance-group create --help
+      {{ yc-compute-ig }} create --help
       ```
 
   1. Check whether there are networks in the folder:
@@ -166,7 +166,7 @@ To create an automatically scaled instance group
   1. Create an instance group in the default folder:
 
       ```
-      yc compute instance-group create --file specification.yaml
+      {{ yc-compute-ig }} create --file specification.yaml
       ```
 
       This command creates an automatically scaled instance group with the following characteristics:

@@ -493,3 +493,4 @@ items:
         href: qa/licensing.md
       - name: Все вопросы на одной странице
         href: qa/all.md
+base: ru/compute

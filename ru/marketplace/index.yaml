@@ -1,18 +1,19 @@
-# Заголовок и описание на странице
-title: "Кабинет партнера Marketplace"
+title: Кабинет партнера Marketplace
 description:
-  - "В <a href=\"https://partners.cloud.yandex.ru\">кабинете партнера Marketplace</a> вы можете добавить образы своих продуктов в Marketplace, а также назначить тарифы за использование ваших образов на ВМ или на ядрах процессора."
-# Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
+  - >-
+    В <a href="https://partners.cloud.yandex.ru">кабинете партнера
+    Marketplace</a> вы можете добавить образы своих продуктов в Marketplace, а
+    также назначить тарифы за использование ваших образов на ВМ или на ядрах
+    процессора.
 meta:
-  title: "Кабинет партнера Marketplace"
-# Блок с ссылками
+  title: Кабинет партнера Marketplace
 links:
-- title: "Начало работы"
-  description: "Зарегистрируйтесь в личном кабинете и создайте свой первый продукт"
-  href: "quickstart"
-- title: "Пошаговые инструкции"
-  description: "Инструкции по работе с кабинетом партнера Marketplace"
-  href: "operations/index"
-- title: "Концепции"
-  description: "Читайте подробнее про концепции Marketplace"
-  href: "concepts/product"
+  - title: Начало работы
+    description: Зарегистрируйтесь в личном кабинете и создайте свой первый продукт
+    href: quickstart
+  - title: Пошаговые инструкции
+    description: Инструкции по работе с кабинетом партнера Marketplace
+    href: operations/index
+  - title: Концепции
+    description: Читайте подробнее про концепции Marketplace
+    href: concepts/product

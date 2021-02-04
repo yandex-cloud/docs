@@ -1,36 +1,44 @@
-# Заголовок и описание на странице
-title: "Yandex SpeechKit"
+title: Yandex SpeechKit
 description:
-  - "Yandex SpeechKit allows application developers to use Yandex speech technologies: speech recognition (Speech-to-Text) and speech synthesis (Text-to-Speech)."
-  - "To access SpeechKit, use the HTTP API."
-  - "Yandex.Cloud <a href=\"https://storage.yandexcloud.net/yc-compliance/conformance_en_pdp.pdf\">complies</a> with the law No. 152-FZ of the Russian Federation \"On Personal Data\"."
-  - "Service is provided under the <a href=\"https://yandex.com/legal/cloud_sla\">Service Level Agreement</a>. Service level for Yandex SpeechKit is defined in the <a href=\"https://yandex.com/legal/cloud_sla_speechkit\">Service Level for Yandex SpeechKit</a> document."
-# Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
+  - >-
+    Yandex SpeechKit allows application developers to use Yandex speech
+    technologies: speech recognition (Speech-to-Text) and speech synthesis
+    (Text-to-Speech).
+  - To access SpeechKit, use the HTTP API.
+  - >-
+    Yandex.Cloud <a
+    href="https://storage.yandexcloud.net/yc-compliance/conformance_en_pdp.pdf">complies</a>
+    with the law No. 152-FZ of the Russian Federation "On Personal Data".
+  - >-
+    Service is provided under the <a
+    href="https://yandex.com/legal/cloud_sla">Service Level Agreement</a>.
+    Service level for Yandex SpeechKit is defined in the <a
+    href="https://yandex.com/legal/cloud_sla_speechkit">Service Level for Yandex
+    SpeechKit</a> document.
 meta:
-  title: "Yandex SpeechKit"
-# Блок со ссылками
+  title: Yandex SpeechKit
 links:
-- title: "Getting started"
-  description: "Convert text to speech and speech to text"
-  href: "quickstart"
-- title: "Speech recognition"
-  description: "Find out how speech recognition works"
-  href: "stt/"
-- title: "Speech synthesis"
-  description: "Find out how text-to-speech conversion works"
-  href: "tts/"
-- title: "Authentication in the API"
-  description: "Get an access token and use it in requests"
-  href: "concepts/auth"
-- title: "Response format"
-  description: "Response headers and response codes"
-  href: "concepts/response"
-- title: "Quotas and limits"
-  description: "Technical and organizational limitations of the service"
-  href: "concepts/limits"
-- title: "Access management"
-  description: "Configure access rights to work with the service"
-  href: "security/"
-- title: "Pricing policy"
-  description: "Service pricing and cost calculations"
-  href: "pricing"
+  - title: Getting started
+    description: Convert text to speech and speech to text
+    href: quickstart
+  - title: Speech recognition
+    description: Find out how speech recognition works
+    href: stt/
+  - title: Speech synthesis
+    description: Find out how text-to-speech conversion works
+    href: tts/
+  - title: Authentication in the API
+    description: Get an access token and use it in requests
+    href: concepts/auth
+  - title: Response format
+    description: Response headers and response codes
+    href: concepts/response
+  - title: Quotas and limits
+    description: Technical and organizational limitations of the service
+    href: concepts/limits
+  - title: Access management
+    description: Configure access rights to work with the service
+    href: security/
+  - title: Pricing policy
+    description: Service pricing and cost calculations
+    href: pricing

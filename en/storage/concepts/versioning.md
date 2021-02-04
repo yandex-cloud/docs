@@ -7,7 +7,7 @@ Versioning is enabled at the bucket level and applied to every object in the buc
 You can enable versioning, for example, using `AWS CLI`:
 
 ```http
-aws --endpoint https://storage.yandexcloud.net \
+aws --endpoint https://{{ s3-storage-host }} \
   s3api put-bucket-versioning \
   --bucket your-bucket-name \
   --versioning-configuration 'Status=Enabled'

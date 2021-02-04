@@ -6,7 +6,6 @@ After creating an {{ KF }} cluster, you can:
 - [Update the cluster configuration](#update-cluster).
 - [Move the cluster](#move-cluster) from the current folder to another one.
 
-
 {% note warning %}
 
 If the cluster has dedicated {{ ZK }} hosts, you can't change their [class](../concepts/instance-types.md) or settings. For more information, see [{#T}](../concepts/index.md).
@@ -38,14 +37,12 @@ The number of {{ KF }} broker hosts can only be increased.
   1. Click **Save**.
 
 
-
 - API
 
   Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
   - The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
   - In the `updateMask` parameter, a list of settings to update (in a single line, comma-separated). If this parameter is omitted, the API method resets any cluster settings that aren't explicitly specified in the request to their default values.
   - The new cluster configuration in the `configSpec` parameter.
-
 
 {% endlist %}
 
@@ -61,4 +58,3 @@ The number of {{ KF }} broker hosts can only be increased.
   - The ID of the destination folder in the `destinationFolderId` parameter.
 
 {% endlist %}
-

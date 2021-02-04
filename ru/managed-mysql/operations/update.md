@@ -32,14 +32,14 @@
   1. Посмотрите описание команды CLI для изменения кластера:
 
       ```
-      $ yc managed-mysql cluster update --help
+      $ {{ yc-mdb-my }} cluster update --help
       ```
 
   1. Запросите список доступных классов хостов (в колонке `ZONES` указаны зоны доступности, в которых можно выбрать соответствующий класс):
 
-     
+
      ```
-     $ yc managed-mysql resource-preset list
+     $ {{ yc-mdb-my }} resource-preset list
 
      +-----------+--------------------------------+-------+----------+
      |    ID     |            ZONE IDS            | CORES |  MEMORY  |
@@ -50,12 +50,10 @@
      +-----------+--------------------------------+-------+----------+
      ```
 
-    
-
   1. Укажите нужный класс в команде изменения кластера:
 
       ```
-      $ yc managed-mysql cluster update <имя кластера>
+      $ {{ yc-mdb-my }} cluster update <имя кластера>
            --resource-preset <ID класса>
       ```
 
@@ -91,7 +89,7 @@
   1. Посмотрите описание команды CLI для изменения кластера:
 
       ```
-      $ yc managed-mysql cluster update --help
+      $ {{ yc-mdb-my }} cluster update --help
       ```
 
   1. Проверьте, что в облаке хватает квоты на увеличение хранилища: откройте страницу [Квоты]({{ link-console-quotas }}) для вашего облака и проверьте, что в секции {{ mmy-full-name }} не исчерпано место в строке **space**.
@@ -99,7 +97,7 @@
   1. Проверьте, что нужный кластер использует именно сетевое хранилище (увеличить размер локального хранилища пока невозможно). Для этого запросите информацию о кластере и найдите поле `disk_type_id` — его значение должно быть `network-hdd` или `network-ssd`:
 
       ```
-      $ yc managed-mysql cluster get <имя кластера>
+      $ {{ yc-mdb-my }} cluster get <имя кластера>
 
       id: c7qkvr3u78qiopj3u4k2
       folder_id: b1g0ftj57rrjk9thribv
@@ -116,7 +114,7 @@
   1. Укажите нужный объем хранилища в команде изменения кластера (должен быть не меньше, чем значение `disk_size` в свойствах кластера):
 
       ```
-      $ yc managed-mysql cluster update <имя кластера>
+      $ {{ yc-mdb-my }} cluster update <имя кластера>
            --disk-size <размер хранилища в ГБ>
       ```
 
@@ -156,7 +154,7 @@
   1. Посмотрите описание команды CLI для изменения конфигурации кластера:
 
       ```
-      $ yc managed-mysql cluster update-config --help
+      $ {{ yc-mdb-my }} cluster update-config --help
       ```
 
   1. Установите нужные значения параметров.
@@ -164,7 +162,7 @@
      Все поддерживаемые параметры перечислены в [формате запроса для метода update](../api-ref/Cluster/update.md), в поле `mysql_config_5_7`. Чтобы указать имя параметра в вызове CLI, преобразуйте его имя из вида <q>lowerCamelCase</q> в <q>snake_case</q>, например, параметр `logMinDurationStatement` из запроса к API преобразуется в `log_min_duration_statement` для команды CLI:
 
      ```
-     $ yc managed-mysql cluster update-config <имя кластера>
+     $ {{ yc-mdb-my }} cluster update-config <имя кластера>
           --set log_min_duration_statement=100,<имя параметра>=<значение>,...
      ```
 

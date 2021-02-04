@@ -30,7 +30,7 @@
         ```
         yc compute disk create \
             --name big-disk \
-            --block_size 8K \
+            --block-size 8K \
             --size 40G \
             --description "my 8k blocksize disk via yc"
         ```

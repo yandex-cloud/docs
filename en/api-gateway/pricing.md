@@ -27,7 +27,6 @@ Where:
 - ₽75: Price per 1 million API gateway calls.
 - 10,000,000 / 1,000,000: Number of millions of requests over HTTPS.
 
-
 ## Pricing {#prices}
 
 ### API gateway requests {#request}

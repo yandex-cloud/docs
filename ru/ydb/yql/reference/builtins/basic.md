@@ -243,7 +243,6 @@ SELECT
 
 Поддерживаемые веб-интерфейсом mime-type и одноименные метки:
 
-
 * image/jpeg
 * image/png
 * image/gif

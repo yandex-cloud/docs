@@ -83,7 +83,7 @@ items:
         href: api/limits.md
       - name: Обработка ошибок в API
         href: api/error_handling.md
-  - name: 'HTTP API, совместимый с Amazon DynamoDB'
+  - name: HTTP API, совместимый с Amazon DynamoDB
     items:
       - name: Справочник API
         items:
@@ -173,7 +173,7 @@ items:
             href: yql/reference/syntax/pragma.md
           - name: DECLARE
             href: yql/reference/syntax/declare.md
-          - name: 'OVER, PARTITION BY и WINDOW'
+          - name: OVER, PARTITION BY и WINDOW
             href: yql/reference/syntax/window.md
       - name: Встроенные функции
         items:
@@ -275,3 +275,4 @@ items:
         href: faq.md
   - name: Публичные материалы
     href: public_talks.md
+base: ru/ydb

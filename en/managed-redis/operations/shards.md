@@ -50,7 +50,7 @@ You can only manage shards in sharded clusters. Existing non-sharded clusters ca
 To get information about a shard, run the following command:
 
 ```
-$ yc managed-redis shards get <shard name> --cluster-name <cluster name>
+$ {{ yc-mdb-rd }} shards get <shard name> --cluster-name <cluster name>
 ```
 
 The cluster name and ID can be requested with a [list of clusters in the folder](cluster-list.md).
@@ -129,7 +129,7 @@ All the shard hosts are deleted with the shard.
   To delete a shard from the cluster, run:
 
   ```
-  $ yc managed-redis shards delete <shard name>
+  $ {{ yc-mdb-rd }} shards delete <shard name>
        --cluster-name=<cluster name>
   ```
 

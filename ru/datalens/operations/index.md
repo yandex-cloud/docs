@@ -34,7 +34,7 @@
 - [{#T}](chart/create-table.md)
 - [{#T}](chart/create-pivot-table.md)
 - [{#T}](chart/publish.md)
-- [{#T}](chart/manage-access.md)
+- [{#T}](chart/manage-access.md) 
 
 ## Работа с дашбордами {#working-with-dashboards}
 
@@ -42,4 +42,4 @@
 - [{#T}](dashboard/add-chart.md)
 - [{#T}](dashboard/add-selector.md)
 - [{#T}](dashboard/publish.md)
-- [{#T}](dashboard/manage-access.md)
+- [{#T}](dashboard/manage-access.md) 

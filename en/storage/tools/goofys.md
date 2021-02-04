@@ -21,7 +21,7 @@ To install `goofys`, follow the [instructions](https://github.com/kahing/goofys#
 2. For one-time bucket mounting, run the command:
 
     ```
-    goofys --endpoint=https://storage.yandexcloud.net <bucket name> <mount point>
+    goofys --endpoint=https://{{ s3-storage-host }} <bucket name> <mount point>
     ```
 
 You can configure mounting a bucket at system startup. To do this, open the `/etc/fstab` file and add a line in the following format:

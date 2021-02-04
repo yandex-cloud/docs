@@ -59,7 +59,7 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
 
   To create a cluster:
 
-  1. Check whether the folder has any subnets for the cluster hosts:
+1. Check whether the folder has any subnets for the cluster hosts:
 
      ```
      $ yc vpc subnet list
@@ -70,19 +70,19 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
   1. View a description of the CLI's create cluster command:
 
       ```
-      $ yc managed-redis cluster create --help
+      $ {{ yc-mdb-rd }} cluster create --help
       ```
 
   1. When you create a cluster from the CLI, you can't explicitly specify the host type and amount of RAM. Choose the applicable [host class](../concepts/instance-types.md) instead. To see what host classes are available, run the command:
 
      ```
-     $ yc managed-redis resource-preset list
+     $ {{ yc-mdb-rd }} resource-preset list
      ```
 
   1. Specify the cluster parameters in the create command (only some of the supported flags are given in the example):
 
       ```bash
-      $ yc managed-redis cluster create \
+      $ {{ yc-mdb-rd }} cluster create \
          --cluster-name <cluster name>
          --environment <prestable or production> \
          --network-name <network name> \
@@ -186,12 +186,12 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
   Run the command:
 
   ```
-  $ yc managed-redis cluster create \
+  $ {{ yc-mdb-rd }} cluster create \
        --cluster-name myredis \
        --environment production \
        --network-name default \
        --resource-preset hm1.nano \
-       --host zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch64 \
+       --host zone-id={{ zone-id }},subnet-id=b0rcctk2rvtr8efcch64 \
        --disk-size 16 \
        --password=user1user1
   ```
@@ -215,9 +215,9 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
   ```
   provider "yandex" {
     token = "<OAuth or static key of service account>"
-    cloud_id  = "b1gq90dgh25bebiu75o"
+    cloud_id  = "{{ tf-cloud-id }}"
     folder_id = "${data.yandex_resourcemanager_folder.myfolder.id}"
-    zone      = "ru-central1-c"
+    zone      = "{{ zone-id }}"
   }
   
   resource "yandex_mdb_redis_cluster" "myredis" {
@@ -235,7 +235,7 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
     }
   
     host {
-      zone      = "ru-central1-c"
+      zone      = "{{ zone-id }}"
       subnet_id = "${yandex_vpc_subnet.mysubnet.id}"
     }
   }
@@ -244,7 +244,7 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
   
   resource "yandex_vpc_subnet" "mysubnet" {
     name           = "mysubnet"
-    zone           = "ru-central1-c"
+    zone           = "{{ zone-id }}"
     network_id     = "${yandex_vpc_network.mynet.id}"
     v4_cidr_blocks = ["10.5.0.0/24"]
   }

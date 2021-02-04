@@ -89,14 +89,14 @@ This is necessary for distributing the load on the dictionary source when upgrad
   1. View a description of the CLI command for adding dictionaries:
 
      ```
-     $ yc managed-clickhouse cluster add-external-dictionary --help
+     $ {{ yc-mdb-ch }} cluster add-external-dictionary --help
      ```
 
   1. Run the add dictionary command. Example of the command for a {{ PG }} dictionary:
 
      ```
-     $ yc managed-clickhouse cluster add-external-dictionary \
-        --name <ClickHouse cluster name> \
+     $ {{ yc-mdb-ch }} cluster add-external-dictionary \
+        --name <{{ CH }} cluster name> \
         --dict-name <dictionary name> \
         --structure-id <key column name> \
         --structure-attribute name=<data column name>,type=<data type>,null-value=<empty element value >,expression=<expression>,hierarchical=<true|false>,injective=<true|false> \
@@ -131,13 +131,13 @@ This is necessary for distributing the load on the dictionary source when upgrad
   1. View a description of the CLI command for getting detailed cluster information:
 
      ```
-     $ yc managed-clickhouse cluster get --help
+     $ {{ yc-mdb-ch }} cluster get --help
      ```
 
   1. Run the command:
 
      ```
-     $ yc managed-clickhouse cluster get <cluster name>
+     $ {{ yc-mdb-ch }} cluster get <cluster name>
      ```
 
   The added dictionaries are displayed in the ```dictionaries:``` section of command execution results.
@@ -168,13 +168,13 @@ This is necessary for distributing the load on the dictionary source when upgrad
   1. View a description of the CLI command to remove dictionaries:
 
      ```
-     $ yc managed-clickhouse cluster remove-external-dictionary --help
+     $ {{ yc-mdb-ch }} cluster remove-external-dictionary --help
      ```
 
   1. Run the command to remove a dictionary:
 
      ```
-     $ yc managed-clickhouse cluster remove-external-dictionary \
+     $ {{ yc-mdb-ch }} cluster remove-external-dictionary \
        --name <cluster name> \
        --dict-name <dictionary name> \
      ```

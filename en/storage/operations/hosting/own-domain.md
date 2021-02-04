@@ -19,6 +19,6 @@ To support your own domain:
     For instance, for the `www.example.com` domain, the following record should be added:
 
     ```
-    www.example.com CNAME www.example.com.website.yandexcloud.net
+    www.example.com CNAME www.example.com.{{ s3-web-host }}
     ```
 

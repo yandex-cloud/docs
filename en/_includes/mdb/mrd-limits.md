@@ -18,4 +18,3 @@
 | Minimum disk size per cluster | 2 times more than the amount of RAM selected |
 | Maximum disk size per cluster | 8 times more than the amount of RAM selected |
 
-

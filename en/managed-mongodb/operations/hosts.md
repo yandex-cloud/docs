@@ -21,7 +21,7 @@ You can add and remove cluster hosts and manage {{ MG }} settings for individual
   To get a list of cluster hosts, run the command:
 
   ```
-  $ yc managed-mongodb host list
+  $ {{ yc-mdb-mg }} host list
        --cluster-name <cluster name>
   
   +----------------------------+--------------+---------+--------+---------------+
@@ -51,7 +51,7 @@ The number of hosts in {{ mmg-short-name }} clusters is limited by the CPU and R
   1. Click on the name of the cluster you need and go to the **Hosts** tab.
   1. Click **Add host**.
 
-  
+
   1. Specify the host parameters:
 
       * Availability zone.
@@ -59,8 +59,6 @@ The number of hosts in {{ mmg-short-name }} clusters is limited by the CPU and R
       * Subnet (if the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md)).
 
       * Select the **Public access** option if the host must be accessible from outside the Cloud.
-
- 
 
 - CLI
 
@@ -70,7 +68,7 @@ The number of hosts in {{ mmg-short-name }} clusters is limited by the CPU and R
 
   To add a host to the cluster:
 
-  
+
   1. Request a list of cluster subnets to select one for the new host:
 
       ```
@@ -91,13 +89,13 @@ The number of hosts in {{ mmg-short-name }} clusters is limited by the CPU and R
   1. See the description of the CLI command for adding a host:
 
      ```
-     $ yc managed-mongodb host add --help
+     $ {{ yc-mdb-mg }} host add --help
      ```
 
   1. Run the add host command:
 
       ```
-      $ yc managed-mongodb host add
+      $ {{ yc-mdb-mg }} host add
            --cluster-name <cluster name>
            --host zone-id=<availability zone>,subnet-id=<subnet ID>
       ```
@@ -137,7 +135,7 @@ If the host is a primary one at the time of removal, {{ mmg-short-name }} automa
   To remove a host from the cluster, run:
 
   ```
-  $ yc managed-mongodb host delete <hostname>
+  $ {{ yc-mdb-mg }} host delete <hostname>
        --cluster-name <cluster name>
   ```
 

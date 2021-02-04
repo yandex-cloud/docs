@@ -72,8 +72,8 @@ System and user-defined variables are specified as values for template fields in
 | --- | --- | --- |
 | `{specified_key}` | `value` | The value is inserted from the list created in advance. |
 | `{unknown_key}` | `{unknown_key}` | If the specified key is not supported by the substitution mechanism, {{ ig-name }} won't replace it. |
-| `{{specified_key}}` | `{specified_key}` | At the first stage, the internal level of brackets is removed. |
-| `{{unknown_key}}` | `{{unknown_key}}` | A key that is not supported by the substitution mechanism won't change. |
+| `not_var{{specified_key}}` | `{specified_key}` | At the first stage, the internal level of brackets is removed. |
+| `not_var{{unknown_key}}` | `not_var{{unknown_key}}` | A key that is not supported by the substitution mechanism won't change. |
 
 ## Example of running the substitution stages {#example}
 

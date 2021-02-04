@@ -21,7 +21,7 @@ You can add and remove cluster hosts and request a list of hosts in the selected
   To get a list of databases in a cluster, run the command:
 
   ```
-  $ yc managed-redis host list
+  $ {{ yc-mdb-rd }} host list
        --cluster-name=<cluster name>
   
   +---------------------------------+----------------------+--------+---------------+
@@ -90,13 +90,13 @@ The number of hosts in {{ mrd-short-name }} clusters is limited by the CPU and R
   1. See the description of the CLI command for adding a host:
 
      ```
-     $ yc managed-redis host add --help
+     $ {{ yc-mdb-rd }} host add --help
      ```
 
   1. Run the add host command:
 
      ```
-     $ yc managed-redis host add
+     $ {{ yc-mdb-rd }} host add
           --cluster-name <cluster name>
           --host zone-id=<availability zone>,subnet-id=<subnet ID>
      ```
@@ -140,7 +140,7 @@ If the host is the master when deleted, {{ mrd-short-name }} automatically assig
   To remove a host from the cluster, run:
 
   ```
-  $ yc managed-redis host delete <hostname>
+  $ {{ yc-mdb-rd }} host delete <hostname>
        --cluster-name=<cluster name>
   ```
 

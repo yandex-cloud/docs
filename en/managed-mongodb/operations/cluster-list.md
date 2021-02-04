@@ -48,7 +48,7 @@ You can request detailed information about each {{ mmg-short-name }} cluster you
   To get information about a {{ MG }} cluster, run the command:
 
   ```
-  $ yc managed-mongodb cluster get <cluster name or ID>
+  $ {{ yc-mdb-mg }} cluster get <cluster name or ID>
   ```
 
   The cluster name and ID can be requested with a [list of clusters in the folder](#list-clusters).
@@ -75,7 +75,7 @@ You can request detailed information about each {{ mmg-short-name }} cluster you
   To get a list of operations, run the command:
 
   ```
-  $ yc managed-mongodb cluster list-operations <cluster name or ID>
+  $ {{ yc-mdb-mg }} cluster list-operations <cluster name or ID>
   ```
 
   The cluster name and ID can be requested with a [list of clusters in the folder](#list-clusters).

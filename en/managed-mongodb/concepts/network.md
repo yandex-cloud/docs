@@ -25,4 +25,3 @@ It is not possible to request a public address after creating a host, but you ca
 
 When deleting a host with a public FQDN, the assigned IP address is revoked.
 
-

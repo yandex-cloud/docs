@@ -19,7 +19,7 @@ You can request detailed information about each {{ mch-short-name }} cluster you
   To request a list of {{ CH }} clusters in the default folder, run the command:
 
   ```
-  $ yc managed-clickhouse cluster list
+  $ {{ yc-mdb-ch }} cluster list
   
   +----------------------+---------------+-----------------------------+--------+---------+
   |          ID          |     NAME      |         CREATED AT          | HEALTH | STATUS  |
@@ -49,7 +49,7 @@ You can request detailed information about each {{ mch-short-name }} cluster you
   To get information about a {{ CH }} cluster, run the command:
 
   ```
-  $ yc managed-clickhouse cluster get <cluster name or ID>
+  $ {{ yc-mdb-ch }} cluster get <cluster name or ID>
   ```
 
   The cluster name and ID can be requested with a [list of clusters in the folder](#list-clusters).
@@ -77,7 +77,7 @@ You can request detailed information about each {{ mch-short-name }} cluster you
   To get a list of operations, run the command:
 
   ```
-  $ yc managed-clickhouse cluster list-operations <cluster name or ID>
+  $ {{ yc-mdb-ch }} cluster list-operations <cluster name or ID>
   ```
 
   The cluster name and ID can be requested with a [list of clusters in the folder](#list-clusters).

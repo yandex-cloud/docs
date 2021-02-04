@@ -171,7 +171,7 @@ items:
             href: yql/reference/syntax/pragma.md
           - name: DECLARE
             href: yql/reference/syntax/declare.md
-          - name: 'OVER, PARTITION BY, and WINDOW'
+          - name: OVER, PARTITION BY, and WINDOW
             href: yql/reference/syntax/window.md
       - name: Built-in functions
         items:
@@ -273,3 +273,4 @@ items:
         href: faq.md
   - name: Public materials
     href: public_talks.md
+base: en/ydb

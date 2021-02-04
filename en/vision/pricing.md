@@ -26,7 +26,7 @@ Each successful image analysis performed using any feature is charged as a singl
 
   | Feature | Rate for the billable unit, without VAT |
   | ----- | ----- |
-  | [Text recognition](concepts/ocr/index.md) | $0.01538461 |
+  | [Text recognition](concepts/ocr/index.md) | $0.00153846 |
 
 - Prices in roubles
 

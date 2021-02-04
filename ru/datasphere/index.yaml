@@ -1,28 +1,41 @@
 title: Yandex DataSphere
 description:
-  - "Yandex DataSphere — среда для ML-разработки, которая сочетает в себе привычный интерфейс Jupyter® Notebook, технологию бессерверных вычислений и возможность бесшовного использования разных конфигураций вычислительных ресурсов."
-  - "Yandex DataSphere помогает значительно сократить стоимость машинного обучения по сравнению с вычислениями на собственном оборудовании или на других облачных платформах."
-  - "Инфраструктура Yandex.Cloud <a href=\"https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf\">защищена</a> в соответствии с ФЗ-152."
-  - "Для сервиса действует <a href=\"https://yandex.ru/legal/cloud_sla\">соглашение об уровне обслуживания</a>. Уровень обслуживания сервиса определен в документе <a href=\"https://yandex.ru/legal/cloud_sla_yds\">Уровень обслуживания Yandex DataSphere</a>."
-
+  - >-
+    Yandex DataSphere — среда для ML-разработки, которая сочетает в себе
+    привычный интерфейс Jupyter® Notebook, технологию бессерверных вычислений и
+    возможность бесшовного использования разных конфигураций вычислительных
+    ресурсов.
+  - >-
+    Yandex DataSphere помогает значительно сократить стоимость машинного
+    обучения по сравнению с вычислениями на собственном оборудовании или на
+    других облачных платформах.
+  - >-
+    Инфраструктура Yandex.Cloud <a
+    href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">защищена</a>
+    в соответствии с ФЗ-152.
+  - >-
+    Для сервиса действует <a href="https://yandex.ru/legal/cloud_sla">соглашение
+    об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
+    документе <a href="https://yandex.ru/legal/cloud_sla_yds">Уровень
+    обслуживания Yandex DataSphere</a>.
 meta:
-  title: "Yandex DataSphere"
+  title: Yandex DataSphere
 links:
-  - title: "Начало работы"
-    description: "Создайте свой первый проект"
-    href: "quickstart"
-  - title: "Пошаговые инструкции"
-    description: "Инструкции по выполнению рутинных операций"
-    href: "operations/"
-  - title: "Концепции"
-    description: "Узнайте про концепции и возможности сервиса"
-    href: "concepts/"
-  - title: "Квоты и лимиты"
-    description: "Технические и организационные ограничения сервиса"
-    href: "concepts/limits"
-  - title: "Управление доступом"
-    description: "Настройте права доступа для работы с сервисом"
-    href: "security/"
-  - title: "Правила тарификации"
-    description: "Цены и правила расчета стоимости услуг сервиса"
-    href: "pricing"
+  - title: Начало работы
+    description: Создайте свой первый проект
+    href: quickstart
+  - title: Пошаговые инструкции
+    description: Инструкции по выполнению рутинных операций
+    href: operations/
+  - title: Концепции
+    description: Узнайте про концепции и возможности сервиса
+    href: concepts/
+  - title: Квоты и лимиты
+    description: Технические и организационные ограничения сервиса
+    href: concepts/limits
+  - title: Управление доступом
+    description: Настройте права доступа для работы с сервисом
+    href: security/
+  - title: Правила тарификации
+    description: Цены и правила расчета стоимости услуг сервиса
+    href: pricing

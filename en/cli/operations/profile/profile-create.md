@@ -56,7 +56,7 @@ To create a profile:
     You only have to do this your first time running the command `yc init`.
 
     ```
-    Please go to https://oauth.yandex.com/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb
+    Please go to {{ link-cloud-oauth }}
      in order to obtain OAuth token.
     
     Please enter OAuth token: AaAaBbBbCcCcDdDdEeEeFfFfGgGg
@@ -84,7 +84,7 @@ To create a profile:
 1. Enter your OAuth token:
 
     ```
-    Please go to https://oauth.yandex.com/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb
+    Please go to {{ link-cloud-oauth }}
     in order to obtain OAuth token.
     
     Please enter OAuth token: AaAaBbBbCcCcDdDdEeEeFfFfGgGg
@@ -112,7 +112,7 @@ To create a profile:
 1. Select the default availability zone for {{ compute-full-name }}:
 
     ```
-    Do you want to configure a default Yandex Compute Cloud availability zone? [Y/n] Y
+    Do you want to configure a default {{ compute-full-name }} availability zone? [Y/n] Y
     Which zone do you want to use as a profile default?
     [1] ru-central1-a
     [2] ru-central1-b

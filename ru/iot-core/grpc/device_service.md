@@ -134,7 +134,7 @@ result | **oneof:** `error` или `response`<br>Результат операц
 
 Поле | Описание
 --- | ---
-device_id | **string**<br>Идентификатор создаваемого диска. 
+device_id | **string**<br>Идентификатор создаваемого устройства. 
 
 
 ### Device {#Device2}
@@ -242,7 +242,7 @@ result | **oneof:** `error` или `response`<br>Результат операц
 
 Поле | Описание
 --- | ---
-device_id | **string**<br>Идентификатор удаляемого диска. 
+device_id | **string**<br>Идентификатор удаляемого устройства. 
 
 
 ## ListCertificates {#ListCertificates}

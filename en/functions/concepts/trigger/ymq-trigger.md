@@ -8,11 +8,11 @@ The {{ message-queue-short-name }} trigger needs [service accounts](../../../iam
 
 - To create a trigger, you need the following roles:
     - `{{ roles-viewer }}` for the folder with the message queue that the trigger reads messages from.
-    - `{{ roles-viewer }}` for the folder with the function that the trigger calls.
-    - Permission to the service accounts on whose behalf the trigger executes the operations. This permission is included in the roles [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles.md#sa-user), [editor](../../../iam/concepts/access-control/roles.md#editor), and higher.
+    - `{{ roles-viewer }}` for the folder with the function that the trigger runs.
+    - Permission to the service account on whose behalf the trigger executes the operations. This permission is included in the roles [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles.md#sa-user), [editor](../../../iam/concepts/access-control/roles.md#editor), and higher.
 - To run a trigger, service accounts need the following roles:
     - `{{ roles-editor }}` for the folder with the message queue that the trigger reads messages from.
-    - `{{ roles-functions-ivoker }}` for the folder with the function that the trigger calls.
+    - `{{ roles-functions-ivoker }}` for the folder with the function that the trigger runs.
 
 Learn more about [access management](../../security/index.md).
 

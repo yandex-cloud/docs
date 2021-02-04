@@ -14,7 +14,6 @@
 * При использовании **сетевого хранилища** вы можете запросить любое количество хостов (от одного до пределов текущей [квоты](../concepts/limits.md)).
 * При использовании **гибридного хранилища**, вы можете создать кластер только из одного хоста. После создания такого кластера в него можно [добавлять шарды](shards.md#add-shard), состоящие только из одного хоста. Такой кластер не будет устойчив к отказам хостов, однако, в случае сбоя данные шарда или кластера будут сохранены. Гибридное хранилище находится на стадии [Preview](https://cloud.yandex.ru/docs/overview/concepts/launch-stages).
 
-
 {% list tabs %}
 
 - Консоль управления
@@ -32,14 +31,12 @@
   1. Выберите класс хостов — он определяет технические характеристики виртуальных машин, на которых будут развернуты хосты БД. Все доступные варианты перечислены в разделе [{#T}](../concepts/instance-types.md). При изменении класса хостов для кластера меняются характеристики всех уже созданных экземпляров.
   1. В блоке **Размер хранилища**:
 
-      
+
       - Выберите тип хранилища — более гибкое сетевое (**network-hdd** или **network-ssd**) или более быстрое локальное хранилище (**local-ssd**). 
       
         При выборе типа хранилища обратите внимание, что:
         - Размер локального хранилища можно менять только с шагом 100 ГБ.
         - Если вы планируете использовать гибридное хранилище на стадии [Preview](../../overview/concepts/launch-stages.md), то в этом блоке можно выбрать только одно из сетевых хранилищ: **network-ssd** или **network-hdd**.
-
-     
 
       - Выберите объем, который будет использоваться для данных и резервных копий. Подробнее о том, как занимают пространство резервные копии, см. раздел [{#T}](../concepts/backup.md).
 
@@ -71,7 +68,7 @@
 
   Чтобы создать кластер:
 
-  
+
   1. Проверьте, есть ли в каталоге подсети для хостов кластера:
 
      ```
@@ -80,19 +77,17 @@
 
      Если ни одной подсети в каталоге нет, [создайте нужные подсети](../../vpc/operations/subnet-create.md) в сервисе {{ vpc-short-name }}.
 
- 
-
   1. Посмотрите описание команды CLI для создания кластера:
 
       ```
-      $ yc managed-clickhouse cluster create --help
+      $ {{ yc-mdb-ch }} cluster create --help
       ```
 
   1. Укажите параметры кластера в команде создания (в примере приведены только обязательные флаги):
 
-          
+     
      ```
-     $ yc managed-clickhouse cluster create \
+     $ {{ yc-mdb-ch }} cluster create \
         --name <имя кластера> \
         --environment <окружение, prestable или production> \
         --network-name <имя сети> \
@@ -105,8 +100,6 @@
      ```
      
      Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.
-
-    
 
 - Terraform
 
@@ -212,17 +205,17 @@
 
 ## Примеры {#examples}
 
+### Создание кластера с одним хостом {#creating-a-single-host-cluster}
+
 {% list tabs %}
 
 - CLI
-
-  **Создание кластера с одним хостом**
 
   Чтобы создать кластер с одним хостом, следует передать один параметр `--host`.
 
   Допустим, нужно создать {{ CH }}-кластер со следующими характеристиками:
 
-  
+
   - С именем `mych`.
   - В окружении `production`.
   - В сети `default`.
@@ -231,29 +224,23 @@
   - С одним пользователем, `user1`, с паролем `user1user1`.
   - С одной базой данных, `db1`.
 
- 
-
   Запустите следующую команду:
 
-  
+
   ```
-  $ yc managed-clickhouse cluster create \
+  $ {{ yc-mdb-ch }} cluster create \
        --name mych \
        --environment=production \
        --network-name default \
-       --clickhouse-resource-preset s2.micro \
+       --clickhouse-resource-preset {{ host-class }} \
        --host type=clickhouse,zone-id=ru-central1-c,subnet-id=b0cl69g98qumiqmtg12a \
        --clickhouse-disk-size 20 \
-       --clickhouse-disk-type network-ssd \
+       --clickhouse-disk-type {{ disk-type-example }} \
        --user name=user1,password=user1user1 \
        --database name=db1
   ```
 
- 
-
 - Terraform
-
-  **Создание кластера с одним хостом**
 
   Допустим, нужно создать {{ CH }}-кластер и сеть для него со следующими характеристиками:
     - С именем `mych`.
@@ -271,7 +258,7 @@
   ```
   provider "yandex" {
     token     = "<OAuth или статический ключ сервисного аккаунта>"
-    cloud_id  = "b1gq90dgh25bebiu75o"
+    cloud_id  = "{{ tf-cloud-id }}"
     folder_id = "${data.yandex_resourcemanager_folder.myfolder.id}"
     zone      = "ru-central1-c"
   }
@@ -283,7 +270,7 @@
 
     clickhouse {
       resources {
-        resource_preset_id = "s2.micro"
+        resource_preset_id = "{{ host-class }}"
         disk_type_id       = "network-ssd"
         disk_size          = 32
       }

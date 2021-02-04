@@ -13,19 +13,19 @@
   1. Получите адрес хоста-мастера, используя Sentinel и любой хост {{ RD }}:
      
      ```bash
-     redis-cli -h <FQDN любого хоста Redis> -p 26379 sentinel get-master-addr-by-name <имя кластера Redis> | head -n 1
+     redis-cli -h <FQDN любого хоста {{ RD }}> -p 26379 sentinel get-master-addr-by-name <имя кластера {{ RD }}> | head -n 1
      ```
    
   1. Подключитесь к хосту с этим адресом:
         
      ```bash
-     redis-cli -с -h <адрес хоста-мастера Redis> -a <пароль Redis>
+     redis-cli -с -h <адрес хоста-мастера {{ RD }}> -a <пароль {{ RD }}>
      ```
   
   **Подключение напрямую к мастеру:**
   
   ```bash
-  redis-cli -c -h  <FQDN хоста-мастера Redis> -a <пароль>
+  redis-cli -c -h  <FQDN хоста-мастера {{ RD }}> -a <пароль>
   ```
   
   После подключения к кластеру выполните команды:
@@ -47,10 +47,10 @@
   ```python
   from redis.sentinel import Sentinel
 
-  sentinels = ['<FQDN хоста 1 Redis>',
+  sentinels = ['<FQDN хоста 1 {{ RD }}>',
            ...
-           '<FQDN хоста N Redis>']
-  name = '<имя кластера Redis>'
+           '<FQDN хоста N {{ RD }}>']
+  name = '<имя кластера {{ RD }}>'
   pwd = '<пароль>'
   
   sentinel = Sentinel([(h, 26379) for h in sentinels], socket_timeout=0.1)
@@ -68,7 +68,7 @@
   import redis
 
   r = redis.StrictRedis(
-  host='<FQDN хоста-мастера Redis>',
+  host='<FQDN хоста-мастера {{ RD }}>',
   port=6379,
   password='<пароль>',
   )
@@ -101,10 +101,10 @@
     require 'Predis/Autoloader.php';
     Predis\Autoloader::register();
 
-    $sentinels = ['<FQDN хоста 1 Redis>:26379>',...,'<FQDN хоста N Redis>:26379>'];
+    $sentinels = ['<FQDN хоста 1 {{ RD }}>:26379>',...,'<FQDN хоста N {{ RD }}>:26379>'];
     $options = [
       'replication' => 'sentinel',
-      'service' => '<имя кластера Redis>',
+      'service' => '<имя кластера {{ RD }}>',
       'parameters' => [
         'password' => '<пароль>'
       ]
@@ -127,7 +127,7 @@
     require 'Predis/Autoloader.php';
     Predis\Autoloader::register();
 
-    $host = ['<FQDN хоста-мастера Redis>:6379'];
+    $host = ['<FQDN хоста-мастера {{ RD }}>:6379'];
     $options = [
       'parameters' => [
         'password' => '<пароль>'
@@ -257,13 +257,13 @@
 
   public class App {
     public static void main(String[] args) {
-      String redisName    = "<имя кластера Redis>";
+      String redisName    = "<имя кластера {{ RD }}>";
       String redisPass    = "<пароль>";
 
       HashSet sentinels = new HashSet();
-      sentinels.add("<FQDN хоста 1 Redis>:26379");
+      sentinels.add("<FQDN хоста 1 {{ RD }}>:26379");
       ...
-      sentinels.add("<FQDN хоста N Redis>:26379");
+      sentinels.add("<FQDN хоста N {{ RD }}>:26379");
 
       try {
         JedisSentinelPool pool = new JedisSentinelPool(redisName, sentinels);
@@ -290,7 +290,7 @@
 
   public class App {
     public static void main(String[] args) {
-      String redisHost    = "<FQDN хоста-мастера Redis>";
+      String redisHost    = "<FQDN хоста-мастера {{ RD }}>";
       String redisPass    = "<пароль>";
 
       try {
@@ -332,11 +332,11 @@
 
   const conn = new Redis({
     sentinels: [
-      { host: "<FQDN хоста 1 Redis>", port: 26379 },
+      { host: "<FQDN хоста 1 {{ RD }}>", port: 26379 },
       ...,
-      { host: "<FQDN хоста N Redis>", port: 26379 },
+      { host: "<FQDN хоста N {{ RD }}>", port: 26379 },
     ],
-    name: "<имя кластера Redis>",
+    name: "<имя кластера {{ RD }}>",
     password: "<пароль>",
   });
 
@@ -366,7 +366,7 @@
   const Redis = require('ioredis');
 
   const conn = new Redis({
-    host: "<FQDN хоста-мастера Redis>",
+    host: "<FQDN хоста-мастера {{ RD }}>",
     port: 6379,
     password: "<пароль>",
   });
@@ -420,10 +420,10 @@
           conn := redis.NewUniversalClient(
                   &redis.UniversalOptions{
                           Addrs:      []string{
-                                        "<FQDN хоста 1 Redis>:26379",
+                                        "<FQDN хоста 1 {{ RD }}>:26379",
                                         ...,
-                                        "<FQDN хоста N Redis>:26379"},
-                          MasterName: "<имя кластера Redis>",
+                                        "<FQDN хоста N {{ RD }}>:26379"},
+                          MasterName: "<имя кластера {{ RD }}>",
                           Password:   "<пароль>",
                           ReadOnly:   false,
                   },
@@ -457,7 +457,7 @@
   func main() {
           conn := redis.NewUniversalClient(
                   &redis.UniversalOptions{
-                          Addrs:      []string{ "<FQDN хоста-мастера Redis>:6379" },
+                          Addrs:      []string{ "<FQDN хоста-мастера {{ RD }}>:6379" },
                           Password:   "<пароль>",
                           ReadOnly:   false,
                   },
@@ -498,12 +498,12 @@
   ```ruby
   require "redis"
 
-  SENTINELS = [{host: "<FQDN хоста 1 Redis>", port: 26379},
+  SENTINELS = [{host: "<FQDN хоста 1 {{ RD }}>", port: 26379},
                ...,
-               {host: "<FQDN хоста N Redis>", port: 26379}]
+               {host: "<FQDN хоста N {{ RD }}>", port: 26379}]
 
   conn = Redis.new(
-           host: "<имя кластера Redis>",
+           host: "<имя кластера {{ RD }}>",
            sentinels: SENTINELS,
            role: "master",
            password: "<пароль>"
@@ -522,7 +522,7 @@
   require "redis"
 
   conn = Redis.new(
-           host: "<FQDN хоста-мастера Redis>",
+           host: "<FQDN хоста-мастера {{ RD }}>",
            port: 6379,
            password: "<пароль>"
          )

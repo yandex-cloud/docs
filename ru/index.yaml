@@ -1,35 +1,35 @@
-title: "Документация Yandex.Cloud"
+title: Документация Yandex.Cloud
 meta:
-  title: "Yandex.Cloud"
+  title: Yandex.Cloud
   noIndex: true
 links:
-  - title: "DataLens"
-    description: "Визуализация и анализ данных"
-    href: "datalens/"
-  - title: "CLI"
-    description: "Интерфейс командной строки"
-    href: "cli/"
-  - title: "Yandex MDB"
-    description: "Управляемые базы данных в целом"
-    href: "mdb/"
-  - title: "Managed ClickHouse"
-    description: "Управление кластерами ClickHouse"
-    href: "managed-clickhouse/"
-  - title: "Managed Elasticsearch"
-    description: "Управление кластерами Elasticsearch"
-    href: "managed-elasticsearch/"
-  - title: "Managed Kafka"
-    description: "Управление кластерами Apache Kafka®"
-    href: "managed-kafka/"
-  - title: "Managed MongoDB"
-    description: "Управление кластерами MongoDB"
-    href: "managed-mongodb/"
-  - title: "Managed MySQL"
-    description: "Управление кластерами MySQL"
-    href: "managed-mysql/"
-  - title: "Managed PostgreSQL"
-    description: "Управление кластерами PostgreSQL"
-    href: "managed-postgresql/"
-  - title: "Managed Redis"
-    description: "Управление кластерами Redis"
-    href: "managed-redis/"
+  - title: CLI
+    description: Интерфейс командной строки
+    href: cli/
+  - title: DataLens
+    description: Визуализация и анализ данных
+    href: datalens/
+  - title: Yandex MDB
+    description: Управляемые базы данных в целом
+    href: mdb/
+  - title: Managed ClickHouse
+    description: Управление кластерами ClickHouse
+    href: managed-clickhouse/
+  - title: Managed Elasticsearch
+    description: Управление кластерами Elasticsearch
+    href: managed-elasticsearch/
+  - title: Managed Kafka
+    description: Управление кластерами Apache Kafka®
+    href: managed-kafka/
+  - title: Managed MongoDB
+    description: Управление кластерами MongoDB
+    href: managed-mongodb/
+  - title: Managed MySQL
+    description: Управление кластерами MySQL
+    href: managed-mysql/
+  - title: Managed PostgreSQL
+    description: Управление кластерами PostgreSQL
+    href: managed-postgresql/
+  - title: Managed Redis
+    description: Управление кластерами Redis
+    href: managed-redis/

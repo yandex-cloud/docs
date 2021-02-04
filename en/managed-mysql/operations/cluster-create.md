@@ -8,7 +8,6 @@ The number of hosts that can be created with a {{ MY }} cluster depends on the s
   - When using network drives, you can request any number of hosts (from one to the current [quota](../concepts/limits.md) limit).
   - When using SSDs, you can create at least three replicas along with the cluster (a minimum of three replicas is required to ensure fault tolerance). If the [available folder resources](../concepts/limits.md) are still sufficient after creating a cluster, you can add extra replicas.
 
-
 By default, {{ mmy-short-name }} limits the maximum number of connections to each {{ MY }} cluster host to ` 200 x <number of vCPUs on host>`. For example, for a [s1.micro class](../concepts/instance-types.md) host, the `max_connections` default parameter value is 400.
 
 {% note info %}
@@ -79,13 +78,13 @@ If database storage is 95% full, the cluster switches to read-only mode. Increas
   1. View a description of the CLI's create cluster command:
 
       ```
-      $ yc managed-mysql cluster create --help
+      $ {{ yc-mdb-my }} cluster create --help
       ```
 
   1. Specify the cluster parameters in the create command:
 
      ```
-     $ yc managed-mysql cluster create \
+     $ {{ yc-mdb-my }} cluster create \
         --name=<cluster name> \
         --environment <prestable or production> \
         --network-name <network name> \
@@ -191,9 +190,9 @@ If database storage is 95% full, the cluster switches to read-only mode. Increas
   ```
   provider "yandex" {
     token = "<OAuth or static key of service account>"
-    cloud_id  = "b1gq90dgh25bebiu75o"
+    cloud_id  = "{{ tf-cloud-id }}"
     folder_id = "${data.yandex_resourcemanager_folder.myfolder.id}"
-    zone      = "ru-central1-c"
+    zone      = "{{ zone-id }}"
   }
   
   resource "yandex_mdb_mysql_cluster" "my-mysql" {
@@ -203,8 +202,8 @@ If database storage is 95% full, the cluster switches to read-only mode. Increas
     version     = "8.0"
   
     resources {
-      resource_preset_id = "s2.micro"
-      disk_type_id       = "network-ssd"
+      resource_preset_id = "{{ host-class }}"
+      disk_type_id       = "{{ disk-type-example }}"
       disk_size          = 20
     }
   
@@ -222,7 +221,7 @@ If database storage is 95% full, the cluster switches to read-only mode. Increas
     }
   
     host {
-      zone      = "ru-central1-c"
+      zone      = "{{ zone-id }}"
       subnet_id = "${yandex_vpc_subnet.mysubnet.id}"
     }
   }
@@ -231,7 +230,7 @@ If database storage is 95% full, the cluster switches to read-only mode. Increas
   
   resource "yandex_vpc_subnet" "mysubnet" {
     name           = "mysubnet"
-    zone           = "ru-central1-c"
+    zone           = "{{ zone-id }}"
     network_id     = "${yandex_vpc_network.mynet.id}"
     v4_cidr_blocks = ["10.5.0.0/24"]
   }

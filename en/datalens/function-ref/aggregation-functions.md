@@ -35,7 +35,7 @@ Returns one of the values of `value` from the group. This is a nondeterministic 
 
 **Syntax:**`ARG_MAX( value, comp )`
 
-Returns `value` for the maximum value of `comp` in the group.
+Returns `value` for the maximum value of `comp` in the group. If multiple values of `value` match the maximum value of `comp`, then the first one encountered is returned. This makes the function non-deterministic.
 
 
 
@@ -43,7 +43,7 @@ Returns `value` for the maximum value of `comp` in the group.
 
 **Syntax:**`ARG_MIN( value, comp )`
 
-Returns `value` for the minimum value of `comp` in the group.
+Returns `value` for the minimum value of `comp` in the group. If multiple values of `value` match the minimum value of `comp`, then the first one encountered is returned. This makes the function non-deterministic.
 
 
 

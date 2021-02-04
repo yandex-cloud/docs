@@ -36,7 +36,7 @@
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
   ```bash
-  $ yc managed-mysql user grant-permission <имя пользователя>
+  $ {{ yc-mdb-my }} user grant-permission <имя пользователя>
        --cluster-name <имя кластера>
        --database <имя базы данных>
        --permissions <набор ролей через запятую>

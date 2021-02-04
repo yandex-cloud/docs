@@ -18,7 +18,7 @@ The context also contains the following helper methods:
 
 The invocation context is necessary for the function to have access to information about the environment as to monitor memory usage, track the request execution time, and [authenticate](#token) in the {{ yandex-cloud }} API.
 
-### Authentication in the API of {{ yandex-cloud }} {#token}
+### Authentication in the {{ yandex-cloud }} API {#token}
 
 If a function has a specified service account, the `token` parameter contains information for authentication on behalf of this service account:
 
@@ -27,3 +27,4 @@ If a function has a specified service account, the `token` parameter contains in
 * `token_type`: The token type (`Bearer`).
 
 You can also get this information using the metadata service. For more information, see [{#T}](../../../compute/operations/vm-connect/auth-inside-vm.md#auth-inside-vm).
+

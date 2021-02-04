@@ -110,7 +110,7 @@
 ### Проверка корректности аутентификации {#whoami}
 Часто бывает полезно узнать, как Вы представляетесь базе данных.
 ```bash
-$ ydb -e <эндпоинт> -d <база данных> --yc-token-file <путь к файлу с токеном> discovery whoami -g
+$ {{ ydb-cli }} -e <эндпоинт> -d <база данных> --yc-token-file <путь к файлу с токеном> discovery whoami -g
 User SID: aje6o75au36h5d0tnr8k@as
 
 User has no groups
@@ -127,7 +127,7 @@ User has no groups
 
 ### Получение списка эндпоинтов для базы данных {#discovery_list}
 ```bash
-$ ydb -e <эндпоинт> -d <база данных> discovery list
+$ {{ ydb-cli }} -e <эндпоинт> -d <база данных> discovery list
 grpcs://vm-etn01lrprvnlnhv8v5kj-ru-central1-a-abod.etn01lrprvnlnhv8v5kj.ydb.mdb.yandexcloud.net:2135 #table_service #scripting #discovery #rate_limiter #locking #kesus
 ```
 
@@ -137,14 +137,14 @@ grpcs://vm-etn01lrprvnlnhv8v5kj-ru-central1-a-abod.etn01lrprvnlnhv8v5kj.ydb.mdb.
 Если не указать путь, то будет произведен листинг корня базы данных:
 
 ```bash
-$ ydb -e <эндпоинт> -d <база данных> scheme ls
+$ {{ ydb-cli }} -e <эндпоинт> -d <база данных> scheme ls
 episodes  seasons  series  some_directory  .sys
 ```
 
 Можно посмотреть подробную информацию, добавив флаг `-l`:
 
 ```bash
-$ ydb -e <эндпоинт> -d <база данных> scheme ls -l
+$ {{ ydb-cli }} -e <эндпоинт> -d <база данных> scheme ls -l
 ┌───────┬─────────────────────────┬─────────┬───────────────────────────────┬───────────────────────────────┬────────────────┐
 | Type  | Owner                   | Size    | Created                       | Modified                      | Name           |
 ├───────┼─────────────────────────┼─────────┼───────────────────────────────┼───────────────────────────────┼────────────────┤
@@ -159,16 +159,16 @@ $ ydb -e <эндпоинт> -d <база данных> scheme ls -l
 Создадим такое дерево из директорий:
 
 ```bash
-$ ydb -e <эндпоинт> -d <база данных> scheme mkdir some_directory
-$ ydb -e <эндпоинт> -d <база данных> scheme mkdir some_directory/sub-directory1
-$ ydb -e <эндпоинт> -d <база данных> scheme mkdir some_directory/sub-directory1/sub-directory1-1
-$ ydb -e <эндпоинт> -d <база данных> scheme mkdir some_directory/sub-directory2
+$ {{ ydb-cli }} -e <эндпоинт> -d <база данных> scheme mkdir some_directory
+$ {{ ydb-cli }} -e <эндпоинт> -d <база данных> scheme mkdir some_directory/sub-directory1
+$ {{ ydb-cli }} -e <эндпоинт> -d <база данных> scheme mkdir some_directory/sub-directory1/sub-directory1-1
+$ {{ ydb-cli }} -e <эндпоинт> -d <база данных> scheme mkdir some_directory/sub-directory2
 ```
 
 Теперь при помощи опции `-R` для команды `scheme ls` можно посмотреть рекурсивный листинг всех поддиректорий и объектов в них по указанному пути:
 
 ```bash
-$ ydb -e <эндпоинт> -d <база данных> scheme ls some_directory  -lR
+$ {{ ydb-cli }} -e <эндпоинт> -d <база данных> scheme ls some_directory  -lR
 ┌──────┬─────────────────────────┬──────┬─────────┬──────────┬─────────────────────────────────┐
 | Type | Owner                   | Size | Created | Modified | Name                            |
 ├──────┼─────────────────────────┼──────┼─────────┼──────────┼─────────────────────────────────┤
@@ -182,7 +182,7 @@ $ ydb -e <эндпоинт> -d <база данных> scheme ls some_directory 
 На примере таблицы `episodes`.
 
 ```bash
-$ ydb -e <эндпоинт> -d <база данных> scheme describe episodes --stats
+$ {{ ydb-cli }} -e <эндпоинт> -d <база данных> scheme describe episodes --stats
 ┌────────────┬─────────┬────────┬─────┐
 | Name       | Type    | Family | Key |
 ├────────────┼─────────┼────────┼─────┤
@@ -229,7 +229,7 @@ Created: Thu, 17 Sep 2020 09:17:44 UTC
 
 ### Выполнение запроса к базе
 ```bash
-$ ydb -e <эндпоинт> -d <база данных> table query execute -q "SELECT season_id, episode_id, title FROM episodes WHERE series_id = 1 AND season_id > 1 ORDER BY season_id, episode_id LIMIT 3"
+$ {{ ydb-cli }} -e <эндпоинт> -d <база данных> table query execute -q "SELECT season_id, episode_id, title FROM episodes WHERE series_id = 1 AND season_id > 1 ORDER BY season_id, episode_id LIMIT 3"
 ┌───────────┬────────────┬────────────────────────────────┐
 | season_id | episode_id | title                          |
 ├───────────┼────────────┼────────────────────────────────┤
@@ -243,7 +243,7 @@ $ ydb -e <эндпоинт> -d <база данных> table query execute -q "S
 
 ### Потоковое чтение таблицы
 ```bash
-$ ydb -e <эндпоинт> -d <база данных> table readtable episodes --ordered --limit 5 --columns series_id,season_id,episode_id,title
+$ {{ ydb-cli }} -e <эндпоинт> -d <база данных> table readtable episodes --ordered --limit 5 --columns series_id,season_id,episode_id,title
 ┌───────────┬───────────┬────────────┬─────────────────────────────────┐
 | series_id | season_id | episode_id | title                           |
 ├───────────┼───────────┼────────────┼─────────────────────────────────┤
@@ -266,13 +266,13 @@ $ ydb -e <эндпоинт> -d <база данных> table readtable episodes 
 Если нужно получить только количество прочитанных записей, следует использовать параметр `--count-only`:
 
 ```bash
-$ ydb -e <эндпоинт> -d <база данных> table readtable episodes --columns series_id --count-only
+$ {{ ydb-cli }} -e <эндпоинт> -d <база данных> table readtable episodes --columns series_id --count-only
 70
 ```
 
 ### Получение плана запроса и AST {#explain_plan}
 ```bash
-$ ydb -e <эндпоинт> -d <база данных> table query explain -q "SELECT season_id, episode_id, title FROM episodes WHERE series_id = 1 AND season_id > 1 ORDER BY season_id, episode_id LIMIT 3" --ast
+$ {{ ydb-cli }} -e <эндпоинт> -d <база данных> table query explain -q "SELECT season_id, episode_id, title FROM episodes WHERE series_id = 1 AND season_id > 1 ORDER BY season_id, episode_id LIMIT 3" --ast
 Query plan:
 {
     meta : {
@@ -343,7 +343,7 @@ Query AST:
 Расмотрим еще один пример. Допустим, необходимо получить только первые сезоны всех сериалов.
 
 ```bash
-$ ydb -e <эндпоинт> -d <база данных> table query explain -q "SELECT sa.title AS season_title, sr.title AS series_title, sr.series_id, sa.season_id FROM seasons AS sa INNER JOIN series AS sr ON sa.series_id = sr.series_id WHERE sa.season_id = 1"
+$ {{ ydb-cli }} -e <эндпоинт> -d <база данных> table query explain -q "SELECT sa.title AS season_title, sr.title AS series_title, sr.series_id, sa.season_id FROM seasons AS sa INNER JOIN series AS sr ON sa.series_id = sr.series_id WHERE sa.season_id = 1"
 Query plan:
 {
     meta : {
@@ -394,7 +394,7 @@ Query plan:
 В YDB имеется механизм операций для процессов которые занимают долгое время, не требуют для своей работы участия пользователя, но должны переживать разрыв связанности с клиентом.
 
 ```bash
-$ ydb -e <эндпоинт> -d <база данных> table index add global --index-name title_index --columns title series
+$ {{ ydb-cli }} -e <эндпоинт> -d <база данных> table index add global --index-name title_index --columns title series
 ┌────────────────────────────────────────┬───────┬────────┐
 | id                                     | ready | status |
 ├────────────────────────────────────────┼───────┼────────┤
@@ -409,7 +409,7 @@ $ ydb -e <эндпоинт> -d <база данных> table index add global --
 Команда опроса операции выглядит так:
 
 ```bash
-$ ydb -e <эндпоинт> -d <база данных> operation get ydb://buildindex/7?id=1407375091598308
+$ {{ ydb-cli }} -e <эндпоинт> -d <база данных> operation get ydb://buildindex/7?id=1407375091598308
 ┌────────────────────────────────────────┬───────┬─────────┬───────┬──────────┬───────────────────────────────────────────────────────────────┬─────────────┐
 | id                                     | ready | status  | state | progress | table                                                         | index       |
 ├────────────────────────────────────────┼───────┼─────────┼───────┼──────────┼───────────────────────────────────────────────────────────────┼─────────────┤
@@ -420,7 +420,7 @@ $ ydb -e <эндпоинт> -d <база данных> operation get ydb://build
 Просмотреть все операции построения индекса для базы:
 
 ```bash
-$ ydb -e <эндпоинт> -d <база данных> operation list buildindex
+$ {{ ydb-cli }} -e <эндпоинт> -d <база данных> operation list buildindex
 ┌────────────────────────────────────────┬───────┬─────────┬───────┬──────────┬───────────────────────────────────────────────────────────────┬─────────────┐
 | id                                     | ready | status  | state | progress | table                                                         | index       |
 ├────────────────────────────────────────┼───────┼─────────┼───────┼──────────┼───────────────────────────────────────────────────────────────┼─────────────┤
@@ -433,12 +433,12 @@ Next page token: 0
 
 Операцию построения можно отменить:
 ```bash
-$ ydb -e <эндпоинт> -d <база данных> operation cancel ydb://buildindex/7?id=1407375091598308
+$ {{ ydb-cli }} -e <эндпоинт> -d <база данных> operation cancel ydb://buildindex/7?id=1407375091598308
 ```
 
 После того как операция завершена или отменена, ее следует удалить из базы:
 ```bash
-$ ydb -e <эндпоинт> -d <база данных> operation forget ydb://buildindex/7?id=1407375091598308
+$ {{ ydb-cli }} -e <эндпоинт> -d <база данных> operation forget ydb://buildindex/7?id=1407375091598308
 ```
 
 
@@ -447,13 +447,13 @@ $ ydb -e <эндпоинт> -d <база данных> operation forget ydb://bu
 Если индекс не нужен, то его можно удалить. Удаление индекса - обычный синхронный запрос. Результат возвращается сразу по исполнению запроса.
 
 ```bash
-$ ydb -e <эндпоинт> -d <база данных> table index drop --index-name title_index series
+$ {{ ydb-cli }} -e <эндпоинт> -d <база данных> table index drop --index-name title_index series
 ```
 
 ## Структура команд YDB CLI
 Список всех доступных команд YDB CLI с кратким описанием каждой из них всегда можно увидеть, выполнив команду:
 ```bash
-$ ydb --help
+$ {{ ydb-cli }} --help
 YDB client
 
 Usage: ydb [options...] <subcommand>
@@ -541,7 +541,7 @@ Options:
 Также для любой из подкоманд можно получить более подробное описание со списком доступных параметров:
 
 ```bash
-$ ydb discovery whoami --help
+$ {{ ydb-cli }} discovery whoami --help
 Usage: ydb [global options...] discovery whoami [options...]
 
 Description: Who am I?

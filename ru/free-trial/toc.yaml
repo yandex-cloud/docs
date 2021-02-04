@@ -13,3 +13,4 @@ items:
     href: concepts/trial-ending.md
   - name: Переход на платную версию
     href: concepts/upgrade-to-paid.md
+base: ru/free-trial

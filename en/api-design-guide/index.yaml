@@ -1,28 +1,29 @@
-# Заголовок и описание на странице
-title: "Yandex.Cloud API concepts"
-description: "This document describes the underlying concepts of the Yandex.Cloud API architecture. 
+title: Yandex.Cloud API concepts
+description: >-
+  This document describes the underlying concepts of the Yandex.Cloud API
+  architecture. 
 
-It will be useful for developers who want to use Yandex.Cloud APIs to automate repeatable tasks, build plugins, and other applications."
-# Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
+  It will be useful for developers who want to use Yandex.Cloud APIs to automate
+  repeatable tasks, build plugins, and other applications.
 meta:
-  title: "Yandex.Cloud API concepts"
+  title: Yandex.Cloud API concepts
   keywords:
-    - keyword: "API basics"
-    - keyword: "API concepts"
-    - keyword: "REST API"
-    - keyword: "gRPC API"
-# Блок со ссылками
+    - keyword: API basics
+    - keyword: API concepts
+    - keyword: REST API
+    - keyword: gRPC API
 links:
-- title: "Basic principles"
-  description: "How Yandex.Cloud APIs work and what the resource-based approach entails"
-  href: "concepts/general"
-- title: "Resources"
-  description: "How resources are identified in APIs"
-  href: "concepts/resources-identification"
-- title: "API methods"
-  description: "How methods work in APIs"
-  href: "concepts/about-methods"
-- title: "Working with operations"
-  description: "How asynchronous operations are implemented in APIs and how idempotence is used"
-  href: "concepts/about-async"
-
+  - title: Basic principles
+    description: How Yandex.Cloud APIs work and what the resource-based approach entails
+    href: concepts/general
+  - title: Resources
+    description: How resources are identified in APIs
+    href: concepts/resources-identification
+  - title: API methods
+    description: How methods work in APIs
+    href: concepts/about-methods
+  - title: Working with operations
+    description: >-
+      How asynchronous operations are implemented in APIs and how idempotence is
+      used
+    href: concepts/about-async

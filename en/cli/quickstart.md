@@ -3,7 +3,6 @@
 
 _The Yandex.Cloud command-line interface (CLI)_ provides downloadable software for managing your cloud resources from the command line.
 
-
 ## Installation {#install}
 
 {% include [install-cli](../_includes/cli/install-cli.md) %}
@@ -18,7 +17,7 @@ _The Yandex.Cloud command-line interface (CLI)_ provides downloadable software f
   1. Enter your OAuth token when prompted by the command.
 
      ```
-     Please go to https://oauth.yandex.com/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb
+     Please go to {{ link-cloud-oauth }}
       in order to obtain OAuth token.
 
      Please enter OAuth token: AaAaBbBbCcCcDdDdEeEeFfFfGgGg
@@ -48,7 +47,7 @@ _The Yandex.Cloud command-line interface (CLI)_ provides downloadable software f
   1. Select the default availability zone for the {{ compute-full-name }} service:
 
      ```
-     Do you want to configure a default Yandex Compute Cloud availability zone? [Y/n] Y
+     Do you want to configure a default {{ compute-full-name }} availability zone? [Y/n] Y
      Which zone do you want to use as a profile default?
       [1] ru-central1-a
       [2] ru-central1-b
@@ -161,5 +160,4 @@ The following steps describe how to create a cloud network, subnet, and virtual 
    $ yc vpc subnet delete my-yc-subnet-b
    $ yc vpc network delete my-yc-network
    ```
-
 

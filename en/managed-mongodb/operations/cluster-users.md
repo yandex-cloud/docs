@@ -19,7 +19,7 @@ You can add and remove users, as well as manage their individual settings.
   To get a list of cluster users, run the command:
 
   ```
-  $ yc managed-mongodb user list
+  $ {{ yc-mdb-mg }} user list
        --cluster-name <cluster name>
   ```
 
@@ -64,13 +64,13 @@ You can add and remove users, as well as manage their individual settings.
   1. See the description of the CLI's create user command:
 
      ```
-     $ yc managed-mongodb user create --help
+     $ {{ yc-mdb-mg }} user create --help
      ```
 
   1. Specify the user properties in the create command:
 
      ```
-     $ yc managed-mongodb user create <username>
+     $ {{ yc-mdb-mg }} user create <username>
         --cluster-name <cluster name>
         --password <user password>
         --permission database=<DB name>,role=<role>,role=<another role>,...
@@ -109,13 +109,13 @@ You can add and remove users, as well as manage their individual settings.
   1. See the description of the CLI's update user command:
 
      ```
-     $ yc managed-mongodb user update --help
+     $ {{ yc-mdb-mg }} user update --help
      ```
 
   1. Specify the user properties in the create command:
 
      ```
-     $ yc managed-mongodb user update <username>
+     $ {{ yc-mdb-mg }} user update <username>
         --cluster-name <cluster name>
         --password <user password>
         --permission database=<DB name>,role=<role>,role=<another role>,...
@@ -148,7 +148,7 @@ You can add and remove users, as well as manage their individual settings.
   To remove a user, run:
 
   ```
-  $ yc managed-mongodb user delete <username>
+  $ {{ yc-mdb-mg }} user delete <username>
        --cluster-name <cluster name>
   ```
 

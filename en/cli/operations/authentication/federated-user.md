@@ -48,7 +48,7 @@ To authenticate using an [SAML-compatible identity federation](../../../iam/conc
 1. Select the default availability zone for the {{ compute-full-name }} service:
 
    ```
-   Do you want to configure a default Yandex Compute Cloud availability zone? [Y/n] Y
+   Do you want to configure a default {{ compute-full-name }} availability zone? [Y/n] Y
    Which zone do you want to use as a profile default?
     [1] ru-central1-a
     [2] ru-central1-b

@@ -8,4 +8,17 @@
 
 #### Limits {#translate-limits}
 
-There are no limits in the service. For limitations on the field values in the request body, see the [API reference](../translate/api-ref/Translation/index.md).
+For limitations on the field values in the request body, see the [API reference](../translate/api-ref/Translation/index.md).
+
+The limits for using glossaries are as follows:
+
+- The number of pairs passed per glossary must be **no more than 50**.
+
+- The total number of characters in this structure must be **no more than 20,000** in Unicode. 10,000 characters per source text and 10,000 characters per target text.
+
+{% note warning %}
+
+This only refers to texts without CGI parameters.
+
+{% endnote %}
+

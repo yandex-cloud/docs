@@ -29,7 +29,7 @@ To add a role, request the list of available roles with [user information](clust
   To assign roles, run the command:
 
   ```
-  $ yc managed-postgresql user update <username>
+  $ {{ yc-mdb-pg }} user update <username>
        --cluster-name <cluster name>
        --grants="<role1, role2>"
   ```

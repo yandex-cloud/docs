@@ -38,7 +38,6 @@ In {{ mkf-name }} clusters, you can:
   - In the `clusterId` parameter, the ID of the cluster where you want to create a topic. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
   - Topic settings in the `topicSpec` parameter.
 
-
 {% endlist %}
 
 ## Update topic settings {#update-topic}
@@ -74,7 +73,6 @@ The number of {{ KF }} topic partitions can only be increased.
   - In the `updateMask` parameter, a list of settings to update (in a single line, comma-separated). If this parameter is omitted, the API method resets any topic settings that aren't explicitly specified in the request to their default values.
   - New values for the topic settings in the `topicSpec` parameter.
 
-
 {% endlist %}
 
 ## Delete a topic {#delete-topic}
@@ -98,7 +96,6 @@ The number of {{ KF }} topic partitions can only be increased.
   - In the `clusterId` parameter, the ID of the cluster where the topic is located. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
   - The topic name in the `topicName` parameter. To find out the name, [get a list of topics in the cluster](#list-topics).
 
-
 {% endlist %}
 
 ## Get a list of topics in a cluster {#list-topics}
@@ -117,7 +114,6 @@ The number of {{ KF }} topic partitions can only be increased.
   Use the [list](../api-ref/Topic/list.md) API method: pass the ID of the required cluster in the `clusterId` request parameter.
 
   To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-
 
 {% endlist %}
 
@@ -138,7 +134,6 @@ The number of {{ KF }} topic partitions can only be increased.
   To get detailed information about a topic, use the [get](../api-ref/Topic/get.md) API method and pass the following in the request:
   - In the `clusterId` parameter, the ID of the cluster where the topic is located. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
   - The topic name in the `topicName` parameter. To find out the name, [get a list of topics in the cluster](#list-topics).
-
 
 {% endlist %}
 

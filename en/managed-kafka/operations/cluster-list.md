@@ -17,7 +17,6 @@ You can request detailed information about each {{ mkf-name }} cluster you creat
 
   The response will contain cluster names and IDs.
 
-
 {% endlist %}
 
 ## Getting detailed information about a cluster {#get-cluster}
@@ -35,7 +34,6 @@ You can request detailed information about each {{ mkf-name }} cluster you creat
   Use the [get](../api-ref/Cluster/get.md) API method: pass the ID of the required cluster in the `clusterId` request parameter.
 
   To find out the cluster ID, [get a list of clusters in the folder](#list-clusters).
-
 
 {% endlist %}
 
@@ -55,6 +53,5 @@ You can request detailed information about each {{ mkf-name }} cluster you creat
 - API
 
   To get a list of operations, use the [listOperations](../api-ref/Cluster/listOperations.md) method.
-
 
 {% endlist %}

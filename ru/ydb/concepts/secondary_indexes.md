@@ -34,7 +34,7 @@
 - Cli
 
 ```bash
-$ ydb -e <эндпоинт> -d <база данных> table index add global --index-name title_index --columns title series
+$ {{ ydb-cli }} -e <эндпоинт> -d <база данных> table index add global --index-name title_index --columns title series
 ┌────────────────────────────────────────┬───────┬────────┐
 | id                                     | ready | status |
 ├────────────────────────────────────────┼───────┼────────┤
@@ -44,7 +44,7 @@ $ ydb -e <эндпоинт> -d <база данных> table index add global --
 Этой командой была запущена операция построения индекса, id - идентификатор операции, в дальнейшем используя его можно отслеживать прогресс построения:
 
 ```bash
-$ ydb -e <эндпоинт> -d <база данных> operation get ydb://buildindex/7?id=1407375091598308
+$ {{ ydb-cli }} -e <эндпоинт> -d <база данных> operation get ydb://buildindex/7?id=1407375091598308
 ┌────────────────────────────────────────┬───────┬─────────┬───────┬──────────┬───────────────────────────────────────────────────────────────┬─────────────┐
 | id                                     | ready | status  | state | progress | table                                                         | index       |
 ├────────────────────────────────────────┼───────┼─────────┼───────┼──────────┼───────────────────────────────────────────────────────────────┼─────────────┤
@@ -55,19 +55,19 @@ $ ydb -e <эндпоинт> -d <база данных> operation get ydb://build
 Операцию построения можно отменить:
 
 ```bash
-$ ydb -e <эндпоинт> -d <база данных> operation cancel ydb://buildindex/7?id=1407375091598308
+$ {{ ydb-cli }} -e <эндпоинт> -d <база данных> operation cancel ydb://buildindex/7?id=1407375091598308
 ```
 
 После того как операция завершена или отменена, ее следует удалить из базы:
 
 ```bash
-$ ydb -e <эндпоинт> -d <база данных> operation forget ydb://buildindex/7?id=1407375091598308
+$ {{ ydb-cli }} -e <эндпоинт> -d <база данных> operation forget ydb://buildindex/7?id=1407375091598308
 ```
 
 Удаление индекса:
 
 ```bash
-$ ydb -e <эндпоинт> -d <база данных> table index drop --index-name title_index series
+$ {{ ydb-cli }} -e <эндпоинт> -d <база данных> table index drop --index-name title_index series
 ```
 
 {% endlist %}

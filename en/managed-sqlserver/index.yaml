@@ -1,29 +1,34 @@
-# Заголовок и описание на странице
-title: "Yandex Managed Service for SQL Server™"
+title: Yandex Managed Service for SQL Server™
 description:
-  - "Managed Service for SQL Server helps you deploy and maintain SQL Server clusters in the Yandex.Cloud infrastructure. The service supports SQL Server 2016 SP2."
-  - "The Yandex.Cloud infrastructure <a href=\"https://storage.yandexcloud.net/yc-compliance/conformance_en_pdp.pdf\">fully complies</a> with the Russian Federal Law on Personal Data (No. 152-FZ)."
-  - "SQL Server is a registered trademark of the Microsoft Corporation in the United States and/or other countries."
-# Мета-информация title, description, keywords и т.п.
+  - >-
+    Managed Service for SQL Server helps you deploy and maintain SQL Server
+    clusters in the Yandex.Cloud infrastructure. The service supports SQL Server
+    2016 SP2.
+  - >-
+    The Yandex.Cloud infrastructure <a
+    href="https://storage.yandexcloud.net/yc-compliance/conformance_en_pdp.pdf">fully
+    complies</a> with the Russian Federal Law on Personal Data (No. 152-FZ).
+  - >-
+    SQL Server is a registered trademark of the Microsoft Corporation in the
+    United States and/or other countries.
 meta:
-  title: "Yandex Managed Service for SQL Server™"
-# Блок со ссылками
+  title: Yandex Managed Service for SQL Server™
 links:
-- title: "Getting started"
-  description: "Create the first database cluster"
-  href: "quickstart"
-- title: "Step-by-step instructions"
-  description: "Instructions on how to perform routine operations"
-  href: "operations/"
-- title: "Concepts"
-  description: "Learn about basic concepts and how the service works"
-  href: "concepts/"
-- title: "Quotas and limits"
-  description: "Technical and organizational limitations of the service"
-  href: "concepts/limits"
-- title: "Identity and access management"
-  description: "Configure access rights to work with the service"
-  href: "security/"
-- title: "Pricing policy"
-  description: "Prices and rules for calculating the service cost"
-  href: "pricing"
+  - title: Getting started
+    description: Create the first database cluster
+    href: quickstart
+  - title: Step-by-step instructions
+    description: Instructions on how to perform routine operations
+    href: operations/
+  - title: Concepts
+    description: Learn about basic concepts and how the service works
+    href: concepts/
+  - title: Quotas and limits
+    description: Technical and organizational limitations of the service
+    href: concepts/limits
+  - title: Identity and access management
+    description: Configure access rights to work with the service
+    href: security/
+  - title: Pricing policy
+    description: Prices and rules for calculating the service cost
+    href: pricing

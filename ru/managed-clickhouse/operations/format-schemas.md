@@ -34,19 +34,19 @@
   - для формата **Cap'n Proto**:
 
     ```bash
-    yc managed-clickhouse format-schema create "<имя схемы формата>" \
+    {{ yc-mdb-ch }} format-schema create "<имя схемы формата>" \
         --cluster-name="<имя кластера>" \
         --type="capnproto" \
-        --uri="<ссылка на файл в Object Storage>"
+        --uri="<ссылка на файл в {{ objstorage-name }}>"
     ```
 
   - для формата **Protobuf**:
 
     ```bash
-    yc managed-clickhouse format-schema create "<имя схемы формата>" \
+    {{ yc-mdb-ch }} format-schema create "<имя схемы формата>" \
         --cluster-name="<имя кластера>" \
         --type="protobuf" \
-        --uri="<ссылка на файл в Object Storage>"
+        --uri="<ссылка на файл в {{ objstorage-name }}>"
     ```
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -80,9 +80,9 @@
      Чтобы изменить ссылку на файл в объектном хранилище со схемой формата данных, выполнив команду:
 
      ```bash
-     yc managed-clickhouse format-schema update "<имя схемы данных>" \
+     {{ yc-mdb-ch }} format-schema update "<имя схемы данных>" \
          --cluster-name="<имя кластера>" \
-         --uri="<новая ссылка на файл в Object Storage>"
+         --uri="<новая ссылка на файл в {{ objstorage-name }}>"
      ```
 
      Имя схемы можно запросить со [списком схем формата данных в кластере](#list-format-schemas); имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -114,7 +114,7 @@
   Чтобы отключить схему формата данных, выполните команду:
 
   ```bash
-  yc managed-clickhouse format-schema delete "<имя схемы формата>" \
+  {{ yc-mdb-ch }} format-schema delete "<имя схемы формата>" \
       --cluster-name="<имя кластера>"
   ```
 
@@ -140,7 +140,7 @@
   Чтобы получить список схем формата данных в кластере, выполните команду:
 
   ```bash
-  yc managed-clickhouse format-schema list --cluster-name="<имя кластера>"
+  {{ yc-mdb-ch }} format-schema list --cluster-name="<имя кластера>"
   ```
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -160,7 +160,7 @@
   Чтобы получить детальную информацию о схеме формата данных, выполните команду:
 
   ```bash
-  yc managed-clickhouse format-schema get "<имя схемы формата>" \
+  {{ yc-mdb-ch }} format-schema get "<имя схемы формата>" \
       --cluster-name="<имя кластера>"
   ```
 

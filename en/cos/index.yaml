@@ -1,24 +1,25 @@
-# Yandex Container Optimized Solutions
-title: "Yandex Container Optimized Solutions"
+title: Yandex Container Optimized Solutions
 description:
-  - "Yandex Container Optimized Solutions are use cases based on VMs with a Container Optimized Image for running Docker containers. The Container Optimized Image is also available on the <a href=\"https://cloud.yandex.com/marketplace/products/f2ea2mtumfqb17k9eso7\">marketplace</a>."
-# Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
+  - >-
+    Yandex Container Optimized Solutions are use cases based on VMs with a
+    Container Optimized Image for running Docker containers. The Container
+    Optimized Image is also available on the <a
+    href="https://cloud.yandex.com/marketplace/products/f2ea2mtumfqb17k9eso7">marketplace</a>.
 meta:
-  title: "Yandex Container Optimized Solutions"
-# Блок со ссылками
+  title: Yandex Container Optimized Solutions
 links:
-- title: "Getting started"
-  description: "Create your first VM from a Container Optimized Image"
-  href: "quickstart"
-- title: "Concepts"
-  description: "Learn more about the Container Optimized Image"
-  href: "concepts/"
-- title: "Solutions"
-  description: "Container Optimized Image solutions"
-  href: "solutions/"
-- title: "Quotas and limits"
-  description: "Technical and organizational limitations"
-  href: "concepts/limits"
-- title: "Pricing policy"
-  description: "Pricing and cost calculations"
-  href: "pricing"
+  - title: Getting started
+    description: Create your first VM from a Container Optimized Image
+    href: quickstart
+  - title: Concepts
+    description: Learn more about the Container Optimized Image
+    href: concepts/
+  - title: Solutions
+    description: Container Optimized Image solutions
+    href: solutions/
+  - title: Quotas and limits
+    description: Technical and organizational limitations
+    href: concepts/limits
+  - title: Pricing policy
+    description: Pricing and cost calculations
+    href: pricing

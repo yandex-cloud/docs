@@ -72,13 +72,13 @@
 После настройки бакета для хостинга сайт становится доступен по адресу:
 
 ```
-http(s)://<имя_бакета>.website.yandexcloud.net
+http(s)://<имя_бакета>.{{ s3-web-host }}
 ```
 
 или
 
 ```
-http(s)://website.yandexcloud.net/<имя_бакета>
+http(s)://{{ s3-web-host }}/<имя_бакета>
 ```
 
 {% note info %}

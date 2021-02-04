@@ -106,7 +106,7 @@ After you configure and test the website's availability, upload the remaining fi
 To make sure the website is running, open the following address in your browser
 
 ```
-http://www.example.com.website.yandexcloud.net`
+http://www.example.com.{{ s3-web-host }}`
 ```
 
 ## How to delete created resources {#clear-out}

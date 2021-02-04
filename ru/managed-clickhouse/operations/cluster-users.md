@@ -34,7 +34,7 @@
   Чтобы получить список пользователей кластера, выполните команду:
   
   ```
-  $ yc managed-clickhouse user list
+  $ {{ yc-mdb-ch }} user list
        --cluster-name=<имя кластера>
   ```
   
@@ -86,12 +86,12 @@
   Чтобы создать пользователя в кластере, выполните команду:
   
   ```
-  $ yc managed-clickhouse user create <имя пользователя>
+  $ {{ yc-mdb-ch }} user create <имя пользователя>
        --cluster-name=<имя кластера>
        --password=<пароль пользователя>
        --permissions=<список баз, к которым пользователь должен иметь доступ>
        --quota=<список настроек одной квоты для пользователя>
-       --settings=<список настроек ClickHouse для пользователя>
+       --settings=<список настроек {{ CH }} для пользователя>
   ```
     
   Подробнее о [квотах](#quota-settings) и [настройках {{ CH }}](#clickhouse-settings) читайте в разделе [Дополнительные настройки](#advanced-settings).
@@ -99,7 +99,7 @@
   Чтобы задать несколько квот, перечислите их, используя требуемое количество параметров `--quota` в команде:
   
   ```
-  $ yc managed-clickhouse user create <имя пользователя>
+  $ {{ yc-mdb-ch }} user create <имя пользователя>
       ...
       --quota="<настройки квоты 0>"
       --quota="<настройки квоты 1>"
@@ -144,7 +144,7 @@
   Чтобы изменить пароль пользователя, выполните команду:
 
   ```
-  $ yc managed-clickhouse user update <имя пользователя>
+  $ {{ yc-mdb-ch }} user update <имя пользователя>
        --cluster-name=<имя кластера>
        --password=<новый пароль>
   ```
@@ -197,7 +197,7 @@
   1. Чтобы настроить права пользователя на доступ к определенным базам данных, выполните команду, перечислив список имен баз данных с помощью параметра `--permissions`:
   
      ```
-     $ yc managed-clickhouse user update <имя пользователя>
+     $ {{ yc-mdb-ch }} user update <имя пользователя>
           --cluster-name=<имя кластера>
           --permissions=<список баз, к которым пользователь должен иметь доступ>
      ```
@@ -211,7 +211,7 @@
   1. Чтобы изменить [настройки квот](#quota-settings) для пользователя, выполните команду, перечислив список всех квот, с помощью параметров `--quota` (один параметр на каждую квоту):
   
      ```
-     $ yc managed-clickhouse user update <имя пользователя>
+     $ {{ yc-mdb-ch }} user update <имя пользователя>
           --cluster-name=<имя кластера>
           --quota=<настройки квоты 0 (без изменений)>
           --quota=<настройки квоты 1 (без изменений)>
@@ -232,9 +232,9 @@
   1. Чтобы изменить [настройки {{ CH }}](#clickhouse-settings) для пользователя, выполните команду, перечислив измененные настройки с помощью параметра `--settings`:
   
      ```
-     $ yc managed-clickhouse user update <имя пользователя>
+     $ {{ yc-mdb-ch }} user update <имя пользователя>
           --cluster-name=<имя кластера>
-          --settings=<список настроек ClickHouse>    
+          --settings=<список настроек {{ CH }}>    
      ```
      
      Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -261,7 +261,7 @@
   1. Чтобы изменить учетную запись пользователя, используйте запрос [ALTER USER](https://clickhouse.tech/docs/ru/sql-reference/statements/alter/user/). Например для изменения [настроек {{ CH }}](#clickhouse-settings) выполните следующую команду, перечислив настройки подлежащие изменению:
 
       ```sql
-      ALTER USER <имя пользователя> SETTINGS <список настроек ClickHouse>;
+      ALTER USER <имя пользователя> SETTINGS <список настроек {{ CH }}>;
       ```
 
 {% endlist %}
@@ -285,7 +285,7 @@
   Чтобы удалить пользователя, выполните команду:
   
   ```
-  $ yc managed-clickhouse user delete <имя пользователя>
+  $ {{ yc-mdb-ch }} user delete <имя пользователя>
        --cluster-name=<имя кластера>
   ```
   
@@ -330,7 +330,7 @@
   Запустите следующую команду:
 
   ```
-  $ yc managed-clickhouse user create "ro-user" \
+  $ {{ yc-mdb-ch }} user create "ro-user" \
        --cluster-name="mych" \
        --password="Passw0rd" \
        --permissions="db1" \
@@ -643,7 +643,29 @@
   - **Insert quorum timeout**{#setting-insert-quorum-timeout} — задает время ожидания [кворумной записи](#setting-insert-quorum) в миллисекундах. Если время прошло, а запись так не состоялась, то {{ CH }} прервет выполнение `INSERT`-запроса, вернет ошибку, и клиент должен повторить запрос на запись того же блока на эту же или любую другую реплику. 
   
     Минимальное значение — `1000` (1 секунда), по умолчанию — `60000` (1 минута).
-     
+  
+  - **Join use nulls**{#setting-join-use-nulls} — устанавливает тип поведения `JOIN`. При объединении таблиц могут появляться пустые ячейки. Если опция включена, то тип присоединяемого поля преобразуется в `Nullable`, а пустая ячейка заполняется значением `NULL`. В противном случае, пустая ячейка заполняется значением по умолчанию для данного типа поля.
+    
+    По умолчанию опция выключена.
+    
+    Подробнее см. [в документации {{ CH }}](https://clickhouse.tech/docs/ru/operations/settings/settings/#join_use_nulls).
+
+  - **Joined subquery requires alias**{#setting-joined-subquery-requires-alias} — требует наличия псевдонимов для подзапросов при выполнении операции `JOIN`.
+
+    При включенной настройке подобный запрос не будет выполнен:
+
+    ```sql
+    SELECT col1, col2 FROM table1 JOIN (SELECT col3 FROM table2)
+    ```
+
+    При этом запрос с заданным псевдонимом будет выполнен успешно:
+
+    ```sql
+    SELECT col1, col2 FROM table1 JOIN (SELECT col3 FROM table2) AS MyQuery
+    ```
+    
+    По умолчанию опция выключена.
+    
   - **Low cardinality allow in native format**{#setting-low-cardinality-allow-in-native-format} — определяет, использовать ли тип LowCardinality в native-формате: 
     - опция включена — да, использовать.
     - опция выключена — конвертировать столбцы LowCardinality в обычные столбцы для запроса `SELECT`, и конвертировать обычные столбцы в требуемый LowCardinality-столбец для запроса `INSERT`.
@@ -951,6 +973,12 @@
   - **Transfer overflow mode**{#setting-transfer-overflow-mode} — определяет поведение {{ CH }} в ситуации, когда количество данных для передачи на другой сервер [превысило одно из ограничений](https://clickhouse.tech/docs/ru/operations/settings/query-complexity/#ogranicheniia-na-slozhnost-zaprosa) — `throw` (прервать выполнение, вернуть ошибку) или `break` (вернуть неполный результат).
   
     Значение по умолчанию — не выбрано (эквивалентно `throw`).
+  
+  - **Transform null in**{#setting-transform-null-in} - при включенной опции сравнение `NULL = NULL` вернет `true` в операторе `IN`.
+  
+    По умолчанию опция выключена (это сравнение вернет `false` в операторе `IN`).
+    
+    Подробнее см. [в документации {{ CH }}](https://clickhouse.tech/docs/ru/operations/settings/settings/#transform_null_in).
   
   - **Use uncompressed cache**{#setting-use-uncompressed-cache} — определяет, использовать ли кэш разжатых блоков. Использование кэша несжатых блоков (только для таблиц семейства MergeTree) может существенно сократить задержку и увеличить пропускную способность при работе с большим количеством коротких запросов. Включите эту настройку для пользователей, от которых идут частые короткие запросы.
     

@@ -34,13 +34,13 @@
   1. Посмотрите описание команды CLI для изменения кластера:
 
      ```
-     $ yc managed-redis cluster update --help
+     $ {{ yc-mdb-rd }} cluster update --help
      ```
 
   1. Укажите новые имя и описание в команде изменения кластера:
 
      ```
-     $ yc managed-redis cluster update <имя кластера> \
+     $ {{ yc-mdb-rd }} cluster update <имя кластера> \
           --cluster-name <новое имя кластера> \
           --description <новое описание кластера>
      ```
@@ -76,14 +76,14 @@
   1. Посмотрите описание команды CLI для изменения кластера:
 
      ```
-     $ yc managed-redis cluster update --help
+     $ {{ yc-mdb-rd }} cluster update --help
      ```
 
   1. Запросите список доступных классов хостов (в колонке `ZONES` указаны зоны доступности, в которых можно выбрать соответствующий класс):
 
-     
+
      ```bash
-     $ yc managed-redis resource-preset list
+     $ {{ yc-mdb-rd }} resource-preset list
 
      +-------------+--------------------------------+----------+
      |     ID      |            ZONE IDS            |  MEMORY  |
@@ -99,12 +99,10 @@
      +-----------+----------------------------------+----------+
      ```
 
-    
-
   1. Укажите нужный класс в команде изменения кластера:
 
      ```
-     $ yc managed-redis cluster update <имя кластера>
+     $ {{ yc-mdb-rd }} cluster update <имя кластера>
           --resource-preset <ID класса>
      ```
 
@@ -140,7 +138,7 @@
   1. Посмотрите описание команды CLI для изменения кластера:
 
      ```
-     $ yc managed-clickhouse cluster update --help
+     $ {{ yc-mdb-rd }} cluster update --help
      ```
 
   1. Проверьте, что в облаке хватает квоты на увеличение размера дисков: откройте страницу [Квоты]({{ link-console-quotas }}) для вашего облака и проверьте, что в секции **Managed Databases** не исчерпано место в строке **hddSpace**.
@@ -148,7 +146,7 @@
   1. Укажите нужный размер диска в ГБ в команде изменения кластера. Новый объем должен быть больше предыдущего.
 
      ```
-     $ yc managed-clickhouse cluster update <имя кластера>
+     $ {{ yc-mdb-rd }} cluster update <имя кластера>
           --disk-size <размер диска в ГБ>
      ```
 

@@ -57,7 +57,7 @@ items:
         href: pricing.md
       - name: Archive
         items:
-          - name: 'Before February 1, 2020'
+          - name: Before February 1, 2020
             href: pricing-archive/pricing-01022020.md
   - name: API reference
     items:
@@ -177,3 +177,4 @@ items:
         href: qa/mysql.md
       - name: All questions on the same page
         href: qa/all.md
+base: en/managed-mysql

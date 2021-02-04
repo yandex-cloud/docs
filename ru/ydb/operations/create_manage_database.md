@@ -19,7 +19,7 @@
    Чтобы получить список баз данных в каталоге по умолчанию, выполните команду:
 
    ```
-   $ yc ydb database list
+   $ {{ yc-ydb }} database list
    ```
 
 {% endlist %}
@@ -60,13 +60,13 @@
    1. Посмотрите описание команды CLI для изменения параметров БД:
 
       ```
-      $ yc ydb database update --help
+      $ {{ yc-ydb }} database update --help
       ```
 
    1. Выполните команду вида:
    
       ```
-      $ yc ydb database update <имя БД> \
+      $ {{ yc-ydb }} database update <имя БД> \
                      --new-name <новое имя БД> \
                      --description <новое описание БД> \
                      --resource-preset <ID класса> \
@@ -97,10 +97,8 @@
    Чтобы удалить базу данных, выполните команду:
 
    ```
-   $ yc ydb database delete <имя базы данных>
+   $ {{ yc-ydb }} database delete <имя базы данных>
    ```
 
 {% endlist %}
-
-
 

@@ -19,10 +19,9 @@ If public access is only configured for certain hosts in your cluster, automatic
 
 ```bash
 $ mkdir ~/.mongodb
-$ wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" -O ~/.mongodb/CA.pem
+$ wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.mongodb/CA.pem
 $ chmod 0600 ~/.mongodb/CA.pem
 ```
-
 
 ## Connection string {#Connection-string}
 
@@ -36,7 +35,7 @@ You can connect to the database using the command `mongo` by listing all the clu
 
   {% include [public-connect-ssl](../../_includes/mdb/public-connect-ssl.md) %}
 
-  
+
   ```bash
   $ mongo --norc \
           --tls \
@@ -47,13 +46,11 @@ You can connect to the database using the command `mongo` by listing all the clu
           <DB name>
   ```
 
- 
-
 - SSL for older versions of MongoDB
 
   {% include [public-connect-ssl](../../_includes/mdb/public-connect-ssl.md) %}
 
-  
+
   ```bash
   $ mongo --norc \
           --ssl \
@@ -64,13 +61,11 @@ You can connect to the database using the command `mongo` by listing all the clu
           <DB name>
   ```
 
- 
-
 - Without SSL
 
   If you don't need to encrypt traffic within the virtual network when connecting to the database, you can connect from a Yandex.Cloud VM without SSL. Pass the `sslmode` parameter with the `disable` value:
 
-  
+
   ```bash
   $ mongo --norc \
           --host 'rs01/<host 1 FQDN>:27018,<host 2 FQDN>:27018,<host N FQDN>:27018' \
@@ -78,8 +73,6 @@ You can connect to the database using the command `mongo` by listing all the clu
           -p <user password> \
           <DB name>
   ```
-
- 
 
 {% endlist%}
 

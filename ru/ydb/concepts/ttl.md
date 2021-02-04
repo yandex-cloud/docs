@@ -62,7 +62,7 @@ expiration_time = valueof(ttl_column) + expire_after_seconds
 
 - CLI
   ```bash
-  $ ydb -e <endpoint> -d <database> table ttl set --column created_at --expire-after 3600 mytable
+  $ {{ ydb-cli }} -e <endpoint> -d <database> table ttl set --column created_at --expire-after 3600 mytable
   ```
 
 
@@ -100,7 +100,7 @@ expiration_time = valueof(ttl_column) + expire_after_seconds
 
 - CLI
   ```bash
-  $ ydb -e <endpoint> -d <database> table ttl drop mytable
+  $ {{ ydb-cli }} -e <endpoint> -d <database> table ttl drop mytable
   ```
 
 

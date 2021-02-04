@@ -1,30 +1,27 @@
-# Yandex DataLens
-title: "Yandex DataLens"
+title: Yandex DataLens
 description:
-  - "Сервис DataLens позволяет визуализировать данные для анализа."
-# Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
+  - Сервис DataLens позволяет визуализировать данные для анализа.
 meta:
-  title: "Yandex DataLens"
-  # Блок со ссылками
+  title: Yandex DataLens
 links:
-- title: "Начало работы"
-  description: "Как начать работать с DataLens"
-  href: "quickstart"
-- title: "Пошаговые инструкции"
-  description: "Инструкции по выполнению рутинных операций"
-  href: "operations/"
-- title: "Концепции"
-  description: "Узнайте про устройство и возможности сервиса"
-  href: "concepts/"
-- title: "Сценарии использования"
-  description: "Решайте типовые задачи по визуализации данных с помощью DataLens"
-  href: "../solutions/datalens"
-- title: "Квоты и лимиты"
-  description: "Технические и организационные ограничения сервиса"
-  href: "concepts/limits"
-- title: "Управление доступом"
-  description: "Какие права доступа нужны для работы с сервисом"
-  href: "security/"
-- title: "Правила тарификации"
-  description: "Цены и правила расчета стоимости услуг сервиса"
-  href: "pricing"
+  - title: Начало работы
+    description: Как начать работать с DataLens
+    href: quickstart
+  - title: Пошаговые инструкции
+    description: Инструкции по выполнению рутинных операций
+    href: operations/
+  - title: Концепции
+    description: Узнайте про устройство и возможности сервиса
+    href: concepts/
+  - title: Сценарии использования
+    description: Решайте типовые задачи по визуализации данных с помощью DataLens
+    href: ../solutions/datalens
+  - title: Квоты и лимиты
+    description: Технические и организационные ограничения сервиса
+    href: concepts/limits
+  - title: Управление доступом
+    description: Какие права доступа нужны для работы с сервисом
+    href: security/
+  - title: Правила тарификации
+    description: Цены и правила расчета стоимости услуг сервиса
+    href: pricing

@@ -37,3 +37,4 @@ items:
     href: pricing.md
   - name: Questions and answers
     href: qa/index.md
+base: en/cos

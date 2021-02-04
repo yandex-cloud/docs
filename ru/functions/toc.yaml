@@ -5,20 +5,36 @@ items:
     items:
       - name: Обзор
         href: quickstart/index.md
-      - name: Создание и выполнение функции
-        href: quickstart/function-quickstart.md
-      - name: Создание таймера
-        href: quickstart/timer-quickstart.md
-      - name: Создание триггера для Message Queue
-        href: quickstart/ymq-trigger-quickstart.md
-      - name: Создание триггера для Object Storage
-        href: quickstart/os-trigger-quickstart.md
-      - name: Создание триггера для Container Registry
-        href: quickstart/cr-trigger-quickstart.md
-      - name: Создание триггера для Cloud Logs
-        href: quickstart/cloudlogs-trigger-quickstart.md
-      - name: Создание триггера для IoT Core
-        href: quickstart/iot-core-trigger-quickstart.md
+      - name: Создание функции
+        items:
+          - name: Обзор
+            href: quickstart/create-function/index.md
+          - name: Python
+            href: quickstart/create-function/python-function-quickstart.md
+          - name: Node.js
+            href: quickstart/create-function/node-function-quickstart.md
+          - name: PHP
+            href: quickstart/create-function/php-function-quickstart.md
+          - name: Go
+            href: quickstart/create-function/go-function-quickstart.md
+          - name: Bash
+            href: quickstart/create-function/bash-function-quickstart.md
+      - name: Создание триггера
+        items:
+          - name: Обзор
+            href: quickstart/create-trigger/index.md
+          - name: Таймер
+            href: quickstart/create-trigger/timer-quickstart.md
+          - name: Триггер для Message Queue
+            href: quickstart/create-trigger/ymq-trigger-quickstart.md
+          - name: Триггер для Object Storage
+            href: quickstart/create-trigger/os-trigger-quickstart.md
+          - name: Триггер для Container Registry
+            href: quickstart/create-trigger/cr-trigger-quickstart.md
+          - name: Триггер для Cloud Logs
+            href: quickstart/create-trigger/cloudlogs-trigger-quickstart.md
+          - name: Триггер для Yandex IoT Core
+            href: quickstart/create-trigger/iot-core-trigger-quickstart.md
   - name: Пошаговые инструкции
     items:
       - name: Все инструкции
@@ -347,3 +363,4 @@ items:
                 href: triggers/api-ref/Trigger/update.md
   - name: Вопросы и ответы
     href: qa/index.md
+base: ru/functions

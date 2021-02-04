@@ -69,6 +69,8 @@ items:
         href: concepts/backup.md
       - name: Назначение ролей
         href: concepts/roles.md
+      - name: Управление соединениями
+        href: concepts/pooling.md
       - name: Репликация
         href: concepts/replication.md
       - name: Поддерживаемые клиенты
@@ -213,3 +215,4 @@ items:
         href: qa/postgresql.md
       - name: Все вопросы на одной странице
         href: qa/all.md
+base: ru/managed-postgresql

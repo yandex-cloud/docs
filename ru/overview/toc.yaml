@@ -45,7 +45,7 @@ items:
         href: security/standarts.md
       - name: Соответствие требованиям
         href: security/conform.md
-      - name: 'Средства защиты, доступные пользователям облачных сервисов'
+      - name: Средства защиты, доступные пользователям облачных сервисов
         href: security/user-side.md
       - name: Бюллетени безопасности
         href: security-bulletins/index.md
@@ -57,3 +57,4 @@ items:
     href: sla.md
   - name: Вопросы и ответы
     href: qa.md
+base: ru/overview

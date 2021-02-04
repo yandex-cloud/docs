@@ -71,13 +71,13 @@
   1. Посмотрите описание команды CLI для изменения шарда:
 
      ```bash
-     yc managed-clickhouse shards update --help
+     {{ yc-mdb-ch }} shards update --help
      ```
 
   1. Запустите операцию, например, изменения веса для шарда:
 
      ```bash
-     yc managed-clickhouse shards update --cluster-name clickhouse12 \
+     {{ yc-mdb-ch }} shards update --cluster-name clickhouse12 \
                                    --name shard1 \
                                    --weight 80
      ```

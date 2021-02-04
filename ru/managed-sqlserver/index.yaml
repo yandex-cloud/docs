@@ -1,29 +1,34 @@
-# Заголовок и описание на странице
-title: "Yandex Managed Service for SQL Server™"
+title: Yandex Managed Service for SQL Server™
 description:
-  - "Managed Service for SQL Server помогает разворачивать и поддерживать кластеры серверов SQL Server в инфраструктуре Yandex.Cloud. Сервис поддерживает SQL Server 2016 SP2."
-  - "Инфраструктура Yandex.Cloud <a href=\"https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf\">защищена</a> в соответствии с ФЗ-152."
-  - "SQL Server является зарегистрированным товарным знаком Microsoft Corporation в США и/или других странах."
-# Мета-информация title, description, keywords и т.п.
+  - >-
+    Managed Service for SQL Server помогает разворачивать и поддерживать
+    кластеры серверов SQL Server в инфраструктуре Yandex.Cloud. Сервис
+    поддерживает SQL Server 2016 SP2.
+  - >-
+    Инфраструктура Yandex.Cloud <a
+    href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">защищена</a>
+    в соответствии с ФЗ-152.
+  - >-
+    SQL Server является зарегистрированным товарным знаком Microsoft Corporation
+    в США и/или других странах.
 meta:
-  title: "Yandex Managed Service for SQL Server™"
-# Блок со ссылками
+  title: Yandex Managed Service for SQL Server™
 links:
-- title: "Начало работы"
-  description: "Создайте первый кластер баз данных"
-  href: "quickstart"
-- title: "Пошаговые инструкции"
-  description: "Инструкции по выполнению рутинных операций"
-  href: "operations/"
-- title: "Основные понятия"
-  description: "Узнайте про концепции и общее устройство сервиса"
-  href: "concepts/"
-- title: "Квоты и лимиты"
-  description: "Технические и организационные ограничения сервиса"
-  href: "concepts/limits"
-- title: "Безопасность и управление доступом"
-  description: "Настройте права доступа для работы с сервисом"
-  href: "security/"
-- title: "Правила тарификации"
-  description: "Цены и правила расчета стоимости услуг сервиса"
-  href: "pricing"
+  - title: Начало работы
+    description: Создайте первый кластер баз данных
+    href: quickstart
+  - title: Пошаговые инструкции
+    description: Инструкции по выполнению рутинных операций
+    href: operations/
+  - title: Основные понятия
+    description: Узнайте про концепции и общее устройство сервиса
+    href: concepts/
+  - title: Квоты и лимиты
+    description: Технические и организационные ограничения сервиса
+    href: concepts/limits
+  - title: Безопасность и управление доступом
+    description: Настройте права доступа для работы с сервисом
+    href: security/
+  - title: Правила тарификации
+    description: Цены и правила расчета стоимости услуг сервиса
+    href: pricing

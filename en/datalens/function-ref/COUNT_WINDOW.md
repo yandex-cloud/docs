@@ -29,10 +29,6 @@ COUNT([Profit] TOTAL)
 ```
 
 ```
-COUNT(TOTAL)
-```
-
-```
 COUNT([Profit] WITHIN [Date])
 ```
 

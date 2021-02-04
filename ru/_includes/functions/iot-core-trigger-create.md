@@ -107,7 +107,6 @@
 
 {% endlist %}
 
-
 ## Проверить результат {#check-result}
 
 {% include [check-result](check-result.md) %}

@@ -8,7 +8,7 @@ The invocation context provides additional information about function version pr
 * `functionVersion`: The function version ID.
 * `memoryLimitInMB`: The amount of memory specified when creating the version, MB.
 * `requestId`: The ID of the request being handled.
-* `token`: The parameters required for authentication in the Yandex.Cloud API.
+* `token`: The parameters required for authentification in the {{ yandex-cloud }} API.
 
 The context also contains the following helper methods:
 
@@ -17,9 +17,9 @@ The context also contains the following helper methods:
 
 ## Using the invocation context {#use}
 
-You can use the invocation context to authenticate in the API of Yandex.Cloud services and manage the process of getting the HTTP request body (the `body` parameter).
+You can use the invocation context to authenticate in the {{ yandex-cloud }} API and manage the process of getting the HTTP request body (the `body` parameter).
 
-### Authentication in the Yandex.Cloud API {#token}
+### Authentication in the {{ yandex-cloud }} API {#token}
 
 If a function has a specified service account, the `token` parameter contains information for authentication on behalf of this service account:
 

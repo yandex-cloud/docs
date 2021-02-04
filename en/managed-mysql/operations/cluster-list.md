@@ -19,7 +19,7 @@ You can request detailed information about each {{ mmy-short-name }} cluster you
   To request a list of {{ MY }} clusters in the default folder, run the command:
 
   ```
-  $ yc managed-mysql cluster list
+  $ {{ yc-mdb-my }} cluster list
   
   +----------------------+--------------+---------------------+--------+---------+
   |          ID          |     NAME     |     CREATED AT      | HEALTH | STATUS  |
@@ -48,7 +48,7 @@ You can request detailed information about each {{ mmy-short-name }} cluster you
   To get information about a {{ MY }} cluster, run the command:
 
   ```
-  $ yc managed-mysql cluster get <cluster name or ID>
+  $ {{ yc-mdb-my }} cluster get <cluster name or ID>
   ```
 
   The cluster name and ID can be requested with a [list of clusters in the folder](list-clusters).
@@ -75,7 +75,7 @@ You can request detailed information about each {{ mmy-short-name }} cluster you
   To get a list of operations, run the command:
 
   ```
-  $ yc managed-mysql cluster list-operations <cluster name or ID>
+  $ {{ yc-mdb-my }} cluster list-operations <cluster name or ID>
   ```
 
   The cluster name and ID can be requested with a [list of clusters in the folder](list-clusters).

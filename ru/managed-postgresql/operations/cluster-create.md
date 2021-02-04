@@ -15,7 +15,6 @@
 
 * При использовании SSD-дисков вместе с кластером можно создать не меньше 3 реплик (минимум 3 реплики необходимо, чтобы обеспечить отказоустойчивость). Если после создания кластера [доступных ресурсов каталога](../concepts/limits.md) останется достаточно, вы можете добавить дополнительные реплики.
 
-
 По умолчанию {{ mpg-short-name }} выставляет максимально возможное ограничение на количество подключений к каждому хосту {{ PG }}-кластера. Этот максимум рассчитывается так: `200 × <количество vCPU на каждом хосте>`. Например, для кластера [класса s1.micro](../concepts/instance-types.md) значение параметра `max_connections` по умолчанию равно 400, и не может быть увеличено.
 
 {% include [note-pg-user-connections.md](../../_includes/mdb/note-pg-user-connections.md) %}
@@ -44,7 +43,7 @@
   1. Выберите класс хостов — он определяет технические характеристики виртуальных машин, на которых будут развернуты хосты баз данных. Все доступные варианты перечислены в разделе [{#T}](../concepts/instance-types.md). При изменении класса хостов для кластера меняются характеристики всех уже созданных хостов.
   1. В блоке **Размер хранилища**:
 
-      - Выберите тип хранилища — более гибкое сетевое (**network-hdd** или **network-ssd**) или более быстрое локальное хранилище (**local-ssd**). Размер локального хранилища можно менять только с шагом 100 ГБ.
+- Выберите тип хранилища — более гибкое сетевое (**network-hdd** или **network-ssd**) или более быстрое локальное хранилище (**local-ssd**). Размер локального хранилища можно менять только с шагом 100 ГБ.
 
       - Выберите объем, который будет использоваться для данных и резервных копий. Подробнее о том, как занимают пространство резервные копии, см. раздел [{#T}](../concepts/backup.md).
   1. В блоке **База данных** укажите атрибуты базы данных:
@@ -72,7 +71,7 @@
 
   Чтобы создать кластер:
 
-  1. Проверьте, есть ли в каталоге подсети для хостов кластера:
+1. Проверьте, есть ли в каталоге подсети для хостов кластера:
 
      ```
      $ yc vpc subnet list
@@ -83,14 +82,14 @@
   1. Посмотрите описание команды CLI для создания кластера:
 
       ```
-      $ yc managed-postgresql cluster create --help
+      $ {{ yc-mdb-pg }} cluster create --help
       ```
 
   1. Укажите параметры кластера в команде создания (в примере приведены не все параметры):
 
-      
+
       ```bash
-      $ yc managed-postgresql cluster create \
+      $ {{ yc-mdb-pg }} cluster create \
          --name <имя кластера> \
          --environment <окружение, prestable или production> \
          --network-name <имя сети> \
@@ -102,8 +101,6 @@
       ```
 
       Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.
-
-     
       
       Также вы можете указать несколько дополнительных опций в параметре `--host` для управления репликацией в кластере:
       - Источник репликации для хоста в опции `replication-source` для того, чтобы [вручную управлять потоками репликации](../concepts/replication.md#replication-manual).
@@ -133,16 +130,16 @@
        name        = "<имя кластера>"
        environment = "<окружение, PRESTABLE или PRODUCTION>"
        network_id  = "<идентификатор сети>"
-       
+
        config {
-         version = "<версия PostgreSQL: 10, 10-1с, 11 или 12>"
+         version = "<версия PostgreSQL: 10, 10-1с, 11, 11-1c, 12 или 13>"
          resources {
            resource_preset_id = "<класс хоста>"
            disk_type_id       = "<тип хранилища>"
            disk_size          = "<размер хранилища в гигабайтах>"
          }
        }
-         
+
        database {
          name  = "<имя базы данных>"
          owner = "<имя владельца базы данных>"
@@ -197,7 +194,7 @@
 
   Допустим, нужно создать {{ PG }}-кластер со следующими характеристиками:
 
-  
+
   - С именем `mypg`.
   - В окружении `production`.
   - В сети `default`.
@@ -206,31 +203,27 @@
   - С одним пользователем (`user1`), с паролем `user1user1`.
   - С одной базой данных `db1`, принадлежащей пользователю `user1`.
 
- 
-
   Запустите следующую команду:
 
-  
+
   ```
-  $ yc managed-postgresql cluster create \
+  $ {{ yc-mdb-pg }} cluster create \
        --name mypg \
        --environment production \
        --network-name default \
-       --resource-preset s2.micro \
-       --host zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch64 \
-       --disk-type network-ssd \
+       --resource-preset {{ host-class }} \
+       --host zone-id={{ zone-id }},subnet-id=b0rcctk2rvtr8efcch64 \
+       --disk-type {{ disk-type-example }} \
        --disk-size 20 \
        --user name=user1,password=user1user1 \
        --database name=db1,owner=user1
   ```
 
- 
-
 - Terraform
 
   Допустим, нужно создать {{ PG }}-кластер и сеть для него со следующими характеристиками:
   - С именем `mypg`.
-  - Версии `12`.
+  - Версии `13`.
   - В окружении `PRESTABLE`.
   - В облаке с идентификатором `{{ tf-cloud-id }}`.
   - В каталоге `myfolder`.
@@ -245,9 +238,9 @@
   ```
   provider "yandex" {
     token     = "<OAuth или статический ключ сервисного аккаунта>"
-    cloud_id  = "b1gq90dgh25bebiu75o"
+    cloud_id  = "{{ tf-cloud-id }}"
     folder_id = "${data.yandex_resourcemanager_folder.myfolder.id}"
-    zone      = "ru-central1-c"
+    zone      = "{{ zone-id }}"
   }
   
   resource "yandex_mdb_postgresql_cluster" "mypg" {
@@ -256,10 +249,10 @@
     network_id  = "${yandex_vpc_network.mynet.id}"
 
     config {
-      version = 12
+      version = 13
       resources {
-        resource_preset_id = "s2.micro"
-        disk_type_id       = "network-ssd"
+        resource_preset_id = "{{ host-class }}"
+        disk_type_id       = "{{ disk-type-example }}"
         disk_size          = 20
       }
     }
@@ -278,7 +271,7 @@
     }
 
     host {
-      zone      = "ru-central1-c"
+      zone      = "{{ zone-id }}"
       subnet_id = "${yandex_vpc_subnet.mysubnet.id}"
     }
   }
@@ -287,7 +280,7 @@
 
   resource "yandex_vpc_subnet" "mysubnet" {
     name           = "mysubnet"
-    zone           = "ru-central1-c"
+    zone           = "{{ zone-id }}"
     network_id     = "${yandex_vpc_network.mynet.id}"
     v4_cidr_blocks = ["10.5.0.0/24"]
   }

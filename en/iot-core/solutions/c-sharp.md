@@ -129,10 +129,10 @@ IMqttClient mqttClient = factory.CreateMqttClient();
 // Enabling the data receipt event handler
 mqttClient.UseApplicationMessageReceivedHandler(DataHandler);
 
-// Enabling the event handler for connections to Yandex IoT Core
+// Enabling the event handler for connections to {{ iot-full-name }}
 mqttClient.UseConnectedHandler(ConnectedHandler);
 
-// Enabling the event handler for losing connections to Yandex IoT Core
+// Enabling the event handler for losing connections to {{ iot-full-name }}
 mqttClient.UseDisconnectedHandler(DisconnectedHandler);
 ```
 

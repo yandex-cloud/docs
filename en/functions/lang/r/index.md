@@ -9,3 +9,4 @@ The runtime environment automatically loads your code and invokes the [request h
 {{ sf-name }} automatically captures an application's standard output streams and sends them to the centralized logging system available in {{ yandex-cloud }}. This system also logs service records about the start and end of each function and any errors that occur during its execution. For more information about the log format, see [{#T}](logging.md).
 
 If you want to learn more about how to write in R or how certain statements work, we recommend taking a basic [course on Stepik](https://stepik.org/course/497/promo).
+

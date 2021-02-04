@@ -20,7 +20,6 @@
    sudo apt install redis-tools
    ```
 
-
 ## Создайте кластер {#cluster-create}
 
 1. В консоли управления выберите каталог, в котором нужно создать кластер {{ RD }}.
@@ -40,18 +39,18 @@
      1. Получите адрес хоста-мастера, используя Sentinel и любой хост {{ RD }}:
      
         ```bash
-        redis-cli -h <FQDN любого хоста Redis> -p 26379 sentinel get-master-addr-by-name <имя кластера Redis> | head -n 1
+        redis-cli -h <FQDN любого хоста {{ RD }}> -p 26379 sentinel get-master-addr-by-name <имя кластера {{ RD }}> | head -n 1
         ```
    
      1. Подключитесь к хосту с этим адресом:
         
         ```bash
-        redis-cli -с -h <адрес хоста-мастера Redis> -a <пароль Redis>
+        redis-cli -с -h <адрес хоста-мастера {{ RD }}> -a <пароль {{ RD }}>
         ```
    - Напрямую к хосту-мастеру:
    
      ```bash
-     redis-cli -c -h <FQDN хоста-мастера Redis> -p 6379 -a <пароль Redis>
+     redis-cli -c -h <FQDN хоста-мастера {{ RD }}> -p 6379 -a <пароль {{ RD }}>
      ``` 
      
 1. После успешного подключения отправьте команду `PING`. {{ RD }} должен вернуть ответ `PONG`.

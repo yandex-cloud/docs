@@ -1,6 +1,6 @@
 # Logging
 
-{{ sf-name }} automatically captures standard application output streams and sends them to the centralized logging system available in Yandex.Cloud. In addition to the application run history, the system logs request execution events.
+{{ sf-name }} automatically captures standard application output streams and sends them to the centralized logging system available in {{ yandex-cloud }}. In addition to the application run history, the system logs request execution events.
 
 Additional messages are logged using standard language constructs:
 

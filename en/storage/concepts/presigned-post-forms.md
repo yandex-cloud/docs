@@ -36,7 +36,7 @@ Generic layout of an HTML page with an upload form:
     </head>
     <body>
         ...
-        <form action="https://storage.yandexcloud.net/{bucket-name}" method="post" enctype="multipart/form-data">
+        <form action="https://{{ s3-storage-host }}/{bucket-name}" method="post" enctype="multipart/form-data">
             ...
             <input .../>
             ...
@@ -77,7 +77,7 @@ Generic form layout:
 - AWS Signature V4
 
      ```html
-     <form action="https://storage.yandexcloud.net/{bucket-name}" method="post" enctype="multipart/form-data">
+     <form action="https://{{ s3-storage-host }}/{bucket-name}" method="post" enctype="multipart/form-data">
         Key in storage:
         <input type="input" name="key" value="object_key"> /><br />
         <!-- Request properties -->
@@ -99,7 +99,7 @@ Generic form layout:
 - AWS Signature V2
 
   ```html
-   <form action="https://storage.yandexcloud.net/{bucket-name}" method="post" enctype="multipart/form-data">
+   <form action="https://{{ s3-storage-host }}/{bucket-name}" method="post" enctype="multipart/form-data">
         Key in storage:
         <input type="input" name="key" value="object_key" />
         <!-- Request properties -->

@@ -36,6 +36,7 @@
 | Confluent and Google Cloud | [{{ mkf-full-name }}](../../managed-kafka/) |
 | Elastic Cloud (Elasticsearch managed service) | [{{ mes-full-name }}](../../managed-elasticsearch/) |
 | Google Data Studio | [{{ datalens-full-name }}](../../datalens/) |
+| Database Migration Service, Migrate for Compute Engine | [{{ data-transfer-full-name }}](../../data-transfer/) |
 
 ## Cloud-native {#cloud-native}
 

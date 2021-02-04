@@ -165,7 +165,7 @@ Optionally, the function can accept the second argument with the following struc
 - `functionName`: The function ID.
 - `functionVersion`: The ID of the function version.
 - `memoryLimitInMB`: The amount of memory specified for the function version, MB.
-- `token`: The [IAM token](../../iam/concepts/authorization/iam-token.md) of the service account specified for the function version. The current value is generated automatically. It's used to access the [Yandex Cloud API](../../api-design-guide/). This field is present only if the correct service account is specified for the function version.
+- `token`: The [IAM token](../../iam/concepts/authorization/iam-token.md) of the service account specified for the function version. The current value is generated automatically. It's used to access the [{{ yandex-cloud }} API](../../api-design-guide/). This field is present only if the correct service account is specified for the function version.
 
 Example of using service data in a function:
 
@@ -181,7 +181,7 @@ module.exports.handler = async (event, context) => {
 
 ### Response structure {#response}
 
-{{ sf-name }} interprets the result of the function in order to fill in the HTTP response contents, headers, and status code. For this to work, the function must return a response in the following structure:
+ {{ sf-name }} interprets the function execution result to fill in the HTTP response contents, headers, and status code. For this to work, the function must return a response in the following structure:
 
 ```
 {
@@ -193,7 +193,7 @@ module.exports.handler = async (event, context) => {
 }
 ```
 
-Detailed description of a response:
+Detailed response description:
 
 - `statusCode`: The HTTP status code, which the client uses to interpret the request results.
 - `headers`: A dictionary of strings with HTTP response headers and their values.
@@ -233,14 +233,14 @@ If the response structure of your function doesn't match the description given i
 }
 ```
 
-### Possible response codes {{ sf-name }} {#http-state}
+### Possible {{ sf-name }} response codes {#http-state}
 
 If the error occurs in a user-defined function, the `X-Function-Error: true` header is added to the response.
 
 {{ sf-name }} can return results with the following HTTP codes:
 
 - `200 OK`: Successful function execution.
-- `400 BadRequest`: Error in HTTP request parameters (TODO: examples).
+- `400 BadRequest`: Error in HTTP request parameters.
 - `403 Forbidden`: Can't execute the request due to restrictions on client access to the function.
 - `404 Not Found`: The function is not found at the specified URL.
 - `413 Payload Too Large`: The [limit](../concepts/limits.md#limits) for the request JSON structure is exceeded by more than 3.5 MB.

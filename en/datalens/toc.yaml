@@ -37,6 +37,8 @@ items:
             href: operations/connection/create-postgresql.md
           - name: Creating an MS SQL Server connection
             href: operations/connection/create-mssql-server.md
+          - name: Creating an Oracle Database connection
+            href: operations/connection/create-oracle.md
           - name: Creating a Yandex.Metrica API connection
             href: operations/connection/create-metrica-api.md
           - name: Creating a Yandex.Metrica Logs API connection
@@ -415,6 +417,12 @@ items:
             href: function-ref/UPPER.md
           - name: UTF8
             href: function-ref/UTF8.md
+      - name: Time series functions
+        items:
+          - name: Overview
+            href: function-ref/time-series-functions.md
+          - name: AGO
+            href: function-ref/AGO.md
       - name: Type conversion functions
         items:
           - name: Overview
@@ -453,6 +461,8 @@ items:
             href: function-ref/COUNT_WINDOW.md
           - name: COUNT_IF
             href: function-ref/COUNT_IF_WINDOW.md
+          - name: LAG
+            href: function-ref/LAG.md
           - name: MAVG
             href: function-ref/MAVG.md
           - name: MAX
@@ -493,3 +503,4 @@ items:
         href: function-ref/availability.md
   - name: Questions and answers
     href: qa/index.md
+base: en/datalens

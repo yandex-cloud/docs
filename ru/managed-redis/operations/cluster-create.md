@@ -54,7 +54,7 @@
   
   Чтобы создать кластер:
   
-  1. Проверьте, есть ли в каталоге подсети для хостов кластера:
+1. Проверьте, есть ли в каталоге подсети для хостов кластера:
   
      ```
      $ yc vpc subnet list
@@ -65,19 +65,19 @@
   1. Посмотрите описание команды CLI для создания кластера:
   
       ```
-      $ yc managed-redis cluster create --help
+      $ {{ yc-mdb-rd }} cluster create --help
       ```
   
   1. При создании кластера с помощью CLI нельзя напрямую указать тип хоста и объем оперативной памяти. Вместо этого выберите подходящий [класс хостов](../concepts/instance-types.md). Чтобы просмотреть доступные классы хостов, выполните команду:
   
      ```
-     $ yc managed-redis resource-preset list
+     $ {{ yc-mdb-rd }} resource-preset list
      ```
   
   1. Укажите параметры кластера в команде создания (в примере приведены не все флаги):
   
       ```bash
-      $ yc managed-redis cluster create \
+      $ {{ yc-mdb-rd }} cluster create \
          --name <имя кластера> \
          --environment <окружение, prestable или production> \
          --network-name <имя сети> \
@@ -163,11 +163,11 @@
 
 ## Примеры {#examples}
 
+### Создание кластера с одним хостом {#creating-a-single-host-cluster}
+
 {% list tabs %}
 
 - CLI
-
-  **Создание кластера с одним хостом**
   
   Чтобы создать кластер с одним хостом, следует передать один параметр `--host`.
   
@@ -183,19 +183,17 @@
   Запустите следующую команду:
   
   ```
-  $ yc managed-redis cluster create \
+  $ {{ yc-mdb-rd }} cluster create \
        --name myredis \
        --environment production \
        --network-name default \
        --resource-preset hm1.nano \
-       --host zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch64 \
+       --host zone-id={{ zone-id }},subnet-id=b0rcctk2rvtr8efcch64 \
        --disk-size 16 \
        --password=user1user1
   ```
 
 - Terraform
-
-  **Создание кластера с одним хостом**
   
   Допустим, нужно создать {{ RD }}-кластер и сеть для него со следующими характеристиками:
     - С именем `myredis`.
@@ -212,9 +210,9 @@
   ```
   provider "yandex" {
     token     = "<OAuth или статический ключ сервисного аккаунта>"
-    cloud_id  = "b1gq90dgh25bebiu75o"
+    cloud_id  = "{{ tf-cloud-id }}"
     folder_id = "${data.yandex_resourcemanager_folder.myfolder.id}"
-    zone      = "ru-central1-c"
+    zone      = "{{ zone-id }}"
   }
   
   resource "yandex_mdb_redis_cluster" "myredis" {
@@ -232,7 +230,7 @@
     }
   
     host {
-      zone      = "ru-central1-c"
+      zone      = "{{ zone-id }}"
       subnet_id = "${yandex_vpc_subnet.mysubnet.id}"
     }
   }
@@ -241,7 +239,7 @@
   
   resource "yandex_vpc_subnet" "mysubnet" {
     name           = "mysubnet"
-    zone           = "ru-central1-c"
+    zone           = "{{ zone-id }}"
     network_id     = "${yandex_vpc_network.mynet.id}"
     v4_cidr_blocks = ["10.5.0.0/24"]
   }

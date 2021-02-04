@@ -72,13 +72,13 @@ All the hosting settings are available through the [Amazon S3-compatible HTTP AP
 After you configure the bucket for hosting, the website becomes accessible at:
 
 ```
-http(s)://<bucket name>.website.yandexcloud.net
+http(s)://<bucket name>.{{ s3-web-host }}
 ```
 
 or
 
 ```
-http(s)://website.yandexcloud.net/<bucket name>
+http(s)://{{ s3-web-host }}/<bucket name>
 ```
 
 {% note info %}

@@ -1,30 +1,35 @@
-title: "Yandex Identity and Access Management"
+title: Yandex Identity and Access Management
 description:
-  - "Yandex Identity and Access Management (IAM) is an identification and access management service that helps you centrally manage the access rights of users to your Yandex.Cloud resources. IAM makes sure that all operations with resources are run only by users who have the appropriate permissions."
-  - "Yandex.Cloud <a href=\"https://storage.yandexcloud.net/yc-compliance/conformance_en_pdp.pdf\">complies</a> with the law No. 152-FZ of the Russian Federation \"On Personal Data\"."
-# Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
+  - >-
+    Yandex Identity and Access Management (IAM) is an identification and access
+    management service that helps you centrally manage the access rights of
+    users to your Yandex.Cloud resources. IAM makes sure that all operations
+    with resources are run only by users who have the appropriate permissions.
+  - >-
+    Yandex.Cloud <a
+    href="https://storage.yandexcloud.net/yc-compliance/conformance_en_pdp.pdf">complies</a>
+    with the law No. 152-FZ of the Russian Federation "On Personal Data".
 meta:
-  title: "Yandex Identity and Access Management"
-# Блок со ссылками
+  title: Yandex Identity and Access Management
 links:
-- title: "Getting started"
-  description: "Add a user and assign a role to this user"
-  href: "quickstart"
-- title: "Step-by-step instructions"
-  description: "Instructions on how to perform routine operations"
-  href: "operations/"
-- title: "Concepts"
-  description: "Learn about the concepts and resources of the service"
-  href: "concepts/"
-- title: "API reference"
-  description: "HTTP API method descriptions"
-  href: "api-ref/"
-- title: "Quotas and limits"
-  description: "Technical and organizational limitations of the service"
-  href: "concepts/limits"
-- title: "Access management"
-  description: "Configure access rights to work with the service"
-  href: "security/"
-- title: "Pricing policy"
-  description: "Service pricing and cost calculations"
-  href: "pricing"
+  - title: Getting started
+    description: Add a user and assign a role to this user
+    href: quickstart
+  - title: Step-by-step instructions
+    description: Instructions on how to perform routine operations
+    href: operations/
+  - title: Concepts
+    description: Learn about the concepts and resources of the service
+    href: concepts/
+  - title: API reference
+    description: HTTP API method descriptions
+    href: api-ref/
+  - title: Quotas and limits
+    description: Technical and organizational limitations of the service
+    href: concepts/limits
+  - title: Access management
+    description: Configure access rights to work with the service
+    href: security/
+  - title: Pricing policy
+    description: Service pricing and cost calculations
+    href: pricing

@@ -1,33 +1,40 @@
-# Заголовок и описание на странице
-title: "Yandex Managed Service for Apache Kafka<sup>®</sup>"
+title: Yandex Managed Service for Apache Kafka<sup>®</sup>
 description:
-  - "Сервис Managed Service for Apache Kafka<sup>®</sup> помогает разворачивать и поддерживать кластеры серверов Apache Kafka<sup>®</sup> в инфраструктуре Yandex.Cloud."
-  - "Инфраструктура Yandex.Cloud <a href=\"https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf\">защищена</a> в соответствии с ФЗ-152."
-  - "Для сервиса действует <a href=\"https://yandex.ru/legal/cloud_sla\">соглашение об уровне обслуживания</a>. Уровень обслуживания сервиса определен в документе <a href=\"https://yandex.ru/legal/cloud_sla_kfk\">Уровень обслуживания Yandex Managed Service for Apache Kafka<sup>®</sup></a>."
-  - "<em>Apache<sup>®</sup> и Apache Kafka<sup>®</sup> являются зарегистрированными товарными знаками или товарными знаками Apache Software Foundation в США и/или других странах.</em>"
-  # Мета-информация title, description, keywords и т.п.
+  - >-
+    Сервис Managed Service for Apache Kafka<sup>®</sup> помогает разворачивать и
+    поддерживать кластеры серверов Apache Kafka<sup>®</sup> в инфраструктуре
+    Yandex.Cloud.
+  - >-
+    Инфраструктура Yandex.Cloud <a
+    href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">защищена</a>
+    в соответствии с ФЗ-152.
+  - >-
+    Для сервиса действует <a href="https://yandex.ru/legal/cloud_sla">соглашение
+    об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
+    документе <a href="https://yandex.ru/legal/cloud_sla_kfk">Уровень
+    обслуживания Yandex Managed Service for Apache Kafka<sup>®</sup></a>.
+  - >-
+    <em>Apache<sup>®</sup> и Apache Kafka<sup>®</sup> являются
+    зарегистрированными товарными знаками или товарными знаками Apache Software
+    Foundation в США и/или других странах.</em>
 meta:
-  title: "Yandex Managed Service for Apache Kafka®"
-# Блок со ссылками
+  title: Yandex Managed Service for Apache Kafka®
 links:
-- title: "Начало работы"
-  description: "Создайте первый кластер"
-  href: "quickstart"
-- title: "Пошаговые инструкции"
-  description: "Инструкции по выполнению рутинных операций"
-  href: "operations/"
-- title: "Концепции"
-  description: "Узнайте про концепции и общее устройство сервиса"
-  href: "concepts/"
-# - title: "Справочник API"
-#   description: "Описание методов HTTP API"
-#   href: "api-ref/"
-- title: "Квоты и лимиты"
-  description: "Технические и организационные ограничения сервиса"
-  href: "concepts/limits"
-- title: "Управление доступом"
-  description: "Настройте права доступа для работы с сервисом"
-  href: "security/"
-- title: "Правила тарификации"
-  description: "Цены и правила расчета стоимости услуг сервиса"
-  href: "pricing"
+  - title: Начало работы
+    description: Создайте первый кластер
+    href: quickstart
+  - title: Пошаговые инструкции
+    description: Инструкции по выполнению рутинных операций
+    href: operations/
+  - title: Концепции
+    description: Узнайте про концепции и общее устройство сервиса
+    href: concepts/
+  - title: Квоты и лимиты
+    description: Технические и организационные ограничения сервиса
+    href: concepts/limits
+  - title: Управление доступом
+    description: Настройте права доступа для работы с сервисом
+    href: security/
+  - title: Правила тарификации
+    description: Цены и правила расчета стоимости услуг сервиса
+    href: pricing

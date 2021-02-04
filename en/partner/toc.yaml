@@ -5,3 +5,4 @@ items:
     items:
       - name: Referral program
         href: program/referral.md
+base: en/partner

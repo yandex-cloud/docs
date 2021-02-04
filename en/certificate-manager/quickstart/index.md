@@ -51,7 +51,7 @@ To get started with {{ certificate-manager-name }}, you need:
     For instance, for the `www.example.com` domain, add the following record:
 
     ```
-    www.example.com CNAME www.example.com.website.yandexcloud.net
+    www.example.com CNAME www.example.com.{{ s3-web-host }}
     ```
 
 1. Install and configure the AWS CLI by following our [instructions](../../storage/tools/aws-cli.md#before-you-begin).
@@ -92,7 +92,7 @@ To get started with {{ certificate-manager-name }}, you need:
     - AWS CLI
 
         ```bash
-        aws --endpoint-url=https://storage.yandexcloud.net \ 
+        aws --endpoint-url=https://{{ s3-storage-host }} \ 
            s3 cp <file name> s3://<bucket name>/.well-known/acme-challenge/<file name>
         ```
 
@@ -107,7 +107,7 @@ To get started with {{ certificate-manager-name }}, you need:
     - AWS CLI
 
         ```bash
-        aws --endpoint-url=https://storage.yandexcloud.net \ 
+        aws --endpoint-url=https://{{ s3-storage-host }} \ 
            s3 rm s3://<bucket name>/.well-known/acme-challenge/<file name>
         ```
 
