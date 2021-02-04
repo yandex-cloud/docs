@@ -150,16 +150,16 @@
        name        = "<имя кластера>"
        environment = "<окружение, PRESTABLE или PRODUCTION>"
        network_id  = "<идентификатор сети>"
-       
+
        config {
-         version = "<версия PostgreSQL: 10, 10-1с, 11 или 12>"
+         version = "<версия PostgreSQL: 10, 10-1с, 11, 11-1c, 12 или 13>"
          resources {
            resource_preset_id = "<класс хоста>"
            disk_type_id       = "<тип хранилища>"
            disk_size          = "<размер хранилища в гигабайтах>"
          }
        }
-         
+
        database {
          name  = "<имя базы данных>"
          owner = "<имя владельца базы данных>"
@@ -273,7 +273,7 @@
 
   Допустим, нужно создать {{ PG }}-кластер и сеть для него со следующими характеристиками:
   - С именем `mypg`.
-  - Версии `12`.
+  - Версии `13`.
   - В окружении `PRESTABLE`.
   - В облаке с идентификатором `{{ tf-cloud-id }}`.
   - В каталоге `myfolder`.
@@ -299,7 +299,7 @@
     network_id  = "${yandex_vpc_network.mynet.id}"
 
     config {
-      version = 12
+      version = 13
       resources {
         resource_preset_id = "{{ host-class }}"
         disk_type_id       = "{{ disk-type-example }}"
