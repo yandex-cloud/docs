@@ -7,7 +7,7 @@
 Включить версионирование можно, например, через `aws cli`:
 
 ```
-aws --endpoint https://storage.yandexcloud.net \
+aws --endpoint https://{{ s3-storage-host }} \
   s3api put-bucket-versioning \
   --bucket your-bucket-name \
   --versioning-configuration 'Status=Enabled'

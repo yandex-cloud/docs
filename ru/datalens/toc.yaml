@@ -69,7 +69,7 @@ items:
             href: operations/chart/create-line-chart.md
           - name: Создание диаграммы с областями
             href: operations/chart/create-area-chart.md
-          - name: Создания круговой диаграммы
+          - name: Создание круговой диаграммы
             href: operations/chart/create-pie-chart.md
           - name: Создание столбчатой диаграммы
             href: operations/chart/create-column-chart.md
@@ -417,6 +417,12 @@ items:
             href: function-ref/UPPER.md
           - name: UTF8
             href: function-ref/UTF8.md
+      - name: Функции для работы с временными рядами
+        items:
+          - name: Обзор
+            href: function-ref/time-series-functions.md
+          - name: AGO
+            href: function-ref/AGO.md
       - name: Функции преобразования типов
         items:
           - name: Обзор
@@ -455,6 +461,8 @@ items:
             href: function-ref/COUNT_WINDOW.md
           - name: COUNT_IF
             href: function-ref/COUNT_IF_WINDOW.md
+          - name: LAG
+            href: function-ref/LAG.md
           - name: MAVG
             href: function-ref/MAVG.md
           - name: MAX
@@ -495,3 +503,4 @@ items:
         href: function-ref/availability.md
   - name: Вопросы и ответы
     href: qa/index.md
+base: ru/datalens

@@ -79,14 +79,12 @@ To connect to a cluster:
 
 1. Install an SSL certificate on the VM:
 
-   
+
    ```
    $ sudo mkdir -p /usr/local/share/ca-certificates/Yandex
-   $ sudo wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" -O /usr/local/share/ca-certificates/Yandex/YandexCA.crt
+   $ sudo wget "https://{{ s3-storage-host }}{{ pem-path }}" -O /usr/local/share/ca-certificates/Yandex/YandexCA.crt
    $ sudo chmod 655 /usr/local/share/ca-certificates/Yandex/YandexCA.crt
    ```
-
-  
 
 1. To send a message to a topic, run the command:
 

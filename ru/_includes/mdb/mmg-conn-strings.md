@@ -12,7 +12,7 @@
   mongo --norc \
         --tls \
         --tlsCAFile /home/<домашняя директория>/.mongodb/root.crt \
-        --host '<имя набора реплик>/<FQDN хоста 1 MongoDB>:27018,...,FQDN хоста N MongoDB>:27018' \
+        --host '<имя набора реплик>/<FQDN хоста 1 {{ MG }}>:27018,...,FQDN хоста N {{ MG }}>:27018' \
         -u <имя пользователя БД> \
         <имя БД>
   ```
@@ -23,7 +23,7 @@
   mongo --norc \
         --ssl \
         --sslCAFile /home/<домашняя директория>/.mongodb/root.crt \
-        --host '<имя набора реплик>/<FQDN хоста 1 MongoDB>:27018,...,FQDN хоста N MongoDB>:27018' \
+        --host '<имя набора реплик>/<FQDN хоста 1 {{ MG }}>:27018,...,FQDN хоста N {{ MG }}>:27018' \
         -u <имя пользователя БД> \
         <имя БД>
   ```
@@ -32,7 +32,7 @@
 
   ```
   mongo --norc \
-        --host '<FQDN хоста 1 MongoDB>:27018,...,FQDN хоста N MongoDB>:27018' \
+        --host '<FQDN хоста 1 {{ MG }}>:27018,...,FQDN хоста N {{ MG }}>:27018' \
         -u <имя пользователя БД> \
         <имя БД>
   ```
@@ -62,9 +62,9 @@
   DB_RS = '<имя набора реплик>'
   DB_NAME = '<имя БД>'
   DB_HOSTS =','.join([
-        '<FQDN хоста 1 MongoDB>:27018',
+        '<FQDN хоста 1 {{ MG }}>:27018',
         ...,
-        '<FQDN хоста N MongoDB>:27018'
+        '<FQDN хоста N {{ MG }}>:27018'
       ])
   DB_USER = '<имя пользователя БД>'
   DB_PASS = '<пароль пользователя БД>'
@@ -98,9 +98,9 @@
   DB_RS = '<имя набора реплик>'
   DB_NAME = '<имя БД>'
   DB_HOSTS =','.join([
-        '<FQDN хоста 1 MongoDB>:27018',
+        '<FQDN хоста 1 {{ MG }}>:27018',
         ...,
-        '<FQDN хоста N MongoDB>:27018'
+        '<FQDN хоста N {{ MG }}>:27018'
       ])
   DB_USER = '<имя пользователя БД>'
   DB_PASS = '<пароль пользователя БД>'
@@ -141,7 +141,7 @@
   <?php
     $DB_RS    = '<имя набора реплик>';
     $DB_NAME  = '<имя БД>';
-    $DB_HOSTS = '<FQDN хоста 1 MongoDB>:27018,...,<FQDN хоста N MongoDB>:27018'; 
+    $DB_HOSTS = '<FQDN хоста 1 {{ MG }}>:27018,...,<FQDN хоста N {{ MG }}>:27018'; 
     $DB_USER  = '<имя пользователя БД>';
     $DB_PASS  = '<пароль пользователя БД>';
     $CACERT   = '/home/<домашняя директория>/.mongodb/root.crt';
@@ -177,7 +177,7 @@
   <?php
     $DB_RS    = '<имя набора реплик>';
     $DB_NAME  = '<имя БД>';
-    $DB_HOSTS = '<FQDN хоста 1 MongoDB>:27018,...,<FQDN хоста N MongoDB>:27018'; 
+    $DB_HOSTS = '<FQDN хоста 1 {{ MG }}>:27018,...,<FQDN хоста N {{ MG }}>:27018'; 
     $DB_USER  = '<имя пользователя БД>';
     $DB_PASS  = '<пароль пользователя БД>';
 
@@ -334,9 +334,9 @@
       final Integer DB_PORT = 27018;
 
       List DB_HOSTS = new ArrayList<ServerAddress>();
-      DB_HOSTS.add(new ServerAddress("<FQDN хоста 1 MongoDB>", DB_PORT));
+      DB_HOSTS.add(new ServerAddress("<FQDN хоста 1 {{ MG }}>", DB_PORT));
       ...
-      DB_HOSTS.add(new ServerAddress("<FQDN хоста N MongoDB>", DB_PORT));
+      DB_HOSTS.add(new ServerAddress("<FQDN хоста N {{ MG }}>", DB_PORT));
   
       final String DB_NAME = "<имя БД>";
       final String DB_USER = "<имя пользователя БД>";
@@ -372,9 +372,9 @@
       final Integer DB_PORT = 27018;
 
       List DB_HOSTS = new ArrayList<ServerAddress>();
-      DB_HOSTS.add(new ServerAddress("<FQDN хоста 1 MongoDB>", DB_PORT));
+      DB_HOSTS.add(new ServerAddress("<FQDN хоста 1 {{ MG }}>", DB_PORT));
       ...
-      DB_HOSTS.add(new ServerAddress("<FQDN хоста N MongoDB>", DB_PORT));
+      DB_HOSTS.add(new ServerAddress("<FQDN хоста N {{ MG }}>", DB_PORT));
   
       final String DB_NAME = "<имя БД>";
       final String DB_USER = "<имя пользователя БД>";
@@ -416,9 +416,9 @@
 
   const DB_RS = '<имя набора реплик>'
   const DB_NAME = '<имя БД>'
-  const DB_HOSTS = ['<FQDN хоста 1 MongoDB>:27018',
+  const DB_HOSTS = ['<FQDN хоста 1 {{ MG }}>:27018',
                     ... 
-                    '<FQDN хоста N MongoDB>:27018']
+                    '<FQDN хоста N {{ MG }}>:27018']
   const DB_USER  = '<имя пользователя БД>'
   const DB_PASS  = '<пароль пользователя БД>'
   const CACERT   = '/home/<домашняя директория>/.mongodb/root.crt'
@@ -453,9 +453,9 @@
 
   const DB_RS = '<имя набора реплик>'
   const DB_NAME = '<имя БД>'
-  const DB_HOSTS = ['<FQDN хоста 1 MongoDB>:27018',
+  const DB_HOSTS = ['<FQDN хоста 1 {{ MG }}>:27018',
                     ... 
-                    '<FQDN хоста N MongoDB>:27018']
+                    '<FQDN хоста N {{ MG }}>:27018']
   const DB_USER  = '<имя пользователя БД>'
   const DB_PASS  = '<пароль пользователя БД>'
 
@@ -511,9 +511,9 @@
 
         const DB_RS = "<имя набора реплик>"
         const DB_NAME = "<имя БД>"
-        DB_HOSTS := []string {"<FQDN хоста 1 MongoDB>:27018",
+        DB_HOSTS := []string {"<FQDN хоста 1 {{ MG }}>:27018",
                               ... 
-                              "<FQDN хоста N MongoDB>:27018"}
+                              "<FQDN хоста N {{ MG }}>:27018"}
         const DB_USER = "<имя пользователя БД>"
         const DB_PASS = "<пароль пользователя БД>"
 
@@ -556,9 +556,9 @@
 
         const DB_RS = "<имя набора реплик>"
         const DB_NAME = "<имя БД>"
-        DB_HOSTS := []string {"<FQDN хоста 1 MongoDB>:27018",
+        DB_HOSTS := []string {"<FQDN хоста 1 {{ MG }}>:27018",
                               ... 
-                              "<FQDN хоста N MongoDB>:27018"}
+                              "<FQDN хоста N {{ MG }}>:27018"}
         const DB_USER = "<имя пользователя БД>"
         const DB_PASS = "<пароль пользователя БД>"
 

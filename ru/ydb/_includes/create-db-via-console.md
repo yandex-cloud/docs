@@ -11,10 +11,8 @@
    1. Нажмите кнопку **Создать базу данных**.
    1. Введите имя базы. Требования к имени:
 
-            
-      {% include [name-format](../../_includes/name-format.md) %}
       
-     
+      {% include [name-format](../../_includes/name-format.md) %}
 
    1. В блоке **Тип базы данных** выберите опцию **Serverless**.
    1. Нажмите кнопку **Создать базу данных**.
@@ -30,10 +28,8 @@
 
    1. Введите имя базы. Требования к имени:
 
-            
-      {% include [name-format](../../_includes/name-format.md) %}
       
-     
+      {% include [name-format](../../_includes/name-format.md) %}
 
    1. В блоке **Вычислительные ресурсы** выберите тип и количество [вычислительных ресурсов](../concepts/databases.md#compute-units).
 
@@ -43,10 +39,8 @@
 
       Если вы планируете отправлять запросы к базе не только из сети {{ yandex-cloud }}, но и через интернет, выберите опцию **Присвоить** напротив поля **Публичные IP-адреса**.
 
-            
-      {% include  [traffic_metering](../_includes/traffic_metering.md) %}
       
-     
+      {% include  [traffic_metering](../_includes/traffic_metering.md) %}
 
       Выберите существующую сеть из списка **Облачная сеть**.
 

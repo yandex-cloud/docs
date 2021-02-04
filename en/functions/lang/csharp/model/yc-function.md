@@ -4,7 +4,7 @@ You can set a handler function by implementing the [YcFunction](https://github.c
 
 {% note warning %}
 
-You should specify both values for `YcFunction` type parameters: the first one being the input argument type and the second one the type of the return value. The `handle` method also has the second argument: the [invocation context](../context.md).
+You should specify both values for the `YcFunction` type parameters, the first one being the input argument type and the second one the type of the return value.The `handle` method also has the second argument: the [invocation context](../context.md).
 
 {% endnote %}
 
@@ -98,3 +98,4 @@ Returned string:
 ```
 false
 ```
+

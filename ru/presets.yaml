@@ -36,6 +36,7 @@ default:
   certificate-manager-full-name: Yandex Certificate Manager
   data-transfer-full-name: Yandex Data Transfer
   api-gw-full-name: Yandex API Gateway
+  ig-full-name: Yandex Instance Groups
   lockbox-full-name: Yandex Lockbox
   tracker-full-name: Yandex Tracker
   iam-name: Identity and Access Management
@@ -165,7 +166,7 @@ default:
   pem-path: /cloud-certs/CA.pem
   dns-zone: mdb.yandexcloud.net
   network-name: default
-  host-net-example: 'zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch63'
+  host-net-example: zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch63
   disk-type-example: network-ssd
   PG: PostgreSQL
   CH: ClickHouse
@@ -180,52 +181,53 @@ default:
   ES: Elasticsearch
   ZK: ZooKeeper
   MS: SQL Server
+  RMQ: RabbitMQ
   zone-id: ru-central1-c
   host-class: s2.micro
-  b1-nano: 'b1.nano (2 vCPU × 5%, 2 ГБ)'
-  b1-micro: 'b1.micro (2 vCPU × 20%, 2 ГБ)'
-  b1-small: 'b1.small (2 vCPU × 20%, 4 ГБ)'
-  b1-medium: 'b1.medium (2 vCPU × 50%, 4 ГБ)'
-  m1-micro: 'm1.micro (2 vCPU, 16 ГБ)'
-  m1-small: 'm1.small (4 vCPU, 32 ГБ)'
-  m1-medium: 'm1.medium (6 vCPU, 48 ГБ)'
-  m1-large: 'm1.large (8 vCPU, 64 ГБ)'
-  m1-xlarge: 'm1.xlarge (12 vCPU, 96 ГБ)'
-  m1-2xlarge: 'm1.2xlarge (16 vCPU, 128 ГБ)'
-  m1-3xlarge: 'm1.3xlarge (24 vCPU, 192 ГБ)'
-  m1-4xlarge: 'm1.4xlarge (32 vCPU, 256 ГБ)'
-  s1-nano: 's1.nano (1 vCPU, 4 ГБ)'
-  s1-micro: 's1.micro (2 vCPU, 8 ГБ)'
-  s1-small: 's1.small (4 vCPU, 16 ГБ)'
-  s1-medium: 's1.medium (8 vCPU, 32 ГБ)'
-  s1-large: 's1.large (16 vCPU, 64 ГБ)'
-  s1-xlarge: 's1.xlarge (32 vCPU, 128 ГБ)'
-  b2-nano: 'b2.nano (2 vCPU × 5%, 2 ГБ)'
-  b2-micro: 'b2.micro (2 vCPU × 20%, 2 ГБ)'
-  b2-small: 'b2.small (2 vCPU × 20%, 4 ГБ)'
-  b2-medium: 'b2.medium (2 vCPU × 50%, 4 ГБ)'
-  m2-micro: 'm2.micro (2 vCPU, 16 ГБ)'
-  m2-small: 'm2.small (4 vCPU, 32 ГБ)'
-  m2-medium: 'm2.medium (6 vCPU, 48 ГБ)'
-  m2-large: 'm2.large (8 vCPU, 64 ГБ)'
-  m2-xlarge: 'm2.xlarge (12 vCPU, 96 ГБ)'
-  m2-2xlarge: 'm2.2xlarge (16 vCPU, 128 ГБ)'
-  m2-3xlarge: 'm2.3xlarge (24 vCPU, 192 ГБ)'
-  m2-4xlarge: 'm2.4xlarge (32 vCPU, 256 ГБ)'
-  m2-5xlarge: 'm2.5xlarge (40 vCPU, 320 ГБ)'
-  m2-6xlarge: 'm2.6xlarge (48 vCPU, 384 ГБ)'
-  m2-7xlarge: 'm2.7xlarge (56 vCPU, 448 ГБ)'
-  m2-8xlarge: 'm2.8xlarge (64 vCPU, 512 ГБ)'
-  s2-micro: 's2.micro (2 vCPU, 8 ГБ)'
-  s2-small: 's2.small (4 vCPU, 16 ГБ)'
-  s2-medium: 's2.medium (8 vCPU, 32 ГБ)'
-  s2-large: 's2.large (12 vCPU, 48 ГБ)'
-  s2-xlarge: 's2.xlarge (16 vCPU, 64 ГБ)'
-  s2-2xlarge: 's2.2xlarge (24 vCPU, 96 ГБ)'
-  s2-3xlarge: 's2.3xlarge (32 vCPU, 128 ГБ)'
-  s2-4xlarge: 's2.4xlarge (40 vCPU, 160 ГБ)'
-  s2-5xlarge: 's2.5xlarge (48 vCPU, 192 ГБ)'
-  s2-6xlarge: 's2.6xlarge (64 vCPU, 256 ГБ)'
+  b1-nano: b1.nano (2 vCPU × 5%, 2 ГБ)
+  b1-micro: b1.micro (2 vCPU × 20%, 2 ГБ)
+  b1-small: b1.small (2 vCPU × 20%, 4 ГБ)
+  b1-medium: b1.medium (2 vCPU × 50%, 4 ГБ)
+  m1-micro: m1.micro (2 vCPU, 16 ГБ)
+  m1-small: m1.small (4 vCPU, 32 ГБ)
+  m1-medium: m1.medium (6 vCPU, 48 ГБ)
+  m1-large: m1.large (8 vCPU, 64 ГБ)
+  m1-xlarge: m1.xlarge (12 vCPU, 96 ГБ)
+  m1-2xlarge: m1.2xlarge (16 vCPU, 128 ГБ)
+  m1-3xlarge: m1.3xlarge (24 vCPU, 192 ГБ)
+  m1-4xlarge: m1.4xlarge (32 vCPU, 256 ГБ)
+  s1-nano: s1.nano (1 vCPU, 4 ГБ)
+  s1-micro: s1.micro (2 vCPU, 8 ГБ)
+  s1-small: s1.small (4 vCPU, 16 ГБ)
+  s1-medium: s1.medium (8 vCPU, 32 ГБ)
+  s1-large: s1.large (16 vCPU, 64 ГБ)
+  s1-xlarge: s1.xlarge (32 vCPU, 128 ГБ)
+  b2-nano: b2.nano (2 vCPU × 5%, 2 ГБ)
+  b2-micro: b2.micro (2 vCPU × 20%, 2 ГБ)
+  b2-small: b2.small (2 vCPU × 20%, 4 ГБ)
+  b2-medium: b2.medium (2 vCPU × 50%, 4 ГБ)
+  m2-micro: m2.micro (2 vCPU, 16 ГБ)
+  m2-small: m2.small (4 vCPU, 32 ГБ)
+  m2-medium: m2.medium (6 vCPU, 48 ГБ)
+  m2-large: m2.large (8 vCPU, 64 ГБ)
+  m2-xlarge: m2.xlarge (12 vCPU, 96 ГБ)
+  m2-2xlarge: m2.2xlarge (16 vCPU, 128 ГБ)
+  m2-3xlarge: m2.3xlarge (24 vCPU, 192 ГБ)
+  m2-4xlarge: m2.4xlarge (32 vCPU, 256 ГБ)
+  m2-5xlarge: m2.5xlarge (40 vCPU, 320 ГБ)
+  m2-6xlarge: m2.6xlarge (48 vCPU, 384 ГБ)
+  m2-7xlarge: m2.7xlarge (56 vCPU, 448 ГБ)
+  m2-8xlarge: m2.8xlarge (64 vCPU, 512 ГБ)
+  s2-micro: s2.micro (2 vCPU, 8 ГБ)
+  s2-small: s2.small (4 vCPU, 16 ГБ)
+  s2-medium: s2.medium (8 vCPU, 32 ГБ)
+  s2-large: s2.large (12 vCPU, 48 ГБ)
+  s2-xlarge: s2.xlarge (16 vCPU, 64 ГБ)
+  s2-2xlarge: s2.2xlarge (24 vCPU, 96 ГБ)
+  s2-3xlarge: s2.3xlarge (32 vCPU, 128 ГБ)
+  s2-4xlarge: s2.4xlarge (40 vCPU, 160 ГБ)
+  s2-5xlarge: s2.5xlarge (48 vCPU, 192 ГБ)
+  s2-6xlarge: s2.6xlarge (64 vCPU, 256 ГБ)
   mch-backup-retention: 7
   mch-dedup-retention: 30
   stt-short-fileSize: 1 МБ
@@ -239,25 +241,25 @@ default:
   yql-full-name: Yandex Query Language
   yql-short-name: YQL
   k8s: Kubernetes
-  ca-address: 'https://storage.yandexcloud.net/mqtt/rootCA.crt'
+  ca-address: https://storage.yandexcloud.net/mqtt/rootCA.crt
   mqtt-broker-address: mqtt.cloud.yandex.net
   mqtt-broker-port: 8883
-  sf-url: 'https://functions.yandexcloud.net'
+  sf-url: https://functions.yandexcloud.net
   coi: Container Optimized Image
   yc-install-path: /yandexcloud-yc/install.sh
   yc-windows-path: /yandexcloud-yc/install.ps1
-  link-console-billing: 'https://console.cloud.yandex.ru/billing'
-  link-console-main: 'https://console.cloud.yandex.ru/'
-  link-console-quotas: 'https://console.cloud.yandex.ru/cloud?section=quotas'
-  link-console-access-management: 'https://console.cloud.yandex.ru/iam'
-  link-console-support: 'https://console.cloud.yandex.ru/support'
-  link-cloud-calculator: 'https://cloud.yandex.ru/prices#calculator'
-  link-cloud-services: 'https://cloud.yandex.ru/services'
-  link-yandex-connect: 'https://connect.yandex.ru'
-  link-passport-login: 'https://passport.yandex.ru/auth'
-  link-cloud-oauth: 'https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb'
-  link-cloud-partners: 'https://partners.cloud.yandex.ru/'
-  link-app-android: 'https://play.google.com/store/apps/details?id=ru.yandex.cloud'
-  link-app-ios: 'https://apps.apple.com/ru/app/yandex-cloud/id1515465314'
+  link-console-billing: https://console.cloud.yandex.ru/billing
+  link-console-main: https://console.cloud.yandex.ru/
+  link-console-quotas: https://console.cloud.yandex.ru/cloud?section=quotas
+  link-console-access-management: https://console.cloud.yandex.ru/iam
+  link-console-support: https://console.cloud.yandex.ru/support
+  link-cloud-calculator: https://cloud.yandex.ru/prices#calculator
+  link-cloud-services: https://cloud.yandex.ru/services
+  link-yandex-connect: https://connect.yandex.ru
+  link-passport-login: https://passport.yandex.ru/auth
+  link-cloud-oauth: https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb
+  link-cloud-partners: https://partners.cloud.yandex.ru/
+  link-app-android: https://play.google.com/store/apps/details?id=ru.yandex.cloud
+  link-app-ios: https://apps.apple.com/ru/app/yandex-cloud/id1515465314
   tf-cloud-id: b1gq90dgh25bebiu75o
   yandex-cloud: Yandex.Cloud

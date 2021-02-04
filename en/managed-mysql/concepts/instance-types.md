@@ -5,7 +5,6 @@ The host class determines the computing power allocated for each host in the clu
 
 The available storage doesn't depend on the host class. For storage limitations, see [{#T}](./limits.md).
 
-
 ## Available host classes {#available-flavors}
 
 
@@ -61,5 +60,4 @@ The full list of possible host configurations on each platform is provided below
 | s2.4xlarge | 40 | 100% | 160 |
 | s2.5xlarge | 48 | 100% | 192 |
 | s2.6xlarge | 64 | 100% | 256 |
-
 

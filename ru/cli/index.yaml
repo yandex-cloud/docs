@@ -1,27 +1,26 @@
-# Интерфейс командной строки
-title: "Интерфейс командной строки"
+title: Интерфейс командной строки
 description:
-- "CLI Yandex.Cloud — скачиваемое программное обеспечение для управления вашими облачными ресурсами через командную строку."
-# Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
+  - >-
+    CLI Yandex.Cloud — скачиваемое программное обеспечение для управления вашими
+    облачными ресурсами через командную строку.
 meta:
-  title: "CLI Yandex.Cloud"
-# Блок со ссылками
+  title: CLI Yandex.Cloud
 links:
-- title: "Начало работы"
-  description: "Установите CLI и выполните первую команду"
-  href: "quickstart"
-- title: "Пошаговые инструкции"
-  description: "Инструкции по выполнению рутинных операций"
-  href: "operations/"
-- title: "Принципы работы с CLI"
-  description: "Запуск команд, работа с профилями и конфигурация CLI"
-  href: "concepts/"
-- title: "Релизы CLI"
-  description: "Описание релизов"
-  href: "release-notes"
-- title: "Решение проблем"
-  description: "Узнайте, как собрать диагностическую информацию"
-  href: "error"
-- title: "Справочник CLI"
-  description: "Дерево команд CLI"
-  href: "command-tree/"
+  - title: Начало работы
+    description: Установите CLI и выполните первую команду
+    href: quickstart
+  - title: Пошаговые инструкции
+    description: Инструкции по выполнению рутинных операций
+    href: operations/
+  - title: Принципы работы с CLI
+    description: Запуск команд, работа с профилями и конфигурация CLI
+    href: concepts/
+  - title: Релизы CLI
+    description: Описание релизов
+    href: release-notes
+  - title: Решение проблем
+    description: Узнайте, как собрать диагностическую информацию
+    href: error
+  - title: Справочник CLI
+    description: Дерево команд CLI
+    href: command-tree/

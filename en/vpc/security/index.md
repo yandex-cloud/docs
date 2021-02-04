@@ -8,7 +8,7 @@ In this section, you'll learn:
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-## What resources you can assign roles to. {#resources}
+## What resources you can assign roles to {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
@@ -44,7 +44,8 @@ The table below lists the roles needed to perform a given action. You can always
 | View information about any resource | `get`, `list`, `listOperations` | `vpc.viewer` or `viewer` for this resource |
 | List subnets in the network | `listSubnets` | `vpc.viewer` or `viewer` for the network |
 | **Use of resources** |  |
-| Assign {{ vpc-short-name }} resources to other {{ yandex-cloud }} resources (for example, assigning an address to a VM or connecting a network interface to a subnet) | Various | `vpc.user` for the resource and the right to change the receiving object if the resource assignment operation is mutating |
+| Assign {{ vpc-short-name }} resources to other {{ yandex-cloud }} resources (for example, assigning an address to an interface or connecting a network interface to a subnet) | Various | `vpc.user` for the resource and the right to change the receiving object if the resource assignment operation is mutating |
+| Assign or delete the public address of an interface | various | `vpc.publicAdmin` for the network |
 | Creating a VM connected to multiple networks | `create` | `vpc.publicAdmin` for each network the VM is connecting to |
 | **Manage resources** |  |
 | [Create networks in a folder](../operations/network-create.md) | `create` | `vpc.privateAdmin` or `editor` for the folder |

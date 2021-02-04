@@ -19,7 +19,7 @@ You can add and remove users, as well as manage their individual settings.
   To get a list of cluster users, run the command:
 
   ```
-  $ yc managed-clickhouse user list
+  $ {{ yc-mdb-ch }} user list
        --cluster-name=<cluster name>
   ```
 
@@ -62,12 +62,12 @@ You can add and remove users, as well as manage their individual settings.
   To create a user in a cluster, run the command:
 
   ```
-  $ yc managed-clickhouse user create <username>
+  $ {{ yc-mdb-ch }} user create <username>
        --cluster-name=<cluster name>
        --password=<user password>
        --permissions=<list of DBs the user can access>
        --quota=<list of a user's single quota settings>
-       --settings=<list of ClickHouse settings for the user>
+       --settings=<list of {{ CH }} settings for the user>
   ```
 
   For more information about [quotas](#quota-settings) and [{{ CH }} settings](#clickhouse-settings), see [Additional settings](#advanced-settings).
@@ -75,7 +75,7 @@ You can add and remove users, as well as manage their individual settings.
   To set multiple quotas, list them using the required number of `--quota` parameters in the command:
 
   ```
-  $ yc managed-clickhouse user create <username>
+  $ {{ yc-mdb-ch }} user create <username>
       ...
       --quota="<settings of quota 0>"
       --quota="<settings of quota 1>"
@@ -109,7 +109,7 @@ You can add and remove users, as well as manage their individual settings.
   To change the user's password, run the command:
 
   ```
-  $ yc managed-clickhouse user update <username>
+  $ {{ yc-mdb-ch }} user update <username>
        --cluster-name=<cluster name>
        --password=<new password>
   ```
@@ -152,7 +152,7 @@ You can add and remove users, as well as manage their individual settings.
   1. To set up the user's permissions to access certain databases, run the command, listing the database names in the `--permissions` parameter:
 
      ```
-     $ yc managed-clickhouse user update <username>
+     $ {{ yc-mdb-ch }} user update <username>
           --cluster-name=<cluster name>
           --permissions=<list of DBs the user can access>
      ```
@@ -166,7 +166,7 @@ You can add and remove users, as well as manage their individual settings.
   1. To change the user's [quota settings](#quota-settings), run the command with a list of all quotas, using the `--quota` parameters (one parameter per quota):
 
      ```
-     $ yc managed-clickhouse user update <username>
+     $ {{ yc-mdb-ch }} user update <username>
           --cluster-name=<cluster name>
           --quota=<settings of quota 0 (unchanged)>
           --quota=<settings of quota 1 (unchanged)>
@@ -187,9 +187,9 @@ Before running the command, make sure that you included both the settings for ne
   1. To change the [settings of {{ CH }}](#clickhouse-settings) for the user, run the command by listing the updated settings using the `--settings` parameter:
 
      ```
-     $ yc managed-clickhouse user update <username>
+     $ {{ yc-mdb-ch }} user update <username>
           --cluster-name=<cluster name>
-          --settings=<list of ClickHouse settings>
+          --settings=<list of {{ CH }} settings>
      ```
 
      The cluster name can be requested with a [list of folder clusters](cluster-list.md#list-clusters).
@@ -218,7 +218,7 @@ Before running the command, make sure that you included both the settings for ne
   To remove a user, run:
 
   ```
-  $ yc managed-clickhouse user delete <username>
+  $ {{ yc-mdb-ch }} user delete <username>
        --cluster-name=<cluster name>
   ```
 
@@ -252,7 +252,7 @@ Let's say you need to add to the existing `mych` cluster a new user named `ro-us
   Run the command:
 
   ```
-  $ yc managed-clickhouse user create "ro-user" \
+  $ {{ yc-mdb-ch }} user create "ro-user" \
        --cluster-name="mych" \
        --password="Passw0rd" \
        --permissions="db1" \

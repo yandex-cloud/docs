@@ -39,13 +39,13 @@ To add {{ ZK }} hosts:
   1. View a description of the CLI command for adding {{ ZK }} hosts:
 
      ```
-     $ yc managed-clickhouse cluster add-zookeeper --help
+     $ {{ yc-mdb-ch }} cluster add-zookeeper --help
      ```
 
   1. Run the operation with the default host characteristics:
 
      ```bash
-     $ yc managed-clickhouse cluster add-zookeeper clickhouse417 \
+     $ {{ yc-mdb-ch }} cluster add-zookeeper clickhouse417 \
                              --host zone-id=ru-central1-c,subnet-name=default-c \
                              --host zone-id=ru-central1-a,subnet-name=default-a \
                              --host zone-id=ru-central1-b,subnet-name=default-b

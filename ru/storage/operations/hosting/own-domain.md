@@ -20,5 +20,5 @@
     Например, для домена `www.example.com` необходимо добавить запись
 
     ```
-    www.example.com CNAME www.example.com.website.yandexcloud.net
+    www.example.com CNAME www.example.com.{{ s3-web-host }}
     ```

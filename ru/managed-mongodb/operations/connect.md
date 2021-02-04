@@ -25,10 +25,9 @@
 
 ```bash
 mkdir ~/.mongodb && \
-wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" -O ~/.mongodb/root.crt && \
+wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.mongodb/root.crt && \
 chmod 0600 ~/.mongodb/root.crt
 ```
-
 
 ## Примеры строк подключения {#connection-string}
 

@@ -78,3 +78,4 @@ items:
                 href: api-ref/Vision/batchAnalyze.md
   - name: Questions and answers
     href: qa/index.md
+base: en/vision

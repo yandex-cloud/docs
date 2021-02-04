@@ -1,31 +1,36 @@
-# Заголовок и описание на странице
-title: "Yandex MDB"
+title: Yandex MDB
 description:
-  - "<p>MDB (Managed DataBases) – группа сервисов для управления базами данных с гарантированными ресурсами, отказоустойчивостью, резервными копиями, графиками, мониторингом и возможностью настраивать некоторые вещи. По сути является внутренней инсталляцией того, что предоставляется в составе Yandex.Cloud.</p>"
-  - "<p>Внутренние сервисы функционально не отличаются от внешних, но использование их различается в важных деталях, поэтому надежнее читать внутреннюю документацию:</p>"
-# Мета-информация title, description, keywords и т.п.
+  - >-
+    <p>MDB (Managed DataBases) – группа сервисов для управления базами данных с
+    гарантированными ресурсами, отказоустойчивостью, резервными копиями,
+    графиками, мониторингом и возможностью настраивать некоторые вещи. По сути
+    является внутренней инсталляцией того, что предоставляется в составе
+    Yandex.Cloud.</p>
+  - >-
+    <p>Внутренние сервисы функционально не отличаются от внешних, но
+    использование их различается в важных деталях, поэтому надежнее читать
+    внутреннюю документацию:</p>
 meta:
-  title: "MDB"
-# Блок с ссылками
+  title: MDB
 links:
-- title: "PostgreSQL"
-  description: ""
-  href: "../managed-postgresql/"
-- title: "MongoDB"
-  description: ""
-  href: "../managed-mongodb/"
-- title: "Redis"
-  description: ""
-  href: "../managed-redis/"
-- title: "ClickHouse"
-  description: ""
-  href: "../managed-clickhouse/"
-- title: "MySQL"
-  description: ""
-  href: "../managed-mysql/"
-- title: "Kafka"
-  description: ""
-  href: "../managed-kafka/"
-- title: "Elasticsearch"
-  description: ""
-  href: "../managed-elasticsearch/"
+  - title: Managed ClickHouse
+    description: Управление кластерами ClickHouse
+    href: ../managed-clickhouse/
+  - title: Managed Elasticsearch
+    description: Управление кластерами Elasticsearch
+    href: ../managed-elasticsearch/
+  - title: Managed Kafka
+    description: Управление кластерами Apache Kafka®
+    href: ../managed-kafka/
+  - title: Managed MongoDB
+    description: Управление кластерами MongoDB
+    href: ../managed-mongodb/
+  - title: Managed MySQL
+    description: Управление кластерами MySQL
+    href: ../managed-mysql/
+  - title: Managed PostgreSQL
+    description: Управление кластерами PostgreSQL
+    href: ../managed-postgresql/
+  - title: Managed Redis
+    description: Управление кластерами Redis
+    href: ../managed-redis/

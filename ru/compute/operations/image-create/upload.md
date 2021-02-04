@@ -118,7 +118,7 @@
 
        name       = "ubuntu-cosmic"
        os_type    = "LINUX"
-       source_url = "<ссылка на образ в Object Storage>"
+       source_url = "<ссылка на образ в {{ objstorage-name }}>"
      }
      ```
 

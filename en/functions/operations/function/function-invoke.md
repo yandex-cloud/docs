@@ -8,7 +8,7 @@ To allow any user to invoke (call) a function, [make it public](../function-publ
 
 {% include [function-list-note](../../../_includes/functions/function-list-note.md) %}
 
-## Invoking a function
+## Invoking a function {#invoking-function}
 
 As an example, we'll use the function described in [{#T}](version-manage.md#func-version-create).
 
@@ -41,7 +41,7 @@ As an example, we'll use the function described in [{#T}](version-manage.md#func
     Call the function as a regular HTTP request, such as by entering the function call link in your browser address bar. Call link format:
 
     ```
-    https://functions.yandexcloud.net/<function ID>
+    {{ sf-url }}/<function ID>
     ```
 
     The function call link is also shown in the `http_invoke_url` parameter when [creating a function](function-create.md).
@@ -51,7 +51,7 @@ As an example, we'll use the function described in [{#T}](version-manage.md#func
     - Example of function call with no additional parameters:
 
         ```
-        https://functions.yandexcloud.net/b09bhaokchn9pnbrlseb
+        {{ sf-url }}/b09bhaokchn9pnbrlseb
         ```
 
         The response depends on the function you call. In this case, it will be as follows:
@@ -63,7 +63,7 @@ As an example, we'll use the function described in [{#T}](version-manage.md#func
     - Example of function call with the `name` parameter added to the URL:
 
         ```
-        https://functions.yandexcloud.net/b09bhaokchn9pnbrlseb?name=<user name>
+        {{ sf-url }}/b09bhaokchn9pnbrlseb?name=<user name>
         ```
 
         The following response appears on the page:
@@ -75,7 +75,7 @@ As an example, we'll use the function described in [{#T}](version-manage.md#func
     - Example of calling a specific function version with the `tag` parameter added to the URL:
 
         ```
-        https://functions.yandexcloud.net/b09bhaokchn9pnbrlseb?tag=<version tag>
+        {{ sf-url }}/b09bhaokchn9pnbrlseb?tag=<version tag>
         ```
 
 - CLI
@@ -130,3 +130,4 @@ To invoke a private function via HTTP, you must authenticate. To do this, get:
     ```
 
     API keys do not expire. This means that this authentication method is simpler, but less secure. Use it if you can't request an IAM token automatically.
+

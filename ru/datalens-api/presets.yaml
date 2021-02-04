@@ -1,5 +1,6 @@
 default:
   service-name: DataLens
+  audience: external
   permission-admin: Администрирование
   permission-write: Редактирование
   permission-read: Просмотр

@@ -21,7 +21,7 @@
   Чтобы получить список баз данных в кластере, выполните команду:
 
   ```
-  $ yc managed-postgresql database list
+  $ {{ yc-mdb-pg }} database list
        --cluster-name <имя кластера>
   ```
 
@@ -65,13 +65,13 @@
   1. Посмотрите описание команды CLI для создания БД:
 
      ```
-     $ yc managed-postgresql database create --help
+     $ {{ yc-mdb-pg }} database create --help
      ```
 
   1. Запросите список пользователей кластера, чтобы выбрать владельца новой базы данных:
 
      ```
-     $ yc managed-postgresql user list
+     $ {{ yc-mdb-pg }} user list
           --cluster-name <имя кластера>
      ```
 
@@ -80,7 +80,7 @@
   1. Выполните команду создания БД. При необходимости укажите нужные локали сортировки и набора символов (по умолчанию задаются `LC_COLLATE=C` и `LC_CTYPE=C`):
 
      ```
-     $ yc managed-postgresql database create <имя базы данных>
+     $ {{ yc-mdb-pg }} database create <имя базы данных>
           --cluster-name <имя кластера>
           --owner <имя пользователя-владельца>
           --lc-collate ru_RU.UTF-8
@@ -118,7 +118,7 @@
   Чтобы удалить базу данных, выполните команду:
 
   ```
-  $ yc managed-postgresql database delete <имя базы данных>
+  $ {{ yc-mdb-pg }} database delete <имя базы данных>
        --cluster-name <имя кластера>
   ```
 

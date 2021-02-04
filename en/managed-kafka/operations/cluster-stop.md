@@ -20,7 +20,6 @@ If necessary, you can stop and restart {{ KF }} clusters. When a cluster is stop
 
   To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
 
-
 {% endlist %}
 
 ## Start a cluster {#start-cluster}
@@ -42,6 +41,5 @@ You can restart `STOPPED` clusters.
   To start a cluster, use the [start](../api-ref/Cluster/start.md) API method: pass the ID of the required cluster in the `clusterId` request parameter.
 
   To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-
 
 {% endlist %}

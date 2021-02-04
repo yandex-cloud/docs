@@ -19,7 +19,6 @@ You can connect to DB clusters from both inside and outside of the Cloud:
 1. To connect to a DB cluster from inside Yandex.Cloud, create a VM in the same network as the DB cluster (with [Linux](../compute/quickstart/quick-create-linux.md) or [Windows](../compute/quickstart/quick-create-windows.md)).
 1. To connect to a cluster from the internet, request public access to the hosts when creating the cluster.
 
-
 ## Create a cluster {#cluster-create}
 
 1. In the management console, select the folder where you want to create a DB cluster.
@@ -32,7 +31,7 @@ You can connect to DB clusters from both inside and outside of the Cloud:
 
 1. To connect to the DB server, get an SSL certificate:
 
-    
+
     1. Create a folder:
 
         ```bash
@@ -42,7 +41,7 @@ You can connect to DB clusters from both inside and outside of the Cloud:
     1. Get a certificate:
 
         ```bash
-        $ wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" -O ~/.postgresql/root.crt
+        $ wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.postgresql/root.crt
         ```
 
     1. Configure permissions to the certificate:
@@ -50,8 +49,6 @@ You can connect to DB clusters from both inside and outside of the Cloud:
         ```bash
         $ chmod 0600 ~/.postgresql/root.crt
         ```
-
-   
 
 1. Use the `psql` command to connect:
 

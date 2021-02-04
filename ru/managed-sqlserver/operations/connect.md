@@ -11,14 +11,12 @@
 {% list tabs %}
 
 - Ubuntu 20.04
-  
+
   ```bash
   $ sudo mkdir -p /usr/local/share/ca-certificates/Yandex && \
-  sudo wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" -O /usr/local/share/ca-certificates/Yandex/YandexCA.crt && \
+  sudo wget "https://{{ s3-storage-host }}{{ pem-path }}" -O /usr/local/share/ca-certificates/Yandex/YandexCA.crt && \
   sudo update-ca-certificates
   ```
-
- 
 
 {% endlist %}
 

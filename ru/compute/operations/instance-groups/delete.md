@@ -29,7 +29,7 @@
   1. Посмотрите описание команды CLI для удаления группы виртуальных машин:
 
       ```
-      $ yc compute instance-group delete --help
+      $ {{ yc-compute-ig }} delete --help
       ```
 
   1. Получите список групп виртуальных машин в каталоге по умолчанию:
@@ -40,7 +40,7 @@
   1. Удалите группу виртуальных машин:
 
       ```
-      $ yc compute instance-group delete --name first-instance-group
+      $ {{ yc-compute-ig }} delete --name first-instance-group
       ```
 
       {{ ig-name }} запустит операцию удаления группы виртуальных машин.

@@ -53,7 +53,7 @@
     Например, для домена `www.example.com` необходимо добавить запись:
     
     ```
-    www.example.com CNAME www.example.com.website.yandexcloud.net
+    www.example.com CNAME www.example.com.{{ s3-web-host }}
     ```
 1. Установите и настройте AWS CLI по [инструкции](../../storage/tools/aws-cli.md#before-you-begin).
 
@@ -93,7 +93,7 @@
     - AWS CLI
     
         ```bash
-        aws --endpoint-url=https://storage.yandexcloud.net \ 
+        aws --endpoint-url=https://{{ s3-storage-host }} \ 
            s3 cp <имя файла> s3://<имя бакета>/.well-known/acme-challenge/<имя файла>
         ```
     
@@ -107,7 +107,7 @@
     - AWS CLI
     
         ```bash
-        aws --endpoint-url=https://storage.yandexcloud.net \ 
+        aws --endpoint-url=https://{{ s3-storage-host }} \ 
            s3 rm s3://<имя бакета>/.well-known/acme-challenge/<имя файла>
         ```
    

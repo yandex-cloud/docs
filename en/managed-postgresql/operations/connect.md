@@ -17,10 +17,9 @@ If public access is only configured for certain hosts in your cluster, automatic
 
 ```bash
 $ mkdir ~/.postgresql
-$ wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" -O ~/.postgresql/root.crt
+$ wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.postgresql/root.crt
 $ chmod 0600 ~/.postgresql/root.crt
 ```
-
 
 ## Connection string {#connection-string}
 
@@ -87,7 +86,7 @@ If your database connection driver doesn't support passing multiple hosts in the
 This domain name always indicates the current master in the cluster. For example, you can connect to the master of the cluster with the `c9qash3nb1v9ulc8j9nm` ID as follows:
 
 ```bash
-$ psql "host=c-c9qash3nb1v9ulc8j9nm.rw.mdb.yandexcloud.net \
+$ psql "host=c-c9qash3nb1v9ulc8j9nm.rw.{{ dns-zone }} \
       port=6432 \
       sslmode=verify-full \
       dbname=<DB name> \

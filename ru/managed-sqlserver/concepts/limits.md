@@ -12,4 +12,3 @@ editable: false
 {% include [mms-limits.md](../../_includes/mdb/mms-limits.md) %}
 
 Подробнее о доступных редакциях {{ MS }} см. в разделе [{#T}](../concepts/index.md).
-

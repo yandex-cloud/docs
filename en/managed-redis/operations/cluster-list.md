@@ -19,7 +19,7 @@ You can request detailed information about each {{ mrd-short-name }} cluster you
   To request a list of {{ RD }} clusters in the default folder, run the command:
 
   ```
-  $ yc managed-redis cluster list
+  $ {{ yc-mdb-rd }} cluster list
   
   +----------------------+---------------+-----------------------------+--------+---------+
   |          ID          |     NAME      |         CREATED AT          | HEALTH | STATUS  |
@@ -48,7 +48,7 @@ You can request detailed information about each {{ mrd-short-name }} cluster you
   To get information about a {{ RD }} cluster, run the command:
 
   ```
-  $ yc managed-redis cluster get <cluster name or ID>
+  $ {{ yc-mdb-rd }} cluster get <cluster name or ID>
   ```
 
   The cluster name and ID can be requested with a [list of clusters in the folder](cluster-list#list-clusters).

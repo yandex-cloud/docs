@@ -19,7 +19,7 @@ SDK для различных языков программирования и �
 ## Общий вид подписанного URL {#presigned-url-preview}
 
 ```
-https://storage.yandexcloud.net/<имя бакета>/<ключ объекта>?
+https://{{ s3-storage-host }}/<имя бакета>/<ключ объекта>?
      X-Amz-Algorithm=AWS4-HMAC-SHA256
     &X-Amz-Expires=<интервал времени в секундах>
     &X-Amz-SignedHeaders=<список заголовков разделенный символами ";">
@@ -125,7 +125,7 @@ X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=JK38EXAMPLEAKDID8%2F20190801%2
 Пример: 
 
 ```
-host:storage.yandexcloud.net
+host:{{ s3-storage-host }}
 x-amz-date:20190801T000000Z
 ```
 
@@ -163,7 +163,7 @@ host;x-amz-date
     GET
     /example-bucket/object-for-share.txt
     X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=JK38EXAMPLEAKDID8%2F20190801%2Fru-central1%2Fs3%2Faws4_request&X-Amz-Date=20190801T000000Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host
-    host:storage.yandexcloud.net
+    host:{{ s3-storage-host }}
 
     host
     UNSIGNED-PAYLOAD
@@ -196,7 +196,7 @@ host;x-amz-date
 - Подписанный URL:
 
     ```
-    https://storage.yandexcloud.net/example-bucket/object-for-share.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=JK38EXAMPLEAKDID8%2F20190801%2Fru-central1%2Fs3%2Faws4_request&X-Amz-Date=20190801T000000Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=56bdf53a1f10c078c2b4fb5a26cefa670b3ea796567d85489135cf33e77783f0
+    https://{{ s3-storage-host }}/example-bucket/object-for-share.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=JK38EXAMPLEAKDID8%2F20190801%2Fru-central1%2Fs3%2Faws4_request&X-Amz-Date=20190801T000000Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=56bdf53a1f10c078c2b4fb5a26cefa670b3ea796567d85489135cf33e77783f0
     ```
 
 ## Примеры получения подписанной ссылки в инструментах {{ objstorage-name }} {#example-for-getting-in-tools}

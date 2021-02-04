@@ -32,14 +32,14 @@
   1. Посмотрите описание команды CLI для изменения кластера:
 
       ```
-      $ yc managed-mongodb cluster update --help
+      $ {{ yc-mdb-mg }} cluster update --help
       ```
 
   1. Запросите список доступных классов хостов (в колонке `ZONES` указаны зоны доступности, в которых можно выбрать соответствующий класс):
 
-     
+
      ```bash
-     $ yc managed-mongodb resource-preset list
+     $ {{ yc-mdb-mg }} resource-preset list
 
      +-----------+--------------------------------+-------+----------+
      |    ID     |            ZONE IDS            | CORES |  MEMORY  |
@@ -50,13 +50,11 @@
      +-----------+--------------------------------+-------+----------+
      ```
 
-    
-
 
   1. Укажите нужный класс в команде изменения кластера:
 
       ```
-      $ yc managed-mongodb cluster update <имя кластера>
+      $ {{ yc-mdb-mg }} cluster update <имя кластера>
            --mongod-resource-preset <ID класса>
       ```
 
@@ -93,7 +91,7 @@
   1. Посмотрите описание команды CLI для изменения кластера:
 
       ```
-      $ yc managed-mongodb cluster update --help
+      $ {{ yc-mdb-mg }} cluster update --help
       ```
 
   1. Проверьте, что в облаке хватает квоты на увеличение хранилища: откройте страницу [Квоты]({{ link-console-quotas }}) для вашего облака и проверьте, что в секции {{ mmg-full-name }} не исчерпано место в строке **space**.
@@ -101,7 +99,7 @@
   1. Проверьте, что нужный кластер использует именно сетевое хранилище (увеличить размер локального хранилища пока невозможно). Для этого запросите информацию о кластере и найдите поле `disk_type_id` — его значение должно быть `network-hdd` или `network-ssd`:
 
       ```
-      $ yc managed-mongodb cluster get <имя кластера>
+      $ {{ yc-mdb-mg }} cluster get <имя кластера>
 
       id: c7qkvr3u78qiopj3u4k2
       folder_id: b1g0ftj57rrjk9thribv
@@ -121,7 +119,7 @@
   1. Укажите нужный объем хранилища в команде изменения кластера (должен быть не меньше, чем значение `disk_size` в свойствах кластера):
 
       ```
-      $ yc managed-mongodb cluster update <имя кластера>
+      $ {{ yc-mdb-mg }} cluster update <имя кластера>
            --mongod-disk-size <размер хранилища в ГБ>
       ```
 
@@ -161,13 +159,13 @@
 
   Чтобы изменить настройки СУБД для кластера, используйте команду:
   ```
-  $ yc managed-mongodb cluster update-config
+  $ {{ yc-mdb-mg }} cluster update-config
   ```
 
   Например, для установки значения параметра [net.maxIncomingConnections](https://docs.mongodb.com/manual/reference/configuration-options/#net.maxIncomingConnections) в `4096`, выполните следующую команду:
 
   ```
-  $ yc managed-mongodb cluster update-config <имя кластера>
+  $ {{ yc-mdb-mg }} cluster update-config <имя кластера>
       --set net.max_incoming_connections=4096
   ```
 
@@ -204,7 +202,7 @@
   - Чтобы задать время начала [резервного копирования](cluster-backups.md), выполните команду:
 
     ```
-    $ yc managed-mongodb cluster update "<имя кластера>" --backup-window-start="<время>"
+    $ {{ yc-mdb-mg }} cluster update "<имя кластера>" --backup-window-start="<время>"
     ```
 
     Время указывается по UTC в формате `HH:MM:SS`. Если время не задано, резервное копирование начнется в 22:00 UTC.
@@ -212,7 +210,7 @@
   - Чтобы задать срок хранения автоматических резервных копий (в днях), выполните команду:
 
     ```
-    $ yc managed-mongodb cluster update "<имя кластера>" --backup-retain-period-days="<срок хранения>"
+    $ {{ yc-mdb-mg }} cluster update "<имя кластера>" --backup-retain-period-days="<срок хранения>"
     ```
 
     Значение параметра `--backup-retain-period-days` должно находиться в диапазоне от {{ mmg-backup-retention-min }} до {{ mmg-backup-retention-max }} (по умолчанию — {{ mmg-backup-retention }}). Если для какой-либо автоматической резервной копии истекает срок хранения, то она удаляется. Эта функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md). Подробнее см. в разделе [{#T}](../concepts/backup.md).

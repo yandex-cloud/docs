@@ -1,33 +1,38 @@
-# Заголовок и описание на странице
-title: "Yandex Managed Service for Elasticsearch"
+title: Yandex Managed Service for Elasticsearch
 stage: preview
 description:
-  - "<em>Сервис Managed Service for Elasticsearch находится на <a href=\"/docs/overview/concepts/launch-stages\">стадии Preview</a> и не тарифицируется</em>."
-  - "Сервис Managed Service for Elasticsearch помогает разворачивать и поддерживать кластеры серверов Elasticsearch в инфраструктуре Yandex.Cloud"
-  - "Инфраструктура Yandex.Cloud <a href=\"https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf\">защищена</a> в соответствии с ФЗ-152."
-# Мета-информация title, description, keywords и т.п.
+  - >-
+    <em>Сервис Managed Service for Elasticsearch находится на <a
+    href="/docs/overview/concepts/launch-stages">стадии Preview</a> и не
+    тарифицируется</em>.
+  - >-
+    Сервис Managed Service for Elasticsearch помогает разворачивать и
+    поддерживать кластеры серверов Elasticsearch в инфраструктуре Yandex.Cloud
+  - >-
+    Инфраструктура Yandex.Cloud <a
+    href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">защищена</a>
+    в соответствии с ФЗ-152.
 meta:
-  title: "Yandex Managed Service for Elasticsearch"
-# Блок со ссылками
+  title: Yandex Managed Service for Elasticsearch
 links:
-- title: "Начало работы"
-  description: "Создайте первый кластер баз данных"
-  href: "quickstart"
-- title: "Пошаговые инструкции"
-  description: "Инструкции по выполнению рутинных операций"
-  href: "operations/"
-- title: "Концепции"
-  description: "Узнайте про концепции и общее устройство сервиса"
-  href: "concepts/"
-- title: "Справочник API"
-  description: "Описание методов HTTP API"
-  href: "api-ref/"
-- title: "Квоты и лимиты"
-  description: "Технические и организационные ограничения сервиса"
-  href: "concepts/limits"
-- title: "Управление доступом"
-  description: "Настройте права доступа для работы с сервисом"
-  href: "security/"
-- title: "Правила тарификации"
-  description: "Цены и правила расчета стоимости услуг сервиса"
-  href: "pricing"
+  - title: Начало работы
+    description: Создайте первый кластер баз данных
+    href: quickstart
+  - title: Пошаговые инструкции
+    description: Инструкции по выполнению рутинных операций
+    href: operations/
+  - title: Концепции
+    description: Узнайте про концепции и общее устройство сервиса
+    href: concepts/
+  - title: Справочник API
+    description: Описание методов HTTP API
+    href: api-ref/
+  - title: Квоты и лимиты
+    description: Технические и организационные ограничения сервиса
+    href: concepts/limits
+  - title: Управление доступом
+    description: Настройте права доступа для работы с сервисом
+    href: security/
+  - title: Правила тарификации
+    description: Цены и правила расчета стоимости услуг сервиса
+    href: pricing

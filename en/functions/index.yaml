@@ -1,52 +1,60 @@
-# Yandex Cloud Functions
-title: "Cloud Functions"
+title: Cloud Functions
 description:
-  - "The Cloud Functions service lets you run your applications in a secure, fault-tolerant, and scalable environment without creating or maintaining VMs."
+  - >-
+    The Cloud Functions service lets you run your applications in a secure,
+    fault-tolerant, and scalable environment without creating or maintaining
+    VMs.
 meta:
-  title: "Yandex Cloud Functions"
+  title: Yandex Cloud Functions
 links:
-- title: "Getting started"
-  description: "Create your first function"
-  href: "quickstart/"
-- title: "Step-by-step instructions"
-  description: "Instructions on how to perform routine operations"
-  href: "operations/"
-- title: "Concepts"
-  description: "Basic concepts and how the service works"
-  href: "concepts/"
-- title: "Runtime environment"
-  description: "Which runtime environments does the service support?"
-  href: "concepts/runtime/"
-- title: "Node.js"
-  description: "Writing functions in JavaScript"
-  href: "lang/nodejs/"
-- title: "PHP"
-  description: "Writing functions in PHP"
-  href: "lang/php/"
-- title: "Go"
-  description: "Writing functions in Go"
-  href: "lang/golang/"
-- title: "Bash"
-  description: "Writing functions in Bash"
-  href: "lang/bash/"
-- title: "R"
-  description: "Writing functions in R"
-  href: "lang/r/"
-- title: "C#"
-  description: "Writing functions in C#"
-  href: "lang/csharp/"
-- title: "API Functions reference"
-  description: "HTTP API method descriptions"
-  href: "functions/api-ref/"
-- title: "API Triggers reference"
-  description: "HTTP API method descriptions"
-  href: "triggers/api-ref/"
-- title: "Quotas and limits"
-  description: "Technical and organizational limitations of the service"
-  href: "concepts/limits"
-- title: "Access management"
-  description: "Permissions required for using the service"
-  href: "security/"
-- title: "Pricing policy"
-  description: "Service pricing and cost calculations"
-  href: "pricing"
+  - title: Getting started
+    description: Create your first function
+    href: quickstart/
+  - title: Step-by-step instructions
+    description: Instructions on how to perform routine operations
+    href: operations/
+  - title: Concepts
+    description: Basic concepts and how the service works
+    href: concepts/
+  - title: Runtime
+    description: Which runtime environments does the service support?
+    href: concepts/runtime/
+  - title: Node.js
+    description: Writing functions in JavaScript
+    href: lang/nodejs/
+  - title: Python
+    description: Writing functions in Python
+    href: lang/python/
+  - title: PHP
+    description: Writing functions in PHP
+    href: lang/php/
+  - title: Go
+    description: Writing functions in Go
+    href: lang/golang/
+  - title: Bash
+    description: Writing functions in Bash
+    href: lang/bash/
+  - title: Java
+    description: Writing functions in Java
+    href: lang/java/
+  - title: R
+    description: Writing functions in R
+    href: lang/r/
+  - title: C#
+    description: Writing functions in C#
+    href: lang/csharp/
+  - title: API Functions reference
+    description: HTTP API method descriptions
+    href: functions/api-ref/
+  - title: API Triggers reference
+    description: HTTP API method descriptions
+    href: triggers/api-ref/
+  - title: Quotas and limits
+    description: Technical and organizational limitations of the service
+    href: concepts/limits
+  - title: Access management
+    description: Permissions required for using the service
+    href: security/
+  - title: Pricing policy
+    description: Service pricing and cost calculations
+    href: pricing

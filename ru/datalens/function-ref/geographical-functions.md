@@ -23,9 +23,9 @@ editable: false
 Преобразует `address` в название географического объекта (топоним), который соответствует указанному масштабу `scale`.
 
 Допустимые значения параметра`scale`:
-- `"country"`,
-- `"country_code"`,
-- `"region"`,
+- `"country"`;
+- `"country_code"`;
+- `"region"`;
 - `"locality"`.
 
 

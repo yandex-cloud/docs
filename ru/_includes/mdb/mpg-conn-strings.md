@@ -11,7 +11,7 @@
   **Подключение с использованием SSL-соединения:**
   
   ```bash
-  psql "host=<FQDN одного или нескольких хостов PostgreSQL> \
+  psql "host=<FQDN одного или нескольких хостов {{ PG }}> \
       port=6432 \
       sslmode=verify-full \
       dbname=<имя БД> \
@@ -22,7 +22,7 @@
   **Подключение без использования SSL-соединения:**
   
   ```bash
-  psql "host=<FQDN хоста> \
+  psql "host=<FQDN одного или нескольких хостов {{ PG }}> \
       port=6432 \
       sslmode=disable \
       dbname=<имя БД> \
@@ -50,7 +50,7 @@
   import psycopg2
 
   conn = psycopg2.connect("""
-      host=<FQDN одного или нескольких хостов PostgreSQL>
+      host=<FQDN одного или нескольких хостов {{ PG }}>
       port=6432
       sslmode=verify-full
       dbname=<имя БД>
@@ -74,7 +74,7 @@
   import psycopg2
 
   conn = psycopg2.connect("""
-      host=<FQDN одного или нескольких хостов PostgreSQL>
+      host=<FQDN одного или нескольких хостов {{ PG }}>
       port=6432
       sslmode=disable
       dbname=<имя БД>
@@ -113,7 +113,7 @@
   ``` php
   <?php
     $conn = pg_connect("
-        host=<FQDN одного или нескольких хостов PostgreSQL>
+        host=<FQDN одного или нескольких хостов {{ PG }}>
         port=6432
         sslmode=verify-full
         dbname=<имя БД>
@@ -136,7 +136,7 @@
   ```php
   <?php
     $conn = pg_connect("
-        host=<FQDN одного или нескольких хостов PostgreSQL>
+        host=<FQDN одного или нескольких хостов {{ PG }}>
         port=6432
         sslmode=disable
         dbname=<имя БД>
@@ -260,7 +260,7 @@
   
   public class App {
     public static void main(String[] args) {
-      String DB_URL     = "jdbc:postgresql://<хост 1 PostgreSQL:6432,...,хост N PostgreSQL:6432>/<имя БД>&targetServerType=master&ssl=true&sslmode=verify-full";
+      String DB_URL     = "jdbc:postgresql://<хост 1 {{ PG }}:6432,...,хост N {{ PG }}:6432>/<имя БД>&targetServerType=master&ssl=true&sslmode=verify-full";
       String DB_USER    = "<имя пользователя>";
       String DB_PASS    = "<пароль пользователя>";
       
@@ -288,7 +288,7 @@
   
   public class App {
     public static void main(String[] args) {
-      String DB_URL     = "jdbc:postgresql://<хост 1 PostgreSQL:6432,...,хост N PostgreSQL:6432>/<имя БД>&targetServerType=master&ssl=true&sslmode=disable";
+      String DB_URL     = "jdbc:postgresql://<хост 1 {{ PG }}:6432,...,хост N {{ PG }}:6432>/<имя БД>&targetServerType=master&ssl=true&sslmode=disable";
       String DB_USER    = "<имя пользователя>";
       String DB_PASS    = "<пароль пользователя>";
       
@@ -385,74 +385,90 @@
   
   ```bash
   sudo apt update && sudo apt install -y golang git && \
-  go get github.com/lib/pq
+  go get github.com/jackc/pgx && go mod init example
   ```
   
   **Пример кода для подключения с использованием SSL-соединения:**
   
   `connect.go`
-  ```go
+  ```
   package main
 
   import (
-    "database/sql"
+    "io/ioutil"
+    "crypto/tls"
+    "crypto/x509"
     "fmt"
-
-    _ "github.com/lib/pq"
+    "github.com/jackc/pgx"
   )
 
   const (
-    host     = "<FQDN хоста>"
+    host     = "<FQDN одного или нескольких хостов {{ PG }}>"
     port     = 6432
     user     = "<имя пользователя>"
     password = "<пароль пользователя>"
     dbname   = "<имя БД>"
-    ca = "/home/<домашняя директория>/.postgresql/root.crt"
+    ca       = "/home/<домашняя директория>/.postgresql/root.crt"
   )
 
   func main() {
-    psqlInfo := fmt.Sprintf("host=%s port=%d user=%s " +
-                            "password=%s dbname=%s " +
-                            "sslmode=verify-full " +
-                            "sslrootcert=%s, host, port, user, password, dbname, ca)
-    conn, err := sql.Open("postgres", psqlInfo)
+
+    rootCertPool := x509.NewCertPool()
+    pem, err := ioutil.ReadFile(ca)
+    if err != nil {
+      panic(err)
+    }
+
+    if ok := rootCertPool.AppendCertsFromPEM(pem); !ok {
+      panic("Failed to append PEM.")
+    }
+
+    config := pgx.ConnConfig {
+      Host: host,
+      Port: port,
+      User: user,
+      Password: password,
+      Database: dbname,
+      TargetSessionAttrs: "read-write",
+      TLSConfig: &tls.Config {
+        RootCAs: rootCertPool,
+        InsecureSkipVerify: true,
+      },
+    }
+
+    conn, err := pgx.Connect(config)
     if err != nil {
       panic(err)
     }
 
     defer conn.Close()
-  
-    q, err := db.Query("SELECT version()")
+
+    var version string
+
+    err = conn.QueryRow("SELECT version()").Scan(&version)
     if err != nil {
       panic(err)
     }
 
-    var result string
-
-    for q.Next() {
-     q.Scan(&result)
-     fmt.Println(result)
-    }
+    fmt.Println(version)
   }
-  ```  
+  ```
   
   В отличие от других способов подключения, в этом коде необходимо указывать полный путь к сертификату `root.crt` для {{ PG }} в переменной `ca`.
   
   **Пример кода для подключения без использования SSL-соединения:**
 
   `connect.go`
-  ```go
+  ```
   package main
 
   import (
-    "database/sql"
     "fmt"
-
-    _ "github.com/lib/pq"
+    "github.com/jackc/pgx"
   )
 
   const (
-    host     = "<FQDN хоста>"
+    host     = "<FQDN одного или нескольких хостов {{ PG }}>"
     port     = 6432
     user     = "<имя пользователя>"
     password = "<пароль пользователя>"
@@ -460,27 +476,31 @@
   )
 
   func main() {
-    psqlInfo := fmt.Sprintf("host=%s port=%d user=%s " +
-                            "password=%s dbname=%s " +
-                            "sslmode=disable", host, port, user, password, dbname)
-    conn, err := sql.Open("postgres", psqlInfo)
+
+    config := pgx.ConnConfig {
+      Host: host,
+      Port: port,
+      User: user,
+      Password: password,
+      Database: dbname,
+      TargetSessionAttrs: "read-write",
+    }
+
+    conn, err := pgx.Connect(config)
     if err != nil {
       panic(err)
     }
 
     defer conn.Close()
-  
-    q, err := conn.Query("SELECT version()")
+
+    var version string
+
+    err = conn.QueryRow("SELECT version()").Scan(&version)
     if err != nil {
       panic(err)
     }
 
-    var result string
-
-    for q.Next() {
-     q.Scan(&result)
-     fmt.Println(result)
-    }
+    fmt.Println(version)
   }
   ```
   
@@ -505,7 +525,7 @@
   require "pg"
 
   conn = PG.connect("
-          host=<FQDN хоста>
+          host=<FQDN одного или нескольких хостов {{ PG }}>
           port=6432
           dbname=<имя БД>
           user=<имя пользователя>
@@ -527,7 +547,7 @@
   require "pg"
 
   conn = PG.connect("
-          host=<FQDN хоста>
+          host=<FQDN одного или нескольких хостов {{ PG }}>
           port=6432
           dbname=<имя БД>
           user=<имя пользователя>
@@ -564,7 +584,7 @@
   ```ini
   [postgresql]
   Driver=PostgreSQL Unicode
-  Servername=<хост 1 PostgreSQL>,...,<хост N PostgreSQL>
+  Servername=<хост 1 {{ PG }}>,...,<хост N {{ PG }}>
   Username=<имя пользователя>
   Password=<пароль пользователя>
   Database=<имя БД>
@@ -579,7 +599,7 @@
   ```ini
   [postgresql]
   Driver=PostgreSQL Unicode
-  Servername=<хост 1 PostgreSQL>,...,<хост N PostgreSQL>
+  Servername=<хост 1 {{ PG }}>,...,<хост N {{ PG }}>
   Username=<имя пользователя>
   Password=<пароль пользователя>
   Database=<имя БД>

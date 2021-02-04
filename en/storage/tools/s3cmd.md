@@ -41,8 +41,8 @@ The `s3cmd --configure` command saves the settings to a `~/.s3cfg` file in the f
 access_key = id
 secret_key = secretKey
 bucket_location = ru-central1
-host_base = storage.yandexcloud.net
-host_bucket = %(bucket)s.storage.yandexcloud.net
+host_base = {{ s3-storage-host }}
+host_bucket = %(bucket)s.{{ s3-storage-host }}
 ```
 
 If necessary, you can change these settings directly in the file. You can also specify settings when launching the client by using the appropriate parameters.
@@ -50,7 +50,7 @@ If necessary, you can change these settings directly in the file. You can also s
 For the static website hosting control commands to work correctly, manually add the following parameter to the configuration file:
 
 ```
-website_endpoint = http://%(bucket)s.website.yandexcloud.net
+website_endpoint = http://%(bucket)s.{{ s3-web-host }}
 ```
 
 ## Specifics {#specifics}

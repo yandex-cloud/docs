@@ -1,26 +1,35 @@
 title: Yandex Data Transfer
 description:
-  - "<em>Yandex Data Transfer is currently at the <a href=\"/docs/overview/concepts/launch-stages\">Preview</a> stage.</em>"
-  - "Yandex Data Transfer is designed for logically transferring data between storages. The service helps you quickly and safely perform logical migrations of your databases between other cloud platforms or local databases and Yandex.Cloud managed database services."
-  - "It supports several data transfer scenarios, with every scenario run at the logical level. This allows you to keep your source database running and minimize the downtime of applications that use it."
+  - >-
+    <em>Yandex Data Transfer is currently at the <a
+    href="/docs/overview/concepts/launch-stages">Preview</a> stage.</em>
+  - >-
+    Yandex Data Transfer is designed for logically transferring data between
+    storages. The service helps you quickly and safely perform logical
+    migrations of your databases between other cloud platforms or local
+    databases and Yandex.Cloud managed database services.
+  - >-
+    It supports several data transfer scenarios, with every scenario run at the
+    logical level. This allows you to keep your source database running and
+    minimize the downtime of applications that use it.
 meta:
-  title: "Yandex Data Transfer"
+  title: Yandex Data Transfer
 links:
-  - title: "Getting started"
-    description: "Create your first project"
-    href: "quickstart"
-  - title: "Step-by-step instructions"
-    description: "Instructions on how to perform routine operations"
-    href: "operation/"
-  - title: "Concepts"
-    description: "Learn about basic concepts and service functions"
-    href: "concepts/"
-  - title: "Quotas and limits"
-    description: "Technical and organizational limitations of the service"
-    href: "concepts/limits"
-  - title: "Access management"
-    description: "Configure access rights to work with the service"
-    href: "security/"
-  - title: "Pricing policy"
-    description: "Prices and rules for calculating the service cost"
-    href: "pricing"
+  - title: Getting started
+    description: Create your first project
+    href: quickstart
+  - title: Step-by-step instructions
+    description: Instructions on how to perform routine operations
+    href: operations/
+  - title: Concepts
+    description: Learn about basic concepts and service functions
+    href: concepts/
+  - title: Quotas and limits
+    description: Technical and organizational limitations of the service
+    href: concepts/limits
+  - title: Access management
+    description: Configure access rights to work with the service
+    href: security/
+  - title: Pricing policy
+    description: Prices and rules for calculating the service cost
+    href: pricing

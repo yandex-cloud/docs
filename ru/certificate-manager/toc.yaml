@@ -121,3 +121,4 @@ items:
                 href: api-ref/CertificateContent/get.md
   - name: Вопросы и ответы
     href: qa/index.md
+base: ru/certificate-manager

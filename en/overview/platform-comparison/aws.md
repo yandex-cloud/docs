@@ -36,6 +36,7 @@
 | Amazon MSK | [{{ mkf-full-name }}](../../managed-kafka/) |
 | Amazon Elasticsearch Service | [{{ mes-full-name }}](../../managed-elasticsearch/) |
 | Amazon QuickSight | [{{ datalens-full-name }}](../../datalens/) |
+| AWS Database Migration Service | [{{ data-transfer-full-name }}](../../data-transfer/) |
 
 ## Cloud-native {#cloud-native}
 

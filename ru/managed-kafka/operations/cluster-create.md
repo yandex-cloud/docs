@@ -62,6 +62,34 @@
 
   1. Дождитесь, когда кластер будет готов к работе: его статус на панели {{ mkf-short-name }} сменится на `Running`, а состояние - на `Alive`. Это может занять некоторое время.
 
+- CLI
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Чтобы создать кластер:
+
+  1. Посмотрите описание команды CLI для создания кластера:
+
+      ```
+      {{ yc-mdb-kf }} cluster create --help
+      ```
+
+  1. Укажите параметры кластера в команде создания (в примере приведены не все параметры):
+      
+      ```bash
+      {{ yc-mdb-kf }} cluster create \
+         --name <имя кластера> \
+         --environment <окружение: prestable или production> \
+         --network-name <имя сети> \
+         --brokers-count <количество брокеров в зоне> \
+         --resource-preset <класс хоста> \
+         --disk-type <тип диска> \
+         --disk-size <размер хранилища в гигабайтах> \
+         --assign-public-ip <публичный доступ>
+      ```
+
 
 - API
 
@@ -69,5 +97,41 @@
   - Идентификатор каталога, в котором должен быть размещен кластер, в параметре `folderId`.
   - Имя кластера в параметре `name`.
 
+{% endlist %}
+
+## Примеры {#examples}
+
+### Создание кластера с одним хостом {#creating-a-single-host-cluster}
+
+{% list tabs %}
+
+- CLI
+
+  Допустим, нужно создать {{ KF }}-кластер со следующими характеристиками:
+
+
+  - С именем `mykf`.
+  - В окружении `production`.
+  - В сети `{{ network-name }}`.
+  - С одним хостом класса `{{ host-class }}`, в зоне доступности `{{ zone-id }}`.
+  - С одним брокером.
+  - С быстрым сетевым хранилищем (`{{ disk-type-example }}`) объемом 10 ГБ.
+  - С публичным доступом.
+
+  Запустите следующую команду:
+
+
+  ```
+  {{ yc-mdb-kf }} cluster create \
+  --name mykf \
+  --environment production \
+  --network-name {{ network-name }} \
+  --zone-ids {{ zone-id }} \
+  --brokers-count 1 \
+  --resource-preset {{ host-class }} \
+  --disk-size 10 \
+  --disk-type {{ disk-type-example }} \
+  --assign-public-ip
+  ```
 
 {% endlist %}

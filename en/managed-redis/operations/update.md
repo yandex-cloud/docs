@@ -31,13 +31,13 @@ After creating a cluster, you can:
   1. View a description of the CLI's update cluster command:
 
      ```
-     $ yc managed-redis cluster update --help
+     $ {{ yc-mdb-rd }} cluster update --help
      ```
 
   1. Specify a new name and description in the cluster update command:
 
      ```
-     $ yc managed-redis cluster update <cluster name> \
+     $ {{ yc-mdb-rd }} cluster update <cluster name> \
           --cluster-name <new cluster name> \
           --description <new cluster description>
      ```
@@ -73,14 +73,14 @@ After creating a cluster, you can:
   1. View a description of the CLI's update cluster command:
 
      ```
-     $ yc managed-redis cluster update --help
+     $ {{ yc-mdb-rd }} cluster update --help
      ```
 
   1. Request a list of available host classes (the `ZONES` column specifies the availability zones where you can select the appropriate class):
 
-     
+
      ```bash
-     $ yc managed-redis resource-preset list
+     $ {{ yc-mdb-rd }} resource-preset list
      
      +-------------+--------------------------------+----------+
      |     ID      |            ZONE IDS            |  MEMORY  |
@@ -96,12 +96,10 @@ After creating a cluster, you can:
      +-----------+----------------------------------+----------+
      ```
 
-    
-
   1. Specify the class in the update cluster command:
 
      ```
-     $ yc managed-redis cluster update <cluster name>
+     $ {{ yc-mdb-rd }} cluster update <cluster name>
           --resource-preset <class ID>
      ```
 
@@ -136,7 +134,7 @@ After creating a cluster, you can:
   1. View a description of the CLI's update cluster command:
 
      ```
-     $ yc managed-clickhouse cluster update --help
+     $ {{ yc-mdb-rd }} cluster update --help
      ```
 
   1. Make sure the cloud quota is sufficient to increase the disk size: open the [Quotas]({{ link-console-quotas }}) page for your cloud and check that the **Managed Databases** section still has space available in the **hddSpace** line.
@@ -144,7 +142,7 @@ After creating a cluster, you can:
   1. Specify the disk size in GB in the update cluster command. The new size must be bigger than the previous one.
 
      ```
-     $ yc managed-clickhouse cluster update <cluster name>
+     $ {{ yc-mdb-rd }} cluster update <cluster name>
           --disk-size <disk size in GB>
      ```
 

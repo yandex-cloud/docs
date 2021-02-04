@@ -161,3 +161,4 @@ items:
     items:
       - name: Общие вопросы
         href: qa/general.md
+base: ru/managed-sqlserver

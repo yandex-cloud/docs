@@ -69,7 +69,7 @@ items:
         href: pricing.md
       - name: Archive
         items:
-          - name: 'Policy before October 1, 2020'
+          - name: Policy before October 1, 2020
             href: pricing-archive/pricing-01102020.md
   - name: API reference
     items:
@@ -103,3 +103,4 @@ items:
                 href: api-ref/MetricsMeta/listMetrics.md
   - name: Questions and answers
     href: qa/index.md
+base: en/monitoring

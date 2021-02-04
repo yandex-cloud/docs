@@ -5,7 +5,7 @@
     1. Run the command:
 
         ```
-        $ curl https://storage.yandexcloud.net/yandexcloud-yc/install.sh | bash
+        $ curl https://{{ s3-storage-host }}{{ yc-install-path }} | bash
         ```
 
         The script will install the CLI and add the executable file path to the environment variable `PATH`.
@@ -25,7 +25,7 @@
     1. Run the command:
 
         ```
-        $ curl https://storage.yandexcloud.net/yandexcloud-yc/install.sh | bash
+        $ curl https://{{ s3-storage-host }}{{ yc-install-path }} | bash
         ```
 
         The script will install the CLI and add the executable file path to the environment variable `PATH`.
@@ -70,7 +70,7 @@
         1. Run the command:
 
             ```
-            iex (New-Object System.Net.WebClient).DownloadString('https://storage.yandexcloud.net/yandexcloud-yc/install.ps1')
+            iex (New-Object System.Net.WebClient).DownloadString('https://{{ s3-storage-host }}{{ yc-windows-path }}')
             ```
 
         1. The installation script will ask whether to add the path to `yc` to the PATH variable:
@@ -86,7 +86,7 @@
         1. Run the command:
 
             ```
-            @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://storage.yandexcloud.net/yandexcloud-yc/install.ps1'))" && SET "PATH=%PATH%;%USERPROFILE%\yandex-cloud\bin"
+            @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://{{ s3-storage-host }}{{ yc-windows-path }}'))" && SET "PATH=%PATH%;%USERPROFILE%\yandex-cloud\bin"
             ```
 
         1. The installation script will ask whether to add the path to `yc` to the PATH variable:

@@ -1,6 +1,12 @@
-# Managing dependencies
+# Building and managing dependencies
 
 At the build stage, {{ sf-name }} automatically installs dependencies necessary for a function to run. This is done when creating a new [function version](../../operations/function/version-manage.md#func-version-create).
+
+{% note info %}
+
+The `ycf` build tag is set for the build.
+
+{% endnote %}
 
 {{ sf-name }} supports two ways to automatically manage dependencies: using modules and the `dep` utility.
 
@@ -9,6 +15,12 @@ At the build stage, {{ sf-name }} automatically installs dependencies necessary 
 [Modules](https://github.com/golang/go/wiki/Modules) are built-in dependency management mechanisms for the `Go` programming language. This is the main and recommended way to manage dependencies in {{ sf-name }}.
 
 To install dependencies using modules, import the `go.mod` file together with the function source code. This installs the latest versions of the packages specified in this file. To explicitly specify the versions, you should also import the `go.sum` file.
+
+{% note warning %}
+
+Make sure the module name in the `go.mod` file is not `main`.
+
+{% endnote %}
 
 ### dep
 

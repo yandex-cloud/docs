@@ -1,28 +1,31 @@
-# Заголовок и описание на странице
-title: "Billing"
+title: Billing
 description:
-  - "The Billing service is where you can get information about the amount of resources used, monitor your costs, and pay for resource consumption."
-  - "In Yandex.Cloud, you only pay for the resources you have consumed and the time of their actual usage."
-# Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
+  - >-
+    The Billing service is where you can get information about the amount of
+    resources used, monitor your costs, and pay for resource consumption.
+  - >-
+    In Yandex.Cloud, you only pay for the resources you have consumed and the
+    time of their actual usage.
 meta:
-  title: "Billing"
-# Блок со ссылками
+  title: Billing
 links:
-- title: "Getting started"
-  description: "Create your first billing account"
-  href: "quickstart/index"
-- title: "Step-by-step instructions"
-  description: "Instructions on how to perform routine operations"
-  href: "operations/index"  
-- title: "Concepts"
-  description: "Introduction to the terms and concepts used in the service"
-  href: "concepts/index"
-- title: "Resource payments"
-  description: "Find out about payment methods and billing cycles for individuals, businesses, and individual entrepreneurs"
-  href: "payment/index"
-- title: "Access management"
-  description: "Set up access rights to manage your billing account"
-  href: "security/index"
-- title: "Pricing policy"
-  description: "Prices and rates of Yandex.Cloud services"
-  href: "pricing"
+  - title: Getting started
+    description: Create your first billing account
+    href: quickstart/index
+  - title: Step-by-step instructions
+    description: Instructions on how to perform routine operations
+    href: operations/index
+  - title: Concepts
+    description: Introduction to the terms and concepts used in the service
+    href: concepts/index
+  - title: Resource payments
+    description: >-
+      Find out about payment methods and billing cycles for individuals,
+      businesses, and individual entrepreneurs
+    href: payment/index
+  - title: Access management
+    description: Set up access rights to manage your billing account
+    href: security/index
+  - title: Pricing policy
+    description: Prices and rates of Yandex.Cloud services
+    href: pricing

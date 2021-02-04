@@ -191,3 +191,4 @@ items:
                 href: api-ref/RegistryData/publish.md
   - name: Questions and answers
     href: qa/index.md
+base: en/iot-core

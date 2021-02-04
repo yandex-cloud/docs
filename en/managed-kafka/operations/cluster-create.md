@@ -75,5 +75,4 @@ A cluster in {{ mkf-name }} is one or more broker hosts where topics and their p
   - In the `folderId` parameter, the ID of the folder where  the cluster should be placed.
   - The cluster name in the `name` parameter.
 
-
 {% endlist %}

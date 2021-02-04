@@ -5,3 +5,4 @@ items:
     items:
       - name: Реферальная программа
         href: program/referral.md
+base: ru/partner

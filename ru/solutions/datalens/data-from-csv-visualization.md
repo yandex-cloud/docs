@@ -18,10 +18,11 @@
 1. [Настройте отображение виджетов и приступите к исследованию зависимостей](data-from-csv-visualization.md#step8).
 1. [Продолжите исследования данных о супергероях](data-from-csv-visualization.md#step9).
 
+
+
 ## Подготовьте облако к работе {#before-you-begin}
 
 {% include [before-you-begin](../_solutions_includes/before-you-begin-datalens.md) %}
-
 
 ## Шаг 1. Создайте подключение и датасет {#step1}
 

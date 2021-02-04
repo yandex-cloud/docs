@@ -5,7 +5,6 @@
 
 В настоящее время доступ к системным таблицам возможен через веб-интерфейс.
 
-
 В описаниях доступных полей далее по тексту колонка **Ключ** содержит индекс поля первичного ключа соответствующей таблицы.
 
 
@@ -74,7 +73,6 @@ SELECT
 FROM `/path/to/database/.sys/partition_stats`
 GROUP BY Path
 ```
-
 
 ----
 
@@ -164,7 +162,6 @@ FROM `/path/to/database/.sys/top_queries_by_read_bytes_one_minute`
 WHERE Rank = 1
 ```
 
-
 ----
 
 ## Подробная информация о запросах
@@ -240,7 +237,6 @@ WHERE SumReadBytes > 0
 ORDER BY IntervalEnd DESC, SumReadBytes DESC
 LIMIT 100
 ```
-
 
 ----
 

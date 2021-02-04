@@ -53,6 +53,5 @@ How ZooKeeper hosts are managed:
 
 * If you didn't specify any subnets for the ZooKeeper hosts, {{ mch-short-name }} automatically distributes them among the subnets of the network that the {{ CH }} cluster is connected to.
 
-
 For more information about using ZooKeeper to manage replication in {{ CH }}, see the [{{ CH }} documentation](https://clickhouse.yandex/docs/en/operations/table_engines/replication/).
 

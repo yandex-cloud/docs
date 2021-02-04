@@ -8,4 +8,3 @@
 ## Local storage features {#local-storage-features}
 
 Local storage doesn't provide fault tolerance for a single-host cluster: if a local disk fails, the data is permanently lost. To ensure fault tolerance, create clusters of two or more hosts.
-

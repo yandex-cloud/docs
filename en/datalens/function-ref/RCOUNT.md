@@ -43,8 +43,7 @@ Only constant values are accepted for arguments (`direction`).
 
 {% note warning %}
 
-The sorting order is based on the fields listed in the chart's sorting section and in the function's `ORDER BY` clause. First, `ORDER BY` fields are used, and then they are complemented by the fields from the chart.
-
+The sorting order is based on the fields listed in the sorting section of the chart and in the `ORDER BY` clause. First, `ORDER BY` fields are used, and then they are complemented by the fields from the chart.
 
 {% endnote %}
 

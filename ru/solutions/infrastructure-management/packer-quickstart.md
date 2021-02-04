@@ -56,7 +56,7 @@ Packer создаст и запустит виртуальную машину с
       "folder_id": "<идентификатор каталога>",
       "zone":      "ru-central1-a",
 
-      "image_name":        "debian-9-nginx-{{isotime | clean_resource_name}}",
+      "image_name":        "debian-9-nginx-not_var{{isotime | clean_resource_name}}",
       "image_family":      "debian-web-server",
       "image_description": "my custom debian with nginx",
 

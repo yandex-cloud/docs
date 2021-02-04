@@ -11,7 +11,7 @@
   **Подключение с использованием SSL-соединения:**
   
   ```bash
-  mysql --host=<FQDN хоста MySQL> \
+  mysql --host=<FQDN хоста {{ MY }}> \
         --port=3306 \
         --ssl-ca=~/.mysql/root.crt \
         --ssl-mode=VERIFY_IDENTITY \
@@ -23,7 +23,7 @@
   **Подключение без использования SSL-соединения:**
   
   ```bash
-  mysql --host=<FQDN хоста MySQL> \
+  mysql --host=<FQDN хоста {{ MY }}> \
         --port=3306 \
         --ssl-mode=DISABLED \
         --user=<имя пользователя> \
@@ -51,7 +51,7 @@
   import MySQLdb
   
   conn = MySQLdb.connect(
-        host="<FQDN хоста MySQL>",
+        host="<FQDN хоста {{ MY }}>",
         port=3306,
         db="<имя БД>",
         user="<имя пользователя>",
@@ -73,7 +73,7 @@
   import MySQLdb
   
   conn = MySQLdb.connect(
-        host="<FQDN хоста MySQL>",
+        host="<FQDN хоста {{ MY }}>",
         port=3306,
         db="<имя БД>",
         user="<имя пользователя>",
@@ -110,7 +110,7 @@
 
       $conn->options(MYSQLI_OPT_SSL_VERIFY_SERVER_CERT, true);
       $conn->ssl_set(NULL, NULL, '/home/<домашняя директория>/.mysql/root.crt', NULL, NULL);
-      $conn->real_connect('<FQDN хоста-мастера MySQL>', '<имя пользователя>', '<пароль пользователя>', '<имя БД>', 3306, NULL, MYSQLI_CLIENT_SSL);
+      $conn->real_connect('<FQDN хоста-мастера {{ MY }}>', '<имя пользователя>', '<пароль пользователя>', '<имя БД>', 3306, NULL, MYSQLI_CLIENT_SSL);
 
       $q = $conn->query('SELECT version()');
       $result = $q->fetch_row();
@@ -131,7 +131,7 @@
       $conn = mysqli_init();
 
       $conn->options(MYSQLI_OPT_SSL_VERIFY_SERVER_CERT, false);
-      $conn->real_connect('<FQDN хоста MySQL>', '<имя пользователя>', '<пароль пользователя>', '<имя БД>', 3306, NULL, NULL);
+      $conn->real_connect('<FQDN хоста {{ MY }}>', '<имя пользователя>', '<пароль пользователя>', '<имя БД>', 3306, NULL, NULL);
 
       $q = $conn->query('SELECT version()');
       $result = $q->fetch_row();
@@ -259,7 +259,7 @@
 
   public class App {
     public static void main(String[] args) {
-      String DB_URL     = "jdbc:mysql://<FQDN хоста MySQL>:3306/<имя БД>?useSSL=true";
+      String DB_URL     = "jdbc:mysql://<FQDN хоста {{ MY }}>:3306/<имя БД>?useSSL=true";
       String DB_USER    = "<имя пользователя>";
       String DB_PASS    = "<пароль пользователя>";
 
@@ -292,7 +292,7 @@
 
   public class App {
     public static void main(String[] args) {
-      String DB_URL     = "jdbc:mysql://<FQDN хоста MySQL>:3306/<имя БД>?useSSL=false";
+      String DB_URL     = "jdbc:mysql://<FQDN хоста {{ MY }}>:3306/<имя БД>?useSSL=false";
       String DB_USER    = "<имя пользователя>";
       String DB_PASS    = "<пароль пользователя>";
 
@@ -335,7 +335,7 @@
   const mysql = require('mysql2');
   
   const config = {
-    host     : '<FQDN хоста MySQL>',
+    host     : '<FQDN хоста {{ MY }}>',
     port     : 3306,
     user     : '<имя пользователя>',
     password : '<пароль пользователя>',
@@ -365,7 +365,7 @@
   const mysql = require('mysql2');
   
   const config = {
-    host     : '<FQDN хоста MySQL>',
+    host     : '<FQDN хоста {{ MY }}>',
     port     : 3306,
     user     : '<имя пользователя>',
     password : '<пароль пользователя>',
@@ -412,7 +412,7 @@
   )
 
   const (
-    host     = "<FQDN хоста MySQL>"
+    host     = "<FQDN хоста {{ MY }}>"
     port     = 3306
     user     = "<имя пользователя>"
     password = "<пароль пользователя>"
@@ -471,7 +471,7 @@
   )
 
   const (
-    host     = "<FQDN хоста MySQL>"
+    host     = "<FQDN хоста {{ MY }}>"
     port     = 3306
     user     = "<имя пользователя>"
     password = "<пароль пользователя>"
@@ -523,7 +523,7 @@
   require "mysql2"
 
   conn = Mysql2::Client.new(
-          :host => "<FQDN хоста MySQL>",
+          :host => "<FQDN хоста {{ MY }}>",
           :port => 3306,
           :database => "<имя БД>",
           :username => "<имя пользователя>",
@@ -547,7 +547,7 @@
   require "mysql2"
 
   conn = Mysql2::Client.new(
-          :host => "<FQDN хоста MySQL>",
+          :host => "<FQDN хоста {{ MY }}>",
           :port => 3306,
           :database => "<имя БД>",
           :username => "<имя пользователя>",
@@ -586,7 +586,7 @@
   ```ini
   [mysql]
   Driver=MySQL ODBC 8.0 Unicode Driver
-  SERVER=<FQDN хоста MySQL>
+  SERVER=<FQDN хоста {{ MY }}>
   UID=<имя пользователя>
   PWD=<пароль пользователя>
   DATABASE=<имя БД>
@@ -603,7 +603,7 @@
   ```ini
   [mysql]
   Driver=MySQL ODBC 8.0 Unicode Driver
-  SERVER=<FQDN хоста MySQL>
+  SERVER=<FQDN хоста {{ MY }}>
   UID=<имя пользователя>
   PWD=<пароль пользователя>
   DATABASE=<имя БД>

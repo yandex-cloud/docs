@@ -3,7 +3,6 @@
 
 _Интерфейс командной строки {{ yandex-cloud }} (CLI)_ — скачиваемое программное обеспечение для управления вашими облачными ресурсами через командную строку.
 
-
 ## Установка {#install}
 
 {% include [install-cli](../_includes/cli/install-cli.md) %}
@@ -16,7 +15,7 @@ _Интерфейс командной строки {{ yandex-cloud }} (CLI)_ �
   1. Запустите команду `yc init`, чтобы выполнить настройку вашего профиля CLI.
   1. По запросу команды введите свой OAuth токен.
      ```
-     Please go to https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb
+     Please go to {{ link-cloud-oauth }}
       in order to obtain OAuth token.
 
      Please enter OAuth token: AaAaBbBbCcCcDdDdEeEeFfFfGgGg
@@ -40,7 +39,7 @@ _Интерфейс командной строки {{ yandex-cloud }} (CLI)_ �
      ```
   1. Выберите зону доступности по умолчанию для сервиса {{ compute-full-name }}:
      ```
-     Do you want to configure a default Yandex Compute Cloud availability zone? [Y/n] Y
+     Do you want to configure a default {{ compute-full-name }} availability zone? [Y/n] Y
      Which zone do you want to use as a profile default?
       [1] ru-central1-a
       [2] ru-central1-b

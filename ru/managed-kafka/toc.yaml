@@ -17,6 +17,8 @@ items:
         href: operations/cluster-stop.md
       - name: Изменение настроек кластера
         href: operations/cluster-update.md
+      - name: Управление хостами Apache Kafka®
+        href: operations/cluster-hosts.md
       - name: Работа с топиками и разделами
         href: operations/cluster-topics.md
       - name: Управление учетными записями Kafka
@@ -149,3 +151,4 @@ items:
                 href: api-ref/User/update.md
   - name: Вопросы и ответы
     href: qa/index.md
+base: ru/managed-kafka

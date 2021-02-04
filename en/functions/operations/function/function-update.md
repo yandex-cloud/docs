@@ -9,11 +9,10 @@ You can change the [name](function-update.md#update-name) and [description](func
 {% list tabs %}
 
 - Management console
-
-    To change the name of a [function](../../concepts/function.md):
-    1. Open the **{{ sf-name }}** section in the folder where you want to update the function.
-    1. Select the desired function from the list.
-    1. In the window that opens, click **Edit**.
+    1. In the [management console]({{ link-console-main }}), go to the folder where you want to change the name of a [function](../../concepts/function.md).
+    1. Open **{{ sf-name }}**.
+    1. Select a function.
+    1. In the upper-right corner, click **Edit**.
     1. In the window that opens, enter the desired function name.
     1. Click **Save**.
 
@@ -21,10 +20,12 @@ You can change the [name](function-update.md#update-name) and [description](func
 
     {% include [cli-install](../../../_includes/cli-install.md) %}
 
-    Change the function name:
+    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+    To change the function name, run the command:
 
     ```
-    $ yc serverless function update <function name> --new-name <new function name>
+    yc serverless function update <function name> --new-name <new function name>
     ```
 
     Result:
@@ -41,6 +42,10 @@ You can change the [name](function-update.md#update-name) and [description](func
     status: ACTIVE
     ```
 
+- API
+
+    You can change the function name using the API method [update](../../functions/api-ref/Function/update.md).
+
 {% endlist %}
 
 ## Updating the description of a function {#update-description}
@@ -48,11 +53,10 @@ You can change the [name](function-update.md#update-name) and [description](func
 {% list tabs %}
 
 - Management console
-
-    To change the name of a [function](../../concepts/function.md):
-    1. Open the **{{ sf-name }}** section in the folder where you want to update the function.
-    1. Select the desired function from the list.
-    1. In the window that opens, click **Edit**.
+    1. In the [management console]({{ link-console-main }}), go to the folder where you want to change the description of a [function](../../concepts/function.md).
+    1. Open **{{ sf-name }}**.
+    1. Select a function.
+    1. In the upper-right corner, click **Edit**.
     1. In the window that opens, enter the description of the function.
     1. Click **Save**.
 
@@ -60,10 +64,12 @@ You can change the [name](function-update.md#update-name) and [description](func
 
     {% include [cli-install](../../../_includes/cli-install.md) %}
 
-    Update the function description:
+    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+    To update the description of a function, run the command:
 
     ```
-    $ yc serverless function update <function name> --description "<function description>"
+    yc serverless function update <function name> --description "<function description>"
     ```
 
     Result:
@@ -81,15 +87,19 @@ You can change the [name](function-update.md#update-name) and [description](func
     status: ACTIVE
     ```
 
+- API
+
+    You can update the description of a function using the API method [update](../../functions/api-ref/Function/update.md).
+
 {% endlist %}
 
 ## Managing function labels {#manage-label}
 
 You can perform the following actions with function labels:
 
-- [Add a label](#add-label).
-- [Update a label](#update-label).
-- [Delete a label](#remove-label).
+- [Add a label](#add-label)
+- [Update a label](#update-label)
+- [Delete a label](#remove-label)
 
 ### Adding a label {#add-label}
 
@@ -99,10 +109,12 @@ You can perform the following actions with function labels:
 
     {% include [cli-install](../../../_includes/cli-install.md) %}
 
-    Add a label to a function:
+    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+    To add a label to a function, run the command:
 
     ```
-    $ yc serverless function add-labels <function name> --labels <key>=<value>
+    yc serverless function add-labels <function name> --labels <key>=<value>
     ```
 
     Result:
@@ -121,6 +133,10 @@ You can perform the following actions with function labels:
     status: ACTIVE
     ```
 
+- API
+
+    You can add a label to a function using the API method [update](../../functions/api-ref/Function/update.md).
+
 {% endlist %}
 
 ### Updating a label {#update-label}
@@ -131,7 +147,9 @@ You can perform the following actions with function labels:
 
     {% include [cli-install](../../../_includes/cli-install.md) %}
 
-    Update a function label:
+    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+    To update a label of a function, run the command:
 
     {% note warning %}
 
@@ -140,7 +158,7 @@ You can perform the following actions with function labels:
     {% endnote %}
 
     ```
-    $ yc serverless function update <function name> --labels <key>=<value>
+    yc serverless function update <function name> --labels <key>=<value>
     ```
 
     Result:
@@ -157,6 +175,10 @@ You can perform the following actions with function labels:
     http_invoke_url: https://functions.yandexcloud.net/b097d9ous3gep99khe83
     ```
 
+- API
+
+    You can edit labels of a function using the API method [update](../../functions/api-ref/Function/update.md).
+
 {% endlist %}
 
 ### Deleting a label {#remove-label}
@@ -167,10 +189,12 @@ You can perform the following actions with function labels:
 
     {% include [cli-install](../../../_includes/cli-install.md) %}
 
-    Delete a function label:
+    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+    To delete a function label, run the command:
 
     ```
-    $ yc serverless function remove-labels <function name> --labels <key>
+    yc serverless function remove-labels <function name> --labels <key>
     ```
 
     Result:
@@ -188,4 +212,9 @@ You can perform the following actions with function labels:
     status: ACTIVE
     ```
 
+- API
+
+    You can delete a function label using the API method [update](../../functions/api-ref/Function/update.md).
+
 {% endlist %}
+

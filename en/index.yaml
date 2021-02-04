@@ -1,28 +1,28 @@
-title: "Yandex.Cloud Documentation"
+title: Yandex.Cloud Documentation
 description:
-  - "Internal Cloud documentation"
+  - Internal Cloud documentation
 meta:
-  title: "Yandex.Cloud"
+  title: Yandex.Cloud
   noIndex: true
 links:
-  - title: "Yandex Datalens"
-    description: ""
-    href: "datalens/"
-  - title: "Yandex Managed Service for ClickHouse"
-    description: ""
-    href: "managed-clickhouse/"
-  - title: "Yandex Managed Service for Apache Kafka"
-    description: ""
-    href: "managed-kafka/"
-  - title: "Yandex Managed Service for MongoDB"
-    description: ""
-    href: "managed-mongodb/"
-  - title: "Yandex Managed Service for MySQL"
-    description: ""
-    href: "managed-mysql/"
-  - title: "Yandex Managed Service for PostgreSQL"
-    description: ""
-    href: "managed-postgresql/"
-  - title: "Yandex Managed Service for Redis"
-    description: ""
-    href: "managed-redis/"
+  - title: Yandex Datalens
+    description: ''
+    href: datalens/
+  - title: Yandex Managed Service for ClickHouse
+    description: ''
+    href: managed-clickhouse/
+  - title: Yandex Managed Service for Apache Kafka
+    description: ''
+    href: managed-kafka/
+  - title: Yandex Managed Service for MongoDB
+    description: ''
+    href: managed-mongodb/
+  - title: Yandex Managed Service for MySQL
+    description: ''
+    href: managed-mysql/
+  - title: Yandex Managed Service for PostgreSQL
+    description: ''
+    href: managed-postgresql/
+  - title: Yandex Managed Service for Redis
+    description: ''
+    href: managed-redis/

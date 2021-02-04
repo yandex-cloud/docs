@@ -40,7 +40,6 @@ After [creating a {{ KF }} cluster](cluster-create.md), you can:
       - The topic name in the `topicName` parameter. To find out the name, [get a list of topics in the cluster](cluster-topics.md#list-topics).
       - Topic permissions in the `role` parameter: `ACCESS_ROLE_PRODUCER` for the producer or `ACCESS_ROLE_CONSUMER` for the consumer.
 
-
 {% endlist %}
 
 ## Update the account password {#update-password}
@@ -63,7 +62,6 @@ After [creating a {{ KF }} cluster](cluster-create.md), you can:
   - The account name in the `userName` parameter. To find out the name, [get a list of accounts in the cluster](#list-accounts).
   - The name of the `password` setting in the `updateMask` parameter. If this parameter is omitted, the API method resets any account settings that aren't explicitly specified in the request to their default values.
   - The new password for the account in the `password` parameter.
-
 
 {% endlist %}
 
@@ -88,7 +86,6 @@ After [creating a {{ KF }} cluster](cluster-create.md), you can:
   - The account name in the `userName` parameter. To find out the name, [get a list of accounts in the cluster](#list-accounts).
   - In the `updateMask` parameter, a list of settings to update (in a single line, comma-separated). If this parameter is omitted, the API method resets any account settings that aren't explicitly specified in the request to their default values.
   - A new set of permissions to topics (one or more `permissions` parameters, one for each topic).
-
 
 {% endlist %}
 
@@ -128,7 +125,6 @@ After [creating a {{ KF }} cluster](cluster-create.md), you can:
   - The account name in the `userName` parameter. To find out the name, [get a list of accounts in the cluster](#list-accounts).
   - The new permission to the topic in the `permission` parameter.
 
-
 {% endlist %}
 
 ## Revoke account permissions {#revoke-permission}
@@ -151,7 +147,6 @@ After [creating a {{ KF }} cluster](cluster-create.md), you can:
   - The account name in the `userName` parameter. To find out the name, [get a list of accounts in the cluster](#list-accounts).
   - The topic permission to be revoked in the `permission` parameter.
 
-
 {% endlist %}
 
 ## Delete an account {#delete-account}
@@ -173,7 +168,6 @@ After [creating a {{ KF }} cluster](cluster-create.md), you can:
   - The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
   - The name of the account to delete in the `userName` parameter. To find out the name, [get a list of accounts in the cluster](#list-accounts).
 
-
 {% endlist %}
 
 ## Get a list of cluster accounts {#list-accounts}
@@ -192,6 +186,5 @@ After [creating a {{ KF }} cluster](cluster-create.md), you can:
   Use the [list](../api-ref/User/list.md) API method: pass the ID of the required cluster in the `clusterId` request parameter.
 
   To find out the cluster ID, [get a list of clusters in the folder](#list-clusters).
-
 
 {% endlist %}

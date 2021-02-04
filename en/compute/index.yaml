@@ -1,33 +1,51 @@
-# Заголовок и описание на странице
-title: "Yandex Compute Cloud"
+title: Yandex Compute Cloud
 description:
-  - "Yandex Compute Cloud provides scalable compute capacity to create and manage virtual machines. The service supports <a href=\"https://cloud.yandex.com/docs/compute/concepts/preemptible-vm\">preemptible</a> virtual machines and fault-tolerant <a href=\"https://cloud.yandex.com/docs/compute/concepts/instance-groups/\">instance groups</a>."
-  - "You can attach disks with Linux and Windows images from <a href=\"https://cloud.yandex.com/marketplace\">Marketplace</a> to your instances. Each disk is automatically replicated in its availability zone, ensuring reliable data storage. Additionally, to make it easier to migrate data from one disk to another, Compute Cloud supports <a href=\"https://cloud.yandex.com/docs/compute/concepts/snapshot\">disk snapshots</a>"
-  - "The Yandex.Cloud infrastructure <a href=\"https://storage.yandexcloud.net/yc-compliance/conformance_en_pdp.pdf\">fully complies</a> with the Russian Federal Law on Personal Data (No. 152-FZ)."
-  - "The service is subject to the <a href=\"https://yandex.com/legal/cloud_sla\">Service Level Agreement</a>. The service level is defined in the <a href=\"https://yandex.com/legal/cloud_sla_compute\">Service Level for Yandex Compute Cloud</a>."
-# Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
+  - >-
+    Yandex Compute Cloud provides scalable compute capacity to create and manage
+    virtual machines. The service supports <a
+    href="https://cloud.yandex.com/docs/compute/concepts/preemptible-vm">preemptible</a>
+    virtual machines and fault-tolerant <a
+    href="https://cloud.yandex.com/docs/compute/concepts/instance-groups/">instance
+    groups</a>.
+  - >-
+    You can attach disks with Linux and Windows images from <a
+    href="https://cloud.yandex.com/marketplace">Marketplace</a> to your
+    instances. Each disk is automatically replicated in its availability zone,
+    ensuring reliable data storage. Additionally, to make it easier to migrate
+    data from one disk to another, Compute Cloud supports <a
+    href="https://cloud.yandex.com/docs/compute/concepts/snapshot">disk
+    snapshots</a>
+  - >-
+    The Yandex.Cloud infrastructure <a
+    href="https://storage.yandexcloud.net/yc-compliance/conformance_en_pdp.pdf">fully
+    complies</a> with the Russian Federal Law on Personal Data (No. 152-FZ).
+  - >-
+    The service is subject to the <a
+    href="https://yandex.com/legal/cloud_sla">Service Level Agreement</a>. The
+    service level is defined in the <a
+    href="https://yandex.com/legal/cloud_sla_compute">Service Level for Yandex
+    Compute Cloud</a>.
 meta:
-  title: "Yandex Compute Cloud"
-# Блок со ссылками
+  title: Yandex Compute Cloud
 links:
-- title: "Getting started"
-  description: "Create your first VM or instance group"
-  href: "quickstart/"
-- title: "Step-by-step instructions"
-  description: "Instructions on how to perform routine operations"
-  href: "operations/"
-- title: "Concepts"
-  description: "Learn about the relationship between VMs, disks, snapshots, and images"
-  href: "concepts/"
-- title: "API reference"
-  description: "HTTP API method descriptions"
-  href: "api-ref/"
-- title: "Quotas and limits"
-  description: "Technical and organizational limitations of the service"
-  href: "concepts/limits"
-- title: "Access management"
-  description: "Configure access rights to work with the service"
-  href: "security/"
-- title: "Pricing policy"
-  description: "Service pricing and cost calculations"
-  href: "pricing"
+  - title: Getting started
+    description: Create your first VM or instance group
+    href: quickstart/
+  - title: Step-by-step instructions
+    description: Instructions on how to perform routine operations
+    href: operations/
+  - title: Concepts
+    description: Learn about the relationship between VMs, disks, snapshots, and images
+    href: concepts/
+  - title: API reference
+    description: HTTP API method descriptions
+    href: api-ref/
+  - title: Quotas and limits
+    description: Technical and organizational limitations of the service
+    href: concepts/limits
+  - title: Access management
+    description: Configure access rights to work with the service
+    href: security/
+  - title: Pricing policy
+    description: Service pricing and cost calculations
+    href: pricing

@@ -20,7 +20,7 @@
   Чтобы получить список пользователей кластера, выполните команду:
   
   ```
-  $ yc managed-mongodb user list
+  $ {{ yc-mdb-mg }} user list
        --cluster-name <имя кластера>
   ```
   
@@ -62,12 +62,12 @@
   1. Посмотрите описание команды CLI для создания пользователя:
   
      ```
-     $ yc managed-mongodb user create --help
+     $ {{ yc-mdb-mg }} user create --help
      ```
   
   1. Укажите свойства пользователя в команде создания:
      ```
-     $ yc managed-mongodb user create <имя пользователя>
+     $ {{ yc-mdb-mg }} user create <имя пользователя>
         --cluster-name <имя кластера>
         --password <пароль для пользователя>
         --permission database=<имя БД>,role=<роль>,role=<другая роль>,...
@@ -107,12 +107,12 @@
   1. Посмотрите описание команды CLI для изменения пользователя:
   
      ```
-     $ yc managed-mongodb user update --help
+     $ {{ yc-mdb-mg }} user update --help
      ```
   
   1. Укажите свойства пользователя в команде создания:
      ```
-     $ yc managed-mongodb user update <имя пользователя>
+     $ {{ yc-mdb-mg }} user update <имя пользователя>
         --cluster-name <имя кластера>
         --password <пароль для пользователя>
         --permission database=<имя БД>,role=<роль>,role=<другая роль>,...
@@ -146,7 +146,7 @@
   Чтобы удалить пользователя, выполните команду:
   
   ```
-  $ yc managed-mongodb user delete <имя пользователя>
+  $ {{ yc-mdb-mg }} user delete <имя пользователя>
        --cluster-name <имя кластера>
   ```
   

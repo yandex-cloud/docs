@@ -145,3 +145,4 @@ items:
         href: iot/datalens.md
       - name: Мониторинг показаний датчиков и уведомления о событиях
         href: iot/monitoring.md
+base: ru/solutions

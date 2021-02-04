@@ -2,7 +2,7 @@
 
 You can set a handler by overriding the selected methods of the [HttpServlet](https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServlet.html) class.
 
-{{ sf-name }} will automatically redirect each `HTTP` request to your handler, depending on the `HTTP` method that this request was initiated with. For example, a `GET` request is redirected to your handler's `doGet` method and a `POST` request to the `doPost` method. For a successful redirect, the corresponding handler methods must exist, otherwise the function returns the `HTTP method XXX is not supported by this URL` message with a `405` code.
+{{ sf-name }} will automatically redirect each `HTTP` request to your handler, depending on the `HTTP` method that this request was initiated with.For example, a `GET` request is redirected to your handler's `doGet` method and a `POST` request to the `doPost` method. For a successful redirect, the corresponding handler methods must exist, otherwise the function returns the `HTTP method XXX is not supported by this URL` message with code `405`.
 
 ## Unsupported methods {#unsupported}
 
@@ -102,3 +102,4 @@ The `PUT` method:
 ```
 HTTP method PUT is not supported by this URL
 ```
+

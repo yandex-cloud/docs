@@ -9,3 +9,4 @@ _Invocation context_ is an object that is optionally accepted by the [request ha
 * `tokenJson`: Returns the parameters required for authentication in the {{ yandex-cloud }} API.
 
 To extract information from the invocation context, use the appropriate method.
+

@@ -29,7 +29,7 @@ To delete an instance group:
   1. See the description of the CLI's delete instance group command:
 
       ```
-      $ yc compute instance-group delete --help
+      $ {{ yc-compute-ig }} delete --help
       ```
 
   1. Get a list of instance groups in the default folder:
@@ -41,7 +41,7 @@ To delete an instance group:
   1. Delete the instance group:
 
       ```
-      $ yc compute instance-group delete --name first-instance-group
+      $ {{ yc-compute-ig }} delete --name first-instance-group
       ```
 
       {{ ig-name }} starts the operation to delete the instance group.

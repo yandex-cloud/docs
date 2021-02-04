@@ -70,7 +70,7 @@ SETTINGS index_granularity = 8192
 1. Вставьте данные из этого датасета в {{ CH }} с помощью `clickhouse-cli`:
 
    ```bash
-   clickhouse-client --host <FQDN хоста ClickHouse> --secure --user <имя пользователя> --database tutorial --port 9440 --password <пароль пользователя> --query "INSERT INTO tutorial.hits_v1 FORMAT TSV" --max_insert_block_size=100000 < hits_v1.tsv
+   clickhouse-client --host <FQDN хоста {{ CH }}> --secure --user <имя пользователя> --database tutorial --port 9440 --password <пароль пользователя> --query "INSERT INTO tutorial.hits_v1 FORMAT TSV" --max_insert_block_size=100000 < hits_v1.tsv
    ```
    
    FQDN хоста можно получить [со списком хостов в кластере](../operations/hosts.md#list-hosts).

@@ -19,10 +19,11 @@
 1. [Создайте чарт с картой районов Москвы](data-from-csv-to-public-visualization.md#step3).
 1. [Опубликуйте чарт в DataLens Public](data-from-csv-to-public-visualization.md#step4).
 
+
+
 ## Подготовьте облако к работе {#before-you-begin}
 
 {% include [before-you-begin](../_solutions_includes/before-you-begin-datalens.md) %}
-
 
 ## Шаг 1. Создайте подключение и датасет {#step1}
 

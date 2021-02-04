@@ -35,13 +35,13 @@ For a new cluster, you should set all the parameters that are required at creati
   1. View the description of the CLI's restore cluster command {{ MG }}:
 
       ```
-      $ yc managed-mongodb cluster restore --help
+      $ {{ yc-mdb-mg }} cluster restore --help
       ```
 
   1. Getting a list of available {{ MG }} cluster backups:
 
       ```
-      $ yc managed-mongodb backup list
+      $ {{ yc-mdb-mg }} backup list
       
       +--------------------------+----------------------+----------------------+----------------------+
       |            ID            |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
@@ -53,33 +53,28 @@ For a new cluster, you should set all the parameters that are required at creati
 
   1. Request creation of a cluster from a backup:
 
-      
+
       ```
-      $ yc managed-mongodb cluster restore \
+      $ {{ yc-mdb-mg }} cluster restore \
            --backup-id c9q287aqv5rf11isjeql:20181113T133617 \
            --cluster-name mynewmg \
            --environment=PRODUCTION \
-           --network-name default \
+           --network-name {{ network-name }} \
            --host zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch63 \
            --mongod-disk-size 20 \
-           --mongod-disk-type network-ssd \
-           --mongod-resource-preset s2.micro
+           --mongod-disk-type {{ disk-type-example }} \
+           --mongod-resource-preset {{ host-class }}
       ```
-
-     
 
       This results in a new {{ MG }} cluster with the following characteristics:
 
-      
 
-            - Named `mynewmg`.
+      - Named `mynewmg`.
       - In the `PRODUCTION` environment.
       - In the `{{ network-name }}` network.
       - With a single `{{ host-class }}` class host in the  `b0rcctk2rvtr8efcch63` subnet of the `{{ zone-id }}` availability zone.
       - With the databases and users from the backup.
       - With 20 GB fast network storage (`{{ disk-type-example }}`).
-
-     
 
 {% endlist %}
 
@@ -106,13 +101,13 @@ For a new cluster, you should set all the parameters that are required at creati
   1. View a description of the CLI create {{ MG }} backup command:
 
       ```
-      $ yc managed-mongodb cluster backup --help
+      $ {{ yc-mdb-mg }} cluster backup --help
       ```
 
   1. Request creation of a backup specifying the cluster name or ID:
 
       ```
-      $ yc managed-mongodb cluster backup my-mg-cluster
+      $ {{ yc-mdb-mg }} cluster backup my-mg-cluster
       ```
 
       The cluster name and ID can be retrieved with the [list of clusters](cluster-list.md#list-clusters).
@@ -138,7 +133,7 @@ For a new cluster, you should set all the parameters that are required at creati
   To get a list of {{ MG }} cluster backups available in the default folder, run the command:
 
   ```
-  $ yc managed-mongodb backup list
+  $ {{ yc-mdb-mg }} backup list
   
   +----------+----------------------+----------------------+----------------------+
   |    ID    |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
@@ -169,7 +164,7 @@ For a new cluster, you should set all the parameters that are required at creati
   To get information about a {{ MG }} cluster backup, run the command:
 
   ```
-  $ yc yc managed-mongodb backup get <backup ID>
+  $ yc {{ yc-mdb-mg }} backup get <backup ID>
   ```
 
   The backup ID can be retrieved with the [list of backups](#list-backups) .

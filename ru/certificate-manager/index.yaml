@@ -1,24 +1,28 @@
-title: "Yandex Certificate Manager"
+title: Yandex Certificate Manager
 description:
-  - "Yandex Certificate Manager — сервис для получения и обновления TLS-сертификатов от Let's Encrypt<sup>®</sup>, а также для загрузки собственных сертификатов, которые можно использовать для доступа к статическим сайтам по протоколу HTTPS."
+  - >-
+    Yandex Certificate Manager — сервис для получения и обновления
+    TLS-сертификатов от Let's Encrypt<sup>®</sup>, а также для загрузки
+    собственных сертификатов, которые можно использовать для доступа к
+    статическим сайтам по протоколу HTTPS.
 meta:
-  title: "Yandex Certificate Manager"
+  title: Yandex Certificate Manager
 links:
-- title: "Начало работы"
-  description: "Создайте первый сертификат"
-  href: "quickstart/"
-- title: "Пошаговые инструкции"
-  description: "Инструкции по выполнению рутинных операций"
-  href: "operations/"
-- title: "Концепции"
-  description: "Узнайте про концепции и сущности сервиса"
-  href: "concepts/"
-- title: "Квоты и лимиты"
-  description: "Технические и организационные ограничения сервиса"
-  href: "concepts/limits"
-- title: "Управление доступом"
-  description: "Какие права доступа нужны для работы с сервисом"
-  href: "security/"
-- title: "Правила тарификации"
-  description: "Цены и правила расчета стоимости услуг сервиса"
-  href: "pricing"
+  - title: Начало работы
+    description: Создайте первый сертификат
+    href: quickstart/
+  - title: Пошаговые инструкции
+    description: Инструкции по выполнению рутинных операций
+    href: operations/
+  - title: Концепции
+    description: Узнайте про концепции и сущности сервиса
+    href: concepts/
+  - title: Квоты и лимиты
+    description: Технические и организационные ограничения сервиса
+    href: concepts/limits
+  - title: Управление доступом
+    description: Какие права доступа нужны для работы с сервисом
+    href: security/
+  - title: Правила тарификации
+    description: Цены и правила расчета стоимости услуг сервиса
+    href: pricing

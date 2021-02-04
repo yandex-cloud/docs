@@ -211,3 +211,4 @@ items:
         href: qa/mongodb.md
       - name: Все вопросы на одной странице
         href: qa/all.md
+base: ru/managed-mongodb

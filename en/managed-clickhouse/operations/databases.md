@@ -19,7 +19,7 @@ You can add and remove databases, as well as view information about them.
   To get a list of databases in a cluster, run the command:
 
   ```
-  $ yc managed-clickhouse database list
+  $ {{ yc-mdb-ch }} database list
        --cluster-name=<cluster name>
   ```
 
@@ -60,7 +60,7 @@ The number of databases in a cluster is unlimited.
   Run the create database command and set the name of the new database:
 
   ```
-  $ yc managed-clickhouse database create <database name>
+  $ {{ yc-mdb-ch }} database create <database name>
       --cluster-name <cluster name>
   ```
 
@@ -98,7 +98,7 @@ The number of databases in a cluster is unlimited.
   To delete a database, run the command:
 
   ```
-  $ yc managed-clickhouse database delete <database name>
+  $ {{ yc-mdb-ch }} database delete <database name>
        --cluster-name=<cluster name>
   ```
 

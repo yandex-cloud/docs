@@ -3,7 +3,6 @@
 
 Функции для работы со строками ASCII:
 
-
 **Список функций**
 
 * ```String::Base64Encode(String{Flags:AutoMap}) -> String```

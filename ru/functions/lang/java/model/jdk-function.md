@@ -101,7 +101,7 @@ public class Handler implements Function<Request, String> {
 Message is Hello, number is 24
 ```
 
-### Разбор HTTP-запроса
+### Разбор HTTP-запроса {#parsing-http-req}
 
 Функция вызывается с помощью HTTP-запроса с именем пользователя, записывает в журнал метод и тело запроса и возвращает приветствие.
 

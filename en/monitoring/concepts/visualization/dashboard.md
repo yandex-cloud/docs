@@ -42,10 +42,10 @@ You can only use parameter value substitution in label values when making querie
 
 - Substituting values in widget headings.
 
-    > In the `CPU usage on {{host}}` widget heading, the `host` parameter value is substituted.
+    > In the `CPU usage on not_var{{host}}` widget heading, the `host` parameter value is substituted.
 - Substituting label values in queries.
 
-    > In the `"cpu.iowait"{folderId="aoe6mk1r3b47lu994prn", service="{{myparm}}", host="*"}` query, the `service` label value is substituted with the `myparm` parameter value.
+    > In the `"cpu.iowait"{folderId="aoe6mk1r3b47lu994prn", service="not_var{{myparm}}", host="*"}` query, the `service` label value is substituted with the `myparm` parameter value.
 
 Substituting parameter values in query strings looks like this:
 

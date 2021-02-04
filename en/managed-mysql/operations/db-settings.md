@@ -17,7 +17,7 @@ You can set or change the value of the [sql_mode](https://dev.mysql.com/doc/refm
   Set the SQL modes in the `--set` parameter, for example:
 
   ```bash
-  $ yc managed-mysql cluster update-config
+  $ {{ yc-mdb-my }} cluster update-config
        --cluster-name=<cluster name>
        --set '"sql_mode=NO_KEY_OPTIONS,NO_TABLE_OPTIONS"'
   ```

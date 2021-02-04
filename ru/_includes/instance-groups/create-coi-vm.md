@@ -17,7 +17,7 @@
    - CLI
 
      ```bash
-     yc compute instance-group create --help
+     {{ yc-compute-ig }} create --help
      ```
 
    {% endlist %}
@@ -188,7 +188,7 @@
    - CLI
 
      ```bash
-     yc compute instance-group create --file specification.yaml
+     {{ yc-compute-ig }} create --file specification.yaml
      ```
 
      Команда создаст группу из трех однотипных ВМ со следующими характеристиками:

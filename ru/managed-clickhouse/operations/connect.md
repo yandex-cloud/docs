@@ -3,7 +3,6 @@
 
 Внутри {{ yandex-cloud }} подключиться к кластеру БД можно только с виртуальной машины, подключенной к той же подсети, что и кластер.
 
-
 К кластеру {{ CH }} можно подключиться как с помощью [клиента командной строки](https://clickhouse.yandex/docs/ru/interfaces/cli/) (порт 9440), так и по [HTTP-интерфейсу](https://clickhouse.yandex/docs/ru/interfaces/http_interface/) (порт 8443). Все соединения с кластерами БД шифруются.
 
 ## Получение SSL-сертификата {#get-ssl-cert}
@@ -13,10 +12,9 @@
 
 ```bash
 sudo mkdir -p /usr/local/share/ca-certificates/Yandex && \
-sudo wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" -O /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt && \
+sudo wget "https://{{ s3-storage-host }}{{ pem-path }}" -O /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt && \
 sudo chmod 655 /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt
 ```
-
 
 
 ## Примеры строк подключения {#connection-string}

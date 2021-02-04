@@ -32,7 +32,6 @@
    sudo dpkg -i mongodb-org-shell_4.4.1_amd64.deb
    ```
 
-
 ## Создайте кластер {#cluster-create}
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать кластер БД.
@@ -45,7 +44,7 @@
 
 1. Получите SSL-сертификат:
 
-    
+
     1. Создайте каталог:
 
         ```bash
@@ -55,7 +54,7 @@
     1. Получите сертификат:
 
         ```bash
-        $ wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" -O ~/.mongodb/root.crt
+        $ wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.mongodb/root.crt
         ```
 
     1. Настройте права доступа к сертификату:
@@ -63,12 +62,10 @@
         ```bash
         $ chmod 0600 ~/.mongodb/root.crt
         ```
-
-   
  
 1. Подключитесь к кластеру с помощью {{ MG }} CLI:
 
-    
+
     ```bash
     $ mongo --norc \
             --ssl \
@@ -78,8 +75,6 @@
             -p <пароль пользователя> \
             <имя БД>
     ```
-
-   
 
 ## Что дальше
 

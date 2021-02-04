@@ -57,7 +57,7 @@ This section describes how to set up application health check for an existing gr
   1. View a description of the update group command in the CLI:
 
      ```
-     $ yc compute instance-group update --help
+     $ {{ yc-compute-ig }} update --help
      ```
 
   1. Get a list of instance groups in the default folder:
@@ -106,7 +106,7 @@ This section describes how to set up application health check for an existing gr
   1. Update the instance group in the default folder:
 
       ```
-      $ yc compute instance-group update --name first-group --file group.yaml
+      $ {{ yc-compute-ig }} update --name first-group --file group.yaml
       ```
 
      {{ ig-name }} starts the operation to update the instance group.

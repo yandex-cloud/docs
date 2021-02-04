@@ -10,14 +10,12 @@ When creating a cluster, you can:
 
 If hosts are present in the {{ ZK }} cluster, each of the three {{ ZK }} hosts uses its dedicated availability zone and the subnet selected in it.  For more information, see [{#T}](index.md).
 
-
 ## Hostname and FQDN {#hostname}
 
 {{ mkf-short-name }} generates the name of each cluster host during creation. This name will be the host's fully qualified domain name (FQDN). The hostname and, consequently, the FQDN cannot be changed.
 
 
 You can use the FQDN to access the host within a single cloud network. Read more in the [{{ vpc-full-name }} documentation](../../vpc/).
-
 
 ## Public access to the cluster {public-access-to-a-cluster}
 

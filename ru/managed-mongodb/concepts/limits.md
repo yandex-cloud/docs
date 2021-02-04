@@ -11,4 +11,3 @@ editable: false
 
 {% include [mmg-limits.md](../../_includes/mdb/mmg-limits.md) %}
 
-

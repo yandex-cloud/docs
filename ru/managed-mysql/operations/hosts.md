@@ -20,7 +20,7 @@
   Чтобы получить список баз данных в кластере, выполните команду:
 
   ```
-  $ yc managed-mysql host list
+  $ {{ yc-mdb-my }} host list
        --cluster-name=<имя кластера>
 
   +----------------------------+--------------+---------+--------+---------------+
@@ -87,13 +87,13 @@
   1. Посмотрите описание команды CLI для добавления хостов:
 
      ```
-     $ yc managed-mysql host add --help
+     $ {{ yc-mdb-my }} host add --help
      ```
 
   1. Выполните команду добавления хоста:
 
      ```
-     $ yc managed-mysql host add
+     $ {{ yc-mdb-my }} host add
           --cluster-name=<имя кластера>
           --host zone-id=<зона доступности>,subnet-id=<ID подсети>
      ```
@@ -132,7 +132,7 @@
   Чтобы удалить хост из кластера, выполните команду:
 
   ```
-  $ yc managed-mysql host delete <имя хоста>
+  $ {{ yc-mdb-my }} host delete <имя хоста>
        --cluster-name=<имя кластера>
   ```
 

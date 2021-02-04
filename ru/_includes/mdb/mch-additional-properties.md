@@ -86,3 +86,7 @@
    * **Parts to throw insert** — предельное число активных кусков данных таблицы, при превышении которого {{ CH }} отправляет исключение 'Too many parts ...'.
    * **Replicated deduplication window** — число последних блоков хешей, которые {{ ZK }} будет хранить (старые блоки будут удалены).
    * **Replicated deduplication window seconds** — время, в течение которого {{ ZK }} хранит блоки хешей (старые блоки будут удалены).
+
+* **Rabbitmq** - глобальные настройки аутентификации для [интеграции с {{ RMQ }}](https://clickhouse.tech/docs/ru/engines/table-engines/integrations/rabbitmq/):
+   * **Password** - пароль учетной записи {{ RMQ }}.
+   * **Username** - имя учетной записи {{ RMQ }}.

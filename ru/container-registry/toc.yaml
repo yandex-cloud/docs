@@ -141,3 +141,4 @@ items:
     href: error/index.md
   - name: Вопросы и ответы
     href: qa/index.md
+base: ru/container-registry

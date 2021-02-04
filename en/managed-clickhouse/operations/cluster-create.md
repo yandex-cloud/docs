@@ -15,7 +15,6 @@ The number of hosts that can be created with a {{ CH }} cluster depends on the s
 
 * When using SSDs, you can create at least two replicas along with the cluster (a minimum of two replicas is required to ensure fault tolerance). If the [available folder resources](../concepts/limits.md) are still sufficient after creating a cluster, you can add extra replicas.
 
-
 {% list tabs %}
 
 - Management console
@@ -36,9 +35,7 @@ The number of hosts that can be created with a {{ CH }} cluster depends on the s
 
   1. Under **Storage size**:
 
-            - Select the type of storage, either a more flexible network type (**network-hdd** or **network-ssd**) or faster local SSD storage (**local-ssd**). The size of the local storage can only be changed in 100 GB increments.
-
-     
+      - Select the type of storage, either a more flexible network type (**network-hdd** or **network-ssd**) or faster local SSD storage (**local-ssd**). The size of the local storage can only be changed in 100 GB increments.
       - Select the size to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
 
   1. Under **Database**, specify the DB attributes:
@@ -66,7 +63,7 @@ The number of hosts that can be created with a {{ CH }} cluster depends on the s
 
   To create a cluster:
 
-  
+
   1. Check whether the folder has any subnets for the cluster hosts:
 
      ```
@@ -75,19 +72,17 @@ The number of hosts that can be created with a {{ CH }} cluster depends on the s
 
      If there are no subnets in the folder, [create the necessary subnets](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
 
- 
-
   1. View a description of the CLI's create cluster command:
 
       ```
-      $ yc managed-clickhouse cluster create --help
+      $ {{ yc-mdb-ch }} cluster create --help
       ```
 
   1. Specify the cluster parameters in the create command (the example shows only mandatory flags):
 
-     
+
      ```
-     $ yc managed-clickhouse cluster create \
+     $ {{ yc-mdb-ch }} cluster create \
         --name <cluster name> \
         --environment <prestable or production> \
         --network-name <network name> \
@@ -100,8 +95,6 @@ The number of hosts that can be created with a {{ CH }} cluster depends on the s
      ```
 
      The subnet ID `subnet-id` should be specified if the selected availability zone contains two or more subnets.
-
-    
 
 - Terraform
 
@@ -197,7 +190,7 @@ The number of hosts that can be created with a {{ CH }} cluster depends on the s
 
   Let's say we need to create a {{ CH }} cluster with the following characteristics:
 
-    - Named `mych`.
+  - Named `mych`.
   - In the `production` environment.
   - In the `default` network.
   - With a single `{{ host-class }}` class ClickHouse host in the `b0rcctk2rvtr8efcch64` subnet and `ru-central1-c` availability zone.
@@ -205,25 +198,21 @@ The number of hosts that can be created with a {{ CH }} cluster depends on the s
   - With one user, `user1`, with the password `user1user1`.
   - With one database, `db1`.
 
- 
-
   Run the command:
 
-  
+
   ```
-  $ yc managed-clickhouse cluster create \
+  $ {{ yc-mdb-ch }} cluster create \
        --name mych \
        --environment=production \
        --network-name default \
-       --clickhouse-resource-preset s2.micro \
+       --clickhouse-resource-preset {{ host-class }} \
        --host type=clickhouse,zone-id=ru-central1-c,subnet-id=b0cl69g98qumiqmtg12a \
        --clickhouse-disk-size 20 \
-       --clickhouse-disk-type network-ssd \
+       --clickhouse-disk-type {{ disk-type-example }} \
        --user name=user1,password=user1user1 \
        --database name=db1
   ```
-
- 
 
 - Terraform
 
@@ -245,7 +234,7 @@ The number of hosts that can be created with a {{ CH }} cluster depends on the s
   ```
   provider "yandex" {
     token = "<OAuth or static key of service account>"
-    cloud_id  = "b1gq90dgh25bebiu75o"
+    cloud_id  = "{{ tf-cloud-id }}"
     folder_id = "${data.yandex_resourcemanager_folder.myfolder.id}"
     zone      = "ru-central1-c"
   }
@@ -257,7 +246,7 @@ The number of hosts that can be created with a {{ CH }} cluster depends on the s
   
     clickhouse {
       resources {
-        resource_preset_id = "s2.micro"
+        resource_preset_id = "{{ host-class }}"
         disk_type_id       = "network-ssd"
         disk_size          = 32
       }

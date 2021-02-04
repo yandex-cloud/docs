@@ -85,7 +85,7 @@ POST /{bucket}/{key}?uploadId=UploadId HTTP/1.1
 
 ```
 <CompleteMultipartUploadResult xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
-  <Location>http://Example-Bucket.storage.yandexcloud.net/Example-Object</Location>
+  <Location>http://Example-Bucket.{{ s3-storage-host }}/Example-Object</Location>
   <Bucket>Example-Bucket</Bucket>
   <Key>Example-Object</Key>
   <ETag>"3858f62230ac3c915f300c664312c11f-9"</ETag>

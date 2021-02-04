@@ -48,7 +48,7 @@
     Если вы выполняете команду `yc init` не в первый раз, этот шаг будет отсутствовать.
 
     ```
-    Please go to https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb
+    Please go to {{ link-cloud-oauth }}
      in order to obtain OAuth token.
     
     Please enter OAuth token: AaAaBbBbCcCcDdDdEeEeFfFfGgGg
@@ -73,7 +73,7 @@
 1. Введите свой OAuth-токен: 
 
     ```
-    Please go to https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb
+    Please go to {{ link-cloud-oauth }}
     in order to obtain OAuth token.
     
     Please enter OAuth token: AaAaBbBbCcCcDdDdEeEeFfFfGgGg
@@ -98,7 +98,7 @@
 1. Выберите зону доступности по умолчанию для сервиса {{ compute-full-name }}:
 
     ```
-    Do you want to configure a default Yandex Compute Cloud availability zone? [Y/n] Y
+    Do you want to configure a default {{ compute-full-name }} availability zone? [Y/n] Y
     Which zone do you want to use as a profile default?
     [1] ru-central1-a
     [2] ru-central1-b

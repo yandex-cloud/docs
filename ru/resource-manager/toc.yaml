@@ -97,3 +97,4 @@ items:
                 href: api-ref/Folder/updateAccessBindings.md
   - name: Вопросы и ответы
     href: qa/index.md
+base: ru/resource-manager

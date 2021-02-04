@@ -157,3 +157,4 @@ items:
                 href: api-ref/Version/list.md
   - name: Вопросы и ответы
     href: qa/index.md
+base: ru/managed-kubernetes

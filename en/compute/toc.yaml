@@ -261,11 +261,11 @@ items:
         href: pricing.md
       - name: Archive
         items:
-          - name: 'Before January 1, 2019'
+          - name: Before January 1, 2019
             href: pricing-archive/pricing-01012019.md
-          - name: 'From January 1 to March 1, 2019'
+          - name: From January 1 to March 1, 2019
             href: pricing-archive/pricing-01032019.md
-          - name: 'From March 1 to May 1, 2019'
+          - name: From March 1 to May 1, 2019
             href: pricing-archive/pricing-30042019.md
   - name: Compute API reference
     items:
@@ -521,3 +521,4 @@ items:
         href: qa/licensing.md
       - name: All questions on the same page
         href: qa/all.md
+base: en/compute

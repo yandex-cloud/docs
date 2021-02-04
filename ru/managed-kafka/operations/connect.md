@@ -7,7 +7,6 @@
 
 К кластеру {{ KF }} можно подключиться как с использованием шифрования (`SASL_SSL`) — порт 9091, так и без него (`SASL_PLAINTEXT`) — порт 9092.
 
-
 Чтобы подключиться к кластеру {{ KF }}:
 
 1. [Создайте учетные записи](cluster-accounts.md#create-account) для клиентов (производителей и потребителей) с доступами в нужные топики.
@@ -24,10 +23,9 @@
 
 ```bash
 sudo mkdir -p /usr/local/share/ca-certificates/Yandex && \
-sudo wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" -O /usr/local/share/ca-certificates/Yandex/YandexCA.crt && \
+sudo wget "https://{{ s3-storage-host }}{{ pem-path }}" -O /usr/local/share/ca-certificates/Yandex/YandexCA.crt && \
 sudo chmod 655 /usr/local/share/ca-certificates/Yandex/YandexCA.crt
 ```
-
 
 ## Примеры строк подключения {#connection-string}
 

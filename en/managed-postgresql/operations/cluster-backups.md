@@ -35,13 +35,13 @@ For a new cluster, you should set all the parameters that are required at creati
   1. View the description of the CLI's restore cluster command {{ PG }}:
 
       ```
-      $ yc managed-postgresql cluster restore --help
+      $ {{ yc-mdb-pg }} cluster restore --help
       ```
 
   1. Getting a list of available {{ PG }} cluster backups:
 
       ```
-      $ yc managed-postgresql backup list
+      $ {{ yc-mdb-pg }} backup list
       
       +--------------------------+----------------------+----------------------+----------------------+
       |            ID            |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
@@ -56,22 +56,22 @@ For a new cluster, you should set all the parameters that are required at creati
   1. Request creation of a cluster from a backup:
 
       ```bash
-      $ yc managed-postgresql cluster restore \
+      $ {{ yc-mdb-pg }} cluster restore \
              --backup-id c9qlk4v13uq79r9cgcku:base_000000010000000000000002 \
              --time 2018-11-02T10:09:38Z \
              --cluster-name mynewpg \
              --environment=PRODUCTION \
-             --network-name default \
-             --host zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch63 \
+             --network-name {{ network-name }} \
+             --host {{ host-net-example }} \
              --disk-size 20 \
-             --disk-type network-ssd \
-             --resource-preset s2.micro
+             --disk-type {{ disk-type-example }} \
+             --resource-preset {{ host-class }}
       ```
 
       This results in a new {{ PG }} cluster with the following characteristics:
       - Named `mynewpg`.
       - In the `PRODUCTION` environment.
-      - In the `{{ network-name }}` network.
+- In the `{{ network-name }}` network.
       - With a single `{{ host-class }}` class host in the `b0rcctk2rvtr8efcch63` subnet, in the `{{ zone-id }}` availability zone.
       - With the databases and users from the backup.
       - With 20 GB fast network storage (`{{ disk-type-example }}`).
@@ -98,13 +98,13 @@ For a new cluster, you should set all the parameters that are required at creati
   1. View a description of the CLI create {{ PG }} backup command:
 
       ```
-      $ yc managed-postgresql cluster backup --help
+      $ {{ yc-mdb-pg }} cluster backup --help
       ```
 
   1. Request creation of a backup specifying the cluster name or ID:
 
       ```
-      $ yc managed-postgresql cluster backup my-pg-cluster
+      $ {{ yc-mdb-pg }} cluster backup my-pg-cluster
       ```
 
       The cluster name and ID can be retrieved with the [list of clusters](cluster-list.md#list-clusters).
@@ -128,7 +128,7 @@ For a new cluster, you should set all the parameters that are required at creati
   To get a list of {{ PG }} cluster backups available in the default folder, run the command:
 
   ```
-  $ yc managed-postgresql backup list
+  $ {{ yc-mdb-pg }} backup list
   
   +----------+----------------------+----------------------+----------------------+
   |    ID    |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
@@ -157,7 +157,7 @@ For a new cluster, you should set all the parameters that are required at creati
   To get information about a {{ PG }} cluster backup, run the command:
 
   ```
-  $ yc managed-postgresql backup get <backup ID>
+  $ {{ yc-mdb-pg }} backup get <backup ID>
   ```
 
   The backup ID can be retrieved with the [list of backups](#list-backups) .
@@ -177,7 +177,7 @@ For a new cluster, you should set all the parameters that are required at creati
   To set the backup start time, use the `-- backup-window-start` flag. Time is given in ``HH:MM:SS`` format.
 
   ```bash
-  $ yc managed-postgresql cluster create \
+  $ {{ yc-mdb-pg }} cluster create \
      --cluster-name <cluster name> \
      --environment <prestable or production> \
      --network-name <network name> \
@@ -192,7 +192,7 @@ For a new cluster, you should set all the parameters that are required at creati
   To change the backup start time in an existing cluster, use the  `update` command:
 
   ```
-  $ yc yc managed-postgresql cluster update \
+  $ yc {{ yc-mdb-pg }} cluster update \
      --cluster-name <cluster name> \
      --backup-window-start 11:25:00
   ```

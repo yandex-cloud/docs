@@ -5,7 +5,7 @@
 1. Создайте бакет `www.example.com` и загрузите в него данные.
 2. Настройте алиас для бакета у провайдера.
     ```
-    www.example.com CNAME www.example.com.website.yandexcloud.net
+    www.example.com CNAME www.example.com.{{ s3-web-host }}
     ```
 3. Для домена `example.com` определите переадресацию на домен `www.example.com` на стороне провайдера.
 

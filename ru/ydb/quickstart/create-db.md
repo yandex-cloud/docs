@@ -12,4 +12,3 @@
 
 
 {% include [create-db-via-console](../_includes/create-db-via-console.md) %}
-

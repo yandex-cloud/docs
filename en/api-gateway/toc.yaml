@@ -83,3 +83,4 @@ items:
                 href: apigateway/api-ref/ApiGateway/updateAccessBindings.md
   - name: Questions and answers
     href: qa/index.md
+base: en/api-gateway

@@ -36,6 +36,7 @@
 | HDInsight | [{{ mkf-full-name }}](../../managed-kafka/) |
 | Elastic on Azure | [{{ mes-full-name }}](../../managed-elasticsearch/) |
 | Microsoft Power BI | [{{ datalens-full-name }}](../../datalens/) |
+| Azure Database Migration Service | [{{ data-transfer-full-name }}](../../data-transfer/) |
 
 ## Cloud-native {#cloud-native}
 

@@ -36,13 +36,13 @@
   1. Посмотрите описание команды CLI для добавления хостов {{ ZK }}:
 
      ```
-     $ yc managed-clickhouse cluster add-zookeeper --help
+     $ {{ yc-mdb-ch }} cluster add-zookeeper --help
      ```
 
   1. Запустите операцию с характеристиками хостов по умолчанию:
 
      ```bash
-     $ yc managed-clickhouse cluster add-zookeeper <имя кластера> \
+     $ {{ yc-mdb-ch }} cluster add-zookeeper <имя кластера> \
                              --host zone-id=ru-central1-c,subnet-name=default-c \
                              --host zone-id=ru-central1-a,subnet-name=default-a \
                              --host zone-id=ru-central1-b,subnet-name=default-b
@@ -97,13 +97,13 @@
   1. Посмотрите описание команды CLI для добавления хостов:
   
      ```
-     $ yc managed-clickhouse host add --help
+     $ {{ yc-mdb-ch }} host add --help
      ```
      
   1. Выполните команду добавления хоста {{ ZK }}:
   
      ```
-     $ yc managed-clickhouse hosts add \
+     $ {{ yc-mdb-ch }} hosts add \
           --cluster-name <имя кластера> \
           --host zone-id=<зона доступности>,subnet-id=<идентификатор подсети>,type=zookeeper
      ```      
@@ -136,7 +136,7 @@
   Чтобы удалить хост из кластера, выполните команду:
   
   ```
-  $ yc managed-clickhouse hosts delete <имя хоста> \
+  $ {{ yc-mdb-ch }} hosts delete <имя хоста> \
        --cluster-name=<имя кластера>
   ```
 

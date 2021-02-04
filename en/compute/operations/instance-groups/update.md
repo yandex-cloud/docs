@@ -30,7 +30,7 @@ To change the name and description of an instance group:
   1. View a description of the update group command in the CLI:
 
      ```
-     $ yc compute instance-group update --help
+     $ {{ yc-compute-ig }} update --help
      ```
 
   1. Get a list of instance groups in the default folder:
@@ -44,7 +44,7 @@ To change the name and description of an instance group:
   1. Update the instance group in the default folder:
 
       ```
-      $ yc compute instance-group update --name first-instance-group --file specification.yaml
+      $ {{ yc-compute-ig }} update --name first-instance-group --file specification.yaml
       ```
 
      {{ ig-name }} starts the operation to update the instance group.
@@ -88,7 +88,7 @@ To change the computing resources of an instance group:
   1. View a description of the update group command in the CLI:
 
      ```
-     $ yc compute instance-group update --help
+     $ {{ yc-compute-ig }} update --help
      ```
 
   1. Get a list of instance groups in the default folder:
@@ -102,7 +102,7 @@ To change the computing resources of an instance group:
   1. Update the instance group in the default folder:
 
       ```
-      $ yc compute instance-group update --name first-instance-group --file specification.yaml
+      $ {{ yc-compute-ig }} update --name first-instance-group --file specification.yaml
       ```
 
      {{ ig-name }} starts the operation to update the instance group.
@@ -141,7 +141,7 @@ To increase the disk size of an instance group:
   1. View a description of the update group command in the CLI:
 
      ```
-     $ yc compute instance-group update --help
+     $ {{ yc-compute-ig }} update --help
      ```
 
   1. Get a list of instance groups in the default folder:
@@ -155,7 +155,7 @@ To increase the disk size of an instance group:
   1. Update the instance group in the default folder:
 
       ```
-      $ yc compute instance-group update --name first-instance-group --file specification.yaml
+      $ {{ yc-compute-ig }} update --name first-instance-group --file specification.yaml
       ```
 
      {{ ig-name }} starts the operation to update the instance group.

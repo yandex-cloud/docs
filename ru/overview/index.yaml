@@ -1,39 +1,51 @@
-# Заголовок и описание на странице
-title: "Обзор платформы Yandex.Cloud"
+title: Обзор платформы Yandex.Cloud
 description:
-  - "Yandex.Cloud — это набор связанных сервисов, которые помогут вам быстро и безопасно взять в аренду вычислительные мощности в тех объемах, в которых это необходимо. При этом доступ к вычислительным мощностям вы получаете через интернет. Такой подход к потреблению вычислительных ресурсов называется <i>облачные вычисления</i>."
-  - "Облачные вычисления заменяют и дополняют традиционные дата-центры, расположенные на территории потребителя. Yandex.Cloud берет на себя задачи по поддержанию работоспособности и производительности аппаратного и программного обеспечения облачной платформы."
-  - "Yandex.Cloud предлагает вам различные категории облачных ресурсов: например, виртуальные машины, диски, базы данных. Управлять ресурсами каждой категории можно с помощью соответствующего сервиса."
-  - "Инфраструктура Yandex.Cloud <a href=\"https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf\">защищена</a> в соответствии с ФЗ-152."
-# Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
+  - >-
+    Yandex.Cloud — это набор связанных сервисов, которые помогут вам быстро и
+    безопасно взять в аренду вычислительные мощности в тех объемах, в которых
+    это необходимо. При этом доступ к вычислительным мощностям вы получаете
+    через интернет. Такой подход к потреблению вычислительных ресурсов
+    называется <i>облачные вычисления</i>.
+  - >-
+    Облачные вычисления заменяют и дополняют традиционные дата-центры,
+    расположенные на территории потребителя. Yandex.Cloud берет на себя задачи
+    по поддержанию работоспособности и производительности аппаратного и
+    программного обеспечения облачной платформы.
+  - >-
+    Yandex.Cloud предлагает вам различные категории облачных ресурсов: например,
+    виртуальные машины, диски, базы данных. Управлять ресурсами каждой категории
+    можно с помощью соответствующего сервиса.
+  - >-
+    Инфраструктура Yandex.Cloud <a
+    href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">защищена</a>
+    в соответствии с ФЗ-152.
 meta:
-  title: "Обзор платформы Yandex.Cloud"
-# Блок со ссылками
+  title: Обзор платформы Yandex.Cloud
 links:
-- title: "Сервисы Yandex.Cloud"
-  description: ""
-  href: "concepts/services"
-- title: "Мобильное приложение"
-  description: ""
-  href: "mobile-app/"
-- title: "Зоны доступности"
-  description: ""
-  href: "concepts/geo-scope"
-- title: "Начало работы"
-  description: ""
-  href: "quickstart"
-- title: "Стадии готовности сервисов"
-  description: ""
-  href: "concepts/launch-stages"
-- title: "Квоты и лимиты"
-  description: ""
-  href: "concepts/quotas-limits"
-- title: "API"
-  description: ""
-  href: "api"
-- title: "Соглашение об уровне обслуживания"
-  description: ""
-  href: "sla"
-- title: "Вопросы и ответы"
-  description: ""
-  href: "qa"
+  - title: Сервисы Yandex.Cloud
+    description: ''
+    href: concepts/services
+  - title: Мобильное приложение
+    description: ''
+    href: mobile-app/
+  - title: Зоны доступности
+    description: ''
+    href: concepts/geo-scope
+  - title: Начало работы
+    description: ''
+    href: quickstart
+  - title: Стадии готовности сервисов
+    description: ''
+    href: concepts/launch-stages
+  - title: Квоты и лимиты
+    description: ''
+    href: concepts/quotas-limits
+  - title: API
+    description: ''
+    href: api
+  - title: Соглашение об уровне обслуживания
+    description: ''
+    href: sla
+  - title: Вопросы и ответы
+    description: ''
+    href: qa

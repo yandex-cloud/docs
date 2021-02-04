@@ -8,7 +8,6 @@ You can connect to {{ mkf-name }} cluster hosts:
 
 You can connect to the {{ KF }} cluster both with encryption (`SASL_SSL`, port 9091) and without it (`SASL_PLAINTEXT`, port 9092).
 
-
 To connect to an {{ KF }} cluster:
 
 1. [Create accounts](cluster-accounts.md#create-account) for clients (producers and consumers) with access to the necessary topics.
@@ -25,10 +24,9 @@ To use an encrypted SSL connection, you need to get an SSL certificate:
 
 ```bash
 sudo mkdir -p /usr/local/share/ca-certificates/Yandex && \
-sudo wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" -O /usr/local/share/ca-certificates/Yandex/YandexCA.crt && \
+sudo wget "https://{{ s3-storage-host }}{{ pem-path }}" -O /usr/local/share/ca-certificates/Yandex/YandexCA.crt && \
 sudo chmod 655 /usr/local/share/ca-certificates/Yandex/YandexCA.crt
 ```
-
 
 ## Sample connection strings {#connection-string}
 

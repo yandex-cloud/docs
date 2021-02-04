@@ -15,7 +15,7 @@
   To get a list of extensions for a specific database, run the command:
 
   ```
-  $ yc managed-postgresql database get <database name> \
+  $ {{ yc-mdb-pg }} database get <database name> \
        --cluster-name <cluster name>
   ```
 
@@ -40,7 +40,7 @@
   To enable or disable {{ PG }} extensions for a database, pass the full list of the required extensions in a CLI command. The enabled extensions that aren't in that list will be disabled.
 
   ```
-  $ yc managed-postgresql database update <database name> \
+  $ {{ yc-mdb-pg }} database update <database name> \
        --cluster-name <cluster name>
        --extensions <extension name>=<version>,<extension name>=<version>...
   ```

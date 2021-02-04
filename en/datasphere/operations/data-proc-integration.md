@@ -8,7 +8,7 @@ To set up your project:
 
 1. {% include [include](../../_includes/datasphere/first-step.md) %}
 1. Click ![image](../../_assets/options.svg) in the line with the project to set up.
-1. In the window that opens, click **Edit**.
+1. In the menu that opens, click **Edit**.
 1. In the window that opens, click **Additional settings**.
 1. In the **Service account** field, select a service account with the appropriate [roles](../concepts/data-proc.md#roles).
 1. In the **Subnet** field, specify the subnet where new {{ dataproc-name }} clusters will be created or existing ones will be used.
@@ -17,7 +17,22 @@ To set up your project:
 
 ## Create a cluster {{ dataproc-name }} {#create}
 
-Before creating a cluster, make sure you have sufficient resources in your cloud. You can check this in the management console under [Quotas]({{ link-console-quotas }}).
+Before creating a cluster, make sure that your cloud has enough total SSD space (200 GB is allocated for a new cloud by default).
+
+You can calculate the total SSD space required for different configurations using the formula:
+
+```
+<number of {{ dataproc-name }} hosts> * 256 + 128
+```
+
+| Cluster type | Number of hosts. | SSD size |
+| ------------ | :---------------: | ---------------- |
+| S cluster | 4 | 1152 GB |
+| M-cluster | 8 | 2176 GB |
+| L cluster | 16 | 4224 GB |
+| XL cluster | 32 | 8320 GB |
+
+You can view your current resources in [Quotas]({{ link-console-quotas }}) in the management console.
 
 ### Create a cluster through the notebook interface in {{ ml-platform-name }} {#notebook}
 
@@ -57,7 +72,7 @@ You can manage the life cycle of a cluster that you created manually. To ensure 
 
 - Management console
 
-    1. In [management console]({{ link-console-main }}), select the folder where you want to create a cluster.
+    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a cluster.
 
     1. Click **Create resource** and select **{{ dataproc-name }} cluster** from the drop-down list.
 
@@ -129,7 +144,7 @@ Once the cluster is created, add it to the project settings:
 
 1. {% include [include](../../_includes/datasphere/first-step.md) %}
 1. Click ![image](../../_assets/options.svg) in the line with the project to set up.
-1. In the window that opens, click **Edit**.
+1. In the menu that opens, click **Edit**.
 1. In the window that opens, click **Additional settings**.
 1. In the **{{ dataproc-name }} cluster** field, specify the cluster you just created.
 
@@ -137,9 +152,7 @@ Once the cluster is created, add it to the project settings:
 
 To run computations on a cluster created from the notebook interface:
 
-1. {% include [include](../../_includes/datasphere/first-step.md) %}
-
-1. Click ![image](../../_assets/options.svg) in the line with the project to run computations in.
+1. Open the project that you created the Data Proc cluster for.
 
 1. In the cell, insert the code to compute. For example:
 
@@ -159,7 +172,7 @@ To run computations on a cluster created from the notebook interface:
     ```
 
    Where:
-   * `#!spark --cluster <cluster name>` is a mandatory system command to run computations on a cluster. You can view the cluster name in the **Data Proc Clusters** window, the **File** menu.
+   * `#!spark --cluster <cluster name>` is a mandatory system command to run computations on a cluster. You can view the cluster name in the **Data Proc Clusters** window in the **File** menu.
 
 1. Click ![image](../../_assets/datasphere/jupyterlab/run.svg) to run computations.
 

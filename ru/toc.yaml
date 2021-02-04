@@ -1,7 +1,9 @@
 title: Документация Yandex.Cloud
 href: index.yaml
 items:
-  - name: Datalens
+  - name: CLI
+    href: cli/
+  - name: DataLens
     href: datalens/
   - name: MDB
     href: mdb/
@@ -19,3 +21,4 @@ items:
     href: managed-postgresql/
   - name: Managed Redis
     href: managed-redis/
+base: ru

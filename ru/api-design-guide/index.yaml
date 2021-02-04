@@ -1,29 +1,31 @@
-# Заголовок и описание на странице
-title: "Концепции API Yandex.Cloud"
-description: "Документ описывает концепции, которые легли в основу архитектуры API Yandex.Cloud.
+title: Концепции API Yandex.Cloud
+description: >-
+  Документ описывает концепции, которые легли в основу архитектуры API
+  Yandex.Cloud.
 
-Документ будет полезен разработчикам, которые хотят создавать на базе API Yandex.Cloud системы
-автоматизации, плагины и другие приложения."
-# Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
+  Документ будет полезен разработчикам, которые хотят создавать на базе API
+  Yandex.Cloud системы автоматизации, плагины и другие приложения.
 meta:
-  title: "Концепции API Yandex.Cloud"
+  title: Концепции API Yandex.Cloud
   keywords:
-    - keyword: "идеология API"
-    - keyword: "концепции API"
-    - keyword: "REST API"
-    - keyword: "gRPC API"
-# Блок со ссылками
+    - keyword: идеология API
+    - keyword: концепции API
+    - keyword: REST API
+    - keyword: gRPC API
 links:
-- title: "Основные принципы"
-  description: "Как устроены API Yandex.Cloud и в чем заключается ресурсо-ориентированный подход"
-  href: "concepts/general"
-- title: "Ресурсы"
-  description: "Как идентифицируются ресурсы в API"
-  href: "concepts/resources-identification"
-- title: "Методы API"
-  description: "Как устроены методы в API"
-  href: "concepts/about-methods"
-- title: "Работа с операциями"
-  description: "Как реализована асинхронность в API и как использовать механизм идемпотентности"
-  href: "concepts/about-async"
-
+  - title: Основные принципы
+    description: >-
+      Как устроены API Yandex.Cloud и в чем заключается ресурсо-ориентированный
+      подход
+    href: concepts/general
+  - title: Ресурсы
+    description: Как идентифицируются ресурсы в API
+    href: concepts/resources-identification
+  - title: Методы API
+    description: Как устроены методы в API
+    href: concepts/about-methods
+  - title: Работа с операциями
+    description: >-
+      Как реализована асинхронность в API и как использовать механизм
+      идемпотентности
+    href: concepts/about-async

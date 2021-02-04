@@ -19,7 +19,7 @@ You can request detailed information about each {{ mpg-short-name }} cluster you
   To request a list of {{ PG }} clusters in the default folder, run the command:
 
   ```
-  $ yc managed-postgresql cluster list
+  $ {{ yc-mdb-pg }} cluster list
   
   +----------------------+---------------+-----------------------------+--------+---------+
   |          ID          |     NAME      |         CREATED AT          | HEALTH | STATUS  |
@@ -48,7 +48,7 @@ You can request detailed information about each {{ mpg-short-name }} cluster you
   To get information about a {{ PG }} cluster, run the command:
 
   ```
-  $ yc managed-postgresql cluster get <cluster name or ID>
+  $ {{ yc-mdb-pg }} cluster get <cluster name or ID>
   ```
 
   The cluster name and ID can be requested with a [list of clusters in the folder](#list-clusters).
@@ -75,7 +75,7 @@ You can request detailed information about each {{ mpg-short-name }} cluster you
   To get a list of operations, run the command:
 
   ```
-  $ yc managed-postgresql cluster list-operations <cluster name or ID>
+  $ {{ yc-mdb-pg }} cluster list-operations <cluster name or ID>
   ```
 
   The cluster name and ID can be requested with a [list of clusters in the folder](#list-clusters).

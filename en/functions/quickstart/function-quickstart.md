@@ -1,21 +1,21 @@
 # Creating and executing functions
 
-Create and execute [functions](../concepts/function.md) which welcome the user. To do this, use Python and Node.js.
+Create and execute a [function](../concepts/function.md) that welcomes the user. To do this, use Python or Node.js.
 
-- [Before you start](#before-begin)
+- [Before you start](#before-you-begin)
 - [Create a function in Python](#python-func)
     - [Create a function](#create-py-func)
     - [Create the first version of the function](#create-py-version)
 - [Create a function in Node.js](#nodejs-func)
     - [Create a function](#create-js-func)
     - [Create the first version of the function](#create-js-version)
-- [Call the function](#invoke)
+- [Invoke the function](#invoke)
 - [What's next](#what-is-next)
 
 ## Before you start {#before-you-begin}
 
-1. [Create a folder](../../resource-manager/operations/folder/create.md) in Yandex.Cloud.
-1. [Install the](../../cli/quickstart.md) YC CLI.
+1. [Create a folder](../../resource-manager/operations/folder/create.md) in {{ yandex-cloud }}.
+1. [Install](../../cli/quickstart.md) the YC CLI command line interface.
 
 ## Create a function in Python {#python-func}
 
@@ -47,14 +47,14 @@ Create and execute [functions](../concepts/function.md) which welcome the user. 
   created_at: "2019-06-14T10:03:37.475Z"
   name: my-python-function
   log_group_id: eolm8aoq9vcppsieej6h
-  http_invoke_url: https://functions.cloud-preprod.yandex.net/b09bhaokchn9pnbrlseb
+  http_invoke_url: https://functions.yandexcloud.net/b09bhaokchn9pnbrlseb
   ```
 
 {% endlist %}
 
 ### Create the first version of the function {#create-py-version}
 
-To create the function version, you'll need a ZIP archive with the function code and all the required dependencies.
+{% include [create-version](../../_includes/functions/create-version.md) %}
 
 #### Prepare a ZIP archive with the function code {#create-py-zip}
 
@@ -76,9 +76,9 @@ To create the function version, you'll need a ZIP archive with the function code
         }
     ```
 
-#### Create the version of the function {#create-py-version}
-
 1. Add the `main.py` file to the `hello-py.zip` archive.
+
+#### Create a function version {#create-py-func}
 
 {% list tabs %}
 
@@ -143,7 +143,7 @@ To create the function version, you'll need a ZIP archive with the function code
   created_at: "2019-06-14T09:53:39.885Z"
   name: my-nodejs-function
   log_group_id: eol8eetd68mq3849eurs
-  http_invoke_url: https://functions.cloud-preprod.yandex.net/b09hnm3nucbm1tk8dops
+  http_invoke_url: https://functions.yandexcloud.net/b09hnm3nucbm1tk8dops
   ```
 
 {% endlist %}
@@ -171,11 +171,12 @@ To create the function version, you'll need a ZIP archive with the function code
             'body': `Hello, ${name}!`
         }
     };
+
     ```
 
 1. Add `index.js` to the `hello-js.zip` archive.
 
-#### Create the version of the function {#create-js-func}
+#### Create a function version {#create-js-func}
 
 {% list tabs %}
 
@@ -184,7 +185,7 @@ To create the function version, you'll need a ZIP archive with the function code
   1. Select the function to create the version for.
   1. Under **Latest version**, click **Create in editor**.
   1. Set the version parameters:
-      - **Runtime environment:** `nodejs10`.
+      - **Runtime environment:** `nodejs12`.
       - **Timeout, seconds:** 5.
       - **RAM:** 128 MB.
       - **Service account:** Not selected.
@@ -201,7 +202,7 @@ To create the function version, you'll need a ZIP archive with the function code
   ```
   $ yc serverless function version create \
   --function-name=my-nodejs-function \ # Function name.
-  --runtime nodejs10 \ # Runtime environment.
+  --runtime nodejs12 \ # Runtime environment.
   --entrypoint index.handler \ The handler, specified in <function file name>.<handler name> format.
   --memory 128m \ # Amount of RAM.
   --execution-timeout 5s \ # The maximum function execution time before the timeout is reached.
@@ -210,11 +211,11 @@ To create the function version, you'll need a ZIP archive with the function code
 
 {% endlist %}
 
-## Call the function {#invoke}
+## Invoke the function {#invoke}
 
 {% note info %}
 
-To allow any user to call your function, [make it public](../operations/function-public.md). For more information about access rights, see [{#T}](../security/index.md).
+To allow any user to invoke your function, [make it public](../operations/function-public.md). For more information about access rights, see [{#T}](../security/index.md).
 
 {% endnote %}
 
@@ -241,12 +242,12 @@ $ yc serverless function list
 
     {% endnote %}
 
-    You can view the function call link in the `http_invoke_url` parameter while [creating a function](../operations/function/function-create.md).
+    You can view the function invocation link in the `http_invoke_url` parameter while [creating a function](../operations/function/function-create.md).
 
     Call the function as a regular HTTP request by inserting the function call link in the browser address bar. In this case, we use the example of a function written in [Python](#python-func):
 
     ```
-    https://functions.yandexcloud.net/b09bhaokchn9pnbrlseb
+    {{ sf-url }}/b09bhaokchn9pnbrlseb
     ```
 
     The following response appears on the page:
@@ -258,7 +259,7 @@ $ yc serverless function list
     When calling the function, you can add some parameters to the URL. As an example, add the `name` parameter:
 
     ```
-    https://functions.yandexcloud.net/b09bhaokchn9pnbrlseb?name=Username
+    {{ sf-url }}/b09bhaokchn9pnbrlseb?name=Username
     ```
 
     The following response appears on the page:
@@ -280,6 +281,7 @@ $ yc serverless function list
 
 ## What's next {#what-is-next}
 
-- For more information about the structure of functions called in different ways (HTTP or CLI), see [{#T}](../concepts/function-invoke.md).
+- For more information about the structure of functions invoked in different ways (HTTP or CLI), seе [{#T}](../concepts/function-invoke.md).
 - Read about [service concepts](../concepts/index.md).
 - For information about what you can do with functions and their versions, see our [step-by-step instructions](../operations/index.md).
+

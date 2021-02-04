@@ -124,7 +124,7 @@ Create a new image from the link obtained in {{ objstorage-name }}:
      
        name       = "ubuntu-cosmic"
        os_type    = "LINUX"
-       source_url = "<link to the image in Object Storage>"
+       source_url = "<link to the image in {{ objstorage-name }}>"
      }
      ```
 

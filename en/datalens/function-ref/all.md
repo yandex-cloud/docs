@@ -135,6 +135,27 @@ Returns the arccosine of `number` in radians.
 
 
 
+## [AGO](AGO.md)
+
+**Syntax:**`AGO( measure, date_dimension [ , unit [ , number ] ] )`
+
+Re-evaluate `measure` for a date/time with a given offset.
+The `date_dimension` argument is the dimension along which the offset is made.
+The `number` argument is an integer. It can be negative.
+The `unit` argument takes the following values:
+- `"year"`;
+- `"month"`;
+- `"day"`;
+- `"hour"`;
+- `"minute"`;
+- `"second"`.
+
+Can also be used as `AGO(measure, date_dimension, number)`. In this case, the third argument is interpreted as the number of days.
+
+This non-window function does not support window options such as `BEFORE FILTER BY`. For an alternative among window functions see [LAG](LAG.md).
+
+
+
 ## [ALL_CONCAT](ALL_CONCAT.md)
 
 **Syntax:**`ALL_CONCAT( expression [ , separator ] )`
@@ -163,7 +184,7 @@ Returns one of the values of `value` from the group. This is a nondeterministic 
 
 **Syntax:**`ARG_MAX( value, comp )`
 
-Returns `value` for the maximum value of `comp` in the group.
+Returns `value` for the maximum value of `comp` in the group. If multiple values of `value` match the maximum value of `comp`, then the first one encountered is returned. This makes the function non-deterministic.
 
 
 
@@ -171,7 +192,7 @@ Returns `value` for the maximum value of `comp` in the group.
 
 **Syntax:**`ARG_MIN( value, comp )`
 
-Returns `value` for the minimum value of `comp` in the group.
+Returns `value` for the minimum value of `comp` in the group. If multiple values of `value` match the minimum value of `comp`, then the first one encountered is returned. This makes the function non-deterministic.
 
 
 
@@ -408,11 +429,11 @@ Returns the date obtained by adding `unit` in the amount of `number` to the spec
 
 The `number` argument is an integer. It can be negative.
 The `unit` argument takes the following values:
-- `"year"`,
-- `"month"`,
-- `"day"`,
-- `"hour"`,
-- `"minute"`,
+- `"year"`;
+- `"month"`;
+- `"day"`;
+- `"hour"`;
+- `"minute"`;
 - `"second"`.
 
 
@@ -424,13 +445,13 @@ The `unit` argument takes the following values:
 Returns a part of the date as an integer.
 
 Depending on the argument, `unit` returns the following values:
-- `"year"` — the year number (see [YEAR](YEAR.md)),
-- `"month"` — the number of the month in the year (see [MONTH](MONTH.md)),
-- `"week"` — the number of the week in the year according to [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) (see [WEEK](WEEK.md)),
-- `"dayofweek"`, `"dow"` — the number of the day of the week (see [DAYOFWEEK](DAYOFWEEK.md)),
-`"day"` — the number of the day in the month (see [DAY](DAY.md)),
-- `"hour"` — the number of the hour in the day (see [HOUR](HOUR.md)),
-- `"minute"` — the number of the minute in the hour (see [MINUTE](MINUTE.md)),
+- `"year"` — the year number (see [YEAR](YEAR.md));
+- `"month"` — the number of the month in the year (see [MONTH](MONTH.md));
+- `"week"` — the number of the week in the year according to [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) (see [WEEK](WEEK.md));
+- `"dayofweek"`, `"dow"` — the number of the day of the week (see [DAYOFWEEK](DAYOFWEEK.md));
+- `"day"` — the number of the day in the month (see [DAY](DAY.md));
+- `"hour"` — the number of the hour in the day (see [HOUR](HOUR.md));
+- `"minute"` — the number of the minute in the hour (see [MINUTE](MINUTE.md));
 - `"second"` — the number of the second in the minute (see [SECOND](SECOND.md)).
 
 If you select `"dayofweek"`, you can use the additional parameter `firstday` to specify the first day of the week (Monday by default). Learn more about this parameter in the [DAYOFWEEK](DAYOFWEEK.md) function description.
@@ -464,12 +485,12 @@ Converts the `value` expression to date and time format. Unlike [DATETIME](DATET
 Rounds `datetime` down to the given `unit`. If optional `number` is given, then the value is rounded down to a `number` multiple of `unit` (omitting `number` is the same as `number = 1`).
 
 Supported units:
-- `"second"`,
-- `"minute"`,
-- `"hour"`,
-- `"day"` (acts as the day of the year if `number` is specified),
-- `"week"`,
-- `"month"`,
+- `"second"`;
+- `"minute"`;
+- `"hour"`;
+- `"day"` (acts as the day of the year if `number` is specified);
+- `"week"`;
+- `"month"`;
 - `"year"`.
 
 
@@ -617,9 +638,9 @@ Converts `address` to its geographical coordinates.
 Converts `address` to geographical name corresponding to the specified `scale`.
 
 Possible values for `scale` parameter:
-- `"country"`,
-- `"country_code"`,
-- `"region"`,
+- `"country"`;
+- `"country_code"`;
+- `"region"`;
 - `"locality"`.
 
 
@@ -757,6 +778,22 @@ The `value IS NOT TRUE` option returns the opposite value.
 **Syntax:**`ITALIC( text )`
 
 Stylizes the passed text in cursive font.
+
+
+
+## [LAG (window)](LAG.md)
+
+**Syntax:**`LAG( value [ , offset [ , default ] ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )`
+
+Returns `value` re-evaluated against the row that is offset from the current row by `offset` within the specified window:
+- Positive `offset` seeks among preceding rows.
+- Negative `offset` seeks among following rows.
+
+By default `offset` is `1`.
+
+If there is no available value (`offset` reaches before the first row or after the last one), then `default` is returned. If `default` is not specified, then `NULL` is used.
+
+See also [AGO](AGO.md) for a non-window function alternative.
 
 
 

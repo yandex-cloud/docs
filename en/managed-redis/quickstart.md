@@ -9,7 +9,6 @@ To use the service, create a cluster and virtual machine to access the server fr
 
 1. Create a VM (based on [Linux](../compute/quickstart/quick-create-linux.md) or [Windows](../compute/quickstart/quick-create-windows.md)) that you will use for accessing the DB cluster.
 
-
 Quickly create a cluster and test your connection to it:
 
 1. In the management console, select the folder where you want to create a DB cluster.

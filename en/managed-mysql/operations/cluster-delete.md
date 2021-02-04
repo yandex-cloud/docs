@@ -18,7 +18,7 @@
   To delete a cluster, run the command:
 
   ```
-  $ yc managed-mysql cluster delete <cluster name or ID>
+  $ {{ yc-mdb-my }} cluster delete <cluster name or ID>
   ```
 
   The cluster name and ID can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).

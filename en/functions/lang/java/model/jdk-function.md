@@ -4,7 +4,7 @@ You can set a handler function by implementing the [Function](https://docs.oracl
 
 {% note warning %}
 
-You should specify both values for the `Function` type parameters: the first one being the input argument type and the second one the type of the return value.
+You should specify both values for the `Function` type parameters, the first one being the input argument type and the second one the type of the return value.
 
 {% endnote %}
 
@@ -25,8 +25,8 @@ Examples of invalid handlers:
 
 ```java
 import java.util.function.Function;
-// Function has only one parameter type specified
-// Handler should not have any type parameters (see the handler requirements)
+// The Function has only one parameter type specified
+// The Handler should not have any type parameters (see the handler requirements)
 public class Handler<T> implements Function<T, Integer> {
   @Override
   public Integer apply(T i) {
@@ -37,7 +37,7 @@ public class Handler<T> implements Function<T, Integer> {
 
 ```java
 import java.util.function.Function;
-// Function doesn't have both parameter types specified
+// The Function doesn't have both parameter types specified
 public class Handler implements Function {
   @Override
   public Object apply(Object i) {
@@ -62,7 +62,7 @@ The following function receives a request with two fields (a string and a number
 
 {% note warning %}
 
-Call the function using the [YC CLI](../../../concepts/function-invoke.md) or an HTTP request with the `integration=raw` parameter.
+Invoke the function using the [YC CLI](../../../concepts/function-invoke.md) or an HTTP request with the `integration=raw` parameter.
 
 {% endnote %}
 
@@ -84,7 +84,7 @@ public class Handler implements Function<Request, String> {
 
   @Override
   public String apply(Request r) {
-    // at this stage, the r variable already stores the parsed query
+    // at this stage, the R variable already stores the parsed query
     return String.format("Message is %s, number is %d", r.message, r.number);
   }
 }
@@ -105,7 +105,7 @@ Returned string:
 Message is Hello, number is 24
 ```
 
-### Parsing an HTTP request
+### Parsing an HTTP request {#parsing-http-req}
 
 The function is invoked using an HTTP request with the username, logs the request method and body, and returns a greeting.
 
@@ -186,3 +186,4 @@ Response returned:
 ```
 Hello, Anonymous
 ```
+

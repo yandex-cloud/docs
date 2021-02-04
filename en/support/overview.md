@@ -1,6 +1,6 @@
 # Requesting technical support
 
-{{ yandex-cloud }} provides technical support under different service plans. You can choose the one that best suits you.
+{{ yandex-cloud }} provides technical support under different service plans. Choose the plan that suits you best.
 
 ## How to contact support {#response-time}
 
@@ -19,7 +19,7 @@ The maximum time it takes the support team to respond to your request is given i
 | Chat | - | 15 minutes | 5 minutes | immediate |
 | Phone | - | - | immediate | immediate |
 
-## Types of technical support requests {#request-types}
+## Types of requests to support {#request-types}
 
 The types of requests available depend on the selected plan and are shown in the table below.
 
@@ -35,15 +35,15 @@ The given list of services offered under the <q>Premium</q> plan isn't fixed and
 | Provide links to documentation | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
 | Diagnose errors in {{ yandex-cloud }} services and fix identified problems not related to third-party software | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
 | Address questions issues related to billing | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
-| Address frequently asked questions (including general questions like <q>How does this work?</q> and <q>What is it?</q>) about services and features of {{ yandex-cloud }} | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
-| Address questions or provide assistance when setting up services of {{ yandex-cloud }} | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
-| Address requests about your data in {{ yandex-cloud }} | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
+| Address frequently asked questions (including general questions like <q>How does this work?</q> and <q>What is it?</q>) about {{ yandex-cloud }} services and features | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
+| Address questions or provide assistance when setting up {{ yandex-cloud }} services | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
+| Address requests about your data in {{ yandex-cloud }}, including requests for personal data | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
 | Provide recommendations for service recovery in the event of a critical incident | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
 | Provide general recommendations about architecture |  | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
 | Address questions configuring third-party software and troubleshooting compatibility issues (provide reference to open sources of information) |  |  | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
-| Provide recommendations for fixing problems with operating systems and their components. |  |  | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
+| Provide recommendations for fixing problems with operating systems and their components |  |  | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
 | Provide recommendations for troubleshooting third-party software compatibility issues (direct help solving) |  |  |  | ![image](../_assets/common/yes.svg) |
-| Directly consult with a dedicated support engineer on how to solve architecture-related tasks based on your {{ yandex-cloud }} service usage scenario. |  |  |  | ![image](../_assets/common/yes.svg) |
+| Directly consult with a dedicated support engineer on how to solve architecture-related tasks based on your {{ yandex-cloud }} service usage scenario |  |  |  | ![image](../_assets/common/yes.svg) |
 | Personal technical manager |  |  |  | ![image](../_assets/common/yes.svg) |
 | Additional {{ yandex-cloud }} services (case-by-case basis) |  |  |  | ![image](../_assets/common/yes.svg) |
 
@@ -51,3 +51,12 @@ The given list of services offered under the <q>Premium</q> plan isn't fixed and
 
   * Develop software code.
   * Debug your personal software.
+
+## How to change a service plan {#change-service-plan}
+
+1. In the [management console]({{ link-console-support }}), go to the tab **Pricing plan**.
+1. Select a service plan and click **Switch**.
+1. Fill out the form and click **Submit**.
+
+The service plan is upgraded immediately when you submit the form. The service plan is downgraded on the first day of the next month.
+

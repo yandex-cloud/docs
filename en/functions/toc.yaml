@@ -9,7 +9,7 @@ items:
         href: quickstart/function-quickstart.md
       - name: Creating a timer
         href: quickstart/timer-quickstart.md
-      - name: Creating a trigger for Yandex Message Queue
+      - name: Creating a trigger for Message Queue
         href: quickstart/ymq-trigger-quickstart.md
       - name: Creating a trigger for Object Storage
         href: quickstart/os-trigger-quickstart.md
@@ -69,11 +69,11 @@ items:
     items:
       - name: Overview
         href: concepts/index.md
-      - name: Functions
+      - name: Function
         href: concepts/function.md
       - name: Invoking a function
         href: concepts/function-invoke.md
-      - name: Runtime environment
+      - name: Runtime
         items:
           - name: Overview
             href: concepts/runtime/index.md
@@ -83,7 +83,7 @@ items:
             href: concepts/runtime/execution-context.md
       - name: Builder
         href: concepts/builder.md
-      - name: Triggers
+      - name: Trigger
         items:
           - name: Overview
             href: concepts/trigger/index.md
@@ -99,6 +99,8 @@ items:
             href: concepts/trigger/cloudlogs-trigger.md
           - name: Trigger for Yandex IoT Core
             href: concepts/trigger/iot-core-trigger.md
+      - name: Dead Letter Queue
+        href: concepts/dlq.md
       - name: Log groups
         href: concepts/log-group.md
       - name: Monitoring
@@ -113,7 +115,7 @@ items:
         href: lang/nodejs/index.md
       - name: Managing dependencies
         href: lang/nodejs/dependencies.md
-      - name: Request handlers
+      - name: Request handler
         href: lang/nodejs/handler.md
       - name: Invocation context
         href: lang/nodejs/context.md
@@ -129,7 +131,7 @@ items:
         href: lang/python/index.md
       - name: Managing dependencies
         href: lang/python/dependencies.md
-      - name: Request handlers
+      - name: Request handler
         href: lang/python/handler.md
       - name: Invocation context
         href: lang/python/context.md
@@ -145,7 +147,7 @@ items:
         href: lang/golang/index.md
       - name: Managing dependencies
         href: lang/golang/dependencies.md
-      - name: Request handlers
+      - name: Request handler
         href: lang/golang/handler.md
       - name: Invocation context
         href: lang/golang/context.md
@@ -161,7 +163,7 @@ items:
         href: lang/php/index.md
       - name: Managing dependencies
         href: lang/php/dependencies.md
-      - name: Request handlers
+      - name: Request handler
         href: lang/php/handler.md
       - name: Invocation context
         href: lang/php/context.md
@@ -173,7 +175,7 @@ items:
     items:
       - name: Overview
         href: lang/bash/index.md
-      - name: Request handlers
+      - name: Request handler
         href: lang/bash/handler.md
       - name: Logging
         href: lang/bash/logging.md
@@ -185,17 +187,17 @@ items:
     items:
       - name: Overview
         href: lang/java/index.md
-      - name: Java programming model
+      - name: Programming model
         items:
           - name: Overview
             href: lang/java/model/index.md
-          - name: Using the Function interface to set a handler function
+          - name: Function interface
             href: lang/java/model/jdk-function.md
-          - name: Using the YcFunction interface to set a handler function
+          - name: YcFunction interface
             href: lang/java/model/yc-function.md
-          - name: Using the HttpServlet class to set a handler
+          - name: HttpServlet class
             href: lang/java/model/servlet-api.md
-          - name: Using the SpringBootApplication annotation to set a handler
+          - name: Spring Boot
             href: lang/java/model/spring-boot.md
       - name: Managing dependencies
         href: lang/java/dependencies.md
@@ -213,13 +215,13 @@ items:
     items:
       - name: Overview
         href: lang/r/index.md
-      - name: R programming model
+      - name: Programming model
         href: lang/r/model/index.md
-      - name: Building and managing dependencies
+      - name: Managing dependencies
         href: lang/r/dependencies.md
       - name: Request handler
         href: lang/r/handler.md
-      - name: context.md
+      - name: Invocation context
         href: lang/r/context.md
       - name: Logging
         href: lang/r/logging.md
@@ -229,15 +231,15 @@ items:
     items:
       - name: Overview
         href: lang/csharp/index.md
-      - name: C# programming model
+      - name: Programming model
         items:
           - name: Overview
             href: lang/csharp/model/index.md
-          - name: Using the Function interface to set a handler function
+          - name: Function interface
             href: lang/csharp/model/independent-function.md
-          - name: Using the YcFunction interface to set a handler function
+          - name: YcFunction interface
             href: lang/csharp/model/yc-function.md
-      - name: Building and managing dependencies
+      - name: Managing dependencies
         href: lang/csharp/dependencies.md
       - name: Request handler
         href: lang/csharp/handler.md
@@ -349,3 +351,4 @@ items:
                 href: triggers/api-ref/Trigger/update.md
   - name: Questions and answers
     href: qa/index.md
+base: en/functions

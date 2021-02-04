@@ -19,7 +19,7 @@ You can add and remove databases, as well as view information about them.
   To get a list of databases in a cluster, run the command:
 
   ```
-  $ yc managed-mongodb database list
+  $ {{ yc-mdb-mg }} database list
        --cluster-name <cluster name>
   ```
 
@@ -60,7 +60,7 @@ Created databases are not available to cluster users by default. To allow a user
   Run the create database command and set the name of the new database:
 
   ```
-  $ yc managed-mongodb database create <database name>
+  $ {{ yc-mdb-mg }} database create <database name>
       --cluster-name <cluster name>
   ```
 
@@ -94,7 +94,7 @@ Created databases are not available to cluster users by default. To allow a user
   To delete a database, run the command:
 
   ```
-  $ yc managed-mongodb database delete <database name>
+  $ {{ yc-mdb-mg }} database delete <database name>
        --cluster-name <cluster name>
   ```
 

@@ -186,3 +186,4 @@ items:
             href: grpc/operation_service.md
   - name: Вопросы и ответы
     href: qa/index.md
+base: ru/vpc

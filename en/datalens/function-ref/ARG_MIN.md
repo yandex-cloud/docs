@@ -14,7 +14,7 @@ ARG_MIN( value, comp )
 ```
 
 #### Description {#description}
-Returns `value` for the minimum value of `comp` in the group.
+Returns `value` for the minimum value of `comp` in the group. If multiple values of `value` match the minimum value of `comp`, then the first one encountered is returned. This makes the function non-deterministic.
 
 **Argument types:**
 - `value` — `Any`

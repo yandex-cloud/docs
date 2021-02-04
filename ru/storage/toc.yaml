@@ -117,7 +117,7 @@ items:
             href: tools/s3fs.md
           - name: goofys
             href: tools/goofys.md
-  - name: 'HTTP API, совместимый с Amazon S3'
+  - name: HTTP API, совместимый с Amazon S3
     items:
       - name: Как пользоваться API
         href: s3/index.md
@@ -279,3 +279,4 @@ items:
             href: pricing-archive/pricing-01032019.md
   - name: Вопросы и ответы
     href: qa.md
+base: ru/storage

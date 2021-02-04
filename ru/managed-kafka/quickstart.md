@@ -6,6 +6,7 @@
 1. [Создайте учетную запись](#account-create).
 1. [Подключитесь к кластеру](#connect).
 
+
 ## Перед началом работы {#before-you-begin}
 
 1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь, если вы еще не зарегистрированы.
@@ -78,14 +79,12 @@
 
 1. Установите на виртуальную машину SSL-сертификат:
 
-   
+
    ```
    $ sudo mkdir -p /usr/local/share/ca-certificates/Yandex
-   $ sudo wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" -O /usr/local/share/ca-certificates/Yandex/YandexCA.crt
+   $ sudo wget "https://{{ s3-storage-host }}{{ pem-path }}" -O /usr/local/share/ca-certificates/Yandex/YandexCA.crt
    $ sudo chmod 655 /usr/local/share/ca-certificates/Yandex/YandexCA.crt
    ```
-
-  
 
 1. Чтобы отправить сообщение в топик, выполните команду:
 

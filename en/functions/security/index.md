@@ -1,10 +1,9 @@
 # Access management
 
-Yandex.Cloud users can only perform operations on resources that are permitted under the roles assigned to them.
+{{ yandex-cloud }} users can only perform operations on resources that are allowed by the roles assigned to them.
 If a user doesn't have any roles assigned, almost all operations are forbidden.
 
-To allow access to {{ sf-name }} service resources (functions and their versions),
-assign users applicable roles from the list below. Roles can currently only be assigned to parent resources (folder or cloud), whose roles are inherited by nested resources.
+To allow access to {{ sf-name }} service resources (functions and their versions), assign users applicable roles from the list below. For now, a role can be assigned for a parent resource (folder or cloud) or a function.
 
 {% note info %}
 
@@ -38,7 +37,7 @@ The `{{ roles-editor }}` role also includes all `{{ roles-viewer }}` role permis
 
 ### {{ roles-admin }} {#admin}
 
-The user with the `{{ roles-admin }}` role can manage access rights to resources, such as allow other users to call functions or work with their versions.
+The user with the `{{ roles-admin }}` role can manage access rights to resources, such as allow other users to invoke functions or work with their versions.
 
 The `{{ roles-admin }}` role also includes all `{{ roles-editor }}` role permissions.
 

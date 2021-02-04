@@ -36,8 +36,8 @@
 access_key = id
 secret_key = secretKey
 bucket_location = ru-central1
-host_base = storage.yandexcloud.net
-host_bucket = %(bucket)s.storage.yandexcloud.net
+host_base = {{ s3-storage-host }}
+host_bucket = %(bucket)s.{{ s3-storage-host }}
 ```
 
 При необходимости эти настройки можно изменить напрямую в файле. Также можно указать настройки при запуске программы с помощью соответствующих параметров.
@@ -45,7 +45,7 @@ host_bucket = %(bucket)s.storage.yandexcloud.net
 Для корректной работы команд, управляющих хостингом статических сайтов, в конфигурационный файл необходимо вручную добавить параметр
 
 ```
-website_endpoint = http://%(bucket)s.website.yandexcloud.net
+website_endpoint = http://%(bucket)s.{{ s3-web-host }}
 ```
 
 ## Особенности {#specifics}

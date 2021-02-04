@@ -25,13 +25,13 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
   1. View a description of the CLI create {{ CH }} backup command:
 
       ```
-      $ yc managed-clickhouse cluster backup --help
+      $ {{ yc-mdb-ch }} cluster backup --help
       ```
 
   1. Request creation of a backup specifying the cluster name or ID:
 
       ```
-      $ yc managed-clickhouse cluster backup my-ch-cluster
+      $ {{ yc-mdb-ch }} cluster backup my-ch-cluster
       ```
 
       The cluster name and ID can be retrieved with the [list of clusters](cluster-list.md#list-clusters).
@@ -65,13 +65,13 @@ For a new cluster, you should set all the parameters that are required at creati
   1. View the description of the CLI's restore cluster command {{ CH }}:
 
       ```
-      $ yc managed-clickhouse cluster restore --help
+      $ {{ yc-mdb-ch }} cluster restore --help
       ```
 
   1. Getting a list of available {{ CH }} cluster backups:
 
       ```
-      $ yc managed-clickhouse backup list
+      $ {{ yc-mdb-ch }} backup list
       
       +--------------------------+----------------------+----------------------+----------------------+
       |            ID            |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
@@ -83,31 +83,27 @@ For a new cluster, you should set all the parameters that are required at creati
 
   1. Request creation of a cluster from a backup:
 
-      
+
       ```
-      $ yc managed-clickhouse cluster restore \
+      $ {{ yc-mdb-ch }} cluster restore \
              --backup-id c9q22suuefrmrp2lrv9f:20181109T101204 \
              --name mynewch \
              --environment=PRODUCTION \
-             --network-name default \
-             --host type=clickhouse,zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch63 \
+             --network-name {{ network-name }} \
+             --host type=clickhouse,zone-id={{ zone-id }},subnet-id=b0rcctk2rvtr8efcch63 \
              --clickhouse-disk-size 20 \
              --clickhouse-disk-type network-ssd \
-             --clickhouse-resource-preset s2.micro
+             --clickhouse-resource-preset {{ host-class }}
       ```
-
-     
 
       This results in a new {{ CH }} cluster with the following characteristics:
 
-            - Named `mynewch`.
+      - Named `mynewch`.
       - In the `PRODUCTION` environment.
       - In the `{{ network-name }}` network.
       - With a single `{{ host-class }}` class host in the `b0rcctk2rvtr8efcch63` subnet of the `{{ zone-id }}` availability zone.
       - With the databases and users from the backup.
       - With 20 GB fast network storage (`{{ disk-type-example }}`).
-
-     
 
 {% endlist %}
 
@@ -130,7 +126,7 @@ For a new cluster, you should set all the parameters that are required at creati
   To get a list of {{ CH }} cluster backups available in the default folder, run the command:
 
   ```
-  $ yc managed-clickhouse backup list
+  $ {{ yc-mdb-ch }} backup list
   
   +----------+----------------------+----------------------+----------------------+
   |    ID    |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
@@ -161,7 +157,7 @@ For a new cluster, you should set all the parameters that are required at creati
   To get information about a {{ CH }} cluster backup, run the command:
 
   ```
-  $ yc yc managed-clickhouse backup get <backup ID>
+  $ yc {{ yc-mdb-ch }} backup get <backup ID>
   ```
 
   The backup ID can be retrieved with the [list of backups](#list-backups) .
@@ -181,7 +177,7 @@ For a new cluster, you should set all the parameters that are required at creati
   To set the backup start time, use the `-- backup-window-start` flag. Time is given in ``HH:MM:SS`` format.
 
   ```
-  $ yc yc managed-clickhouse cluster create \
+  $ yc {{ yc-mdb-ch }} cluster create \
         --name <cluster name> \
         --environment <prestable or production> \
         --network-name <network name> \
@@ -197,7 +193,7 @@ For a new cluster, you should set all the parameters that are required at creati
   To change the backup start time in an existing cluster, use the `update` command:
 
   ```
-  $ yc yc managed-clickhouse cluster update \
+  $ yc {{ yc-mdb-ch }} cluster update \
      --name <cluster name> \
      --backup-window-start 11:25:00
   ```

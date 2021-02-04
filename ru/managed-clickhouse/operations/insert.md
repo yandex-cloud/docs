@@ -132,7 +132,7 @@ pip3 install protobuf varint pycapnp
      import capnp
      from user_capnp import User
 
-     DB_HOST="<FQDN хоста ClickHouse>"
+     DB_HOST="<FQDN хоста {{ CH }}>"
      DB_NAME="db1"
      DB_USER="<имя пользователя БД>"
      DB_PASS="<пароль пользователя БД>"
@@ -198,7 +198,7 @@ pip3 install protobuf varint pycapnp
      import varint
      from user_pb2 import User
 
-     DB_HOST="<FQDN хоста ClickHouse>"
+     DB_HOST="<FQDN хоста {{ CH }}>"
      DB_NAME="db1"
      DB_USER="<имя пользователя БД>"
      DB_PASS="<пароль пользователя БД>"
