@@ -10,6 +10,7 @@ default:
   link-org-main: https://org.cloud.yandex.ru
   link-org-users: https://org.cloud.yandex.ru/users
   link-org-settings: https://org.cloud.yandex.ru/settings
+  link-org-federations: https://org.cloud.yandex.ru/federations
   
   #Ссылки на сервисы Яндекса  
   link-passport: https://passport.yandex.ru/
