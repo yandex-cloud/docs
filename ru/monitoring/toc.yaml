@@ -40,15 +40,15 @@ items:
       - name: Работа с Unified Agent
         items:
           - name: Все инструкции по работе с Unified Agent
-            href: operations/unified-agent/quickstart/index.md
+            href: operations/unified-agent/index.md
           - name: Поставка системных метрик Linux
-            href: operations/unified-agent/quickstart/linux_metrics.md
+            href: operations/unified-agent/linux_metrics.md
           - name: Поставка метрик пользовательских приложений
-            href: operations/unified-agent/quickstart/pull_prometheus.md
+            href: operations/unified-agent/pull_prometheus.md
           - name: Поставка метрик HAProxy и других сторонних приложений
-            href: operations/unified-agent/quickstart/haproxy.md
+            href: operations/unified-agent/haproxy.md
           - name: Поставка метрик с хостов вне Яндекс.Облака
-            href: operations/unified-agent/quickstart/non-yc.md
+            href: operations/unified-agent/non-yc.md
   - name: Концепции
     items:
       - name: Обзор сервиса
@@ -70,13 +70,13 @@ items:
           - name: Unified Agent для поставки метрик
             items:
             - name: Обзор
-              href: data-collection/unified-agent/index.md
+              href: concepts/data-collection/unified-agent/index.md
             - name: Установка и запуск
-              href: data-collection/unified-agent/installation.md
+              href: concepts/data-collection/unified-agent/installation.md
             - name: Конфигурирование
-              href: data-collection/unified-agent/configuration.md
+              href: concepts/data-collection/unified-agent/configuration.md
             - name: Рекомендации по использованию агента
-              href: data-collection/unified-agent/best-practices.md
+              href: concepts/data-collection/unified-agent/best-practices.md
       - name: Язык запросов
         href: concepts/querying.md
       - name: Алертинг

@@ -36,7 +36,7 @@
 
        {% include [ua-docker-install](../../../../_includes/monitoring/ua-docker-install.md) %}
 
-       Другие способы установки агента описаны в разделе [{#T}](../../concepts/agent/installation.md).
+       Другие способы установки агента описаны в разделе [{#T}](../../concepts/unified-agent/installation.md).
 
    1. Создайте в домашнем каталоге файл **config.yml** со следующим содержимым, заменив строку `<FOLDER_ID>` на идентификатор каталога, куда будут записываться метрики, и указав имя файла с параметрами JWT в секции `iam.jwt.file` :
 
@@ -66,6 +66,6 @@
 
 ## Что дальше {#next-steps}
 
-- [Изучите концепции Unified Agent](../../concepts/agent/idnex.md)
-- [Узнайте подробнее о конфигурировании Unified Agent](../../concepts/agent/configuration.md)
-- [Ознакомьтесь с рекомендациями по эксплуатации Unified Agent](../../concepts/agent/best-practices.md)
+- [Изучите концепции Unified Agent](../../concepts/unified-agent/idnex.md)
+- [Узнайте подробнее о конфигурировании Unified Agent](../../concepts/unified-agent/configuration.md)
+- [Ознакомьтесь с рекомендациями по эксплуатации Unified Agent](../../concepts/unified-agent/best-practices.md)
