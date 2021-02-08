@@ -45,7 +45,7 @@
     - `create` — [создать пользователя {{ PG }}](../../../managed-postgresql/operations/cluster-users.md#adduser).
     - `update` — [изменить указанного пользователя {{ PG }}](../../../managed-postgresql/operations/cluster-users.md#updateuser).
     - `delete` — [удалить указанного пользователя {{ PG }}](../../../managed-postgresql/operations/cluster-users.md#removeuser).
-    - `grant-permission` — предоставить права указанному пользователя {{ PG }}.
+    - `grant-permission` — предоставить права указанному пользователю {{ PG }}.
     - `revoke-permission` — аннулировать права указанного пользователя {{ PG }}.
 - `yc managed-postgresql backup` — управление [резервными копиями {{ PG }}](../../../managed-postgresql/concepts/backup.md).
     - `get` — [получить информацию об указанной резервной копии {{ PG }}](../../../managed-postgresql/operations/cluster-backups.md#get-backup).
