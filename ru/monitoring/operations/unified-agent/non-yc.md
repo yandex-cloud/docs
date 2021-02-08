@@ -66,6 +66,6 @@
 
 ## Что дальше {#next-steps}
 
-- [Изучите концепции Unified Agent](../../concepts/data-collection/unified-agent/idnex.md)
+- [Изучите концепции Unified Agent](../../concepts/data-collection/unified-agent/index.md)
 - [Узнайте подробнее о конфигурировании Unified Agent](../../concepts/data-collection/unified-agent/configuration.md)
 - [Ознакомьтесь с рекомендациями по эксплуатации Unified Agent](../../concepts/data-collection/unified-agent/best-practices.md)
