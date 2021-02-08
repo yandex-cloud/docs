@@ -37,6 +37,18 @@ items:
             href: operations/alert/create-channel.md
           - name: Удаление алерта
             href: operations/alert/delete-alert.md
+      - name: Работа с Unified Agent
+        items:
+          - name: Все инструкции по работе с Unified Agent
+            href: operations/unified-agent/quickstart/index.md
+          - name: Поставка системных метрик Linux
+            href: operations/unified-agent/quickstart/linux_metrics.md
+          - name: Поставка метрик пользовательских приложений
+            href: operations/unified-agent/quickstart/pull_prometheus.md
+          - name: Поставка метрик HAProxy и других сторонних приложений
+            href: operations/unified-agent/quickstart/haproxy.md
+          - name: Поставка метрик с хостов вне Яндекс.Облака
+            href: operations/unified-agent/quickstart/non-yc.md
   - name: Концепции
     items:
       - name: Обзор сервиса
@@ -53,6 +65,18 @@ items:
             href: concepts/visualization/widget.md
           - name: Дашборд
             href: concepts/visualization/dashboard.md
+      - name: Передача метрик
+        items:
+          - name: Unified Agent для поставки метрик
+            items:
+            - name: Обзор
+              href: data-collection/unified-agent/index.md
+            - name: Установка и запуск
+              href: data-collection/unified-agent/installation.md
+            - name: Конфигурирование
+              href: data-collection/unified-agent/configuration.md
+            - name: Рекомендации по использованию агента
+              href: data-collection/unified-agent/best-practices.md
       - name: Язык запросов
         href: concepts/querying.md
       - name: Алертинг
@@ -63,34 +87,6 @@ items:
         href: concepts/ttl.md
       - name: Квоты и лимиты
         href: concepts/limits.md
-  - name: Передача метрик
-    items:
-      - name: Агент для поставки метрик
-        items:
-        - name: Обзор
-          href: data-collection/agent/index.md
-        - name: Начало работы
-          items:
-            - name: Все инструкции
-              href: data-collection/agent/quickstart/index.md
-            - name: Поставка системных метрик Linux
-              href: data-collection/agent/quickstart/linux_metrics.md
-            - name: Поставка метрик пользовательских приложений
-              href: data-collection/agent/quickstart/pull_prometheus.md
-            - name: Поставка метрик HAProxy и других сторонних приложений
-              href: data-collection/agent/quickstart/haproxy.md
-            - name: Поставка метрик с хостов вне Яндекс.Облака
-              href: data-collection/agent/quickstart/non-yc.md
-        - name: Основные понятия
-          href: data-collection/agent/concepts.md
-        - name: Установка и запуск
-          href: data-collection/agent/installation.md
-        - name: Конфигурирование
-          href: data-collection/agent/configuration.md
-        - name: Рекомендации по использованию агента
-          href: data-collection/agent/best-practices.md
-        - name: Часто задаваемые вопросы
-          href: data-collection/agent/faq.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
