@@ -6,7 +6,7 @@
 
 1. Настройте сервисный аккаунт, от имени которого будут записываться метрики в {{ monitoring-full-name }} и создайте авторизованный ключ.
 
-   1. Создайте сервисный аккаунт с ролью `editor` в каталоге, куда будут записываться метрики. Подробнее необходимые для этого шаги описаны в разделах [{#T}](../../../../iam/operations/sa/create.md) и [{#T}](../../../../iam/operations/sa/assign-role-for-sa.md).
+   1. Создайте сервисный аккаунт с ролью `editor` в каталоге, куда будут записываться метрики. Подробнее необходимые для этого шаги описаны в разделах [{#T}](../../../iam/operations/sa/create.md) и [{#T}](../../../iam/operations/sa/assign-role-for-sa.md).
 
    1. Создайте авторизованный ключ для созданного сервисного аккаунта, например, при помощи утилиты `yc`, выполнив следующую команду, заменив строку `<SA_ID>` на идентификатор сервисного аккаунта:
 
@@ -14,7 +14,7 @@
        yc iam key create --service-account-id <SA_ID> --output jwt_params.json
        ```
 
-       Подробнее создание авторизованных ключей описано в разделе [{#T}](../../../../iam/operations/authorized-key/create.md).
+       Подробнее создание авторизованных ключей описано в разделе [{#T}](../../../iam/operations/authorized-key/create.md).
 
    1. Доставьте файл **jwt_params.json** с параметрами авторизованного ключа на хост, где установлен {{unified-agent-short-name}}.
 
@@ -34,9 +34,9 @@
 
    1. Установите {{unified-agent-short-name}} в свою виртуальную машину, выполнив в домашнем каталоге следующую команду:
 
-       {% include [ua-docker-install](../../../../_includes/monitoring/ua-docker-install.md) %}
+       {% include [ua-docker-install](../../../_includes/monitoring/ua-docker-install.md) %}
 
-       Другие способы установки агента описаны в разделе [{#T}](../../concepts/unified-agent/installation.md).
+       Другие способы установки агента описаны в разделе [{#T}](../../concepts/data-collection/unified-agent/installation.md).
 
    1. Создайте в домашнем каталоге файл **config.yml** со следующим содержимым, заменив строку `<FOLDER_ID>` на идентификатор каталога, куда будут записываться метрики, и указав имя файла с параметрами JWT в секции `iam.jwt.file` :
 
@@ -66,6 +66,6 @@
 
 ## Что дальше {#next-steps}
 
-- [Изучите концепции Unified Agent](../../concepts/unified-agent/idnex.md)
-- [Узнайте подробнее о конфигурировании Unified Agent](../../concepts/unified-agent/configuration.md)
-- [Ознакомьтесь с рекомендациями по эксплуатации Unified Agent](../../concepts/unified-agent/best-practices.md)
+- [Изучите концепции Unified Agent](../../concepts/data-collection/unified-agent/idnex.md)
+- [Узнайте подробнее о конфигурировании Unified Agent](../../concepts/data-collection/unified-agent/configuration.md)
+- [Ознакомьтесь с рекомендациями по эксплуатации Unified Agent](../../concepts/data-collection/unified-agent/best-practices.md)

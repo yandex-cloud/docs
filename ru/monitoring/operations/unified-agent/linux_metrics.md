@@ -1,6 +1,6 @@
 # Поставка системных метрик Linux
 
-Для поставки в {{ monitoring-full-name }} системных метрик виртуальных машин, работающих на Linux-совместимых операционных системах, используется вход `linux_metrics`. Подробнее работа этого входа описана в разделе [{#T}](../../concepts/unified-agent/configuration.md#linux_metrics_input).
+Для поставки в {{ monitoring-full-name }} системных метрик виртуальных машин, работающих на Linux-совместимых операционных системах, используется вход `linux_metrics`. Подробнее работа этого входа описана в разделе [{#T}](../../concepts/data-collection/unified-agent/configuration.md#linux_metrics_input).
 
 {% note warning %}
 
@@ -14,17 +14,17 @@
 
 1. Настройте сервисный аккаунт, от имени которого будут записываться метрики в {{ monitoring-full-name }}.
 
-   1. Создайте сервисный аккаунт с ролью `editor` в каталоге, куда будут записываться метрики. Подробнее необходимые для этого шаги описаны в разделах [{#T}](../../../../iam/operations/sa/create.md) и [{#T}](../../../../iam/operations/sa/assign-role-for-sa.md).
+   1. Создайте сервисный аккаунт с ролью `editor` в каталоге, куда будут записываться метрики. Подробнее необходимые для этого шаги описаны в разделах [{#T}](../../../iam/operations/sa/create.md) и [{#T}](../../../iam/operations/sa/assign-role-for-sa.md).
 
-   1. Привяжите сервисный аккаунт к виртуальной машине, на которой установлен {{unified-agent-short-name}}. Подробнее шаги для этого описаны в разделе [{#T}](../../../../compute/operations/vm-connect/auth-inside-vm.md#link-sa-with-instance).
+   1. Привяжите сервисный аккаунт к виртуальной машине, на которой установлен {{unified-agent-short-name}}. Подробнее шаги для этого описаны в разделе [{#T}](../../../compute/operations/vm-connect/auth-inside-vm.md#link-sa-with-instance).
 
 1. Установите и настройте {{unified-agent-full-name}}.
 
    1. Установите {{unified-agent-short-name}} в свою виртуальную машину, выполнив в домашнем каталоге следующую команду:
 
-       {% include [ua-docker-install](../../../../_includes/monitoring/ua-docker-install.md) %}
+       {% include [ua-docker-install](../../../_includes/monitoring/ua-docker-install.md) %}
 
-       Другие способы установки агента описаны в разделе [{#T}](../../concepts/unified-agent/installation.md).
+       Другие способы установки агента описаны в разделе [{#T}](../../concepts/data-collection/unified-agent/installation.md).
 
    1. Создайте в домашнем каталоге файл **config.yml** со следующим содержимым, заменив строку `<FOLDER_ID>` на идентификатор каталога, куда будут записываться метрики:
 
@@ -53,6 +53,6 @@
 
 ## Что дальше {#next-steps}
 
-- [Изучите концепции Unified Agent](../../concepts/unified-agent/index.md)
-- [Узнайте подробнее о конфигурировании Unified Agent](../../concepts/unified-agent/configuration.md)
-- [Ознакомьтесь с рекомендациями по эксплуатации Unified Agent](../../concepts/unified-agent/best-practices.md)
+- [Изучите концепции Unified Agent](../../concepts/data-collection/unified-agent/index.md)
+- [Узнайте подробнее о конфигурировании Unified Agent](../../concepts/data-collection/unified-agent/configuration.md)
+- [Ознакомьтесь с рекомендациями по эксплуатации Unified Agent](../../concepts/data-collection/unified-agent/best-practices.md)
