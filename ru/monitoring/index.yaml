@@ -22,7 +22,7 @@ links:
     href: "concepts/"
   - title: "Агент для поставки метрик"
     description: "Настройте сбор метрик ваших приложений при помощи Yandex Unified Agent"
-    href: "data-collection/agent/"
+    href: "concepts/data-collection/unified-agent/installation"
   - title: "Язык запросов"
     description: "Описание языка запросов для преобразования метрик"
     href: "concepts/querying"
