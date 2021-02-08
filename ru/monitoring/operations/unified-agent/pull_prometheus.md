@@ -2,7 +2,7 @@
 
 {{unified-agent-full-name}} поддерживает сбор метрик в формате Prometheus и конвертацию метрик в формат {{ monitoring-full-name }}. Таким образом, при помощи {{unified-agent-short-name}} можно собирать метрики любых приложений, предоставляющих метрики в формате Prometheus.
 
-Для поставки в {{ monitoring-full-name }} метрик пользовательских приложений используется вход `prometheus_pull`, который периодически опрашивает приложение по HTTP, ожидая получить метрики в формате Prometheus. Подробнее работа этого входа описана в разделе [{#T}](../../concepts/agent/configuration.md#prometheus_pull_input).
+Для поставки в {{ monitoring-full-name }} метрик пользовательских приложений используется вход `prometheus_pull`, который периодически опрашивает приложение по HTTP, ожидая получить метрики в формате Prometheus. Подробнее работа этого входа описана в разделе [{#T}](../../concepts/unified-agent/configuration.md#prometheus_pull_input).
 
 Для примера рассмотрим сбор метрик в формате Prometheus с тестового приложения на Python. Описанная методика может также применяться для поставки метрик любых пользовательских приложений, использующих [клиентские библиотеки Prometheus](https://prometheus.io/docs/instrumenting/clientlibs/).
 
@@ -72,7 +72,7 @@
 
        {% include [ua-docker-install](../../../../_includes/monitoring/ua-docker-install.md) %}
 
-       Другие способы установки агента описаны в разделе [{#T}](../../concepts/agent/installation.md).
+       Другие способы установки агента описаны в разделе [{#T}](../../concepts/unified-agent/installation.md).
 
    1. Создайте в домашнем каталоге файл **config.yml** со следующим содержимым, заменив строку `<FOLDER_ID>` на идентификатор каталога, куда будут записываться метрики:
 
@@ -101,6 +101,6 @@
 
 ## Что дальше {#next-steps}
 
-- [Изучите концепции Unified Agent](../../concepts/agent/index.md)
-- [Узнайте подробнее о конфигурировании Unified Agent](../../concepts/agent/configuration.md)
-- [Ознакомьтесь с рекомендациями по эксплуатации Unified Agent](../../concepts/agent/best-practices.md)
+- [Изучите концепции Unified Agent](../../concepts/unified-agent/index.md)
+- [Узнайте подробнее о конфигурировании Unified Agent](../../concepts/unified-agent/configuration.md)
+- [Ознакомьтесь с рекомендациями по эксплуатации Unified Agent](../../concepts/unified-agent/best-practices.md)
