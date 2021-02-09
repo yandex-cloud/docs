@@ -11,7 +11,7 @@
   - при невозможности использовать публичный IPv4-адрес обратитесь с разделу [{#T}](#docker-with-ipv6);
 
 - создан сервисный аккаунт с ролью `editor` в каталоге, куда будут записываться метрики;
-  - подробнее необходимые для этого шаги описаны в разделах [{#T}](../../../../iam/operations/sa/create.md) и [{#T}](../../../../iam/operations/sa/assign-role-for-sa.md).
+  - подробнее необходимые для этого шаги описаны в разделах [{#T}](../../../../iam/operations/sa/create.md) и [{#T}](../../../../iam/operations/sa/assign-role-for-sa.md);
 
 - сервисный аккаунт [привязан к виртуальной машине](../../../../compute/operations/vm-connect/auth-inside-vm.md#link-sa-with-instance), на которую установлен агент.
 
@@ -61,7 +61,7 @@
 
 ## Конфигурирование Docker-образа Unified Agent { #configure-docker }
 
-Если вы устанавливаете {{unified-agent-short-name}} при помощи Docker-образа, вы можете сконфигурировать агент с помощью переменных окружения, чтобы не редактировать файл конфигурации по умолчанию `/etc/yandex/unified_agent/config.yml`. Список переменных окружения, которыми можно управлять, перечислен в таблице ниже.
+Если вы устанавливаете {{unified-agent-short-name}} при помощи Docker-образа, вы можете сконфигурировать агент с помощью переменных окружения, чтобы не редактировать файл конфигурации по умолчанию расположенный в `/etc/yandex/unified_agent/config.yml`. Список переменных окружения, которыми можно управлять, перечислен в таблице ниже.
 
 Переменная окружения | Значение по умолчанию | Описание
 -------------------- | --------------------- | --------
@@ -78,39 +78,39 @@
 
 1. Отредактируйте файл `sudo vim /etc/docker/daemon.json` и добавьте в него следующие строки:
 
-  ```json
-  {
-      "ipv6": true,
-      "fixed-cidr-v6": "fd00::/80"
-  }
-  ```
+    ```json
+    {
+        "ipv6": true,
+        "fixed-cidr-v6": "fd00::/80"
+    }
+    ```
 
 1. Включите трансляцию сетевых адресов:
 
-  ```bash
-  sudo apt install iptables-persistent netfilter-persistent -y
-  sudo systemctl start netfilter-persistent
-  sudo systemctl enable netfilter-persistent
-  sudo iptables -P FORWARD ACCEPT
-  sudo ip6tables -t nat -A POSTROUTING -s fd00::/80 ! -o docker0 -j MASQUERADE
-  sudo netfilter-persistent save
-  ```
+    ```bash
+    sudo apt install iptables-persistent netfilter-persistent -y
+    sudo systemctl start netfilter-persistent
+    sudo systemctl enable netfilter-persistent
+    sudo iptables -P FORWARD ACCEPT
+    sudo ip6tables -t nat -A POSTROUTING -s fd00::/80 ! -o docker0 -j MASQUERADE
+    sudo netfilter-persistent save
+    ```
 
 1. Перезапустите Docker:
 
-  ```bash
-  sudo systemctl reload docker
-  sudo systemctl restart docker
-  docker network inspect bridge
-  ```
+    ```bash
+    sudo systemctl reload docker
+    sudo systemctl restart docker
+    docker network inspect bridge
+    ```
 
 1. Если после этого агент, запущенный в Docker по-прежнему не передает метрики, попробуйте выполнить следующие команды:
 
-  ```bash
-  sudo ip -6 route add 2001:db8:1::/64 dev docker0
-  sudo sysctl net.ipv6.conf.default.forwarding=1
-  sudo sysctl net.ipv6.conf.all.forwarding=1
-  ```
+    ```bash
+    sudo ip -6 route add 2001:db8:1::/64 dev docker0
+    sudo sysctl net.ipv6.conf.default.forwarding=1
+    sudo sysctl net.ipv6.conf.all.forwarding=1
+    ```
 
 Подробнее в [официальной документации Docker](https://docs.docker.com/config/daemon/ipv6/) и [следующем посте](https://medium.com/@skleeschulte/how-to-enable-ipv6-for-docker-containers-on-ubuntu-18-04-c68394a219a2).
 
