@@ -37,10 +37,8 @@ items:
             href: operations/alert/create-channel.md
           - name: Удаление алерта
             href: operations/alert/delete-alert.md
-      - name: Работа с Unified Agent
+      - name: Работа с агентом для поставки метрик
         items:
-          - name: Все инструкции по работе с Unified Agent
-            href: operations/unified-agent/index.md
           - name: Поставка системных метрик Linux
             href: operations/unified-agent/linux_metrics.md
           - name: Поставка метрик пользовательских приложений
@@ -67,7 +65,7 @@ items:
             href: concepts/visualization/dashboard.md
       - name: Передача метрик
         items:
-          - name: Unified Agent для поставки метрик
+          - name: Агент для поставки метрик
             items:
             - name: Обзор
               href: concepts/data-collection/unified-agent/index.md

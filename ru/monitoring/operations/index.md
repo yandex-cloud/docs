@@ -21,3 +21,8 @@
 - [{#T}](alert/create-channel.md)
 - [{#T}](alert/delete-alert.md)
 
+## Работа с агентом для поставки метрик {#working-with-agent}
+- [{#T}](linux_metrics.md)
+- [{#T}](pull_prometheus.md)
+- [{#T}](haproxy.md)
+- [{#T}](non-yc.md)
