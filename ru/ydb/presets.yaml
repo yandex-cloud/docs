@@ -104,6 +104,17 @@ default:
   yandex-cloud: Yandex.Cloud
   s3-storage-host: storage.yandexcloud.net
   yc-ydb: yc ydb
+
+  # Роли
+  roles-admin: admin
+  roles-owner: owner
+  roles-editor: editor
+  roles-viewer: viewer
+
+  # Ссылки
+  link-console-billing: https://console.cloud.yandex.ru/billing
+  link-console-main: https://console.cloud.yandex.ru/
+
 tech:
   audience: tech
   ydb-cli: ya ydb

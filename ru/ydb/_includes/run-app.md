@@ -1,4 +1,4 @@
-Чтобы запустить приложение и подключиться к базе:
+Чтобы подключиться к базе и запустить тестовое приложение:
 
 {% list tabs %}
 
@@ -11,12 +11,27 @@
       sudo pip3 install iso8601 ydb yandexcloud
       ```
 
-  1. Создайте авторизованный ключ для вашего сервисного аккаунта, запишите его файл {% if deploy != "arc" %}[с помощью CLI](../../iam/operations/iam-token/create-for-sa#via-cli){% else %}с помощью CLI{% endif %} и установите переменную окружения `SA_KEY_FILE`:
+  1. Создайте авторизованный ключ для вашего сервисного аккаунта, запишите его файл {% if deploy != "arc" %}[с помощью CLI](../../iam/operations/iam-token/create-for-sa#via-cli){% else %}с помощью CLI{% endif %}:
 
-      ```bash
-      yc iam key create --service-account-name sa-name -o  ~/.ydb/sa_name.json
-      export SA_KEY_FILE=~/.ydb/sa_name.json
-      ```
+     1. Посмотрите описание команды:
+        
+        ```bash
+        yc iam key create --help
+        ```
+     1. Выполните команду, указав следующие параметры:
+
+        * `folder-id` — идентификатор каталога.
+        * `service-account-name` — имя сервисного аккаунта.
+
+        ```bash
+        yc iam key create --folder-id b1geoelk7fldts6chmjq --service-account-name sa-ydb-user --output ~/.ydb/sa_name.json
+        ```
+
+  1. Установите переменную окружения `SA_KEY_FILE`:
+
+     ```bash
+     export SA_KEY_FILE=~/.ydb/sa_name.json
+     ```
 
      {% note info %}
 
@@ -28,11 +43,17 @@
 
      {% endnote %}
 
-  1. Запустите тестовое приложение `basic_example_v1` из репозитория `ydb-python-sdk`, указав в качестве параметров запуска значения, полученные ранее:
+  1. Запустите тестовое приложение `basic_example_v1` из репозитория `ydb-python-sdk`, указав в качестве параметров запуска значения:
+
+      * `protocol` — наименование протокола для доступа к базе, например, `grpcs`.
+      * `endpoint` — эндпоинт базы данных.
+      * `database` — идентификатор базы данных.
 
       ```bash
       cd ./ydb-python-sdk/examples/basic_example_v1
-      python3 __main__.py -e protocol://endpoint -d database
+      python3 __main__.py \
+      -e grpcs://ydb.serverless.yandexcloud.net:2135 \
+      -d /ru-central1/b1gia87mbaomkfvsleds/etn03o8tbtd3r07sner3
       ```
 
       Результат выполнения приложения:
@@ -70,16 +91,25 @@
       ```
 
   1. Получите IAM-токен для необходимого сервисного аккаунта {% if deploy != "arc" %}[с помощью CLI](../../iam/operations/iam-token/create-for-sa#via-cli){% else %}с помощью CLI{% endif %}:
+     
+     1. Посмотрите описание команды:
+        
+        ```bash
+        yc iam key create --help
+        ```
+     1. Выполните команду: 
 
-      ```bash
-      yc iam key create --service-account-name sa_name -o  ~/.ydb/sa_name.json
-      ```
+        ```bash
+        yc iam key create --service-account-name sa_name -o  ~/.ydb/sa_name.json
+        ```
 
-  1. Установите переменные окружения, необходимые для аутентификации приложения:
+  1. Установите переменную окружения `SA_SERVICE_FILE`, необходимую для аутентификации приложения:
 
       ```bash
       export SA_SERVICE_FILE=~/.ydb/sa_name.json
       ```
+
+      Где:
 
       * `SA_SERVICE_FILE` — локальный путь к файлу с IAM токеном.
 
@@ -98,17 +128,13 @@
       Результат выполнения приложения:
 
       ```bash
-      inspecting Database
-
-      > describe_table_options:
-
-      > describe table: /global/path/todatabase/series
+      > describe table: /ru-central1/b1gia87mbaomkfvsleds/etn0061p28k0t9rajt8d/series
       column, name: Optional<Uint64>, series_id
       column, name: Optional<Utf8>, title
       column, name: Optional<Utf8>, series_info
       column, name: Optional<Uint64>, release_date
       column, name: Optional<Utf8>, comment
-
+  
       > select_simple_transaction: 1 IT Crowd 2006-02-03
       ```
 
@@ -125,9 +151,16 @@
 
   1. Получите IAM-токен для необходимого сервисного аккаунта {% if deploy != "arc" %}[с помощью CLI](../../iam/operations/iam-token/create-for-sa#via-cli){% else %}с помощью CLI{% endif %}:
 
-      ```bash
-      yc iam key create --service-account-name sa_name -o  ~/.ydb/sa_name.json
-      ```
+     1. Посмотрите описание команды:
+        
+        ```bash
+        yc iam key create --help
+        ```
+     1. Выполните команду:
+
+        ```bash
+        yc iam key create --service-account-name sa_name -o  ~/.ydb/sa_name.json
+        ```
 
      {% note info %}
 
@@ -144,11 +177,16 @@
       ```bash
       export SA_JSON_FILE=~/.ydb/sa_name.json
       export IAM_ENDPOINT=iam.api.cloud.yandex.net:443
+      export ENTRYPOINT=grpcs://<эндпоинт>
+      export DB=<база данных>
       export YDB_SDK_LOGLEVEL=debug
       ```
+      Где:
 
       * `SA_JSON_FILE` — локальный путь к файлу с IAM токеном.
       * `IAM_ENDPOINT` — эндпоинт IAM, установите значение `iam.api.cloud.yandex.net:443`.
+      * `ENTRYPOINT` — эндпоинт базы данных.
+      * `DB` — идентификатор базы данных YDB.
       * `YDB_SDK_LOGLEVEL` — уровень логирования, установите значение `debug`.
 
   1. Запустите тестовое приложение `basic_example_v1`:
@@ -160,37 +198,43 @@
       Результат выполнения приложения:
 
       ```bash
-      Dropping old tables...
-      Describing table: series
-      Column name 'series_id' has type {"optionalType":{"item":{"typeId":"UINT64"}}}
-      Column name 'title' has type {"optionalType":{"item":{"typeId":"UTF8"}}}
-      Column name 'series_info' has type {"optionalType":{"item":{"typeId":"UTF8"}}}
-      Column name 'release_date' has type {"optionalType":{"item":{"typeId":"UINT64"}}}
-
-      Inserting data to tables, preparing query...
-      Query has been prepared, executing...
-
-      Making a simple select...
-      selectSimple result: [{"seriesId":1,"title":"IT Crowd","releaseDate":13182}]
-
-      Making an upsert...
-      Upsert completed.
-      Preparing query...
-      Selecting prepared query...
-      Preparing query...
-
-      Selecting prepared query...
-      Select prepared query [{"title":"To Build a Better Beta","airDate":"2016-06-05","releaseDate":null}]
-      Select prepared query [{"title":"Bachman's Earnings Over-Ride","airDate":"2016-06-12","releaseDate":null}]
-
-      Running prepared query with explicit transaction control...
-      Executing query with txId d2f98e91-e69cc14a-bebded66-10c7d3a5.
-      TxId d2f98e91-e69cc14a-bebded66-10c7d3a5 committed.
-
-      Preparing query...
-      Selecting prepared query...
-      Select prepared query [{"title":"TBD","airDate":"2020-04-05","releaseDate":null}]
-      Released session ydb://session/...= on endpoint vm-xxxxx.ydb.mdb.yandexcloud.net:2135.
+      node build/basic-example-v1/index.js $ENTRYPOINT $DB | pino-pretty
+      [1603883537002] INFO  (58433 on laptop): Running basic-example script against entry-point 'grpcs://ydb.serverless.yandexcloud.net:2135' and database '/ru-central1/b1gia87mbaomkfvsleds/etn0061p28k0t9rajt8d'.
+      [1603883537003] DEBUG (58433 on laptop): Protocol grpcs specified in entry-point, using SSL connection.
+      [1603883537003] DEBUG (58433 on laptop): SA_JSON_FILE env var found, using IamAuthService with params from that json.
+      [1603883537004] DEBUG (58433 on laptop): Driver initializing...
+      [1603883537589] DEBUG (58433 on laptop): Driver is ready!
+      [1603883537833] DEBUG (58433 on laptop): Acquired session ydb://session/3?node_id=12065&id=ZTM4OGQwMjktOTk5ZGRiOGQtZWRiZTFmZjMtYmRmYWY3ZTA= on endpoint ydb.serverless.yandexcloud.net:2135.
+      [1603883537833] INFO  (58433 on laptop): Dropping old tables...
+      [1603883538114] INFO  (58433 on laptop): Creating tables...
+      [1603883538660] INFO  (58433 on laptop): Describing table: series
+      [1603883538735] INFO  (58433 on laptop): Column name 'series_id' has type {"optionalType":{"item":{"typeId":"UINT64"}}}
+      [1603883538735] INFO  (58433 on laptop): Column name 'title' has type {"optionalType":{"item":{"typeId":"UTF8"}}}
+      [1603883538735] INFO  (58433 on laptop): Column name 'series_info' has type {"optionalType":{"item":{"typeId":"UTF8"}}}
+      [1603883538735] INFO  (58433 on laptop): Column name 'release_date' has type {"optionalType":{"item":{"typeId":"UINT64"}}}
+      [1603883538736] INFO  (58433 on laptop): Inserting data to tables, preparing query...
+      [1603883538807] INFO  (58433 on laptop): Query has been prepared, executing...
+      [1603883538915] DEBUG (58433 on laptop): Released session ydb://session/3?node_id=12065&id=ZTM4OGQwMjktOTk5ZGRiOGQtZWRiZTFmZjMtYmRmYWY3ZTA= on endpoint ydb.serverless.yandexcloud.net:2135.
+      [1603883538915] DEBUG (58433 on laptop): Acquired session ydb://session/3?node_id=12065&id=ZjY5NWRlM2EtYWMyYjA5YWEtNzQ0MTVlYTMtM2Q4ZDgzOWQ= on endpoint ydb.serverless.yandexcloud.net:2135.
+      [1603883538915] INFO  (58433 on laptop): Making a simple select...
+      [1603883539008] INFO  (58433 on laptop): selectSimple result:
+      [1603883539008] INFO  (58433 on laptop): Making an upsert...
+      [1603883539057] INFO  (58433 on laptop): Upsert completed.
+      [1603883539057] INFO  (58433 on laptop): Preparing query...
+      [1603883539119] INFO  (58433 on laptop): Selecting prepared query...
+      [1603883539168] INFO  (58433 on laptop): Select prepared query
+      [1603883539244] INFO  (58433 on laptop): Select prepared query
+      [1603883539244] INFO  (58433 on laptop): Running prepared query with explicit transaction control...
+      [1603883539456] INFO  (58433 on laptop): Executing query with txId 5e3f1eb1-d532afbf-ead22387-53272811.
+      [1603883539558] INFO  (58433 on laptop): TxId 5e3f1eb1-d532afbf-ead22387-53272811 committed.
+      [1603883539558] INFO  (58433 on laptop): Preparing query...
+      [1603883539602] INFO  (58433 on laptop): Selecting prepared query...
+      [1603883539685] INFO  (58433 on laptop): Select prepared query
+      [1603883539685] DEBUG (58433 on laptop): Released session ydb://session/3?node_id=12065&id=ZjY5NWRlM2EtYWMyYjA5YWEtNzQ0MTVlYTMtM2Q4ZDgzOWQ= on endpoint ydb.serverless.yandexcloud.net:2135.
+      [1603883539685] DEBUG (58433 on laptop): Destroying driver...
+      [1603883539686] DEBUG (58433 on laptop): Destroying pool...
+      [1603883539754] DEBUG (58433 on laptop): Pool has been destroyed.
+      [1603883539754] DEBUG (58433 on laptop): Driver has been destroyed.
       ```
 
 - Java
@@ -198,7 +242,7 @@
   1. Соберите тестовое приложение.
 
       ```bash
-      git clone https://github.com/yandex-cloud/ydb-nodejs-sdk.git
+      git clone https://github.com/yandex-cloud/ydb-java-sdk.git
       cd ydb-java-sdk/examples/maven-project
       mvn package
       ```

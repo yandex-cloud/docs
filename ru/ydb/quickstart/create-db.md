@@ -4,8 +4,10 @@
 
 ## Перед началом работы {#before-you-begin}
 
-1. Войдите в [консоль управления](https://console.cloud.yandex.ru). Если вы еще не зарегистрированы, перейдите в консоль управления и следуйте инструкциям.
-1. [На странице биллинга](https://console.cloud.yandex.ru/billing) убедитесь, что у вас подключен {% if deploy != "arc" %}[платежный аккаунт](../../billing/concepts/billing-account.md){% else %}платежный аккаунт{% endif %}, и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, {% if deploy != "arc" %}[создайте его](../../billing/quickstart/index.md#create_billing_account){% else %}создайте его{% endif %}.
+Чтобы начать работать в {{ yandex-cloud }}:
+
+1. Войдите в [консоль управления]({{ link-console-main }}). Если вы еще не зарегистрированы, перейдите в консоль управления и следуйте инструкциям.
+1. [На странице биллинга]({{ link-console-billing }}) убедитесь, что у вас подключен {% if deploy != "arc" %}[платежный аккаунт](../../billing/concepts/billing-account.md){% else %}платежный аккаунт{% endif %}, и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, {% if deploy != "arc" %}[создайте его](../../billing/quickstart/index.md#create_billing_account){% else %}создайте его{% endif %}.
 1. Если у вас еще нет каталога, {% if deploy != "arc" %}[создайте его](../../resource-manager/operations/folder/create.md){% else %}создайте его{% endif %}.
 
 ## Создайте базу данных {#control-plane}
@@ -14,7 +16,11 @@
 
 1. Чтобы создать базу данных, перейдите в [консоль управления](https://ydb.yandex-team.ru).
 
+    {% if deploy != "arc" %}
+
     {% include [iam](../../_includes/iam/owner-warning.md) %}
+    
+    {% endif %}
 
 1. Нажмите кнопку **Create database**.
 
