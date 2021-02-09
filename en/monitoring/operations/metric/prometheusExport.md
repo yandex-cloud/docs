@@ -6,21 +6,29 @@ Example of setting up metrics collection from {{ monitoring-name }} in Prometheu
 
 1. Select the folder you want to collect data from.
 1. Select a service from the following list:
-   - `compute` — {{ compute-name }}.
-   - `storage` — {{ objstorage-name }}.
-   - `managed-mongodb` — {{ mmg-name }}.
-   - `managed-postgresql` — {{ mpg-name }}.
-   - `managed-mysql` — {{ mmy-name }}.
-   - `managed-redis` — {{ mrd-name }}.
-   - `managed-clickhouse` — {{ mch-name }}.
-   - `managed-kafka` — {{ mkf-name }}.
-   - `serverless-functions` — {{ sf-name }}.
-   - `serverless_triggers_client_metrics` — {{ sf-name }} triggers.
+   - `compute` – {{ compute-name }}.
+   - `storage` – {{ objstorage-name }}.
+   - `managed-postgresql` – {{ mpg-name }}.
+   - `managed-clickhouse` – {{ mch-name }}.
+   - `managed-mongodb` – {{ mmg-name }}.
+   - `managed-mysql` – {{ mmy-name }}.
+   - `managed-redis` – {{ mrd-name }}.
+   - `managed-kafka` – {{ mkf-name }}.
+   - `managed-elasticsearch` – {{ mes-name }}.
+   - `managed-sqlserver` – {{ mms-name }}
+   - `managed-kubernetes` – {{ managed-k8s-name }}.
+   - `serverless-functions` – {{ sf-name }}.
+   - `serverless_triggers_client_metrics` – {{ sf-name }} triggers.
+   - `ydb` – {{ ydb-name }}.
+   - `interconnect` – {{ interconnect-name }}.
+   - `certificate-manager` – {{ certificate-manager-name }}.
+   - `data-transfer` – {{ data-transfer-name }}.
+   - `serverless-apigateway` – {{ api-gw-name }}.
 1. Create a static [API key](../../../iam/operations/api-key/create.md) for your [service account](../../../iam/concepts/users/service-accounts).
 1. Assign to the service account the role [viewer](../../../iam/operations/roles/grant#access-to-sa) for the selected folder.
 1. Add a new `job` to the data collection section of the [Prometheus configuration](https://prometheus.io/docs/prometheus/latest/configuration/configuration).
 
-   ```bash
+   ```yaml
    ...
    scrape_configs:
      ...

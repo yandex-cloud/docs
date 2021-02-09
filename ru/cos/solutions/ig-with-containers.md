@@ -1,0 +1,1 @@
+{% include [ig-coi-with-containers](../../_includes/instance-groups/create-coi-vm-with-containers.md) %}

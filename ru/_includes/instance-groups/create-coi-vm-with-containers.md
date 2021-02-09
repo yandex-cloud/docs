@@ -1,0 +1,317 @@
+# Создание группы виртуальных машин с {{ coi }} и несколькими Docker-контейнерами
+
+Вы можете создать группу виртуальных машин на базе образа [{{ coi }}](../../cos/concepts/index.md) с несколькими Docker-контейнерами внутри.
+
+Для создания Docker-контейнеров будет использоваться [Docker Compose спецификация](../../cos/concepts/index.md#compose-spec).
+
+{% include [warning.md](warning.md) %}
+
+## Перед началом работы {#before-you-begin}
+
+{% include [cli-install.md](../cli-install.md) %}
+
+{% include [default-catalogue.md](../default-catalogue.md) %}
+
+## Подготовьте окружение {#prepare}
+
+1. Создайте [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) с именем `group-coi` и назначьте ему роль `editor`:
+
+   {% list tabs %}
+
+   - Консоль управления
+
+     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать сервисный аккаунт.
+     1. Выберите вкладку **Сервисные аккаунты**.
+     1. Нажмите кнопку **Создать сервисный аккаунт**.
+     1. Введите имя `group-coi`.
+     1. Чтобы назначить сервисному аккаунту [роль](../../iam/concepts/access-control/roles.md) на текущий каталог, нажмите **Добавить роль** и выберите роль `editor`.
+     1. Нажмите кнопку **Создать**.
+
+   - CLI
+
+     1. Создайте сервисный аккаунт:
+
+        ```bash
+        yc iam service-account create --name group-coi
+        ```
+
+        Результат выполнения команды:
+
+        ```bash
+        id: ajeabccde01d23efl1v5
+        folder_id: b0g12ga82bcv0cdeferg
+        created_at: "2021-02-08T14:32:18.900092Z"
+        name: group-coi
+        ```
+
+     1. Назначьте роль сервисному аккаунту:
+
+        ```bash
+        yc resource-manager folder add-access-binding b0g12ga82bcv0cdeferg \
+          --role editor \
+          --subject serviceAccount:ajeabccde01d23efl1v5
+        ```
+
+   - API
+
+     Воспользуйтесь методом [Сreate](../../iam/api-ref/ServiceAccount/create.md) для ресурса `ServiceAccount`.
+
+   {% endlist %}
+
+1. Создайте [сеть](../../vpc/concepts/network.md#network) с именем `yc-auto-network` и [подсеть](../../vpc/concepts/network.md#subnet) в одной [зоне доступности](../../overview/concepts/geo-scope.md):
+
+   {% list tabs %}
+
+   - Консоль управления
+
+     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать сеть.
+     1. Выберите сервис **Virtual Private Cloud**.
+     1. Нажмите кнопку **Создать сеть**.
+     1. Задайте имя сети `yc-auto-network`.
+     1. Выберите дополнительную опцию **Создать подсети**.
+     1. Нажмите кнопку **Создать сеть**.
+
+   - CLI
+
+     1. Создайте сеть:
+
+        ```bash
+        yc vpc network create --name yc-auto-network
+        ```
+
+        Результат выполнения команды:
+
+        ```bash
+        id: enpabce123hde4ft1r3t
+        folder_id: b0g12ga82bcv0cdeferg
+        created_at: "2020-11-30T14:57:15Z"
+        name: yc-auto-network
+        ```
+
+     1. Создайте подсеть в зоне `ru-central1-a`:
+
+        ```bash
+        yc vpc subnet create --network-id enpabce123hde4ft1r3t --range 192.168.1.0/24 --zone ru-central1-a
+        ```
+
+        Результат выполнения команды:
+
+        ```bash
+        id: e1lnabc23r1c9d0efoje
+        folder_id: b0g12ga82bcv0cdeferg
+        created_at: "2020-11-30T16:23:12Z"
+        network_id: enpabce123hde4ft1r3t
+        zone_id: ru-central1-a
+        v4_cidr_blocks:
+        - 192.168.1.0/24
+        ```
+
+   - API
+
+     1. Создайте сеть с помощью метода [Create](../../vpc/api-ref/Network/create.md) для ресурса `Networks`.
+
+     1. Создать подсеть в зоне доступности `ru-central1-a`с помощью метода [Сreate](../../vpc/api-ref/Subnet/create.md) для ресурса `Subnets`.
+
+   {% endlist %}
+
+## Создайте группу ВМ с {{ coi }} и несколькими Docker-контейнерами {#create}
+
+1. Узнайте идентификатор последней версии [публичного образа](../../compute/operations/images-with-pre-installed-software/get-list.md) {{ coi }}.
+
+   Образ {{ coi }} в реестре [{{ container-registry-name }}](../../container-registry/) может обновляться и меняться в соответствии с релизами. При этом образ на ВМ не обновится автоматически до последней версии. Чтобы создать группу ВМ с последней версией {{ coi }}, необходимо самостоятельно проверить ее наличие:
+
+   {% list tabs %}
+
+   - CLI
+
+     ```bash
+     yc compute image get-latest-from-family container-optimized-image --folder-id standard-images
+     ```
+
+     Результат выполнения команды:
+
+     ```bash
+     id: fd8iv792kirahcnqnt0q
+     folder_id: standard-images
+     created_at: "2021-01-29T13:30:22Z"
+     name: container-optimized-image-1611926453
+     description: Build by Assembly-Workshop-build-66870
+     family: container-optimized-image
+     storage_size: "6157238272"
+     min_disk_size: "10737418240"
+     product_ids:
+     - f2elj2f52bbqe4af8tfd
+     status: READY
+     os:
+       type: LINUX
+     ```
+
+   {% endlist %}
+
+1. Сохраните спецификацию группы ВМ с {{ coi }} и несколькими Docker-контейнерами в файл `specification.yaml`:
+
+   ```yaml
+   name: group-coi-containers # Имя группы ВМ, уникальным в рамках каталога.
+   service_account_id: ajeabccde01d23efl1v5 # Идентификатор сервисного аккаунта.
+   instance_template:
+     service_account_id: ajeabccde01d23efl1v5 # Идентификатор сервисного аккаунта для доступа к приватным Docker-образам.
+     platform_id: standard-v2 # Идентификатор платформы.
+     resources_spec:
+       memory: 2G # Количество памяти (RAM).
+       cores: 2 # Количество ядер процессора (vCPU).
+     boot_disk_spec:
+       mode: READ_WRITE # Режим доступа к диску: чтение и запись.
+       disk_spec:
+         image_id: fd8iv792kirahcnqnt0q # Идентификатор публичного образа Container Optimized Image.
+         type_id: network-hdd # Тип диска.
+         size: 32G # Размер диска.
+     network_interface_specs:
+      - network_id: enpabce123hde4ft1r3t # Идентификатор сети.
+        subnet_ids:
+          - e1lnabc23r1c9d0efoje # Идентификатор подсети.
+        primary_v4_address_spec: {
+          one_to_one_nat_spec: {
+            ip_version: IPV4 # Спецификация версии интернет-протокола IPv4 для публичного доступа к ВМ.
+          }
+        }
+     metadata: # Значения, которые будут переданы в метаданные ВМ.
+      docker-compose: |- # Ключ в метаданных ВМ, при котором используется Docker Compose спецификация.
+        version: '3.7'
+        services:
+          app1:
+            container_name: nginx
+            image: "nginx"
+            ports:
+              - "80:80"
+            restart: always
+          app2:
+            container_name: redis
+            image: "redis"
+            restart: always
+      ssh-keys: | # Параметр для передачи SSH-ключа на ВМ.
+         yc-user:ssh-rsa ABC...d01 user@desktop.ru # Имя пользователя для подключения к ВМ.
+   deploy_policy: # Политика развертывания ВМ в группе.
+     max_unavailable: 1
+     max_expansion: 0
+   scale_policy: # Политика масштабирования ВМ в группе.
+     fixed_scale:
+       size: 2
+   allocation_policy: # Политика распределения ВМ по зонам и регионам.
+     zones:
+       - zone_id: ru-central1-a
+   ```
+
+   {% note info %}   
+
+   Передать SSH-ключ в [метаданных ВМ](../../compute/concepts/vm-metadata.md#keys-processed-in-public-images) можно с помощью параметра `ssh-keys` или в строке с пользовательскими метаданными `user-data`. В этом руководстве используется первый вариант.
+
+   {% endnote %}
+
+1. Создайте группу ВМ с именем `group-coi-containers` с помощью спецификации `specification.yaml`:
+
+   {% list tabs %}
+
+   - CLI
+
+     Выполните команду:
+
+     ```bash
+     yc compute instance-group create --file=specification.yaml
+     ```
+
+     Результат выполнения команды:
+
+     ```bash
+     done (48s)
+     id: cl0q12abcd4ef8m966de
+     folder_id: b0g12ga82bcv0cdeferg
+     ...
+       target_size: "2"
+     service_account_id: ajeabccde01d23efl1v5
+     status: ACTIVE
+     ```
+
+   - API
+
+     Воспользуйтесь методом [СreateFromYaml](../../compute/api-ref/InstanceGroup/createFromYaml.md) для ресурса `InstanceGroup`.
+
+   {% endlist %}
+
+1. Убедитесь, что группа ВМ с {{ coi }} и несколькими Docker-контейнерами создана:
+
+   {% list tabs %}
+
+   - Консоль управления
+
+     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали группу ВМ.
+     1. Выберите сервис **Compute Cloud**.
+     1. Перейдите в раздел **Группы виртуальных машин**.
+     1. Нажмите на имя группы ВМ `group-coi-containers`.
+
+   - CLI
+
+     ```bash
+     yc compute instance-group list-instances group-coi-containers
+     ```
+
+     Результат выполнения команды:
+
+     ```bash
+     +----------------------+---------------------------+----------------+-------------+------------------------+----------------+
+     |     INSTANCE ID      |           NAME            |  EXTERNAL IP   | INTERNAL IP |         STATUS         | STATUS MESSAGE |
+     +----------------------+---------------------------+----------------+-------------+------------------------+----------------+
+     | fhmabcv0de123fo50d0b | cl0q12abcs4gq8m966de-fmar | 84.201.128.110 | 10.130.0.14 | RUNNING_ACTUAL [2h35m] |                |
+     | fhmab0cdqj12tcv18jou | cl0q12abcs4gq8m966de-fqeg | 84.252.131.221 | 10.130.0.47 | RUNNING_ACTUAL [2h35m] |                |
+     +----------------------+---------------------------+----------------+-------------+------------------------+----------------+
+     ```
+
+   - API
+
+     Посмотрите список созданных ВМ с помощью метода [List](../../compute/api-ref/InstanceGroup/list.md) для ресурса `InstanceGroup`.
+
+   {% endlist %}
+   
+## Проверьте группу ВМ с {{ coi }} и несколькими Docker-контейнерами {#check}
+
+1. Подключитесь к одной из созданных ВМ по [SSH](../../compute/operations/vm-connect/ssh#vm-connect):
+
+   {% list tabs %}
+
+   - CLI
+
+     ```bash
+     ssh yc-user@84.201.128.110
+     ```
+
+     Результат выполнения команды:
+
+     ```bash
+     Welcome to Ubuntu 20.04.1 LTS (GNU/Linux 5.4.0-54-generic x86_64)
+   
+      * Documentation:  https://help.ubuntu.com
+      * Management:     https://landscape.canonical.com
+      * Support:        https://ubuntu.com/advantage
+     Last login: Mon Feb  8 15:23:28 2021 from 123.456.789.101
+     ```
+
+   {% endlist %}
+
+1. Посмотрите список запущенных на ВМ Docker-контейнеров:
+
+   {% list tabs %}
+
+   - CLI
+
+     ```bash
+     sudo docker ps -a
+     ```
+
+     Результат выполнения команды:
+
+     ```bash
+     CONTAINER ID   IMAGE   COMMAND                  CREATED              STATUS              PORTS                NAMES
+     c0a125a1765a   redis   "docker-entrypoint.s…"   About a minute ago   Up About a minute   6379/tcp             redis
+     01288d7e382f   nginx   "/docker-entrypoint.…"   About a minute ago   Up About a minute   0.0.0.0:80->80/tcp   nginx
+     ```
+
+   {% endlist %}

@@ -1,11 +1,13 @@
 # Обзор
 
- Начните знакомство с {{ ydb-short-name }} c:
- - [создания базы данных](create-db.md);
- - [выполнения примеров YQL-запросов](examples-yql.md);
- - [примеров работы с YDB CLI](examples-ydb-cli.md);
- - [запуска тестового приложения](launch-test-app.md).
-
-<!---
-Создайте базу данных {{ ydb-short-name }} в консоли управления {{ yandex-cloud }} и ознакомьтесь с правилами написания YQL-запросов. Также вы можете запустить тестовое приложение для знакомства с работой {{ ydb-short-name }} SDK для [Python](https://github.com/yandex-cloud/ydb-python-sdk), [Go](https://github.com/yandex-cloud/ydb-go-sdk) или [Java](https://github.com/yandex-cloud/ydb-java-sdk).
--->
+Для знакомства с {{ ydb-short-name }} воспользуйтесь следующими инструкциями:
+* [{#T}](create-db.md) — создайте вашу первую БД. Доступно создание базы в разных режимах: бессерверном и с выделенными хостами. 
+* YQL
+    * [Работа с данными](examples-yql.md) — управляйте данными с помощью декларативного языка запросов к системам хранения и обработки данных. Управление данными с помощью YQL поддерживается в [обоих режимах работы {{ ydb-short-name }}](../concepts/index.md).
+    * [Работа с YDB CLI](examples-ydb-cli.md) — настройте консольный клиент YDB, посмотрите примеры использования.
+    * [Работа с YDB SDK](launch-test-app.md) — познакомьтесь с {{ ydb-name }} SDK на Python, Go, Node.js или Java.
+* Document API
+    * [Работа с данными](examples-docapi.md) — управляйте данными с помощью HTTP API, совместимым с Amazon DynamoDB. В разделе рассмотрена работа через HTTP-интерфейс и Node.js. Управление данными с помощью Document API поддерживается только в [режиме бессерверных вычислений](../concepts/index.md).
+    * [Использование AWS CLI и AWS SDK](../quickstart/aws-instrument/setup.md) — используйте инструменты от AWS в режиме совместимости с AWS DynamoDB.
+    
+    

@@ -163,6 +163,8 @@
   
 {% endlist %}
 
+{% include [user-ro](../../_includes/mdb/mmy-user-examples.md) %}
+
 ## Дополнительные настройки {#advanced-settings}
 
 - **Authentication plugin** — плагин аутентификации. Определяет политику аутентификации пользователя.

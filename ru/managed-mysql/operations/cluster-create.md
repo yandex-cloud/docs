@@ -163,6 +163,48 @@
 
 {% list tabs %}
 
+- CLI
+
+  Чтобы создать кластер с одним хостом, следует передать один параметр `--host`.
+
+  Допустим, нужно создать {{ MY }}-кластер со следующими характеристиками:
+
+
+    - С именем `my-mysql`.
+    - Версии `8.0`.
+    - В окружении `production`.
+    - В сети `default`.
+    - С одним хостом класса `{{ host-class }}` в подсети `{{ subnet-id }}`, в зоне доступности `{{ zone-id }}`.
+    - С быстрым сетевым хранилищем (`{{ disk-type-example }}`) объемом 20 Гб.
+    - С одним пользователем (`user1`), с паролем `user1user1`.
+    - С одной базой данных `db1`, в которой пользователь `user1` имеет полные права (эквивалент `GRANT ALL PRIVILEGES on db1.*`).
+
+  1. Запустите команду создания кластера:
+
+
+      ```bash
+      {{ yc-mdb-my }} cluster create \
+         --name="my-mysql" \
+         --mysql-version 8.0 \
+         --environment=production \
+         --network-name=default \
+         --host zone-id={{ host-net-example }} \
+         --resource-preset {{ host-class }} \
+         --disk-type {{ disk-type-example }} \
+         --disk-size 20 \
+         --user name=user1,password="user1user1" \
+         --database name=db1
+      ```
+
+  1. Запустите команду изменения привилегий пользователя `user1`.
+
+      ```bash
+      {{ yc-mdb-my }} user grant-permission user1 \
+         --cluster-name="my-mysql" \
+         --database=db1 \
+         --permissions ALL
+      ```
+
 - Terraform
 
   Допустим, нужно создать {{ MY }}-кластер и сеть для него со следующими характеристиками:
