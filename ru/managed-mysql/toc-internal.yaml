@@ -35,6 +35,8 @@ items:
         href: operations/cluster-delete.md
       - name: Миграция базы данных в Yandex.Cloud
         href: operations/data-migration.md
+      - name: Мониторинг состояния кластера и хостов
+        href: operations/monitoring.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса
