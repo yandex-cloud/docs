@@ -131,3 +131,5 @@
   - Имя пользователя в параметре `userName`. Чтобы узнать имя пользователя, [получите список пользователей в кластере](#list-users).
 
 {% endlist %}
+
+{% include [user-ro](../../_includes/mdb/mms-user-examples.md) %}
