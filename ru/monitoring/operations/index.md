@@ -22,7 +22,7 @@
 - [{#T}](alert/delete-alert.md)
 
 ## Работа с агентом для поставки метрик {#working-with-agent}
-- [{#T}](linux_metrics.md)
-- [{#T}](pull_prometheus.md)
-- [{#T}](haproxy.md)
-- [{#T}](non-yc.md)
+- [{#T}](unified-agent/linux_metrics.md)
+- [{#T}](unified-agent/pull_prometheus.md)
+- [{#T}](unified-agent/haproxy.md)
+- [{#T}](unified-agent/non-yc.md)

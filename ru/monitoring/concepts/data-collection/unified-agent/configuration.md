@@ -977,4 +977,4 @@ output:
 
 ## Примеры { #examples }
 
-Примеры конфигураций. Больше инструкций приведено в разделе [{#T}](../../../operations/unified-agent/index.md).
+Примеры конфигураций. Больше инструкций приведено в разделе [{#T}](../../../operations/index.md#working-with-agent).
