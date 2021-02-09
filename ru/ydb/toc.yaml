@@ -7,20 +7,36 @@ items:
         href: quickstart/index.md
       - name: Создание базы данных
         href: quickstart/create-db.md
-      - name: Примеры YQL-запросов
-        href: quickstart/examples-yql.md
-      - name: Примеры работы с YDB CLI
-        href: quickstart/examples-ydb-cli.md
-      - name: Запуск тестового приложения
-        href: quickstart/launch-test-app.md
-      - name: Использование AWS CLI и AWS SDK
-        href: getting_started/start_docapi_aws.md
+      - name: YQL
+        items:
+          - name: Работа с данными
+            href: quickstart/examples-yql.md
+          - name: Работа с YDB CLI
+            href: quickstart/examples-ydb-cli.md
+          - name: Работа с YDB SDK
+            href: quickstart/launch-test-app.md
       - name: Document API
-        href: getting_started/start_docapi_rest.md
-      - name: Разработка на NodeJS с Document API
-        href: getting_started/start_docapi_nodejs.md
+        items:
+          - name: Работа с данными
+            href: quickstart/examples-docapi.md
+          - name: Работа с инструментами AWS
+            items:
+              - name: Настройка окружения
+                href: quickstart/aws-instrument/setup.md
   - name: Пошаговые инструкции
     items:
+      - name: Работа с YDB CLI
+        items:
+          - name: Структура и описание команд YDB CLI
+            href: operations/ydb-cli/commands.md
+          - name: Получение информации об объекте схемы
+            href: operations/ydb-cli/scheme-describe.md
+          - name: Потоковое чтение таблицы
+            href: operations/ydb-cli/readtable.md
+          - name: Работа со вторичными индексами
+            href: operations/ydb-cli/operations-index.md
+      - name: Использование плана запроса и AST
+        href: operations/get-query-plan.md
       - name: Управление базами данных
         href: operations/create_manage_database.md
       - name: Подключение к базе данных

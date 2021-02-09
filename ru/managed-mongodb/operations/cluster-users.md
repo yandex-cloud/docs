@@ -157,3 +157,5 @@
   Удалить пользователя можно с помощью метода [delete](../api-ref/User/delete.md).
   
 {% endlist %}
+
+{% include [user-ro](../../_includes/mdb/mmg-user-examples.md) %}

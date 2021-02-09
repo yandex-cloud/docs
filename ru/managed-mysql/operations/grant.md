@@ -68,38 +68,12 @@
 1. [Подключитесь](connect.md) к базе данных с помощью учетной записи владельца базы данных.
 2. Выполните команду `GRANT`. Подробное описание синтаксиса команды смотрите в [документации {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/grant.html).
 
-**Примеры:**
-
-1. Выдать пользователю `user2` права на чтение таблицы `Products`:
-
-    ```mysql
-    GRANT SELECT ON Products TO user2;
-    ```
-
-1. Выдать пользователю `user2` права на чтение всех таблиц базы `db1`:
-
-    ```mysql
-    GRANT SELECT ON db1.* TO user2;
-    ```
-
 ## Отозвать привилегию у пользователя {#revoke-privilege}
 
 1. [Подключитесь](connect.md) к базе данных с помощью учетной записи владельца базы данных.
 2. Выполните команду `REVOKE`. Подробное описание синтаксиса команды смотрите в [документации {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/revoke.html).
 
-**Примеры:**
-
-1. Отозвать у пользователя `user2` права на чтение таблицы `Products`:
-
-    ```mysql
-    REVOKE SELECT ON Products FROM user2;
-    ```
-
-1. Отозвать у пользователя `user2` права на чтение всех таблиц базы `db1`:
-
-    ```mysql
-    REVOKE SELECT ON db1.* FROM user2;
-    ```
+{% include [user-ro](../../_includes/mdb/mmy-user-examples.md) %}
 
 ## Описание ролей {#db-roles}
 
