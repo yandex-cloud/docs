@@ -1,4 +1,4 @@
-title: Yandex Load Balancer
+title: Yandex Network Load Balancer
 href: index.yaml
 items:
   - name: Getting started
@@ -7,9 +7,9 @@ items:
     items:
       - name: All instructions
         href: operations/index.md
-      - name: Load balancers
+      - name: Network load balancers  
         items:
-          - name: Create a load balancer
+          - name: Create a network load balancer
             href: operations/load-balancer-create.md
           - name: Create an internal network load balancer
             href: operations/internal-lb-create.md
@@ -37,9 +37,9 @@ items:
             href: operations/target-group-delete.md
   - name: Concepts
     items:
-      - name: Load balancer
+      - name: Network load balancer
         href: concepts/index.md
-      - name: Internal load balancer
+      - name: Internal network load balancer
         href: concepts/internal-load-balancer.md
       - name: Listener
         href: concepts/listener.md

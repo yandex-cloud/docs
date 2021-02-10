@@ -1,6 +1,6 @@
 # Квоты и лимиты
 
-В сервисе {{ load-balancer-full-name }} действуют следующие ограничения:
+В сервисе {{ network-load-balancer-full-name }} действуют следующие ограничения:
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
 

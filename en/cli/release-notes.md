@@ -1139,7 +1139,7 @@ The {{ kms-full-name }} service is at the Preview stage. Read more about the ser
 
 #### Changes to {{ yandex-cloud }} services {#services}
 
-#### {{ load-balancer-name }} {#load-balancer}
+#### {{ network-load-balancer-name }} {#load-balancer}
 
 * Commands `yc load-balancer network-load-balancer create` and `yc load-balancer network-load-balancer update`
 

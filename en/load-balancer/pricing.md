@@ -1,11 +1,11 @@
 ---
 editable: false
 ---
-# Pricing policy for {{ load-balancer-name }}
+# Pricing policy for {{ network-load-balancer-name }}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
-When using Yandex Load Balancer, you are charged for the incoming traffic processed by a network load balancer and for the number of network load balancers.
+When using {{ network-load-balancer-full-name }}, you are charged for the incoming traffic processed by a network load balancer and for the number of network load balancers.
 
 Outgoing traffic is charged similarly to other Yandex.Cloud services, such as [Compute Cloud](../compute/pricing.md#prices-traffic). Charges for outgoing traffic include the traffic that is generated when targets respond to health checks.
 

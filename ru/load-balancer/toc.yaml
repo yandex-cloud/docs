@@ -1,4 +1,4 @@
-title: Yandex Load Balancer
+title: Yandex Network Load Balancer
 href: index.yaml
 items:
   - name: Начало работы
@@ -7,11 +7,11 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
-      - name: Балансировщики
+      - name: Сетевые балансировщики
         items:
           - name: Создать балансировщик
             href: operations/load-balancer-create.md
-          - name: Создать внутренний сетевой балансировщик
+          - name: Создать внутренний балансировщик
             href: operations/internal-lb-create.md
           - name: Запустить балансировщик
             href: operations/load-balancer-start.md
@@ -37,9 +37,9 @@ items:
             href: operations/target-group-delete.md
   - name: Концепции
     items:
-      - name: Балансировщик нагрузки
+      - name: Сетевой балансировщик нагрузки
         href: concepts/index.md
-      - name: Внутренний балансировщик
+      - name: Внутренний сетевой балансировщик
         href: concepts/internal-load-balancer.md
       - name: Обработчик
         href: concepts/listener.md

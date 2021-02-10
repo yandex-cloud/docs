@@ -7,7 +7,7 @@
   - [Загрузите Docker-образ в реестр в {{ container-registry-name }}](../container-registry/quickstart/index.md).
 - Настройте сети:
   - [Создайте облачную сеть в {{ vpc-name }}](../vpc/quickstart.md).
-  - [Настройте балансировщик в {{ load-balancer-name }}](../load-balancer/quickstart.md).
+  - [Настройте балансировщик в {{ network-load-balancer-name }}](../load-balancer/quickstart.md).
 - Управляйте доступом:
   - [Добавьте пользователей и назначьте им роли в {{ iam-short-name }}](../iam/quickstart.md).
   - [Создайте новый каталог в облаке и предоставьте к нему доступ в {{ resmgr-name }}](../resource-manager/quickstart.md).

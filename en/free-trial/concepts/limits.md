@@ -35,7 +35,7 @@ Quotas and limits for Yandex.Cloud services during the trial period are listed b
 
 {% include [resource-manager-limits.md](../../_includes/resource-manager-limits.md) %}
 
-### {{ load-balancer-full-name }} {#load-balancer}
+### {{ network-load-balancer-full-name }} {#load-balancer}
 
 {% include [load-balancer-limits.md](../../_includes/load-balancer-limits.md) %}
 

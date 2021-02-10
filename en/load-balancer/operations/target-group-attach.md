@@ -1,10 +1,10 @@
-# Attach a target group to a load balancer
+# Attach a target group to a network load balancer
 
 {% list tabs %}
 
 - Management console
   
-  To attach a [target group](../concepts/target-resources.md) to a load balancer:
+  To attach a [target group](../concepts/target-resources.md) to a network load balancer:
   
   1. Open the **Load Balancer** section in the folder where you want to attach the target group to the load balancer.
   1. Click ![image](../../_assets/vertical-ellipsis.svg) in the row of that load balancer. If you already have a target group created, select it. If not, [create one](target-group-create.md).
@@ -17,7 +17,7 @@
   
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
   
-  1. See the description of the CLI's attach target group command:
+  1. See the description of the CLI's attach target group command to a network load balancer:
   
      ```
      $ yc load-balancer network-load-balancer attach-target-group --help
@@ -64,7 +64,7 @@
   
 - API
   
-  You can attach a target group to a load balancer using the [attachTargetGroup](../api-ref/NetworkLoadBalancer/attachTargetGroup.md) API method.
+  You can attach a target group to a network load balancer using the [attachTargetGroup](../api-ref/NetworkLoadBalancer/attachTargetGroup.md) API method.
   
 {% endlist %}
 

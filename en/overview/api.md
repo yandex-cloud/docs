@@ -11,7 +11,7 @@ To learn more, see [Yandex.Cloud API concepts](../api-design-guide/).
 - [{{ vpc-full-name }}](../vpc/api-ref/)
 - [{{ iam-full-name }}](../iam/api-ref/)
 - [{{ resmgr-full-name }}](../resource-manager/api-ref/)
-- [{{ load-balancer-full-name }}](../load-balancer/api-ref/)
+- [{{ network-load-balancer-full-name }}](../load-balancer/api-ref/)
 - [{{ container-registry-full-name }}](../container-registry/api-ref/)
 - [{{ managed-k8s-full-name }}](../managed-kubernetis/api-ref/)
 - [{{ monitoring-full-name }}](../monitoring/api-ref/)

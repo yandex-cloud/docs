@@ -2,7 +2,7 @@
 
 {% note info %}
 
-Before creating a load balancer, [create](target-group-create.md) a target group to attach to it.
+Before creating a network load balancer, [create](target-group-create.md) a target group to attach to it.
 
 {% endnote %}
 
@@ -77,13 +77,13 @@ Before creating a load balancer, [create](target-group-create.md) a target group
 
 - API
 
-  You can create a new load balancer using the [create](../api-ref/NetworkLoadBalancer/create.md) API method.
+  You can create a new network load balancer using the [create](../api-ref/NetworkLoadBalancer/create.md) API method.
 
 {% endlist %}
 
 ## Examples {examples}
 
-### Creating a load balancer without a listener {without-listener}
+### Creating a network load balancer without a listener {without-listener}
 
 {% list tabs %}
 
@@ -99,7 +99,7 @@ Before creating a load balancer, [create](target-group-create.md) a target group
 
 {% endlist %}
 
-### Creating a load balancer with a listener and attached target group {with-listener-and-target-group}
+### Creating a network load balancer with a listener and attached target group {with-listener-and-target-group}
 
 {% list tabs %}
 

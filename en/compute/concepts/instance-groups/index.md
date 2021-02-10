@@ -17,7 +17,7 @@ Use {{ ig-name }} to:
 
 - Simultaneously [update](deploy/index.md) all instances in a group.
 
-- Integrate with [{{ load-balancer-full-name }}](../../../load-balancer/concepts/index.md) and evenly distribute workloads across instances.
+- Integrate with [{{ network-load-balancer-full-name }}](../../../load-balancer/concepts/index.md) and evenly distribute workloads across instances.
 
 - Create [automatically scaled](scale.md#auto-scale) instance groups.
 

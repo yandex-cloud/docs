@@ -44,6 +44,6 @@
   
 - API
   
-  Остановить балансировщик можно с помощью метода API [stop](../api-ref/NetworkLoadBalancer/stop.md).
+  Остановить сетевой балансировщик можно с помощью метода API [stop](../api-ref/NetworkLoadBalancer/stop.md).
   
 {% endlist %}

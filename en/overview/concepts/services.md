@@ -18,7 +18,7 @@ The following services are currently available as part of the {{ yandex-cloud }}
     * [{{ iam-full-name }}](../../iam/) (Cloud resource access management).
     * [{{ resmgr-full-name }}](../../resource-manager/) (Cloud resource management).
     * [{{ kms-full-name }}](../../kms/) (Encryption key management).
-    * [{{ load-balancer-full-name }}](../../load-balancer/) (Network load balancer management).
+    * [{{ network-load-balancer-full-name }}](../../load-balancer/) (Network load balancer management).
     * [Yandex Instance Groups](../../compute/concepts/instance-groups/) (Instance group creation and management).
     * [{{ container-registry-full-name }}](../../container-registry/) (Container image management).
     * [{{managed-k8s-full-name}}<sup>®</sup>](../../managed-kubernetes/) (Kubernetes management).
@@ -222,7 +222,7 @@ List of services whose resources support labels:
 * [{{ vpc-full-name }}](../../vpc/)
 * [{{ resmgr-full-name }}](../../resource-manager/)
 * [{{ kms-full-name }}](../../kms/)
-* [{{ load-balancer-full-name }}](../../load-balancer/)
+* [{{ network-load-balancer-full-name }}](../../load-balancer/)
 * [{{ container-registry-full-name }}](../../container-registry/)
 * [{{ managed-k8s-full-name }}](../../managed-kubernetes/)
 * [{{ mpg-full-name }}](../../managed-postgresql/)

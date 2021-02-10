@@ -4,7 +4,7 @@
 
 - CLI
   
-  If you don't have the Yandex.Cloud command line interface yet, [install it](https://cloud.yandex.com/docs/cli/quickstart#install).
+  If you don't have the {{ yandex-cloud }} command line interface yet, [install it](https://cloud.yandex.com/docs/cli/quickstart#install).
   
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
   
@@ -14,7 +14,7 @@
      $ yc load-balancer network-load-balancer target-states --help
      ```
   
-  1. Get a list of all load balancers:
+  1. Get a list of all network load balancers:
   
      ```
      $ yc load-balancer network-load-balancer list

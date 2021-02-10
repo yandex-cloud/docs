@@ -1,4 +1,4 @@
-# Adding a listener to a load balancer
+# Adding a listener to a network load balancer
 
 {% list tabs %}
 
@@ -17,7 +17,7 @@
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To add a listener to a load balancer:
+  To add a listener to a network load balancer:
 
   1. Get the list of load balancers:
 
@@ -58,7 +58,7 @@
 
 ## Examples
 
-### Adding a listener to an internal load balancer {#without-listener}
+### Adding a listener to an internal network load balancer {#without-listener}
 
 {% list tabs %}
 

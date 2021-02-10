@@ -1,10 +1,10 @@
-# Отключить целевую группу от балансировщика
+# Отключить целевую группу от сетевого балансировщика
 
 {% list tabs %}
 
 - Консоль управления
   
-  Чтобы отключить [целевую группу](../concepts/target-resources.md) от балансировщика:
+  Чтобы отключить [целевую группу](../concepts/target-resources.md) от сетевого балансировщика:
   
   1. Откройте раздел **Load Balancer** в каталоге, где требуется отключить целевую группу от балансировщика.
   1. Нажмите значок ![image](../../_assets/vertical-ellipsis.svg) в строке балансировщика, от которого требуется отключить целевую группу.
@@ -16,7 +16,7 @@
   
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
   
-  1. Посмотрите описание команды CLI для отключения целевой группы:
+  1. Посмотрите описание команды CLI для отключения целевой группы от сетевого балансировщика:
   
      ```
      $ yc load-balancer network-load-balancer detach-target-group --help
@@ -45,6 +45,6 @@
   
 - API
   
-  Отключить целевую группу от балансировщика можно с помощью метода API [detachTargetGroup](../api-ref/NetworkLoadBalancer/detachTargetGroup.md).
+  Отключить целевую группу от сетевого балансировщика можно с помощью метода API [detachTargetGroup](../api-ref/NetworkLoadBalancer/detachTargetGroup.md).
   
 {% endlist %}

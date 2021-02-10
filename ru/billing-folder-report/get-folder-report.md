@@ -57,7 +57,7 @@
    * {{ objstorage-name }} — имя бакета.
    * {{ vpc-name }} — идентификатор ресурса, работающего с входящим или исходящим трафиком.
    * {{ kms-short-name }} — идентификатор ключа.
-   * {{ load-balancer-name }} — идентификатор балансировщика.
+   * {{ network-load-balancer-name }} — идентификатор балансировщика.
    * {{ container-registry-short-name }} — идентификатор контейнера.
    * {{ k8s }} и {{ dataproc-name }} — идентификатор кластера.
    * {{ mpg-short-name }}, {{ mch-short-name }}, {{ mmg-short-name }}, {{ mmy-short-name }}, {{ mrd-short-name }} и {{ mkf-name }} — идентификатор хоста в кластере.
