@@ -14,7 +14,7 @@
      $ yc load-balancer network-load-balancer target-states --help
      ```
   
-  1. Получите список всех балансировщиков:
+  1. Получите список всех сетевых балансировщиков:
   
      ```
      $ yc load-balancer network-load-balancer list

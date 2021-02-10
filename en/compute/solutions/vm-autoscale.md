@@ -130,7 +130,7 @@ To create an [instance group with auto scaling](../concepts/instance-groups/scal
 
    {% endlist %}
 
-## Create an instance group with auto scaling and load balancer {#create-vm-group}
+## Create an instance group with auto scaling and network load balancer {#create-vm-group}
 
 1. Save the specification of the instance group with network load balancer to the file `specification.yaml`:
 
@@ -248,9 +248,9 @@ To create an [instance group with auto scaling](../concepts/instance-groups/scal
 
    {% endlist %}
 
-## Add a load balancer with a target group {#connect-balancer}
+## Add a network load balancer with a target group {#connect-balancer}
 
-1. Create a load balancer named `group-balancer` and connect it to the instance group you created:
+1. Create a network load balancer named `group-balancer` and connect it to the instance group you created:
 
    {% list tabs %}
 
@@ -296,7 +296,7 @@ To create an [instance group with auto scaling](../concepts/instance-groups/scal
 
    - API
 
-     1. Create a network load balancer using the method [Create](../../load-balancer/api-ref/NetworkLoadBalancer/create.md) for the resource `NetworkLoadBalancers`.
+     1. Create a load balancer using the method [Create](../../load-balancer/api-ref/NetworkLoadBalancer/create.md) for the resource `NetworkLoadBalancers`.
 
      1. Add a listener to the balancer using the method [AddListener](../../load-balancer/api-ref/NetworkLoadBalancer/addListener.md) for the resource `NetworkLoadBalancers`.
 
@@ -306,7 +306,7 @@ To create an [instance group with auto scaling](../concepts/instance-groups/scal
 
    {% endlist %}
 
-1. Make sure that the balancer `group-balancer` is created and linked to the instance group:
+1. Make sure that the network balancer `group-balancer` is created and linked to the instance group:
 
    {% list tabs %}
 
@@ -337,7 +337,7 @@ To create an [instance group with auto scaling](../concepts/instance-groups/scal
 
    {% endlist %}
 
-## Test your instance group and load balancer {#check-service}
+## Test your instance group and network load balancer {#check-service}
 
 1. Create a load on an instance.
 
@@ -438,7 +438,7 @@ The page displays messages relating to auto scaling of the instance group.
 
 ## Delete the infrastructure {#delete-infrastructure}
 
-1. Delete the load balancer:
+1. Delete the network load balancer:
 
    {% list tabs %}
 

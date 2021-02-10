@@ -97,7 +97,7 @@ For example, the `{{ roles-admin }}` role lets you perform the following operati
 
 {% include [iot-registries-writer](../../../_includes/roles-iot-registries-writer.md) %}
 
-## {{ load-balancer-name }} {#load-balancer-roles}
+## {{ network-load-balancer-name }} {#load-balancer-roles}
 
 {% include [roles-lb-viewer](../../../_includes/roles-lb-viewer.md) %}
 

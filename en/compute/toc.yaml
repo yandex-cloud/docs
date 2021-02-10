@@ -131,7 +131,7 @@ items:
         items:
           - name: Creating a fixed-size instance group
             href: operations/instance-groups/create-fixed-group.md
-          - name: Creating a fixed-size instance group with a load balancer
+          - name: Creating a fixed-size instance group with a network load balancer
             href: operations/instance-groups/create-with-balancer.md
           - name: Creating an automatically scaled instance group
             href: operations/instance-groups/create-autoscaled-group.md

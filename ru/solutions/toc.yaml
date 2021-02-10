@@ -102,7 +102,7 @@ items:
       - name: Развертывание группы доступности Always On
         href: windows/mssql-alwayson.md
       - name: >-
-          Развертывание группы доступности Always On с внутренним
+          Развертывание группы доступности Always On с внутренним сетевым
           балансировщиком
         href: windows/mssql-alwayson-lb.md
   - name: Сетевая маршрутизация

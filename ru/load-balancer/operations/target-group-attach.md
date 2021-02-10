@@ -1,10 +1,10 @@
-# Подключить целевую группу к балансировщику
+# Подключить целевую группу к сетевому балансировщику
 
 {% list tabs %}
 
 - Консоль управления
   
-  Чтобы подключить [целевую группу](../concepts/target-resources.md) к балансировщику:
+  Чтобы подключить [целевую группу](../concepts/target-resources.md) к сетевому балансировщику:
   
   1. Откройте раздел **Load Balancer** в каталоге, где требуется подключить целевую группу к балансировщику.
   1. Нажмите значок ![image](../../_assets/vertical-ellipsis.svg) в строке балансировщика, к которому требуется подключить целевую группу. Если у вас уже есть созданная целевая группа, выберите ее. Если целевой группы нет, [создайте ее](target-group-create.md).
@@ -17,7 +17,7 @@
   
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
   
-  1. Посмотрите описание команды CLI для подключения целевой группы:
+  1. Посмотрите описание команды CLI для подключения целевой группы к сетевому балансировщику:
   
      ```
      $ yc load-balancer network-load-balancer attach-target-group --help
@@ -63,6 +63,6 @@
   
 - API
   
-  Подключить целевую группу к балансировщику можно с помощью метода API [attachTargetGroup](../api-ref/NetworkLoadBalancer/attachTargetGroup.md).
+  Подключить целевую группу к сетевому балансировщику можно с помощью метода API [attachTargetGroup](../api-ref/NetworkLoadBalancer/attachTargetGroup.md).
   
 {% endlist %}

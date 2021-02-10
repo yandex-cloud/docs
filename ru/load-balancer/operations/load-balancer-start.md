@@ -44,6 +44,6 @@
   
 - API
   
-  Запустить балансировщик можно с помощью метода API [start](../api-ref/NetworkLoadBalancer/start.md).
+  Запустить сетевой балансировщик можно с помощью метода API [start](../api-ref/NetworkLoadBalancer/start.md).
   
 {% endlist %}

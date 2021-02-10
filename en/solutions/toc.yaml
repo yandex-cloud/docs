@@ -9,7 +9,9 @@ items:
         href: web/static.md
       - name: Website on LAMP or LEMP stack
         href: web/lamp-lemp.md
-      - name: Fault-tolerant website with load balancing from Yandex Load Balancer
+      - name: >-
+          Fault-tolerant website with load balancing from Yandex Network Load
+          Balancer
         href: web/load-balancer-website.md
       - name: Fault-tolerant website using DNS load balancing
         href: web/dns-load-balancer.md
@@ -96,8 +98,8 @@ items:
       - name: Deploying an Always On availability group
         href: windows/mssql-alwayson.md
       - name: >-
-          Deploying an Always On availability group with an internal load
-          balancer
+          Deploying an Always On availability group with an internal network
+          load balancer
         href: windows/mssql-alwayson-lb.md
   - name: Network routing
     items:

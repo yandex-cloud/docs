@@ -35,7 +35,7 @@ Active roles in the service:
 
 The table below lists the roles needed to perform a given action. You can always assign a role granting more permissions than the role specified. For example, you can assign `editor` instead of `viewer`.
 
-Any operations with a load balancer that has a public IP address require the `load-balancer.admin` role. In networks where target groups are located, you can have the `vpc.publicAdmin` role instead. Operations on the internal load balancer require the `load-balancer.privateAdmin` role and operations on its target groups — the `load-balancer.privateAdmin` or `compute.admin` role.
+Any operations with a network load balancer that has a public IP address require the `load-balancer.admin` role. In networks where target groups are located, you can have the `vpc.publicAdmin` role instead. Operations on the internal network load balancer require the `load-balancer.privateAdmin` role and operations on its target groups — the `load-balancer.privateAdmin` or `compute.admin` role.
 
 Operations on target groups located in subnets, where the specified administrative roles are missing, require the `vpc.user` role for these subnets.
 
@@ -43,7 +43,7 @@ Operations on target groups located in subnets, where the specified administrati
 | ----- | ----- | ----- |
 | **View data** |  |
 | View information about any resource | `get`, `list`, `listOperations` | `viewer` for this resource |
-| **Manage load balancers** |  |
+| **Manage network load balancers** |  |
 | [Create](../operations/load-balancer-create.md) and update load balancers in folders | `create` | `load-balancer.privateAdmin`/`load-balancer.admin` or `editor` for the folder and, if the load balancer is public, networks where target groups are located |
 | [Delete load balancers](../operations/load-balancer-delete.md) | `update`, `delete` | `load-balancer.privateAdmin`/`load-balancer.admin` or `editor` for the load balancer |
 | [Attach target groups](../operations/target-group-attach.md) | `attachTargetGroup` | `load-balancer.privateAdmin`/`load-balancer.admin` or `editor` for the folder and, if the load balancer is public, networks where target groups are located |

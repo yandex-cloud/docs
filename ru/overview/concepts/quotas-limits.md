@@ -55,7 +55,7 @@
 {% include [kms-limits.md](../../_includes/kms/kms-limits.md) %}
 
 
-### {{ load-balancer-full-name }} {#load-balancer}
+### {{ network-load-balancer-full-name }} {#load-balancer}
 
 {% include [load-balancer-limits.md](../../_includes/load-balancer-limits.md) %}
 
