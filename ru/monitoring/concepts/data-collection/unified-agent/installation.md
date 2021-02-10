@@ -23,7 +23,7 @@
 
 - Docker-образ
 
-  Docker-образ опубликован в репозитории cr.yandex с названием `unified_agent` и тегом `latest`.
+  Docker-образ опубликован в репозитории `cr.yandex с названием `unified_agent` и тегом `latest`.
 
   Чтобы установить {{unified-agent-short-name}} в виде Docker-образа, выполните следующую команду, указав в переменной окружения `FOLDER_ID` идентификатор каталога, куда будут записываться метрики:
 
@@ -37,7 +37,7 @@
   wget --quiet https://storage.yandexcloud.net/yc-unified-agent/builds/binary/21.2.1/deb/ubuntu-20.04-focal/yandex-unified-agent.20.11.4/yandex-unified-agent_21.2.1_amd64.deb
   ```
 
-  Чтобы установите пакет, выполните команду:
+  Чтобы установите deb-пакет, выполните команду:
 
   ```bash
   sudo dpkg -i ./yandex-unified-agent_20.11.4_amd64.deb
@@ -45,7 +45,8 @@
 
 - Бинарный файл
 
-  Чтобы скачать агент в виде бинарного файла, собранного под архитектуру x86-64 / amd64 для Linux-совместимых операционных систем, при помощи утилиты `wget`, выполните команду:
+Бинарный файл собирается под архитектуру x86-64 / amd64 для Linux-совместимых операционных систем.
+Чтобы скачать бинарный файл при помощи утилиты `wget`, выполните команду:
 
   ```bash
   wget --quiet https://storage.yandexcloud.net/yc-unified-agent/builds/binary/21.2.1/unified_agent
@@ -66,7 +67,7 @@
 Переменная окружения | Значение по умолчанию | Описание
 -------------------- | --------------------- | --------
 `UA_STATUS_PORT` | `16241` | Порт, по которому будет доступен статус работы агента.<br/>Подробнее в разделе [{#T}](./configuration.md#status).
-`UA_LOG_PRIORITY` | `NOTICE` | Уровень логирования работы агента.<br/>Подробнее в разделе [{#T}](./configuration.md#agent_log)
+`UA_LOG_PRIORITY` | `NOTICE` | Уровень логирования работы агента.<br/>Подробнее в разделе [{#T}](./configuration.md#agent_log).
 `FOLDER_ID` | N/A | Идентификатор каталога, куда будут записываться метрики.<br/>Подробнее в разделе [{#T}](./configuration.md#yc_metrics_output).
 `PROC_DIRECTORY` | `/proc` | Директория со смонтированным [procfs](https://ru.wikipedia.org/wiki/Procfs), откуда агент будет получать системные Linux-метрики.<br/>Подробнее в разделе [{#T}](./configuration.md#linux_metrics_input).
 `SYS_DIRECTORY` | `/sys` | Директория со смонтированным [sysfs](https://ru.wikipedia.org/wiki/Sysfs), откуда агент будет получать системные Linux-метрики.<br/>Подробнее в разделе [{#T}](./configuration.md#linux_metrics_input).

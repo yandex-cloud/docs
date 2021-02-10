@@ -1,6 +1,6 @@
 # Поставка системных метрик Linux
 
-Для поставки в {{ monitoring-full-name }} системных метрик виртуальных машин, работающих на Linux-совместимых операционных системах, используется вход `linux_metrics`. Подробнее работа этого входа описана в разделе [{#T}](../../concepts/data-collection/unified-agent/configuration.md#linux_metrics_input).
+Для поставки в {{ monitoring-full-name }} системных метрик виртуальных машин, работающих на Linux-совместимых операционных системах, используется вход [linux_metrics](../../concepts/data-collection/unified-agent/configuration.md#linux_metrics_input).
 
 {% note warning %}
 
@@ -10,11 +10,11 @@
 
 {% endnote %}
 
-Чтобы настроить {{unified-agent-full-name}} для сбора системных метрик с виртуальной машины Яндекс.Облака, выполните следующие шаги:
+Чтобы настроить {{unified-agent-full-name}} для сбора системных метрик с виртуальной машины {{ yandex-cloud }}, выполните следующие шаги:
 
 1. Настройте сервисный аккаунт, от имени которого будут записываться метрики в {{ monitoring-full-name }}.
 
-   1. Создайте сервисный аккаунт с ролью `editor` в каталоге, куда будут записываться метрики. Подробнее необходимые для этого шаги описаны в разделах [{#T}](../../../iam/operations/sa/create.md) и [{#T}](../../../iam/operations/sa/assign-role-for-sa.md).
+   1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) в каталоге, куда будут записываться метрики и [назначьте ему роль](../../../iam/operations/sa/assign-role-for-sa.md) `editor`.
 
    1. Привяжите сервисный аккаунт к виртуальной машине, на которой установлен {{unified-agent-short-name}}. Подробнее шаги для этого описаны в разделе [{#T}](../../../compute/operations/vm-connect/auth-inside-vm.md#link-sa-with-instance).
 
