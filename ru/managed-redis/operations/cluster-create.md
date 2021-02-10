@@ -42,7 +42,7 @@
   
   1. При необходимости задайте дополнительные настройки кластера:
   
-     {% include [mrd-extra-settings](../../_includes/mdb/mrd-extra-settings-web-console.md) %}   
+     {% include [mrd-extra-settings](../../_includes/mdb/mrd-extra-settings-web-console.md) %}
   
   1. Нажмите кнопку **Создать кластер**.
   
@@ -54,13 +54,17 @@
   
   Чтобы создать кластер:
   
-  {% if audience != "internal" %} 1. Проверьте, есть ли в каталоге подсети для хостов кластера:
+  {% if audience != "internal" %} 
+
+  1. Проверьте, есть ли в каталоге подсети для хостов кластера:
   
      ```
      $ yc vpc subnet list
      ```
   
-     Если ни одной подсети в каталоге нет, [создайте нужные подсети](../../vpc/operations/subnet-create.md) в сервисе {{ vpc-short-name }}. {% endif %}
+     Если ни одной подсети в каталоге нет, [создайте нужные подсети](../../vpc/operations/subnet-create.md) в сервисе {{ vpc-short-name }}. 
+
+  {% endif %}
   
   1. Посмотрите описание команды CLI для создания кластера:
   
@@ -94,7 +98,7 @@
 
   {% include [terraform-definition](../../solutions/_solutions_includes/terraform-definition.md) %}
   
-  Если у вас ещё нет Terraform, [установите его и настройте провайдер](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).  
+  Если у вас ещё нет Terraform, [установите его и настройте провайдер](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform). 
   
   Чтобы создать кластер: 
   
