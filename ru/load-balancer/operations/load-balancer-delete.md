@@ -45,7 +45,7 @@
   
 - API
   
-  Удалить балансировщик можно с помощью метода API [delete](../api-ref/NetworkLoadBalancer/delete.md).
+  Удалить сетевой балансировщик можно с помощью метода API [delete](../api-ref/NetworkLoadBalancer/delete.md).
   
 - Terraform
 

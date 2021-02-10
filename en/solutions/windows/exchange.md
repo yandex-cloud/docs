@@ -44,7 +44,7 @@ If you have an active billing account, you can create or select a folder to run 
 The cost of a Microsoft Exchange installation includes:
 
 * A fee for continuously running VMs (see [pricing{{ compute-full-name }}](../../compute/pricing.md)).
-* A fee for load balancing (see [pricing{{ load-balancer-full-name }}](../../load-balancer/pricing.md)).
+* A fee for load balancing (see [pricing{{ network-load-balancer-full-name }}](../../load-balancer/pricing.md)).
 * A fee for using dynamic or static public IP addresses (see [pricing{{ vpc-full-name }}](../../vpc/pricing.md)).
 * The cost of outgoing traffic from Yandex.Cloud to the internet (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 

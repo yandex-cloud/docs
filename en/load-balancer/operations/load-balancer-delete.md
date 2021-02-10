@@ -45,7 +45,7 @@
 
 - API
 
-  You can delete load balancers using the [delete](../api-ref/NetworkLoadBalancer/delete.md) API method.
+  You can delete network load balancers using the [delete](../api-ref/NetworkLoadBalancer/delete.md) API method.
 
 - Terraform
 

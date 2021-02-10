@@ -1,6 +1,6 @@
 # Step-by-step instructions
 
-## Load balancer {#load-balancer}
+## Network load balancer {#load-balancer}
 
 - [{#T}](load-balancer-create.md)
 - [{#T}](load-balancer-start.md)

@@ -35,7 +35,7 @@ The cost of internet service support includes:
 
 * A fee for continuously running VMs (see [pricing {{ compute-full-name }}](../../compute/pricing.md)).
 * A fee for using static public IP addresses (see [{{ vpc-full-name }} pricing](../pricing.md)).
-* A fee for using a network load balancer (see [{{ load-balancer-full-name }} pricing](../../load-balancer/pricing.md)).
+* A fee for using a network load balancer (see [{{ network-load-balancer-full-name }} pricing](../../load-balancer/pricing.md)).
 
 ## Reserve two static public IP addresses {#reserve-ips}
 
@@ -224,7 +224,7 @@ The network load balancer will distribute the internet service's incoming traffi
 - Management console
 
     To create a network load balancer:
-    1. In the [management console]({{ link-console-main }}), open **{{ load-balancer-name }}** in the folder to create the load balancer.
+    1. In the [management console]({{ link-console-main }}), open **{{ network-load-balancer-name }}** in the folder to create the load balancer.
     1. Click **Create load balancer**.
     1. Enter the load balancer name: `web-service-lb`.
     1. In the **Public address** field, select **List** and specify a static public address.

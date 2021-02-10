@@ -1148,7 +1148,7 @@
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
 
-#### {{ load-balancer-name }} {#load-balancer}
+#### {{ network-load-balancer-name }} {#load-balancer}
 
 * Команды `yc load-balancer network-load-balancer create` и `yc load-balancer network-load-balancer update`.
 

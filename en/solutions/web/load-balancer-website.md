@@ -1,6 +1,6 @@
-# Fault-tolerant website with load balancing by Yandex Load Balancer
+# Fault-tolerant website with load balancing by {{ network-load-balancer-full-name }}
 
-This scenario describes how to set up a website on a LAMP (Linux, Apache, MySQL, PHP) or LEMP (Linux, nginx, MySQL, PHP) stack with load balancing from [{{ load-balancer-full-name }}](../../load-balancer/concepts/index.md) between two availability zones and fault tolerance in one zone.
+This scenario describes how to set up a website on a LAMP (Linux, Apache, MySQL, PHP) or LEMP (Linux, nginx, MySQL, PHP) stack with load balancing from [{{ network-load-balancer-full-name }}](../../load-balancer/concepts/index.md) between two availability zones and fault tolerance in one zone.
 
 To set up a fault-tolerant load-balanced website:
 
@@ -31,7 +31,7 @@ The cost of hosting a website includes:
 
 * A fee for the disks and continuously running VMs (see [{{ compute-full-name }}pricing](../../compute/pricing.md)).
 * A fee for using dynamic public IP addresses (see [{{ vpc-full-name }}pricing](../../vpc/pricing.md)).
-* A fee for network load balancers and traffic balancing (see [pricing{{ load-balancer-full-name}}](../../load-balancer/pricing.md)).
+* A fee for network load balancers and traffic balancing (see [pricing{{ network-load-balancer-full-name}}](../../load-balancer/pricing.md)).
 
 ## Create the virtual machines {#create-vm}
 
@@ -191,7 +191,7 @@ To create a network load balancer:
 
    {% endlist %}
 
-1. In the management console, go to **{{ load-balancer-name }}** and select the load balancer created earlier.
+1. In the management console, go to **{{ network-load-balancer-name }}** and select the load balancer created earlier.
 
 1. Find the listener IP address under **Listeners**. Open the website in the browser using the listener address. The connection should be successful, even though one of the web servers has failed.
 

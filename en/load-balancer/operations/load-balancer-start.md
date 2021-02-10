@@ -46,7 +46,7 @@
   
 - API
   
-  You can start load balancers using the [start](../api-ref/NetworkLoadBalancer/start.md) API method.
+  You can start network load balancers using the [start](../api-ref/NetworkLoadBalancer/start.md) API method.
   
 {% endlist %}
 

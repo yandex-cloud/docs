@@ -2,7 +2,7 @@
 
 {% note warning %}
 
-Deleting an instance group is an operation that cannot be canceled or reversed. You cannot restore a deleted group. Along with the group, you delete the {{ load-balancer-name }} target group, instances, and disks.
+Deleting an instance group is an operation that cannot be canceled or reversed. You cannot restore a deleted group. Along with the group, you delete the {{ network-load-balancer-name }} target group, instances, and disks.
 
 {% endnote %}
 

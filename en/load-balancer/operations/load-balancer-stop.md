@@ -46,7 +46,7 @@
   
 - API
   
-  You can stop load balancers using the [stop](../api-ref/NetworkLoadBalancer/stop.md) API method.
+  You can stop network load balancers using the [stop](../api-ref/NetworkLoadBalancer/stop.md) API method.
   
 {% endlist %}
 

@@ -4,7 +4,7 @@ The feature is at the [Preview stage](../../overview/concepts/launch-stages.md).
 
 {% note info %}
 
-The internal load balancer's listener is assigned a random IP address from the range of addresses of the selected subnet.
+The internal network load balancer's listener is assigned a random IP address from the range of addresses of the selected subnet.
 
 {% endnote %}
 
@@ -42,7 +42,7 @@ The internal load balancer's listener is assigned a random IP address from the r
 
 - API
 
-  You can create an internal load balancer using the [create](../api-ref/NetworkLoadBalancer/create.md) API method.
+  You can create an internal network load balancer using the [create](../api-ref/NetworkLoadBalancer/create.md) API method.
 
 - Terraform
 
@@ -109,7 +109,7 @@ The internal load balancer's listener is assigned a random IP address from the r
 
 ## Examples
 
-### Creating an internal load balancer without a listener {#without-listener}
+### Creating an internal network load balancer without a listener {#without-listener}
 
 {% list tabs %}
 
@@ -126,7 +126,7 @@ The internal load balancer's listener is assigned a random IP address from the r
 
 {% endlist %}
 
-### Creating an internal load balancer with a listener and attached target group {#with-listener-and-target-group}
+### Creating an internal network load balancer with a listener and attached target group {#with-listener-and-target-group}
 
 {% list tabs %}
 

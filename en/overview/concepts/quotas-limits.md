@@ -45,7 +45,7 @@ Quotas are listed with default values that match the quotas of the [trial period
 
 {% include [kms-limits.md](../../_includes/kms/kms-limits.md) %}
 
-### {{ load-balancer-full-name }} {#load-balancer}
+### {{ network-load-balancer-full-name }} {#load-balancer}
 
 {% include [load-balancer-limits.md](../../_includes/load-balancer-limits.md) %}
 

@@ -1,2 +1,2 @@
 default:
-  service-name: Load Balancer
+  service-name: Network Load Balancer

@@ -1,12 +1,12 @@
 # Creating a fixed-size instance group with a network load balancer
 
-You can create a group of fixed-size instances along with a network load balancer that will evenly distribute the load across cloud resources. For more information, see [{#T}](../../../load-balancer/concepts/index.md) in the {{ load-balancer-full-name }} documentation.
+You can create a group of fixed-size instances along with a network load balancer that will evenly distribute the load across cloud resources. For more information, see [{#T}](../../../load-balancer/concepts/index.md) in the {{ network-load-balancer-full-name }} documentation.
 
 {% include [warning.md](../../../_includes/instance-groups/warning.md) %}
 
 {% include [sa.md](../../../_includes/instance-groups/sa.md) %}
 
-To create an instance group with a load balancer:
+To create an instance group with a network load balancer:
 
 {% list tabs %}
 
@@ -58,7 +58,7 @@ To create an instance group with a load balancer:
   1. In the **Scalability** section:
       - Select the **Proactive** [type of scaling](../../concepts/instance-groups/scale.md).
       - Specify the group size.
-  1. Under **Integration with {{ load-balancer-name }}**, toggle the switch to the right of the **Create target group** field.
+  1. Under **Integration with {{ network-load-balancer-name }}**, toggle the switch to the right of the **Create target group** field.
   1. Enter any **Name of the target group** and **Description of the target group**.
   1. If needed, enable the **Health check** to get information about the state of instances and their automatic recovery on failure.
       - In the **Type** field, select the protocol for the health checks: **HTTP** or **TCP**.
@@ -175,7 +175,7 @@ To create an instance group with a load balancer:
           | `scale_policy` | [Scaling policy](../../concepts/instance-groups/policies/scale-policy.md) for instances in a group. |
           | `allocation_policy` | [Allocation policy](../../concepts/instance-groups/policies/allocation-policy.md) for instances across zones and regions. |
 
-      - {{ load-balancer-name }} target group:
+      - {{ network-load-balancer-name }} target group:
 
           ```
           load_balancer_spec:
@@ -187,8 +187,8 @@ To create an instance group with a load balancer:
 
           | Key | Value |
           | ----- | ----- |
-          | `target_group_spec` | Specification of the {{ load-balancer-name }} target group associated with the instance group. |
-          | `name` | A name for the {{ load-balancer-name }} target group. The name must be unique within the folder. The name may contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character can't be a hyphen. The maximum length of the name is 63 characters. |
+          | `target_group_spec` | Specification of the {{ network-load-balancer-name }} target group associated with the instance group. |
+          | `name` | A name for the {{ network-load-balancer-name }} target group. The name must be unique within the folder. The name may contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character can't be a hyphen. The maximum length of the name is 63 characters. |
 
           Full code for the `specification.yaml` file:
 
@@ -289,12 +289,12 @@ To create an instance group with a load balancer:
           | `scale_policy` | [Scaling policy](../../concepts/instance-groups/policies/scale-policy.md) for instances in a group. |
           | `allocation_policy` | [Allocation policy](../../concepts/instance-groups/policies/allocation-policy.md) for instances across zones and regions. |
 
-       - {{ load-balancer-name }} target group:
+       - {{ network-load-balancer-name }} target group:
 
           | Field | Description |
           | ----- | ----- |
-          | `target_group_name` | Name of the {{ load-balancer-name }} target group. |
-          | `target_group_description` | Description of the {{ load-balancer-name }} target group. |
+          | `target_group_name` | Name of the {{ network-load-balancer-name }} target group. |
+          | `target_group_description` | Description of the {{ network-load-balancer-name }} target group. |
 
      * `yandex_vpc_network`: Description of the [cloud network](../../../vpc/concepts/network.md#network).
 

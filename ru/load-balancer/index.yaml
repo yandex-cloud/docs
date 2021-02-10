@@ -1,7 +1,7 @@
-title: Yandex Load Balancer
+title: Yandex Network Load Balancer
 description:
   - >-
-    Yandex Load Balancer — сервис, который помогает обеспечить
+    Yandex Network Load Balancer — сервис, который помогает обеспечить
     отказоустойчивость приложений за счет равномерного распределения сетевой
     нагрузки по облачным ресурсам. Сервис позволяет создавать <a
     href="https://cloud.yandex.ru/docs/load-balancer/concepts/">сетевые
@@ -19,12 +19,12 @@ description:
     Для сервиса действует <a href="https://yandex.ru/legal/cloud_sla">соглашение
     об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
     документе <a href="https://yandex.ru/legal/cloud_sla_loadbalancer">Уровень
-    обслуживания Yandex Load Balancer</a>.
+    обслуживания Yandex Network Load Balancer</a>.
 meta:
-  title: Yandex Load Balancer
+  title: Yandex Network Load Balancer
 links:
   - title: Начало работы
-    description: Создайте и настройте первый балансировщик
+    description: Создайте и настройте первый сетевой балансировщик
     href: quickstart
   - title: Пошаговые инструкции
     description: Инструкции по выполнению рутинных операций

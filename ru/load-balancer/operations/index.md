@@ -1,6 +1,6 @@
 # Пошаговые инструкции
 
-## Балансировщик {#load-balancer}
+## Сетевой балансировщик {#load-balancer}
 
 - [{#T}](load-balancer-create.md)
 - [{#T}](load-balancer-start.md)

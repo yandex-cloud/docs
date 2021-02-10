@@ -1,6 +1,6 @@
 # Resource health checks
 
-*A load balancer uses health checks* to get information about the health of resources in an attached target group. In response to a status request, a resource reports that it is ready to receive traffic, is in an intermediate state, or has failed. Checks are performed via TCP or HTTP at the intervals specified in the configuration.
+*A network load balancer uses health checks* to get information about the health of resources in an attached target group. In response to a status request, a resource reports that it is ready to receive traffic, is in an intermediate state, or has failed. Checks are performed via TCP or HTTP at the intervals specified in the configuration.
 
 The following should be specified for each check:
 
@@ -18,7 +18,7 @@ A target can have one of the following health statuses:
 * `DRAINING`: the resource is being deleted and traffic is being removed from it. The load balancer stops routing traffic to this resource.
 * `INACTIVE`: the resource is attached to a stopped load balancer or a load balancer without any listeners.
 
-There is a delay between changing the resource status to `UNHEALTHY` and the time when the load balancer stops routing traffic to the resource. This is the time that the load balancer spends on processing the check results.
+There is a delay between changing the resource status to `UNHEALTHY` and the time when the network load balancer stops routing traffic to the resource. This is the time that the load balancer spends on processing the check results.
 
 Health check results are passed to targets with IPs in the `198.18.235.0/24` and `198.18.248.0/24` ranges. Traffic filtering rules configured for targets must allow receiving traffic from the addresses in this range. Otherwise, no checks will be performed. As a result, the targets will not be assigned the `HEALTHY` status and will not be able to receive traffic.
 

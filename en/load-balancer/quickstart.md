@@ -1,15 +1,15 @@
-# Getting started with {{ load-balancer-short-name }}
+# Getting started with {{ network-load-balancer-short-name }}
 
 [Network load balancers](concepts/index.md) evenly distribute workload across cloud resources and monitor their status. This improves the availability and fault tolerance of your applications and cloud network infrastructure.
 
-Create a network load balancer with a [listener](concepts/listener.md), attach a [group of target resources](concepts/target-resources), and set up [health checks](concepts/health-check.md) using {{ load-balancer-name }}.
+Create a network load balancer with a [listener](concepts/listener.md), attach a [group of target resources](concepts/target-resources), and set up [health checks](concepts/health-check.md) using {{ network-load-balancer-name }}.
 
 ## Before you start {#before-you-begin}
 
 1. Log in to or register in the [management console](https://console.cloud.yandex.com). If you aren't registered, go to the management console and follow the instructions.
 1. [On the billing page](https://console.cloud.yandex.com/billing), make sure you linked a [billing account](../billing/concepts/billing-account.md) and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you don't have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
 1. If you don't have a folder yet, [create one](../resource-manager/operations/folder/create.md).
-1. [Create](../compute/quickstart/quick-create-linux.md) multiple VMs in advance to include them in the target group attached to the load balancer. For testing, you can use inexpensive [preemptible VMs](../compute/concepts/preemptible-vm.md).
+1. [Create](../compute/quickstart/quick-create-linux.md) multiple VMs in advance to include them in the target group attached to the network load balancer. For testing, you can use inexpensive [preemptible VMs](../compute/concepts/preemptible-vm.md).
 
 ## Create a target group {#create-target-group}
 
@@ -63,7 +63,7 @@ To check the [status of the network load balancer](concepts/index.md#lb-statuses
 1. Open the {{ compute-name }} page and [stop](../compute/operations/vm-control/vm-stop-and-start.md#stop) one of the VMs in the target group.
 1. Go back to the load balancer page and make sure that the stopped VM status is `UNHEALTHY`. This means that the target from the group failed the health check and isn't ready to receive traffic.
 
-## Delete a load balancer and the resources created {#delete-resources}
+## Delete a network load balancer and the resources created {#delete-resources}
 
 If you no longer need a load balancer, [delete it](operations/load-balancer-delete.md).
 

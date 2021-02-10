@@ -1,10 +1,10 @@
-# Detach a target group from a load balancer
+# Detach a target group from a network load balancer
 
 {% list tabs %}
 
 - Management console
   
-  To detach a [target group](../concepts/target-resources.md) from a load balancer:
+  To detach a [target group](../concepts/target-resources.md) from a network load balancer:
   
   1. Open the **Load Balancer** section in the folder where you want to detach the target group from the load balancer.
   1. Click ![image](../../_assets/vertical-ellipsis.svg) in the row of that load balancer.
@@ -16,7 +16,7 @@
   
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
   
-  1. See the description of the CLI's detach target group command:
+  1. See the description of the CLI's detach target group command from a network load balancer:
   
      ```
      $ yc load-balancer network-load-balancer detach-target-group --help
@@ -46,7 +46,7 @@
   
 - API
   
-  You can detach a target group from a load balancer using the [detachTargetGroup](../api-ref/NetworkLoadBalancer/detachTargetGroup.md) API method.
+  You can detach a target group from a network load balancer using the [detachTargetGroup](../api-ref/NetworkLoadBalancer/detachTargetGroup.md) API method.
   
 {% endlist %}
 

@@ -102,7 +102,7 @@ _Роль_ — это набор разрешений, который опре�
 
 {% include [kms-keys-encrypterdecrypter](../../../_includes/roles-kms-keys-encrypterdecrypter.md)%}
 
-## {{ load-balancer-name }} {#load-balancer-roles}
+## {{ network-load-balancer-name }} {#load-balancer-roles}
 
 {% include [roles-lb-viewer](../../../_includes/roles-lb-viewer.md) %}
 

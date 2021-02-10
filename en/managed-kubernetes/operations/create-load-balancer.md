@@ -4,7 +4,7 @@ To grant access to an app running in a {{ k8s }} cluster, you can use [various t
 
 To grant public access to the app, use `LoadBalancer` type service with a public IP address.
 
-Applications can be accessed from internal networks, but not from {{ k8s }} clusters: from [subnets](../../vpc/concepts/network.md#subnet) of {{ vpc-full-name }} or a company's internal subnets connected to {{ yandex-cloud }} via [{{ interconnect-full-name }}](../../vpc/interconnect/index.md) or VPN. To grant access, use a `LoadBalancer` service based on an [internal load balancer](../../load-balancer/concepts/internal-load-balancer.md).
+Applications can be accessed from internal networks, but not from {{ k8s }} clusters: from [subnets](../../vpc/concepts/network.md#subnet) of {{ vpc-full-name }} or a company's internal subnets connected to {{ yandex-cloud }} via [{{ interconnect-full-name }}](../../vpc/interconnect/index.md) or VPN. To grant access, use a `LoadBalancer` service based on an [internal network load balancer](../../load-balancer/concepts/internal-load-balancer.md).
 
 {% note info %}
 
@@ -172,7 +172,7 @@ When you create a `LoadBalancer` service, the {{ yandex-cloud }} controller crea
 
    - Management console
      1. In the [management console]({{ link-console-main }}), select your default folder.
-     1. Select **{{ load-balancer-name }}**.
+     1. Select **{{ network-load-balancer-name }}**.
      1. The **Load balancers** tab shows the network load balancer with the `k8s` prefix in the name and the unique ID of your {{ k8s }} cluster in the description.
 
    - CLI
@@ -230,7 +230,7 @@ When you create a `LoadBalancer` service, the {{ yandex-cloud }} controller crea
 
 ## Create a LoadBalancer service with an internal IP address {#lb-int-create}
 
-To create a load balancer with an internal IP address, specify the `yandex.cloud/load-balancer-type` and `yandex.cloud/subnet-id` parameters in the YAML specification for the service under `annotations`:
+To create a network load balancer with an internal IP address, specify the `yandex.cloud/load-balancer-type` and `yandex.cloud/subnet-id` parameters in the YAML specification for the service under `annotations`:
 
 ```yaml
 apiVersion: v1

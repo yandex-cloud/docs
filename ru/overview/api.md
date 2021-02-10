@@ -14,7 +14,7 @@
    - [{{ resmgr-full-name }}](../resource-manager/api-ref/)
    - [{{ certificate-manager-full-name }}](../certificate-manager/api-ref/)
    - [{{ kms-full-name }}](../kms/api-ref/)
-   - [{{ load-balancer-full-name }}](../load-balancer/api-ref/)
+   - [{{ network-load-balancer-full-name }}](../load-balancer/api-ref/)
    - [{{ container-registry-full-name }}](../container-registry/api-ref/)
    - [{{ managed-k8s-full-name }}<sup>®</sup>](../managed-kubernetes/api-ref/)
    - [{{ monitoring-full-name }}](../monitoring/api-ref/)

@@ -2,7 +2,7 @@
 
 {% note alert %}
 
-Before deleting a target group, detach it from the load balancer.
+Before deleting a target group, detach it from the network load balancer.
 You cannot restore a target group after it is deleted.
 
 {% endnote %}
