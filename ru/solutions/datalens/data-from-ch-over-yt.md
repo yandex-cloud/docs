@@ -19,7 +19,33 @@
 ---- | ---- | ----
 Ресурсы | Общий пул (негарантированные 16 инстансов по 8 ядер) | Выделенный пул (гарантированные мощности)
 Таймаут запроса | 3 минуты | 60 минут (1 час)
-Доступные кластеры | `Hahn` , `Arnold` | `Hahn` , `Arnold`
+Доступные кластеры | `Hahn` , `Arnold`, `Vanga` | `Hahn` , `Arnold`
+
+### Параметры клики
+
+При запуске приватной клики рекомендуется использовать параметры для сложных типов:
+
+    yt clickhouse start-clique --clickhouse-config '{yt={settings={composite={enable_conversion=1;default_yson_format="pretty"}}}}' …
+
+Также во многих случаях рекомендуется указание UTC в качестве системной таймзоны. Полный пример:
+
+    yt clickhouse start-clique --clickhouse-config '{engine={timezone="UTC"};yt={settings={composite={enable_conversion=1;default_yson_format="pretty"}}}}' …
+
+Подробности в [тикете](https://st.yandex-team.ru/BI-1977).
+
+### Vanga
+
+[Vanga](https://yt.yandex-team.ru/vanga/dashboard) – YT-кластер, расположенный в нескольких дата-центрах, что обеспечивает работоспособность при учениях и других отключениях дата-центров.
+
+Для использования кластера [закажите аккаунт и HDD квоту на кластер Vanga](https://yt.yandex-team.ru/docs/description/common/quota_request#sozdanie-akkaunta-i-diskovoj-kvoty-pod-novyj-proekt). Заказывать вычислительный пул и создавать приватную клику не стоит из-за особенностей кластера.
+
+Используйте публичную клику `*ch_datalens` (см. [пример подключения](https://datalens.yandex-team.ru/connections/lr98fmzgsod0g)).
+
+Данные можно перенести на кластер через [Transfer Manager](https://transfer-manager.yt.yandex-team.ru/).
+
+Обновления с видимым пользователю downtime происходят ориентировочно [несколько раз в год](https://infra.yandex-team.ru/timeline?preset=a2tm531oiYL&from=1483218000000&to=1672520400000&status=all&types=major_issue%7Cmajor_maintenance). Анонс в infra минимум за 24 рабочих часа до проведения работ.
+
+Подробности в [тикете](https://st.yandex-team.ru/BI-846).
 
 {% note warning %}
 
