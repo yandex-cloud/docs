@@ -1,0 +1,59 @@
+title: "Yandex Application Load Balancer"
+href: index.yaml
+items:
+  - name: Начало работы
+    href: quickstart.md
+  - name: Пошаговые инструкции
+    items:
+      - name: Все инструкции
+        href: operations/index.md
+      - name: Целевые группы
+        items:
+          - name: Создать целевую группу
+            href: operations/target-group-create.md
+          - name: Изменить целевую группу
+            href: operations/target-group-update.md
+          - name: Удалить целевую группу
+            href: operations/target-group-delete.md
+      - name: Группы бэкендов
+        items:
+          - name: Создать группу бэкендов
+            href: operations/backend-group-create.md
+          - name: Изменить группу бэкендов
+            href: operations/backend-group-update.md
+          - name: Удалить группу бэкендов
+            href: operations/backend-group-delete.md
+      - name: HTTP-роутеры
+        items:
+          - name: Создать HTTP-роутер
+            href: operations/http-router-create.md
+          - name: Изменить HTTP-роутер
+            href: operations/http-router-update.md
+          - name: Удалить HTTP-роутер
+            href: operations/http-router-delete.md
+      - name: L7-балансировщики
+        items:
+          - name: Создать L7-балансировщик
+            href: operations/application-load-balancer-create.md
+          - name: Изменить L7-балансировщик
+            href: operations/application-load-balancer-update.md
+          - name: Удалить L7-балансировщик
+            href: operations/application-load-balancer-delete.md
+  - name: Концепции
+    items:
+      - name: Обзор
+        href: concepts/index.md
+      - name: Балансировщик нагрузки
+        href: concepts/application-load-balancer.md
+      - name: HTTP-роутер
+        href: concepts/http-router.md
+      - name: Группы бэкендов
+        href: concepts/backend-group.md
+      - name: Целевые группы
+        href: concepts/target-group.md
+      - name: Квоты и лимиты
+        href: concepts/limits.md
+  - name: Управление доступом
+    href: security/index.md
+  - name: Правила тарификации
+    href: pricing.md
