@@ -91,7 +91,7 @@ You can find the addresses of all the hosts in the DB cluster on the appropriate
 
 ### With a driver that supports only one host {#with-a-driver-that-supports-only-one-host}
 
-If your database connection driver doesn't support passing multiple hosts in the connection string (for example, [pgx in Go](https://github.com/jackc/pgx)), you can connect to a special host like `c-<cluster ID>.rw.{{ dns-zone }}`.
+If your database connection driver doesn't support passing multiple hosts in the connection string , you can connect to a special host like `c-<cluster ID>.rw.{{ dns-zone }}`.
 
 {% if audience == "internal" %}{% note info %}
 
