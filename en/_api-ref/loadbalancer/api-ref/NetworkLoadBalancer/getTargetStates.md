@@ -9,7 +9,7 @@ Gets states of target resources in the attached target group.
  
 ## HTTP request {#https-request}
 ```
-GET https://load-balancer.api.cloud.yandex.net/load-balancer/v1alpha/networkLoadBalancers/{networkLoadBalancerId}:getTargetStates
+GET https://load-balancer.api.cloud.yandex.net/network-load-balancer/v1alpha/networkLoadBalancers/{networkLoadBalancerId}:getTargetStates
 ```
  
 ## Path parameters {#path_params}

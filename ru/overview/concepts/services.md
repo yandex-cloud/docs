@@ -18,7 +18,7 @@ _Сервис_ в составе {{ yandex-cloud }} позволяет упра�
     * [{{ resmgr-full-name }}](../../resource-manager/) (Сервис по управлению облачными ресурсами).
     * [{{ certificate-manager-full-name }}](../../certificate-manager/) (Сервис для управления TLS-сертификатами).
     * [{{ kms-full-name }}](../../kms/) (Сервис для управления ключами шифрования).
-    * [{{ network-load-balancer-full-name }}](../../load-balancer/) (Сервис для управления сетевыми балансировщиками нагрузки).
+    * [{{ network-load-balancer-full-name }}](../../network-load-balancer/) (Сервис для управления сетевыми балансировщиками нагрузки).
     * [{{ ig-full-name }}](../../compute/concepts/instance-groups/) (Сервис для создания и управления группами виртуальных машин).
     * [{{ container-registry-full-name }}](../../container-registry/) (Сервис для управления образами контейнеров).
     * [{{ managed-k8s-full-name }}<sup>®</sup>](../../managed-kubernetes/) (Сервис Управления для Kubernetes).
@@ -230,7 +230,7 @@ _Метка_ — это пара ключ-значение в формате `<�
 * [{{ vpc-full-name }}](../../vpc/)
 * [{{ resmgr-full-name }}](../../resource-manager/)
 * [{{ kms-full-name }}](../../kms/)
-* [{{ network-load-balancer-full-name }}](../../load-balancer/)
+* [{{ network-load-balancer-full-name }}](../../network-load-balancer/)
 * [{{ container-registry-full-name }}](../../container-registry/)
 * [{{ managed-k8s-full-name }}](../../managed-kubernetes/)
 * [{{ mpg-full-name }}](../../managed-postgresql/)

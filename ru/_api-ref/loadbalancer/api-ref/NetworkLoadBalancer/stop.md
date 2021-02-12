@@ -10,14 +10,14 @@ editable: false
  
 ## HTTP-запрос {#https-request}
 ```
-POST https://load-balancer.api.cloud.yandex.net/load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}:stop
+POST https://load-balancer.api.cloud.yandex.net/network-load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}:stop
 ```
  
 ## Path-параметры {#path_params}
  
 Параметр | Описание
 --- | ---
-networkLoadBalancerId | Обязательное поле. Идентификатор балансировщика, который будет остановлен. Чтобы получить идентификатор балансировщика, используйте запрос [list](/docs/load-balancer/api-ref/NetworkLoadBalancer/list).  Максимальная длина строки в символах — 50.
+networkLoadBalancerId | Обязательное поле. Идентификатор балансировщика, который будет остановлен. Чтобы получить идентификатор балансировщика, используйте запрос [list](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list).  Максимальная длина строки в символах — 50.
  
 ## Ответ {#responses}
 **HTTP Code: 200 - OK**

@@ -9,7 +9,7 @@ Creates a target group in the specified folder and adds the specified targets to
  
 ## HTTP request {#https-request}
 ```
-POST https://load-balancer.api.cloud.yandex.net/load-balancer/v1alpha/targetGroups
+POST https://load-balancer.api.cloud.yandex.net/network-load-balancer/v1alpha/targetGroups
 ```
  
 ## Body parameters {#body_params}
@@ -33,12 +33,12 @@ POST https://load-balancer.api.cloud.yandex.net/load-balancer/v1alpha/targetGrou
  
 Field | Description
 --- | ---
-folderId | **string**<br><p>Required. ID of the folder to list target groups in. To get the folder ID, use a <a href="/docs/load-balancer/api-ref/TargetGroup/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
+folderId | **string**<br><p>Required. ID of the folder to list target groups in. To get the folder ID, use a <a href="/docs/network-load-balancer/api-ref/TargetGroup/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
 name | **string**<br><p>Name of the target group. The name must be unique within the folder.</p> <p>Value must match the regular expression `` \|[a-z][-a-z0-9]{1,61}[a-z0-9] ``.</p> 
 description | **string**<br><p>Description of the target group.</p> <p>The maximum string length in characters is 256.</p> 
 labels | **object**<br><p>Resource labels as `` key:value `` pairs.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression `` [a-z][-_0-9a-z]* ``. The maximum string length in characters for each value is 63. Each value must match the regular expression `` [-_0-9a-z]* ``.</p> 
 regionId | **string**<br><p>Required. ID of the availability zone where the target group resides.</p> <p>The maximum string length in characters is 50.</p> 
-targets[] | **object**<br><p>A Target resource. For more information, see <a href="/docs/load-balancer/target-resources">Target groups and resources</a>.</p> 
+targets[] | **object**<br><p>A Target resource. For more information, see <a href="/docs/network-load-balancer/target-resources">Target groups and resources</a>.</p> 
 targets[].<br>subnetId | **string**<br><p>ID of the subnet that targets are connected to. All targets in the target group must be connected to the same subnet within a single availability zone.</p> <p>The maximum string length in characters is 50.</p> 
 targets[].<br>address | **string**<br><p>IP address of the target.</p> 
  

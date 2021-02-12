@@ -14,7 +14,7 @@
 | Azure Resource Manager | [{{ resmgr-full-name }}](../../resource-manager/) |
 | Azure Key Vault | [{{ certificate-manager-full-name }}](../../certificate-manager/) |
 | Key Vault | [{{ kms-full-name }}](../../kms/) |
-| Load Balancer | [{{ network-load-balancer-full-name }}](../../load-balancer/) |
+| Load Balancer | [{{ network-load-balancer-full-name }}](../../network-load-balancer/) |
 | Virtual Machine Scale Sets | [Yandex Instance Groups](../../compute/concepts/instance-groups/) |
 | Container Registry | [{{ container-registry-full-name }}](../../container-registry/) |
 | Azure Kubernetes Service (AKS) | [{{ managed-k8s-full-name }}](../../managed-kubernetes/) |

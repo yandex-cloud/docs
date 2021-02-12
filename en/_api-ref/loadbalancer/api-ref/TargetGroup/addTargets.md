@@ -9,14 +9,14 @@ Adds targets to the target group.
  
 ## HTTP request {#https-request}
 ```
-POST https://load-balancer.api.cloud.yandex.net/load-balancer/v1alpha/targetGroups/{targetGroupId}:addTargets
+POST https://load-balancer.api.cloud.yandex.net/network-load-balancer/v1alpha/targetGroups/{targetGroupId}:addTargets
 ```
  
 ## Path parameters {#path_params}
  
 Parameter | Description
 --- | ---
-targetGroupId | Required. ID of the TargetGroup resource to add targets to. To get the target group ID, use a [list](/docs/load-balancer/api-ref/TargetGroup/list) request.  The maximum string length in characters is 50.
+targetGroupId | Required. ID of the TargetGroup resource to add targets to. To get the target group ID, use a [list](/docs/network-load-balancer/api-ref/TargetGroup/list) request.  The maximum string length in characters is 50.
  
 ## Body parameters {#body_params}
  
@@ -34,7 +34,7 @@ targetGroupId | Required. ID of the TargetGroup resource to add targets to. To g
  
 Field | Description
 --- | ---
-targets[] | **object**<br><p>A Target resource. For more information, see <a href="/docs/load-balancer/target-resources">Target groups and resources</a>.</p> 
+targets[] | **object**<br><p>A Target resource. For more information, see <a href="/docs/network-load-balancer/target-resources">Target groups and resources</a>.</p> 
 targets[].<br>subnetId | **string**<br><p>ID of the subnet that targets are connected to. All targets in the target group must be connected to the same subnet within a single availability zone.</p> <p>The maximum string length in characters is 50.</p> 
 targets[].<br>address | **string**<br><p>IP address of the target.</p> 
  

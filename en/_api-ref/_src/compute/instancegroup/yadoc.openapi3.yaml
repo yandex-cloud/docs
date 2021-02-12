@@ -1194,7 +1194,7 @@ components:
             Required.
 
             Health checking specification. For more information, see [Health
-            check](/docs/load-balancer/concepts/health-check).
+            check](/docs/network-load-balancer/concepts/health-check).
 
 
             The minimum number of elements is 1.
@@ -2945,7 +2945,7 @@ components:
     HealthChecksSpec_in_CreateInstanceGroupRequest_healthChecksSpec:
       description: >-
         Health checking specification. For more information, see [Health
-        check](/docs/load-balancer/concepts/health-check).
+        check](/docs/network-load-balancer/concepts/health-check).
       type: object
       properties:
         healthCheckSpecs:
@@ -2953,7 +2953,7 @@ components:
             Required.
 
             Health checking specification. For more information, see [Health
-            check](/docs/load-balancer/concepts/health-check).
+            check](/docs/network-load-balancer/concepts/health-check).
 
 
             The minimum number of elements is 1.
@@ -3310,7 +3310,7 @@ components:
     HealthChecksSpec_in_InstanceGroup_healthChecksSpec:
       description: >-
         Health checking specification. For more information, see [Health
-        check](/docs/load-balancer/concepts/health-check).
+        check](/docs/network-load-balancer/concepts/health-check).
       type: object
       properties:
         healthCheckSpecs:
@@ -3318,7 +3318,7 @@ components:
             Required.
 
             Health checking specification. For more information, see [Health
-            check](/docs/load-balancer/concepts/health-check).
+            check](/docs/network-load-balancer/concepts/health-check).
 
 
             The minimum number of elements is 1.
@@ -3460,7 +3460,7 @@ components:
       description: >-
         Specification of the target group that the instance group will be added
         to. For more information, see [Target groups and
-        resources](/docs/load-balancer/concepts/target-resources).
+        resources](/docs/network-load-balancer/concepts/target-resources).
       type: object
       properties:
         name:
@@ -4014,7 +4014,7 @@ components:
     HealthChecksSpec_in_UpdateInstanceGroupRequest_healthChecksSpec:
       description: >-
         Health checking specification. For more information, see [Health
-        check](/docs/load-balancer/concepts/health-check).
+        check](/docs/network-load-balancer/concepts/health-check).
       type: object
       properties:
         healthCheckSpecs:
@@ -4022,7 +4022,7 @@ components:
             Required.
 
             Health checking specification. For more information, see [Health
-            check](/docs/load-balancer/concepts/health-check).
+            check](/docs/network-load-balancer/concepts/health-check).
 
 
             The minimum number of elements is 1.

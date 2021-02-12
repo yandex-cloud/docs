@@ -997,7 +997,7 @@ components:
 
             Спецификация проверки работоспособности. Дополнительные сведения см.
             в разделе [Проверка состояния
-            ресурсов](/docs/load-balancer/concepts/health-check).
+            ресурсов](/docs/network-load-balancer/concepts/health-check).
 
 
             Минимальное количество элементов — 1.
@@ -2339,7 +2339,7 @@ components:
       description: >-
         Спецификация проверки работоспособности. Дополнительные сведения см. в
         разделе [Проверка состояния
-        ресурсов](/docs/load-balancer/concepts/health-check).
+        ресурсов](/docs/network-load-balancer/concepts/health-check).
       type: object
       properties:
         healthCheckSpecs:
@@ -2348,7 +2348,7 @@ components:
 
             Спецификация проверки работоспособности. Дополнительные сведения см.
             в разделе [Проверка состояния
-            ресурсов](/docs/load-balancer/concepts/health-check).
+            ресурсов](/docs/network-load-balancer/concepts/health-check).
 
 
             Минимальное количество элементов — 1.
@@ -2620,7 +2620,7 @@ components:
       description: >-
         Спецификация проверки работоспособности. Дополнительные сведения см. в
         разделе [Проверка состояния
-        ресурсов](/docs/load-balancer/concepts/health-check).
+        ресурсов](/docs/network-load-balancer/concepts/health-check).
       type: object
       properties:
         healthCheckSpecs:
@@ -2629,7 +2629,7 @@ components:
 
             Спецификация проверки работоспособности. Дополнительные сведения см.
             в разделе [Проверка состояния
-            ресурсов](/docs/load-balancer/concepts/health-check).
+            ресурсов](/docs/network-load-balancer/concepts/health-check).
 
 
             Минимальное количество элементов — 1.
@@ -2767,7 +2767,7 @@ components:
         виртуальных машин.
 
         Дополнительные сведения см. в разделе [Целевые ресурсы и
-        группы](/docs/load-balancer/concepts/target-resources).
+        группы](/docs/network-load-balancer/concepts/target-resources).
       type: object
       properties:
         name:
@@ -3262,7 +3262,7 @@ components:
       description: >-
         Спецификация проверки работоспособности. Дополнительные сведения см. в
         разделе [Проверка состояния
-        ресурсов](/docs/load-balancer/concepts/health-check).
+        ресурсов](/docs/network-load-balancer/concepts/health-check).
       type: object
       properties:
         healthCheckSpecs:
@@ -3271,7 +3271,7 @@ components:
 
             Спецификация проверки работоспособности. Дополнительные сведения см.
             в разделе [Проверка состояния
-            ресурсов](/docs/load-balancer/concepts/health-check).
+            ресурсов](/docs/network-load-balancer/concepts/health-check).
 
 
             Минимальное количество элементов — 1.
