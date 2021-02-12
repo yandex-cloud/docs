@@ -27,7 +27,7 @@
     * Версии {{ CH }} в обоих кластерах должны совпадать.
     * Версия `clickhouse-copier` должна быть не ниже версии {{ CH }} в кластере
     {{ mch-name }}.
-    * Версия ZooKeeper — не ниже 3.4.10.
+    * Версия ZooKeeper — не ниже 3.5.
 
 1. Проверьте, что кластер-источник готов к миграции:
 
@@ -67,13 +67,14 @@
 
 1. Установите ZooKeeper в режиме одного узла:
 
-    1. Скачайте дистрибутив, например, версии 3.4.13:
+    1. Скачайте последнюю стабильную версию (latest stable) дистрибутива. Подробную информацию можно узнать на [странице с релизами](https://zookeeper.apache.org/releases.html).
 
         ```bash
         $ cd /opt
-        $ sudo wget http://apache.is.co.za/zookeeper/zookeeper-3.4.13/zookeeper-3.4.13.tar.gz
-        $ sudo tar -xvf zookeeper-3.4.13.tar.gz
-        $ sudo chown hadoop:hadoop -R  zookeeper-3.4.13
+        $ sudo wget https://downloads.apache.org/zookeeper/zookeeper-3.6.2/apache-zookeeper-3.6.2-bin.tar.gz
+        $ sudo mkdir zookeeper
+        $ sudo tar -C /opt/zookeeper -xvf apache-zookeeper-3.6.2-bin.tar.gz --strip-components 1
+        $ sudo chown hadoop:hadoop -R zookeeper
         ```
     1. Переключитесь на созданного ранее пользователя для запуска ZooKeeper:
 
@@ -81,26 +82,38 @@
         $ su hadoop
         ```
 
-    1. Создайте файл `/opt/zookeeper-3.4.13/conf/zoo.cfg` со следующим содержимым:
+    1. Создайте файл `zoo.cfg`:
 
+        ```
+        nano /opt/zookeeper/conf/zoo.cfg
+        ```
+        
+        со следующим содержимым:
+        
         ```ini
         tickTime=2000
         dataDir=/var/data/zookeeper
         clientPort=2181
         ```
 
-    1. Мастер-узел должен иметь уникальный идентификатор. Чтобы задать его, создайте файл  `/var/data/zookeeper/myid` с этим идентификатором в качестве содержимого (например, «1»).
+    1. Мастер-узел должен иметь уникальный идентификатор. Чтобы задать его, создайте файл  `myid`.
+    
+       ```
+       nano /var/data/zookeeper/myid
+       ```
+       
+       Укажите уникальный идентификатор в качестве содержимого, (например, «1»).
 
 1. Запустить ZooKeeper для отладки можно так:
 
     ```bash
-    $ bash /opt/zookeeper-3.4.13/bin/zkServer.sh start-foreground
+    $ bash /opt/zookeeper/bin/zkServer.sh start-foreground
     ```
 
 1. Чтобы запустить ZooKeeper в обычном режиме:
 
     ```bash
-     $ bash /opt/zookeeper-3.4.13/bin/zkServer.sh start
+    $ bash /opt/zookeeper/bin/zkServer.sh start
     ```
 
 
@@ -246,13 +259,13 @@
 Чтобы добавить задачу в ZooKeeper, выполните следующие команды:
 
 ```bash
-/opt/zookeeper-3.4.13/bin/zkCli.sh -server localhost:2181 rmr /cp-task.xml/description
-/opt/zookeeper-3.4.13/bin/zkCli.sh -server localhost:2181 rmr /cp-task.xml/task_active_workers
-/opt/zookeeper-3.4.13/bin/zkCli.sh -server localhost:2181 rmr /cp-task.xml
+/opt/zookeeper/bin/zkCli.sh -server localhost:2181 deleteall /cp-task.xml/description
+/opt/zookeeper/bin/zkCli.sh -server localhost:2181 deleteall /cp-task.xml/task_active_workers
+/opt/zookeeper/bin/zkCli.sh -server localhost:2181 deleteall /cp-task.xml
 
 fc=$(cat ./cp-task.xml)
-/opt/zookeeper-3.4.13/bin/zkCli.sh -server localhost:2181 create /cp-task.xml ""
-/opt/zookeeper-3.4.13/bin/zkCli.sh -server localhost:2181 create /cp-task.xml/description "$fc"
+/opt/zookeeper/bin/zkCli.sh -server localhost:2181 create /cp-task.xml ""
+/opt/zookeeper/bin/zkCli.sh -server localhost:2181 create /cp-task.xml/description "$fc"
 ```
 
 

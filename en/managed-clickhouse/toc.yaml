@@ -48,6 +48,7 @@ items:
       - name: Adding data to the database
         href: operations/insert.md
       - name: Migrating ClickHouse data
+        when: content != "noshow"
         href: operations/data-migration.md
       - name: Sharding tables
         href: tutorials/sharding.md
