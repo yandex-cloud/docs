@@ -9,7 +9,7 @@ For automatic recovery, {{ ig-name }} performs two types of health checks:
 * [Instance operability check](#auto-healthcheck).
 * [Application health check on the instance](#functional-healthcheck).
 
-Don't confuse these checks with the [network load balancer health check](../../../load-balancer/concepts/health-check.md), which doesn't result in automatic instance recovery. It only affects the deployment process: when at startup the instance switches to the [status](statuses.md) `OPENING_TRAFFIC`, {{ ig-name }} waits until the instance status in the load balancer is `HEALTHY`. After that {{ ig-name }} stops monitoring the instance status in the load balancer.
+Don't confuse these checks with the [network load balancer health check](../../../network-load-balancer/concepts/health-check.md), which doesn't result in automatic instance recovery. It only affects the deployment process: when at startup the instance switches to the [status](statuses.md) `OPENING_TRAFFIC`, {{ ig-name }} waits until the instance status in the load balancer is `HEALTHY`. After that {{ ig-name }} stops monitoring the instance status in the load balancer.
 
 ### Instance operability check {#auto-healthcheck}
 
@@ -23,7 +23,7 @@ If you enabled this check, {{ ig-name }} will periodically query the status of t
 
 #### Recommendations for instance groups with a network load balancer {#healthcheck-and-balancer}
 
-If you [created a group with a network load balancer](../../operations/instance-groups/create-with-balancer.md), then use less strict settings for checks in {{ ig-name }} than for the [load balancer health checks](../../../load-balancer/concepts/health-check.md). The load balancer allocates the load on the app, while {{ ig-name }} only monitors the app performance.
+If you [created a group with a network load balancer](../../operations/instance-groups/create-with-balancer.md), then use less strict settings for checks in {{ ig-name }} than for the [load balancer health checks](../../../network-load-balancer/concepts/health-check.md). The load balancer allocates the load on the app, while {{ ig-name }} only monitors the app performance.
 
 > For example, if you set the 1-second response timeout in the network load balancer, then set 30 seconds in {{ ig-name }}. If the application doesn't respond for 3-5 seconds, it might not be able to handle the current traffic. On the other hand, if the application doesn't respond for more than 30 seconds, it probably isn't working at all and you need to recover your instance.
 
