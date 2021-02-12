@@ -80,7 +80,7 @@ To create an instance group:
         - Target CPU performance level. Set as a percentage.
 1. Under **Integration with Load Balancer**:
 
-    - (optional) Click the **Create target group** toggle. [Target groups](../../load-balancer/concepts/target-resources.md) are necessary for the [network load balancer](../../load-balancer/concepts/index.md) to distribute loads.
+    - (optional) Click the **Create target group** toggle. [Target groups](../../network-load-balancer/concepts/target-resources.md) are necessary for the [network load balancer](../../network-load-balancer/concepts/index.md) to distribute loads.
         - Enter a name and description for the target group.
 1. Under **Health checks**:
 

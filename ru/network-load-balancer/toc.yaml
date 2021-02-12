@@ -1,0 +1,134 @@
+title: Yandex Network Load Balancer
+href: index.yaml
+items:
+  - name: Начало работы
+    href: quickstart.md
+  - name: Пошаговые инструкции
+    items:
+      - name: Все инструкции
+        href: operations/index.md
+      - name: Сетевые балансировщики
+        items:
+          - name: Создать балансировщик
+            href: operations/load-balancer-create.md
+          - name: Создать внутренний балансировщик
+            href: operations/internal-lb-create.md
+          - name: Запустить балансировщик
+            href: operations/load-balancer-start.md
+          - name: Остановить балансировщик
+            href: operations/load-balancer-stop.md
+          - name: Удалить балансировщик
+            href: operations/load-balancer-delete.md
+          - name: Проверить состояние целевых ресурсов
+            href: operations/check-resource-health.md
+          - name: Добавить обработчик
+            href: operations/listener-add.md
+          - name: Удалить обработчик
+            href: operations/listener-remove.md
+      - name: Целевые группы
+        items:
+          - name: Создать целевую группу
+            href: operations/target-group-create.md
+          - name: Подключить целевую группу к балансировщику
+            href: operations/target-group-attach.md
+          - name: Отключить целевую группу от балансировщика
+            href: operations/target-group-detach.md
+          - name: Удалить целевую группу
+            href: operations/target-group-delete.md
+  - name: Концепции
+    items:
+      - name: Сетевой балансировщик нагрузки
+        href: concepts/index.md
+      - name: Внутренний сетевой балансировщик
+        href: concepts/internal-load-balancer.md
+      - name: Обработчик
+        href: concepts/listener.md
+      - name: Целевые ресурсы и группы
+        href: concepts/target-resources.md
+      - name: Проверка состояния ресурсов
+        href: concepts/health-check.md
+      - name: Квоты и лимиты
+        href: concepts/limits.md
+  - name: Рекомендации по использованию сервиса
+    href: best-practices.md
+  - name: Управление доступом
+    href: security/index.md
+  - name: Правила тарификации
+    href: pricing.md
+  - name: Справочник API
+    items:
+      - name: Аутентификация в API
+        href: api-ref/authentication.md
+      - name: gRPC
+        items:
+          - name: Обзор
+            href: grpc/index.md
+          - name: NetworkLoadBalancerService
+            href: grpc/network_load_balancer_service.md
+          - name: TargetGroupService
+            href: grpc/target_group_service.md
+          - name: OperationService
+            href: grpc/operation_service.md
+      - name: REST
+        items:
+          - name: Обзор
+            href: api-ref/index.md
+          - name: NetworkLoadBalancer
+            items:
+              - name: Обзор
+                href: api-ref/NetworkLoadBalancer/index.md
+              - name: addListener
+                href: api-ref/NetworkLoadBalancer/addListener.md
+              - name: attachTargetGroup
+                href: api-ref/NetworkLoadBalancer/attachTargetGroup.md
+              - name: create
+                href: api-ref/NetworkLoadBalancer/create.md
+              - name: delete
+                href: api-ref/NetworkLoadBalancer/delete.md
+              - name: detachTargetGroup
+                href: api-ref/NetworkLoadBalancer/detachTargetGroup.md
+              - name: get
+                href: api-ref/NetworkLoadBalancer/get.md
+              - name: getTargetStates
+                href: api-ref/NetworkLoadBalancer/getTargetStates.md
+              - name: list
+                href: api-ref/NetworkLoadBalancer/list.md
+              - name: listOperations
+                href: api-ref/NetworkLoadBalancer/listOperations.md
+              - name: removeListener
+                href: api-ref/NetworkLoadBalancer/removeListener.md
+              - name: start
+                href: api-ref/NetworkLoadBalancer/start.md
+              - name: stop
+                href: api-ref/NetworkLoadBalancer/stop.md
+              - name: update
+                href: api-ref/NetworkLoadBalancer/update.md
+          - name: TargetGroup
+            items:
+              - name: Обзор
+                href: api-ref/TargetGroup/index.md
+              - name: addTargets
+                href: api-ref/TargetGroup/addTargets.md
+              - name: create
+                href: api-ref/TargetGroup/create.md
+              - name: delete
+                href: api-ref/TargetGroup/delete.md
+              - name: get
+                href: api-ref/TargetGroup/get.md
+              - name: list
+                href: api-ref/TargetGroup/list.md
+              - name: listOperations
+                href: api-ref/TargetGroup/listOperations.md
+              - name: removeTargets
+                href: api-ref/TargetGroup/removeTargets.md
+              - name: update
+                href: api-ref/TargetGroup/update.md
+          - name: Operation
+            items:
+              - name: Обзор
+                href: api-ref/Operation/index.md
+              - name: get
+                href: api-ref/Operation/get.md
+  - name: Вопросы и ответы
+    href: qa/index.md
+base: ru/network-load-balancer

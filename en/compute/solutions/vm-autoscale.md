@@ -1,6 +1,6 @@
 # Running instance groups with auto scaling
 
-To create an [instance group with auto scaling](../concepts/instance-groups/scale.md#auto-scale) and [network load balancer](../../load-balancer/concepts/index.md), do the following.
+To create an [instance group with auto scaling](../concepts/instance-groups/scale.md#auto-scale) and [network load balancer](../../network-load-balancer/concepts/index.md), do the following.
 
 ## Before you start {#before-you-begin}
 
@@ -296,13 +296,13 @@ To create an [instance group with auto scaling](../concepts/instance-groups/scal
 
    - API
 
-     1. Create a load balancer using the method [Create](../../load-balancer/api-ref/NetworkLoadBalancer/create.md) for the resource `NetworkLoadBalancers`.
+     1. Create a load balancer using the method [Create](../../network-load-balancer/api-ref/NetworkLoadBalancer/create.md) for the resource `NetworkLoadBalancers`.
 
-     1. Add a listener to the balancer using the method [AddListener](../../load-balancer/api-ref/NetworkLoadBalancer/addListener.md) for the resource `NetworkLoadBalancers`.
+     1. Add a listener to the balancer using the method [AddListener](../../network-load-balancer/api-ref/NetworkLoadBalancer/addListener.md) for the resource `NetworkLoadBalancers`.
 
-     1. Attach the target group to the balancer using the method [AttachTargetGroup](../../load-balancer/api-ref/NetworkLoadBalancer/attachTargetGroup.md) for the resource `NetworkLoadBalancers`.
+     1. Attach the target group to the balancer using the method [AttachTargetGroup](../../network-load-balancer/api-ref/NetworkLoadBalancer/attachTargetGroup.md) for the resource `NetworkLoadBalancers`.
 
-     1. Add the balancer to the instance group using the method [AddTargets](../../load-balancer/api-ref/TargetGroup/addTargets.md) for the resource `TargetGroups`.
+     1. Add the balancer to the instance group using the method [AddTargets](../../network-load-balancer/api-ref/TargetGroup/addTargets.md) for the resource `TargetGroups`.
 
    {% endlist %}
 
@@ -333,7 +333,7 @@ To create an [instance group with auto scaling](../concepts/instance-groups/scal
 
    - API
 
-     Use the method [List](../../load-balancer/api-ref/NetworkLoadBalancer/list.md) for the resource `NetworkLoadBalancer`.
+     Use the method [List](../../network-load-balancer/api-ref/NetworkLoadBalancer/list.md) for the resource `NetworkLoadBalancer`.
 
    {% endlist %}
 
@@ -463,7 +463,7 @@ The page displays messages relating to auto scaling of the instance group.
 
    - API
 
-     Use the method [Delete](../../load-balancer/api-ref/NetworkLoadBalancer/delete.md) for the resource `NetworkLoadBalancer`.
+     Use the method [Delete](../../network-load-balancer/api-ref/NetworkLoadBalancer/delete.md) for the resource `NetworkLoadBalancer`.
 
    {% endlist %}
 

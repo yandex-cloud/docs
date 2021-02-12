@@ -59,7 +59,7 @@ allocation_policy | **[AllocationPolicy](#AllocationPolicy)**<br>Allocation poli
 load_balancer_state | **[LoadBalancerState](#LoadBalancerState)**<br>Information that indicates which entities can be related to this load balancer. 
 managed_instances_state | **[ManagedInstancesState](#ManagedInstancesState)**<br>States of instances for this instance group. 
 load_balancer_spec | **[LoadBalancerSpec](#LoadBalancerSpec)**<br>Load balancing specification. 
-health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec)**<br>Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check). 
+health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec)**<br>Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). 
 service_account_id | **string**<br>ID of the service account. The service account will be used for all API calls made by the Instance Groups component on behalf of the user (for example, creating instances, adding them to load balancer target group, etc.). For more information, see [Service accounts](/docs/iam/concepts/users/service-accounts). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/grpc/service_account_service#List) request. 
 status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/grpc/instance_group_service#Stop).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><ul/>
 variables[] | **[Variable](#Variable)**<br> 
@@ -281,7 +281,7 @@ failed | **int64**<br>Instance failed and needs to be recreated.
 
 Field | Description
 --- | ---
-target_group_spec | **[TargetGroupSpec](#TargetGroupSpec)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/load-balancer/concepts/target-resources). 
+target_group_spec | **[TargetGroupSpec](#TargetGroupSpec)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/network-load-balancer/concepts/target-resources). 
 
 
 ### TargetGroupSpec {#TargetGroupSpec}
@@ -297,7 +297,7 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more
 
 Field | Description
 --- | ---
-health_check_specs[] | **[HealthCheckSpec](#HealthCheckSpec)**<br>Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check). The minimum number of elements is 1.
+health_check_specs[] | **[HealthCheckSpec](#HealthCheckSpec)**<br>Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). The minimum number of elements is 1.
 
 
 ### HealthCheckSpec {#HealthCheckSpec}
@@ -378,7 +378,7 @@ allocation_policy | **[AllocationPolicy](#AllocationPolicy1)**<br>Allocation pol
 load_balancer_state | **[LoadBalancerState](#LoadBalancerState1)**<br>Information that indicates which entities can be related to this load balancer. 
 managed_instances_state | **[ManagedInstancesState](#ManagedInstancesState1)**<br>States of instances for this instance group. 
 load_balancer_spec | **[LoadBalancerSpec](#LoadBalancerSpec1)**<br>Load balancing specification. 
-health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec1)**<br>Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check). 
+health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec1)**<br>Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). 
 service_account_id | **string**<br>ID of the service account. The service account will be used for all API calls made by the Instance Groups component on behalf of the user (for example, creating instances, adding them to load balancer target group, etc.). For more information, see [Service accounts](/docs/iam/concepts/users/service-accounts). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/grpc/service_account_service#List) request. 
 status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/grpc/instance_group_service#Stop).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><ul/>
 variables[] | **[Variable](#Variable1)**<br> 
@@ -600,7 +600,7 @@ failed | **int64**<br>Instance failed and needs to be recreated.
 
 Field | Description
 --- | ---
-target_group_spec | **[TargetGroupSpec](#TargetGroupSpec1)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/load-balancer/concepts/target-resources). 
+target_group_spec | **[TargetGroupSpec](#TargetGroupSpec1)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/network-load-balancer/concepts/target-resources). 
 
 
 ### TargetGroupSpec {#TargetGroupSpec1}
@@ -616,7 +616,7 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more
 
 Field | Description
 --- | ---
-health_check_specs[] | **[HealthCheckSpec](#HealthCheckSpec1)**<br>Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check). The minimum number of elements is 1.
+health_check_specs[] | **[HealthCheckSpec](#HealthCheckSpec1)**<br>Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). The minimum number of elements is 1.
 
 
 ### HealthCheckSpec {#HealthCheckSpec1}
@@ -678,7 +678,7 @@ scale_policy | **[ScalePolicy](#ScalePolicy2)**<br>Required. [Scaling policy](/d
 deploy_policy | **[DeployPolicy](#DeployPolicy2)**<br>Required. Deployment policy of the instance group. 
 allocation_policy | **[AllocationPolicy](#AllocationPolicy2)**<br>Required. Allocation policy of the instance group by zones and regions. 
 load_balancer_spec | **[LoadBalancerSpec](#LoadBalancerSpec2)**<br>Load balancing specification. 
-health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec2)**<br>Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check). 
+health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec2)**<br>Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). 
 service_account_id | **string**<br>ID of the service account. The service account will be used for all API calls made by the Instance Groups component on behalf of the user (for example, creating instances, adding them to load balancer target group, etc.). For more information, see [Service accounts](/docs/iam/concepts/users/service-accounts). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/grpc/service_account_service#List) request. 
 variables[] | **[Variable](#Variable2)**<br> 
 deletion_protection | **bool**<br>Flag prohibiting deletion of the instance group. <br>Allowed values:</br>- `false`: The instance group can be deleted.</br>- `true`: The instance group cannot be deleted. <br>The default is `false`. 
@@ -865,7 +865,7 @@ zone_id | **string**<br>Required. ID of the availability zone where the instance
 
 Field | Description
 --- | ---
-target_group_spec | **[TargetGroupSpec](#TargetGroupSpec2)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/load-balancer/concepts/target-resources). 
+target_group_spec | **[TargetGroupSpec](#TargetGroupSpec2)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/network-load-balancer/concepts/target-resources). 
 
 
 ### TargetGroupSpec {#TargetGroupSpec2}
@@ -881,7 +881,7 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more
 
 Field | Description
 --- | ---
-health_check_specs[] | **[HealthCheckSpec](#HealthCheckSpec2)**<br>Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check). The minimum number of elements is 1.
+health_check_specs[] | **[HealthCheckSpec](#HealthCheckSpec2)**<br>Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). The minimum number of elements is 1.
 
 
 ### HealthCheckSpec {#HealthCheckSpec2}
@@ -960,7 +960,7 @@ allocation_policy | **[AllocationPolicy](#AllocationPolicy3)**<br>Allocation pol
 load_balancer_state | **[LoadBalancerState](#LoadBalancerState2)**<br>Information that indicates which entities can be related to this load balancer. 
 managed_instances_state | **[ManagedInstancesState](#ManagedInstancesState2)**<br>States of instances for this instance group. 
 load_balancer_spec | **[LoadBalancerSpec](#LoadBalancerSpec3)**<br>Load balancing specification. 
-health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec3)**<br>Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check). 
+health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec3)**<br>Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). 
 service_account_id | **string**<br>ID of the service account. The service account will be used for all API calls made by the Instance Groups component on behalf of the user (for example, creating instances, adding them to load balancer target group, etc.). For more information, see [Service accounts](/docs/iam/concepts/users/service-accounts). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/grpc/service_account_service#List) request. 
 status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/grpc/instance_group_service#Stop).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><ul/>
 variables[] | **[Variable](#Variable3)**<br> 
@@ -1182,7 +1182,7 @@ failed | **int64**<br>Instance failed and needs to be recreated.
 
 Field | Description
 --- | ---
-target_group_spec | **[TargetGroupSpec](#TargetGroupSpec3)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/load-balancer/concepts/target-resources). 
+target_group_spec | **[TargetGroupSpec](#TargetGroupSpec3)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/network-load-balancer/concepts/target-resources). 
 
 
 ### TargetGroupSpec {#TargetGroupSpec3}
@@ -1198,7 +1198,7 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more
 
 Field | Description
 --- | ---
-health_check_specs[] | **[HealthCheckSpec](#HealthCheckSpec3)**<br>Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check). The minimum number of elements is 1.
+health_check_specs[] | **[HealthCheckSpec](#HealthCheckSpec3)**<br>Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). The minimum number of elements is 1.
 
 
 ### HealthCheckSpec {#HealthCheckSpec3}
@@ -1295,7 +1295,7 @@ allocation_policy | **[AllocationPolicy](#AllocationPolicy4)**<br>Allocation pol
 load_balancer_state | **[LoadBalancerState](#LoadBalancerState3)**<br>Information that indicates which entities can be related to this load balancer. 
 managed_instances_state | **[ManagedInstancesState](#ManagedInstancesState3)**<br>States of instances for this instance group. 
 load_balancer_spec | **[LoadBalancerSpec](#LoadBalancerSpec4)**<br>Load balancing specification. 
-health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec4)**<br>Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check). 
+health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec4)**<br>Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). 
 service_account_id | **string**<br>ID of the service account. The service account will be used for all API calls made by the Instance Groups component on behalf of the user (for example, creating instances, adding them to load balancer target group, etc.). For more information, see [Service accounts](/docs/iam/concepts/users/service-accounts). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/grpc/service_account_service#List) request. 
 status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/grpc/instance_group_service#Stop).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><ul/>
 variables[] | **[Variable](#Variable4)**<br> 
@@ -1517,7 +1517,7 @@ failed | **int64**<br>Instance failed and needs to be recreated.
 
 Field | Description
 --- | ---
-target_group_spec | **[TargetGroupSpec](#TargetGroupSpec4)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/load-balancer/concepts/target-resources). 
+target_group_spec | **[TargetGroupSpec](#TargetGroupSpec4)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/network-load-balancer/concepts/target-resources). 
 
 
 ### TargetGroupSpec {#TargetGroupSpec4}
@@ -1533,7 +1533,7 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more
 
 Field | Description
 --- | ---
-health_check_specs[] | **[HealthCheckSpec](#HealthCheckSpec4)**<br>Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check). The minimum number of elements is 1.
+health_check_specs[] | **[HealthCheckSpec](#HealthCheckSpec4)**<br>Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). The minimum number of elements is 1.
 
 
 ### HealthCheckSpec {#HealthCheckSpec4}
@@ -1595,7 +1595,7 @@ instance_template | **[InstanceTemplate](#InstanceTemplate5)**<br>Required. Inst
 scale_policy | **[ScalePolicy](#ScalePolicy5)**<br>Required. [Scaling policy](/docs/compute/concepts/instance-groups/scale) of the instance group. 
 deploy_policy | **[DeployPolicy](#DeployPolicy5)**<br>Required. Deployment policy of the instance group. 
 allocation_policy | **[AllocationPolicy](#AllocationPolicy5)**<br>Required. Allocation policy of the instance group by zones and regions. 
-health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec5)**<br>Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check). 
+health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec5)**<br>Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). 
 service_account_id | **string**<br>ID of the service account. The service account will be used for all API calls made by the Instance Groups component on behalf of the user (for example, creating instances, adding them to load balancer target group, etc.). For more information, see [Service accounts](/docs/iam/concepts/users/service-accounts). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/grpc/service_account_service#List) request. 
 load_balancer_spec | **[LoadBalancerSpec](#LoadBalancerSpec5)**<br>Load Balancer specification for load balancing support. 
 variables[] | **[Variable](#Variable5)**<br> 
@@ -1783,7 +1783,7 @@ zone_id | **string**<br>Required. ID of the availability zone where the instance
 
 Field | Description
 --- | ---
-health_check_specs[] | **[HealthCheckSpec](#HealthCheckSpec5)**<br>Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check). The minimum number of elements is 1.
+health_check_specs[] | **[HealthCheckSpec](#HealthCheckSpec5)**<br>Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). The minimum number of elements is 1.
 
 
 ### HealthCheckSpec {#HealthCheckSpec5}
@@ -1818,7 +1818,7 @@ path | **string**<br>URL path to set for health checking requests.
 
 Field | Description
 --- | ---
-target_group_spec | **[TargetGroupSpec](#TargetGroupSpec5)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/load-balancer/concepts/target-resources). 
+target_group_spec | **[TargetGroupSpec](#TargetGroupSpec5)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/network-load-balancer/concepts/target-resources). 
 
 
 ### TargetGroupSpec {#TargetGroupSpec5}
@@ -1878,7 +1878,7 @@ allocation_policy | **[AllocationPolicy](#AllocationPolicy6)**<br>Allocation pol
 load_balancer_state | **[LoadBalancerState](#LoadBalancerState4)**<br>Information that indicates which entities can be related to this load balancer. 
 managed_instances_state | **[ManagedInstancesState](#ManagedInstancesState4)**<br>States of instances for this instance group. 
 load_balancer_spec | **[LoadBalancerSpec](#LoadBalancerSpec6)**<br>Load balancing specification. 
-health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec6)**<br>Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check). 
+health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec6)**<br>Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). 
 service_account_id | **string**<br>ID of the service account. The service account will be used for all API calls made by the Instance Groups component on behalf of the user (for example, creating instances, adding them to load balancer target group, etc.). For more information, see [Service accounts](/docs/iam/concepts/users/service-accounts). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/grpc/service_account_service#List) request. 
 status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/grpc/instance_group_service#Stop).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><ul/>
 variables[] | **[Variable](#Variable6)**<br> 
@@ -2100,7 +2100,7 @@ failed | **int64**<br>Instance failed and needs to be recreated.
 
 Field | Description
 --- | ---
-target_group_spec | **[TargetGroupSpec](#TargetGroupSpec6)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/load-balancer/concepts/target-resources). 
+target_group_spec | **[TargetGroupSpec](#TargetGroupSpec6)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/network-load-balancer/concepts/target-resources). 
 
 
 ### TargetGroupSpec {#TargetGroupSpec6}
@@ -2116,7 +2116,7 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more
 
 Field | Description
 --- | ---
-health_check_specs[] | **[HealthCheckSpec](#HealthCheckSpec6)**<br>Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check). The minimum number of elements is 1.
+health_check_specs[] | **[HealthCheckSpec](#HealthCheckSpec6)**<br>Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). The minimum number of elements is 1.
 
 
 ### HealthCheckSpec {#HealthCheckSpec6}
@@ -2213,7 +2213,7 @@ allocation_policy | **[AllocationPolicy](#AllocationPolicy7)**<br>Allocation pol
 load_balancer_state | **[LoadBalancerState](#LoadBalancerState5)**<br>Information that indicates which entities can be related to this load balancer. 
 managed_instances_state | **[ManagedInstancesState](#ManagedInstancesState5)**<br>States of instances for this instance group. 
 load_balancer_spec | **[LoadBalancerSpec](#LoadBalancerSpec7)**<br>Load balancing specification. 
-health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec7)**<br>Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check). 
+health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec7)**<br>Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). 
 service_account_id | **string**<br>ID of the service account. The service account will be used for all API calls made by the Instance Groups component on behalf of the user (for example, creating instances, adding them to load balancer target group, etc.). For more information, see [Service accounts](/docs/iam/concepts/users/service-accounts). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/grpc/service_account_service#List) request. 
 status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/grpc/instance_group_service#Stop).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><ul/>
 variables[] | **[Variable](#Variable7)**<br> 
@@ -2435,7 +2435,7 @@ failed | **int64**<br>Instance failed and needs to be recreated.
 
 Field | Description
 --- | ---
-target_group_spec | **[TargetGroupSpec](#TargetGroupSpec7)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/load-balancer/concepts/target-resources). 
+target_group_spec | **[TargetGroupSpec](#TargetGroupSpec7)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/network-load-balancer/concepts/target-resources). 
 
 
 ### TargetGroupSpec {#TargetGroupSpec7}
@@ -2451,7 +2451,7 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more
 
 Field | Description
 --- | ---
-health_check_specs[] | **[HealthCheckSpec](#HealthCheckSpec7)**<br>Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check). The minimum number of elements is 1.
+health_check_specs[] | **[HealthCheckSpec](#HealthCheckSpec7)**<br>Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). The minimum number of elements is 1.
 
 
 ### HealthCheckSpec {#HealthCheckSpec7}
@@ -2547,7 +2547,7 @@ allocation_policy | **[AllocationPolicy](#AllocationPolicy8)**<br>Allocation pol
 load_balancer_state | **[LoadBalancerState](#LoadBalancerState6)**<br>Information that indicates which entities can be related to this load balancer. 
 managed_instances_state | **[ManagedInstancesState](#ManagedInstancesState6)**<br>States of instances for this instance group. 
 load_balancer_spec | **[LoadBalancerSpec](#LoadBalancerSpec8)**<br>Load balancing specification. 
-health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec8)**<br>Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check). 
+health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec8)**<br>Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). 
 service_account_id | **string**<br>ID of the service account. The service account will be used for all API calls made by the Instance Groups component on behalf of the user (for example, creating instances, adding them to load balancer target group, etc.). For more information, see [Service accounts](/docs/iam/concepts/users/service-accounts). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/grpc/service_account_service#List) request. 
 status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/grpc/instance_group_service#Stop).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><ul/>
 variables[] | **[Variable](#Variable8)**<br> 
@@ -2769,7 +2769,7 @@ failed | **int64**<br>Instance failed and needs to be recreated.
 
 Field | Description
 --- | ---
-target_group_spec | **[TargetGroupSpec](#TargetGroupSpec8)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/load-balancer/concepts/target-resources). 
+target_group_spec | **[TargetGroupSpec](#TargetGroupSpec8)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/network-load-balancer/concepts/target-resources). 
 
 
 ### TargetGroupSpec {#TargetGroupSpec8}
@@ -2785,7 +2785,7 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more
 
 Field | Description
 --- | ---
-health_check_specs[] | **[HealthCheckSpec](#HealthCheckSpec8)**<br>Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check). The minimum number of elements is 1.
+health_check_specs[] | **[HealthCheckSpec](#HealthCheckSpec8)**<br>Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). The minimum number of elements is 1.
 
 
 ### HealthCheckSpec {#HealthCheckSpec8}
@@ -2881,7 +2881,7 @@ allocation_policy | **[AllocationPolicy](#AllocationPolicy9)**<br>Allocation pol
 load_balancer_state | **[LoadBalancerState](#LoadBalancerState7)**<br>Information that indicates which entities can be related to this load balancer. 
 managed_instances_state | **[ManagedInstancesState](#ManagedInstancesState7)**<br>States of instances for this instance group. 
 load_balancer_spec | **[LoadBalancerSpec](#LoadBalancerSpec9)**<br>Load balancing specification. 
-health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec9)**<br>Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check). 
+health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec9)**<br>Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). 
 service_account_id | **string**<br>ID of the service account. The service account will be used for all API calls made by the Instance Groups component on behalf of the user (for example, creating instances, adding them to load balancer target group, etc.). For more information, see [Service accounts](/docs/iam/concepts/users/service-accounts). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/grpc/service_account_service#List) request. 
 status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/grpc/instance_group_service#Stop).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><ul/>
 variables[] | **[Variable](#Variable9)**<br> 
@@ -3103,7 +3103,7 @@ failed | **int64**<br>Instance failed and needs to be recreated.
 
 Field | Description
 --- | ---
-target_group_spec | **[TargetGroupSpec](#TargetGroupSpec9)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/load-balancer/concepts/target-resources). 
+target_group_spec | **[TargetGroupSpec](#TargetGroupSpec9)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/network-load-balancer/concepts/target-resources). 
 
 
 ### TargetGroupSpec {#TargetGroupSpec9}
@@ -3119,7 +3119,7 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more
 
 Field | Description
 --- | ---
-health_check_specs[] | **[HealthCheckSpec](#HealthCheckSpec9)**<br>Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check). The minimum number of elements is 1.
+health_check_specs[] | **[HealthCheckSpec](#HealthCheckSpec9)**<br>Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). The minimum number of elements is 1.
 
 
 ### HealthCheckSpec {#HealthCheckSpec9}
@@ -3323,7 +3323,7 @@ allocation_policy | **[AllocationPolicy](#AllocationPolicy10)**<br>Allocation po
 load_balancer_state | **[LoadBalancerState](#LoadBalancerState8)**<br>Information that indicates which entities can be related to this load balancer. 
 managed_instances_state | **[ManagedInstancesState](#ManagedInstancesState8)**<br>States of instances for this instance group. 
 load_balancer_spec | **[LoadBalancerSpec](#LoadBalancerSpec10)**<br>Load balancing specification. 
-health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec10)**<br>Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check). 
+health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec10)**<br>Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). 
 service_account_id | **string**<br>ID of the service account. The service account will be used for all API calls made by the Instance Groups component on behalf of the user (for example, creating instances, adding them to load balancer target group, etc.). For more information, see [Service accounts](/docs/iam/concepts/users/service-accounts). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/grpc/service_account_service#List) request. 
 status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/grpc/instance_group_service#Stop).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><ul/>
 variables[] | **[Variable](#Variable10)**<br> 
@@ -3545,7 +3545,7 @@ failed | **int64**<br>Instance failed and needs to be recreated.
 
 Field | Description
 --- | ---
-target_group_spec | **[TargetGroupSpec](#TargetGroupSpec10)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/load-balancer/concepts/target-resources). 
+target_group_spec | **[TargetGroupSpec](#TargetGroupSpec10)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/network-load-balancer/concepts/target-resources). 
 
 
 ### TargetGroupSpec {#TargetGroupSpec10}
@@ -3561,7 +3561,7 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more
 
 Field | Description
 --- | ---
-health_check_specs[] | **[HealthCheckSpec](#HealthCheckSpec10)**<br>Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check). The minimum number of elements is 1.
+health_check_specs[] | **[HealthCheckSpec](#HealthCheckSpec10)**<br>Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). The minimum number of elements is 1.
 
 
 ### HealthCheckSpec {#HealthCheckSpec10}
@@ -3658,7 +3658,7 @@ allocation_policy | **[AllocationPolicy](#AllocationPolicy11)**<br>Allocation po
 load_balancer_state | **[LoadBalancerState](#LoadBalancerState9)**<br>Information that indicates which entities can be related to this load balancer. 
 managed_instances_state | **[ManagedInstancesState](#ManagedInstancesState9)**<br>States of instances for this instance group. 
 load_balancer_spec | **[LoadBalancerSpec](#LoadBalancerSpec11)**<br>Load balancing specification. 
-health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec11)**<br>Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check). 
+health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec11)**<br>Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). 
 service_account_id | **string**<br>ID of the service account. The service account will be used for all API calls made by the Instance Groups component on behalf of the user (for example, creating instances, adding them to load balancer target group, etc.). For more information, see [Service accounts](/docs/iam/concepts/users/service-accounts). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/grpc/service_account_service#List) request. 
 status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/grpc/instance_group_service#Stop).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><ul/>
 variables[] | **[Variable](#Variable11)**<br> 
@@ -3880,7 +3880,7 @@ failed | **int64**<br>Instance failed and needs to be recreated.
 
 Field | Description
 --- | ---
-target_group_spec | **[TargetGroupSpec](#TargetGroupSpec11)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/load-balancer/concepts/target-resources). 
+target_group_spec | **[TargetGroupSpec](#TargetGroupSpec11)**<br>Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/network-load-balancer/concepts/target-resources). 
 
 
 ### TargetGroupSpec {#TargetGroupSpec11}
@@ -3896,7 +3896,7 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more
 
 Field | Description
 --- | ---
-health_check_specs[] | **[HealthCheckSpec](#HealthCheckSpec11)**<br>Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check). The minimum number of elements is 1.
+health_check_specs[] | **[HealthCheckSpec](#HealthCheckSpec11)**<br>Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). The minimum number of elements is 1.
 
 
 ### HealthCheckSpec {#HealthCheckSpec11}

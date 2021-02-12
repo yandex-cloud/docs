@@ -1,6 +1,6 @@
 # Работа с группой виртуальных машин с автоматическим масштабированием
 
-Чтобы создать [группу виртуальных машин с автоматическим масштабированием](../concepts/instance-groups/scale.md#auto-scale) и [сетевым балансировщиком нагрузки](../../load-balancer/concepts/index.md), необходимо выполнить следующие действия.
+Чтобы создать [группу виртуальных машин с автоматическим масштабированием](../concepts/instance-groups/scale.md#auto-scale) и [сетевым балансировщиком нагрузки](../../network-load-balancer/concepts/index.md), необходимо выполнить следующие действия.
 
 ## Перед началом работы {#before-you-begin}
 
@@ -300,13 +300,13 @@
 
    - API
 
-     1. Создайте балансировщик нагрузки с помощью метода [Create](../../load-balancer/api-ref/NetworkLoadBalancer/create.md) для ресурса `NetworkLoadBalancers`.
+     1. Создайте балансировщик нагрузки с помощью метода [Create](../../network-load-balancer/api-ref/NetworkLoadBalancer/create.md) для ресурса `NetworkLoadBalancers`.
 
-     1. Добавьте обработчик к балансировщику с помощью метода [AddListener](../../load-balancer/api-ref/NetworkLoadBalancer/addListener.md) для ресурса `NetworkLoadBalancers`.
+     1. Добавьте обработчик к балансировщику с помощью метода [AddListener](../../network-load-balancer/api-ref/NetworkLoadBalancer/addListener.md) для ресурса `NetworkLoadBalancers`.
 
-     1. Подключите целевую группу к балансировщику с помощью метода [AttachTargetGroup](../../load-balancer/api-ref/NetworkLoadBalancer/attachTargetGroup.md) для ресурса `NetworkLoadBalancers`.
+     1. Подключите целевую группу к балансировщику с помощью метода [AttachTargetGroup](../../network-load-balancer/api-ref/NetworkLoadBalancer/attachTargetGroup.md) для ресурса `NetworkLoadBalancers`.
 
-     1. Подключите балансировщик к группе ВМ с помощью метода [AddTargets](../../load-balancer/api-ref/TargetGroup/addTargets.md) для ресурса `TargetGroups`.
+     1. Подключите балансировщик к группе ВМ с помощью метода [AddTargets](../../network-load-balancer/api-ref/TargetGroup/addTargets.md) для ресурса `TargetGroups`.
 
    {% endlist %}
 
@@ -338,7 +338,7 @@
 
    - API
 
-     Воспользуйтесь методом [List](../../load-balancer/api-ref/NetworkLoadBalancer/list.md) для ресурса `NetworkLoadBalancer`.
+     Воспользуйтесь методом [List](../../network-load-balancer/api-ref/NetworkLoadBalancer/list.md) для ресурса `NetworkLoadBalancer`.
 
    {% endlist %}
 
@@ -471,7 +471,7 @@
 
    - API
 
-     Воспользуйтесь методом [Delete](../../load-balancer/api-ref/NetworkLoadBalancer/delete.md) для ресурса `NetworkLoadBalancer`.
+     Воспользуйтесь методом [Delete](../../network-load-balancer/api-ref/NetworkLoadBalancer/delete.md) для ресурса `NetworkLoadBalancer`.
 
    {% endlist %}
 

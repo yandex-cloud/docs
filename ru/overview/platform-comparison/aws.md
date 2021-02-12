@@ -14,7 +14,7 @@
 | AWS Resource Access Manager | [{{ resmgr-full-name }}](../../resource-manager/) |
 | AWS Certificate Manager | [{{ certificate-manager-full-name }}](../../certificate-manager/) |
 | AWS Key Management Service | [{{ kms-full-name }}](../../kms/) |
-| Elastic Load Balancing: Network Load Balancer | [{{ network-load-balancer-full-name }}](../../load-balancer/) |
+| Elastic Load Balancing: Network Load Balancer | [{{ network-load-balancer-full-name }}](../../network-load-balancer/) |
 | Amazon EC2 Auto Scaling | [Yandex Instance Groups](../../compute/concepts/instance-groups/) |
 | Amazon Elastic Container Registry | [{{ container-registry-full-name }}](../../container-registry/) |
 | Amazon Elastic Kubernetes Service | [{{managed-k8s-full-name}}](../../managed-kubernetes/) |

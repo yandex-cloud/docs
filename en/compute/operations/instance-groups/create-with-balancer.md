@@ -1,6 +1,6 @@
 # Creating a fixed-size instance group with a network load balancer
 
-You can create a group of fixed-size instances along with a network load balancer that will evenly distribute the load across cloud resources. For more information, see [{#T}](../../../load-balancer/concepts/index.md) in the {{ network-load-balancer-full-name }} documentation.
+You can create a group of fixed-size instances along with a network load balancer that will evenly distribute the load across cloud resources. For more information, see [{#T}](../../../network-load-balancer/concepts/index.md) in the {{ network-load-balancer-full-name }} documentation.
 
 {% include [warning.md](../../../_includes/instance-groups/warning.md) %}
 
@@ -239,7 +239,7 @@ To create an instance group with a network load balancer:
       - With a 32 GB network HDD.
       - With a target group named `first-target-group`.
 
-  1. Create a [load balancer](../../../load-balancer/operations/load-balancer-create.md) and add the `first-target-group` target group to it .
+  1. Create a [load balancer](../../../network-load-balancer/operations/load-balancer-create.md) and add the `first-target-group` target group to it .
 
 - API
 

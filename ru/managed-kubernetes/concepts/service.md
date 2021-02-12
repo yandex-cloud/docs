@@ -25,7 +25,7 @@ _Сервис_ — это объект API {{ k8s }} ([Service](https://kubernet
 
 Подробнее о типах сервисов читайте в документации [{{ k8s }}](https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types).
 
-{{ managed-k8s-name }} позволяет использовать сервисы типа `LoadBalancer` на основе [сетевого балансировщика нагрузки](../../load-balancer/concepts/index.md) {{ network-load-balancer-full-name }} с публичным или внутренним IP-адресом.
+{{ managed-k8s-name }} позволяет использовать сервисы типа `LoadBalancer` на основе [сетевого балансировщика нагрузки](../../network-load-balancer/concepts/index.md) {{ network-load-balancer-full-name }} с публичным или внутренним IP-адресом.
 
 #### См. также {#see-also}
 

@@ -35,7 +35,7 @@ The cost of internet service support includes:
 
 * A fee for continuously running VMs (see [pricing {{ compute-full-name }}](../../compute/pricing.md)).
 * A fee for using static public IP addresses (see [{{ vpc-full-name }} pricing](../pricing.md)).
-* A fee for using a network load balancer (see [{{ network-load-balancer-full-name }} pricing](../../load-balancer/pricing.md)).
+* A fee for using a network load balancer (see [{{ network-load-balancer-full-name }} pricing](../../network-load-balancer/pricing.md)).
 
 ## Reserve two static public IP addresses {#reserve-ips}
 
@@ -255,7 +255,7 @@ Test the infrastructure and make sure that traffic to the internet service VMs o
 
 ## Delete the created resources {#clear-out}
 
-To stop paying for the deployed resources, delete the [VMs](../../compute/operations/vm-control/vm-delete.md) and [load balancer](../../load-balancer/operations/load-balancer-delete.md) you created:
+To stop paying for the deployed resources, delete the [VMs](../../compute/operations/vm-control/vm-delete.md) and [load balancer](../../network-load-balancer/operations/load-balancer-delete.md) you created:
 
 * `vpn`
 * `web-node-a`

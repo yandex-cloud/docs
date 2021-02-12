@@ -2,7 +2,7 @@
 
 The `{{ roles-lb-admin }}` role lets you:
 
-- Create, update, and delete [load balancers](../load-balancer/concepts/index.md) and [target groups](../load-balancer/concepts/target-resources.md).
+- Create, update, and delete [load balancers](../network-load-balancer/concepts/index.md) and [target groups](../network-load-balancer/concepts/target-resources.md).
 - Assign a [public IP address](../vpc/concepts/address.md) to a load balancer.
 
 {% note info %}

@@ -1,6 +1,6 @@
 # Configure application health check on the VM
 
-To make the application more available and make sure that it responds to requests, you can set up the application health check on the instance. {{ ig-name }} will check and automatically recover the instance if it fails the check. Don't confuse this with the [health check](../../../load-balancer/concepts/health-check.md) in the network load balancer. [Read more](../../concepts/instance-groups/autohealing.md) about automatic recovery and types of checks.
+To make the application more available and make sure that it responds to requests, you can set up the application health check on the instance. {{ ig-name }} will check and automatically recover the instance if it fails the check. Don't confuse this with the [health check](../../../network-load-balancer/concepts/health-check.md) in the network load balancer. [Read more](../../concepts/instance-groups/autohealing.md) about automatic recovery and types of checks.
 
 This section describes how to set up application health check for an existing group.
 

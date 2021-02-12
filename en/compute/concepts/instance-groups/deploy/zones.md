@@ -12,7 +12,7 @@ In accordance with the [deployment policy](../policies/allocation-policy.md), in
 
 We recommend creating an instance group so that its size is a multiple of the number of zones.
 
-In this case, every zone will host the same number of instances, and the [network load balancer](../../../../load-balancer/concepts/index.md) (if any) will evenly allocate the load between instances.
+In this case, every zone will host the same number of instances, and the [network load balancer](../../../../network-load-balancer/concepts/index.md) (if any) will evenly allocate the load between instances.
 
 {% endnote %}
 

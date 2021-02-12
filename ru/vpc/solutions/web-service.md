@@ -35,7 +35,7 @@
 
 * плата за постоянно запущенные виртуальные машины (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
 * плата за использование публичных статических IP-адресов (см. [тарифы {{ vpc-full-name }}](../pricing.md));
-* плата за использование сетевого балансировщика (см. [тарифы {{ network-load-balancer-full-name }}](../../load-balancer/pricing.md)).
+* плата за использование сетевого балансировщика (см. [тарифы {{ network-load-balancer-full-name }}](../../network-load-balancer/pricing.md)).
 
 ## Зарезервируйте два статических публичных IP-адреса {#reserve-ips}
 
@@ -262,7 +262,7 @@
 
 ##  Удалите созданные ресурсы {#clear-out}
 
-Чтобы перестать платить за развернутые ресурсы, удалите созданные [виртуальные машины](../../compute/operations/vm-control/vm-delete.md) и [балансировщик](../../load-balancer/operations/load-balancer-delete.md): 
+Чтобы перестать платить за развернутые ресурсы, удалите созданные [виртуальные машины](../../compute/operations/vm-control/vm-delete.md) и [балансировщик](../../network-load-balancer/operations/load-balancer-delete.md): 
 * `vpn`;
 * `web-node-a`; 
 * `web-node-b`; 

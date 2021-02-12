@@ -27,7 +27,7 @@ Changes to the settings of instance groups may affect instances in this group in
 
 * Changing the specification of [health checks](../../../operations/instance-groups/enable-autohealing.md) (`health_checks_spec`).
 
-* Changing the specification of the target group of a [network load balancer](../../../../load-balancer/concepts/index.md) (`load_balancer_spec`) is currently not supported.
+* Changing the specification of the target group of a [network load balancer](../../../../network-load-balancer/concepts/index.md) (`load_balancer_spec`) is currently not supported.
 
 ### Changes that cause restart or re-creation of instances {#ch-gr-affect}
 

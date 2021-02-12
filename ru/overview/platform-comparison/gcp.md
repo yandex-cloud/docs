@@ -14,7 +14,7 @@
 | Resource Manager | [{{ resmgr-full-name }}](../../resource-manager/) |
 | Cloud Load Balancing, App Engine, Cloud Run | [{{ certificate-manager-full-name }}](../../certificate-manager/) |
 | Cloud Key Management Service | [{{ kms-full-name }}](../../kms/) |
-| Cloud Load Balancing | [{{ network-load-balancer-full-name }}](../../load-balancer/) |
+| Cloud Load Balancing | [{{ network-load-balancer-full-name }}](../../network-load-balancer/) |
 | Managed Instance Groups | [Yandex Instance Groups](../../compute/concepts/instance-groups/) |
 | Container Registry | [{{ container-registry-full-name }}](../../container-registry/) |
 | Kubernetes Engine | [{{managed-k8s-full-name}}](../../managed-kubernetes/) |
