@@ -46,6 +46,28 @@ Deadline for sending notifications:
 * 21, 7, and 3 days before the certificate expires.
 * After its expiration date.
 
+## Monitoring the status of certificates {#monitoring}
+
+You can set up metrics and alerts for monitoring certificates. Charts with metrics are available on service [dashboards](../../monitoring/concepts/visualization/dashboard.md) that are created automatically.
+
+List of certificate metrics:
+
+* `certificate.days_until_expiration`: Shows the real number of days until a certificate's expiration date.
+
+    You can use this metric to create alerts about the upcoming expiration of the certificate.
+
+* `certificate.is_out_of_order`: Shows whether you can use the certificate to provide a TLS connection.
+    * If not, the metric value is 1: the certificate status is `Invalid` or `Revoked`, or its validity period expired.
+    * In all other cases, the metric value is zero, including when the certificate status is `Validating`.
+
+    You can use this metric to create alerts that warn you about faulty certificates.
+
+* `quota.certificates_count.usage`: Shows the current usage of the quota for the number of certificates per cloud.
+
+* `quota.certificates_count.limit`: Shows the current limit on the number of certificates per cloud.
+
+You can use metrics to create alerts. For more information, see [{#T}](../operations/alert.md).
+
 #### See also {#see-also}
 
 - [Services integrated with {{ certificate-manager-name }}](services.md)
