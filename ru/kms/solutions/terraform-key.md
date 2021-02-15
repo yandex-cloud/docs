@@ -32,19 +32,11 @@ resource "yandex_kms_symmetric_key" "kms-key" {
 Например, назначьте на сервисный аккаунт роль, дающую права шифровать и расшифровывать данные ключами из определенного каталога:
 
 ```
-data "yandex_iam_policy" "encrypter_decrypter_iam_policy" {
-  binding {
-    role = "kms.keys.encrypterDecrypter"
+resource "yandex_resourcemanager_folder_iam_member" "admin" {
+  folder_id = "<ID каталога>"
 
-    members = [
-      "serviceAccount:<ID сервисного аккаунта>",
-    ]
-  }
-}
-
-resource "yandex_resourcemanager_folder_iam_policy" "folder_iam_policy" {
-  folder_id   = "<ID каталога>"
-  policy_data = "${data.yandex_iam_policy.encrypter_decrypter_iam_policy.policy_data}"
+  role   = "kms.keys.encrypterDecrypter"
+  member = "serviceAccount:<ID сервисного аккаунта>"
 }
 ```
 

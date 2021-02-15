@@ -101,13 +101,13 @@ The total cost of the request is calculated as the sum of all components.
 ##### Specifics of cost calculation for certain operations
 
 * **ReadTable**
-Операция ReadTable позволяет эффективно вычитывать большие диапазоны данных таблицы. Стоимость запроса зависит только от объема прочитанных данных и составляет 128 RU за 1 МБ. При расчете стоимости объем округляется в большую сторону до значения, кратного 1 МБ.
+The ReadTable operation lets you efficiently read large ranges of data from a table. The cost of the query only depends on the amount of data read and is 128 RU per 1 MB. When calculating the cost, the amount is rounded up to a multiple of 1 MB.
 
 * **BulkUpsert**
-BulkUpsert позволяет эффективно загружать данные в базу. Стоимость записи строки в рамках операции BulkUpsert составляет 1 RU за 1 КБ записанных данных. При расчете стоимости объем данных округляется в большую сторону до значения, кратного 1 КБ. Итоговая стоимость операции рассчитывается как сумма стоимости всех записанных строк.
+BulkUpsert lets you efficiently upload data to the database. The cost of writing a row using the BulkUpsert operation is 1 RU per 1 KB of written data. When calculating the cost, the data amount is rounded up to a multiple of 1 KB. The total cost of the operation is calculated as the sum of the cost of all rows written.
 
 * **Building a secondary index**
-Стоимость построения индекса складывается из стоимости операции ReadTable оригинальной таблицы и BulkUpsert в индексную таблицу. Тарифицируется объем проделанной работы — количество строк и их размер, который был прочитан из оригинальной таблицы и записан в индексную таблицу. Процесс построения индекса может быть отменен пользователем.  Отмененные операции построения индекса также тарифицируются за объем проделанной работы до отмены операции.
+The cost of building an index is the sum of the cost of ReadTable from the source table and BulkUpsert to the index table. The total amount of work is charged: the number and size of rows read from the source table and written to the index table. The index building process can be canceled by the user. The canceled index-building operations are also charged based on the amount of work done before the operation was canceled.
 
 ### The amount of stored data {#rules-storage}
 

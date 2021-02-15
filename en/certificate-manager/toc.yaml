@@ -37,14 +37,16 @@ items:
         items:
           - name: Create a domain
             href: operations/domain/domain-create.md
-          - name: Link a certificate to a domain
+          - name: Renew a domain certificate
             href: operations/domain/domain-link-cert.md
-          - name: Update a domain description
+          - name: Update a domain
             href: operations/domain/domain-modify.md
           - name: Delete a domain
             href: operations/domain/domain-delete.md
       - name: Backups
         href: operations/cert-backup.md
+      - name: Adding alerts for certificates
+        href: operations/alert.md
   - name: Concepts
     items:
       - name: Overview
@@ -63,9 +65,7 @@ items:
         items:
           - name: Overview
             href: concepts/domains/index.md
-          - name: >-
-              Integration of the domain management system with services from
-              Yandex.Cloud
+          - name: Integration with Yandex.Cloud services
             href: concepts/domains/services.md
   - name: Access management
     href: security/index.md
