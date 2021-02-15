@@ -10,7 +10,13 @@ _Статические ключи доступа_ — секретный клю
 
 * [{{ objstorage-name }}](/docs/storage/)
 * [{{ message-queue-name }}](/docs/message-queue/)
+
+{% if deploy != "arc" %}
+      
 * [{{ ydb-name }}](../../../ydb/quickstart/aws-instrument/setup.md)
+      
+{% endif %}
+
 
 #### См. также {#see-also}
 
