@@ -116,6 +116,46 @@ If you need to store large amounts of data that exceed the specified limits, use
   
 {% endlist %}
 
+### Performing asynchronous operations {#async}
+
+{% list tabs %}
+
+- Prices in USD
+
+    Configuration | Number of units |  Duration of <br>calculation | Price per calculation, <br>with VAT
+    ----- | ---- | ---- | -----
+    S (4 vCPU, 0 GPU) | 1 | 1 second | $0.000009
+    S (4 vCPU, 0 GPU) | 1 | 1 minute | $0.000576
+    S (4 vCPU, 0 GPU) | 1 | 1 hour | $0.034615
+    M (8 vCPU, 0 GPU) | 2 | 1 second | $0.000019
+    M (8 vCPU, 0 GPU) | 2 | 1 minute | $0.001153
+    M (8 vCPU, 0 GPU) | 2 | 1 hour | $0.069230 
+    L (8 vCPU, 1 GPU) | 15 | 1 second | $0.000144
+    L (8 vCPU, 1 GPU) | 15 | 1 minute | $0.008653
+    L (8 vCPU, 1 GPU) | 15 | 1 hour | $0.519230
+    XL (32 vCPU, 4 GPU) | 60  | 1 second | $0.000576
+    XL (32 vCPU, 4 GPU) | 60 | 1 minute | $0.034615
+    XL (32 vCPU, 4 GPU) | 60  | 1 hour  | $2.076923
+
+- Prices in roubles
+
+    Configuration | Number of units |  Duration of <br>calculation | Price per calculation, <br>with VAT
+    ----- | ---- | ---- | ----
+    S (4 vCPU, 0 GPU) | 1  | 1 second | ₽0.00075 
+    S (4 vCPU, 0 GPU) | 1  | 1 minute | ₽0.045
+    S (4 vCPU, 0 GPU) | 1  | 1 hour | ₽2.7
+    M (8 vCPU, 0 GPU) | 2 | 1 second | ₽0.0015
+    M (8 vCPU, 0 GPU) | 2 | 1 minute | ₽0.09
+    M (8 vCPU, 0 GPU) | 2 | 1 hour | ₽5.4
+    L (8 vCPU, 1 GPU) | 15 | 1 second | ₽0.01125 
+    L (8 vCPU, 1 GPU) | 15 | 1 minute | ₽0.675 
+    L (8 vCPU, 1 GPU) | 15 | 1 hour | ₽40.5 
+    XL (32 vCPU, 4 GPU) | 60 | 1 second  | ₽0.045 
+    XL (32 vCPU, 4 GPU) | 60 | 1 minute  | ₽2.7 
+    XL (32 vCPU, 4 GPU) | 60 | 1 hour  | ₽162 
+
+{% endlist %}
+
 {% include [pricing-egress-traffic](../_includes/pricing/pricing-egress-traffic.md) %}
 
 
