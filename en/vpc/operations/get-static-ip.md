@@ -10,14 +10,49 @@ Pay attention to the [pricing policy](../pricing.md#prices-public-ip) for inacti
 
 {% list tabs %}
 
-- Management console
+* Management console
 
-  To reserve a static public IP address:
-  1. Go to the page of the folder where you want to reserve an IP and select **Virtual Private Cloud**.
-  1. Select **IP addresses**.
-  1. Click **Reserve address**.
-  1. In the window that opens, select the availability zone where you want to reserve the address.
-  1. Click **Reserve address**.
+   To reserve a static public IP address:
+   1. Go to the page of the folder where you want to reserve an IP and select **Virtual Private Cloud**.
+   1. Select **IP addresses**.
+   1. Click **Reserve address**.
+   1. In the window that opens, select the availability zone where you want to reserve the address.
+   1. Click **Reserve address**.
+
+* CLI
+
+   {% include [include](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   To reserve a static public IP address:
+
+   1. See the description of the CLI reserve address command:
+
+      ```bash
+      yc vpc address create --help
+      ```
+
+   1. Reserve the address by specifying the availability zone:
+
+      ```bash
+      yc vpc address create --external-ipv4 zone=ru-central1-a
+      ```
+
+      Execution result:
+
+      ```bash
+      id: e9b6un9gkso6stdh6b3p
+      folder_id: b1g7gvsi89m34pipa3ke
+      created_at: "2021-01-19T17:52:42Z"
+      external_ipv4_address:
+        address: 178.154.253.52
+        zone_id: ru-central1-a
+        requirements: {}
+      reserved: true
+      ```
+
+      The static public IP address is reserved.
 
 {% endlist %}
 
