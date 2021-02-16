@@ -133,7 +133,7 @@ items:
         items:
           - name: Создать группу ВМ фиксированного размера
             href: operations/instance-groups/create-fixed-group.md
-          - name: Создать группу ВМ фиксированного размера с балансировщиком
+          - name: Создать группу ВМ фиксированного размера с сетевым балансировщиком
             href: operations/instance-groups/create-with-balancer.md
           - name: Создать автоматически масштабируемую группу ВМ
             href: operations/instance-groups/create-autoscaled-group.md

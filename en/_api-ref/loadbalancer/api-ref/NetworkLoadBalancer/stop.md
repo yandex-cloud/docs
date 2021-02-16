@@ -10,14 +10,14 @@ Changes load balancer status to `` STOPPED ``.
  
 ## HTTP request {#https-request}
 ```
-POST https://load-balancer.api.cloud.yandex.net/load-balancer/v1alpha/networkLoadBalancers/{networkLoadBalancerId}:stop
+POST https://load-balancer.api.cloud.yandex.net/network-load-balancer/v1alpha/networkLoadBalancers/{networkLoadBalancerId}:stop
 ```
  
 ## Path parameters {#path_params}
  
 Parameter | Description
 --- | ---
-networkLoadBalancerId | Required. ID of the network load balancer to stop. To get the network load balancer ID, use a [list](/docs/load-balancer/api-ref/NetworkLoadBalancer/list) request.  The maximum string length in characters is 50.
+networkLoadBalancerId | Required. ID of the network load balancer to stop. To get the network load balancer ID, use a [list](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list) request.  The maximum string length in characters is 50.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

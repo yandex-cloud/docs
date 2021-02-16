@@ -18,7 +18,7 @@ default:
   dsvm-full-name: Yandex Data Science Virtual Machine
   speechkit-full-name: Yandex SpeechKit
   translate-full-name: Yandex Translate
-  load-balancer-full-name: Yandex Load Balancer
+  network-load-balancer-full-name: Yandex Network Load Balancer
   message-queue-full-name: Yandex Message Queue
   cloud-logs-full-name: Yandex Cloud Logs
   container-registry-full-name: Yandex Container Registry
@@ -39,6 +39,9 @@ default:
   ig-full-name: Yandex Instance Groups
   lockbox-full-name: Yandex Lockbox
   tracker-full-name: Yandex Tracker
+  alb-full-name: Yandex Application Load Balancer
+
+  # Полные имена сервисов без Yandex
   iam-name: Identity and Access Management
   ig-name: Instance Groups
   resmgr-name: Resource Manager
@@ -58,7 +61,7 @@ default:
   dsvm-name: Data Science Virtual Machine
   speechkit-name: SpeechKit
   translate-name: Translate
-  load-balancer-name: Load Balancer
+  network-load-balancer-name: Network Load Balancer
   message-queue-name: Message Queue
   cloud-logs-name: Cloud Logs
   container-registry-name: Container Registry
@@ -79,6 +82,9 @@ default:
   api-gw-name: API Gateway
   lockbox-name: Lockbox
   tracker-name: Tracker
+  alb-name: Application Load Balancer
+
+  # Короткие имена
   iam-short-name: IAM
   resmgr-short-name: Resource Manager
   compute-short-name: Compute Cloud
@@ -97,7 +103,7 @@ default:
   dsvm-short-name: DSVM
   speechkit-short-name: SpeechKit
   translate-short-name: Translate
-  load-balancer-short-name: Load Balancer
+  network-load-balancer-short-name: Network Load Balancer
   message-queue-short-name: Message Queue
   cloud-logs-short-name: Cloud Logs
   container-registry-short-name: Container Registry
@@ -115,7 +121,6 @@ default:
   data-transfer-short-name: Data Transfer
   api-gw-short-name: API Gateway
   lockbox-short-name: Lockbox
-  tracker-short-name: Tracker
   price-per-hour-count-per-second: Цена указывается за 1 час использования. Тарификация посекундная.
   roles-cr-admin: container-registry.admin
   roles-cr-puller: container-registry.images.puller
@@ -147,6 +152,7 @@ default:
   roles-viewer: viewer
   subjects-allUsers: allUsers
   subjects-allAuthenticatedUsers: allAuthenticatedUsers
+  subnet-id: b0rcctk2rvtr8efcch64
   s3-storage-host: storage.yandexcloud.net
   s3-web-host: website.yandexcloud.net
   yc-mdb-mg: yc managed-mongodb
@@ -166,7 +172,7 @@ default:
   pem-path: /cloud-certs/CA.pem
   dns-zone: mdb.yandexcloud.net
   network-name: default
-  host-net-example: zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch63
+  host-net-example: zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch64
   disk-type-example: network-ssd
   PG: PostgreSQL
   CH: ClickHouse
@@ -301,8 +307,7 @@ internal:
   link-cloud-calculator: https://cloud.yandex.ru/prices#calculator
   link-yandex-connect: https://connect.yandex.ru
   link-passport-login: https://passport.yandex-team.ru/auth
-  link-cloud-oauth: >-
-    https://oauth.yandex-team.ru/authorize?response_type=token&client_id=8cdb2f6a0dca48398c6880312ee2f78d
+  link-cloud-oauth: https://oauth.yandex-team.ru/authorize?response_type=token&client_id=8cdb2f6a0dca48398c6880312ee2f78d
   link-cloud-partners: https://partners.cloud.yandex.ru/
   tf-cloud-id: b1gq90dgh25bebiu75o
 external:

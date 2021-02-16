@@ -53,42 +53,12 @@
 1. [Подключитесь](connect.md) к базе данных с помощью учетной записи владельца базы данных.
 2. Выполните команду `GRANT`. Подробное описание синтаксиса команды смотрите в [документации {{ MS }}](https://docs.microsoft.com/ru-ru/sql/t-sql/statements/grant-transact-sql?view=sql-server-2016).
 
-**Примеры:**
-
-1. Выдать пользователю `user2` права на чтение таблицы `Products` в схеме по умолчанию `dbo`:
-
-    ```
-    GRANT SELECT ON dbo.Products TO user2;
-    GO
-    ```
-
-1. Выдать пользователю `user2` права на чтение и запись в схему `myschema`:
-
-    ```
-    GRANT SELECT, INSERT, UPDATE, DELETE ON SCHEMA::myschema TO user2;
-    GO
-    ```
-
 ## Отозвать привилегию у пользователя {#revoke-privilege}
 
 1. [Подключитесь](connect.md) к базе данных с помощью учетной записи владельца базы данных.
 2. Выполните команду `REVOKE`. Подробное описание синтаксиса команды смотрите в [документации {{ MS }}](https://docs.microsoft.com/ru-ru/sql/t-sql/statements/revoke-transact-sql?view=sql-server-2016).
 
-**Примеры:**
-
-1. Отозвать у пользователя `user2` права на чтение таблицы `Products` в схеме по умолчанию `dbo`:
-
-    ```
-    REVOKE SELECT ON dbo.Products FROM user2;
-    GO
-    ```
-
-1. Отозвать у пользователя `user2` права на чтение всех таблиц схемы `myschema` и права доступа ко всем объектам схемы `myschema`:
-
-    ```
-    REVOKE SELECT, INSERT, UPDATE, DELETE ON SCHEMA::myschema FROM user2;
-    GO
-    ```
+{% include [user-ro](../../_includes/mdb/mms-user-examples.md) %}
 
 ## Описание предопределенных ролей {#predefined-db-roles}
 

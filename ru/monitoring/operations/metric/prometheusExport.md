@@ -6,18 +6,26 @@
 1. Выберите сервис из следующего списка:
    - `compute` — {{ compute-name }};
    - `storage` — {{ objstorage-name }};
-   - `managed-mongodb` — {{ mmg-name }};
    - `managed-postgresql` — {{ mpg-name }};
+   - `managed-clickhouse` — {{ mch-name }};
+   - `managed-mongodb` — {{ mmg-name }};
    - `managed-mysql` — {{ mmy-name }};
    - `managed-redis` — {{ mrd-name }};
-   - `managed-clickhouse` — {{ mch-name }};
    - `managed-kafka` — {{ mkf-name }};
+   - `managed-elasticsearch` — {{ mes-name }};
+   - `managed-sqlserver` — {{ mms-name }}
+   - `managed-kubernetes` — {{ managed-k8s-name }};
    - `serverless-functions` — {{ sf-name }};
-   - `serverless_triggers_client_metrics` — триггеры {{ sf-name }}.
+   - `serverless_triggers_client_metrics` — триггеры {{ sf-name }};
+   - `ydb` — {{ ydb-name }};
+   - `interconnect` — {{ interconnect-name }};
+   - `certificate-manager` — {{ certificate-manager-name }};
+   - `data-transfer` — {{ data-transfer-name }};
+   - `serverless-apigateway` — {{ api-gw-name }}.
 1. Создайте статичный [API-ключ](../../../iam/operations/api-key/create.md) для [сервисного аккаунта](../../../iam/concepts/users/service-accounts).
 1. Назначьте сервисному аккаунту роль [viewer](../../../iam/operations/roles/grant#access-to-sa) на выбранный каталог.
 1. В [конфигурацию Prometheus](https://prometheus.io/docs/prometheus/latest/configuration/configuration) в секцию для сбора данных добавьте еще одну задачу (`job`):
-   ```
+   ```yaml
    ...
    scrape_configs:
      ...

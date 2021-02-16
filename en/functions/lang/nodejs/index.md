@@ -6,7 +6,7 @@ With {{ sf-name }}, you can run applications written in [Node.js](https://nodejs
 | ---- | ---- | ---- | ---- |
 | nodejs10 | 10.16.3 | 1.1.1 | Ubuntu 18.04 LTS |
 | nodejs12 | 12.11.1 | 1.1.1 | Ubuntu 18.04 LTS |
-| nodejs-preview | 12.11.1 | 1.1.1 | Ubuntu 18.04 LTS |
+| nodejs14 | 14.11.0 | 1.1.1 | Ubuntu 18.04 LTS |
 
 The runtime environment has an SDK library installed by default to work with the {{ yandex-cloud }} API. For more information about how to use the SDK, see [Using the SDK](sdk.md).
 

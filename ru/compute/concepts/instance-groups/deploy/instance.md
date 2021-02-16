@@ -26,7 +26,7 @@
 
 * Изменение спецификации [проверки состояния](../../../operations/instance-groups/enable-autohealing.md) (`health_checks_spec`).
 
-* Изменение спецификации целевой группы [балансировщика нагрузки](../../../../load-balancer/concepts/index.md) (`load_balancer_spec`) сейчас не поддерживается.
+* Изменение спецификации целевой группы [сетевого балансировщика нагрузки](../../../../network-load-balancer/concepts/index.md) (`load_balancer_spec`) сейчас не поддерживается.
 
 ### Изменения, приводящие к перезапуску или пересозданию виртуальных машин {#ch-gr-affect}
 

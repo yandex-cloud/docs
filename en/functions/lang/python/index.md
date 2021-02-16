@@ -6,7 +6,6 @@ With {{ sf-name }}, you can run applications written in [Python](https://python.
 | ---- | ---- | ---- |
 | python27 (**deprecated**) | 2.7.17 | Ubuntu 18.04 LTS |
 | python37 | 3.7.6 | Ubuntu 18.04 LTS |
-| python37-preview | 3.7.6 | Ubuntu 18.04 LTS |
 | python38 | 3.8.5 | Ubuntu 18.04 LTS |
 
 {% note info %}
@@ -17,7 +16,7 @@ Note that the `python27` runtime environment is considered obsolete, since Pytho
 
 The runtime environment has an SDK library installed by default to work with the {{ yandex-cloud }} API. For more information about how to use the SDK, see [Using the SDK](sdk.md).
 
-When using the `python37-preview` and `python38` runtime, {{ sf-name }} automatically installs all declared dependencies required for the function to run. Dependencies are installed when creating a new [function version](../../operations/function/version-manage.md#func-version-create). For more information, see [{#T}](dependencies.md).
+When using the `python37` and `python38` runtime, {{ sf-name }} automatically installs all declared dependencies required for the function to run. Dependencies are installed when creating a new [function version](../../operations/function/version-manage.md#func-version-create). For more information, see [{#T}](dependencies.md).
 
 The runtime environment automatically loads your code and invokes the [request handler](handler.md) you specified. It receives an incoming request and the [invocation context](context.md) as arguments. The context contains additional information about the function parameters.
 

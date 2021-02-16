@@ -1,6 +1,6 @@
 # Работа с группой виртуальных машин с автоматическим масштабированием
 
-Чтобы создать [группу виртуальных машин с автоматическим масштабированием](../concepts/instance-groups/scale.md#auto-scale) и [сетевым балансировщиком нагрузки](../../load-balancer/concepts/index.md), необходимо выполнить следующие действия.
+Чтобы создать [группу виртуальных машин с автоматическим масштабированием](../concepts/instance-groups/scale.md#auto-scale) и [сетевым балансировщиком нагрузки](../../network-load-balancer/concepts/index.md), необходимо выполнить следующие действия.
 
 ## Перед началом работы {#before-you-begin}
 
@@ -132,7 +132,7 @@
 
    {% endlist %}
 
-## Создайте группу ВМ с автоматическим масштабированием и балансировщиком нагрузки {#create-vm-group}
+## Создайте группу ВМ с автоматическим масштабированием и сетевым балансировщиком нагрузки {#create-vm-group}
 
 1. Сохраните спецификацию группы ВМ с сетевым балансировщиком нагрузки в файл `specification.yaml`:
 
@@ -251,9 +251,9 @@
 
    {% endlist %}
 
-## Подключите балансировщик нагрузки с целевой группой {#connect-balancer}
+## Подключите сетевой балансировщик нагрузки с целевой группой {#connect-balancer}
 
-1. Создайте балансировщик нагрузки с именем `group-balancer` и подключите его к созданной группе ВМ:
+1. Создайте сетевой балансировщик нагрузки с именем `group-balancer` и подключите его к созданной группе ВМ:
 
    {% list tabs %}
 
@@ -300,17 +300,17 @@
 
    - API
 
-     1. Создайте сетевой балансировщик нагрузки с помощью метода [Create](../../load-balancer/api-ref/NetworkLoadBalancer/create.md) для ресурса `NetworkLoadBalancers`.
+     1. Создайте балансировщик нагрузки с помощью метода [Create](../../network-load-balancer/api-ref/NetworkLoadBalancer/create.md) для ресурса `NetworkLoadBalancers`.
 
-     1. Добавьте обработчик к балансировщику с помощью метода [AddListener](../../load-balancer/api-ref/NetworkLoadBalancer/addListener.md) для ресурса `NetworkLoadBalancers`.
+     1. Добавьте обработчик к балансировщику с помощью метода [AddListener](../../network-load-balancer/api-ref/NetworkLoadBalancer/addListener.md) для ресурса `NetworkLoadBalancers`.
 
-     1. Подключите целевую группу к балансировщику с помощью метода [AttachTargetGroup](../../load-balancer/api-ref/NetworkLoadBalancer/attachTargetGroup.md) для ресурса `NetworkLoadBalancers`.
+     1. Подключите целевую группу к балансировщику с помощью метода [AttachTargetGroup](../../network-load-balancer/api-ref/NetworkLoadBalancer/attachTargetGroup.md) для ресурса `NetworkLoadBalancers`.
 
-     1. Подключите балансировщик к группе ВМ с помощью метода [AddTargets](../../load-balancer/api-ref/TargetGroup/addTargets.md) для ресурса `TargetGroups`.
+     1. Подключите балансировщик к группе ВМ с помощью метода [AddTargets](../../network-load-balancer/api-ref/TargetGroup/addTargets.md) для ресурса `TargetGroups`.
 
    {% endlist %}
 
-1. Убедитесь, что балансировщик `group-balancer` создан и привязан к группе ВМ:
+1. Убедитесь, что сетевой балансировщик `group-balancer` создан и привязан к группе ВМ:
 
    {% list tabs %}
 
@@ -338,11 +338,11 @@
 
    - API
 
-     Воспользуйтесь методом [List](../../load-balancer/api-ref/NetworkLoadBalancer/list.md) для ресурса `NetworkLoadBalancer`.
+     Воспользуйтесь методом [List](../../network-load-balancer/api-ref/NetworkLoadBalancer/list.md) для ресурса `NetworkLoadBalancer`.
 
    {% endlist %}
 
-## Проверьте работу группы ВМ и балансировщика {#check-service}
+## Проверьте работу группы ВМ и сетевого балансировщика {#check-service}
 
 1. Создайте нагрузку на одну из ВМ.
 
@@ -445,7 +445,7 @@
 
 ## Удалите инфраструктуру {#delete-infrastructure}
 
-1. Удалите балансировщик нагрузки:
+1. Удалите сетевой балансировщик нагрузки:
 
    {% list tabs %}
 
@@ -471,7 +471,7 @@
 
    - API
 
-     Воспользуйтесь методом [Delete](../../load-balancer/api-ref/NetworkLoadBalancer/delete.md) для ресурса `NetworkLoadBalancer`.
+     Воспользуйтесь методом [Delete](../../network-load-balancer/api-ref/NetworkLoadBalancer/delete.md) для ресурса `NetworkLoadBalancer`.
 
    {% endlist %}
 

@@ -16,6 +16,7 @@ items:
       - name: Adding data to the database
         href: operations/insert.md
       - name: Migrating ClickHouse data
+        when: content != "noshow"
         href: operations/data-migration.md
       - name: SQL queries in the management console
         href: operations/web-sql-query.md

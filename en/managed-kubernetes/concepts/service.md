@@ -21,12 +21,12 @@ You can use various types of services in your {{ k8s }} clusters, including:
   * It provides access to the service via internal or public {{ k8s }} cluster node IP addresses.
   * It doesn't require any additional cloud resources.
 * `LoadBalancer` is a `NodePort` extension.
-  * It provides access to the service via the created cloud load balancer.
-  * It requires an additional cloud resource (load balancer).
+  * It provides access to the service via the created cloud network load balancer.
+  * It requires an additional cloud resource (network load balancer).
 
 Learn more about service types in the [{{ k8s }} documentation](https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types).
 
-{{ managed-k8s-name }} lets you use `LoadBalancer` services based on a [network load balancer](../../load-balancer/concepts/index.md) created in {{ load-balancer-full-name }} with a public or internal IP address.
+{{ managed-k8s-name }} lets you use `LoadBalancer` services based on a [network load balancer](../../network-load-balancer/concepts/index.md) created in {{ network-load-balancer-full-name }} with a public or internal IP address.
 
 #### See also {#see-also}
 

@@ -17,7 +17,7 @@ default:
   dsvm-full-name: Yandex Data Science Virtual Machine
   speechkit-full-name: Yandex SpeechKit
   translate-full-name: Yandex Translate
-  load-balancer-full-name: Yandex Load Balancer
+  network-load-balancer-full-name: Yandex Network Load Balancer
   message-queue-full-name: Yandex Message Queue
   container-registry-full-name: Yandex Container Registry
   dataproc-full-name: Yandex Data Proc
@@ -51,7 +51,7 @@ default:
   dsvm-name: Data Science Virtual Machine
   speechkit-name: SpeechKit
   translate-name: Translate
-  load-balancer-name: Load Balancer
+  network-load-balancer-name: Network Load Balancer
   message-queue-name: Message Queue
   container-registry-name: Container Registry
   dataproc-name: Data Proc
@@ -85,7 +85,7 @@ default:
   dsvm-short-name: DSVM
   speechkit-short-name: SpeechKit
   translate-short-name: Translate
-  load-balancer-short-name: Load Balancer
+  network-load-balancer-short-name: Network Load Balancer
   message-queue-short-name: Message Queue
   container-registry-short-name: Container Registry
   dataproc-short-name: Data Proc
@@ -104,6 +104,17 @@ default:
   yandex-cloud: Yandex.Cloud
   s3-storage-host: storage.yandexcloud.net
   yc-ydb: yc ydb
+
+  # Роли
+  roles-admin: admin
+  roles-owner: owner
+  roles-editor: editor
+  roles-viewer: viewer
+
+  # Ссылки
+  link-console-billing: https://console.cloud.yandex.ru/billing
+  link-console-main: https://console.cloud.yandex.ru/
+
 tech:
   audience: tech
   ydb-cli: ya ydb

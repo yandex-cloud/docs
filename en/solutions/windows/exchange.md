@@ -44,7 +44,7 @@ If you have an active billing account, you can create or select a folder to run 
 The cost of a Microsoft Exchange installation includes:
 
 * A fee for continuously running VMs (see [pricing{{ compute-full-name }}](../../compute/pricing.md)).
-* A fee for load balancing (see [pricing{{ load-balancer-full-name }}](../../load-balancer/pricing.md)).
+* A fee for load balancing (see [pricing{{ network-load-balancer-full-name }}](../../network-load-balancer/pricing.md)).
 * A fee for using dynamic or static public IP addresses (see [pricing{{ vpc-full-name }}](../../vpc/pricing.md)).
 * The cost of outgoing traffic from Yandex.Cloud to the internet (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 
@@ -751,7 +751,7 @@ It distributes the load across Exchange servers in different availability zones.
 
 - Management console
 
-  To create a [network load balancer](../../load-balancer/concepts/index.md):
+  To create a [network load balancer](../../network-load-balancer/concepts/index.md):
   1. Open the **Load Balancer** section in the folder where you want to create a load balancer.
   1. Click **Create load balancer**.
   1. Enter a name for the network load balancer: `exchange-lb`.
@@ -1187,7 +1187,7 @@ Each Edge Transport server must subscribe to a website in its own availability z
 
 ## Delete the created resources {#clear-out}
 
-To stop paying for deployed servers, delete all the [VMs you created](../../compute/operations/vm-control/vm-delete.md) and [load balancer](../../load-balancer/operations/load-balancer-delete.md) you created:
+To stop paying for deployed servers, delete all the [VMs you created](../../compute/operations/vm-control/vm-delete.md) and [load balancer](../../network-load-balancer/operations/load-balancer-delete.md) you created:
 
 * `fsw-vm`
 * `ad-vm-a`

@@ -2,7 +2,13 @@
 
 - [{#T}](cluster-list.md)
 - [{#T}](cluster-create.md)
+
+{% if content != "noshow" %}
+
 - [{#T}](data-migration.md)
+
+{% endif %}
+
 - [{#T}](connect.md)
 - [{#T}](web-sql-query.md)
 - [{#T}](insert.md)

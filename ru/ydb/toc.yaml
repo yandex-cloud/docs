@@ -47,78 +47,103 @@ items:
         when: audience == "tech"
   - name: Начало работы
     items:
-      - name: Обзор
-        href: quickstart/index.md
-        when: audience == "external"
-      - name: Создание базы данных
-        href: quickstart/create-db.md
-        when: audience == "external"
-      - name: Примеры YQL-запросов
-        href: quickstart/examples-yql.md
-        when: audience == "external"
-      - name: Примеры работы с YDB CLI
-        href: quickstart/examples-ydb-cli.md
-        when: audience == "external"
-      - name: Запуск тестового приложения
-        href: quickstart/launch-test-app.md
-        when: audience == "external"
-      - name: Базы данных — создание и управление
-        href: getting_started/create_manage_database.md
-        when: audience != "external"
-      - name: Настройка сетевого доступа к базе данных
-        href: getting_started/setup_network_access.md
-        when: audience != "external"
-      - name: Разграничение прав доступа
-        href: getting_started/start_auth.md
-        when: audience != "external"
-      - name: Где взять
-        href: getting_started/get_cluster.md
-        when: audience == "tech"
-      - name: Старт локального кластера
-        href: getting_started/start_local_cluster.md
-        when: audience == "tech"
-      - name: Использование консольного клиента YDB
-        href: getting_started/ydb_cli.md
-        when: audience != "external"
-      - name: Работа со схемой
-        href: getting_started/start_scheme.md
-        when: audience != "external"
-      - name: Работа с данными
-        href: getting_started/crud.md
-        when: audience != "external"
-      - name: Разработка на C++
-        href: getting_started/start_cpp.md
-        when: audience != "external"
-      - name: Разработка на Java
-        href: getting_started/start_java.md
-        when: audience != "external"
-      - name: Разработка на Python
-        href: getting_started/start_python.md
-        when: audience != "external"
-      - name: Использование рецепта YDB
-        href: getting_started/ydb_recipe.md
-        when: audience != "external"
-      - name: Использование Docker контейнера YDB
-        href: getting_started/ydb_docker.md
-        when: audience != "external"
-      - name: ClickHouse over YDB
-        href: getting_started/start_chydb.md
-        when: audience != "external"
-      - name: REST API
-        href: getting_started/start_rest.md
-        when: audience == "tech"
-      - name: Использование AWS CLI и AWS SDK
-        href: getting_started/start_docapi_aws.md
-        when: audience == "external"
-      - name: Document API
-        href: getting_started/start_docapi_rest.md
-        when: audience == "external"
-      - name: Разработка на NodeJS с Document API
-        href: getting_started/start_docapi_nodejs.md
-        when: audience == "external"
+    - name: Обзор
+      href: quickstart/index.md
+      when: audience == "external"
+    - name: Создание базы данных
+      href: quickstart/create-db.md
+      when: audience == "external"
+    - name: YQL
+      when: audience == "external"
+      items:
+        - name: Работа с данными
+          href: quickstart/examples-yql.md
+          when: audience == "external"
+        - name: Работа с YDB CLI
+          href: quickstart/examples-ydb-cli.md
+          when: audience == "external"
+        - name: Работа с YDB SDK
+          href: quickstart/launch-test-app.md
+          when: audience == "external"
+    - name: Document API
+      when: audience == "external"
+      items:
+        - name: Работа с данными
+          href: quickstart/examples-docapi.md
+          when: audience == "external"
+        - name: Работа с инструментами AWS
+          when: audience == "external"
+          items:
+            - name: Настройка окружения
+              href: quickstart/aws-instrument/setup.md
+              when: deploy != "arc"
+            - name: Работа с AWS CLI
+              href: quickstart/aws-instrument/aws-cli.md
+              when: audience != "external"
+            - name: Работа с AWS SDK
+              href: quickstart/aws-instrument/aws-sdk.md
+              when: audience != "external"
+    - name: Базы данных — создание и управление
+      href: getting_started/create_manage_database.md
+      when: audience != "external"
+    - name: Настройка сетевого доступа к базе данных
+      href: getting_started/setup_network_access.md
+      when: audience != "external"
+    - name: Разграничение прав доступа
+      href: getting_started/start_auth.md
+      when: audience != "external"
+    - name: Где взять
+      href: getting_started/get_cluster.md
+      when: audience == "tech"
+    - name: Старт локального кластера
+      href: getting_started/start_local_cluster.md
+      when: audience == "tech"
+    - name: Использование консольного клиента YDB
+      href: getting_started/ydb_cli.md
+      when: audience != "external"
+    - name: Работа со схемой
+      href: getting_started/start_scheme.md
+      when: audience != "external"
+    - name: Работа с данными
+      href: getting_started/crud.md
+      when: audience != "external"
+    - name: Разработка на C++
+      href: getting_started/start_cpp.md
+      when: audience != "external"
+    - name: Разработка на Java
+      href: getting_started/start_java.md
+      when: audience != "external"
+    - name: Разработка на Python
+      href: getting_started/start_python.md
+      when: audience != "external"
+    - name: Использование рецепта YDB
+      href: getting_started/ydb_recipe.md
+      when: audience != "external"
+    - name: Использование Docker контейнера YDB
+      href: getting_started/ydb_docker.md
+      when: audience != "external"
+    - name: ClickHouse over YDB
+      href: getting_started/start_chydb.md
+      when: audience != "external"
+    - name: REST API
+      href: getting_started/start_rest.md
+      when: audience == "tech"
   - name: Пошаговые инструкции
     when: audience == "external"
     items:
+      - name: Работа с YDB CLI
+        items:
+          - name: Структура и описание команд YDB CLI
+            href: operations/ydb-cli/commands.md
+          - name: Получение информации об объекте схемы
+            href: operations/ydb-cli/scheme-describe.md
+          - name: Потоковое чтение таблицы
+            href: operations/ydb-cli/readtable.md
+          - name: Работа со вторичными индексами
+            href: operations/ydb-cli/operations-index.md
+      - name: Использование плана запроса и AST
+        href: operations/get-query-plan.md
+        when: audience == "external"
       - name: Управление базами данных
         href: operations/create_manage_database.md
       - name: Подключение к базе данных
@@ -408,127 +433,127 @@ items:
   - name: Безопасность
     when: audience == "tech"
     items:
-      - name: Сценарии взаимодействия компонентов
-        href: security/usecases.md
-      - name: Шифрование данных
-        href: security/data_encryption.md
+    - name: Сценарии взаимодействия компонентов
+      href: security/usecases.md
+    - name: Шифрование данных
+      href: security/data_encryption.md
   - name: Техническая документация
     when: audience == "tech"
     items:
-      - name: Архитектура системы
-        href: internals/architecture.md
-      - name: Глоссарий
-        href: internals/glossary.md
-      - name: Configuration and Deployment
+    - name: Архитектура системы
+      href: internals/architecture.md
+    - name: Глоссарий
+      href: internals/glossary.md
+    - name: Configuration and Deployment
+      items:
+      - name: Настройка KiKiMR кластера
+        href: internals/configuration.md
+      - name: Deploy to Developer Slices
+        href: internals/slicedeploy.md
+      - name: Using CMS for cluster configuration
+        href: internals/dynamicconfiguration.md
+    - name: Внешние Прокси и Порты
+      href: internals/external_proxies.md
+    - name: Обработка ошибок в результатах запросов
+      href: internals/errors_in_api_requests.md
+    - name: YDB Core
+      items:
+      - name: Actorlib
+        href: internals/actors.md
+      - name: Interconnect
+        href: internals/interconnect.md
+      - name: NALF-allocator
+        href: internals/nalf.md
+      - name: Инфраструктура таблеток
         items:
-          - name: Настройка KiKiMR кластера
-            href: internals/configuration.md
-          - name: Deploy to Developer Slices
-            href: internals/slicedeploy.md
-          - name: Using CMS for cluster configuration
-            href: internals/dynamicconfiguration.md
-      - name: Внешние Прокси и Порты
-        href: internals/external_proxies.md
-      - name: Обработка ошибок в результатах запросов
-        href: internals/errors_in_api_requests.md
-      - name: YDB Core
+        - name: Обзор таблеток
+          href: internals/tablets.md
+        - name: Resource Broker
+          href: internals/resource_broker.md
+        - name: State storage
+          href: internals/tablet_state_storage.md
+        - name: Blobstorage
+          items:
+          - name: Blobstorage обзор
+            href: internals/tablet_blobstorage_overview.md
+          - name: Erasure Coding
+            href: internals/erasure.md
+          - name: Distributed Storage Proxy
+            href: internals/tablet_dsproxy.md
+          - name: PDisk
+            href: internals/pdisk.md
+          - name: VDisk
+            href: internals/vdisk.md
+          - name: VDisk replication
+            href: internals/vdisk_replication.md
+        - name: Tablet
+          items:
+          - name: Tablet slaves
+            href: internals/tablet_slaves.md
+          - name: Tablet pipes
+            href: internals/tablet_pipes.md
+          - name: Tablet Leader Election и Log Commit Protocol
+            href: internals/tablet_election.md
+      - name: Local Database
+        href: internals/localdatabase.md
+      - name: Local Database C++ Interface (NIceDb)
+        href: api/nicedb.md
+      - name: Transaction processing
         items:
-          - name: Actorlib
-            href: internals/actors.md
-          - name: Interconnect
-            href: internals/interconnect.md
-          - name: NALF-allocator
-            href: internals/nalf.md
-          - name: Инфраструктура таблеток
-            items:
-              - name: Обзор таблеток
-                href: internals/tablets.md
-              - name: Resource Broker
-                href: internals/resource_broker.md
-              - name: State storage
-                href: internals/tablet_state_storage.md
-              - name: Blobstorage
-                items:
-                  - name: Blobstorage обзор
-                    href: internals/tablet_blobstorage_overview.md
-                  - name: Erasure Coding
-                    href: internals/erasure.md
-                  - name: Distributed Storage Proxy
-                    href: internals/tablet_dsproxy.md
-                  - name: PDisk
-                    href: internals/pdisk.md
-                  - name: VDisk
-                    href: internals/vdisk.md
-                  - name: VDisk replication
-                    href: internals/vdisk_replication.md
-              - name: Tablet
-                items:
-                  - name: Tablet slaves
-                    href: internals/tablet_slaves.md
-                  - name: Tablet pipes
-                    href: internals/tablet_pipes.md
-                  - name: Tablet Leader Election и Log Commit Protocol
-                    href: internals/tablet_election.md
-          - name: Local Database
-            href: internals/localdatabase.md
-          - name: Local Database C++ Interface (NIceDb)
-            href: api/nicedb.md
-          - name: Transaction processing
-            items:
-              - name: Transaction processing
-                href: internals/tx_processing.md
-              - name: Deterministic Transactions
-                href: internals/tx_deterministic.md
-              - name: Transaction processing implementation
-                href: internals/tx_processing_graph.md
-          - name: Типы таблеток
-            items:
-              - name: Hive
-                href: internals/tablet_hive.md
-              - name: Hive balancer
-                href: internals/tablet_hive_balancer.md
-              - name: Blobstorage Controller
-                href: internals/tablet_blobstorage_controller.md
-              - name: KeyValue tablet
-                href: internals/tablet_key_value.md
-              - name: Persistent queue tablet
-                href: internals/tablet_pq.md
-              - name: SchemeShard
-                href: internals/tablet_schemeshard.md
-              - name: DataShard
-                items:
-                  - name: DataShard
-                    href: internals/tablet_datashard.md
-                  - name: Concurrency control
-                    href: internals/tablet_datashard_cc.md
-                  - name: Тест изоляции транзакций SmallBank
-                    href: internals/tablet_datashard_smallbank.md
-                  - name: Выполнение транзакций Out-of-order
-                    href: internals/tablet_datashard_ooo.md
-                  - name: SoftUpdates
-                    href: internals/tablet_datashard_soft_updates.md
-              - name: Coordinator
-                href: internals/tablet_coordinator.md
-              - name: Mediator
-                href: internals/tablet_mediator.md
-              - name: Transaction Proxy (TxProxy)
-                href: internals/tablet_txproxy.md
-          - name: Features
-            items:
-              - name: Автоматическое шардирование
-                href: internals/datashard_autosplit.md
-              - name: МежДЦ
-                href: internals/crossdc.md
-          - name: Multitenancy
-            href: internals/multitenancy.md
-          - name: Domains
-            href: internals/domains.md
-          - name: SubDomains
-            href: internals/subdomains.md
-      - name: Конфигурация и развертывание
-        href: getting_started/confdeploy.md
-      - name: Мониторинг с помощью Solomon
-        href: howto/monitoring_solomon.md
+        - name: Transaction processing
+          href: internals/tx_processing.md
+        - name: Deterministic Transactions
+          href: internals/tx_deterministic.md
+        - name: Transaction processing implementation
+          href: internals/tx_processing_graph.md
+      - name: Типы таблеток
+        items:
+        - name: Hive
+          href: internals/tablet_hive.md
+        - name: Hive balancer
+          href: internals/tablet_hive_balancer.md
+        - name: Blobstorage Controller
+          href: internals/tablet_blobstorage_controller.md
+        - name: KeyValue tablet
+          href: internals/tablet_key_value.md
+        - name: Persistent queue tablet
+          href: internals/tablet_pq.md
+        - name: SchemeShard
+          href: internals/tablet_schemeshard.md
+        - name: DataShard
+          items:
+          - name: DataShard
+            href: internals/tablet_datashard.md
+          - name: Concurrency control
+            href: internals/tablet_datashard_cc.md
+          - name: Тест изоляции транзакций SmallBank
+            href: internals/tablet_datashard_smallbank.md
+          - name: Выполнение транзакций Out-of-order
+            href: internals/tablet_datashard_ooo.md
+          - name: SoftUpdates
+            href: internals/tablet_datashard_soft_updates.md
+        - name: Coordinator
+          href: internals/tablet_coordinator.md
+        - name: Mediator
+          href: internals/tablet_mediator.md
+        - name: Transaction Proxy (TxProxy)
+          href: internals/tablet_txproxy.md
+      - name: Features
+        items:
+        - name: Автоматическое шардирование
+          href: internals/datashard_autosplit.md
+        - name: МежДЦ
+          href: internals/crossdc.md
+      - name: Multitenancy
+        href: internals/multitenancy.md
+      - name: Domains
+        href: internals/domains.md
+      - name: SubDomains
+        href: internals/subdomains.md
+    - name: Конфигурация и развертывание
+      href: getting_started/confdeploy.md
+    - name: Мониторинг с помощью Solomon
+      href: howto/monitoring_solomon.md
   - name: Диагностика
     items:
       - name: Обзор

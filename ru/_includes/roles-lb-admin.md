@@ -1,7 +1,7 @@
 ### load-balancer.admin {#lb-admin}
 
 Роль `{{ roles-lb-admin }}` позволяет:
-- создавать, изменять и удалять [балансировщики нагрузки](../load-balancer/concepts/index.md) и [целевые группы](../load-balancer/concepts/target-resources.md);
+- создавать, изменять и удалять [балансировщики нагрузки](../network-load-balancer/concepts/index.md) и [целевые группы](../network-load-balancer/concepts/target-resources.md);
 - назначать балансировщику нагрузки [публичный IP-адрес](../vpc/concepts/address.md).
 
 {% note info %}

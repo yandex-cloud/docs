@@ -1,8 +1,27 @@
 # Релизы YC CLI
 
-## Версия 0.71.0 (03.02.21) {#latest-release}
+## Версия 0.72.0 (11.02.21) {#latest-release}
 
 ### Изменения в сервисах {{ yandex-cloud }}
+
+#### {{ alb-name }} {#alb}
+
+Добавлена первичная поддержка сервиса {{ alb-name }}:
+* Команды группы `yc alb backend-group` позволяют управлять группой бэкендов.
+* Команды группы `yc alb http-router` позволяют управлять HTTP-роутерами.
+* Команды группы `yc alb load-balancer` позволяют управлять L7-балансировщик.
+* Команды группы `yc alb target-group` позволяют управлять целевыми группами.
+* Команды группы `yc alb virtual-host` позволяют управлять виртуальными хостами.
+
+#### {{ compute-name }} {#compute}
+
+* Команды `yc compute instance|disk|image list` теперь возвращают более 1000 элементов.
+
+## Предыдущие релизы {#previous-releases} 
+
+### Версия 0.71.0 (03.02.21) {#version0.71.0}
+
+#### Изменения в сервисах {{ yandex-cloud }}
 
 #### {{ managed-k8s-name }} {#k8s}
 
@@ -40,8 +59,6 @@
 * Команды `yc managed-clickhouse host add` и `yc managed-clickhouse shards add`.
 
     Добавлен флаг `--copy-schema`, который позволяет скопировать схему с других хостов {{ CH }}.
-
-## Предыдущие релизы {#previous-releases} 
 
 ### Версия 0.70.0 (22.12.20) {#version0.70.0}
 
@@ -1148,7 +1165,7 @@
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
 
-#### {{ load-balancer-name }} {#load-balancer}
+#### {{ network-load-balancer-name }} {#load-balancer}
 
 * Команды `yc load-balancer network-load-balancer create` и `yc load-balancer network-load-balancer update`.
 

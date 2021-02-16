@@ -1,0 +1,331 @@
+title: Yandex Tracker
+stage: tech-preview
+href: index.yaml
+items:
+- name: Начало работы
+  when: audience == "external"
+  items:
+    - name: Подключить Tracker
+      href: enable-tracker.md
+    - name: Настроить Tracker
+      href: quick-start.md
+    - name: Мигрировать в Tracker
+      href: import.md
+    - name: Отключить платные услуги
+      href: disable-tracker.md
+- name: Начало работы
+  when: audience == "internal"
+  href: quick-start.md
+- name: Сценарии использования
+  items:
+    - name: Настроить Tracker для команды разработки
+      href: dev-process.md
+    - name: Настроить Tracker для службы поддержки
+      href: support-process.md
+- name: Концепции
+  items:
+    - name: Обзор сервиса
+      href: about-tracker.md
+    - name: Основные понятия
+      href: glossary.md
+    - name: Обучающие материалы
+      href: education.md
+      when: locale == "ru"
+- name: Как работать в Tracker
+  items:
+    - name: Как войти в Tracker
+      href: user/login.md
+    - name: Начальная страница
+      href: user/startpage.md
+    - name: Мои задачи
+      href: user/my-tickets.md
+    - name: Как работать с задачей
+      href: user/ticket-in-progress.md
+    - name: Избранные задачи, доски, дашборды
+      href: user/favourites.md
+    - name: Персональные настройки
+      href: user/personal.md
+- name: Настроить очередь
+  items:
+    - name: Обзор
+      href: queue-intro.md
+    - name: Создать очередь
+      href: manager/create-queue.md
+    - name: Шаблоны очередей
+      href: manager/workflows.md
+    - name: Просмотреть задачи очереди
+      href: user/queue.md
+    - name: Изменить основные параметры очереди
+      href: manager/edit-queue-general.md
+    - name: Настроить типы и статусы задач
+      items:
+        - name: Обзор
+          href: manager/workflow.md
+        - name: Настроить типы задач
+          href: manager/add-ticket-type.md
+        - name: Создать воркфлоу
+          href: manager/add-workflow.md
+        - name: Настроить статусы
+          href: manager/workflow-status-edit.md
+        - name: Настроить переходы
+          href: manager/workflow-action-edit.md
+        - name: Добавить типы задач. статусы, резолюции
+          when: audience == "external"
+          items:
+            - name: Создать тип задачи
+              href: manager/create-ticket-type.md
+            - name: Создать статус
+              href: manager/create-status.md
+            - name: Создать резолюцию
+              href: manager/create-resolution.md
+    - name: Локальные поля задач
+      when: audience == "internal"
+      href: local-fields.md
+    - name: Добавить команду очереди
+      href: manager/queue-team.md
+    - name: Настроить доступ к очереди
+      href: manager/queue-access.md
+    - name: Расширенные возможности очереди
+      href: manager/queue-advanced.md
+    - name: Посмотреть историю изменений очереди
+      href: manager/queue-history.md
+    - name: Удалить очередь
+      when: audience == "external"
+      href: manager/delete-queue.md
+- name: Работать с задачами
+  items:
+    - name: Создать задачу
+      items:
+        - name: Обзор
+          href: user/create-ticket.md
+        - name: Создать задачу по почте
+          when: audience == "internal"
+          href: user/create-ticket-by-mail.md
+        - name: Создать задачу из формы
+          href: user/create-ticket-with-forms.md
+        - name: Клонировать задачу
+          href: user/clone.md
+    - name: Редактировать задачу
+      items:
+        - name: Обзор
+          href: user/edit-ticket.md
+        - name: Добавить комментарии к задаче
+          href: user/comments.md
+        - name: Форматировать текст в задаче
+          href: user/wiki-markup.md
+        - name: Изменить связи задачи
+          href: user/ticket-links.md
+        - name: Добавить поле задачи
+          href: user/create-param.md
+        - name: Выполнить макрос
+          href: user/macroses.md
+        - name: Изменить несколько задач
+          href: manager/bulk-change.md
+    - name: Создать чеклист
+      href: user/checklist.md
+    - name: Настроить напоминание о задаче
+      href: user/reminder.md
+    - name: Отметить затраченное время
+      href: user/time-spent.md
+    - name: Посмотреть историю изменений задачи
+      href: user/history.md
+    - name: Проголосовать за задачу
+      href: user/votes.md
+    - name: Получить доступ к задаче
+      href: user/ticket-access.md
+    - name: Удалить задачу
+      href: user/ticket-cancel.md
+- name: Структурировать задачи
+  items:
+    - name: Обзор
+      href: structure.md
+    - name: Связи между задачами
+      href: user/links.md
+    - name: Проекты
+      href: manager/projects.md
+    - name: Компоненты
+      href: manager/components.md
+    - name: Версии
+      href: manager/versions.md
+- name: Инструменты гибкой разработки
+  items:
+    - name: Обзор
+      href: manager/agile.md
+    - name: Создать доску
+      href: manager/create-agile-board.md
+    - name: Работать с доской
+      href: user/agile.md
+    - name: Изменить и удалить доску
+      href: manager/edit-agile-board.md
+    - name: Спринты
+      href: manager/create-agile-sprint.md
+    - name: Эпики
+      href: manager/epic.md
+    - name: Командная оценка задач
+      href: manager/planning-poker.md
+    - name: Диаграмма сгорания задач
+      href: manager/burndown.md
+- name: Найти задачи
+  items:
+    - name: Обзор
+      href: user/filters.md
+    - name: Найти мои задачи
+      href: user/default-filters.md
+    - name: Найти задачи в очереди
+      href: manager/quick-filters.md
+    - name: Создать фильтр задач
+      href: user/create-filter.md
+    - name: Язык запросов
+      href: user/query-filter.md
+- name: Уведомления и подписки
+  items:
+    - name: Обзор
+      href: user/notifications.md
+    - name: Подписаться на уведомления
+      href: user/subscribe.md
+    - name: Получать отчет об изменениях
+      href: user/notification-digest.md
+    - name: Подписать пользователей на изменения очереди
+      href: manager/subscriptions.md
+    - name: Настроить содержимое уведомлений
+      href: user/notification-settings.md
+#    - name: Отправлять уведомления на почтовые ящики в вашем домене
+#      href: manager/mail-notifications.md
+    - name: Фильтрация входящей почты
+      when: audience == "internal"
+      href: user/email-filtering.md
+- name: Статистика и дашборды
+  items:
+    - name: Дашборды
+      items:
+        - name: Обзор
+          href: user/dashboard.md
+        - name: Как создать дашборд
+          href: user/create-dashboard.md
+        - name: Виджеты
+          href: user/widgets.md
+        - name: Как изменить дашборд
+          href: user/edit-dashboard.md
+        - name: Общий доступ к дашбордам
+          href: user/share-dashboard.md
+        - name: Как сделать дашборд начальной страницей
+          href: user/startpage-dashboard.md
+    - name: Статистика очереди
+      href: manager/statistics.md
+    - name: Диаграмма Гантта
+      href: manager/gantt.md
+- name: Автоматизация и шаблоны
+  items:
+    - name: Обзор
+      href: automation.md
+    - name: Триггеры
+      items:
+        - name: Обзор
+          href: user/trigger.md
+        - name: Создать триггер
+          href: user/create-trigger.md
+        - name: Задать условие срабатывания триггера
+          href: user/set-condition.md
+        - name: Настроить действие триггера
+          href: user/set-action.md
+        - name: Изменить и удалить триггер
+          href: user/manage-trigger.md
+        - name: Примеры
+          href: manager/trigger-examples.md
+    - name: Автодействия
+      items:
+        - name: Обзор
+          href: user/autoactions.md
+        - name: Автоматическое обновление задач
+          href: user/create-autoaction.md
+        - name: Создание задач по расписанию
+          href: user/ticket-schedule.md
+        - name: Изменить и удалить автодействие
+          href: user/manage-autoaction.md
+    - name: Макросы
+      href: manager/create-macroses.md
+    - name: Шаблоны
+      items:
+        - name: Обзор
+          href: user/ticket-template.md
+        - name: Создать шаблон
+          href: user/create-template.md
+        - name: Изменить шаблон
+          href: user/edit-template.md
+        - name: Удалить шаблон
+          href: user/delete-template.md
+        - name: Использовать общие шаблоны
+          href: user/share-template.md
+    - name: Использовать форму как шаблон для создания задач
+      href: manager/attach-form.md
+- name: Настроить SLA для задач
+  items:
+    - name: Обзор
+      href: sla-head.md
+    - name: Настроить правила
+      href: manager/sla.md
+    - name: Графики работы
+      href: manager/schedule.md
+- name: Интеграция с другими сервисами
+  items:
+    - name: Почта
+      when: audience == "internal"
+      href: manager/queue-mail.md
+    - name: Формы
+      href: manager/forms-integration.md
+    - name: Вики
+      href: user/wiki.md
+    - name: Мессенджеры
+      items:
+        - name: Обзор
+          href: messenger.md
+        - name: Slack
+          href: slack.md
+        - name: Telegram
+          href: telegram.md
+        - name: Яндекс.Мессенджер
+          when: audience == "internal"
+          href: yamessenger.md
+    - name: Сансара
+      when: audience == "internal"
+      href: user/otrs.md
+    - name: ОК
+      when: audience == "internal"
+      href: manager/ok.md
+    - name: Системы контроля версий
+      when: audience == "internal"
+      href: user/github.md
+    - name: Цели
+      when: audience == "internal"
+      href: manager/goals.md
+    - name: Кондуктор
+      when: audience == "internal"
+      href: user/conductor.md
+    - name: Лунапарк
+      when: audience == "internal"
+      href: user/lunapark.md
+    - name: Код-ревью
+      when: audience == "internal"
+      href: user/review.md
+- name: Инструменты разработчика
+  items:
+    - name: Плагин для  IDE
+      href: idea-plugin.md
+    - name: API Tracker
+      href: user/API.md
+    - name: Python клиент
+      href: user/python.md
+    - name: Подключить репозиторий
+      when: audience == "external"
+      href: manager/add-repository.md
+- name: Правила тарификации
+  when: audience == "external"
+  href: pricing.md
+#  items:
+#    - name: Оплата
+#      href: payment.md
+- name: Вопросы и ответы
+  href: faq.md
+- name: Служба поддержки
+  when: audience == "internal"
+  href: troubleshooting.md

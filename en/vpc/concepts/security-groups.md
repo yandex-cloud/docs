@@ -50,7 +50,7 @@ Security groups don't block sending traffic to the addresses of services require
 * The metadata server address: `169.254.169.254`.
 * The address of the [DNS server](network.md#subnet): The second-in-order internal IP address (usually `x.x.x.2`) in each subnet.
 
-To enable [health checks](../../load-balancer/concepts/health-check.md) for resources connected to a load balancer, allow traffic to be transferred between the `198.18.235.0/24` and `198.18.248.0/24` address ranges and target resources.
+To enable [health checks](../../network-load-balancer/concepts/health-check.md) for resources connected to a network load balancer, allow traffic to be transferred between the `198.18.235.0/24` and `198.18.248.0/24` address ranges and target resources.
 
 ## Default security group {#default-security-group}
 

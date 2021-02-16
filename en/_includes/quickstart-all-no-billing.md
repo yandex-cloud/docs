@@ -7,7 +7,7 @@
   - [Upload a Docker image to a registry in {{ container-registry-name }}](../container-registry/quickstart/index.md).
 - Configure networks:
   - [Create a cloud network in {{ vpc-name }}](../vpc/quickstart.md).
-  - [Configure a load balancer in {{ load-balancer-name }}](../load-balancer/quickstart.md).
+  - [Configure a load balancer in {{ network-load-balancer-name }}](../network-load-balancer/quickstart.md).
 - Manage access:
   - [Add users and assign roles in {{ iam-short-name }}](../iam/quickstart.md).
   - [Create a new folder in the cloud and grant access to it in {{ resmgr-name }}](../resource-manager/quickstart.md).

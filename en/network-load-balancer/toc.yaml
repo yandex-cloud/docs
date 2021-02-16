@@ -1,0 +1,73 @@
+title: Yandex Network Load Balancer
+href: index.yaml
+items:
+  - name: Getting started
+    href: quickstart.md
+  - name: Step-by-step instructions
+    items:
+      - name: All instructions
+        href: operations/index.md
+      - name: Network load balancers  
+        items:
+          - name: Create a network load balancer
+            href: operations/load-balancer-create.md
+          - name: Create an internal network load balancer
+            href: operations/internal-lb-create.md
+          - name: Start a load balancer
+            href: operations/load-balancer-start.md
+          - name: Stop a load balancer
+            href: operations/load-balancer-stop.md
+          - name: Delete a load balancer
+            href: operations/load-balancer-delete.md
+          - name: Check target health statuses
+            href: operations/check-resource-health.md
+          - name: Add a listener
+            href: operations/listener-add.md
+          - name: Delete a listener
+            href: operations/listener-remove.md
+      - name: Target groups
+        items:
+          - name: Create a target group
+            href: operations/target-group-create.md
+          - name: Attach a target group to a load balancer
+            href: operations/target-group-attach.md
+          - name: Detach a target group from a load balancer
+            href: operations/target-group-detach.md
+          - name: Delete a target group
+            href: operations/target-group-delete.md
+  - name: Concepts
+    items:
+      - name: Network load balancer
+        href: concepts/index.md
+      - name: Internal network load balancer
+        href: concepts/internal-load-balancer.md
+      - name: Listener
+        href: concepts/listener.md
+      - name: Targets and groups
+        href: concepts/target-resources.md
+      - name: Resource health checks
+        href: concepts/health-check.md
+      - name: Quotas and limits
+        href: concepts/limits.md
+  - name: Best practices for using the service
+    href: best-practices.md
+  - name: Access management
+    href: security/index.md
+  - name: Pricing policy
+    href: pricing.md
+  - name: API reference
+    items:
+      - name: Authentication in the API
+        href: api-ref/authentication.md
+      - name: gRPC
+        items: null
+        include:
+          repo: docs
+          path: en/_api-ref-grpc/load-balancer/api-ref/toc.yaml
+      - name: REST
+        items: null
+        include:
+          repo: docs
+          path: en/_api-ref/loadbalancer/toc.yaml
+  - name: Questions and answers
+    href: qa/index.md

@@ -32,7 +32,7 @@ name | **string**<br><p>Name of the target group. The name is unique within the 
 description | **string**<br><p>Description of the target group. 0-256 characters long.</p> 
 labels | **object**<br><p>Resource labels as `` key:value `` pairs. Мaximum of 64 per resource.</p> 
 regionId | **string**<br><p>ID of the region where the target group resides.</p> 
-targets[] | **object**<br><p>A Target resource. For more information, see <a href="/docs/load-balancer/target-resources">Target groups and resources</a>.</p> 
+targets[] | **object**<br><p>A Target resource. For more information, see <a href="/docs/network-load-balancer/target-resources">Target groups and resources</a>.</p> 
 targets[].<br>subnetId | **string**<br><p>ID of the subnet that targets are connected to. All targets in the target group must be connected to the same subnet within a single availability zone.</p> <p>The maximum string length in characters is 50.</p> 
 targets[].<br>address | **string**<br><p>IP address of the target.</p> 
 

@@ -10,7 +10,7 @@ info:
   x-y-docUri: api-ref
   x-y-baseUrl: https://load-balancer.api.cloud.yandex.net
 paths:
-  /load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}:
+  /network-load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}:
     get:
       tags:
         - NetworkLoadBalancer
@@ -18,7 +18,7 @@ paths:
       description: >-
         Чтобы получить список доступных ресурсов NetworkLoadBalancer,
         используйте запрос
-        [list](/docs/load-balancer/api-ref/NetworkLoadBalancer/list).
+        [list](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list).
       operationId: NetworkLoadBalancerGet
       parameters:
         - name: networkLoadBalancerId
@@ -27,7 +27,7 @@ paths:
             Идентификатор возвращаемого ресурса NetworkLoadBalancer. 
 
             Чтобы получить идентификатор балансировщика, используйте запрос
-            [list](/docs/load-balancer/api-ref/NetworkLoadBalancer/list).
+            [list](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list).
 
 
             Максимальная длина строки в символах — 50.
@@ -56,7 +56,7 @@ paths:
             Идентификатор удаляемого балансировщика. 
 
             Чтобы получить идентификатор балансировщика, используйте запрос
-            [list](/docs/load-balancer/api-ref/NetworkLoadBalancer/list).
+            [list](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list).
 
 
             Максимальная длина строки в символах — 50.
@@ -88,7 +88,7 @@ paths:
             Идентификатор обновляемого балансировщика. 
 
             Чтобы получить идентификатор балансировщика, используйте запрос
-            [list](/docs/load-balancer/api-ref/NetworkLoadBalancer/list).
+            [list](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list).
 
 
             Максимальная длина строки в символах — 50.
@@ -112,8 +112,8 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/UpdateNetworkLoadBalancerMetadata'
       x-y-operation-response: >-
-        [NetworkLoadBalancer](/docs/load-balancer/api-ref/NetworkLoadBalancer#representation)
-  /load-balancer/v1/networkLoadBalancers:
+        [NetworkLoadBalancer](/docs/network-load-balancer/api-ref/NetworkLoadBalancer#representation)
+  /network-load-balancer/v1/networkLoadBalancers:
     get:
       tags:
         - NetworkLoadBalancer
@@ -130,7 +130,7 @@ paths:
             Идентификатор каталога, которому принадлежит балансировщик.
 
             Чтобы получить идентификатор каталога, используйте запрос
-            [list](/docs/load-balancer/api-ref/NetworkLoadBalancer/list).
+            [list](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list).
 
 
             Максимальная длина строки в символах — 50.
@@ -142,11 +142,11 @@ paths:
             Максимальное количество результатов на странице ответа на
 
             запрос. Если количество результатов больше чем
-            [pageSize](/docs/load-balancer/api-ref/NetworkLoadBalancer/list#query_params),
+            [pageSize](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list#query_params),
             сервис
 
             вернет значение
-            [nextPageToken](/docs/load-balancer/api-ref/NetworkLoadBalancer/list#responses),
+            [nextPageToken](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list#responses),
             которое можно
 
             использовать для получения следующей страницы. 
@@ -162,11 +162,11 @@ paths:
           in: query
           description: >-
             Токен страницы. Установите значение
-            [pageToken](/docs/load-balancer/api-ref/NetworkLoadBalancer/list#query_params)
+            [pageToken](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list#query_params)
             равным значению
 
             поля
-            [nextPageToken](/docs/load-balancer/api-ref/NetworkLoadBalancer/list#responses)
+            [nextPageToken](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list#responses)
             прошлого запроса, чтобы
 
             получить следующую страницу результатов.
@@ -184,7 +184,7 @@ paths:
 
             1. Имя поля. В настоящее время фильтрация осуществляется только по
             полю
-            [NetworkLoadBalancer.name](/docs/load-balancer/api-ref/NetworkLoadBalancer#representation).
+            [NetworkLoadBalancer.name](/docs/network-load-balancer/api-ref/NetworkLoadBalancer#representation).
 
             2. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN`
             для списков значений.
@@ -228,8 +228,8 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/CreateNetworkLoadBalancerMetadata'
       x-y-operation-response: >-
-        [NetworkLoadBalancer](/docs/load-balancer/api-ref/NetworkLoadBalancer#representation)
-  /load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}:start:
+        [NetworkLoadBalancer](/docs/network-load-balancer/api-ref/NetworkLoadBalancer#representation)
+  /network-load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}:start:
     post:
       tags:
         - NetworkLoadBalancer
@@ -247,7 +247,7 @@ paths:
             Идентификатор балансировщика, который будет запущен. 
 
             Чтобы получить идентификатор балансировщика, используйте запрос
-            [list](/docs/load-balancer/api-ref/NetworkLoadBalancer/list).
+            [list](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list).
 
 
             Максимальная длина строки в символах — 50.
@@ -265,7 +265,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/StartNetworkLoadBalancerMetadata'
       x-y-operation-response: Empty
-  /load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}:stop:
+  /network-load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}:stop:
     post:
       tags:
         - NetworkLoadBalancer
@@ -284,7 +284,7 @@ paths:
             Идентификатор балансировщика, который будет остановлен. Чтобы
 
             получить идентификатор балансировщика, используйте запрос
-            [list](/docs/load-balancer/api-ref/NetworkLoadBalancer/list).
+            [list](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list).
 
 
             Максимальная длина строки в символах — 50.
@@ -302,7 +302,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/StopNetworkLoadBalancerMetadata'
       x-y-operation-response: Empty
-  /load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}:attachTargetGroup:
+  /network-load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}:attachTargetGroup:
     post:
       tags:
         - NetworkLoadBalancer
@@ -318,7 +318,7 @@ paths:
             группа. 
 
             Чтобы получить идентификатор балансировщика, используйте запрос
-            [list](/docs/load-balancer/api-ref/NetworkLoadBalancer/list).
+            [list](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list).
 
 
             Максимальная длина строки в символах — 50.
@@ -342,8 +342,8 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/AttachNetworkLoadBalancerTargetGroupMetadata'
       x-y-operation-response: >-
-        [NetworkLoadBalancer](/docs/load-balancer/api-ref/NetworkLoadBalancer#representation)
-  /load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}:detachTargetGroup:
+        [NetworkLoadBalancer](/docs/network-load-balancer/api-ref/NetworkLoadBalancer#representation)
+  /network-load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}:detachTargetGroup:
     post:
       tags:
         - NetworkLoadBalancer
@@ -359,7 +359,7 @@ paths:
             группа. 
 
             Чтобы получить идентификатор балансировщика, используйте запрос
-            [list](/docs/load-balancer/api-ref/NetworkLoadBalancer/list).
+            [list](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list).
 
 
             Максимальная длина строки в символах — 50.
@@ -383,8 +383,8 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/DetachNetworkLoadBalancerTargetGroupMetadata'
       x-y-operation-response: >-
-        [NetworkLoadBalancer](/docs/load-balancer/api-ref/NetworkLoadBalancer#representation)
-  /load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}:getTargetStates:
+        [NetworkLoadBalancer](/docs/network-load-balancer/api-ref/NetworkLoadBalancer#representation)
+  /network-load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}:getTargetStates:
     get:
       tags:
         - NetworkLoadBalancer
@@ -418,7 +418,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/GetTargetStatesResponse'
       x-y-navtitle: getTargetStates
-  /load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}:addListener:
+  /network-load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}:addListener:
     post:
       tags:
         - NetworkLoadBalancer
@@ -433,7 +433,7 @@ paths:
             Идентификатор балансировщика, к которому будет добавлен обработчик. 
 
             Чтобы получить идентификатор балансировщика, используйте запрос
-            [list](/docs/load-balancer/api-ref/NetworkLoadBalancer/list).
+            [list](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list).
 
 
             Максимальная длина строки в символах — 50.
@@ -457,8 +457,8 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/AddNetworkLoadBalancerListenerMetadata'
       x-y-operation-response: >-
-        [NetworkLoadBalancer](/docs/load-balancer/api-ref/NetworkLoadBalancer#representation)
-  /load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}:removeListener:
+        [NetworkLoadBalancer](/docs/network-load-balancer/api-ref/NetworkLoadBalancer#representation)
+  /network-load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}:removeListener:
     post:
       tags:
         - NetworkLoadBalancer
@@ -473,7 +473,7 @@ paths:
             Идентификатор балансировщика, у которого будет удален обработчик. 
 
             Чтобы получить идентификатор балансировщика, используйте запрос
-            [list](/docs/load-balancer/api-ref/NetworkLoadBalancer/list).
+            [list](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list).
 
 
             Максимальная длина строки в символах — 50.
@@ -497,8 +497,8 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/RemoveNetworkLoadBalancerListenerMetadata'
       x-y-operation-response: >-
-        [NetworkLoadBalancer](/docs/load-balancer/api-ref/NetworkLoadBalancer#representation)
-  /load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}/operations:
+        [NetworkLoadBalancer](/docs/network-load-balancer/api-ref/NetworkLoadBalancer#representation)
+  /network-load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}/operations:
     get:
       tags:
         - NetworkLoadBalancer
@@ -525,9 +525,9 @@ paths:
             Если количество результатов
 
             больше чем
-            [pageSize](/docs/load-balancer/api-ref/NetworkLoadBalancer/listOperations#query_params),
+            [pageSize](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/listOperations#query_params),
             сервис в ответе вернет значение
-            [nextPageToken](/docs/load-balancer/api-ref/NetworkLoadBalancer/listOperations#responses), 
+            [nextPageToken](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/listOperations#responses), 
 
             которое можно использовать для получения остальных результатов.
 
@@ -542,9 +542,9 @@ paths:
           in: query
           description: >-
             Токен страницы. Установите значение
-            [pageToken](/docs/load-balancer/api-ref/NetworkLoadBalancer/listOperations#query_params)
+            [pageToken](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/listOperations#query_params)
             равным значению поля
-            [nextPageToken](/docs/load-balancer/api-ref/NetworkLoadBalancer/listOperations#responses),
+            [nextPageToken](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/listOperations#responses),
 
             прошлого запроса, чтобы получить следующую страницу результатов.
 
@@ -560,7 +560,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListNetworkLoadBalancerOperationsResponse'
       x-y-navtitle: listOperations
-  /load-balancer/v1/targetGroups/{targetGroupId}:
+  /network-load-balancer/v1/targetGroups/{targetGroupId}:
     get:
       tags:
         - TargetGroup
@@ -575,7 +575,7 @@ paths:
             Идентификатор возвращаемого ресурса TargetGroup. 
 
             Чтобы узнать идентификатор целевой группы, используйте запрос
-            [list](/docs/load-balancer/api-ref/TargetGroup/list).
+            [list](/docs/network-load-balancer/api-ref/TargetGroup/list).
 
 
             Максимальная длина строки в символах — 50.
@@ -604,7 +604,7 @@ paths:
             Идентификатор удаляемой целевой группы. 
 
             Чтобы узнать идентификатор целевой группы, используйте запрос
-            [list](/docs/load-balancer/api-ref/TargetGroup/list).
+            [list](/docs/network-load-balancer/api-ref/TargetGroup/list).
 
 
             Максимальная длина строки в символах — 50.
@@ -636,7 +636,7 @@ paths:
             Идентификатор изменяемого ресурса TargetGroup. 
 
             Чтобы узнать идентификатор целевой группы, используйте запрос
-            [list](/docs/load-balancer/api-ref/TargetGroup/list).
+            [list](/docs/network-load-balancer/api-ref/TargetGroup/list).
 
 
             Максимальная длина строки в символах — 50.
@@ -659,8 +659,8 @@ paths:
       x-y-navtitle: update
       x-y-operation-metadata:
         $ref: '#/components/schemas/UpdateTargetGroupMetadata'
-      x-y-operation-response: '[TargetGroup](/docs/load-balancer/api-ref/TargetGroup#representation)'
-  /load-balancer/v1/targetGroups:
+      x-y-operation-response: '[TargetGroup](/docs/network-load-balancer/api-ref/TargetGroup#representation)'
+  /network-load-balancer/v1/targetGroups:
     get:
       tags:
         - TargetGroup
@@ -675,7 +675,7 @@ paths:
             Идентификатор каталога для вывода списка целевых групп. 
 
             Чтобы получить идентификатор каталога, используйте запрос
-            [list](/docs/load-balancer/api-ref/TargetGroup/list).
+            [list](/docs/network-load-balancer/api-ref/TargetGroup/list).
 
 
             Максимальная длина строки в символах — 50.
@@ -688,9 +688,9 @@ paths:
             Если количество результатов
 
             больше чем
-            [pageSize](/docs/load-balancer/api-ref/TargetGroup/list#query_params),
+            [pageSize](/docs/network-load-balancer/api-ref/TargetGroup/list#query_params),
             сервис вернет значение
-            [nextPageToken](/docs/load-balancer/api-ref/TargetGroup/list#responses), 
+            [nextPageToken](/docs/network-load-balancer/api-ref/TargetGroup/list#responses), 
 
             которое можно использовать для получения следующей страницы.
 
@@ -705,9 +705,9 @@ paths:
           in: query
           description: >-
             Токен страницы. Установите значение
-            [pageToken](/docs/load-balancer/api-ref/TargetGroup/list#query_params)
+            [pageToken](/docs/network-load-balancer/api-ref/TargetGroup/list#query_params)
             равным значению поля
-            [nextPageToken](/docs/load-balancer/api-ref/TargetGroup/list#responses),
+            [nextPageToken](/docs/network-load-balancer/api-ref/TargetGroup/list#responses),
 
             прошлого запроса, чтобы получить следующую страницу результатов.
 
@@ -724,7 +724,7 @@ paths:
 
             1. Имя поля. В настоящее время фильтрация осуществляется только по
             полю
-            [TargetGroup.name](/docs/load-balancer/api-ref/TargetGroup#representation).
+            [TargetGroup.name](/docs/network-load-balancer/api-ref/TargetGroup#representation).
 
             2. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN`
             для списков значений.
@@ -767,8 +767,8 @@ paths:
       x-y-navtitle: create
       x-y-operation-metadata:
         $ref: '#/components/schemas/CreateTargetGroupMetadata'
-      x-y-operation-response: '[TargetGroup](/docs/load-balancer/api-ref/TargetGroup#representation)'
-  /load-balancer/v1/targetGroups/{targetGroupId}:addTargets:
+      x-y-operation-response: '[TargetGroup](/docs/network-load-balancer/api-ref/TargetGroup#representation)'
+  /network-load-balancer/v1/targetGroups/{targetGroupId}:addTargets:
     post:
       tags:
         - TargetGroup
@@ -783,7 +783,7 @@ paths:
             Идентификатор ресурса TargetGroup для добавления целевого ресурса.
 
             Чтобы узнать идентификатор целевой группы, используйте запрос
-            [list](/docs/load-balancer/api-ref/TargetGroup/list).
+            [list](/docs/network-load-balancer/api-ref/TargetGroup/list).
 
 
             Максимальная длина строки в символах — 50.
@@ -806,8 +806,8 @@ paths:
       x-y-navtitle: addTargets
       x-y-operation-metadata:
         $ref: '#/components/schemas/AddTargetsMetadata'
-      x-y-operation-response: '[TargetGroup](/docs/load-balancer/api-ref/TargetGroup#representation)'
-  /load-balancer/v1/targetGroups/{targetGroupId}:removeTargets:
+      x-y-operation-response: '[TargetGroup](/docs/network-load-balancer/api-ref/TargetGroup#representation)'
+  /network-load-balancer/v1/targetGroups/{targetGroupId}:removeTargets:
     post:
       tags:
         - TargetGroup
@@ -823,7 +823,7 @@ paths:
             ресурсы. 
 
             Чтобы узнать идентификатор целевой группы, используйте запрос
-            [list](/docs/load-balancer/api-ref/TargetGroup/list).
+            [list](/docs/network-load-balancer/api-ref/TargetGroup/list).
 
 
             Максимальная длина строки в символах — 50.
@@ -846,8 +846,8 @@ paths:
       x-y-navtitle: removeTargets
       x-y-operation-metadata:
         $ref: '#/components/schemas/RemoveTargetsMetadata'
-      x-y-operation-response: '[TargetGroup](/docs/load-balancer/api-ref/TargetGroup#representation)'
-  /load-balancer/v1/targetGroups/{targetGroupId}/operations:
+      x-y-operation-response: '[TargetGroup](/docs/network-load-balancer/api-ref/TargetGroup#representation)'
+  /network-load-balancer/v1/targetGroups/{targetGroupId}/operations:
     get:
       tags:
         - TargetGroup
@@ -862,7 +862,7 @@ paths:
             Идентификатор изменяемого ресурса TargetGroup. 
 
             Чтобы узнать идентификатор целевой группы, используйте запрос
-            [list](/docs/load-balancer/api-ref/TargetGroup/list).
+            [list](/docs/network-load-balancer/api-ref/TargetGroup/list).
 
 
             Максимальная длина строки в символах — 50.
@@ -876,9 +876,9 @@ paths:
             Если количество результатов
 
             больше чем
-            [pageSize](/docs/load-balancer/api-ref/TargetGroup/listOperations#query_params),
+            [pageSize](/docs/network-load-balancer/api-ref/TargetGroup/listOperations#query_params),
             сервис вернет значение
-            [nextPageToken](/docs/load-balancer/api-ref/TargetGroup/listOperations#responses), 
+            [nextPageToken](/docs/network-load-balancer/api-ref/TargetGroup/listOperations#responses), 
 
             которое можно использовать для получения следующей страницы.
 
@@ -893,9 +893,9 @@ paths:
           in: query
           description: >-
             Токен страницы. Установите значение
-            [pageToken](/docs/load-balancer/api-ref/TargetGroup/listOperations#query_params)
+            [pageToken](/docs/network-load-balancer/api-ref/TargetGroup/listOperations#query_params)
             равным значению поля
-            [nextPageToken](/docs/load-balancer/api-ref/TargetGroup/listOperations#responses),
+            [nextPageToken](/docs/network-load-balancer/api-ref/TargetGroup/listOperations#responses),
 
             прошлого запроса, чтобы получить следующую страницу результатов.
 
@@ -964,7 +964,7 @@ components:
       description: >-
         Ресурс AttachedTargetGroup. Дополнительные сведения см. в разделе
         [Целевые группы и
-        ресурсы](/docs/load-balancer/concepts/target-resources)
+        ресурсы](/docs/network-load-balancer/concepts/target-resources)
       type: object
       properties:
         targetGroupId:
@@ -1000,7 +1000,7 @@ components:
             Идентификатор каталога, в котором создается балансировщик.
 
             Чтобы получить идентификатор каталога, используйте запрос
-            [list](/docs/load-balancer/api-ref/NetworkLoadBalancer/list).
+            [list](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list).
 
 
             Максимальная длина строки в символах — 50.
@@ -1083,7 +1083,7 @@ components:
             Идентификатор каталога для вывода списка целевых групп. 
 
             Чтобы получить идентификатор каталога, используйте запрос
-            [list](/docs/load-balancer/api-ref/TargetGroup/list).
+            [list](/docs/network-load-balancer/api-ref/TargetGroup/list).
 
 
             Максимальная длина строки в символах — 50.
@@ -1181,7 +1181,7 @@ components:
             Публичный IP-адрес для обработчика. 
 
             Если адрес передается в методе
-            [update](/docs/load-balancer/api-ref/NetworkLoadBalancer/update),
+            [update](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/update),
 
             он заменит существующий адрес обработчика.
           type: string
@@ -1221,7 +1221,7 @@ components:
     HealthCheck:
       description: >-
         Ресурс HealthCheck. Подробнее см. в разделе [Проверка
-        состояния](/docs/load-balancer/concepts/health-check).
+        состояния](/docs/network-load-balancer/concepts/health-check).
       type: object
       allOf:
         - type: object
@@ -1332,17 +1332,17 @@ components:
             количество результатов
 
             больше чем
-            [pageSize](/docs/load-balancer/api-ref/NetworkLoadBalancer/listOperations#query_params),
+            [pageSize](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/listOperations#query_params),
             используйте
-            [nextPageToken](/docs/load-balancer/api-ref/NetworkLoadBalancer/listOperations#responses)
+            [nextPageToken](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/listOperations#responses)
             в качестве значения
 
             параметра
-            [pageToken](/docs/load-balancer/api-ref/NetworkLoadBalancer/listOperations#query_params)
+            [pageToken](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/listOperations#query_params)
             в следующем запросе списка ресурсов. Все последующие 
 
             запросы будут получать свои значения
-            [nextPageToken](/docs/load-balancer/api-ref/NetworkLoadBalancer/listOperations#responses),
+            [nextPageToken](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/listOperations#responses),
             для перебора страниц результатов.
           type: string
     ListNetworkLoadBalancersResponse:
@@ -1359,17 +1359,17 @@ components:
             количество результатов
 
             больше чем
-            [pageSize](/docs/load-balancer/api-ref/NetworkLoadBalancer/list#query_params),
+            [pageSize](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list#query_params),
             используйте
-            [nextPageToken](/docs/load-balancer/api-ref/NetworkLoadBalancer/list#responses)
+            [nextPageToken](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list#responses)
             в качестве значения
 
             параметра
-            [pageToken](/docs/load-balancer/api-ref/NetworkLoadBalancer/list#query_params)
+            [pageToken](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list#query_params)
             в следующем запросе списка ресурсов. Все последующие 
 
             запросы будут получать свои значения
-            [nextPageToken](/docs/load-balancer/api-ref/NetworkLoadBalancer/list#responses),
+            [nextPageToken](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list#responses),
             для перебора страниц результатов.
           type: string
     ListTargetGroupOperationsResponse:
@@ -1386,17 +1386,17 @@ components:
             количество результатов
 
             больше чем
-            [pageSize](/docs/load-balancer/api-ref/TargetGroup/listOperations#query_params),
+            [pageSize](/docs/network-load-balancer/api-ref/TargetGroup/listOperations#query_params),
             используйте
-            [nextPageToken](/docs/load-balancer/api-ref/TargetGroup/listOperations#responses)
+            [nextPageToken](/docs/network-load-balancer/api-ref/TargetGroup/listOperations#responses)
             в качестве значения
 
             параметра
-            [pageToken](/docs/load-balancer/api-ref/TargetGroup/listOperations#query_params)
+            [pageToken](/docs/network-load-balancer/api-ref/TargetGroup/listOperations#query_params)
             в следующем запросе списка ресурсов. Все последующие 
 
             запросы будут получать свои значения
-            [nextPageToken](/docs/load-balancer/api-ref/TargetGroup/listOperations#responses),
+            [nextPageToken](/docs/network-load-balancer/api-ref/TargetGroup/listOperations#responses),
             для перебора страниц результатов.
           type: string
     ListTargetGroupsResponse:
@@ -1413,23 +1413,23 @@ components:
             количество результатов
 
             больше чем
-            [pageSize](/docs/load-balancer/api-ref/TargetGroup/list#query_params),
+            [pageSize](/docs/network-load-balancer/api-ref/TargetGroup/list#query_params),
             используйте
-            [nextPageToken](/docs/load-balancer/api-ref/TargetGroup/list#responses)
+            [nextPageToken](/docs/network-load-balancer/api-ref/TargetGroup/list#responses)
             в качестве значения
 
             параметра
-            [pageToken](/docs/load-balancer/api-ref/TargetGroup/list#query_params)
+            [pageToken](/docs/network-load-balancer/api-ref/TargetGroup/list#query_params)
             в следующем запросе списка ресурсов. Все последующие 
 
             запросы будут получать свои значения
-            [nextPageToken](/docs/load-balancer/api-ref/TargetGroup/list#responses),
+            [nextPageToken](/docs/network-load-balancer/api-ref/TargetGroup/list#responses),
             для перебора страниц результатов.
           type: string
     Listener:
       description: >-
         Ресурс Listener. Дополнительные сведения см. в разделе
-        [Обработчик](/docs/load-balancer/concepts/listener)
+        [Обработчик](/docs/network-load-balancer/concepts/listener)
       type: object
       properties:
         name:
@@ -1499,7 +1499,7 @@ components:
     NetworkLoadBalancer:
       description: >-
         Ресурс NetworkLoadBalancer. Подробнее см. в разделе [Сетевой
-        балансировщик нагрузки](/docs/load-balancer/concepts).
+        балансировщик нагрузки](/docs/network-load-balancer/concepts).
       type: object
       properties:
         id:
@@ -1559,7 +1559,7 @@ components:
         Тип адресации. В настоящее время доступна только адресация по
 
         принципу 5-tuple. Подробнее см. в разделе [Основные
-        понятия](/docs/load-balancer/concepts/).
+        понятия](/docs/network-load-balancer/concepts/).
 
          - CLIENT_IP_PORT_PROTO: Адресация 5-tuple.
       type: string
@@ -1729,7 +1729,7 @@ components:
     Target:
       description: >-
         Ресурс Target. Подробнее см. в разделе [Целевые группы и
-        ресурсы](/docs/load-balancer/target-resources).
+        ресурсы](/docs/network-load-balancer/target-resources).
       type: object
       properties:
         subnetId:
@@ -1746,7 +1746,7 @@ components:
     TargetGroup:
       description: >-
         Ресурс TargetGroup. Подробнее см. в разделе [Целевые группы и
-        ресурсы](/docs/load-balancer/concepts/target-resources).
+        ресурсы](/docs/network-load-balancer/concepts/target-resources).
       type: object
       properties:
         id:
@@ -2008,12 +2008,12 @@ components:
         Идентификатор целевой группы для подключения к балансировщику. 
 
         Чтобы получить идентификатор балансировщика, используйте запрос
-        [list](/docs/load-balancer/api-ref/NetworkLoadBalancer/list).
+        [list](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list).
 
 
         Ресурс AttachedTargetGroup. Дополнительные сведения см. в разделе
         [Целевые группы и
-        ресурсы](/docs/load-balancer/concepts/target-resources)
+        ресурсы](/docs/network-load-balancer/concepts/target-resources)
       type: object
       properties:
         targetGroupId:
@@ -2119,7 +2119,7 @@ components:
         Тип адресации. В настоящее время доступна только адресация по
 
         принципу 5-tuple. Подробнее см. в разделе [Основные
-        понятия](/docs/load-balancer/concepts/).
+        понятия](/docs/network-load-balancer/concepts/).
 
          - CLIENT_IP_PORT_PROTO: Адресация 5-tuple.
       type: string

@@ -1,6 +1,6 @@
-# Отказоустойчивый сайт с балансировкой нагрузки с помощью Yandex Load Balancer
+# Отказоустойчивый сайт с балансировкой нагрузки с помощью {{ network-load-balancer-full-name }}
 
-В этом сценарии описано, как настроить веб-сайт на стеке LAMP (Linux, Apache, MySQL, PHP) или LEMP (Linux, nginx, MySQL, PHP) с балансировкой нагрузки через [{{ load-balancer-full-name }}](../../load-balancer/concepts/index.md) между двумя зонами доступности, защищенный от сбоев в одной зоне.
+В этом сценарии описано, как настроить веб-сайт на стеке LAMP (Linux, Apache, MySQL, PHP) или LEMP (Linux, nginx, MySQL, PHP) с балансировкой нагрузки через [{{ network-load-balancer-full-name }}](../../network-load-balancer/concepts/index.md) между двумя зонами доступности, защищенный от сбоев в одной зоне.
 
 Чтобы настроить отказоустойчивый веб-сайт с балансировкой нагрузки:
 
@@ -31,7 +31,7 @@
 
 * плата за диски и постоянно запущенные виртуальные машины (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
 * плата за использование динамических внешних IP-адресов (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md));
-* плата за сетевые балансировщики и балансировку трафика (см. [тарифы {{ load-balancer-full-name}}](../../load-balancer/pricing.md)).
+* плата за сетевые балансировщики и балансировку трафика (см. [тарифы {{ network-load-balancer-full-name}}](../../network-load-balancer/pricing.md)).
 
 ## Создайте виртуальные машины {#create-vm}
 
@@ -181,7 +181,7 @@
      ```
    {% endlist %}
 
-1. В консоли управления перейдите в раздел **{{ load-balancer-name }}** и выберите созданный ранее балансировщик.
+1. В консоли управления перейдите в раздел **{{ network-load-balancer-name }}** и выберите созданный ранее балансировщик.
 1. В блоке **Обработчики** найдите IP-адрес обработчика. Откройте сайт в браузере, используя адрес обработчика. Несмотря на сбой в работе одного из веб-серверов, подключение должно пройти успешно.
 1. После завершения проверки снова запустите веб-сервис:
 
@@ -202,4 +202,4 @@
 
 ## Как удалить созданные ресурсы {#clear-out}
 
-Чтобы перестать платить за развернутые серверы, достаточно [удалить](../../compute/operations/vm-control/vm-delete.md) созданные виртуальные машины `dns-lb-tutorial-web-ru-central1-a` и `dns-lb-tutorial-web-ru-central1-b` и [балансировщик](../../load-balancer/operations/load-balancer-delete) `lb-tutorial-web`. 
+Чтобы перестать платить за развернутые серверы, достаточно [удалить](../../compute/operations/vm-control/vm-delete.md) созданные виртуальные машины `dns-lb-tutorial-web-ru-central1-a` и `dns-lb-tutorial-web-ru-central1-b` и [балансировщик](../../network-load-balancer/operations/load-balancer-delete) `lb-tutorial-web`. 

@@ -61,7 +61,7 @@ The table contains the following columns:
    * {{ objstorage-name }} : Bucket name.
    * {{ vpc-name }} : ID of the resource that works with incoming or outgoing traffic.
    * {{ kms-short-name }} : ID of the key.
-   * {{ load-balancer-name }} : ID of the network load balancer.
+   * {{ network-load-balancer-name }} : ID of the network load balancer.
    * {{ container-registry-short-name }} : ID of the container.
    * {{ k8s }} and {{ dataproc-name }}: ID of the cluster.
    * {{ mpg-short-name }}, {{ mch-short-name }}, {{ mmg-short-name }}, {{ mmy-short-name }}, {{ mrd-short-name }}, and {{ mkf-name }}: ID of the cluster host.

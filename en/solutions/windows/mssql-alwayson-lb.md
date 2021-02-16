@@ -42,7 +42,7 @@ If you have an active billing account, you can create or select a folder to run 
 The cost of supporting the availability group includes:
 
 * A fee for continuously running VMs (see [pricing {{ compute-full-name }}](../../compute/pricing.md)).
-* A fee for using a network load balancer (see [pricing {{ load-balancer-full-name }}](../../load-balancer/pricing.md)).
+* A fee for using a network load balancer (see [pricing {{ network-load-balancer-full-name }}](../../network-load-balancer/pricing.md)).
 * A fee for using dynamic or static public IP addresses (see [pricing {{ vpc-full-name }}](../../vpc/pricing.md)).
 
 You can use [license mobility](../../compute/qa/licensing) and use your own MSSQL Server license in {{ yandex-cloud }}.
