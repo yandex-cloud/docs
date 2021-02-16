@@ -51,6 +51,8 @@ items:
         href: concepts/data-proc.md
       - name: Фоновые операции
         href: concepts/async.md
+      - name: Использование TensorBoard в DataSphere
+        href: concepts/tensorboard.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Сценарии использования
