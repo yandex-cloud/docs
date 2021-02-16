@@ -62,13 +62,13 @@
   Чтобы скачать deb-пакет при помощи утилиты `wget`, выполните команду:
 
   ```bash
-  wget --quiet https://storage.yandexcloud.net/yc-unified-agent/builds/binary/21.2.1/deb/ubuntu-20.04-focal/yandex-unified-agent.20.11.4/yandex-unified-agent_21.2.1_amd64.deb
+  wget --quiet https://storage.yandexcloud.net/yc-unified-agent/builds/binary/21.2.2/deb/ubuntu-20.04-focal/yandex-unified-agent.21.2.2/yandex-unified-agent_21.2.2_amd64.deb
   ```
 
   Чтобы установить deb-пакет, выполните команду:
 
   ```bash
-  sudo dpkg -i ./yandex-unified-agent_20.11.4_amd64.deb
+  sudo dpkg -i ./yandex-unified-agent_21.2.2_amd64.deb
   ```
 
   Чтобы убедиться, что {{unified-agent-short-name}} успешно установлен и запущен выполните команду `service unified-agent status`. Пример работы команды:
@@ -94,7 +94,7 @@
   Чтобы скачать бинарный файл при помощи утилиты `wget`, выполните команду:
 
   ```bash
-  wget --quiet https://storage.yandexcloud.net/yc-unified-agent/builds/binary/21.2.1/unified_agent
+  wget --quiet https://storage.yandexcloud.net/yc-unified-agent/builds/binary/21.2.2/unified_agent
   ```
 
   После скачивания файла с агентом создайте конфигурационный файл, например, с настройками для [поставки системных метрик Linux](../../../operations/unified-agent/linux_metrics.md). Подробнее про конфигурацию агента читайте в разделе [{#T}](./configuration.md).
@@ -122,6 +122,6 @@
 
 ## Что дальше {#next-steps}
 
-- [Изучите концепции Unified Agent](index.md)
-- [Узнайте подробнее о конфигурировании Unified Agent](configuration.md)
-- [Ознакомьтесь с рекомендациями по эксплуатации Unified Agent](best-practices.md)
+- [Изучите концепции Unified Agent](./index.md)
+- [Узнайте подробнее о конфигурировании Unified Agent](./configuration.md)
+- [Ознакомьтесь с рекомендациями по эксплуатации Unified Agent](./best-practices.md)
