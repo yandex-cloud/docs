@@ -30,7 +30,7 @@ routes:
             cloud_meta: {}
 ```
 
-См. также: Конфигурирование входа [{#T}](configuration.md#agent_metrics_input).
+См. также: [{#T}](configuration.md#agent_metrics_input).
 
 ## Использование хранилища { #storage }
 
@@ -76,4 +76,4 @@ routes:
         name: cloud_monitoring
 ```
 
-См. также: Подробнее конфигурирование хранилища описано в разделе [{#T}](configuration.md#storages).
+См. также: [{#T}](configuration.md#storages).
