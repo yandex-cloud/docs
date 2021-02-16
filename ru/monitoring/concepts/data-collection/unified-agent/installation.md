@@ -5,6 +5,7 @@
 Перед установкой {{unified-agent-full-name}} выполните следующие шаги:
 
 1. Создайте виртуальную машину в {{ yandex-cloud }} или хост вне {{ yandex-cloud }} на операционной системе Ubuntu 14.04 или страше;
+  - Полный список поддерживаемых операционных систем приведен в разделе [ниже](#supported-os);
 
 1. Для варианта запуска {{unified-agent-short-name}} через Docker:
   - [установите Docker](https://docs.docker.com/install/);
@@ -95,6 +96,14 @@
   ```
 
 {% endlist %}
+
+## Список поддерживаемых операционных систем { #supported-os }
+
+Работа {{unified-agent-short-name}} поддерживатеся на следующих операционных системах:
+- Ubuntu 14.04 или старше;
+- Debian 9 или старше;
+- Fedora 32 или старше;
+- Fedora CoreOS.
 
 ## Параметры запуска Docker-контейнера с Unified Agent { #configure-docker }
 

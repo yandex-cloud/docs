@@ -90,8 +90,9 @@
           - input:
             plugin: metrics_pull
             config:
-              format: prometheus
               url: http://localhost:9101/metrics
+              format:
+                prometheus: {}
               namespace: haproxy
             channel:
               channel_ref:
