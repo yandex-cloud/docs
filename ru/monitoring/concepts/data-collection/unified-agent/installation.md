@@ -1,20 +1,30 @@
 # Установка и запуск Yandex Unified Agent
 
+## Список поддерживаемых операционных систем { #supported-os }
+
+Работа {{unified-agent-short-name}} поддерживатеся на следующих операционных системах:
+
+- Ubuntu 14.04 или старше;
+- Debian 9 или старше;
+- Fedora 32 или старше;
+- Fedora CoreOS.
+
 ## Подготовка к установке { #before-you-begin }
 
 Перед установкой {{unified-agent-full-name}} выполните следующие шаги:
 
-1. Создайте виртуальную машину в {{ yandex-cloud }} или хост вне {{ yandex-cloud }} на операционной системе Ubuntu 14.04 или страше;
-  - Полный список поддерживаемых операционных систем приведен в разделе [ниже](#supported-os);
+1. Создайте виртуальную машину в {{ yandex-cloud }} или хост вне {{ yandex-cloud }} на одной из [поддерживаемых операционных систем](#supported-os), например, Ubuntu 14.04 или страше;
 
 1. Для варианта запуска {{unified-agent-short-name}} через Docker:
-  - [установите Docker](https://docs.docker.com/install/);
-  - настройте публичный IPv4-адрес (рекомендуется);
-  - при невозможности использовать публичный IPv4-адрес, [настройте Docker для работы с IPv6](https://docs.docker.com/config/daemon/ipv6) и [включите сетевую трансляцию адресов](https://medium.com/@skleeschulte/how-to-enable-ipv6-for-docker-containers-on-ubuntu-18-04-c68394a219a2).
+   - [установите Docker](https://docs.docker.com/install/);
+   - настройте публичный IPv4-адрес (рекомендуется);
+   - при невозможности использовать публичный IPv4-адрес, [настройте Docker для работы с IPv6](https://docs.docker.com/config/daemon/ipv6) и [включите сетевую трансляцию адресов](https://medium.com/@skleeschulte/how-to-enable-ipv6-for-docker-containers-on-ubuntu-18-04-c68394a219a2).
 
 1. [Создайте сервисный аккаунт](../../../../iam/operations/sa/create.md) в каталоге, куда будут записываться метрики, и [назначьте ему роль](../../../../iam/operations/sa/assign-role-for-sa.md) `editor`.
 
-1. [Привяжите сервисный аккаунт](../../../../compute/operations/vm-connect/auth-inside-vm.md#link-sa-with-instance) к виртуальной машине, на которую установлен агент.
+1. Настройте авторизацию агента в {{monitoring-full-name}} API:
+   - Если агент устанвлен на виртуальную машину в {{ yandex-cloud }}, [привяжите созданный сервисный аккаунт](../../../../compute/operations/vm-connect/auth-inside-vm.md#link-sa-with-instance) к виртуальной машине. В этом случае агент будет автоматически получать IAM-токен сервисного аккаунта из сервиса-метаданных.
+   - Если агент установлен на хосте вне {{ yandex-cloud }}, [создайте авторизованный ключ](../../../iam/operations/authorized-key/create.md) для созданного сервисного аккаунта. Подробнее про поставку метрик с хостов вне {{ yandex-cloud }} читайте в разделе [{#T}](../../../operations/unified-agent/non-yc.md).
 
 ## Установка { #setup }
 
@@ -24,7 +34,7 @@
 
 - Docker-образ
 
-  {{unified-agent-short-name}} распространяется в виде Docker-образа. Образ опубликован в репозитории `cr.yandex` с названием `unified_agent` и тегом `latest`. Образ содержит бинарный файл с агентом и конфигурационный файл, настраивающий агент для [поставки системных метрик Linux](../../../operations/unified-agent/linux_metrics.md).
+  {{unified-agent-short-name}} распространяется в виде Docker-образа. Образ опубликован в репозитории `cr.yandex` с названием `unified_agent` и тегом `latest`. Образ содержит бинарный файл с агентом и конфигурационный файл, настраивающий агент для [поставки системных метрик Linux](../../../operations/unified-agent/linux_metrics.md) в {{monitoring-full-name}}. Для авторизации используется
 
   Конфигурационный файл расположен в `/etc/yandex/unified_agent/config.yml` и параметризован переменными окружения. Подробнее параметры запуска Docker-контейнера описаны в разделе [ниже](#configure-docker).
 
@@ -96,14 +106,6 @@
   ```
 
 {% endlist %}
-
-## Список поддерживаемых операционных систем { #supported-os }
-
-Работа {{unified-agent-short-name}} поддерживатеся на следующих операционных системах:
-- Ubuntu 14.04 или старше;
-- Debian 9 или старше;
-- Fedora 32 или старше;
-- Fedora CoreOS.
 
 ## Параметры запуска Docker-контейнера с Unified Agent { #configure-docker }
 
