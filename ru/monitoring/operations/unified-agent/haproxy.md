@@ -2,7 +2,7 @@
 
 {{unified-agent-full-name}} поддерживает сбор метрик в формате Prometheus и конвертацию метрик в формат {{ monitoring-full-name }}. Таким образом, при помощи {{unified-agent-short-name}} можно собирать метрики любых приложений, предоставляющих метрики в формате Prometheus.
 
-Для поставки в {{ monitoring-full-name }} метрик сторонних приложений используется вход `prometheus_pull`, который периодически опрашивает напрямую стороннее приложение (если оно поддерживает метрики в формате Prometheus) или специальное приложение-экспортер, реализующее интеграцию с Prometheus. Подробнее работа этого входа описана в разделе [{#T}](../../concepts/data-collection/unified-agent/configuration.md#prometheus_pull_input).
+Для поставки в {{ monitoring-full-name }} метрик сторонних приложений используется вход `metrics_pull`, который периодически опрашивает напрямую стороннее приложение (если оно поддерживает метрики в формате Prometheus) или специальное приложение-экспортер, реализующее интеграцию с Prometheus. Подробнее работа этого входа описана в разделе [{#T}](../../concepts/data-collection/unified-agent/configuration.md#metrics_pull_input).
 
 Для примера рассмотрим поставку в {{ monitoring-full-name }} метрик [HAProxy](https://www.haproxy.org). Описанная методика может также применяться для отправки метрик любых сторонних приложений, для которых существует [интеграция с Prometheus](https://prometheus.io/docs/instrumenting/exporters/).
 
@@ -45,29 +45,73 @@
 
    1. Установите {{unified-agent-short-name}} в свою виртуальную машину, выполнив в домашнем каталоге следующую команду:
 
-       {% include [ua-docker-install](../../../_includes/monitoring/ua-docker-install.md) %}
+      ```bash
+      docker run \
+      -p 16241:16241 -it --detach --uts=host \
+      --name=ua \
+      -v \/proc:/ua_proc \
+      -v config.yml:/etc/yandex/unified_agent/conf.d/config.yml
+      -e PROC_DIRECTORY=/ua_proc \
+      -e FOLDER_ID=a1bs... \
+      cr.yandex/yc/unified-agent
+      ```
 
        Другие способы установки агента описаны в разделе [{#T}](../../concepts/data-collection/unified-agent/installation.md).
 
-   1. Создайте в домашнем каталоге файл **config.yml** со следующим содержимым, заменив строку `<FOLDER_ID>` на идентификатор каталога, куда будут записываться метрики:
+   1. Создайте в домашнем каталоге файл **config.yml** со следующим содержимым, заменив строку `$FOLDER_ID` на идентификатор каталога, куда будут записываться метрики:
 
        **config.yml:**
        ```yaml
-       status:
-         port: 16241
-       routes:
-         - input:
-             plugin: prometheus_pull
-             config:
-               url: http://localhost:9101/metrics
-               namespace: haproxy
-           channel:
-             output:
-               plugin: yc_metrics
-               config:
-                 folder_id: <FOLDER_ID>
-                 iam:
-                   cloud_meta: {}
+        status:
+          port: "16241"
+
+        storages:
+          - name: main
+            plugin: fs
+            config:
+              directory: /var/lib/yandex/unified_agent/main
+              max_partition_size: 100mb
+              max_segment_size: 10mb
+
+        channels:
+          - name: cloud_monitoring
+            channel:
+              pipe:
+                - storage_ref:
+                    name: main
+              output:
+                plugin: yc_metrics
+                config:
+                  folder_id: "$FOLDER_ID"
+                  iam:
+                    cloud_meta: {}
+
+        routes:
+          - input:
+            plugin: metrics_pull
+            config:
+              format: prometheus
+              url: http://localhost:9101/metrics
+              namespace: haproxy
+            channel:
+              channel_ref:
+                name: cloud_monitoring
+
+          - input:
+              plugin: agent_metrics
+              config:
+                namespace: ua
+            channel:
+              pipe:
+                - filter:
+                    plugin: filter_metrics
+                    config:
+                      match: "{scope=health}"
+              channel_ref:
+                name: cloud_monitoring
+
+        import:
+          - /etc/yandex/unified_agent/conf.d/*.yml
        ```
 
  1. Убедитесь, что метрики поступают в {{ monitoring-full-name }}.
