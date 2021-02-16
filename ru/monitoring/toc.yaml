@@ -9,14 +9,22 @@ items:
         href: operations/index.md
       - name: Работа с метриками
         items:
+          - name: Поставка системных метрик Linux
+            href: operations/unified-agent/linux_metrics.md
+          - name: Поставка метрик пользовательских приложений
+            href: operations/unified-agent/pull_prometheus.md
+          - name: Поставка метрик HAProxy и других сторонних приложений
+            href: operations/unified-agent/haproxy.md
+          - name: Поставка метрик с хостов вне Яндекс.Облака
+            href: operations/unified-agent/non-yc.md
+          - name: Запись пользовательских метрик через API
+            href: operations/metric/add.md
           - name: Получение списка метрик
             href: operations/metric/list.md
           - name: Выгрузка метрик
             href: operations/metric/get.md
           - name: Экспорт метрик в формате Prometheus
             href: operations/metric/prometheusExport.md
-          - name: Запись пользовательских метрик
-            href: operations/metric/add.md
       - name: Работа с дашбордами
         items:
           - name: Создание дашборда
@@ -37,16 +45,6 @@ items:
             href: operations/alert/create-channel.md
           - name: Удаление алерта
             href: operations/alert/delete-alert.md
-      - name: Работа с агентом для поставки метрик
-        items:
-          - name: Поставка системных метрик Linux
-            href: operations/unified-agent/linux_metrics.md
-          - name: Поставка метрик пользовательских приложений
-            href: operations/unified-agent/pull_prometheus.md
-          - name: Поставка метрик HAProxy и других сторонних приложений
-            href: operations/unified-agent/haproxy.md
-          - name: Поставка метрик с хостов вне Яндекс.Облака
-            href: operations/unified-agent/non-yc.md
   - name: Концепции
     items:
       - name: Обзор сервиса
