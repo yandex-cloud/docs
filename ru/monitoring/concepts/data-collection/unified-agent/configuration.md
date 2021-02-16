@@ -1001,4 +1001,4 @@ output:
 
 ## Примеры { #examples }
 
-Примеры конфигураций. Больше инструкций приведено в разделе [{#T}](../../../operations/index.md#working-with-metrics).
+Примеры конфигураций приведены в разделе [{#T}](../../../operations/index.md#working-with-metrics).
