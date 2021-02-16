@@ -53,6 +53,10 @@ items:
         href: concepts/async.md
       - name: Квоты и лимиты
         href: concepts/limits.md
+  - name: Сценарии использования
+    items:
+      - name: Распознавание голоса
+        href: tutorials/speech-recognition.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
