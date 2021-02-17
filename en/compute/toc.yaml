@@ -23,7 +23,7 @@ items:
             href: operations/vm-create/create-windows-vm.md
           - name: Creating a VM from a set of disks
             href: operations/vm-create/create-from-disks.md
-          - name: Create a VM with disks restored from snapshots
+          - name: Creating a VM with disks restored from snapshots
             href: operations/vm-create/create-from-snapshots.md
           - name: Creating a VM from a custom image
             href: operations/vm-create/create-from-user-image.md
@@ -43,7 +43,7 @@ items:
             href: operations/placement-groups/create.md
           - name: Deleting a placement group
             href: operations/placement-groups/delete.md
-          - name: Creating a VM instance in a placement group
+          - name: Creating a VM in a placement group
             href: operations/placement-groups/create-vm-in-pg.md
           - name: Adding a VM to a placement group
             href: operations/placement-groups/add-vm.md
@@ -97,6 +97,8 @@ items:
         items:
           - name: Creating an empty disk
             href: operations/disk-create/empty.md
+          - name: Create an empty disk with a large block
+            href: operations/disk-create/empty-disk-blocksize.md
       - name: Disk management
         items:
           - name: Creating a disk snapshot
@@ -139,29 +141,29 @@ items:
             href: operations/instance-groups/create-with-coi
       - name: Getting information about instance groups
         items:
-          - name: Getting a list of groups
+          - name: Getting a list of instance groups
             href: operations/instance-groups/get-list.md
-          - name: Getting information about a group
+          - name: Getting information about an instance group
             href: operations/instance-groups/get-info.md
           - name: Getting a list of instances in a group
             href: operations/instance-groups/get-list-instances.md
       - name: Managing instance groups
         items:
-          - name: Update a group
+          - name: Editing an instance group
             href: operations/instance-groups/update.md
-          - name: Configure application health check on the VM
+          - name: Configuring application health check on the VM
             href: operations/instance-groups/enable-autohealing.md
-          - name: Update a group
+          - name: Updating a instance group
             items:
-              - name: Incremental update
+              - name: Incremental updates
                 href: operations/instance-groups/deploy/rolling-update.md
-              - name: Updating without downtime
+              - name: Uninterrupted updates
                 href: operations/instance-groups/deploy/zero-downtime.md
-          - name: Stop a group
+          - name: Stopping an instance group
             href: operations/instance-groups/stop.md
-          - name: Start a group
+          - name: Starting an instance group
             href: operations/instance-groups/start.md
-          - name: Delete a group
+          - name: Deleting an instance group
             href: operations/instance-groups/delete.md
       - name: Dedicated hosts
         items:
@@ -235,7 +237,7 @@ items:
             href: concepts/instance-groups/scale.md
           - name: Auto-healing
             href: concepts/instance-groups/autohealing.md
-          - name: Update
+          - name: Updating
             items:
               - name: Overview
                 href: concepts/instance-groups/deploy/index.md
